@@ -1,0 +1,15 @@
+{
+  "argv": [
+    "patch",
+    "-d",
+    "/workspace/tmp/m6-t43/G084-015-candidate-g2m51ny0",
+    "-p1"
+  ],
+  "start": "2026-11-02T21:56:26.112576+00:00",
+  "end": "2026-11-02T21:56:26.114869+00:00",
+  "exit": 0,
+  "stdout_sha256": "5093f34c1bba247a875036f6f5c4a457bcdf4c34e27c0d38e041a00c6023b1f5",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "output": "patching file drivers/leds/Kconfig\npatching file drivers/leds/Makefile\npatching file drivers/leds/leds-htr3212.c\n",
+  "error": ""
+}

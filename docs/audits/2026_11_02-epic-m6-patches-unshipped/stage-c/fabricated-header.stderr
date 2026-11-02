@@ -1,0 +1,8 @@
+Traceback (most recent call last):
+  File "/workspace/repos/pixelelated/distribution.worktrees/m6-patches-unshipped-690/docs/audits/2026_11_02-epic-m6-patches-unshipped/tools/table.py", line 40, in <module>
+    rows=load(sys.argv[1]);assert_input(rows)
+                           ~~~~~~~~~~~~^^^^^^
+  File "/workspace/repos/pixelelated/distribution.worktrees/m6-patches-unshipped-690/docs/audits/2026_11_02-epic-m6-patches-unshipped/tools/table.py", line 16, in assert_input
+    assert x['header']==e['header'] and x['origin']==origin(e),'header attribution: '+x['path']
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: header attribution: projects/ROCKNIX/devices/RK3326/packages/u-boot/patches/0001-add-support-for-k36-clone-with-emmc-rk3326.patch

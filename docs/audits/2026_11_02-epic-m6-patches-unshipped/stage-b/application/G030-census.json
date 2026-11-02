@@ -1,0 +1,64 @@
+{
+  "id": "G030",
+  "census": {
+    "id": "G030",
+    "recipe": "projects/ROCKNIX/packages/audio/alsa-ucm-conf/package.mk",
+    "recipe_sha256": "fae1706ea36634a04b80a0f747dfcb383c6e410073a728faad7027e9c795b66e",
+    "owner": [
+      "image-packages"
+    ],
+    "consumer": "SM8250-arm",
+    "device": "SM8250",
+    "arch": "arm",
+    "target_cpu": "cortex-a76.cortex-a55",
+    "patch_arch": "arm",
+    "LINUX": "unset in clean default source config",
+    "batteryplus": "no or unset; exact yes predicate false",
+    "name": "alsa-ucm-conf",
+    "pin": "1.2.13",
+    "url": "https://www.alsa-project.org/files/pub/lib/alsa-ucm-conf-1.2.13.tar.bz2",
+    "expected_sha256": "4483b6e3983cca08fd326a73fbae449b5036e444fb1a07c0dee74b504b7ab5af",
+    "selectors": [
+      "SM8250"
+    ],
+    "ordered_pattern_directories": [
+      "projects/ROCKNIX/packages/audio/alsa-ucm-conf/patches",
+      "projects/ROCKNIX/packages/audio/alsa-ucm-conf/patches/arm",
+      "projects/ROCKNIX/packages/audio/alsa-ucm-conf/patches/SM8250",
+      "projects/ROCKNIX/packages/audio/alsa-ucm-conf/patches/1.2.13",
+      "projects/ROCKNIX/packages/audio/alsa-ucm-conf/patches/1.2.13/arm",
+      "projects/ROCKNIX/patches/alsa-ucm-conf",
+      "projects/ROCKNIX/patches/alsa-ucm-conf/arm",
+      "projects/ROCKNIX/patches/alsa-ucm-conf/SM8250",
+      "projects/ROCKNIX/devices/SM8250/patches/alsa-ucm-conf/SM8250",
+      "projects/ROCKNIX/patches/alsa-ucm-conf/1.2.13",
+      "projects/ROCKNIX/devices/SM8250/patches/alsa-ucm-conf"
+    ],
+    "stack": [
+      "projects/ROCKNIX/packages/audio/alsa-ucm-conf/patches/001-steamdeck.patch",
+      "projects/ROCKNIX/packages/audio/alsa-ucm-conf/patches/SM8250/0002_Add-Retroid-Pocket-SM8250-configuration.patch",
+      "projects/ROCKNIX/packages/audio/alsa-ucm-conf/patches/SM8250/0003_Maintain-compatibility-with-old-loader-u-boot.patch",
+      "projects/ROCKNIX/packages/audio/alsa-ucm-conf/patches/SM8250/0004_Add-HDMI-DisplayPort-audio-device.patch"
+    ],
+    "native_paths": [
+      "projects/ROCKNIX/packages/audio/alsa-ucm-conf/patches/SM8250/0002_Add-Retroid-Pocket-SM8250-configuration.patch",
+      "projects/ROCKNIX/packages/audio/alsa-ucm-conf/patches/SM8250/0003_Maintain-compatibility-with-old-loader-u-boot.patch",
+      "projects/ROCKNIX/packages/audio/alsa-ucm-conf/patches/SM8250/0004_Add-HDMI-DisplayPort-audio-device.patch"
+    ],
+    "config_paths": [],
+    "cache_candidates": [
+      "/workspace/cache/rocknix-sources/alsa-ucm-conf/alsa-ucm-conf-1.2.13.tar.bz2"
+    ],
+    "preimage_limits": [
+      "package sources/ overlay present; exact overlap/preimage not materialized"
+    ],
+    "source_only": true,
+    "runtime": false
+  },
+  "started": "2026-11-02T21:55:19.490308+00:00",
+  "rows": [],
+  "input_snapshot": {},
+  "limits": [
+    "package sources/ overlay present; exact overlap/preimage not materialized"
+  ]
+}

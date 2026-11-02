@@ -1,0 +1,15 @@
+{
+  "argv": [
+    "patch",
+    "-d",
+    "/workspace/tmp/m6-t43/G082-012-candidate-d78ed9ri",
+    "-p1"
+  ],
+  "start": "2026-11-02T21:56:10.549052+00:00",
+  "end": "2026-11-02T21:56:10.549838+00:00",
+  "exit": 0,
+  "stdout_sha256": "af0b14efb6302a1c90c675daee1309288652c1008a5a48e64bc5b47bc2e5c0ba",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "output": "patching file arch/arm64/boot/dts/qcom/pm8150b.dtsi\nHunk #2 succeeded at 107 (offset -1 lines).\nHunk #3 succeeded at 161 (offset -1 lines).\nHunk #4 succeeded at 216 (offset -1 lines).\n",
+  "error": ""
+}

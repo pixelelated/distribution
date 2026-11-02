@@ -1,0 +1,15 @@
+{
+  "argv": [
+    "patch",
+    "-d",
+    "/workspace/tmp/m6-t43/G084-016-candidate-ayzfkmtl",
+    "-p1"
+  ],
+  "start": "2026-11-02T21:56:26.134797+00:00",
+  "end": "2026-11-02T21:56:26.137091+00:00",
+  "exit": 0,
+  "stdout_sha256": "95c24f69f9ea0d0068c8082a4fe7cc104b7bfe732b6e05d56aa6e2fe6147391d",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "output": "patching file drivers/input/joystick/Kconfig\npatching file drivers/input/joystick/Makefile\npatching file drivers/input/joystick/rsinput.c\n",
+  "error": ""
+}

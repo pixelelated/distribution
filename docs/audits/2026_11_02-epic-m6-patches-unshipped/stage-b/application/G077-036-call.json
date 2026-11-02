@@ -1,0 +1,15 @@
+{
+  "argv": [
+    "patch",
+    "-d",
+    "/workspace/tmp/m6-t43/G077-036-candidate-0lomzvrz",
+    "-p1"
+  ],
+  "start": "2026-11-02T21:55:52.393855+00:00",
+  "end": "2026-11-02T21:55:52.394927+00:00",
+  "exit": 0,
+  "stdout_sha256": "b0e6e39ce7240c2eb3c16f67c991af3212d6347247c9005ee2a6a02d49d679ba",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "output": "patching file sound/soc/codecs/aw88166.c\nHunk #2 succeeded at 615 (offset 1 line).\nHunk #3 succeeded at 1437 (offset 16 lines).\nHunk #4 succeeded at 1451 (offset 16 lines).\nHunk #5 succeeded at 1584 (offset 16 lines).\nHunk #6 succeeded at 1722 (offset 26 lines).\npatching file sound/soc/codecs/aw88166.h\n",
+  "error": ""
+}

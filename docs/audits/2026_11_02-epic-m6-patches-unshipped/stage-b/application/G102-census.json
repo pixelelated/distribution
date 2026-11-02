@@ -1,0 +1,50 @@
+{
+  "id": "G102",
+  "census": {
+    "id": "G102",
+    "recipe": "projects/ROCKNIX/packages/multimedia/rkmpp/package.mk",
+    "recipe_sha256": "bbe00da22a9ee18784a10fdbc87652ba69f328ec5e6e6c529543e576d92f120f",
+    "owner": [
+      "packages-dead-ends"
+    ],
+    "consumer": "RK3588-arm",
+    "device": "RK3588",
+    "arch": "arm",
+    "target_cpu": "cortex-a76.cortex-a55",
+    "patch_arch": "arm",
+    "LINUX": "unset in clean default source config",
+    "batteryplus": "no or unset; exact yes predicate false",
+    "name": "rkmpp",
+    "pin": "239e15eaebf98f68c0093b00ff8108d23b0147e7",
+    "url": "https://github.com/rockchip-linux/mpp/archive/239e15eaebf98f68c0093b00ff8108d23b0147e7.tar.gz",
+    "expected_sha256": "9a4d6a01ed827f39325953d6277975e3f1eecede768b0e7c9c16d91d4d62974b",
+    "selectors": [],
+    "ordered_pattern_directories": [
+      "projects/ROCKNIX/packages/multimedia/rkmpp/patches",
+      "projects/ROCKNIX/packages/multimedia/rkmpp/patches/arm",
+      "projects/ROCKNIX/packages/multimedia/rkmpp/patches/239e15eaebf98f68c0093b00ff8108d23b0147e7",
+      "projects/ROCKNIX/packages/multimedia/rkmpp/patches/239e15eaebf98f68c0093b00ff8108d23b0147e7/arm",
+      "projects/ROCKNIX/patches/rkmpp",
+      "projects/ROCKNIX/patches/rkmpp/arm",
+      "projects/ROCKNIX/patches/rkmpp/239e15eaebf98f68c0093b00ff8108d23b0147e7",
+      "projects/ROCKNIX/devices/RK3588/patches/rkmpp"
+    ],
+    "stack": [
+      "projects/ROCKNIX/packages/multimedia/rkmpp/patches/01-dont-compile-tests.patch"
+    ],
+    "native_paths": [
+      "projects/ROCKNIX/packages/multimedia/rkmpp/patches/01-dont-compile-tests.patch"
+    ],
+    "config_paths": [],
+    "cache_candidates": [
+      "/workspace/cache/rocknix-sources/rkmpp/rkmpp-239e15eaebf98f68c0093b00ff8108d23b0147e7.tar.gz"
+    ],
+    "preimage_limits": [],
+    "source_only": true,
+    "runtime": false
+  },
+  "started": "2026-11-02T21:56:27.298231+00:00",
+  "rows": [],
+  "input_snapshot": {},
+  "limits": []
+}

@@ -1,0 +1,64 @@
+{
+  "id": "G042",
+  "census": {
+    "id": "G042",
+    "recipe": "projects/ROCKNIX/packages/emulators/standalone/azahar-sa/package.mk",
+    "recipe_sha256": "52df4bbce8456c27b864970520a911b3363102a58c666e2f99c0bbca6c274c70",
+    "owner": [
+      "emulators-standalone"
+    ],
+    "consumer": "S922X-aarch64",
+    "device": "S922X",
+    "arch": "aarch64",
+    "target_cpu": "cortex-a73.cortex-a53",
+    "patch_arch": "aarch64",
+    "LINUX": "unset in clean default source config",
+    "batteryplus": "yes",
+    "name": "azahar-sa",
+    "pin": "fbd3fb02f71e5f9ed5134037fd59bad96c7d2b8a",
+    "url": "https://github.com/azahar-emu/azahar.git",
+    "expected_sha256": null,
+    "selectors": [
+      "prefer_gles"
+    ],
+    "ordered_pattern_directories": [
+      "projects/ROCKNIX/packages/emulators/standalone/azahar-sa/patches",
+      "projects/ROCKNIX/packages/emulators/standalone/azahar-sa/patches/aarch64",
+      "projects/ROCKNIX/packages/emulators/standalone/azahar-sa/patches/prefer_gles",
+      "projects/ROCKNIX/packages/emulators/standalone/azahar-sa/patches/fbd3fb02f71e5f9ed5134037fd59bad96c7d2b8a",
+      "projects/ROCKNIX/packages/emulators/standalone/azahar-sa/patches/fbd3fb02f71e5f9ed5134037fd59bad96c7d2b8a/aarch64",
+      "projects/ROCKNIX/patches/azahar-sa",
+      "projects/ROCKNIX/patches/azahar-sa/aarch64",
+      "projects/ROCKNIX/patches/azahar-sa/prefer_gles",
+      "projects/ROCKNIX/devices/S922X/patches/azahar-sa/prefer_gles",
+      "projects/ROCKNIX/patches/azahar-sa/fbd3fb02f71e5f9ed5134037fd59bad96c7d2b8a",
+      "projects/ROCKNIX/devices/S922X/patches/azahar-sa"
+    ],
+    "stack": [
+      "projects/ROCKNIX/packages/emulators/standalone/azahar-sa/patches/0001-common-file-paths.patch",
+      "projects/ROCKNIX/packages/emulators/standalone/azahar-sa/patches/0003-vulkan-release-native-surface-before-destruction.patch",
+      "projects/ROCKNIX/packages/emulators/standalone/azahar-sa/patches/prefer_gles/0002-Enable-use_gles-for-OpenGL-ES-rendering.patch"
+    ],
+    "native_paths": [
+      "projects/ROCKNIX/packages/emulators/standalone/azahar-sa/patches/prefer_gles/0002-Enable-use_gles-for-OpenGL-ES-rendering.patch"
+    ],
+    "config_paths": [],
+    "cache_candidates": [],
+    "preimage_limits": [
+      "Git/submodule source recipe has no archive SHA256; no exact archive input permitted by this runner",
+      "recipe lacks archive checksum"
+    ],
+    "source_only": true,
+    "runtime": false
+  },
+  "started": "2026-11-02T21:55:19.652137+00:00",
+  "rows": [],
+  "input_snapshot": {},
+  "limits": [
+    "Git/submodule source recipe has no archive SHA256; no exact archive input permitted by this runner",
+    "recipe lacks archive checksum",
+    "exact source archive absent from inspected package cache directory"
+  ],
+  "cache_observations": [],
+  "status": "open-item"
+}

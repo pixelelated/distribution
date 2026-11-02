@@ -1,0 +1,28 @@
+{
+  "native": [
+    {
+      "path": "projects/ROCKNIX/packages/apps/mangohud/patches/SM8650/0001-SM8650-GPU.patch",
+      "target": "../SM8750/0001-SM8750-GPU.patch",
+      "resolved": "projects/ROCKNIX/packages/apps/mangohud/patches/SM8750/0001-SM8750-GPU.patch",
+      "sha256": "886cd4515d5917b5e31156e84bb9cb53a98ce52b49e1041906e0d539901200a5",
+      "link_tree": "120000 blob f1f97504f2ed00454fe066a5566087cd963755f2\tprojects/ROCKNIX/packages/apps/mangohud/patches/SM8650/0001-SM8650-GPU.patch",
+      "referent_tree": "100644 blob d8c3456058663ff5100380282c2a3e74a133af06\tprojects/ROCKNIX/packages/apps/mangohud/patches/SM8750/0001-SM8750-GPU.patch",
+      "owner": "T43 #690"
+    },
+    {
+      "path": "projects/ROCKNIX/packages/apps/mangohud/patches/SM8650/0002-SM8750-Battery.patch",
+      "target": "../SM8750/0002-SM8750-Battery.patch",
+      "resolved": "projects/ROCKNIX/packages/apps/mangohud/patches/SM8750/0002-SM8750-Battery.patch",
+      "sha256": "97220df99329d8b1976aa9a84f0843999b5ae9a47fdaac6da61bedad68e34a84",
+      "link_tree": "120000 blob 77f00f11a744931e14787c8d7f033a8cab866229\tprojects/ROCKNIX/packages/apps/mangohud/patches/SM8650/0002-SM8750-Battery.patch",
+      "referent_tree": "100644 blob 84176a1dad503fe03ff3535a552b454c60cf859f\tprojects/ROCKNIX/packages/apps/mangohud/patches/SM8750/0002-SM8750-Battery.patch",
+      "owner": "T43 #690"
+    }
+  ],
+  "shipped_context": {
+    "path": "projects/ROCKNIX/packages/apps/mangohud/patches/SM8550/0002-SM8750-Battery.patch",
+    "tree": "120000 blob 77f00f11a744931e14787c8d7f033a8cab866229\tprojects/ROCKNIX/packages/apps/mangohud/patches/SM8550/0002-SM8750-Battery.patch",
+    "literal": "../SM8750/0002-SM8750-Battery.patch",
+    "owner": "T42 #689; context only"
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "argv": [
+    "patch",
+    "-d",
+    "/workspace/tmp/m6-t43/G078-032-candidate-bcu75s24",
+    "-p1"
+  ],
+  "start": "2026-11-02T21:55:53.195755+00:00",
+  "end": "2026-11-02T21:55:53.197600+00:00",
+  "exit": 0,
+  "stdout_sha256": "7650e1d85cd07c3368b2f76431231a0412b8680724c81ee56f469803dda15f3a",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "output": "patching file sound/soc/qcom/sc8280xp.c\nHunk #1 succeeded at 2 with fuzz 2.\n",
+  "error": ""
+}

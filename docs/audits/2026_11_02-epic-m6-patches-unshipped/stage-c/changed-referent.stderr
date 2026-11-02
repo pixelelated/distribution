@@ -1,0 +1,8 @@
+Traceback (most recent call last):
+  File "/workspace/repos/pixelelated/distribution.worktrees/m6-patches-unshipped-690/docs/audits/2026_11_02-epic-m6-patches-unshipped/tools/table.py", line 40, in <module>
+    rows=load(sys.argv[1]);assert_input(rows)
+                           ~~~~~~~~~~~~^^^^^^
+  File "/workspace/repos/pixelelated/distribution.worktrees/m6-patches-unshipped-690/docs/audits/2026_11_02-epic-m6-patches-unshipped/tools/table.py", line 14, in assert_input
+    if e['kind']=='symlink':assert x['link']==links[x['path']],'link/referent identity: '+x['path']
+                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: link/referent identity: projects/ROCKNIX/packages/apps/mangohud/patches/SM8650/0001-SM8650-GPU.patch

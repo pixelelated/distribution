@@ -1,0 +1,4468 @@
+{
+  "projects/ROCKNIX/devices/AMD64/packages/ayn-platform/package.mk": {
+    "sha256": "a4c7a222ddfdd7a3f471b215385e434e5b4b29f52bcdd27bf3211220146de134",
+    "owner": [
+      "devices-unshipped"
+    ],
+    "member_count": 1,
+    "source_lines": [
+      "# SPDX-License-Identifier: GPL-2.0-or-later",
+      "# Copyright (C) 2023 JELOS (https://github.com/JustEnoughLinuxOS)",
+      "",
+      "PKG_NAME=\"ayn-platform\"",
+      "PKG_VERSION=\"7ec810ed2aebe196b68b9cce580d3c9e520e6425\"",
+      "PKG_SHA256=\"10ebdf5c2611d957491cd46eea93d942292d5b92213a94dea1008a7eadac11a0\"",
+      "PKG_LICENSE=\"GPL\"",
+      "PKG_SITE=\"https://github.com/ShadowBlip/ayn-platform\"",
+      "PKG_URL=\"${PKG_SITE}/archive/${PKG_VERSION}.tar.gz\"",
+      "PKG_DEPENDS_TARGET=\"toolchain ectool\"",
+      "PKG_LONGDESC=\"A hwmon interface for PWM control, as well as RGB control and access to temperature sensors provided by the system EC.\"",
+      "PKG_TOOLCHAIN=\"make\"",
+      "PKG_IS_KERNEL_PKG=\"yes\"",
+      "",
+      "pre_make_target() {",
+      "  unset LDFLAGS",
+      "}",
+      "",
+      "make_target() {",
+      "  make \\",
+      "       ARCH=${TARGET_KERNEL_ARCH} \\",
+      "       KSRC=$(kernel_path) \\",
+      "       CROSS_COMPILE=${TARGET_KERNEL_PREFIX} \\",
+      "       TARGET=$(kernel_version) \\",
+      "       KERNEL_MODULES=$(get_build_dir linux)/.install_pkg/$(get_full_module_dir) \\",
+      "       KERNEL_BUILD=$(get_build_dir linux) modules",
+      "}",
+      "",
+      "makeinstall_target() {",
+      "  mkdir -p ${INSTALL}/$(get_full_module_dir)/${PKG_NAME}",
+      "    cp *.ko ${INSTALL}/$(get_full_module_dir)/${PKG_NAME}",
+      "}"
+    ],
+    "assignments": [
+      [
+        4,
+        "PKG_NAME=\"ayn-platform\""
+      ],
+      [
+        5,
+        "PKG_VERSION=\"7ec810ed2aebe196b68b9cce580d3c9e520e6425\""
+      ],
+      [
+        6,
+        "PKG_SHA256=\"10ebdf5c2611d957491cd46eea93d942292d5b92213a94dea1008a7eadac11a0\""
+      ],
+      [
+        8,
+        "PKG_SITE=\"https://github.com/ShadowBlip/ayn-platform\""
+      ],
+      [
+        9,
+        "PKG_URL=\"${PKG_SITE}/archive/${PKG_VERSION}.tar.gz\""
+      ],
+      [
+        30,
+        "  mkdir -p ${INSTALL}/$(get_full_module_dir)/${PKG_NAME}"
+      ],
+      [
+        31,
+        "    cp *.ko ${INSTALL}/$(get_full_module_dir)/${PKG_NAME}"
+      ]
+    ],
+    "upstream_sha256": "a4c7a222ddfdd7a3f471b215385e434e5b4b29f52bcdd27bf3211220146de134",
+    "upstream_assignments": [
+      [
+        4,
+        "PKG_NAME=\"ayn-platform\""
+      ],
+      [
+        5,
+        "PKG_VERSION=\"7ec810ed2aebe196b68b9cce580d3c9e520e6425\""
+      ],
+      [
+        6,
+        "PKG_SHA256=\"10ebdf5c2611d957491cd46eea93d942292d5b92213a94dea1008a7eadac11a0\""
+      ],
+      [
+        8,
+        "PKG_SITE=\"https://github.com/ShadowBlip/ayn-platform\""
+      ],
+      [
+        9,
+        "PKG_URL=\"${PKG_SITE}/archive/${PKG_VERSION}.tar.gz\""
+      ],
+      [
+        30,
+        "  mkdir -p ${INSTALL}/$(get_full_module_dir)/${PKG_NAME}"
+      ],
+      [
+        31,
+        "    cp *.ko ${INSTALL}/$(get_full_module_dir)/${PKG_NAME}"
+      ]
+    ]
+  },
+  "projects/ROCKNIX/devices/AMD64/packages/dmidecode/package.mk": {
+    "sha256": "4a83fe2edf74f6d0f200aca1b8d0ce9ce6b3b4a4e808614c5b6b29f7b6a710d3",
+    "owner": [
+      "devices-unshipped"
+    ],
+    "member_count": 1,
+    "source_lines": [
+      "# SPDX-License-Identifier: GPL-2.0",
+      "# Copyright (C) 2023 JELOS (https://github.com/JustEnoughLinuxOS)",
+      "",
+      "PKG_NAME=\"dmidecode\"",
+      "PKG_VERSION=\"3.5\"",
+      "PKG_SHA256=\"79d76735ee8e25196e2a722964cf9683f5a09581503537884b256b01389cc073\"",
+      "PKG_LICENSE=\"GPL\"",
+      "PKG_SITE=\"https://www.nongnu.org/dmidecode/\"",
+      "PKG_URL=\"http://download.savannah.gnu.org/releases/dmidecode/${PKG_NAME}-${PKG_VERSION}.tar.xz\"",
+      "PKG_DEPENDS_TARGET=\"toolchain\"",
+      "PKG_LONGDESC=\"Reports information about your system's hardware as described in your system BIOS\""
+    ],
+    "assignments": [
+      [
+        4,
+        "PKG_NAME=\"dmidecode\""
+      ],
+      [
+        5,
+        "PKG_VERSION=\"3.5\""
+      ],
+      [
+        6,
+        "PKG_SHA256=\"79d76735ee8e25196e2a722964cf9683f5a09581503537884b256b01389cc073\""
+      ],
+      [
+        8,
+        "PKG_SITE=\"https://www.nongnu.org/dmidecode/\""
+      ],
+      [
+        9,
+        "PKG_URL=\"http://download.savannah.gnu.org/releases/dmidecode/${PKG_NAME}-${PKG_VERSION}.tar.xz\""
+      ]
+    ],
+    "upstream_sha256": "4a83fe2edf74f6d0f200aca1b8d0ce9ce6b3b4a4e808614c5b6b29f7b6a710d3",
+    "upstream_assignments": [
+      [
+        4,
+        "PKG_NAME=\"dmidecode\""
+      ],
+      [
+        5,
+        "PKG_VERSION=\"3.5\""
+      ],
+      [
+        6,
+        "PKG_SHA256=\"79d76735ee8e25196e2a722964cf9683f5a09581503537884b256b01389cc073\""
+      ],
+      [
+        8,
+        "PKG_SITE=\"https://www.nongnu.org/dmidecode/\""
+      ],
+      [
+        9,
+        "PKG_URL=\"http://download.savannah.gnu.org/releases/dmidecode/${PKG_NAME}-${PKG_VERSION}.tar.xz\""
+      ]
+    ]
+  },
+  "projects/ROCKNIX/devices/AMD64/packages/ectool/package.mk": {
+    "sha256": "f3afcf528ea29419fcbaa13aa1f556ddff17c909b6a7fb2643712d6cb2f1adc5",
+    "owner": [
+      "devices-unshipped"
+    ],
+    "member_count": 1,
+    "source_lines": [
+      "# SPDX-License-Identifier: GPL-2.0",
+      "# Copyright (C) 2023 JELOS (https://github.com/JustEnoughLinuxOS)",
+      "",
+      "PKG_NAME=\"ectool\"",
+      "PKG_VERSION=\"053c901548b751dd10eeae5e0afae8359290bede\"",
+      "PKG_LICENSE=\"GPL\"",
+      "PKG_SITE=\"https://review.coreboot.org/coreboot\"",
+      "PKG_URL=\"${PKG_SITE}.git\"",
+      "PKG_ARCH=\"x86_64\"",
+      "PKG_DEPENDS_TARGET=\"toolchain\"",
+      "PKG_LONGDESC=\"A simple tool for manipulating the embedded controller.\"",
+      "",
+      "make_target() {",
+      "  cd util/ectool",
+      "  export PREFIX=/usr",
+      "  make",
+      "}"
+    ],
+    "assignments": [
+      [
+        4,
+        "PKG_NAME=\"ectool\""
+      ],
+      [
+        5,
+        "PKG_VERSION=\"053c901548b751dd10eeae5e0afae8359290bede\""
+      ],
+      [
+        7,
+        "PKG_SITE=\"https://review.coreboot.org/coreboot\""
+      ],
+      [
+        8,
+        "PKG_URL=\"${PKG_SITE}.git\""
+      ]
+    ],
+    "upstream_sha256": "f3afcf528ea29419fcbaa13aa1f556ddff17c909b6a7fb2643712d6cb2f1adc5",
+    "upstream_assignments": [
+      [
+        4,
+        "PKG_NAME=\"ectool\""
+      ],
+      [
+        5,
+        "PKG_VERSION=\"053c901548b751dd10eeae5e0afae8359290bede\""
+      ],
+      [
+        7,
+        "PKG_SITE=\"https://review.coreboot.org/coreboot\""
+      ],
+      [
+        8,
+        "PKG_URL=\"${PKG_SITE}.git\""
+      ]
+    ]
+  },
+  "projects/ROCKNIX/devices/RK3326/packages/u-boot-legacy/package.mk": {
+    "sha256": "e1005e682007584bba12a1e6d2439a19c6efc383a19b9cc67c010ce4ed3520eb",
+    "owner": [
+      "devices-unshipped"
+    ],
+    "member_count": 1,
+    "source_lines": [
+      "# SPDX-License-Identifier: GPL-2.0",
+      "# Copyright (C) 2024-present ROCKNIX (https://github.com/ROCKNIX)",
+      "",
+      "PKG_NAME=\"u-boot-legacy\"",
+      "PKG_VERSION=\"2492a3e467e332e2350d987234ce6123700b3392\"",
+      "PKG_SHA256=\"d8b358f20394ff1c901af989d0a5b7740f46708bd93ff714459d7bc3794a72f8\"",
+      "PKG_LICENSE=\"GPL\"",
+      "PKG_SITE=\"https://www.denx.de/wiki/U-Boot\"",
+      "PKG_URL=\"https://github.com/ROCKNIX/hardkernel-uboot/archive/${PKG_VERSION}.tar.gz\"",
+      "PKG_DEPENDS_TARGET=\"toolchain Python3:host swig:host pyelftools:host\"",
+      "PKG_LONGDESC=\"Das U-Boot is a cross-platform bootloader for embedded systems.\"",
+      "PKG_BUILD_FLAGS=\"-parallel\"",
+      "PKG_TOOLCHAIN=\"manual\"",
+      "",
+      "PKG_NEED_UNPACK=\"${PROJECT_DIR}/${PROJECT}/bootloader ${PROJECT_DIR}/${PROJECT}/devices/${DEVICE}/bootloader\"",
+      "PKG_NEED_UNPACK+=\" ${PROJECT_DIR}/${PROJECT}/options ${PROJECT_DIR}/${PROJECT}/devices/${DEVICE}/options\"",
+      "",
+      "if [ -n \"${UBOOT_FIRMWARE}\" ]; then",
+      "  PKG_DEPENDS_TARGET+=\" ${UBOOT_FIRMWARE}\"",
+      "  PKG_DEPENDS_UNPACK+=\" ${UBOOT_FIRMWARE}\"",
+      "fi",
+      "",
+      "pre_make_target() {",
+      "  PKG_UBOOT_CONFIG=\"rocknix_rk3326_defconfig\"",
+      "  PKG_RKBIN=\"$(get_build_dir rkbin)\"",
+      "  PKG_MINILOADER=\"${PKG_RKBIN}/bin/rk33/rk3326_miniloader_v1.40.bin\"",
+      "  PKG_BL31=\"${PKG_RKBIN}/bin/rk33/rk3326_bl31_v1.34.elf\"",
+      "  PKG_DDR_BIN=\"${PKG_RKBIN}/bin/rk33/rk3326_ddr_333MHz_v2.11.bin\"",
+      "}",
+      "",
+      "make_target() {",
+      "  [ \"${BUILD_WITH_DEBUG}\" = \"yes\" ] && PKG_DEBUG=1 || PKG_DEBUG=0",
+      "  setup_pkg_config_host",
+      "",
+      "  DEBUG=${PKG_DEBUG} CROSS_COMPILE=\"${TARGET_KERNEL_PREFIX}\" LDFLAGS=\"\" ARCH=arm make mrproper",
+      "  DEBUG=${PKG_DEBUG} CROSS_COMPILE=\"${TARGET_KERNEL_PREFIX}\" LDFLAGS=\"\" ARCH=arm make HOSTCC=\"${HOST_CC}\" HOSTCFLAGS=\"-I${TOOLCHAIN}/include\" HOSTLDFLAGS=\"${HOST_LDFLAGS}\" ${PKG_UBOOT_CONFIG}",
+      "  DEBUG=${PKG_DEBUG} CROSS_COMPILE=\"${TARGET_KERNEL_PREFIX}\" LDFLAGS=\"\" ARCH=arm _python_sysroot=\"${TOOLCHAIN}\" _python_prefix=/ _python_exec_prefix=/ make HOSTCC=\"${HOST_CC}\" HOSTCFLAGS=\"-I${TOOLCHAIN}/include\" HOSTLDFLAGS=\"${HOST_LDFLAGS}\" HOSTSTRIP=\"true\" CONFIG_MKIMAGE_DTC_PATH=\"scripts/dtc/dtc\"",
+      "",
+      "  find_file_path bootloader/rkhelper && . ${FOUND_PATH}",
+      "}",
+      "",
+      "makeinstall_target() {",
+      "  mkdir -p $INSTALL/usr/share/bootloader",
+      "",
+      "  cp -av uboot.bin $INSTALL/usr/share/bootloader/a_uboot.bin",
+      "}"
+    ],
+    "assignments": [
+      [
+        4,
+        "PKG_NAME=\"u-boot-legacy\""
+      ],
+      [
+        5,
+        "PKG_VERSION=\"2492a3e467e332e2350d987234ce6123700b3392\""
+      ],
+      [
+        6,
+        "PKG_SHA256=\"d8b358f20394ff1c901af989d0a5b7740f46708bd93ff714459d7bc3794a72f8\""
+      ],
+      [
+        8,
+        "PKG_SITE=\"https://www.denx.de/wiki/U-Boot\""
+      ],
+      [
+        9,
+        "PKG_URL=\"https://github.com/ROCKNIX/hardkernel-uboot/archive/${PKG_VERSION}.tar.gz\""
+      ]
+    ],
+    "upstream_sha256": "b47716a9992645ef645f725a821b9146df85df0e64ffedc2543d375ed266314b",
+    "upstream_assignments": [
+      [
+        4,
+        "PKG_NAME=\"u-boot-legacy\""
+      ],
+      [
+        5,
+        "PKG_VERSION=\"2492a3e467e332e2350d987234ce6123700b3392\""
+      ],
+      [
+        6,
+        "PKG_SHA256=\"d8b358f20394ff1c901af989d0a5b7740f46708bd93ff714459d7bc3794a72f8\""
+      ],
+      [
+        8,
+        "PKG_SITE=\"https://www.denx.de/wiki/U-Boot\""
+      ],
+      [
+        9,
+        "PKG_URL=\"https://github.com/ROCKNIX/hardkernel-uboot/archive/${PKG_VERSION}.tar.gz\""
+      ]
+    ]
+  },
+  "projects/ROCKNIX/devices/RK3326/packages/u-boot/package.mk": {
+    "sha256": "acd31ca66a51b22a38d8ff33ca77e72b5c48e619937431e934be25944ff3a87a",
+    "owner": [
+      "devices-unshipped"
+    ],
+    "member_count": 1,
+    "source_lines": [
+      "# SPDX-License-Identifier: GPL-2.0",
+      "# Copyright (C) 2024-present ROCKNIX (https://github.com/ROCKNIX)",
+      "",
+      "PKG_NAME=\"u-boot\"",
+      "PKG_VERSION=\"v2025.10\"",
+      "PKG_SHA256=\"5414ee86562abc5ed524c6dc5e092511ad281441020a88e7027de6e83fd16116\"",
+      "PKG_LICENSE=\"GPL\"",
+      "PKG_SITE=\"https://www.denx.de/wiki/U-Boot\"",
+      "PKG_URL=\"https://github.com/u-boot/u-boot/archive/refs/tags/${PKG_VERSION}.tar.gz\"",
+      "PKG_DEPENDS_TARGET=\"toolchain Python3:host swig:host pyelftools:host u-boot-legacy\"",
+      "PKG_LONGDESC=\"Das U-Boot is a cross-platform bootloader for embedded systems.\"",
+      "PKG_TOOLCHAIN=\"manual\"",
+      "",
+      "PKG_NEED_UNPACK=\"${PROJECT_DIR}/${PROJECT}/bootloader ${PROJECT_DIR}/${PROJECT}/devices/${DEVICE}/bootloader\"",
+      "PKG_NEED_UNPACK+=\" ${PROJECT_DIR}/${PROJECT}/options ${PROJECT_DIR}/${PROJECT}/devices/${DEVICE}/options\"",
+      "",
+      "if [ -n \"${UBOOT_FIRMWARE}\" ]; then",
+      "  PKG_DEPENDS_TARGET+=\" ${UBOOT_FIRMWARE}\"",
+      "  PKG_DEPENDS_UNPACK+=\" ${UBOOT_FIRMWARE}\"",
+      "fi",
+      "",
+      "pre_make_target() {",
+      "  PKG_UBOOT_CONFIG=\"rk3326-handheld_defconfig\"",
+      "  PKG_RKBIN=\"$(get_build_dir rkbin)\"",
+      "  PKG_MINILOADER=\"${PKG_RKBIN}/bin/rk33/rk3326_miniloader_v1.40.bin\"",
+      "  PKG_BL31=\"${PKG_RKBIN}/bin/rk33/rk3326_bl31_v1.34.elf\"",
+      "  PKG_DDR_BIN=\"${PKG_RKBIN}/bin/rk33/rk3326_ddr_333MHz_v2.11.bin\"",
+      "  PKG_DDR_BIN_UART5=\"${PKG_RKBIN}/rk3326_ddr_uart5.bin\"",
+      "}",
+      "",
+      "make_target() {",
+      "  [ \"${BUILD_WITH_DEBUG}\" = \"yes\" ] && PKG_DEBUG=1 || PKG_DEBUG=0",
+      "  setup_pkg_config_host",
+      "",
+      "  find_file_path bootloader/rkhelper || exit 4",
+      "  RKHELPER=${FOUND_PATH}",
+      "",
+      "  DEBUG=${PKG_DEBUG} CROSS_COMPILE=\"${TARGET_KERNEL_PREFIX}\" LDFLAGS=\"\" ARCH=arm make mrproper",
+      "  DEBUG=${PKG_DEBUG} CROSS_COMPILE=\"${TARGET_KERNEL_PREFIX}\" LDFLAGS=\"\" ARCH=arm make HOSTCC=\"${HOST_CC}\" HOSTCFLAGS=\"-I${TOOLCHAIN}/include\" HOSTLDFLAGS=\"${HOST_LDFLAGS}\" ${PKG_UBOOT_CONFIG}",
+      "  DEBUG=${PKG_DEBUG} CROSS_COMPILE=\"${TARGET_KERNEL_PREFIX}\" LDFLAGS=\"\" ARCH=arm \\",
+      "        _python_sysroot=\"${TOOLCHAIN}\" _python_prefix=/ _python_exec_prefix=/ \\",
+      "        make HOSTCC=\"${HOST_CC}\" HOSTLDFLAGS=\"-L${TOOLCHAIN}/lib\" HOSTSTRIP=\"true\" \\",
+      "        u-boot-dtb.bin",
+      "  . ${RKHELPER}",
+      "  mv uboot.bin uboot.bin.default",
+      "",
+      "  ./scripts/config --set-val CONFIG_DEBUG_UART_BASE 0xFF178000",
+      "  ./scripts/config --set-str CONFIG_DEVICE_TREE_INCLUDES \"rk3326-odroid-go2-emmc.dtsi rk3326-odroid-go2-uart5.dtsi\"",
+      "  DEBUG=${PKG_DEBUG} CROSS_COMPILE=\"${TARGET_KERNEL_PREFIX}\" LDFLAGS=\"\" ARCH=arm \\",
+      "        _python_sysroot=\"${TOOLCHAIN}\" _python_prefix=/ _python_exec_prefix=/ \\",
+      "        make HOSTCC=\"${HOST_CC}\" HOSTLDFLAGS=\"-L${TOOLCHAIN}/lib\" HOSTSTRIP=\"true\" \\",
+      "        u-boot-dtb.bin",
+      "  PKG_DDR_BIN=${PKG_DDR_BIN_UART5} . ${RKHELPER}",
+      "  mv uboot.bin uboot.bin.uart5",
+      "}",
+      "",
+      "# IMPORTANT!",
+      "# For every device `<dev_name>` not in any image this function creates",
+      "# an `extlinux.conf.<dev_name>` file passing a corresponding dtb directly",
+      "# (effectively bypassing auto-detection by ADC value).",
+      "# User needs to rename a single file (replacing the generic `extlinux.conf`)",
+      "# to configure any (a/b) image for their device.",
+      "generate_custom_extlinux_conf_files() {",
+      "  INI_FILES=\"\"",
+      "  for SUBDEVICE in ${SUBDEVICES}; do",
+      "    if find_file_path config/${SUBDEVICE}_boot.ini; then",
+      "      INI_FILES=\"${INI_FILES} ${FOUND_PATH}\"",
+      "    fi",
+      "  done",
+      "  EXTLCONF0=${INSTALL}/usr/share/bootloader/extlinux/extlinux.conf",
+      "",
+      "  echo \"INI_FILES ${INI_FILES}\"",
+      "  for dtbase in $(xmlstarlet sel -t -v \"//rocknix/${DEVICE}/*\" ${CONFIGXML}); do",
+      "    if ! grep -q \"\\<${dtbase}.dtb\" ${INI_FILES}; then",
+      "      EXTLCONF=${EXTLCONF0}.${dtbase##*-}",
+      "      echo \"Generating ${EXTLCONF} for ${dtbase}\"",
+      "      sed '/##/d;s|^.* FDT .*$|  FDT /'${dtbase}'.dtb|' ${EXTLCONF0} > ${EXTLCONF0}.${dtbase##*-}",
+      "    fi",
+      "  done",
+      "}",
+      "",
+      "makeinstall_target() {",
+      "  mkdir -p $INSTALL/usr/share/bootloader",
+      "",
+      "  for SUBDEVICE in ${SUBDEVICES}; do",
+      "    if find_file_path config/${SUBDEVICE}_boot.ini; then",
+      "      cp -av ${FOUND_PATH} .",
+      "      sed -e \"s/@DISTRO_BOOTLABEL@/${DISTRO_BOOTLABEL}/\" \\",
+      "          -e \"s/@DISTRO_DISKLABEL@/${DISTRO_DISKLABEL}/\" \\",
+      "          -e \"s/@EXTRA_CMDLINE@/${EXTRA_CMDLINE}/\" \\",
+      "          -i \"${SUBDEVICE}_boot.ini\"",
+      "      ./tools/mkimage -T script -d \"${SUBDEVICE}_boot.ini\" \"${SUBDEVICE}_boot.scr\"",
+      "      cp -av \"${SUBDEVICE}_boot.scr\" \"${INSTALL}/usr/share/bootloader/\"",
+      "    fi",
+      "  done",
+      "",
+      "  cp -av uboot.bin.default \"${INSTALL}/usr/share/bootloader/b_uboot.bin\"",
+      "  cp -av uboot.bin.uart5 \"${INSTALL}/usr/share/bootloader/b_uboot.bin.uart5\"",
+      "",
+      "  find_dir_path config/extlinux || exit 3",
+      "  cp -av ${FOUND_PATH} \"${INSTALL}/usr/share/bootloader/\"",
+      "  sed -e \"s/@EXTRA_CMDLINE@/${EXTRA_CMDLINE}/\" \\",
+      "    -i ${INSTALL}/usr/share/bootloader/extlinux/*",
+      "",
+      "  # Next call creates an `extlinux.conf.<dev_name>` files for every dts/dtb not in any image.",
+      "  # User needs to rename a proper file to `extlinux.conf` (replacing it) as a preparation step.",
+      "  generate_custom_extlinux_conf_files",
+      "",
+      "  find_dir_path config/stock && cp -av ${FOUND_PATH} \"${INSTALL}/usr/share/bootloader/\"",
+      "  find_dir_path config/overlays && cp -av ${FOUND_PATH} \"${INSTALL}/usr/share/bootloader/\"",
+      "}"
+    ],
+    "assignments": [
+      [
+        4,
+        "PKG_NAME=\"u-boot\""
+      ],
+      [
+        5,
+        "PKG_VERSION=\"v2025.10\""
+      ],
+      [
+        6,
+        "PKG_SHA256=\"5414ee86562abc5ed524c6dc5e092511ad281441020a88e7027de6e83fd16116\""
+      ],
+      [
+        8,
+        "PKG_SITE=\"https://www.denx.de/wiki/U-Boot\""
+      ],
+      [
+        9,
+        "PKG_URL=\"https://github.com/u-boot/u-boot/archive/refs/tags/${PKG_VERSION}.tar.gz\""
+      ]
+    ],
+    "upstream_sha256": "acd31ca66a51b22a38d8ff33ca77e72b5c48e619937431e934be25944ff3a87a",
+    "upstream_assignments": [
+      [
+        4,
+        "PKG_NAME=\"u-boot\""
+      ],
+      [
+        5,
+        "PKG_VERSION=\"v2025.10\""
+      ],
+      [
+        6,
+        "PKG_SHA256=\"5414ee86562abc5ed524c6dc5e092511ad281441020a88e7027de6e83fd16116\""
+      ],
+      [
+        8,
+        "PKG_SITE=\"https://www.denx.de/wiki/U-Boot\""
+      ],
+      [
+        9,
+        "PKG_URL=\"https://github.com/u-boot/u-boot/archive/refs/tags/${PKG_VERSION}.tar.gz\""
+      ]
+    ]
+  },
+  "projects/ROCKNIX/devices/RK3399/packages/u-boot/package.mk": {
+    "sha256": "be1d18f962ff778fbfb1c4257a691884b558c965a7b5c0d528fd8e2e391696e8",
+    "owner": [
+      "devices-unshipped"
+    ],
+    "member_count": 1,
+    "source_lines": [
+      "# SPDX-License-Identifier: GPL-2.0",
+      "# Copyright (C) 2024-present ROCKNIX (https://github.com/ROCKNIX)",
+      "",
+      "PKG_NAME=\"u-boot\"",
+      "PKG_VERSION=\"2025.10\"",
+      "PKG_SHA256=\"b4f032848e56cc8f213ad59f9132c084dbbb632bc29176d024e58220e0efdf4a\"",
+      "PKG_LICENSE=\"GPL\"",
+      "PKG_SITE=\"https://www.denx.de/wiki/U-Boot\"",
+      "PKG_URL=\"https://ftp.denx.de/pub/u-boot/${PKG_NAME}-${PKG_VERSION}.tar.bz2\"",
+      "PKG_DEPENDS_TARGET=\"toolchain Python3 swig:host pyelftools:host\"",
+      "PKG_LONGDESC=\"Das U-Boot is a cross-platform bootloader for embedded systems.\"",
+      "PKG_TOOLCHAIN=\"manual\"",
+      "",
+      "PKG_NEED_UNPACK=\"${PROJECT_DIR}/${PROJECT}/bootloader ${PROJECT_DIR}/${PROJECT}/devices/${DEVICE}/bootloader\"",
+      "PKG_NEED_UNPACK+=\" ${PROJECT_DIR}/${PROJECT}/options ${PROJECT_DIR}/${PROJECT}/devices/${DEVICE}/options\"",
+      "",
+      "if [ -n \"${UBOOT_FIRMWARE}\" ]; then",
+      "  PKG_DEPENDS_TARGET+=\" ${UBOOT_FIRMWARE}\"",
+      "  PKG_DEPENDS_UNPACK+=\" ${UBOOT_FIRMWARE}\"",
+      "fi",
+      "",
+      "pre_make_target() {",
+      "  PKG_UBOOT_CONFIG=\"evb-rk3399_defconfig\"",
+      "  PKG_RKBIN=\"$(get_build_dir rkbin)\"",
+      "  PKG_MINILOADER=\"${PKG_RKBIN}/bin/rk33/rk3399_miniloader_v1.30.bin\"",
+      "  PKG_BL31=\"$(get_build_dir atf)/build/rk3399/release/bl31/bl31.elf\"",
+      "  PKG_DDR_BIN=\"${PKG_RKBIN}/bin/rk33/rk3399_ddr_933MHz_v1.30.bin\"",
+      "  PKG_ATF_INI=\"${PKG_RKBIN}/RKTRUST/RK3399TRUST.ini\"",
+      "}",
+      "",
+      "make_target() {",
+      "  [ \"${BUILD_WITH_DEBUG}\" = \"yes\" ] && PKG_DEBUG=1 || PKG_DEBUG=0",
+      "  setup_pkg_config_host",
+      "",
+      "  DEBUG=${PKG_DEBUG} CROSS_COMPILE=\"${TARGET_KERNEL_PREFIX}\" LDFLAGS=\"\" ARCH=arm make mrproper",
+      "  DEBUG=${PKG_DEBUG} CROSS_COMPILE=\"${TARGET_KERNEL_PREFIX}\" LDFLAGS=\"\" ARCH=arm make HOSTCC=\"${HOST_CC}\" HOSTCFLAGS=\"-I${TOOLCHAIN}/include\" HOSTLDFLAGS=\"${HOST_LDFLAGS}\" ${PKG_UBOOT_CONFIG}",
+      "  DEBUG=${PKG_DEBUG} CROSS_COMPILE=\"${TARGET_KERNEL_PREFIX}\" LDFLAGS=\"\" ARCH=arm _python_sysroot=\"${TOOLCHAIN}\" _python_prefix=/ _python_exec_prefix=/ make BL31=\"${PKG_BL31}\" HOSTCC=\"${HOST_CC}\" HOSTCFLAGS=\"-I${TOOLCHAIN}/include\" HOSTLDFLAGS=\"${HOST_LDFLAGS}\" HOSTSTRIP=\"true\" CONFIG_MKIMAGE_DTC_PATH=\"scripts/dtc/dtc\"",
+      "",
+      "  find_file_path bootloader/rkhelper && . ${FOUND_PATH}",
+      "}",
+      "",
+      "makeinstall_target() {",
+      "  mkdir -p $INSTALL/usr/share/bootloader",
+      "",
+      "  cp -av uboot.bin $INSTALL/usr/share/bootloader",
+      "}"
+    ],
+    "assignments": [
+      [
+        4,
+        "PKG_NAME=\"u-boot\""
+      ],
+      [
+        5,
+        "PKG_VERSION=\"2025.10\""
+      ],
+      [
+        6,
+        "PKG_SHA256=\"b4f032848e56cc8f213ad59f9132c084dbbb632bc29176d024e58220e0efdf4a\""
+      ],
+      [
+        8,
+        "PKG_SITE=\"https://www.denx.de/wiki/U-Boot\""
+      ],
+      [
+        9,
+        "PKG_URL=\"https://ftp.denx.de/pub/u-boot/${PKG_NAME}-${PKG_VERSION}.tar.bz2\""
+      ]
+    ],
+    "upstream_sha256": "be1d18f962ff778fbfb1c4257a691884b558c965a7b5c0d528fd8e2e391696e8",
+    "upstream_assignments": [
+      [
+        4,
+        "PKG_NAME=\"u-boot\""
+      ],
+      [
+        5,
+        "PKG_VERSION=\"2025.10\""
+      ],
+      [
+        6,
+        "PKG_SHA256=\"b4f032848e56cc8f213ad59f9132c084dbbb632bc29176d024e58220e0efdf4a\""
+      ],
+      [
+        8,
+        "PKG_SITE=\"https://www.denx.de/wiki/U-Boot\""
+      ],
+      [
+        9,
+        "PKG_URL=\"https://ftp.denx.de/pub/u-boot/${PKG_NAME}-${PKG_VERSION}.tar.bz2\""
+      ]
+    ]
+  },
+  "projects/ROCKNIX/devices/RK3566/packages/u-boot-Generic/package.mk": {
+    "sha256": "b9476a8d5cd2499e49d75bd38fd9d41fc40342e1d3f30b950d2ab34240940b08",
+    "owner": [
+      "devices-unshipped"
+    ],
+    "member_count": 3,
+    "source_lines": [
+      "# SPDX-License-Identifier: GPL-2.0",
+      "# Copyright (C) 2024-present ROCKNIX (https://github.com/ROCKNIX)",
+      "",
+      "PKG_NAME=\"u-boot-Generic\"",
+      "PKG_VERSION=\"v2026.01\"",
+      "PKG_SHA256=\"03bb43c58d2343ee48dd191e0f181f0108425b179d84519add3a977071c3f654\"",
+      "PKG_LICENSE=\"GPL\"",
+      "PKG_SITE=\"https://www.denx.de/wiki/U-Boot\"",
+      "PKG_URL=\"https://github.com/u-boot/u-boot/archive/refs/tags/${PKG_VERSION}.tar.gz\"",
+      "PKG_DEPENDS_TARGET=\"toolchain Python3 swig:host pyelftools:host\"",
+      "PKG_LONGDESC=\"Das U-Boot is a cross-platform bootloader for embedded systems.\"",
+      "PKG_TOOLCHAIN=\"manual\"",
+      "",
+      "PKG_NEED_UNPACK=\"${PROJECT_DIR}/${PROJECT}/bootloader ${PROJECT_DIR}/${PROJECT}/devices/${DEVICE}/bootloader\"",
+      "",
+      "if [ -n \"${UBOOT_FIRMWARE}\" ]; then",
+      "  PKG_DEPENDS_TARGET+=\" ${UBOOT_FIRMWARE}\"",
+      "  PKG_DEPENDS_UNPACK+=\" ${UBOOT_FIRMWARE}\"",
+      "fi",
+      "",
+      "pre_make_target() {",
+      "  PKG_UBOOT_CONFIG=\"anbernic-rgxx3-rk3566_defconfig\"",
+      "  PKG_RKBIN=\"$(get_build_dir rkbin)\"",
+      "  PKG_MINILOADER=\"spl/u-boot-spl.bin\"",
+      "  PKG_BL31=\"${PKG_RKBIN}/bin/rk35/rk3568_bl31_v1.45.elf\"",
+      "  PKG_DDR_BIN=\"${PKG_RKBIN}/bin/rk35/rk3568_ddr_1056MHz_v1.23.bin\"",
+      "}",
+      "",
+      "make_target() {",
+      "  [ \"${BUILD_WITH_DEBUG}\" = \"yes\" ] && PKG_DEBUG=1 || PKG_DEBUG=0",
+      "  setup_pkg_config_host",
+      "",
+      "  DEBUG=${PKG_DEBUG} CROSS_COMPILE=\"${TARGET_KERNEL_PREFIX}\" LDFLAGS=\"\" ARCH=arm64 make mrproper",
+      "  DEBUG=${PKG_DEBUG} CROSS_COMPILE=\"${TARGET_KERNEL_PREFIX}\" LDFLAGS=\"\" ARCH=arm64 make HOSTCC=\"${HOST_CC}\" HOSTCFLAGS=\"-I${TOOLCHAIN}/include\" HOSTLDFLAGS=\"${HOST_LDFLAGS}\" ${PKG_UBOOT_CONFIG} u-boot.dtb u-boot.img tools",
+      "  DEBUG=${PKG_DEBUG} CROSS_COMPILE=\"${TARGET_KERNEL_PREFIX}\" LDFLAGS=\"\" ARCH=arm64 _python_sysroot=\"${TOOLCHAIN}\" _python_prefix=/ _python_exec_prefix=/ make BL31=\"${PKG_BL31}\" ROCKCHIP_TPL=\"${PKG_DDR_BIN}\" HOSTCC=\"${HOST_CC}\" HOSTCFLAGS=\"-I${TOOLCHAIN}/include\" HOSTLDFLAGS=\"${HOST_LDFLAGS}\" HOSTSTRIP=\"true\" CONFIG_MKIMAGE_DTC_PATH=\"scripts/dtc/dtc\"",
+      "",
+      "  find_file_path bootloader/rkhelper && . ${FOUND_PATH}",
+      "}",
+      "",
+      "makeinstall_target() {",
+      "  : # nothing",
+      "}"
+    ],
+    "assignments": [
+      [
+        4,
+        "PKG_NAME=\"u-boot-Generic\""
+      ],
+      [
+        5,
+        "PKG_VERSION=\"v2026.01\""
+      ],
+      [
+        6,
+        "PKG_SHA256=\"03bb43c58d2343ee48dd191e0f181f0108425b179d84519add3a977071c3f654\""
+      ],
+      [
+        8,
+        "PKG_SITE=\"https://www.denx.de/wiki/U-Boot\""
+      ],
+      [
+        9,
+        "PKG_URL=\"https://github.com/u-boot/u-boot/archive/refs/tags/${PKG_VERSION}.tar.gz\""
+      ]
+    ],
+    "upstream_sha256": "b9476a8d5cd2499e49d75bd38fd9d41fc40342e1d3f30b950d2ab34240940b08",
+    "upstream_assignments": [
+      [
+        4,
+        "PKG_NAME=\"u-boot-Generic\""
+      ],
+      [
+        5,
+        "PKG_VERSION=\"v2026.01\""
+      ],
+      [
+        6,
+        "PKG_SHA256=\"03bb43c58d2343ee48dd191e0f181f0108425b179d84519add3a977071c3f654\""
+      ],
+      [
+        8,
+        "PKG_SITE=\"https://www.denx.de/wiki/U-Boot\""
+      ],
+      [
+        9,
+        "PKG_URL=\"https://github.com/u-boot/u-boot/archive/refs/tags/${PKG_VERSION}.tar.gz\""
+      ]
+    ]
+  },
+  "projects/ROCKNIX/devices/RK3566/packages/u-boot-Specific/package.mk": {
+    "sha256": "f5411d1a36befdd829c51d8506ae011981d38e1b8bcba5772ae1bb6cb8c139f4",
+    "owner": [
+      "devices-unshipped"
+    ],
+    "member_count": 2,
+    "source_lines": [
+      "# SPDX-License-Identifier: GPL-2.0",
+      "# Copyright (C) 2024-present ROCKNIX (https://github.com/ROCKNIX)",
+      "",
+      "PKG_NAME=\"u-boot-Specific\"",
+      "PKG_VERSION=\"v2026.01\"",
+      "PKG_SHA256=\"03bb43c58d2343ee48dd191e0f181f0108425b179d84519add3a977071c3f654\"",
+      "PKG_LICENSE=\"GPL\"",
+      "PKG_SITE=\"https://www.denx.de/wiki/U-Boot\"",
+      "PKG_URL=\"https://github.com/u-boot/u-boot/archive/${PKG_VERSION}.tar.gz\"",
+      "PKG_DEPENDS_TARGET=\"toolchain Python3 swig:host pyelftools:host gnutls:host\"",
+      "PKG_LONGDESC=\"Das U-Boot is a cross-platform bootloader for embedded systems.\"",
+      "PKG_TOOLCHAIN=\"manual\"",
+      "",
+      "PKG_NEED_UNPACK=\"${PROJECT_DIR}/${PROJECT}/bootloader ${PROJECT_DIR}/${PROJECT}/devices/${DEVICE}/bootloader\"",
+      "",
+      "if [ -n \"${UBOOT_FIRMWARE}\" ]; then",
+      "  PKG_DEPENDS_TARGET+=\" ${UBOOT_FIRMWARE}\"",
+      "  PKG_DEPENDS_UNPACK+=\" ${UBOOT_FIRMWARE}\"",
+      "fi",
+      "",
+      "pre_make_target() {",
+      "  # Base our config on Quartz64, it has no custom device code running at boot.",
+      "  PKG_UBOOT_CONFIG=\"quartz64-a-rk3566_defconfig\"",
+      "  PKG_RKBIN=\"$(get_build_dir rkbin)\"",
+      "  PKG_MINILOADER=\"spl/u-boot-spl.bin\"",
+      "  PKG_BL31=\"${PKG_RKBIN}/bin/rk35/rk3568_bl31_v1.45.elf\"",
+      "  PKG_DDR_BIN=\"${PKG_RKBIN}/bin/rk35/rk3568_ddr_1056MHz_v1.23.bin\"",
+      "}",
+      "",
+      "make_target() {",
+      "  [ \"${BUILD_WITH_DEBUG}\" = \"yes\" ] && PKG_DEBUG=1 || PKG_DEBUG=0",
+      "  setup_pkg_config_host",
+      "  DEBUG=${PKG_DEBUG} CROSS_COMPILE=\"${TARGET_KERNEL_PREFIX}\" LDFLAGS=\"\" ARCH=arm64 make mrproper",
+      "  DEBUG=${PKG_DEBUG} CROSS_COMPILE=\"${TARGET_KERNEL_PREFIX}\" LDFLAGS=\"\" ARCH=arm64 make HOSTCC=\"${HOST_CC}\" HOSTCFLAGS=\"-I${TOOLCHAIN}/include\" HOSTLDFLAGS=\"${HOST_LDFLAGS}\" ${PKG_UBOOT_CONFIG} u-boot.dtb u-boot.img tools",
+      "  DEBUG=${PKG_DEBUG} CROSS_COMPILE=\"${TARGET_KERNEL_PREFIX}\" LDFLAGS=\"\" ARCH=arm64 _python_sysroot=\"${TOOLCHAIN}\" _python_prefix=/ _python_exec_prefix=/ make BL31=\"${PKG_BL31}\" ROCKCHIP_TPL=\"${PKG_DDR_BIN}\" HOSTCC=\"${HOST_CC}\" HOSTCFLAGS=\"-I${TOOLCHAIN}/include\" HOSTLDFLAGS=\"${HOST_LDFLAGS}\" HOSTSTRIP=\"true\" CONFIG_MKIMAGE_DTC_PATH=\"scripts/dtc/dtc\"",
+      "",
+      "  find_file_path bootloader/rkhelper && . ${FOUND_PATH}",
+      "}",
+      "",
+      "makeinstall_target() {",
+      "  : # nothing",
+      "}"
+    ],
+    "assignments": [
+      [
+        4,
+        "PKG_NAME=\"u-boot-Specific\""
+      ],
+      [
+        5,
+        "PKG_VERSION=\"v2026.01\""
+      ],
+      [
+        6,
+        "PKG_SHA256=\"03bb43c58d2343ee48dd191e0f181f0108425b179d84519add3a977071c3f654\""
+      ],
+      [
+        8,
+        "PKG_SITE=\"https://www.denx.de/wiki/U-Boot\""
+      ],
+      [
+        9,
+        "PKG_URL=\"https://github.com/u-boot/u-boot/archive/${PKG_VERSION}.tar.gz\""
+      ]
+    ],
+    "upstream_sha256": "f5411d1a36befdd829c51d8506ae011981d38e1b8bcba5772ae1bb6cb8c139f4",
+    "upstream_assignments": [
+      [
+        4,
+        "PKG_NAME=\"u-boot-Specific\""
+      ],
+      [
+        5,
+        "PKG_VERSION=\"v2026.01\""
+      ],
+      [
+        6,
+        "PKG_SHA256=\"03bb43c58d2343ee48dd191e0f181f0108425b179d84519add3a977071c3f654\""
+      ],
+      [
+        8,
+        "PKG_SITE=\"https://www.denx.de/wiki/U-Boot\""
+      ],
+      [
+        9,
+        "PKG_URL=\"https://github.com/u-boot/u-boot/archive/${PKG_VERSION}.tar.gz\""
+      ]
+    ]
+  },
+  "projects/ROCKNIX/devices/RK3576/packages/u-boot/package.mk": {
+    "sha256": "2a4fce9d355bfd1070c4ea0880b602973770d8628082091195bac68d51d35a84",
+    "owner": [
+      "devices-unshipped"
+    ],
+    "member_count": 1,
+    "source_lines": [
+      "# SPDX-License-Identifier: GPL-2.0",
+      "# Copyright (C) 2024-present ROCKNIX (https://github.com/ROCKNIX)",
+      "",
+      "PKG_NAME=\"u-boot\"",
+      "PKG_VERSION=\"88dc2788777babfd6322fa655df549a019aa1e69\"",
+      "PKG_SHA256=\"c9858cd5fdc0204e72d5c2d4f0e185883fe627a5901f91c165ddecd787899117\"",
+      "PKG_LICENSE=\"GPL\"",
+      "PKG_SITE=\"https://source.denx.de/u-boot/u-boot\"",
+      "PKG_URL=\"${PKG_SITE}/-/archive/${PKG_VERSION}/u-boot-${PKG_VERSION}.tar.gz\"",
+      "PKG_DEPENDS_TARGET=\"toolchain Python3 swig:host pyelftools:host gnutls:host\"",
+      "PKG_LONGDESC=\"Das U-Boot is a cross-platform bootloader for embedded systems.\"",
+      "PKG_TOOLCHAIN=\"manual\"",
+      "PKG_RKBIN_DIR=\"$(get_build_dir rkbin)/bin/rk35\"",
+      "",
+      "PKG_NEED_UNPACK=\"${PROJECT_DIR}/${PROJECT}/bootloader ${PROJECT_DIR}/${PROJECT}/devices/${DEVICE}/bootloader\"",
+      "",
+      "if [ -n \"${UBOOT_FIRMWARE}\" ]; then",
+      "  PKG_DEPENDS_TARGET+=\" ${UBOOT_FIRMWARE}\"",
+      "  PKG_DEPENDS_UNPACK+=\" ${UBOOT_FIRMWARE}\"",
+      "fi",
+      "",
+      "pre_make_target() {",
+      "  PKG_UBOOT_CONFIG=\"generic-rk3576_defconfig\"",
+      "  PKG_MINILOADER=\"spl/u-boot-spl.bin\"",
+      "  PKG_BL31=\"${PKG_RKBIN_DIR}/rk3576_bl31_v1.20.elf\"",
+      "  PKG_DDR_BIN=\"${PKG_RKBIN_DIR}/rk3576_ddr_lp4_2112MHz_lp5_2736MHz_v1.09.bin\"",
+      "}",
+      "",
+      "make_target() {",
+      "  [ \"${BUILD_WITH_DEBUG}\" = \"yes\" ] && PKG_DEBUG=1 || PKG_DEBUG=0",
+      "  setup_pkg_config_host",
+      "",
+      "  DEBUG=${PKG_DEBUG} CROSS_COMPILE=\"${TARGET_KERNEL_PREFIX}\" LDFLAGS=\"\" ARCH=arm64 make mrproper",
+      "  DEBUG=${PKG_DEBUG} CROSS_COMPILE=\"${TARGET_KERNEL_PREFIX}\" LDFLAGS=\"\" ARCH=arm64 make HOSTCC=\"${HOST_CC}\" HOSTCFLAGS=\"-I${TOOLCHAIN}/include\" HOSTLDFLAGS=\"${HOST_LDFLAGS}\" ${PKG_UBOOT_CONFIG} u-boot.dtb u-boot.img tools",
+      "  DEBUG=${PKG_DEBUG} CROSS_COMPILE=\"${TARGET_KERNEL_PREFIX}\" LDFLAGS=\"\" ARCH=arm64 _python_sysroot=\"${TOOLCHAIN}\" _python_prefix=/ _python_exec_prefix=/ make BL31=\"${PKG_BL31}\" ROCKCHIP_TPL=\"${PKG_DDR_BIN}\" HOSTCC=\"${HOST_CC}\" HOSTCFLAGS=\"-I${TOOLCHAIN}/include\" HOSTLDFLAGS=\"${HOST_LDFLAGS}\" HOSTSTRIP=\"true\" CONFIG_MKIMAGE_DTC_PATH=\"scripts/dtc/dtc\"",
+      "",
+      "  find_file_path bootloader/rkhelper && . ${FOUND_PATH}",
+      "}",
+      "",
+      "makeinstall_target() {",
+      "  mkdir -p ${INSTALL}/usr/share/bootloader",
+      "",
+      "  cp -av ${PKG_BUILD}/uboot.bin ${INSTALL}/usr/share/bootloader",
+      "}"
+    ],
+    "assignments": [
+      [
+        4,
+        "PKG_NAME=\"u-boot\""
+      ],
+      [
+        5,
+        "PKG_VERSION=\"88dc2788777babfd6322fa655df549a019aa1e69\""
+      ],
+      [
+        6,
+        "PKG_SHA256=\"c9858cd5fdc0204e72d5c2d4f0e185883fe627a5901f91c165ddecd787899117\""
+      ],
+      [
+        8,
+        "PKG_SITE=\"https://source.denx.de/u-boot/u-boot\""
+      ],
+      [
+        9,
+        "PKG_URL=\"${PKG_SITE}/-/archive/${PKG_VERSION}/u-boot-${PKG_VERSION}.tar.gz\""
+      ]
+    ],
+    "upstream_sha256": "2a4fce9d355bfd1070c4ea0880b602973770d8628082091195bac68d51d35a84",
+    "upstream_assignments": [
+      [
+        4,
+        "PKG_NAME=\"u-boot\""
+      ],
+      [
+        5,
+        "PKG_VERSION=\"88dc2788777babfd6322fa655df549a019aa1e69\""
+      ],
+      [
+        6,
+        "PKG_SHA256=\"c9858cd5fdc0204e72d5c2d4f0e185883fe627a5901f91c165ddecd787899117\""
+      ],
+      [
+        8,
+        "PKG_SITE=\"https://source.denx.de/u-boot/u-boot\""
+      ],
+      [
+        9,
+        "PKG_URL=\"${PKG_SITE}/-/archive/${PKG_VERSION}/u-boot-${PKG_VERSION}.tar.gz\""
+      ]
+    ]
+  },
+  "projects/ROCKNIX/devices/RK3588/packages/u-boot/package.mk": {
+    "sha256": "0ec83ad33ec42230ca75760ebc521e6df27dffabbc884c7b6de1e04c28ae2fef",
+    "owner": [
+      "devices-unshipped"
+    ],
+    "member_count": 1,
+    "source_lines": [
+      "# SPDX-License-Identifier: GPL-2.0",
+      "# Copyright (C) 2024-present ROCKNIX (https://github.com/ROCKNIX)",
+      "",
+      "PKG_NAME=\"u-boot\"",
+      "PKG_VERSION=\"e99376f7dd01e310a0874459a1fe7535be431f43\"",
+      "PKG_SHA256=\"045519a0eb5471697e09dca903450298897ab9cc058cf371bacc03f334b3dd0e\"",
+      "PKG_LICENSE=\"GPL\"",
+      "PKG_SITE=\"https://www.denx.de/wiki/U-Boot\"",
+      "PKG_URL=\"https://github.com/ROCKNIX/rk3588-uboot/archive/${PKG_VERSION}.tar.gz\"",
+      "PKG_DEPENDS_TARGET=\"toolchain Python3 swig:host pyelftools:host\"",
+      "PKG_LONGDESC=\"Das U-Boot is a cross-platform bootloader for embedded systems.\"",
+      "PKG_TOOLCHAIN=\"manual\"",
+      "",
+      "PKG_NEED_UNPACK=\"${PROJECT_DIR}/${PROJECT}/bootloader ${PROJECT_DIR}/${PROJECT}/devices/${DEVICE}/bootloader\"",
+      "PKG_NEED_UNPACK+=\" ${PROJECT_DIR}/${PROJECT}/options ${PROJECT_DIR}/${PROJECT}/devices/${DEVICE}/options\"",
+      "",
+      "if [ -n \"${UBOOT_FIRMWARE}\" ]; then",
+      "  PKG_DEPENDS_TARGET+=\" ${UBOOT_FIRMWARE}\"",
+      "  PKG_DEPENDS_UNPACK+=\" ${UBOOT_FIRMWARE}\"",
+      "fi",
+      "",
+      "pre_make_target() {",
+      "  PKG_UBOOT_CONFIG=\"orangepi_5_defconfig\"",
+      "  PKG_RKBIN=\"$(get_build_dir rkbin)\"",
+      "  PKG_MINILOADER=\"spl/u-boot-spl.bin\"",
+      "  PKG_BL31=\"${PKG_RKBIN}/bin/rk35/rk3588_bl31_v1.47.elf\"",
+      "  PKG_DDR_BIN=\"${PKG_RKBIN}/bin/rk35/rk3588_ddr_lp4_1848MHz_lp5_2736MHz_v1.10.bin\"",
+      "}",
+      "",
+      "make_target() {",
+      "  [ \"${BUILD_WITH_DEBUG}\" = \"yes\" ] && PKG_DEBUG=1 || PKG_DEBUG=0",
+      "  setup_pkg_config_host",
+      "",
+      "  DEBUG=${PKG_DEBUG} CROSS_COMPILE=\"${TARGET_KERNEL_PREFIX}\" LDFLAGS=\"\" ARCH=arm64 make mrproper",
+      "  DEBUG=${PKG_DEBUG} CROSS_COMPILE=\"${TARGET_KERNEL_PREFIX}\" LDFLAGS=\"\" ARCH=arm64 make HOSTCC=\"${HOST_CC}\" HOSTCFLAGS=\"-I${TOOLCHAIN}/include\" HOSTLDFLAGS=\"${HOST_LDFLAGS}\" ${PKG_UBOOT_CONFIG} BL31=${PKG_BL31} ${PKG_MINILOADER} u-boot.dtb u-boot.itb CONFIG_MKIMAGE_DTC_PATH=\"scripts/dtc/dtc\"",
+      "  DEBUG=${PKG_DEBUG} CROSS_COMPILE=\"${TARGET_KERNEL_PREFIX}\" LDFLAGS=\"\" ARCH=arm64 _python_sysroot=\"${TOOLCHAIN}\" _python_prefix=/ _python_exec_prefix=/ make HOSTCC=\"${HOST_CC}\" HOSTCFLAGS=\"-I${TOOLCHAIN}/include\" HOSTLDFLAGS=\"-L${TOOLCHAIN}/lib\" HOSTSTRIP=\"true\" CONFIG_MKIMAGE_DTC_PATH=\"scripts/dtc/dtc\"",
+      "",
+      "  find_file_path bootloader/rkhelper && . ${FOUND_PATH}",
+      "}",
+      "",
+      "makeinstall_target() {",
+      "  mkdir -p ${INSTALL}/usr/share/bootloader",
+      "",
+      "  cp -av ${PKG_BUILD}/uboot.bin ${INSTALL}/usr/share/bootloader",
+      "}"
+    ],
+    "assignments": [
+      [
+        4,
+        "PKG_NAME=\"u-boot\""
+      ],
+      [
+        5,
+        "PKG_VERSION=\"e99376f7dd01e310a0874459a1fe7535be431f43\""
+      ],
+      [
+        6,
+        "PKG_SHA256=\"045519a0eb5471697e09dca903450298897ab9cc058cf371bacc03f334b3dd0e\""
+      ],
+      [
+        8,
+        "PKG_SITE=\"https://www.denx.de/wiki/U-Boot\""
+      ],
+      [
+        9,
+        "PKG_URL=\"https://github.com/ROCKNIX/rk3588-uboot/archive/${PKG_VERSION}.tar.gz\""
+      ]
+    ],
+    "upstream_sha256": "ebd375d25b524bc925987fd7f23204bf45470639af6495509f663ebe0674772f",
+    "upstream_assignments": [
+      [
+        4,
+        "PKG_NAME=\"u-boot\""
+      ],
+      [
+        5,
+        "PKG_VERSION=\"e99376f7dd01e310a0874459a1fe7535be431f43\""
+      ],
+      [
+        6,
+        "PKG_SHA256=\"045519a0eb5471697e09dca903450298897ab9cc058cf371bacc03f334b3dd0e\""
+      ],
+      [
+        8,
+        "PKG_SITE=\"https://www.denx.de/wiki/U-Boot\""
+      ],
+      [
+        9,
+        "PKG_URL=\"https://github.com/ROCKNIX/rk3588-uboot/archive/${PKG_VERSION}.tar.gz\""
+      ]
+    ]
+  },
+  "projects/ROCKNIX/devices/S922X/packages/u-boot/package.mk": {
+    "sha256": "105bdfaa94b00a2d83d66e8be8e10d15160cd9fec8f5797b72a3cc70d1ff094d",
+    "owner": [
+      "devices-unshipped"
+    ],
+    "member_count": 3,
+    "source_lines": [
+      "# SPDX-License-Identifier: GPL-2.0",
+      "# Copyright (C) 2022-24 JELOS (https://github.com/JustEnoughLinuxOS)",
+      "# Copyright (C) 2024-present ROCKNIX (https://github.com/ROCKNIX)",
+      "",
+      "PKG_NAME=\"u-boot\"",
+      "PKG_VERSION=\"b91540f886e8655a1547532eb0077e83a7b431d7\"",
+      "PKG_SHA256=\"5cecb72e239217d2e523b5378f8d6d209851027e89eaf7b9e5e93ec09a8bbfa9\"",
+      "PKG_LICENSE=\"GPL\"",
+      "PKG_SITE=\"https://www.denx.de/wiki/U-Boot\"",
+      "PKG_URL=\"https://github.com/ROCKNIX/u-boot/archive/${PKG_VERSION}.tar.gz\"",
+      "PKG_DEPENDS_TARGET=\"toolchain openssl:host pkg-config:host Python3:host swig:host pyelftools:host gcc-linaro-aarch64-elf:host gcc-linaro-arm-eabi:host\"",
+      "PKG_LONGDESC=\"Das U-Boot is a cross-platform bootloader for embedded systems.\"",
+      "PKG_TOOLCHAIN=\"manual\"",
+      "",
+      "PKG_NEED_UNPACK=\"${PROJECT_DIR}/${PROJECT}/bootloader ${PROJECT_DIR}/${PROJECT}/devices/${DEVICE}/bootloader\"",
+      "PKG_NEED_UNPACK+=\" ${PROJECT_DIR}/${PROJECT}/options ${PROJECT_DIR}/${PROJECT}/devices/${DEVICE}/options\"",
+      "",
+      "if [ -n \"${UBOOT_FIRMWARE}\" ]; then",
+      "  PKG_DEPENDS_TARGET+=\" ${UBOOT_FIRMWARE}\"",
+      "  PKG_DEPENDS_UNPACK+=\" ${UBOOT_FIRMWARE}\"",
+      "fi",
+      "",
+      "configure_package() {",
+      "  PKG_UBOOT_CONFIG=\"odroidgou_defconfig\"",
+      "}",
+      "",
+      "make_target() {",
+      "  [ \"${BUILD_WITH_DEBUG}\" = \"yes\" ] && PKG_DEBUG=1 || PKG_DEBUG=0",
+      "  export PATH=${TOOLCHAIN}/lib/gcc-linaro-aarch64-elf/bin/:${TOOLCHAIN}/lib/gcc-linaro-arm-eabi/bin/:${PATH}",
+      "  DEBUG=${PKG_DEBUG} CROSS_COMPILE=aarch64-elf- ARCH=arm CFLAGS=\"\" LDFLAGS=\"\" make mrproper",
+      "  DEBUG=${PKG_DEBUG} CROSS_COMPILE=aarch64-elf- ARCH=arm CFLAGS=\"\" LDFLAGS=\"\" make HOSTCC=\"${HOST_CC}\" HOSTCFLAGS=\"-I${TOOLCHAIN}/include\" HOSTLDFLAGS=\"${HOST_LDFLAGS}\" ${PKG_UBOOT_CONFIG}",
+      "  DEBUG=${PKG_DEBUG} CROSS_COMPILE=aarch64-elf- ARCH=arm CFLAGS=\"\" LDFLAGS=\"\" make HOSTCC=\"${HOST_CC}\" HOSTCFLAGS=\"-I${TOOLCHAIN}/include\" HOSTLDFLAGS=\"${HOST_LDFLAGS}\" HOSTSTRIP=\"true\"",
+      "}",
+      "",
+      "makeinstall_target() {",
+      "  mkdir -p $INSTALL/usr/share/bootloader",
+      "",
+      "  cp -av ${PKG_BUILD}/tools/odroid_resource/res ${INSTALL}/usr/share/bootloader",
+      "  cp -av ${PKG_BUILD}/sd_fuse/u-boot.bin ${INSTALL}/usr/share/bootloader",
+      "}"
+    ],
+    "assignments": [
+      [
+        5,
+        "PKG_NAME=\"u-boot\""
+      ],
+      [
+        6,
+        "PKG_VERSION=\"b91540f886e8655a1547532eb0077e83a7b431d7\""
+      ],
+      [
+        7,
+        "PKG_SHA256=\"5cecb72e239217d2e523b5378f8d6d209851027e89eaf7b9e5e93ec09a8bbfa9\""
+      ],
+      [
+        9,
+        "PKG_SITE=\"https://www.denx.de/wiki/U-Boot\""
+      ],
+      [
+        10,
+        "PKG_URL=\"https://github.com/ROCKNIX/u-boot/archive/${PKG_VERSION}.tar.gz\""
+      ]
+    ],
+    "upstream_sha256": "71b402f58496c5bbb983693c5f9295485e5789d51e130c2cfde6bc62fc339b32",
+    "upstream_assignments": [
+      [
+        5,
+        "PKG_NAME=\"u-boot\""
+      ],
+      [
+        6,
+        "PKG_VERSION=\"v2026.10\""
+      ],
+      [
+        7,
+        "PKG_SHA256=\"f943a88389c8fd70a6b0d061a88267465e143c7ca6ea2b75837ab20f5b60c739\""
+      ],
+      [
+        9,
+        "PKG_SITE=\"https://www.denx.de/wiki/U-Boot\""
+      ],
+      [
+        10,
+        "PKG_URL=\"https://github.com/u-boot/u-boot/archive/${PKG_VERSION}.tar.gz\""
+      ]
+    ]
+  },
+  "projects/ROCKNIX/packages/apps/gamepadtester/package.mk": {
+    "sha256": "f5a5aed95afec1a87cdab04aee65c2f41060c7053e71cf90fe61b0b5d85debe2",
+    "owner": [
+      "image-packages"
+    ],
+    "member_count": 3,
+    "source_lines": [
+      "# SPDX-License-Identifier: GPL-2.0-or-later",
+      "# Copyright (C) 2024 ROCKNIX (https://github.com/ROCKNIX)",
+      "",
+      "PKG_NAME=\"gamepadtester\"",
+      "PKG_VERSION=\"6ac49e67aa98fe3dd5c27f73306d65d4b7a82daa\"",
+      "PKG_SHA256=\"dcba71ac2e673b7714a6cac12661d56e61a2eb861136bf7d74a42165d6a69be6\"",
+      "PKG_LICENSE=\"GPLv3\"",
+      "PKG_SITE=\"https://github.com/timre13/GamepadTester\"",
+      "PKG_URL=\"${PKG_SITE}/archive/${PKG_VERSION}.tar.gz\"",
+      "PKG_DEPENDS_TARGET=\"toolchain SDL2 SDL2_gfx gamecontrollerdb\"",
+      "PKG_LONGDESC=\"A simple SDL GUI Gamepad tester\"",
+      "PKG_TOOLCHAIN=\"cmake\"",
+      "PKG_PATCH_DIRS+=\"${DEVICE}\"",
+      "",
+      "case ${DEVICE} in",
+      "  SM8650|SM8750|SM8550|SM8250)",
+      "    PKG_PATCH_DIRS+=\" xbox\"",
+      "    ;;",
+      "  *)",
+      "    PKG_PATCH_DIRS+=\" legacy\"",
+      "    ;;",
+      "esac",
+      "",
+      "makeinstall_target() {",
+      "  mkdir -p ${INSTALL}/usr/bin",
+      "    cp -a ${PKG_BUILD}/.${TARGET_NAME}/gamepad_test ${INSTALL}/usr/bin/gamepad-tester",
+      "",
+      "  mkdir -p ${INSTALL}/usr/config/modules",
+      "    cp -a ${PKG_DIR}/scripts/* ${INSTALL}/usr/config/modules",
+      "}"
+    ],
+    "assignments": [
+      [
+        4,
+        "PKG_NAME=\"gamepadtester\""
+      ],
+      [
+        5,
+        "PKG_VERSION=\"6ac49e67aa98fe3dd5c27f73306d65d4b7a82daa\""
+      ],
+      [
+        6,
+        "PKG_SHA256=\"dcba71ac2e673b7714a6cac12661d56e61a2eb861136bf7d74a42165d6a69be6\""
+      ],
+      [
+        8,
+        "PKG_SITE=\"https://github.com/timre13/GamepadTester\""
+      ],
+      [
+        9,
+        "PKG_URL=\"${PKG_SITE}/archive/${PKG_VERSION}.tar.gz\""
+      ],
+      [
+        13,
+        "PKG_PATCH_DIRS+=\"${DEVICE}\""
+      ],
+      [
+        17,
+        "    PKG_PATCH_DIRS+=\" xbox\""
+      ],
+      [
+        20,
+        "    PKG_PATCH_DIRS+=\" legacy\""
+      ]
+    ],
+    "upstream_sha256": "606074f2549e4db86b7a1a6cc6b5b8673cd8bc930ede28b4b05642c2edee3f14",
+    "upstream_assignments": [
+      [
+        4,
+        "PKG_NAME=\"gamepadtester\""
+      ],
+      [
+        6,
+        "PKG_SITE=\"https://github.com/ROCKNIX/GamepadTester\""
+      ],
+      [
+        7,
+        "PKG_URL=\"${PKG_SITE}/archive/${PKG_VERSION}.tar.gz\""
+      ],
+      [
+        11,
+        "PKG_PATCH_DIRS+=\"${DEVICE}\""
+      ],
+      [
+        15,
+        "    PKG_VERSION=\"b06fef21d7e67aa95bbadb6021ed5a22d2aa6c76\""
+      ],
+      [
+        16,
+        "    PKG_SHA256=\"c0a52037946e7b0a7314896a7b4a9316a38eae8253e8cc457385dfb7cd78ac6c\""
+      ],
+      [
+        19,
+        "    PKG_VERSION=\"6ac49e67aa98fe3dd5c27f73306d65d4b7a82daa\""
+      ],
+      [
+        20,
+        "    PKG_SHA256=\"dcba71ac2e673b7714a6cac12661d56e61a2eb861136bf7d74a42165d6a69be6\""
+      ],
+      [
+        21,
+        "    PKG_SITE=\"https://github.com/timre13/GamepadTester\""
+      ],
+      [
+        22,
+        "    PKG_PATCH_DIRS+=\" legacy\""
+      ],
+      [
+        26,
+        "PKG_URL=\"${PKG_SITE}/archive/${PKG_VERSION}.tar.gz\""
+      ]
+    ]
+  },
+  "projects/ROCKNIX/packages/apps/mangohud/package.mk": {
+    "sha256": "eedb1ec41c904ed890d50d67f8a9dd922ff188e4dff32c80cca94230367cf826",
+    "owner": [
+      "image-packages"
+    ],
+    "member_count": 11,
+    "source_lines": [
+      "# SPDX-License-Identifier: GPL-2.0-or-later",
+      "# Copyright (C) 2025-present ROCKNIX (https://github.com/ROCKNIX)",
+      "",
+      "PKG_NAME=\"mangohud\"",
+      "PKG_VERSION=\"992103e4fb744897826de04ea00a2f71e7018214\" # v0.8.4",
+      "PKG_SHA256=\"edd61f4716710681a9e3b535556831ee0c6187b7b6f90d29f8d8ac234448f4a5\"",
+      "PKG_LICENSE=\"GPL\"",
+      "PKG_SITE=\"https://github.com/flightlessmango/MangoHud\"",
+      "PKG_URL=\"${PKG_SITE}/archive/${PKG_VERSION}.tar.gz\"",
+      "PKG_DEPENDS_TARGET=\"toolchain glslang mesa Python3 wayland libxcb dbus mangohud-vulkan-headers mangohud-vulkan-utility-libraries\"",
+      "PKG_LONGDESC=\"A Vulkan and OpenGL overlay for monitoring FPS, temperatures, CPU/GPU load and more.\"",
+      "",
+      "PKG_PATCH_DIRS+=\" common\"",
+      "",
+      "case ${DEVICE} in",
+      "  SM4450|SM6115|SM8250|SM8550|SM8650|SM8750)",
+      "    PKG_PATCH_DIRS+=\" qualcomm\"",
+      "  ;;",
+      "esac",
+      "",
+      "[ \"${BATTERYPLUS_SUPPORT}\" = \"yes\" ] && PKG_PATCH_DIRS+=\" batteryplus\"",
+      "",
+      "PKG_PATCH_DIRS+=\" ${DEVICE}\"",
+      "",
+      "if [ \"${OPENGL_SUPPORT}\" = \"yes\" ]; then",
+      "  PKG_DEPENDS_TARGET+=\" ${OPENGL}\"",
+      "fi",
+      "",
+      "if [ \"${VULKAN_SUPPORT}\" = \"yes\" ]",
+      "then",
+      "  PKG_DEPENDS_TARGET+=\" ${VULKAN}\"",
+      "fi",
+      "",
+      "pre_configure_target() {",
+      "  PKG_MESON_OPTS_TARGET+=\" -Dwith_xnvctrl=disabled \\",
+      "                           -Dwith_x11=enabled \\",
+      "                           -Dmangoplot=disabled \\",
+      "                           -Dwith_wayland=enabled \\",
+      "                           -Dmangoapp=true \\",
+      "                           -Dwith_fex=true\"",
+      "",
+      "  # Download Sub Modules",
+      "  mkdir -p ${PKG_BUILD}/subprojects/",
+      "",
+      "  ### vulkan-headers and vulkan-utility-libraries: from meson's package cache,",
+      "  # never from the network. mangohud's meson.build calls subproject() for both",
+      "  # unconditionally, and its own wraps name the release each needs (1.4.346",
+      "  # at v0.8.4; the 1.3.283 tarball this hook used to fetch and unpack sat",
+      "  # unused beside them, since the wrap's directory named another). The build",
+      "  # refuses meson's download (scripts/build, --wrap-mode=nodownload), so the",
+      "  # two tarballs come in as sources through the mangohud-vulkan-headers and",
+      "  # mangohud-vulkan-utility-libraries packages, hash-checked at download, and",
+      "  # are copied under the file name the wrap expects; meson unpacks them from",
+      "  # there and applies the wrap's packagefiles. The wrap and the package must",
+      "  # agree, or the build stops here and says which to bump.",
+      "  mkdir -p ${PKG_BUILD}/subprojects/packagecache",
+      "  local wrap want have",
+      "  for wrap in vulkan-headers vulkan-utility-libraries; do",
+      "    want=$(sed -n 's/^source_filename = //p' ${PKG_BUILD}/subprojects/${wrap}.wrap)",
+      "    have=$(sed -n 's/^source_hash = //p' ${PKG_BUILD}/subprojects/${wrap}.wrap)",
+      "    [ -n \"${want}\" ] && [ -f \"${SOURCES}/mangohud-${wrap}/${want}\" ] || die \"mangohud: subprojects/${wrap}.wrap wants '${want:-?}' and the mangohud-${wrap} package does not supply it -- bump that package to the wrap's version\"",
+      "    [ \"$(sha256sum \"${SOURCES}/mangohud-${wrap}/${want}\" | cut -d' ' -f1)\" = \"${have}\" ] || die \"mangohud: the mangohud-${wrap} tarball's hash is not the wrap's source_hash -- the package and the wrap disagree\"",
+      "    cp \"${SOURCES}/mangohud-${wrap}/${want}\" ${PKG_BUILD}/subprojects/packagecache/${want}",
+      "  done",
+      "",
+      "  ### imgui",
+      "  curl -Lo ${PKG_BUILD}/subprojects/imgui.tar.gz https://github.com/ocornut/imgui/archive/refs/tags/v1.91.6.tar.gz",
+      "  tar -xvf ${PKG_BUILD}/subprojects/imgui.tar.gz -C ${PKG_BUILD}/subprojects/",
+      "  #curl -Lo ${PKG_BUILD}/subprojects/imgui_patch_1.91.6-3.zip https://wrapdb.mesonbuild.com/v2/imgui_1.91.6-3/get_patch",
+      "  #unzip -o ${PKG_BUILD}/subprojects/imgui_patch_1.91.6-3.zip -d ${PKG_BUILD}/subprojects",
+      "  unzip -o ${PKG_DIR}/meson-patches/imgui_patch_1.91.6-3.zip -d ${PKG_BUILD}/subprojects",
+      "  rm -rf ${PKG_BUILD}/subprojects/imgui.tar.gz",
+      "  rm -rf ${PKG_BUILD}/subprojects/imgui_patch_1.91.6-3.zip",
+      "",
+      "  ### implot",
+      "  curl -Lo ${PKG_BUILD}/subprojects/implot.zip https://github.com/epezent/implot/archive/refs/tags/v0.16.zip",
+      "  unzip -o ${PKG_BUILD}/subprojects/implot.zip -d ${PKG_BUILD}/subprojects",
+      "  #curl -Lo ${PKG_BUILD}/subprojects/implot_patch_0.16-1.zip https://wrapdb.mesonbuild.com/v2/implot_0.16-1/get_patch",
+      "  #unzip -o ${PKG_BUILD}/subprojects/implot_patch_0.16-1.zip -d ${PKG_BUILD}/subprojects",
+      "  unzip -o ${PKG_DIR}/meson-patches/implot_patch_0.16-1.zip -d ${PKG_BUILD}/subprojects",
+      "  rm -rf ${PKG_BUILD}/subprojects/implot.zip",
+      "  rm -rf ${PKG_BUILD}/subprojects/implot_patch_0.16-1.zip",
+      "",
+      "  ### spdlog",
+      "  curl -Lo ${PKG_BUILD}/subprojects/spdlog.tar.gz https://github.com/gabime/spdlog/archive/refs/tags/v1.14.1.tar.gz",
+      "  tar -xvf ${PKG_BUILD}/subprojects/spdlog.tar.gz -C ${PKG_BUILD}/subprojects/",
+      "  #curl -Lo ${PKG_BUILD}/subprojects/spdlog_patch_1.14.1-1.zip https://wrapdb.mesonbuild.com/v2/spdlog_1.14.1-1/get_patch",
+      "  #unzip -o ${PKG_BUILD}/subprojects/spdlog_patch_1.14.1-1.zip -d ${PKG_BUILD}/subprojects",
+      "  unzip -o ${PKG_DIR}/meson-patches/spdlog_patch_1.14.1-1.zip -d ${PKG_BUILD}/subprojects",
+      "  rm -rf ${PKG_BUILD}/subprojects/spdlog.tar.gz",
+      "  rm -rf ${PKG_BUILD}/subprojects/spdlog_patch_1.14.1-1.zip",
+      "}",
+      "",
+      "post_makeinstall_target() {",
+      "  mkdir -p ${INSTALL}/usr/bin",
+      "  cp -rf ${PKG_DIR}/sources/* ${INSTALL}/usr/bin",
+      "  chmod +x ${INSTALL}/usr/bin/*",
+      "",
+      "  mkdir -p ${INSTALL}/usr/config/MangoHud",
+      "  cp -rf ${PKG_DIR}/config/* ${INSTALL}/usr/config/MangoHud",
+      "",
+      "  # Customize config per platform, eg set font size for display resolution",
+      "  case ${DEVICE} in",
+      "    RK3326)",
+      "      sed -e \"s/@FONT_SIZE@/30/g\" -i ${INSTALL}/usr/config/MangoHud/MangoHud.conf",
+      "    ;;",
+      "    S922X)",
+      "      # Compact, horizontal display with smaller font works well",
+      "      sed -e \"s/@FONT_SIZE@/15/g\" -i ${INSTALL}/usr/config/MangoHud/MangoHud.conf",
+      "      sed -i 's/^\\# hud_no_margin/\\hud_no_margin/g' ${INSTALL}/usr/config/MangoHud/MangoHud.conf",
+      "      sed -i 's/^\\# hud_compact/\\hud_compact/g' ${INSTALL}/usr/config/MangoHud/MangoHud.conf",
+      "      sed -i 's/^\\# horizontal/\\horizontal/g' ${INSTALL}/usr/config/MangoHud/MangoHud.conf",
+      "",
+      "      # No GPU temperature sensor or battery life estimate available",
+      "      sed -i 's/^gpu_temp/\\# gpu_temp/g' ${INSTALL}/usr/config/MangoHud/MangoHud.conf",
+      "      sed -i 's/^battery_time/\\# battery_time/g' ${INSTALL}/usr/config/MangoHud/MangoHud.conf",
+      "    ;;",
+      "    SM8250)",
+      "      sed -e \"s/@FONT_SIZE@/40/g\" -i ${INSTALL}/usr/config/MangoHud/MangoHud.conf",
+      "      ",
+      "      # No battery life estimate available",
+      "      sed -i 's/^battery_time/\\# battery_time/g' ${INSTALL}/usr/config/MangoHud/MangoHud.conf",
+      "    ;;",
+      "    *)",
+      "      sed -e \"s/@FONT_SIZE@/40/g\" -i ${INSTALL}/usr/config/MangoHud/MangoHud.conf",
+      "    ;;",
+      "  esac",
+      "}"
+    ],
+    "assignments": [
+      [
+        4,
+        "PKG_NAME=\"mangohud\""
+      ],
+      [
+        5,
+        "PKG_VERSION=\"992103e4fb744897826de04ea00a2f71e7018214\" # v0.8.4"
+      ],
+      [
+        6,
+        "PKG_SHA256=\"edd61f4716710681a9e3b535556831ee0c6187b7b6f90d29f8d8ac234448f4a5\""
+      ],
+      [
+        8,
+        "PKG_SITE=\"https://github.com/flightlessmango/MangoHud\""
+      ],
+      [
+        9,
+        "PKG_URL=\"${PKG_SITE}/archive/${PKG_VERSION}.tar.gz\""
+      ],
+      [
+        13,
+        "PKG_PATCH_DIRS+=\" common\""
+      ],
+      [
+        17,
+        "    PKG_PATCH_DIRS+=\" qualcomm\""
+      ],
+      [
+        21,
+        "[ \"${BATTERYPLUS_SUPPORT}\" = \"yes\" ] && PKG_PATCH_DIRS+=\" batteryplus\""
+      ],
+      [
+        23,
+        "PKG_PATCH_DIRS+=\" ${DEVICE}\""
+      ]
+    ],
+    "upstream_sha256": "04e01f44aa20c11c0d27d22640458ab95b6e2b11eabb75f3c3ba8f9702ba58d9",
+    "upstream_assignments": [
+      [
+        4,
+        "PKG_NAME=\"mangohud\""
+      ],
+      [
+        5,
+        "PKG_VERSION=\"992103e4fb744897826de04ea00a2f71e7018214\" # v0.8.4"
+      ],
+      [
+        6,
+        "PKG_SHA256=\"edd61f4716710681a9e3b535556831ee0c6187b7b6f90d29f8d8ac234448f4a5\""
+      ],
+      [
+        8,
+        "PKG_SITE=\"https://github.com/flightlessmango/MangoHud\""
+      ],
+      [
+        9,
+        "PKG_URL=\"${PKG_SITE}/archive/${PKG_VERSION}.tar.gz\""
+      ],
+      [
+        13,
+        "PKG_PATCH_DIRS+=\" common\""
+      ],
+      [
+        17,
+        "    PKG_PATCH_DIRS+=\" qualcomm\""
+      ],
+      [
+        21,
+        "[ \"${BATTERYPLUS_SUPPORT}\" = \"yes\" ] && PKG_PATCH_DIRS+=\" batteryplus\""
+      ],
+      [
+        23,
+        "PKG_PATCH_DIRS+=\" ${DEVICE}\""
+      ]
+    ]
+  },
+  "projects/ROCKNIX/packages/apps/oga_controls/package.mk": {
+    "sha256": "b944c747ad9a98edfd3892461182a0f2267d8561249ff9af566f7d4b2fe6d5cb",
+    "owner": [
+      "image-packages"
+    ],
+    "member_count": 2,
+    "source_lines": [
+      "# SPDX-License-Identifier: GPL-2.0-or-later",
+      "# Copyright (C) 2022-present JELOS (https://github.com/JustEnoughLinuxOS)",
+      "",
+      "PKG_NAME=\"oga_controls\"",
+      "PKG_VERSION=\"1604ee24150c1c5bb7c66bc4670919c2ad8f0064\"",
+      "PKG_SHA256=\"cdfa89581e3494220ef1d91246376179947bdd2ba1dd084249c224cc9ce0d8f4\"",
+      "PKG_LICENSE=\"GPLv2\"",
+      "PKG_SITE=\"https://github.com/christianhaitian/oga_controls\"",
+      "PKG_URL=\"${PKG_SITE}/archive/${PKG_VERSION}.tar.gz\"",
+      "PKG_DEPENDS_TARGET=\"toolchain libevdev SDL2\"",
+      "PKG_LONGDESC=\"Emulated keyboard / mouse / joystick for the RGB10/OGA 1.1 (BE), RG351 P/M/V, RK2020/OGA 1.0, OGS, and the Chi\"",
+      "PKG_TOOLCHAIN=\"make\"",
+      "",
+      "PKG_PATCH_DIRS+=\"${DEVICE}\"",
+      "",
+      "makeinstall_target() {",
+      "  mkdir -p ${INSTALL}/usr/bin",
+      "    cp -a ${PKG_BUILD}/oga_controls ${INSTALL}/usr/bin",
+      "}"
+    ],
+    "assignments": [
+      [
+        4,
+        "PKG_NAME=\"oga_controls\""
+      ],
+      [
+        5,
+        "PKG_VERSION=\"1604ee24150c1c5bb7c66bc4670919c2ad8f0064\""
+      ],
+      [
+        6,
+        "PKG_SHA256=\"cdfa89581e3494220ef1d91246376179947bdd2ba1dd084249c224cc9ce0d8f4\""
+      ],
+      [
+        8,
+        "PKG_SITE=\"https://github.com/christianhaitian/oga_controls\""
+      ],
+      [
+        9,
+        "PKG_URL=\"${PKG_SITE}/archive/${PKG_VERSION}.tar.gz\""
+      ],
+      [
+        14,
+        "PKG_PATCH_DIRS+=\"${DEVICE}\""
+      ]
+    ],
+    "upstream_sha256": "b944c747ad9a98edfd3892461182a0f2267d8561249ff9af566f7d4b2fe6d5cb",
+    "upstream_assignments": [
+      [
+        4,
+        "PKG_NAME=\"oga_controls\""
+      ],
+      [
+        5,
+        "PKG_VERSION=\"1604ee24150c1c5bb7c66bc4670919c2ad8f0064\""
+      ],
+      [
+        6,
+        "PKG_SHA256=\"cdfa89581e3494220ef1d91246376179947bdd2ba1dd084249c224cc9ce0d8f4\""
+      ],
+      [
+        8,
+        "PKG_SITE=\"https://github.com/christianhaitian/oga_controls\""
+      ],
+      [
+        9,
+        "PKG_URL=\"${PKG_SITE}/archive/${PKG_VERSION}.tar.gz\""
+      ],
+      [
+        14,
+        "PKG_PATCH_DIRS+=\"${DEVICE}\""
+      ]
+    ]
+  },
+  "projects/ROCKNIX/packages/audio/alsa-lib/package.mk": {
+    "sha256": "592f3654b64cdf1a1b9140d1c0fd28195c80f70cbfb9c3274a49c032839b22ab",
+    "owner": [
+      "image-packages"
+    ],
+    "member_count": 1,
+    "source_lines": [
+      "# SPDX-License-Identifier: GPL-2.0-or-later",
+      "# Copyright (C) 2009-2016 Stephan Raue (stephan@openelec.tv)",
+      "# Copyright (C) 2016-present Team LibreELEC (https://libreelec.tv)",
+      "",
+      "PKG_NAME=\"alsa-lib\"",
+      "PKG_VERSION=\"1.2.14\"",
+      "PKG_SHA256=\"be9c88a0b3604367dd74167a2b754a35e142f670292ae47a2fdef27a2ee97a32\"",
+      "PKG_LICENSE=\"GPL\"",
+      "PKG_SITE=\"http://www.alsa-project.org/\"",
+      "PKG_URL=\"https://www.alsa-project.org/files/pub/lib/alsa-lib-${PKG_VERSION}.tar.bz2\"",
+      "PKG_DEPENDS_TARGET=\"toolchain alsa-ucm-conf alsa-topology-conf\"",
+      "PKG_LONGDESC=\"ALSA (Advanced Linux Sound Architecture) is the next generation Linux Sound API.\"",
+      "PKG_TOOLCHAIN=\"autotools\"",
+      "PKG_BUILD_FLAGS=\"+pic\"",
+      "PKG_PATCH_DIRS+=\" ${DEVICE}\"",
+      "",
+      "if build_with_debug; then",
+      "  PKG_ALSA_DEBUG=--with-debug",
+      "else",
+      "  PKG_ALSA_DEBUG=--without-debug",
+      "fi",
+      "",
+      "PKG_CONFIGURE_OPTS_TARGET+=\"${PKG_ALSA_DEBUG} \\",
+      "                           --disable-dependency-tracking \\",
+      "                           --with-plugindir=/usr/lib/alsa \\",
+      "                           --disable-python\"",
+      "",
+      "post_configure_target() {",
+      "  sed -i 's/.*PKGLIBDIR.*/#define PKGLIBDIR \"\"/' include/config.h",
+      "}",
+      ""
+    ],
+    "assignments": [
+      [
+        5,
+        "PKG_NAME=\"alsa-lib\""
+      ],
+      [
+        6,
+        "PKG_VERSION=\"1.2.14\""
+      ],
+      [
+        7,
+        "PKG_SHA256=\"be9c88a0b3604367dd74167a2b754a35e142f670292ae47a2fdef27a2ee97a32\""
+      ],
+      [
+        9,
+        "PKG_SITE=\"http://www.alsa-project.org/\""
+      ],
+      [
+        10,
+        "PKG_URL=\"https://www.alsa-project.org/files/pub/lib/alsa-lib-${PKG_VERSION}.tar.bz2\""
+      ],
+      [
+        15,
+        "PKG_PATCH_DIRS+=\" ${DEVICE}\""
+      ]
+    ],
+    "upstream_sha256": "42630972f1ab778db00f555ca9cf8e933f2255f3ccbb626b3e6bd6f811e4224d",
+    "upstream_assignments": [
+      [
+        7,
+        "PKG_PATCH_DIRS+=\" ${DEVICE}\""
+      ]
+    ]
+  },
+  "projects/ROCKNIX/packages/audio/alsa-ucm-conf/package.mk": {
+    "sha256": "fae1706ea36634a04b80a0f747dfcb383c6e410073a728faad7027e9c795b66e",
+    "owner": [
+      "image-packages"
+    ],
+    "member_count": 8,
+    "source_lines": [
+      "# SPDX-License-Identifier: GPL-2.0-or-later",
+      "# Copyright (C) 2020-present Team LibreELEC (https://libreelec.tv)",
+      "",
+      "PKG_NAME=\"alsa-ucm-conf\"",
+      "PKG_VERSION=\"1.2.13\"",
+      "PKG_SHA256=\"4483b6e3983cca08fd326a73fbae449b5036e444fb1a07c0dee74b504b7ab5af\"",
+      "PKG_LICENSE=\"BSD-3c\"",
+      "PKG_SITE=\"http://www.alsa-project.org/\"",
+      "PKG_URL=\"https://www.alsa-project.org/files/pub/lib/alsa-ucm-conf-${PKG_VERSION}.tar.bz2\"",
+      "PKG_LONGDESC=\"ALSA Use Case Manager configuration (and topologies)\"",
+      "PKG_TOOLCHAIN=\"manual\"",
+      "PKG_PATCH_DIRS+=\" ${DEVICE}\"",
+      "",
+      "makeinstall_target() {",
+      "  mkdir -p ${INSTALL}/usr/share/alsa/",
+      "  cp -PR ${PKG_BUILD}/ucm2 ${INSTALL}/usr/share/alsa/",
+      "  # work around scripts/build removing empty directories, this leads to errors in ucm",
+      "  touch ${INSTALL}/usr/share/alsa/ucm2/conf.virt.d/.dont_remove_this_dir",
+      "}"
+    ],
+    "assignments": [
+      [
+        4,
+        "PKG_NAME=\"alsa-ucm-conf\""
+      ],
+      [
+        5,
+        "PKG_VERSION=\"1.2.13\""
+      ],
+      [
+        6,
+        "PKG_SHA256=\"4483b6e3983cca08fd326a73fbae449b5036e444fb1a07c0dee74b504b7ab5af\""
+      ],
+      [
+        8,
+        "PKG_SITE=\"http://www.alsa-project.org/\""
+      ],
+      [
+        9,
+        "PKG_URL=\"https://www.alsa-project.org/files/pub/lib/alsa-ucm-conf-${PKG_VERSION}.tar.bz2\""
+      ],
+      [
+        12,
+        "PKG_PATCH_DIRS+=\" ${DEVICE}\""
+      ]
+    ],
+    "upstream_sha256": "bec1c980740b433c8013e866a27f3a431c7b4957ee7e0c13de94f6c1eb5d57cd",
+    "upstream_assignments": [
+      [
+        6,
+        "PKG_PATCH_DIRS+=\" ${DEVICE}\""
+      ]
+    ]
+  },
+  "projects/ROCKNIX/packages/audio/pipewire/package.mk": {
+    "sha256": "ab5dc61a2e91e9bb5018911684a21cd03d349be242c47b84b3cab0816c54596c",
+    "owner": [
+      "image-packages"
+    ],
+    "member_count": 7,
+    "source_lines": [
+      "# SPDX-License-Identifier: GPL-2.0",
+      "# Copyright (C) 2021-present Team LibreELEC (https://libreelec.tv)",
+      "",
+      "PKG_NAME=\"pipewire\"",
+      "PKG_VERSION=\"1.2.6\"",
+      "PKG_SHA256=\"8d9b4e95dba33d218c760fecbb71672c86a56917f803e96fe6c3af62fa783a95\"",
+      "PKG_LICENSE=\"LGPL\"",
+      "PKG_SITE=\"https://pipewire.org\"",
+      "PKG_URL=\"https://github.com/PipeWire/pipewire/archive/${PKG_VERSION}.tar.gz\"",
+      "PKG_DEPENDS_TARGET=\"toolchain libpthread-stubs dbus ncurses alsa-lib pulseaudio systemd libsndfile libusb\"",
+      "PKG_LONGDESC=\"PipeWire is a server and user space API to deal with multimedia pipeline\"",
+      "PKG_PATCH_DIRS+=\" ${DEVICE}\"",
+      "",
+      "if [ \"${BLUETOOTH_SUPPORT}\" = \"yes\" ]; then",
+      "  PKG_DEPENDS_TARGET+=\" bluez sbc ldacBT libfreeaptx fdk-aac\"",
+      "  PKG_PIPEWIRE_BLUETOOTH=\"-Dbluez5=enabled \\",
+      "                          -Dbluez5-backend-hsp-native=disabled \\",
+      "                          -Dbluez5-backend-hfp-native=disabled \\",
+      "                          -Dbluez5-backend-ofono=disabled \\",
+      "                          -Dbluez5-backend-hsphfpd=disabled \\",
+      "                          -Dbluez5-codec-aptx=enabled \\",
+      "                          -Dbluez5-codec-lc3plus=disabled \\",
+      "                          -Dbluez5-codec-ldac=enabled \\",
+      "                          -Dbluez5-codec-aac=enabled\"",
+      "else",
+      "  PKG_PIPEWIRE_BLUETOOTH=\"-Dbluez5=disabled\"",
+      "fi",
+      "",
+      "if [ \"${VULKAN_SUPPORT}\" = \"yes\" ]; then",
+      "  PKG_DEPENDS_TARGET+=\" vulkan-loader vulkan-headers\"",
+      "  PKG_PIPEWIRE_VULKAN+=\"-Dvulkan=enabled \\",
+      "                        -Dx11=disabled \\",
+      "                        -Dx11-xfixes=disabled\"",
+      "fi",
+      "",
+      "PKG_MESON_OPTS_TARGET=\"-Ddocs=disabled \\",
+      "                       -Dexamples=disabled \\",
+      "                       -Dman=disabled \\",
+      "                       -Dtests=disabled \\",
+      "                       -Dinstalled_tests=disabled \\",
+      "                       -Dgstreamer=disabled \\",
+      "                       -Dgstreamer-device-provider=disabled \\",
+      "                       -Dsystemd=enabled \\",
+      "                       -Dsystemd-system-service=enabled \\",
+      "                       -Dsystemd-user-service=disabled \\",
+      "                       -Dpipewire-alsa=enabled \\",
+      "                       -Dpipewire-jack=disabled \\",
+      "                       -Dpipewire-v4l2=disabled \\",
+      "                       -Djack-devel=false",
+      "                       -Dspa-plugins=enabled \\",
+      "                       -Dalsa=enabled \\",
+      "                       -Daudiomixer=enabled \\",
+      "                       -Daudioconvert=enabled \\",
+      "                       ${PKG_PIPEWIRE_BLUETOOTH} \\",
+      "                       -Dcontrol=enabled \\",
+      "                       -Daudiotestsrc=disabled \\",
+      "                       -Dffmpeg=disabled \\",
+      "                       -Djack=disabled \\",
+      "                       -Dsupport=enabled \\",
+      "                       -Devl=disabled \\",
+      "                       -Dtest=disabled \\",
+      "                       -Dv4l2=disabled \\",
+      "                       -Ddbus=enabled \\",
+      "                       -Dlibcamera=disabled \\",
+      "                       -Dvideoconvert=disabled \\",
+      "                       -Dvideotestsrc=disabled \\",
+      "                       -Dvolume=enabled \\",
+      "                       ${PKG_PIPEWIRE_VULKAN} \\",
+      "                       -Dpw-cat=enabled \\",
+      "                       -Dudev=enabled \\",
+      "                       -Dudevrulesdir=/usr/lib/udev/rules.d \\",
+      "                       -Dsdl2=disabled \\",
+      "                       -Dsndfile=enabled \\",
+      "                       -Dlibpulse=enabled \\",
+      "                       -Droc=disabled \\",
+      "                       -Davahi=disabled \\",
+      "                       -Decho-cancel-webrtc=disabled \\",
+      "                       -Dlibusb=enabled \\",
+      "                       -Dsession-managers=[] \\",
+      "                       -Draop=disabled \\",
+      "                       -Dlv2=disabled \\",
+      "                       -Dlibcanberra=disabled \\",
+      "                       -Dlegacy-rtkit=false\"",
+      "",
+      "pre_configure_target() {",
+      "  export TARGET_CFLAGS=\"${TARGET_CFLAGS} -Wno-error=float-conversion\"",
+      "  export TARGET_LDFLAGS=\"${TARGET_LDFLAGS} -lncursesw -ltinfow\"",
+      "}",
+      "",
+      "post_install() {",
+      "  add_user pipewire x 982 980 \"pipewire-daemon\" \"/var/run/pipewire\" \"/bin/sh\"",
+      "  add_group pipewire 980",
+      "  mkdir -p ${INSTALL}/etc/alsa/conf.d",
+      "  ln -sf /usr/share/alsa/alsa.conf.d/50-pipewire.conf ${INSTALL}/etc/alsa/conf.d/50-pipewire.conf",
+      "  ln -sf /usr/share/alsa/alsa.conf.d/99-pipewire-default.conf ${INSTALL}/etc/alsa/conf.d/99-pipewire-default.conf",
+      "  enable_service pipewire.socket",
+      "  enable_service pipewire.service",
+      "  enable_service pipewire-pulse.socket",
+      "  enable_service pipewire-pulse.service",
+      "}"
+    ],
+    "assignments": [
+      [
+        4,
+        "PKG_NAME=\"pipewire\""
+      ],
+      [
+        5,
+        "PKG_VERSION=\"1.2.6\""
+      ],
+      [
+        6,
+        "PKG_SHA256=\"8d9b4e95dba33d218c760fecbb71672c86a56917f803e96fe6c3af62fa783a95\""
+      ],
+      [
+        8,
+        "PKG_SITE=\"https://pipewire.org\""
+      ],
+      [
+        9,
+        "PKG_URL=\"https://github.com/PipeWire/pipewire/archive/${PKG_VERSION}.tar.gz\""
+      ],
+      [
+        12,
+        "PKG_PATCH_DIRS+=\" ${DEVICE}\""
+      ]
+    ],
+    "upstream_sha256": "f90a505b911f85d6ddcf27264ba142781f0cae78817f47c82575bf7a2fc25ff0",
+    "upstream_assignments": [
+      [
+        4,
+        "PKG_NAME=\"pipewire\""
+      ],
+      [
+        5,
+        "PKG_VERSION=\"1.6.8\""
+      ],
+      [
+        6,
+        "PKG_SHA256=\"8181172a1d95131f6af8bbc0b98f90b2a33349b042b84c3ce57dd5d11348cc58\""
+      ],
+      [
+        8,
+        "PKG_SITE=\"https://pipewire.org\""
+      ],
+      [
+        9,
+        "PKG_URL=\"https://github.com/PipeWire/pipewire/archive/${PKG_VERSION}.tar.gz\""
+      ],
+      [
+        12,
+        "PKG_PATCH_DIRS+=\" ${DEVICE}\""
+      ]
+    ]
+  },
+  "projects/ROCKNIX/packages/emulators/standalone/azahar-sa/package.mk": {
+    "sha256": "52df4bbce8456c27b864970520a911b3363102a58c666e2f99c0bbca6c274c70",
+    "owner": [
+      "emulators-standalone"
+    ],
+    "member_count": 1,
+    "source_lines": [
+      "# SPDX-License-Identifier: GPL-2.0",
+      "# Copyright (C) 2024-present ROCKNIX (https://github.com/ROCKNIX)",
+      "",
+      "PKG_NAME=\"azahar-sa\"",
+      "PKG_VERSION=\"fbd3fb02f71e5f9ed5134037fd59bad96c7d2b8a\" # tag 2126.0",
+      "PKG_LICENSE=\"GPL-2.0-or-later\"",
+      "PKG_SITE=\"https://github.com/azahar-emu/azahar\"",
+      "PKG_URL=\"${PKG_SITE}.git\"",
+      "PKG_DEPENDS_TARGET=\"toolchain ffmpeg mesa SDL2 boost zlib libusb zstd control-gen spirv-tools qt6\"",
+      "PKG_LONGDESC=\"Azahar - Nintendo 3DS emulator\"",
+      "",
+      "if [ ! \"${OPENGL}\" = \"no\" ]; then",
+      "  PKG_DEPENDS_TARGET+=\" ${OPENGL} glu libglvnd\"",
+      "fi",
+      "",
+      "if [ \"${OPENGLES_SUPPORT}\" = \"yes\" ]; then",
+      "  PKG_DEPENDS_TARGET+=\" ${OPENGLES}\"",
+      "",
+      "  if [ \"${PREFER_GLES}\" = \"yes\" ]; then",
+      "    PKG_PATCH_DIRS+=\" prefer_gles\"",
+      "  fi",
+      "fi",
+      "",
+      "if [ \"${VULKAN_SUPPORT}\" = \"yes\" ]; then",
+      "  PKG_DEPENDS_TARGET+=\" ${VULKAN}\"",
+      "fi",
+      "",
+      "PKG_CMAKE_OPTS_TARGET+=\" -DENABLE_OPENGL=ON \\",
+      "                         -DENABLE_QT=ON \\",
+      "                         -DENABLE_QT_TRANSLATION=OFF \\",
+      "                         -DENABLE_ROOM=OFF \\",
+      "                         -DENABLE_SDL2=ON \\",
+      "                         -DENABLE_TESTS=OFF \\",
+      "                         -DENABLE_VULKAN=ON \\",
+      "                         -DUSE_DISCORD_PRESENCE=OFF\"",
+      "",
+      "pre_configure_target() {",
+      "  export CXXFLAGS+=-fpch-preprocess",
+      "  export CFLAGS=\"${CFLAGS} -Wno-error=incompatible-pointer-types\"",
+      "}",
+      "",
+      "makeinstall_target() {",
+      "  mkdir -p ${INSTALL}/usr/bin",
+      "    cp -a ${PKG_BUILD}/.${TARGET_NAME}/bin/Release/azahar ${INSTALL}/usr/bin",
+      "    cp -a ${PKG_DIR}/scripts/start_azahar.sh ${INSTALL}/usr/bin",
+      "",
+      "  mkdir -p ${INSTALL}/usr/config/azahar",
+      "    cp -a ${PKG_DIR}/config/common/* ${INSTALL}/usr/config/azahar",
+      "    cp -a ${PKG_DIR}/config/${DEVICE}/* ${INSTALL}/usr/config/azahar",
+      "}"
+    ],
+    "assignments": [
+      [
+        4,
+        "PKG_NAME=\"azahar-sa\""
+      ],
+      [
+        5,
+        "PKG_VERSION=\"fbd3fb02f71e5f9ed5134037fd59bad96c7d2b8a\" # tag 2126.0"
+      ],
+      [
+        7,
+        "PKG_SITE=\"https://github.com/azahar-emu/azahar\""
+      ],
+      [
+        8,
+        "PKG_URL=\"${PKG_SITE}.git\""
+      ],
+      [
+        20,
+        "    PKG_PATCH_DIRS+=\" prefer_gles\""
+      ]
+    ],
+    "upstream_sha256": "863c014012183b3889d252d7ab2027256bc30cdbc335a5e3c522e248e6b2cd84",
+    "upstream_assignments": [
+      [
+        4,
+        "PKG_NAME=\"azahar-sa\""
+      ],
+      [
+        5,
+        "PKG_VERSION=\"219d743a1e698101fe1ab8bef43e6563126c3c27\" # tag 2126.2"
+      ],
+      [
+        7,
+        "PKG_SITE=\"https://github.com/azahar-emu/azahar\""
+      ],
+      [
+        8,
+        "PKG_URL=\"${PKG_SITE}.git\""
+      ],
+      [
+        20,
+        "    PKG_PATCH_DIRS+=\" prefer_gles\""
+      ]
+    ]
+  },
+  "projects/ROCKNIX/packages/emulators/standalone/ppsspp-sa/package.mk": {
+    "sha256": "a27682013e91d2fa8f63fe7f06aa64ebc0e35449eacb30d712302ef66642f52a",
+    "owner": [
+      "emulators-standalone"
+    ],
+    "member_count": 1,
+    "source_lines": [
+      "# SPDX-License-Identifier: GPL-2.0",
+      "# Copyright (C) 2024-present ROCKNIX (https://github.com/ROCKNIX)",
+      "",
+      "PKG_NAME=\"ppsspp-sa\"",
+      "PKG_VERSION=\"afbc66a318b86432642b532c575241f3716642ef\" # v1.20.2",
+      "CHEAT_DB_VERSION=\"7c9fe1ae71155626cea767aed53f968de9f4051f\" # Update cheat.db (17/01/2026)",
+      "PKG_LICENSE=\"GPL-2.0-or-later\"",
+      "PKG_SITE=\"https://github.com/hrydgard/ppsspp\"",
+      "PKG_URL=\"${PKG_SITE}.git\"",
+      "PKG_DEPENDS_TARGET=\"toolchain libzip SDL2 zlib\"",
+      "PKG_LONGDESC=\"PPSSPPDL\"",
+      "PKG_PATCH_DIRS+=\"${DEVICE}\"",
+      "",
+      "### Note:",
+      "### This package includes the NotoSansJP-Regular.ttf font.  This font is licensed under",
+      "### SIL Open Font License, Version 1.1.  The license can be found in the licenses",
+      "### directory in the root of this project, OFL.txt.",
+      "###",
+      "",
+      "PKG_CMAKE_OPTS_TARGET=\" -DUSE_SYSTEM_FFMPEG=OFF \\",
+      "                        -DCMAKE_BUILD_TYPE=Release \\",
+      "                        -DCMAKE_SYSTEM_NAME=Linux \\",
+      "                        -DBUILD_SHARED_LIBS=OFF \\",
+      "                        -DUSE_SYSTEM_LIBPNG=OFF \\",
+      "                        -DANDROID=OFF \\",
+      "                        -DWIN32=OFF \\",
+      "                        -DAPPLE=OFF \\",
+      "                        -DCMAKE_CROSSCOMPILING=ON \\",
+      "                        -DUSING_QT_UI=OFF \\",
+      "                        -DUNITTEST=OFF \\",
+      "                        -DSIMULATOR=OFF \\",
+      "                        -DHEADLESS=OFF \\",
+      "                        -DUSE_DISCORD=OFF\"",
+      "",
+      "if [ \"${OPENGL_SUPPORT}\" = \"yes\" ] && [ ! \"${PREFER_GLES}\" = \"yes\" ]; then",
+      "  PKG_DEPENDS_TARGET+=\" ${OPENGL} glu libglvnd glew\"",
+      "  PKG_CMAKE_OPTS_TARGET+=\" -DUSING_FBDEV=OFF \\",
+      "\t\t\t   -DUSING_GLES2=OFF\"",
+      "",
+      "elif [ \"${OPENGLES_SUPPORT}\" = \"yes\" ]; then",
+      "  PKG_DEPENDS_TARGET+=\" ${OPENGLES}\"",
+      "  PKG_CMAKE_OPTS_TARGET+=\" -DUSING_FBDEV=ON \\",
+      "                           -DUSING_EGL=OFF \\",
+      "                           -DUSING_GLES2=ON\"",
+      "fi",
+      "",
+      "if [ \"${VULKAN_SUPPORT}\" = \"yes\" ]; then",
+      "  PKG_DEPENDS_TARGET+=\" ${VULKAN}\"",
+      "  PKG_CMAKE_OPTS_TARGET+=\" -DUSE_VULKAN_DISPLAY_KHR=ON \\",
+      "                           -DVULKAN=ON \\",
+      "                           -DUSING_X11_VULKAN=OFF\"",
+      "  GRENDERER=\"3 (VULKAN)\"",
+      "else",
+      "  PKG_CMAKE_OPTS_TARGET+=\" -DVULKAN=OFF \\",
+      "                           -DUSE_VULKAN_DISPLAY_KHR=OFF \\",
+      "                           -DUSING_X11_VULKAN=OFF\"",
+      "  GRENDERER=\"0 (OPENGL)\"",
+      "fi",
+      "",
+      "if [ \"${DISPLAYSERVER}\" = \"wl\" ]; then",
+      "  PKG_DEPENDS_TARGET+=\" wayland ${WINDOWMANAGER}\"",
+      "  PKG_CMAKE_OPTS_TARGET+=\" -DUSE_WAYLAND_WSI=ON\"",
+      "else",
+      "  PKG_CMAKE_OPTS_TARGET+=\" -DUSE_WAYLAND_WSI=OFF\"",
+      "fi",
+      "",
+      "post_unpack() {",
+      "  # fix cross compiling",
+      "  find ${PKG_BUILD} -name flags.make -exec sed -i \"s:isystem :I:g\" \\{} \\;",
+      "  find ${PKG_BUILD} -name build.ninja -exec sed -i \"s:isystem :I:g\" \\{} \\;",
+      "}",
+      "",
+      "pre_configure_target() {",
+      "  sed -i 's/\\-O[23]//g' ${PKG_BUILD}/CMakeLists.txt",
+      "  sed -i \"s|include_directories(/usr/include/drm)|include_directories(${SYSROOT_PREFIX}/usr/include/drm)|\" ${PKG_BUILD}/CMakeLists.txt",
+      "",
+      "  export CPPFLAGS=\"${CPPFLAGS} -Wno-error -DEGL_NO_X11=1 -DMESA_EGL_NO_X11_HEADERS=1\"",
+      "  export CXXFLAGS=\"${CXXFLAGS} -Wno-error -DEGL_NO_X11=1 -DMESA_EGL_NO_X11_HEADERS=1\"",
+      "  export CFLAGS=\"${CFLAGS} -Wno-error -DEGL_NO_X11=1 -DMESA_EGL_NO_X11_HEADERS=1\"",
+      "}",
+      "",
+      "makeinstall_target() {",
+      "  mkdir -p ${INSTALL}/usr/bin",
+      "    cp -a ${PKG_DIR}/scripts/* ${INSTALL}/usr/bin",
+      "    cp -a PPSSPPSDL ${INSTALL}/usr/bin/ppsspp",
+      "    ln -sf /storage/.config/ppsspp/assets ${INSTALL}/usr/bin/assets",
+      "",
+      "  mkdir -p ${INSTALL}/usr/config/ppsspp",
+      "    cp -a ${PKG_DIR}/config/* ${INSTALL}/usr/config/ppsspp",
+      "    cp -a `find . -name \"assets\" | xargs echo` ${INSTALL}/usr/config/ppsspp",
+      "    rm -f ${INSTALL}/usr/config/ppsspp/assets/gamecontrollerdb.txt",
+      "    ln -sf NotoSansJP-Regular.ttf ${INSTALL}/usr/config/ppsspp/assets/Roboto-Condensed.ttf",
+      "    curl -Lo ${INSTALL}/usr/config/ppsspp/PSP/Cheats/cheat.db https://raw.githubusercontent.com/Saramagrean/CWCheat-Database-Plus-/${CHEAT_DB_VERSION}/cheat.db",
+      "",
+      "  mkdir -p ${INSTALL}/usr/config/ppsspp/PSP/SYSTEM",
+      "    # Guarded, as it was before the 2026-09 upstream cleanup (28e750db32)",
+      "    # made it unconditional: not every device has a per-device directory",
+      "    # here, and a device without one -- GENERIC_X64, the fork's QA VM --",
+      "    # fails the whole install on `cp: cannot stat`. Devices that have one",
+      "    # behave exactly as before.",
+      "    if [ -d \"${PKG_DIR}/sources/${DEVICE}\" ]; then",
+      "      cp -aL ${PKG_DIR}/sources/${DEVICE}/* ${INSTALL}/usr/config/ppsspp/PSP/SYSTEM",
+      "    fi",
+      "}",
+      "",
+      "post_install() {",
+      "  sed -e \"s/@GRENDERER@/${GRENDERER}/g\" -i ${INSTALL}/usr/bin/start_ppsspp.sh",
+      "}"
+    ],
+    "assignments": [
+      [
+        4,
+        "PKG_NAME=\"ppsspp-sa\""
+      ],
+      [
+        5,
+        "PKG_VERSION=\"afbc66a318b86432642b532c575241f3716642ef\" # v1.20.2"
+      ],
+      [
+        8,
+        "PKG_SITE=\"https://github.com/hrydgard/ppsspp\""
+      ],
+      [
+        9,
+        "PKG_URL=\"${PKG_SITE}.git\""
+      ],
+      [
+        12,
+        "PKG_PATCH_DIRS+=\"${DEVICE}\""
+      ],
+      [
+        67,
+        "post_unpack() {"
+      ]
+    ],
+    "upstream_sha256": "76af40b456fe9f03874178230144db46732892274043005a2270907015b8f3b6",
+    "upstream_assignments": [
+      [
+        4,
+        "PKG_NAME=\"ppsspp-sa\""
+      ],
+      [
+        5,
+        "PKG_VERSION=\"afbc66a318b86432642b532c575241f3716642ef\" # v1.20.2"
+      ],
+      [
+        8,
+        "PKG_SITE=\"https://github.com/hrydgard/ppsspp\""
+      ],
+      [
+        9,
+        "PKG_URL=\"${PKG_SITE}.git\""
+      ],
+      [
+        12,
+        "PKG_PATCH_DIRS+=\"${DEVICE}\""
+      ],
+      [
+        67,
+        "post_unpack() {"
+      ]
+    ]
+  },
+  "projects/ROCKNIX/packages/emulators/standalone/xemu-sa/package.mk": {
+    "sha256": "cceeb22476428a2bbdfe9c5d8562332157035e3ba104313e4e77e27d2df39207",
+    "owner": [
+      "emulators-standalone"
+    ],
+    "member_count": 1,
+    "source_lines": [
+      "# SPDX-License-Identifier: GPL-2.0",
+      "# Copyright (C) 2024-present ROCKNIX (https://github.com/ROCKNIX)",
+      "",
+      "PKG_NAME=\"xemu-sa\"",
+      "PKG_VERSION=\"cbffb57d084c70351a596e99e32a8b73e0c5eabf\"",
+      "PKG_SHA256=\"fe6bfb3f1e2e3b4ed4cb028e637a530f0e813440dd4fa39c1f597c3ec08407d3\"",
+      "PKG_LICENSE=\"GPL-2.0-or-later\"",
+      "PKG_SITE=\"https://github.com/xemu-project/xemu\"",
+      "PKG_URL=\"${PKG_SITE}/archive/${PKG_VERSION}.tar.gz\"",
+      "PKG_DEPENDS_TARGET=\"toolchain libthai gtk3 libsamplerate libpcap atk SDL3 Python3 zlib pixman bzip2 openssl xwayland libslirp\"",
+      "PKG_LONGDESC=\"Xemu - A free and open-source application that emulates the original Microsoft Xbox game console.\"",
+      "PKG_TOOLCHAIN=\"make\"",
+      "PKG_PATCH_DIRS+=\"${DEVICE}\"",
+      "",
+      "# Open source xbox hdd image",
+      "PKG_HDD_IMAGE=\"https://github.com/xqemu/xqemu-hdd-image/releases/download/v1.0/xbox_hdd.qcow2.zip\"",
+      "",
+      "if [ \"${OPENGL_SUPPORT}\" = \"yes\" ]; then",
+      "  PKG_DEPENDS_TARGET+=\" ${OPENGL} glu libglvnd\"",
+      "fi",
+      "",
+      "if [ \"${VULKAN_SUPPORT}\" = \"yes\" ]; then",
+      "  PKG_DEPENDS_TARGET+=\" ${VULKAN} glslang\"",
+      "  GRENDERER=\"VULKAN\"",
+      "else",
+      "  GRENDERER=\"OPENGL\"",
+      "fi",
+      "",
+      "post_unpack() {",
+      "  sed -i \"s|host_cc=\\\"cc\\\"|host_cc=\\\"${TOOLCHAIN}/bin/host-gcc\\\"|\" ${PKG_BUILD}/configure",
+      "}",
+      "",
+      "pre_configure_target() {",
+      "  # xemu does not build with NDEBUG",
+      "  export TARGET_CFLAGS=$(echo ${TARGET_CFLAGS} | sed -e \"s|-DNDEBUG||g\")",
+      "  export TARGET_CXXFLAGS=$(echo ${TARGET_CXXFLAGS} | sed -e \"s|-DNDEBUG||g\")",
+      "  export CFLAGS=$(echo ${CFLAGS} | sed -e \"s|-DNDEBUG||g\")",
+      "  export CXXFLAGS=$(echo ${CXXFLAGS} | sed -e \"s|-DNDEBUG||g\")",
+      "",
+      "  # Required for python",
+      "  export DONT_BUILD_LEGACY_PYC=1",
+      "",
+      "  # Download Sub Modules",
+      "  ### xxHash",
+      "  mkdir -p ${PKG_BUILD}/subprojects",
+      "    ### xxHash",
+      "    curl -Lo ${PKG_BUILD}/subprojects/xxhash.tar.gz http://github.com/mesonbuild/wrapdb/releases/download/xxhash_0.8.3-1/xxHash-0.8.3.tar.gz",
+      "    tar -xvf ${PKG_BUILD}/subprojects/xxhash.tar.gz -C ${PKG_BUILD}/subprojects",
+      "    curl -Lo ${PKG_BUILD}/subprojects/xxhash_0.8.3-1_patch.zip https://wrapdb.mesonbuild.com/v2/xxhash_0.8.3-1/get_patch",
+      "    unzip -o ${PKG_BUILD}/subprojects/xxhash_0.8.3-1_patch.zip -d ${PKG_BUILD}/subprojects",
+      "    ### glslang",
+      "    curl -Lo ${PKG_BUILD}/subprojects/glslang.tar.gz https://github.com/KhronosGroup/glslang/archive/8a85691a0740d390761a1008b4696f57facd02c4.tar.gz",
+      "    tar -xvf ${PKG_BUILD}/subprojects/glslang.tar.gz -C ${PKG_BUILD}/subprojects",
+      "}",
+      "",
+      "make_target() {",
+      "  cd ${PKG_BUILD}",
+      "  ./build.sh --target-list=i386-softmmu \\",
+      "             --cross-prefix=\"${TARGET_PREFIX}\" \\",
+      "             --host=\"${TARGET_NAME}\" \\",
+      "             --enable-sdl \\",
+      "             --enable-opengl \\",
+      "             --enable-trace-backends=\"nop\" \\",
+      "             --disable-kvm \\",
+      "             --disable-xen \\",
+      "             --disable-werror \\",
+      "             --disable-curl \\",
+      "             --disable-vnc \\",
+      "             --disable-vnc-sasl \\",
+      "             --disable-docs \\",
+      "             --disable-tools \\",
+      "             --disable-guest-agent \\",
+      "             --disable-tpm \\",
+      "             --disable-rdma \\",
+      "             --disable-replication \\",
+      "             --disable-capstone \\",
+      "             --disable-libiscsi \\",
+      "             --disable-spice \\",
+      "             --disable-user \\",
+      "             --disable-stack-protector \\",
+      "             --disable-glusterfs \\",
+      "             --disable-curses \\",
+      "             --disable-gnutls \\",
+      "             --disable-nettle \\",
+      "             --disable-gcrypt \\",
+      "             --disable-crypto-afalg \\",
+      "             --disable-virglrenderer \\",
+      "             --disable-vhost-net \\",
+      "             --disable-vhost-crypto \\",
+      "             --disable-vhost-user \\",
+      "             --disable-virtfs \\",
+      "             --disable-snappy \\",
+      "             --disable-bzip2 \\",
+      "             --disable-vde \\",
+      "             --disable-seccomp \\",
+      "             --disable-numa \\",
+      "             --disable-lzo \\",
+      "             --disable-smartcard \\",
+      "             --disable-usb-redir \\",
+      "             --disable-bochs \\",
+      "             --disable-cloop \\",
+      "             --disable-dmg \\",
+      "             --disable-vdi \\",
+      "             --disable-vvfat \\",
+      "             --disable-qcow1 \\",
+      "             --disable-qed \\",
+      "             --disable-parallels \\",
+      "             --disable-hvf \\",
+      "             --disable-whpx \\",
+      "             --disable-pie \\",
+      "             --with-default-devices",
+      "}",
+      "",
+      "makeinstall_target() {",
+      "  mkdir -p ${INSTALL}/usr/bin",
+      "    cp -a ${PKG_BUILD}/dist/xemu ${INSTALL}/usr/bin",
+      "    cp -a ${PKG_DIR}/scripts/start_xemu.sh ${INSTALL}/usr/bin",
+      "",
+      "  mkdir -p ${INSTALL}/usr/config/xemu",
+      "    cp -a ${PKG_DIR}/config/${DEVICE}/xemu.toml ${INSTALL}/usr/config/xemu",
+      "    #Download HDD IMAGE",
+      "    curl -Lo ${INSTALL}/usr/config/xemu/hdd.zip ${PKG_HDD_IMAGE}",
+      "}",
+      "",
+      "post_install() {",
+      "  sed -e \"s/@GRENDERER@/${GRENDERER}/g\" -i ${INSTALL}/usr/bin/start_xemu.sh",
+      "}"
+    ],
+    "assignments": [
+      [
+        4,
+        "PKG_NAME=\"xemu-sa\""
+      ],
+      [
+        5,
+        "PKG_VERSION=\"cbffb57d084c70351a596e99e32a8b73e0c5eabf\""
+      ],
+      [
+        6,
+        "PKG_SHA256=\"fe6bfb3f1e2e3b4ed4cb028e637a530f0e813440dd4fa39c1f597c3ec08407d3\""
+      ],
+      [
+        8,
+        "PKG_SITE=\"https://github.com/xemu-project/xemu\""
+      ],
+      [
+        9,
+        "PKG_URL=\"${PKG_SITE}/archive/${PKG_VERSION}.tar.gz\""
+      ],
+      [
+        13,
+        "PKG_PATCH_DIRS+=\"${DEVICE}\""
+      ],
+      [
+        29,
+        "post_unpack() {"
+      ]
+    ],
+    "upstream_sha256": "cceeb22476428a2bbdfe9c5d8562332157035e3ba104313e4e77e27d2df39207",
+    "upstream_assignments": [
+      [
+        4,
+        "PKG_NAME=\"xemu-sa\""
+      ],
+      [
+        5,
+        "PKG_VERSION=\"cbffb57d084c70351a596e99e32a8b73e0c5eabf\""
+      ],
+      [
+        6,
+        "PKG_SHA256=\"fe6bfb3f1e2e3b4ed4cb028e637a530f0e813440dd4fa39c1f597c3ec08407d3\""
+      ],
+      [
+        8,
+        "PKG_SITE=\"https://github.com/xemu-project/xemu\""
+      ],
+      [
+        9,
+        "PKG_URL=\"${PKG_SITE}/archive/${PKG_VERSION}.tar.gz\""
+      ],
+      [
+        13,
+        "PKG_PATCH_DIRS+=\"${DEVICE}\""
+      ],
+      [
+        29,
+        "post_unpack() {"
+      ]
+    ]
+  },
+  "projects/ROCKNIX/packages/graphics/libmali/package.mk": {
+    "sha256": "eb06a98b192a2150a80dcc6da068c8602c36cbdc5b23ffbd749ab9dc33637f74",
+    "owner": [
+      "packages-dead-ends"
+    ],
+    "member_count": 3,
+    "source_lines": [
+      "# SPDX-License-Identifier: GPL-2.0",
+      "# Copyright (C) 2019-present Team LibreELEC (https://libreelec.tv)",
+      "# Copyright (C) 2023 JELOS (https://github.com/JustEnoughLinuxOS)",
+      "# Copyright (C) 2024 ROCKNIX (https://github.com/ROCKNIX)",
+      "",
+      "PKG_NAME=\"libmali\"",
+      "PKG_LICENSE=\"LES-PRE-20769\"",
+      "PKG_SITE=\"https://github.com/ROCKNIX/libmali\"",
+      "PKG_VERSION=\"0fe30426b822699f0a660268a6040fdafce229d1\"",
+      "PKG_SHA256=\"b2d0b4904577aa1cf737f1402052a6651f84fcbc94aca0601b782ff63cc9167b\"",
+      "# zip format makes extract very fast (<1s). tgz takes 20 seconds to scan the whole file",
+      "PKG_URL=\"${PKG_SITE}/archive/${PKG_VERSION}.zip\"",
+      "PKG_DEPENDS_TARGET=\"toolchain libdrm patchelf:host gpudriver SDL2_glesonly gl4es\"",
+      "PKG_LONGDESC=\"OpenGL ES user-space binary for the ARM Mali GPU family\"",
+      "PKG_TOOLCHAIN=\"meson\"",
+      "PKG_PATCH_DIRS+=\" ${DEVICE}\"",
+      "",
+      "# patchelf is incompatible with strip, but is needed to ensure apps call wrapped functions",
+      "PKG_BUILD_FLAGS=\"-strip\"",
+      "",
+      "case \"${DEVICE}\" in",
+      "  S922X)",
+      "    DRIVER_VERSION=\"r51p0\"",
+      "    PKG_DEPENDS_TARGET+=\" vulkan-wsi-layer vulkan-tools\"",
+      "  ;;",
+      "  RK3588)",
+      "    DRIVER_VERSION=\"g13p0\"",
+      "  ;;",
+      "esac",
+      "",
+      "case \"${DISPLAYSERVER}\" in",
+      "  wl)",
+      "    PLATFORM=\"-wayland-gbm\"",
+      "    PKG_DEPENDS_TARGET+=\" wayland\"",
+      "    ;;",
+      "  x11)",
+      "    PLATFORM=\"-x11-gbm\"",
+      "    ;;",
+      "  *)",
+      "    PLATFORM=\"-gbm\"",
+      "    ;;",
+      "esac",
+      "",
+      "# new repo base from jeffycn mirror",
+      "case \"${DEVICE}\" in",
+      "  RK3326|RK3566|RK3576)",
+      "    PKG_SITE=\"https://github.com/JeffyCN/mirrors\"",
+      "    PKG_SHA256=\"54b8af924f582f7da7e120fbad4812a502cc7cc67f6d6ab061377cb403f3eb2d\"",
+      "    PKG_VERSION=\"4233031d818e97a19e8a9cdbbd5c15795ededd93\"",
+      "    # zip format makes extract very fast (<1s). tgz takes 20 seconds to scan the whole file",
+      "    PKG_URL=\"${PKG_SITE}/archive/${PKG_VERSION}.zip\"",
+      "    PKG_DEPENDS_TARGET+=\" mesa vulkan-tools vulkan-headers vulkan-wsi-layer\"",
+      "    DRIVER_VERSION=\"g29p1\"",
+      "    PLATFORM=\"\"",
+      "    ZIPDIRNAME=\"mirrors\"",
+      "    PKG_PATCH_DIRS+=\" next\"",
+      "    OPTS=\" -Dwrappers=true \"",
+      "  ;;",
+      "  *)",
+      "    OPTS=\" -Dwrappers=enabled \"",
+      "    ZIPDIRNAME=\"libmali\"",
+      "  ;;",
+      "esac",
+      "",
+      "",
+      "PKG_MESON_OPTS_TARGET+=\" -Darch=${ARCH} -Dgpu=${MALI_FAMILY} -Dversion=${DRIVER_VERSION} -Dplatform=${PLATFORM} \\",
+      "                       -Dkhr-header=false -Dvendor-package=true -Dhooks=true ${OPTS}\"",
+      "",
+      "",
+      "unpack() {",
+      "  mkdir -p \"${PKG_BUILD}\"",
+      "  cd \"${PKG_BUILD}\"",
+      "  pwd",
+      "  # Extract only what is needed",
+      "  LIBNAME=\"libmali-${MALI_FAMILY}-${DRIVER_VERSION}${PLATFORM}.so\"",
+      "  unzip -q \"${SOURCES}/${PKG_NAME}/${PKG_SOURCE_NAME}\" \"*/hook/*\" \"*/include/*\" \"*/scripts/*\" \"*/meson*\" \"*/data/*\" \"*/${LIBNAME}\" \\",
+      "        \"*/END_USER_LICENCE_AGREEMENT.txt\"",
+      "  mv ${ZIPDIRNAME}*/* .",
+      "  rmdir ${ZIPDIRNAME}-*",
+      "  if [ \"${MALI_FAMILY}\" = \"meson\" ]; then",
+      "    mv data/vulkan/mali_meson.json.in data/vulkan/mali.json.in",
+      "  fi",
+      "  ln -s lib optimize_3",
+      "}",
+      "",
+      "post_makeinstall_target() {",
+      "  rm -rf \"${SYSROOT_PREFIX}/usr/include\"   # all needed headers are installed by glvnd, mesa and wayland",
+      "  rm -rf \"${INSTALL}/etc/ld.so.conf.d\" \"${SYSROOT_PREFIX}/etc/ld.so.conf.d\"  # upstream installs ld.so config and we don't need it",
+      "",
+      "  mkdir -p \"${INSTALL}/usr/share/licenses/libmali\"",
+      "  cp \"${PKG_BUILD}/END_USER_LICENCE_AGREEMENT.txt\" \"${INSTALL}/usr/share/licenses/libmali/\"",
+      "",
+      "  # IDK how libs in ubuntu package get these dependencies. Need to specify them manually here.",
+      "  for lib in \"${INSTALL}\"/usr/lib*/mali/lib*.so.*; do",
+      "    patchelf --add-needed libmali-hook.so.1 \"${lib}\"",
+      "  done",
+      "  patchelf --add-needed libmali.so.1 \"${INSTALL}\"/usr/lib*/libmali-hook.so.1",
+      "",
+      "  # x11 lib needed for some applications on the RK3588",
+      "  if [ ${DEVICE} = \"RK3588\" ] && [ ${TARGET_ARCH} = \"aarch64\" ]; then",
+      "      curl -Lo ${INSTALL}/usr/lib/libmali-${MALI_FAMILY}-${DRIVER_VERSION}-x11-gbm.so ${PKG_SITE}/raw/master/lib/aarch64-linux-gnu/libmali-${MALI_FAMILY}-${DRIVER_VERSION}-x11-gbm.so",
+      "  fi",
+      "  # S922X - mali vulkan libs need moving",
+      "  if [[ \"${DEVICE}\" =~ S922X|RK3326|RK3566|RK3576 ]] && [ \"${ARCH}\" = \"aarch64\" ]; then",
+      "    mv \"${INSTALL}\"/usr/lib/mali/libMaliVulkan.* \"${INSTALL}\"/usr/lib/",
+      "  fi",
+      "  if [[ \"${DEVICE}\" =~ RK3326|RK3566|RK3576 ]] && [ \"${ARCH}\" = \"arm\" ]; then",
+      "    mv \"${INSTALL}\"/usr/lib32/mali/libMaliVulkan.* \"${INSTALL}\"/usr/lib32/",
+      "  fi",
+      "",
+      "}"
+    ],
+    "assignments": [
+      [
+        6,
+        "PKG_NAME=\"libmali\""
+      ],
+      [
+        8,
+        "PKG_SITE=\"https://github.com/ROCKNIX/libmali\""
+      ],
+      [
+        9,
+        "PKG_VERSION=\"0fe30426b822699f0a660268a6040fdafce229d1\""
+      ],
+      [
+        10,
+        "PKG_SHA256=\"b2d0b4904577aa1cf737f1402052a6651f84fcbc94aca0601b782ff63cc9167b\""
+      ],
+      [
+        12,
+        "PKG_URL=\"${PKG_SITE}/archive/${PKG_VERSION}.zip\""
+      ],
+      [
+        16,
+        "PKG_PATCH_DIRS+=\" ${DEVICE}\""
+      ],
+      [
+        47,
+        "    PKG_SITE=\"https://github.com/JeffyCN/mirrors\""
+      ],
+      [
+        48,
+        "    PKG_SHA256=\"54b8af924f582f7da7e120fbad4812a502cc7cc67f6d6ab061377cb403f3eb2d\""
+      ],
+      [
+        49,
+        "    PKG_VERSION=\"4233031d818e97a19e8a9cdbbd5c15795ededd93\""
+      ],
+      [
+        51,
+        "    PKG_URL=\"${PKG_SITE}/archive/${PKG_VERSION}.zip\""
+      ],
+      [
+        56,
+        "    PKG_PATCH_DIRS+=\" next\""
+      ],
+      [
+        70,
+        "unpack() {"
+      ],
+      [
+        76,
+        "  unzip -q \"${SOURCES}/${PKG_NAME}/${PKG_SOURCE_NAME}\" \"*/hook/*\" \"*/include/*\" \"*/scripts/*\" \"*/meson*\" \"*/data/*\" \"*/${LIBNAME}\" \\"
+      ],
+      [
+        101,
+        "      curl -Lo ${INSTALL}/usr/lib/libmali-${MALI_FAMILY}-${DRIVER_VERSION}-x11-gbm.so ${PKG_SITE}/raw/master/lib/aarch64-linux-gnu/libmali-${MALI_FAMILY}-${DRIVER_VERSION}-x11-gbm.so"
+      ]
+    ],
+    "upstream_sha256": "481dcd962a0bf9918c50c12166781687d7c4016aa0c8d30d56a80cad3febe6ee",
+    "upstream_assignments": [
+      [
+        6,
+        "PKG_NAME=\"libmali\""
+      ],
+      [
+        8,
+        "PKG_SITE=\"https://github.com/ROCKNIX/libmali\""
+      ],
+      [
+        9,
+        "PKG_VERSION=\"0fe30426b822699f0a660268a6040fdafce229d1\""
+      ],
+      [
+        10,
+        "PKG_SHA256=\"b2d0b4904577aa1cf737f1402052a6651f84fcbc94aca0601b782ff63cc9167b\""
+      ],
+      [
+        12,
+        "PKG_URL=\"${PKG_SITE}/archive/${PKG_VERSION}.zip\""
+      ],
+      [
+        16,
+        "PKG_PATCH_DIRS+=\" ${DEVICE}\""
+      ],
+      [
+        47,
+        "    PKG_SITE=\"https://github.com/JeffyCN/mirrors\""
+      ],
+      [
+        48,
+        "    PKG_SHA256=\"54b8af924f582f7da7e120fbad4812a502cc7cc67f6d6ab061377cb403f3eb2d\""
+      ],
+      [
+        49,
+        "    PKG_VERSION=\"4233031d818e97a19e8a9cdbbd5c15795ededd93\""
+      ],
+      [
+        51,
+        "    PKG_URL=\"${PKG_SITE}/archive/${PKG_VERSION}.zip\""
+      ],
+      [
+        56,
+        "    PKG_PATCH_DIRS+=\" next\""
+      ],
+      [
+        70,
+        "unpack() {"
+      ],
+      [
+        76,
+        "  unzip -q \"${SOURCES}/${PKG_NAME}/${PKG_SOURCE_NAME}\" \"*/hook/*\" \"*/include/*\" \"*/scripts/*\" \"*/meson*\" \"*/data/*\" \"*/${LIBNAME}\" \\"
+      ],
+      [
+        101,
+        "      curl -Lo ${INSTALL}/usr/lib/libmali-${MALI_FAMILY}-${DRIVER_VERSION}-x11-gbm.so ${PKG_SITE}/raw/master/lib/aarch64-linux-gnu/libmali-${MALI_FAMILY}-${DRIVER_VERSION}-x11-gbm.so"
+      ]
+    ]
+  },
+  "projects/ROCKNIX/packages/graphics/mesa/package.mk": {
+    "sha256": "ac5dca86bde7cfb9287542d201d53a757fb6f0d5f4842dd9f53013bf3f3f48cc",
+    "owner": [
+      "image-packages"
+    ],
+    "member_count": 1,
+    "source_lines": [
+      "# SPDX-License-Identifier: GPL-2.0-or-later",
+      "# Copyright (C) 2009-2016 Stephan Raue (stephan@openelec.tv)",
+      "# Copyright (C) 2018-present Team LibreELEC (https://libreelec.tv)",
+      "",
+      "PKG_NAME=\"mesa\"",
+      "PKG_VERSION=\"26.2.2\"",
+      "PKG_SHA256=\"9b6850189d4b4a595b1718d57d462412090fab820d3e235e2c1d122c1cf9e9bc\"",
+      "PKG_LICENSE=\"OSS\"",
+      "PKG_SITE=\"http://www.mesa3d.org/\"",
+      "PKG_URL=\"https://gitlab.freedesktop.org/mesa/mesa/-/archive/mesa-${PKG_VERSION}/mesa-mesa-${PKG_VERSION}.tar.gz\"",
+      "PKG_DEPENDS_HOST=\"toolchain:host expat:host libclc:host libdrm:host llvm:host Mako:host pyyaml:host spirv-tools:host\"",
+      "PKG_DEPENDS_TARGET=\"toolchain expat libdrm Mako:host pyyaml:host\"",
+      "PKG_LONGDESC=\"Mesa is a 3-D graphics library with an API.\"",
+      "PKG_PATCH_DIRS+=\" ${DEVICE}\"",
+      "",
+      "get_graphicdrivers",
+      "",
+      "if listcontains \"${GRAPHIC_DRIVERS}\" \"panfrost\"; then",
+      "  PKG_DEPENDS_TARGET+=\" mesa:host\"",
+      "fi",
+      "",
+      "PKG_MESON_OPTS_HOST=\"-Dglvnd=disabled \\",
+      "                     -Dgallium-drivers= \\",
+      "                     -Dplatforms= \\",
+      "                     -Dglx=disabled \\",
+      "                     -Dvulkan-drivers= \\",
+      "                     -Dshared-llvm=disabled \\",
+      "                     -Dtools=panfrost \\",
+      "                     -Dvideo-codecs= \\",
+      "                     -Dbuild-tests=false \\",
+      "                     -Denable-glcpp-tests=false \\",
+      "                     -Dmesa-clc=enabled \\",
+      "                     -Dinstall-mesa-clc=true \\",
+      "                     -Dprecomp-compiler=enabled \\",
+      "                     -Dinstall-precomp-compiler=true\"",
+      "",
+      "PKG_MESON_OPTS_TARGET=\"-Dc_link_args=-lgcc \\",
+      "                       -Dcpp_link_args=-lgcc \\",
+      "                       -Dgallium-drivers=${GALLIUM_DRIVERS// /,} \\",
+      "                       -Dgallium-extra-hud=false \\",
+      "                       -Dgallium-rusticl=false \\",
+      "                       -Dshader-cache=enabled \\",
+      "                       -Dopengl=true \\",
+      "                       -Dgbm=enabled \\",
+      "                       -Degl=enabled \\",
+      "                       -Dvalgrind=disabled \\",
+      "                       -Dlibunwind=disabled \\",
+      "                       -Dlmsensors=disabled \\",
+      "                       -Dbuild-tests=false \\",
+      "                       -Dmicrosoft-clc=disabled\"",
+      "",
+      "if listcontains \"${GRAPHIC_DRIVERS}\" \"panfrost\"; then",
+      "  # These options require that we have built mesa host as specified above",
+      "  PKG_MESON_OPTS_TARGET+=\" -Dmesa-clc=system \\",
+      "                           -Dprecomp-compiler=system\"",
+      "fi",
+      "",
+      "if [ \"${DISPLAYSERVER}\" = \"x11\" ]; then",
+      "  PKG_DEPENDS_TARGET+=\" xorgproto libXext libXdamage libXfixes libXxf86vm libxcb libX11 libxshmfence libXrandr libglvnd glfw\"",
+      "  export X11_INCLUDES=",
+      "  PKG_MESON_OPTS_TARGET+=\"\t-Dplatforms=x11 \\",
+      "\t\t\t\t-Dglx=dri \\",
+      "\t\t\t\t-Dglvnd=enabled\"",
+      "elif [ \"${DISPLAYSERVER}\" = \"wl\" ]; then",
+      "  PKG_DEPENDS_TARGET+=\" wayland wayland-protocols libglvnd glfw\"",
+      "  PKG_MESON_OPTS_TARGET+=\" \t-Dplatforms=wayland,x11 \\",
+      "\t\t\t\t-Dglx=dri \\",
+      "\t\t\t\t-Dglvnd=enabled\"",
+      "  PKG_DEPENDS_TARGET+=\" xorgproto libXext libXdamage libXfixes libXxf86vm libxcb libX11 libxshmfence libXrandr libglvnd\"",
+      "  export X11_INCLUDES=",
+      "else",
+      "  PKG_MESON_OPTS_TARGET+=\"\t-Dplatforms=\"\" \\",
+      "\t\t\t\t-Dgallium-nine=false \\",
+      "\t\t\t\t-Dglx=disabled \\",
+      "\t\t\t\t-Dglvnd=disabled\"",
+      "fi",
+      "",
+      "if [ \"${LLVM_SUPPORT}\" = \"yes\" ]; then",
+      "  PKG_DEPENDS_TARGET+=\" elfutils llvm\"",
+      "  PKG_MESON_OPTS_TARGET+=\" -Dllvm=enabled\"",
+      "else",
+      "  PKG_MESON_OPTS_TARGET+=\" -Dllvm=disabled\"",
+      "fi",
+      "",
+      "if [ \"${VAAPI_SUPPORT}\" = \"yes\" ] && listcontains \"${GRAPHIC_DRIVERS}\" \"(r600|radeonsi)\"; then",
+      "  PKG_DEPENDS_TARGET+=\" libva\"",
+      "  PKG_MESON_OPTS_TARGET+=\" -Dgallium-va=enabled \\",
+      "                           -Dvideo-codecs=vc1dec,h264dec,h264enc,h265dec,h265enc\"",
+      "else",
+      "  PKG_MESON_OPTS_TARGET+=\" -Dgallium-va=disabled\"",
+      "fi",
+      "",
+      "if [ \"${OPENGLES_SUPPORT}\" = \"yes\" ]; then",
+      "  PKG_MESON_OPTS_TARGET+=\" -Dgles1=enabled -Dgles2=enabled\"",
+      "else",
+      "  PKG_MESON_OPTS_TARGET+=\" -Dgles1=disabled -Dgles2=disabled\"",
+      "fi",
+      "",
+      "if [ \"${VULKAN_SUPPORT}\" = \"yes\" ]; then",
+      "  PKG_DEPENDS_TARGET+=\" ${VULKAN} vulkan-tools\"",
+      "  PKG_MESON_OPTS_TARGET+=\" -Dvulkan-drivers=${VULKAN_DRIVERS_MESA// /,}\"",
+      "else",
+      "  PKG_MESON_OPTS_TARGET+=\" -Dvulkan-drivers=\"",
+      "fi",
+      "",
+      "post_makeinstall_target() {",
+      "  # While this likely breaks panfrost vulkan, it does fix vulkaninfo on libmali-vulkan",
+      "  if [ \"${DEVICE}\" = \"S922X\" ]; then",
+      "    rm -f ${INSTALL}/usr/lib/libvulkan_panfrost.so ${INSTALL}/usr/share/vulkan/icd.d/panfrost_icd.*.json",
+      "  fi",
+      "}"
+    ],
+    "assignments": [
+      [
+        5,
+        "PKG_NAME=\"mesa\""
+      ],
+      [
+        6,
+        "PKG_VERSION=\"26.2.2\""
+      ],
+      [
+        7,
+        "PKG_SHA256=\"9b6850189d4b4a595b1718d57d462412090fab820d3e235e2c1d122c1cf9e9bc\""
+      ],
+      [
+        9,
+        "PKG_SITE=\"http://www.mesa3d.org/\""
+      ],
+      [
+        10,
+        "PKG_URL=\"https://gitlab.freedesktop.org/mesa/mesa/-/archive/mesa-${PKG_VERSION}/mesa-mesa-${PKG_VERSION}.tar.gz\""
+      ],
+      [
+        14,
+        "PKG_PATCH_DIRS+=\" ${DEVICE}\""
+      ]
+    ],
+    "upstream_sha256": "0e9cd7ca8c0bc05326a6b165dec38e1daf0269206c92348f887b5d08401c846b",
+    "upstream_assignments": [
+      [
+        5,
+        "PKG_NAME=\"mesa\""
+      ],
+      [
+        6,
+        "PKG_VERSION=\"26.2.4\""
+      ],
+      [
+        7,
+        "PKG_SHA256=\"89d4c3bf09fac8968f4198d00a6328e5e0df02f18d4b17b8eedc6b1a5773ae6b\""
+      ],
+      [
+        9,
+        "PKG_SITE=\"http://www.mesa3d.org/\""
+      ],
+      [
+        10,
+        "PKG_URL=\"https://gitlab.freedesktop.org/mesa/mesa/-/archive/mesa-${PKG_VERSION}/mesa-mesa-${PKG_VERSION}.tar.gz\""
+      ],
+      [
+        14,
+        "PKG_PATCH_DIRS+=\" ${DEVICE}\""
+      ]
+    ]
+  },
+  "projects/ROCKNIX/packages/graphics/vulkan-wsi-layer/package.mk": {
+    "sha256": "c53e518eb70d0c02f99ee6dc0dfed664423bd5bfb2efb15216851a04e153d60f",
+    "owner": [
+      "packages-dead-ends"
+    ],
+    "member_count": 2,
+    "source_lines": [
+      "# SPDX-License-Identifier: GPL-2.0-or-later",
+      "# Copyright (C) 2024-present ROCKNIX (https://github.com/ROCKNIX)",
+      "",
+      "PKG_NAME=\"vulkan-wsi-layer\"",
+      "PKG_VERSION=\"8f077c5c862e5259841d524de8280b8c2429990a\"",
+      "PKG_SHA256=\"cd45a40c476e59557385c334f4266b62b05c73e50d725d4a464b7dc44ca61de8\"",
+      "PKG_LICENSE=\"MIT\"",
+      "PKG_SITE=\"https://gitlab.freedesktop.org/mesa/vulkan-wsi-layer\"",
+      "PKG_URL=\"${PKG_SITE}/-/archive/${PKG_VERSION}.tar.gz\"",
+      "PKG_DEPENDS_TARGET=\"toolchain libdrm wayland-protocols ${VULKAN}\"",
+      "PKG_DEPENDS_UNPACK=\"linux\"",
+      "PKG_LONGDESC=\"Implements Vulkan extensions for Window System Integration inside a Vulkan layer.\"",
+      "PKG_TOOLCHAIN=\"cmake\"",
+      "",
+      "pre_configure_target() {",
+      "if [ \"${DEVICE}\" = \"RK3588\" ]; then",
+      "  #BSP name?, probably can be removed when moving to mainline",
+      "  HEAP_NAME=cma",
+      "else",
+      "  HEAP_NAME=linux,cma",
+      "fi",
+      "",
+      "if [ \"${ARCH}\" = \"aarch64\" ]; then",
+      "  INCLUDE_ARCH=arm64",
+      "else",
+      "  INCLUDE_ARCH=${ARCH}",
+      "fi",
+      "",
+      "PKG_CMAKE_OPTS_TARGET+=\" -DVULKAN_CXX_INCLUDE=${SYSROOT_PREFIX}/usr \\",
+      "        -DBUILD_WSI_HEADLESS=OFF \\",
+      "        -DBUILD_WSI_WAYLAND=ON \\",
+      "        -DSELECT_EXTERNAL_ALLOCATOR=dma_buf_heaps \\",
+      "        -DWSIALLOC_MEMORY_HEAP_NAME=${HEAP_NAME} \\",
+      "        -DENABLE_WAYLAND_FIFO_PRESENTATION_THREAD=ON \\",
+      "        -DKERNEL_HEADER_DIR=$(get_build_dir linux)/arch/${INCLUDE_ARCH}/include \\",
+      "        -DCMAKE_POLICY_VERSION_MINIMUM=3.5\"",
+      "}",
+      "",
+      "makeinstall_target() {",
+      "  # Install to arch libdirs using a bare soname manifest.",
+      "  mkdir -p ${INSTALL}/usr/lib",
+      "  cp -r ${PKG_BUILD}/.${TARGET_NAME}/libVkLayer_window_system_integration.so ${INSTALL}/usr/lib/",
+      "  mkdir -p ${INSTALL}/usr/share/vulkan/implicit_layer.d",
+      "  cp -r ${PKG_BUILD}/.${TARGET_NAME}/VkLayer_window_system_integration.json ${INSTALL}/usr/share/vulkan/implicit_layer.d",
+      "}"
+    ],
+    "assignments": [
+      [
+        4,
+        "PKG_NAME=\"vulkan-wsi-layer\""
+      ],
+      [
+        5,
+        "PKG_VERSION=\"8f077c5c862e5259841d524de8280b8c2429990a\""
+      ],
+      [
+        6,
+        "PKG_SHA256=\"cd45a40c476e59557385c334f4266b62b05c73e50d725d4a464b7dc44ca61de8\""
+      ],
+      [
+        8,
+        "PKG_SITE=\"https://gitlab.freedesktop.org/mesa/vulkan-wsi-layer\""
+      ],
+      [
+        9,
+        "PKG_URL=\"${PKG_SITE}/-/archive/${PKG_VERSION}.tar.gz\""
+      ]
+    ],
+    "upstream_sha256": "136eba62f2a326bd9888c9cb1834c5fd7ecfe6c58b51cb7602cb45391b8ec18f",
+    "upstream_assignments": [
+      [
+        4,
+        "PKG_NAME=\"vulkan-wsi-layer\""
+      ],
+      [
+        5,
+        "PKG_VERSION=\"40cfec09d0e2d42c5e1f2642cf4cba11e7008112\""
+      ],
+      [
+        6,
+        "PKG_SHA256=\"43954274b528086371a42bf74accd9e2d8a83a9613fc0833b26f257d882246fc\""
+      ],
+      [
+        8,
+        "PKG_SITE=\"https://github.com/ginkage/vulkan-wsi-layer\""
+      ],
+      [
+        9,
+        "PKG_URL=\"${PKG_SITE}/archive/${PKG_VERSION}.tar.gz\""
+      ]
+    ]
+  },
+  "projects/ROCKNIX/packages/linux-drivers/mali-bifrost/package.mk": {
+    "sha256": "2f1e8a77bcd7845626456e61086a69975750818e6ad9d8baa19f984c69f3b538",
+    "owner": [
+      "devices-unshipped"
+    ],
+    "member_count": 9,
+    "source_lines": [
+      "# SPDX-License-Identifier: GPL-2.0",
+      "# Copyright (C) 2023 JELOS (https://github.com/JustEnoughLinuxOS)",
+      "",
+      "PKG_NAME=\"mali-bifrost\"",
+      "PKG_LICENSE=\"GPL\"",
+      "PKG_SITE=\"https://developer.arm.com/downloads/-/mali-drivers/bifrost-kernel\"",
+      "PKG_LONGDESC=\"mali-bifrost: Linux drivers for Mali Bifrost GPUs\"",
+      "PKG_TOOLCHAIN=\"manual\"",
+      "PKG_IS_KERNEL_PKG=\"yes\"",
+      "",
+      "PKG_VERSION=\"39da994bb6fc8819e5e8c1873907dd21d17e53c1\"",
+      "PKG_SHA256=\"f947b99a1bcb5b86ea270c1ce4cd189f4df26b3c0c8ba92c1ef256bb757afa66\"",
+      "PKG_URL=\"http://github.com/rocknix/mali_kbase/archive/${PKG_VERSION}.tar.gz\"",
+      "",
+      "make_target() {",
+      "  # S922X is an actual Amlogic Meson SoC \u2014 it requires the meson platform",
+      "  # backend for correct GPU clock and power domain handling.",
+      "  # Rockchip devices use the devicetree backend which properly coordinates",
+      "  # with kernel power domain drivers during runtime PM suspend/resume cycles.",
+      "  case ${DEVICE} in",
+      "    S922X)",
+      "      MALI_PLATFORM=\"meson\"",
+      "      ;;",
+      "    *)",
+      "      MALI_PLATFORM=\"devicetree\"",
+      "      ;;",
+      "  esac",
+      "",
+      "  kernel_make KDIR=$(kernel_path) -C ${PKG_BUILD} \\",
+      "       CONFIG_MALI_MIDGARD=m CONFIG_MALI_PLATFORM_NAME=${MALI_PLATFORM} CONFIG_MALI_REAL_HW=y CONFIG_MALI_DEVFREQ=y CONFIG_MALI_GATOR_SUPPORT=y",
+      "}",
+      "",
+      "makeinstall_target() {",
+      "  DRIVER_DIR=${PKG_BUILD}/product/kernel/drivers/gpu/arm/midgard",
+      "",
+      "  mkdir -p ${INSTALL}/$(get_full_module_dir)/${PKG_NAME}",
+      "    cp ${DRIVER_DIR}/mali_kbase.ko ${INSTALL}/$(get_full_module_dir)/${PKG_NAME}",
+      "}"
+    ],
+    "assignments": [
+      [
+        4,
+        "PKG_NAME=\"mali-bifrost\""
+      ],
+      [
+        6,
+        "PKG_SITE=\"https://developer.arm.com/downloads/-/mali-drivers/bifrost-kernel\""
+      ],
+      [
+        11,
+        "PKG_VERSION=\"39da994bb6fc8819e5e8c1873907dd21d17e53c1\""
+      ],
+      [
+        12,
+        "PKG_SHA256=\"f947b99a1bcb5b86ea270c1ce4cd189f4df26b3c0c8ba92c1ef256bb757afa66\""
+      ],
+      [
+        13,
+        "PKG_URL=\"http://github.com/rocknix/mali_kbase/archive/${PKG_VERSION}.tar.gz\""
+      ],
+      [
+        36,
+        "  mkdir -p ${INSTALL}/$(get_full_module_dir)/${PKG_NAME}"
+      ],
+      [
+        37,
+        "    cp ${DRIVER_DIR}/mali_kbase.ko ${INSTALL}/$(get_full_module_dir)/${PKG_NAME}"
+      ]
+    ],
+    "upstream_sha256": "2f1e8a77bcd7845626456e61086a69975750818e6ad9d8baa19f984c69f3b538",
+    "upstream_assignments": [
+      [
+        4,
+        "PKG_NAME=\"mali-bifrost\""
+      ],
+      [
+        6,
+        "PKG_SITE=\"https://developer.arm.com/downloads/-/mali-drivers/bifrost-kernel\""
+      ],
+      [
+        11,
+        "PKG_VERSION=\"39da994bb6fc8819e5e8c1873907dd21d17e53c1\""
+      ],
+      [
+        12,
+        "PKG_SHA256=\"f947b99a1bcb5b86ea270c1ce4cd189f4df26b3c0c8ba92c1ef256bb757afa66\""
+      ],
+      [
+        13,
+        "PKG_URL=\"http://github.com/rocknix/mali_kbase/archive/${PKG_VERSION}.tar.gz\""
+      ],
+      [
+        36,
+        "  mkdir -p ${INSTALL}/$(get_full_module_dir)/${PKG_NAME}"
+      ],
+      [
+        37,
+        "    cp ${DRIVER_DIR}/mali_kbase.ko ${INSTALL}/$(get_full_module_dir)/${PKG_NAME}"
+      ]
+    ]
+  },
+  "projects/ROCKNIX/packages/linux/package.mk": {
+    "sha256": "652202f2efead36a6c0d3d6a95d55efb4e2cd799cd9ca1ccafd5907e25b26faa",
+    "owner": [
+      "device-generic-x64-and-kernel"
+    ],
+    "member_count": 358,
+    "source_lines": [
+      "# SPDX-License-Identifier: GPL-2.0-or-later",
+      "# Copyright (C) 2009-2016 Stephan Raue (stephan@openelec.tv)",
+      "# Copyright (C) 2017-present Team LibreELEC (https://libreelec.tv)",
+      "",
+      "PKG_NAME=\"linux\"",
+      "PKG_LICENSE=\"GPL\"",
+      "PKG_SITE=\"http://www.kernel.org\"",
+      "PKG_DEPENDS_HOST=\"ccache:host openssl:host\"",
+      "PKG_DEPENDS_TARGET=\"linux:host kmod:host xz:host keyutils ncurses openssl:host ${KERNEL_EXTRA_DEPENDS_TARGET}\"",
+      "PKG_NEED_UNPACK=\"${LINUX_DEPENDS} $(get_pkg_directory initramfs) $(get_pkg_variable initramfs PKG_NEED_UNPACK)\"",
+      "PKG_NEED_UNPACK+=\" ${PROJECT_DIR}/${PROJECT}/bootloader ${PROJECT_DIR}/${PROJECT}/devices/${DEVICE}/bootloader\"",
+      "PKG_LONGDESC=\"This package contains a precompiled kernel image and the modules.\"",
+      "PKG_IS_KERNEL_PKG=\"yes\"",
+      "PKG_STAMP=\"${KERNEL_TARGET} ${KERNEL_MAKE_EXTRACMD}\"",
+      "",
+      "PKG_PATCH_DIRS=\"${LINUX} mainline ${DEVICE} default\"",
+      "",
+      "[[ \"${DEVICE}\" == RK* ]] && PKG_PATCH_DIRS+=\" mainline-rockchip\"",
+      "[[ \"${DEVICE}\" == SM* ]] && PKG_DEPENDS_TARGET+=\" mkbootimg:host\"",
+      "",
+      "case ${DEVICE} in",
+      "  RK3588)",
+      "    PKG_VERSION=\"b8e62bed74766b6c8c423a767b35495e78b64caf\"",
+      "    PKG_SHA256=\"0e0fe5a2f108d525a044e190c3f23a4603cdbf8d54bc1cc488d6ee04b9fc5b3a\"",
+      "    PKG_URL=\"https://github.com/armbian/linux-rockchip/archive/${PKG_VERSION}.tar.gz\"",
+      "    PKG_GIT_CLONE_BRANCH=\"rk-6.1-rkr3\"",
+      "    PKG_PATCH_DIRS=\"${LINUX} ${DEVICE} default\"",
+      "    ;;",
+      "  H700|SM4450|SM6115|SM8250|SM8550|SM8650|SM8750)",
+      "    PKG_VERSION=\"7.2\"",
+      "    PKG_SHA256=\"f9fef3d14c0df53819026f4be74459835c2a0b0dcbf5b5bbd9ea19f0829402b3\"",
+      "    PKG_URL=\"https://www.kernel.org/pub/linux/kernel/v${PKG_VERSION/.*/}.x/${PKG_NAME}-${PKG_VERSION}.tar.xz\"",
+      "    # Note that the patch dir 7.2 is automatically added as it matches the",
+      "    # version. When we move past 7.2, remember to add 7.2 to patch dirs.",
+      "    ;;",
+      "  RK3326|AMD64|GENERIC_X64)",
+      "    PKG_VERSION=\"7.1.2\"",
+      "    PKG_SHA256=\"37198c93727be247c9fb5309bb86cd5e496c61e5322cd8c4eca9476bb0b5883f\"",
+      "    PKG_URL=\"https://www.kernel.org/pub/linux/kernel/v${PKG_VERSION/.*/}.x/${PKG_NAME}-${PKG_VERSION}.tar.xz\"",
+      "    PKG_PATCH_DIRS+=\" 7.0\"",
+      "    ;;",
+      "  RK3576|RK3566)",
+      "    PKG_VERSION=\"7.0.2\"",
+      "    PKG_SHA256=\"53591a03294527a48ccb0b9e559e922df8a38554745a1206827ca751d2ca7662\"",
+      "    PKG_URL=\"https://www.kernel.org/pub/linux/kernel/v${PKG_VERSION/.*/}.x/${PKG_NAME}-${PKG_VERSION}.tar.xz\"",
+      "    PKG_PATCH_DIRS+=\" 7.0\"",
+      "    ;;",
+      "  S922X|RK3399)",
+      "    PKG_VERSION=\"6.18.49\"",
+      "    PKG_SHA256=\"ae826f33111fea6f1d279dde7299d7463c8dfd204aeb75a8fb5432bc60a28191\"",
+      "    PKG_URL=\"https://www.kernel.org/pub/linux/kernel/v${PKG_VERSION/.*/}.x/${PKG_NAME}-${PKG_VERSION}.tar.xz\"",
+      "    ;;",
+      "esac",
+      "",
+      "PKG_KERNEL_CFG_FILE=$(kernel_config_path) || die",
+      "",
+      "if [ -n \"${KERNEL_TOOLCHAIN}\" ]; then",
+      "  PKG_DEPENDS_TARGET+=\" gcc-${KERNEL_TOOLCHAIN}:host\"",
+      "  HEADERS_ARCH=${TARGET_ARCH}",
+      "else",
+      "  PKG_DEPENDS_TARGET+=\" toolchain\"",
+      "fi",
+      "",
+      "if [ \"${PKG_BUILD_PERF}\" != \"no\" ] && grep -q ^CONFIG_PERF_EVENTS= ${PKG_KERNEL_CFG_FILE}; then",
+      "  PKG_BUILD_PERF=\"yes\"",
+      "  PKG_DEPENDS_TARGET+=\" binutils elfutils libunwind zlib openssl\"",
+      "fi",
+      "",
+      "if [[ \"${TARGET_ARCH}\" =~ i*86|x86_64 ]]; then",
+      "  PKG_DEPENDS_TARGET+=\" elfutils:host pciutils\"",
+      "  PKG_DEPENDS_UNPACK+=\" intel-ucode kernel-firmware\"",
+      "fi",
+      "",
+      "# Ensure that the dependencies of initramfs:target are built correctly, but",
+      "# we don't want to add initramfs:target as a direct dependency as we install",
+      "# this \"manually\" from within linux:target",
+      "for pkg in $(get_pkg_variable initramfs PKG_DEPENDS_TARGET); do",
+      "  ! listcontains \"${PKG_DEPENDS_TARGET}\" \"${pkg}\" && PKG_DEPENDS_TARGET+=\" ${pkg}\" || true",
+      "done",
+      "",
+      "if [ \"${DEVICE}\" = \"RK3326\" -o \"${DEVICE}\" = \"RK3566\" ]; then",
+      "  PKG_DEPENDS_UNPACK+=\" generic-dsi\"",
+      "elif [ \"${DEVICE}\" = \"SM8250\" -o \"${DEVICE}\" = \"H700\" -o \"${DEVICE}\" = \"SM8650\" -o \"${DEVICE}\" = \"SM8750\" ]; then",
+      "  PKG_DEPENDS_UNPACK+=\" kernel-firmware\"",
+      "fi",
+      "",
+      "# SM8650/SM8750 build device-specific firmware blobs into the kernel, so the",
+      "# extra-firmware package must be unpacked before the kernel is built.",
+      "if [ \"${DEVICE}\" = \"SM8650\" -o \"${DEVICE}\" = \"SM8750\" ]; then",
+      "  PKG_DEPENDS_UNPACK+=\" extra-firmware\"",
+      "fi",
+      "",
+      "# A built-in cfg80211 needs regulatory.db inside the kernel image (see",
+      "# pre_make_target), so unpack wireless-regdb before the kernel is built.",
+      "if grep -q '^CONFIG_CFG80211=y' ${PKG_KERNEL_CFG_FILE}; then",
+      "  PKG_DEPENDS_UNPACK+=\" wireless-regdb\"",
+      "fi",
+      "",
+      "post_patch() {",
+      "  # linux was already built and its build dir autoremoved - prepare it again for kernel packages",
+      "  if [ -d ${PKG_INSTALL}/.image ]; then",
+      "    cp -p ${PKG_INSTALL}/.image/.config ${PKG_BUILD}",
+      "    kernel_make -C ${PKG_BUILD} prepare",
+      "",
+      "    # restore the required Module.symvers from an earlier build",
+      "    cp -p ${PKG_INSTALL}/.image/Module.symvers ${PKG_BUILD}",
+      "  fi",
+      "",
+      "  if [ \"${DEVICE}\" = \"RK3326\" -o \"${DEVICE}\" = \"RK3566\" -o \"${DEVICE}\" = \"RK3576\" ]; then",
+      "    cp -v $(get_pkg_directory generic-dsi)/sources/panel-generic-dsi.c ${PKG_BUILD}/drivers/gpu/drm/panel/",
+      "    echo \"obj-y\" += panel-generic-dsi.o >> ${PKG_BUILD}/drivers/gpu/drm/panel/Makefile",
+      "  fi",
+      "",
+      "  DTS_SOURCE_DIR=\"${PROJECT_DIR}/${PROJECT}/devices/${DEVICE}/linux/dts\"",
+      "  if [ -d \"${DTS_SOURCE_DIR}\" ]; then",
+      "    rsync -av \"${DTS_SOURCE_DIR}/\" ${PKG_BUILD}/arch/arm64/boot/dts/",
+      "  fi",
+      "}",
+      "",
+      "make_init() {",
+      " : # reuse make_target()",
+      "}",
+      "",
+      "makeinstall_init() {",
+      "  :",
+      "}",
+      "",
+      "make_host() {",
+      "  :",
+      "}",
+      "",
+      "makeinstall_host() {",
+      "  make \\",
+      "    ARCH=${HEADERS_ARCH:-${TARGET_KERNEL_ARCH}} \\",
+      "    HOSTCC=\"${TOOLCHAIN}/bin/host-gcc\" \\",
+      "    HOSTCXX=\"${TOOLCHAIN}/bin/host-g++\" \\",
+      "    HOSTCFLAGS=\"${HOST_CFLAGS}\" \\",
+      "    HOSTCXXFLAGS=\"${HOST_CXXFLAGS}\" \\",
+      "    HOSTLDFLAGS=\"${HOST_LDFLAGS}\" \\",
+      "    INSTALL_HDR_PATH=dest \\",
+      "    headers_install",
+      "  mkdir -p ${SYSROOT_PREFIX}/usr/include",
+      "    cp -R dest/include/* ${SYSROOT_PREFIX}/usr/include",
+      "}",
+      "",
+      "pre_make_target() {",
+      "  ( cd ${ROOT}",
+      "    rm -rf ${BUILD}/initramfs",
+      "    rm -f ${STAMPS_INSTALL}/initramfs/install_target ${STAMPS_INSTALL}/*/install_init",
+      "    ${SCRIPTS}/install initramfs",
+      "  )",
+      "  pkg_lock_status \"ACTIVE\" \"linux:target\" \"build\"",
+      "",
+      "  cp ${PKG_KERNEL_CFG_FILE} ${PKG_BUILD}/.config",
+      "",
+      "  # set initramfs source",
+      "  ${PKG_BUILD}/scripts/config --set-str CONFIG_INITRAMFS_SOURCE \"$(kernel_initramfs_confs) ${BUILD}/initramfs\"",
+      "",
+      "  # Keep the RC2 network identity across the display rename (D-WORKFLOW-123).",
+      "  ${PKG_BUILD}/scripts/config --set-str CONFIG_DEFAULT_HOSTNAME \"ROCKNIX\"",
+      "",
+      "  # disable swap support if not enabled",
+      "  if [ ! \"${SWAP_SUPPORT}\" = yes ]; then",
+      "    ${PKG_BUILD}/scripts/config --disable CONFIG_SWAP",
+      "  fi",
+      "",
+      "  # disable nfs support if not enabled",
+      "  if [ \"${NFS_SUPPORT}\" = no ]; then",
+      "    ${PKG_BUILD}/scripts/config --disable CONFIG_NFS_FS",
+      "  fi",
+      "",
+      "  # disable cifs support if not enabled",
+      "  if [ ! \"${SAMBA_SUPPORT}\" = yes ]; then",
+      "    ${PKG_BUILD}/scripts/config --disable CONFIG_CIFS",
+      "  fi",
+      "",
+      "  # disable iscsi support if not enabled",
+      "  if [ ! \"${ISCSI_SUPPORT}\" = yes ]; then",
+      "    ${PKG_BUILD}/scripts/config --disable CONFIG_SCSI_ISCSI_ATTRS",
+      "    ${PKG_BUILD}/scripts/config --disable CONFIG_ISCSI_TCP",
+      "    ${PKG_BUILD}/scripts/config --disable CONFIG_ISCSI_BOOT_SYSFS",
+      "    ${PKG_BUILD}/scripts/config --disable CONFIG_ISCSI_IBFT_FIND",
+      "    ${PKG_BUILD}/scripts/config --disable CONFIG_ISCSI_IBFT",
+      "  fi",
+      "",
+      "  # disable lima/panfrost if libmali is configured",
+      "  if [ \"${OPENGLES}\" = \"libmali\" ]; then",
+      "    ${PKG_BUILD}/scripts/config --disable CONFIG_DRM_LIMA",
+      "    ${PKG_BUILD}/scripts/config --disable CONFIG_DRM_PANFROST",
+      "  fi",
+      "",
+      "  # disable wireguard support if not enabled",
+      "  if [ ! \"${WIREGUARD_SUPPORT}\" = yes ]; then",
+      "    ${PKG_BUILD}/scripts/config --disable CONFIG_WIREGUARD",
+      "  fi",
+      "",
+      "  if [[ \"${TARGET_ARCH}\" =~ i*86|x86_64 ]]; then",
+      "    # copy some extra firmware to linux tree",
+      "    mkdir -p ${PKG_BUILD}/external-firmware",
+      "      cp -a $(get_build_dir kernel-firmware)/.copied-firmware/{amdgpu,amd-ucode,i915,radeon,e100,rtl_nic} ${PKG_BUILD}/external-firmware",
+      "",
+      "    cp -a $(get_build_dir intel-ucode)/intel-ucode ${PKG_BUILD}/external-firmware",
+      "",
+      "    FW_LIST=\"$(find ${PKG_BUILD}/external-firmware \\( -type f -o -type l \\) \\( -iname '*.bin' -o -iname '*.fw' -o -path '*/intel-ucode/*' \\) | sed 's|.*external-firmware/||' | sort | xargs)\"",
+      "",
+      "    ${PKG_BUILD}/scripts/config --set-str CONFIG_EXTRA_FIRMWARE \"${FW_LIST}\"",
+      "    ${PKG_BUILD}/scripts/config --set-str CONFIG_EXTRA_FIRMWARE_DIR \"external-firmware\"",
+      "  elif [ \"${TARGET_ARCH}\" = \"aarch64\" -a \"${DEVICE}\" = \"SM8250\" ]; then",
+      "    mkdir -p ${PKG_BUILD}/external-firmware/qcom/sm8250",
+      "    mkdir -p ${PKG_BUILD}/external-firmware/qcom/vpu-1.0",
+      "      cp -Lv $(get_build_dir kernel-firmware)/.copied-firmware/qcom/a650_gmu.bin ${PKG_BUILD}/external-firmware/qcom",
+      "      cp -Lv $(get_build_dir kernel-firmware)/.copied-firmware/qcom/a650_sqe.fw ${PKG_BUILD}/external-firmware/qcom",
+      "      cp -Lv $(get_build_dir kernel-firmware)/.copied-firmware/qcom/sm8250/a650_zap.mbn ${PKG_BUILD}/external-firmware/qcom/sm8250",
+      "      cp -Lv $(get_build_dir kernel-firmware)/.copied-firmware/qcom/sm8250/adsp.mbn ${PKG_BUILD}/external-firmware/qcom/sm8250",
+      "      cp -Lv $(get_build_dir kernel-firmware)/.copied-firmware/qcom/sm8250/cdsp.mbn ${PKG_BUILD}/external-firmware/qcom/sm8250",
+      "      cp $(get_build_dir kernel-firmware)/.copied-firmware/qcom/sm8250/Thundercomm/RB5/* $(get_build_dir kernel-firmware)/.copied-firmware/qcom/sm8250/",
+      "      cp -Lv $(get_build_dir kernel-firmware)/.copied-firmware/qcom/sm8250/slpi.mbn ${PKG_BUILD}/external-firmware/qcom/sm8250",
+      "",
+      "    FW_LIST=\"$(find ${PKG_BUILD}/external-firmware -type f | sed 's|.*external-firmware/||' | sort | xargs)\"",
+      "",
+      "    ${PKG_BUILD}/scripts/config --set-str CONFIG_EXTRA_FIRMWARE \"${FW_LIST}\"",
+      "    ${PKG_BUILD}/scripts/config --set-str CONFIG_EXTRA_FIRMWARE_DIR \"external-firmware\"",
+      "  elif [ \"${TARGET_ARCH}\" = \"aarch64\" -a \"${DEVICE}\" = \"H700\" ]; then",
+      "    mkdir -p ${PKG_BUILD}/external-firmware/rtl_bt",
+      "    mkdir -p ${PKG_BUILD}/external-firmware/rtw88",
+      "    mkdir -p ${PKG_BUILD}/external-firmware/panels",
+      "      cp -Lv $(get_build_dir kernel-firmware)/.copied-firmware/rtl_bt/rtl8821cs_config.bin ${PKG_BUILD}/external-firmware/rtl_bt",
+      "      cp -Lv $(get_build_dir kernel-firmware)/.copied-firmware/rtl_bt/rtl8821cs_fw.bin ${PKG_BUILD}/external-firmware/rtl_bt",
+      "      cp -Lv $(get_build_dir kernel-firmware)/.copied-firmware/rtw88/rtw8821c_fw.bin ${PKG_BUILD}/external-firmware/rtw88",
+      "      cp -Lv $(get_build_dir kernel-firmware)/.copied-firmware/panels/anbernic,rg28xx-panel.panel ${PKG_BUILD}/external-firmware/panels",
+      "      cp -Lv $(get_build_dir kernel-firmware)/.copied-firmware/panels/anbernic,rg34xx-panel.panel ${PKG_BUILD}/external-firmware/panels",
+      "      cp -Lv $(get_build_dir kernel-firmware)/.copied-firmware/panels/anbernic,rg34xx-sp-panel.panel ${PKG_BUILD}/external-firmware/panels",
+      "      cp -Lv $(get_build_dir kernel-firmware)/.copied-firmware/panels/anbernic,rg34xx-sp-v2-panel.panel ${PKG_BUILD}/external-firmware/panels",
+      "      cp -Lv $(get_build_dir kernel-firmware)/.copied-firmware/panels/anbernic,rg35xx-plus-panel.panel ${PKG_BUILD}/external-firmware/panels",
+      "      cp -Lv $(get_build_dir kernel-firmware)/.copied-firmware/panels/anbernic,rg35xx-plus-rev6-panel.panel ${PKG_BUILD}/external-firmware/panels",
+      "      cp -Lv $(get_build_dir kernel-firmware)/.copied-firmware/panels/anbernic,rg35xx-sp-v2-panel.panel ${PKG_BUILD}/external-firmware/panels",
+      "      cp -Lv $(get_build_dir kernel-firmware)/.copied-firmware/panels/anbernic,rg40xx-panel.panel ${PKG_BUILD}/external-firmware/panels",
+      "      cp -Lv $(get_build_dir kernel-firmware)/.copied-firmware/panels/anbernic,rg40xx-v2-panel.panel ${PKG_BUILD}/external-firmware/panels",
+      "      cp -Lv $(get_build_dir kernel-firmware)/.copied-firmware/panels/anbernic,rgcubexx-panel.panel ${PKG_BUILD}/external-firmware/panels",
+      "",
+      "    FW_LIST=\"$(find ${PKG_BUILD}/external-firmware -type f | sed 's|.*external-firmware/||' | sort | xargs)\"",
+      "",
+      "    ${PKG_BUILD}/scripts/config --set-str CONFIG_EXTRA_FIRMWARE \"${FW_LIST}\"",
+      "    ${PKG_BUILD}/scripts/config --set-str CONFIG_EXTRA_FIRMWARE_DIR \"external-firmware\"",
+      "  elif [ \"${TARGET_ARCH}\" = \"aarch64\" -a \"${DEVICE}\" = \"SM8650\" ]; then",
+      "    mkdir -p ${PKG_BUILD}/external-firmware/qcom",
+      "      cp -Lv $(get_build_dir kernel-firmware)/.copied-firmware/qcom/gen70900_aqe.fw ${PKG_BUILD}/external-firmware/qcom",
+      "      cp -Lv $(get_build_dir kernel-firmware)/.copied-firmware/qcom/gen70900_sqe.fw ${PKG_BUILD}/external-firmware/qcom",
+      "      cp -Lv $(get_build_dir kernel-firmware)/.copied-firmware/qcom/gmu_gen70900.bin ${PKG_BUILD}/external-firmware/qcom",
+      "    mkdir -p ${PKG_BUILD}/external-firmware/qcom/sm8650/ayaneo/ps2",
+      "      cp -Lv $(get_build_dir extra-firmware)/SM8650/qcom/sm8650/ayaneo/ps2/gen70900_zap.mbn ${PKG_BUILD}/external-firmware/qcom/sm8650/ayaneo/ps2",
+      "",
+      "    FW_LIST=\"$(find ${PKG_BUILD}/external-firmware -type f | sed 's|.*external-firmware/||' | sort | xargs)\"",
+      "",
+      "    ${PKG_BUILD}/scripts/config --set-str CONFIG_EXTRA_FIRMWARE \"${FW_LIST}\"",
+      "    ${PKG_BUILD}/scripts/config --set-str CONFIG_EXTRA_FIRMWARE_DIR \"external-firmware\"",
+      "  elif [ \"${TARGET_ARCH}\" = \"aarch64\" -a \"${DEVICE}\" = \"SM8750\" ]; then",
+      "    mkdir -p ${PKG_BUILD}/external-firmware/qcom",
+      "      cp -Lv $(get_build_dir kernel-firmware)/.copied-firmware/qcom/gen80000_aqe.fw ${PKG_BUILD}/external-firmware/qcom",
+      "      cp -Lv $(get_build_dir kernel-firmware)/.copied-firmware/qcom/gen80000_sqe.fw ${PKG_BUILD}/external-firmware/qcom",
+      "      cp -Lv $(get_build_dir kernel-firmware)/.copied-firmware/qcom/gen80000_gmu.bin ${PKG_BUILD}/external-firmware/qcom",
+      "",
+      "    mkdir -p ${PKG_BUILD}/external-firmware/qcom/sm8750",
+      "      cp -Lv $(get_build_dir kernel-firmware)/.copied-firmware/qcom/sm8750/gen80000_zap.mbn ${PKG_BUILD}/external-firmware/qcom/sm8750",
+      "",
+      "    # KONKR Pocket FIT Elite: AW88261 speaker-amp ACF (vendor cal/profile blob,",
+      "    # extracted from the stock Android image). The aw88261 driver requests the",
+      "    # blob; the amp nodes point at it with firmware-name. Built-in so the codec",
+      "    # probe never depends on the rootfs firmware overlay.",
+      "    mkdir -p ${PKG_BUILD}/external-firmware/qcom/sm8750/konkr/pfe",
+      "      cp -Lv $(get_build_dir extra-firmware)/SM8750/qcom/sm8750/konkr/pfe/aw88261_acf.bin ${PKG_BUILD}/external-firmware/qcom/sm8750/konkr/pfe",
+      "",
+      "    # KONKR Pocket FIT Elite: QUAT-MI2S audio topology (the AYN tplg with its",
+      "    # MI2S backend retargeted SECONDARY->QUATERNARY \u2014 the konkr's speaker amps",
+      "    # are on QUATERNARY MI2S). Built-in firmware is searched before the rootfs,",
+      "    # so this also overrides any stale copy in the SYSTEM overlay.",
+      "      cp -Lv $(get_build_dir extra-firmware)/SM8750/qcom/sm8750/SM8750-KONKR-tplg.bin ${PKG_BUILD}/external-firmware/qcom/sm8750",
+      "",
+      "    FW_LIST=\"$(find ${PKG_BUILD}/external-firmware -type f | sed 's|.*external-firmware/||' | sort | xargs)\"",
+      "",
+      "    ${PKG_BUILD}/scripts/config --set-str CONFIG_EXTRA_FIRMWARE \"${FW_LIST}\"",
+      "    ${PKG_BUILD}/scripts/config --set-str CONFIG_EXTRA_FIRMWARE_DIR \"external-firmware\"",
+      "  fi",
+      "",
+      "  # cfg80211 requests regulatory.db as soon as it initialises. Built in (=y on",
+      "  # every device but AMD64) that is during kernel init, while /usr/lib/firmware",
+      "  # is still a dangling symlink to the kernel-overlay tmpfs that",
+      "  # kernel-overlays-setup only populates later (scripts/image) - so the request",
+      "  # fails with -ENOENT, the failure is cached, and the radio stays in domain 00",
+      "  # with 5 GHz no-IR. Build the db into the kernel instead. The .p7s signature",
+      "  # goes with it because CONFIG_CFG80211_REQUIRE_SIGNED_REGDB is set. Appends to",
+      "  # whatever the per-device blocks above already listed (~7 KB in the image).",
+      "  if grep -q '^CONFIG_CFG80211=y' ${PKG_BUILD}/.config; then",
+      "    mkdir -p ${PKG_BUILD}/external-firmware",
+      "      cp -Lv $(get_build_dir wireless-regdb)/regulatory.db ${PKG_BUILD}/external-firmware",
+      "      cp -Lv $(get_build_dir wireless-regdb)/regulatory.db.p7s ${PKG_BUILD}/external-firmware",
+      "",
+      "    FW_LIST=\"$(${PKG_BUILD}/scripts/config --state CONFIG_EXTRA_FIRMWARE)\"",
+      "    [ \"${FW_LIST}\" = \"undef\" ] && FW_LIST=\"\"",
+      "",
+      "    ${PKG_BUILD}/scripts/config --set-str CONFIG_EXTRA_FIRMWARE \\",
+      "      \"$(echo ${FW_LIST} regulatory.db regulatory.db.p7s | xargs)\"",
+      "    ${PKG_BUILD}/scripts/config --set-str CONFIG_EXTRA_FIRMWARE_DIR \"external-firmware\"",
+      "  fi",
+      "",
+      "  kernel_make listnewconfig",
+      "  if [ \"${INTERACTIVE_CONFIG}\" = \"yes\" ]; then",
+      "    # manually answer .config changes",
+      "    kernel_make oldconfig",
+      "  elif [ \"${INTERACTIVE_CONFIG}\" = \"menuconfig\" ]; then",
+      "    # manually answer .config changes",
+      "    kernel_make menuconfig",
+      "  else",
+      "    # accept default answers for .config changes",
+      "    yes \"\" | kernel_make oldconfig > /dev/null",
+      "  fi",
+      "",
+      "  if [ -f \"${DISTRO_DIR}/${DISTRO}/kernel_options\" ]; then",
+      "    while read OPTION; do",
+      "      [ -z \"${OPTION}\" -o -n \"$(echo \"${OPTION}\" | grep '^#')\" ] && continue",
+      "",
+      "      if [ \"${OPTION##*=}\" == \"n\" -a \"$(${PKG_BUILD}/scripts/config --state ${OPTION%%=*})\" == \"undef\" ]; then",
+      "        continue",
+      "      fi",
+      "",
+      "      if [ \"$(${PKG_BUILD}/scripts/config --state ${OPTION%%=*})\" != \"$(echo ${OPTION##*=} | tr -d '\"')\" ]; then",
+      "        MISSING_KERNEL_OPTIONS+=\"\\t${OPTION}\\n\"",
+      "      fi",
+      "    done < ${DISTRO_DIR}/${DISTRO}/kernel_options",
+      "",
+      "    if [ -n \"${MISSING_KERNEL_OPTIONS}\" ]; then",
+      "      print_color CLR_WARNING \"LINUX: kernel options not correct: \\n${MISSING_KERNEL_OPTIONS%%}\\nPlease run ./tools/check_kernel_config\\n\"",
+      "    fi",
+      "  fi",
+      "}",
+      "",
+      "make_target() {",
+      "  DTC_FLAGS=-@ kernel_make ${KERNEL_TARGET} ${KERNEL_MAKE_EXTRACMD} modules",
+      "",
+      "  if [ \"${PKG_BUILD_PERF}\" = \"yes\" ]; then",
+      "    ( cd tools/perf",
+      "",
+      "      # arch specific perf build args",
+      "      case \"${TARGET_ARCH}\" in",
+      "        x86_64|i*86)",
+      "          PERF_BUILD_ARGS=\"ARCH=x86\"",
+      "          ;;",
+      "        aarch64)",
+      "          PERF_BUILD_ARGS=\"ARCH=arm64\"",
+      "          ;;",
+      "        *)",
+      "          PERF_BUILD_ARGS=\"ARCH=${TARGET_ARCH}\"",
+      "          ;;",
+      "      esac",
+      "",
+      "      [[ \"${DEVICE}\" != \"RK3588\" ]] && export BUILD_BPF_SKEL=0",
+      "",
+      "      WERROR=0 \\",
+      "      NO_LIBPERL=1 \\",
+      "      NO_LIBPYTHON=1 \\",
+      "      NO_SLANG=1 \\",
+      "      NO_GTK2=1 \\",
+      "      NO_LIBNUMA=1 \\",
+      "      NO_LIBAUDIT=1 \\",
+      "      NO_LIBTRACEEVENT=1 \\",
+      "      NO_LZMA=1 \\",
+      "      NO_SDT=1 \\",
+      "      NO_LIBDEBUGINFOD=1 \\",
+      "      NO_JVMTI=1 \\",
+      "      NO_LIBLLVM=1 \\",
+      "      NO_LIBPFM4=1 \\",
+      "      NO_LIBBABELTRACE=1 \\",
+      "      NO_CAPSTONE=1 \\",
+      "      CROSS_COMPILE=\"${TARGET_PREFIX}\" \\",
+      "      JOBS=\"${CONCURRENCY_MAKE_LEVEL}\" \\",
+      "        make ${PERF_BUILD_ARGS}",
+      "      mkdir -p ${INSTALL}/usr/bin",
+      "        cp perf ${INSTALL}/usr/bin",
+      "    )",
+      "  fi",
+      "}",
+      "",
+      "makeinstall_target() {",
+      "  mkdir -p ${INSTALL}/.image",
+      "  cp -p System.map .config Module.symvers ${INSTALL}/.image/",
+      "",
+      "  if [ \"${BOOTLOADER}\" != \"qcom-abl\" ]; then",
+      "  \tcp -p arch/${TARGET_KERNEL_ARCH}/boot/${KERNEL_TARGET} ${INSTALL}/.image/",
+      "  else",
+      "",
+      "    gzip -c \"arch/${TARGET_KERNEL_ARCH}/boot/${KERNEL_TARGET}\" > \"${INSTALL}/.image/kernel.gz\"",
+      "    for dtb in \"arch/${TARGET_KERNEL_ARCH}/boot/dts/\"**/*.dtb; do",
+      "      if [ -f ${dtb} ]; then",
+      "        cat \"$dtb\" >> \"${INSTALL}/.image/kernel.gz\"",
+      "      fi",
+      "    done",
+      "    echo -n \"dummy\" > \"${INSTALL}/.image/ramdisk\"",
+      "    python3 \"${TOOLCHAIN}/mkbootimg/mkbootimg.py\" \\",
+      "      --kernel \"${INSTALL}/.image/kernel.gz\" --ramdisk \"${INSTALL}/.image/ramdisk\" \\",
+      "\t  --kernel_offset 0x00000000 --ramdisk_offset 0x00000000 --tags_offset 0x00000000 \\",
+      "\t  --os_version 12.0.0 --os_patch_level \"$(date '+%Y-%m')\" --header_version 0 \\",
+      "\t  --cmdline \"boot=LABEL=${DISTRO_BOOTLABEL} disk=LABEL=${DISTRO_DISKLABEL} ${EXTRA_CMDLINE}\" \\",
+      "\t  -o \"${INSTALL}/.image/${KERNEL_TARGET}\" || { exit 1; }",
+      "  fi",
+      "",
+      "  kernel_make INSTALL_MOD_PATH=${INSTALL}/$(get_kernel_overlay_dir) modules_install",
+      "  rm -f ${INSTALL}/$(get_kernel_overlay_dir)/lib/modules/*/build",
+      "  rm -f ${INSTALL}/$(get_kernel_overlay_dir)/lib/modules/*/source",
+      "",
+      "  if [ \"${BOOTLOADER}\" = \"arm-efi\" ]; then",
+      "    mkdir -p ${INSTALL}/usr/share/bootloader/boot/grub",
+      "    for dtb in arch/${TARGET_KERNEL_ARCH}/boot/dts/**/*.dtb; do",
+      "      if [ -f ${dtb} ]; then",
+      "          cp -v ${dtb} ${INSTALL}/usr/share/bootloader/boot/grub",
+      "      fi",
+      "    done",
+      "  fi",
+      "",
+      "  if [ \"${BOOTLOADER}\" = \"u-boot\" ]; then",
+      "    mkdir -p ${INSTALL}/usr/share/bootloader",
+      "    for dtb in arch/${TARGET_KERNEL_ARCH}/boot/dts/**/*.dtb; do",
+      "      if [ -f ${dtb} ]; then",
+      "        if [ \"${DEVICE}\" = \"H700\" -o \"${DEVICE}\" = \"RK3326\" -o \"${DEVICE}\" = \"RK3399\" -o \"${DEVICE}\" = \"RK3566\" -o \"${DEVICE}\" = \"RK3576\" -o \"${DEVICE}\" = \"RK3588\" ]; then",
+      "          mkdir -p ${INSTALL}/usr/share/bootloader/device_trees",
+      "          cp -v ${dtb} ${INSTALL}/usr/share/bootloader/device_trees",
+      "        else",
+      "          cp -v ${dtb} ${INSTALL}/usr/share/bootloader",
+      "        fi",
+      "      fi",
+      "    done",
+      "  fi",
+      "}"
+    ],
+    "assignments": [
+      [
+        5,
+        "PKG_NAME=\"linux\""
+      ],
+      [
+        7,
+        "PKG_SITE=\"http://www.kernel.org\""
+      ],
+      [
+        16,
+        "PKG_PATCH_DIRS=\"${LINUX} mainline ${DEVICE} default\""
+      ],
+      [
+        18,
+        "[[ \"${DEVICE}\" == RK* ]] && PKG_PATCH_DIRS+=\" mainline-rockchip\""
+      ],
+      [
+        23,
+        "    PKG_VERSION=\"b8e62bed74766b6c8c423a767b35495e78b64caf\""
+      ],
+      [
+        24,
+        "    PKG_SHA256=\"0e0fe5a2f108d525a044e190c3f23a4603cdbf8d54bc1cc488d6ee04b9fc5b3a\""
+      ],
+      [
+        25,
+        "    PKG_URL=\"https://github.com/armbian/linux-rockchip/archive/${PKG_VERSION}.tar.gz\""
+      ],
+      [
+        27,
+        "    PKG_PATCH_DIRS=\"${LINUX} ${DEVICE} default\""
+      ],
+      [
+        30,
+        "    PKG_VERSION=\"7.2\""
+      ],
+      [
+        31,
+        "    PKG_SHA256=\"f9fef3d14c0df53819026f4be74459835c2a0b0dcbf5b5bbd9ea19f0829402b3\""
+      ],
+      [
+        32,
+        "    PKG_URL=\"https://www.kernel.org/pub/linux/kernel/v${PKG_VERSION/.*/}.x/${PKG_NAME}-${PKG_VERSION}.tar.xz\""
+      ],
+      [
+        37,
+        "    PKG_VERSION=\"7.1.2\""
+      ],
+      [
+        38,
+        "    PKG_SHA256=\"37198c93727be247c9fb5309bb86cd5e496c61e5322cd8c4eca9476bb0b5883f\""
+      ],
+      [
+        39,
+        "    PKG_URL=\"https://www.kernel.org/pub/linux/kernel/v${PKG_VERSION/.*/}.x/${PKG_NAME}-${PKG_VERSION}.tar.xz\""
+      ],
+      [
+        40,
+        "    PKG_PATCH_DIRS+=\" 7.0\""
+      ],
+      [
+        43,
+        "    PKG_VERSION=\"7.0.2\""
+      ],
+      [
+        44,
+        "    PKG_SHA256=\"53591a03294527a48ccb0b9e559e922df8a38554745a1206827ca751d2ca7662\""
+      ],
+      [
+        45,
+        "    PKG_URL=\"https://www.kernel.org/pub/linux/kernel/v${PKG_VERSION/.*/}.x/${PKG_NAME}-${PKG_VERSION}.tar.xz\""
+      ],
+      [
+        46,
+        "    PKG_PATCH_DIRS+=\" 7.0\""
+      ],
+      [
+        49,
+        "    PKG_VERSION=\"6.18.49\""
+      ],
+      [
+        50,
+        "    PKG_SHA256=\"ae826f33111fea6f1d279dde7299d7463c8dfd204aeb75a8fb5432bc60a28191\""
+      ],
+      [
+        51,
+        "    PKG_URL=\"https://www.kernel.org/pub/linux/kernel/v${PKG_VERSION/.*/}.x/${PKG_NAME}-${PKG_VERSION}.tar.xz\""
+      ]
+    ],
+    "upstream_sha256": "ff12f792508e3f99241731aab8765b53f66462d7182cf969296d14c333b34c04",
+    "upstream_assignments": [
+      [
+        5,
+        "PKG_NAME=\"linux\""
+      ],
+      [
+        7,
+        "PKG_SITE=\"http://www.kernel.org\""
+      ],
+      [
+        16,
+        "PKG_PATCH_DIRS=\"${LINUX} mainline ${DEVICE} default\""
+      ],
+      [
+        18,
+        "[[ \"${DEVICE}\" =~ \"RK3326|RK3399|S922X|H700\" ]] && PKG_PATCH_DIRS+=\" rocknix-joypad\""
+      ],
+      [
+        19,
+        "[[ \"${DEVICE}\" == RK* ]] && PKG_PATCH_DIRS+=\" mainline-rockchip\""
+      ],
+      [
+        23,
+        "    PKG_VERSION=\"b8e62bed74766b6c8c423a767b35495e78b64caf\""
+      ],
+      [
+        24,
+        "    PKG_SHA256=\"0e0fe5a2f108d525a044e190c3f23a4603cdbf8d54bc1cc488d6ee04b9fc5b3a\""
+      ],
+      [
+        25,
+        "    PKG_URL=\"https://github.com/armbian/linux-rockchip/archive/${PKG_VERSION}.tar.gz\""
+      ],
+      [
+        27,
+        "    PKG_PATCH_DIRS=\"${LINUX} ${DEVICE} default\""
+      ],
+      [
+        30,
+        "    PKG_VERSION=\"7.2.11\""
+      ],
+      [
+        31,
+        "    PKG_SHA256=\"fd0fc479f983a8c05313f13e9c36330fe6651cf725396748c40d5cd93fa1e6a4\""
+      ],
+      [
+        32,
+        "    PKG_URL=\"https://www.kernel.org/pub/linux/kernel/v${PKG_VERSION/.*/}.x/${PKG_NAME}-${PKG_VERSION}.tar.xz\""
+      ],
+      [
+        33,
+        "    PKG_PATCH_DIRS+=\" 7.2.6\""
+      ],
+      [
+        36,
+        "    PKG_VERSION=\"7.2\""
+      ],
+      [
+        37,
+        "    PKG_SHA256=\"f9fef3d14c0df53819026f4be74459835c2a0b0dcbf5b5bbd9ea19f0829402b3\""
+      ],
+      [
+        38,
+        "    PKG_URL=\"https://www.kernel.org/pub/linux/kernel/v${PKG_VERSION/.*/}.x/${PKG_NAME}-${PKG_VERSION}.tar.xz\""
+      ],
+      [
+        43,
+        "    PKG_VERSION=\"7.1.2\""
+      ],
+      [
+        44,
+        "    PKG_SHA256=\"37198c93727be247c9fb5309bb86cd5e496c61e5322cd8c4eca9476bb0b5883f\""
+      ],
+      [
+        45,
+        "    PKG_URL=\"https://www.kernel.org/pub/linux/kernel/v${PKG_VERSION/.*/}.x/${PKG_NAME}-${PKG_VERSION}.tar.xz\""
+      ],
+      [
+        46,
+        "    PKG_PATCH_DIRS+=\" 7.0\""
+      ],
+      [
+        49,
+        "    PKG_VERSION=\"6.18.54\""
+      ],
+      [
+        50,
+        "    PKG_SHA256=\"9df30b02dd8102bbd0be52556288ef6889ddbe7f1ddb96fbf847d0becf3eacac\""
+      ],
+      [
+        51,
+        "    PKG_URL=\"https://www.kernel.org/pub/linux/kernel/v${PKG_VERSION/.*/}.x/${PKG_NAME}-${PKG_VERSION}.tar.xz\""
+      ]
+    ]
+  },
+  "projects/ROCKNIX/packages/multimedia/ffmpeg/package.mk": {
+    "sha256": "f893b3c33bb3a69286ec2ee7d7e8365118f8bf76d643c32d6bc41e2fb0dd4922",
+    "owner": [
+      "image-packages"
+    ],
+    "member_count": 1,
+    "source_lines": [
+      "# SPDX-License-Identifier: GPL-2.0-or-later",
+      "# Copyright (C) 2009-2016 Stephan Raue (stephan@openelec.tv)",
+      "# Copyright (C) 2017-present Team LibreELEC (https://libreelec.tv)",
+      "",
+      "PKG_NAME=\"ffmpeg\"",
+      "PKG_LICENSE=\"LGPLv2.1+\"",
+      "PKG_SITE=\"https://ffmpeg.org\"",
+      "PKG_DEPENDS_TARGET=\"toolchain zlib bzip2 openssl speex\"",
+      "PKG_LONGDESC=\"FFmpeg is a complete, cross-platform solution to record, convert and stream audio and video.\"",
+      "",
+      "PKG_VERSION=\"7.1.1\"",
+      "PKG_SHA256=\"733984395e0dbbe5c046abda2dc49a5544e7e0e1e2366bba849222ae9e3a03b1\"",
+      "PKG_URL=\"http://ffmpeg.org/releases/ffmpeg-${PKG_VERSION}.tar.xz\"",
+      "PKG_PATCH_DIRS=\"libreelec\"",
+      "",
+      "PKG_PATCH_DIRS+=\" v4l2-request v4l2-drmprime\"",
+      "",
+      "post_unpack() {",
+      "  # Fix FFmpeg version",
+      "  if [ \"${DEVICE}\" = \"S922X\" ]; then",
+      "    echo \"${PKG_FFMPEG_BRANCH}-${PKG_VERSION:0:7}\" > ${PKG_BUILD}/VERSION",
+      "  else",
+      "    echo \"${PKG_VERSION}\" > ${PKG_BUILD}/RELEASE",
+      "  fi",
+      "}",
+      "",
+      "# Dependencies",
+      "get_graphicdrivers",
+      "",
+      "PKG_FFMPEG_HWACCEL=\"--enable-hwaccels\"",
+      "",
+      "case ${DEVICE} in",
+      "  RK3588*)",
+      "    V4L2_SUPPORT=no",
+      "  ;;",
+      "  *)",
+      "    case ${DEVICE} in",
+      "      RK*)",
+      "        PKG_PATCH_DIRS+=\" vf-deinterlace-v4l2m2m\"",
+      "      ;;",
+      "    esac",
+      "  ;;",
+      "esac",
+      "",
+      "if [ \"${V4L2_SUPPORT}\" = \"yes\" ]; then",
+      "  PKG_DEPENDS_TARGET+=\" libdrm\"",
+      "  PKG_NEED_UNPACK+=\" $(get_pkg_directory libdrm)\"",
+      "  PKG_FFMPEG_V4L2=\"--enable-v4l2_m2m --enable-libdrm\"",
+      "",
+      "  case ${DEVICE} in",
+      "    PC|RK*|S922X)",
+      "      PKG_V4L2_REQUEST=\"yes\"",
+      "    ;;",
+      "    *)",
+      "      PKG_V4L2_REQUEST=\"no\"",
+      "    ;;",
+      "  esac",
+      "",
+      "  if [ \"${PKG_V4L2_REQUEST}\" = \"yes\" ]; then",
+      "    PKG_DEPENDS_TARGET+=\" systemd\"",
+      "    PKG_NEED_UNPACK+=\" $(get_pkg_directory systemd)\"",
+      "    PKG_FFMPEG_V4L2+=\" --enable-libudev --enable-v4l2-request\"",
+      "  else",
+      "    PKG_FFMPEG_V4L2+=\" --disable-libudev --disable-v4l2-request\"",
+      "  fi",
+      "else",
+      "  PKG_FFMPEG_V4L2=\"--disable-v4l2_m2m --disable-libudev --disable-v4l2-request\"",
+      "fi",
+      "",
+      "if [ \"${VAAPI_SUPPORT}\" = \"yes\" ]; then",
+      "  PKG_DEPENDS_TARGET+=\" libva\"",
+      "  PKG_NEED_UNPACK+=\" $(get_pkg_directory libva)\"",
+      "  PKG_FFMPEG_VAAPI=\"--enable-vaapi\"",
+      "else",
+      "  PKG_FFMPEG_VAAPI=\"--disable-vaapi\"",
+      "fi",
+      "",
+      "if [ \"${DISPLAYSERVER}\" != \"wl\" ]; then",
+      "  PKG_DEPENDS_TARGET+=\" libdrm\"",
+      "  PKG_NEED_UNPACK+=\" $(get_pkg_directory libdrm)\"",
+      "  PKG_FFMPEG_VAAPI=\" --enable-libdrm\"",
+      "fi",
+      "",
+      "if [ \"${VDPAU_SUPPORT}\" = \"yes\" -a \"${DISPLAYSERVER}\" = \"wl\" ]; then",
+      "  PKG_DEPENDS_TARGET+=\" libvdpau\"",
+      "  PKG_NEED_UNPACK+=\" $(get_pkg_directory libvdpau)\"",
+      "  PKG_FFMPEG_VDPAU=\"--enable-vdpau\"",
+      "else",
+      "  PKG_FFMPEG_VDPAU=\"--disable-vdpau\"",
+      "fi",
+      "",
+      "if build_with_debug; then",
+      "  PKG_FFMPEG_DEBUG=\"--enable-debug --disable-stripping\"",
+      "else",
+      "  PKG_FFMPEG_DEBUG=\"--disable-debug --enable-stripping\"",
+      "fi",
+      "",
+      "if target_has_feature neon; then",
+      "  PKG_FFMPEG_FPU=\"--enable-neon\"",
+      "else",
+      "  PKG_FFMPEG_FPU=\"--disable-neon\"",
+      "fi",
+      "",
+      "if [ \"${TARGET_ARCH}\" = \"x86_64\" ]; then",
+      "  PKG_DEPENDS_TARGET+=\" nasm:host\"",
+      "fi",
+      "",
+      "case ${DEVICE} in",
+      "  RK*)",
+      "    PKG_DEPENDS_TARGET+=\" rkmpp\"",
+      "  ;;",
+      "esac",
+      "",
+      "if target_has_feature \"(neon|sse)\"; then",
+      "  PKG_DEPENDS_TARGET+=\" dav1d\"",
+      "  PKG_NEED_UNPACK+=\" $(get_pkg_directory dav1d)\"",
+      "  PKG_FFMPEG_AV1=\"--enable-libdav1d\"",
+      "else",
+      "  PKG_FFMPEG_AV1=\"--disable-libdav1d\"",
+      "fi",
+      "",
+      "pre_configure_target() {",
+      "  cd ${PKG_BUILD}",
+      "  rm -rf .${TARGET_NAME}",
+      "}",
+      "",
+      "if [ \"${FFMPEG_TESTING}\" = \"yes\" ]; then",
+      "  PKG_FFMPEG_TESTING=\"--enable-encoder=wrapped_avframe --enable-muxer=null\"",
+      "else",
+      "  PKG_FFMPEG_TESTING=\"--disable-programs\"",
+      "fi",
+      "",
+      "configure_target() {",
+      "  ./configure --prefix=\"/usr\" \\",
+      "              --cpu=\"${TARGET_CPU}\" \\",
+      "              --arch=\"${TARGET_ARCH}\" \\",
+      "              --enable-cross-compile \\",
+      "              --cross-prefix=\"${TARGET_PREFIX}\" \\",
+      "              --sysroot=\"${SYSROOT_PREFIX}\" \\",
+      "              --sysinclude=\"${SYSROOT_PREFIX}/usr/include\" \\",
+      "              --target-os=\"linux\" \\",
+      "              --nm=\"${NM}\" \\",
+      "              --ar=\"${AR}\" \\",
+      "              --as=\"${CC}\" \\",
+      "              --cc=\"${CC}\" \\",
+      "              --ld=\"${CC}\" \\",
+      "              --host-cc=\"${HOST_CC}\" \\",
+      "              --host-cflags=\"${HOST_CFLAGS}\" \\",
+      "              --host-ldflags=\"${HOST_LDFLAGS}\" \\",
+      "              --extra-cflags=\"${CFLAGS}\" \\",
+      "              --extra-ldflags=\"${LDFLAGS}\" \\",
+      "              --extra-libs=\"${PKG_FFMPEG_LIBS}\" \\",
+      "              --disable-static \\",
+      "              --enable-shared \\",
+      "              --enable-version3 \\",
+      "              --enable-logging \\",
+      "              --disable-doc \\",
+      "              ${PKG_FFMPEG_DEBUG} \\",
+      "              --enable-pic \\",
+      "              --pkg-config=\"${TOOLCHAIN}/bin/pkg-config\" \\",
+      "              --enable-optimizations \\",
+      "              --disable-extra-warnings \\",
+      "              --enable-avdevice \\",
+      "              --enable-avcodec \\",
+      "              --enable-avformat \\",
+      "              --enable-swscale \\",
+      "              --enable-postproc \\",
+      "              --enable-avfilter \\",
+      "              --disable-devices \\",
+      "              --enable-pthreads \\",
+      "              --enable-network \\",
+      "              --disable-gnutls --enable-openssl \\",
+      "              --disable-gray \\",
+      "              --enable-swscale-alpha \\",
+      "              --disable-small \\",
+      "              ${PKG_FFMPEG_V4L2} \\",
+      "              ${PKG_FFMPEG_VAAPI} \\",
+      "              ${PKG_FFMPEG_VDPAU} \\",
+      "              --enable-runtime-cpudetect \\",
+      "              --disable-hardcoded-tables \\",
+      "              --disable-encoders \\",
+      "              --enable-encoder=ac3 \\",
+      "              --enable-encoder=aac \\",
+      "              --enable-encoder=wmav2 \\",
+      "              --enable-encoder=mjpeg \\",
+      "              --enable-encoder=png \\",
+      "              ${PKG_FFMPEG_HWACCEL} \\",
+      "              --disable-muxers \\",
+      "              --enable-muxer=spdif \\",
+      "              --enable-muxer=adts \\",
+      "              --enable-muxer=asf \\",
+      "              --enable-muxer=ipod \\",
+      "              --enable-muxer=mpegts \\",
+      "              --enable-demuxers \\",
+      "              --enable-parsers \\",
+      "              --enable-bsfs \\",
+      "              --enable-protocol=http \\",
+      "              --disable-indevs \\",
+      "              --disable-outdevs \\",
+      "              --enable-filters \\",
+      "              --disable-avisynth \\",
+      "              --enable-bzlib \\",
+      "              --disable-lzma \\",
+      "              --disable-alsa \\",
+      "              --disable-frei0r \\",
+      "              --disable-libopencore-amrnb \\",
+      "              --disable-libopencore-amrwb \\",
+      "              --disable-libopencv \\",
+      "              --disable-libdc1394 \\",
+      "              --disable-libfreetype \\",
+      "              --disable-libgsm \\",
+      "              --disable-libmp3lame \\",
+      "              --disable-libopenjpeg \\",
+      "              --disable-librtmp \\",
+      "              ${PKG_FFMPEG_AV1} \\",
+      "              --enable-libspeex \\",
+      "              --disable-libtheora \\",
+      "              --disable-libvo-amrwbenc \\",
+      "              --disable-libvorbis \\",
+      "              --disable-libvpx \\",
+      "              --disable-libx264 \\",
+      "              --disable-libxavs \\",
+      "              --disable-libxvid \\",
+      "              --enable-zlib \\",
+      "              --enable-asm \\",
+      "              --disable-altivec \\",
+      "              ${PKG_FFMPEG_FPU} \\",
+      "              --disable-symver \\",
+      "              ${PKG_FFMPEG_TESTING}",
+      "}",
+      "",
+      "post_makeinstall_target() {",
+      "  rm -rf ${INSTALL}/usr/share/ffmpeg/examples",
+      "}"
+    ],
+    "assignments": [
+      [
+        5,
+        "PKG_NAME=\"ffmpeg\""
+      ],
+      [
+        7,
+        "PKG_SITE=\"https://ffmpeg.org\""
+      ],
+      [
+        11,
+        "PKG_VERSION=\"7.1.1\""
+      ],
+      [
+        12,
+        "PKG_SHA256=\"733984395e0dbbe5c046abda2dc49a5544e7e0e1e2366bba849222ae9e3a03b1\""
+      ],
+      [
+        13,
+        "PKG_URL=\"http://ffmpeg.org/releases/ffmpeg-${PKG_VERSION}.tar.xz\""
+      ],
+      [
+        14,
+        "PKG_PATCH_DIRS=\"libreelec\""
+      ],
+      [
+        16,
+        "PKG_PATCH_DIRS+=\" v4l2-request v4l2-drmprime\""
+      ],
+      [
+        18,
+        "post_unpack() {"
+      ],
+      [
+        21,
+        "    echo \"${PKG_FFMPEG_BRANCH}-${PKG_VERSION:0:7}\" > ${PKG_BUILD}/VERSION"
+      ],
+      [
+        23,
+        "    echo \"${PKG_VERSION}\" > ${PKG_BUILD}/RELEASE"
+      ],
+      [
+        39,
+        "        PKG_PATCH_DIRS+=\" vf-deinterlace-v4l2m2m\""
+      ]
+    ],
+    "upstream_sha256": "67ae802185090411a601ed459b34ec3f5d09d40bf2ef10252c1c6dc392ddf2d9",
+    "upstream_assignments": [
+      [
+        5,
+        "PKG_NAME=\"ffmpeg\""
+      ],
+      [
+        7,
+        "PKG_SITE=\"https://ffmpeg.org\""
+      ],
+      [
+        11,
+        "PKG_VERSION=\"9.0\""
+      ],
+      [
+        12,
+        "PKG_SHA256=\"7f607a00dd0d28a729d5a4811205812eef01cf6ef6155025febb6f36a9062d52\""
+      ],
+      [
+        13,
+        "PKG_URL=\"http://ffmpeg.org/releases/ffmpeg-${PKG_VERSION}.tar.xz\""
+      ],
+      [
+        14,
+        "PKG_PATCH_DIRS=\"libreelec\""
+      ],
+      [
+        16,
+        "post_unpack() {"
+      ],
+      [
+        19,
+        "    echo \"${PKG_FFMPEG_BRANCH}-${PKG_VERSION:0:7}\" > ${PKG_BUILD}/VERSION"
+      ],
+      [
+        21,
+        "    echo \"${PKG_VERSION}\" > ${PKG_BUILD}/RELEASE"
+      ],
+      [
+        38,
+        "    PKG_PATCH_DIRS+=\" v4l2-request vf-deinterlace-v4l2m2m\""
+      ],
+      [
+        41,
+        "    PKG_PATCH_DIRS+=\" v4l2-request detlev vf-deinterlace-v4l2m2m\""
+      ],
+      [
+        44,
+        "    PKG_PATCH_DIRS+=\" v4l2-request\""
+      ],
+      [
+        66,
+        "  elif listcontains \"${PKG_PATCH_DIRS}\" \"v4l2-request\"; then"
+      ],
+      [
+        71,
+        "  if listcontains \"${PKG_PATCH_DIRS}\" \"v4l2-request\"; then"
+      ]
+    ]
+  },
+  "projects/ROCKNIX/packages/multimedia/rkmpp/package.mk": {
+    "sha256": "bbe00da22a9ee18784a10fdbc87652ba69f328ec5e6e6c529543e576d92f120f",
+    "owner": [
+      "packages-dead-ends"
+    ],
+    "member_count": 1,
+    "source_lines": [
+      "# SPDX-License-Identifier: GPL-2.0",
+      "# Copyright (C) 2017-present Team LibreELEC (https://libreelec.tv)",
+      "",
+      "PKG_NAME=\"rkmpp\"",
+      "PKG_VERSION=\"239e15eaebf98f68c0093b00ff8108d23b0147e7\"",
+      "PKG_SHA256=\"9a4d6a01ed827f39325953d6277975e3f1eecede768b0e7c9c16d91d4d62974b\"",
+      "PKG_ARCH=\"arm aarch64\"",
+      "PKG_LICENSE=\"APL\"",
+      "PKG_SITE=\"https://github.com/rockchip-linux/mpp\"",
+      "PKG_URL=\"https://github.com/rockchip-linux/mpp/archive/$PKG_VERSION.tar.gz\"",
+      "PKG_DEPENDS_TARGET=\"toolchain libdrm\"",
+      "PKG_LONGDESC=\"rkmpp: Rockchip Media Process Platform (MPP) module\"",
+      "",
+      "case ${DEVICE} in",
+      "  RK3326|RK3566)",
+      "    PKG_ENABLE_VP9D=\"ON\"",
+      "    ;;",
+      "esac",
+      "",
+      "PKG_CMAKE_OPTS_TARGET=\"-DENABLE_VP9D=${PKG_ENABLE_VP9D} \\",
+      "                       -DHAVE_DRM=ON",
+      "                       -DCMAKE_POLICY_VERSION_MINIMUM=3.5\""
+    ],
+    "assignments": [
+      [
+        4,
+        "PKG_NAME=\"rkmpp\""
+      ],
+      [
+        5,
+        "PKG_VERSION=\"239e15eaebf98f68c0093b00ff8108d23b0147e7\""
+      ],
+      [
+        6,
+        "PKG_SHA256=\"9a4d6a01ed827f39325953d6277975e3f1eecede768b0e7c9c16d91d4d62974b\""
+      ],
+      [
+        9,
+        "PKG_SITE=\"https://github.com/rockchip-linux/mpp\""
+      ],
+      [
+        10,
+        "PKG_URL=\"https://github.com/rockchip-linux/mpp/archive/$PKG_VERSION.tar.gz\""
+      ]
+    ],
+    "upstream_sha256": "bbe00da22a9ee18784a10fdbc87652ba69f328ec5e6e6c529543e576d92f120f",
+    "upstream_assignments": [
+      [
+        4,
+        "PKG_NAME=\"rkmpp\""
+      ],
+      [
+        5,
+        "PKG_VERSION=\"239e15eaebf98f68c0093b00ff8108d23b0147e7\""
+      ],
+      [
+        6,
+        "PKG_SHA256=\"9a4d6a01ed827f39325953d6277975e3f1eecede768b0e7c9c16d91d4d62974b\""
+      ],
+      [
+        9,
+        "PKG_SITE=\"https://github.com/rockchip-linux/mpp\""
+      ],
+      [
+        10,
+        "PKG_URL=\"https://github.com/rockchip-linux/mpp/archive/$PKG_VERSION.tar.gz\""
+      ]
+    ]
+  },
+  "projects/ROCKNIX/packages/tools/atf/package.mk": {
+    "sha256": "c71f0a30925468574ffa9c3bc971bb8b08382535e1bc3cf69fbaaf112db73fc0",
+    "owner": [
+      "image-packages"
+    ],
+    "member_count": 1,
+    "source_lines": [
+      "# SPDX-License-Identifier: GPL-2.0",
+      "# Copyright (C) 2018-present Team LibreELEC",
+      "# Copyright (C) 2023 JELOS (https://github.com/JustEnoughLinuxOS)",
+      "",
+      "PKG_NAME=\"atf\"",
+      "",
+      "PKG_ARCH=\"arm aarch64\"",
+      "PKG_LICENSE=\"BSD-3c\"",
+      "PKG_SITE=\"https://github.com/ARM-software/arm-trusted-firmware\"",
+      "PKG_DEPENDS_TARGET=\"toolchain\"",
+      "PKG_LONGDESC=\"ARM Trusted Firmware is a reference implementation of secure world software, including a Secure Monitor executing at Exception Level 3 and various Arm interface standards.\"",
+      "PKG_TOOLCHAIN=\"manual\"",
+      "PKG_PATCH_DIRS+=\"${DEVICE}\"",
+      "",
+      "case ${DEVICE} in",
+      "  H700)",
+      "    PKG_VERSION=\"2.12.0\"",
+      "    PKG_DEPENDS_TARGET+=\" h700-suspend-stub\"",
+      "    # BL31 embeds the stubs; rebuild when they change",
+      "    PKG_NEED_UNPACK+=\" $(get_pkg_directory h700-suspend-stub) ${SYSROOT_PREFIX}/usr/share/h700-suspend-stub\"",
+      "  ;;",
+      "  *)",
+      "    PKG_VERSION=\"2.10.0\"",
+      "    PKG_SHA256=\"696b8e53923aac4474532da7dd681f0bd044b329732facd65aeabea3e61adca9\"",
+      "    ;;",
+      "esac",
+      "",
+      "PKG_URL=\"https://github.com/ARM-software/arm-trusted-firmware/archive/v${PKG_VERSION}.tar.gz\"",
+      "",
+      "",
+      "[ -n \"${KERNEL_TOOLCHAIN}\" ] && PKG_DEPENDS_TARGET+=\" gcc-${KERNEL_TOOLCHAIN}:host\"",
+      "",
+      "if [ \"${ATF_PLATFORM}\" = \"rk3399\" ]; then",
+      "  PKG_DEPENDS_TARGET+=\" gcc-arm-none-eabi:host\"",
+      "  export M0_CROSS_COMPILE=\"${TOOLCHAIN}/bin/arm-none-eabi-\"",
+      "fi",
+      "",
+      "make_target() {",
+      "  if [ \"${DEVICE}\" = \"H700\" ]; then",
+      "    STUB_DIR=\"${SYSROOT_PREFIX}/usr/share/h700-suspend-stub\"",
+      "    ATF_SUSPEND=\"SUNXI_SYSTEM_SUSPEND=1 SUNXI_SUSPEND_STUB=${STUB_DIR}/suspend_stub_lpddr4.bin\"",
+      "    ATF_SUSPEND+=\" SUNXI_SUSPEND_STUB2=${STUB_DIR}/suspend_stub_lpddr3.bin\"",
+      "  fi",
+      "",
+      "  CROSS_COMPILE=\"${TARGET_KERNEL_PREFIX}\" LDFLAGS=\"\" CFLAGS=\"\" make PLAT=${ATF_PLATFORM} ${ATF_SUSPEND} bl31",
+      "}",
+      "",
+      "makeinstall_target() {",
+      "  mkdir -p ${INSTALL}/usr/share/bootloader",
+      "  cp -a build/${ATF_PLATFORM}/release/${ATF_BL31_BINARY} ${INSTALL}/usr/share/bootloader",
+      "",
+      "  # u-boot embeds BL31 at build time. It read it straight out of this package's",
+      "  # build directory, which neither survives AUTOREMOVE nor crosses a CI job",
+      "  # boundary. Stage it in the sysroot, which is carried between jobs.",
+      "  if [ -n \"${ATF_BL31_BINARY}\" ]; then",
+      "    mkdir -p ${SYSROOT_PREFIX}/usr/share/${PKG_NAME}",
+      "    cp -a build/${ATF_PLATFORM}/release/${ATF_BL31_BINARY} ${SYSROOT_PREFIX}/usr/share/${PKG_NAME}",
+      "  fi",
+      "}"
+    ],
+    "assignments": [
+      [
+        5,
+        "PKG_NAME=\"atf\""
+      ],
+      [
+        9,
+        "PKG_SITE=\"https://github.com/ARM-software/arm-trusted-firmware\""
+      ],
+      [
+        13,
+        "PKG_PATCH_DIRS+=\"${DEVICE}\""
+      ],
+      [
+        17,
+        "    PKG_VERSION=\"2.12.0\""
+      ],
+      [
+        23,
+        "    PKG_VERSION=\"2.10.0\""
+      ],
+      [
+        24,
+        "    PKG_SHA256=\"696b8e53923aac4474532da7dd681f0bd044b329732facd65aeabea3e61adca9\""
+      ],
+      [
+        28,
+        "PKG_URL=\"https://github.com/ARM-software/arm-trusted-firmware/archive/v${PKG_VERSION}.tar.gz\""
+      ],
+      [
+        56,
+        "    mkdir -p ${SYSROOT_PREFIX}/usr/share/${PKG_NAME}"
+      ],
+      [
+        57,
+        "    cp -a build/${ATF_PLATFORM}/release/${ATF_BL31_BINARY} ${SYSROOT_PREFIX}/usr/share/${PKG_NAME}"
+      ]
+    ],
+    "upstream_sha256": "30023811e0a3e5a96c1bafe1dfde8388210eea764d8d0fc94b261618ce175d77",
+    "upstream_assignments": [
+      [
+        5,
+        "PKG_NAME=\"atf\""
+      ],
+      [
+        9,
+        "PKG_SITE=\"https://github.com/ARM-software/arm-trusted-firmware\""
+      ],
+      [
+        13,
+        "PKG_PATCH_DIRS+=\"${DEVICE}\""
+      ],
+      [
+        17,
+        "    PKG_VERSION=\"2.12.0\""
+      ],
+      [
+        18,
+        "    PKG_SHA256=\"d95aaf292792c98035910d7e6c64ebfb297c897fef510415db1612f6d39f9223\""
+      ],
+      [
+        24,
+        "    PKG_VERSION=\"2.10.0\""
+      ],
+      [
+        25,
+        "    PKG_SHA256=\"6b1d5e89c311c5e7eaeb062713953311464c0378ab3e4ebc7ede72a746964bb1\""
+      ],
+      [
+        29,
+        "PKG_URL=\"https://github.com/TrustedFirmware-A/trusted-firmware-a/archive/v${PKG_VERSION}.tar.gz\""
+      ],
+      [
+        57,
+        "    mkdir -p ${SYSROOT_PREFIX}/usr/share/${PKG_NAME}"
+      ],
+      [
+        58,
+        "    cp -a build/${ATF_PLATFORM}/release/${ATF_BL31_BINARY} ${SYSROOT_PREFIX}/usr/share/${PKG_NAME}"
+      ]
+    ]
+  },
+  "projects/ROCKNIX/packages/wayland/lib/wlroots/package.mk": {
+    "sha256": "97054ba7d095da0389251c0b6b8356115894c31340f3a1fd17af02fc07b429fa",
+    "owner": [
+      "image-packages"
+    ],
+    "member_count": 1,
+    "source_lines": [
+      "# SPDX-License-Identifier: GPL-2.0",
+      "# Copyright (C) 2021-present Team LibreELEC (https://libreelec.tv)",
+      "",
+      "PKG_NAME=\"wlroots\"",
+      "PKG_LICENSE=\"MIT\"",
+      "PKG_SITE=\"https://gitlab.freedesktop.org/wlroots/wlroots/\"",
+      "PKG_DEPENDS_TARGET=\"toolchain libinput libxkbcommon pixman libdrm wayland wayland-protocols seatd xwayland hwdata:host libxcb xcb-util-wm\"",
+      "PKG_LONGDESC=\"A modular Wayland compositor library\"",
+      "PKG_TOOLCHAIN=\"meson\"",
+      "",
+      "case ${DEVICE} in",
+      "  RK3326|RK3566|RK3576|S922X)",
+      "    # despite the '-rk' indication this is a wlroots version with libmali hacks",
+      "    PKG_VERSION=\"0.19.3-rk\"",
+      "    PKG_SHA256=\"5385dc105f2c4c5fe3157e0b0299d6508765086d605fe4efe3ae437d4f18a5d9\"",
+      "    PKG_PATCH_DIRS+=\" libmali\"",
+      "    PKG_URL=\"https://github.com/rocknix/rockchip-wlroots/archive/refs/tags/${PKG_VERSION}.tar.gz\"",
+      "    ;;",
+      "  RK3588)",
+      "    PKG_VERSION=\"0.17.4-rk\"",
+      "    PKG_SHA256=\"e9e1e14966c6272ca595307fa817fd0fefae96b13fe36c8084b3a7a55fed20d1\"",
+      "    PKG_URL=\"https://github.com/rocknix/rockchip-wlroots/archive/refs/tags/${PKG_VERSION}.tar.gz\"",
+      "    ;;",
+      "  *)",
+      "    PKG_VERSION=\"0.19.3\"",
+      "    PKG_SHA256=\"a6ff89b64ea15e424d1b0db4a22145fccf5ec2ff2e7b8af0fa35e2ac8975986f\"",
+      "    PKG_URL=\"${PKG_SITE}/-/archive/${PKG_VERSION}/wlroots-${PKG_VERSION}.tar.gz\"",
+      "    ;;",
+      "esac",
+      "",
+      "",
+      "configure_package() {",
+      "  # OpenGLES Support",
+      "  if [ \"${OPENGLES_SUPPORT}\" = \"yes\" ]; then",
+      "    PKG_DEPENDS_TARGET+=\" ${OPENGLES}\"",
+      "  fi",
+      "}",
+      "# to enable xwayland package: https://gitlab.freedesktop.org/xorg/lib/libxcb-wm/-/tree/master/icccm?ref_type=heads",
+      "PKG_MESON_OPTS_TARGET=\"-Dxcb-errors=disabled \\",
+      "                       -Dxwayland=enabled \\",
+      "                       -Dexamples=false \\",
+      "                       -Drenderers=gles2 \\",
+      "                       -Dbackends=drm,libinput\"",
+      "",
+      "unpack() {",
+      "  mkdir -p ${PKG_BUILD}",
+      "  tar --strip-components=1 -xf ${SOURCES}/${PKG_NAME}/${PKG_NAME}-${PKG_VERSION}.tar.gz -C ${PKG_BUILD}",
+      "}",
+      "",
+      "pre_configure_target() {",
+      "  # wlroots does not build without -Wno flags as all warnings being treated as errors",
+      "  export TARGET_CFLAGS=$(echo \"${TARGET_CFLAGS} -Wno-unused-variable -Wno-unused-but-set-variable -Wno-unused-function -Wno-return-type\")",
+      "}"
+    ],
+    "assignments": [
+      [
+        4,
+        "PKG_NAME=\"wlroots\""
+      ],
+      [
+        6,
+        "PKG_SITE=\"https://gitlab.freedesktop.org/wlroots/wlroots/\""
+      ],
+      [
+        14,
+        "    PKG_VERSION=\"0.19.3-rk\""
+      ],
+      [
+        15,
+        "    PKG_SHA256=\"5385dc105f2c4c5fe3157e0b0299d6508765086d605fe4efe3ae437d4f18a5d9\""
+      ],
+      [
+        16,
+        "    PKG_PATCH_DIRS+=\" libmali\""
+      ],
+      [
+        17,
+        "    PKG_URL=\"https://github.com/rocknix/rockchip-wlroots/archive/refs/tags/${PKG_VERSION}.tar.gz\""
+      ],
+      [
+        20,
+        "    PKG_VERSION=\"0.17.4-rk\""
+      ],
+      [
+        21,
+        "    PKG_SHA256=\"e9e1e14966c6272ca595307fa817fd0fefae96b13fe36c8084b3a7a55fed20d1\""
+      ],
+      [
+        22,
+        "    PKG_URL=\"https://github.com/rocknix/rockchip-wlroots/archive/refs/tags/${PKG_VERSION}.tar.gz\""
+      ],
+      [
+        25,
+        "    PKG_VERSION=\"0.19.3\""
+      ],
+      [
+        26,
+        "    PKG_SHA256=\"a6ff89b64ea15e424d1b0db4a22145fccf5ec2ff2e7b8af0fa35e2ac8975986f\""
+      ],
+      [
+        27,
+        "    PKG_URL=\"${PKG_SITE}/-/archive/${PKG_VERSION}/wlroots-${PKG_VERSION}.tar.gz\""
+      ],
+      [
+        45,
+        "unpack() {"
+      ],
+      [
+        47,
+        "  tar --strip-components=1 -xf ${SOURCES}/${PKG_NAME}/${PKG_NAME}-${PKG_VERSION}.tar.gz -C ${PKG_BUILD}"
+      ]
+    ],
+    "upstream_sha256": "3ff25a40e2175908399f632107d544293065522de74b9fb1851f7b0c28753c5d",
+    "upstream_assignments": [
+      [
+        4,
+        "PKG_NAME=\"wlroots\""
+      ],
+      [
+        6,
+        "PKG_SITE=\"https://gitlab.freedesktop.org/wlroots/wlroots/\""
+      ],
+      [
+        14,
+        "    PKG_VERSION=\"132e31cfe19f51b478301aa5aab1e6c4be3f8874\""
+      ],
+      [
+        15,
+        "    PKG_SHA256=\"96aa6240e72b8ff4dc9943fc5b080e264a5fbf8b94fe8da10e1d6befa552b8fc\""
+      ],
+      [
+        16,
+        "    PKG_URL=\"https://github.com/rocknix/rockchip-wlroots/archive/${PKG_VERSION}.tar.gz\""
+      ],
+      [
+        19,
+        "    PKG_VERSION=\"0.17.4-rk\""
+      ],
+      [
+        20,
+        "    PKG_SHA256=\"e9e1e14966c6272ca595307fa817fd0fefae96b13fe36c8084b3a7a55fed20d1\""
+      ],
+      [
+        21,
+        "    PKG_URL=\"https://github.com/rocknix/rockchip-wlroots/archive/refs/tags/${PKG_VERSION}.tar.gz\""
+      ],
+      [
+        24,
+        "    PKG_VERSION=\"0.19.3\""
+      ],
+      [
+        25,
+        "    PKG_SHA256=\"a6ff89b64ea15e424d1b0db4a22145fccf5ec2ff2e7b8af0fa35e2ac8975986f\""
+      ],
+      [
+        26,
+        "    PKG_URL=\"${PKG_SITE}/-/archive/${PKG_VERSION}/wlroots-${PKG_VERSION}.tar.gz\""
+      ],
+      [
+        44,
+        "unpack() {"
+      ],
+      [
+        46,
+        "  tar --strip-components=1 -xf ${SOURCES}/${PKG_NAME}/${PKG_NAME}-${PKG_VERSION}.tar.gz -C ${PKG_BUILD}"
+      ]
+    ]
+  },
+  "projects/ROCKNIX/packages/wayland/weston-kiosk-shell-dpms/package.mk": {
+    "sha256": "ef29abb66587ca38610d489b1e4b575fcd349a7e4c7410fdc794d67f2333cbb9",
+    "owner": [
+      "packages-dead-ends"
+    ],
+    "member_count": 1,
+    "source_lines": [
+      "# SPDX-License-Identifier: GPL-2.0",
+      "# Copyright (C) 2024 JELOS (https://github.com/JustEnoughLinuxOS)",
+      "",
+      "PKG_NAME=\"weston-kiosk-shell-dpms\"",
+      "PKG_VERSION=\"1273a6ed6a3fdd7af9e3d5d70b4ef40ecb929309\"",
+      "PKG_SHA256=\"db8fad234a8fde069217986f44134f619bd475fb89aa95f8b9c419cf11ae992f\"",
+      "PKG_LICENSE=\"MIT\"",
+      "PKG_SITE=\"https://github.com/akhilharihar/Weston-kiosk-shell-DPMS\"",
+      "PKG_URL=\"${PKG_SITE}/archive/${PKG_VERSION}.tar.gz\"",
+      "PKG_DEPENDS_TARGET=\"toolchain ${WINDOWMANAGER}\"",
+      "PKG_LONGDESC=\"A dpms module for Weston's kiosk shell.\"",
+      "",
+      "post_makeinstall_target() {",
+      "  mkdir -p ${INSTALL}/usr/bin",
+      "    cp -a ${PKG_BUILD}/.${TARGET_NAME}/weston-dpms ${INSTALL}/usr/bin",
+      "}"
+    ],
+    "assignments": [
+      [
+        4,
+        "PKG_NAME=\"weston-kiosk-shell-dpms\""
+      ],
+      [
+        5,
+        "PKG_VERSION=\"1273a6ed6a3fdd7af9e3d5d70b4ef40ecb929309\""
+      ],
+      [
+        6,
+        "PKG_SHA256=\"db8fad234a8fde069217986f44134f619bd475fb89aa95f8b9c419cf11ae992f\""
+      ],
+      [
+        8,
+        "PKG_SITE=\"https://github.com/akhilharihar/Weston-kiosk-shell-DPMS\""
+      ],
+      [
+        9,
+        "PKG_URL=\"${PKG_SITE}/archive/${PKG_VERSION}.tar.gz\""
+      ]
+    ],
+    "upstream_sha256": "ef29abb66587ca38610d489b1e4b575fcd349a7e4c7410fdc794d67f2333cbb9",
+    "upstream_assignments": [
+      [
+        4,
+        "PKG_NAME=\"weston-kiosk-shell-dpms\""
+      ],
+      [
+        5,
+        "PKG_VERSION=\"1273a6ed6a3fdd7af9e3d5d70b4ef40ecb929309\""
+      ],
+      [
+        6,
+        "PKG_SHA256=\"db8fad234a8fde069217986f44134f619bd475fb89aa95f8b9c419cf11ae992f\""
+      ],
+      [
+        8,
+        "PKG_SITE=\"https://github.com/akhilharihar/Weston-kiosk-shell-DPMS\""
+      ],
+      [
+        9,
+        "PKG_URL=\"${PKG_SITE}/archive/${PKG_VERSION}.tar.gz\""
+      ]
+    ]
+  },
+  "projects/ROCKNIX/packages/wayland/weston/package.mk": {
+    "sha256": "b8629c5b6d0a58a9db9224907233b8e7e90c33c73b72e1d1024cf1d291c6ce9b",
+    "owner": [
+      "packages-dead-ends"
+    ],
+    "member_count": 3,
+    "source_lines": [
+      "# SPDX-License-Identifier: GPL-2.0",
+      "# Copyright (C) 2016-present Team LibreELEC (https://libreelec.tv)",
+      "",
+      "PKG_NAME=\"weston\"",
+      "PKG_VERSION=\"14.0.2\"",
+      "PKG_SHA256=\"633f4e0f232ad150300c95ffcbc646fedf1349487bf389dbd2045fa69013d6e2\"",
+      "",
+      "PKG_LICENSE=\"MIT\"",
+      "PKG_SITE=\"https://wayland.freedesktop.org/\"",
+      "PKG_URL=\"https://gitlab.freedesktop.org/wayland/weston/-/archive/${PKG_VERSION}/${PKG_NAME}-${PKG_VERSION}.tar.gz\"",
+      "PKG_DEPENDS_TARGET=\"toolchain wayland wayland-protocols libdrm libxkbcommon libxcb-cursor libinput cairo pango libjpeg-turbo dbus seatd glu ${OPENGL} libX11 xwayland libXcursor xkbcomp setxkbmap cairo xterm libwebp libthai\"",
+      "PKG_LONGDESC=\"Reference implementation of a Wayland compositor\"",
+      "PKG_PATCH_DIRS+=\"${DEVICE}\"",
+      "",
+      "if [ \"${PIPEWIRE_SUPPORT}\" = \"yes\" ]; then",
+      "  PKG_DEPENDS_TARGET+=\" pipewire\"",
+      "  PKG_MESON_OPTS_TARGET+=\" -Dpipewire=true\"",
+      "else",
+      "  PKG_MESON_OPTS_TARGET+=\" -Dpipewire=false\"",
+      "fi",
+      "",
+      "PKG_MESON_OPTS_TARGET+=\" -Dbackend-drm=true \\",
+      "                         -Dbackend-drm-screencast-vaapi=false \\",
+      "                         -Dbackend-headless=false \\",
+      "                         -Dbackend-pipewire=true \\",
+      "                         -Dbackend-rdp=false \\",
+      "                         -Dscreenshare=false \\",
+      "                         -Dbackend-vnc=false \\",
+      "                         -Dbackend-wayland=true \\",
+      "                         -Dbackend-x11=false \\",
+      "                         -Dbackend-default=drm \\",
+      "                         -Drenderer-gl=true \\",
+      "                         -Dxwayland=true \\",
+      "                         -Dsystemd=true \\",
+      "                         -Dremoting=false \\",
+      "                         -Dshell-desktop=true \\",
+      "                         -Dshell-fullscreen=true \\",
+      "                         -Dshell-ivi=false \\",
+      "                         -Dshell-kiosk=true \\",
+      "                         -Ddesktop-shell-client-default=\"weston-desktop-shell\" \\",
+      "                         -Dcolor-management-lcms=false \\",
+      "                         -Dimage-jpeg=true \\",
+      "                         -Dimage-webp=true \\",
+      "                         -Dtools=['terminal','debug','info']",
+      "                         -Ddemo-clients=true \\",
+      "                         -Dsimple-clients=[] \\",
+      "                         -Dresize-pool=false \\",
+      "                         -Dwcap-decode=true \\",
+      "                         -Dtest-junit-xml=false \\",
+      "                         -Dtest-skip-is-failure=false \\",
+      "                         -Ddoc=false\"",
+      "",
+      "pre_configure_target() {",
+      "  # weston does not build with NDEBUG (requires assert for tests)",
+      "  export TARGET_CFLAGS=$(echo ${TARGET_CFLAGS} | sed -e \"s|-DNDEBUG||g\")",
+      "}",
+      "",
+      "post_makeinstall_target() {",
+      "  mkdir -p ${INSTALL}/usr/lib/weston",
+      "    cp ${PKG_DIR}/scripts/weston-config ${INSTALL}/usr/lib/weston",
+      "",
+      "  mkdir -p ${INSTALL}/usr/share/weston",
+      "    cp ${PKG_DIR}/config/*ini ${INSTALL}/usr/share/weston",
+      "",
+      "  safe_remove ${INSTALL}/usr/share/wayland-sessions",
+      "",
+      "  for configfile in weston.ini kiosk.ini",
+      "  do",
+      "    sed -i -e \"s|@WESTONFONTSIZE@|${WESTONFONTSIZE}|g\" ${INSTALL}/usr/share/weston/${configfile}",
+      "  done",
+      "",
+      "  if [ \"${EMULATION_DEVICE}\" = \"yes\" ] && \\",
+      "     [ ! \"${BASE_ONLY}\" == true ]",
+      "  then",
+      "    cat <<EOF >>${INSTALL}/usr/share/weston/weston.ini",
+      "",
+      "[launcher]",
+      "path=/usr/bin/start_es.sh",
+      "icon=/usr/config/emulationstation/resources/window_icon_24.png",
+      "EOF",
+      "  fi",
+      "",
+      "}"
+    ],
+    "assignments": [
+      [
+        4,
+        "PKG_NAME=\"weston\""
+      ],
+      [
+        5,
+        "PKG_VERSION=\"14.0.2\""
+      ],
+      [
+        6,
+        "PKG_SHA256=\"633f4e0f232ad150300c95ffcbc646fedf1349487bf389dbd2045fa69013d6e2\""
+      ],
+      [
+        9,
+        "PKG_SITE=\"https://wayland.freedesktop.org/\""
+      ],
+      [
+        10,
+        "PKG_URL=\"https://gitlab.freedesktop.org/wayland/weston/-/archive/${PKG_VERSION}/${PKG_NAME}-${PKG_VERSION}.tar.gz\""
+      ],
+      [
+        13,
+        "PKG_PATCH_DIRS+=\"${DEVICE}\""
+      ]
+    ],
+    "upstream_sha256": "b8629c5b6d0a58a9db9224907233b8e7e90c33c73b72e1d1024cf1d291c6ce9b",
+    "upstream_assignments": [
+      [
+        4,
+        "PKG_NAME=\"weston\""
+      ],
+      [
+        5,
+        "PKG_VERSION=\"14.0.2\""
+      ],
+      [
+        6,
+        "PKG_SHA256=\"633f4e0f232ad150300c95ffcbc646fedf1349487bf389dbd2045fa69013d6e2\""
+      ],
+      [
+        9,
+        "PKG_SITE=\"https://wayland.freedesktop.org/\""
+      ],
+      [
+        10,
+        "PKG_URL=\"https://gitlab.freedesktop.org/wayland/weston/-/archive/${PKG_VERSION}/${PKG_NAME}-${PKG_VERSION}.tar.gz\""
+      ],
+      [
+        13,
+        "PKG_PATCH_DIRS+=\"${DEVICE}\""
+      ]
+    ]
+  }
+}

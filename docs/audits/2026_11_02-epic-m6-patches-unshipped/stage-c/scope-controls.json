@@ -1,0 +1,30 @@
+[
+  {
+    "at": "2026-11-02T22:02:11.275119+00:00",
+    "argv": [
+      "python3",
+      "docs/audits/2026_11_02-epic-m6-patches-unshipped/tools/guard.py",
+      "--fixture",
+      "docs/audits/2026_11_02-epic-m6-patches-unshipped/stage-c/fixtures/scope-negative.json"
+    ],
+    "exit": 1,
+    "input_sha256": "e92fec9fb16ea0f016ec4416927507cbe077959c3dd0425224a22416be58905c",
+    "program_sha256": "75ea6c49b220ad79e044949d524ef37980c76ffacc9bcd7b4a2764ba127e0226",
+    "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stderr_sha256": "9249b87a9270d68f7c8abe4a07be4ee361527e6b2e215ed40b3af81d82ab497c"
+  },
+  {
+    "at": "2026-11-02T22:02:11.293415+00:00",
+    "argv": [
+      "python3",
+      "docs/audits/2026_11_02-epic-m6-patches-unshipped/tools/guard.py",
+      "--fixture",
+      "docs/audits/2026_11_02-epic-m6-patches-unshipped/stage-c/fixtures/scope-positive.json"
+    ],
+    "exit": 0,
+    "input_sha256": "02f048cf03598939889dfaa928844adffcc322acbf9c0b37444da02cdca6cb5c",
+    "program_sha256": "75ea6c49b220ad79e044949d524ef37980c76ffacc9bcd7b4a2764ba127e0226",
+    "stdout_sha256": "068c2b4c257bfef7b07e824792da6bab4c07d61ec1a66934303ecaaf295373a1",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  }
+]

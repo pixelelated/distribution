@@ -1,0 +1,15 @@
+{
+  "argv": [
+    "patch",
+    "-d",
+    "/workspace/tmp/m6-t43/G066-020-candidate-6brumqch",
+    "-p1"
+  ],
+  "start": "2026-11-02T21:55:28.755160+00:00",
+  "end": "2026-11-02T21:55:28.759000+00:00",
+  "exit": 0,
+  "stdout_sha256": "9155180685d997fc62918d7a2d54f01c6945f884d298014df5126e22f7b92981",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "output": "patching file drivers/net/wireless/Kconfig\nHunk #1 succeeded at 36 with fuzz 2 (offset -1 lines).\npatching file drivers/net/wireless/Makefile\nHunk #1 succeeded at 21 with fuzz 2 (offset -1 lines).\npatching file drivers/net/wireless/esp8089/.gitignore\npatching file drivers/net/wireless/esp8089/Kconfig\npatching file drivers/net/wireless/esp8089/LICENSE\npatching file drivers/net/wireless/esp8089/Makefile\npatching file drivers/net/wireless/esp8089/Makefile.old\npatching file drivers/net/wireless/esp8089/README.md\npatching file drivers/net/wireless/esp8089/esp_ctrl.c\npatching file drivers/net/wireless/esp8089/esp_ctrl.h\npatching file drivers/net/wireless/esp8089/esp_debug.c\npatching file drivers/net/wireless/esp8089/esp_debug.h\npatching file drivers/net/wireless/esp8089/esp_ext.c\npatching file drivers/net/wireless/esp8089/esp_ext.h\npatching file drivers/net/wireless/esp8089/esp_file.c\npatching file drivers/net/wireless/esp8089/esp_file.h\npatching file drivers/net/wireless/esp8089/esp_init_data.h\npatching file drivers/net/wireless/esp8089/esp_io.c\npatching file drivers/net/wireless/esp8089/esp_mac80211.c\npatching file drivers/net/wireless/esp8089/esp_mac80211.h\npatching file drivers/net/wireless/esp8089/esp_main.c\npatching file drivers/net/wireless/esp8089/esp_path.h\npatching file drivers/net/wireless/esp8089/esp_pub.h\npatching file drivers/net/wireless/esp8089/esp_sif.h\npatching file drivers/net/wireless/esp8089/esp_sip.c\npatching file drivers/net/wireless/esp8089/esp_sip.h\npatching file drivers/net/wireless/esp8089/esp_utils.c\npatching file drivers/net/wireless/esp8089/esp_utils.h\npatching file drivers/net/wireless/esp8089/esp_version.h\npatching file drivers/net/wireless/esp8089/esp_wl.h\npatching file drivers/net/wireless/esp8089/esp_wmac.h\npatching file drivers/net/wireless/esp8089/firmware/LICENSE-2.0.txt\npatching file drivers/net/wireless/esp8089/sdio_sif_esp.c\npatching file drivers/net/wireless/esp8089/sip2_common.h\npatching file drivers/net/wireless/esp8089/slc_host_register.h\n",
+  "error": ""
+}

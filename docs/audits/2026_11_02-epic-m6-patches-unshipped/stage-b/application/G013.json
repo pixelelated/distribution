@@ -1,0 +1,251 @@
+{
+  "id": "G013",
+  "census": {
+    "id": "G013",
+    "recipe": "projects/ROCKNIX/packages/apps/gamepadtester/package.mk",
+    "recipe_sha256": "f5a5aed95afec1a87cdab04aee65c2f41060c7053e71cf90fe61b0b5d85debe2",
+    "owner": [
+      "image-packages"
+    ],
+    "consumer": "RK3588-aarch64",
+    "device": "RK3588",
+    "arch": "aarch64",
+    "target_cpu": "cortex-a76.cortex-a55",
+    "patch_arch": "aarch64",
+    "LINUX": "unset in clean default source config",
+    "batteryplus": "no or unset; exact yes predicate false",
+    "name": "gamepadtester",
+    "pin": "6ac49e67aa98fe3dd5c27f73306d65d4b7a82daa",
+    "url": "https://github.com/timre13/GamepadTester/archive/6ac49e67aa98fe3dd5c27f73306d65d4b7a82daa.tar.gz",
+    "expected_sha256": "dcba71ac2e673b7714a6cac12661d56e61a2eb861136bf7d74a42165d6a69be6",
+    "selectors": [
+      "RK3588",
+      "legacy"
+    ],
+    "ordered_pattern_directories": [
+      "projects/ROCKNIX/packages/apps/gamepadtester/patches",
+      "projects/ROCKNIX/packages/apps/gamepadtester/patches/aarch64",
+      "projects/ROCKNIX/packages/apps/gamepadtester/patches/RK3588",
+      "projects/ROCKNIX/packages/apps/gamepadtester/patches/legacy",
+      "projects/ROCKNIX/packages/apps/gamepadtester/patches/6ac49e67aa98fe3dd5c27f73306d65d4b7a82daa",
+      "projects/ROCKNIX/packages/apps/gamepadtester/patches/6ac49e67aa98fe3dd5c27f73306d65d4b7a82daa/aarch64",
+      "projects/ROCKNIX/patches/gamepadtester",
+      "projects/ROCKNIX/patches/gamepadtester/aarch64",
+      "projects/ROCKNIX/patches/gamepadtester/RK3588",
+      "projects/ROCKNIX/devices/RK3588/patches/gamepadtester/RK3588",
+      "projects/ROCKNIX/patches/gamepadtester/legacy",
+      "projects/ROCKNIX/devices/RK3588/patches/gamepadtester/legacy",
+      "projects/ROCKNIX/patches/gamepadtester/6ac49e67aa98fe3dd5c27f73306d65d4b7a82daa",
+      "projects/ROCKNIX/devices/RK3588/patches/gamepadtester"
+    ],
+    "stack": [
+      "projects/ROCKNIX/packages/apps/gamepadtester/patches/RK3588/000-set-resolution.patch",
+      "projects/ROCKNIX/packages/apps/gamepadtester/patches/legacy/000-gamepad-tester.patch"
+    ],
+    "native_paths": [
+      "projects/ROCKNIX/packages/apps/gamepadtester/patches/RK3588/000-set-resolution.patch",
+      "projects/ROCKNIX/packages/apps/gamepadtester/patches/legacy/000-gamepad-tester.patch"
+    ],
+    "config_paths": [],
+    "cache_candidates": [
+      "/workspace/cache/rocknix-sources/gamepadtester/gamepadtester-6ac49e67aa98fe3dd5c27f73306d65d4b7a82daa.tar.gz"
+    ],
+    "preimage_limits": [],
+    "source_only": true,
+    "runtime": false
+  },
+  "started": "2026-11-02T21:55:19.297802+00:00",
+  "rows": [
+    {
+      "path": "projects/ROCKNIX/packages/apps/gamepadtester/patches/RK3588/000-set-resolution.patch",
+      "referent": "projects/ROCKNIX/packages/apps/gamepadtester/patches/RK3588/000-set-resolution.patch",
+      "mode": "100644",
+      "literal_sha256": "84b0ddb9904913b7731dbef81ccd784469e68ed40307cc0a2202313b02293eec",
+      "content_sha256": "84b0ddb9904913b7731dbef81ccd784469e68ed40307cc0a2202313b02293eec",
+      "rendered_sha256": "84b0ddb9904913b7731dbef81ccd784469e68ed40307cc0a2202313b02293eec",
+      "targets": [
+        "src/main.cpp"
+      ],
+      "backend": "patch",
+      "index": 1,
+      "native": true,
+      "normal_called": true,
+      "normal": {
+        "argv": [
+          "patch",
+          "-d",
+          "/workspace/tmp/m6-t43/G013-001-candidate-4vqudtwn",
+          "-p1"
+        ],
+        "start": "2026-11-02T21:55:19.301058+00:00",
+        "end": "2026-11-02T21:55:19.302826+00:00",
+        "exit": 0,
+        "stdout_sha256": "f01aca320a14fe86da6e52c47d53efb3bc1a4e489f59873e2475518bd07106ee",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "output": "patching file src/main.cpp\n",
+        "error": ""
+      },
+      "input_digest": "83edcde0c7b927323ac9d310441ae911815560e2cb092d70004a88a34f12c457",
+      "output_digest": "4e8cf75e1a5fcf8b82d6b6778a711be8dd5412f4f158bdbf553952ae37c31094",
+      "candidate_snapshot": {
+        "CMakeLists.txt": {
+          "type": "file",
+          "mode": "0o664",
+          "sha256": "4a0931fd165a0ef77716c51e240c9b5517ee36285f5a9d1fc2592b0056050162",
+          "bytes": 338
+        },
+        "src/main.cpp": {
+          "type": "file",
+          "mode": "0o664",
+          "sha256": "9d2bdf49d80038c7813498e7c0997a2364c4d514d4805037d94ae5f83846ec18",
+          "bytes": 10019
+        }
+      },
+      "candidate_root": "/workspace/tmp/m6-t43/G013-001-candidate-4vqudtwn",
+      "status": "applies",
+      "promoted": true
+    },
+    {
+      "path": "projects/ROCKNIX/packages/apps/gamepadtester/patches/legacy/000-gamepad-tester.patch",
+      "referent": "projects/ROCKNIX/packages/apps/gamepadtester/patches/legacy/000-gamepad-tester.patch",
+      "mode": "100644",
+      "literal_sha256": "7836626db42249a5fea450bb247849b6980a50381cafa2cda461f4fc0c049a10",
+      "content_sha256": "7836626db42249a5fea450bb247849b6980a50381cafa2cda461f4fc0c049a10",
+      "rendered_sha256": "7836626db42249a5fea450bb247849b6980a50381cafa2cda461f4fc0c049a10",
+      "targets": [
+        "CMakeLists.txt",
+        "src/main.cpp"
+      ],
+      "backend": "patch",
+      "index": 2,
+      "native": true,
+      "normal_called": true,
+      "normal": {
+        "argv": [
+          "patch",
+          "-d",
+          "/workspace/tmp/m6-t43/G013-002-candidate-k1_2ou3o",
+          "-p1"
+        ],
+        "start": "2026-11-02T21:55:19.303320+00:00",
+        "end": "2026-11-02T21:55:19.305030+00:00",
+        "exit": 0,
+        "stdout_sha256": "e6b749aef3cd8b803b0f494dedd8db1e9173057f4fb1a4a6513128bafe59c063",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "output": "patching file CMakeLists.txt\npatching file src/main.cpp\n",
+        "error": ""
+      },
+      "input_digest": "4e8cf75e1a5fcf8b82d6b6778a711be8dd5412f4f158bdbf553952ae37c31094",
+      "output_digest": "c254797d5a0b8c648198ae9ab4ecd87b70fae7a9dec41021ec8cf8204b5c922c",
+      "candidate_snapshot": {
+        "CMakeLists.txt": {
+          "type": "file",
+          "mode": "0o664",
+          "sha256": "220815f0c73a8cfae721fc0d5505bc39ba60012b13a6d5e3c2a5a787e5e3e7a5",
+          "bytes": 299
+        },
+        "src/main.cpp": {
+          "type": "file",
+          "mode": "0o664",
+          "sha256": "3dc63e74b932e105229178f61a8f3d04269ec593c3a8034ab33a2ae8fed4eca3",
+          "bytes": 10361
+        }
+      },
+      "candidate_root": "/workspace/tmp/m6-t43/G013-002-candidate-k1_2ou3o",
+      "status": "applies",
+      "promoted": true
+    }
+  ],
+  "input_snapshot": {
+    "CMakeLists.txt": {
+      "type": "file",
+      "mode": "0o664",
+      "sha256": "4a0931fd165a0ef77716c51e240c9b5517ee36285f5a9d1fc2592b0056050162",
+      "bytes": 338
+    },
+    "src/main.cpp": {
+      "type": "file",
+      "mode": "0o664",
+      "sha256": "e8add4cae3bf4695d7b72d5ef850e435f90796065eb54aa523a7bfe55127d58e",
+      "bytes": 10018
+    }
+  },
+  "limits": [],
+  "cache_observations": [
+    {
+      "path": "/workspace/cache/rocknix-sources/gamepadtester/gamepadtester-6ac49e67aa98fe3dd5c27f73306d65d4b7a82daa.tar.gz",
+      "sha256": "dcba71ac2e673b7714a6cac12661d56e61a2eb861136bf7d74a42165d6a69be6",
+      "expected": "dcba71ac2e673b7714a6cac12661d56e61a2eb861136bf7d74a42165d6a69be6"
+    }
+  ],
+  "archive": {
+    "path": "/workspace/cache/rocknix-sources/gamepadtester/gamepadtester-6ac49e67aa98fe3dd5c27f73306d65d4b7a82daa.tar.gz",
+    "sha256": "dcba71ac2e673b7714a6cac12661d56e61a2eb861136bf7d74a42165d6a69be6",
+    "recipe_url": "https://github.com/timre13/GamepadTester/archive/6ac49e67aa98fe3dd5c27f73306d65d4b7a82daa.tar.gz"
+  },
+  "stack": [
+    {
+      "path": "projects/ROCKNIX/packages/apps/gamepadtester/patches/RK3588/000-set-resolution.patch",
+      "referent": "projects/ROCKNIX/packages/apps/gamepadtester/patches/RK3588/000-set-resolution.patch",
+      "mode": "100644",
+      "literal_sha256": "84b0ddb9904913b7731dbef81ccd784469e68ed40307cc0a2202313b02293eec",
+      "content_sha256": "84b0ddb9904913b7731dbef81ccd784469e68ed40307cc0a2202313b02293eec",
+      "rendered_sha256": "84b0ddb9904913b7731dbef81ccd784469e68ed40307cc0a2202313b02293eec",
+      "targets": [
+        "src/main.cpp"
+      ],
+      "backend": "patch"
+    },
+    {
+      "path": "projects/ROCKNIX/packages/apps/gamepadtester/patches/legacy/000-gamepad-tester.patch",
+      "referent": "projects/ROCKNIX/packages/apps/gamepadtester/patches/legacy/000-gamepad-tester.patch",
+      "mode": "100644",
+      "literal_sha256": "7836626db42249a5fea450bb247849b6980a50381cafa2cda461f4fc0c049a10",
+      "content_sha256": "7836626db42249a5fea450bb247849b6980a50381cafa2cda461f4fc0c049a10",
+      "rendered_sha256": "7836626db42249a5fea450bb247849b6980a50381cafa2cda461f4fc0c049a10",
+      "targets": [
+        "CMakeLists.txt",
+        "src/main.cpp"
+      ],
+      "backend": "patch"
+    }
+  ],
+  "stack_sha256": "df20c910408d72b03c7eeb36b69e4738b5e658725af1ea5f3c460ba9351e8440",
+  "projection": {
+    "archive_header_count": 8,
+    "archive_header_sha256": "e14060733f16652a152d025bfd20953002b794ee5080334c553c866e72c8bed4",
+    "projected_members": {
+      "CMakeLists.txt": {
+        "type": "file",
+        "mode": "0o664",
+        "sha256": "4a0931fd165a0ef77716c51e240c9b5517ee36285f5a9d1fc2592b0056050162",
+        "bytes": 338
+      },
+      "src/main.cpp": {
+        "type": "file",
+        "mode": "0o664",
+        "sha256": "e8add4cae3bf4695d7b72d5ef850e435f90796065eb54aa523a7bfe55127d58e",
+        "bytes": 10018
+      }
+    },
+    "absent_targets": [],
+    "projection_root": "/workspace/tmp/m6-t43/source-members-ebgffy5h"
+  },
+  "status": "applies",
+  "final_prefix_root": "/workspace/tmp/m6-t43/G013-002-candidate-k1_2ou3o",
+  "final_prefix_snapshot": {
+    "CMakeLists.txt": {
+      "type": "file",
+      "mode": "0o664",
+      "sha256": "220815f0c73a8cfae721fc0d5505bc39ba60012b13a6d5e3c2a5a787e5e3e7a5",
+      "bytes": 299
+    },
+    "src/main.cpp": {
+      "type": "file",
+      "mode": "0o664",
+      "sha256": "3dc63e74b932e105229178f61a8f3d04269ec593c3a8034ab33a2ae8fed4eca3",
+      "bytes": 10361
+    }
+  },
+  "finished": "2026-11-02T21:55:19.305433+00:00"
+}

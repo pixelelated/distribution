@@ -1,0 +1,15 @@
+{
+  "argv": [
+    "patch",
+    "-d",
+    "/workspace/tmp/m6-t43/G069-006-candidate-29jrkplp",
+    "-p1"
+  ],
+  "start": "2026-11-02T21:55:36.009551+00:00",
+  "end": "2026-11-02T21:55:36.011476+00:00",
+  "exit": 0,
+  "stdout_sha256": "83ec5c3f780887e51eba9c1321aa022b643c590367776c23f0deeb787a546778",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "output": "patching file drivers/power/supply/rk817_charger.c\npatching file include/linux/mfd/rk808.h\n",
+  "error": ""
+}

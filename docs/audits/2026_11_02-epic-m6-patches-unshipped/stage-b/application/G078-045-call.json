@@ -1,0 +1,15 @@
+{
+  "argv": [
+    "patch",
+    "-d",
+    "/workspace/tmp/m6-t43/G078-045-candidate-lwt8ezrs",
+    "-p1"
+  ],
+  "start": "2026-11-02T21:55:53.410787+00:00",
+  "end": "2026-11-02T21:55:53.411655+00:00",
+  "exit": 0,
+  "stdout_sha256": "f07ad4700eea6995c40c8d32bdda0e2f56a46791d3b3f043139a780d2ee97296",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "output": "patching file Documentation/devicetree/bindings/soc/qcom/qcom,pmic-glink.yaml\npatching file drivers/usb/typec/ucsi/ucsi_glink.c\n",
+  "error": ""
+}

@@ -1,0 +1,15 @@
+{
+  "argv": [
+    "patch",
+    "-d",
+    "/workspace/tmp/m6-t43/G078-015-candidate-erhk6ae1",
+    "-p1"
+  ],
+  "start": "2026-11-02T21:55:52.934570+00:00",
+  "end": "2026-11-02T21:55:52.936432+00:00",
+  "exit": 0,
+  "stdout_sha256": "098935ee4a68e18c928a47cd8617e4935d964239998e1f3e0334e4140d245a24",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "output": "patching file drivers/soc/qcom/qcom_pd_mapper.c\nHunk #1 succeeded at 502 (offset 6 lines).\nHunk #2 succeeded at 622 (offset 7 lines).\n",
+  "error": ""
+}

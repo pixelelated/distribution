@@ -1,0 +1,222 @@
+{
+  "id": "G095",
+  "census": {
+    "id": "G095",
+    "recipe": "projects/ROCKNIX/packages/multimedia/rkmpp/package.mk",
+    "recipe_sha256": "bbe00da22a9ee18784a10fdbc87652ba69f328ec5e6e6c529543e576d92f120f",
+    "owner": [
+      "packages-dead-ends"
+    ],
+    "consumer": "RK3399-aarch64",
+    "device": "RK3399",
+    "arch": "aarch64",
+    "target_cpu": "cortex-a72.cortex-a53",
+    "patch_arch": "aarch64",
+    "LINUX": "unset in clean default source config",
+    "batteryplus": "no or unset; exact yes predicate false",
+    "name": "rkmpp",
+    "pin": "239e15eaebf98f68c0093b00ff8108d23b0147e7",
+    "url": "https://github.com/rockchip-linux/mpp/archive/239e15eaebf98f68c0093b00ff8108d23b0147e7.tar.gz",
+    "expected_sha256": "9a4d6a01ed827f39325953d6277975e3f1eecede768b0e7c9c16d91d4d62974b",
+    "selectors": [],
+    "ordered_pattern_directories": [
+      "projects/ROCKNIX/packages/multimedia/rkmpp/patches",
+      "projects/ROCKNIX/packages/multimedia/rkmpp/patches/aarch64",
+      "projects/ROCKNIX/packages/multimedia/rkmpp/patches/239e15eaebf98f68c0093b00ff8108d23b0147e7",
+      "projects/ROCKNIX/packages/multimedia/rkmpp/patches/239e15eaebf98f68c0093b00ff8108d23b0147e7/aarch64",
+      "projects/ROCKNIX/patches/rkmpp",
+      "projects/ROCKNIX/patches/rkmpp/aarch64",
+      "projects/ROCKNIX/patches/rkmpp/239e15eaebf98f68c0093b00ff8108d23b0147e7",
+      "projects/ROCKNIX/devices/RK3399/patches/rkmpp"
+    ],
+    "stack": [
+      "projects/ROCKNIX/packages/multimedia/rkmpp/patches/01-dont-compile-tests.patch"
+    ],
+    "native_paths": [
+      "projects/ROCKNIX/packages/multimedia/rkmpp/patches/01-dont-compile-tests.patch"
+    ],
+    "config_paths": [],
+    "cache_candidates": [
+      "/workspace/cache/rocknix-sources/rkmpp/rkmpp-239e15eaebf98f68c0093b00ff8108d23b0147e7.tar.gz"
+    ],
+    "preimage_limits": [],
+    "source_only": true,
+    "runtime": false
+  },
+  "started": "2026-11-02T21:56:27.270642+00:00",
+  "rows": [
+    {
+      "path": "projects/ROCKNIX/packages/multimedia/rkmpp/patches/01-dont-compile-tests.patch",
+      "referent": "projects/ROCKNIX/packages/multimedia/rkmpp/patches/01-dont-compile-tests.patch",
+      "mode": "100644",
+      "literal_sha256": "5b5b2e8df24c6f27d61c728f95ba18c167bb900456b8a54dee645a5172a97b19",
+      "content_sha256": "5b5b2e8df24c6f27d61c728f95ba18c167bb900456b8a54dee645a5172a97b19",
+      "rendered_sha256": "5b5b2e8df24c6f27d61c728f95ba18c167bb900456b8a54dee645a5172a97b19",
+      "targets": [
+        "CMakeLists.txt",
+        "mpp/vproc/iep/test/CMakeLists.txt",
+        "mpp/vproc/iep2/test/CMakeLists.txt",
+        "mpp/vproc/rga/test/CMakeLists.txt",
+        "mpp/vproc/vdpp/test/CMakeLists.txt"
+      ],
+      "backend": "patch",
+      "index": 1,
+      "native": true,
+      "normal_called": true,
+      "normal": {
+        "argv": [
+          "patch",
+          "-d",
+          "/workspace/tmp/m6-t43/G095-001-candidate-71_2p6f1",
+          "-p1"
+        ],
+        "start": "2026-11-02T21:56:27.272316+00:00",
+        "end": "2026-11-02T21:56:27.274224+00:00",
+        "exit": 0,
+        "stdout_sha256": "ff80af92c262ed41375718de285680516a670d09a497a1ad7cb6cb5b7fff76f4",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "output": "patching file CMakeLists.txt\npatching file mpp/vproc/iep/test/CMakeLists.txt\npatching file mpp/vproc/iep2/test/CMakeLists.txt\npatching file mpp/vproc/rga/test/CMakeLists.txt\npatching file mpp/vproc/vdpp/test/CMakeLists.txt\n",
+        "error": ""
+      },
+      "input_digest": "537ec05a533c55f44a64f549c95b245599839372971c81c3c7496c5f838edec6",
+      "output_digest": "a5ee63c3d71ef06f25e2d6017b8aa6df1f09bfcb27c26c36a32d2bfbd7caeb44",
+      "candidate_snapshot": {
+        "CMakeLists.txt": {
+          "type": "file",
+          "mode": "0o664",
+          "sha256": "d5abbac89e46620301b6558a88ff56020525f69175d8c5da18fec5a7efd0da8c",
+          "bytes": 14151
+        },
+        "mpp/vproc/iep/test/CMakeLists.txt": {
+          "type": "file",
+          "mode": "0o664",
+          "sha256": "9b0aa257645f83ccab448f6c767d397eaed8f8d803177a4c8999a52dfbe32390",
+          "bytes": 494
+        },
+        "mpp/vproc/iep2/test/CMakeLists.txt": {
+          "type": "file",
+          "mode": "0o664",
+          "sha256": "70590e1b9e7d04fc800ef9aeccc417539997a9118382f5f33c6cb096763e33fa",
+          "bytes": 492
+        },
+        "mpp/vproc/rga/test/CMakeLists.txt": {
+          "type": "file",
+          "mode": "0o664",
+          "sha256": "3c89cea4cbc7234810849405eb13342156cccb614afc3ece6194b892f375f165",
+          "bytes": 494
+        },
+        "mpp/vproc/vdpp/test/CMakeLists.txt": {
+          "type": "file",
+          "mode": "0o664",
+          "sha256": "c7107e1612ffbd71cef17667297463cf121671d99fb9c13af6508e64050328d5",
+          "bytes": 727
+        }
+      },
+      "candidate_root": "/workspace/tmp/m6-t43/G095-001-candidate-71_2p6f1",
+      "status": "applies",
+      "promoted": true
+    }
+  ],
+  "input_snapshot": {
+    "CMakeLists.txt": {
+      "type": "file",
+      "mode": "0o664",
+      "sha256": "1080732aa2f2a4c1ebcf5b2761802ea6d39f6fe04d7ac211da4e32004b7de53d",
+      "bytes": 14148
+    },
+    "mpp/vproc/iep/test/CMakeLists.txt": {
+      "type": "file",
+      "mode": "0o664",
+      "sha256": "2de598290e64188d0e228b76fd3350103789650ce098e4880aef6e80a02c52bf",
+      "bytes": 489
+    },
+    "mpp/vproc/iep2/test/CMakeLists.txt": {
+      "type": "file",
+      "mode": "0o664",
+      "sha256": "059cc0a0a79b3c91c36ab45109e236b35f83e40868e69e2d0a201252cb194b31",
+      "bytes": 487
+    },
+    "mpp/vproc/rga/test/CMakeLists.txt": {
+      "type": "file",
+      "mode": "0o664",
+      "sha256": "059eaf5355399851e40ad122cd02483a9878fb64bc7f52cf3ac8ff4b20f66938",
+      "bytes": 489
+    },
+    "mpp/vproc/vdpp/test/CMakeLists.txt": {
+      "type": "file",
+      "mode": "0o664",
+      "sha256": "b5ec127fbab4985d168dc95b2c3583fca66a900c34cbd3fa23a1ee95d37d0018",
+      "bytes": 718
+    }
+  },
+  "limits": [],
+  "cache_observations": [
+    {
+      "path": "/workspace/cache/rocknix-sources/rkmpp/rkmpp-239e15eaebf98f68c0093b00ff8108d23b0147e7.tar.gz",
+      "sha256": "9a4d6a01ed827f39325953d6277975e3f1eecede768b0e7c9c16d91d4d62974b",
+      "expected": "9a4d6a01ed827f39325953d6277975e3f1eecede768b0e7c9c16d91d4d62974b"
+    }
+  ],
+  "archive": {
+    "path": "/workspace/cache/rocknix-sources/rkmpp/rkmpp-239e15eaebf98f68c0093b00ff8108d23b0147e7.tar.gz",
+    "sha256": "9a4d6a01ed827f39325953d6277975e3f1eecede768b0e7c9c16d91d4d62974b",
+    "recipe_url": "https://github.com/rockchip-linux/mpp/archive/239e15eaebf98f68c0093b00ff8108d23b0147e7.tar.gz"
+  },
+  "stack": [
+    {
+      "path": "projects/ROCKNIX/packages/multimedia/rkmpp/patches/01-dont-compile-tests.patch",
+      "referent": "projects/ROCKNIX/packages/multimedia/rkmpp/patches/01-dont-compile-tests.patch",
+      "mode": "100644",
+      "literal_sha256": "5b5b2e8df24c6f27d61c728f95ba18c167bb900456b8a54dee645a5172a97b19",
+      "content_sha256": "5b5b2e8df24c6f27d61c728f95ba18c167bb900456b8a54dee645a5172a97b19",
+      "rendered_sha256": "5b5b2e8df24c6f27d61c728f95ba18c167bb900456b8a54dee645a5172a97b19",
+      "targets": [
+        "CMakeLists.txt",
+        "mpp/vproc/iep/test/CMakeLists.txt",
+        "mpp/vproc/iep2/test/CMakeLists.txt",
+        "mpp/vproc/rga/test/CMakeLists.txt",
+        "mpp/vproc/vdpp/test/CMakeLists.txt"
+      ],
+      "backend": "patch"
+    }
+  ],
+  "stack_sha256": "3a84ef3fd6c2248167fc0ca1d2f61d022222b50383eb65375c02a8245cfb046b",
+  "projection": {
+    "archive_header_count": 1066,
+    "archive_header_sha256": "00f9a460718467baf6f0972b220f4051d6cff0669eed6b9cb5dd874fa012fb0e",
+    "projected_members": {
+      "CMakeLists.txt": {
+        "type": "file",
+        "mode": "0o664",
+        "sha256": "1080732aa2f2a4c1ebcf5b2761802ea6d39f6fe04d7ac211da4e32004b7de53d",
+        "bytes": 14148
+      },
+      "mpp/vproc/iep/test/CMakeLists.txt": {
+        "type": "file",
+        "mode": "0o664",
+        "sha256": "2de598290e64188d0e228b76fd3350103789650ce098e4880aef6e80a02c52bf",
+        "bytes": 489
+      },
+      "mpp/vproc/iep2/test/CMakeLists.txt": {
+        "type": "file",
+        "mode": "0o664",
+        "sha256": "059cc0a0a79b3c91c36ab45109e236b35f83e40868e69e2d0a201252cb194b31",
+        "bytes": 487
+      },
+      "mpp/vproc/rga/test/CMakeLists.txt": {
+        "type": "file",
+        "mode": "0o664",
+        "sha256": "059eaf5355399851e40ad122cd02483a9878fb64bc7f52cf3ac8ff4b20f66938",
+        "bytes": 489
+      },
+      "mpp/vproc/vdpp/test/CMakeLists.txt": {
+        "type": "file",
+        "mode": "0o664",
+        "sha256": "b5ec127fbab4985d168dc95b2c3583fca66a900c34cbd3fa23a1ee95d37d0018",
+        "bytes": 718
+      }
+    },
+    "absent_targets": [],
+    "projection_root": "/workspace/tmp/m6-t43/source-members-ekoowb2a"
+  }
+}

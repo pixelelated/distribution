@@ -1,0 +1,15 @@
+{
+  "argv": [
+    "patch",
+    "-d",
+    "/workspace/tmp/m6-t43/G100-001-candidate-6typicx0",
+    "-p1"
+  ],
+  "start": "2026-11-02T21:56:27.291995+00:00",
+  "end": "2026-11-02T21:56:27.293909+00:00",
+  "exit": 0,
+  "stdout_sha256": "ff80af92c262ed41375718de285680516a670d09a497a1ad7cb6cb5b7fff76f4",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "output": "patching file CMakeLists.txt\npatching file mpp/vproc/iep/test/CMakeLists.txt\npatching file mpp/vproc/iep2/test/CMakeLists.txt\npatching file mpp/vproc/rga/test/CMakeLists.txt\npatching file mpp/vproc/vdpp/test/CMakeLists.txt\n",
+  "error": ""
+}

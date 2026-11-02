@@ -1,0 +1,77 @@
+{
+  "id": "G064",
+  "census": {
+    "id": "G064",
+    "recipe": "projects/ROCKNIX/packages/linux/package.mk",
+    "recipe_sha256": "652202f2efead36a6c0d3d6a95d55efb4e2cd799cd9ca1ccafd5907e25b26faa",
+    "owner": [
+      "device-generic-x64-and-kernel"
+    ],
+    "consumer": "AMD64-x86_64",
+    "device": "AMD64",
+    "arch": "x86_64",
+    "target_cpu": "x86-64-v3",
+    "patch_arch": "x86",
+    "LINUX": "unset in clean default source config",
+    "batteryplus": "no or unset; exact yes predicate false",
+    "name": "linux",
+    "pin": "7.1.2",
+    "url": "https://www.kernel.org/pub/linux/kernel/v7.x/linux-7.1.2.tar.xz",
+    "expected_sha256": "37198c93727be247c9fb5309bb86cd5e496c61e5322cd8c4eca9476bb0b5883f",
+    "selectors": [
+      "mainline",
+      "AMD64",
+      "default",
+      "7.0"
+    ],
+    "ordered_pattern_directories": [
+      "projects/ROCKNIX/packages/linux/patches",
+      "projects/ROCKNIX/packages/linux/patches/x86",
+      "projects/ROCKNIX/packages/linux/patches/mainline",
+      "projects/ROCKNIX/packages/linux/patches/AMD64",
+      "projects/ROCKNIX/packages/linux/patches/default",
+      "projects/ROCKNIX/packages/linux/patches/7.0",
+      "projects/ROCKNIX/packages/linux/patches/7.1.2",
+      "projects/ROCKNIX/packages/linux/patches/7.1.2/x86",
+      "projects/ROCKNIX/patches/linux",
+      "projects/ROCKNIX/patches/linux/x86",
+      "projects/ROCKNIX/patches/linux/mainline",
+      "projects/ROCKNIX/devices/AMD64/patches/linux/mainline",
+      "projects/ROCKNIX/patches/linux/AMD64",
+      "projects/ROCKNIX/devices/AMD64/patches/linux/AMD64",
+      "projects/ROCKNIX/patches/linux/default",
+      "projects/ROCKNIX/devices/AMD64/patches/linux/default",
+      "projects/ROCKNIX/patches/linux/7.0",
+      "projects/ROCKNIX/devices/AMD64/patches/linux/7.0",
+      "projects/ROCKNIX/patches/linux/7.1.2",
+      "projects/ROCKNIX/devices/AMD64/patches/linux"
+    ],
+    "stack": [
+      "projects/ROCKNIX/packages/linux/patches/mainline/0002-input-add-input-polldev-driver.patch",
+      "projects/ROCKNIX/packages/linux/patches/mainline/0003-pwm-add-pwm_set_period.patch",
+      "projects/ROCKNIX/packages/linux/patches/mainline/0004-input-adc-keys-redirect-keycode-316-to-rocknix-joypa.patch",
+      "projects/ROCKNIX/packages/linux/patches/mainline/0005-Bluetooth-btrtl-Add-the-support-for-RTL8733BU.patch",
+      "projects/ROCKNIX/packages/linux/patches/7.0/0006-hid-playstation-expose-DualSense-Edge-Fn-and-back-paddles.patch",
+      "projects/ROCKNIX/packages/linux/patches/7.0/0010-msm-resource-cleanup.patch",
+      "projects/ROCKNIX/packages/linux/patches/7.0/9998-silence-initramfs-unpack-warn.patch",
+      "projects/ROCKNIX/packages/linux/patches/7.0/9999-fix-rust-build-error.patch"
+    ],
+    "native_paths": [],
+    "config_paths": [
+      "projects/ROCKNIX/devices/AMD64/linux/linux.x86_64.conf"
+    ],
+    "cache_candidates": [
+      "/workspace/cache/rocknix-sources/linux/linux-7.1.2.tar.xz"
+    ],
+    "preimage_limits": [],
+    "source_only": true,
+    "runtime": false
+  },
+  "started": "2026-11-02T21:55:21.092626+00:00",
+  "rows": [],
+  "input_snapshot": {},
+  "limits": [
+    "configuration-only plan: no patch application claim"
+  ],
+  "status": "config-source-only"
+}

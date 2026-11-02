@@ -1,0 +1,14 @@
+[
+  {
+    "input": "/etc/passwd",
+    "refusal": "unsafe relative path /etc/passwd"
+  },
+  {
+    "input": "../escape",
+    "refusal": "unsafe relative path ../escape"
+  },
+  {
+    "input": "a/../../escape",
+    "refusal": "unsafe relative path a/../../escape"
+  }
+]

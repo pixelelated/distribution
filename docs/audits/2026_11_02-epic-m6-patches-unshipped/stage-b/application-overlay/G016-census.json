@@ -1,0 +1,72 @@
+{
+  "id": "G016",
+  "census": {
+    "id": "G016",
+    "recipe": "projects/ROCKNIX/packages/apps/mangohud/package.mk",
+    "recipe_sha256": "eedb1ec41c904ed890d50d67f8a9dd922ff188e4dff32c80cca94230367cf826",
+    "owner": [
+      "image-packages"
+    ],
+    "consumer": "RK3326-aarch64",
+    "device": "RK3326",
+    "arch": "aarch64",
+    "target_cpu": "cortex-a35",
+    "patch_arch": "aarch64",
+    "LINUX": "unset in clean default source config",
+    "batteryplus": "no or unset; exact yes predicate false",
+    "name": "mangohud",
+    "pin": "992103e4fb744897826de04ea00a2f71e7018214",
+    "url": "https://github.com/flightlessmango/MangoHud/archive/992103e4fb744897826de04ea00a2f71e7018214.tar.gz",
+    "expected_sha256": "edd61f4716710681a9e3b535556831ee0c6187b7b6f90d29f8d8ac234448f4a5",
+    "selectors": [
+      "common",
+      "RK3326"
+    ],
+    "ordered_pattern_directories": [
+      "projects/ROCKNIX/packages/apps/mangohud/patches",
+      "projects/ROCKNIX/packages/apps/mangohud/patches/aarch64",
+      "projects/ROCKNIX/packages/apps/mangohud/patches/common",
+      "projects/ROCKNIX/packages/apps/mangohud/patches/RK3326",
+      "projects/ROCKNIX/packages/apps/mangohud/patches/992103e4fb744897826de04ea00a2f71e7018214",
+      "projects/ROCKNIX/packages/apps/mangohud/patches/992103e4fb744897826de04ea00a2f71e7018214/aarch64",
+      "projects/ROCKNIX/patches/mangohud",
+      "projects/ROCKNIX/patches/mangohud/aarch64",
+      "projects/ROCKNIX/patches/mangohud/common",
+      "projects/ROCKNIX/devices/RK3326/patches/mangohud/common",
+      "projects/ROCKNIX/patches/mangohud/RK3326",
+      "projects/ROCKNIX/devices/RK3326/patches/mangohud/RK3326",
+      "projects/ROCKNIX/patches/mangohud/992103e4fb744897826de04ea00a2f71e7018214",
+      "projects/ROCKNIX/devices/RK3326/patches/mangohud"
+    ],
+    "stack": [
+      "projects/ROCKNIX/packages/apps/mangohud/patches/common/0001-No-static-lib.patch",
+      "projects/ROCKNIX/packages/apps/mangohud/patches/common/0002-Battery-name.patch",
+      "projects/ROCKNIX/packages/apps/mangohud/patches/common/0003-RAM-name.patch",
+      "projects/ROCKNIX/packages/apps/mangohud/patches/RK3326/0001-RK3326-soc_thermal.patch",
+      "projects/ROCKNIX/packages/apps/mangohud/patches/RK3326/0002-RK3326-power-timeRemaining.patch"
+    ],
+    "native_paths": [
+      "projects/ROCKNIX/packages/apps/mangohud/patches/RK3326/0001-RK3326-soc_thermal.patch",
+      "projects/ROCKNIX/packages/apps/mangohud/patches/RK3326/0002-RK3326-power-timeRemaining.patch"
+    ],
+    "config_paths": [],
+    "cache_candidates": [
+      "/workspace/cache/rocknix-sources/mangohud/mangohud-992103e4fb744897826de04ea00a2f71e7018214.tar.gz"
+    ],
+    "preimage_limits": [],
+    "source_only": true,
+    "runtime": false,
+    "source_overlays": [
+      {
+        "path": "projects/ROCKNIX/packages/apps/mangohud/sources/mangohud_set",
+        "relative": "mangohud_set",
+        "mode": "100644",
+        "oid": "a086a4d0f7895be186e89baea871b9ba941d8620"
+      }
+    ]
+  },
+  "started": "2026-11-02T21:57:58.910606+00:00",
+  "rows": [],
+  "input_snapshot": {},
+  "limits": []
+}

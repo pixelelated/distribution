@@ -1,0 +1,378 @@
+{
+  "id": "G063",
+  "census": {
+    "id": "G063",
+    "recipe": "projects/ROCKNIX/packages/linux-drivers/mali-bifrost/package.mk",
+    "recipe_sha256": "2f1e8a77bcd7845626456e61086a69975750818e6ad9d8baa19f984c69f3b538",
+    "owner": [
+      "devices-unshipped"
+    ],
+    "consumer": "RK3576-aarch64",
+    "device": "RK3576",
+    "arch": "aarch64",
+    "target_cpu": "cortex-a72.cortex-a53",
+    "patch_arch": "aarch64",
+    "LINUX": "unset in clean default source config",
+    "batteryplus": "no or unset; exact yes predicate false",
+    "name": "mali-bifrost",
+    "pin": "39da994bb6fc8819e5e8c1873907dd21d17e53c1",
+    "url": "http://github.com/rocknix/mali_kbase/archive/39da994bb6fc8819e5e8c1873907dd21d17e53c1.tar.gz",
+    "expected_sha256": "f947b99a1bcb5b86ea270c1ce4cd189f4df26b3c0c8ba92c1ef256bb757afa66",
+    "selectors": [],
+    "ordered_pattern_directories": [
+      "projects/ROCKNIX/packages/linux-drivers/mali-bifrost/patches",
+      "projects/ROCKNIX/packages/linux-drivers/mali-bifrost/patches/aarch64",
+      "projects/ROCKNIX/packages/linux-drivers/mali-bifrost/patches/39da994bb6fc8819e5e8c1873907dd21d17e53c1",
+      "projects/ROCKNIX/packages/linux-drivers/mali-bifrost/patches/39da994bb6fc8819e5e8c1873907dd21d17e53c1/aarch64",
+      "projects/ROCKNIX/patches/mali-bifrost",
+      "projects/ROCKNIX/patches/mali-bifrost/aarch64",
+      "projects/ROCKNIX/patches/mali-bifrost/39da994bb6fc8819e5e8c1873907dd21d17e53c1",
+      "projects/ROCKNIX/devices/RK3576/patches/mali-bifrost"
+    ],
+    "stack": [
+      "projects/ROCKNIX/devices/RK3576/patches/mali-bifrost/0001-platform-devicetree-add-reset-control-and-runtime-pm.patch",
+      "projects/ROCKNIX/devices/RK3576/patches/mali-bifrost/002-lowercase-interrupts-first.patch",
+      "projects/ROCKNIX/devices/RK3576/patches/mali-bifrost/003-fix-unbalanced-regulator.patch"
+    ],
+    "native_paths": [
+      "projects/ROCKNIX/devices/RK3576/patches/mali-bifrost/0001-platform-devicetree-add-reset-control-and-runtime-pm.patch",
+      "projects/ROCKNIX/devices/RK3576/patches/mali-bifrost/002-lowercase-interrupts-first.patch",
+      "projects/ROCKNIX/devices/RK3576/patches/mali-bifrost/003-fix-unbalanced-regulator.patch"
+    ],
+    "config_paths": [],
+    "cache_candidates": [
+      "/workspace/cache/rocknix-sources/mali-bifrost/mali-bifrost-39da994bb6fc8819e5e8c1873907dd21d17e53c1.tar.gz"
+    ],
+    "preimage_limits": [],
+    "source_only": true,
+    "runtime": false,
+    "source_overlays": [
+      {
+        "path": "projects/ROCKNIX/packages/linux-drivers/mali-bifrost/sources/Makefile",
+        "relative": "Makefile",
+        "mode": "100644",
+        "oid": "67d89bbfd09683b01c6bf8a813a9d2de42146b89"
+      }
+    ]
+  },
+  "started": "2026-11-02T21:57:59.687485+00:00",
+  "rows": [
+    {
+      "path": "projects/ROCKNIX/devices/RK3576/patches/mali-bifrost/0001-platform-devicetree-add-reset-control-and-runtime-pm.patch",
+      "referent": "projects/ROCKNIX/devices/RK3576/patches/mali-bifrost/0001-platform-devicetree-add-reset-control-and-runtime-pm.patch",
+      "mode": "100644",
+      "literal_sha256": "a39d9b535e3fee43443afb7c963abc2741b6d72aa64761b51f46810163b8010f",
+      "content_sha256": "a39d9b535e3fee43443afb7c963abc2741b6d72aa64761b51f46810163b8010f",
+      "rendered_sha256": "a39d9b535e3fee43443afb7c963abc2741b6d72aa64761b51f46810163b8010f",
+      "targets": [
+        "product/kernel/drivers/gpu/arm/midgard/platform/devicetree/Kbuild",
+        "product/kernel/drivers/gpu/arm/midgard/platform/devicetree/mali_kbase_runtime_pm.c"
+      ],
+      "backend": "patch",
+      "index": 1,
+      "native": true,
+      "normal_called": true,
+      "normal": {
+        "argv": [
+          "patch",
+          "-d",
+          "/workspace/tmp/m6-t43/G063-001-candidate-zhw6mbq6",
+          "-p1"
+        ],
+        "start": "2026-11-02T21:57:59.697600+00:00",
+        "end": "2026-11-02T21:57:59.699424+00:00",
+        "exit": 0,
+        "stdout_sha256": "9387be9d12ea26ec23a9cb312883887fc47fa042027a074f637c07fe45715dd4",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "output": "patching file product/kernel/drivers/gpu/arm/midgard/platform/devicetree/Kbuild\nHunk #1 succeeded at 16 (offset -2 lines).\npatching file product/kernel/drivers/gpu/arm/midgard/platform/devicetree/mali_kbase_runtime_pm.c\nHunk #1 succeeded at 23 (offset 1 line).\nHunk #3 succeeded at 269 (offset 12 lines).\nHunk #4 succeeded at 287 with fuzz 1 (offset 14 lines).\nHunk #5 succeeded at 341 (offset 6 lines).\n",
+        "error": ""
+      },
+      "input_digest": "2d16e981a5dd17184e2e818c9d2b1b1174edec5f98460994bee66d237cd75861",
+      "output_digest": "17b1425a3702d1ffe2f7a31722039be51fe648d165cbfd55a977a45dcaa26a80",
+      "candidate_snapshot": {
+        "product/kernel/drivers/gpu/arm/midgard/mali_kbase_core_linux.c": {
+          "type": "file",
+          "mode": "0o664",
+          "sha256": "52b146c61b39748ac2b43902008af60c07cc024685c4c5c9ad8ff2dc2174a72c",
+          "bytes": 186497
+        },
+        "product/kernel/drivers/gpu/arm/midgard/platform/devicetree/Kbuild": {
+          "type": "file",
+          "mode": "0o664",
+          "sha256": "864a04b8bf309f64c84dad1eea398a14ee1996176bc694bd59c1c672dffae6fc",
+          "bytes": 1198
+        },
+        "product/kernel/drivers/gpu/arm/midgard/platform/devicetree/Kbuild.orig": {
+          "type": "file",
+          "mode": "0o664",
+          "sha256": "64cd6bb4b211d2e88a1541ca421e0aa230956d1a621988e6fef96acb4d2f5958",
+          "bytes": 1013
+        },
+        "product/kernel/drivers/gpu/arm/midgard/platform/devicetree/mali_kbase_runtime_pm.c": {
+          "type": "file",
+          "mode": "0o664",
+          "sha256": "554af1f7ec2fcc2efe53d40505bc4fb656d6d24c7096f6550cd422503c7e318a",
+          "bytes": 9879
+        },
+        "product/kernel/drivers/gpu/arm/midgard/platform/devicetree/mali_kbase_runtime_pm.c.orig": {
+          "type": "file",
+          "mode": "0o664",
+          "sha256": "e25fca2c16f1d6259d4ed4fe2e9caeddba035ead912468446305f25d75646f69",
+          "bytes": 8398
+        }
+      },
+      "candidate_root": "/workspace/tmp/m6-t43/G063-001-candidate-zhw6mbq6",
+      "status": "fuzz",
+      "promoted": true
+    },
+    {
+      "path": "projects/ROCKNIX/devices/RK3576/patches/mali-bifrost/002-lowercase-interrupts-first.patch",
+      "referent": "projects/ROCKNIX/devices/RK3576/patches/mali-bifrost/002-lowercase-interrupts-first.patch",
+      "mode": "100644",
+      "literal_sha256": "40417a926a05b64ea14d3947f202633988a39facf92ef6ce8c0617b4e4b523a0",
+      "content_sha256": "40417a926a05b64ea14d3947f202633988a39facf92ef6ce8c0617b4e4b523a0",
+      "rendered_sha256": "40417a926a05b64ea14d3947f202633988a39facf92ef6ce8c0617b4e4b523a0",
+      "targets": [
+        "product/kernel/drivers/gpu/arm/midgard/mali_kbase_core_linux.c"
+      ],
+      "backend": "patch",
+      "index": 2,
+      "native": true,
+      "normal_called": true,
+      "normal": {
+        "argv": [
+          "patch",
+          "-d",
+          "/workspace/tmp/m6-t43/G063-002-candidate-ghl_ozan",
+          "-p1"
+        ],
+        "start": "2026-11-02T21:57:59.700891+00:00",
+        "end": "2026-11-02T21:57:59.702961+00:00",
+        "exit": 0,
+        "stdout_sha256": "0d8ab2c096d201657205df59108a69a094c6fa9dd4ff3e855667965a939c1afd",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "output": "patching file product/kernel/drivers/gpu/arm/midgard/mali_kbase_core_linux.c\n",
+        "error": ""
+      },
+      "input_digest": "17b1425a3702d1ffe2f7a31722039be51fe648d165cbfd55a977a45dcaa26a80",
+      "output_digest": "921becac630e2c4cdb407f4f9ea5a22c265f40180d763db3a706085e9cb6164b",
+      "candidate_snapshot": {
+        "product/kernel/drivers/gpu/arm/midgard/mali_kbase_core_linux.c": {
+          "type": "file",
+          "mode": "0o664",
+          "sha256": "5d7a8818b017392385a91f480dcd0284f80d84ed52f53077b03798b945053d8c",
+          "bytes": 186492
+        },
+        "product/kernel/drivers/gpu/arm/midgard/platform/devicetree/Kbuild": {
+          "type": "file",
+          "mode": "0o664",
+          "sha256": "864a04b8bf309f64c84dad1eea398a14ee1996176bc694bd59c1c672dffae6fc",
+          "bytes": 1198
+        },
+        "product/kernel/drivers/gpu/arm/midgard/platform/devicetree/Kbuild.orig": {
+          "type": "file",
+          "mode": "0o664",
+          "sha256": "64cd6bb4b211d2e88a1541ca421e0aa230956d1a621988e6fef96acb4d2f5958",
+          "bytes": 1013
+        },
+        "product/kernel/drivers/gpu/arm/midgard/platform/devicetree/mali_kbase_runtime_pm.c": {
+          "type": "file",
+          "mode": "0o664",
+          "sha256": "554af1f7ec2fcc2efe53d40505bc4fb656d6d24c7096f6550cd422503c7e318a",
+          "bytes": 9879
+        },
+        "product/kernel/drivers/gpu/arm/midgard/platform/devicetree/mali_kbase_runtime_pm.c.orig": {
+          "type": "file",
+          "mode": "0o664",
+          "sha256": "e25fca2c16f1d6259d4ed4fe2e9caeddba035ead912468446305f25d75646f69",
+          "bytes": 8398
+        }
+      },
+      "candidate_root": "/workspace/tmp/m6-t43/G063-002-candidate-ghl_ozan",
+      "status": "applies",
+      "promoted": true
+    },
+    {
+      "path": "projects/ROCKNIX/devices/RK3576/patches/mali-bifrost/003-fix-unbalanced-regulator.patch",
+      "referent": "projects/ROCKNIX/devices/RK3576/patches/mali-bifrost/003-fix-unbalanced-regulator.patch",
+      "mode": "100644",
+      "literal_sha256": "a843e8bb36788fd6b1f9d5998372bc9986ec7a8263fc4a4b8bad13f4d0d0a983",
+      "content_sha256": "a843e8bb36788fd6b1f9d5998372bc9986ec7a8263fc4a4b8bad13f4d0d0a983",
+      "rendered_sha256": "a843e8bb36788fd6b1f9d5998372bc9986ec7a8263fc4a4b8bad13f4d0d0a983",
+      "targets": [
+        "product/kernel/drivers/gpu/arm/midgard/mali_kbase_core_linux.c"
+      ],
+      "backend": "patch",
+      "index": 3,
+      "native": true,
+      "normal_called": true,
+      "normal": {
+        "argv": [
+          "patch",
+          "-d",
+          "/workspace/tmp/m6-t43/G063-003-candidate-d2o68cp2",
+          "-p1"
+        ],
+        "start": "2026-11-02T21:57:59.704438+00:00",
+        "end": "2026-11-02T21:57:59.706460+00:00",
+        "exit": 0,
+        "stdout_sha256": "06c15820bbacaca4646e3767c55a77e1300cae051126ff9d5be4de2a8da726a6",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "output": "patching file product/kernel/drivers/gpu/arm/midgard/mali_kbase_core_linux.c\nHunk #1 succeeded at 4646 (offset -1 lines).\n",
+        "error": ""
+      },
+      "input_digest": "921becac630e2c4cdb407f4f9ea5a22c265f40180d763db3a706085e9cb6164b",
+      "output_digest": "4c7345d378eed80d713cb731b502ed3be5d966189e89ca773ca62f95b2b48527",
+      "candidate_snapshot": {
+        "product/kernel/drivers/gpu/arm/midgard/mali_kbase_core_linux.c": {
+          "type": "file",
+          "mode": "0o664",
+          "sha256": "79c4ddb8aab574c1fafc01093978b6303d8820b96f3c8720a54c2c42dfcc680d",
+          "bytes": 186846
+        },
+        "product/kernel/drivers/gpu/arm/midgard/mali_kbase_core_linux.c.orig": {
+          "type": "file",
+          "mode": "0o664",
+          "sha256": "5d7a8818b017392385a91f480dcd0284f80d84ed52f53077b03798b945053d8c",
+          "bytes": 186492
+        },
+        "product/kernel/drivers/gpu/arm/midgard/platform/devicetree/Kbuild": {
+          "type": "file",
+          "mode": "0o664",
+          "sha256": "864a04b8bf309f64c84dad1eea398a14ee1996176bc694bd59c1c672dffae6fc",
+          "bytes": 1198
+        },
+        "product/kernel/drivers/gpu/arm/midgard/platform/devicetree/Kbuild.orig": {
+          "type": "file",
+          "mode": "0o664",
+          "sha256": "64cd6bb4b211d2e88a1541ca421e0aa230956d1a621988e6fef96acb4d2f5958",
+          "bytes": 1013
+        },
+        "product/kernel/drivers/gpu/arm/midgard/platform/devicetree/mali_kbase_runtime_pm.c": {
+          "type": "file",
+          "mode": "0o664",
+          "sha256": "554af1f7ec2fcc2efe53d40505bc4fb656d6d24c7096f6550cd422503c7e318a",
+          "bytes": 9879
+        },
+        "product/kernel/drivers/gpu/arm/midgard/platform/devicetree/mali_kbase_runtime_pm.c.orig": {
+          "type": "file",
+          "mode": "0o664",
+          "sha256": "e25fca2c16f1d6259d4ed4fe2e9caeddba035ead912468446305f25d75646f69",
+          "bytes": 8398
+        }
+      },
+      "candidate_root": "/workspace/tmp/m6-t43/G063-003-candidate-d2o68cp2",
+      "status": "offset",
+      "promoted": true
+    }
+  ],
+  "input_snapshot": {
+    "product/kernel/drivers/gpu/arm/midgard/mali_kbase_core_linux.c": {
+      "type": "file",
+      "mode": "0o664",
+      "sha256": "52b146c61b39748ac2b43902008af60c07cc024685c4c5c9ad8ff2dc2174a72c",
+      "bytes": 186497
+    },
+    "product/kernel/drivers/gpu/arm/midgard/platform/devicetree/Kbuild": {
+      "type": "file",
+      "mode": "0o664",
+      "sha256": "64cd6bb4b211d2e88a1541ca421e0aa230956d1a621988e6fef96acb4d2f5958",
+      "bytes": 1013
+    },
+    "product/kernel/drivers/gpu/arm/midgard/platform/devicetree/mali_kbase_runtime_pm.c": {
+      "type": "file",
+      "mode": "0o664",
+      "sha256": "e25fca2c16f1d6259d4ed4fe2e9caeddba035ead912468446305f25d75646f69",
+      "bytes": 8398
+    }
+  },
+  "limits": [],
+  "cache_observations": [
+    {
+      "path": "/workspace/cache/rocknix-sources/mali-bifrost/mali-bifrost-39da994bb6fc8819e5e8c1873907dd21d17e53c1.tar.gz",
+      "sha256": "f947b99a1bcb5b86ea270c1ce4cd189f4df26b3c0c8ba92c1ef256bb757afa66",
+      "expected": "f947b99a1bcb5b86ea270c1ce4cd189f4df26b3c0c8ba92c1ef256bb757afa66"
+    }
+  ],
+  "archive": {
+    "path": "/workspace/cache/rocknix-sources/mali-bifrost/mali-bifrost-39da994bb6fc8819e5e8c1873907dd21d17e53c1.tar.gz",
+    "sha256": "f947b99a1bcb5b86ea270c1ce4cd189f4df26b3c0c8ba92c1ef256bb757afa66",
+    "recipe_url": "http://github.com/rocknix/mali_kbase/archive/39da994bb6fc8819e5e8c1873907dd21d17e53c1.tar.gz"
+  },
+  "stack": [
+    {
+      "path": "projects/ROCKNIX/devices/RK3576/patches/mali-bifrost/0001-platform-devicetree-add-reset-control-and-runtime-pm.patch",
+      "referent": "projects/ROCKNIX/devices/RK3576/patches/mali-bifrost/0001-platform-devicetree-add-reset-control-and-runtime-pm.patch",
+      "mode": "100644",
+      "literal_sha256": "a39d9b535e3fee43443afb7c963abc2741b6d72aa64761b51f46810163b8010f",
+      "content_sha256": "a39d9b535e3fee43443afb7c963abc2741b6d72aa64761b51f46810163b8010f",
+      "rendered_sha256": "a39d9b535e3fee43443afb7c963abc2741b6d72aa64761b51f46810163b8010f",
+      "targets": [
+        "product/kernel/drivers/gpu/arm/midgard/platform/devicetree/Kbuild",
+        "product/kernel/drivers/gpu/arm/midgard/platform/devicetree/mali_kbase_runtime_pm.c"
+      ],
+      "backend": "patch"
+    },
+    {
+      "path": "projects/ROCKNIX/devices/RK3576/patches/mali-bifrost/002-lowercase-interrupts-first.patch",
+      "referent": "projects/ROCKNIX/devices/RK3576/patches/mali-bifrost/002-lowercase-interrupts-first.patch",
+      "mode": "100644",
+      "literal_sha256": "40417a926a05b64ea14d3947f202633988a39facf92ef6ce8c0617b4e4b523a0",
+      "content_sha256": "40417a926a05b64ea14d3947f202633988a39facf92ef6ce8c0617b4e4b523a0",
+      "rendered_sha256": "40417a926a05b64ea14d3947f202633988a39facf92ef6ce8c0617b4e4b523a0",
+      "targets": [
+        "product/kernel/drivers/gpu/arm/midgard/mali_kbase_core_linux.c"
+      ],
+      "backend": "patch"
+    },
+    {
+      "path": "projects/ROCKNIX/devices/RK3576/patches/mali-bifrost/003-fix-unbalanced-regulator.patch",
+      "referent": "projects/ROCKNIX/devices/RK3576/patches/mali-bifrost/003-fix-unbalanced-regulator.patch",
+      "mode": "100644",
+      "literal_sha256": "a843e8bb36788fd6b1f9d5998372bc9986ec7a8263fc4a4b8bad13f4d0d0a983",
+      "content_sha256": "a843e8bb36788fd6b1f9d5998372bc9986ec7a8263fc4a4b8bad13f4d0d0a983",
+      "rendered_sha256": "a843e8bb36788fd6b1f9d5998372bc9986ec7a8263fc4a4b8bad13f4d0d0a983",
+      "targets": [
+        "product/kernel/drivers/gpu/arm/midgard/mali_kbase_core_linux.c"
+      ],
+      "backend": "patch"
+    }
+  ],
+  "stack_sha256": "01176777904c0ad3abe7a8966073ecea376ee001761cd12f31c7da8d30abdf37",
+  "projection": {
+    "archive_header_count": 600,
+    "archive_header_sha256": "5c3118c28f3e7b15b22c239d5d52f161a408a5cd62b46aa58f6d65e5caaf0526",
+    "projected_members": {
+      "product/kernel/drivers/gpu/arm/midgard/mali_kbase_core_linux.c": {
+        "type": "file",
+        "mode": "0o664",
+        "sha256": "52b146c61b39748ac2b43902008af60c07cc024685c4c5c9ad8ff2dc2174a72c",
+        "bytes": 186497
+      },
+      "product/kernel/drivers/gpu/arm/midgard/platform/devicetree/Kbuild": {
+        "type": "file",
+        "mode": "0o664",
+        "sha256": "64cd6bb4b211d2e88a1541ca421e0aa230956d1a621988e6fef96acb4d2f5958",
+        "bytes": 1013
+      },
+      "product/kernel/drivers/gpu/arm/midgard/platform/devicetree/mali_kbase_runtime_pm.c": {
+        "type": "file",
+        "mode": "0o664",
+        "sha256": "e25fca2c16f1d6259d4ed4fe2e9caeddba035ead912468446305f25d75646f69",
+        "bytes": 8398
+      }
+    },
+    "absent_targets": [],
+    "projection_root": "/workspace/tmp/m6-t43/source-members-y81mprpz"
+  },
+  "overlay_evidence": [
+    {
+      "path": "projects/ROCKNIX/packages/linux-drivers/mali-bifrost/sources/Makefile",
+      "relative": "Makefile",
+      "mode": "100644",
+      "oid": "67d89bbfd09683b01c6bf8a813a9d2de42146b89",
+      "sha256": "cea06b5b46679195f6947c31f240f2153a1f0c39d70b758c10a9b5ce09349bd3",
+      "projected": false
+    }
+  ]
+}

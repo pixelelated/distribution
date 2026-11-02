@@ -1,0 +1,15 @@
+{
+  "argv": [
+    "patch",
+    "-d",
+    "/workspace/tmp/m6-t43/G084-030-candidate-iuriop0x",
+    "-p1"
+  ],
+  "start": "2026-11-02T21:56:26.390676+00:00",
+  "end": "2026-11-02T21:56:26.392579+00:00",
+  "exit": 0,
+  "stdout_sha256": "d3378a13b17e3cc06a54d3608de9c1ab75d2a7ae15240589088fd1baf45c9270",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "output": "patching file drivers/clk/qcom/gdsc.c\npatching file drivers/clk/qcom/gdsc.h\npatching file drivers/clk/qcom/gxclkctl-kaanapali.c\n",
+  "error": ""
+}

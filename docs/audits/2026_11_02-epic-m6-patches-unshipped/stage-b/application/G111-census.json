@@ -1,0 +1,55 @@
+{
+  "id": "G111",
+  "census": {
+    "id": "G111",
+    "recipe": "projects/ROCKNIX/packages/wayland/lib/wlroots/package.mk",
+    "recipe_sha256": "97054ba7d095da0389251c0b6b8356115894c31340f3a1fd17af02fc07b429fa",
+    "owner": [
+      "image-packages"
+    ],
+    "consumer": "S922X-arm",
+    "device": "S922X",
+    "arch": "arm",
+    "target_cpu": "cortex-a73.cortex-a53",
+    "patch_arch": "arm",
+    "LINUX": "unset in clean default source config",
+    "batteryplus": "yes",
+    "name": "wlroots",
+    "pin": "0.19.3-rk",
+    "url": "https://github.com/rocknix/rockchip-wlroots/archive/refs/tags/0.19.3-rk.tar.gz",
+    "expected_sha256": "5385dc105f2c4c5fe3157e0b0299d6508765086d605fe4efe3ae437d4f18a5d9",
+    "selectors": [
+      "libmali"
+    ],
+    "ordered_pattern_directories": [
+      "projects/ROCKNIX/packages/wayland/lib/wlroots/patches",
+      "projects/ROCKNIX/packages/wayland/lib/wlroots/patches/arm",
+      "projects/ROCKNIX/packages/wayland/lib/wlroots/patches/libmali",
+      "projects/ROCKNIX/packages/wayland/lib/wlroots/patches/0.19.3-rk",
+      "projects/ROCKNIX/packages/wayland/lib/wlroots/patches/0.19.3-rk/arm",
+      "projects/ROCKNIX/patches/wlroots",
+      "projects/ROCKNIX/patches/wlroots/arm",
+      "projects/ROCKNIX/patches/wlroots/libmali",
+      "projects/ROCKNIX/devices/S922X/patches/wlroots/libmali",
+      "projects/ROCKNIX/patches/wlroots/0.19.3-rk",
+      "projects/ROCKNIX/devices/S922X/patches/wlroots"
+    ],
+    "stack": [
+      "projects/ROCKNIX/packages/wayland/lib/wlroots/patches/libmali/001-libmali-workaround-allow-zero-stride.patch"
+    ],
+    "native_paths": [
+      "projects/ROCKNIX/packages/wayland/lib/wlroots/patches/libmali/001-libmali-workaround-allow-zero-stride.patch"
+    ],
+    "config_paths": [],
+    "cache_candidates": [
+      "/workspace/cache/rocknix-sources/wlroots/wlroots-0.19.3-rk.tar.gz"
+    ],
+    "preimage_limits": [],
+    "source_only": true,
+    "runtime": false
+  },
+  "started": "2026-11-02T21:56:27.342342+00:00",
+  "rows": [],
+  "input_snapshot": {},
+  "limits": []
+}

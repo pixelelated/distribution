@@ -1,0 +1,61 @@
+{
+  "id": "G013",
+  "census": {
+    "id": "G013",
+    "recipe": "projects/ROCKNIX/packages/apps/gamepadtester/package.mk",
+    "recipe_sha256": "f5a5aed95afec1a87cdab04aee65c2f41060c7053e71cf90fe61b0b5d85debe2",
+    "owner": [
+      "image-packages"
+    ],
+    "consumer": "RK3588-aarch64",
+    "device": "RK3588",
+    "arch": "aarch64",
+    "target_cpu": "cortex-a76.cortex-a55",
+    "patch_arch": "aarch64",
+    "LINUX": "unset in clean default source config",
+    "batteryplus": "no or unset; exact yes predicate false",
+    "name": "gamepadtester",
+    "pin": "6ac49e67aa98fe3dd5c27f73306d65d4b7a82daa",
+    "url": "https://github.com/timre13/GamepadTester/archive/6ac49e67aa98fe3dd5c27f73306d65d4b7a82daa.tar.gz",
+    "expected_sha256": "dcba71ac2e673b7714a6cac12661d56e61a2eb861136bf7d74a42165d6a69be6",
+    "selectors": [
+      "RK3588",
+      "legacy"
+    ],
+    "ordered_pattern_directories": [
+      "projects/ROCKNIX/packages/apps/gamepadtester/patches",
+      "projects/ROCKNIX/packages/apps/gamepadtester/patches/aarch64",
+      "projects/ROCKNIX/packages/apps/gamepadtester/patches/RK3588",
+      "projects/ROCKNIX/packages/apps/gamepadtester/patches/legacy",
+      "projects/ROCKNIX/packages/apps/gamepadtester/patches/6ac49e67aa98fe3dd5c27f73306d65d4b7a82daa",
+      "projects/ROCKNIX/packages/apps/gamepadtester/patches/6ac49e67aa98fe3dd5c27f73306d65d4b7a82daa/aarch64",
+      "projects/ROCKNIX/patches/gamepadtester",
+      "projects/ROCKNIX/patches/gamepadtester/aarch64",
+      "projects/ROCKNIX/patches/gamepadtester/RK3588",
+      "projects/ROCKNIX/devices/RK3588/patches/gamepadtester/RK3588",
+      "projects/ROCKNIX/patches/gamepadtester/legacy",
+      "projects/ROCKNIX/devices/RK3588/patches/gamepadtester/legacy",
+      "projects/ROCKNIX/patches/gamepadtester/6ac49e67aa98fe3dd5c27f73306d65d4b7a82daa",
+      "projects/ROCKNIX/devices/RK3588/patches/gamepadtester"
+    ],
+    "stack": [
+      "projects/ROCKNIX/packages/apps/gamepadtester/patches/RK3588/000-set-resolution.patch",
+      "projects/ROCKNIX/packages/apps/gamepadtester/patches/legacy/000-gamepad-tester.patch"
+    ],
+    "native_paths": [
+      "projects/ROCKNIX/packages/apps/gamepadtester/patches/RK3588/000-set-resolution.patch",
+      "projects/ROCKNIX/packages/apps/gamepadtester/patches/legacy/000-gamepad-tester.patch"
+    ],
+    "config_paths": [],
+    "cache_candidates": [
+      "/workspace/cache/rocknix-sources/gamepadtester/gamepadtester-6ac49e67aa98fe3dd5c27f73306d65d4b7a82daa.tar.gz"
+    ],
+    "preimage_limits": [],
+    "source_only": true,
+    "runtime": false
+  },
+  "started": "2026-11-02T21:55:19.297802+00:00",
+  "rows": [],
+  "input_snapshot": {},
+  "limits": []
+}

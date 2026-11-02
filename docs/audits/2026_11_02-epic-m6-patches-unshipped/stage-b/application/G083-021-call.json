@@ -1,0 +1,15 @@
+{
+  "argv": [
+    "patch",
+    "-d",
+    "/workspace/tmp/m6-t43/G083-021-candidate-wg6brydc",
+    "-p1"
+  ],
+  "start": "2026-11-02T21:56:18.526077+00:00",
+  "end": "2026-11-02T21:56:18.527904+00:00",
+  "exit": 0,
+  "stdout_sha256": "98b7a37eb8a039729a4a5e0682322aca61d5727d48638d2c7c867f24a6969347",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "output": "patching file drivers/pmdomain/qcom/rpmhpd.c\nHunk #3 succeeded at 122 with fuzz 1.\nHunk #4 succeeded at 239 (offset 10 lines).\nHunk #5 succeeded at 981 (offset 39 lines).\n",
+  "error": ""
+}

@@ -1,0 +1,56 @@
+[
+  {
+    "path": "projects/ROCKNIX/packages/linux/patches/7.0/0010-msm-resource-cleanup.patch",
+    "sha256": "56cad9f7929bd322c8a513607d4850e53ffc75c04b02237b0ffb5a5b7cdd6d2d",
+    "same_as_accepted_T41_source": true,
+    "lines": [
+      [
+        19,
+        "+\tcstate->num_mixers = 0;"
+      ],
+      [
+        37,
+        " \tcstate = to_dpu_crtc_state(crtc_state);"
+      ],
+      [
+        275,
+        "-\tstruct dpu_crtc_state *dpu_cstate;"
+      ],
+      [
+        280,
+        "-\tdpu_cstate = to_dpu_crtc_state(phys_enc->parent->crtc->state);"
+      ],
+      [
+        284,
+        "-\t    dpu_cstate->num_mixers == CRTC_DUAL_MIXERS &&"
+      ]
+    ]
+  },
+  {
+    "path": "projects/ROCKNIX/packages/linux/patches/7.2/0010-msm-resource-cleanup.patch",
+    "sha256": "56cad9f7929bd322c8a513607d4850e53ffc75c04b02237b0ffb5a5b7cdd6d2d",
+    "same_as_accepted_T41_source": true,
+    "lines": [
+      [
+        19,
+        "+\tcstate->num_mixers = 0;"
+      ],
+      [
+        37,
+        " \tcstate = to_dpu_crtc_state(crtc_state);"
+      ],
+      [
+        275,
+        "-\tstruct dpu_crtc_state *dpu_cstate;"
+      ],
+      [
+        280,
+        "-\tdpu_cstate = to_dpu_crtc_state(phys_enc->parent->crtc->state);"
+      ],
+      [
+        284,
+        "-\t    dpu_cstate->num_mixers == CRTC_DUAL_MIXERS &&"
+      ]
+    ]
+  }
+]

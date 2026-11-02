@@ -1,0 +1,15 @@
+{
+  "argv": [
+    "patch",
+    "-d",
+    "/workspace/tmp/m6-t43/G061-001-candidate-38lqmo23",
+    "-p1"
+  ],
+  "start": "2026-11-02T21:57:59.636836+00:00",
+  "end": "2026-11-02T21:57:59.638746+00:00",
+  "exit": 0,
+  "stdout_sha256": "9387be9d12ea26ec23a9cb312883887fc47fa042027a074f637c07fe45715dd4",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "output": "patching file product/kernel/drivers/gpu/arm/midgard/platform/devicetree/Kbuild\nHunk #1 succeeded at 16 (offset -2 lines).\npatching file product/kernel/drivers/gpu/arm/midgard/platform/devicetree/mali_kbase_runtime_pm.c\nHunk #1 succeeded at 23 (offset 1 line).\nHunk #3 succeeded at 269 (offset 12 lines).\nHunk #4 succeeded at 287 with fuzz 1 (offset 14 lines).\nHunk #5 succeeded at 341 (offset 6 lines).\n",
+  "error": ""
+}

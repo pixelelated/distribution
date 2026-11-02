@@ -1,0 +1,5 @@
+Traceback (most recent call last):
+  File "/workspace/repos/pixelelated/distribution.worktrees/m6-patches-unshipped-690/docs/audits/2026_11_02-epic-m6-patches-unshipped/tools/context.py", line 52, in <module>
+    stack=[p for d in dirs for p in sorted(paths) if str(pathlib.PurePosixPath(p).parent)==d and p.endswith('.patch')]
+                                                     ~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+KeyboardInterrupt

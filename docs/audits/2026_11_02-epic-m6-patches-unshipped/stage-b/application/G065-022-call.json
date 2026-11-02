@@ -1,0 +1,15 @@
+{
+  "argv": [
+    "patch",
+    "-d",
+    "/workspace/tmp/m6-t43/G065-022-candidate-9n96e46u",
+    "-p1"
+  ],
+  "start": "2026-11-02T21:55:28.376828+00:00",
+  "end": "2026-11-02T21:55:28.378817+00:00",
+  "exit": 0,
+  "stdout_sha256": "eb7b5ad75f0b1131fa4ef100a7432f848859fa22d3dcff16843d395c2fa3b183",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "output": "patching file drivers/thermal/rockchip_thermal.c\nHunk #1 succeeded at 16 (offset 1 line).\nHunk #2 succeeded at 59 (offset 1 line).\nHunk #3 succeeded at 107 with fuzz 2 (offset 10 lines).\nHunk #4 succeeded at 268 (offset 25 lines).\nHunk #5 succeeded at 603 (offset 28 lines).\nHunk #6 succeeded at 659 (offset 28 lines).\nHunk #7 succeeded at 832 (offset 28 lines).\nHunk #8 succeeded at 1159 (offset 35 lines).\nHunk #9 succeeded at 1453 (offset 45 lines).\nHunk #10 succeeded at 1813 (offset 178 lines).\nHunk #11 succeeded at 1837 (offset 178 lines).\nHunk #12 succeeded at 1885 (offset 190 lines).\nHunk #13 succeeded at 1977 (offset 195 lines).\n",
+  "error": ""
+}

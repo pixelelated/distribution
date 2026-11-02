@@ -1,0 +1,15 @@
+{
+  "argv": [
+    "patch",
+    "-d",
+    "/workspace/tmp/m6-t43/G079-041-candidate-t59m6f4i",
+    "-p1"
+  ],
+  "start": "2026-11-02T21:56:01.313063+00:00",
+  "end": "2026-11-02T21:56:01.315118+00:00",
+  "exit": 0,
+  "stdout_sha256": "6e431299ca0e3732c2bfab5116df5c056b74541031a7d0ecdc9ad9c389506a72",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "output": "patching file drivers/tty/serial/qcom_geni_serial.c\nHunk #1 succeeded at 1984 (offset 21 lines).\nHunk #2 succeeded at 1997 (offset 21 lines).\n",
+  "error": ""
+}

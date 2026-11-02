@@ -1,0 +1,15 @@
+{
+  "argv": [
+    "patch",
+    "-d",
+    "/workspace/tmp/m6-t43/G071-026-candidate-4rzlndue",
+    "-p1"
+  ],
+  "start": "2026-11-02T21:55:44.140579+00:00",
+  "end": "2026-11-02T21:55:44.142341+00:00",
+  "exit": 0,
+  "stdout_sha256": "40287420efcc9796a9563f5e16ad3ceaa11f6ac2d77e96edf9ec97d8466aa604",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "output": "patching file drivers/input/joystick/spi-mcu-joypad/spi-mcu-joypad-core.c\npatching file drivers/input/joystick/spi-mcu-joypad/spi-mcu-joypad.h\n",
+  "error": ""
+}

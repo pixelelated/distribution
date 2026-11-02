@@ -1,0 +1,72 @@
+{
+  "id": "G020",
+  "census": {
+    "id": "G020",
+    "recipe": "projects/ROCKNIX/packages/apps/mangohud/package.mk",
+    "recipe_sha256": "eedb1ec41c904ed890d50d67f8a9dd922ff188e4dff32c80cca94230367cf826",
+    "owner": [
+      "image-packages"
+    ],
+    "consumer": "SM8250-aarch64",
+    "device": "SM8250",
+    "arch": "aarch64",
+    "target_cpu": "cortex-a76.cortex-a55",
+    "patch_arch": "aarch64",
+    "LINUX": "unset in clean default source config",
+    "batteryplus": "no or unset; exact yes predicate false",
+    "name": "mangohud",
+    "pin": "992103e4fb744897826de04ea00a2f71e7018214",
+    "url": "https://github.com/flightlessmango/MangoHud/archive/992103e4fb744897826de04ea00a2f71e7018214.tar.gz",
+    "expected_sha256": "edd61f4716710681a9e3b535556831ee0c6187b7b6f90d29f8d8ac234448f4a5",
+    "selectors": [
+      "common",
+      "qualcomm",
+      "SM8250"
+    ],
+    "ordered_pattern_directories": [
+      "projects/ROCKNIX/packages/apps/mangohud/patches",
+      "projects/ROCKNIX/packages/apps/mangohud/patches/aarch64",
+      "projects/ROCKNIX/packages/apps/mangohud/patches/common",
+      "projects/ROCKNIX/packages/apps/mangohud/patches/qualcomm",
+      "projects/ROCKNIX/packages/apps/mangohud/patches/SM8250",
+      "projects/ROCKNIX/packages/apps/mangohud/patches/992103e4fb744897826de04ea00a2f71e7018214",
+      "projects/ROCKNIX/packages/apps/mangohud/patches/992103e4fb744897826de04ea00a2f71e7018214/aarch64",
+      "projects/ROCKNIX/patches/mangohud",
+      "projects/ROCKNIX/patches/mangohud/aarch64",
+      "projects/ROCKNIX/patches/mangohud/common",
+      "projects/ROCKNIX/devices/SM8250/patches/mangohud/common",
+      "projects/ROCKNIX/patches/mangohud/qualcomm",
+      "projects/ROCKNIX/devices/SM8250/patches/mangohud/qualcomm",
+      "projects/ROCKNIX/patches/mangohud/SM8250",
+      "projects/ROCKNIX/devices/SM8250/patches/mangohud/SM8250",
+      "projects/ROCKNIX/patches/mangohud/992103e4fb744897826de04ea00a2f71e7018214",
+      "projects/ROCKNIX/devices/SM8250/patches/mangohud"
+    ],
+    "stack": [
+      "projects/ROCKNIX/packages/apps/mangohud/patches/common/0001-No-static-lib.patch",
+      "projects/ROCKNIX/packages/apps/mangohud/patches/common/0002-Battery-name.patch",
+      "projects/ROCKNIX/packages/apps/mangohud/patches/common/0003-RAM-name.patch",
+      "projects/ROCKNIX/packages/apps/mangohud/patches/qualcomm/0001-Qualcomm-GPU-support.patch",
+      "projects/ROCKNIX/packages/apps/mangohud/patches/qualcomm/0002-Qualcomm-battery-power_now.patch",
+      "projects/ROCKNIX/packages/apps/mangohud/patches/SM8250/0001-SM8250-GPU.patch"
+    ],
+    "native_paths": [
+      "projects/ROCKNIX/packages/apps/mangohud/patches/SM8250/0001-SM8250-GPU.patch"
+    ],
+    "config_paths": [],
+    "cache_candidates": [
+      "/workspace/cache/rocknix-sources/mangohud/mangohud-992103e4fb744897826de04ea00a2f71e7018214.tar.gz"
+    ],
+    "preimage_limits": [
+      "package sources/ overlay present; exact overlap/preimage not materialized"
+    ],
+    "source_only": true,
+    "runtime": false
+  },
+  "started": "2026-11-02T21:55:19.323571+00:00",
+  "rows": [],
+  "input_snapshot": {},
+  "limits": [
+    "package sources/ overlay present; exact overlap/preimage not materialized"
+  ]
+}

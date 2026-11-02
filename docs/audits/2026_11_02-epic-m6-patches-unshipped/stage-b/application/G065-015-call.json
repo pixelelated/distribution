@@ -1,0 +1,15 @@
+{
+  "argv": [
+    "patch",
+    "-d",
+    "/workspace/tmp/m6-t43/G065-015-candidate-derut5wq",
+    "-p1"
+  ],
+  "start": "2026-11-02T21:55:28.287501+00:00",
+  "end": "2026-11-02T21:55:28.288312+00:00",
+  "exit": 0,
+  "stdout_sha256": "bb1ae4c042b8c62f86469e37ebaff9af13363a8ef661e2c34f510b8f9476d827",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "output": "patching file drivers/gpu/drm/panel/panel-newvision-nv3051d.c\nHunk #1 succeeded at 474 (offset -6 lines).\nHunk #2 succeeded at 514 (offset -6 lines).\npatching file drivers/gpu/drm/panel/panel-sitronix-st7703.c\nHunk #2 succeeded at 1091 (offset -1 lines).\n",
+  "error": ""
+}

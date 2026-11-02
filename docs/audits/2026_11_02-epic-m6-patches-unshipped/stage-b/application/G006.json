@@ -1,0 +1,60 @@
+{
+  "id": "G006",
+  "census": {
+    "id": "G006",
+    "recipe": "projects/ROCKNIX/devices/RK3399/packages/u-boot/package.mk",
+    "recipe_sha256": "be1d18f962ff778fbfb1c4257a691884b558c965a7b5c0d528fd8e2e391696e8",
+    "owner": [
+      "devices-unshipped"
+    ],
+    "consumer": "RK3399-aarch64",
+    "device": "RK3399",
+    "arch": "aarch64",
+    "target_cpu": "cortex-a72.cortex-a53",
+    "patch_arch": "aarch64",
+    "LINUX": "unset in clean default source config",
+    "batteryplus": "no or unset; exact yes predicate false",
+    "name": "u-boot",
+    "pin": "2025.10",
+    "url": "https://ftp.denx.de/pub/u-boot/u-boot-2025.10.tar.bz2",
+    "expected_sha256": "b4f032848e56cc8f213ad59f9132c084dbbb632bc29176d024e58220e0efdf4a",
+    "selectors": [],
+    "ordered_pattern_directories": [
+      "projects/ROCKNIX/devices/RK3399/packages/u-boot/patches",
+      "projects/ROCKNIX/devices/RK3399/packages/u-boot/patches/aarch64",
+      "projects/ROCKNIX/devices/RK3399/packages/u-boot/patches/2025.10",
+      "projects/ROCKNIX/devices/RK3399/packages/u-boot/patches/2025.10/aarch64",
+      "projects/ROCKNIX/patches/u-boot",
+      "projects/ROCKNIX/patches/u-boot/aarch64",
+      "projects/ROCKNIX/patches/u-boot/2025.10",
+      "projects/ROCKNIX/devices/RK3399/patches/u-boot"
+    ],
+    "stack": [
+      "projects/ROCKNIX/devices/RK3399/packages/u-boot/patches/001-no-efi.patch"
+    ],
+    "native_paths": [
+      "projects/ROCKNIX/devices/RK3399/packages/u-boot/patches/001-no-efi.patch"
+    ],
+    "config_paths": [],
+    "cache_candidates": [
+      "/workspace/cache/rocknix-sources/u-boot/u-boot-v2025.10.tar.gz"
+    ],
+    "preimage_limits": [],
+    "source_only": true,
+    "runtime": false
+  },
+  "started": "2026-11-02T21:55:17.057598+00:00",
+  "rows": [],
+  "input_snapshot": {},
+  "limits": [
+    "available candidate SHA256 does not match exact recipe input"
+  ],
+  "cache_observations": [
+    {
+      "path": "/workspace/cache/rocknix-sources/u-boot/u-boot-v2025.10.tar.gz",
+      "sha256": "5414ee86562abc5ed524c6dc5e092511ad281441020a88e7027de6e83fd16116",
+      "expected": "b4f032848e56cc8f213ad59f9132c084dbbb632bc29176d024e58220e0efdf4a"
+    }
+  ],
+  "status": "open-item"
+}

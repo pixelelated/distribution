@@ -1,0 +1,67 @@
+{
+  "at": "2026-11-02T22:22:02.689812+00:00",
+  "original_programs": {
+    "docs/audits/2026_11_02-epic-m6-patches-unshipped/tools/apply-overlay.py": {
+      "bytes": 11874,
+      "sha256": "fe25a72275049c423abe4adc9511f9f2b99bce581b1c7d48f023c7f8183d0f5c"
+    },
+    "docs/audits/2026_11_02-epic-m6-patches-unshipped/tools/apply.py": {
+      "bytes": 11250,
+      "sha256": "64cdbf550747a4814d8c5e879dd639cf000be54bcf9292391ca241b2881293ec"
+    },
+    "docs/audits/2026_11_02-epic-m6-patches-unshipped/tools/check-records-v1.py": {
+      "bytes": 3647,
+      "sha256": "883d40511b22d1f8bc24ed163ba51f4e80cc039a4a9fad5145606bc403a24f5d"
+    },
+    "docs/audits/2026_11_02-epic-m6-patches-unshipped/tools/check-records.py": {
+      "bytes": 3665,
+      "sha256": "3941f74ff8f65ba85e17d438220e0fbe5a3d195c0124fbbcbfd46a8a1eee67de"
+    },
+    "docs/audits/2026_11_02-epic-m6-patches-unshipped/tools/check-tables.py": {
+      "bytes": 2419,
+      "sha256": "a5eb994a742923a1ccbbd7ba9a3989247082f3d298ca8dc38e6b4e98b5b4e53e"
+    },
+    "docs/audits/2026_11_02-epic-m6-patches-unshipped/tools/context.py": {
+      "bytes": 8437,
+      "sha256": "a2db5956e2b3a6f2d101f87362de7fab0fac2ea11ddef9c68c1ffd4288ceef17"
+    },
+    "docs/audits/2026_11_02-epic-m6-patches-unshipped/tools/custody.py": {
+      "bytes": 2155,
+      "sha256": "b3c667d658d14906068014698bbf4962e60aa52bf0bfef60a5c52e6e22c59b64"
+    },
+    "docs/audits/2026_11_02-epic-m6-patches-unshipped/tools/evidence.py": {
+      "bytes": 4866,
+      "sha256": "cf49a2467357e67ec2df76106dfa1db433d63a202d3ec6127b06d2a223b19d2a"
+    },
+    "docs/audits/2026_11_02-epic-m6-patches-unshipped/tools/guard.py": {
+      "bytes": 1595,
+      "sha256": "75ea6c49b220ad79e044949d524ef37980c76ffacc9bcd7b4a2764ba127e0226"
+    },
+    "docs/audits/2026_11_02-epic-m6-patches-unshipped/tools/history.py": {
+      "bytes": 1246,
+      "sha256": "52085a1b5b8e6d6ade407556a6cf13c53d9034f7fcbe76417908e625846811b9"
+    },
+    "docs/audits/2026_11_02-epic-m6-patches-unshipped/tools/observe.py": {
+      "bytes": 3959,
+      "sha256": "0a6b16e513e74920e195e4adc7504e210f1941cc418cc4679d5fc4be717cc2f1"
+    },
+    "docs/audits/2026_11_02-epic-m6-patches-unshipped/tools/prepare-table.py": {
+      "bytes": 5690,
+      "sha256": "55a5bc60644511d7033cc90eceb1c7e01a6738c9604fb73a86b0c9eb4288be3c"
+    },
+    "docs/audits/2026_11_02-epic-m6-patches-unshipped/tools/record.py": {
+      "bytes": 1356,
+      "sha256": "9f7aa2b1f299e6b3ba03cbaba9312240b3a750f51014fbd53e7a959b654553fb"
+    },
+    "docs/audits/2026_11_02-epic-m6-patches-unshipped/tools/table.py": {
+      "bytes": 6690,
+      "sha256": "bf64e212b513258dbd4e15ded32da9205da366acef24ad9b33ebd2dae3541dbb"
+    }
+  },
+  "all_unchanged": true,
+  "separate_new_readers": [
+    "tools/transport.py",
+    "tools/check-transport.py",
+    "tools/check-stored-records.py"
+  ]
+}

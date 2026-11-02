@@ -1,0 +1,15 @@
+{
+  "argv": [
+    "patch",
+    "-d",
+    "/workspace/tmp/m6-t43/G081-028-candidate-usvifnkl",
+    "-p1"
+  ],
+  "start": "2026-11-02T21:56:10.019028+00:00",
+  "end": "2026-11-02T21:56:10.021084+00:00",
+  "exit": 0,
+  "stdout_sha256": "ecba532f35d08a6a53f7f7095ba18220369d1e4e3ddf2d626e3d076647954719",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "output": "patching file drivers/gpu/drm/panel/Kconfig\nHunk #1 succeeded at 128 with fuzz 1 (offset 2 lines).\npatching file drivers/gpu/drm/panel/Makefile\nHunk #1 succeeded at 10 with fuzz 2.\npatching file drivers/gpu/drm/panel/panel-ddic-ch13726a.c\n",
+  "error": ""
+}

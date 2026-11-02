@@ -1,0 +1,75 @@
+{
+  "class": "constructed mechanism fixture using actual advance function",
+  "input_sha256": {
+    "input.txt": "1ee6fee6269fd725a3c1c1d6eb2546d471510c948003a57fdb583af398b66d15",
+    "successor.patch": "0055442a9152a885c894dd235f3ca4e9f167144194d2cd26c764e0664532183d",
+    "partial.patch": "0988908cdae420fca0d07dfabda5d64d2cfa5ff47474b7a6647bfc96e8ea01fe"
+  },
+  "receipt": {
+    "normal_called": true,
+    "normal": {
+      "argv": [
+        "patch",
+        "-d",
+        "/workspace/tmp/m6-t43/partial-failure-v2-candidate-280lrdzl",
+        "-p1"
+      ],
+      "start": "2026-11-02T21:52:29.499355+00:00",
+      "end": "2026-11-02T21:52:29.501312+00:00",
+      "exit": 1,
+      "stdout_sha256": "06d4027b60e9faf5fbe010082217979cd9f34bbadebdbf3e7ac014515edd4283",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "output": "patching file a.txt\nHunk #2 FAILED at 7.\n1 out of 2 hunks FAILED -- saving rejects to file a.txt.rej\n",
+      "error": ""
+    },
+    "input_digest": "8856f0109bec7e6d26bf0b292a7545c72d6f088d6d3414cca49abcbcb2510579",
+    "output_digest": "d9fb57bd33514f346f81a64efaed83799cf34af252af13d414d786f92ac35109",
+    "candidate_snapshot": {
+      "a.txt": {
+        "type": "file",
+        "mode": "0o664",
+        "sha256": "06d22fac2c7f40acb83a3d067c9edd03a033af6b0f7ed7134ce2f64082d72a5b",
+        "bytes": 40
+      },
+      "a.txt.orig": {
+        "type": "file",
+        "mode": "0o664",
+        "sha256": "1ee6fee6269fd725a3c1c1d6eb2546d471510c948003a57fdb583af398b66d15",
+        "bytes": 40
+      },
+      "a.txt.rej": {
+        "type": "file",
+        "mode": "0o664",
+        "sha256": "ffb9d8916c81f2521fbdd5e4d24f5e578589b023bf23a4a85ce8d169d3e25d49",
+        "bytes": 61
+      }
+    },
+    "candidate_root": "/workspace/tmp/m6-t43/partial-failure-v2-candidate-280lrdzl",
+    "status": "fails",
+    "promoted": false,
+    "prefix_unchanged": true
+  },
+  "prefix_before": {
+    "a.txt": {
+      "type": "file",
+      "mode": "0o664",
+      "sha256": "1ee6fee6269fd725a3c1c1d6eb2546d471510c948003a57fdb583af398b66d15",
+      "bytes": 40
+    }
+  },
+  "prefix_after": {
+    "a.txt": {
+      "type": "file",
+      "mode": "0o664",
+      "sha256": "1ee6fee6269fd725a3c1c1d6eb2546d471510c948003a57fdb583af398b66d15",
+      "bytes": 40
+    }
+  },
+  "successor": {
+    "status": "blocked",
+    "reason": "normal failure at partial-failure-v2",
+    "normal_called": false
+  },
+  "projection_root": "/workspace/tmp/m6-t43/partial-control-cplmx_wg",
+  "exit": 0
+}

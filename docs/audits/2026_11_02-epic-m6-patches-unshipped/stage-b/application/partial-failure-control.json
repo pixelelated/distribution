@@ -1,0 +1,63 @@
+{
+  "class": "constructed mechanism fixture",
+  "input_sha256": {
+    "input.txt": "1ee6fee6269fd725a3c1c1d6eb2546d471510c948003a57fdb583af398b66d15",
+    "successor.patch": "0055442a9152a885c894dd235f3ca4e9f167144194d2cd26c764e0664532183d",
+    "partial.patch": "0988908cdae420fca0d07dfabda5d64d2cfa5ff47474b7a6647bfc96e8ea01fe"
+  },
+  "receipt": {
+    "argv": [
+      "patch",
+      "-d",
+      "/workspace/tmp/m6-t43/partial-control-7dld63yp/candidate",
+      "-p1"
+    ],
+    "start": "2026-11-02T21:51:42.550439+00:00",
+    "end": "2026-11-02T21:51:42.552778+00:00",
+    "exit": 1,
+    "stdout_sha256": "06d4027b60e9faf5fbe010082217979cd9f34bbadebdbf3e7ac014515edd4283",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "output": "patching file a.txt\nHunk #2 FAILED at 7.\n1 out of 2 hunks FAILED -- saving rejects to file a.txt.rej\n",
+    "error": ""
+  },
+  "prefix_before": {
+    "a.txt": {
+      "type": "file",
+      "mode": "0o664",
+      "sha256": "1ee6fee6269fd725a3c1c1d6eb2546d471510c948003a57fdb583af398b66d15",
+      "bytes": 40
+    }
+  },
+  "prefix_after": {
+    "a.txt": {
+      "type": "file",
+      "mode": "0o664",
+      "sha256": "1ee6fee6269fd725a3c1c1d6eb2546d471510c948003a57fdb583af398b66d15",
+      "bytes": 40
+    }
+  },
+  "failed_candidate": {
+    "a.txt": {
+      "type": "file",
+      "mode": "0o664",
+      "sha256": "06d22fac2c7f40acb83a3d067c9edd03a033af6b0f7ed7134ce2f64082d72a5b",
+      "bytes": 40
+    },
+    "a.txt.orig": {
+      "type": "file",
+      "mode": "0o664",
+      "sha256": "1ee6fee6269fd725a3c1c1d6eb2546d471510c948003a57fdb583af398b66d15",
+      "bytes": 40
+    },
+    "a.txt.rej": {
+      "type": "file",
+      "mode": "0o664",
+      "sha256": "ffb9d8916c81f2521fbdd5e4d24f5e578589b023bf23a4a85ce8d169d3e25d49",
+      "bytes": 61
+    }
+  },
+  "promoted": false,
+  "successor_calls": 0,
+  "projection_root": "/workspace/tmp/m6-t43/partial-control-7dld63yp",
+  "exit": 0
+}

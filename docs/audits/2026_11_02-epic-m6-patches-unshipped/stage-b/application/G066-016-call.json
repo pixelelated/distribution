@@ -1,0 +1,15 @@
+{
+  "argv": [
+    "patch",
+    "-d",
+    "/workspace/tmp/m6-t43/G066-016-candidate-79mxktxe",
+    "-p1"
+  ],
+  "start": "2026-11-02T21:55:28.708856+00:00",
+  "end": "2026-11-02T21:55:28.709761+00:00",
+  "exit": 0,
+  "stdout_sha256": "e12a133aa66cb674cf18b05cbdc14d58cbb6aff7b5ab47e97743f0ffe30a53a8",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "output": "patching file drivers/gpio/gpiolib-of.c\npatching file include/linux/of_gpio.h\npatching file include/linux/of_gpio_legacy.h\n",
+  "error": ""
+}

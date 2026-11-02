@@ -1,0 +1,15 @@
+{
+  "argv": [
+    "patch",
+    "-d",
+    "/workspace/tmp/m6-t43/G079-020-candidate-flukoakf",
+    "-p1"
+  ],
+  "start": "2026-11-02T21:56:00.969591+00:00",
+  "end": "2026-11-02T21:56:00.971698+00:00",
+  "exit": 0,
+  "stdout_sha256": "70f5fa91d90e9981929038ef9c1b37f89db04c03ec7d906a1224900b15573d3f",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "output": "patching file drivers/input/touchscreen/Kconfig\nHunk #1 succeeded at 1415 (offset -10 lines).\npatching file drivers/input/touchscreen/Makefile\nHunk #1 succeeded at 120 (offset -1 lines).\npatching file drivers/input/touchscreen/himax_hx83112a.c\n",
+  "error": ""
+}

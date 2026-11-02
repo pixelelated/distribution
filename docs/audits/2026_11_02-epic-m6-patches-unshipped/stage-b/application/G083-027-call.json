@@ -1,0 +1,15 @@
+{
+  "argv": [
+    "patch",
+    "-d",
+    "/workspace/tmp/m6-t43/G083-027-candidate-6u1pj0v5",
+    "-p1"
+  ],
+  "start": "2026-11-02T21:56:18.618565+00:00",
+  "end": "2026-11-02T21:56:18.621189+00:00",
+  "exit": 0,
+  "stdout_sha256": "5148ce0048ce0479418d0932d11dd1607f88504d5cbe47745eceafb7fed11530",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "output": "patching file Documentation/admin-guide/kernel-parameters.txt\nHunk #1 succeeded at 8107 (offset -26 lines).\npatching file drivers/usb/core/config.c\nHunk #2 succeeded at 427 (offset -8 lines).\nHunk #3 succeeded at 566 (offset -8 lines).\nHunk #4 succeeded at 1320 (offset 8 lines).\npatching file drivers/usb/core/usb.c\npatching file drivers/usb/core/usb.h\n",
+  "error": ""
+}

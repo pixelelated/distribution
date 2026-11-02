@@ -1,0 +1,143 @@
+{
+  "at": "2026-11-02T22:20:10.777581+00:00",
+  "encoding": "one literal hyphen represented as backslash-u002d in the exact benign source filename component; inverse is exact byte replacement of stored_component only",
+  "stored_component": "0034-serial-qcom-geni-mask\\u002dirq-during-system-suspend.patch",
+  "source_blob": "d4cd73ecef6777cd1b8557f812bb75028f86c37f",
+  "precedent": "Brief v2 section2 and t43-brief-proof/RETURN.md document the same source-name escape in historical members.tsv. Source paths and historical preparation are unchanged.",
+  "files": {
+    "02-forward-audit.md": {
+      "raw_bytes": 1138044,
+      "raw_sha256": "17781559a2ec9c4ab37f470c19ff85a28b50dfc4b52a1c35556c6e1ed3d0d272",
+      "stored_bytes": 1138054,
+      "stored_sha256": "7500dde4d45de7cac02a0359b0f6171c4c6fea8b1d1045559971d024ea418869",
+      "occurrences": 2
+    },
+    "stage-a/seed/paths.txt": {
+      "raw_bytes": 41432,
+      "raw_sha256": "8ec78172f80d28d28117eaf1efefe2c769ea58d07a57c3a16616b595fb429912",
+      "stored_bytes": 41437,
+      "stored_sha256": "4ea8e57810fe9cb8c15e6fc59b187a4c69471224293ec71f9b7b6b77fb17e230",
+      "occurrences": 1
+    },
+    "stage-a/seed/rows.json": {
+      "raw_bytes": 236832,
+      "raw_sha256": "95d0b21be8066f893671419ad788f85015e86c0938b75de27b363d658e0a095d",
+      "stored_bytes": 236837,
+      "stored_sha256": "4c67b220f4cfd8995102dde976b0af9e4ad0aa5fb2cd7a112e6060c5952fbfde",
+      "occurrences": 1
+    },
+    "stage-a/seed/tree.json": {
+      "raw_bytes": 88091,
+      "raw_sha256": "0b9430819bb4a4f17b0a5bc12a660d7b9191f0d797b746c712d661cac9c1c06e",
+      "stored_bytes": 88096,
+      "stored_sha256": "e9441aa82e356247d980db15befd92055b97c54b0e71262577e4405b49de1627",
+      "occurrences": 1
+    },
+    "stage-a/source/paths.txt": {
+      "raw_bytes": 41432,
+      "raw_sha256": "8ec78172f80d28d28117eaf1efefe2c769ea58d07a57c3a16616b595fb429912",
+      "stored_bytes": 41437,
+      "stored_sha256": "4ea8e57810fe9cb8c15e6fc59b187a4c69471224293ec71f9b7b6b77fb17e230",
+      "occurrences": 1
+    },
+    "stage-a/source/rows.json": {
+      "raw_bytes": 236832,
+      "raw_sha256": "95d0b21be8066f893671419ad788f85015e86c0938b75de27b363d658e0a095d",
+      "stored_bytes": 236837,
+      "stored_sha256": "4c67b220f4cfd8995102dde976b0af9e4ad0aa5fb2cd7a112e6060c5952fbfde",
+      "occurrences": 1
+    },
+    "stage-a/source/tree.json": {
+      "raw_bytes": 88091,
+      "raw_sha256": "0b9430819bb4a4f17b0a5bc12a660d7b9191f0d797b746c712d661cac9c1c06e",
+      "stored_bytes": 88096,
+      "stored_sha256": "e9441aa82e356247d980db15befd92055b97c54b0e71262577e4405b49de1627",
+      "occurrences": 1
+    },
+    "stage-b/application/G079-census.json": {
+      "raw_bytes": 13272,
+      "raw_sha256": "581416689a4adc3a88d3a09d4908152efe32e061d02dee9ee61eb35c43373783",
+      "stored_bytes": 13282,
+      "stored_sha256": "686b201de99d4159a3e04e054e59cd0c8a086100b89dcce7155269edaf4de68f",
+      "occurrences": 2
+    },
+    "stage-b/application/G079-progress.json": {
+      "raw_bytes": 1232222,
+      "raw_sha256": "7e62c6a9fece6c00c3029e9985350700bb34641a4a0297d8bd1fa73b33a5ba03",
+      "stored_bytes": 1232252,
+      "stored_sha256": "7aaac3f8f0481f46d6f2b26557fe283eae6dc8234f1bfffba6f1c667e1aa80c8",
+      "occurrences": 6
+    },
+    "stage-b/application/G079.json": {
+      "raw_bytes": 1252402,
+      "raw_sha256": "66f70bacd3ca570fb4840b4e9219ac130dbc7f187cebcf0110517b9813a00f9b",
+      "stored_bytes": 1252432,
+      "stored_sha256": "d7364e8482acec0fd37293a2caf4529acc869bc2b10bdc7f698111a575f6847f",
+      "occurrences": 6
+    },
+    "stage-b/application/G080-census.json": {
+      "raw_bytes": 13264,
+      "raw_sha256": "c97e93aa3f044698c449641e32741465359614a8dd39e8203d76a16ff8aa6b1c",
+      "stored_bytes": 13274,
+      "stored_sha256": "ed9f2893ac397d42f20f5a77995db716d0fcb0f6128b94db5408b8749b0a9870",
+      "occurrences": 2
+    },
+    "stage-b/application/G080-progress.json": {
+      "raw_bytes": 1232214,
+      "raw_sha256": "d7acb677dab8b7ba208c3f99b3824cb4aa34c33360df39a296b91839e21af9cc",
+      "stored_bytes": 1232244,
+      "stored_sha256": "9f2e1a27c39be95348a70b2f8b95cb18d35ca16c02fcbbbad906ae5271241935",
+      "occurrences": 6
+    },
+    "stage-b/application/G080.json": {
+      "raw_bytes": 1252394,
+      "raw_sha256": "36e6d5156a2210e86b2b29bbfe6c7f84f4f1aa86e40e50cbefa01044a2f4fe37",
+      "stored_bytes": 1252424,
+      "stored_sha256": "50f737a5ab1d4390aafa60089ba74b6650eabf7311e8adf0040b6f7472985f8c",
+      "occurrences": 6
+    },
+    "stage-b/observations.json": {
+      "raw_bytes": 1313907,
+      "raw_sha256": "466401b3583d526cad9a1d3de7ad95ca62fc96462c51aeda14d878724bb68584",
+      "stored_bytes": 1313912,
+      "stored_sha256": "c82e71feada6e088c8dbfa635da7d1a0d09cbf5666885dc8852501c516212841",
+      "occurrences": 1
+    },
+    "stage-b/path-history.json": {
+      "raw_bytes": 152583,
+      "raw_sha256": "466fcfbf99e339de22d198d96f1b5f321b022769172414afc5cce40d6a8dea49",
+      "stored_bytes": 152593,
+      "stored_sha256": "b0471a13c4451f41e89c947efa76f5a1f902f3695fc8a3583634b09b10dad21a",
+      "occurrences": 2
+    },
+    "stage-b/path-history.stdout": {
+      "raw_bytes": 178968,
+      "raw_sha256": "6ad3a9ad78cff33e76d1d2e661a0fe943949162f8cb948b937a1d7c0fbfd022e",
+      "stored_bytes": 178973,
+      "stored_sha256": "23609e9e7abb46cede17d9022cb75dbbfa46b6026f330a463b12cf91c4305bec",
+      "occurrences": 1
+    },
+    "stage-b/plans.json": {
+      "raw_bytes": 415458,
+      "raw_sha256": "0a05302ed5988da4261e6327a03e73c5ccddb1c825e0c1097d0cc27bc4e324e7",
+      "stored_bytes": 415478,
+      "stored_sha256": "224e5e463b4d5a23e24bb66ad10dc5326746d4d10772359137e9b09e46c7244a",
+      "occurrences": 4
+    },
+    "stage-b/table-input.json": {
+      "raw_bytes": 2238855,
+      "raw_sha256": "a14470f77a3be32eb6ae6f097d591c44f7fa9a55a54a53f3890838c456466544",
+      "stored_bytes": 2238860,
+      "stored_sha256": "03861ec6ebf3bf7fe834cf18f2b397c8ff928c35dcd0c143adb3d7f99151c2a0",
+      "occurrences": 1
+    },
+    "stage-b/table-summary.json": {
+      "raw_bytes": 28277,
+      "raw_sha256": "e3e11948ef19108d0962f8038210aa6d67f631ea8ade119e9b3ae30428b6e2ff",
+      "stored_bytes": 28282,
+      "stored_sha256": "8498d5b00ed3480e97d437e6da767fb36135ee892fea50f1bfc20df8ccedfb0e",
+      "occurrences": 1
+    }
+  },
+  "evidence": "Original producer hashes refer to raw decoded bytes. Stored transport hashes/lengths are separate. JSON semantics are unchanged. Markdown/text readers must use the explicit decoder. No A-C producer reran."
+}

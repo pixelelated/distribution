@@ -1,0 +1,15 @@
+{
+  "argv": [
+    "patch",
+    "-d",
+    "/workspace/tmp/m6-t43/G081-029-candidate-73x99blp",
+    "-p1"
+  ],
+  "start": "2026-11-02T21:56:10.037391+00:00",
+  "end": "2026-11-02T21:56:10.038408+00:00",
+  "exit": 0,
+  "stdout_sha256": "cfd51a7ccb6440ee8ec66f87393e4de1fc4825e75c978ed96a5e2ec0217327c1",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "output": "patching file drivers/input/joystick/Kconfig\npatching file drivers/input/joystick/Makefile\nHunk #1 succeeded at 23 with fuzz 1.\npatching file drivers/input/joystick/mangmi-pocket-max.c\n",
+  "error": ""
+}

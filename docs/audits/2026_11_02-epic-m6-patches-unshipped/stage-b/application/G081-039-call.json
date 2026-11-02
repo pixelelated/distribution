@@ -1,0 +1,15 @@
+{
+  "argv": [
+    "patch",
+    "-d",
+    "/workspace/tmp/m6-t43/G081-039-candidate-nc95vv5c",
+    "-p1"
+  ],
+  "start": "2026-11-02T21:56:10.223221+00:00",
+  "end": "2026-11-02T21:56:10.224446+00:00",
+  "exit": 0,
+  "stdout_sha256": "a0cb7009d60d8517190c428972e160d172266c0e7bda6794b65fb56ccab17145",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "output": "patching file drivers/gpu/drm/panel/Kconfig\nHunk #1 succeeded at 1364 (offset 149 lines).\npatching file drivers/gpu/drm/panel/Makefile\nHunk #1 succeeded at 131 (offset 12 lines).\npatching file drivers/gpu/drm/panel/panel-visionox-vtdr6130-cog.c\n",
+  "error": ""
+}

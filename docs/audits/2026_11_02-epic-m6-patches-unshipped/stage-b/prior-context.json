@@ -1,0 +1,995 @@
+[
+  {
+    "label": "T25",
+    "ref": "9b9be6a9481e4e9ee5b9d97f6c7bb72eda3ca3b4",
+    "path": "docs/audits/2026_10_25-epic-m6-devices-unshipped/02-forward-audit.md",
+    "sha256": "a5be57129e0b7a131b7a14fe639d8cc458978bbf41f3691575c3a52986c2d203",
+    "excerpt": [
+      [
+        109,
+        "## The targets"
+      ],
+      [
+        110,
+        ""
+      ],
+      [
+        111,
+        "From `Makefile`, each target's `options` and kernel conf, and the kernel recipe's version case (`projects/ROCKNIX/packages/linux/package.mk:21-54`). Every conf header matches its recipe branch. RK3588's conf reads `6.1.75` against the recipe's vendor commit `b8e62bed74...` (armbian `linux-rockchip`); the tarball's version was not read (no fetch)."
+      ],
+      [
+        112,
+        ""
+      ],
+      [
+        113,
+        "<!-- begin t25:targets -->"
+      ],
+      [
+        114,
+        "| Target | Target line | In `world` | Arches | `BOOTLOADER` (options line) | `UBOOT_FIRMWARE` | `GRAPHIC_DRIVERS` | Trees (`.dts` + `.dtsi`) | Conf header; kernel recipe's version | Patches (T43's) | Fork edits (non-merge) | Files differing at `651150fc88` | Upstream since 2026-06-01; newest |"
+      ],
+      [
+        115,
+        "| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |"
+      ],
+      [
+        116,
+        "| AMD64 | `Makefile:44` | no | x86_64 | 23 `syslinux` | none | 49 `radeonsi` | 0 + 0 | `Linux/x86 7.1.2`; recipe `7.1.2` | 3 | 0 | 0 | 7; 2d81b5f8ae 2026-09-03 |"
+      ],
+      [
+        117,
+        "| RK3326 | `Makefile:68` | yes | arm + aarch64 | 34 `u-boot` | 37 `rkbin` | 41 `mali panfrost` | 17 + 8 | `Linux/arm64 7.1.2`; recipe `7.1.2` | 24 | 0 | 17 | 45; dcafa74090 2026-10-22 |"
+      ],
+      [
+        118,
+        "| RK3399 | `Makefile:73` | yes | arm + aarch64 | 34 `u-boot` | 37 `rkbin atf` | 42 `panfrost` | 1 + 0 | `Linux/arm64 6.18.49`; recipe `6.18.49` | 9 | 0 | 1 | 12; dcafa74090 2026-10-22 |"
+      ],
+      [
+        119,
+        "| RK3566 | `Makefile:63` | yes | arm + aarch64 | 34 `u-boot` | 37 `rkbin` | 41 `mali panfrost` | 2 + 1 | `Linux/arm64 7.0.2`; recipe `7.0.2` | 40 | 0 | 32 | 40; 6548f97964 2026-10-22 |"
+      ],
+      [
+        120,
+        "| RK3576 | `Makefile:53` | yes | arm + aarch64 | 34 `u-boot` | 37 `rkbin` | 41 `mali panfrost` | 1 + 0 | `Linux/arm64 7.0.2`; recipe `7.0.2` | 23 | 0 | 10 | 20; dcafa74090 2026-10-22 |"
+      ],
+      [
+        121,
+        "| RK3588 | `Makefile:48` | yes | arm + aarch64 | 34 `u-boot` | 37 `rkbin` | 41 `mali panfrost` | 0 + 0 | `Linux/arm64 6.1.75`; recipe `b8e62bed74766b6c8c423a767b35495e78b64caf` | 17 | 0 | 2 | 6; 5f56cd5150 2026-10-04 |"
+      ],
+      [
+        122,
+        "| S922X | `Makefile:58` | yes | arm + aarch64 | 34 `u-boot` | 37 `amlogic-boot-fip` | 41 `panfrost` | 0 + 0 | `Linux/arm64 6.18.49`; recipe `6.18.49` | 45 | 0 | 65 | 58; b48d63c445 2026-10-23 |"
+      ],
+      [
+        123,
+        "| SM4450 | `Makefile:83` | no | arm + aarch64 | 35 `qcom-abl` | none | 38 `freedreno` | 2 + 0 | `Linux/arm64 7.2.0`; recipe `7.2` | 44 | 0 | 18 | 37; 651150fc88 2026-10-24 |"
+      ],
+      [
+        124,
+        "| SM6115 | `Makefile:88` | no | arm + aarch64 | 34 `qcom-abl` | none | 37 `freedreno` | 3 + 1 | `Linux/arm64 7.2.0`; recipe `7.2` | 46 | 0 | 59 | 55; 651150fc88 2026-10-24 |"
+      ],
+      [
+        125,
+        "| SM8250 | `Makefile:93` | yes | arm + aarch64 | 34 `qcom-abl` | none | 37 `freedreno` | 9 + 2 | `Linux/arm64 7.2.0`; recipe `7.2` | 36 | 0 | 15 | 79; 651150fc88 2026-10-24 |"
+      ],
+      [
+        126,
+        "| SM8650 | `Makefile:103` | yes | aarch64 | 24 `qcom-abl` | none | 27 `freedreno` | 2 + 1 | `Linux/arm64 7.2.0`; recipe `7.2` | 20 | 0 | 3 | 41; 651150fc88 2026-10-24 |"
+      ],
+      [
+        127,
+        "| SM8750 | `Makefile:107` | yes | aarch64 | 24 `qcom-abl` | none | 27 `freedreno` | 2 + 1 | `Linux/arm64 7.2.0`; recipe `7.2` | 58 | 0 | 4 | 91; 651150fc88 2026-10-24 |"
+      ],
+      [
+        128,
+        "<!-- end t25:targets -->"
+      ],
+      [
+        129,
+        ""
+      ],
+      [
+        148,
+        "## The pins"
+      ],
+      [
+        149,
+        ""
+      ],
+      [
+        150,
+        "The 10 loader recipes under the twelve target directories (the generator asserts the `find` gives exactly these), in T27's shape. `CANNOT (no network)` for every author's current release. That check is `tools/fork-package-freshness`'s at the RC (D-WORKFLOW-024), named here, not run. `rkbin` and `qcom-abl` are cited by path; they are outside the slice."
+      ],
+      [
+        151,
+        ""
+      ],
+      [
+        152,
+        "<!-- begin t25:pins -->"
+      ],
+      [
+        153,
+        "| Unit | At `8ebaf8daad` | At `651150fc88` | Set by (`git log -1 -S`) | Author's current release |"
+      ],
+      [
+        154,
+        "| --- | --- | --- | --- | --- |"
+      ],
+      [
+        155,
+        "| `RK3326 u-boot` | `v2025.10`, sha256 `5414ee86562a...` | the same file | ad79cc1b50 2025-11-15 Danil Zagoskin | CANNOT (no network) |"
+      ],
+      [
+        156,
+        "| `RK3326 u-boot-legacy` | `2492a3e467e332e2350d987234ce6123700b3392`, sha256 `d8b358f20394...` | the same pin; the file differs | d2b00cd91a 2025-12-05 Danil Zagoskin | CANNOT (no network) |"
+      ],
+      [
+        157,
+        "| `RK3399 u-boot` | `2025.10`, sha256 `b4f032848e56...` | the same file | 799514729e 2025-11-11 rocknix | CANNOT (no network) |"
+      ],
+      [
+        158,
+        "| `RK3566 u-boot` | `1.0`, no `PKG_SHA256` | the same file | 9f1fab30f6 2025-07-13 ROCKNIX Team | n/a (no source: `PKG_URL=\"\"`) |"
+      ],
+      [
+        159,
+        "| `RK3566 u-boot-Generic` | `v2026.01`, sha256 `03bb43c58d23...` | the same file | 95d1ec60d2 2026-01-08 sydarn | CANNOT (no network) |"
+      ],
+      [
+        160,
+        "| `RK3566 u-boot-Specific` | `v2026.01`, sha256 `03bb43c58d23...` | the same file | 95d1ec60d2 2026-01-08 sydarn | CANNOT (no network) |"
+      ],
+      [
+        161,
+        "| `RK3576 u-boot` | `88dc2788777babfd6322fa655df549a019aa1e69`, sha256 `c9858cd5fdc0...` | the same file | ed8ab09e5c 2026-04-19 sydarn | CANNOT (no network) |"
+      ],
+      [
+        162,
+        "| `RK3588 u-boot` | `e99376f7dd01e310a0874459a1fe7535be431f43`, sha256 `045519a0eb54...` | the same pin; the file differs | 9f1fab30f6 2025-07-13 ROCKNIX Team | CANNOT (no network) |"
+      ],
+      [
+        163,
+        "| `S922X amlogic-boot-fip` | `e96b6a694380ff07d5a9e4be644ffe254bd18512`, sha256 `2cc06bc7d564...` | the same file | 9f1fab30f6 2025-07-13 ROCKNIX Team | CANNOT (no network) |"
+      ],
+      [
+        164,
+        "| `S922X u-boot` | `b91540f886e8655a1547532eb0077e83a7b431d7`, sha256 `5cecb72e2392...` | `v2026.10`, sha256 `f943a88389c8...` | a01eb88a1e 2026-08-23 John Williams | CANNOT (no network) |"
+      ],
+      [
+        165,
+        "| `rkbin` (cited by path, outside the slice: `projects/ROCKNIX/packages/tools/rkbin/package.mk`) | `7c35e21a8529...`, `74213af1e952...` (2 branches of a device case) | the same file | not owned here | not owned here |"
+      ],
+      [
+        166,
+        "| `qcom-abl` (cited by path, outside the slice: `projects/ROCKNIX/packages/tools/qcom-abl/package.mk`) | `1.0` | the same file | not owned here | not owned here |"
+      ],
+      [
+        167,
+        "<!-- end t25:pins -->"
+      ],
+      [
+        168,
+        ""
+      ],
+      [
+        169,
+        "**Three files differ upstream.**"
+      ],
+      [
+        170,
+        "- `RK3326 u-boot-legacy` and `RK3588 u-boot`: upstream's `6679670966` (2026-10-01, the gcc 16 / glibc work) adds `KCFLAGS=\"-Wno-error=unused-but-set-variable\"`. The pins are unchanged."
+      ],
+      [
+        171,
+        "- `S922X u-boot`: upstream's `0deba47fcb` (2026-10-09, *u-boot: S922X: u-boot v2026.10*) moves it from the ROCKNIX vendor fork (`b91540f886...`) to mainline `v2026.10`, renames the defconfig to `odroid-go-ultra_defconfig`, and has it build its FIP from `amlogic-boot-fip`'s tree (`FIP_DIR=\"$(get_build_dir amlogic-boot-fip)\"`, `build-fip.sh`). `amlogic-boot-fip` itself is identical at both hashes."
+      ],
+      [
+        172,
+        ""
+      ],
+      [
+        173,
+        "All three arrive with the next base merge (`03` \u00a7 3.5)."
+      ],
+      [
+        174,
+        ""
+      ],
+      [
+        291,
+        "## Findings"
+      ],
+      [
+        292,
+        ""
+      ],
+      [
+        293,
+        "### F-01 (Q6, Q7; Low; Renovation; the inventory's reach, a lead): the kernel's unpack edges are invisible to the plan-derived reach"
+      ],
+      [
+        294,
+        ""
+      ],
+      [
+        295,
+        "- **The shape.** `projects/ROCKNIX/packages/linux/package.mk` takes two of the slice's recipes through edges a build plan does not list."
+      ],
+      [
+        296,
+        "  - `:69-72`: on any x86 `TARGET_ARCH`, `PKG_DEPENDS_UNPACK+=\" intel-ucode kernel-firmware\"`, and `:202` copies `$(get_build_dir intel-ucode)/intel-ucode` into `external-firmware`, which `:204-207` lists into `CONFIG_EXTRA_FIRMWARE`."
+      ],
+      [
+        297,
+        "  - `:81-82` unpacks `generic-dsi` for RK3326 and RK3566, and `:108-111` copies its source into the kernel and compiles it for RK3326, RK3566 and RK3576."
+      ],
+      [
+        298,
+        "- **Which copy each target resolves.** `get_pkg_directory` searches `projects/ROCKNIX/devices/${DEVICE}/packages` and `projects/ROCKNIX/packages` before `packages/` (`config/functions:789-798`, `:1057-1079`). So AMD64 takes its device copy of `intel-ucode`, and GENERIC_X64, which has none, takes `packages/linux-firmware/intel-ucode`."
+      ],
+      [
+        299,
+        "- **The record agrees.** T11's audit counted **153 `intel-ucode` entries** in the GENERIC_X64 guest kernel's `CONFIG_EXTRA_FIRMWARE` (`feature/m6-device-generic-x64-658` at `ed8c48f3cd`, `docs/audits/2026_10_25-epic-m6-device-generic-x64-and-kernel/02-forward-audit.md:142`)."
+      ],
+      [
+        300,
+        "- **What the inventory says.** All four `intel-ucode` rows are `unreached`, `buildable_by []`, and `generic-dsi`'s three rows list RK3326 alone."
+      ],
+      [
+        301,
+        "- **Effect on this slice.**"
+      ],
+      [
+        302,
+        "  - The generic pair is *reached after all*, by the test image."
+      ],
+      [
+        303,
+        "  - AMD64's pair is `unshipped: target AMD64`."
+      ],
+      [
+        304,
+        "  - `generic-dsi`'s rows gain RK3566 and RK3576. Their reach is unchanged."
+      ],
+      [
+        305,
+        "  - **The dead class shrinks from 207 to 203 rows** (172 + 30 + 1, against the brief's 172 + 32 + 3)."
+      ],
+      [
+        306,
+        "- **What it is not.** It is not a defect in an image: both edges do what they are written to do. It is a reach the inventory's plan runs cannot see. **The ladder:** `tools/renovation-inventory` reads `buildable_by` from plan steps, and an unpack-only edge is not a step. This is a shape it misses, in the opposite direction to #1086's (which reads shipped where nothing reads). That makes it a lead for the coordinator, not a tool change here (brief \u00a7 4)."
+      ],
+      [
+        307,
+        "- **Already written:** nothing; the inventory is regenerated, not migrated."
+      ],
+      [
+        328,
+        "### F-03 (Q6; Info; Renovation): RK3566 and RK3326, the first widening, held"
+      ],
+      [
+        329,
+        ""
+      ],
+      [
+        330,
+        "- **What they are.** The two targets D-WORKFLOW-185 names as the first widening: 53 paths under their directories (16 + 37), 13,833 lines. Of the 15 ROCKNIX driver and firmware rows, 6 touch them: `generic-dsi`'s 3 (F-01), `mali-bifrost`'s 2 and `esp8089-firmware`."
+      ],
+      [
+        331,
+        "- **Their state.** Their directories carry no fork edit. Their drift at `651150fc88` is 4 rows (RK3566) and 7 rows (RK3326) of the slice, and 32 and 17 files counting their patches."
+      ],
+      [
+        332,
+        "- **Disposition.** Recorded as held (`05` PL-03); nothing is proposed."
+      ],
+      [
+        333,
+        ""
+      ],
+      [
+        334,
+        "### F-04 (Q3, Q6; Info; the one fork-own row): `packages/linux/package.mk`, a fork edit in a shadowed dead copy"
+      ],
+      [
+        335,
+        ""
+      ],
+      [
+        336,
+        "- **The edit.** `3d7c075f63` (2026-10-02, the identity preparation, #337/#383; its comment cites D-WORKFLOW-123) changed line 132 from `CONFIG_DEFAULT_HOSTNAME \"${DISTRONAME}\"` to `\"ROCKNIX\"`, and made the same edit at `projects/ROCKNIX/packages/linux/package.mk:160`."
+      ],
+      [
+        337,
+        "- **Why it is harmless.** The override resolves first for every target (`config/functions:789-798`) and sources no generic recipe. So the generic copy never builds, and the edit changes no image."
+      ],
+      [
+        338,
+        "- **Q3:** not a bug."
+      ],
+      [
+        339,
+        "- **Already written:** nothing inherited; the generic recipe built for no target."
+      ],
+      [
+        340,
+        "- **Disposition.** It is T23's `installer` shape, recorded (`05` PL-04). The upstream-hostname question is #337's, not this slice's."
+      ],
+      [
+        341,
+        ""
+      ],
+      [
+        342,
+        "### F-05 (Q4; Info; Renovation): 39 rows drifted, 226 files across the targets; the S922X loader moves to mainline upstream"
+      ],
+      [
+        343,
+        ""
+      ],
+      [
+        344,
+        "- **The drift.** Against `651150fc88`, 39 of the 397 differ: 38 by upstream commits since the base, and 1 the fork's (F-04). Over the twelve target directories, patches included, the next base merge brings `226 files changed, 14839 insertions(+), 29156 deletions(-)` (b07). The largest are S922X (65 files), SM6115 (59) and RK3566 (32)."
+      ],
+      [
+        345,
+        "- **The seams worth naming.**"
+      ],
+      [
+        346,
+        "  - S922X's loader moves from the ROCKNIX vendor fork to mainline `v2026.10`, and gains a build dependency on `amlogic-boot-fip`'s tree (\u00a7 The pins)."
+      ],
+      [
+        347,
+        "  - **T27's PL-02 reaches RK3399.** RK3399's `u-boot` (a row here) builds `atf`'s BL31 (`u-boot/package.mk:26`, `PKG_BL31=\"$(get_build_dir atf)/...\"`; `options:37-38` `UBOOT_FIRMWARE=\"rkbin atf\"`, `ATF_PLATFORM=\"rk3399\"`). It takes the recipe's `*)` branch (`projects/ROCKNIX/packages/tools/atf/package.mk:22-25`, outside the slice): `2.10.0`, sha256 `696b8e53...` against the `ARM-software` URL at `8ebaf8daad`. Upstream's `6103571f67` (in `651150fc88`) moves the URL to `TrustedFirmware-A` and that branch's checksum to `6b1d5e89...`. A merge takes upstream's URL with both of its checksums. For RK3399 a crossed pair would fail the checksum check, just as T27 found for H700's branch (T27's pointer on #672, 08:41 UTC)."
+      ],
+      [
+        348,
+        "- **Disposition.** A merge takes upstream's recipe whole; nothing is re-derived here (`05` PL-05)."
+      ],
+      [
+        349,
+        ""
+      ],
+      [
+        350,
+        "### Leads (not findings of this slice)"
+      ],
+      [
+        351,
+        ""
+      ],
+      [
+        352,
+        "- **T43 (the confs):** SM8750's `linux.aarch64.conf:51` carries the literal `CONFIG_DEFAULT_HOSTNAME=\"ROCKNIX\"` where the other 30 confs carry `@DISTRONAME@` or `@DEVICENAME@`. It came with upstream's kernel config commits (`a53899e188`, `6face2d2fa`). The recipe sets the string at build either way (`:160`)."
+      ],
+      [
+        353,
+        "- **T28 (the DTS-by-unit table):** no unshipped `.dts` carries `rocknix-dt-id`. The H700 dt-id shape is H700's alone."
+      ],
+      [
+        354,
+        "- **T23 (the generic-packages area):** the edge sweep's reached names (`dmidecode`, `ryzenadj`, `pciutils`) each have a generic copy under `packages/sysutils/` that GENERIC_X64 resolves. Their reach is T23's or T11's rows, not this slice's."
+      ],
+      [
+        355,
+        "- **Q1:** `source.codeaurora.org` (Qualcomm's `mkbootimg`), `developer.qualcomm.com` (`firmware-dragonboard`) and `www.nxp.com` (`firmware-imx`) are hosts whose status this slice cannot check: `CANNOT (no network)`. All three recipes are in the dead class or shadowed, so no build fetches them."
+      ],
+      [
+        356,
+        ""
+      ]
+    ],
+    "method": "immutable read only; accepted producer not rerun; no application result transfers to T43"
+  },
+  {
+    "label": "T11",
+    "ref": "47672fe4a04fc3b69dee9f0381fbc9f076b891e5",
+    "path": "docs/audits/2026_10_25-epic-m6-device-generic-x64-and-kernel/02-forward-audit.md",
+    "sha256": "63755e7334974307e387f021bfc964ab933b6acab6e0fc7deed46509edf4e502",
+    "excerpt": [
+      [
+        94,
+        "## The configuration"
+      ],
+      [
+        95,
+        ""
+      ],
+      [
+        96,
+        "**1. The nearest candidate.** `projects/Generic/linux/linux.x86_64.conf` (8,062 lines, header `Linux/x86 7.1.2`): **659 lines removed, 351 added** against ours. `projects/ROCKNIX/devices/AMD64/linux/linux.x86_64.conf` (12,445 lines, `7.1.2`): 7,671 / 2,980, **not a base**. Ours is 7,754 lines with the header `# Linux/x86 6.15.6 Kernel Configuration` (`:3`). (r02, r03.)"
+      ],
+      [
+        97,
+        ""
+      ],
+      [
+        98,
+        "**2. The fork's own edits since the adding commit `73b20caf86` (2026-06-30)** -- 13 lines in two commits (r06, r07):"
+      ],
+      [
+        99,
+        ""
+      ],
+      [
+        100,
+        "```text"
+      ],
+      [
+        101,
+        "=== cbf75c0b06 2026-09-10 Handhelds keep their evidence across a power cycle: persistent logs, a watchdog, a crash store"
+      ],
+      [
+        102,
+        "-# CONFIG_WATCHDOG is not set"
+      ],
+      [
+        103,
+        "+CONFIG_WATCHDOG=y"
+      ],
+      [
+        104,
+        "+CONFIG_WATCHDOG_CORE=y"
+      ],
+      [
+        105,
+        "+CONFIG_WATCHDOG_SYSFS=y"
+      ],
+      [
+        106,
+        "+CONFIG_I6300ESB_WDT=y"
+      ],
+      [
+        107,
+        "-# CONFIG_PSTORE is not set"
+      ],
+      [
+        108,
+        "+CONFIG_PSTORE=y"
+      ],
+      [
+        136,
+        "| Same option, different value | 18 |"
+      ],
+      [
+        137,
+        "| In ours, absent from the built file (gone in 7.1) | 189, of them 97 set |"
+      ],
+      [
+        138,
+        "| In the built file only (new in 7.1, defaulted) | 364, of them 137 set |"
+      ],
+      [
+        139,
+        "| **The fork's 10 settings above, kept in the built file** | **10 of 10** |"
+      ],
+      [
+        140,
+        ""
+      ],
+      [
+        141,
+        "The 18 changed values, by cause:"
+      ],
+      [
+        142,
+        "- **The recipe forces them:** `CONFIG_SWAP y -> n` (`SWAP_SUPPORT=\"no\"`, `options:86`); `CONFIG_CIFS y -> n` (no `SAMBA_SUPPORT`); `CONFIG_DEFAULT_HOSTNAME`; `CONFIG_INITRAMFS_SOURCE`; `CONFIG_EXTRA_FIRMWARE` (1,254 entries: amdgpu 675, radeon 247, intel-ucode 153, i915 130, rtl_nic 40, amd-ucode 6, e100 3)."
+      ],
+      [
+        143,
+        "- **The toolchain:** `CC_VERSION_TEXT`, `GCC_VERSION`, `AS_VERSION`, `LD_VERSION`, `RUSTC_VERSION`, `RUSTC_LLVM_VERSION`."
+      ],
+      [
+        144,
+        "- **7.1's `oldconfig` defaults:** `PREEMPT n -> y` (the committed file says `CONFIG_PREEMPT_VOLUNTARY=y` at `:126`; the built file has `CONFIG_PREEMPT=y` at `:134` and no voluntary option), `PGTABLE_LEVELS 4 -> 5`, `INT340X_THERMAL n -> m`, `NLS_UCS2_UTILS y -> m`, `CRYPTO_LIB_CURVE25519_GENERIC m -> y`, and `BOOTPARAM_HUNG_TASK_PANIC` / `BOOTPARAM_SOFTLOCKUP_PANIC` from a boolean to an integer `0`."
+      ],
+      [
+        145,
+        ""
+      ],
+      [
+        146,
+        "**Provenance of the corroboration** (copies under `/workspace/tmp/m6-t11/cfg/`; a copy's time is its file's mtime, a run's time is its start in `runs.tsv`):"
+      ],
+      [
+        318,
+        "## Stage C re-reads"
+      ],
+      [
+        319,
+        ""
+      ],
+      [
+        320,
+        "The seat's decisive items, re-read by the lane at their lines (graded in `04` \u00a7 Second opinion):"
+      ],
+      [
+        321,
+        ""
+      ],
+      [
+        322,
+        "- **G-26 (`mkimage_abl` copies the `rocknix_abl` directory without `-s`).** T5's P15 fixture made `rocknix_abl` a file (`sb-mkimage.sh:34`), so it never tested a directory. The lane tested one from 07:25:12 UTC (the copy's `date -u`; the test followed within the minute, its FAT entries stamped 7:25) under `/workspace/tmp/m6-t11/mcopy-test/`. It used `mtools` 4.0.49, copied from `/workspace/repos/rocknix.worktrees/m7-gtk4-build-20261017-01/build.pixelelated-GENERIC_X64.x86_64/toolchain/bin/mtools` (sha256 `2050c806846eedb3...`; needs only libc), and run in the scratch directory: `mformat` on a 4 MiB image (rc 0), then `mcopy -i part.fat src/rocknix_abl ::` with `abl_signed-SM8550.elf` and `flash_abl.sh` inside. The result was rc 0, and `mdir -/` lists `rocknix_abl/` holding both files. The same with `-s` gives the identical listing. **Refuted:** the SM8550 boot partition does receive the directory, and E1's `|| show_error` on that line cannot fire on a good copy."
+      ],
+      [
+        323,
+        "- **G-8 (the 1,254 count against the regulatory-database append):** `CONFIG_CFG80211=m` in both files, so the append at `:293-304` does not run, and the count stands (P20)."
+      ],
+      [
+        324,
+        "- **G-24 (F-09):** the override's lines 1-20 source no generic recipe, and upstream's case has no default branch. Confirmed and sharpened."
+      ],
+      [
+        325,
+        "- **G-25 (F-10):** `73b20caf86`'s message and the Generic conf's history (`872b13a3b3`, 7.1.2 on 2026-06-30). Confirmed: the ancestry is not proven."
+      ],
+      [
+        326,
+        "- **G-31, G-33, G-34:** re-read at `generic-x64-vm:142-154`, `:205-217`, `:298`, `:705` and `dtb_overlay:84-163`. Confirmed as F-13 and F-12."
+      ],
+      [
+        327,
+        "- **G-28:** no `scripts/cleanup.sh` exists anywhere in the tree (`git ls-tree`), so the masked cleanup failure is latent."
+      ],
+      [
+        328,
+        ""
+      ]
+    ],
+    "method": "immutable read only; accepted producer not rerun; no application result transfers to T43"
+  },
+  {
+    "label": "T27",
+    "ref": "0ac98afe434c0429bace5f239482e5de0e0bc394",
+    "path": "docs/audits/2026_10_25-epic-m6-device-h700/02-forward-audit.md",
+    "sha256": "be5844dbc57770b0df248836ecc75e0aca198d4de6ae3a7e68f678b7c932077a",
+    "excerpt": [
+      [
+        65,
+        "## The pins"
+      ],
+      [
+        66,
+        ""
+      ],
+      [
+        67,
+        "`CANNOT (no network)` for every author's current release. That check is `tools/fork-package-freshness`'s at the RC (D-WORKFLOW-024), named here, not run (r07 for the recipes in the slice; the atf and kernel recipes read at their lines)."
+      ],
+      [
+        68,
+        ""
+      ],
+      [
+        69,
+        "| Unit | At `8ebaf8daad` | At `651150fc88` | Set by | Author's current release |"
+      ],
+      [
+        70,
+        "| --- | --- | --- | --- | --- |"
+      ],
+      [
+        71,
+        "| u-boot-DDR3 | `v2026.01`, sha256 `03bb43c58d23...` | the same | `2e825afd0c` (2026-06-08, Philippe Simons, *h700: subdevices*) | CANNOT (no network) |"
+      ],
+      [
+        72,
+        "| u-boot-DDR4 | `v2026.01`, the same sha256 | the same | `2e825afd0c` | CANNOT (no network) |"
+      ],
+      [
+        73,
+        "| u-boot (the wrapper) | `1.0`, no URL: builds nothing, installs each SUBDEVICE's loader | the same | `2e825afd0c` | n/a (no source) |"
+      ],
+      [
+        74,
+        "| h700-suspend-stub | `712653d11230...`, sha256 `3698da9aad40...` (`Jacob-Matthew-Cook/h700-suspend-stub`) | the same | `fca6ac5140` (2026-09-17, Jacob Cook, *H700: firmware deep sleep*) | CANNOT (no network) |"
+      ],
+      [
+        75,
+        "| atf (H700 branch of `projects/ROCKNIX/packages/tools/atf/package.mk:16-21`) | `2.12.0`, **no `PKG_SHA256`**, URL `ARM-software/arm-trusted-firmware` | `2.12.0`, sha256 `d95aaf292792...`, URL `TrustedFirmware-A/trusted-firmware-a` (`6103571f67`, 2026-10-11) | `9f1fab30f6` (2025-07-13, the oldest pin here) | CANNOT (no network); the override's `*)` branch is 2.10.0, and the separate generic `packages/tools/atf` is at 2.15.0 |"
+      ],
+      [
+        76,
+        "| kernel (`projects/ROCKNIX/packages/linux/package.mk:29-35`) | `7.2`, sha256 `f9fef3d14c0d...` | `7.2`, the same | `0c77a91dca` (2026-08-17, *linux: update H700 to kernel 7.2*) | CANNOT (no network) |"
+      ],
+      [
+        77,
+        ""
+      ],
+      [
+        78,
+        "**The atf checksum is already known.** T8's sweep and D-WORKFLOW-194 list `atf` 2.12.0 among the five archive versions with no `PKG_SHA256`. T5's E6 gave it `30abf4da07418ad0...` from the `ARM-software` URL (`430abc8f66`, #834, on `feature/m6-build-engine-652`). **The seam:** upstream's fix moves the URL to `TrustedFirmware-A` and sets **different** checksums for both branches. The H700 branch becomes `d95aaf29...`, and the `*)` branch moves from `696b8e53...` to `6b1d5e89...`, because a GitHub archive's bytes carry the repository name. A merge of `next` takes upstream's URL with both of upstream's checksums. For the recorded archive bytes, a crossed pair (old URL with upstream's checksum, or new URL with T5's) fails T5's checksum check (`scripts/get_archive` on T5's branch). As the seat narrowed it (G-4), a cached archive whose checksum stamp matches, or a mirror, can satisfy a recipe whatever its URL says, so the guarantee is about bytes, not URL spellings (F-02, for T25)."
+      ],
+      [
+        79,
+        ""
+      ],
+      [
+        80,
+        "## The configuration"
+      ],
+      [
+        81,
+        ""
+      ],
+      [
+        82,
+        "`linux/linux.aarch64.conf`: 8,129 lines, header `# Linux/arm64 7.2.0 Kernel Configuration` (r02). **It is upstream's file, and its base is upstream's own copy:** added by `9f1fab30f6` (2025-07-13, ROCKNIX Team). Against `651150fc88`'s copy it is **12 removed / 13 added** (r03). Every line, attributed:"
+      ],
+      [
+        83,
+        ""
+      ],
+      [
+        84,
+        "| Lines (`<` upstream, `>` ours) | Commit |"
+      ],
+      [
+        85,
+        "| --- | --- |"
+      ],
+      [
+        86,
+        "| `> CONFIG_WATCHDOG_SYSFS=y`, `> CONFIG_PSTORE_CONSOLE=y`, `> CONFIG_PSTORE_RAM=y`, `> CONFIG_SOFTLOCKUP_DETECTOR=y`, `> CONFIG_DETECT_HUNG_TASK=y`, `> CONFIG_DEFAULT_HUNG_TASK_TIMEOUT=120`, against their five `is not set` lines | **the fork's `cbf75c0b06`** (2026-09-10; D-SYS-002/003/004: the watchdog, panic on hang, ramoops). The one fork commit since the merge base `c445081a59` (r04) |"
+      ],
+      [
+        87,
+        "| `CONFIG_CC_VERSION_TEXT` gcc 16.2.0 / 15.2.0; `CONFIG_GCC_VERSION` 160200 / 150200; `< CONFIG_CC_HAS_COUNTED_BY_PTR=y` | upstream's `c0980b2b71` (2026-10-02). Ours still records gcc 15.2.0, the fork's held-back gcc pin (`device-builds.md`) |"
+      ],
+      [
+        88,
+        "| `< # CONFIG_RAID6_PQ_BENCHMARK is not set` / `> CONFIG_RAID6_PQ_BENCHMARK=y` | upstream's `5f56cd5150` (2026-10-04, *skip the RAID6 algorithm benchmark at boot*) |"
+      ],
+      [
+        89,
+        "| `CONFIG_RUSTC_LLVM_VERSION` 230101 / 220108; `CONFIG_RUSTC_LLVM_MAJOR_VERSION` 23 / 22; `> CONFIG_INPUT_POLLDEV=y` | upstream's `6fbefc45c6` (2026-10-18) |"
+      ],
+      [
+        90,
+        "| `CONFIG_RUSTC_VERSION` 109901 / 109801 | upstream's `6fbefc45c6`, then `dcafa74090` (2026-10-22) |"
+      ],
+      [
+        91,
+        ""
+      ],
+      [
+        92,
+        "Upstream's four are a toolchain refresh and one boot-time option. The RAID6 benchmark matters to boot time and comes with the next base merge. **The order's *fork-written* is an erratum:** the inventory's `tier_note` says it because the fork touched the file once. So is the futro's guess that this configuration *will meet the same question* as T11's: it has a base. Against every other configuration in the tree it is far (the brief's counts: RK3326 898 / 1,809, RK3566 1,518 / 1,908, LibreELEC's Allwinner 1,871 / 1,953, SM8550 1,585 / 1,106). The fork's six lines are explicit settings, so a rebase onto upstream's copy keeps them."
+      ],
+      [
+        93,
+        ""
+      ]
+    ],
+    "method": "immutable read only; accepted producer not rerun; no application result transfers to T43"
+  },
+  {
+    "label": "T41",
+    "ref": "e481e4a4a5c296c8f12e9654b6a45c4fb27bd3b0",
+    "path": "docs/audits/2026_11_02-epic-m6-patches-shipped-kernel/02-forward-audit.md",
+    "sha256": "f8972f21ec2f63fb40fd3518871599ee5e393a520ef7dfc5b4883830f396e511",
+    "excerpt": [
+      [
+        318,
+        "## Upstream since the base"
+      ],
+      [
+        319,
+        ""
+      ],
+      [
+        320,
+        "The exact four-directory `git diff --name-status c445081a59 651150fc88` gives **12 A, 1 D, 4 M**. Across the 107 paths: **101 SAME, 4 CHANGED, 2 ABSENT**. The absent rows are the fork's ramoops and the unchanged polldev patch moved to RK3326 by `fe5216ff69`. No upstream delta was applied to the repository."
+      ],
+      [
+        321,
+        ""
+      ],
+      [
+        322,
+        "| Change | Path | Disposition |"
+      ],
+      [
+        323,
+        "| --- | --- | --- |"
+      ],
+      [
+        324,
+        "| M | `projects/ROCKNIX/devices/SM8550/linux/linux.aarch64.conf` | the integration carries (#563/#559) |"
+      ],
+      [
+        325,
+        "| M | `projects/ROCKNIX/devices/SM8550/patches/linux/0104-drm-panel-Add-Retroid-Pocket-6-panel.patch` | the integration carries (#563/#559) |"
+      ],
+      [
+        326,
+        "| A | `projects/ROCKNIX/devices/SM8550/patches/linux/0508-ROCKNIX-rp6-panel-frame-length-calibration.patch` | the integration carries (#563/#559) |"
+      ],
+      [
+        327,
+        "| A | `projects/ROCKNIX/devices/SM8550/patches/linux/0509-ROCKNIX-thor-panel-frame-length-calibration.patch` | the integration carries (#563/#559) |"
+      ],
+      [
+        328,
+        "| M | `projects/ROCKNIX/packages/linux/patches/7.0/0010-msm-resource-cleanup.patch` | the integration carries (#563/#559) |"
+      ],
+      [
+        329,
+        "| A | `projects/ROCKNIX/packages/linux/patches/7.2.6/0010-msm-resource-cleanup.patch` | the integration carries (#563/#559) |"
+      ],
+      [
+        330,
+        "| A | `projects/ROCKNIX/packages/linux/patches/7.2.6/0013-drm-msm-dpu-fix-inline-rotation.patch` | the integration carries (#563/#559) |"
+      ],
+      [
+        331,
+        "| A | `projects/ROCKNIX/packages/linux/patches/7.2.6/9998-silence-initramfs-unpack-warn.patch` | the integration carries (#563/#559) |"
+      ],
+      [
+        332,
+        "| A | `projects/ROCKNIX/packages/linux/patches/7.2.6/9999-fix-rust-build-error.patch` | the integration carries (#563/#559) |"
+      ],
+      [
+        333,
+        "| M | `projects/ROCKNIX/packages/linux/patches/7.2/0010-msm-resource-cleanup.patch` | the integration carries (#563/#559) |"
+      ],
+      [
+        334,
+        "| A | `projects/ROCKNIX/packages/linux/patches/7.2/0011-drm-msm-signal-hw_done-before-the-flip-event.patch` | the integration carries (#563/#559) |"
+      ],
+      [
+        335,
+        "| A | `projects/ROCKNIX/packages/linux/patches/7.2/0012-drm-msm-dpu-qos-lut-for-scaled-compressed-fetch.patch` | the integration carries (#563/#559) |"
+      ],
+      [
+        336,
+        "| A | `projects/ROCKNIX/packages/linux/patches/7.2/0014-drm-msm-dpu-scaled-fetch-line-width.patch` | the integration carries (#563/#559) |"
+      ],
+      [
+        337,
+        "| A | `projects/ROCKNIX/packages/linux/patches/7.2/0015-drm-msm-dpu-sm8250-linear-danger-lut.patch` | the integration carries (#563/#559) |"
+      ],
+      [
+        338,
+        "| A | `projects/ROCKNIX/packages/linux/patches/7.2/0017-clk-qcom-blank-dsi-panels-before-dispcc-park.patch` | the integration carries (#563/#559) |"
+      ],
+      [
+        339,
+        "| A | `projects/ROCKNIX/packages/linux/patches/7.2/0018-drm-msm-dpu-preload-seven-pixels-in-qseed4-behind-the-inline-rotator.patch` | the integration carries (#563/#559) |"
+      ],
+      [
+        340,
+        "| D | `projects/ROCKNIX/packages/linux/patches/mainline/0002-input-add-input-polldev-driver.patch` | the integration carries (#563/#559) (polldev moved to RK3326; fe5216ff69, unchanged blob) |"
+      ],
+      [
+        341,
+        ""
+      ],
+      [
+        342,
+        "The four `7.2.6/` additions are T43 context; six new `7.2/` patches and two SM8550 patches are integration context. The three `7.2.6/` symlinks are a possible future answer to duplicated `7.0/`/`7.2/` copies, not authorization to change them. Upstream's recipe line 18 has a quoted regular expression and names a patch group that has no directory; its draft contribution is below."
+      ],
+      [
+        548,
+        "2026-11-02T17:53:11.003892+00:00 secret actual packet rc=1"
+      ],
+      [
+        549,
+        "0"
+      ],
+      [
+        550,
+        "```"
+      ],
+      [
+        551,
+        ""
+      ],
+      [
+        552,
+        "## Leads and dispositions"
+      ],
+      [
+        553,
+        ""
+      ],
+      [
+        554,
+        "| Lead | Disposition | Evidence, limit and next owner |"
+      ],
+      [
+        555,
+        "| --- | --- | --- |"
+      ],
+      [
+        556,
+        "| L-01 | bug | High: uninitialized cstate in both 7.0/0010 and 7.2/0010; upstream fix 9416eec2c2; final SM8550 scratch dpu_crtc.c:1441,1453,1470; bug filing at D, integration #563/#559. Bug #1408; audit #1409 PL-001, open for integration disposition. |"
+      ],
+      [
+        557,
+        "| L-02 | #585 | Upstream recipe :18 quoted =~ yields five no-match lines; no current patch group; draft above, never sent. |"
+      ],
+      [
+        558,
+        "| L-03 | inherited:T11 | Three byte-identical 7.0/7.2 pairs, remaining-reads duplicates; keep files versus symlinks question drafted for D. Stage-D question comment 6585346506; exact readback stage-d/question-1-readback.json. |"
+      ],
+      [
+        559,
+        "| L-04 | row | SM8550 filename prefixes collide: 0053/0054/0057 twice, 0060 three times; exact C-locale index retained, no rename. |"
+      ],
+      [
+        560,
+        "| L-05 | row | 19 absent From headers / 17 absent Subject; content and git log --follow recorded for all 107; unknown origin remains unknown. |"
+      ],
+      [
+        561,
+        "| L-06 | row | Eleven dated-import probes plus context refutation in remaining-reads.json; zero complete supersessions established; one explicit Backport claim, no network validation. |"
+      ],
+      [
+        562,
+        "| L-07 | none | GENERIC_X64 conf :3 names 6.15.6; recipe 7.1.2 and oldconfig; existing OPEN #1084, inherited T11. |"
+      ],
+      [
+        563,
+        "| L-08 | inherited:T11 | Override package.mk:318\u2013334 prints kernel_options warning, never fails; config method names that limit. |"
+      ],
+      [
+        564,
+        "| L-09 | inherited:coordinator | packaging-and-patches.md:91 and CLAUDE.md:148\u2013149 name dead generic patch roof; live override directories in table. |"
+      ],
+      [
+        565,
+        "| L-10 | none | H700 0203-sound-soc-Add-sunxi_v2-for-h616-ahub.patch.disabled and SM8550 0053-add-hynitron-touchscreen.patch.disabled excluded by *.patch; T27/T28 owners. |"
+      ]
+    ],
+    "method": "immutable read only; accepted producer not rerun; no application result transfers to T43"
+  },
+  {
+    "label": "T42",
+    "ref": "4cf8c8820791624dbddad3eb3664101a03953a82",
+    "path": "docs/audits/2026_11_02-epic-m6-patches-shipped/02-forward-audit.md",
+    "sha256": "00f2f1cd0954223024d1bb9302cff373d5332fff8de9424ad8c8e166977c28e0",
+    "excerpt": [
+      [
+        873,
+        "## Symlink boundary"
+      ],
+      [
+        874,
+        ""
+      ],
+      [
+        875,
+        "| Native path | Literal target | Resolved source | Ownership |"
+      ],
+      [
+        876,
+        "| --- | --- | --- | --- |"
+      ],
+      [
+        877,
+        "| projects/ROCKNIX/packages/apps/mangohud/patches/SM8550/0002-SM8750-Battery.patch | ../SM8750/0002-SM8750-Battery.patch | projects/ROCKNIX/packages/apps/mangohud/patches/SM8750/0002-SM8750-Battery.patch sha256 97220df99329d8b1976aa9a84f0843999b5ae9a47fdaac6da61bedad68e34a84 | T43 referent is context only; native link remains T42 |"
+      ],
+      [
+        878,
+        "| projects/ROCKNIX/packages/emulators/libretro/vitaquake2-lr/vitaquake2-rogue-lr/patches/aarch64/001-set-platform.patch | ../../../patches/aarch64/001-set-platform.patch | projects/ROCKNIX/packages/emulators/libretro/vitaquake2-lr/patches/aarch64/001-set-platform.patch sha256 e9f9beb6d3b2eccf1ce6bc3df10331c39f2feddb1928dfc1f8c1ca0692584a6a | T42 link; shared vitaquake2 referent counted once by its own native key |"
+      ],
+      [
+        879,
+        "| projects/ROCKNIX/packages/emulators/libretro/vitaquake2-lr/vitaquake2-xatrix-lr/patches/aarch64/001-set-platform.patch | ../../../patches/aarch64/001-set-platform.patch | projects/ROCKNIX/packages/emulators/libretro/vitaquake2-lr/patches/aarch64/001-set-platform.patch sha256 e9f9beb6d3b2eccf1ce6bc3df10331c39f2feddb1928dfc1f8c1ca0692584a6a | T42 link; shared vitaquake2 referent counted once by its own native key |"
+      ],
+      [
+        880,
+        "| projects/ROCKNIX/packages/emulators/libretro/vitaquake2-lr/vitaquake2-zaero-lr/patches/aarch64/001-set-platform.patch | ../../../patches/aarch64/001-set-platform.patch | projects/ROCKNIX/packages/emulators/libretro/vitaquake2-lr/patches/aarch64/001-set-platform.patch sha256 e9f9beb6d3b2eccf1ce6bc3df10331c39f2feddb1928dfc1f8c1ca0692584a6a | T42 link; shared vitaquake2 referent counted once by its own native key |"
+      ],
+      [
+        881,
+        ""
+      ],
+      [
+        882,
+        "## Application guard observations"
+      ],
+      [
+        883,
+        ""
+      ],
+      [
+        884,
+        "The partial-failure fixture changed a candidate, kept the successful prefix unchanged and blocked its successor. [Receipt](stage-b/application/partial-failure-control.json). G202/G203 stopped on the regular-file snapshot assertion after a patch created a relative UCM symlink; later rows are open, and the unrecorded normal exit is not reconstructed. WebKit/Samba archives were withheld for duplicate members. Those are runner coverage limits, not product defects. Hook references in the v1 selection manifest are character offsets; actual line references are in recipes.json. No shell recipe or config was evaluated."
+      ],
+      [
+        885,
+        ""
+      ],
+      [
+        886,
+        "## Findings index"
+      ],
+      [
+        887,
+        ""
+      ],
+      [
+        888,
+        "| bucket | reader | finding | severity | result |"
+      ],
+      [
+        889,
+        "| --- | --- | --- | --- | --- |"
+      ],
+      [
+        890,
+        "| native 271 | gpt | F-T42-01 | Medium | PPSSPP nested patch is inert as SDL transformation; PL-01 / #1410 |"
+      ],
+      [
+        891,
+        ""
+      ],
+      [
+        892,
+        "## Verification"
+      ],
+      [
+        893,
+        ""
+      ],
+      [
+        894,
+        "### F-T42-01 (gpt, primary Local reader)"
+      ],
+      [
+        895,
+        ""
+      ],
+      [
+        896,
+        "**Verdict:** **confirmed, Medium**. Seed PPSSPP 007 lines 11\u201316 create a nested file; lines 17\u201329 add the intended SDL diff as text. scripts/unpack:191\u2013196 applies the outer file once; recipe post_unpack does not apply the nested file. The constructed fixture in stage-b/nested-patch/receipt.json returns normal rc 0, creates the nested target and leaves sentinel SDLJoystick.cpp unchanged. This is a source-format mechanism proof, not an at-pin or runtime result. Fixed upstream's direct diff uses NKCODE_GUIDE, whereas the nested seed payload uses NKCODE_UNKNOWN. Owner must resolve intended behavior in the separate fix #1410; audit #1411 / PL-01 remains open pending coordinator disposition. Source and negative duplicate searches are retained in stage-b/source-context/."
+      ],
+      [
+        897,
+        ""
+      ],
+      [
+        898,
+        "## E disposition and final owner actions \u2014 2026-11-02T20:22:49.348844+00:00"
+      ],
+      [
+        899,
+        ""
+      ],
+      [
+        900,
+        "D-WORKFLOW-230 at `afdec2bf8b88135befcb7ec56efb3a7ea327bd73`; [explicit dispatch](https://github.com/pixelelated/distribution/issues/689#issuecomment-6587447155); retained exact disposition in stage-e/disposition.stdout."
+      ],
+      [
+        901,
+        ""
+      ],
+      [
+        902,
+        "PL-01 is **Deferred to open Medium #1410**, standalone-emulator context #677. Coordinator assigns the separate future fix brief. No NKCODE_UNKNOWN/NKCODE_GUIDE choice, source fix, installed behavior, release exception or integration result is selected. The constructed sentinel result remains a mechanics-only proof."
+      ],
+      [
+        903,
+        ""
+      ],
+      [
+        904,
+        "[Owner/action matrix](stage-e/owner-actions.json) preserves all 173 native limits, all 50 inherited decisions (including 22 unresolved inputs) and twelve contribution rows. Their exact actions remain with existing owners. #585 text stays unsent; class removal remains #1048/#346."
+      ],
+      [
+        905,
+        ""
+      ],
+      [
+        906,
+        "G383 (SM8550-aarch64 PPSSPP) is wholly open for unknown post_unpack input, missing archive SHA and no exact cached archive. Its static stack includes context-only `projects/ROCKNIX/packages/emulators/standalone/ppsspp-sa/patches/SM8550/000-swap-guid-and-misc.patch`, resolved to `patches/SM8250/000-swap-guid-and-misc.patch`. The accepted group receipt includes only its six native rows and omits that context-only symlink row. No command, normal exit or application result is reconstructed for it; neither population changes. G202/G203 retain only their first recorded row and no serialized exit for the next link-producing candidate. All three gaps remain unclaimed."
+      ]
+    ],
+    "method": "immutable read only; accepted producer not rerun; no application result transfers to T43"
+  }
+]

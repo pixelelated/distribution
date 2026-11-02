@@ -1,0 +1,15 @@
+{
+  "argv": [
+    "patch",
+    "-d",
+    "/workspace/tmp/m6-t43/G072-031-candidate-5fe00dhh",
+    "-p1"
+  ],
+  "start": "2026-11-02T21:55:44.587885+00:00",
+  "end": "2026-11-02T21:55:44.589913+00:00",
+  "exit": 0,
+  "stdout_sha256": "b4064928cf3c2ec47e2027d4c71625ae6173056c21be14f121743bcfbbbcf5c4",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "output": "patching file drivers/gpu/drm/bridge/synopsys/dw-dp.c\nHunk #3 succeeded at 1710 with fuzz 1.\npatching file drivers/gpu/drm/rockchip/dw_dp-rockchip.c\npatching file include/drm/bridge/dw_dp.h\n",
+  "error": ""
+}

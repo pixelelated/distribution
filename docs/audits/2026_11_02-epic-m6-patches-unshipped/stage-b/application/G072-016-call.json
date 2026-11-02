@@ -1,0 +1,15 @@
+{
+  "argv": [
+    "patch",
+    "-d",
+    "/workspace/tmp/m6-t43/G072-016-candidate-iu3hyhde",
+    "-p1"
+  ],
+  "start": "2026-11-02T21:55:44.407371+00:00",
+  "end": "2026-11-02T21:55:44.409452+00:00",
+  "exit": 0,
+  "stdout_sha256": "bb7975ee87d989bf25e17e570158088ff06ed2d94fe1a0e79afb2e4a976a03db",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "output": "patching file drivers/mfd/Kconfig\nHunk #1 succeeded at 1378 (offset 11 lines).\npatching file drivers/mfd/Makefile\npatching file drivers/mfd/rockchip-mfpwm.c\npatching file include/linux/mfd/rockchip-mfpwm.h\n",
+  "error": ""
+}

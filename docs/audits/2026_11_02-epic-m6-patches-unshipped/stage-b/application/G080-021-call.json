@@ -1,0 +1,15 @@
+{
+  "argv": [
+    "patch",
+    "-d",
+    "/workspace/tmp/m6-t43/G080-021-candidate-060ssz4f",
+    "-p1"
+  ],
+  "start": "2026-11-02T21:56:01.881603+00:00",
+  "end": "2026-11-02T21:56:01.882548+00:00",
+  "exit": 0,
+  "stdout_sha256": "f58775413eedb35ac01b554eacced7336ba922b526c2a051ec1d9ce892422ee6",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "output": "patching file arch/arm64/boot/dts/qcom/pm6125.dtsi\nHunk #1 succeeded at 154 (offset -1 lines).\npatching file drivers/leds/rgb/leds-qcom-lpg.c\nHunk #1 succeeded at 1702 (offset 1 line).\nHunk #2 succeeded at 1827 (offset 1 line).\npatching file drivers/mfd/qcom-spmi-pmic.c\n",
+  "error": ""
+}

@@ -1,0 +1,15 @@
+{
+  "argv": [
+    "patch",
+    "-d",
+    "/workspace/tmp/m6-t43/G066-030-candidate-ews7ekdc",
+    "-p1"
+  ],
+  "start": "2026-11-02T21:55:28.912386+00:00",
+  "end": "2026-11-02T21:55:28.914269+00:00",
+  "exit": 0,
+  "stdout_sha256": "75e8d889f72d330ee1de5ac2e23e74aa4b4c0badd9ff6bd0b3a0ce07fb83d550",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "output": "patching file drivers/nvmem/rockchip-otp.c\nHunk #2 succeeded at 34 (offset 1 line).\nHunk #3 succeeded at 257 with fuzz 2 (offset 53 lines).\nHunk #4 succeeded at 508 with fuzz 1 (offset 83 lines).\nHunk #5 succeeded at 582 (offset 97 lines).\n",
+  "error": ""
+}

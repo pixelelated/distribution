@@ -1,0 +1,258 @@
+{
+  "id": "G008",
+  "census": {
+    "id": "G008",
+    "recipe": "projects/ROCKNIX/devices/RK3566/packages/u-boot-Specific/package.mk",
+    "recipe_sha256": "f5411d1a36befdd829c51d8506ae011981d38e1b8bcba5772ae1bb6cb8c139f4",
+    "owner": [
+      "devices-unshipped"
+    ],
+    "consumer": "RK3566-aarch64",
+    "device": "RK3566",
+    "arch": "aarch64",
+    "target_cpu": "cortex-a55",
+    "patch_arch": "aarch64",
+    "LINUX": "unset in clean default source config",
+    "batteryplus": "no or unset; exact yes predicate false",
+    "name": "u-boot-Specific",
+    "pin": "v2026.01",
+    "url": "https://github.com/u-boot/u-boot/archive/v2026.01.tar.gz",
+    "expected_sha256": "03bb43c58d2343ee48dd191e0f181f0108425b179d84519add3a977071c3f654",
+    "selectors": [],
+    "ordered_pattern_directories": [
+      "projects/ROCKNIX/devices/RK3566/packages/u-boot-Specific/patches",
+      "projects/ROCKNIX/devices/RK3566/packages/u-boot-Specific/patches/aarch64",
+      "projects/ROCKNIX/devices/RK3566/packages/u-boot-Specific/patches/v2026.01",
+      "projects/ROCKNIX/devices/RK3566/packages/u-boot-Specific/patches/v2026.01/aarch64",
+      "projects/ROCKNIX/patches/u-boot-Specific",
+      "projects/ROCKNIX/patches/u-boot-Specific/aarch64",
+      "projects/ROCKNIX/patches/u-boot-Specific/v2026.01",
+      "projects/ROCKNIX/devices/RK3566/patches/u-boot-Specific"
+    ],
+    "stack": [
+      "projects/ROCKNIX/devices/RK3566/packages/u-boot-Specific/patches/001-fix-defconfig.patch",
+      "projects/ROCKNIX/devices/RK3566/packages/u-boot-Specific/patches/002-boot-order.patch"
+    ],
+    "native_paths": [
+      "projects/ROCKNIX/devices/RK3566/packages/u-boot-Specific/patches/001-fix-defconfig.patch",
+      "projects/ROCKNIX/devices/RK3566/packages/u-boot-Specific/patches/002-boot-order.patch"
+    ],
+    "config_paths": [],
+    "cache_candidates": [
+      "/workspace/cache/rocknix-sources/u-boot-Specific/u-boot-Specific-v2026.01.tar.gz"
+    ],
+    "preimage_limits": [],
+    "source_only": true,
+    "runtime": false
+  },
+  "started": "2026-11-02T21:55:18.167072+00:00",
+  "rows": [
+    {
+      "path": "projects/ROCKNIX/devices/RK3566/packages/u-boot-Specific/patches/001-fix-defconfig.patch",
+      "referent": "projects/ROCKNIX/devices/RK3566/packages/u-boot-Specific/patches/001-fix-defconfig.patch",
+      "mode": "100644",
+      "literal_sha256": "f5d1fc9e4c0a98741038635d241521b961560966213a3d94ff4d66c95f420b80",
+      "content_sha256": "f5d1fc9e4c0a98741038635d241521b961560966213a3d94ff4d66c95f420b80",
+      "rendered_sha256": "f5d1fc9e4c0a98741038635d241521b961560966213a3d94ff4d66c95f420b80",
+      "targets": [
+        "configs/quartz64-a-rk3566_defconfig"
+      ],
+      "backend": "patch",
+      "index": 1,
+      "native": true,
+      "normal_called": true,
+      "normal": {
+        "argv": [
+          "patch",
+          "-d",
+          "/workspace/tmp/m6-t43/G008-001-candidate-kf573dpd",
+          "-p1"
+        ],
+        "start": "2026-11-02T21:55:19.270441+00:00",
+        "end": "2026-11-02T21:55:19.271489+00:00",
+        "exit": 0,
+        "stdout_sha256": "43a2b8dc5365367b5f71f1c63b76b29dc2d1d885eba58e7f4938ab0917bb07ca",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "output": "patching file configs/quartz64-a-rk3566_defconfig\nHunk #1 succeeded at 14 (offset 1 line).\n",
+        "error": ""
+      },
+      "input_digest": "2264d9ca8c4bd1bee57b5d33870e4d9480e80c21067690cba038edc33e618ebd",
+      "output_digest": "7646ff3852acf7d28f5e51dd7c8da2a4f34fddb89e379a9568160feb212f8da9",
+      "candidate_snapshot": {
+        "arch/arm/dts/rk3566-quartz64-a-u-boot.dtsi": {
+          "type": "file",
+          "mode": "0o664",
+          "sha256": "d9bf83965daaa642bae09a35446088d3eda50260b616ad2d0591b3d7ee322d7a",
+          "bytes": 536
+        },
+        "configs/quartz64-a-rk3566_defconfig": {
+          "type": "file",
+          "mode": "0o664",
+          "sha256": "ebb0ede10ed08c92d1b08f2b315333e6ff38e5d48121dec055364166a3de0558",
+          "bytes": 2531
+        },
+        "configs/quartz64-a-rk3566_defconfig.orig": {
+          "type": "file",
+          "mode": "0o664",
+          "sha256": "867e17388f847912dd3a98d2d28688201d661d7e81b2e1c84ab5d5985615f04e",
+          "bytes": 2483
+        }
+      },
+      "candidate_root": "/workspace/tmp/m6-t43/G008-001-candidate-kf573dpd",
+      "status": "offset",
+      "promoted": true
+    },
+    {
+      "path": "projects/ROCKNIX/devices/RK3566/packages/u-boot-Specific/patches/002-boot-order.patch",
+      "referent": "projects/ROCKNIX/devices/RK3566/packages/u-boot-Specific/patches/002-boot-order.patch",
+      "mode": "100644",
+      "literal_sha256": "ccf8dd2e6025448608f6c11111fcf8fe7a884edbdaaecd47459e2ab299880cea",
+      "content_sha256": "ccf8dd2e6025448608f6c11111fcf8fe7a884edbdaaecd47459e2ab299880cea",
+      "rendered_sha256": "ccf8dd2e6025448608f6c11111fcf8fe7a884edbdaaecd47459e2ab299880cea",
+      "targets": [
+        "arch/arm/dts/rk3566-quartz64-a-u-boot.dtsi"
+      ],
+      "backend": "patch",
+      "index": 2,
+      "native": true,
+      "normal_called": true,
+      "normal": {
+        "argv": [
+          "patch",
+          "-d",
+          "/workspace/tmp/m6-t43/G008-002-candidate-x35fe_kg",
+          "-p1"
+        ],
+        "start": "2026-11-02T21:55:19.272343+00:00",
+        "end": "2026-11-02T21:55:19.273367+00:00",
+        "exit": 0,
+        "stdout_sha256": "dff19f1d50155e01f7e84e59d14031450c70086051e2a644884f609a237773dc",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "output": "patching file arch/arm/dts/rk3566-quartz64-a-u-boot.dtsi\n",
+        "error": ""
+      },
+      "input_digest": "7646ff3852acf7d28f5e51dd7c8da2a4f34fddb89e379a9568160feb212f8da9",
+      "output_digest": "d204671d52ac995b2ad79cb70220b789db2f92a5368782c93d4f5d46c4860832",
+      "candidate_snapshot": {
+        "arch/arm/dts/rk3566-quartz64-a-u-boot.dtsi": {
+          "type": "file",
+          "mode": "0o664",
+          "sha256": "a2b4f6f2e02f3ddbf49e8df6dd1f690351ae3d94138091778502170c7709eeab",
+          "bytes": 601
+        },
+        "configs/quartz64-a-rk3566_defconfig": {
+          "type": "file",
+          "mode": "0o664",
+          "sha256": "ebb0ede10ed08c92d1b08f2b315333e6ff38e5d48121dec055364166a3de0558",
+          "bytes": 2531
+        },
+        "configs/quartz64-a-rk3566_defconfig.orig": {
+          "type": "file",
+          "mode": "0o664",
+          "sha256": "867e17388f847912dd3a98d2d28688201d661d7e81b2e1c84ab5d5985615f04e",
+          "bytes": 2483
+        }
+      },
+      "candidate_root": "/workspace/tmp/m6-t43/G008-002-candidate-x35fe_kg",
+      "status": "applies",
+      "promoted": true
+    }
+  ],
+  "input_snapshot": {
+    "arch/arm/dts/rk3566-quartz64-a-u-boot.dtsi": {
+      "type": "file",
+      "mode": "0o664",
+      "sha256": "d9bf83965daaa642bae09a35446088d3eda50260b616ad2d0591b3d7ee322d7a",
+      "bytes": 536
+    },
+    "configs/quartz64-a-rk3566_defconfig": {
+      "type": "file",
+      "mode": "0o664",
+      "sha256": "867e17388f847912dd3a98d2d28688201d661d7e81b2e1c84ab5d5985615f04e",
+      "bytes": 2483
+    }
+  },
+  "limits": [],
+  "cache_observations": [
+    {
+      "path": "/workspace/cache/rocknix-sources/u-boot-Specific/u-boot-Specific-v2026.01.tar.gz",
+      "sha256": "03bb43c58d2343ee48dd191e0f181f0108425b179d84519add3a977071c3f654",
+      "expected": "03bb43c58d2343ee48dd191e0f181f0108425b179d84519add3a977071c3f654"
+    }
+  ],
+  "archive": {
+    "path": "/workspace/cache/rocknix-sources/u-boot-Specific/u-boot-Specific-v2026.01.tar.gz",
+    "sha256": "03bb43c58d2343ee48dd191e0f181f0108425b179d84519add3a977071c3f654",
+    "recipe_url": "https://github.com/u-boot/u-boot/archive/v2026.01.tar.gz"
+  },
+  "stack": [
+    {
+      "path": "projects/ROCKNIX/devices/RK3566/packages/u-boot-Specific/patches/001-fix-defconfig.patch",
+      "referent": "projects/ROCKNIX/devices/RK3566/packages/u-boot-Specific/patches/001-fix-defconfig.patch",
+      "mode": "100644",
+      "literal_sha256": "f5d1fc9e4c0a98741038635d241521b961560966213a3d94ff4d66c95f420b80",
+      "content_sha256": "f5d1fc9e4c0a98741038635d241521b961560966213a3d94ff4d66c95f420b80",
+      "rendered_sha256": "f5d1fc9e4c0a98741038635d241521b961560966213a3d94ff4d66c95f420b80",
+      "targets": [
+        "configs/quartz64-a-rk3566_defconfig"
+      ],
+      "backend": "patch"
+    },
+    {
+      "path": "projects/ROCKNIX/devices/RK3566/packages/u-boot-Specific/patches/002-boot-order.patch",
+      "referent": "projects/ROCKNIX/devices/RK3566/packages/u-boot-Specific/patches/002-boot-order.patch",
+      "mode": "100644",
+      "literal_sha256": "ccf8dd2e6025448608f6c11111fcf8fe7a884edbdaaecd47459e2ab299880cea",
+      "content_sha256": "ccf8dd2e6025448608f6c11111fcf8fe7a884edbdaaecd47459e2ab299880cea",
+      "rendered_sha256": "ccf8dd2e6025448608f6c11111fcf8fe7a884edbdaaecd47459e2ab299880cea",
+      "targets": [
+        "arch/arm/dts/rk3566-quartz64-a-u-boot.dtsi"
+      ],
+      "backend": "patch"
+    }
+  ],
+  "stack_sha256": "b80d10b1ff7967b069e67af4c6564d22edefb5ddbdab75ea82c3450a8176bf33",
+  "projection": {
+    "archive_header_count": 39976,
+    "archive_header_sha256": "e3a827be149553f979b6adfd2e815bae962d24ee44c7528c7eeee9071a5ba208",
+    "projected_members": {
+      "arch/arm/dts/rk3566-quartz64-a-u-boot.dtsi": {
+        "type": "file",
+        "mode": "0o664",
+        "sha256": "d9bf83965daaa642bae09a35446088d3eda50260b616ad2d0591b3d7ee322d7a",
+        "bytes": 536
+      },
+      "configs/quartz64-a-rk3566_defconfig": {
+        "type": "file",
+        "mode": "0o664",
+        "sha256": "867e17388f847912dd3a98d2d28688201d661d7e81b2e1c84ab5d5985615f04e",
+        "bytes": 2483
+      }
+    },
+    "absent_targets": [],
+    "projection_root": "/workspace/tmp/m6-t43/source-members-3u9nbb1b"
+  },
+  "status": "applies",
+  "final_prefix_root": "/workspace/tmp/m6-t43/G008-002-candidate-x35fe_kg",
+  "final_prefix_snapshot": {
+    "arch/arm/dts/rk3566-quartz64-a-u-boot.dtsi": {
+      "type": "file",
+      "mode": "0o664",
+      "sha256": "a2b4f6f2e02f3ddbf49e8df6dd1f690351ae3d94138091778502170c7709eeab",
+      "bytes": 601
+    },
+    "configs/quartz64-a-rk3566_defconfig": {
+      "type": "file",
+      "mode": "0o664",
+      "sha256": "ebb0ede10ed08c92d1b08f2b315333e6ff38e5d48121dec055364166a3de0558",
+      "bytes": 2531
+    },
+    "configs/quartz64-a-rk3566_defconfig.orig": {
+      "type": "file",
+      "mode": "0o664",
+      "sha256": "867e17388f847912dd3a98d2d28688201d661d7e81b2e1c84ab5d5985615f04e",
+      "bytes": 2483
+    }
+  },
+  "finished": "2026-11-02T21:55:19.273908+00:00"
+}

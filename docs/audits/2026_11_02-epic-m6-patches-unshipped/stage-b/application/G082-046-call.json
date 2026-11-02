@@ -1,0 +1,15 @@
+{
+  "argv": [
+    "patch",
+    "-d",
+    "/workspace/tmp/m6-t43/G082-046-candidate-ha9rdm3s",
+    "-p1"
+  ],
+  "start": "2026-11-02T21:56:11.171928+00:00",
+  "end": "2026-11-02T21:56:11.175228+00:00",
+  "exit": 0,
+  "stdout_sha256": "9512a5fcc93c26d78f58851856cb182f5da4a9f54c3216a74e367ca0a6af654d",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "output": "patching file arch/arm64/boot/dts/qcom/sm8250.dtsi\nHunk #1 succeeded at 3255 (offset 105 lines).\npatching file drivers/bluetooth/hci_qca.c\nHunk #1 succeeded at 860 (offset 3 lines).\nHunk #2 succeeded at 878 (offset 3 lines).\nHunk #3 succeeded at 1288 (offset 7 lines).\npatching file drivers/clk/qcom/clk-alpha-pll.c\nHunk #1 succeeded at 1820 (offset 4 lines).\npatching file drivers/firmware/psci/psci.c\npatching file drivers/remoteproc/remoteproc_core.c\nHunk #1 succeeded at 1291 (offset -10 lines).\npatching file drivers/usb/typec/tcpm/qcom/qcom_pmic_typec_pdphy.c\nHunk #1 succeeded at 379 (offset -1 lines).\npatching file net/core/sock.c\nHunk #1 succeeded at 1566 (offset 12 lines).\nHunk #2 succeeded at 2002 (offset 12 lines).\npatching file sound/soc/codecs/lpass-va-macro.c\nHunk #1 succeeded at 1565 (offset 34 lines).\npatching file sound/soc/qcom/qdsp6/q6asm.c\nHunk #1 succeeded at 658 with fuzz 2 (offset 3 lines).\nHunk #2 succeeded at 779 (offset -3 lines).\n",
+  "error": ""
+}

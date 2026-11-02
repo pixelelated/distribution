@@ -1,0 +1,52 @@
+{
+  "id": "G010",
+  "census": {
+    "id": "G010",
+    "recipe": "projects/ROCKNIX/devices/RK3588/packages/u-boot/package.mk",
+    "recipe_sha256": "0ec83ad33ec42230ca75760ebc521e6df27dffabbc884c7b6de1e04c28ae2fef",
+    "owner": [
+      "devices-unshipped"
+    ],
+    "consumer": "RK3588-aarch64",
+    "device": "RK3588",
+    "arch": "aarch64",
+    "target_cpu": "cortex-a76.cortex-a55",
+    "patch_arch": "aarch64",
+    "LINUX": "unset in clean default source config",
+    "batteryplus": "no or unset; exact yes predicate false",
+    "name": "u-boot",
+    "pin": "e99376f7dd01e310a0874459a1fe7535be431f43",
+    "url": "https://github.com/ROCKNIX/rk3588-uboot/archive/e99376f7dd01e310a0874459a1fe7535be431f43.tar.gz",
+    "expected_sha256": "045519a0eb5471697e09dca903450298897ab9cc058cf371bacc03f334b3dd0e",
+    "selectors": [],
+    "ordered_pattern_directories": [
+      "projects/ROCKNIX/devices/RK3588/packages/u-boot/patches",
+      "projects/ROCKNIX/devices/RK3588/packages/u-boot/patches/aarch64",
+      "projects/ROCKNIX/devices/RK3588/packages/u-boot/patches/e99376f7dd01e310a0874459a1fe7535be431f43",
+      "projects/ROCKNIX/devices/RK3588/packages/u-boot/patches/e99376f7dd01e310a0874459a1fe7535be431f43/aarch64",
+      "projects/ROCKNIX/patches/u-boot",
+      "projects/ROCKNIX/patches/u-boot/aarch64",
+      "projects/ROCKNIX/patches/u-boot/e99376f7dd01e310a0874459a1fe7535be431f43",
+      "projects/ROCKNIX/devices/RK3588/patches/u-boot"
+    ],
+    "stack": [
+      "projects/ROCKNIX/devices/RK3588/packages/u-boot/patches/01-fix-building.patch"
+    ],
+    "native_paths": [
+      "projects/ROCKNIX/devices/RK3588/packages/u-boot/patches/01-fix-building.patch"
+    ],
+    "config_paths": [],
+    "cache_candidates": [],
+    "preimage_limits": [],
+    "source_only": true,
+    "runtime": false
+  },
+  "started": "2026-11-02T21:55:19.274084+00:00",
+  "rows": [],
+  "input_snapshot": {},
+  "limits": [
+    "exact source archive absent from inspected package cache directory"
+  ],
+  "cache_observations": [],
+  "status": "open-item"
+}

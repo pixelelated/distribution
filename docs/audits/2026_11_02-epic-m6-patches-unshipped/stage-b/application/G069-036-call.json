@@ -1,0 +1,15 @@
+{
+  "argv": [
+    "patch",
+    "-d",
+    "/workspace/tmp/m6-t43/G069-036-candidate-odnap9p7",
+    "-p1"
+  ],
+  "start": "2026-11-02T21:55:36.329171+00:00",
+  "end": "2026-11-02T21:55:36.330531+00:00",
+  "exit": 0,
+  "stdout_sha256": "c8582b3f5ca430c085cf6e28119e42e6c5f68000f6a18fe40e237cd3ddb3f417",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "output": "patching file sound/soc/codecs/Kconfig\nHunk #1 succeeded at 55 (offset -1 lines).\nHunk #2 succeeded at 733 (offset -5 lines).\npatching file sound/soc/codecs/Makefile\nHunk #1 succeeded at 48 (offset -1 lines).\nHunk #2 succeeded at 486 (offset 2 lines).\npatching file sound/soc/codecs/aw87391.c\n",
+  "error": ""
+}

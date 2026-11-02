@@ -1,0 +1,15 @@
+{
+  "argv": [
+    "patch",
+    "-d",
+    "/workspace/tmp/m6-t43/G069-004-candidate-_ctq_nms",
+    "-p1"
+  ],
+  "start": "2026-11-02T21:55:35.991195+00:00",
+  "end": "2026-11-02T21:55:35.993384+00:00",
+  "exit": 0,
+  "stdout_sha256": "74bde3fb02948773fefbf9b1cff1cbc82acbc62dfcfeabfe5dd3a78af8270c22",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "output": "patching file drivers/bluetooth/btrtl.c\nHunk #1 succeeded at 180 (offset 1 line).\nHunk #2 succeeded at 675 (offset 4 lines).\nHunk #3 succeeded at 1539 (offset 20 lines).\npatching file drivers/bluetooth/btusb.c\nHunk #1 succeeded at 785 (offset 120 lines).\n",
+  "error": ""
+}

@@ -1,0 +1,15 @@
+{
+  "argv": [
+    "patch",
+    "-d",
+    "/workspace/tmp/m6-t43/G079-018-candidate-de4n7h0x",
+    "-p1"
+  ],
+  "start": "2026-11-02T21:56:00.938488+00:00",
+  "end": "2026-11-02T21:56:00.940771+00:00",
+  "exit": 0,
+  "stdout_sha256": "511417b58d77f6980051a06b2fda2608117d3a185966e420187b49c16ab5bcfc",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "output": "patching file drivers/input/joystick/Kconfig\npatching file drivers/input/joystick/Makefile\npatching file drivers/input/joystick/mangmi.c\n",
+  "error": ""
+}

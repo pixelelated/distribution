@@ -1,0 +1,15 @@
+{
+  "argv": [
+    "patch",
+    "-d",
+    "/workspace/tmp/m6-t43/G065-032-candidate-u51maoty",
+    "-p1"
+  ],
+  "start": "2026-11-02T21:55:28.534736+00:00",
+  "end": "2026-11-02T21:55:28.535599+00:00",
+  "exit": 0,
+  "stdout_sha256": "ab68d0cc888bc704a575d862d5c3beef39dc0164fb9076e7c2b460513fb02c8c",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "output": "patching file drivers/clk/rockchip/clk-px30.c\nHunk #1 succeeded at 1019 with fuzz 1 (offset 20 lines).\nHunk #2 succeeded at 1079 (offset 20 lines).\nHunk #3 succeeded at 1117 (offset 28 lines).\n",
+  "error": ""
+}

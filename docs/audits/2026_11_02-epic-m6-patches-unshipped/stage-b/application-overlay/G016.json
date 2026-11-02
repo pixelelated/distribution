@@ -1,0 +1,561 @@
+{
+  "id": "G016",
+  "census": {
+    "id": "G016",
+    "recipe": "projects/ROCKNIX/packages/apps/mangohud/package.mk",
+    "recipe_sha256": "eedb1ec41c904ed890d50d67f8a9dd922ff188e4dff32c80cca94230367cf826",
+    "owner": [
+      "image-packages"
+    ],
+    "consumer": "RK3326-aarch64",
+    "device": "RK3326",
+    "arch": "aarch64",
+    "target_cpu": "cortex-a35",
+    "patch_arch": "aarch64",
+    "LINUX": "unset in clean default source config",
+    "batteryplus": "no or unset; exact yes predicate false",
+    "name": "mangohud",
+    "pin": "992103e4fb744897826de04ea00a2f71e7018214",
+    "url": "https://github.com/flightlessmango/MangoHud/archive/992103e4fb744897826de04ea00a2f71e7018214.tar.gz",
+    "expected_sha256": "edd61f4716710681a9e3b535556831ee0c6187b7b6f90d29f8d8ac234448f4a5",
+    "selectors": [
+      "common",
+      "RK3326"
+    ],
+    "ordered_pattern_directories": [
+      "projects/ROCKNIX/packages/apps/mangohud/patches",
+      "projects/ROCKNIX/packages/apps/mangohud/patches/aarch64",
+      "projects/ROCKNIX/packages/apps/mangohud/patches/common",
+      "projects/ROCKNIX/packages/apps/mangohud/patches/RK3326",
+      "projects/ROCKNIX/packages/apps/mangohud/patches/992103e4fb744897826de04ea00a2f71e7018214",
+      "projects/ROCKNIX/packages/apps/mangohud/patches/992103e4fb744897826de04ea00a2f71e7018214/aarch64",
+      "projects/ROCKNIX/patches/mangohud",
+      "projects/ROCKNIX/patches/mangohud/aarch64",
+      "projects/ROCKNIX/patches/mangohud/common",
+      "projects/ROCKNIX/devices/RK3326/patches/mangohud/common",
+      "projects/ROCKNIX/patches/mangohud/RK3326",
+      "projects/ROCKNIX/devices/RK3326/patches/mangohud/RK3326",
+      "projects/ROCKNIX/patches/mangohud/992103e4fb744897826de04ea00a2f71e7018214",
+      "projects/ROCKNIX/devices/RK3326/patches/mangohud"
+    ],
+    "stack": [
+      "projects/ROCKNIX/packages/apps/mangohud/patches/common/0001-No-static-lib.patch",
+      "projects/ROCKNIX/packages/apps/mangohud/patches/common/0002-Battery-name.patch",
+      "projects/ROCKNIX/packages/apps/mangohud/patches/common/0003-RAM-name.patch",
+      "projects/ROCKNIX/packages/apps/mangohud/patches/RK3326/0001-RK3326-soc_thermal.patch",
+      "projects/ROCKNIX/packages/apps/mangohud/patches/RK3326/0002-RK3326-power-timeRemaining.patch"
+    ],
+    "native_paths": [
+      "projects/ROCKNIX/packages/apps/mangohud/patches/RK3326/0001-RK3326-soc_thermal.patch",
+      "projects/ROCKNIX/packages/apps/mangohud/patches/RK3326/0002-RK3326-power-timeRemaining.patch"
+    ],
+    "config_paths": [],
+    "cache_candidates": [
+      "/workspace/cache/rocknix-sources/mangohud/mangohud-992103e4fb744897826de04ea00a2f71e7018214.tar.gz"
+    ],
+    "preimage_limits": [],
+    "source_only": true,
+    "runtime": false,
+    "source_overlays": [
+      {
+        "path": "projects/ROCKNIX/packages/apps/mangohud/sources/mangohud_set",
+        "relative": "mangohud_set",
+        "mode": "100644",
+        "oid": "a086a4d0f7895be186e89baea871b9ba941d8620"
+      }
+    ]
+  },
+  "started": "2026-11-02T21:57:58.910606+00:00",
+  "rows": [
+    {
+      "path": "projects/ROCKNIX/packages/apps/mangohud/patches/common/0001-No-static-lib.patch",
+      "referent": "projects/ROCKNIX/packages/apps/mangohud/patches/common/0001-No-static-lib.patch",
+      "mode": "100644",
+      "literal_sha256": "117bd8e8f4ef37c4b375f5b0390927bbee3866b05cb4b8c382e62f70c4ef5328",
+      "content_sha256": "117bd8e8f4ef37c4b375f5b0390927bbee3866b05cb4b8c382e62f70c4ef5328",
+      "rendered_sha256": "117bd8e8f4ef37c4b375f5b0390927bbee3866b05cb4b8c382e62f70c4ef5328",
+      "targets": [
+        "src/meson.build"
+      ],
+      "backend": "patch",
+      "index": 1,
+      "native": false,
+      "normal_called": true,
+      "normal": {
+        "argv": [
+          "patch",
+          "-d",
+          "/workspace/tmp/m6-t43/G016-001-candidate-xaoy3dqh",
+          "-p1"
+        ],
+        "start": "2026-11-02T21:57:58.990845+00:00",
+        "end": "2026-11-02T21:57:58.992745+00:00",
+        "exit": 0,
+        "stdout_sha256": "55184119d2e6f20e4c08e61bf9bfbec274b9fac3b33b119917f3ecbde2f8398b",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "output": "patching file src/meson.build\n",
+        "error": ""
+      },
+      "input_digest": "334653ffb362e8ac888780ddaed59b60d61ee87e6c4e6bf04c8c8b308d7ce777",
+      "output_digest": "ea0ec2e33ec672c64c999b14d7359999c89bf4223ca9ca2894542808c1edef6e",
+      "candidate_snapshot": {
+        "src/battery.cpp": {
+          "type": "file",
+          "mode": "0o664",
+          "sha256": "3769e5c453ef83efcdd8d57bc7b5ed723e9650b504f9aff3a8dbd0bf7fc13c73",
+          "bytes": 7286
+        },
+        "src/cpu.cpp": {
+          "type": "file",
+          "mode": "0o664",
+          "sha256": "d68c856a25514ac1e6a55599a3e5d4b266fc1cad6563938633fc2355d05dbb51",
+          "bytes": 29373
+        },
+        "src/hud_elements.cpp": {
+          "type": "file",
+          "mode": "0o664",
+          "sha256": "1fd21eaebf250a4f5a5e433f901aca91b7b9dec8bae9409f15a92fdd28b72be9",
+          "bytes": 95001
+        },
+        "src/meson.build": {
+          "type": "file",
+          "mode": "0o664",
+          "sha256": "42ec9a85d5a16d223e17b2a748b95665b7c794334665ff684bae02f57a1a7b91",
+          "bytes": 7792
+        }
+      },
+      "candidate_root": "/workspace/tmp/m6-t43/G016-001-candidate-xaoy3dqh",
+      "status": "applies",
+      "promoted": true
+    },
+    {
+      "path": "projects/ROCKNIX/packages/apps/mangohud/patches/common/0002-Battery-name.patch",
+      "referent": "projects/ROCKNIX/packages/apps/mangohud/patches/common/0002-Battery-name.patch",
+      "mode": "100644",
+      "literal_sha256": "7b1bb759b57a4e6ea8b67896a57ad0aaf0aa4032abbd9426e67b4811927f6b2c",
+      "content_sha256": "7b1bb759b57a4e6ea8b67896a57ad0aaf0aa4032abbd9426e67b4811927f6b2c",
+      "rendered_sha256": "7b1bb759b57a4e6ea8b67896a57ad0aaf0aa4032abbd9426e67b4811927f6b2c",
+      "targets": [
+        "src/battery.cpp"
+      ],
+      "backend": "patch",
+      "index": 2,
+      "native": false,
+      "normal_called": true,
+      "normal": {
+        "argv": [
+          "patch",
+          "-d",
+          "/workspace/tmp/m6-t43/G016-002-candidate-mm3d9znj",
+          "-p1"
+        ],
+        "start": "2026-11-02T21:57:58.993498+00:00",
+        "end": "2026-11-02T21:57:58.995362+00:00",
+        "exit": 0,
+        "stdout_sha256": "ed66c5f52e6bd1c0f4deb23c3896adc0ca365e4ab82c7e5216aae9274454a73a",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "output": "patching file src/battery.cpp\n",
+        "error": ""
+      },
+      "input_digest": "ea0ec2e33ec672c64c999b14d7359999c89bf4223ca9ca2894542808c1edef6e",
+      "output_digest": "dde740b0b8cc1b70c0305099d3a65b232736cc0937eb5efa54db9731e0d23d6b",
+      "candidate_snapshot": {
+        "src/battery.cpp": {
+          "type": "file",
+          "mode": "0o664",
+          "sha256": "b67227580608200ba1e8aaad7e37e6a709c0296048b7eb0476022cbb5df8d7cf",
+          "bytes": 7204
+        },
+        "src/cpu.cpp": {
+          "type": "file",
+          "mode": "0o664",
+          "sha256": "d68c856a25514ac1e6a55599a3e5d4b266fc1cad6563938633fc2355d05dbb51",
+          "bytes": 29373
+        },
+        "src/hud_elements.cpp": {
+          "type": "file",
+          "mode": "0o664",
+          "sha256": "1fd21eaebf250a4f5a5e433f901aca91b7b9dec8bae9409f15a92fdd28b72be9",
+          "bytes": 95001
+        },
+        "src/meson.build": {
+          "type": "file",
+          "mode": "0o664",
+          "sha256": "42ec9a85d5a16d223e17b2a748b95665b7c794334665ff684bae02f57a1a7b91",
+          "bytes": 7792
+        }
+      },
+      "candidate_root": "/workspace/tmp/m6-t43/G016-002-candidate-mm3d9znj",
+      "status": "applies",
+      "promoted": true
+    },
+    {
+      "path": "projects/ROCKNIX/packages/apps/mangohud/patches/common/0003-RAM-name.patch",
+      "referent": "projects/ROCKNIX/packages/apps/mangohud/patches/common/0003-RAM-name.patch",
+      "mode": "100644",
+      "literal_sha256": "62eeb550fd1f46699b75201d767224ad072dddeb6d55771ad78d72b14d0231a5",
+      "content_sha256": "62eeb550fd1f46699b75201d767224ad072dddeb6d55771ad78d72b14d0231a5",
+      "rendered_sha256": "62eeb550fd1f46699b75201d767224ad072dddeb6d55771ad78d72b14d0231a5",
+      "targets": [
+        "src/hud_elements.cpp"
+      ],
+      "backend": "patch",
+      "index": 3,
+      "native": false,
+      "normal_called": true,
+      "normal": {
+        "argv": [
+          "patch",
+          "-d",
+          "/workspace/tmp/m6-t43/G016-003-candidate-1h32mmw1",
+          "-p1"
+        ],
+        "start": "2026-11-02T21:57:58.996221+00:00",
+        "end": "2026-11-02T21:57:58.998068+00:00",
+        "exit": 0,
+        "stdout_sha256": "3f26b802e3e3ecae404b039913b5f9328605fd6818bffd43c398e37990cb45b1",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "output": "patching file src/hud_elements.cpp\n",
+        "error": ""
+      },
+      "input_digest": "dde740b0b8cc1b70c0305099d3a65b232736cc0937eb5efa54db9731e0d23d6b",
+      "output_digest": "aae66430977508df411f1cab73951845a28fb58fa220e00c0e32fcc53e8c3a1e",
+      "candidate_snapshot": {
+        "src/battery.cpp": {
+          "type": "file",
+          "mode": "0o664",
+          "sha256": "b67227580608200ba1e8aaad7e37e6a709c0296048b7eb0476022cbb5df8d7cf",
+          "bytes": 7204
+        },
+        "src/cpu.cpp": {
+          "type": "file",
+          "mode": "0o664",
+          "sha256": "d68c856a25514ac1e6a55599a3e5d4b266fc1cad6563938633fc2355d05dbb51",
+          "bytes": 29373
+        },
+        "src/hud_elements.cpp": {
+          "type": "file",
+          "mode": "0o664",
+          "sha256": "a9a4a9f0b4d1c1b7d1bc6c9781f2a1171475b13c1c767f029241a63f8a3e8047",
+          "bytes": 95000
+        },
+        "src/meson.build": {
+          "type": "file",
+          "mode": "0o664",
+          "sha256": "42ec9a85d5a16d223e17b2a748b95665b7c794334665ff684bae02f57a1a7b91",
+          "bytes": 7792
+        }
+      },
+      "candidate_root": "/workspace/tmp/m6-t43/G016-003-candidate-1h32mmw1",
+      "status": "applies",
+      "promoted": true
+    },
+    {
+      "path": "projects/ROCKNIX/packages/apps/mangohud/patches/RK3326/0001-RK3326-soc_thermal.patch",
+      "referent": "projects/ROCKNIX/packages/apps/mangohud/patches/RK3326/0001-RK3326-soc_thermal.patch",
+      "mode": "100644",
+      "literal_sha256": "1c5eb0082f1a8e35760b9d12bacc75d65f950d2aaa11c86415a79f5d9bdc1657",
+      "content_sha256": "1c5eb0082f1a8e35760b9d12bacc75d65f950d2aaa11c86415a79f5d9bdc1657",
+      "rendered_sha256": "1c5eb0082f1a8e35760b9d12bacc75d65f950d2aaa11c86415a79f5d9bdc1657",
+      "targets": [
+        "src/cpu.cpp"
+      ],
+      "backend": "patch",
+      "index": 4,
+      "native": true,
+      "normal_called": true,
+      "normal": {
+        "argv": [
+          "patch",
+          "-d",
+          "/workspace/tmp/m6-t43/G016-004-candidate-r07h6dfp",
+          "-p1"
+        ],
+        "start": "2026-11-02T21:57:58.998853+00:00",
+        "end": "2026-11-02T21:57:58.999637+00:00",
+        "exit": 0,
+        "stdout_sha256": "36aeef40ff1002e470134ddcf97a9c539b84d1054a9d993b16180e813a81b875",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "output": "patching file src/cpu.cpp\n",
+        "error": ""
+      },
+      "input_digest": "aae66430977508df411f1cab73951845a28fb58fa220e00c0e32fcc53e8c3a1e",
+      "output_digest": "6913358cc2ff25140f21d7925b0f76d6155d247962fa25fd7b5a7981a4c098c5",
+      "candidate_snapshot": {
+        "src/battery.cpp": {
+          "type": "file",
+          "mode": "0o664",
+          "sha256": "b67227580608200ba1e8aaad7e37e6a709c0296048b7eb0476022cbb5df8d7cf",
+          "bytes": 7204
+        },
+        "src/cpu.cpp": {
+          "type": "file",
+          "mode": "0o664",
+          "sha256": "f1378662bbdc94a8507a0e5bd336e4839738670f5354433f7233860ded6fc067",
+          "bytes": 29491
+        },
+        "src/hud_elements.cpp": {
+          "type": "file",
+          "mode": "0o664",
+          "sha256": "a9a4a9f0b4d1c1b7d1bc6c9781f2a1171475b13c1c767f029241a63f8a3e8047",
+          "bytes": 95000
+        },
+        "src/meson.build": {
+          "type": "file",
+          "mode": "0o664",
+          "sha256": "42ec9a85d5a16d223e17b2a748b95665b7c794334665ff684bae02f57a1a7b91",
+          "bytes": 7792
+        }
+      },
+      "candidate_root": "/workspace/tmp/m6-t43/G016-004-candidate-r07h6dfp",
+      "status": "applies",
+      "promoted": true
+    },
+    {
+      "path": "projects/ROCKNIX/packages/apps/mangohud/patches/RK3326/0002-RK3326-power-timeRemaining.patch",
+      "referent": "projects/ROCKNIX/packages/apps/mangohud/patches/RK3326/0002-RK3326-power-timeRemaining.patch",
+      "mode": "100644",
+      "literal_sha256": "2bcd233546f73b356955f964a51d7a156a9c8d3533150ac23eb4e67bb2afe0af",
+      "content_sha256": "2bcd233546f73b356955f964a51d7a156a9c8d3533150ac23eb4e67bb2afe0af",
+      "rendered_sha256": "2bcd233546f73b356955f964a51d7a156a9c8d3533150ac23eb4e67bb2afe0af",
+      "targets": [
+        "src/battery.cpp"
+      ],
+      "backend": "patch",
+      "index": 5,
+      "native": true,
+      "normal_called": true,
+      "normal": {
+        "argv": [
+          "patch",
+          "-d",
+          "/workspace/tmp/m6-t43/G016-005-candidate-f3ze177n",
+          "-p1"
+        ],
+        "start": "2026-11-02T21:57:59.000482+00:00",
+        "end": "2026-11-02T21:57:59.002176+00:00",
+        "exit": 0,
+        "stdout_sha256": "5c25115edc1a69f8caaf88b36504f71de1a8bf071abfb8b86e964864bdbfef21",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "output": "patching file src/battery.cpp\nHunk #1 succeeded at 94 (offset 2 lines).\nHunk #2 succeeded at 155 (offset 2 lines).\n",
+        "error": ""
+      },
+      "input_digest": "6913358cc2ff25140f21d7925b0f76d6155d247962fa25fd7b5a7981a4c098c5",
+      "output_digest": "c5125f0f9acc239872ea3ac040a46ecbcbe54c54d8017139dc0f639c85b97496",
+      "candidate_snapshot": {
+        "src/battery.cpp": {
+          "type": "file",
+          "mode": "0o664",
+          "sha256": "27455bcbff1db8c163f961f8ddb5967d304a87d5ebcb2ef823ba6ef7ab4e6fd2",
+          "bytes": 7204
+        },
+        "src/battery.cpp.orig": {
+          "type": "file",
+          "mode": "0o664",
+          "sha256": "b67227580608200ba1e8aaad7e37e6a709c0296048b7eb0476022cbb5df8d7cf",
+          "bytes": 7204
+        },
+        "src/cpu.cpp": {
+          "type": "file",
+          "mode": "0o664",
+          "sha256": "f1378662bbdc94a8507a0e5bd336e4839738670f5354433f7233860ded6fc067",
+          "bytes": 29491
+        },
+        "src/hud_elements.cpp": {
+          "type": "file",
+          "mode": "0o664",
+          "sha256": "a9a4a9f0b4d1c1b7d1bc6c9781f2a1171475b13c1c767f029241a63f8a3e8047",
+          "bytes": 95000
+        },
+        "src/meson.build": {
+          "type": "file",
+          "mode": "0o664",
+          "sha256": "42ec9a85d5a16d223e17b2a748b95665b7c794334665ff684bae02f57a1a7b91",
+          "bytes": 7792
+        }
+      },
+      "candidate_root": "/workspace/tmp/m6-t43/G016-005-candidate-f3ze177n",
+      "status": "offset",
+      "promoted": true
+    }
+  ],
+  "input_snapshot": {
+    "src/battery.cpp": {
+      "type": "file",
+      "mode": "0o664",
+      "sha256": "3769e5c453ef83efcdd8d57bc7b5ed723e9650b504f9aff3a8dbd0bf7fc13c73",
+      "bytes": 7286
+    },
+    "src/cpu.cpp": {
+      "type": "file",
+      "mode": "0o664",
+      "sha256": "d68c856a25514ac1e6a55599a3e5d4b266fc1cad6563938633fc2355d05dbb51",
+      "bytes": 29373
+    },
+    "src/hud_elements.cpp": {
+      "type": "file",
+      "mode": "0o664",
+      "sha256": "1fd21eaebf250a4f5a5e433f901aca91b7b9dec8bae9409f15a92fdd28b72be9",
+      "bytes": 95001
+    },
+    "src/meson.build": {
+      "type": "file",
+      "mode": "0o664",
+      "sha256": "b4b611e3a067113a97d26659883a0f00ded210296398e52f0aeeca779cc04939",
+      "bytes": 7813
+    }
+  },
+  "limits": [],
+  "cache_observations": [
+    {
+      "path": "/workspace/cache/rocknix-sources/mangohud/mangohud-992103e4fb744897826de04ea00a2f71e7018214.tar.gz",
+      "sha256": "edd61f4716710681a9e3b535556831ee0c6187b7b6f90d29f8d8ac234448f4a5",
+      "expected": "edd61f4716710681a9e3b535556831ee0c6187b7b6f90d29f8d8ac234448f4a5"
+    }
+  ],
+  "archive": {
+    "path": "/workspace/cache/rocknix-sources/mangohud/mangohud-992103e4fb744897826de04ea00a2f71e7018214.tar.gz",
+    "sha256": "edd61f4716710681a9e3b535556831ee0c6187b7b6f90d29f8d8ac234448f4a5",
+    "recipe_url": "https://github.com/flightlessmango/MangoHud/archive/992103e4fb744897826de04ea00a2f71e7018214.tar.gz"
+  },
+  "stack": [
+    {
+      "path": "projects/ROCKNIX/packages/apps/mangohud/patches/common/0001-No-static-lib.patch",
+      "referent": "projects/ROCKNIX/packages/apps/mangohud/patches/common/0001-No-static-lib.patch",
+      "mode": "100644",
+      "literal_sha256": "117bd8e8f4ef37c4b375f5b0390927bbee3866b05cb4b8c382e62f70c4ef5328",
+      "content_sha256": "117bd8e8f4ef37c4b375f5b0390927bbee3866b05cb4b8c382e62f70c4ef5328",
+      "rendered_sha256": "117bd8e8f4ef37c4b375f5b0390927bbee3866b05cb4b8c382e62f70c4ef5328",
+      "targets": [
+        "src/meson.build"
+      ],
+      "backend": "patch"
+    },
+    {
+      "path": "projects/ROCKNIX/packages/apps/mangohud/patches/common/0002-Battery-name.patch",
+      "referent": "projects/ROCKNIX/packages/apps/mangohud/patches/common/0002-Battery-name.patch",
+      "mode": "100644",
+      "literal_sha256": "7b1bb759b57a4e6ea8b67896a57ad0aaf0aa4032abbd9426e67b4811927f6b2c",
+      "content_sha256": "7b1bb759b57a4e6ea8b67896a57ad0aaf0aa4032abbd9426e67b4811927f6b2c",
+      "rendered_sha256": "7b1bb759b57a4e6ea8b67896a57ad0aaf0aa4032abbd9426e67b4811927f6b2c",
+      "targets": [
+        "src/battery.cpp"
+      ],
+      "backend": "patch"
+    },
+    {
+      "path": "projects/ROCKNIX/packages/apps/mangohud/patches/common/0003-RAM-name.patch",
+      "referent": "projects/ROCKNIX/packages/apps/mangohud/patches/common/0003-RAM-name.patch",
+      "mode": "100644",
+      "literal_sha256": "62eeb550fd1f46699b75201d767224ad072dddeb6d55771ad78d72b14d0231a5",
+      "content_sha256": "62eeb550fd1f46699b75201d767224ad072dddeb6d55771ad78d72b14d0231a5",
+      "rendered_sha256": "62eeb550fd1f46699b75201d767224ad072dddeb6d55771ad78d72b14d0231a5",
+      "targets": [
+        "src/hud_elements.cpp"
+      ],
+      "backend": "patch"
+    },
+    {
+      "path": "projects/ROCKNIX/packages/apps/mangohud/patches/RK3326/0001-RK3326-soc_thermal.patch",
+      "referent": "projects/ROCKNIX/packages/apps/mangohud/patches/RK3326/0001-RK3326-soc_thermal.patch",
+      "mode": "100644",
+      "literal_sha256": "1c5eb0082f1a8e35760b9d12bacc75d65f950d2aaa11c86415a79f5d9bdc1657",
+      "content_sha256": "1c5eb0082f1a8e35760b9d12bacc75d65f950d2aaa11c86415a79f5d9bdc1657",
+      "rendered_sha256": "1c5eb0082f1a8e35760b9d12bacc75d65f950d2aaa11c86415a79f5d9bdc1657",
+      "targets": [
+        "src/cpu.cpp"
+      ],
+      "backend": "patch"
+    },
+    {
+      "path": "projects/ROCKNIX/packages/apps/mangohud/patches/RK3326/0002-RK3326-power-timeRemaining.patch",
+      "referent": "projects/ROCKNIX/packages/apps/mangohud/patches/RK3326/0002-RK3326-power-timeRemaining.patch",
+      "mode": "100644",
+      "literal_sha256": "2bcd233546f73b356955f964a51d7a156a9c8d3533150ac23eb4e67bb2afe0af",
+      "content_sha256": "2bcd233546f73b356955f964a51d7a156a9c8d3533150ac23eb4e67bb2afe0af",
+      "rendered_sha256": "2bcd233546f73b356955f964a51d7a156a9c8d3533150ac23eb4e67bb2afe0af",
+      "targets": [
+        "src/battery.cpp"
+      ],
+      "backend": "patch"
+    }
+  ],
+  "stack_sha256": "783913a68bc91abdf3ea1ead8a9dbebca742e0dd32d76ab09569d2c352ba4921",
+  "projection": {
+    "archive_header_count": 225,
+    "archive_header_sha256": "528c80db0379f57428fff622b0b0842489725dd6f7f5eb466e04e842e048a068",
+    "projected_members": {
+      "src/battery.cpp": {
+        "type": "file",
+        "mode": "0o664",
+        "sha256": "3769e5c453ef83efcdd8d57bc7b5ed723e9650b504f9aff3a8dbd0bf7fc13c73",
+        "bytes": 7286
+      },
+      "src/cpu.cpp": {
+        "type": "file",
+        "mode": "0o664",
+        "sha256": "d68c856a25514ac1e6a55599a3e5d4b266fc1cad6563938633fc2355d05dbb51",
+        "bytes": 29373
+      },
+      "src/hud_elements.cpp": {
+        "type": "file",
+        "mode": "0o664",
+        "sha256": "1fd21eaebf250a4f5a5e433f901aca91b7b9dec8bae9409f15a92fdd28b72be9",
+        "bytes": 95001
+      },
+      "src/meson.build": {
+        "type": "file",
+        "mode": "0o664",
+        "sha256": "b4b611e3a067113a97d26659883a0f00ded210296398e52f0aeeca779cc04939",
+        "bytes": 7813
+      }
+    },
+    "absent_targets": [],
+    "projection_root": "/workspace/tmp/m6-t43/source-members-drp3dz_v"
+  },
+  "overlay_evidence": [
+    {
+      "path": "projects/ROCKNIX/packages/apps/mangohud/sources/mangohud_set",
+      "relative": "mangohud_set",
+      "mode": "100644",
+      "oid": "a086a4d0f7895be186e89baea871b9ba941d8620",
+      "sha256": "d10f8fc3feb459575dcab711635ca66fd53b26d40f80032041a898ddef02c235",
+      "projected": false
+    }
+  ],
+  "status": "applies",
+  "final_prefix_root": "/workspace/tmp/m6-t43/G016-005-candidate-f3ze177n",
+  "final_prefix_snapshot": {
+    "src/battery.cpp": {
+      "type": "file",
+      "mode": "0o664",
+      "sha256": "27455bcbff1db8c163f961f8ddb5967d304a87d5ebcb2ef823ba6ef7ab4e6fd2",
+      "bytes": 7204
+    },
+    "src/battery.cpp.orig": {
+      "type": "file",
+      "mode": "0o664",
+      "sha256": "b67227580608200ba1e8aaad7e37e6a709c0296048b7eb0476022cbb5df8d7cf",
+      "bytes": 7204
+    },
+    "src/cpu.cpp": {
+      "type": "file",
+      "mode": "0o664",
+      "sha256": "f1378662bbdc94a8507a0e5bd336e4839738670f5354433f7233860ded6fc067",
+      "bytes": 29491
+    },
+    "src/hud_elements.cpp": {
+      "type": "file",
+      "mode": "0o664",
+      "sha256": "a9a4a9f0b4d1c1b7d1bc6c9781f2a1171475b13c1c767f029241a63f8a3e8047",
+      "bytes": 95000
+    },
+    "src/meson.build": {
+      "type": "file",
+      "mode": "0o664",
+      "sha256": "42ec9a85d5a16d223e17b2a748b95665b7c794334665ff684bae02f57a1a7b91",
+      "bytes": 7792
+    }
+  },
+  "finished": "2026-11-02T21:57:59.002747+00:00"
+}

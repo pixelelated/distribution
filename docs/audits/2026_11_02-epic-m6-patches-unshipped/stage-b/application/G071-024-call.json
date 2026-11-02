@@ -1,0 +1,15 @@
+{
+  "argv": [
+    "patch",
+    "-d",
+    "/workspace/tmp/m6-t43/G071-024-candidate-4wmgrcms",
+    "-p1"
+  ],
+  "start": "2026-11-02T21:55:44.115554+00:00",
+  "end": "2026-11-02T21:55:44.117361+00:00",
+  "exit": 0,
+  "stdout_sha256": "351e1e3541b3f4d05af4ba1f8fb1b6699b3d0c33b1f29a655a8175f0d64a9b23",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "output": "patching file drivers/pci/controller/dwc/pcie-dw-rockchip.c\nHunk #1 succeeded at 711 (offset 4 lines).\nHunk #2 succeeded at 815 (offset 4 lines).\n",
+  "error": ""
+}

@@ -1,0 +1,15 @@
+{
+  "argv": [
+    "patch",
+    "-d",
+    "/workspace/tmp/m6-t43/G080-056-candidate-wsi5gt7b",
+    "-p1"
+  ],
+  "start": "2026-11-02T21:56:02.468800+00:00",
+  "end": "2026-11-02T21:56:02.469864+00:00",
+  "exit": 0,
+  "stdout_sha256": "b197be7c147b24efcbcb800f063b35ad1a3fa591df4d1e2f8c3fd702771db5ad",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "output": "patching file drivers/usb/typec/tcpm/fusb302.c\nHunk #1 succeeded at 405 (offset 1 line).\npatching file drivers/usb/typec/tcpm/fusb302_reg.h\n",
+  "error": ""
+}

@@ -1,0 +1,15 @@
+{
+  "argv": [
+    "patch",
+    "-d",
+    "/workspace/tmp/m6-t43/G080-023-candidate-04546dhd",
+    "-p1"
+  ],
+  "start": "2026-11-02T21:56:01.910662+00:00",
+  "end": "2026-11-02T21:56:01.911769+00:00",
+  "exit": 0,
+  "stdout_sha256": "0a81e2b762554d814ab13da4e9b4bc654794f86c9016866b8b839e94bd8452a8",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "output": "patching file arch/arm64/boot/dts/qcom/sm6115.dtsi\nHunk #1 succeeded at 3334 (offset 16 lines).\nHunk #2 succeeded at 3358 (offset 16 lines).\nHunk #3 succeeded at 3382 (offset 16 lines).\nHunk #4 succeeded at 3442 (offset 16 lines).\n",
+  "error": ""
+}

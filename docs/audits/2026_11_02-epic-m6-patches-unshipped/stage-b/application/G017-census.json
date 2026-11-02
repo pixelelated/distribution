@@ -1,0 +1,70 @@
+{
+  "id": "G017",
+  "census": {
+    "id": "G017",
+    "recipe": "projects/ROCKNIX/packages/apps/mangohud/package.mk",
+    "recipe_sha256": "eedb1ec41c904ed890d50d67f8a9dd922ff188e4dff32c80cca94230367cf826",
+    "owner": [
+      "image-packages"
+    ],
+    "consumer": "S922X-aarch64",
+    "device": "S922X",
+    "arch": "aarch64",
+    "target_cpu": "cortex-a73.cortex-a53",
+    "patch_arch": "aarch64",
+    "LINUX": "unset in clean default source config",
+    "batteryplus": "yes",
+    "name": "mangohud",
+    "pin": "992103e4fb744897826de04ea00a2f71e7018214",
+    "url": "https://github.com/flightlessmango/MangoHud/archive/992103e4fb744897826de04ea00a2f71e7018214.tar.gz",
+    "expected_sha256": "edd61f4716710681a9e3b535556831ee0c6187b7b6f90d29f8d8ac234448f4a5",
+    "selectors": [
+      "common",
+      "batteryplus",
+      "S922X"
+    ],
+    "ordered_pattern_directories": [
+      "projects/ROCKNIX/packages/apps/mangohud/patches",
+      "projects/ROCKNIX/packages/apps/mangohud/patches/aarch64",
+      "projects/ROCKNIX/packages/apps/mangohud/patches/common",
+      "projects/ROCKNIX/packages/apps/mangohud/patches/batteryplus",
+      "projects/ROCKNIX/packages/apps/mangohud/patches/S922X",
+      "projects/ROCKNIX/packages/apps/mangohud/patches/992103e4fb744897826de04ea00a2f71e7018214",
+      "projects/ROCKNIX/packages/apps/mangohud/patches/992103e4fb744897826de04ea00a2f71e7018214/aarch64",
+      "projects/ROCKNIX/patches/mangohud",
+      "projects/ROCKNIX/patches/mangohud/aarch64",
+      "projects/ROCKNIX/patches/mangohud/common",
+      "projects/ROCKNIX/devices/S922X/patches/mangohud/common",
+      "projects/ROCKNIX/patches/mangohud/batteryplus",
+      "projects/ROCKNIX/devices/S922X/patches/mangohud/batteryplus",
+      "projects/ROCKNIX/patches/mangohud/S922X",
+      "projects/ROCKNIX/devices/S922X/patches/mangohud/S922X",
+      "projects/ROCKNIX/patches/mangohud/992103e4fb744897826de04ea00a2f71e7018214",
+      "projects/ROCKNIX/devices/S922X/patches/mangohud"
+    ],
+    "stack": [
+      "projects/ROCKNIX/packages/apps/mangohud/patches/common/0001-No-static-lib.patch",
+      "projects/ROCKNIX/packages/apps/mangohud/patches/common/0002-Battery-name.patch",
+      "projects/ROCKNIX/packages/apps/mangohud/patches/common/0003-RAM-name.patch",
+      "projects/ROCKNIX/packages/apps/mangohud/patches/batteryplus/0001-batteryplus-capacity.patch"
+    ],
+    "native_paths": [
+      "projects/ROCKNIX/packages/apps/mangohud/patches/batteryplus/0001-batteryplus-capacity.patch"
+    ],
+    "config_paths": [],
+    "cache_candidates": [
+      "/workspace/cache/rocknix-sources/mangohud/mangohud-992103e4fb744897826de04ea00a2f71e7018214.tar.gz"
+    ],
+    "preimage_limits": [
+      "package sources/ overlay present; exact overlap/preimage not materialized"
+    ],
+    "source_only": true,
+    "runtime": false
+  },
+  "started": "2026-11-02T21:55:19.323347+00:00",
+  "rows": [],
+  "input_snapshot": {},
+  "limits": [
+    "package sources/ overlay present; exact overlap/preimage not materialized"
+  ]
+}

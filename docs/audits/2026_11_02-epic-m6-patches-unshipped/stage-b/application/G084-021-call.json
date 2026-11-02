@@ -1,0 +1,15 @@
+{
+  "argv": [
+    "patch",
+    "-d",
+    "/workspace/tmp/m6-t43/G084-021-candidate-z71mz3yk",
+    "-p1"
+  ],
+  "start": "2026-11-02T21:56:26.229230+00:00",
+  "end": "2026-11-02T21:56:26.230368+00:00",
+  "exit": 0,
+  "stdout_sha256": "8c2a8e8eb0d61f348ec74c19284ce58bd9cfcf4d4033d0f436bb5e6abd111744",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "output": "patching file drivers/net/wireless/ath/ath12k/core.h\npatching file drivers/net/wireless/ath/ath12k/wifi7/hal.c\npatching file drivers/net/wireless/ath/ath12k/wifi7/hw.c\npatching file drivers/net/wireless/ath/ath12k/wifi7/pci.c\n",
+  "error": ""
+}

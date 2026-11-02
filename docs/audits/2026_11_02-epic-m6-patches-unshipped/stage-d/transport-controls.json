@@ -1,0 +1,54 @@
+[
+  {
+    "name": "tampered",
+    "argv": [
+      "python3",
+      "/workspace/repos/pixelelated/distribution.worktrees/m6-patches-unshipped-690/docs/audits/2026_11_02-epic-m6-patches-unshipped/tools/transport.py",
+      "--fixture",
+      "/workspace/repos/pixelelated/distribution.worktrees/m6-patches-unshipped-690/docs/audits/2026_11_02-epic-m6-patches-unshipped/stage-d/transport-fixtures/tampered.json"
+    ],
+    "started": "2026-11-02T22:21:22.344814+00:00",
+    "finished": "2026-11-02T22:21:22.406604+00:00",
+    "exit": 1,
+    "program_sha256": "10f5e3eadaa70f3b62e392a98ffa69c83505078536549c3e60b78c21b1930885",
+    "fixture_sha256": "09dfba71deea63c7ba9efbc56515347f975908c71e9b01f4e51bf973a24ddd75",
+    "payload_sha256": "ad7010191d02fcb1e0a25ffdc28acc37e40fb9ff01d050f726ca60eef3cccf26",
+    "payload_missing_expected": false,
+    "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stderr_sha256": "3920fb412ead2ae3c6c6086c4791968ae35f8d292d0bbecfe932299ca157db75"
+  },
+  {
+    "name": "missing",
+    "argv": [
+      "python3",
+      "/workspace/repos/pixelelated/distribution.worktrees/m6-patches-unshipped-690/docs/audits/2026_11_02-epic-m6-patches-unshipped/tools/transport.py",
+      "--fixture",
+      "/workspace/repos/pixelelated/distribution.worktrees/m6-patches-unshipped-690/docs/audits/2026_11_02-epic-m6-patches-unshipped/stage-d/transport-fixtures/missing.json"
+    ],
+    "started": "2026-11-02T22:21:22.406677+00:00",
+    "finished": "2026-11-02T22:21:22.469924+00:00",
+    "exit": 1,
+    "program_sha256": "10f5e3eadaa70f3b62e392a98ffa69c83505078536549c3e60b78c21b1930885",
+    "fixture_sha256": "0da30487c01f46a8dca7849004d822d1d827440edd9a1b6e8e8b21cda3a14a73",
+    "payload_sha256": null,
+    "payload_missing_expected": true,
+    "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stderr_sha256": "eac42c6bc702273c86a46f27566df24bb37e4b42575c58c1c1c5a2105f6581dd"
+  },
+  {
+    "name": "positive",
+    "argv": [
+      "python3",
+      "/workspace/repos/pixelelated/distribution.worktrees/m6-patches-unshipped-690/docs/audits/2026_11_02-epic-m6-patches-unshipped/tools/transport.py"
+    ],
+    "started": "2026-11-02T22:21:22.469975+00:00",
+    "finished": "2026-11-02T22:21:22.501478+00:00",
+    "exit": 0,
+    "program_sha256": "10f5e3eadaa70f3b62e392a98ffa69c83505078536549c3e60b78c21b1930885",
+    "fixture_sha256": "5cad149f2c5cd575530eecb1313cbf46f6ce1537936af86d55ecc12bc4da5694",
+    "payload_sha256": null,
+    "payload_missing_expected": false,
+    "stdout_sha256": "8b510a978babc69f31dc9aafca42a241acc4e34007221bde843c09475b1cccd5",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  }
+]

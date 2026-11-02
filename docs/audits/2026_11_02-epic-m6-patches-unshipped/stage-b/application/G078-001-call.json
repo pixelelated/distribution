@@ -1,0 +1,15 @@
+{
+  "argv": [
+    "patch",
+    "-d",
+    "/workspace/tmp/m6-t43/G078-001-candidate-cn_j8wf_",
+    "-p1"
+  ],
+  "start": "2026-11-02T21:55:52.742568+00:00",
+  "end": "2026-11-02T21:55:52.743631+00:00",
+  "exit": 0,
+  "stdout_sha256": "b5aa7bcc79103dea482c72de8fe3c24885112ac11b218a1747a761cbfe91c082",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "output": "patching file drivers/input/Kconfig\npatching file drivers/input/Makefile\nHunk #1 succeeded at 10 with fuzz 1.\npatching file drivers/input/input-polldev.c\npatching file include/linux/input-polldev.h\n",
+  "error": ""
+}

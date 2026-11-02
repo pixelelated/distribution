@@ -1,0 +1,15 @@
+{
+  "argv": [
+    "patch",
+    "-d",
+    "/workspace/tmp/m6-t43/G030-002-candidate-u5a65a8u",
+    "-p1"
+  ],
+  "start": "2026-11-02T21:57:59.451267+00:00",
+  "end": "2026-11-02T21:57:59.453153+00:00",
+  "exit": 0,
+  "stdout_sha256": "7588eebef36858ddbbd44e1ef86ed770a893ad3fd55834600a0cd8644120bd3d",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "output": "patching file ucm2/Qualcomm/sm8250/HiFi-RP.conf\npatching file ucm2/Qualcomm/sm8250/RetroidPocket.conf\npatching file ucm2/codecs/wsa881x/init.conf\npatching symbolic link ucm2/conf.d/sm8250/RetroidPocket.conf\npatching symbolic link ucm2/conf.d/sm8250/retroidpocket-RetroidPocket5.conf\npatching symbolic link ucm2/conf.d/sm8250/retroidpocket-RetroidPocketFlip2.conf\npatching symbolic link ucm2/conf.d/sm8250/retroidpocket-RetroidPocketMini.conf\npatching symbolic link ucm2/conf.d/sm8250/retroidpocket-RetroidPocketMiniV2.conf\n",
+  "error": ""
+}

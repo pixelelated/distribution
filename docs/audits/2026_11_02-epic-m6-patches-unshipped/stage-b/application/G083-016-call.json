@@ -1,0 +1,15 @@
+{
+  "argv": [
+    "patch",
+    "-d",
+    "/workspace/tmp/m6-t43/G083-016-candidate-9ydrx4gv",
+    "-p1"
+  ],
+  "start": "2026-11-02T21:56:18.455896+00:00",
+  "end": "2026-11-02T21:56:18.457950+00:00",
+  "exit": 0,
+  "stdout_sha256": "9aad8de821f50692cea1b5b1b2050bea418c2c80a7f7313fe387d2b983c30c92",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "output": "patching file drivers/gpu/drm/panel/Kconfig\npatching file drivers/gpu/drm/panel/Makefile\npatching file drivers/gpu/drm/panel/panel-ar14-144hz.c\n",
+  "error": ""
+}

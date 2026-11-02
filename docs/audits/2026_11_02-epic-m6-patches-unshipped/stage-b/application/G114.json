@@ -1,0 +1,61 @@
+{
+  "id": "G114",
+  "census": {
+    "id": "G114",
+    "recipe": "projects/ROCKNIX/packages/wayland/weston/package.mk",
+    "recipe_sha256": "b8629c5b6d0a58a9db9224907233b8e7e90c33c73b72e1d1024cf1d291c6ce9b",
+    "owner": [
+      "packages-dead-ends"
+    ],
+    "consumer": "RK3588-arm",
+    "device": "RK3588",
+    "arch": "arm",
+    "target_cpu": "cortex-a76.cortex-a55",
+    "patch_arch": "arm",
+    "LINUX": "unset in clean default source config",
+    "batteryplus": "no or unset; exact yes predicate false",
+    "name": "weston",
+    "pin": "14.0.2",
+    "url": "https://gitlab.freedesktop.org/wayland/weston/-/archive/14.0.2/weston-14.0.2.tar.gz",
+    "expected_sha256": "633f4e0f232ad150300c95ffcbc646fedf1349487bf389dbd2045fa69013d6e2",
+    "selectors": [
+      "RK3588"
+    ],
+    "ordered_pattern_directories": [
+      "projects/ROCKNIX/packages/wayland/weston/patches",
+      "projects/ROCKNIX/packages/wayland/weston/patches/arm",
+      "projects/ROCKNIX/packages/wayland/weston/patches/RK3588",
+      "projects/ROCKNIX/packages/wayland/weston/patches/14.0.2",
+      "projects/ROCKNIX/packages/wayland/weston/patches/14.0.2/arm",
+      "projects/ROCKNIX/patches/weston",
+      "projects/ROCKNIX/patches/weston/arm",
+      "projects/ROCKNIX/patches/weston/RK3588",
+      "projects/ROCKNIX/devices/RK3588/patches/weston/RK3588",
+      "projects/ROCKNIX/patches/weston/14.0.2",
+      "projects/ROCKNIX/devices/RK3588/patches/weston"
+    ],
+    "stack": [
+      "projects/ROCKNIX/packages/wayland/weston/patches/001-terminal.patch",
+      "projects/ROCKNIX/packages/wayland/weston/patches/002-weston-image.patch",
+      "projects/ROCKNIX/packages/wayland/weston/patches/003-use-old-repaint-behavior.patch"
+    ],
+    "native_paths": [
+      "projects/ROCKNIX/packages/wayland/weston/patches/001-terminal.patch",
+      "projects/ROCKNIX/packages/wayland/weston/patches/002-weston-image.patch",
+      "projects/ROCKNIX/packages/wayland/weston/patches/003-use-old-repaint-behavior.patch"
+    ],
+    "config_paths": [],
+    "cache_candidates": [],
+    "preimage_limits": [],
+    "source_only": true,
+    "runtime": false
+  },
+  "started": "2026-11-02T21:56:27.344320+00:00",
+  "rows": [],
+  "input_snapshot": {},
+  "limits": [
+    "exact source archive absent from inspected package cache directory"
+  ],
+  "cache_observations": [],
+  "status": "open-item"
+}

@@ -1,0 +1,15 @@
+{
+  "argv": [
+    "patch",
+    "-d",
+    "/workspace/tmp/m6-t43/G084-064-candidate-iv7bi0dx",
+    "-p1"
+  ],
+  "start": "2026-11-02T21:56:27.063085+00:00",
+  "end": "2026-11-02T21:56:27.066438+00:00",
+  "exit": 0,
+  "stdout_sha256": "c356dfaa7a7b5c91cf36bd5a3f86242137893461592043fe540932ffd1e06d03",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "output": "patching file drivers/input/misc/Kconfig\npatching file drivers/input/misc/Makefile\npatching file drivers/input/misc/qcom-hv-haptics.c\npatching file include/dt-bindings/input/qcom,hv-haptics.h\npatching file include/linux/qpnp/qpnp-pbs.h\npatching file include/linux/soc/qcom/battery_charger.h\npatching file include/linux/soc/qcom/qcom_hv_haptics.h\npatching file include/trace/events/qcom_haptics.h\n",
+  "error": ""
+}

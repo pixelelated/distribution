@@ -1,0 +1,21 @@
+{
+  "at": "2026-11-02T21:54:54.378151+00:00",
+  "plans": 114,
+  "recipes": 31,
+  "all_source_only": true,
+  "CPU_affinity": "8-23",
+  "not_run": [
+    "config/recipe",
+    "unpack/extract scripts",
+    "build/compiler",
+    "guest",
+    "device/cloud",
+    "provider",
+    "host ledger",
+    "accepted producers"
+  ],
+  "input_files": {
+    "observations.json": "466401b3583d526cad9a1d3de7ad95ca62fc96462c51aeda14d878724bb68584",
+    "recipes-preparation": "f84afd463d82b2e49119ad9d56ffb27c691e7e31cc66c6666d3d63ab0192c2c7"
+  }
+}

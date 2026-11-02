@@ -1,0 +1,57 @@
+{
+  "id": "G052",
+  "census": {
+    "id": "G052",
+    "recipe": "projects/ROCKNIX/packages/graphics/mesa/package.mk",
+    "recipe_sha256": "ac5dca86bde7cfb9287542d201d53a757fb6f0d5f4842dd9f53013bf3f3f48cc",
+    "owner": [
+      "image-packages"
+    ],
+    "consumer": "SM8750-aarch64",
+    "device": "SM8750",
+    "arch": "aarch64",
+    "target_cpu": "cortex-x4",
+    "patch_arch": "aarch64",
+    "LINUX": "unset in clean default source config",
+    "batteryplus": "no or unset; exact yes predicate false",
+    "name": "mesa",
+    "pin": "26.2.2",
+    "url": "https://gitlab.freedesktop.org/mesa/mesa/-/archive/mesa-26.2.2/mesa-mesa-26.2.2.tar.gz",
+    "expected_sha256": "9b6850189d4b4a595b1718d57d462412090fab820d3e235e2c1d122c1cf9e9bc",
+    "selectors": [
+      "SM8750"
+    ],
+    "ordered_pattern_directories": [
+      "projects/ROCKNIX/packages/graphics/mesa/patches",
+      "projects/ROCKNIX/packages/graphics/mesa/patches/aarch64",
+      "projects/ROCKNIX/packages/graphics/mesa/patches/SM8750",
+      "projects/ROCKNIX/packages/graphics/mesa/patches/26.2.2",
+      "projects/ROCKNIX/packages/graphics/mesa/patches/26.2.2/aarch64",
+      "projects/ROCKNIX/patches/mesa",
+      "projects/ROCKNIX/patches/mesa/aarch64",
+      "projects/ROCKNIX/patches/mesa/SM8750",
+      "projects/ROCKNIX/devices/SM8750/patches/mesa/SM8750",
+      "projects/ROCKNIX/patches/mesa/26.2.2",
+      "projects/ROCKNIX/devices/SM8750/patches/mesa"
+    ],
+    "stack": [
+      "projects/ROCKNIX/packages/graphics/mesa/patches/001-rtasm-release-executable-heap-on-unload.patch",
+      "projects/ROCKNIX/packages/graphics/mesa/patches/002-virgl-release-empty-screen-cache.patch",
+      "projects/ROCKNIX/packages/graphics/mesa/patches/SM8750/0001-add-a830-chip-id.patch"
+    ],
+    "native_paths": [
+      "projects/ROCKNIX/packages/graphics/mesa/patches/SM8750/0001-add-a830-chip-id.patch"
+    ],
+    "config_paths": [],
+    "cache_candidates": [
+      "/workspace/cache/rocknix-sources/mesa/mesa-26.2.2.tar.gz"
+    ],
+    "preimage_limits": [],
+    "source_only": true,
+    "runtime": false
+  },
+  "started": "2026-11-02T21:55:19.964604+00:00",
+  "rows": [],
+  "input_snapshot": {},
+  "limits": []
+}

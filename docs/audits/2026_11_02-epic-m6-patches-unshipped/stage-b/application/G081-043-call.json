@@ -1,0 +1,15 @@
+{
+  "argv": [
+    "patch",
+    "-d",
+    "/workspace/tmp/m6-t43/G081-043-candidate-xsi8_l9q",
+    "-p1"
+  ],
+  "start": "2026-11-02T21:56:10.301358+00:00",
+  "end": "2026-11-02T21:56:10.302472+00:00",
+  "exit": 0,
+  "stdout_sha256": "55a6164b584ef495cad51ea81f84e2a3fa3500148d64f0c424936d78f0647d5d",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "output": "patching file drivers/gpu/drm/msm/msm_gem.c\nHunk #5 succeeded at 733 (offset 3 lines).\nHunk #6 succeeded at 758 (offset 3 lines).\nHunk #7 succeeded at 801 (offset 3 lines).\nHunk #8 succeeded at 842 (offset 3 lines).\npatching file drivers/gpu/drm/msm/msm_gem_prime.c\n",
+  "error": ""
+}

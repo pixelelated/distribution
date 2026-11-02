@@ -1,0 +1,221 @@
+{
+  "id": "G024",
+  "census": {
+    "id": "G024",
+    "recipe": "projects/ROCKNIX/packages/apps/oga_controls/package.mk",
+    "recipe_sha256": "b944c747ad9a98edfd3892461182a0f2267d8561249ff9af566f7d4b2fe6d5cb",
+    "owner": [
+      "image-packages"
+    ],
+    "consumer": "S922X-aarch64",
+    "device": "S922X",
+    "arch": "aarch64",
+    "target_cpu": "cortex-a73.cortex-a53",
+    "patch_arch": "aarch64",
+    "LINUX": "unset in clean default source config",
+    "batteryplus": "yes",
+    "name": "oga_controls",
+    "pin": "1604ee24150c1c5bb7c66bc4670919c2ad8f0064",
+    "url": "https://github.com/christianhaitian/oga_controls/archive/1604ee24150c1c5bb7c66bc4670919c2ad8f0064.tar.gz",
+    "expected_sha256": "cdfa89581e3494220ef1d91246376179947bdd2ba1dd084249c224cc9ce0d8f4",
+    "selectors": [
+      "S922X"
+    ],
+    "ordered_pattern_directories": [
+      "projects/ROCKNIX/packages/apps/oga_controls/patches",
+      "projects/ROCKNIX/packages/apps/oga_controls/patches/aarch64",
+      "projects/ROCKNIX/packages/apps/oga_controls/patches/S922X",
+      "projects/ROCKNIX/packages/apps/oga_controls/patches/1604ee24150c1c5bb7c66bc4670919c2ad8f0064",
+      "projects/ROCKNIX/packages/apps/oga_controls/patches/1604ee24150c1c5bb7c66bc4670919c2ad8f0064/aarch64",
+      "projects/ROCKNIX/patches/oga_controls",
+      "projects/ROCKNIX/patches/oga_controls/aarch64",
+      "projects/ROCKNIX/patches/oga_controls/S922X",
+      "projects/ROCKNIX/devices/S922X/patches/oga_controls/S922X",
+      "projects/ROCKNIX/patches/oga_controls/1604ee24150c1c5bb7c66bc4670919c2ad8f0064",
+      "projects/ROCKNIX/devices/S922X/patches/oga_controls"
+    ],
+    "stack": [
+      "projects/ROCKNIX/packages/apps/oga_controls/patches/000-fix-libevdev.patch",
+      "projects/ROCKNIX/packages/apps/oga_controls/patches/S922X/000-platform.patch"
+    ],
+    "native_paths": [
+      "projects/ROCKNIX/packages/apps/oga_controls/patches/S922X/000-platform.patch"
+    ],
+    "config_paths": [],
+    "cache_candidates": [
+      "/workspace/cache/rocknix-sources/oga_controls/oga_controls-1604ee24150c1c5bb7c66bc4670919c2ad8f0064.tar.gz"
+    ],
+    "preimage_limits": [],
+    "source_only": true,
+    "runtime": false,
+    "source_overlays": [
+      {
+        "path": "projects/ROCKNIX/packages/apps/oga_controls/sources/Makefile",
+        "relative": "Makefile",
+        "mode": "100644",
+        "oid": "2c414d001e26a43f4cc45ae682b9f6c1e713e67f"
+      }
+    ]
+  },
+  "started": "2026-11-02T21:57:59.250312+00:00",
+  "rows": [
+    {
+      "path": "projects/ROCKNIX/packages/apps/oga_controls/patches/000-fix-libevdev.patch",
+      "referent": "projects/ROCKNIX/packages/apps/oga_controls/patches/000-fix-libevdev.patch",
+      "mode": "100644",
+      "literal_sha256": "e76023ce1a0a9a0a1a70b4daf4b9f9917342e0122e189d839d9952cbf6e4fa1b",
+      "content_sha256": "e76023ce1a0a9a0a1a70b4daf4b9f9917342e0122e189d839d9952cbf6e4fa1b",
+      "rendered_sha256": "e76023ce1a0a9a0a1a70b4daf4b9f9917342e0122e189d839d9952cbf6e4fa1b",
+      "targets": [
+        "main.c"
+      ],
+      "backend": "patch",
+      "index": 1,
+      "native": false,
+      "normal_called": true,
+      "normal": {
+        "argv": [
+          "patch",
+          "-d",
+          "/workspace/tmp/m6-t43/G024-001-candidate-xhg1gnih",
+          "-p1"
+        ],
+        "start": "2026-11-02T21:57:59.254373+00:00",
+        "end": "2026-11-02T21:57:59.256199+00:00",
+        "exit": 0,
+        "stdout_sha256": "dc8244203041442170d86000bbd894b0e97d6643bf5ee9f85ed7bbad875616e3",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "output": "patching file main.c\n",
+        "error": ""
+      },
+      "input_digest": "5d2dc1a8e2db3fca4b2cf35b8469be8a3da8cac772708d2afd1b0a4e4945f89b",
+      "output_digest": "837dc0809d617559db1ec2199fcefd862091f1676dfc59b32e9a7d0b0ced5a7c",
+      "candidate_snapshot": {
+        "main.c": {
+          "type": "file",
+          "mode": "0o664",
+          "sha256": "af598d78037de80ea56ab4f330d1637bf40a53316edc02da9c923e957c5a2619",
+          "bytes": 70701
+        }
+      },
+      "candidate_root": "/workspace/tmp/m6-t43/G024-001-candidate-xhg1gnih",
+      "status": "applies",
+      "promoted": true
+    },
+    {
+      "path": "projects/ROCKNIX/packages/apps/oga_controls/patches/S922X/000-platform.patch",
+      "referent": "projects/ROCKNIX/packages/apps/oga_controls/patches/S922X/000-platform.patch",
+      "mode": "100644",
+      "literal_sha256": "42ff38fb8861013bcdeaba8ad5556cc1947e8b95c1c633fbfaa704fc3082962c",
+      "content_sha256": "42ff38fb8861013bcdeaba8ad5556cc1947e8b95c1c633fbfaa704fc3082962c",
+      "rendered_sha256": "42ff38fb8861013bcdeaba8ad5556cc1947e8b95c1c633fbfaa704fc3082962c",
+      "targets": [
+        "main.c"
+      ],
+      "backend": "patch",
+      "index": 2,
+      "native": true,
+      "normal_called": true,
+      "normal": {
+        "argv": [
+          "patch",
+          "-d",
+          "/workspace/tmp/m6-t43/G024-002-candidate-uu8xv5yb",
+          "-p1"
+        ],
+        "start": "2026-11-02T21:57:59.256608+00:00",
+        "end": "2026-11-02T21:57:59.258333+00:00",
+        "exit": 0,
+        "stdout_sha256": "dc8244203041442170d86000bbd894b0e97d6643bf5ee9f85ed7bbad875616e3",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "output": "patching file main.c\n",
+        "error": ""
+      },
+      "input_digest": "837dc0809d617559db1ec2199fcefd862091f1676dfc59b32e9a7d0b0ced5a7c",
+      "output_digest": "3baaf177786c67cbdf74af8283067e6f147e5fe335e7940b6ffa13667f88073d",
+      "candidate_snapshot": {
+        "main.c": {
+          "type": "file",
+          "mode": "0o664",
+          "sha256": "80a7380bae6973f5f41d7dfa33257169ec10137324579c37f890ce0b9038eb53",
+          "bytes": 70704
+        }
+      },
+      "candidate_root": "/workspace/tmp/m6-t43/G024-002-candidate-uu8xv5yb",
+      "status": "applies",
+      "promoted": true
+    }
+  ],
+  "input_snapshot": {
+    "main.c": {
+      "type": "file",
+      "mode": "0o664",
+      "sha256": "b41c43002107f9117e6e9393eafb92c0363bb65c738dcb4f91247a210694bd8e",
+      "bytes": 70727
+    }
+  },
+  "limits": [],
+  "cache_observations": [
+    {
+      "path": "/workspace/cache/rocknix-sources/oga_controls/oga_controls-1604ee24150c1c5bb7c66bc4670919c2ad8f0064.tar.gz",
+      "sha256": "cdfa89581e3494220ef1d91246376179947bdd2ba1dd084249c224cc9ce0d8f4",
+      "expected": "cdfa89581e3494220ef1d91246376179947bdd2ba1dd084249c224cc9ce0d8f4"
+    }
+  ],
+  "archive": {
+    "path": "/workspace/cache/rocknix-sources/oga_controls/oga_controls-1604ee24150c1c5bb7c66bc4670919c2ad8f0064.tar.gz",
+    "sha256": "cdfa89581e3494220ef1d91246376179947bdd2ba1dd084249c224cc9ce0d8f4",
+    "recipe_url": "https://github.com/christianhaitian/oga_controls/archive/1604ee24150c1c5bb7c66bc4670919c2ad8f0064.tar.gz"
+  },
+  "stack": [
+    {
+      "path": "projects/ROCKNIX/packages/apps/oga_controls/patches/000-fix-libevdev.patch",
+      "referent": "projects/ROCKNIX/packages/apps/oga_controls/patches/000-fix-libevdev.patch",
+      "mode": "100644",
+      "literal_sha256": "e76023ce1a0a9a0a1a70b4daf4b9f9917342e0122e189d839d9952cbf6e4fa1b",
+      "content_sha256": "e76023ce1a0a9a0a1a70b4daf4b9f9917342e0122e189d839d9952cbf6e4fa1b",
+      "rendered_sha256": "e76023ce1a0a9a0a1a70b4daf4b9f9917342e0122e189d839d9952cbf6e4fa1b",
+      "targets": [
+        "main.c"
+      ],
+      "backend": "patch"
+    },
+    {
+      "path": "projects/ROCKNIX/packages/apps/oga_controls/patches/S922X/000-platform.patch",
+      "referent": "projects/ROCKNIX/packages/apps/oga_controls/patches/S922X/000-platform.patch",
+      "mode": "100644",
+      "literal_sha256": "42ff38fb8861013bcdeaba8ad5556cc1947e8b95c1c633fbfaa704fc3082962c",
+      "content_sha256": "42ff38fb8861013bcdeaba8ad5556cc1947e8b95c1c633fbfaa704fc3082962c",
+      "rendered_sha256": "42ff38fb8861013bcdeaba8ad5556cc1947e8b95c1c633fbfaa704fc3082962c",
+      "targets": [
+        "main.c"
+      ],
+      "backend": "patch"
+    }
+  ],
+  "stack_sha256": "8902f4d2c4d7861ae2298b5fcb77198ea4cb6b6fc4ec2cf84a57a7742f198b45",
+  "projection": {
+    "archive_header_count": 7,
+    "archive_header_sha256": "4a3ef32c38d706002b52c6a3c1af53b2cc697be7d45877023d031fe13da4c9f0",
+    "projected_members": {
+      "main.c": {
+        "type": "file",
+        "mode": "0o664",
+        "sha256": "b41c43002107f9117e6e9393eafb92c0363bb65c738dcb4f91247a210694bd8e",
+        "bytes": 70727
+      }
+    },
+    "absent_targets": [],
+    "projection_root": "/workspace/tmp/m6-t43/source-members-8_ccsyz5"
+  },
+  "overlay_evidence": [
+    {
+      "path": "projects/ROCKNIX/packages/apps/oga_controls/sources/Makefile",
+      "relative": "Makefile",
+      "mode": "100644",
+      "oid": "2c414d001e26a43f4cc45ae682b9f6c1e713e67f",
+      "sha256": "2197e1fcdd68b108a83cdedcfea320631b45cf967957d71a9627ebff1f94d9f5",
+      "projected": false
+    }
+  ]
+}

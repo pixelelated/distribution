@@ -1,0 +1,15 @@
+{
+  "argv": [
+    "patch",
+    "-d",
+    "/workspace/tmp/m6-t43/G082-014-candidate-c7meec3d",
+    "-p1"
+  ],
+  "start": "2026-11-02T21:56:10.576889+00:00",
+  "end": "2026-11-02T21:56:10.577983+00:00",
+  "exit": 0,
+  "stdout_sha256": "bb11767d38bce0cd675344de8aeb5fc48f5a0b959fde7f34d3c15a56f7947bca",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "output": "patching file drivers/input/joystick/Kconfig\npatching file drivers/input/joystick/Makefile\npatching file drivers/input/joystick/retroid.c\n",
+  "error": ""
+}

@@ -1,0 +1,15 @@
+{
+  "argv": [
+    "patch",
+    "-d",
+    "/workspace/tmp/m6-t43/G082-019-candidate-gd1dvk97",
+    "-p1"
+  ],
+  "start": "2026-11-02T21:56:10.654709+00:00",
+  "end": "2026-11-02T21:56:10.655746+00:00",
+  "exit": 0,
+  "stdout_sha256": "ebf2ffd96841111dbd02a574e303c73d6f6114d87f704534f2496cbc71e06d45",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "output": "patching file drivers/input/joystick/retroid.c\npatching file drivers/input/misc/qcom-spmi-haptics.c\n",
+  "error": ""
+}

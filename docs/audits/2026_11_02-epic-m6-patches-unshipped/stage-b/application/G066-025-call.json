@@ -1,0 +1,15 @@
+{
+  "argv": [
+    "patch",
+    "-d",
+    "/workspace/tmp/m6-t43/G066-025-candidate-vd4_i603",
+    "-p1"
+  ],
+  "start": "2026-11-02T21:55:28.833667+00:00",
+  "end": "2026-11-02T21:55:28.835758+00:00",
+  "exit": 0,
+  "stdout_sha256": "8624780582f9675486a67a992104dcf48495ebd6a7d357c3d99ce0e7a7249d3e",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "output": "patching file include/linux/rockchip/cpu.h\npatching file drivers/soc/rockchip/rockchip-cpuinfo.c\npatching file drivers/soc/rockchip/Kconfig\npatching file drivers/soc/rockchip/Makefile\npatching file arch/arm64/boot/dts/rockchip/px30.dtsi\nHunk #1 succeeded at 822 (offset -21 lines).\n",
+  "error": ""
+}

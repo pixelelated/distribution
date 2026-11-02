@@ -1,0 +1,15 @@
+{
+  "argv": [
+    "patch",
+    "-d",
+    "/workspace/tmp/m6-t43/G080-037-candidate-0zztvznl",
+    "-p1"
+  ],
+  "start": "2026-11-02T21:56:02.135456+00:00",
+  "end": "2026-11-02T21:56:02.137325+00:00",
+  "exit": 0,
+  "stdout_sha256": "27cf1f8ab3a6a56bd0be35134ff1ec7e73b8cb6e640a3251a618e7f3cdf6502d",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "output": "patching file drivers/power/supply/bq256xx_charger.c\nHunk #1 succeeded at 1755 (offset 141 lines).\nHunk #2 succeeded at 1819 (offset 141 lines).\nHunk #3 succeeded at 1829 (offset 141 lines).\n",
+  "error": ""
+}

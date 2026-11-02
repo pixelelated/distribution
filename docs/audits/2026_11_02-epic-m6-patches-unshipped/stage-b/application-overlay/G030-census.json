@@ -1,0 +1,158 @@
+{
+  "id": "G030",
+  "census": {
+    "id": "G030",
+    "recipe": "projects/ROCKNIX/packages/audio/alsa-ucm-conf/package.mk",
+    "recipe_sha256": "fae1706ea36634a04b80a0f747dfcb383c6e410073a728faad7027e9c795b66e",
+    "owner": [
+      "image-packages"
+    ],
+    "consumer": "SM8250-arm",
+    "device": "SM8250",
+    "arch": "arm",
+    "target_cpu": "cortex-a76.cortex-a55",
+    "patch_arch": "arm",
+    "LINUX": "unset in clean default source config",
+    "batteryplus": "no or unset; exact yes predicate false",
+    "name": "alsa-ucm-conf",
+    "pin": "1.2.13",
+    "url": "https://www.alsa-project.org/files/pub/lib/alsa-ucm-conf-1.2.13.tar.bz2",
+    "expected_sha256": "4483b6e3983cca08fd326a73fbae449b5036e444fb1a07c0dee74b504b7ab5af",
+    "selectors": [
+      "SM8250"
+    ],
+    "ordered_pattern_directories": [
+      "projects/ROCKNIX/packages/audio/alsa-ucm-conf/patches",
+      "projects/ROCKNIX/packages/audio/alsa-ucm-conf/patches/arm",
+      "projects/ROCKNIX/packages/audio/alsa-ucm-conf/patches/SM8250",
+      "projects/ROCKNIX/packages/audio/alsa-ucm-conf/patches/1.2.13",
+      "projects/ROCKNIX/packages/audio/alsa-ucm-conf/patches/1.2.13/arm",
+      "projects/ROCKNIX/patches/alsa-ucm-conf",
+      "projects/ROCKNIX/patches/alsa-ucm-conf/arm",
+      "projects/ROCKNIX/patches/alsa-ucm-conf/SM8250",
+      "projects/ROCKNIX/devices/SM8250/patches/alsa-ucm-conf/SM8250",
+      "projects/ROCKNIX/patches/alsa-ucm-conf/1.2.13",
+      "projects/ROCKNIX/devices/SM8250/patches/alsa-ucm-conf"
+    ],
+    "stack": [
+      "projects/ROCKNIX/packages/audio/alsa-ucm-conf/patches/001-steamdeck.patch",
+      "projects/ROCKNIX/packages/audio/alsa-ucm-conf/patches/SM8250/0002_Add-Retroid-Pocket-SM8250-configuration.patch",
+      "projects/ROCKNIX/packages/audio/alsa-ucm-conf/patches/SM8250/0003_Maintain-compatibility-with-old-loader-u-boot.patch",
+      "projects/ROCKNIX/packages/audio/alsa-ucm-conf/patches/SM8250/0004_Add-HDMI-DisplayPort-audio-device.patch"
+    ],
+    "native_paths": [
+      "projects/ROCKNIX/packages/audio/alsa-ucm-conf/patches/SM8250/0002_Add-Retroid-Pocket-SM8250-configuration.patch",
+      "projects/ROCKNIX/packages/audio/alsa-ucm-conf/patches/SM8250/0003_Maintain-compatibility-with-old-loader-u-boot.patch",
+      "projects/ROCKNIX/packages/audio/alsa-ucm-conf/patches/SM8250/0004_Add-HDMI-DisplayPort-audio-device.patch"
+    ],
+    "config_paths": [],
+    "cache_candidates": [
+      "/workspace/cache/rocknix-sources/alsa-ucm-conf/alsa-ucm-conf-1.2.13.tar.bz2"
+    ],
+    "preimage_limits": [],
+    "source_only": true,
+    "runtime": false,
+    "source_overlays": [
+      {
+        "path": "projects/ROCKNIX/packages/audio/alsa-ucm-conf/sources/ucm2/Qualcomm/sm6115/HiFi-MangmiAirX.conf",
+        "relative": "ucm2/Qualcomm/sm6115/HiFi-MangmiAirX.conf",
+        "mode": "100644",
+        "oid": "c7b84e2067fd596e6209b9a9e8bd8475ec23ca1a"
+      },
+      {
+        "path": "projects/ROCKNIX/packages/audio/alsa-ucm-conf/sources/ucm2/Qualcomm/sm6115/MangmiAirX.conf",
+        "relative": "ucm2/Qualcomm/sm6115/MangmiAirX.conf",
+        "mode": "100644",
+        "oid": "c6672dcf2df7c0e6e8e06d628f9ac971c3a03ef9"
+      },
+      {
+        "path": "projects/ROCKNIX/packages/audio/alsa-ucm-conf/sources/ucm2/Qualcomm/sm8250/AYN-Thor-Lite-HiFi.conf",
+        "relative": "ucm2/Qualcomm/sm8250/AYN-Thor-Lite-HiFi.conf",
+        "mode": "100644",
+        "oid": "4f2e957133a7c37791bf9363e12fc00a1c4a7e9e"
+      },
+      {
+        "path": "projects/ROCKNIX/packages/audio/alsa-ucm-conf/sources/ucm2/Qualcomm/sm8250/AYN-Thor-Lite.conf",
+        "relative": "ucm2/Qualcomm/sm8250/AYN-Thor-Lite.conf",
+        "mode": "100644",
+        "oid": "2dfe4c190436810f24805ef4cecd001a4ff78507"
+      },
+      {
+        "path": "projects/ROCKNIX/packages/audio/alsa-ucm-conf/sources/ucm2/Qualcomm/sm8250/AirYPro-HiFi.conf",
+        "relative": "ucm2/Qualcomm/sm8250/AirYPro-HiFi.conf",
+        "mode": "100644",
+        "oid": "75030d50c2bbb62514d717e8ce65a3efe7c86c5e"
+      },
+      {
+        "path": "projects/ROCKNIX/packages/audio/alsa-ucm-conf/sources/ucm2/Qualcomm/sm8250/AirYPro.conf",
+        "relative": "ucm2/Qualcomm/sm8250/AirYPro.conf",
+        "mode": "100644",
+        "oid": "edc18e19cdf7401bedae8c04b42b2c354c9aae6c"
+      },
+      {
+        "path": "projects/ROCKNIX/packages/audio/alsa-ucm-conf/sources/ucm2/Qualcomm/sm8250/PocketMax-HiFi.conf",
+        "relative": "ucm2/Qualcomm/sm8250/PocketMax-HiFi.conf",
+        "mode": "100644",
+        "oid": "de36416b63758cfa245302da3aa66380d72600ad"
+      },
+      {
+        "path": "projects/ROCKNIX/packages/audio/alsa-ucm-conf/sources/ucm2/Qualcomm/sm8250/PocketMax.conf",
+        "relative": "ucm2/Qualcomm/sm8250/PocketMax.conf",
+        "mode": "100644",
+        "oid": "147ddfb6bb2d26912ebacdbef5fcf6b38df58444"
+      },
+      {
+        "path": "projects/ROCKNIX/packages/audio/alsa-ucm-conf/sources/ucm2/Rockchip/rockchip,es8388-codec/HiFi.conf",
+        "relative": "ucm2/Rockchip/rockchip,es8388-codec/HiFi.conf",
+        "mode": "100644",
+        "oid": "2f8f91ff30f47e62aae10af4a9d130e3482f87c9"
+      },
+      {
+        "path": "projects/ROCKNIX/packages/audio/alsa-ucm-conf/sources/ucm2/Rockchip/rockchip,es8388-codec/rockchip,es8388-codec.conf",
+        "relative": "ucm2/Rockchip/rockchip,es8388-codec/rockchip,es8388-codec.conf",
+        "mode": "100644",
+        "oid": "c38f88dc1178580085ada6a82126efd75ce69e4d"
+      },
+      {
+        "path": "projects/ROCKNIX/packages/audio/alsa-ucm-conf/sources/ucm2/conf.d/simple-card/rockchip,es8388-codec.conf",
+        "relative": "ucm2/conf.d/simple-card/rockchip,es8388-codec.conf",
+        "mode": "120000",
+        "oid": "e967e83b35a505496e3bd2a0cf1a54c1be0aa404"
+      },
+      {
+        "path": "projects/ROCKNIX/packages/audio/alsa-ucm-conf/sources/ucm2/conf.d/sm4250/MangmiAirX.conf",
+        "relative": "ucm2/conf.d/sm4250/MangmiAirX.conf",
+        "mode": "120000",
+        "oid": "703872f0ffe64931a482449dedad56249778c670"
+      },
+      {
+        "path": "projects/ROCKNIX/packages/audio/alsa-ucm-conf/sources/ucm2/conf.d/sm8250/AYN Thor Lite.conf",
+        "relative": "ucm2/conf.d/sm8250/AYN Thor Lite.conf",
+        "mode": "120000",
+        "oid": "948cc996965a853efbf267345797eeee3c86e65b"
+      },
+      {
+        "path": "projects/ROCKNIX/packages/audio/alsa-ucm-conf/sources/ucm2/conf.d/sm8250/AirYPro.conf",
+        "relative": "ucm2/conf.d/sm8250/AirYPro.conf",
+        "mode": "120000",
+        "oid": "b4227838b5eef2a35e51a259750cd4302d744628"
+      },
+      {
+        "path": "projects/ROCKNIX/packages/audio/alsa-ucm-conf/sources/ucm2/conf.d/sm8250/PocketMax.conf",
+        "relative": "ucm2/conf.d/sm8250/PocketMax.conf",
+        "mode": "120000",
+        "oid": "1c243dd02ff7267a442c837ff5343e91449b5189"
+      },
+      {
+        "path": "projects/ROCKNIX/packages/audio/alsa-ucm-conf/sources/ucm2/conf.d/sm8250/ayn-ATNThorLite-.conf",
+        "relative": "ucm2/conf.d/sm8250/ayn-ATNThorLite-.conf",
+        "mode": "120000",
+        "oid": "948cc996965a853efbf267345797eeee3c86e65b"
+      }
+    ]
+  },
+  "started": "2026-11-02T21:57:59.429330+00:00",
+  "rows": [],
+  "input_snapshot": {},
+  "limits": []
+}

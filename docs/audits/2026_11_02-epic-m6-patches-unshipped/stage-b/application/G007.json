@@ -1,0 +1,291 @@
+{
+  "id": "G007",
+  "census": {
+    "id": "G007",
+    "recipe": "projects/ROCKNIX/devices/RK3566/packages/u-boot-Generic/package.mk",
+    "recipe_sha256": "b9476a8d5cd2499e49d75bd38fd9d41fc40342e1d3f30b950d2ab34240940b08",
+    "owner": [
+      "devices-unshipped"
+    ],
+    "consumer": "RK3566-aarch64",
+    "device": "RK3566",
+    "arch": "aarch64",
+    "target_cpu": "cortex-a55",
+    "patch_arch": "aarch64",
+    "LINUX": "unset in clean default source config",
+    "batteryplus": "no or unset; exact yes predicate false",
+    "name": "u-boot-Generic",
+    "pin": "v2026.01",
+    "url": "https://github.com/u-boot/u-boot/archive/refs/tags/v2026.01.tar.gz",
+    "expected_sha256": "03bb43c58d2343ee48dd191e0f181f0108425b179d84519add3a977071c3f654",
+    "selectors": [],
+    "ordered_pattern_directories": [
+      "projects/ROCKNIX/devices/RK3566/packages/u-boot-Generic/patches",
+      "projects/ROCKNIX/devices/RK3566/packages/u-boot-Generic/patches/aarch64",
+      "projects/ROCKNIX/devices/RK3566/packages/u-boot-Generic/patches/v2026.01",
+      "projects/ROCKNIX/devices/RK3566/packages/u-boot-Generic/patches/v2026.01/aarch64",
+      "projects/ROCKNIX/patches/u-boot-Generic",
+      "projects/ROCKNIX/patches/u-boot-Generic/aarch64",
+      "projects/ROCKNIX/patches/u-boot-Generic/v2026.01",
+      "projects/ROCKNIX/devices/RK3566/patches/u-boot-Generic"
+    ],
+    "stack": [
+      "projects/ROCKNIX/devices/RK3566/packages/u-boot-Generic/patches/0003-board-rockchip-Fix-panel-detection-logic-for-mainlin.patch",
+      "projects/ROCKNIX/devices/RK3566/packages/u-boot-Generic/patches/003-fix-dtb-and-vs.patch",
+      "projects/ROCKNIX/devices/RK3566/packages/u-boot-Generic/patches/004-rgb20pro.patch"
+    ],
+    "native_paths": [
+      "projects/ROCKNIX/devices/RK3566/packages/u-boot-Generic/patches/0003-board-rockchip-Fix-panel-detection-logic-for-mainlin.patch",
+      "projects/ROCKNIX/devices/RK3566/packages/u-boot-Generic/patches/003-fix-dtb-and-vs.patch",
+      "projects/ROCKNIX/devices/RK3566/packages/u-boot-Generic/patches/004-rgb20pro.patch"
+    ],
+    "config_paths": [],
+    "cache_candidates": [
+      "/workspace/cache/rocknix-sources/u-boot-Generic/u-boot-Generic-v2026.01.tar.gz"
+    ],
+    "preimage_limits": [],
+    "source_only": true,
+    "runtime": false
+  },
+  "started": "2026-11-02T21:55:17.057665+00:00",
+  "rows": [
+    {
+      "path": "projects/ROCKNIX/devices/RK3566/packages/u-boot-Generic/patches/0003-board-rockchip-Fix-panel-detection-logic-for-mainlin.patch",
+      "referent": "projects/ROCKNIX/devices/RK3566/packages/u-boot-Generic/patches/0003-board-rockchip-Fix-panel-detection-logic-for-mainlin.patch",
+      "mode": "100644",
+      "literal_sha256": "78fe6823902f0812691e07e6e526276d082b7dd8d944ec6c8a72f1bff2b6a98d",
+      "content_sha256": "78fe6823902f0812691e07e6e526276d082b7dd8d944ec6c8a72f1bff2b6a98d",
+      "rendered_sha256": "78fe6823902f0812691e07e6e526276d082b7dd8d944ec6c8a72f1bff2b6a98d",
+      "targets": [
+        "board/anbernic/rgxx3_rk3566/rgxx3-rk3566.c"
+      ],
+      "backend": "patch",
+      "index": 1,
+      "native": true,
+      "normal_called": true,
+      "normal": {
+        "argv": [
+          "patch",
+          "-d",
+          "/workspace/tmp/m6-t43/G007-001-candidate-4f3fm760",
+          "-p1"
+        ],
+        "start": "2026-11-02T21:55:18.159213+00:00",
+        "end": "2026-11-02T21:55:18.161102+00:00",
+        "exit": 0,
+        "stdout_sha256": "b553cc69d0b8f339dd37ca848dfd879cd8b2f5d6a4e26583683f980cbc4dcf92",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "output": "patching file board/anbernic/rgxx3_rk3566/rgxx3-rk3566.c\nHunk #2 succeeded at 315 (offset 16 lines).\n",
+        "error": ""
+      },
+      "input_digest": "ac9d78317c7e913f2db64be3996930d50109287e20ae8b31845c534f3ab0344a",
+      "output_digest": "114180df4b4a20617858ca756c9a7de75363eb8b94736ad262906a99da28f8b1",
+      "candidate_snapshot": {
+        "board/anbernic/rgxx3_rk3566/rgxx3-rk3566.c": {
+          "type": "file",
+          "mode": "0o664",
+          "sha256": "8c6aeb586a46bebdeff40b5bfb11f0ae9ce552ed60166e8176c8cac3aa1ff2f1",
+          "bytes": 17849
+        },
+        "board/anbernic/rgxx3_rk3566/rgxx3-rk3566.c.orig": {
+          "type": "file",
+          "mode": "0o664",
+          "sha256": "9aadffc6e9e6bb73567d7f871594811dca84051ba95ff40cde959ade92814e08",
+          "bytes": 17498
+        }
+      },
+      "candidate_root": "/workspace/tmp/m6-t43/G007-001-candidate-4f3fm760",
+      "status": "offset",
+      "promoted": true
+    },
+    {
+      "path": "projects/ROCKNIX/devices/RK3566/packages/u-boot-Generic/patches/003-fix-dtb-and-vs.patch",
+      "referent": "projects/ROCKNIX/devices/RK3566/packages/u-boot-Generic/patches/003-fix-dtb-and-vs.patch",
+      "mode": "100644",
+      "literal_sha256": "ca4f2bee14f947ea1bf53534b7c56f38a68a3ce9de74a127006bd5da4e59f4e7",
+      "content_sha256": "ca4f2bee14f947ea1bf53534b7c56f38a68a3ce9de74a127006bd5da4e59f4e7",
+      "rendered_sha256": "ca4f2bee14f947ea1bf53534b7c56f38a68a3ce9de74a127006bd5da4e59f4e7",
+      "targets": [
+        "board/anbernic/rgxx3_rk3566/rgxx3-rk3566.c"
+      ],
+      "backend": "patch",
+      "index": 2,
+      "native": true,
+      "normal_called": true,
+      "normal": {
+        "argv": [
+          "patch",
+          "-d",
+          "/workspace/tmp/m6-t43/G007-002-candidate-335u6g7c",
+          "-p1"
+        ],
+        "start": "2026-11-02T21:55:18.161877+00:00",
+        "end": "2026-11-02T21:55:18.162651+00:00",
+        "exit": 0,
+        "stdout_sha256": "a9edbbce4b4640976114570179298dad2f1a5c4bd74519d943d5ccbd57a8ddd9",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "output": "patching file board/anbernic/rgxx3_rk3566/rgxx3-rk3566.c\nHunk #1 succeeded at 39 with fuzz 2 (offset -6 lines).\n",
+        "error": ""
+      },
+      "input_digest": "114180df4b4a20617858ca756c9a7de75363eb8b94736ad262906a99da28f8b1",
+      "output_digest": "d66a850262d9ff49abb9ccf50a96765c07c16b3f08ffeeb0a57b57283eaff29c",
+      "candidate_snapshot": {
+        "board/anbernic/rgxx3_rk3566/rgxx3-rk3566.c": {
+          "type": "file",
+          "mode": "0o664",
+          "sha256": "b334ff64b3ae4aa561fdf7fa6b820dcf2e95b5eea868591d2ea296a13235d3ad",
+          "bytes": 17840
+        },
+        "board/anbernic/rgxx3_rk3566/rgxx3-rk3566.c.orig": {
+          "type": "file",
+          "mode": "0o664",
+          "sha256": "8c6aeb586a46bebdeff40b5bfb11f0ae9ce552ed60166e8176c8cac3aa1ff2f1",
+          "bytes": 17849
+        }
+      },
+      "candidate_root": "/workspace/tmp/m6-t43/G007-002-candidate-335u6g7c",
+      "status": "fuzz",
+      "promoted": true
+    },
+    {
+      "path": "projects/ROCKNIX/devices/RK3566/packages/u-boot-Generic/patches/004-rgb20pro.patch",
+      "referent": "projects/ROCKNIX/devices/RK3566/packages/u-boot-Generic/patches/004-rgb20pro.patch",
+      "mode": "100644",
+      "literal_sha256": "18b67bd3d2d9d035bd426bf88d706433614bd49bd56add25f2c22800a68cfcb9",
+      "content_sha256": "18b67bd3d2d9d035bd426bf88d706433614bd49bd56add25f2c22800a68cfcb9",
+      "rendered_sha256": "18b67bd3d2d9d035bd426bf88d706433614bd49bd56add25f2c22800a68cfcb9",
+      "targets": [
+        "board/anbernic/rgxx3_rk3566/rgxx3-rk3566.c"
+      ],
+      "backend": "patch",
+      "index": 3,
+      "native": true,
+      "normal_called": true,
+      "normal": {
+        "argv": [
+          "patch",
+          "-d",
+          "/workspace/tmp/m6-t43/G007-003-candidate-6f_tq_3i",
+          "-p1"
+        ],
+        "start": "2026-11-02T21:55:18.163405+00:00",
+        "end": "2026-11-02T21:55:18.164309+00:00",
+        "exit": 0,
+        "stdout_sha256": "b502a3a0c3ba00f7017d4e06ab2ae4f9367ce6bd771037cbe6e8f81a50ebad74",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "output": "patching file board/anbernic/rgxx3_rk3566/rgxx3-rk3566.c\nHunk #2 succeeded at 141 with fuzz 2 (offset 8 lines).\n",
+        "error": ""
+      },
+      "input_digest": "d66a850262d9ff49abb9ccf50a96765c07c16b3f08ffeeb0a57b57283eaff29c",
+      "output_digest": "0f83e4039eec25b80b6447681e09844d6e2d9d16ded16bf9b94428dd249bd2c8",
+      "candidate_snapshot": {
+        "board/anbernic/rgxx3_rk3566/rgxx3-rk3566.c": {
+          "type": "file",
+          "mode": "0o664",
+          "sha256": "a71a27bd02fb26f41c6b9bbe20f95becc3c349f10c55a9816504dd6288f62a95",
+          "bytes": 18104
+        },
+        "board/anbernic/rgxx3_rk3566/rgxx3-rk3566.c.orig": {
+          "type": "file",
+          "mode": "0o664",
+          "sha256": "b334ff64b3ae4aa561fdf7fa6b820dcf2e95b5eea868591d2ea296a13235d3ad",
+          "bytes": 17840
+        }
+      },
+      "candidate_root": "/workspace/tmp/m6-t43/G007-003-candidate-6f_tq_3i",
+      "status": "fuzz",
+      "promoted": true
+    }
+  ],
+  "input_snapshot": {
+    "board/anbernic/rgxx3_rk3566/rgxx3-rk3566.c": {
+      "type": "file",
+      "mode": "0o664",
+      "sha256": "9aadffc6e9e6bb73567d7f871594811dca84051ba95ff40cde959ade92814e08",
+      "bytes": 17498
+    }
+  },
+  "limits": [],
+  "cache_observations": [
+    {
+      "path": "/workspace/cache/rocknix-sources/u-boot-Generic/u-boot-Generic-v2026.01.tar.gz",
+      "sha256": "03bb43c58d2343ee48dd191e0f181f0108425b179d84519add3a977071c3f654",
+      "expected": "03bb43c58d2343ee48dd191e0f181f0108425b179d84519add3a977071c3f654"
+    }
+  ],
+  "archive": {
+    "path": "/workspace/cache/rocknix-sources/u-boot-Generic/u-boot-Generic-v2026.01.tar.gz",
+    "sha256": "03bb43c58d2343ee48dd191e0f181f0108425b179d84519add3a977071c3f654",
+    "recipe_url": "https://github.com/u-boot/u-boot/archive/refs/tags/v2026.01.tar.gz"
+  },
+  "stack": [
+    {
+      "path": "projects/ROCKNIX/devices/RK3566/packages/u-boot-Generic/patches/0003-board-rockchip-Fix-panel-detection-logic-for-mainlin.patch",
+      "referent": "projects/ROCKNIX/devices/RK3566/packages/u-boot-Generic/patches/0003-board-rockchip-Fix-panel-detection-logic-for-mainlin.patch",
+      "mode": "100644",
+      "literal_sha256": "78fe6823902f0812691e07e6e526276d082b7dd8d944ec6c8a72f1bff2b6a98d",
+      "content_sha256": "78fe6823902f0812691e07e6e526276d082b7dd8d944ec6c8a72f1bff2b6a98d",
+      "rendered_sha256": "78fe6823902f0812691e07e6e526276d082b7dd8d944ec6c8a72f1bff2b6a98d",
+      "targets": [
+        "board/anbernic/rgxx3_rk3566/rgxx3-rk3566.c"
+      ],
+      "backend": "patch"
+    },
+    {
+      "path": "projects/ROCKNIX/devices/RK3566/packages/u-boot-Generic/patches/003-fix-dtb-and-vs.patch",
+      "referent": "projects/ROCKNIX/devices/RK3566/packages/u-boot-Generic/patches/003-fix-dtb-and-vs.patch",
+      "mode": "100644",
+      "literal_sha256": "ca4f2bee14f947ea1bf53534b7c56f38a68a3ce9de74a127006bd5da4e59f4e7",
+      "content_sha256": "ca4f2bee14f947ea1bf53534b7c56f38a68a3ce9de74a127006bd5da4e59f4e7",
+      "rendered_sha256": "ca4f2bee14f947ea1bf53534b7c56f38a68a3ce9de74a127006bd5da4e59f4e7",
+      "targets": [
+        "board/anbernic/rgxx3_rk3566/rgxx3-rk3566.c"
+      ],
+      "backend": "patch"
+    },
+    {
+      "path": "projects/ROCKNIX/devices/RK3566/packages/u-boot-Generic/patches/004-rgb20pro.patch",
+      "referent": "projects/ROCKNIX/devices/RK3566/packages/u-boot-Generic/patches/004-rgb20pro.patch",
+      "mode": "100644",
+      "literal_sha256": "18b67bd3d2d9d035bd426bf88d706433614bd49bd56add25f2c22800a68cfcb9",
+      "content_sha256": "18b67bd3d2d9d035bd426bf88d706433614bd49bd56add25f2c22800a68cfcb9",
+      "rendered_sha256": "18b67bd3d2d9d035bd426bf88d706433614bd49bd56add25f2c22800a68cfcb9",
+      "targets": [
+        "board/anbernic/rgxx3_rk3566/rgxx3-rk3566.c"
+      ],
+      "backend": "patch"
+    }
+  ],
+  "stack_sha256": "f6c9246bd19e63efb425f07879074328afdcb3430f6a55dea5a37c9815f21d0e",
+  "projection": {
+    "archive_header_count": 39976,
+    "archive_header_sha256": "e3a827be149553f979b6adfd2e815bae962d24ee44c7528c7eeee9071a5ba208",
+    "projected_members": {
+      "board/anbernic/rgxx3_rk3566/rgxx3-rk3566.c": {
+        "type": "file",
+        "mode": "0o664",
+        "sha256": "9aadffc6e9e6bb73567d7f871594811dca84051ba95ff40cde959ade92814e08",
+        "bytes": 17498
+      }
+    },
+    "absent_targets": [],
+    "projection_root": "/workspace/tmp/m6-t43/source-members-uhfia2zb"
+  },
+  "status": "applies",
+  "final_prefix_root": "/workspace/tmp/m6-t43/G007-003-candidate-6f_tq_3i",
+  "final_prefix_snapshot": {
+    "board/anbernic/rgxx3_rk3566/rgxx3-rk3566.c": {
+      "type": "file",
+      "mode": "0o664",
+      "sha256": "a71a27bd02fb26f41c6b9bbe20f95becc3c349f10c55a9816504dd6288f62a95",
+      "bytes": 18104
+    },
+    "board/anbernic/rgxx3_rk3566/rgxx3-rk3566.c.orig": {
+      "type": "file",
+      "mode": "0o664",
+      "sha256": "b334ff64b3ae4aa561fdf7fa6b820dcf2e95b5eea868591d2ea296a13235d3ad",
+      "bytes": 17840
+    }
+  },
+  "finished": "2026-11-02T21:55:18.166941+00:00"
+}

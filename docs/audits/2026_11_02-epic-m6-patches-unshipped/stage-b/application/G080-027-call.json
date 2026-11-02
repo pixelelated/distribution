@@ -1,0 +1,15 @@
+{
+  "argv": [
+    "patch",
+    "-d",
+    "/workspace/tmp/m6-t43/G080-027-candidate-t3wtivfj",
+    "-p1"
+  ],
+  "start": "2026-11-02T21:56:01.970751+00:00",
+  "end": "2026-11-02T21:56:01.971629+00:00",
+  "exit": 0,
+  "stdout_sha256": "4e50d8c280883c49768e87eaac84aa4b3d1eb63aab977b859c190fcb2bceddd1",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "output": "patching file drivers/soc/qcom/Kconfig\npatching file drivers/soc/qcom/Makefile\npatching file drivers/soc/qcom/qcom-psci-suspend-fallback.c\n",
+  "error": ""
+}

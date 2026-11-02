@@ -1,0 +1,15 @@
+{
+  "argv": [
+    "patch",
+    "-d",
+    "/workspace/tmp/m6-t43/G081-016-candidate-rk90t3yr",
+    "-p1"
+  ],
+  "start": "2026-11-02T21:56:09.816410+00:00",
+  "end": "2026-11-02T21:56:09.818267+00:00",
+  "exit": 0,
+  "stdout_sha256": "a13f1f9fe791b9cc2458a4249265de4737d1f53a5d67607508d954578d333b07",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "output": "patching file drivers/leds/Kconfig\nHunk #1 succeeded at 227 with fuzz 2 (offset 16 lines).\npatching file drivers/leds/Makefile\nHunk #1 succeeded at 34 (offset 2 lines).\npatching file drivers/leds/leds-htr3212.c\n",
+  "error": ""
+}

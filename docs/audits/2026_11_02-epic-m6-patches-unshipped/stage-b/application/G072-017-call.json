@@ -1,0 +1,15 @@
+{
+  "argv": [
+    "patch",
+    "-d",
+    "/workspace/tmp/m6-t43/G072-017-candidate-bb0h0a1c",
+    "-p1"
+  ],
+  "start": "2026-11-02T21:55:44.418953+00:00",
+  "end": "2026-11-02T21:55:44.420875+00:00",
+  "exit": 0,
+  "stdout_sha256": "eae9db7ffd2a5bfff4f69cce029295b365cba20061755a58cf216e6a73ede81b",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "output": "patching file drivers/pwm/Kconfig\nHunk #1 succeeded at 625 (offset 10 lines).\npatching file drivers/pwm/Makefile\nHunk #1 succeeded at 49 with fuzz 2.\npatching file drivers/pwm/pwm-rockchip-v4.c\n",
+  "error": ""
+}

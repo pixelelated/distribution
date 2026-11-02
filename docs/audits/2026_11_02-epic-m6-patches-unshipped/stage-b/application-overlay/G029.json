@@ -1,0 +1,872 @@
+{
+  "id": "G029",
+  "census": {
+    "id": "G029",
+    "recipe": "projects/ROCKNIX/packages/audio/alsa-ucm-conf/package.mk",
+    "recipe_sha256": "fae1706ea36634a04b80a0f747dfcb383c6e410073a728faad7027e9c795b66e",
+    "owner": [
+      "image-packages"
+    ],
+    "consumer": "SM8250-aarch64",
+    "device": "SM8250",
+    "arch": "aarch64",
+    "target_cpu": "cortex-a76.cortex-a55",
+    "patch_arch": "aarch64",
+    "LINUX": "unset in clean default source config",
+    "batteryplus": "no or unset; exact yes predicate false",
+    "name": "alsa-ucm-conf",
+    "pin": "1.2.13",
+    "url": "https://www.alsa-project.org/files/pub/lib/alsa-ucm-conf-1.2.13.tar.bz2",
+    "expected_sha256": "4483b6e3983cca08fd326a73fbae449b5036e444fb1a07c0dee74b504b7ab5af",
+    "selectors": [
+      "SM8250"
+    ],
+    "ordered_pattern_directories": [
+      "projects/ROCKNIX/packages/audio/alsa-ucm-conf/patches",
+      "projects/ROCKNIX/packages/audio/alsa-ucm-conf/patches/aarch64",
+      "projects/ROCKNIX/packages/audio/alsa-ucm-conf/patches/SM8250",
+      "projects/ROCKNIX/packages/audio/alsa-ucm-conf/patches/1.2.13",
+      "projects/ROCKNIX/packages/audio/alsa-ucm-conf/patches/1.2.13/aarch64",
+      "projects/ROCKNIX/patches/alsa-ucm-conf",
+      "projects/ROCKNIX/patches/alsa-ucm-conf/aarch64",
+      "projects/ROCKNIX/patches/alsa-ucm-conf/SM8250",
+      "projects/ROCKNIX/devices/SM8250/patches/alsa-ucm-conf/SM8250",
+      "projects/ROCKNIX/patches/alsa-ucm-conf/1.2.13",
+      "projects/ROCKNIX/devices/SM8250/patches/alsa-ucm-conf"
+    ],
+    "stack": [
+      "projects/ROCKNIX/packages/audio/alsa-ucm-conf/patches/001-steamdeck.patch",
+      "projects/ROCKNIX/packages/audio/alsa-ucm-conf/patches/SM8250/0002_Add-Retroid-Pocket-SM8250-configuration.patch",
+      "projects/ROCKNIX/packages/audio/alsa-ucm-conf/patches/SM8250/0003_Maintain-compatibility-with-old-loader-u-boot.patch",
+      "projects/ROCKNIX/packages/audio/alsa-ucm-conf/patches/SM8250/0004_Add-HDMI-DisplayPort-audio-device.patch"
+    ],
+    "native_paths": [
+      "projects/ROCKNIX/packages/audio/alsa-ucm-conf/patches/SM8250/0002_Add-Retroid-Pocket-SM8250-configuration.patch",
+      "projects/ROCKNIX/packages/audio/alsa-ucm-conf/patches/SM8250/0003_Maintain-compatibility-with-old-loader-u-boot.patch",
+      "projects/ROCKNIX/packages/audio/alsa-ucm-conf/patches/SM8250/0004_Add-HDMI-DisplayPort-audio-device.patch"
+    ],
+    "config_paths": [],
+    "cache_candidates": [
+      "/workspace/cache/rocknix-sources/alsa-ucm-conf/alsa-ucm-conf-1.2.13.tar.bz2"
+    ],
+    "preimage_limits": [],
+    "source_only": true,
+    "runtime": false,
+    "source_overlays": [
+      {
+        "path": "projects/ROCKNIX/packages/audio/alsa-ucm-conf/sources/ucm2/Qualcomm/sm6115/HiFi-MangmiAirX.conf",
+        "relative": "ucm2/Qualcomm/sm6115/HiFi-MangmiAirX.conf",
+        "mode": "100644",
+        "oid": "c7b84e2067fd596e6209b9a9e8bd8475ec23ca1a"
+      },
+      {
+        "path": "projects/ROCKNIX/packages/audio/alsa-ucm-conf/sources/ucm2/Qualcomm/sm6115/MangmiAirX.conf",
+        "relative": "ucm2/Qualcomm/sm6115/MangmiAirX.conf",
+        "mode": "100644",
+        "oid": "c6672dcf2df7c0e6e8e06d628f9ac971c3a03ef9"
+      },
+      {
+        "path": "projects/ROCKNIX/packages/audio/alsa-ucm-conf/sources/ucm2/Qualcomm/sm8250/AYN-Thor-Lite-HiFi.conf",
+        "relative": "ucm2/Qualcomm/sm8250/AYN-Thor-Lite-HiFi.conf",
+        "mode": "100644",
+        "oid": "4f2e957133a7c37791bf9363e12fc00a1c4a7e9e"
+      },
+      {
+        "path": "projects/ROCKNIX/packages/audio/alsa-ucm-conf/sources/ucm2/Qualcomm/sm8250/AYN-Thor-Lite.conf",
+        "relative": "ucm2/Qualcomm/sm8250/AYN-Thor-Lite.conf",
+        "mode": "100644",
+        "oid": "2dfe4c190436810f24805ef4cecd001a4ff78507"
+      },
+      {
+        "path": "projects/ROCKNIX/packages/audio/alsa-ucm-conf/sources/ucm2/Qualcomm/sm8250/AirYPro-HiFi.conf",
+        "relative": "ucm2/Qualcomm/sm8250/AirYPro-HiFi.conf",
+        "mode": "100644",
+        "oid": "75030d50c2bbb62514d717e8ce65a3efe7c86c5e"
+      },
+      {
+        "path": "projects/ROCKNIX/packages/audio/alsa-ucm-conf/sources/ucm2/Qualcomm/sm8250/AirYPro.conf",
+        "relative": "ucm2/Qualcomm/sm8250/AirYPro.conf",
+        "mode": "100644",
+        "oid": "edc18e19cdf7401bedae8c04b42b2c354c9aae6c"
+      },
+      {
+        "path": "projects/ROCKNIX/packages/audio/alsa-ucm-conf/sources/ucm2/Qualcomm/sm8250/PocketMax-HiFi.conf",
+        "relative": "ucm2/Qualcomm/sm8250/PocketMax-HiFi.conf",
+        "mode": "100644",
+        "oid": "de36416b63758cfa245302da3aa66380d72600ad"
+      },
+      {
+        "path": "projects/ROCKNIX/packages/audio/alsa-ucm-conf/sources/ucm2/Qualcomm/sm8250/PocketMax.conf",
+        "relative": "ucm2/Qualcomm/sm8250/PocketMax.conf",
+        "mode": "100644",
+        "oid": "147ddfb6bb2d26912ebacdbef5fcf6b38df58444"
+      },
+      {
+        "path": "projects/ROCKNIX/packages/audio/alsa-ucm-conf/sources/ucm2/Rockchip/rockchip,es8388-codec/HiFi.conf",
+        "relative": "ucm2/Rockchip/rockchip,es8388-codec/HiFi.conf",
+        "mode": "100644",
+        "oid": "2f8f91ff30f47e62aae10af4a9d130e3482f87c9"
+      },
+      {
+        "path": "projects/ROCKNIX/packages/audio/alsa-ucm-conf/sources/ucm2/Rockchip/rockchip,es8388-codec/rockchip,es8388-codec.conf",
+        "relative": "ucm2/Rockchip/rockchip,es8388-codec/rockchip,es8388-codec.conf",
+        "mode": "100644",
+        "oid": "c38f88dc1178580085ada6a82126efd75ce69e4d"
+      },
+      {
+        "path": "projects/ROCKNIX/packages/audio/alsa-ucm-conf/sources/ucm2/conf.d/simple-card/rockchip,es8388-codec.conf",
+        "relative": "ucm2/conf.d/simple-card/rockchip,es8388-codec.conf",
+        "mode": "120000",
+        "oid": "e967e83b35a505496e3bd2a0cf1a54c1be0aa404"
+      },
+      {
+        "path": "projects/ROCKNIX/packages/audio/alsa-ucm-conf/sources/ucm2/conf.d/sm4250/MangmiAirX.conf",
+        "relative": "ucm2/conf.d/sm4250/MangmiAirX.conf",
+        "mode": "120000",
+        "oid": "703872f0ffe64931a482449dedad56249778c670"
+      },
+      {
+        "path": "projects/ROCKNIX/packages/audio/alsa-ucm-conf/sources/ucm2/conf.d/sm8250/AYN Thor Lite.conf",
+        "relative": "ucm2/conf.d/sm8250/AYN Thor Lite.conf",
+        "mode": "120000",
+        "oid": "948cc996965a853efbf267345797eeee3c86e65b"
+      },
+      {
+        "path": "projects/ROCKNIX/packages/audio/alsa-ucm-conf/sources/ucm2/conf.d/sm8250/AirYPro.conf",
+        "relative": "ucm2/conf.d/sm8250/AirYPro.conf",
+        "mode": "120000",
+        "oid": "b4227838b5eef2a35e51a259750cd4302d744628"
+      },
+      {
+        "path": "projects/ROCKNIX/packages/audio/alsa-ucm-conf/sources/ucm2/conf.d/sm8250/PocketMax.conf",
+        "relative": "ucm2/conf.d/sm8250/PocketMax.conf",
+        "mode": "120000",
+        "oid": "1c243dd02ff7267a442c837ff5343e91449b5189"
+      },
+      {
+        "path": "projects/ROCKNIX/packages/audio/alsa-ucm-conf/sources/ucm2/conf.d/sm8250/ayn-ATNThorLite-.conf",
+        "relative": "ucm2/conf.d/sm8250/ayn-ATNThorLite-.conf",
+        "mode": "120000",
+        "oid": "948cc996965a853efbf267345797eeee3c86e65b"
+      }
+    ]
+  },
+  "started": "2026-11-02T21:57:59.352026+00:00",
+  "rows": [
+    {
+      "path": "projects/ROCKNIX/packages/audio/alsa-ucm-conf/patches/001-steamdeck.patch",
+      "referent": "projects/ROCKNIX/packages/audio/alsa-ucm-conf/patches/001-steamdeck.patch",
+      "mode": "100644",
+      "literal_sha256": "deaca8034a106f0249a81a5a15692732e01227bf590e19d338f3259f07b42b8a",
+      "content_sha256": "deaca8034a106f0249a81a5a15692732e01227bf590e19d338f3259f07b42b8a",
+      "rendered_sha256": "deaca8034a106f0249a81a5a15692732e01227bf590e19d338f3259f07b42b8a",
+      "targets": [
+        "ucm2/conf.d/acp5x/HiFi-upstream.conf",
+        "ucm2/conf.d/acp5x/HiFi.conf",
+        "ucm2/conf.d/acp5x/acp5x.conf"
+      ],
+      "backend": "patch",
+      "index": 1,
+      "native": false,
+      "normal_called": true,
+      "normal": {
+        "argv": [
+          "patch",
+          "-d",
+          "/workspace/tmp/m6-t43/G029-001-candidate-x9bd9lfk",
+          "-p1"
+        ],
+        "start": "2026-11-02T21:57:59.416061+00:00",
+        "end": "2026-11-02T21:57:59.417841+00:00",
+        "exit": 0,
+        "stdout_sha256": "9a3c33024aed2cb091e19f608bc88200033e2d44fe2a461ddbeeb41631ee2785",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "output": "patching file ucm2/conf.d/acp5x/acp5x.conf\npatching file ucm2/conf.d/acp5x/HiFi.conf\npatching file ucm2/conf.d/acp5x/HiFi-upstream.conf\n",
+        "error": ""
+      },
+      "input_digest": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+      "output_digest": "c4c6e1618a5fd315e35c3eb58d3c5efd6ee27c37a3ae03c63d34ed2b8362786e",
+      "candidate_snapshot": {
+        "ucm2/conf.d/acp5x/HiFi-upstream.conf": {
+          "type": "file",
+          "mode": "0o664",
+          "sha256": "bcca51cac67d772c8c15322ac5d69eb2758961d444f09515618e525f179e51e2",
+          "bytes": 2928
+        },
+        "ucm2/conf.d/acp5x/HiFi.conf": {
+          "type": "file",
+          "mode": "0o664",
+          "sha256": "bdae19ecec7c18c1e150af069f5cc1523068dc76131d716561645c9ae06a7be7",
+          "bytes": 3308
+        },
+        "ucm2/conf.d/acp5x/acp5x.conf": {
+          "type": "file",
+          "mode": "0o664",
+          "sha256": "3f8e0cc96c6903eb17610176656a6ab77f2f741613db5f80911b145a1299b504",
+          "bytes": 249
+        }
+      },
+      "candidate_root": "/workspace/tmp/m6-t43/G029-001-candidate-x9bd9lfk",
+      "status": "applies",
+      "promoted": true
+    },
+    {
+      "path": "projects/ROCKNIX/packages/audio/alsa-ucm-conf/patches/SM8250/0002_Add-Retroid-Pocket-SM8250-configuration.patch",
+      "referent": "projects/ROCKNIX/packages/audio/alsa-ucm-conf/patches/SM8250/0002_Add-Retroid-Pocket-SM8250-configuration.patch",
+      "mode": "100755",
+      "literal_sha256": "9828231b8056485ac960457b233a658b62c2398ea864fbd6c0e960287af4d0f2",
+      "content_sha256": "9828231b8056485ac960457b233a658b62c2398ea864fbd6c0e960287af4d0f2",
+      "rendered_sha256": "9828231b8056485ac960457b233a658b62c2398ea864fbd6c0e960287af4d0f2",
+      "targets": [
+        "ucm2/Qualcomm/sm8250/HiFi-RP.conf",
+        "ucm2/Qualcomm/sm8250/RetroidPocket.conf",
+        "ucm2/codecs/wsa881x/init.conf",
+        "ucm2/conf.d/sm8250/RetroidPocket.conf",
+        "ucm2/conf.d/sm8250/retroidpocket-RetroidPocket5.conf",
+        "ucm2/conf.d/sm8250/retroidpocket-RetroidPocketFlip2.conf",
+        "ucm2/conf.d/sm8250/retroidpocket-RetroidPocketMini.conf",
+        "ucm2/conf.d/sm8250/retroidpocket-RetroidPocketMiniV2.conf"
+      ],
+      "backend": "patch",
+      "index": 2,
+      "native": true,
+      "normal_called": true,
+      "normal": {
+        "argv": [
+          "patch",
+          "-d",
+          "/workspace/tmp/m6-t43/G029-002-candidate-fgmacmf7",
+          "-p1"
+        ],
+        "start": "2026-11-02T21:57:59.418636+00:00",
+        "end": "2026-11-02T21:57:59.420667+00:00",
+        "exit": 0,
+        "stdout_sha256": "7588eebef36858ddbbd44e1ef86ed770a893ad3fd55834600a0cd8644120bd3d",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "output": "patching file ucm2/Qualcomm/sm8250/HiFi-RP.conf\npatching file ucm2/Qualcomm/sm8250/RetroidPocket.conf\npatching file ucm2/codecs/wsa881x/init.conf\npatching symbolic link ucm2/conf.d/sm8250/RetroidPocket.conf\npatching symbolic link ucm2/conf.d/sm8250/retroidpocket-RetroidPocket5.conf\npatching symbolic link ucm2/conf.d/sm8250/retroidpocket-RetroidPocketFlip2.conf\npatching symbolic link ucm2/conf.d/sm8250/retroidpocket-RetroidPocketMini.conf\npatching symbolic link ucm2/conf.d/sm8250/retroidpocket-RetroidPocketMiniV2.conf\n",
+        "error": ""
+      },
+      "input_digest": "c4c6e1618a5fd315e35c3eb58d3c5efd6ee27c37a3ae03c63d34ed2b8362786e",
+      "output_digest": "cf2393eb2bbafea063967a42e2682c4cd4247261966a155d3d01ad63885dfa67",
+      "candidate_snapshot": {
+        "ucm2/Qualcomm/sm8250/HiFi-RP.conf": {
+          "type": "file",
+          "mode": "0o644",
+          "sha256": "862e5312cbfc2bce25c01733a3cd3e4c9f40a7d78d2b6743af1a75bf71410ae0",
+          "bytes": 1799
+        },
+        "ucm2/Qualcomm/sm8250/RetroidPocket.conf": {
+          "type": "file",
+          "mode": "0o644",
+          "sha256": "62e41a52f1f1b5ae19af50bcd6aaf045ba4f94c1addabc418ecada624e643e07",
+          "bytes": 625
+        },
+        "ucm2/codecs/wsa881x/init.conf": {
+          "type": "file",
+          "mode": "0o644",
+          "sha256": "fe8d8faba78e24565f623b0035a3a5c0e6c1eb45148f3962af32bced63b294e1",
+          "bytes": 260
+        },
+        "ucm2/conf.d/acp5x/HiFi-upstream.conf": {
+          "type": "file",
+          "mode": "0o664",
+          "sha256": "bcca51cac67d772c8c15322ac5d69eb2758961d444f09515618e525f179e51e2",
+          "bytes": 2928
+        },
+        "ucm2/conf.d/acp5x/HiFi.conf": {
+          "type": "file",
+          "mode": "0o664",
+          "sha256": "bdae19ecec7c18c1e150af069f5cc1523068dc76131d716561645c9ae06a7be7",
+          "bytes": 3308
+        },
+        "ucm2/conf.d/acp5x/acp5x.conf": {
+          "type": "file",
+          "mode": "0o664",
+          "sha256": "3f8e0cc96c6903eb17610176656a6ab77f2f741613db5f80911b145a1299b504",
+          "bytes": 249
+        },
+        "ucm2/conf.d/sm8250/RetroidPocket.conf": {
+          "type": "link",
+          "target": "../../Qualcomm/sm8250/RetroidPocket.conf",
+          "sha256": "e8b38950ccb8730f710865d4bb9f23ba0d4db19c2d9cc09a90d4b0dac369b025"
+        },
+        "ucm2/conf.d/sm8250/retroidpocket-RetroidPocket5.conf": {
+          "type": "link",
+          "target": "../../Qualcomm/sm8250/RetroidPocket.conf",
+          "sha256": "e8b38950ccb8730f710865d4bb9f23ba0d4db19c2d9cc09a90d4b0dac369b025"
+        },
+        "ucm2/conf.d/sm8250/retroidpocket-RetroidPocketFlip2.conf": {
+          "type": "link",
+          "target": "../../Qualcomm/sm8250/RetroidPocket.conf",
+          "sha256": "e8b38950ccb8730f710865d4bb9f23ba0d4db19c2d9cc09a90d4b0dac369b025"
+        },
+        "ucm2/conf.d/sm8250/retroidpocket-RetroidPocketMini.conf": {
+          "type": "link",
+          "target": "../../Qualcomm/sm8250/RetroidPocket.conf",
+          "sha256": "e8b38950ccb8730f710865d4bb9f23ba0d4db19c2d9cc09a90d4b0dac369b025"
+        },
+        "ucm2/conf.d/sm8250/retroidpocket-RetroidPocketMiniV2.conf": {
+          "type": "link",
+          "target": "../../Qualcomm/sm8250/RetroidPocket.conf",
+          "sha256": "e8b38950ccb8730f710865d4bb9f23ba0d4db19c2d9cc09a90d4b0dac369b025"
+        }
+      },
+      "candidate_root": "/workspace/tmp/m6-t43/G029-002-candidate-fgmacmf7",
+      "status": "applies",
+      "promoted": true
+    },
+    {
+      "path": "projects/ROCKNIX/packages/audio/alsa-ucm-conf/patches/SM8250/0003_Maintain-compatibility-with-old-loader-u-boot.patch",
+      "referent": "projects/ROCKNIX/packages/audio/alsa-ucm-conf/patches/SM8250/0003_Maintain-compatibility-with-old-loader-u-boot.patch",
+      "mode": "100644",
+      "literal_sha256": "55ada89a41e8d8b5d0dbc890c227fdc10f5179910b5f24a0417c045c34244a31",
+      "content_sha256": "55ada89a41e8d8b5d0dbc890c227fdc10f5179910b5f24a0417c045c34244a31",
+      "rendered_sha256": "55ada89a41e8d8b5d0dbc890c227fdc10f5179910b5f24a0417c045c34244a31",
+      "targets": [
+        "ucm2/conf.d/sm8250/retroid-RetroidPocket5-conf",
+        "ucm2/conf.d/sm8250/retroid-RetroidPocketMini-.conf"
+      ],
+      "backend": "patch",
+      "index": 3,
+      "native": true,
+      "normal_called": true,
+      "normal": {
+        "argv": [
+          "patch",
+          "-d",
+          "/workspace/tmp/m6-t43/G029-003-candidate-b53jjc_q",
+          "-p1"
+        ],
+        "start": "2026-11-02T21:57:59.422596+00:00",
+        "end": "2026-11-02T21:57:59.424295+00:00",
+        "exit": 0,
+        "stdout_sha256": "2d78415319defa8830512f0d0b86a575222196bc5c17939ab05092a9c050a2af",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "output": "patching symbolic link ucm2/conf.d/sm8250/retroid-RetroidPocket5-conf\npatching symbolic link ucm2/conf.d/sm8250/retroid-RetroidPocketMini-.conf\n",
+        "error": ""
+      },
+      "input_digest": "cf2393eb2bbafea063967a42e2682c4cd4247261966a155d3d01ad63885dfa67",
+      "output_digest": "f9a3889ed22cfc716db06a62621c46ce1cfdaf1793612398be3247f635d0a03e",
+      "candidate_snapshot": {
+        "ucm2/Qualcomm/sm8250/HiFi-RP.conf": {
+          "type": "file",
+          "mode": "0o644",
+          "sha256": "862e5312cbfc2bce25c01733a3cd3e4c9f40a7d78d2b6743af1a75bf71410ae0",
+          "bytes": 1799
+        },
+        "ucm2/Qualcomm/sm8250/RetroidPocket.conf": {
+          "type": "file",
+          "mode": "0o644",
+          "sha256": "62e41a52f1f1b5ae19af50bcd6aaf045ba4f94c1addabc418ecada624e643e07",
+          "bytes": 625
+        },
+        "ucm2/codecs/wsa881x/init.conf": {
+          "type": "file",
+          "mode": "0o644",
+          "sha256": "fe8d8faba78e24565f623b0035a3a5c0e6c1eb45148f3962af32bced63b294e1",
+          "bytes": 260
+        },
+        "ucm2/conf.d/acp5x/HiFi-upstream.conf": {
+          "type": "file",
+          "mode": "0o664",
+          "sha256": "bcca51cac67d772c8c15322ac5d69eb2758961d444f09515618e525f179e51e2",
+          "bytes": 2928
+        },
+        "ucm2/conf.d/acp5x/HiFi.conf": {
+          "type": "file",
+          "mode": "0o664",
+          "sha256": "bdae19ecec7c18c1e150af069f5cc1523068dc76131d716561645c9ae06a7be7",
+          "bytes": 3308
+        },
+        "ucm2/conf.d/acp5x/acp5x.conf": {
+          "type": "file",
+          "mode": "0o664",
+          "sha256": "3f8e0cc96c6903eb17610176656a6ab77f2f741613db5f80911b145a1299b504",
+          "bytes": 249
+        },
+        "ucm2/conf.d/sm8250/RetroidPocket.conf": {
+          "type": "file",
+          "mode": "0o644",
+          "sha256": "62e41a52f1f1b5ae19af50bcd6aaf045ba4f94c1addabc418ecada624e643e07",
+          "bytes": 625
+        },
+        "ucm2/conf.d/sm8250/retroid-RetroidPocket5-conf": {
+          "type": "link",
+          "target": "../../Qualcomm/sm8250/RetroidPocket.conf",
+          "sha256": "e8b38950ccb8730f710865d4bb9f23ba0d4db19c2d9cc09a90d4b0dac369b025"
+        },
+        "ucm2/conf.d/sm8250/retroid-RetroidPocketMini-.conf": {
+          "type": "link",
+          "target": "../../Qualcomm/sm8250/RetroidPocket.conf",
+          "sha256": "e8b38950ccb8730f710865d4bb9f23ba0d4db19c2d9cc09a90d4b0dac369b025"
+        },
+        "ucm2/conf.d/sm8250/retroidpocket-RetroidPocket5.conf": {
+          "type": "file",
+          "mode": "0o644",
+          "sha256": "62e41a52f1f1b5ae19af50bcd6aaf045ba4f94c1addabc418ecada624e643e07",
+          "bytes": 625
+        },
+        "ucm2/conf.d/sm8250/retroidpocket-RetroidPocketFlip2.conf": {
+          "type": "file",
+          "mode": "0o644",
+          "sha256": "62e41a52f1f1b5ae19af50bcd6aaf045ba4f94c1addabc418ecada624e643e07",
+          "bytes": 625
+        },
+        "ucm2/conf.d/sm8250/retroidpocket-RetroidPocketMini.conf": {
+          "type": "file",
+          "mode": "0o644",
+          "sha256": "62e41a52f1f1b5ae19af50bcd6aaf045ba4f94c1addabc418ecada624e643e07",
+          "bytes": 625
+        },
+        "ucm2/conf.d/sm8250/retroidpocket-RetroidPocketMiniV2.conf": {
+          "type": "file",
+          "mode": "0o644",
+          "sha256": "62e41a52f1f1b5ae19af50bcd6aaf045ba4f94c1addabc418ecada624e643e07",
+          "bytes": 625
+        }
+      },
+      "candidate_root": "/workspace/tmp/m6-t43/G029-003-candidate-b53jjc_q",
+      "status": "applies",
+      "promoted": true
+    },
+    {
+      "path": "projects/ROCKNIX/packages/audio/alsa-ucm-conf/patches/SM8250/0004_Add-HDMI-DisplayPort-audio-device.patch",
+      "referent": "projects/ROCKNIX/packages/audio/alsa-ucm-conf/patches/SM8250/0004_Add-HDMI-DisplayPort-audio-device.patch",
+      "mode": "100644",
+      "literal_sha256": "8095f0dddd35d7e8ac18f1be610be4fd920f393bb403788a6315f9cc07271b1e",
+      "content_sha256": "8095f0dddd35d7e8ac18f1be610be4fd920f393bb403788a6315f9cc07271b1e",
+      "rendered_sha256": "8095f0dddd35d7e8ac18f1be610be4fd920f393bb403788a6315f9cc07271b1e",
+      "targets": [
+        "ucm2/Qualcomm/sm8250/HDMI-RP.conf",
+        "ucm2/Qualcomm/sm8250/RetroidPocket.conf"
+      ],
+      "backend": "patch",
+      "index": 4,
+      "native": true,
+      "normal_called": true,
+      "normal": {
+        "argv": [
+          "patch",
+          "-d",
+          "/workspace/tmp/m6-t43/G029-004-candidate-34q0h3s0",
+          "-p1"
+        ],
+        "start": "2026-11-02T21:57:59.426190+00:00",
+        "end": "2026-11-02T21:57:59.427890+00:00",
+        "exit": 0,
+        "stdout_sha256": "cfdc9a2a688d97a39376122eae08f34fc3ef7c5d42378903bbdbeed781f8d566",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "output": "patching file ucm2/Qualcomm/sm8250/HDMI-RP.conf\npatching file ucm2/Qualcomm/sm8250/RetroidPocket.conf\n",
+        "error": ""
+      },
+      "input_digest": "f9a3889ed22cfc716db06a62621c46ce1cfdaf1793612398be3247f635d0a03e",
+      "output_digest": "6a4cbf087fdc5dd05839ec21efa92ea7652b9532097bf30d2524864b3f6bdc69",
+      "candidate_snapshot": {
+        "ucm2/Qualcomm/sm8250/HDMI-RP.conf": {
+          "type": "file",
+          "mode": "0o664",
+          "sha256": "4d8a9803c9209702156b3c7fc3887fd48700ee20b872084de02cb5d78ac96380",
+          "bytes": 540
+        },
+        "ucm2/Qualcomm/sm8250/HiFi-RP.conf": {
+          "type": "file",
+          "mode": "0o644",
+          "sha256": "862e5312cbfc2bce25c01733a3cd3e4c9f40a7d78d2b6743af1a75bf71410ae0",
+          "bytes": 1799
+        },
+        "ucm2/Qualcomm/sm8250/RetroidPocket.conf": {
+          "type": "file",
+          "mode": "0o644",
+          "sha256": "4e21595814b849e05b2c5ed4d8c4645d45ac39e53db2c385ba715ae23beb73df",
+          "bytes": 728
+        },
+        "ucm2/codecs/wsa881x/init.conf": {
+          "type": "file",
+          "mode": "0o644",
+          "sha256": "fe8d8faba78e24565f623b0035a3a5c0e6c1eb45148f3962af32bced63b294e1",
+          "bytes": 260
+        },
+        "ucm2/conf.d/acp5x/HiFi-upstream.conf": {
+          "type": "file",
+          "mode": "0o664",
+          "sha256": "bcca51cac67d772c8c15322ac5d69eb2758961d444f09515618e525f179e51e2",
+          "bytes": 2928
+        },
+        "ucm2/conf.d/acp5x/HiFi.conf": {
+          "type": "file",
+          "mode": "0o664",
+          "sha256": "bdae19ecec7c18c1e150af069f5cc1523068dc76131d716561645c9ae06a7be7",
+          "bytes": 3308
+        },
+        "ucm2/conf.d/acp5x/acp5x.conf": {
+          "type": "file",
+          "mode": "0o664",
+          "sha256": "3f8e0cc96c6903eb17610176656a6ab77f2f741613db5f80911b145a1299b504",
+          "bytes": 249
+        },
+        "ucm2/conf.d/sm8250/RetroidPocket.conf": {
+          "type": "file",
+          "mode": "0o644",
+          "sha256": "62e41a52f1f1b5ae19af50bcd6aaf045ba4f94c1addabc418ecada624e643e07",
+          "bytes": 625
+        },
+        "ucm2/conf.d/sm8250/retroid-RetroidPocket5-conf": {
+          "type": "file",
+          "mode": "0o644",
+          "sha256": "62e41a52f1f1b5ae19af50bcd6aaf045ba4f94c1addabc418ecada624e643e07",
+          "bytes": 625
+        },
+        "ucm2/conf.d/sm8250/retroid-RetroidPocketMini-.conf": {
+          "type": "file",
+          "mode": "0o644",
+          "sha256": "62e41a52f1f1b5ae19af50bcd6aaf045ba4f94c1addabc418ecada624e643e07",
+          "bytes": 625
+        },
+        "ucm2/conf.d/sm8250/retroidpocket-RetroidPocket5.conf": {
+          "type": "file",
+          "mode": "0o644",
+          "sha256": "62e41a52f1f1b5ae19af50bcd6aaf045ba4f94c1addabc418ecada624e643e07",
+          "bytes": 625
+        },
+        "ucm2/conf.d/sm8250/retroidpocket-RetroidPocketFlip2.conf": {
+          "type": "file",
+          "mode": "0o644",
+          "sha256": "62e41a52f1f1b5ae19af50bcd6aaf045ba4f94c1addabc418ecada624e643e07",
+          "bytes": 625
+        },
+        "ucm2/conf.d/sm8250/retroidpocket-RetroidPocketMini.conf": {
+          "type": "file",
+          "mode": "0o644",
+          "sha256": "62e41a52f1f1b5ae19af50bcd6aaf045ba4f94c1addabc418ecada624e643e07",
+          "bytes": 625
+        },
+        "ucm2/conf.d/sm8250/retroidpocket-RetroidPocketMiniV2.conf": {
+          "type": "file",
+          "mode": "0o644",
+          "sha256": "62e41a52f1f1b5ae19af50bcd6aaf045ba4f94c1addabc418ecada624e643e07",
+          "bytes": 625
+        }
+      },
+      "candidate_root": "/workspace/tmp/m6-t43/G029-004-candidate-34q0h3s0",
+      "status": "applies",
+      "promoted": true
+    }
+  ],
+  "input_snapshot": {},
+  "limits": [],
+  "cache_observations": [
+    {
+      "path": "/workspace/cache/rocknix-sources/alsa-ucm-conf/alsa-ucm-conf-1.2.13.tar.bz2",
+      "sha256": "4483b6e3983cca08fd326a73fbae449b5036e444fb1a07c0dee74b504b7ab5af",
+      "expected": "4483b6e3983cca08fd326a73fbae449b5036e444fb1a07c0dee74b504b7ab5af"
+    }
+  ],
+  "archive": {
+    "path": "/workspace/cache/rocknix-sources/alsa-ucm-conf/alsa-ucm-conf-1.2.13.tar.bz2",
+    "sha256": "4483b6e3983cca08fd326a73fbae449b5036e444fb1a07c0dee74b504b7ab5af",
+    "recipe_url": "https://www.alsa-project.org/files/pub/lib/alsa-ucm-conf-1.2.13.tar.bz2"
+  },
+  "stack": [
+    {
+      "path": "projects/ROCKNIX/packages/audio/alsa-ucm-conf/patches/001-steamdeck.patch",
+      "referent": "projects/ROCKNIX/packages/audio/alsa-ucm-conf/patches/001-steamdeck.patch",
+      "mode": "100644",
+      "literal_sha256": "deaca8034a106f0249a81a5a15692732e01227bf590e19d338f3259f07b42b8a",
+      "content_sha256": "deaca8034a106f0249a81a5a15692732e01227bf590e19d338f3259f07b42b8a",
+      "rendered_sha256": "deaca8034a106f0249a81a5a15692732e01227bf590e19d338f3259f07b42b8a",
+      "targets": [
+        "ucm2/conf.d/acp5x/HiFi-upstream.conf",
+        "ucm2/conf.d/acp5x/HiFi.conf",
+        "ucm2/conf.d/acp5x/acp5x.conf"
+      ],
+      "backend": "patch"
+    },
+    {
+      "path": "projects/ROCKNIX/packages/audio/alsa-ucm-conf/patches/SM8250/0002_Add-Retroid-Pocket-SM8250-configuration.patch",
+      "referent": "projects/ROCKNIX/packages/audio/alsa-ucm-conf/patches/SM8250/0002_Add-Retroid-Pocket-SM8250-configuration.patch",
+      "mode": "100755",
+      "literal_sha256": "9828231b8056485ac960457b233a658b62c2398ea864fbd6c0e960287af4d0f2",
+      "content_sha256": "9828231b8056485ac960457b233a658b62c2398ea864fbd6c0e960287af4d0f2",
+      "rendered_sha256": "9828231b8056485ac960457b233a658b62c2398ea864fbd6c0e960287af4d0f2",
+      "targets": [
+        "ucm2/Qualcomm/sm8250/HiFi-RP.conf",
+        "ucm2/Qualcomm/sm8250/RetroidPocket.conf",
+        "ucm2/codecs/wsa881x/init.conf",
+        "ucm2/conf.d/sm8250/RetroidPocket.conf",
+        "ucm2/conf.d/sm8250/retroidpocket-RetroidPocket5.conf",
+        "ucm2/conf.d/sm8250/retroidpocket-RetroidPocketFlip2.conf",
+        "ucm2/conf.d/sm8250/retroidpocket-RetroidPocketMini.conf",
+        "ucm2/conf.d/sm8250/retroidpocket-RetroidPocketMiniV2.conf"
+      ],
+      "backend": "patch"
+    },
+    {
+      "path": "projects/ROCKNIX/packages/audio/alsa-ucm-conf/patches/SM8250/0003_Maintain-compatibility-with-old-loader-u-boot.patch",
+      "referent": "projects/ROCKNIX/packages/audio/alsa-ucm-conf/patches/SM8250/0003_Maintain-compatibility-with-old-loader-u-boot.patch",
+      "mode": "100644",
+      "literal_sha256": "55ada89a41e8d8b5d0dbc890c227fdc10f5179910b5f24a0417c045c34244a31",
+      "content_sha256": "55ada89a41e8d8b5d0dbc890c227fdc10f5179910b5f24a0417c045c34244a31",
+      "rendered_sha256": "55ada89a41e8d8b5d0dbc890c227fdc10f5179910b5f24a0417c045c34244a31",
+      "targets": [
+        "ucm2/conf.d/sm8250/retroid-RetroidPocket5-conf",
+        "ucm2/conf.d/sm8250/retroid-RetroidPocketMini-.conf"
+      ],
+      "backend": "patch"
+    },
+    {
+      "path": "projects/ROCKNIX/packages/audio/alsa-ucm-conf/patches/SM8250/0004_Add-HDMI-DisplayPort-audio-device.patch",
+      "referent": "projects/ROCKNIX/packages/audio/alsa-ucm-conf/patches/SM8250/0004_Add-HDMI-DisplayPort-audio-device.patch",
+      "mode": "100644",
+      "literal_sha256": "8095f0dddd35d7e8ac18f1be610be4fd920f393bb403788a6315f9cc07271b1e",
+      "content_sha256": "8095f0dddd35d7e8ac18f1be610be4fd920f393bb403788a6315f9cc07271b1e",
+      "rendered_sha256": "8095f0dddd35d7e8ac18f1be610be4fd920f393bb403788a6315f9cc07271b1e",
+      "targets": [
+        "ucm2/Qualcomm/sm8250/HDMI-RP.conf",
+        "ucm2/Qualcomm/sm8250/RetroidPocket.conf"
+      ],
+      "backend": "patch"
+    }
+  ],
+  "stack_sha256": "5c4a4e5e6a357524acb7f664774811e8fe89baaac8fcbec2e84582d86aae12f4",
+  "projection": {
+    "archive_header_count": 872,
+    "archive_header_sha256": "1bfb3b4ff14fc6c9d29d1c5d944da109443f96b5d2259512b6c391935ea35b47",
+    "projected_members": {},
+    "absent_targets": [
+      "ucm2/Qualcomm/sm8250/HDMI-RP.conf",
+      "ucm2/Qualcomm/sm8250/HiFi-RP.conf",
+      "ucm2/Qualcomm/sm8250/RetroidPocket.conf",
+      "ucm2/codecs/wsa881x/init.conf",
+      "ucm2/conf.d/acp5x/HiFi-upstream.conf",
+      "ucm2/conf.d/acp5x/HiFi.conf",
+      "ucm2/conf.d/acp5x/acp5x.conf",
+      "ucm2/conf.d/sm8250/RetroidPocket.conf",
+      "ucm2/conf.d/sm8250/retroid-RetroidPocket5-conf",
+      "ucm2/conf.d/sm8250/retroid-RetroidPocketMini-.conf",
+      "ucm2/conf.d/sm8250/retroidpocket-RetroidPocket5.conf",
+      "ucm2/conf.d/sm8250/retroidpocket-RetroidPocketFlip2.conf",
+      "ucm2/conf.d/sm8250/retroidpocket-RetroidPocketMini.conf",
+      "ucm2/conf.d/sm8250/retroidpocket-RetroidPocketMiniV2.conf"
+    ],
+    "projection_root": "/workspace/tmp/m6-t43/source-members-mxtc6mgn"
+  },
+  "overlay_evidence": [
+    {
+      "path": "projects/ROCKNIX/packages/audio/alsa-ucm-conf/sources/ucm2/Qualcomm/sm6115/HiFi-MangmiAirX.conf",
+      "relative": "ucm2/Qualcomm/sm6115/HiFi-MangmiAirX.conf",
+      "mode": "100644",
+      "oid": "c7b84e2067fd596e6209b9a9e8bd8475ec23ca1a",
+      "sha256": "2d894db0e1ea5c953a70f51328c5e95d445c545f601675b33e694dedee335fba",
+      "projected": false
+    },
+    {
+      "path": "projects/ROCKNIX/packages/audio/alsa-ucm-conf/sources/ucm2/Qualcomm/sm6115/MangmiAirX.conf",
+      "relative": "ucm2/Qualcomm/sm6115/MangmiAirX.conf",
+      "mode": "100644",
+      "oid": "c6672dcf2df7c0e6e8e06d628f9ac971c3a03ef9",
+      "sha256": "70d0e8450523ec6668d4663cea8aab764b860581f077d23e285482df4819eeca",
+      "projected": false
+    },
+    {
+      "path": "projects/ROCKNIX/packages/audio/alsa-ucm-conf/sources/ucm2/Qualcomm/sm8250/AYN-Thor-Lite-HiFi.conf",
+      "relative": "ucm2/Qualcomm/sm8250/AYN-Thor-Lite-HiFi.conf",
+      "mode": "100644",
+      "oid": "4f2e957133a7c37791bf9363e12fc00a1c4a7e9e",
+      "sha256": "88f4faa526393f4c265b80dbfc7311cbc1b078337da043b4e0c68e5289dd1835",
+      "projected": false
+    },
+    {
+      "path": "projects/ROCKNIX/packages/audio/alsa-ucm-conf/sources/ucm2/Qualcomm/sm8250/AYN-Thor-Lite.conf",
+      "relative": "ucm2/Qualcomm/sm8250/AYN-Thor-Lite.conf",
+      "mode": "100644",
+      "oid": "2dfe4c190436810f24805ef4cecd001a4ff78507",
+      "sha256": "a8a2a4e74077eec8540613354427b54b2d9911b8853ec274c717d63eb6e883ec",
+      "projected": false
+    },
+    {
+      "path": "projects/ROCKNIX/packages/audio/alsa-ucm-conf/sources/ucm2/Qualcomm/sm8250/AirYPro-HiFi.conf",
+      "relative": "ucm2/Qualcomm/sm8250/AirYPro-HiFi.conf",
+      "mode": "100644",
+      "oid": "75030d50c2bbb62514d717e8ce65a3efe7c86c5e",
+      "sha256": "5f01dc1ab1773c2e05f62d347f630067ba2f2c1655b5f011fa48943dae0512bf",
+      "projected": false
+    },
+    {
+      "path": "projects/ROCKNIX/packages/audio/alsa-ucm-conf/sources/ucm2/Qualcomm/sm8250/AirYPro.conf",
+      "relative": "ucm2/Qualcomm/sm8250/AirYPro.conf",
+      "mode": "100644",
+      "oid": "edc18e19cdf7401bedae8c04b42b2c354c9aae6c",
+      "sha256": "73e180b20a736aceb004cb27e5b45bb4ed244d555a265d61ea5f4e2a4f2c1b92",
+      "projected": false
+    },
+    {
+      "path": "projects/ROCKNIX/packages/audio/alsa-ucm-conf/sources/ucm2/Qualcomm/sm8250/PocketMax-HiFi.conf",
+      "relative": "ucm2/Qualcomm/sm8250/PocketMax-HiFi.conf",
+      "mode": "100644",
+      "oid": "de36416b63758cfa245302da3aa66380d72600ad",
+      "sha256": "fb36d1257c24fafc6d0814f68e53d7c5f20952500295d624de650efed8198edb",
+      "projected": false
+    },
+    {
+      "path": "projects/ROCKNIX/packages/audio/alsa-ucm-conf/sources/ucm2/Qualcomm/sm8250/PocketMax.conf",
+      "relative": "ucm2/Qualcomm/sm8250/PocketMax.conf",
+      "mode": "100644",
+      "oid": "147ddfb6bb2d26912ebacdbef5fcf6b38df58444",
+      "sha256": "6842999be151f832b8b96645bdfb030986379e010cae34a2edfc529e5daab8df",
+      "projected": false
+    },
+    {
+      "path": "projects/ROCKNIX/packages/audio/alsa-ucm-conf/sources/ucm2/Rockchip/rockchip,es8388-codec/HiFi.conf",
+      "relative": "ucm2/Rockchip/rockchip,es8388-codec/HiFi.conf",
+      "mode": "100644",
+      "oid": "2f8f91ff30f47e62aae10af4a9d130e3482f87c9",
+      "sha256": "5fb92c47fa8f20ab02bc2a6baabe57656e32fdabdf559dd7199ebf23285d929b",
+      "projected": false
+    },
+    {
+      "path": "projects/ROCKNIX/packages/audio/alsa-ucm-conf/sources/ucm2/Rockchip/rockchip,es8388-codec/rockchip,es8388-codec.conf",
+      "relative": "ucm2/Rockchip/rockchip,es8388-codec/rockchip,es8388-codec.conf",
+      "mode": "100644",
+      "oid": "c38f88dc1178580085ada6a82126efd75ce69e4d",
+      "sha256": "c285c332246bf90d313ea7b6274e0afde6f0a11990713db3d5b026cb44396f77",
+      "projected": false
+    },
+    {
+      "path": "projects/ROCKNIX/packages/audio/alsa-ucm-conf/sources/ucm2/conf.d/simple-card/rockchip,es8388-codec.conf",
+      "relative": "ucm2/conf.d/simple-card/rockchip,es8388-codec.conf",
+      "mode": "120000",
+      "oid": "e967e83b35a505496e3bd2a0cf1a54c1be0aa404",
+      "sha256": "b966a242f65fc9bf4fc9341fbb3d833b26f544096e45301b1d250abb819cbce0",
+      "projected": false
+    },
+    {
+      "path": "projects/ROCKNIX/packages/audio/alsa-ucm-conf/sources/ucm2/conf.d/sm4250/MangmiAirX.conf",
+      "relative": "ucm2/conf.d/sm4250/MangmiAirX.conf",
+      "mode": "120000",
+      "oid": "703872f0ffe64931a482449dedad56249778c670",
+      "sha256": "421d800526014c3522c8984aad24072101b3e9eca6b5365dab0d70b880a24b07",
+      "projected": false
+    },
+    {
+      "path": "projects/ROCKNIX/packages/audio/alsa-ucm-conf/sources/ucm2/conf.d/sm8250/AYN Thor Lite.conf",
+      "relative": "ucm2/conf.d/sm8250/AYN Thor Lite.conf",
+      "mode": "120000",
+      "oid": "948cc996965a853efbf267345797eeee3c86e65b",
+      "sha256": "51d13d2647b184724ff481918d3ebbd4188865caf4d69587a461aee5d16539ec",
+      "projected": false
+    },
+    {
+      "path": "projects/ROCKNIX/packages/audio/alsa-ucm-conf/sources/ucm2/conf.d/sm8250/AirYPro.conf",
+      "relative": "ucm2/conf.d/sm8250/AirYPro.conf",
+      "mode": "120000",
+      "oid": "b4227838b5eef2a35e51a259750cd4302d744628",
+      "sha256": "8d4fe404660edecdab9401fa3590b5a8cbe7c5f8d1a2dbc1c389524fe6d6205e",
+      "projected": false
+    },
+    {
+      "path": "projects/ROCKNIX/packages/audio/alsa-ucm-conf/sources/ucm2/conf.d/sm8250/PocketMax.conf",
+      "relative": "ucm2/conf.d/sm8250/PocketMax.conf",
+      "mode": "120000",
+      "oid": "1c243dd02ff7267a442c837ff5343e91449b5189",
+      "sha256": "55680308c21641a9690c4da6d2eaa8d825099bbae27294d178dbfa38dff40bf4",
+      "projected": false
+    },
+    {
+      "path": "projects/ROCKNIX/packages/audio/alsa-ucm-conf/sources/ucm2/conf.d/sm8250/ayn-ATNThorLite-.conf",
+      "relative": "ucm2/conf.d/sm8250/ayn-ATNThorLite-.conf",
+      "mode": "120000",
+      "oid": "948cc996965a853efbf267345797eeee3c86e65b",
+      "sha256": "51d13d2647b184724ff481918d3ebbd4188865caf4d69587a461aee5d16539ec",
+      "projected": false
+    }
+  ],
+  "status": "applies",
+  "final_prefix_root": "/workspace/tmp/m6-t43/G029-004-candidate-34q0h3s0",
+  "final_prefix_snapshot": {
+    "ucm2/Qualcomm/sm8250/HDMI-RP.conf": {
+      "type": "file",
+      "mode": "0o664",
+      "sha256": "4d8a9803c9209702156b3c7fc3887fd48700ee20b872084de02cb5d78ac96380",
+      "bytes": 540
+    },
+    "ucm2/Qualcomm/sm8250/HiFi-RP.conf": {
+      "type": "file",
+      "mode": "0o644",
+      "sha256": "862e5312cbfc2bce25c01733a3cd3e4c9f40a7d78d2b6743af1a75bf71410ae0",
+      "bytes": 1799
+    },
+    "ucm2/Qualcomm/sm8250/RetroidPocket.conf": {
+      "type": "file",
+      "mode": "0o644",
+      "sha256": "4e21595814b849e05b2c5ed4d8c4645d45ac39e53db2c385ba715ae23beb73df",
+      "bytes": 728
+    },
+    "ucm2/codecs/wsa881x/init.conf": {
+      "type": "file",
+      "mode": "0o644",
+      "sha256": "fe8d8faba78e24565f623b0035a3a5c0e6c1eb45148f3962af32bced63b294e1",
+      "bytes": 260
+    },
+    "ucm2/conf.d/acp5x/HiFi-upstream.conf": {
+      "type": "file",
+      "mode": "0o664",
+      "sha256": "bcca51cac67d772c8c15322ac5d69eb2758961d444f09515618e525f179e51e2",
+      "bytes": 2928
+    },
+    "ucm2/conf.d/acp5x/HiFi.conf": {
+      "type": "file",
+      "mode": "0o664",
+      "sha256": "bdae19ecec7c18c1e150af069f5cc1523068dc76131d716561645c9ae06a7be7",
+      "bytes": 3308
+    },
+    "ucm2/conf.d/acp5x/acp5x.conf": {
+      "type": "file",
+      "mode": "0o664",
+      "sha256": "3f8e0cc96c6903eb17610176656a6ab77f2f741613db5f80911b145a1299b504",
+      "bytes": 249
+    },
+    "ucm2/conf.d/sm8250/RetroidPocket.conf": {
+      "type": "file",
+      "mode": "0o644",
+      "sha256": "62e41a52f1f1b5ae19af50bcd6aaf045ba4f94c1addabc418ecada624e643e07",
+      "bytes": 625
+    },
+    "ucm2/conf.d/sm8250/retroid-RetroidPocket5-conf": {
+      "type": "file",
+      "mode": "0o644",
+      "sha256": "62e41a52f1f1b5ae19af50bcd6aaf045ba4f94c1addabc418ecada624e643e07",
+      "bytes": 625
+    },
+    "ucm2/conf.d/sm8250/retroid-RetroidPocketMini-.conf": {
+      "type": "file",
+      "mode": "0o644",
+      "sha256": "62e41a52f1f1b5ae19af50bcd6aaf045ba4f94c1addabc418ecada624e643e07",
+      "bytes": 625
+    },
+    "ucm2/conf.d/sm8250/retroidpocket-RetroidPocket5.conf": {
+      "type": "file",
+      "mode": "0o644",
+      "sha256": "62e41a52f1f1b5ae19af50bcd6aaf045ba4f94c1addabc418ecada624e643e07",
+      "bytes": 625
+    },
+    "ucm2/conf.d/sm8250/retroidpocket-RetroidPocketFlip2.conf": {
+      "type": "file",
+      "mode": "0o644",
+      "sha256": "62e41a52f1f1b5ae19af50bcd6aaf045ba4f94c1addabc418ecada624e643e07",
+      "bytes": 625
+    },
+    "ucm2/conf.d/sm8250/retroidpocket-RetroidPocketMini.conf": {
+      "type": "file",
+      "mode": "0o644",
+      "sha256": "62e41a52f1f1b5ae19af50bcd6aaf045ba4f94c1addabc418ecada624e643e07",
+      "bytes": 625
+    },
+    "ucm2/conf.d/sm8250/retroidpocket-RetroidPocketMiniV2.conf": {
+      "type": "file",
+      "mode": "0o644",
+      "sha256": "62e41a52f1f1b5ae19af50bcd6aaf045ba4f94c1addabc418ecada624e643e07",
+      "bytes": 625
+    }
+  },
+  "finished": "2026-11-02T21:57:59.429180+00:00"
+}

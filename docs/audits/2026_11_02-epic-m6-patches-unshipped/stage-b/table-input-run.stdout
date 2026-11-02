@@ -1,0 +1,33 @@
+{
+  "at": "2026-11-02T21:59:56.982546+00:00",
+  "paths": 432,
+  "regular_patches": 418,
+  "symlinks": 2,
+  "configs": 12,
+  "groups": {
+    "open-item": 38,
+    "applies": 75,
+    "config-source-only": 1
+  },
+  "normal_calls_including_context": {
+    "offset": 260,
+    "applies": 414,
+    "fuzz": 105
+  },
+  "normal_native_calls": {
+    "offset": 199,
+    "applies": 330,
+    "fuzz": 71
+  },
+  "positive_native_paths": 333,
+  "open_native_paths": 93,
+  "mixed_native_paths": 6,
+  "wholly_open_native_paths": 87,
+  "fully_qualified_native_paths": 327,
+  "native_fuzz_paths": 40,
+  "disposition": {
+    "keep": 288,
+    "open-item": 105,
+    "upstream-changed": 39
+  }
+}

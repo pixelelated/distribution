@@ -1,0 +1,24 @@
+{
+  "start": "2026-11-02T21:46:21.129785+00:00",
+  "validator": "tools/lint-audit-artifacts:check_review_plan",
+  "validator_sha256": "47899b443ac4c40a74c1de8b40814ff6e6978497ae0875b8fd6a033fe8750613",
+  "result": [
+    {
+      "fixture": "positive",
+      "bad": [],
+      "ok": [
+        "review plan: local, 1 model perspectives, 0 verified external calls",
+        "review-plan: local at epic tier under D-WORKFLOW-184 (T43 provenance/reachability table, plan section 6c; actual primary alone under explicit #690 dispatch)"
+      ]
+    },
+    {
+      "fixture": "negative",
+      "bad": [
+        "second-opinions/review-plan.json or its call evidence is invalid: reviewer count does not match selected depth"
+      ],
+      "ok": []
+    }
+  ],
+  "exit": 0,
+  "limits": "Function-level Local plan contract, not whole audit acceptance"
+}

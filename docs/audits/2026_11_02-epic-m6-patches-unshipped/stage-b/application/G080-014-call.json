@@ -1,0 +1,15 @@
+{
+  "argv": [
+    "patch",
+    "-d",
+    "/workspace/tmp/m6-t43/G080-014-candidate-owaoriyl",
+    "-p1"
+  ],
+  "start": "2026-11-02T21:56:01.782076+00:00",
+  "end": "2026-11-02T21:56:01.784304+00:00",
+  "exit": 0,
+  "stdout_sha256": "faf5e973a5afe638500c0d117bdfa55cb3293a29c6293afa7e77527f6783b6b9",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "output": "patching file arch/arm64/boot/dts/qcom/sm6115.dtsi\npatching file drivers/clk/qcom/gpucc-sm6115.c\nHunk #1 succeeded at 38 (offset -1 lines).\nHunk #2 succeeded at 215 (offset -1 lines).\npatching file drivers/gpu/drm/msm/adreno/a6xx_catalog.c\npatching file drivers/pmdomain/qcom/rpmpd.c\n",
+  "error": ""
+}

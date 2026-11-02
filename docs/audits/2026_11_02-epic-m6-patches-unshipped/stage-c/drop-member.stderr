@@ -1,0 +1,8 @@
+Traceback (most recent call last):
+  File "/workspace/repos/pixelelated/distribution.worktrees/m6-patches-unshipped-690/docs/audits/2026_11_02-epic-m6-patches-unshipped/tools/table.py", line 40, in <module>
+    rows=load(sys.argv[1]);assert_input(rows)
+                           ~~~~~~~~~~~~^^^^^^
+  File "/workspace/repos/pixelelated/distribution.worktrees/m6-patches-unshipped-690/docs/audits/2026_11_02-epic-m6-patches-unshipped/tools/table.py", line 10, in assert_input
+    assert len(rows)==432 and len({x['path'] for x in rows})==432 and set(x['path'] for x in rows)==set(by),'membership: exact 432 native keys'
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: membership: exact 432 native keys

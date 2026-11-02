@@ -1,0 +1,56 @@
+{
+  "id": "G011",
+  "census": {
+    "id": "G011",
+    "recipe": "projects/ROCKNIX/devices/S922X/packages/u-boot/package.mk",
+    "recipe_sha256": "105bdfaa94b00a2d83d66e8be8e10d15160cd9fec8f5797b72a3cc70d1ff094d",
+    "owner": [
+      "devices-unshipped"
+    ],
+    "consumer": "S922X-aarch64",
+    "device": "S922X",
+    "arch": "aarch64",
+    "target_cpu": "cortex-a73.cortex-a53",
+    "patch_arch": "aarch64",
+    "LINUX": "unset in clean default source config",
+    "batteryplus": "yes",
+    "name": "u-boot",
+    "pin": "b91540f886e8655a1547532eb0077e83a7b431d7",
+    "url": "https://github.com/ROCKNIX/u-boot/archive/b91540f886e8655a1547532eb0077e83a7b431d7.tar.gz",
+    "expected_sha256": "5cecb72e239217d2e523b5378f8d6d209851027e89eaf7b9e5e93ec09a8bbfa9",
+    "selectors": [],
+    "ordered_pattern_directories": [
+      "projects/ROCKNIX/devices/S922X/packages/u-boot/patches",
+      "projects/ROCKNIX/devices/S922X/packages/u-boot/patches/aarch64",
+      "projects/ROCKNIX/devices/S922X/packages/u-boot/patches/b91540f886e8655a1547532eb0077e83a7b431d7",
+      "projects/ROCKNIX/devices/S922X/packages/u-boot/patches/b91540f886e8655a1547532eb0077e83a7b431d7/aarch64",
+      "projects/ROCKNIX/patches/u-boot",
+      "projects/ROCKNIX/patches/u-boot/aarch64",
+      "projects/ROCKNIX/patches/u-boot/b91540f886e8655a1547532eb0077e83a7b431d7",
+      "projects/ROCKNIX/devices/S922X/patches/u-boot"
+    ],
+    "stack": [
+      "projects/ROCKNIX/devices/S922X/packages/u-boot/patches/001-disable-bootmode-hotkey-check.patch",
+      "projects/ROCKNIX/devices/S922X/packages/u-boot/patches/002-overlay.patch",
+      "projects/ROCKNIX/devices/S922X/packages/u-boot/patches/003-fix-building.patch"
+    ],
+    "native_paths": [
+      "projects/ROCKNIX/devices/S922X/packages/u-boot/patches/001-disable-bootmode-hotkey-check.patch",
+      "projects/ROCKNIX/devices/S922X/packages/u-boot/patches/002-overlay.patch",
+      "projects/ROCKNIX/devices/S922X/packages/u-boot/patches/003-fix-building.patch"
+    ],
+    "config_paths": [],
+    "cache_candidates": [],
+    "preimage_limits": [],
+    "source_only": true,
+    "runtime": false
+  },
+  "started": "2026-11-02T21:55:19.274164+00:00",
+  "rows": [],
+  "input_snapshot": {},
+  "limits": [
+    "exact source archive absent from inspected package cache directory"
+  ],
+  "cache_observations": [],
+  "status": "open-item"
+}

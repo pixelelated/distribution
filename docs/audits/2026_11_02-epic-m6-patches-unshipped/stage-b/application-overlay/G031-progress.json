@@ -1,0 +1,566 @@
+{
+  "id": "G031",
+  "census": {
+    "id": "G031",
+    "recipe": "projects/ROCKNIX/packages/audio/alsa-ucm-conf/package.mk",
+    "recipe_sha256": "fae1706ea36634a04b80a0f747dfcb383c6e410073a728faad7027e9c795b66e",
+    "owner": [
+      "image-packages"
+    ],
+    "consumer": "SM8650-aarch64",
+    "device": "SM8650",
+    "arch": "aarch64",
+    "target_cpu": "cortex-x4",
+    "patch_arch": "aarch64",
+    "LINUX": "unset in clean default source config",
+    "batteryplus": "no or unset; exact yes predicate false",
+    "name": "alsa-ucm-conf",
+    "pin": "1.2.13",
+    "url": "https://www.alsa-project.org/files/pub/lib/alsa-ucm-conf-1.2.13.tar.bz2",
+    "expected_sha256": "4483b6e3983cca08fd326a73fbae449b5036e444fb1a07c0dee74b504b7ab5af",
+    "selectors": [
+      "SM8650"
+    ],
+    "ordered_pattern_directories": [
+      "projects/ROCKNIX/packages/audio/alsa-ucm-conf/patches",
+      "projects/ROCKNIX/packages/audio/alsa-ucm-conf/patches/aarch64",
+      "projects/ROCKNIX/packages/audio/alsa-ucm-conf/patches/SM8650",
+      "projects/ROCKNIX/packages/audio/alsa-ucm-conf/patches/1.2.13",
+      "projects/ROCKNIX/packages/audio/alsa-ucm-conf/patches/1.2.13/aarch64",
+      "projects/ROCKNIX/patches/alsa-ucm-conf",
+      "projects/ROCKNIX/patches/alsa-ucm-conf/aarch64",
+      "projects/ROCKNIX/patches/alsa-ucm-conf/SM8650",
+      "projects/ROCKNIX/devices/SM8650/patches/alsa-ucm-conf/SM8650",
+      "projects/ROCKNIX/patches/alsa-ucm-conf/1.2.13",
+      "projects/ROCKNIX/devices/SM8650/patches/alsa-ucm-conf"
+    ],
+    "stack": [
+      "projects/ROCKNIX/packages/audio/alsa-ucm-conf/patches/001-steamdeck.patch",
+      "projects/ROCKNIX/packages/audio/alsa-ucm-conf/patches/SM8650/0001-AYANEO-Pocket-S2.patch",
+      "projects/ROCKNIX/packages/audio/alsa-ucm-conf/patches/SM8650/0002_AYANEO-Pocket-S2---Add-EFI-boot-compatibility.patch"
+    ],
+    "native_paths": [
+      "projects/ROCKNIX/packages/audio/alsa-ucm-conf/patches/SM8650/0001-AYANEO-Pocket-S2.patch",
+      "projects/ROCKNIX/packages/audio/alsa-ucm-conf/patches/SM8650/0002_AYANEO-Pocket-S2---Add-EFI-boot-compatibility.patch"
+    ],
+    "config_paths": [],
+    "cache_candidates": [
+      "/workspace/cache/rocknix-sources/alsa-ucm-conf/alsa-ucm-conf-1.2.13.tar.bz2"
+    ],
+    "preimage_limits": [],
+    "source_only": true,
+    "runtime": false,
+    "source_overlays": [
+      {
+        "path": "projects/ROCKNIX/packages/audio/alsa-ucm-conf/sources/ucm2/Qualcomm/sm6115/HiFi-MangmiAirX.conf",
+        "relative": "ucm2/Qualcomm/sm6115/HiFi-MangmiAirX.conf",
+        "mode": "100644",
+        "oid": "c7b84e2067fd596e6209b9a9e8bd8475ec23ca1a"
+      },
+      {
+        "path": "projects/ROCKNIX/packages/audio/alsa-ucm-conf/sources/ucm2/Qualcomm/sm6115/MangmiAirX.conf",
+        "relative": "ucm2/Qualcomm/sm6115/MangmiAirX.conf",
+        "mode": "100644",
+        "oid": "c6672dcf2df7c0e6e8e06d628f9ac971c3a03ef9"
+      },
+      {
+        "path": "projects/ROCKNIX/packages/audio/alsa-ucm-conf/sources/ucm2/Qualcomm/sm8250/AYN-Thor-Lite-HiFi.conf",
+        "relative": "ucm2/Qualcomm/sm8250/AYN-Thor-Lite-HiFi.conf",
+        "mode": "100644",
+        "oid": "4f2e957133a7c37791bf9363e12fc00a1c4a7e9e"
+      },
+      {
+        "path": "projects/ROCKNIX/packages/audio/alsa-ucm-conf/sources/ucm2/Qualcomm/sm8250/AYN-Thor-Lite.conf",
+        "relative": "ucm2/Qualcomm/sm8250/AYN-Thor-Lite.conf",
+        "mode": "100644",
+        "oid": "2dfe4c190436810f24805ef4cecd001a4ff78507"
+      },
+      {
+        "path": "projects/ROCKNIX/packages/audio/alsa-ucm-conf/sources/ucm2/Qualcomm/sm8250/AirYPro-HiFi.conf",
+        "relative": "ucm2/Qualcomm/sm8250/AirYPro-HiFi.conf",
+        "mode": "100644",
+        "oid": "75030d50c2bbb62514d717e8ce65a3efe7c86c5e"
+      },
+      {
+        "path": "projects/ROCKNIX/packages/audio/alsa-ucm-conf/sources/ucm2/Qualcomm/sm8250/AirYPro.conf",
+        "relative": "ucm2/Qualcomm/sm8250/AirYPro.conf",
+        "mode": "100644",
+        "oid": "edc18e19cdf7401bedae8c04b42b2c354c9aae6c"
+      },
+      {
+        "path": "projects/ROCKNIX/packages/audio/alsa-ucm-conf/sources/ucm2/Qualcomm/sm8250/PocketMax-HiFi.conf",
+        "relative": "ucm2/Qualcomm/sm8250/PocketMax-HiFi.conf",
+        "mode": "100644",
+        "oid": "de36416b63758cfa245302da3aa66380d72600ad"
+      },
+      {
+        "path": "projects/ROCKNIX/packages/audio/alsa-ucm-conf/sources/ucm2/Qualcomm/sm8250/PocketMax.conf",
+        "relative": "ucm2/Qualcomm/sm8250/PocketMax.conf",
+        "mode": "100644",
+        "oid": "147ddfb6bb2d26912ebacdbef5fcf6b38df58444"
+      },
+      {
+        "path": "projects/ROCKNIX/packages/audio/alsa-ucm-conf/sources/ucm2/Rockchip/rockchip,es8388-codec/HiFi.conf",
+        "relative": "ucm2/Rockchip/rockchip,es8388-codec/HiFi.conf",
+        "mode": "100644",
+        "oid": "2f8f91ff30f47e62aae10af4a9d130e3482f87c9"
+      },
+      {
+        "path": "projects/ROCKNIX/packages/audio/alsa-ucm-conf/sources/ucm2/Rockchip/rockchip,es8388-codec/rockchip,es8388-codec.conf",
+        "relative": "ucm2/Rockchip/rockchip,es8388-codec/rockchip,es8388-codec.conf",
+        "mode": "100644",
+        "oid": "c38f88dc1178580085ada6a82126efd75ce69e4d"
+      },
+      {
+        "path": "projects/ROCKNIX/packages/audio/alsa-ucm-conf/sources/ucm2/conf.d/simple-card/rockchip,es8388-codec.conf",
+        "relative": "ucm2/conf.d/simple-card/rockchip,es8388-codec.conf",
+        "mode": "120000",
+        "oid": "e967e83b35a505496e3bd2a0cf1a54c1be0aa404"
+      },
+      {
+        "path": "projects/ROCKNIX/packages/audio/alsa-ucm-conf/sources/ucm2/conf.d/sm4250/MangmiAirX.conf",
+        "relative": "ucm2/conf.d/sm4250/MangmiAirX.conf",
+        "mode": "120000",
+        "oid": "703872f0ffe64931a482449dedad56249778c670"
+      },
+      {
+        "path": "projects/ROCKNIX/packages/audio/alsa-ucm-conf/sources/ucm2/conf.d/sm8250/AYN Thor Lite.conf",
+        "relative": "ucm2/conf.d/sm8250/AYN Thor Lite.conf",
+        "mode": "120000",
+        "oid": "948cc996965a853efbf267345797eeee3c86e65b"
+      },
+      {
+        "path": "projects/ROCKNIX/packages/audio/alsa-ucm-conf/sources/ucm2/conf.d/sm8250/AirYPro.conf",
+        "relative": "ucm2/conf.d/sm8250/AirYPro.conf",
+        "mode": "120000",
+        "oid": "b4227838b5eef2a35e51a259750cd4302d744628"
+      },
+      {
+        "path": "projects/ROCKNIX/packages/audio/alsa-ucm-conf/sources/ucm2/conf.d/sm8250/PocketMax.conf",
+        "relative": "ucm2/conf.d/sm8250/PocketMax.conf",
+        "mode": "120000",
+        "oid": "1c243dd02ff7267a442c837ff5343e91449b5189"
+      },
+      {
+        "path": "projects/ROCKNIX/packages/audio/alsa-ucm-conf/sources/ucm2/conf.d/sm8250/ayn-ATNThorLite-.conf",
+        "relative": "ucm2/conf.d/sm8250/ayn-ATNThorLite-.conf",
+        "mode": "120000",
+        "oid": "948cc996965a853efbf267345797eeee3c86e65b"
+      }
+    ]
+  },
+  "started": "2026-11-02T21:57:59.461790+00:00",
+  "rows": [
+    {
+      "path": "projects/ROCKNIX/packages/audio/alsa-ucm-conf/patches/001-steamdeck.patch",
+      "referent": "projects/ROCKNIX/packages/audio/alsa-ucm-conf/patches/001-steamdeck.patch",
+      "mode": "100644",
+      "literal_sha256": "deaca8034a106f0249a81a5a15692732e01227bf590e19d338f3259f07b42b8a",
+      "content_sha256": "deaca8034a106f0249a81a5a15692732e01227bf590e19d338f3259f07b42b8a",
+      "rendered_sha256": "deaca8034a106f0249a81a5a15692732e01227bf590e19d338f3259f07b42b8a",
+      "targets": [
+        "ucm2/conf.d/acp5x/HiFi-upstream.conf",
+        "ucm2/conf.d/acp5x/HiFi.conf",
+        "ucm2/conf.d/acp5x/acp5x.conf"
+      ],
+      "backend": "patch",
+      "index": 1,
+      "native": false,
+      "normal_called": true,
+      "normal": {
+        "argv": [
+          "patch",
+          "-d",
+          "/workspace/tmp/m6-t43/G031-001-candidate-h1crh786",
+          "-p1"
+        ],
+        "start": "2026-11-02T21:57:59.522702+00:00",
+        "end": "2026-11-02T21:57:59.524564+00:00",
+        "exit": 0,
+        "stdout_sha256": "9a3c33024aed2cb091e19f608bc88200033e2d44fe2a461ddbeeb41631ee2785",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "output": "patching file ucm2/conf.d/acp5x/acp5x.conf\npatching file ucm2/conf.d/acp5x/HiFi.conf\npatching file ucm2/conf.d/acp5x/HiFi-upstream.conf\n",
+        "error": ""
+      },
+      "input_digest": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+      "output_digest": "c4c6e1618a5fd315e35c3eb58d3c5efd6ee27c37a3ae03c63d34ed2b8362786e",
+      "candidate_snapshot": {
+        "ucm2/conf.d/acp5x/HiFi-upstream.conf": {
+          "type": "file",
+          "mode": "0o664",
+          "sha256": "bcca51cac67d772c8c15322ac5d69eb2758961d444f09515618e525f179e51e2",
+          "bytes": 2928
+        },
+        "ucm2/conf.d/acp5x/HiFi.conf": {
+          "type": "file",
+          "mode": "0o664",
+          "sha256": "bdae19ecec7c18c1e150af069f5cc1523068dc76131d716561645c9ae06a7be7",
+          "bytes": 3308
+        },
+        "ucm2/conf.d/acp5x/acp5x.conf": {
+          "type": "file",
+          "mode": "0o664",
+          "sha256": "3f8e0cc96c6903eb17610176656a6ab77f2f741613db5f80911b145a1299b504",
+          "bytes": 249
+        }
+      },
+      "candidate_root": "/workspace/tmp/m6-t43/G031-001-candidate-h1crh786",
+      "status": "applies",
+      "promoted": true
+    },
+    {
+      "path": "projects/ROCKNIX/packages/audio/alsa-ucm-conf/patches/SM8650/0001-AYANEO-Pocket-S2.patch",
+      "referent": "projects/ROCKNIX/packages/audio/alsa-ucm-conf/patches/SM8650/0001-AYANEO-Pocket-S2.patch",
+      "mode": "100644",
+      "literal_sha256": "99fd60c405e6b03271eeef1569db5fade1d2a4e516fc94724547233cb19af88a",
+      "content_sha256": "99fd60c405e6b03271eeef1569db5fade1d2a4e516fc94724547233cb19af88a",
+      "rendered_sha256": "99fd60c405e6b03271eeef1569db5fade1d2a4e516fc94724547233cb19af88a",
+      "targets": [
+        "ucm2/Qualcomm/sm8650/APS2/HiFi.conf",
+        "ucm2/Qualcomm/sm8650/APS2/SM8650-APS2.conf",
+        "ucm2/conf.d/sm8650/SM8650-APS2.conf"
+      ],
+      "backend": "patch",
+      "index": 2,
+      "native": true,
+      "normal_called": true,
+      "normal": {
+        "argv": [
+          "patch",
+          "-d",
+          "/workspace/tmp/m6-t43/G031-002-candidate-4qkix3ox",
+          "-p1"
+        ],
+        "start": "2026-11-02T21:57:59.525389+00:00",
+        "end": "2026-11-02T21:57:59.527216+00:00",
+        "exit": 0,
+        "stdout_sha256": "015ff9fa280e2b098ad06fa86899e425f249102b8b7a3e5fcf5a6f7b9fd0ecc3",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "output": "patching file ucm2/Qualcomm/sm8650/APS2/SM8650-APS2.conf\npatching file ucm2/Qualcomm/sm8650/APS2/HiFi.conf\npatching symbolic link ucm2/conf.d/sm8650/SM8650-APS2.conf\n",
+        "error": ""
+      },
+      "input_digest": "c4c6e1618a5fd315e35c3eb58d3c5efd6ee27c37a3ae03c63d34ed2b8362786e",
+      "output_digest": "ac4d2c2b99beab884467380923cf87c8457d6cce8c5fd671a772db712b2e85b5",
+      "candidate_snapshot": {
+        "ucm2/Qualcomm/sm8650/APS2/HiFi.conf": {
+          "type": "file",
+          "mode": "0o644",
+          "sha256": "7a926028c4eb0b860a1d5d8b3d2299fe98d5715270a37847a12fb241fe791705",
+          "bytes": 2974
+        },
+        "ucm2/Qualcomm/sm8650/APS2/SM8650-APS2.conf": {
+          "type": "file",
+          "mode": "0o644",
+          "sha256": "7b8df6905a096fc9e138190faa194cf64abb2f38a187b9cb6bd25297086eadd1",
+          "bytes": 437
+        },
+        "ucm2/conf.d/acp5x/HiFi-upstream.conf": {
+          "type": "file",
+          "mode": "0o664",
+          "sha256": "bcca51cac67d772c8c15322ac5d69eb2758961d444f09515618e525f179e51e2",
+          "bytes": 2928
+        },
+        "ucm2/conf.d/acp5x/HiFi.conf": {
+          "type": "file",
+          "mode": "0o664",
+          "sha256": "bdae19ecec7c18c1e150af069f5cc1523068dc76131d716561645c9ae06a7be7",
+          "bytes": 3308
+        },
+        "ucm2/conf.d/acp5x/acp5x.conf": {
+          "type": "file",
+          "mode": "0o664",
+          "sha256": "3f8e0cc96c6903eb17610176656a6ab77f2f741613db5f80911b145a1299b504",
+          "bytes": 249
+        },
+        "ucm2/conf.d/sm8650/SM8650-APS2.conf": {
+          "type": "link",
+          "target": "../../Qualcomm/sm8650/APS2/SM8650-APS2.conf",
+          "sha256": "de0dd73b98c67df93bca98a25e015415aa2b2220ab6074e11cdaf01336de2a14"
+        }
+      },
+      "candidate_root": "/workspace/tmp/m6-t43/G031-002-candidate-4qkix3ox",
+      "status": "applies",
+      "promoted": true
+    },
+    {
+      "path": "projects/ROCKNIX/packages/audio/alsa-ucm-conf/patches/SM8650/0002_AYANEO-Pocket-S2---Add-EFI-boot-compatibility.patch",
+      "referent": "projects/ROCKNIX/packages/audio/alsa-ucm-conf/patches/SM8650/0002_AYANEO-Pocket-S2---Add-EFI-boot-compatibility.patch",
+      "mode": "100644",
+      "literal_sha256": "848299cec7b4709726ea3d8dc5ab6455395781023a89e618cd2b490a0795ed58",
+      "content_sha256": "848299cec7b4709726ea3d8dc5ab6455395781023a89e618cd2b490a0795ed58",
+      "rendered_sha256": "848299cec7b4709726ea3d8dc5ab6455395781023a89e618cd2b490a0795ed58",
+      "targets": [
+        "ucm2/conf.d/sm8650/ayaneo-AYANEOPocketS2-.conf"
+      ],
+      "backend": "patch",
+      "index": 3,
+      "native": true,
+      "normal_called": true,
+      "normal": {
+        "argv": [
+          "patch",
+          "-d",
+          "/workspace/tmp/m6-t43/G031-003-candidate-r8btd6bw",
+          "-p1"
+        ],
+        "start": "2026-11-02T21:57:59.528522+00:00",
+        "end": "2026-11-02T21:57:59.530209+00:00",
+        "exit": 0,
+        "stdout_sha256": "16e5d4bf1dd6f8ed1da5351ab51bca781417866851ae4d9293f781cd543bd1f9",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "output": "patching symbolic link ucm2/conf.d/sm8650/ayaneo-AYANEOPocketS2-.conf\n",
+        "error": ""
+      },
+      "input_digest": "ac4d2c2b99beab884467380923cf87c8457d6cce8c5fd671a772db712b2e85b5",
+      "output_digest": "dc6c786e44e3335d18185364b6d1bdf9bc189cf37ee818ac615fb02bfb36f696",
+      "candidate_snapshot": {
+        "ucm2/Qualcomm/sm8650/APS2/HiFi.conf": {
+          "type": "file",
+          "mode": "0o644",
+          "sha256": "7a926028c4eb0b860a1d5d8b3d2299fe98d5715270a37847a12fb241fe791705",
+          "bytes": 2974
+        },
+        "ucm2/Qualcomm/sm8650/APS2/SM8650-APS2.conf": {
+          "type": "file",
+          "mode": "0o644",
+          "sha256": "7b8df6905a096fc9e138190faa194cf64abb2f38a187b9cb6bd25297086eadd1",
+          "bytes": 437
+        },
+        "ucm2/conf.d/acp5x/HiFi-upstream.conf": {
+          "type": "file",
+          "mode": "0o664",
+          "sha256": "bcca51cac67d772c8c15322ac5d69eb2758961d444f09515618e525f179e51e2",
+          "bytes": 2928
+        },
+        "ucm2/conf.d/acp5x/HiFi.conf": {
+          "type": "file",
+          "mode": "0o664",
+          "sha256": "bdae19ecec7c18c1e150af069f5cc1523068dc76131d716561645c9ae06a7be7",
+          "bytes": 3308
+        },
+        "ucm2/conf.d/acp5x/acp5x.conf": {
+          "type": "file",
+          "mode": "0o664",
+          "sha256": "3f8e0cc96c6903eb17610176656a6ab77f2f741613db5f80911b145a1299b504",
+          "bytes": 249
+        },
+        "ucm2/conf.d/sm8650/SM8650-APS2.conf": {
+          "type": "file",
+          "mode": "0o644",
+          "sha256": "7b8df6905a096fc9e138190faa194cf64abb2f38a187b9cb6bd25297086eadd1",
+          "bytes": 437
+        },
+        "ucm2/conf.d/sm8650/ayaneo-AYANEOPocketS2-.conf": {
+          "type": "link",
+          "target": "../../Qualcomm/sm8650/APS2/SM8650-APS2.conf",
+          "sha256": "de0dd73b98c67df93bca98a25e015415aa2b2220ab6074e11cdaf01336de2a14"
+        }
+      },
+      "candidate_root": "/workspace/tmp/m6-t43/G031-003-candidate-r8btd6bw",
+      "status": "applies",
+      "promoted": true
+    }
+  ],
+  "input_snapshot": {},
+  "limits": [],
+  "cache_observations": [
+    {
+      "path": "/workspace/cache/rocknix-sources/alsa-ucm-conf/alsa-ucm-conf-1.2.13.tar.bz2",
+      "sha256": "4483b6e3983cca08fd326a73fbae449b5036e444fb1a07c0dee74b504b7ab5af",
+      "expected": "4483b6e3983cca08fd326a73fbae449b5036e444fb1a07c0dee74b504b7ab5af"
+    }
+  ],
+  "archive": {
+    "path": "/workspace/cache/rocknix-sources/alsa-ucm-conf/alsa-ucm-conf-1.2.13.tar.bz2",
+    "sha256": "4483b6e3983cca08fd326a73fbae449b5036e444fb1a07c0dee74b504b7ab5af",
+    "recipe_url": "https://www.alsa-project.org/files/pub/lib/alsa-ucm-conf-1.2.13.tar.bz2"
+  },
+  "stack": [
+    {
+      "path": "projects/ROCKNIX/packages/audio/alsa-ucm-conf/patches/001-steamdeck.patch",
+      "referent": "projects/ROCKNIX/packages/audio/alsa-ucm-conf/patches/001-steamdeck.patch",
+      "mode": "100644",
+      "literal_sha256": "deaca8034a106f0249a81a5a15692732e01227bf590e19d338f3259f07b42b8a",
+      "content_sha256": "deaca8034a106f0249a81a5a15692732e01227bf590e19d338f3259f07b42b8a",
+      "rendered_sha256": "deaca8034a106f0249a81a5a15692732e01227bf590e19d338f3259f07b42b8a",
+      "targets": [
+        "ucm2/conf.d/acp5x/HiFi-upstream.conf",
+        "ucm2/conf.d/acp5x/HiFi.conf",
+        "ucm2/conf.d/acp5x/acp5x.conf"
+      ],
+      "backend": "patch"
+    },
+    {
+      "path": "projects/ROCKNIX/packages/audio/alsa-ucm-conf/patches/SM8650/0001-AYANEO-Pocket-S2.patch",
+      "referent": "projects/ROCKNIX/packages/audio/alsa-ucm-conf/patches/SM8650/0001-AYANEO-Pocket-S2.patch",
+      "mode": "100644",
+      "literal_sha256": "99fd60c405e6b03271eeef1569db5fade1d2a4e516fc94724547233cb19af88a",
+      "content_sha256": "99fd60c405e6b03271eeef1569db5fade1d2a4e516fc94724547233cb19af88a",
+      "rendered_sha256": "99fd60c405e6b03271eeef1569db5fade1d2a4e516fc94724547233cb19af88a",
+      "targets": [
+        "ucm2/Qualcomm/sm8650/APS2/HiFi.conf",
+        "ucm2/Qualcomm/sm8650/APS2/SM8650-APS2.conf",
+        "ucm2/conf.d/sm8650/SM8650-APS2.conf"
+      ],
+      "backend": "patch"
+    },
+    {
+      "path": "projects/ROCKNIX/packages/audio/alsa-ucm-conf/patches/SM8650/0002_AYANEO-Pocket-S2---Add-EFI-boot-compatibility.patch",
+      "referent": "projects/ROCKNIX/packages/audio/alsa-ucm-conf/patches/SM8650/0002_AYANEO-Pocket-S2---Add-EFI-boot-compatibility.patch",
+      "mode": "100644",
+      "literal_sha256": "848299cec7b4709726ea3d8dc5ab6455395781023a89e618cd2b490a0795ed58",
+      "content_sha256": "848299cec7b4709726ea3d8dc5ab6455395781023a89e618cd2b490a0795ed58",
+      "rendered_sha256": "848299cec7b4709726ea3d8dc5ab6455395781023a89e618cd2b490a0795ed58",
+      "targets": [
+        "ucm2/conf.d/sm8650/ayaneo-AYANEOPocketS2-.conf"
+      ],
+      "backend": "patch"
+    }
+  ],
+  "stack_sha256": "a7bef8c9c71d32c03ec39f88ba0c3c107e4ac97c07291e7f1d44acfecca4d3ea",
+  "projection": {
+    "archive_header_count": 872,
+    "archive_header_sha256": "1bfb3b4ff14fc6c9d29d1c5d944da109443f96b5d2259512b6c391935ea35b47",
+    "projected_members": {},
+    "absent_targets": [
+      "ucm2/Qualcomm/sm8650/APS2/HiFi.conf",
+      "ucm2/Qualcomm/sm8650/APS2/SM8650-APS2.conf",
+      "ucm2/conf.d/acp5x/HiFi-upstream.conf",
+      "ucm2/conf.d/acp5x/HiFi.conf",
+      "ucm2/conf.d/acp5x/acp5x.conf",
+      "ucm2/conf.d/sm8650/SM8650-APS2.conf",
+      "ucm2/conf.d/sm8650/ayaneo-AYANEOPocketS2-.conf"
+    ],
+    "projection_root": "/workspace/tmp/m6-t43/source-members-xercp2fs"
+  },
+  "overlay_evidence": [
+    {
+      "path": "projects/ROCKNIX/packages/audio/alsa-ucm-conf/sources/ucm2/Qualcomm/sm6115/HiFi-MangmiAirX.conf",
+      "relative": "ucm2/Qualcomm/sm6115/HiFi-MangmiAirX.conf",
+      "mode": "100644",
+      "oid": "c7b84e2067fd596e6209b9a9e8bd8475ec23ca1a",
+      "sha256": "2d894db0e1ea5c953a70f51328c5e95d445c545f601675b33e694dedee335fba",
+      "projected": false
+    },
+    {
+      "path": "projects/ROCKNIX/packages/audio/alsa-ucm-conf/sources/ucm2/Qualcomm/sm6115/MangmiAirX.conf",
+      "relative": "ucm2/Qualcomm/sm6115/MangmiAirX.conf",
+      "mode": "100644",
+      "oid": "c6672dcf2df7c0e6e8e06d628f9ac971c3a03ef9",
+      "sha256": "70d0e8450523ec6668d4663cea8aab764b860581f077d23e285482df4819eeca",
+      "projected": false
+    },
+    {
+      "path": "projects/ROCKNIX/packages/audio/alsa-ucm-conf/sources/ucm2/Qualcomm/sm8250/AYN-Thor-Lite-HiFi.conf",
+      "relative": "ucm2/Qualcomm/sm8250/AYN-Thor-Lite-HiFi.conf",
+      "mode": "100644",
+      "oid": "4f2e957133a7c37791bf9363e12fc00a1c4a7e9e",
+      "sha256": "88f4faa526393f4c265b80dbfc7311cbc1b078337da043b4e0c68e5289dd1835",
+      "projected": false
+    },
+    {
+      "path": "projects/ROCKNIX/packages/audio/alsa-ucm-conf/sources/ucm2/Qualcomm/sm8250/AYN-Thor-Lite.conf",
+      "relative": "ucm2/Qualcomm/sm8250/AYN-Thor-Lite.conf",
+      "mode": "100644",
+      "oid": "2dfe4c190436810f24805ef4cecd001a4ff78507",
+      "sha256": "a8a2a4e74077eec8540613354427b54b2d9911b8853ec274c717d63eb6e883ec",
+      "projected": false
+    },
+    {
+      "path": "projects/ROCKNIX/packages/audio/alsa-ucm-conf/sources/ucm2/Qualcomm/sm8250/AirYPro-HiFi.conf",
+      "relative": "ucm2/Qualcomm/sm8250/AirYPro-HiFi.conf",
+      "mode": "100644",
+      "oid": "75030d50c2bbb62514d717e8ce65a3efe7c86c5e",
+      "sha256": "5f01dc1ab1773c2e05f62d347f630067ba2f2c1655b5f011fa48943dae0512bf",
+      "projected": false
+    },
+    {
+      "path": "projects/ROCKNIX/packages/audio/alsa-ucm-conf/sources/ucm2/Qualcomm/sm8250/AirYPro.conf",
+      "relative": "ucm2/Qualcomm/sm8250/AirYPro.conf",
+      "mode": "100644",
+      "oid": "edc18e19cdf7401bedae8c04b42b2c354c9aae6c",
+      "sha256": "73e180b20a736aceb004cb27e5b45bb4ed244d555a265d61ea5f4e2a4f2c1b92",
+      "projected": false
+    },
+    {
+      "path": "projects/ROCKNIX/packages/audio/alsa-ucm-conf/sources/ucm2/Qualcomm/sm8250/PocketMax-HiFi.conf",
+      "relative": "ucm2/Qualcomm/sm8250/PocketMax-HiFi.conf",
+      "mode": "100644",
+      "oid": "de36416b63758cfa245302da3aa66380d72600ad",
+      "sha256": "fb36d1257c24fafc6d0814f68e53d7c5f20952500295d624de650efed8198edb",
+      "projected": false
+    },
+    {
+      "path": "projects/ROCKNIX/packages/audio/alsa-ucm-conf/sources/ucm2/Qualcomm/sm8250/PocketMax.conf",
+      "relative": "ucm2/Qualcomm/sm8250/PocketMax.conf",
+      "mode": "100644",
+      "oid": "147ddfb6bb2d26912ebacdbef5fcf6b38df58444",
+      "sha256": "6842999be151f832b8b96645bdfb030986379e010cae34a2edfc529e5daab8df",
+      "projected": false
+    },
+    {
+      "path": "projects/ROCKNIX/packages/audio/alsa-ucm-conf/sources/ucm2/Rockchip/rockchip,es8388-codec/HiFi.conf",
+      "relative": "ucm2/Rockchip/rockchip,es8388-codec/HiFi.conf",
+      "mode": "100644",
+      "oid": "2f8f91ff30f47e62aae10af4a9d130e3482f87c9",
+      "sha256": "5fb92c47fa8f20ab02bc2a6baabe57656e32fdabdf559dd7199ebf23285d929b",
+      "projected": false
+    },
+    {
+      "path": "projects/ROCKNIX/packages/audio/alsa-ucm-conf/sources/ucm2/Rockchip/rockchip,es8388-codec/rockchip,es8388-codec.conf",
+      "relative": "ucm2/Rockchip/rockchip,es8388-codec/rockchip,es8388-codec.conf",
+      "mode": "100644",
+      "oid": "c38f88dc1178580085ada6a82126efd75ce69e4d",
+      "sha256": "c285c332246bf90d313ea7b6274e0afde6f0a11990713db3d5b026cb44396f77",
+      "projected": false
+    },
+    {
+      "path": "projects/ROCKNIX/packages/audio/alsa-ucm-conf/sources/ucm2/conf.d/simple-card/rockchip,es8388-codec.conf",
+      "relative": "ucm2/conf.d/simple-card/rockchip,es8388-codec.conf",
+      "mode": "120000",
+      "oid": "e967e83b35a505496e3bd2a0cf1a54c1be0aa404",
+      "sha256": "b966a242f65fc9bf4fc9341fbb3d833b26f544096e45301b1d250abb819cbce0",
+      "projected": false
+    },
+    {
+      "path": "projects/ROCKNIX/packages/audio/alsa-ucm-conf/sources/ucm2/conf.d/sm4250/MangmiAirX.conf",
+      "relative": "ucm2/conf.d/sm4250/MangmiAirX.conf",
+      "mode": "120000",
+      "oid": "703872f0ffe64931a482449dedad56249778c670",
+      "sha256": "421d800526014c3522c8984aad24072101b3e9eca6b5365dab0d70b880a24b07",
+      "projected": false
+    },
+    {
+      "path": "projects/ROCKNIX/packages/audio/alsa-ucm-conf/sources/ucm2/conf.d/sm8250/AYN Thor Lite.conf",
+      "relative": "ucm2/conf.d/sm8250/AYN Thor Lite.conf",
+      "mode": "120000",
+      "oid": "948cc996965a853efbf267345797eeee3c86e65b",
+      "sha256": "51d13d2647b184724ff481918d3ebbd4188865caf4d69587a461aee5d16539ec",
+      "projected": false
+    },
+    {
+      "path": "projects/ROCKNIX/packages/audio/alsa-ucm-conf/sources/ucm2/conf.d/sm8250/AirYPro.conf",
+      "relative": "ucm2/conf.d/sm8250/AirYPro.conf",
+      "mode": "120000",
+      "oid": "b4227838b5eef2a35e51a259750cd4302d744628",
+      "sha256": "8d4fe404660edecdab9401fa3590b5a8cbe7c5f8d1a2dbc1c389524fe6d6205e",
+      "projected": false
+    },
+    {
+      "path": "projects/ROCKNIX/packages/audio/alsa-ucm-conf/sources/ucm2/conf.d/sm8250/PocketMax.conf",
+      "relative": "ucm2/conf.d/sm8250/PocketMax.conf",
+      "mode": "120000",
+      "oid": "1c243dd02ff7267a442c837ff5343e91449b5189",
+      "sha256": "55680308c21641a9690c4da6d2eaa8d825099bbae27294d178dbfa38dff40bf4",
+      "projected": false
+    },
+    {
+      "path": "projects/ROCKNIX/packages/audio/alsa-ucm-conf/sources/ucm2/conf.d/sm8250/ayn-ATNThorLite-.conf",
+      "relative": "ucm2/conf.d/sm8250/ayn-ATNThorLite-.conf",
+      "mode": "120000",
+      "oid": "948cc996965a853efbf267345797eeee3c86e65b",
+      "sha256": "51d13d2647b184724ff481918d3ebbd4188865caf4d69587a461aee5d16539ec",
+      "projected": false
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "argv": [
+    "patch",
+    "-d",
+    "/workspace/tmp/m6-t43/G034-001-candidate-vnbezzx3",
+    "-p1"
+  ],
+  "start": "2026-11-02T21:55:19.556385+00:00",
+  "end": "2026-11-02T21:55:19.557242+00:00",
+  "exit": 0,
+  "stdout_sha256": "c0a715923885e53b77100894de876cf05a1fe72b9054d985c2e40dbe114a4449",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "output": "patching file src/daemon/pipewire-pulse.conf.in\nHunk #1 succeeded at 94 with fuzz 1 (offset 2 lines).\npatching file src/daemon/systemd/system/pipewire.service.in\npatching file src/daemon/systemd/system/pipewire.socket\n",
+  "error": ""
+}

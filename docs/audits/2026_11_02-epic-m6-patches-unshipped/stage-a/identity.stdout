@@ -1,0 +1,52 @@
+› T43 #690 explicit execution dispatch is now posted and exactly read back: comment 6589165585. Read it fully and the seed pointer/brief/rules. Worktr…
+
+• Ran taskset -c 8-23 bash -c 'git status --short; git log -1 --format="%H %s"; git diff --stat 4eb5dfab8e745914a55e7de3e5a43c5b91ebc608 HEAD -- .claud…
+  └ Write only `docs/audits/2026_11_02-epic-m6-patches-unshipped/`, audit-local tools/receipts, this pointer, dated log/index and retro. Source/config/…
+
+    Read accepted contexts as immutable evidence after own initial observations; no accepted-stage replay. Return #690 checkpoints to coordinator wN:p2…
+    + 20 lines (^t to expand)
+
+• Ran taskset -c 8-23 sed -n '130,204p;301,507p' docs/reviews/plan-for-the-plan.md
+  └   and does not edit `saved-session-state-next.md` while M7 owns it; the
+      question is recorded on #346.
+
+    + 279 lines (^t to expand)
+
+• Ran taskset -c 8-23 bash -c 'cat .claude/skills/code-auditor/references/review-levels.md; sed -n "1,180p" docs/qa-logs/2026-11-02-m6-resume/t43-brief…
+  └ 218:        check_review_plan(d, milestone, bad, ok)
+    331:        def nums(r):
+    371:    def outcome_cell(row):
+    + 199 lines (^t to expand)
+
+• Ran taskset -c 8-23 bash -c 'sed -n "205,367p" docs/reviews/briefs/patches-unshipped.md; sed -n "1,110p;174,260p;290,420p" tools/lint-audit-artifacts'
+  └         ok("no punch_index YAML block (an audit from before the index; the table alone is checked)")
+        else:
+            for m in re.finditer(r"id:\s*(PL-\d+)\b(.*?)(?=\n-\s*(?:\{)?\s*id:|\Z)", idx.group(1), re.S):
+    + 488 lines (^t to expand)
+
+• Ran taskset -c 8-23 bash -c 'sed -n "1,204p" docs/reviews/briefs/patches-unshipped.md; rg -n "^#|evidence floor|PROOF|question|ladder" .claude/skills…
+  └    (D-WORKFLOW-185).** The second version took `device-builds.md`'s five.
+       - The RK3566 and RK3326 slice is dissolved: its 53 device paths are rows
+         in T25. Six paths of three driver and firmware recipes only those two
+    + 404 lines (^t to expand)
+
+• The lane’s rules match the accepted rule set. The key boundary is clear: this is a 432-row provenance and reachability audit, with source application
+  claims only where the exact inputs can be proved. I’m now recording the seed checks and Local-lint controls before the first source observations.
+
+• Ran taskset -c 8-23 bash -c 'sed -n "157,198p;221,297p;374,439p;493,577p" .claude/skills/code-auditor/SKILL.md; sed -n "1,160p" .claude/rules/packagi…
+  └ - Never run `herdr server stop` from an active session unless the user explicitly intends to stop the server and its pane processes.
+    - Never kill the main Herdr process. Use named test sessions for experiments that need an isolated server.
+    - CLI server errors are JSON on stderr with exit status 1. CLI syntax errors exit with status 2.
+    + 752 lines (^t to expand)
+
+• Running taskset -c 8-23 python3 - <<'PY' …
+    + Show details
+
+• Working (4m 47s • esc to interrupt)
+  └ Tip: Use /subagents to switch between this session’s subagents.
+
+
+› Ask Codex to do anything
+
+  GPT-6-Astra xhigh · /workspace/repos/pixelelated/distribution.worktrees/m6-os-launch-control-state-648 · Resume M6 coordinator work
+  ? for shortcuts

@@ -1,0 +1,15 @@
+{
+  "argv": [
+    "patch",
+    "-d",
+    "/workspace/tmp/m6-t43/G082-034-candidate-1drypri9",
+    "-p1"
+  ],
+  "start": "2026-11-02T21:56:10.918204+00:00",
+  "end": "2026-11-02T21:56:10.919303+00:00",
+  "exit": 0,
+  "stdout_sha256": "3d1f756ffaa41a802d075fcb904c43e207789b465e69c75d101f6b26c9b21959",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "output": "patching file drivers/input/touchscreen/Kconfig\npatching file drivers/input/touchscreen/Makefile\npatching file drivers/input/touchscreen/hynitron-cst66xx.c\n",
+  "error": ""
+}

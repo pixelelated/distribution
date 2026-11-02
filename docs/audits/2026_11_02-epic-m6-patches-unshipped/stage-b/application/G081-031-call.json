@@ -1,0 +1,15 @@
+{
+  "argv": [
+    "patch",
+    "-d",
+    "/workspace/tmp/m6-t43/G081-031-candidate-su6al3fw",
+    "-p1"
+  ],
+  "start": "2026-11-02T21:56:10.073683+00:00",
+  "end": "2026-11-02T21:56:10.074511+00:00",
+  "exit": 0,
+  "stdout_sha256": "9b2ce304e9b2e1a78386892a1af8cee3786a9d90dddaaf3f5d508979a7b8682c",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "output": "patching file sound/soc/codecs/wsa881x.c\nHunk #1 succeeded at 1116 with fuzz 1 (offset -2 lines).\n",
+  "error": ""
+}

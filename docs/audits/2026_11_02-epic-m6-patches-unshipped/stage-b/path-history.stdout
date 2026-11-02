@@ -1,0 +1,2069 @@
+COMMIT 2d47bf198e555de6fb402b4cea2bdda6235ae536 2026-09-30T21:59:25-07:00 sunshineinabox <aqemail@gmail.com> sm8250: fix mpm and air y audio
+
+projects/ROCKNIX/devices/SM8250/patches/linux/0019-drm-msm-dp-on-sm8250-refuse-to-start-dp-audio-while-the-link-is-down.patch
+COMMIT 7b4da83200a051c27b691f4b86c0e06bb79d2bdb 2026-09-29T04:47:47-07:00 sunshineinabox <aqemail@gmail.com> sm8250: enable DP on mangmi devices
+
+projects/ROCKNIX/devices/SM8250/patches/linux/0011-qcom-pm8150b-charger.patch
+COMMIT cd582e422d8d7dd539d017c478373d1da50725f7 2026-09-29T05:54:48Z sunshineinabox <aqemail@gmail.com> Merge pull request #3382 from Jacob-Matthew-Cook/sm8250-fixes
+COMMIT 5e52df2b9fba9b41b3b442b38e6aa6befea47065 2026-09-29T00:15:29-04:00 Jacob Cook <jacobmcook1984@gmail.com> SM8250: fix USB-C power role swap on pm8150b
+
+projects/ROCKNIX/devices/SM8250/patches/linux/0018-usb-typec-qcom-pmic-typec-switch-termination-on-pr-swap.patch
+COMMIT 9b0747ffdbaa681d7cdc096eeb94e9706689d23d 2026-09-27T19:36:29Z github-merge-queue[bot] <github-merge-queue[bot]@users.noreply.github.com> linux: kernel config
+
+projects/ROCKNIX/devices/SM4450/linux/linux.aarch64.conf
+projects/ROCKNIX/devices/SM8250/linux/linux.aarch64.conf
+COMMIT 1dc63e1531e6bf0120d806be699f7a803404d3a1 2026-09-25T09:45:45-04:00 Jacob Cook <jacobmcook1984@gmail.com> SM8250: fix pm8150b charging, USB-C VBUS and Retroid DP audio
+
+projects/ROCKNIX/devices/SM8250/patches/linux/0011-qcom-pm8150b-charger.patch
+COMMIT 82dd3a665684d4900b018fa1735a60f484c56f7e 2026-09-24T15:30:01-05:00 Noxwell <beebono@yahoo.com> rk3566/linux: support STI8070A via patch
+
+projects/ROCKNIX/devices/RK3566/patches/linux/0028-regulator-fan53555-accept-the-STI8070A-on-the-Silergy-path.patch
+COMMIT 9f733a71098e2f8a51b422c8ccb12d65ecde1487 2026-09-24T20:23:26Z Philippe Simons <simons.philippe@gmail.com> Merge pull request #3374 from loki666/sm4450-batocera-patches
+COMMIT 2f902b902f4e7931979563554b5480bc4193f4d7 2026-09-23T22:51:44Z sunshineinabox <aqemail@gmail.com> Merge pull request #3369 from sunshineinabox/PR_SM6115TStoPanel
+COMMIT 423324d1d6656daa1ee30aab743f1ee41af8c8fb 2026-09-22T20:04:44-07:00 sunshineinabox <aqemail@gmail.com> sm6115: tie touch panel to display panel
+
+projects/ROCKNIX/devices/SM6115/patches/linux/0011-input-touchscreen-add-himax-hx83112a-spi-driver.patch
+COMMIT 05933aa797197cf392dfb66ffaff5e29582380f9 2026-09-23T18:36:16+02:00 Philippe Simons <simons.philippe@gmail.com> SM4450: sync kernel patches from batocera
+
+projects/ROCKNIX/devices/SM4450/patches/linux/0040-phy-qcom-qmp-combo-add-sm4450.patch
+projects/ROCKNIX/devices/SM4450/patches/linux/0055-bato-singleadc-joypad-rgb-leds.patch
+projects/ROCKNIX/devices/SM4450/patches/linux/0056-bato-ASoC-wcd937x-fix-headphone-volume-tlv.patch
+projects/ROCKNIX/devices/SM4450/patches/linux/0057-bato-arm64-dts-qcom-sm4450-add-cpu-capacity-and-power-coefficients.patch
+projects/ROCKNIX/devices/SM4450/patches/linux/0058-bato-singleadc-joypad-park-leds-across-suspend.patch
+COMMIT f79ac0182f367049802815680014f16fe8d322a8 2026-09-18T18:50:39-04:00 Jacob Cook <jacobmcook1984@gmail.com> rk817: bound the boot soc with the ocv table
+
+projects/ROCKNIX/packages/linux/patches/mainline-rockchip/008-power-supply-rk817-bound-the-boot-soc-with-the-ocv-table.patch
+COMMIT 39b77d22afafa808f8489366deb55f006940ec2b 2026-09-17T10:51:14-04:00 Jacob Cook <jacobmcook1984@gmail.com> rk817: clear SYS_CAN_SD at init, as the BSP does
+
+projects/ROCKNIX/packages/linux/patches/mainline-rockchip/006-dt-bindings-power-supply-rk817-charger-add-rockchip-gate-function-disable.patch
+projects/ROCKNIX/packages/linux/patches/mainline-rockchip/007-power-supply-rk817-clear-sys-can-sd-register-by-default.patch
+COMMIT f03ec1352010cda78e0541429b3ef275b0f65977 2026-09-19T17:10:30-04:00 Jacob Cook <jacobmcook1984@gmail.com> rk817: correct the fuel gauge across boot and sleep
+
+projects/ROCKNIX/packages/linux/patches/mainline-rockchip/001-power-supply-rk817-charger-Fix-NVRAM-SoC-Value.patch
+projects/ROCKNIX/packages/linux/patches/mainline-rockchip/002-power-supply-rk817-battery-resolve-boot-soc-from-counter.patch
+projects/ROCKNIX/packages/linux/patches/mainline-rockchip/005-power-supply-rk817-charger-correct-gauge-across-sleep.patch
+COMMIT 0928954dbabc631a08a4b9c4b53489afb550718f 2026-09-19T19:48:06Z Philippe Simons <simons.philippe@gmail.com> Merge pull request #3350 from loki666/ar14-panel-dfps-modes
+COMMIT e2a42167ab417626df731502805eb2c1f1702fe9 2026-09-19T18:26:52+02:00 Philippe Simons <simons.philippe@gmail.com> sm8650/sm8750: ar14 panel expose the 120/90/60 Hz DFPS modes
+
+projects/ROCKNIX/devices/SM8650/patches/linux/0063-gpu-drm-panel-add-pocket-fit-panel.patch
+projects/ROCKNIX/devices/SM8750/patches/linux/0055-gpu-drm-panel-add-pocket-fit-panel.patch
+COMMIT 6a7213eab3ad47809dd7c3b48d2d9739ae871c16 2026-09-18T21:22:15Z spycat88 <spycat88@users.noreply.github.com> linux: cap brightness for icna35xx panels, kudos @virtudude
+
+projects/ROCKNIX/devices/SM8250/patches/linux/0057_Chipone-ICNA35XX-panel.patch
+projects/ROCKNIX/devices/SM8750/patches/linux/0028-drm-panel-Add-panel-driver-for-Chipone-ICNA35XX-base.patch
+COMMIT 807c74fc46c124891d8aa9b57a68533d38e9a6b2 2026-09-18T00:52:41+02:00 Philippe Simons <simons.philippe@gmail.com> sm8250: finish the Air Y Pro rename
+
+projects/ROCKNIX/devices/SM8250/linux/linux.aarch64.conf
+projects/ROCKNIX/devices/SM8250/patches/linux/0060_Mangmi-Pocket-Max-SPI-joypad.patch
+projects/ROCKNIX/devices/SM8250/patches/linux/0064_Mangmi-Air-Y-Pro-panel.patch
+projects/ROCKNIX/devices/SM8250/patches/linux/0065-input-touchscreen-add-hynitron-cst66xx.patch
+projects/ROCKNIX/devices/SM8250/patches/linux/0066-regulator-add-qcom-pm8150l-lcdb.patch
+COMMIT 063e530e58d380aa17a7c608f0853898cc3911a5 2026-09-16T01:41:41+02:00 Philippe Simons <simons.philippe@gmail.com> feat: add MANGMI Pocket AirY Pro (SM8250)
+
+projects/ROCKNIX/devices/SM8250/linux/linux.aarch64.conf
+projects/ROCKNIX/devices/SM8250/patches/linux/0060_Mangmi-Pocket-Max-SPI-joypad.patch
+projects/ROCKNIX/devices/SM8250/patches/linux/0065-input-touchscreen-add-hynitron-cst66xx.patch
+projects/ROCKNIX/devices/SM8250/patches/linux/0066-regulator-add-qcom-pm8150l-lcdb.patch
+projects/ROCKNIX/devices/SM8250/patches/linux/0067-arm64-dts-qcom-pm8150l-add-lcdb-node.patch
+COMMIT e3f708b35294a1aa6069b3135b42f5b68e6def6a 2026-09-17T11:11:55Z sunshineinabox <aqemail@gmail.com> Merge pull request #3339 from sunshineinabox/PR_SM8250Fan
+COMMIT 180057b9ab0788d885ced4e6ce05b91bbc8a0be3 2026-09-17T04:08:59-07:00 sunshineinabox <aqemail@gmail.com> rotator: move fix to common patches
+
+projects/ROCKNIX/devices/SM8650/patches/linux/0066-drm-msm-dpu-enable-sm8650-inline-rotation.patch
+projects/ROCKNIX/devices/SM8750/patches/linux/0068-drm-msm-dpu-enable-sm8750-inline-rotation.patch
+COMMIT f0b5fade1e7b6e30e5522fb0f2395fd327fc433a 2026-09-16T23:14:47-07:00 sunshineinabox <aqemail@gmail.com> sm8250: improve fan control
+
+projects/ROCKNIX/devices/SM8250/patches/linux/9997-set-boot-fanspeed.patch
+COMMIT 2b10c053420c7b4a27c13a22cdf654d0587fccda 2026-09-17T00:26:04+10:00 John Williams <porschemad911@gmail.com> mangohud: SM4450 battery time remaining
+
+projects/ROCKNIX/packages/apps/mangohud/patches/SM4450/0001-SM4450-GPU.patch
+projects/ROCKNIX/packages/apps/mangohud/patches/SM4450/0002-SM4450-battery-fix-remaining-time-display.patch
+COMMIT 97ac9404a07286cd566e9be525906ebc26721193 2026-09-17T00:25:16+10:00 John Williams <porschemad911@gmail.com> SM4450: battery sysfs name
+
+projects/ROCKNIX/devices/SM4450/patches/linux/0054-power-supply-rename-qcom-battmgr-sysfs.patch
+COMMIT f31657fab51ef9ff207d82d7e3293d18a3558cfd 2026-09-16T22:17:57+10:00 John Williams <porschemad911@gmail.com> mangohud: enable for SM4450
+
+projects/ROCKNIX/packages/apps/mangohud/patches/SM4450/0001-SM4450-GPU.patch
+COMMIT 675c364c6d6c67e4ca646e12f9b96c6194a74b13 2026-09-13T20:44:59-05:00 Noxwell <beebono@yahoo.com> rk3566: add Anbernic RG DS Plus support
+
+projects/ROCKNIX/devices/RK3566/linux/linux.aarch64.conf
+projects/ROCKNIX/devices/RK3566/patches/linux/0027-ASoC-codecs-aw88166-load-firmware-without-stalling-boot.patch
+COMMIT 697d112a64e442e79e3d27b064351d917657301a 2026-09-13T20:22:16-07:00 sunshineinabox <aqemail@gmail.com> Merge pull request #3323 from sunshineinabox/PR_AlternativeLibMali32bit
+
+projects/ROCKNIX/packages/graphics/libmali/patches/next/001-map-loader-gap-at-runtime.patch
+COMMIT 710ecf0e9f80e711de9a354a866119ce6f9e69ea 2026-09-12T00:17:25+02:00 Philippe Simons <simons.philippe@gmail.com> sm4450: add the Anbernic RG55G1
+
+projects/ROCKNIX/devices/SM4450/linux/linux.aarch64.conf
+projects/ROCKNIX/devices/SM4450/patches/linux/0030-ASoC-qcom-sc8280xp-i2s-clk-support.patch
+projects/ROCKNIX/devices/SM4450/patches/linux/0050-drm-panel-add-focaltech-ft7131m.patch
+projects/ROCKNIX/devices/SM4450/patches/linux/0053-input-add-singleadc-joypad.patch
+COMMIT a53899e1880c9e9adca061b6c32220f6520778ac 2026-09-11T20:29:15Z sunshineinabox <sunshineinabox@users.noreply.github.com> linux: kernel config
+
+projects/ROCKNIX/devices/RK3326/linux/linux.aarch64.conf
+projects/ROCKNIX/devices/RK3399/linux/linux.aarch64.conf
+projects/ROCKNIX/devices/RK3566/linux/linux.aarch64.conf
+projects/ROCKNIX/devices/RK3576/linux/linux.aarch64.conf
+projects/ROCKNIX/devices/S922X/linux/linux.aarch64.conf
+projects/ROCKNIX/devices/SM4450/linux/linux.aarch64.conf
+projects/ROCKNIX/devices/SM6115/linux/linux.aarch64.conf
+projects/ROCKNIX/devices/SM8250/linux/linux.aarch64.conf
+projects/ROCKNIX/devices/SM8650/linux/linux.aarch64.conf
+projects/ROCKNIX/devices/SM8750/linux/linux.aarch64.conf
+COMMIT 8a7f33791d578a9ae364d39adec3c5e108702d7c 2026-09-11T12:40:15-07:00 sunshineinabox <aqemail@gmail.com> Merge pull request #3256 from sunshineinabox/WIP_SM4450
+
+projects/ROCKNIX/devices/SM4450/linux/linux.aarch64.conf
+projects/ROCKNIX/devices/SM4450/patches/linux/0001-drm-msm-adreno-add-a613-catalog-entry.patch
+projects/ROCKNIX/devices/SM4450/patches/linux/0002-pmdomain-qcom-rpmhpd-add-lcx-for-sm4450.patch
+projects/ROCKNIX/devices/SM4450/patches/linux/0003-remoteproc-qcom-pas-add-sm4450-adsp-wpss.patch
+projects/ROCKNIX/devices/SM4450/patches/linux/0004-regulator-qcom-rpmh-add-pm6450.patch
+projects/ROCKNIX/devices/SM4450/patches/linux/0005-soc-qcom-pd-mapper-add-sm4450.patch
+projects/ROCKNIX/devices/SM4450/patches/linux/0006-interconnect-qcom-add-sm4450.patch
+projects/ROCKNIX/devices/SM4450/patches/linux/0008-iommu-arm-smmu-qcom-add-sm4450.patch
+projects/ROCKNIX/devices/SM4450/patches/linux/0009-drm-msm-add-sm4450-display.patch
+projects/ROCKNIX/devices/SM4450/patches/linux/0010-drm-panel-chipwealth-ch13726a-vendor-timings-rp-classic.patch
+projects/ROCKNIX/devices/SM4450/patches/linux/0011-clk-qcom-dispcc-sm4450-fix-mdp-clk-src-ops.patch
+projects/ROCKNIX/devices/SM4450/patches/linux/0012-clk-qcom-dispcc-sm4450-quiesce-splash.patch
+projects/ROCKNIX/devices/SM4450/patches/linux/0013-clk-qcom-gpucc-sm4450-add-hlos1-vote-gpu-smmu.patch
+projects/ROCKNIX/devices/SM4450/patches/linux/0014-clk-qcom-gpucc-sm4450-enable-gx-gdsc.patch
+projects/ROCKNIX/devices/SM4450/patches/linux/0015-drm-msm-a6xx-avoid-gmu-cx-reads-on-a613.patch
+projects/ROCKNIX/devices/SM4450/patches/linux/0016-input-add-rsinput-gamepad.patch
+projects/ROCKNIX/devices/SM4450/patches/linux/0017-clk-qcom-gpucc-sm4450-fix-gfx3d-rcg-ops.patch
+projects/ROCKNIX/devices/SM4450/patches/linux/0018-clk-qcom-gpucc-sm4450-retain-gx-gdsc-regs.patch
+projects/ROCKNIX/devices/SM4450/patches/linux/0019-drm-msm-dpu-stop-boot-scanout.patch
+projects/ROCKNIX/devices/SM4450/patches/linux/0022-regulator-qcom-rpmh-add-pbs-type.patch
+projects/ROCKNIX/devices/SM4450/patches/linux/0023-leds-qcom-lpg-add-pm6450-pwm.patch
+projects/ROCKNIX/devices/SM4450/patches/linux/0024-serial-qcom-geni-restart-terminated-rx-command.patch
+projects/ROCKNIX/devices/SM4450/patches/linux/0030-ASoC-qcom-sc8280xp-i2s-clk-support.patch
+projects/ROCKNIX/devices/SM4450/patches/linux/0031-ASoC-codecs-aw88166-support-changing-sample-rate-and-bit-width.patch
+projects/ROCKNIX/devices/SM4450/patches/linux/0032-ASoC-codecs-aw88166-reduce-log-spam.patch
+projects/ROCKNIX/devices/SM4450/patches/linux/0033-ASoC-codecs-aw88166-remove-fade-in-out-on-start-stop.patch
+projects/ROCKNIX/devices/SM4450/patches/linux/0034-ASoC-codecs-aw88166-make-volume-control-usable.patch
+projects/ROCKNIX/devices/SM4450/patches/linux/0039-soundwire-qcom-arm-wake-detector-for-clock-stop.patch
+projects/ROCKNIX/devices/SM4450/patches/linux/0040-phy-qcom-qmp-combo-add-sm4450.patch
+projects/ROCKNIX/devices/SM4450/patches/linux/0041-phy-qcom-qmp-combo-correct-v4-dp-pre-emphasis.patch
+projects/ROCKNIX/devices/SM4450/patches/linux/0042-phy-qcom-qmp-combo-prevent-pm-runtime-suspend-at-boot.patch
+projects/ROCKNIX/devices/SM4450/patches/linux/0045-drivers-use-soc-serial-for-wifi-and-bluetooth.patch
+projects/ROCKNIX/devices/SM4450/patches/linux/0046-bluetooth-hci_qca-include-wcn3950-in-wcn-family-switches.patch
+projects/ROCKNIX/devices/SM4450/patches/linux/0047-bluetooth-hci_qca-drop-baudrate-vendor-event-for-wcn3950.patch
+projects/ROCKNIX/devices/SM4450/patches/linux/0048-bluetooth-hci_qca-keep-ibs-disabled-for-wcn3950.patch
+projects/ROCKNIX/devices/SM4450/patches/linux/0049-usb-typec-ucsi_glink-add-sm4450-quirk.patch
+projects/ROCKNIX/devices/SM4450/patches/linux/0051-power-supply-qcom_battmgr-allow-setting-the-USB-input-current-limit.patch
+projects/ROCKNIX/devices/SM4450/patches/linux/0052-power-supply-qcom_battmgr-report-the-USB-adapter-type.patch
+COMMIT 6cd9c834b23d9f499ba993d285265a539890c306 2026-09-11T14:52:13Z tiopex <67048640+tiopex@users.noreply.github.com> Merge pull request #3299 from tiopex/hw-rotate
+COMMIT 7153ebf9a43b630c9c169b24936eb6956f890446 2026-09-11T04:09:15-04:00 Jacob Cook <jacobmcook1984@gmail.com> RK3566: fix GPU clock ownership and regulator balance
+
+projects/ROCKNIX/devices/RK3566/patches/linux/1012-pmdomain-rockchip-let-mali_kbase-own-the-rk3568-GPU-clocks.patch
+projects/ROCKNIX/devices/RK3566/patches/mali-bifrost/003-fix-unbalanced-regulator.patch
+COMMIT 60bb58c1db053255b700f3953b72d619ec5aa85d 2026-09-11T09:28:10+02:00 tiopex <tiopxyz@gmail.com> linux: drm/msm/dpu: enable QSEED detail enhancer
+
+projects/ROCKNIX/devices/SM8650/patches/linux/0067-drm-msm-dpu-enable-qseed-detail-enhancer.patch
+projects/ROCKNIX/devices/SM8750/patches/linux/0067-drm-msm-dpu-enable-qseed-detail-enhancer.patch
+COMMIT ec3d53baacd2c96d9524414cfeae91a64415d2d3 2026-09-11T08:07:38+02:00 tiopex <tiopxyz@gmail.com> linux: drm/msm/dpu: enable true inline rotation
+
+projects/ROCKNIX/devices/SM8650/patches/linux/0066-drm-msm-dpu-enable-sm8650-inline-rotation.patch
+projects/ROCKNIX/devices/SM8650/patches/linux/0067-drm-msm-dpu-enable-qseed-detail-enhancer.patch
+projects/ROCKNIX/devices/SM8750/patches/linux/0067-drm-msm-dpu-enable-qseed-detail-enhancer.patch
+projects/ROCKNIX/devices/SM8750/patches/linux/0068-drm-msm-dpu-enable-sm8750-inline-rotation.patch
+COMMIT 62d30e735da6e36bc7ce47ff2e5f7632f1cb3468 2026-09-10T20:15:59-07:00 sunshineinabox <aqemail@gmail.com> Merge pull request #3297 from sunshineinabox/PR_VisionvoxPanel
+
+projects/ROCKNIX/devices/SM8250/linux/linux.aarch64.conf
+projects/ROCKNIX/devices/SM8250/patches/linux/0104-drm-panel-Add-Retroid-Pocket-6-panel.patch
+projects/ROCKNIX/devices/SM8250/patches/linux/0105-drm-panel-visionox-vtdr6130-add-sm8250.patch
+COMMIT de97aa87f8c1e24443bd7f6732c352efa890c6e3 2026-09-10T07:49:19-07:00 sunshineinabox <aqemail@gmail.com> Merge pull request #3292 from sunshineinabox/PR_RMM
+
+projects/ROCKNIX/devices/SM6115/linux/linux.aarch64.conf
+COMMIT dcf5545406639815bccf96081490c53866f53a79 2026-09-10T13:26:59+01:00 thefiqs <26687854+thefiqs@users.noreply.github.com> SM8750: use upstream AW99706 patch series
+
+projects/ROCKNIX/devices/SM8750/patches/linux/0055-backlight-aw99706-upstream-fixes.patch
+COMMIT 2d81b5f8ae3c6f2232a9b61bdb8f92661500b6a2 2026-09-03T14:24:28Z rocknix <macebrooks@gmail.com> AMD64: fix led control by adding ectool
+
+projects/ROCKNIX/devices/AMD64/packages/ectool/patches/001-read.patch
+COMMIT 6face2d2fab130c41885a796c5bffab0a19c90d0 2026-09-02T23:50:22Z github-merge-queue[bot] <github-merge-queue[bot]@users.noreply.github.com> linux: kernel config
+
+projects/ROCKNIX/devices/RK3326/linux/linux.aarch64.conf
+projects/ROCKNIX/devices/RK3399/linux/linux.aarch64.conf
+projects/ROCKNIX/devices/RK3566/linux/linux.aarch64.conf
+projects/ROCKNIX/devices/RK3576/linux/linux.aarch64.conf
+projects/ROCKNIX/devices/S922X/linux/linux.aarch64.conf
+projects/ROCKNIX/devices/SM6115/linux/linux.aarch64.conf
+projects/ROCKNIX/devices/SM8250/linux/linux.aarch64.conf
+projects/ROCKNIX/devices/SM8650/linux/linux.aarch64.conf
+projects/ROCKNIX/devices/SM8750/linux/linux.aarch64.conf
+COMMIT bc7ef1258b906bf0cd32ba2d7672490c6413d7e1 2026-09-03T08:57:43+10:00 John Williams <porschemad911@gmail.com> linux: v6.18.49 (S922X / RK3399)
+
+projects/ROCKNIX/devices/S922X/linux/linux.aarch64.conf
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0042-power-supply-rk818-charger-align-POWER_SUPPLY_PROP_E.patch
+COMMIT 24ebc89f4afdfa57c99f704c7481e7999179fdde 2026-08-24T14:24:12Z github-merge-queue[bot] <github-merge-queue[bot]@users.noreply.github.com> linux: kernel config
+
+projects/ROCKNIX/devices/SM8250/linux/linux.aarch64.conf
+projects/ROCKNIX/devices/SM8650/linux/linux.aarch64.conf
+COMMIT 968b13c33282cf4912104eb68c22dccaa572d637 2026-08-24T08:23:04+02:00 Philippe Simons <simons.philippe@gmail.com> linux: run kconfig-olddefconfig
+
+projects/ROCKNIX/devices/SM8250/linux/linux.aarch64.conf
+projects/ROCKNIX/devices/SM8650/linux/linux.aarch64.conf
+COMMIT c50963e3ff4a22beac6a029eb0db1adaec685eb7 2026-08-22T11:28:12+02:00 Philippe Simons <simons.philippe@gmail.com> linux: build SM8250 audio as modules to fix silent boot
+
+projects/ROCKNIX/devices/SM8250/linux/linux.aarch64.conf
+COMMIT 0b8158200c6aba8f64eb86368a1388ab15738917 2026-08-20T08:49:38+02:00 Philippe Simons <simons.philippe@gmail.com> linux: fix wifi/bt mac patches for 7.2 strncpy removal
+
+projects/ROCKNIX/devices/SM8250/patches/linux/0014-fix-wifi-and-bt-mac.patch
+projects/ROCKNIX/devices/SM8650/patches/linux/0501-ROCKNIX-fix-wifi-and-bt-mac.patch
+COMMIT 92020087fb99fe6c4937180b274398fe8b015063 2026-08-20T00:26:40+02:00 Philippe Simons <simons.philippe@gmail.com> linux: bump SM8250/SM8550/SM8650 to 7.2
+
+projects/ROCKNIX/devices/SM8250/linux/linux.aarch64.conf
+projects/ROCKNIX/devices/SM8250/patches/linux/0057_Chipone-ICNA35XX-panel.patch
+projects/ROCKNIX/devices/SM8250/patches/linux/0058_DDIC-CH13726A-panel.patch
+projects/ROCKNIX/devices/SM8250/patches/linux/0062_wsa881x-shared-powerdown-gpio.patch
+projects/ROCKNIX/devices/SM8650/linux/linux.aarch64.conf
+projects/ROCKNIX/devices/SM8650/patches/linux/0062-gpu-drm-panel-add-wt0630-panel.patch
+projects/ROCKNIX/devices/SM8650/patches/linux/0063-gpu-drm-panel-add-pocket-fit-panel.patch
+COMMIT 1f76f69e617ded91f341619687b1a3096685b624 2026-08-23T02:05:07Z porschemad911 <porschemad911@users.noreply.github.com> linux: kernel config
+
+projects/ROCKNIX/devices/RK3399/linux/linux.aarch64.conf
+projects/ROCKNIX/devices/S922X/linux/linux.aarch64.conf
+COMMIT f5edc77135dc8768decf0b8a768a92791ca43093 2026-08-23T01:14:11+10:00 John Williams <porschemad911@gmail.com> linux: v6.18.45 (RK3399 / S922X)
+
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0001-drm-panel-st7701-add-odroid-go-ultra-panel-support.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0002-arm64-meson-odroid-go-ultra-add-DSI-panel.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0003-arm64-meson-odroid-go-ultra-correct-voltages.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0004-arm64-meson-odroid-go-ultra-add-over-clocking-freque.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0005-arm64-meson-odroid-go-ultra-add-joypad.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0006-arm64-meson-odroid-disable-heartbeat.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0007-arm64-meson-g12-common-add-dual-panfrost-mali-to-dts.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0008-arm64-meson-add-dt-for-powkiddy-rgb10-max-3-pro.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0009-power-rk818-Configure-rk808-clkout2-function.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0010-power-supply-rk818-battery-Add-battery-driver-for-RK.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0011-power-supply-rk818-battery-Use-a-more-propper-compat.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0012-power-supply-rk818-charger-Implement-charger-driver-.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0013-power-supply-rk818-charger-Change-charger-type-to-MA.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0014-power-supply-rk818-battery-Report-charging-status-ba.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0015-power-supply-rk818-battery-Drop-dependency-on-frameb.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0016-power-supply-rk818-charger-Unify-rk818-charger-and-r.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0017-power-supply-rk818-battery-Speed-up-battery-current-.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0018-power-supply-rk818-charger-Delay-applying-input-curr.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0019-power-supply-rk818-battery-Don-t-auto-poweroff-the-P.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0020-power-supply-rk818-charger-Add-support-for-POWER_SUP.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0021-power-supply-rk818-battery-Don-t-reset-dsoc-to-0-on-.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0022-power-supply-Cleanup-rk818_battery-driver-from-usele.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0023-power-supply-rk818-battery-Re-organize-code.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0024-power-supply-rk817-charger-Fix-battery-capacity-sani.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0025-power-supply-rk817-charger-Add-input-current-limit-s.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0026-power-supply-rk817-charger-Take-input-current-limit-.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0027-power-supply-rk817-charger-Propagate-proper-errors.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0028-power-supply-rk817-charger-Add-support-for-runtime-c.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0029-arm64-meson-odroid-go-ultra-add-battery-and-charger-.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0030-ASoC-meson-axg-card-limit-the-volume-to-prevent-clip.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0031-power-supply-rk818_charger-change-syfs-node-name-so-.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0032-arm64-meson-odroid-go-ultra-add-headphone-detection.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0033-arm64-dts-amlogic-odroid-go-ultra-Improve-sound-outp.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0034-LOCAL-ALSA-Assign-internal-PCM-chmap-ELD-IEC958-kctl.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0035-power-reset-add-the-Powkiddy-RGB10-Max-3-Pro-to-the-.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0036-arm64-dts-amlogic-meson-g12b-odroid-add-support-for-.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0037-Revert-power-supply-core-ease-special-formatting-imp.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0038-power-supply-core-return-EAGAIN-on-uninitialized-rea.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0039-drm-meson-venc-HACK-panic-when-gamma-is-not-set-corr.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0040-arm64-dts-amlogic-odroid-go-ultra-unify-volume-butto.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0041-drm-panel-st7701-disable-EoTp-as-this-causes-issues-.patch
+COMMIT a01eb88a1ea9aec34fec53cf29ca3a62d0061f45 2026-08-23T00:12:52+10:00 John Williams <porschemad911@gmail.com> Revert "Merge pull request #2837 from porschemad911/s922x-mainline-u-boot"
+
+projects/ROCKNIX/devices/S922X/packages/u-boot/patches/001-disable-bootmode-hotkey-check.patch
+projects/ROCKNIX/devices/S922X/packages/u-boot/patches/002-overlay.patch
+projects/ROCKNIX/devices/S922X/packages/u-boot/patches/003-fix-building.patch
+COMMIT c972e2f4047ef9aefa630f9c2584b4cc3e8fa30b 2026-08-23T00:11:06+10:00 John Williams <porschemad911@gmail.com> Revert "Merge pull request #3211 from porschemad911/s922x-linux-7.1"
+
+projects/ROCKNIX/devices/S922X/linux/linux.aarch64.conf
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0001-drm-panel-st7701-add-odroid-go-ultra-panel-support.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0002-arm64-meson-odroid-go-ultra-add-DSI-panel.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0003-arm64-meson-odroid-go-ultra-correct-voltages.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0004-arm64-meson-odroid-go-ultra-add-over-clocking-freque.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0005-arm64-meson-odroid-go-ultra-add-joypad.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0006-arm64-meson-odroid-disable-heartbeat.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0007-arm64-meson-g12-common-add-dual-panfrost-mali-to-dts.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0008-arm64-meson-add-dt-for-powkiddy-rgb10-max-3-pro.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0009-power-rk818-Configure-rk808-clkout2-function.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0010-power-supply-rk818-battery-Add-battery-driver-for-RK.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0011-power-supply-rk818-battery-Use-a-more-propper-compat.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0012-power-supply-rk818-charger-Implement-charger-driver-.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0013-power-supply-rk818-charger-Change-charger-type-to-MA.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0014-power-supply-rk818-battery-Report-charging-status-ba.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0015-power-supply-rk818-battery-Drop-dependency-on-frameb.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0016-power-supply-rk818-charger-Unify-rk818-charger-and-r.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0017-power-supply-rk818-battery-Speed-up-battery-current-.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0018-power-supply-rk818-charger-Delay-applying-input-curr.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0019-power-supply-rk818-battery-Don-t-auto-poweroff-the-P.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0020-power-supply-rk818-charger-Add-support-for-POWER_SUP.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0021-power-supply-rk818-battery-Don-t-reset-dsoc-to-0-on-.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0022-power-supply-Cleanup-rk818_battery-driver-from-usele.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0023-power-supply-rk818-battery-Re-organize-code.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0024-power-supply-rk817-charger-Fix-battery-capacity-sani.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0025-power-supply-rk817-charger-Add-input-current-limit-s.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0026-power-supply-rk817-charger-Take-input-current-limit-.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0027-power-supply-rk817-charger-Propagate-proper-errors.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0028-power-supply-rk817-charger-Add-support-for-runtime-c.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0029-arm64-meson-odroid-go-ultra-add-battery-and-charger-.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0030-ASoC-meson-axg-card-limit-the-volume-to-prevent-clip.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0031-power-supply-rk818_charger-change-syfs-node-name-so-.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0032-arm64-meson-odroid-go-ultra-add-headphone-detection.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0033-arm64-dts-amlogic-odroid-go-ultra-Improve-sound-outp.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0034-LOCAL-ALSA-Assign-internal-PCM-chmap-ELD-IEC958-kctl.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0035-power-reset-add-the-Powkiddy-RGB10-Max-3-Pro-to-the-.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0036-arm64-dts-amlogic-meson-g12b-odroid-add-support-for-.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0037-Revert-power-supply-core-ease-special-formatting-imp.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0038-power-supply-core-return-EAGAIN-on-uninitialized-rea.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0039-drm-meson-venc-HACK-panic-when-gamma-is-not-set-corr.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0040-arm64-dts-amlogic-odroid-go-ultra-unify-volume-butto.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0041-drm-panel-st7701-disable-EoTp-as-this-causes-issues-.patch
+COMMIT f945949553cebad5cbda82f83055d71789ad0b16 2026-08-22T21:20:01Z github-merge-queue[bot] <github-merge-queue[bot]@users.noreply.github.com> linux: kernel config
+
+projects/ROCKNIX/devices/SM8750/linux/linux.aarch64.conf
+COMMIT 5b9324a6f877cbef0825310f8bed9336e64f5f84 2026-08-22T20:23:13+01:00 André Braga <code@andrebraga.com> SM8750: drop new HiSilicon erratum from 7.2 regen
+
+projects/ROCKNIX/devices/SM8750/linux/linux.aarch64.conf
+COMMIT 766088f4bdb0b78d9d9176d8c9ec3e120cfc5c0a 2026-08-22T19:53:19+01:00 André Braga <code@andrebraga.com> SM8750: trim stray olddefconfig noise from 7.2 regen
+
+projects/ROCKNIX/devices/SM8750/linux/linux.aarch64.conf
+COMMIT 294c7d848529bd0f100b17eeaf1c6226cacd91d9 2026-07-31T21:42:02+02:00 Patrick Hennig <patrick.hennig@fastmail.com> SM8750: regenerate kernel config for 7.2
+
+projects/ROCKNIX/devices/SM8750/linux/linux.aarch64.conf
+COMMIT 6dffddc003a24a2f40e99edd746c48431819009b 2026-07-31T19:16:24+02:00 Patrick Hennig <patrick.hennig@fastmail.com> SM8750: pick up Patrick Hennig's 7.2 kernel API fixups
+
+projects/ROCKNIX/devices/SM8750/patches/linux/0028-drm-panel-Add-panel-driver-for-Chipone-ICNA35XX-base.patch
+projects/ROCKNIX/devices/SM8750/patches/linux/0055-gpu-drm-panel-add-pocket-fit-panel.patch
+projects/ROCKNIX/devices/SM8750/patches/linux/0501-ROCKNIX-fix-wifi-and-bt-mac.patch
+projects/ROCKNIX/devices/SM8750/patches/linux/0517-usb-typec-mux-dont-swallow-EPROBE_DEFER.patch
+COMMIT 7925371d4609ba99871fabaef5776eb508fa400e 2026-07-31T22:15:47+02:00 Patrick Hennig <patrick.hennig@fastmail.com> SM8750: switch the PCIe pipe clk mux to the PHY source on 7.2
+
+projects/ROCKNIX/devices/SM8750/patches/linux/0606-phy-qcom-qmp-pcie-switch-pipe-clk-mux-to-phy.patch
+COMMIT 5e72248f04771f13a3112efd4dc31b12a43a167c 2026-08-01T03:15:32+02:00 Patrick Hennig <patrick.hennig@fastmail.com> SM8750: size GPU reg window for a8x RSCC on 7.2
+
+projects/ROCKNIX/devices/SM8750/patches/linux/0038-arm64-dts-qcom-sm8750-add-GPU-nodes.patch
+COMMIT 7da3e651bae194fd6bb9db39c89673fa8d8d7d78 2026-08-20T14:01:54+01:00 André Braga <code@andrebraga.com> SM8750: bump kernel 7.1.8 -> 7.2
+
+projects/ROCKNIX/devices/SM8750/patches/linux/0026-dt-bindings-arm-qcom-ids-Add-SoC-ID-for-CQ8725S.patch
+projects/ROCKNIX/devices/SM8750/patches/linux/0027-soc-qcom-socinfo-Add-CQ8725S-SoC-ID.patch
+projects/ROCKNIX/devices/SM8750/patches/linux/0028-drm-panel-Add-panel-driver-for-Chipone-ICNA35XX-base.patch
+projects/ROCKNIX/devices/SM8750/patches/linux/0029-Input-edt-ft5x06-add-no_regmap_bulk_read-option.patch
+projects/ROCKNIX/devices/SM8750/patches/linux/0033-arm64-dts-qcom-sm8750-gpu-clock-controllers.patch
+projects/ROCKNIX/devices/SM8750/patches/linux/0034-arm64-dts-qcom-sm8750-Add-UART15.patch
+projects/ROCKNIX/devices/SM8750/patches/linux/0038-arm64-dts-qcom-sm8750-add-GPU-nodes.patch
+projects/ROCKNIX/devices/SM8750/patches/linux/0039-wifi-ath12k-add-initial-hardware-definition-for-WCN7.patch
+projects/ROCKNIX/devices/SM8750/patches/linux/0040-wifi-ath12k-send-QDSS-config-when-CNSS_QDSS_CFG_MISS.patch
+projects/ROCKNIX/devices/SM8750/patches/linux/0041-wifi-ath12k-disable-CNSS_QDSS_CFG_MISS_V01-for-the-W.patch
+projects/ROCKNIX/devices/SM8750/patches/linux/0042-PCI-pwrctrl-pwrseq-add-support-for-WCN7860.patch
+projects/ROCKNIX/devices/SM8750/patches/linux/0043-power-sequencing-qcom-wcn-add-support-for-WCN7860.patch
+projects/ROCKNIX/devices/SM8750/patches/linux/0044-clk-qcom-gcc-sm8750-Do-not-turn-off-PCIe-GDSCs-durin.patch
+projects/ROCKNIX/devices/SM8750/patches/linux/0045-Bluetooth-qca-add-WCN7860-support.patch
+projects/ROCKNIX/devices/SM8750/patches/linux/0049-drm-msm-a8xx-add-adreno-830-catalog.patch
+projects/ROCKNIX/devices/SM8750/patches/linux/0050-clk-qcom-gxclkctl-kaanapali-fix-gx-gdsc-collapse.patch
+projects/ROCKNIX/devices/SM8750/patches/linux/0052-pmdomain-qcom-rpmhpd-presync-floor-gmu-rails.patch
+projects/ROCKNIX/devices/SM8750/patches/linux/0063-ASoC-wcd939x-route-usbss-on-integrated-jack-insert.patch
+projects/ROCKNIX/devices/SM8750/patches/linux/0066-scsi-ufs-ufs-qcom-add-sm8750-compatible.patch
+projects/ROCKNIX/devices/SM8750/patches/linux/0069-input-misc-add-konkr-sysbtn-MCU-system-buttons.patch
+projects/ROCKNIX/devices/SM8750/patches/linux/0075-arm64-dts-qcom-sm8750-add-CPU-thermal-cooling.patch
+projects/ROCKNIX/devices/SM8750/patches/linux/0076-arm64-dts-qcom-sm8750-set-CPU-capacity-dmips-mhz.patch
+projects/ROCKNIX/devices/SM8750/patches/linux/0500-ROCKNIX-set-boot-fanspeed.patch
+projects/ROCKNIX/devices/SM8750/patches/linux/0501-ROCKNIX-fix-wifi-and-bt-mac.patch
+projects/ROCKNIX/devices/SM8750/patches/linux/0504-Enable-64-bit-processes-to-use-compat-input-syscalls.patch
+projects/ROCKNIX/devices/SM8750/patches/linux/0509-usb-typec-ucsi-clear-USB-role.patch
+projects/ROCKNIX/devices/SM8750/patches/linux/0603-ASoC-codecs-wcd939x-keep-the-codec-resumed-while-a-ja.patch
+projects/ROCKNIX/devices/SM8750/patches/linux/1000-input-misc-qcom-hv-haptics-sm8750.patch
+COMMIT 75db51c3da428eaf39ccbca68d3d00174f08f9be 2026-08-04T18:55:34+01:00 André Braga <code@andrebraga.com> SM8750: bump kernel 7.1.3 -> 7.1.8
+
+projects/ROCKNIX/devices/SM8750/patches/linux/0028-drm-panel-Add-panel-driver-for-Chipone-ICNA35XX-base.patch
+projects/ROCKNIX/devices/SM8750/patches/linux/0029-Input-edt-ft5x06-add-no_regmap_bulk_read-option.patch
+projects/ROCKNIX/devices/SM8750/patches/linux/0031_input--Add-driver-for-RSInput-Gamepad.patch
+projects/ROCKNIX/devices/SM8750/patches/linux/0032-ASoC-codecs-aw88166-AYN-Products-Specific-modificati.patch
+projects/ROCKNIX/devices/SM8750/patches/linux/0033-arm64-dts-qcom-sm8750-gpu-clock-controllers.patch
+projects/ROCKNIX/devices/SM8750/patches/linux/0034-arm64-dts-qcom-sm8750-Add-UART15.patch
+projects/ROCKNIX/devices/SM8750/patches/linux/0039-wifi-ath12k-add-initial-hardware-definition-for-WCN7.patch
+projects/ROCKNIX/devices/SM8750/patches/linux/0040-wifi-ath12k-send-QDSS-config-when-CNSS_QDSS_CFG_MISS.patch
+projects/ROCKNIX/devices/SM8750/patches/linux/0041-wifi-ath12k-disable-CNSS_QDSS_CFG_MISS_V01-for-the-W.patch
+projects/ROCKNIX/devices/SM8750/patches/linux/0045-Bluetooth-qca-add-WCN7860-support.patch
+projects/ROCKNIX/devices/SM8750/patches/linux/0049-drm-msm-a8xx-add-adreno-830-catalog.patch
+projects/ROCKNIX/devices/SM8750/patches/linux/0066-scsi-ufs-ufs-qcom-add-sm8750-compatible.patch
+projects/ROCKNIX/devices/SM8750/patches/linux/0500-ROCKNIX-set-boot-fanspeed.patch
+projects/ROCKNIX/devices/SM8750/patches/linux/0501-ROCKNIX-fix-wifi-and-bt-mac.patch
+projects/ROCKNIX/devices/SM8750/patches/linux/0503-ROCKNIX-battery-name.patch
+projects/ROCKNIX/devices/SM8750/patches/linux/0504-Enable-64-bit-processes-to-use-compat-input-syscalls.patch
+projects/ROCKNIX/devices/SM8750/patches/linux/0505-msm_gem-lock-before-put_iova_spaces.patch
+projects/ROCKNIX/devices/SM8750/patches/linux/0517-usb-typec-mux-dont-swallow-EPROBE_DEFER.patch
+projects/ROCKNIX/devices/SM8750/patches/linux/1000-input-misc-qcom-hv-haptics-sm8750.patch
+projects/ROCKNIX/devices/SM8750/patches/linux/1300-input-rsinput-ranges.patch
+COMMIT 72121b49cd18d68a5b1ffe96b9f018e69c2b4af0 2026-08-21T22:59:01Z github-merge-queue[bot] <github-merge-queue[bot]@users.noreply.github.com> linux: kernel config
+
+projects/ROCKNIX/devices/SM6115/linux/linux.aarch64.conf
+COMMIT 758edfc168027078e192bbf2500ccd49a5213f07 2026-08-17T14:59:52-07:00 Mike <7153163+hackbar@users.noreply.github.com> linux: update SM6115 to kernel 7.2
+
+projects/ROCKNIX/devices/SM6115/patches/linux/0021-drivers-use-soc-serial-for-wifi-and-bluetooth.patch
+projects/ROCKNIX/devices/SM6115/patches/linux/0028-power-supply-bq256xx-add-sgm41515-alias.patch
+COMMIT 42772639ebc819a14fd04819e1cee51c2cb5a561 2026-08-20T04:21:15Z github-merge-queue[bot] <github-merge-queue[bot]@users.noreply.github.com> linux: kernel config
+
+projects/ROCKNIX/devices/S922X/linux/linux.aarch64.conf
+COMMIT a088e3e4f6adf0bac5e888362cb463dd5db19b08 2026-08-20T11:33:33+10:00 John Williams <porschemad911@gmail.com> S922X: linux v7.1.9
+
+projects/ROCKNIX/devices/S922X/linux/linux.aarch64.conf
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0001-drm-panel-st7701-add-odroid-go-ultra-panel-support.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0002-arm64-meson-odroid-go-ultra-add-DSI-panel.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0003-arm64-meson-odroid-go-ultra-correct-voltages.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0004-arm64-meson-odroid-go-ultra-add-over-clocking-freque.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0005-arm64-meson-odroid-go-ultra-add-joypad.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0006-arm64-meson-odroid-disable-heartbeat.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0007-arm64-meson-g12-common-add-dual-panfrost-mali-to-dts.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0008-arm64-meson-add-dt-for-powkiddy-rgb10-max-3-pro.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0009-power-rk818-Configure-rk808-clkout2-function.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0010-power-supply-rk818-battery-Add-battery-driver-for-RK.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0011-power-supply-rk818-battery-Use-a-more-propper-compat.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0012-power-supply-rk818-charger-Implement-charger-driver-.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0013-power-supply-rk818-charger-Change-charger-type-to-MA.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0014-power-supply-rk818-battery-Report-charging-status-ba.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0015-power-supply-rk818-battery-Drop-dependency-on-frameb.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0016-power-supply-rk818-charger-Unify-rk818-charger-and-r.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0017-power-supply-rk818-battery-Speed-up-battery-current-.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0018-power-supply-rk818-charger-Delay-applying-input-curr.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0019-power-supply-rk818-battery-Don-t-auto-poweroff-the-P.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0020-power-supply-rk818-charger-Add-support-for-POWER_SUP.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0021-power-supply-rk818-battery-Don-t-reset-dsoc-to-0-on-.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0022-power-supply-Cleanup-rk818_battery-driver-from-usele.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0023-power-supply-rk818-battery-Re-organize-code.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0024-power-supply-rk817-charger-Fix-battery-capacity-sani.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0025-power-supply-rk817-charger-Add-input-current-limit-s.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0026-power-supply-rk817-charger-Take-input-current-limit-.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0027-power-supply-rk817-charger-Propagate-proper-errors.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0028-power-supply-rk817-charger-Add-support-for-runtime-c.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0029-arm64-meson-odroid-go-ultra-add-battery-and-charger-.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0030-ASoC-meson-axg-card-limit-the-volume-to-prevent-clip.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0031-power-supply-rk818_charger-change-syfs-node-name-so-.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0032-arm64-meson-odroid-go-ultra-add-headphone-detection.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0033-arm64-dts-amlogic-odroid-go-ultra-Improve-sound-outp.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0034-LOCAL-ALSA-Assign-internal-PCM-chmap-ELD-IEC958-kctl.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0035-power-reset-add-the-Powkiddy-RGB10-Max-3-Pro-to-the-.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0036-arm64-dts-amlogic-meson-g12b-odroid-add-support-for-.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0037-Revert-power-supply-core-ease-special-formatting-imp.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0038-power-supply-core-return-EAGAIN-on-uninitialized-rea.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0039-drm-meson-venc-HACK-panic-when-gamma-is-not-set-corr.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0040-arm64-dts-amlogic-odroid-go-ultra-unify-volume-butto.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0041-drm-panel-st7701-disable-EoTp-as-this-causes-issues-.patch
+COMMIT 1e3cf973a8924b75802ffe58afebad890ae41975 2026-08-16T22:17:37-07:00 sunshineinabox <aqemail@gmail.com> SM8750: port sm8550 patch + silence spam
+
+projects/ROCKNIX/devices/SM8750/patches/linux/1000-input-misc-qcom-hv-haptics-sm8750.patch
+projects/ROCKNIX/devices/SM8750/patches/linux/1001-haptics-driver-support-periodic-sine-and-fixes.patch
+projects/ROCKNIX/devices/SM8750/patches/linux/1004-input-qcom-hv-haptics-defer-rsinput-playback.patch
+COMMIT 433f9b2dc7088393b418e476bf0f7d24256804cb 2026-08-16T04:26:40Z sunshineinabox <sunshineinabox@users.noreply.github.com> linux: kernel config
+
+projects/ROCKNIX/devices/RK3326/linux/linux.aarch64.conf
+projects/ROCKNIX/devices/RK3399/linux/linux.aarch64.conf
+projects/ROCKNIX/devices/RK3566/linux/linux.aarch64.conf
+projects/ROCKNIX/devices/RK3576/linux/linux.aarch64.conf
+projects/ROCKNIX/devices/RK3588/linux/linux.aarch64.conf
+projects/ROCKNIX/devices/S922X/linux/linux.aarch64.conf
+projects/ROCKNIX/devices/SM6115/linux/linux.aarch64.conf
+projects/ROCKNIX/devices/SM8250/linux/linux.aarch64.conf
+projects/ROCKNIX/devices/SM8650/linux/linux.aarch64.conf
+projects/ROCKNIX/devices/SM8750/linux/linux.aarch64.conf
+COMMIT 993d84e6af4a6e443b1aebbbf47854ecffad2429 2026-08-15T19:58:53-07:00 sunshineinabox <aqemail@gmail.com> Merge pull request #3008 from sunshineinabox/rk33267.1
+
+projects/ROCKNIX/devices/RK3326/linux/linux.aarch64.conf
+projects/ROCKNIX/devices/RK3326/patches/linux/002-gpiolib-of-legacy-api.patch
+projects/ROCKNIX/devices/RK3326/patches/linux/004-input-drivers.patch
+projects/ROCKNIX/devices/RK3326/patches/linux/008-esp-8089-wifi.patch
+projects/ROCKNIX/devices/RK3326/patches/linux/010-dwc2-track-vbus-supply-state.patch
+projects/ROCKNIX/devices/RK3326/patches/linux/024-px30s-gpu-power-domain-workaround.patch
+projects/ROCKNIX/devices/RK3326/patches/linux/025-px30s-dsi-dphy-timing-table.patch
+projects/ROCKNIX/devices/RK3326/patches/linux/034-px30s-cru-suspend-resume-restore.patch
+projects/ROCKNIX/devices/RK3326/patches/mali-bifrost/0001-platform-devicetree-add-reset-control-and-runtime-pm.patch
+projects/ROCKNIX/devices/RK3326/patches/mali-bifrost/002-lowercase-interrupts-first.patch
+projects/ROCKNIX/devices/RK3326/patches/mali-bifrost/003-fix-unbalanced-regulator.patch
+COMMIT b98de0d3b41047841c63b932304a3f844e2a2602 2026-08-10T21:02:40Z sunshineinabox <aqemail@gmail.com> Merge pull request #3155 from sunshineinabox/PR_GXClockfix
+COMMIT 9e268fe04eb8a870ffa18c48cd7ea0b7b17001b7 2026-08-09T16:04:14-07:00 sunshineinabox <aqemail@gmail.com> sm8750: match values to stock firmware
+
+projects/ROCKNIX/devices/SM8750/patches/linux/0038-arm64-dts-qcom-sm8750-add-GPU-nodes.patch
+projects/ROCKNIX/devices/SM8750/patches/linux/0049-drm-msm-a8xx-add-adreno-830-catalog.patch
+COMMIT 607e0933f638a6a7f9043c47e8ee00cd820d4abb 2026-08-09T13:08:53-07:00 sunshineinabox <aqemail@gmail.com> sm8650: gx rail patches from sm8550
+
+projects/ROCKNIX/devices/SM8650/patches/linux/0120-arm64-dts-qcom-sm8650-gpucc-power-domains.patch
+projects/ROCKNIX/devices/SM8650/patches/linux/0121-pmdomain-qcom-rpmhpd-presync-floor-gmu-rails.patch
+COMMIT ef264a238d5e2ba960145e3fda663dc27de49a80 2026-08-09T11:47:22-07:00 sunshineinabox <aqemail@gmail.com> sm8550/sm8750: fix gx clock issues
+
+projects/ROCKNIX/devices/SM8750/patches/linux/0052-pmdomain-qcom-rpmhpd-presync-floor-gmu-rails.patch
+COMMIT 47ff68b214fd8cee5b90595fafdb25146e0db32c 2026-08-08T14:46:17+02:00 Patrick Hennig <patrick.hennig@fastmail.com> SM8750: vendor Android capacity-dmips-mhz values
+
+projects/ROCKNIX/devices/SM8750/patches/linux/0076-arm64-dts-qcom-sm8750-set-CPU-capacity-dmips-mhz.patch
+COMMIT d26011e8798683cfad87e365dc4ba2aaccc2b9b3 2026-08-07T21:43:06-07:00 sunshineinabox <aqemail@gmail.com> rk3326: bring back legacy gpio patch
+
+projects/ROCKNIX/devices/RK3326/patches/linux/002-gpiolib-of-legacy-api.patch
+COMMIT b1e9d07b251c5a013d303a518106c547db001b74 2026-08-07T15:15:32Z Philippe Simons <simons.philippe@gmail.com> Merge pull request #3137 from slaide/sm8750-thermal-eas
+COMMIT d8a3b36dd3cba138f4242434e823e24a47a92650 2026-08-07T20:50:20+08:00 Edouard Durand <edouard.durand@gmail.com> haptics: drop the stale __assign_str argument in the tracepoint header
+
+projects/ROCKNIX/devices/SM8750/patches/linux/1000-input-misc-qcom-hv-haptics-sm8750.patch
+COMMIT dc727ca1d9837068d434f0ded3c388de2d153a36 2026-08-07T02:52:28+02:00 Patrick Hennig <patrick.hennig@fastmail.com> SM8750: cut MCU gamepad interrupt cost 5500/s to 450/s idle
+
+projects/ROCKNIX/devices/SM8750/patches/linux/0058-input-joystick-add-ayaneo-mcu-joystick.patch
+COMMIT bc4f5ec2082611d3e11b85c57b6b2c0702610e41 2026-08-07T01:04:36+02:00 Patrick Hennig <patrick.hennig@fastmail.com> SM8750: set CPU capacity-dmips-mhz
+
+projects/ROCKNIX/devices/SM8750/patches/linux/0076-arm64-dts-qcom-sm8750-set-CPU-capacity-dmips-mhz.patch
+COMMIT 77d2fc7e66d1670ac19070fe945951a56cf67770 2026-08-07T01:04:35+02:00 Patrick Hennig <patrick.hennig@fastmail.com> SM8750: add CPU thermal throttling via cpufreq cooling
+
+projects/ROCKNIX/devices/SM8750/patches/linux/0075-arm64-dts-qcom-sm8750-add-CPU-thermal-cooling.patch
+COMMIT 245c99b1415e67699ce12721280b7bd65a04ef33 2026-08-07T07:27:22Z github-merge-queue[bot] <github-merge-queue[bot]@users.noreply.github.com> linux: kernel config
+
+projects/ROCKNIX/devices/S922X/linux/linux.aarch64.conf
+COMMIT a4bc439ed47f2e215a2b4eee5cf02bd409fa6719 2026-08-02T11:58:07-07:00 sunshineinabox <aqemail@gmail.com> ffmpeg: bump version
+
+projects/ROCKNIX/packages/multimedia/ffmpeg/patches/vf-deinterlace-v4l2m2m/ffmpeg-001-vf-deinterlace-v4l2m2m.patch
+COMMIT c9629c95a5655dcfb68e8f3aaf75f9967a9e9656 2026-08-05T20:03:41Z tiopex <67048640+tiopex@users.noreply.github.com> Merge pull request #3039 from aanze/aanze-pr-ucsi-suspend-fix
+COMMIT 052e117bfadb31b6a9577e960244b72584c59341 2026-07-22T00:07:12-04:00 Jacob Cook <jacobmcook1984@gmail.com> RK3326: GKD Pixel2 GPU, panel, suspend/resume, and thermal fixes
+
+projects/ROCKNIX/devices/RK3326/patches/linux/023-px30s-tsadc-support.patch
+projects/ROCKNIX/devices/RK3326/patches/linux/024-px30s-gpu-power-domain-workaround.patch
+projects/ROCKNIX/devices/RK3326/patches/linux/034-px30s-cru-suspend-resume-restore.patch
+projects/ROCKNIX/devices/RK3326/patches/mali-bifrost/004-devfreq-resume-flush-workqueue.patch
+COMMIT 024028b4f3fdd139ae1e575efb25914b8f76595d 2026-08-04T12:20:33Z Philippe Simons <simons.philippe@gmail.com> Merge pull request #3089 from slaide/sm8750-konkr-pfe-led-effects
+COMMIT 867586b270ed4eb57d19711128b558425612720e 2026-08-03T22:12:37Z spycat88 <spycat88@users.noreply.github.com> SM8750: fix malformed patch
+
+projects/ROCKNIX/devices/SM8750/patches/linux/1002-input-rsinput-sm8750-ff.patch
+COMMIT e498e090183a569fed6f69d6644977502da7b069 2026-08-03T22:17:31+10:00 John Williams <porschemad911@gmail.com> mangohud: support batteryplus
+
+projects/ROCKNIX/packages/apps/mangohud/patches/batteryplus/0001-batteryplus-capacity.patch
+COMMIT 987ae1eb6eef6d1034727ceb447b050ff1a71f19 2026-08-02T06:41:54-07:00 r3claimer <macebrooks@gmail.com> Merge pull request #3047 from simper/sm8750-odin3-haptics
+COMMIT 3f9e7f6432b62047decb598cdd6c922eba6c51f7 2026-08-01T18:18:07-07:00 sunshineinabox <aqemail@gmail.com> sm8250: gpu improvements
+
+projects/ROCKNIX/devices/SM8250/patches/linux/9998-gpu-tuning.patch
+COMMIT d2b337c320bc8212eec982f50b84f7b66c767b4e 2026-08-01T00:17:23+02:00 Anze <aanzdev@gmail.com> SM8750: switch the Odin 3 headphone path to HPH PCM mode
+
+projects/ROCKNIX/packages/audio/alsa-ucm-conf/patches/SM8750/0001_SM8750-AYN-Odin3.patch
+COMMIT 730fb9e7fd31e0405ae07d4039641cd7b1d1cc7b 2026-08-01T00:17:22+02:00 Anze <aanzdev@gmail.com> SM8750: keep the wcd939x codec resumed while a jack is set
+
+projects/ROCKNIX/devices/SM8750/patches/linux/0603-ASoC-codecs-wcd939x-keep-the-codec-resumed-while-a-ja.patch
+COMMIT 5705fa483bee98027f9777105060b57bb3c5b25e 2026-08-01T00:17:22+02:00 Anze <aanzdev@gmail.com> SM8750: route the Odin 3's headphones to the codec, not the speaker
+
+projects/ROCKNIX/packages/audio/alsa-ucm-conf/patches/SM8750/0001_SM8750-AYN-Odin3.patch
+COMMIT 5d24926da49671be33a0b721f6a36a2d0a524415 2026-07-31T10:26:32+02:00 Patrick Hennig <patrick.hennig@fastmail.com> SM8750: KONKR PFE MCU-side stick LED effects
+
+projects/ROCKNIX/devices/SM8750/patches/linux/0069-input-misc-add-konkr-sysbtn-MCU-system-buttons.patch
+COMMIT 9a37ac338ff60465f1bb28b749437ce7b65cb8e6 2026-07-30T23:04:23Z github-merge-queue[bot] <github-merge-queue[bot]@users.noreply.github.com> linux: kernel config
+
+projects/ROCKNIX/devices/RK3326/linux/linux.aarch64.conf
+projects/ROCKNIX/devices/RK3399/linux/linux.aarch64.conf
+projects/ROCKNIX/devices/RK3566/linux/linux.aarch64.conf
+projects/ROCKNIX/devices/RK3576/linux/linux.aarch64.conf
+projects/ROCKNIX/devices/S922X/linux/linux.aarch64.conf
+projects/ROCKNIX/devices/SM6115/linux/linux.aarch64.conf
+projects/ROCKNIX/devices/SM8250/linux/linux.aarch64.conf
+projects/ROCKNIX/devices/SM8650/linux/linux.aarch64.conf
+projects/ROCKNIX/devices/SM8750/linux/linux.aarch64.conf
+COMMIT 51112feae1b77952211593c2dbbabd8e132f30f8 2026-07-29T19:57:55+02:00 Patrick Hennig <patrick.hennig@fastmail.com> soc/qcom: defer altmode probe until mode-switch registers
+
+projects/ROCKNIX/devices/SM8750/patches/linux/0509-soc-qcom-pmic_glink_altmode-defer-until-mux-switch-ready.patch
+COMMIT 49afa3a0c9caa8b4c247f530a9556128b8a329ea 2026-06-13T13:04:34+02:00 Patrick Hennig <patrick.hennig@fastmail.com> SM8750: KONKR system buttons + stick RGB serdev driver
+
+projects/ROCKNIX/devices/SM8750/linux/linux.aarch64.conf
+projects/ROCKNIX/devices/SM8750/patches/linux/0069-input-misc-add-konkr-sysbtn-MCU-system-buttons.patch
+COMMIT 5a2990f76598b3fc11e0bc0292a3eaee489e753a 2026-06-13T13:03:46+02:00 Patrick Hennig <patrick.hennig@fastmail.com> SM8750: KONKR PFE internal UFS (eUFS)
+
+projects/ROCKNIX/devices/SM8750/patches/linux/0066-scsi-ufs-ufs-qcom-add-sm8750-compatible.patch
+COMMIT 4c58580c11530d84f8ebdc18edd34e548dd6cab0 2026-06-13T13:03:33+02:00 Patrick Hennig <patrick.hennig@fastmail.com> ASoC: KONKR PFE headphone jack (wcd939x) + HPH PCM mode
+
+projects/ROCKNIX/devices/SM8750/patches/linux/0063-ASoC-wcd939x-route-usbss-on-integrated-jack-insert.patch
+projects/ROCKNIX/devices/SM8750/patches/linux/0064-ASoC-wcd-mbhc-clear-stale-jack-report-on-mechanical-removal.patch
+projects/ROCKNIX/devices/SM8750/patches/linux/0072-ASoC-lpass-rx-macro-add-HPH-PCM-mode.patch
+projects/ROCKNIX/devices/SM8750/patches/linux/0073-ASoC-wcd939x-add-HPH-PCM-HiFi-mode.patch
+projects/ROCKNIX/devices/SM8750/patches/linux/0074-soundwire-qcom-PCM-data-port-format-enable.patch
+COMMIT b3de80f24405483ce0cc2b86179be2b28c612bb7 2026-06-13T13:03:17+02:00 Patrick Hennig <patrick.hennig@fastmail.com> ASoC: KONKR PFE speaker audio (AW88261 on MI2S)
+
+projects/ROCKNIX/devices/SM8750/linux/linux.aarch64.conf
+projects/ROCKNIX/devices/SM8750/patches/linux/0059-ASoC-aw88395-lib-skip-monitor-sections-in-V1-ACF-parse.patch
+projects/ROCKNIX/devices/SM8750/patches/linux/0060-ASoC-qcom-sc8280xp-enable-MI2S-bit-clock-on-BE-startup.patch
+COMMIT cf227ee8c2faf0a8ef9a57e922dfbf8d70df9255 2026-06-13T13:03:07+02:00 Patrick Hennig <patrick.hennig@fastmail.com> input/touchscreen: add Chipone ICNL9922C TDDI (KONKR PFE)
+
+projects/ROCKNIX/devices/SM8750/linux/linux.aarch64.conf
+projects/ROCKNIX/devices/SM8750/patches/linux/0061-input-touchscreen-add-chipone-tddi.patch
+COMMIT 68e7974ce0a8616339d09bfc0b4776518bcf67c8 2026-06-13T13:03:07+02:00 Patrick Hennig <patrick.hennig@fastmail.com> input/joystick: add AYANEO MCU gamepad (KONKR PFE)
+
+projects/ROCKNIX/devices/SM8750/linux/linux.aarch64.conf
+projects/ROCKNIX/devices/SM8750/patches/linux/0058-input-joystick-add-ayaneo-mcu-joystick.patch
+COMMIT f223624bf03a643d30e4c8a91aa0270b6afd92a9 2026-06-13T13:01:16+02:00 Patrick Hennig <patrick.hennig@fastmail.com> backlight: add AW99706 driver fixes (KONKR PFE)
+
+projects/ROCKNIX/devices/SM8750/linux/linux.aarch64.conf
+projects/ROCKNIX/devices/SM8750/patches/linux/0056-backlight-aw99706-enable-hwen-before-chip-id-read.patch
+projects/ROCKNIX/devices/SM8750/patches/linux/0057-backlight-aw99706-konkr-cfg7.patch
+COMMIT 5cff2f7918ca6bd56d8a884f0837309529a058bc 2026-06-13T13:01:16+02:00 Patrick Hennig <patrick.hennig@fastmail.com> drm/panel: add ayaneo,ar14-144hz panel (KONKR PFE)
+
+projects/ROCKNIX/devices/SM8750/linux/linux.aarch64.conf
+projects/ROCKNIX/devices/SM8750/patches/linux/0055-gpu-drm-panel-add-pocket-fit-panel.patch
+COMMIT 335fb3cc0f8181e3e0b39531c0195b3c63442b17 2026-06-13T13:01:16+02:00 Patrick Hennig <patrick.hennig@fastmail.com> regulator: add SGM3804 panel-bias driver (KONKR PFE)
+
+projects/ROCKNIX/devices/SM8750/linux/linux.aarch64.conf
+COMMIT f6a3e75989a17f53c789a56ccd23de20e6f671c8 2026-07-27T17:31:27+02:00 Anze <aanzdev@gmail.com> SM8750: restore dock DisplayPort output broken by the 7.1 bump
+
+projects/ROCKNIX/devices/SM8750/patches/linux/0517-usb-typec-mux-dont-swallow-EPROBE_DEFER.patch
+COMMIT f0703a06027df01ed331067e00093f395c43afc2 2026-07-19T00:28:58+02:00 Anze <aanzdev@gmail.com> SM8750: fix suspend wedge from ucsi USB role on charger unplug
+
+projects/ROCKNIX/devices/SM8750/patches/linux/0509-usb-typec-ucsi-clear-USB-role.patch
+COMMIT 81a31e3d0f0f2b7c7f5e5f77022f51778397db01 2026-07-21T19:06:54+08:00 simper <viumden@gmail.com> SM8750: add rumble/haptics support for AYN Odin 3
+
+projects/ROCKNIX/devices/SM8750/linux/linux.aarch64.conf
+projects/ROCKNIX/devices/SM8750/patches/linux/1000-input-misc-qcom-hv-haptics-sm8750.patch
+projects/ROCKNIX/devices/SM8750/patches/linux/1001-haptics-driver-support-periodic-sine-and-fixes.patch
+projects/ROCKNIX/devices/SM8750/patches/linux/1002-input-rsinput-sm8750-ff.patch
+COMMIT 59d4771b90c94b1383f0cbbe0aed1c755f8e9368 2026-07-17T15:43:10-04:00 Jacob Cook <jake@asus-irl-desktop.lawn.gatech.edu> RK3326: add GKD Pixel2 support (GameKiddy)
+
+projects/ROCKNIX/devices/RK3326/patches/linux/023-px30s-tsadc-support.patch
+projects/ROCKNIX/devices/RK3326/patches/linux/024-px30s-gpu-power-domain-workaround.patch
+projects/ROCKNIX/devices/RK3326/patches/linux/025-px30s-dsi-dphy-timing-table.patch
+projects/ROCKNIX/devices/RK3326/patches/linux/026-px30s-cpuinfo-soc-detection.patch
+projects/ROCKNIX/devices/RK3326/patches/linux/027-px30s-io-domain-pmuio1.patch
+projects/ROCKNIX/devices/RK3326/patches/linux/028-px30s-usb2phy-tuning.patch
+projects/ROCKNIX/devices/RK3326/patches/linux/030-pwm-vibra-kick-stuck-boot-state.patch
+projects/ROCKNIX/devices/RK3326/patches/linux/031-px30s-suspend-wakeup-config.patch
+projects/ROCKNIX/devices/RK3326/patches/linux/032-px30s-otp-read-protocol.patch
+projects/ROCKNIX/devices/RK3326/patches/linux/033-px30s-ddrphy-clock-topology.patch
+COMMIT a495f0f6f4496468e24e092bc0e225ac7d80d06a 2026-07-17T10:24:07+01:00 André Braga <code@andrebraga.com> SM8750: q6apm-lpass start RX port at prepare for Odin3 speakers
+
+projects/ROCKNIX/devices/SM8750/patches/linux/0612-ROCKNIX-odin3-q6apm-start-mi2s-port-at-prepare.patch
+COMMIT 32d648fa4653a8216bd7e1ed9382979a3faefdda 2026-07-16T20:38:18-07:00 sunshineinabox <aqemail@gmail.com> sm6115: disable OTG on shutdown
+
+projects/ROCKNIX/devices/SM6115/patches/linux/0030-power-supply-bq256xx-add-otg-vbus-regulator.patch
+COMMIT 5dcf5a059f7c2916d15875d201a8db7d62f45895 2026-07-13T13:40:30Z github-merge-queue[bot] <github-merge-queue[bot]@users.noreply.github.com> linux: kernel config
+
+projects/ROCKNIX/devices/SM8750/linux/linux.aarch64.conf
+COMMIT 620bacab32a18f4338e290c898d44c45f6db145a 2026-07-10T13:29:02+01:00 André Braga <code@andrebraga.com> SM8750: enable the Adreno 830
+
+projects/ROCKNIX/devices/SM8750/patches/linux/0033-arm64-dts-qcom-sm8750-gpu-clock-controllers.patch
+projects/ROCKNIX/devices/SM8750/patches/linux/0049-drm-msm-a8xx-add-adreno-830-catalog.patch
+projects/ROCKNIX/devices/SM8750/patches/linux/0050-clk-qcom-gxclkctl-kaanapali-fix-gx-gdsc-collapse.patch
+COMMIT 6166516b9f5e6ae331eb98e9fce2f7349cb1422f 2026-07-10T13:29:02+01:00 André Braga <code@andrebraga.com> SM8750: bump to linux 7.1.3
+
+projects/ROCKNIX/devices/SM8750/patches/linux/0026-dt-bindings-arm-qcom-ids-Add-SoC-ID-for-CQ8725S.patch
+projects/ROCKNIX/devices/SM8750/patches/linux/0027-soc-qcom-socinfo-Add-CQ8725S-SoC-ID.patch
+projects/ROCKNIX/devices/SM8750/patches/linux/0032-ASoC-codecs-aw88166-AYN-Products-Specific-modificati.patch
+projects/ROCKNIX/devices/SM8750/patches/linux/0045-Bluetooth-qca-add-WCN7860-support.patch
+COMMIT da1e8c1fcb4521595451e494c46ffca96244865e 2026-07-13T07:09:29Z porschemad911 <porschemad911@users.noreply.github.com> linux: kernel config
+
+projects/ROCKNIX/devices/S922X/linux/linux.aarch64.conf
+COMMIT 85a66d4f9caa868ba6e8d20b041a7ca3936d9efa 2026-07-13T16:22:18+10:00 John Williams <porschemad911@gmail.com> S922X: linux v6.18.38
+
+projects/ROCKNIX/devices/S922X/linux/linux.aarch64.conf
+COMMIT 6a3889a0d389b8f49dcfd66db7f526fddcbe516a 2026-07-13T15:29:49+10:00 John Williams <porschemad911@gmail.com> Revert "S922X: linux 7.0.11"
+
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0001-drm-panel-st7701-add-odroid-go-ultra-panel-support.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0002-arm64-meson-odroid-go-ultra-add-DSI-panel.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0003-arm64-meson-odroid-go-ultra-correct-voltages.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0004-arm64-meson-odroid-go-ultra-add-over-clocking-freque.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0005-arm64-meson-odroid-go-ultra-add-joypad.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0006-arm64-meson-odroid-disable-heartbeat.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0007-arm64-meson-g12-common-add-dual-panfrost-mali-to-dts.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0008-arm64-meson-add-dt-for-powkiddy-rgb10-max-3-pro.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0009-power-rk818-Configure-rk808-clkout2-function.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0010-power-supply-rk818-battery-Add-battery-driver-for-RK.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0011-power-supply-rk818-battery-Use-a-more-propper-compat.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0012-power-supply-rk818-charger-Implement-charger-driver-.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0013-power-supply-rk818-charger-Change-charger-type-to-MA.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0014-power-supply-rk818-battery-Report-charging-status-ba.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0015-power-supply-rk818-battery-Drop-dependency-on-frameb.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0016-power-supply-rk818-charger-Unify-rk818-charger-and-r.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0017-power-supply-rk818-battery-Speed-up-battery-current-.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0018-power-supply-rk818-charger-Delay-applying-input-curr.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0019-power-supply-rk818-battery-Don-t-auto-poweroff-the-P.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0020-power-supply-rk818-charger-Add-support-for-POWER_SUP.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0021-power-supply-rk818-battery-Don-t-reset-dsoc-to-0-on-.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0022-power-supply-Cleanup-rk818_battery-driver-from-usele.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0023-power-supply-rk818-battery-Re-organize-code.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0024-power-supply-rk817-charger-Fix-battery-capacity-sani.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0025-power-supply-rk817-charger-Add-input-current-limit-s.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0026-power-supply-rk817-charger-Take-input-current-limit-.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0027-power-supply-rk817-charger-Propagate-proper-errors.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0028-power-supply-rk817-charger-Add-support-for-runtime-c.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0029-arm64-meson-odroid-go-ultra-add-battery-and-charger-.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0030-ASoC-meson-axg-card-limit-the-volume-to-prevent-clip.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0031-power-supply-rk818_charger-change-syfs-node-name-so-.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0032-arm64-meson-odroid-go-ultra-add-headphone-detection.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0033-arm64-dts-amlogic-odroid-go-ultra-Improve-sound-outp.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0034-LOCAL-ALSA-Assign-internal-PCM-chmap-ELD-IEC958-kctl.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0035-power-reset-add-the-Powkiddy-RGB10-Max-3-Pro-to-the-.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0036-arm64-dts-amlogic-meson-g12b-odroid-add-support-for-.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0037-Revert-power-supply-core-ease-special-formatting-imp.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0038-power-supply-core-return-EAGAIN-on-uninitialized-rea.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0039-drm-meson-venc-HACK-panic-when-gamma-is-not-set-corr.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0040-arm64-dts-amlogic-odroid-go-ultra-unify-volume-butto.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0041-drm-panel-st7701-disable-EoTp-as-this-causes-issues-.patch
+COMMIT bbf150358791657f746076cfec0333ddcf445666 2026-07-13T15:25:34+10:00 John Williams <porschemad911@gmail.com> Revert "S922X: linux 7.0.14 with charger debug"
+
+projects/ROCKNIX/devices/S922X/linux/linux.aarch64.conf
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0001-drm-panel-st7701-add-odroid-go-ultra-panel-support.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0002-arm64-meson-odroid-go-ultra-add-DSI-panel.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0003-arm64-meson-odroid-go-ultra-correct-voltages.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0004-arm64-meson-odroid-go-ultra-add-over-clocking-freque.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0005-arm64-meson-odroid-go-ultra-add-joypad.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0006-arm64-meson-odroid-disable-heartbeat.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0007-arm64-meson-g12-common-add-dual-panfrost-mali-to-dts.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0008-arm64-meson-add-dt-for-powkiddy-rgb10-max-3-pro.patch
+COMMIT 7ab5e17df114cbaf9d340c7bebba308318e3d052 2026-07-11T18:15:46-07:00 sunshineinabox <aqemail@gmail.com> Merge pull request #2937 from sydarn/g29
+COMMIT d3965a8cc78ddce37eeeea3d3bde660bba4ec0b2 2026-07-10T14:15:19-07:00 sunshineinabox <aqemail@gmail.com> vulkan: install the layer multiarch
+
+projects/ROCKNIX/packages/graphics/vulkan-wsi-layer/patches/vklayer-driver-path.patch
+COMMIT f91747b0c9dd3ae30f85a55eff413c2cb6991dcf 2026-07-10T14:09:28-07:00 sunshineinabox <aqemail@gmail.com> libmali: fix 32 bit vulkan
+
+projects/ROCKNIX/packages/graphics/libmali/patches/next/next.patch
+COMMIT 64ac96824db11e5f9c2436f10e29ee8b03869b62 2026-07-10T13:42:02Z github-merge-queue[bot] <github-merge-queue[bot]@users.noreply.github.com> linux: kernel config
+
+projects/ROCKNIX/devices/RK3566/linux/linux.aarch64.conf
+projects/ROCKNIX/devices/RK3576/linux/linux.aarch64.conf
+projects/ROCKNIX/devices/S922X/linux/linux.aarch64.conf
+projects/ROCKNIX/devices/SM6115/linux/linux.aarch64.conf
+projects/ROCKNIX/devices/SM8250/linux/linux.aarch64.conf
+projects/ROCKNIX/devices/SM8650/linux/linux.aarch64.conf
+projects/ROCKNIX/devices/SM8750/linux/linux.aarch64.conf
+COMMIT 9b84a1269b742dd0e9e12d6577aee0e0527a56aa 2026-07-10T22:57:23+10:00 John Williams <porschemad911@gmail.com> S922X: linux 7.0.14 with charger debug
+
+projects/ROCKNIX/devices/S922X/linux/linux.aarch64.conf
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0001-drm-panel-st7701-add-odroid-go-ultra-panel-support.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0002-arm64-meson-odroid-go-ultra-add-DSI-panel.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0003-arm64-meson-odroid-go-ultra-correct-voltages.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0004-arm64-meson-odroid-go-ultra-add-over-clocking-freque.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0005-arm64-meson-odroid-go-ultra-add-joypad.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0006-arm64-meson-odroid-disable-heartbeat.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0007-arm64-meson-g12-common-add-dual-panfrost-mali-to-dts.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0008-arm64-meson-add-dt-for-powkiddy-rgb10-max-3-pro.patch
+COMMIT bd0eff67ebdc3473a68296bbc9e61cb0c6fbf024 2026-07-09T06:45:59-07:00 sunshineinabox <aqemail@gmail.com> sm8250: autoload for MPM gamepad
+
+projects/ROCKNIX/devices/SM8250/patches/linux/0060_Mangmi-Pocket-Max-SPI-joypad.patch
+COMMIT d92f1e303f26fb2a4c3909ed56102e722a358e16 2026-07-08T13:51:25+02:00 Edvard Pedersen <edvard.pedersen@uit.no> gamepadcalibration: fix detection of Retroid SM8250 device
+
+projects/ROCKNIX/devices/SM8250/linux/linux.aarch64.conf
+COMMIT cb9cfe3f6e4f5124c5d13a8d6ad07d8490099fe4 2026-07-08T02:09:09Z github-merge-queue[bot] <github-merge-queue[bot]@users.noreply.github.com> linux: kernel config
+
+projects/ROCKNIX/devices/RK3326/linux/linux.aarch64.conf
+projects/ROCKNIX/devices/RK3399/linux/linux.aarch64.conf
+COMMIT bcf1aa353fd5766c397133b61688126aa2f7af9a 2026-07-08T01:24:49Z rocknix <macebrooks@gmail.com> amd64: update to kernel 7.1.2, misc fixes
+
+projects/ROCKNIX/devices/AMD64/linux/linux.x86_64.conf
+COMMIT 5ad342c78c5228e1c2130e5bfbc78bb8ec5dc184 2026-07-05T17:17:40-07:00 sunshineinabox <aqemail@gmail.com> sm8250: match panel timings to vendor
+
+projects/ROCKNIX/devices/SM8250/patches/linux/0057_Chipone-ICNA35XX-panel.patch
+COMMIT e93081d09c2289f72811c0d0502745e23ddbdfa2 2026-07-04T14:44:14Z rocknix <macebrooks@gmail.com> amd64: more amd64 updates
+
+projects/ROCKNIX/devices/AMD64/packages/ayn-platform/patches/001-build.patch
+COMMIT 7c75a68fa7d3beb1f37f99fcf3f09bdb95e5f3c7 2026-07-04T06:29:32Z rocknix <macebrooks@gmail.com> AMD64: bring back AMD64 support, initial work
+
+projects/ROCKNIX/devices/AMD64/linux/linux.x86_64.conf
+projects/ROCKNIX/devices/AMD64/packages/dmidecode/patches/001-bin-path.patch
+COMMIT dc3b35a51d78db3fa0a2066d6c93a4c2e928a978 2026-07-04T03:10:36Z sunshineinabox <aqemail@gmail.com> Merge pull request #2971 from sunshineinabox/arixrumble
+COMMIT 947cbdebf4001ac4c181e4ccf9cf2713f6bb5b83 2026-07-03T17:01:00-07:00 sunshineinabox <aqemail@gmail.com> sm6115: remove OOT rumble driver
+
+projects/ROCKNIX/devices/SM6115/linux/linux.aarch64.conf
+projects/ROCKNIX/devices/SM6115/patches/linux/0010-clk-qcom-clk-rcg2-fix-set_duty_cycle-boundary-checks.patch
+projects/ROCKNIX/devices/SM6115/patches/linux/0020-input-pwm-vibra-support-minimum-duty-cycle.patch
+COMMIT c52fe173d600d39658812a49f3cd519075ba1b56 2026-07-02T00:02:41Z github-merge-queue[bot] <github-merge-queue[bot]@users.noreply.github.com> linux: kernel config
+
+projects/ROCKNIX/devices/SM6115/linux/linux.aarch64.conf
+COMMIT d2992d45f14b478ebb9414f7c0959fb8b9a5cced 2026-07-01T15:26:20-07:00 sunshineinabox <aqemail@gmail.com> Merge branch 'next' into airx7.1.2
+COMMIT 9b9649c639749f40667bbdd1c9c970c0066996ea 2026-07-01T14:41:30-07:00 sunshineinabox <aqemail@gmail.com> SM6115: bump linux 7.1.2
+
+projects/ROCKNIX/devices/SM6115/linux/linux.aarch64.conf
+projects/ROCKNIX/devices/SM6115/patches/linux/0001-gpu-drm-panel-add-mangmi-airx-panel.patch
+projects/ROCKNIX/devices/SM6115/patches/linux/0002-add-mq66-bm5460bb1-panel.patch
+projects/ROCKNIX/devices/SM6115/patches/linux/0003-gpu-drm-panel-add-mangmi-td4310-panel.patch
+projects/ROCKNIX/devices/SM6115/patches/linux/0023-bluetooth-and-pwrseq-upstream-backports-wcn3950.patch
+projects/ROCKNIX/devices/SM6115/patches/linux/0024-bluetooth-hci_qca-include-wcn3950-in-wcn-family-switches.patch
+COMMIT 037f831737d21722ea13e389011cf4ac5f8d65a6 2026-07-01T22:14:37Z Philippe Simons <simons.philippe@gmail.com> Merge pull request #2950 from EdvardPedersen/sm8250-hdmi-audio
+COMMIT bc035271289ba477895640115454f42e89474348 2026-07-01T20:38:15Z loki666 <loki666@users.noreply.github.com> linux: kernel config
+
+projects/ROCKNIX/devices/RK3326/linux/linux.aarch64.conf
+projects/ROCKNIX/devices/RK3399/linux/linux.aarch64.conf
+projects/ROCKNIX/devices/RK3566/linux/linux.aarch64.conf
+projects/ROCKNIX/devices/RK3576/linux/linux.aarch64.conf
+projects/ROCKNIX/devices/S922X/linux/linux.aarch64.conf
+projects/ROCKNIX/devices/SM6115/linux/linux.aarch64.conf
+projects/ROCKNIX/devices/SM8250/linux/linux.aarch64.conf
+projects/ROCKNIX/devices/SM8650/linux/linux.aarch64.conf
+projects/ROCKNIX/devices/SM8750/linux/linux.aarch64.conf
+COMMIT 705f43d24ee651e940c382359945a786c71b5c52 2026-06-30T00:38:04+02:00 Edvard Pedersen <edvard.pedersen@uit.no> SM8250: add support for HDMI audio, and limit HDMI output resolution
+
+projects/ROCKNIX/devices/SM8250/patches/linux/0017-drm-display-add-hw_params-callback-to-hdmi-audio-ops.patch
+projects/ROCKNIX/packages/audio/alsa-ucm-conf/patches/SM8250/0004_Add-HDMI-DisplayPort-audio-device.patch
+COMMIT 1a14d54c76f375d089cdb9880fd1f6048b69f14b 2026-07-01T21:49:11+02:00 Philippe Simons <simons.philippe@gmail.com> Merge pull request #2953 from loki666/linux-7.1
+COMMIT 6281c5047cc4d9b835ed2e8938619dd814f3e13e 2026-06-29T21:08:42+02:00 Philippe Simons <simons.philippe@gmail.com> linux: bump SM8650 to 7.1.2
+
+projects/ROCKNIX/devices/SM8650/linux/linux.aarch64.conf
+projects/ROCKNIX/devices/SM8650/patches/linux/0001-pcie-update-sm8650-dtsi.patch
+COMMIT 419266e0f6082dddfeab08867fad376606ab5ada 2026-06-28T09:57:48-07:00 sunshineinabox <aqemail@gmail.com> sm8250: watchdog for PM pad
+
+projects/ROCKNIX/devices/SM8250/patches/linux/0060_Mangmi-Pocket-Max-SPI-joypad.patch
+COMMIT 01cf20e2d0b4772c330d5a2d356f603a0c6a0f3f 2026-06-29T14:34:58+02:00 Philippe Simons <simons.philippe@gmail.com> linux: bump SM8250 to 7.1.2
+
+projects/ROCKNIX/devices/SM8250/patches/linux/0047_ASoC--codecs--aw88166--AYN-Odin2-Specific-modifica.patch
+COMMIT 9f571902005a2ca403fd3b79924c7a0ad33773ac 2026-06-13T23:41:28+02:00 sydarn <sydarn@proton.me> libmali: g29 for rk3566/76
+
+projects/ROCKNIX/packages/graphics/libmali/patches/next/next.patch
+COMMIT 01b1b4cbea352b3040221f870fefa05cb2b77b51 2026-06-23T19:01:36Z rocknix <macebrooks@gmail.com> SM8250 / RP5: Fix brightness adjustment causing screen to 'jump'
+
+projects/ROCKNIX/devices/SM8250/patches/linux/0016-rp5-smooth-brightness-adjustment.patch
+COMMIT 829fe6deecf6756f364f45c5c9f41905b1b2d687 2026-06-21T23:20:14Z sunshineinabox <aqemail@gmail.com> Merge pull request #2906 from sunshineinabox/memsuspend
+COMMIT 1506b6cdb0380c0aeed58541ecd4d7a9db833e8b 2026-06-17T22:44:12-07:00 sunshineinabox <aqemail@gmail.com> sm6115: enable mem suspend
+
+projects/ROCKNIX/devices/SM6115/linux/linux.aarch64.conf
+projects/ROCKNIX/devices/SM6115/patches/linux/0001-gpu-drm-panel-add-mangmi-airx-panel.patch
+projects/ROCKNIX/devices/SM6115/patches/linux/0002-add-mq66-bm5460bb1-panel.patch
+projects/ROCKNIX/devices/SM6115/patches/linux/0003-gpu-drm-panel-add-mangmi-td4310-panel.patch
+projects/ROCKNIX/devices/SM6115/patches/linux/0006-clk-qcom-gcc-sm6115-use-gp_ops-for-GP-clocks.patch
+projects/ROCKNIX/devices/SM6115/patches/linux/0007-clk-qcom-gcc-sm6115-set-hw-ctrl-trigger-for-video-gdsc.patch
+projects/ROCKNIX/devices/SM6115/patches/linux/0008_gcc_usb_gdsc_retention.patch
+projects/ROCKNIX/devices/SM6115/patches/linux/0009-input-joystick-add-mangmi-airx-driver.patch
+projects/ROCKNIX/devices/SM6115/patches/linux/0011-input-touchscreen-add-himax-hx83112a-spi-driver.patch
+projects/ROCKNIX/devices/SM6115/patches/linux/0012-add-pm6125-pwm.patch
+projects/ROCKNIX/devices/SM6115/patches/linux/0013-leds-aw200xx-add-vdd-supply-regulator.patch
+projects/ROCKNIX/devices/SM6115/patches/linux/0014-dts-sm6115-add-thermal-labels.patch
+projects/ROCKNIX/devices/SM6115/patches/linux/0015-dts-sm6115-add-venus-video-codec-node.patch
+projects/ROCKNIX/devices/SM6115/patches/linux/0016-dts-sm6115-add-mpm-wake-controller.patch
+projects/ROCKNIX/devices/SM6115/patches/linux/0017-cpuidle-psci-defer-to-late_initcall_sync.patch
+projects/ROCKNIX/devices/SM6115/patches/linux/0018-soc-qcom-add-psci-suspend-fallback-driver.patch
+projects/ROCKNIX/devices/SM6115/patches/linux/0019-irqchip-qcom-mpm-program-wakeup-timer-via-genpd-notifier.patch
+projects/ROCKNIX/devices/SM6115/patches/linux/0021-drivers-use-soc-serial-for-wifi-and-bluetooth.patch
+projects/ROCKNIX/devices/SM6115/patches/linux/0023-bluetooth-and-pwrseq-upstream-backports-wcn3950.patch
+projects/ROCKNIX/devices/SM6115/patches/linux/0024-bluetooth-hci_qca-include-wcn3950-in-wcn-family-switches.patch
+projects/ROCKNIX/devices/SM6115/patches/linux/0025-bluetooth-hci_qca-drop-baudrate-vendor-event-for-wcn3950.patch
+projects/ROCKNIX/devices/SM6115/patches/linux/0026-bluetooth-hci_qca-keep-ibs-disabled-for-wcn3950.patch
+projects/ROCKNIX/devices/SM6115/patches/linux/0027-power-supply-add-cx221x-battery-gauge.patch
+projects/ROCKNIX/devices/SM6115/patches/linux/0028-power-supply-bq256xx-add-sgm41515-alias.patch
+projects/ROCKNIX/devices/SM6115/patches/linux/0029-power-supply-bq256xx-reset-chip-on-init.patch
+projects/ROCKNIX/devices/SM6115/patches/linux/0030-power-supply-bq256xx-add-otg-vbus-regulator.patch
+projects/ROCKNIX/devices/SM6115/patches/linux/0031-power-supply-bq256xx-push-chip-max-on-attach.patch
+projects/ROCKNIX/devices/SM6115/patches/linux/0032-power-supply-bq256xx-software-jeita.patch
+projects/ROCKNIX/devices/SM6115/patches/linux/0034-serial-qcom-geni-mask\u002dirq-during-system-suspend.patch
+projects/ROCKNIX/devices/SM6115/patches/linux/0035-pinctrl-qcom-sm6115-add-ext-mclk-and-extra-functions.patch
+projects/ROCKNIX/devices/SM6115/patches/linux/0037-ASoC-qcom-sm8250-constrain-BE-format-to-S16_LE.patch
+projects/ROCKNIX/devices/SM6115/patches/linux/0041-ASoC-qcom-qdsp6-q6afe-fix-clk-vote-response-type-mismatch.patch
+projects/ROCKNIX/devices/SM6115/patches/linux/0042-ASoC-qcom-sm8250-apply-codec_fmt-to-all-codec-DAIs.patch
+projects/ROCKNIX/devices/SM6115/patches/linux/0044-ASoC-qcom-sm8250-add-QUATERNARY_MI2S_RX-case.patch
+projects/ROCKNIX/devices/SM6115/patches/linux/0045-ASoC-qcom-sm8250-shut-down-MI2S-AFE-port-clocks.patch
+projects/ROCKNIX/devices/SM6115/patches/linux/0051-sound-soc-es8326-sysclk-from-mclk-and-balance-bias-level.patch
+projects/ROCKNIX/devices/SM6115/patches/linux/0052-asoc-qcom-common-enable-jack-detection-for-mi2s.patch
+projects/ROCKNIX/devices/SM6115/patches/linux/0053-sound-soc-es8326-add-vdd-supply.patch
+projects/ROCKNIX/devices/SM6115/patches/linux/0054-sound-soc-es8326-combine-stereo-volume-controls.patch
+projects/ROCKNIX/devices/SM6115/patches/linux/0055-fusb302-signal-tx-completion-from-interrupt-bit.patch
+projects/ROCKNIX/devices/SM6115/patches/linux/0056-fusb302-map-collision-to-tx-discarded.patch
+projects/ROCKNIX/devices/SM6115/patches/linux/0057-tcpm-requeue-control-msg-on-eagain.patch
+projects/ROCKNIX/devices/SM6115/patches/linux/0058-fusb302-trigger-tx-via-tx-start-bit-not-txon-token.patch
+projects/ROCKNIX/devices/SM6115/patches/linux/0059-fusb302-enable-pd-3-0-message-support-on-aw35615.patch
+COMMIT 73dac4958d23933abbd81702b71bc57cfd280460 2026-06-17T14:06:22+03:00 Ed Kozuto <edkozuto@gmail.com> ch13726a: add mipi_dsi_msleep(120) after exit_sleep_mode
+
+projects/ROCKNIX/devices/SM8250/patches/linux/0058_DDIC-CH13726A-panel.patch
+COMMIT 8d75718f2238c9af57a1891e2fe291273b18ea9f 2026-06-13T05:50:00Z sunshineinabox <aqemail@gmail.com> Merge pull request #2885 from sunshineinabox/PMVendorGamePad
+COMMIT d43279a8dfec20fe0797ebb9afbbe53f7ae2928d 2026-06-12T10:54:33-07:00 sunshineinabox <aqemail@gmail.com> sm8250: gamepad fixes
+
+projects/ROCKNIX/devices/SM8250/patches/linux/0060_Mangmi-Pocket-Max-SPI-joypad.patch
+COMMIT 1f44f7e9c20107633f637a161eeef21bd6b76e81 2026-06-12T21:11:04Z tiopex <67048640+tiopex@users.noreply.github.com> Merge pull request #2884 from tiopex/fix-panel-odin3-xo
+COMMIT b59f018e09f04cc3020d60a93abb990318a551ba 2026-06-12T21:05:08Z tiopex <tiopxyz@gmail.com> sm8750: fix panel initialization in gamescope
+
+projects/ROCKNIX/devices/SM8750/patches/linux/0028-drm-panel-Add-panel-driver-for-Chipone-ICNA35XX-base.patch
+projects/ROCKNIX/devices/SM8750/patches/linux/0048-drm-msm-dsi-reparent-byte-pixel-src-to-xo-on-disable.patch
+COMMIT 9ffcf109f49db21ab3c12f67b1ad34f8c74b35ed 2026-06-09T23:03:45-07:00 sunshineinabox <aqemail@gmail.com> sm8250: Charger driver
+
+projects/ROCKNIX/devices/SM8250/linux/linux.aarch64.conf
+projects/ROCKNIX/devices/SM8250/patches/linux/0063_Mangmi-Pocket-Max-HL7139-charge-pump.patch
+COMMIT 32c12dc0ed3eb25a3651c8c942f3fbd509ab64fa 2026-06-09T12:35:21-07:00 sunshineinabox <aqemail@gmail.com> panel: unify regulators
+
+projects/ROCKNIX/devices/SM8250/patches/linux/0057_Chipone-ICNA35XX-panel.patch
+COMMIT 5868d2c03180c0785954d86c70f1623208c8b7a5 2026-06-07T21:52:28-07:00 sunshineinabox <aqemail@gmail.com> sm8250: merge pm driver
+
+projects/ROCKNIX/devices/SM8250/linux/linux.aarch64.conf
+projects/ROCKNIX/devices/SM8250/patches/linux/0057_Chipone-ICNA35XX-panel.patch
+COMMIT cac6b823f789efc3a9711032bab58b376b4ddbb3 2026-05-31T18:16:17-07:00 sunshineinabox <aqemail@gmail.com> sm8250: Mangmi Pocket Max
+
+projects/ROCKNIX/devices/SM8250/linux/linux.aarch64.conf
+projects/ROCKNIX/devices/SM8250/patches/linux/0060_Mangmi-Pocket-Max-SPI-joypad.patch
+projects/ROCKNIX/devices/SM8250/patches/linux/0061_leds-aw200xx-vdd-supply.patch
+projects/ROCKNIX/devices/SM8250/patches/linux/0062_wsa881x-shared-powerdown-gpio.patch
+COMMIT 08cec3bfb480c9f4ecc4e38afaabaa45f18add8a 2026-06-06T13:48:12+10:00 John Williams <porschemad911@gmail.com> linux: kernel config
+
+projects/ROCKNIX/devices/S922X/linux/linux.aarch64.conf
+projects/ROCKNIX/devices/SM6115/linux/linux.aarch64.conf
+projects/ROCKNIX/devices/SM8250/linux/linux.aarch64.conf
+projects/ROCKNIX/devices/SM8650/linux/linux.aarch64.conf
+projects/ROCKNIX/devices/SM8750/linux/linux.aarch64.conf
+COMMIT d952bf81f55de02df1fc68a95ee9a168d81beed2 2026-06-05T22:52:42+10:00 John Williams <porschemad911@gmail.com> S922X: linux 7.0.11
+
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0001-drm-panel-st7701-add-odroid-go-ultra-panel-support.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0002-arm64-meson-odroid-go-ultra-add-DSI-panel.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0003-arm64-meson-odroid-go-ultra-correct-voltages.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0004-arm64-meson-odroid-go-ultra-add-over-clocking-freque.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0005-arm64-meson-odroid-go-ultra-add-joypad.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0006-arm64-meson-odroid-disable-heartbeat.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0007-arm64-meson-g12-common-add-dual-panfrost-mali-to-dts.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0008-arm64-meson-add-dt-for-powkiddy-rgb10-max-3-pro.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0009-power-rk818-Configure-rk808-clkout2-function.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0010-power-supply-rk818-battery-Add-battery-driver-for-RK.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0011-power-supply-rk818-battery-Use-a-more-propper-compat.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0012-power-supply-rk818-charger-Implement-charger-driver-.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0013-power-supply-rk818-charger-Change-charger-type-to-MA.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0014-power-supply-rk818-battery-Report-charging-status-ba.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0015-power-supply-rk818-battery-Drop-dependency-on-frameb.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0016-power-supply-rk818-charger-Unify-rk818-charger-and-r.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0017-power-supply-rk818-battery-Speed-up-battery-current-.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0018-power-supply-rk818-charger-Delay-applying-input-curr.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0019-power-supply-rk818-battery-Don-t-auto-poweroff-the-P.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0020-power-supply-rk818-charger-Add-support-for-POWER_SUP.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0021-power-supply-rk818-battery-Don-t-reset-dsoc-to-0-on-.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0022-power-supply-Cleanup-rk818_battery-driver-from-usele.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0023-power-supply-rk818-battery-Re-organize-code.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0024-power-supply-rk817-charger-Fix-battery-capacity-sani.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0025-power-supply-rk817-charger-Add-input-current-limit-s.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0026-power-supply-rk817-charger-Take-input-current-limit-.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0027-power-supply-rk817-charger-Propagate-proper-errors.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0028-power-supply-rk817-charger-Add-support-for-runtime-c.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0029-arm64-meson-odroid-go-ultra-add-battery-and-charger-.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0030-ASoC-meson-axg-card-limit-the-volume-to-prevent-clip.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0031-power-supply-rk818_charger-change-syfs-node-name-so-.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0032-arm64-meson-odroid-go-ultra-add-headphone-detection.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0033-arm64-dts-amlogic-odroid-go-ultra-Improve-sound-outp.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0034-LOCAL-ALSA-Assign-internal-PCM-chmap-ELD-IEC958-kctl.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0035-power-reset-add-the-Powkiddy-RGB10-Max-3-Pro-to-the-.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0036-arm64-dts-amlogic-meson-g12b-odroid-add-support-for-.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0037-Revert-power-supply-core-ease-special-formatting-imp.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0038-power-supply-core-return-EAGAIN-on-uninitialized-rea.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0039-drm-meson-venc-HACK-panic-when-gamma-is-not-set-corr.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0040-arm64-dts-amlogic-odroid-go-ultra-unify-volume-butto.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0041-drm-panel-st7701-disable-EoTp-as-this-causes-issues-.patch
+COMMIT a66f9b9bd1d784df929d0933f612659d1bc75f5c 2026-06-03T23:48:41+10:00 John Williams <porschemad911@gmail.com> S922X: mainline u-boot
+
+projects/ROCKNIX/devices/S922X/packages/u-boot/patches/001-disable-bootmode-hotkey-check.patch
+projects/ROCKNIX/devices/S922X/packages/u-boot/patches/002-overlay.patch
+projects/ROCKNIX/devices/S922X/packages/u-boot/patches/003-fix-building.patch
+COMMIT 0c284c4accbce47c4dfeb1616ba25013083a06f3 2026-06-03T23:43:56+02:00 Philippe Simons <simons.philippe@gmail.com> sm8250: fix RP5 display
+
+projects/ROCKNIX/devices/SM8250/patches/linux/0001-msm-dsi-restore-wide_bus-bpp-calculation.patch
+COMMIT 4ed17c5d4aa8e84fe513dc77f5534e9a1a1ef992 2026-06-01T08:55:12Z Philippe Simons <simons.philippe@gmail.com> Merge pull request #2822 from ROCKNIX/auto-pr-branch
+COMMIT efae8a5653f659ba91b1facddc0ece23e6b7148e 2026-06-01T08:07:03Z github-merge-queue[bot] <github-merge-queue[bot]@users.noreply.github.com> Update kernel configs
+
+projects/ROCKNIX/devices/SM6115/linux/linux.aarch64.conf
+projects/ROCKNIX/devices/SM8250/linux/linux.aarch64.conf
+projects/ROCKNIX/devices/SM8650/linux/linux.aarch64.conf
+projects/ROCKNIX/devices/SM8750/linux/linux.aarch64.conf
+COMMIT 40c7fb5b4a7f4ff18a44e85dc01ccc5c105aab4a 2026-06-01T07:59:09Z Philippe Simons <simons.philippe@gmail.com> Merge pull request #2792 from aanze/enable-joydev-everywhere
+COMMIT 30c642490eb8cb587e810c970774f46f38d7263b 2026-05-30T16:12:27-07:00 sunshineinabox <aqemail@gmail.com> Enable NTSync + SM6115 match with S922X
+
+projects/ROCKNIX/devices/SM6115/linux/linux.aarch64.conf
+COMMIT 71e62b50df65e067f5ac41efecc58ad65ae45a5f 2026-05-28T14:59:13+02:00 tiopex <tiopxyz@gmail.com> bugfix: linux: msm_gem: fix locking during IOVA space management and teardown
+
+projects/ROCKNIX/devices/SM8250/patches/linux/0505-msm_gem-lock-before-put_iova_spaces.patch
+projects/ROCKNIX/devices/SM8650/patches/linux/0505-msm_gem-lock-before-put_iova_spaces.patch
+projects/ROCKNIX/devices/SM8750/patches/linux/0505-msm_gem-lock-before-put_iova_spaces.patch
+COMMIT a1cce8ffba3acfe090a5a00ceaee6da23b49aa96 2026-05-26T15:29:34+02:00 Anze <aanzdev@gmail.com> linux: enable CONFIG_INPUT_JOYDEV on all Qualcomm devices
+
+projects/ROCKNIX/devices/SM6115/linux/linux.aarch64.conf
+projects/ROCKNIX/devices/SM8250/linux/linux.aarch64.conf
+projects/ROCKNIX/devices/SM8650/linux/linux.aarch64.conf
+projects/ROCKNIX/devices/SM8750/linux/linux.aarch64.conf
+COMMIT 2b53ba15eadc089a510f418553b0071cd6b5afe8 2026-05-21T19:46:34-07:00 sunshineinabox <aqemail@gmail.com> [Mangmi Air X] Use mainline regulator driver and match vendor for Backlight and PWM values (#2762)
+
+projects/ROCKNIX/devices/SM6115/linux/linux.aarch64.conf
+COMMIT e97f46ebdd1ad7e8122f9385d2369689c2ffd0a9 2026-05-20T10:53:30-05:00 Paul Gratz <pgratz@gratz1.com> RK3576: Fix USB charging for 5V sources and improve USB-C power delivery (#2746)
+
+projects/ROCKNIX/devices/RK3576/patches/linux/0007-power-supply-Add-SGM41542-charger-driver.patch
+COMMIT 49d8f0c78030e15a4a79ae603bebef8114b5c00b 2026-05-18T21:27:50+02:00 tiopex <67048640+tiopex@users.noreply.github.com> Merge pull request #2736 from tiopex/sm8750-sleep
+COMMIT e7def485c53d1744f680fa9b5f6f1f5289d25ef9 2026-05-14T10:46:19+02:00 tiopex <tiopxyz@gmail.com> SM8750: enable suspend-to-RAM
+
+projects/ROCKNIX/devices/SM8750/patches/linux/0504-wakeup-qcom-ipcc-remove-IRQF-NO-SUSPEND.patch
+projects/ROCKNIX/devices/SM8750/patches/linux/0508-input-rsinput-add-pm-resume-to-reinit-mcu-after-suspend.patch
+COMMIT 6f364a3af69f3f9c87ec419fecc89cc7868d8ef9 2026-05-17T13:59:02Z porschemad911 <porschemad911@users.noreply.github.com> Update kernel configs
+
+projects/ROCKNIX/devices/RK3326/linux/linux.aarch64.conf
+projects/ROCKNIX/devices/RK3399/linux/linux.aarch64.conf
+projects/ROCKNIX/devices/RK3566/linux/linux.aarch64.conf
+projects/ROCKNIX/devices/RK3576/linux/linux.aarch64.conf
+projects/ROCKNIX/devices/S922X/linux/linux.aarch64.conf
+projects/ROCKNIX/devices/SM6115/linux/linux.aarch64.conf
+projects/ROCKNIX/devices/SM8250/linux/linux.aarch64.conf
+projects/ROCKNIX/devices/SM8650/linux/linux.aarch64.conf
+projects/ROCKNIX/devices/SM8750/linux/linux.aarch64.conf
+COMMIT 19236481895ede8bf9548650f268decb978a67a3 2026-05-17T23:08:59+10:00 John Williams <porschemad911@gmail.com> S922X - linux - bump to 6.18.31
+
+projects/ROCKNIX/devices/S922X/linux/linux.aarch64.conf
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0001-drm-panel-st7701-add-odroid-go-ultra-panel-support.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0002-arm64-meson-odroid-go-ultra-add-DSI-panel.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0003-arm64-meson-odroid-go-ultra-correct-voltages.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0004-arm64-meson-odroid-go-ultra-add-over-clocking-freque.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0005-arm64-meson-odroid-go-ultra-add-joypad.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0006-arm64-meson-odroid-disable-heartbeat.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0007-arm64-meson-g12-common-add-dual-panfrost-mali-to-dts.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0008-arm64-meson-add-dt-for-powkiddy-rgb10-max-3-pro.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0009-power-rk818-Configure-rk808-clkout2-function.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0010-power-supply-rk818-battery-Add-battery-driver-for-RK.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0011-power-supply-rk818-battery-Use-a-more-propper-compat.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0012-power-supply-rk818-charger-Implement-charger-driver-.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0013-power-supply-rk818-charger-Change-charger-type-to-MA.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0014-power-supply-rk818-battery-Report-charging-status-ba.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0015-power-supply-rk818-battery-Drop-dependency-on-frameb.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0016-power-supply-rk818-charger-Unify-rk818-charger-and-r.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0017-power-supply-rk818-battery-Speed-up-battery-current-.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0018-power-supply-rk818-charger-Delay-applying-input-curr.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0019-power-supply-rk818-battery-Don-t-auto-poweroff-the-P.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0020-power-supply-rk818-charger-Add-support-for-POWER_SUP.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0021-power-supply-rk818-battery-Don-t-reset-dsoc-to-0-on-.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0022-power-supply-Cleanup-rk818_battery-driver-from-usele.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0023-power-supply-rk818-battery-Re-organize-code.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0024-power-supply-rk817-charger-Fix-battery-capacity-sani.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0025-power-supply-rk817-charger-Add-input-current-limit-s.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0026-power-supply-rk817-charger-Take-input-current-limit-.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0027-power-supply-rk817-charger-Propagate-proper-errors.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0028-power-supply-rk817-charger-Add-support-for-runtime-c.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0029-arm64-meson-odroid-go-ultra-add-battery-and-charger-.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0030-ASoC-meson-axg-card-limit-the-volume-to-prevent-clip.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0031-power-supply-rk818_charger-change-syfs-node-name-so-.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0032-arm64-meson-odroid-go-ultra-add-headphone-detection.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0033-arm64-dts-amlogic-odroid-go-ultra-Improve-sound-outp.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0034-LOCAL-ALSA-Assign-internal-PCM-chmap-ELD-IEC958-kctl.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0035-power-reset-add-the-Powkiddy-RGB10-Max-3-Pro-to-the-.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0036-arm64-dts-amlogic-meson-g12b-odroid-add-support-for-.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0037-Revert-power-supply-core-ease-special-formatting-imp.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0038-power-supply-core-return-EAGAIN-on-uninitialized-rea.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0039-drm-meson-venc-HACK-panic-when-gamma-is-not-set-corr.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0040-arm64-dts-amlogic-odroid-go-ultra-unify-volume-butto.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0041-drm-panel-st7701-disable-EoTp-as-this-causes-issues-.patch
+COMMIT 7a554eedb94b283694735c6a8ff1632e67896525 2026-05-17T00:40:01+02:00 Philippe Simons <simons.philippe@gmail.com> sm8250: restore audio patch
+
+projects/ROCKNIX/devices/SM8250/patches/linux/0100-revert-force-16bit-audio.patch
+COMMIT 843b39c2fb51fb4fb8ed4239493679dfa43c783c 2026-05-15T23:18:25+10:00 John Williams <porschemad911@gmail.com> mangohud - fix RK3326 build, enable battery time estimate
+
+projects/ROCKNIX/packages/apps/mangohud/patches/RK3326/0001-RK3326-soc_thermal.patch
+projects/ROCKNIX/packages/apps/mangohud/patches/RK3326/0002-RK3326-power-timeRemaining.patch
+COMMIT 7912b4dfe851a20f0bed6e3f117477c6c68ab488 2026-05-15T14:50:41+02:00 Philippe Simons <simons.philippe@gmail.com> Merge pull request #2724 from loki666/thor-lite
+COMMIT 9b703b01994c382a410172d734671fe45b57cfe3 2026-05-12T08:40:15+02:00 Philippe Simons <simons.philippe@gmail.com> dual screen setup
+
+projects/ROCKNIX/devices/SM8250/patches/linux/0015-touchscreen-edt-ft5x06-allow-to-override-input-name.patch
+COMMIT 4c7e4ab631703ff29133d67d8c3619324e61f4cf 2026-01-12T20:57:26+01:00 Philippe Simons <simons.philippe@gmail.com> add thor lite
+
+projects/ROCKNIX/devices/SM8250/linux/linux.aarch64.conf
+projects/ROCKNIX/devices/SM8250/patches/linux/0047_ASoC--codecs--aw88166--AYN-Odin2-Specific-modifica.patch
+projects/ROCKNIX/devices/SM8250/patches/linux/0057_Chipone-ICNA35XX-panel.patch
+projects/ROCKNIX/devices/SM8250/patches/linux/0058_DDIC-CH13726A-panel.patch
+projects/ROCKNIX/devices/SM8250/patches/linux/0100-revert-force-16bit-audio.patch
+COMMIT eb5f4c61271406b61ff21d668aad0d61d635d29e 2026-05-14T21:30:00+10:00 John Williams <porschemad911@gmail.com> mangohud - bump to v0.8.3 final
+
+projects/ROCKNIX/packages/apps/mangohud/patches/SM8650/0002-SM8750-Battery.patch
+COMMIT 72b3e920c9f7b7b710829790d6cc1ac92bd598ca 2026-05-13T14:45:35+02:00 tiopex <tiopxyz@gmail.com> SM8750: Enable 64-bit processes to use compat input syscalls
+
+projects/ROCKNIX/devices/SM8750/patches/linux/0504-Enable-64-bit-processes-to-use-compat-input-syscalls.patch
+COMMIT 713ebf2c8b1e43b6d77be51b7b2342869fc71ca0 2026-05-13T09:03:26+02:00 tiopex <67048640+tiopex@users.noreply.github.com> Merge pull request #2704 from ROCKNIX/auto-pr-branch
+COMMIT 000e4774a3b79022ade096c1de6443693cb2399d 2026-05-12T13:48:18Z porschemad911 <porschemad911@users.noreply.github.com> Update kernel configs
+
+projects/ROCKNIX/devices/S922X/linux/linux.aarch64.conf
+COMMIT 094b1eb6aa356181ac2f9e59dce5f3ad100946ae 2026-05-12T23:11:07+10:00 John Williams <34047817+porschemad911@users.noreply.github.com> Merge pull request #2703 from pablovesnine/feat/mangohud-sm8750-battery
+COMMIT 7e83d3c918fa52a241ce1e589d629c220af40e1a 2026-05-12T13:34:02+02:00 Vesnine <112007744+pablovesnine@users.noreply.github.com> mangohud: add SM8750 battery remaining time fix
+
+projects/ROCKNIX/packages/apps/mangohud/patches/SM8750/0002-SM8750-Battery.patch
+COMMIT 2de080af6d0f73c5f76dac29c903ec2d499c03ec 2026-05-12T16:39:33+10:00 John Williams <porschemad911@gmail.com> S922X - linux - bump to 6.18.29
+
+projects/ROCKNIX/devices/S922X/linux/linux.aarch64.conf
+COMMIT ac915b639b729b650ba89a96d151d7b885cac600 2026-05-12T16:09:18+10:00 John Williams <porschemad911@gmail.com> SM8650 - mangohud - add symlink to SM8750 GPU patch
+
+projects/ROCKNIX/packages/apps/mangohud/patches/SM8650/0001-SM8650-GPU.patch
+COMMIT 688884af239b13832a928248b3555c36f8d44c31 2026-05-12T10:27:07+10:00 John Williams <porschemad911@gmail.com> mangohud - refactor patches
+
+projects/ROCKNIX/packages/apps/mangohud/patches/SM6115/0001-SM6115-GPU.patch
+projects/ROCKNIX/packages/apps/mangohud/patches/SM8250/0001-SM8250-GPU.patch
+projects/ROCKNIX/packages/apps/mangohud/patches/SM8750/0001-SM8750-GPU.patch
+COMMIT e8495148e1ae9f0b4a8881e9e215a9448ef9a6b5 2026-05-11T17:51:54+02:00 pablovesnine <vesnine@proton.me> mangohud: fix SM8750 patch content (was patch-within-a-patch)
+
+projects/ROCKNIX/packages/apps/mangohud/patches/SM8750/0001-SM8750-GPU.patch
+COMMIT aef9086e050abc9e0b7b720dce37c275972ae216 2026-05-10T20:17:14+02:00 Vesnine <112007744+pablovesnine@users.noreply.github.com> mangohud: add SM8750 GPU patch (Adreno 830)
+
+projects/ROCKNIX/packages/apps/mangohud/patches/SM8750/0001-SM8750-GPU.patch
+COMMIT e337cccd6fb6c2eaf95aff928907aae8a88bec9f 2026-05-10T21:17:00+02:00 Philippe Simons <simons.philippe@gmail.com> Revert "sm8250: fix gamepad calibration tool crash"
+
+projects/ROCKNIX/devices/SM8250/patches/linux/0008-retroid-gamepad.patch
+COMMIT 89bd8102fb1d4dda191a1dbb3fa71a1655de2797 2026-05-10T17:41:30+02:00 Philippe Simons <simons.philippe@gmail.com> sm8250: fix gamepad calibration tool crash
+
+projects/ROCKNIX/devices/SM8250/patches/linux/0008-retroid-gamepad.patch
+COMMIT 657e3f88efeab1bf46a744590fe1f1de44868eb7 2026-05-10T05:15:29-05:00 Paul Gratz <pgratz@gratz1.com> RK3576: Enable USB-C DisplayPort Alt Mode output (kernel) (#2680)
+
+projects/ROCKNIX/devices/RK3576/patches/linux/0016-drm-bridge-dw-dp-Add-RK3576-USB-C-DisplayPort-Alt-Mode-support.patch
+projects/ROCKNIX/devices/RK3576/patches/linux/0017-arm64-dts-rockchip-rk3576-Add-DP-controller-node.patch
+projects/ROCKNIX/devices/RK3576/patches/linux/0018-phy-rockchip-usbdp-Replay-HPD-state-on-dp-phy-init.patch
+COMMIT 87b882eca54a4e64cf088f95b8c4e16e7fa5fe9c 2026-05-08T20:02:17-05:00 Paul V. Gratz <pgratz@gratz1.com> RK3576: Enable USB-C DisplayPort Alt Mode output
+
+projects/ROCKNIX/devices/RK3576/linux/linux.aarch64.conf
+projects/ROCKNIX/devices/RK3576/patches/linux/0015-drm-rockchip-vop2-Fix-RK3576-VP2-for-DisplayPort-Alt-Mode.patch
+projects/ROCKNIX/devices/RK3576/patches/linux/0016-drm-bridge-dw-dp-Add-RK3576-USB-C-DisplayPort-Alt-Mode-support.patch
+projects/ROCKNIX/devices/RK3576/patches/linux/0017-arm64-dts-rockchip-rk3576-Add-DP-controller-node.patch
+COMMIT b92c812e6f7268432fa305480b708253a03672fe 2026-05-06T06:05:16+01:00 spycat88 <342907+spycat88@users.noreply.github.com> Merge pull request #2650 from ROCKNIX/auto-pr-branch
+COMMIT 9ac66b298e91bf426507450c77b81b81156754e2 2026-05-03T09:58:08Z spycat88 <spycat88@users.noreply.github.com> u-boot: fix various package since gcc changes
+
+projects/ROCKNIX/devices/RK3326/packages/u-boot-legacy/patches/01-fix-building.patch
+projects/ROCKNIX/devices/RK3588/packages/u-boot/patches/01-fix-building.patch
+projects/ROCKNIX/devices/S922X/packages/u-boot/patches/003-fix-building.patch
+COMMIT 5757aeaa83bfb4c73d72cdae965426d37a8007a1 2026-05-03T14:14:37Z spycat88 <spycat88@users.noreply.github.com> Update kernel configs
+
+projects/ROCKNIX/devices/RK3326/linux/linux.aarch64.conf
+projects/ROCKNIX/devices/RK3399/linux/linux.aarch64.conf
+projects/ROCKNIX/devices/RK3566/linux/linux.aarch64.conf
+projects/ROCKNIX/devices/RK3588/linux/linux.aarch64.conf
+projects/ROCKNIX/devices/S922X/linux/linux.aarch64.conf
+projects/ROCKNIX/devices/SM6115/linux/linux.aarch64.conf
+projects/ROCKNIX/devices/SM8250/linux/linux.aarch64.conf
+projects/ROCKNIX/devices/SM8650/linux/linux.aarch64.conf
+COMMIT 5b888789efbbdce18b2b0b6f526bbee460224a00 2026-04-27T19:07:02+08:00 Gianni Spadoni <me@gio.blue> sm8750: add battery name & wlan mac patch
+
+projects/ROCKNIX/devices/SM8750/patches/linux/0501-ROCKNIX-fix-wifi-and-bt-mac.patch
+projects/ROCKNIX/devices/SM8750/patches/linux/0503-ROCKNIX-battery-name.patch
+COMMIT 502e4675fc2abb7ade6094cfbd136601f07d6984 2026-04-27T15:44:19+08:00 Gianni Spadoni <me@gio.blue> sm8750: use rsinput driver from SM8550, add range patch
+
+projects/ROCKNIX/devices/SM8750/patches/linux/0031_input--Add-driver-for-RSInput-Gamepad.patch
+projects/ROCKNIX/devices/SM8750/patches/linux/1300-input-rsinput-ranges.patch
+COMMIT 0171b0ff2dfdca8651e1ac22286120cdadecb781 2026-04-27T15:44:00+08:00 Gianni Spadoni <me@gio.blue> sm8750: remove experimental rumble support
+
+projects/ROCKNIX/devices/SM8750/patches/linux/1000-input-misc-qcom-hv-haptics-sm8750.patch
+projects/ROCKNIX/devices/SM8750/patches/linux/1001-haptics-driver-support-periodic-sine-and-fixes.patch
+projects/ROCKNIX/devices/SM8750/patches/linux/1002-input-rsinput-sm8750-ff.patch
+COMMIT 6c6218b0af9d6727b6310db869fb2d31b9ff75cb 2026-04-27T01:32:37+08:00 Gianni Spadoni <me@gio.blue> sm8750: add drm msm lock patch
+
+projects/ROCKNIX/devices/SM8750/patches/linux/0505-msm_gem-lock-before-put_iova_spaces.patch
+COMMIT ca6214cfc4f602210bf3c7b57e8ea3054122871c 2026-04-26T20:19:44+08:00 Gianni Spadoni <me@gio.blue> sm8750-ayn: experimental rumble & haptics
+
+projects/ROCKNIX/devices/SM8750/linux/linux.aarch64.conf
+projects/ROCKNIX/devices/SM8750/patches/linux/1000-input-misc-qcom-hv-haptics-sm8750.patch
+projects/ROCKNIX/devices/SM8750/patches/linux/1001-haptics-driver-support-periodic-sine-and-fixes.patch
+projects/ROCKNIX/devices/SM8750/patches/linux/1002-input-rsinput-sm8750-ff.patch
+COMMIT 8dc642b30a68513a5b5f75a3491c347595a031f9 2026-04-26T19:26:35+08:00 Gianni Spadoni <me@gio.blue> sm8750 / odin3: fix audio, add ALSA ucm config
+
+projects/ROCKNIX/packages/audio/alsa-ucm-conf/patches/SM8750/0001_SM8750-AYN-Odin3.patch
+projects/ROCKNIX/packages/audio/alsa-ucm-conf/patches/SM8750/0002_SM8750-AYN-Odin3-Add-EFI-boot-compatibility.patch
+COMMIT 686ac3c995c8aa3153956efea7478cb7c614ff6a 2026-04-26T02:55:03+08:00 Gianni Spadoni <me@gio.blue> sm8750: update kernel patches, firmware and config
+
+projects/ROCKNIX/devices/SM8750/linux/linux.aarch64.conf
+projects/ROCKNIX/devices/SM8750/patches/linux/0026-dt-bindings-arm-qcom-ids-Add-SoC-ID-for-CQ8725S.patch
+projects/ROCKNIX/devices/SM8750/patches/linux/0027-soc-qcom-socinfo-Add-CQ8725S-SoC-ID.patch
+projects/ROCKNIX/devices/SM8750/patches/linux/0028-drm-panel-Add-panel-driver-for-Chipone-ICNA35XX-base.patch
+projects/ROCKNIX/devices/SM8750/patches/linux/0029-Input-edt-ft5x06-add-no_regmap_bulk_read-option.patch
+projects/ROCKNIX/devices/SM8750/patches/linux/0030-leds-Add-driver-for-HEROIC-HTR3212.patch
+projects/ROCKNIX/devices/SM8750/patches/linux/0032-ASoC-codecs-aw88166-AYN-Products-Specific-modificati.patch
+projects/ROCKNIX/devices/SM8750/patches/linux/0034-arm64-dts-qcom-sm8750-Add-UART15.patch
+projects/ROCKNIX/devices/SM8750/patches/linux/0038-arm64-dts-qcom-sm8750-add-GPU-nodes.patch
+projects/ROCKNIX/devices/SM8750/patches/linux/0039-wifi-ath12k-add-initial-hardware-definition-for-WCN7.patch
+projects/ROCKNIX/devices/SM8750/patches/linux/0040-wifi-ath12k-send-QDSS-config-when-CNSS_QDSS_CFG_MISS.patch
+projects/ROCKNIX/devices/SM8750/patches/linux/0041-wifi-ath12k-disable-CNSS_QDSS_CFG_MISS_V01-for-the-W.patch
+projects/ROCKNIX/devices/SM8750/patches/linux/0042-PCI-pwrctrl-pwrseq-add-support-for-WCN7860.patch
+projects/ROCKNIX/devices/SM8750/patches/linux/0043-power-sequencing-qcom-wcn-add-support-for-WCN7860.patch
+projects/ROCKNIX/devices/SM8750/patches/linux/0044-clk-qcom-gcc-sm8750-Do-not-turn-off-PCIe-GDSCs-durin.patch
+projects/ROCKNIX/devices/SM8750/patches/linux/0045-Bluetooth-qca-add-WCN7860-support.patch
+projects/ROCKNIX/devices/SM8750/patches/linux/0500-ROCKNIX-set-boot-fanspeed.patch
+COMMIT 6ffe4f1235f134ae4d0e11f1e81e513f62e7b628 2026-04-26T02:17:19+08:00 Gianni Spadoni <me@gio.blue> graphics/mesa: patched dev build for SM8750
+
+projects/ROCKNIX/packages/graphics/mesa/patches/SM8750/0001-add-a830-chip-id.patch
+COMMIT 321ded3d393684241b59dc32fe819eeac34bc38e 2026-03-18T18:42:20+01:00 tiopex <tiopxyz@gmail.com> SM8750: Init
+
+projects/ROCKNIX/devices/SM8750/linux/linux.aarch64.conf
+projects/ROCKNIX/packages/audio/pipewire/patches/SM8750/001-increase-pulse-buffer-size.patch
+projects/ROCKNIX/packages/audio/pipewire/patches/SM8750/002-increase-pipewire-buffer-size.patch
+COMMIT d8685f4123ab59dc794497b2eeb9391944745d57 2026-04-29T16:41:15Z loki666 <loki666@users.noreply.github.com> Update kernel configs
+
+projects/ROCKNIX/devices/RK3399/linux/linux.aarch64.conf
+projects/ROCKNIX/devices/RK3566/linux/linux.aarch64.conf
+projects/ROCKNIX/devices/S922X/linux/linux.aarch64.conf
+projects/ROCKNIX/devices/SM6115/linux/linux.aarch64.conf
+projects/ROCKNIX/devices/SM8250/linux/linux.aarch64.conf
+projects/ROCKNIX/devices/SM8650/linux/linux.aarch64.conf
+COMMIT 847136a05e60b3df737b2f90046ff66861aab8f1 2026-04-26T20:02:10+02:00 Philippe Simons <simons.philippe@gmail.com> add arix mq66 with bm5460bb1 panel
+
+projects/ROCKNIX/devices/SM6115/linux/linux.aarch64.conf
+COMMIT 775269f4558ce57ce643332f0a9c9ef838f6ecde 2026-04-26T23:44:40+10:00 John Williams <34047817+porschemad911@users.noreply.github.com> Merge pull request #2611 from ROCKNIX/auto-pr-branch
+COMMIT 820ec95693765f47d02aa13010989500fc0419c7 2026-04-26T10:38:33+02:00 Philippe Simons <simons.philippe@gmail.com> Merge pull request #2588 from loki666/sm8250-inputplumber
+COMMIT 71cbd61d659dff8683351392aaa8bacddfd78ca5 2026-04-26T10:25:20+02:00 Philippe Simons <simons.philippe@gmail.com> sm8650: patch work
+
+projects/ROCKNIX/devices/SM8650/patches/linux/0071-HACK-fix-usb-boot-hang.patch
+projects/ROCKNIX/devices/SM8650/patches/linux/20260424_neil_armstrong_arm64_dts_qcom_sm8_456_50_add_missing_cx_power_domain_to_gcc.patch
+projects/ROCKNIX/devices/SM8650/patches/linux/v2_20260420_neil_armstrong_arm64_qcom_sm8650_misc_enhancements.patch
+COMMIT 34ca2121e97fcf06db0627df081017540cd39aa3 2026-04-26T06:08:45Z porschemad911 <porschemad911@users.noreply.github.com> Update kernel configs
+
+projects/ROCKNIX/devices/RK3326/linux/linux.aarch64.conf
+projects/ROCKNIX/devices/RK3399/linux/linux.aarch64.conf
+projects/ROCKNIX/devices/RK3566/linux/linux.aarch64.conf
+projects/ROCKNIX/devices/RK3588/linux/linux.aarch64.conf
+projects/ROCKNIX/devices/S922X/linux/linux.aarch64.conf
+projects/ROCKNIX/devices/SM6115/linux/linux.aarch64.conf
+projects/ROCKNIX/devices/SM8250/linux/linux.aarch64.conf
+projects/ROCKNIX/devices/SM8650/linux/linux.aarch64.conf
+COMMIT 3c3d0176433f03981ac508863941335585962c4a 2026-04-26T15:25:10+10:00 John Williams <34047817+porschemad911@users.noreply.github.com> Merge branch 'next' into auto-pr-branch
+COMMIT 8970711371cf7e6859a5d6f919c26d34358ac4ff 2026-04-25T18:03:51+10:00 John Williams <porschemad911@gmail.com> S922X - linux - revert to 6.18 LTS
+
+projects/ROCKNIX/devices/S922X/linux/linux.aarch64.conf
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0001-drm-panel-st7701-add-odroid-go-ultra-panel-support.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0002-arm64-meson-odroid-go-ultra-add-DSI-panel.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0003-arm64-meson-odroid-go-ultra-correct-voltages.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0004-arm64-meson-odroid-go-ultra-add-over-clocking-freque.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0005-arm64-meson-odroid-go-ultra-add-joypad.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0006-arm64-meson-odroid-disable-heartbeat.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0007-arm64-meson-g12-common-add-dual-panfrost-mali-to-dts.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0008-arm64-meson-add-dt-for-powkiddy-rgb10-max-3-pro.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0009-power-rk818-Configure-rk808-clkout2-function.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0010-power-supply-rk818-battery-Add-battery-driver-for-RK.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0011-power-supply-rk818-battery-Use-a-more-propper-compat.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0012-power-supply-rk818-charger-Implement-charger-driver-.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0013-power-supply-rk818-charger-Change-charger-type-to-MA.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0014-power-supply-rk818-battery-Report-charging-status-ba.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0015-power-supply-rk818-battery-Drop-dependency-on-frameb.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0016-power-supply-rk818-charger-Unify-rk818-charger-and-r.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0017-power-supply-rk818-battery-Speed-up-battery-current-.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0018-power-supply-rk818-charger-Delay-applying-input-curr.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0019-power-supply-rk818-battery-Don-t-auto-poweroff-the-P.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0020-power-supply-rk818-charger-Add-support-for-POWER_SUP.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0021-power-supply-rk818-battery-Don-t-reset-dsoc-to-0-on-.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0022-power-supply-Cleanup-rk818_battery-driver-from-usele.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0023-power-supply-rk818-battery-Re-organize-code.patch
+COMMIT 62da24b5e3c8b6d433807932aadb69c6b9e13c18 2026-04-24T19:06:59+01:00 spycat88 <342907+spycat88@users.noreply.github.com> Merge pull request #2026 from spycat88/gcc15
+COMMIT ce5245328bb09b96ba3ad0e1a62df1b714c136d6 2026-04-21T13:30:58+02:00 tiopex <tiopxyz@gmail.com> Steam: Add ARM64 version
+
+projects/ROCKNIX/devices/SM8650/patches/linux/0506-usbcore-add-interrupt-interval-override.patch
+COMMIT 3ca9d39252ccfe2279124654788cc181c5cc937b 2026-04-22T22:12:42Z spycat88 <spycat88@users.noreply.github.com> u-boot-legacy: fix package for updated gcc
+
+projects/ROCKNIX/devices/RK3326/packages/u-boot-legacy/patches/01-fix-building.patch
+COMMIT 51d3be0117dcf483dc0a398e754d5310a533cd05 2026-04-23T16:17:15Z r3claimer <r3claimer@users.noreply.github.com> Update kernel configs
+
+projects/ROCKNIX/devices/RK3399/linux/linux.aarch64.conf
+projects/ROCKNIX/devices/RK3566/linux/linux.aarch64.conf
+projects/ROCKNIX/devices/S922X/linux/linux.aarch64.conf
+projects/ROCKNIX/devices/SM6115/linux/linux.aarch64.conf
+projects/ROCKNIX/devices/SM8250/linux/linux.aarch64.conf
+projects/ROCKNIX/devices/SM8650/linux/linux.aarch64.conf
+COMMIT af8b7ed7ca6a2a0e2e37edaef5d2953c41cf60a6 2026-04-23T23:51:33+10:00 John Williams <porschemad911@gmail.com> SM6115 - mangohud
+
+projects/ROCKNIX/packages/apps/mangohud/patches/SM6115/0001-SM6115-GPU.patch
+COMMIT e8c9c95fb157bef516a53f1e480f69718bb026f4 2026-04-22T22:55:29-07:00 sunshineinabox <aqemail@gmail.com> Merge pull request #2590 from sunshineinabox/EnableOCC&OPPTables
+COMMIT fcc19c7d8118acf2f231b9a72e9ad9f6551916b7 2026-04-22T22:50:09-07:00 sunshineinabox <aqemail@gmail.com> Actually enable increased speed bin
+
+projects/ROCKNIX/devices/SM6115/patches/linux/0004-gpu-drm-msm-a610-unlock-1050MHz-overclock.patch
+COMMIT 7ef164bc62c95b1b79bf95f35d6073962b59549a 2026-04-21T17:57:41+02:00 Philippe Simons <simons.philippe@gmail.com> Merge branch 'ROCKNIX:next' into sm8250-inputplumber
+COMMIT 1138da27e0ded874e31decb5a9542644bcc8e2d7 2026-01-12T20:43:24+01:00 Philippe Simons <simons.philippe@gmail.com> sm8250/dts: replace patch with .dts files
+
+projects/ROCKNIX/devices/SM8250/patches/linux/0102-arm64-dts-qcom-pm8150-Add-nvmem-support-for-PM8150-R.patch
+COMMIT 83dd7e8349b3e4493aaf266b6a2496965aa4de92 2026-04-19T21:54:37Z sydarn <sydarn@users.noreply.github.com> Update kernel configs
+
+projects/ROCKNIX/devices/RK3566/linux/linux.aarch64.conf
+projects/ROCKNIX/devices/SM6115/linux/linux.aarch64.conf
+COMMIT ee9c152207c3e296caa67ce0e1a01612e861be26 2026-04-19T22:23:07+02:00 sydarn <sydarn@proton.me> RK3566 linux 7.0, RG DS closer to mainline DTS
+
+projects/ROCKNIX/devices/RK3566/linux/linux.aarch64.conf
+COMMIT ed8ab09e5c93ab292ad941340bb9150910218a20 2026-04-19T21:50:20+02:00 sydarn <sydarn@proton.me> rk3576: move to upstream u-boot with sd card patch
+
+projects/ROCKNIX/devices/RK3576/packages/u-boot/patches/0001-rockchip-mkimage-Add-rk3576-align-and-sd-card-workar.patch
+COMMIT d227ef3f576b7da847672639376dfb21add512c8 2026-04-19T00:28:30Z spycat88 <spycat88@users.noreply.github.com> SM8250: fix audio on Kernel 7.0
+
+projects/ROCKNIX/packages/audio/alsa-ucm-conf/patches/SM8250/0002_Add-Retroid-Pocket-SM8250-configuration.patch
+COMMIT 71ff3334b23b773adceca96d2f0a72e8f09ddc40 2026-04-17T17:20:12+02:00 tiopex <67048640+tiopex@users.noreply.github.com> Merge pull request #2564 from tiopex/gamescope
+COMMIT 644a3d187cb157e84a1aacbe331cc32c8aa8f1e8 2026-04-15T14:34:35+02:00 tiopex <tiopxyz@gmail.com> Steam: Add gamescope
+
+projects/ROCKNIX/devices/SM8250/patches/linux/0505-msm_gem-lock-before-put_iova_spaces.patch
+projects/ROCKNIX/devices/SM8650/patches/linux/0505-msm_gem-lock-before-put_iova_spaces.patch
+COMMIT 206afabc2ee2e2ad2182d613a407c6f35b94bad4 2026-04-16T13:45:54Z porschemad911 <porschemad911@users.noreply.github.com> Update kernel configs
+
+projects/ROCKNIX/devices/S922X/linux/linux.aarch64.conf
+projects/ROCKNIX/devices/SM8650/linux/linux.aarch64.conf
+COMMIT 2d0be08f975cd4ea44e656d71013831bb8c79155 2026-04-16T22:06:10+10:00 John Williams <porschemad911@gmail.com> S922X - linux 7.0
+
+projects/ROCKNIX/devices/S922X/linux/linux.aarch64.conf
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0001-drm-panel-st7701-add-odroid-go-ultra-panel-support.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0002-arm64-meson-odroid-go-ultra-add-DSI-panel.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0003-arm64-meson-odroid-go-ultra-correct-voltages.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0004-arm64-meson-odroid-go-ultra-add-over-clocking-freque.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0005-arm64-meson-odroid-go-ultra-add-joypad.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0006-arm64-meson-odroid-disable-heartbeat.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0007-arm64-meson-g12-common-add-dual-panfrost-mali-to-dts.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0008-arm64-meson-add-dt-for-powkiddy-rgb10-max-3-pro.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0009-power-rk818-Configure-rk808-clkout2-function.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0010-power-supply-rk818-battery-Add-battery-driver-for-RK.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0011-power-supply-rk818-battery-Use-a-more-propper-compat.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0012-power-supply-rk818-charger-Implement-charger-driver-.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0013-power-supply-rk818-charger-Change-charger-type-to-MA.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0014-power-supply-rk818-battery-Report-charging-status-ba.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0015-power-supply-rk818-battery-Drop-dependency-on-frameb.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0016-power-supply-rk818-charger-Unify-rk818-charger-and-r.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0017-power-supply-rk818-battery-Speed-up-battery-current-.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0018-power-supply-rk818-charger-Delay-applying-input-curr.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0019-power-supply-rk818-battery-Don-t-auto-poweroff-the-P.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0020-power-supply-rk818-charger-Add-support-for-POWER_SUP.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0021-power-supply-rk818-battery-Don-t-reset-dsoc-to-0-on-.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0022-power-supply-Cleanup-rk818_battery-driver-from-usele.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0023-power-supply-rk818-battery-Re-organize-code.patch
+COMMIT e7412033d2b38b673017b2e55c173c6d270a1789 2026-04-16T09:23:29+02:00 Philippe Simons <simons.philippe@gmail.com> Merge pull request #2554 from sunshineinabox/MQ66TS
+COMMIT 00ff9a9c5b6a7b9f2c1067112b42fc51af635437 2026-04-16T00:30:02+02:00 Philippe Simons <simons.philippe@gmail.com> sm8550: bump kernel
+
+projects/ROCKNIX/devices/SM8650/linux/linux.aarch64.conf
+COMMIT fb711fb55f22c35584b94f19bfa962adc9674e46 2026-04-15T22:17:20-07:00 sunshineinabox <aqemail@gmail.com> Enable Touchscreen MQ66
+
+projects/ROCKNIX/devices/SM6115/linux/linux.aarch64.conf
+COMMIT 79d0718bde7d4a2ec5a6acca7b9b9b3b3982e52f 2026-03-30T22:03:04-05:00 Noxwell <beebono@yahoo.com> [RG Vita Pro] Initial Support
+
+projects/ROCKNIX/devices/RK3576/linux/linux.aarch64.conf
+projects/ROCKNIX/devices/RK3576/patches/linux/0000-ASoC-codecs-Add-aw87391-amplifier-driver.patch
+projects/ROCKNIX/devices/RK3576/patches/linux/0001-mfd-Add-Rockchip-mfpwm-driver.patch
+projects/ROCKNIX/devices/RK3576/patches/linux/0002-pwm-Add-rockchip-PWMv4-driver.patch
+projects/ROCKNIX/devices/RK3576/patches/linux/0003-dt-bindings-vendor-prefixes-Add-Hynetek.patch
+projects/ROCKNIX/devices/RK3576/patches/linux/0004-dt-bindings-usb-rt1711h-Add-Hynetek-HUSB311.patch
+projects/ROCKNIX/devices/RK3576/patches/linux/0005-usb-typec-tcpci_rt1711h-Add-support-for-HUSB311.patch
+projects/ROCKNIX/devices/RK3576/patches/linux/0006-power-supply-Add-CW221x-battery-fuel-gauge-driver.patch
+projects/ROCKNIX/devices/RK3576/patches/linux/0007-power-supply-Add-SGM41542-charger-driver.patch
+projects/ROCKNIX/devices/RK3576/patches/linux/0008-Input-synaptics-rmi4-handle-reset-gpio.patch
+projects/ROCKNIX/devices/RK3576/patches/linux/0009-PCI-rockchip-Add-system-sleep-PM-ops-for-link-resume.patch
+projects/ROCKNIX/devices/RK3576/patches/linux/0010-Input-add-SPI-MCU-Joypad-driver-options.patch
+projects/ROCKNIX/devices/RK3576/patches/linux/0011-Input-add-SPI-MCU-Joypad-driver-core-header.patch
+projects/ROCKNIX/devices/RK3576/patches/linux/0012-Input-add-SPI-MCU-Joypad-driver-input.patch
+projects/ROCKNIX/devices/RK3576/patches/linux/0013-Input-add-SPI-MCU-Joypad-driver-leds.patch
+projects/ROCKNIX/devices/RK3576/patches/linux/0014-Input-rk805-pwrkey-enable-wakeup-irq-for-power-butto.patch
+projects/ROCKNIX/devices/RK3576/patches/mali-bifrost/0001-platform-devicetree-add-reset-control-and-runtime-pm.patch
+projects/ROCKNIX/devices/RK3576/patches/mali-bifrost/002-lowercase-interrupts-first.patch
+projects/ROCKNIX/devices/RK3576/patches/mali-bifrost/003-fix-unbalanced-regulator.patch
+COMMIT 0c105aebf9cf33320318ba996a69aea83c02f0a2 2026-04-15T21:36:18+02:00 Philippe Simons <simons.philippe@gmail.com> sm8650: bump kernel
+
+projects/ROCKNIX/devices/SM8650/patches/linux/0007-audioreach-Add-dedicated-WSA2-support.patch
+COMMIT f97c90dcca31efc4269aabfe1f6c90cd03a8c54e 2026-04-14T23:40:48Z r3claimer <r3claimer@users.noreply.github.com> Update kernel configs
+
+projects/ROCKNIX/devices/RK3399/linux/linux.aarch64.conf
+projects/ROCKNIX/devices/RK3566/linux/linux.aarch64.conf
+projects/ROCKNIX/devices/S922X/linux/linux.aarch64.conf
+projects/ROCKNIX/devices/SM8250/linux/linux.aarch64.conf
+COMMIT 2643bed395184cd08bc4ed852b9208e0c9bf8685 2026-04-14T23:06:54Z rocknix <macebrooks@gmail.com> Move SM8250 and RK3399 to Linux 7.0
+
+projects/ROCKNIX/devices/SM8250/patches/linux/9999-remove-log-spam.patch
+COMMIT 25543a485cb8ef9e9971a6d4d43a804dc444a725 2026-04-14T20:17:56+10:00 John Williams <34047817+porschemad911@users.noreply.github.com> Merge pull request #2532 from siordache94/next
+COMMIT f3cea616e2e0d821587e2a72a575d8ac784dbe7e 2026-03-26T09:44:58+01:00 Iordache Sebastian Andrei <iordache.sebastian.a@gmail.com> RK3566 - linux - enable ntsync
+
+projects/ROCKNIX/devices/RK3566/linux/linux.aarch64.conf
+COMMIT 214b17f900c9bda705ed371262f6654ea2451958 2026-02-24T08:46:24+01:00 tiopex <tiopxyz@gmail.com> emulators: Add FEX-emu + Steam
+
+projects/ROCKNIX/devices/SM8250/patches/linux/0504-Enable-64-bit-processes-to-use-compat-input-syscalls.patch
+projects/ROCKNIX/devices/SM8650/patches/linux/0504-Enable-64-bit-processes-to-use-compat-input-syscalls.patch
+COMMIT c3b641144916d5efe5780efecbf323e8d6cd265e 2026-04-06T08:23:02Z porschemad911 <porschemad911@users.noreply.github.com> Update kernel configs
+
+projects/ROCKNIX/devices/RK3399/linux/linux.aarch64.conf
+projects/ROCKNIX/devices/RK3566/linux/linux.aarch64.conf
+COMMIT 011872abca732f87a92b8ab81dc48ec677fe5cec 2026-04-06T09:51:52+10:00 John Williams <porschemad911@gmail.com> linux - bump 6.18 LTS to 6.18.21
+
+projects/ROCKNIX/devices/S922X/linux/linux.aarch64.conf
+COMMIT 7cb0881eb056ff7b3592c6f127a536bb1bfcc816 2026-04-05T11:13:23Z loki666 <loki666@users.noreply.github.com> Update kernel configs
+
+projects/ROCKNIX/devices/RK3326/linux/linux.aarch64.conf
+projects/ROCKNIX/devices/RK3399/linux/linux.aarch64.conf
+projects/ROCKNIX/devices/RK3566/linux/linux.aarch64.conf
+projects/ROCKNIX/devices/S922X/linux/linux.aarch64.conf
+projects/ROCKNIX/devices/SM8250/linux/linux.aarch64.conf
+projects/ROCKNIX/devices/SM8650/linux/linux.aarch64.conf
+COMMIT 2a6fc9e9c3b3518c16e7e57e2d675ac70f7021e8 2026-04-04T12:42:06+02:00 Philippe Simons <simons.philippe@gmail.com> sm6115: add AirX MQ65 revision
+
+projects/ROCKNIX/devices/SM6115/linux/linux.aarch64.conf
+COMMIT a538fd276fb9a78c5452b263fc86cf4959e32b4a 2026-03-31T06:27:08Z porschemad911 <porschemad911@users.noreply.github.com> Update kernel configs
+
+projects/ROCKNIX/devices/RK3399/linux/linux.aarch64.conf
+projects/ROCKNIX/devices/RK3566/linux/linux.aarch64.conf
+projects/ROCKNIX/devices/S922X/linux/linux.aarch64.conf
+COMMIT 317bcc5f2a698b73748c7a4b74072b951666a08e 2026-03-30T11:49:34Z porschemad911 <porschemad911@users.noreply.github.com> Update kernel configs
+
+projects/ROCKNIX/devices/RK3326/linux/linux.aarch64.conf
+projects/ROCKNIX/devices/RK3399/linux/linux.aarch64.conf
+projects/ROCKNIX/devices/RK3566/linux/linux.aarch64.conf
+projects/ROCKNIX/devices/RK3588/linux/linux.aarch64.conf
+projects/ROCKNIX/devices/S922X/linux/linux.aarch64.conf
+projects/ROCKNIX/devices/SM8250/linux/linux.aarch64.conf
+projects/ROCKNIX/devices/SM8650/linux/linux.aarch64.conf
+COMMIT e855de5828ce0caa4dfc3296494c2270cec0aef0 2026-03-29T02:21:32-07:00 sunshineinabox <aqemail@gmail.com> [SM6115] Bring up USB (#2470)
+
+projects/ROCKNIX/devices/SM6115/linux/linux.aarch64.conf
+COMMIT 38f2a1f4848174883d26da0d312835dc1a785c18 2026-03-29T10:40:49+11:00 John Williams <34047817+porschemad911@users.noreply.github.com> Merge pull request #2485 from porschemad911/azahar-sa-2125.0.1
+COMMIT d8c26c2f4c8f9f1d4ee250ba375d5b9986701c06 2026-03-29T00:06:22+01:00 Philippe Simons <simons.philippe@gmail.com> Sunshineinabox airxaudio (#2487)
+
+projects/ROCKNIX/devices/SM6115/linux/linux.aarch64.conf
+projects/ROCKNIX/packages/audio/pipewire/patches/SM6115/001-increase-pulse-buffer-size.patch
+projects/ROCKNIX/packages/audio/pipewire/patches/SM6115/002-increase-pipewire-buffer-size.patch
+COMMIT 31779ac8ff552b6edc7ca8bd30ba3bd2b1f20f30 2026-03-28T23:15:39+11:00 John Williams <porschemad911@gmail.com> azahar-sa - bump to 2125.0.1
+
+projects/ROCKNIX/packages/emulators/standalone/azahar-sa/patches/prefer_gles/0002-Enable-use_gles-for-OpenGL-ES-rendering.patch
+COMMIT b30c660ee5f7d38b18b1fe29da9d005410916597 2026-03-23T10:45:48+01:00 Philippe Simons <simons.philippe@gmail.com> linux: enable bfq io scheduler for mmc devices
+
+projects/ROCKNIX/devices/RK3326/linux/linux.aarch64.conf
+projects/ROCKNIX/devices/RK3399/linux/linux.aarch64.conf
+projects/ROCKNIX/devices/RK3566/linux/linux.aarch64.conf
+projects/ROCKNIX/devices/RK3588/linux/linux.aarch64.conf
+projects/ROCKNIX/devices/S922X/linux/linux.aarch64.conf
+COMMIT d3249e9f2e82398a25c667b4c8e43a1bec4ac053 2026-03-21T16:26:37+01:00 Philippe Simons <simons.philippe@gmail.com> sm6115: inital commit
+
+projects/ROCKNIX/devices/SM6115/linux/linux.aarch64.conf
+COMMIT 957ddf7216ba322f83555cb34a616df19bdaceac 2026-03-17T22:36:46Z rocknix <macebrooks@gmail.com> Fix SM8250 headphone jack detection and dock support. Thanks Batocera!
+
+projects/ROCKNIX/devices/SM8250/linux/linux.aarch64.conf
+projects/ROCKNIX/devices/SM8250/patches/linux/0300-batocera-fix-headphone-jack-detection.patch
+COMMIT d63156475f09718c215e2b308577eb33a54fb32c 2026-03-11T13:50:44+13:00 Joel Wirāmu Pauling <aenertia@aenertia.net> RK3399: harden rk_crypto ahash scatter-gather fallback
+
+projects/ROCKNIX/devices/RK3399/patches/linux/001-rk_crypto-fix-ahash-sg-fallback.patch
+COMMIT 549a876004b3b77f0bc9c656d6a7a441ef8ea131 2026-03-11T13:50:27+13:00 Joel Wirāmu Pauling <aenertia@aenertia.net> linux: enable PKCS8 private key parser for WPA3/SAE on all targets
+
+projects/ROCKNIX/devices/RK3326/linux/linux.aarch64.conf
+projects/ROCKNIX/devices/RK3399/linux/linux.aarch64.conf
+projects/ROCKNIX/devices/RK3566/linux/linux.aarch64.conf
+projects/ROCKNIX/devices/RK3588/linux/linux.aarch64.conf
+projects/ROCKNIX/devices/S922X/linux/linux.aarch64.conf
+projects/ROCKNIX/devices/SM8250/linux/linux.aarch64.conf
+projects/ROCKNIX/devices/SM8650/linux/linux.aarch64.conf
+COMMIT a7e4d9945d2682fb8f84b1412dd71c67ad69578e 2026-03-04T23:22:52Z loki666 <loki666@users.noreply.github.com> Update kernel configs
+
+projects/ROCKNIX/devices/RK3326/linux/linux.aarch64.conf
+projects/ROCKNIX/devices/RK3399/linux/linux.aarch64.conf
+projects/ROCKNIX/devices/RK3566/linux/linux.aarch64.conf
+projects/ROCKNIX/devices/S922X/linux/linux.aarch64.conf
+projects/ROCKNIX/devices/SM8250/linux/linux.aarch64.conf
+projects/ROCKNIX/devices/SM8650/linux/linux.aarch64.conf
+COMMIT 0de5645c9b460f6f23d5546bedbcc819fb3935c4 2026-02-20T21:05:16+01:00 Philippe Simons <simons.philippe@gmail.com> linux/sm8650: bump linux
+
+projects/ROCKNIX/devices/SM8650/patches/linux/0006-add-hw_params-callback-function-to-drm_connector_hdmi_audio_ops.patch
+projects/ROCKNIX/devices/SM8650/patches/linux/0007-audioreach-Add-dedicated-WSA2-support.patch
+projects/ROCKNIX/packages/audio/alsa-ucm-conf/patches/SM8650/0001-AYANEO-Pocket-S2.patch
+COMMIT f003602d27c2ef0ef87c7017cc7fa0d940a6ec59 2026-02-21T18:43:25Z loki666 <loki666@users.noreply.github.com> Update kernel configs
+
+projects/ROCKNIX/devices/RK3399/linux/linux.aarch64.conf
+projects/ROCKNIX/devices/RK3566/linux/linux.aarch64.conf
+projects/ROCKNIX/devices/S922X/linux/linux.aarch64.conf
+projects/ROCKNIX/devices/SM8250/linux/linux.aarch64.conf
+projects/ROCKNIX/devices/SM8650/linux/linux.aarch64.conf
+COMMIT 9f75d70686b8d6e78315de42e6aca9335337f0f7 2026-02-16T21:31:41+01:00 sydarn <151048164+sydarn@users.noreply.github.com> Merge pull request #2327 from sydarn/rk3566-specific-bootorder
+COMMIT 542edb20b7ebd9c21c7203b492a56b74e20c8da8 2026-02-16T21:30:09+01:00 sydarn <sydarn@proton.me> rk3566-Specific u-boot add boot order property
+
+projects/ROCKNIX/devices/RK3566/packages/u-boot-Specific/patches/001-fix-defconfig.patch
+projects/ROCKNIX/devices/RK3566/packages/u-boot-Specific/patches/002-boot-order.patch
+COMMIT 6989b53e6cb420444b0b041bb6dc7bd6d64de25c 2026-02-15T10:47:39Z loki666 <loki666@users.noreply.github.com> Update kernel configs
+
+projects/ROCKNIX/devices/RK3399/linux/linux.aarch64.conf
+projects/ROCKNIX/devices/RK3566/linux/linux.aarch64.conf
+projects/ROCKNIX/devices/S922X/linux/linux.aarch64.conf
+projects/ROCKNIX/devices/SM8650/linux/linux.aarch64.conf
+COMMIT a6d3b71c5a1f56281c839bfad5bc4e21eb240a8f 2026-02-14T19:59:05+01:00 sydarn <151048164+sydarn@users.noreply.github.com> Merge pull request #2315 from sydarn/rk3566-updates2
+COMMIT 768f244d9bba3fbbf545aa62168cb19ae0e85ced 2026-02-13T17:54:18+01:00 sydarn <sydarn@proton.me> rk3566: mali kernel work
+
+projects/ROCKNIX/devices/RK3566/linux/linux.aarch64.conf
+projects/ROCKNIX/devices/RK3566/patches/linux/0666-cma-region.patch
+COMMIT f0b01db5c7de98d6440abc37a210391254aaad72 2026-02-13T23:49:49Z rocknix <macebrooks@gmail.com> Input Plumber fixes
+
+projects/ROCKNIX/packages/apps/gamepadtester/patches/legacy/000-gamepad-tester.patch
+COMMIT 87322eb468773456f5c84f1cd56b30a9486610e7 2026-02-11T17:37:28+01:00 Philippe Simons <simons.philippe@gmail.com> linux: update patches
+
+projects/ROCKNIX/devices/SM8650/patches/linux/v6_20260210_quic_utiwari_crypto_qce_add_runtime_pm_and_interconnect_bandwidth_scaling_support.patch
+COMMIT faf4fd070897ce13d8be383b21c5f4ecc84021b5 2026-02-07T17:43:57+01:00 sydarn <151048164+sydarn@users.noreply.github.com> Merge pull request #2283 from sydarn/s922x-sway
+COMMIT bc08305a891913dac367700ed8d0791ae15869f1 2026-02-07T12:09:18Z loki666 <loki666@users.noreply.github.com> Update kernel configs
+
+projects/ROCKNIX/devices/RK3399/linux/linux.aarch64.conf
+projects/ROCKNIX/devices/RK3566/linux/linux.aarch64.conf
+projects/ROCKNIX/devices/S922X/linux/linux.aarch64.conf
+projects/ROCKNIX/devices/SM8650/linux/linux.aarch64.conf
+COMMIT bc8851ce981c4c62535409a87a6c9406c4edfba0 2026-02-06T23:59:39+01:00 Philippe Simons <simons.philippe@gmail.com> sm8650/linux: update
+
+projects/ROCKNIX/devices/SM8650/linux/linux.aarch64.conf
+COMMIT ebb79c0ed3c10e9656b6e990a236a52e64b14796 2026-02-05T22:23:00Z loki666 <loki666@users.noreply.github.com> Update kernel configs
+
+projects/ROCKNIX/devices/RK3326/linux/linux.aarch64.conf
+projects/ROCKNIX/devices/RK3399/linux/linux.aarch64.conf
+projects/ROCKNIX/devices/RK3566/linux/linux.aarch64.conf
+projects/ROCKNIX/devices/S922X/linux/linux.aarch64.conf
+projects/ROCKNIX/devices/SM8250/linux/linux.aarch64.conf
+projects/ROCKNIX/devices/SM8650/linux/linux.aarch64.conf
+COMMIT 0487086df333e9ecff5f07d2693749e14d7974fa 2026-02-03T20:35:52+01:00 sydarn <sydarn@proton.me> s922x to sway, vulkan wsi update
+
+projects/ROCKNIX/packages/graphics/vulkan-wsi-layer/patches/sync.patch
+projects/ROCKNIX/packages/graphics/vulkan-wsi-layer/patches/vklayer-driver-path.patch
+projects/ROCKNIX/packages/wayland/lib/wlroots/patches/libmali/001-libmali-workaround-allow-zero-stride.patch
+COMMIT 0153c6d261a81bab57d25e27012fc28348885103 2026-02-05T21:34:53+01:00 sydarn <151048164+sydarn@users.noreply.github.com> Merge pull request #2291 from sydarn/rk3399-kernelconf
+COMMIT ff4bf1e5b48b7c98a92f02344949284204845d74 2026-02-05T21:34:13+01:00 sydarn <sydarn@proton.me> rk3399: enable usb configfs in kernel
+
+projects/ROCKNIX/devices/RK3399/linux/linux.aarch64.conf
+COMMIT a29ef6949644e2d5d85cfe0738287c10a76c31b4 2026-02-04T21:29:12+13:00 Joel Wirāmu Pauling <aenertia@aenertia.net> feat(memory/IO) This update optimizes memory throughput and I/O performance across all ROCKNIX AArch64 targets by enabling File-System-backed Transparent Huge Pages (THP) and implementing a tiered hardware-aware tuning strategy.
+
+projects/ROCKNIX/devices/RK3326/linux/linux.aarch64.conf
+projects/ROCKNIX/devices/RK3399/linux/linux.aarch64.conf
+projects/ROCKNIX/devices/RK3566/linux/linux.aarch64.conf
+projects/ROCKNIX/devices/RK3588/linux/linux.aarch64.conf
+projects/ROCKNIX/devices/S922X/linux/linux.aarch64.conf
+projects/ROCKNIX/devices/SM8250/linux/linux.aarch64.conf
+projects/ROCKNIX/devices/SM8650/linux/linux.aarch64.conf
+COMMIT 4c33501487a93e76a058763a2840df8c16322503 2026-02-04T08:50:56+11:00 John Williams <34047817+porschemad911@users.noreply.github.com> Merge pull request #2223 from aenertia/zram-swap-core
+COMMIT 840a4f63d35ba97ce4d1a57ca8f40fe9308f9b85 2026-02-03T21:40:03Z sydarn <sydarn@users.noreply.github.com> Update kernel configs
+
+projects/ROCKNIX/devices/RK3399/linux/linux.aarch64.conf
+projects/ROCKNIX/devices/RK3566/linux/linux.aarch64.conf
+projects/ROCKNIX/devices/RK3588/linux/linux.aarch64.conf
+projects/ROCKNIX/devices/SM8650/linux/linux.aarch64.conf
+COMMIT 1f343affe96f6b46463bd250b55d0568e88fa438 2026-02-03T08:54:21+11:00 John Williams <34047817+porschemad911@users.noreply.github.com> Merge pull request #2225 from aenertia/mglru
+COMMIT 761962bfb796bd5fc0c711c2ad281a1e9a0d604d 2026-01-27T14:16:04+13:00 Joel Wirāmu Pauling <aenertia@aenertia.net> feat(kernel): enable Multi-Gen LRU (MGLRU) This commit enables Multi-Gen LRU (CONFIG_LRU_GEN) across supported target kernels. MGLRU replaces the kernel's traditional page reclamation logic with a more efficient multi-generational approach.
+
+projects/ROCKNIX/devices/RK3326/linux/linux.aarch64.conf
+projects/ROCKNIX/devices/RK3399/linux/linux.aarch64.conf
+projects/ROCKNIX/devices/RK3566/linux/linux.aarch64.conf
+projects/ROCKNIX/devices/RK3588/linux/linux.aarch64.conf
+projects/ROCKNIX/devices/S922X/linux/linux.aarch64.conf
+projects/ROCKNIX/devices/SM8250/linux/linux.aarch64.conf
+projects/ROCKNIX/devices/SM8650/linux/linux.aarch64.conf
+COMMIT d9bfefe0d504c582463ce4816de9c5a39179706e 2026-02-02T23:31:56+11:00 John Williams <porschemad911@gmail.com> RK3588 - Gameforce ACE - fix right analogue stick
+
+projects/ROCKNIX/devices/RK3588/patches/linux/000-gameforce-ace.patch
+COMMIT f19a6b3e9e0e3918597d26b5a353a9e218a0c137 2026-02-02T07:11:40Z porschemad911 <porschemad911@users.noreply.github.com> Update kernel configs
+
+projects/ROCKNIX/devices/RK3326/linux/linux.aarch64.conf
+projects/ROCKNIX/devices/RK3399/linux/linux.aarch64.conf
+projects/ROCKNIX/devices/RK3566/linux/linux.aarch64.conf
+projects/ROCKNIX/devices/S922X/linux/linux.aarch64.conf
+projects/ROCKNIX/devices/SM8250/linux/linux.aarch64.conf
+projects/ROCKNIX/devices/SM8650/linux/linux.aarch64.conf
+COMMIT a9eee765f13409b5f00a946a2172bd6989e49c6e 2026-02-01T10:51:53+13:00 Joel Wirāmu Pauling <aenertia@aenertia.net> memory: implement tiered rocknix-memory-manager and hybrid ZRAM
+
+projects/ROCKNIX/devices/RK3326/linux/linux.aarch64.conf
+projects/ROCKNIX/devices/RK3399/linux/linux.aarch64.conf
+projects/ROCKNIX/devices/RK3566/linux/linux.aarch64.conf
+projects/ROCKNIX/devices/RK3588/linux/linux.aarch64.conf
+projects/ROCKNIX/devices/S922X/linux/linux.aarch64.conf
+projects/ROCKNIX/devices/SM8250/linux/linux.aarch64.conf
+projects/ROCKNIX/devices/SM8650/linux/linux.aarch64.conf
+COMMIT 4b2ec5893103cbd18352fd210f39fae2c4fd1f74 2026-01-31T16:58:20+01:00 Philippe Simons <simons.philippe@gmail.com> Merge pull request #2259 from aenertia/post-network-perf-debloat
+COMMIT 127b5a415c07b77a9dd89c173342f590ab0145e7 2026-01-24T17:53:37+01:00 Philippe Simons <simons.philippe@gmail.com> sm8650: Pocket FIT
+
+projects/ROCKNIX/devices/SM8650/linux/linux.aarch64.conf
+projects/ROCKNIX/devices/SM8650/patches/linux/0063-gpu-drm-panel-add-pocket-fit-panel.patch
+projects/ROCKNIX/devices/SM8650/patches/linux/0071-HACK-fix-usb-boot-hang.patch
+COMMIT 45b18f239eb7e2f49ae84164046a129125c89aa4 2026-01-30T18:45:33+13:00 Joel Wirāmu Pauling <aenertia@aenertia.net> linux: Optimize netfilter, conntrack, and bridge (Follow-up to PR #2213)
+
+projects/ROCKNIX/devices/RK3326/linux/linux.aarch64.conf
+projects/ROCKNIX/devices/RK3399/linux/linux.aarch64.conf
+projects/ROCKNIX/devices/RK3566/linux/linux.aarch64.conf
+projects/ROCKNIX/devices/RK3588/linux/linux.aarch64.conf
+projects/ROCKNIX/devices/S922X/linux/linux.aarch64.conf
+projects/ROCKNIX/devices/SM8250/linux/linux.aarch64.conf
+projects/ROCKNIX/devices/SM8650/linux/linux.aarch64.conf
+COMMIT 4123eccd98352a776e3a130f2ae82969630b37c1 2026-01-30T01:29:42+01:00 Philippe Simons <simons.philippe@gmail.com> Merge pull request #2213 from aenertia/resolvfixes
+COMMIT 66e6ea74c5507a8497847dc89f66c170aac54f94 2026-01-30T00:32:34+11:00 John Williams <porschemad911@gmail.com> RK3588 - Gameforce ACE - rocknix-joypad fixes
+
+projects/ROCKNIX/devices/RK3588/patches/linux/000-gameforce-ace.patch
+COMMIT 542f03f335728453916ae05397284e8782e4d49c 2026-01-27T16:49:02+13:00 Joel Wirāmu Pauling <aenertia@aenertia.net> feat(network): modernize stack with systemd-resolved, IWD, and kernel alignment
+
+projects/ROCKNIX/devices/RK3326/linux/linux.aarch64.conf
+projects/ROCKNIX/devices/RK3399/linux/linux.aarch64.conf
+projects/ROCKNIX/devices/RK3566/linux/linux.aarch64.conf
+projects/ROCKNIX/devices/RK3588/linux/linux.aarch64.conf
+projects/ROCKNIX/devices/S922X/linux/linux.aarch64.conf
+projects/ROCKNIX/devices/SM8250/linux/linux.aarch64.conf
+projects/ROCKNIX/devices/SM8650/linux/linux.aarch64.conf
+COMMIT b3e8122fc3374b4024ec233a67cbf253cbc962d7 2026-01-28T19:50:12+01:00 sydarn <sydarn@proton.me> x55: fix adc order after rocknix-joypad cansleep
+
+projects/ROCKNIX/devices/RK3566/patches/linux/0012-arm64-dts-rockchip-update-powkiddy-x55-dts-to-suppor.patch
+COMMIT 8cdfc91df54099f5aa84d1d32599d1b0ca9c3b06 2026-01-25T11:24:19Z porschemad911 <porschemad911@users.noreply.github.com> Update kernel configs
+
+projects/ROCKNIX/devices/S922X/linux/linux.aarch64.conf
+COMMIT aed348fbda27986d81d99a670dd9f1c72af1eee4 2026-01-24T23:41:29Z sydarn <sydarn@users.noreply.github.com> Update kernel configs
+
+projects/ROCKNIX/devices/RK3566/linux/linux.aarch64.conf
+COMMIT c646d8bbe61f4122b30dcd0eda65a93faa48a6f5 2026-01-21T10:50:34Z porschemad911 <porschemad911@users.noreply.github.com> Update kernel configs
+
+projects/ROCKNIX/devices/RK3566/linux/linux.aarch64.conf
+projects/ROCKNIX/devices/S922X/linux/linux.aarch64.conf
+COMMIT 6669e37194d0b9b9d98bb8e4b24cb0762da8566f 2026-01-20T22:44:24+01:00 sydarn <sydarn@proton.me> RK3566 and S922X bump to 6.18.6
+
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0005-arm64-meson-odroid-go-ultra-add-joypad.patch
+COMMIT d93433089b2635955f6b736f508595ac261a51bd 2026-01-19T13:02:18+01:00 Philippe Simons <simons.philippe@gmail.com> sm85/650: battery rename patch fix
+
+projects/ROCKNIX/devices/SM8650/patches/linux/0503-ROCKNIX-battery-name.patch
+COMMIT d951fe0c625a3588c36f92547ff9db46a91aabee 2026-01-19T21:32:50+11:00 John Williams <porschemad911@gmail.com> RK3326 - mangohud - battery_watt
+
+projects/ROCKNIX/packages/apps/mangohud/patches/RK3326/0001-RK3326-soc_thermal.patch
+COMMIT 1fd53431742862eda35f991956f71e05382a8f91 2026-01-18T19:15:38+01:00 sydarn <sydarn@proton.me> rk3566 linux conf more optmized
+
+projects/ROCKNIX/devices/RK3566/linux/linux.aarch64.conf
+COMMIT 4eac62b631d30be2c337d9ebdef513e7bc4704f9 2026-01-18T02:55:53Z spycat88 <spycat88@users.noreply.github.com> Update kernel configs
+
+projects/ROCKNIX/devices/RK3566/linux/linux.aarch64.conf
+projects/ROCKNIX/devices/SM8250/linux/linux.aarch64.conf
+COMMIT 5d6eebe583f5858b59d38c3fef134d473f42ef5c 2026-01-14T22:39:28+11:00 John Williams <porschemad911@gmail.com> mangohud - bump version (v0.8.3-rc1 + a few fixes)
+
+projects/ROCKNIX/packages/apps/mangohud/patches/SM8250/0001-SM8250-GPU.patch
+COMMIT d16d3304166047b21ad5b7f8d09b2cd90d31463a 2026-01-13T12:52:24-06:00 Noxwell <78569681+beebono@users.noreply.github.com> Add DraStic hook for touchscreen input translation (#2174)
+
+projects/ROCKNIX/devices/RK3566/patches/linux/1011-input-touchscreen-goodix-usability-fixes.patch
+COMMIT 3749c62fb33b4334469a89f69c47589daa6e7b6e 2026-01-11T22:08:44+11:00 John Williams <porschemad911@gmail.com> RK3326 - enable MangoHud for Panfrost
+
+projects/ROCKNIX/packages/apps/mangohud/patches/RK3326/0001-RK3326-soc_thermal.patch
+COMMIT 6175eebda27e1b8aa00596f4d1cc6367b5d877e8 2026-01-10T17:29:06+01:00 sydarn <151048164+sydarn@users.noreply.github.com> Merge pull request #2166 from sydarn/rk3566-dts
+COMMIT c2eeef8d395a0e0c77d1cea98521ae9c1967de50 2026-01-09T20:55:09+01:00 sydarn <sydarn@proton.me> rk2023 dtsi patch cleanup after transfer to source
+
+projects/ROCKNIX/devices/RK3566/patches/linux/0004-arm64-dts-rockchip-fix-wifi-sdio-errors.patch
+projects/ROCKNIX/devices/RK3566/patches/linux/0015-arm64-dts-rockchip-use-linear-backlight-levels-to-im.patch
+projects/ROCKNIX/devices/RK3566/patches/linux/0019-arm64-dts-rockchip-add-system-power-controller-attri.patch
+projects/ROCKNIX/devices/RK3566/patches/linux/0024-sdmmc1-card-detect-delay.patch
+COMMIT ce32411206758a75842ecc8b62bc0ab3969f948d 2026-01-10T14:53:13Z spycat88 <spycat88@users.noreply.github.com> linux/RK3566: move AW87391 support to kernel
+
+projects/ROCKNIX/devices/RK3566/linux/linux.aarch64.conf
+projects/ROCKNIX/devices/RK3566/patches/linux/0026-ASoC-codecs-Add-aw87391-amplifier-driver.patch
+COMMIT fb5235cd2b4e90a5a0868a2800b178732b7aaf6b 2026-01-10T08:42:21-06:00 Noxwell <78569681+beebono@users.noreply.github.com> Add preliminary support for Anbernic RG DS (#2165)
+
+projects/ROCKNIX/devices/RK3566/patches/linux/1011-input-touchscreen-goodix-usability-fixes.patch
+COMMIT 43512e4c41c8e26297a6055377d8e6094b79c5ef 2026-01-08T19:11:59Z sydarn <sydarn@users.noreply.github.com> Update kernel configs
+
+projects/ROCKNIX/devices/RK3326/linux/linux.aarch64.conf
+projects/ROCKNIX/devices/RK3399/linux/linux.aarch64.conf
+projects/ROCKNIX/devices/RK3566/linux/linux.aarch64.conf
+projects/ROCKNIX/devices/S922X/linux/linux.aarch64.conf
+projects/ROCKNIX/devices/SM8250/linux/linux.aarch64.conf
+projects/ROCKNIX/devices/SM8650/linux/linux.aarch64.conf
+COMMIT d6e46fd0f5211b755a0ea0dc4ea028b61bc24c8c 2026-01-08T09:19:00+01:00 sydarn <sydarn@proton.me> Kernel config: Build RFKILL, CFG80211, MAC80211 as builtin
+
+projects/ROCKNIX/devices/RK3399/linux/linux.aarch64.conf
+projects/ROCKNIX/devices/S922X/linux/linux.aarch64.conf
+projects/ROCKNIX/devices/SM8250/linux/linux.aarch64.conf
+projects/ROCKNIX/devices/SM8650/linux/linux.aarch64.conf
+COMMIT aab9ebfbab8e95605d69ea13b9f297b09d829492 2026-01-07T21:06:10+01:00 sydarn <sydarn@proton.me> RK3566 and RK3326 kernel config updates
+
+projects/ROCKNIX/devices/RK3326/linux/linux.aarch64.conf
+projects/ROCKNIX/devices/RK3566/linux/linux.aarch64.conf
+COMMIT 173ccb79d4eba5a1a16529d2c259895a58c211a6 2025-12-19T20:07:31Z sydarn <sydarn@users.noreply.github.com> Update kernel configs
+
+projects/ROCKNIX/devices/RK3566/linux/linux.aarch64.conf
+COMMIT 4a2b5ad44eee4dad73d6cf683414e436d88a74f5 2025-12-19T19:28:04+01:00 sydarn <sydarn@proton.me> x55 -> Specific u-boot, more general
+
+projects/ROCKNIX/devices/RK3566/packages/u-boot-Specific/patches/001-fix-defconfig.patch
+COMMIT 02cade679e5724d2b172bfbc5d5526d66d6d8e43 2025-12-19T15:18:31Z r3claimer <r3claimer@users.noreply.github.com> Update kernel configs
+
+projects/ROCKNIX/devices/RK3399/linux/linux.aarch64.conf
+projects/ROCKNIX/devices/S922X/linux/linux.aarch64.conf
+projects/ROCKNIX/devices/SM8250/linux/linux.aarch64.conf
+projects/ROCKNIX/devices/SM8650/linux/linux.aarch64.conf
+COMMIT f5b745d4408830836d5d95bae6d5caa87454dee7 2025-12-19T14:47:57Z rocknix <macebrooks@gmail.com> Update kernel to 6.18.2
+
+projects/ROCKNIX/devices/SM8250/linux/linux.aarch64.conf
+projects/ROCKNIX/devices/SM8250/patches/linux/9999-remove-log-spam.patch
+COMMIT 352f5df9002e8a721fa002400db49d1ec8908d41 2025-12-17T21:24:52Z loki666 <loki666@users.noreply.github.com> Update kernel configs
+
+projects/ROCKNIX/devices/RK3326/linux/linux.aarch64.conf
+projects/ROCKNIX/devices/RK3399/linux/linux.aarch64.conf
+projects/ROCKNIX/devices/RK3566/linux/linux.aarch64.conf
+projects/ROCKNIX/devices/S922X/linux/linux.aarch64.conf
+projects/ROCKNIX/devices/SM8250/linux/linux.aarch64.conf
+projects/ROCKNIX/devices/SM8650/linux/linux.aarch64.conf
+COMMIT 7881e9e513ce7c8a7d8acdb90cd40b2a9549545c 2025-12-17T11:49:05Z porschemad911 <porschemad911@users.noreply.github.com> Update kernel configs
+
+projects/ROCKNIX/devices/RK3399/linux/linux.aarch64.conf
+projects/ROCKNIX/devices/RK3566/linux/linux.aarch64.conf
+projects/ROCKNIX/devices/SM8250/linux/linux.aarch64.conf
+projects/ROCKNIX/devices/SM8650/linux/linux.aarch64.conf
+COMMIT f470057b5cdb28c1d0170644a4ed92340602359b 2025-12-17T22:06:55+11:00 John Williams <porschemad911@gmail.com> S922X - linux 6.18
+
+projects/ROCKNIX/devices/S922X/linux/linux.aarch64.conf
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0001-drm-panel-st7701-add-odroid-go-ultra-panel-support.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0002-arm64-meson-odroid-go-ultra-add-DSI-panel.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0003-arm64-meson-odroid-go-ultra-correct-voltages.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0004-arm64-meson-odroid-go-ultra-add-over-clocking-freque.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0005-arm64-meson-odroid-go-ultra-add-joypad.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0006-arm64-meson-odroid-disable-heartbeat.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0007-arm64-meson-g12-common-add-dual-panfrost-mali-to-dts.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0008-arm64-meson-add-dt-for-powkiddy-rgb10-max-3-pro.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0009-power-rk818-Configure-rk808-clkout2-function.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0010-power-supply-rk818-battery-Add-battery-driver-for-RK.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0011-power-supply-rk818-battery-Use-a-more-propper-compat.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0012-power-supply-rk818-charger-Implement-charger-driver-.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0013-power-supply-rk818-charger-Change-charger-type-to-MA.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0014-power-supply-rk818-battery-Report-charging-status-ba.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0015-power-supply-rk818-battery-Drop-dependency-on-frameb.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0016-power-supply-rk818-charger-Unify-rk818-charger-and-r.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0017-power-supply-rk818-battery-Speed-up-battery-current-.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0018-power-supply-rk818-charger-Delay-applying-input-curr.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0019-power-supply-rk818-battery-Don-t-auto-poweroff-the-P.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0020-power-supply-rk818-charger-Add-support-for-POWER_SUP.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0021-power-supply-rk818-battery-Don-t-reset-dsoc-to-0-on-.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0022-power-supply-Cleanup-rk818_battery-driver-from-usele.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0023-power-supply-rk818-battery-Re-organize-code.patch
+COMMIT 0ee36496268483f75e5269eb40b95625a162543f 2025-12-17T02:31:04+03:00 Danil Zagoskin <z@gosk.in> Merge pull request #2128 from stolen/rk3326-clone-audio-fix
+COMMIT 1a5d8ca2e5264cb57eff41673654bc81218199b6 2025-12-16T22:19:22Z Danil Zagoskin <z@gosk.in> fix audio volume race on boot
+
+projects/ROCKNIX/packages/audio/alsa-ucm-conf/patches/RK3326/0001_fix_speaker_when_booting_with_headphones.patch
+COMMIT 8b8c3eb4cca2510c87ef8c47d640bdc782514a07 2025-12-16T23:05:00Z rocknix <macebrooks@gmail.com> RK3399: Update kernel to 6.18.1
+
+projects/ROCKNIX/devices/RK3399/linux/linux.aarch64.conf
+COMMIT 105183e8c8e2faccb802118d0902229cb8210fee 2025-11-18T18:44:11Z Danil Zagoskin <z@gosk.in> rk3326: move dts from patches to plain files
+
+projects/ROCKNIX/devices/RK3326/linux/linux.aarch64.conf
+COMMIT 7e50fe7c99f825440b99d94c1dd3fd8df5c2a7ca 2025-12-16T20:13:48Z rocknix <macebrooks@gmail.com> SM8250: Update kernel to 6.18.1
+
+projects/ROCKNIX/devices/SM8250/linux/linux.aarch64.conf
+COMMIT 2fa2ba6dc5852e8b90c2fb71d497f3b7d4a16233 2025-12-11T19:34:13+01:00 sydarn <sydarn@proton.me> rk3566: sync host clock to rtc
+
+projects/ROCKNIX/devices/RK3566/linux/linux.aarch64.conf
+COMMIT 53a6f20944e5049fb3b9debc867e20000548f20d 2025-12-11T18:20:42Z Danil Zagoskin <z@gosk.in> rk3326: fix SD card compatibility issue with mainline u-boot
+
+projects/ROCKNIX/devices/RK3326/packages/u-boot/patches/0001-add-support-for-k36-clone-with-emmc-rk3326.patch
+COMMIT c178634965aa549ea1709146d615e1b6203133a6 2025-12-10T22:22:27Z spycat88 <spycat88@users.noreply.github.com> SMx50: HACK fix usb boot hang
+
+projects/ROCKNIX/devices/SM8650/patches/linux/0071-HACK-fix-usb-boot-hang.patch
+COMMIT d13cc1eb59792874e8131d169951542c836d2c01 2025-12-10T20:58:38+01:00 Philippe Simons <simons.philippe@gmail.com> linux/sm8650: update
+
+projects/ROCKNIX/devices/SM8650/patches/linux/0060-Add-Silergy-SY7758-backlight-driver.patch
+projects/ROCKNIX/packages/audio/alsa-ucm-conf/patches/SM8650/0001-AYANEO-Pocket-S2.patch
+COMMIT 2268ed358b2b52655fdb76c94bc2b6280b06bde6 2025-12-08T04:18:51Z porschemad911 <porschemad911@users.noreply.github.com> Update kernel configs
+
+projects/ROCKNIX/devices/RK3326/linux/linux.aarch64.conf
+projects/ROCKNIX/devices/RK3399/linux/linux.aarch64.conf
+projects/ROCKNIX/devices/RK3566/linux/linux.aarch64.conf
+projects/ROCKNIX/devices/S922X/linux/linux.aarch64.conf
+projects/ROCKNIX/devices/SM8250/linux/linux.aarch64.conf
+COMMIT 4139064798f68215812ef17150362ef34786cc1f 2025-12-07T16:42:41Z spycat88 <spycat88@users.noreply.github.com> SM8250: correct NVMEM offset
+
+projects/ROCKNIX/devices/SM8250/patches/linux/0102-arm64-dts-qcom-pm8150-Add-nvmem-support-for-PM8150-R.patch
+COMMIT 76b0960650634b11e6fd52ca3d48f8da46ce0a5e 2025-12-07T11:15:58Z spycat88 <spycat88@users.noreply.github.com> SM8250: fix RTC time on Retroid devices
+
+projects/ROCKNIX/devices/SM8250/patches/linux/0102-arm64-dts-qcom-pm8150-Add-nvmem-support-for-PM8150-R.patch
+COMMIT 6ac8179687540de466132c5416272e28f50a5a14 2025-12-03T17:33:04Z loki666 <loki666@users.noreply.github.com> Update kernel configs
+
+projects/ROCKNIX/devices/RK3399/linux/linux.aarch64.conf
+projects/ROCKNIX/devices/RK3566/linux/linux.aarch64.conf
+projects/ROCKNIX/devices/S922X/linux/linux.aarch64.conf
+projects/ROCKNIX/devices/SM8250/linux/linux.aarch64.conf
+COMMIT dd52f547a8bd998c20f9ee75d06eae8efed932c1 2025-12-01T11:25:13+11:00 John Williams <porschemad911@gmail.com> linux - 6.12.59
+
+projects/ROCKNIX/devices/RK3326/linux/linux.aarch64.conf
+COMMIT d07e8df9747565df099b3926d5a15a804746bb6d 2025-11-24T16:27:39Z r3claimer <r3claimer@users.noreply.github.com> Update kernel configs
+
+projects/ROCKNIX/devices/RK3326/linux/linux.aarch64.conf
+projects/ROCKNIX/devices/RK3399/linux/linux.aarch64.conf
+projects/ROCKNIX/devices/RK3566/linux/linux.aarch64.conf
+projects/ROCKNIX/devices/RK3588/linux/linux.aarch64.conf
+projects/ROCKNIX/devices/S922X/linux/linux.aarch64.conf
+projects/ROCKNIX/devices/SM8250/linux/linux.aarch64.conf
+COMMIT 3e1c4cf6b75817ced95af7a1cdfd44c0b371c39a 2025-11-20T21:19:29+01:00 Philippe Simons <simons.philippe@gmail.com> Merge pull request #2044 from loki666/sm8650-audio
+COMMIT 95e4ffb4c55186434c034ac6a34499a0765d206e 2025-11-10T10:59:15+01:00 Philippe Simons <simons.philippe@gmail.com> sm8650/linux: fix audio
+
+projects/ROCKNIX/devices/SM8650/linux/linux.aarch64.conf
+projects/ROCKNIX/packages/audio/alsa-ucm-conf/patches/SM8650/0001-AYANEO-Pocket-S2.patch
+projects/ROCKNIX/packages/audio/pipewire/patches/SM8650/001-increase-pulse-buffer-size.patch
+projects/ROCKNIX/packages/audio/pipewire/patches/SM8650/002-increase-pipewire-buffer-size.patch
+COMMIT ad79cc1b50e739740b0341d4f382fa923c68841b 2025-11-15T06:29:19Z Danil Zagoskin <z@gosk.in> rk3326 boot: improve compatibility and usability
+
+projects/ROCKNIX/devices/RK3326/linux/linux.aarch64.conf
+projects/ROCKNIX/devices/RK3326/packages/u-boot/patches/0001-add-support-for-k36-clone-with-emmc-rk3326.patch
+COMMIT bbc491cc54e6a95727c0374da998466b16e894b0 2025-11-15T20:50:56+11:00 John Williams <porschemad911@gmail.com> S922X - weston 14, add libmali-amlogic-gbm-shim, bump weston and weston-kiosk-shell-dpms
+
+projects/ROCKNIX/packages/wayland/weston-kiosk-shell-dpms/patches/0001-Fix-build.patch
+COMMIT 799514729eaf28e943d4f8285cc4e8ff7ad3374c 2025-11-11T05:49:12Z rocknix <macebrooks@gmail.com> RK3399: update to Linux 6.17
+
+projects/ROCKNIX/devices/RK3399/linux/linux.aarch64.conf
+projects/ROCKNIX/devices/RK3399/patches/linux/998-set-boot-fanspeed.patch
+projects/ROCKNIX/devices/RK3399/patches/linux/999-clear-log-spam.patch
+COMMIT 078f4bb898f8fa811697d568d55227987670174f 2025-11-10T19:45:56+01:00 sydarn <sydarn@proton.me> rg-arc: swap touch screen axes in dts
+
+projects/ROCKNIX/devices/RK3566/patches/linux/0025-arc-swap-touch-axes.patch
+COMMIT 674c84e2adf92cc5318413a9e41c0b5d10f112db 2025-10-29T22:16:00+01:00 sydarn <sydarn@proton.me> RK3566 port to 6.17
+
+projects/ROCKNIX/devices/RK3566/linux/linux.aarch64.conf
+projects/ROCKNIX/devices/RK3566/patches/linux/0008-arm64-dts-rockchip-add-support-for-mali-bifrost-driv.patch
+projects/ROCKNIX/devices/RK3566/patches/linux/0021-arm64-dts-rockchip-fix-missing-dma-names.patch
+projects/ROCKNIX/devices/RK3566/patches/linux/0023-arm64-dts-rockchip-rk3568-Add-otp-device-node.patch
+projects/ROCKNIX/devices/RK3566/patches/linux/1001-arm64-dts-rockchip-Add-idle-states-for-rk356x.patch
+projects/ROCKNIX/devices/RK3566/patches/mali-bifrost/002-lowercase-interrupts-first.patch
+COMMIT d8d93ef893975815ede08467f9e0767b7cc1070c 2025-11-09T22:01:54Z loki666 <loki666@users.noreply.github.com> Update kernel configs
+
+projects/ROCKNIX/devices/RK3326/linux/linux.aarch64.conf
+projects/ROCKNIX/devices/RK3399/linux/linux.aarch64.conf
+projects/ROCKNIX/devices/RK3566/linux/linux.aarch64.conf
+projects/ROCKNIX/devices/S922X/linux/linux.aarch64.conf
+projects/ROCKNIX/devices/SM8250/linux/linux.aarch64.conf
+COMMIT 5097fe81cd2121ae92b1fa8208c9467f0297ef4f 2025-11-08T21:31:55+01:00 Philippe Simons <simons.philippe@gmail.com> intial SM8650 suport
+
+projects/ROCKNIX/devices/SM8650/linux/linux.aarch64.conf
+projects/ROCKNIX/devices/SM8650/patches/linux/0060-Add-Silergy-SY7758-backlight-driver.patch
+projects/ROCKNIX/devices/SM8650/patches/linux/0062-gpu-drm-panel-add-wt0630-panel.patch
+projects/ROCKNIX/devices/SM8650/patches/linux/0500-ROCKNIX-set-boot-fanspeed.patch
+projects/ROCKNIX/devices/SM8650/patches/linux/0501-ROCKNIX-fix-wifi-and-bt-mac.patch
+projects/ROCKNIX/devices/SM8650/patches/linux/0503-ROCKNIX-battery-name.patch
+projects/ROCKNIX/packages/audio/alsa-ucm-conf/patches/SM8650/0001-AYANEO-Pocket-S2.patch
+projects/ROCKNIX/packages/audio/alsa-ucm-conf/patches/SM8650/0002_AYANEO-Pocket-S2---Add-EFI-boot-compatibility.patch
+COMMIT 343a1475dca989ea951411356c490976deb73098 2025-11-08T08:55:19Z Danil Zagoskin <z@gosk.in> RK3326: use mainline u-boot with extlinux
+
+projects/ROCKNIX/devices/RK3326/packages/u-boot/patches/0001-add-support-for-k36-clone-with-emmc-rk3326.patch
+COMMIT 1f94eaa9dea8af52e83f2ca8af2aa0176b58d5d8 2025-11-07T02:01:06Z porschemad911 <porschemad911@users.noreply.github.com> Update kernel configs
+
+projects/ROCKNIX/devices/RK3399/linux/linux.aarch64.conf
+projects/ROCKNIX/devices/RK3566/linux/linux.aarch64.conf
+COMMIT b99a0cb8ad4ec41aad2e78d7e9d1c49b01ca060c 2025-11-07T12:09:59+11:00 John Williams <porschemad911@gmail.com> linux - bump 6.12 LTS to 6.12.57
+
+projects/ROCKNIX/devices/RK3326/linux/linux.aarch64.conf
+COMMIT 929332299709f895961bbcff58e966826b7fa8ed 2025-11-06T17:10:53Z r3claimer <r3claimer@users.noreply.github.com> Update kernel configs
+
+projects/ROCKNIX/devices/S922X/linux/linux.aarch64.conf
+projects/ROCKNIX/devices/SM8250/linux/linux.aarch64.conf
+COMMIT c36d139eda72950d03a12e4dad5e8c9ffbde3563 2025-10-31T15:21:35+11:00 John Williams <porschemad911@gmail.com> S922X - linux 6.17.6
+
+projects/ROCKNIX/devices/S922X/linux/linux.aarch64.conf
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0001-drm-panel-st7701-add-odroid-go-ultra-panel-support.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0002-arm64-meson-odroid-go-ultra-add-DSI-panel.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0003-arm64-meson-odroid-go-ultra-correct-voltages.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0004-arm64-meson-odroid-go-ultra-add-over-clocking-freque.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0005-arm64-meson-odroid-go-ultra-add-joypad.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0006-arm64-meson-odroid-disable-heartbeat.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0007-arm64-meson-g12-common-add-dual-panfrost-mali-to-dts.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0008-arm64-meson-add-dt-for-powkiddy-rgb10-max-3-pro.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0009-power-rk818-Configure-rk808-clkout2-function.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0010-power-supply-rk818-battery-Add-battery-driver-for-RK.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0011-power-supply-rk818-battery-Use-a-more-propper-compat.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0012-power-supply-rk818-charger-Implement-charger-driver-.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0013-power-supply-rk818-charger-Change-charger-type-to-MA.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0014-power-supply-rk818-battery-Report-charging-status-ba.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0015-power-supply-rk818-battery-Drop-dependency-on-frameb.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0016-power-supply-rk818-charger-Unify-rk818-charger-and-r.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0017-power-supply-rk818-battery-Speed-up-battery-current-.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0018-power-supply-rk818-charger-Delay-applying-input-curr.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0019-power-supply-rk818-battery-Don-t-auto-poweroff-the-P.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0020-power-supply-rk818-charger-Add-support-for-POWER_SUP.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0021-power-supply-rk818-battery-Don-t-reset-dsoc-to-0-on-.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0022-power-supply-Cleanup-rk818_battery-driver-from-usele.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0023-power-supply-rk818-battery-Re-organize-code.patch
+COMMIT 53574743ca2ee956e22e36d414565706f318f690 2025-10-30T00:40:48Z r3claimer <r3claimer@users.noreply.github.com> Update kernel configs
+
+projects/ROCKNIX/devices/SM8250/linux/linux.aarch64.conf
+COMMIT 354100dfd90c184525a2f4b2aa91349f27d6b697 2025-10-24T12:14:03Z porschemad911 <porschemad911@users.noreply.github.com> Update kernel configs
+
+projects/ROCKNIX/devices/RK3326/linux/linux.aarch64.conf
+projects/ROCKNIX/devices/RK3399/linux/linux.aarch64.conf
+projects/ROCKNIX/devices/RK3566/linux/linux.aarch64.conf
+projects/ROCKNIX/devices/S922X/linux/linux.aarch64.conf
+projects/ROCKNIX/devices/SM8250/linux/linux.aarch64.conf
+COMMIT af27fa185675c0fcac3f62d1918124c1e3462283 2025-10-24T21:51:40+11:00 John Williams <porschemad911@gmail.com> S922X - linux 6.17.4
+
+projects/ROCKNIX/devices/S922X/linux/linux.aarch64.conf
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0001-drm-panel-st7701-add-odroid-go-ultra-panel-support.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0002-arm64-meson-odroid-go-ultra-add-DSI-panel.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0003-arm64-meson-odroid-go-ultra-correct-voltages.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0004-arm64-meson-odroid-go-ultra-add-over-clocking-freque.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0005-arm64-meson-odroid-go-ultra-add-joypad.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0006-arm64-meson-odroid-disable-heartbeat.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0007-arm64-meson-g12-common-add-dual-panfrost-mali-to-dts.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0008-arm64-meson-add-dt-for-powkiddy-rgb10-max-3-pro.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0009-power-rk818-Configure-rk808-clkout2-function.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0010-power-supply-rk818-battery-Add-battery-driver-for-RK.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0011-power-supply-rk818-battery-Use-a-more-propper-compat.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0012-power-supply-rk818-charger-Implement-charger-driver-.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0013-power-supply-rk818-charger-Change-charger-type-to-MA.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0014-power-supply-rk818-battery-Report-charging-status-ba.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0015-power-supply-rk818-battery-Drop-dependency-on-frameb.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0016-power-supply-rk818-charger-Unify-rk818-charger-and-r.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0017-power-supply-rk818-battery-Speed-up-battery-current-.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0018-power-supply-rk818-charger-Delay-applying-input-curr.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0019-power-supply-rk818-battery-Don-t-auto-poweroff-the-P.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0020-power-supply-rk818-charger-Add-support-for-POWER_SUP.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0021-power-supply-rk818-battery-Don-t-reset-dsoc-to-0-on-.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0022-power-supply-Cleanup-rk818_battery-driver-from-usele.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0023-power-supply-rk818-battery-Re-organize-code.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0034-LOCAL-ALSA-Assign-internal-PCM-chmap-ELD-IEC958-kctl.patch
+COMMIT 0393a000d2294e91c7780237c0254242ca2e0fc0 2025-10-23T17:30:46-07:00 Nefirim <kolmeck@gmail.com> changed charging equation to properly display 100% charger
+
+projects/ROCKNIX/devices/SM8250/patches/linux/0011-qcom-pm8150b-charger.patch
+COMMIT 20bd45ef053862836bfde6fbcfaa1c4b267af77d 2025-10-13T22:10:19+11:00 John Williams <34047817+porschemad911@users.noreply.github.com> Merge branch 'next' into auto-pr-branch
+COMMIT b5ae6799461a517b6584f9bfeee35baaf2ea2098 2025-10-12T14:24:43+11:00 John Williams <porschemad911@gmail.com> SM8250 - linux - enable ntsync
+
+projects/ROCKNIX/devices/SM8250/linux/linux.aarch64.conf
+COMMIT ba8b145ed97684dabbe53510424c9d7677ff0e26 2025-10-12T14:21:19+11:00 John Williams <porschemad911@gmail.com> S922X / RK3326 - linux - enable ntsync
+
+projects/ROCKNIX/devices/RK3326/linux/linux.aarch64.conf
+projects/ROCKNIX/devices/S922X/linux/linux.aarch64.conf
+COMMIT 89714b0717c732f49ffc60419f554369921debdc 2025-10-08T23:04:14Z loki666 <loki666@users.noreply.github.com> Update kernel configs
+
+projects/ROCKNIX/devices/RK3326/linux/linux.aarch64.conf
+projects/ROCKNIX/devices/RK3399/linux/linux.aarch64.conf
+projects/ROCKNIX/devices/RK3566/linux/linux.aarch64.conf
+projects/ROCKNIX/devices/S922X/linux/linux.aarch64.conf
+projects/ROCKNIX/devices/SM8250/linux/linux.aarch64.conf
+COMMIT 7db2c0d8737b29e07b78ce4939122573829bbd45 2025-09-30T15:56:16Z r3claimer <r3claimer@users.noreply.github.com> Update kernel configs
+
+projects/ROCKNIX/devices/SM8250/linux/linux.aarch64.conf
+COMMIT 85973a0cb3373c5a5aab5ec0c6f59f1daad0e27a 2025-09-30T14:11:04Z rocknix <macebrooks@gmail.com> SM8250: Update kernel to 6.17
+
+projects/ROCKNIX/devices/SM8250/linux/linux.aarch64.conf
+projects/ROCKNIX/devices/SM8250/patches/linux/0011-qcom-pm8150b-charger.patch
+projects/ROCKNIX/devices/SM8250/patches/linux/0014-fix-wifi-and-bt-mac.patch
+COMMIT 536f99c5812d0a21920d9295cf9bd67af68ce8a2 2025-09-13T13:19:33Z rocknix <macebrooks@gmail.com> SM8250 audio fixes
+
+projects/ROCKNIX/packages/audio/alsa-ucm-conf/patches/SM8250/0002_Add-Retroid-Pocket-SM8250-configuration.patch
+COMMIT 3390611a896d4d779957709653c5d0ec91b8128c 2025-08-29T15:55:43Z rocknix <macebrooks@gmail.com> RK3326: Enable wifi again on OGA, thanks @armbian
+
+projects/ROCKNIX/devices/RK3326/linux/linux.aarch64.conf
+projects/ROCKNIX/devices/RK3326/patches/linux/008-esp-8089-wifi.patch
+COMMIT 026c5d481b79124064366cea886c1645ee8b639d 2025-08-29T08:07:27Z loki666 <loki666@users.noreply.github.com> Update kernel configs
+
+projects/ROCKNIX/devices/RK3326/linux/linux.aarch64.conf
+projects/ROCKNIX/devices/RK3399/linux/linux.aarch64.conf
+projects/ROCKNIX/devices/RK3566/linux/linux.aarch64.conf
+projects/ROCKNIX/devices/S922X/linux/linux.aarch64.conf
+projects/ROCKNIX/devices/SM8250/linux/linux.aarch64.conf
+COMMIT f3821ad3c3a5cc5b7b3a5aac8f9cd827e4cacf09 2025-08-29T10:59:27+10:00 John Williams <porschemad911@gmail.com> linux - bump 6.12 LTS to 6.12.43
+
+projects/ROCKNIX/devices/RK3326/linux/linux.aarch64.conf
+projects/ROCKNIX/devices/S922X/linux/linux.aarch64.conf
+COMMIT b084c2b6e266ef9e6c39c25f43b48e6ba92e6c60 2025-08-25T19:58:37Z loki666 <loki666@users.noreply.github.com> Update kernel configs
+
+projects/ROCKNIX/devices/RK3326/linux/linux.aarch64.conf
+projects/ROCKNIX/devices/RK3399/linux/linux.aarch64.conf
+projects/ROCKNIX/devices/RK3566/linux/linux.aarch64.conf
+projects/ROCKNIX/devices/RK3588/linux/linux.aarch64.conf
+projects/ROCKNIX/devices/S922X/linux/linux.aarch64.conf
+projects/ROCKNIX/devices/SM8250/linux/linux.aarch64.conf
+COMMIT 88e7de56c2e3335a2e616bf1f85b54ea8827c71f 2025-08-20T17:43:40+02:00 Philippe Simons <simons.philippe@gmail.com> linux/kernel: bump to 6.16.3
+
+projects/ROCKNIX/devices/SM8250/patches/linux/9999-remove-log-spam.patch
+COMMIT f48cc1b0304a843ed4e04c7627a2fe08f733d4f9 2025-08-07T00:35:10+02:00 Philippe Simons <simons.philippe@gmail.com> network/wifi
+
+projects/ROCKNIX/devices/RK3326/linux/linux.aarch64.conf
+projects/ROCKNIX/devices/RK3399/linux/linux.aarch64.conf
+projects/ROCKNIX/devices/RK3566/linux/linux.aarch64.conf
+projects/ROCKNIX/devices/RK3588/linux/linux.aarch64.conf
+projects/ROCKNIX/devices/S922X/linux/linux.aarch64.conf
+projects/ROCKNIX/devices/SM8250/linux/linux.aarch64.conf
+COMMIT 0d53de643c9de69025e1d6a16284b854d7a64f0d 2025-08-11T07:32:39Z tiopex <tiopex@users.noreply.github.com> Update kernel configs
+
+projects/ROCKNIX/devices/RK3326/linux/linux.aarch64.conf
+projects/ROCKNIX/devices/RK3399/linux/linux.aarch64.conf
+projects/ROCKNIX/devices/RK3566/linux/linux.aarch64.conf
+projects/ROCKNIX/devices/RK3588/linux/linux.aarch64.conf
+projects/ROCKNIX/devices/S922X/linux/linux.aarch64.conf
+projects/ROCKNIX/devices/SM8250/linux/linux.aarch64.conf
+COMMIT f24d2f8bc90f9419479afcfbb9a194668c8b22bf 2025-08-08T17:52:20+02:00 sydarn <sydarn@proton.me> rk3566: delay sd2
+
+projects/ROCKNIX/devices/RK3566/patches/linux/0024-sdmmc1-card-detect-delay.patch
+COMMIT 8bded8e8f73fc06a30c4c1c32fc02601887ded02 2025-08-04T13:59:18Z rocknix <macebrooks@gmail.com> Update Xemu-sa to latest release
+
+projects/ROCKNIX/packages/emulators/standalone/xemu-sa/patches/SM8250/000-fix-face-buttons.patch
+COMMIT 5fd3f9b6cb3c29d1f4c543ca1e74d89b4026a7bb 2025-08-02T23:40:02+10:00 John Williams <porschemad911@gmail.com> RK3588 - kconfig - CONFIG_FAT_DEFAULT_CODEPAGE=437 and CONFIG_FAT_DEFAULT_IOCHARSET="ascii"
+
+projects/ROCKNIX/devices/RK3588/linux/linux.aarch64.conf
+COMMIT 020208953f3fa6a4b4c3540fe971c31a800ca705 2025-07-28T14:07:52Z rocknix <macebrooks@gmail.com> SM8250: update kernel to 6.16 and fix low audio issue
+
+projects/ROCKNIX/devices/SM8250/linux/linux.aarch64.conf
+projects/ROCKNIX/devices/SM8250/patches/linux/9999-remove-log-spam.patch
+COMMIT 1ab1ff77f5f6037f229f70edd76321e0d0694130 2025-07-26T10:40:00+01:00 spycat88 <spycat88@users.noreply.github.com> projects: align kernel character support set options
+
+projects/ROCKNIX/devices/RK3326/linux/linux.aarch64.conf
+projects/ROCKNIX/devices/RK3399/linux/linux.aarch64.conf
+projects/ROCKNIX/devices/RK3566/linux/linux.aarch64.conf
+projects/ROCKNIX/devices/RK3588/linux/linux.aarch64.conf
+projects/ROCKNIX/devices/S922X/linux/linux.aarch64.conf
+projects/ROCKNIX/devices/SM8250/linux/linux.aarch64.conf
+COMMIT 73e0886b6938698a894ecf6bb3e81e0dfa5cb02b 2025-07-23T06:37:38Z rocknix <macebrooks@gmail.com> Update packages, increase cma on sm8250, add cma to rk3399
+
+projects/ROCKNIX/devices/RK3399/linux/linux.aarch64.conf
+projects/ROCKNIX/devices/SM8250/linux/linux.aarch64.conf
+COMMIT 9f1fab30f6bbbc22c859b0cc5097b488466efefd 2025-07-13T18:53:11+01:00 ROCKNIX Team <admin@rocknix.org> projects: add modifications for ROCKNIX
+
+projects/ROCKNIX/devices/RK3326/linux/linux.aarch64.conf
+projects/ROCKNIX/devices/RK3326/patches/linux/001-panel-updates.patch
+projects/ROCKNIX/devices/RK3326/patches/linux/004-input-drivers.patch
+projects/ROCKNIX/devices/RK3326/patches/linux/005-unigue-gpio-guid.patch
+projects/ROCKNIX/devices/RK3326/patches/linux/007-ogs-panel-timings.patch
+projects/ROCKNIX/devices/RK3326/patches/mali-bifrost/002-lowercase-interrupts-first.patch
+projects/ROCKNIX/devices/RK3399/linux/linux.aarch64.conf
+projects/ROCKNIX/devices/RK3399/packages/u-boot/patches/001-no-efi.patch
+projects/ROCKNIX/devices/RK3399/patches/linux/001-rk3399-opp.patch
+projects/ROCKNIX/devices/RK3399/patches/linux/002-panel-sharp-ls054b3sx01.patch
+projects/ROCKNIX/devices/RK3399/patches/linux/004-battery-name.patch
+projects/ROCKNIX/devices/RK3399/patches/linux/006-mali-midgard.patch
+projects/ROCKNIX/devices/RK3399/patches/linux/007-enable-cpu-nvmem.patch
+projects/ROCKNIX/devices/RK3399/patches/linux/998-set-boot-fanspeed.patch
+projects/ROCKNIX/devices/RK3399/patches/linux/999-clear-log-spam.patch
+projects/ROCKNIX/devices/RK3566/linux/linux.aarch64.conf
+projects/ROCKNIX/devices/RK3566/packages/u-boot-Generic/patches/0003-board-rockchip-Fix-panel-detection-logic-for-mainlin.patch
+projects/ROCKNIX/devices/RK3566/packages/u-boot-Generic/patches/003-fix-dtb-and-vs.patch
+projects/ROCKNIX/devices/RK3566/packages/u-boot-Generic/patches/004-rgb20pro.patch
+projects/ROCKNIX/devices/RK3566/patches/linux/0001-arm64-dts-rockchip-rk356x-add-1992mhz-cpu-opp-with-t.patch
+projects/ROCKNIX/devices/RK3566/patches/linux/0002-power-supply-rk817-update-battery-and-charger-name-s.patch
+projects/ROCKNIX/devices/RK3566/patches/linux/0003-drm-panel-st7703-Fix-Panel-Initialization-for-Anbern.patch
+projects/ROCKNIX/devices/RK3566/patches/linux/0004-arm64-dts-rockchip-fix-wifi-sdio-errors.patch
+projects/ROCKNIX/devices/RK3566/patches/linux/0005-arm64-dts-rockchip-fixup-anbernic-controls.patch
+projects/ROCKNIX/devices/RK3566/patches/linux/0006-drm-panel-nv3051d-fix-panel-timings-and-display-mode.patch
+projects/ROCKNIX/devices/RK3566/patches/linux/0008-arm64-dts-rockchip-add-support-for-mali-bifrost-driv.patch
+projects/ROCKNIX/devices/RK3566/patches/linux/0009-arm64-dts-rockchip-fix-shoulders-triggers-on-powkidd.patch
+projects/ROCKNIX/devices/RK3566/patches/linux/0010-drm-panel-st7703-request-higher-pixelclock-for-RGB30.patch
+projects/ROCKNIX/devices/RK3566/patches/linux/0012-arm64-dts-rockchip-update-powkiddy-x55-dts-to-suppor.patch
+projects/ROCKNIX/devices/RK3566/patches/linux/0013-Bluetooth-Check-key-sizes-only-when-Secure-Simple-Pa.patch
+projects/ROCKNIX/devices/RK3566/patches/linux/0014-drm-panel-st7701-fixup-Anbernic-RG-Arc-panel-timings.patch
+projects/ROCKNIX/devices/RK3566/patches/linux/0015-arm64-dts-rockchip-use-linear-backlight-levels-to-im.patch
+projects/ROCKNIX/devices/RK3566/patches/linux/0016-arm64-dts-rockchip-add-device-tree-for-powkiddy-x35s.patch
+projects/ROCKNIX/devices/RK3566/patches/linux/0018-arm64-dts-rockchip-add-device-tree-for-powkiddy-rgb2.patch
+projects/ROCKNIX/devices/RK3566/patches/linux/0019-arm64-dts-rockchip-add-system-power-controller-attri.patch
+projects/ROCKNIX/devices/RK3566/patches/linux/0021-arm64-dts-rockchip-fix-missing-dma-names.patch
+projects/ROCKNIX/devices/RK3566/patches/linux/0022-nvmem-rockchip-otp-Add-support-for-rk3568-otp.patch
+projects/ROCKNIX/devices/RK3566/patches/linux/0023-arm64-dts-rockchip-rk3568-Add-otp-device-node.patch
+projects/ROCKNIX/devices/RK3566/patches/linux/1001-arm64-dts-rockchip-Add-idle-states-for-rk356x.patch
+projects/ROCKNIX/devices/RK3566/patches/linux/1002-arm64-dts-rockchip-Add-spk_amp-regulator-for-Anberni.patch
+projects/ROCKNIX/devices/RK3566/patches/linux/1004-arm64-dts-rockchip-Add-avdd_0v9-and-avdd_1v8-for-RGx.patch
+projects/ROCKNIX/devices/RK3566/patches/linux/1006-arm64-dts-rockchip-Correct-boot-enabled-regulators-f.patch
+projects/ROCKNIX/devices/RK3566/patches/linux/1008-arm64-dts-rockchip-Enable-DMA-for-uart1-on-RGxx3.patch
+projects/ROCKNIX/devices/RK3566/patches/linux/1009-arm64-dts-rockchip-Map-wifi-host-wake-interrupt-for-.patch
+projects/ROCKNIX/devices/RK3566/patches/mali-bifrost/002-lowercase-interrupts-first.patch
+projects/ROCKNIX/devices/RK3588/linux/linux.aarch64.conf
+projects/ROCKNIX/devices/RK3588/patches/linux/000-gameforce-ace.patch
+projects/ROCKNIX/devices/RK3588/patches/linux/002-opp-table.patch
+projects/ROCKNIX/devices/RK3588/patches/linux/003-audio-fix.patch
+projects/ROCKNIX/devices/RK3588/patches/linux/004-battery-name.patch
+projects/ROCKNIX/devices/RK3588/patches/linux/005-polldev-driver.patch
+projects/ROCKNIX/devices/RK3588/patches/linux/006-rk3588-rock-5b-plus.patch
+projects/ROCKNIX/devices/RK3588/patches/linux/007-add-ion-allocator.patch
+projects/ROCKNIX/devices/RK3588/patches/linux/008-increase-cma.patch
+projects/ROCKNIX/devices/RK3588/patches/linux/009-fix-sleep.patch
+projects/ROCKNIX/devices/RK3588/patches/linux/012-Multiaxis.patch
+projects/ROCKNIX/devices/RK3588/patches/linux/013-MAX17055-EZ-Config.patch
+projects/ROCKNIX/devices/RK3588/patches/linux/014-Fix-gpio-poweroff.patch
+projects/ROCKNIX/devices/RK3588/patches/linux/015-iwlwifi.patch
+projects/ROCKNIX/devices/RK3588/patches/linux/997-remove-log-spam.patch
+projects/ROCKNIX/devices/RK3588/patches/linux/998-fix-gcc14-compile.patch
+projects/ROCKNIX/devices/RK3588/patches/linux/999-MALI-rockchip-upgrade-bifrost-DDK-to-g21p0-01eac0-fr.patch
+projects/ROCKNIX/devices/S922X/linux/linux.aarch64.conf
+projects/ROCKNIX/devices/S922X/packages/u-boot/patches/001-disable-bootmode-hotkey-check.patch
+projects/ROCKNIX/devices/S922X/packages/u-boot/patches/002-overlay.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0001-drm-panel-st7701-add-odroid-go-ultra-panel-support.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0002-arm64-meson-odroid-go-ultra-add-DSI-panel.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0003-arm64-meson-odroid-go-ultra-correct-voltages.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0004-arm64-meson-odroid-go-ultra-add-over-clocking-freque.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0005-arm64-meson-odroid-go-ultra-add-joypad.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0006-arm64-meson-odroid-disable-heartbeat.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0007-arm64-meson-g12-common-add-dual-panfrost-mali-to-dts.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0008-arm64-meson-add-dt-for-powkiddy-rgb10-max-3-pro.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0009-power-rk818-Configure-rk808-clkout2-function.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0010-power-supply-rk818-battery-Add-battery-driver-for-RK.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0011-power-supply-rk818-battery-Use-a-more-propper-compat.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0012-power-supply-rk818-charger-Implement-charger-driver-.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0013-power-supply-rk818-charger-Change-charger-type-to-MA.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0014-power-supply-rk818-battery-Report-charging-status-ba.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0015-power-supply-rk818-battery-Drop-dependency-on-frameb.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0016-power-supply-rk818-charger-Unify-rk818-charger-and-r.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0017-power-supply-rk818-battery-Speed-up-battery-current-.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0018-power-supply-rk818-charger-Delay-applying-input-curr.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0019-power-supply-rk818-battery-Don-t-auto-poweroff-the-P.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0020-power-supply-rk818-charger-Add-support-for-POWER_SUP.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0021-power-supply-rk818-battery-Don-t-reset-dsoc-to-0-on-.patch
+projects/ROCKNIX/devices/S922X/patches/linux/S922X/0034-LOCAL-ALSA-Assign-internal-PCM-chmap-ELD-IEC958-kctl.patch
+projects/ROCKNIX/devices/SM8250/linux/linux.aarch64.conf
+projects/ROCKNIX/devices/SM8250/patches/linux/0004-pm8150b.patch
+projects/ROCKNIX/devices/SM8250/patches/linux/0005-sm8250-uart.patch
+projects/ROCKNIX/devices/SM8250/patches/linux/0008-retroid-gamepad.patch
+projects/ROCKNIX/devices/SM8250/patches/linux/0009-qcom-spmi-haptics.patch
+projects/ROCKNIX/devices/SM8250/patches/linux/0010-leds-htr3212.patch
+projects/ROCKNIX/devices/SM8250/patches/linux/0011-qcom-pm8150b-charger.patch
+projects/ROCKNIX/devices/SM8250/patches/linux/0012-ASoC-qcom-q6asm-dai-Change-some-default-periods.patch
+projects/ROCKNIX/devices/SM8250/patches/linux/0013-add-force-feedback.patch
+projects/ROCKNIX/devices/SM8250/patches/linux/0014-fix-wifi-and-bt-mac.patch
+projects/ROCKNIX/devices/SM8250/patches/linux/0100-revert-force-16bit-audio.patch
+projects/ROCKNIX/devices/SM8250/patches/linux/9997-set-boot-fanspeed.patch
+projects/ROCKNIX/devices/SM8250/patches/linux/9999-remove-log-spam.patch
+projects/ROCKNIX/packages/apps/gamepadtester/patches/RK3399/000-set-resolution.patch
+projects/ROCKNIX/packages/apps/gamepadtester/patches/RK3588/000-set-resolution.patch
+projects/ROCKNIX/packages/apps/oga_controls/patches/RK3326/000-platform.patch
+projects/ROCKNIX/packages/apps/oga_controls/patches/S922X/000-platform.patch
+projects/ROCKNIX/packages/audio/alsa-lib/patches/SM8250/0001-Enabled-extended-namehints-in-alsa.conf.patch
+projects/ROCKNIX/packages/audio/alsa-ucm-conf/patches/SM8250/0002_Add-Retroid-Pocket-SM8250-configuration.patch
+projects/ROCKNIX/packages/audio/alsa-ucm-conf/patches/SM8250/0003_Maintain-compatibility-with-old-loader-u-boot.patch
+projects/ROCKNIX/packages/audio/pipewire/patches/SM8250/000-increase-buffer.patch
+projects/ROCKNIX/packages/emulators/standalone/ppsspp-sa/patches/SM8250/000-swap-guid-and-misc.patch
+projects/ROCKNIX/packages/emulators/standalone/xemu-sa/patches/SM8250/000-fix-face-buttons.patch
+projects/ROCKNIX/packages/graphics/libmali/patches/RK3588/000-dont-install-firmware.patch
+projects/ROCKNIX/packages/graphics/vulkan-wsi-layer/patches/sync.patch
+projects/ROCKNIX/packages/graphics/vulkan-wsi-layer/patches/vklayer-driver-path.patch
+projects/ROCKNIX/packages/multimedia/ffmpeg/patches/vf-deinterlace-v4l2m2m/ffmpeg-001-vf-deinterlace-v4l2m2m.patch
+projects/ROCKNIX/packages/multimedia/rkmpp/patches/01-dont-compile-tests.patch
+projects/ROCKNIX/packages/tools/atf/patches/RK3399/000-atf-fix-baud.patch
+projects/ROCKNIX/packages/wayland/weston/patches/001-terminal.patch
+projects/ROCKNIX/packages/wayland/weston/patches/002-weston-image.patch
+projects/ROCKNIX/packages/wayland/weston/patches/003-use-old-repaint-behavior.patch

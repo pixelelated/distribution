@@ -1,0 +1,213 @@
+{
+  "id": "G005",
+  "census": {
+    "id": "G005",
+    "recipe": "projects/ROCKNIX/devices/RK3326/packages/u-boot/package.mk",
+    "recipe_sha256": "acd31ca66a51b22a38d8ff33ca77e72b5c48e619937431e934be25944ff3a87a",
+    "owner": [
+      "devices-unshipped"
+    ],
+    "consumer": "RK3326-aarch64",
+    "device": "RK3326",
+    "arch": "aarch64",
+    "target_cpu": "cortex-a35",
+    "patch_arch": "aarch64",
+    "LINUX": "unset in clean default source config",
+    "batteryplus": "no or unset; exact yes predicate false",
+    "name": "u-boot",
+    "pin": "v2025.10",
+    "url": "https://github.com/u-boot/u-boot/archive/refs/tags/v2025.10.tar.gz",
+    "expected_sha256": "5414ee86562abc5ed524c6dc5e092511ad281441020a88e7027de6e83fd16116",
+    "selectors": [],
+    "ordered_pattern_directories": [
+      "projects/ROCKNIX/devices/RK3326/packages/u-boot/patches",
+      "projects/ROCKNIX/devices/RK3326/packages/u-boot/patches/aarch64",
+      "projects/ROCKNIX/devices/RK3326/packages/u-boot/patches/v2025.10",
+      "projects/ROCKNIX/devices/RK3326/packages/u-boot/patches/v2025.10/aarch64",
+      "projects/ROCKNIX/patches/u-boot",
+      "projects/ROCKNIX/patches/u-boot/aarch64",
+      "projects/ROCKNIX/patches/u-boot/v2025.10",
+      "projects/ROCKNIX/devices/RK3326/patches/u-boot"
+    ],
+    "stack": [
+      "projects/ROCKNIX/devices/RK3326/packages/u-boot/patches/0001-add-support-for-k36-clone-with-emmc-rk3326.patch"
+    ],
+    "native_paths": [
+      "projects/ROCKNIX/devices/RK3326/packages/u-boot/patches/0001-add-support-for-k36-clone-with-emmc-rk3326.patch"
+    ],
+    "config_paths": [],
+    "cache_candidates": [
+      "/workspace/cache/rocknix-sources/u-boot/u-boot-v2025.10.tar.gz"
+    ],
+    "preimage_limits": [],
+    "source_only": true,
+    "runtime": false,
+    "source_overlays": [
+      {
+        "path": "projects/ROCKNIX/devices/RK3326/packages/u-boot/sources/arch/arm/dts/rk3326-odroid-go2-emmc.dtsi",
+        "relative": "arch/arm/dts/rk3326-odroid-go2-emmc.dtsi",
+        "mode": "100644",
+        "oid": "b25e54d7bb74683d0ce1fe6d2fe19b4d4ad0af2a"
+      },
+      {
+        "path": "projects/ROCKNIX/devices/RK3326/packages/u-boot/sources/arch/arm/dts/rk3326-odroid-go2-uart5.dtsi",
+        "relative": "arch/arm/dts/rk3326-odroid-go2-uart5.dtsi",
+        "mode": "100644",
+        "oid": "b2bd0be717c428d4ebf3e950a3c9ee3d0b48ac16"
+      },
+      {
+        "path": "projects/ROCKNIX/devices/RK3326/packages/u-boot/sources/configs/rk3326-handheld_defconfig",
+        "relative": "configs/rk3326-handheld_defconfig",
+        "mode": "100644",
+        "oid": "fa4fb13982108f71658c36340d3e9439d9e24729"
+      },
+      {
+        "path": "projects/ROCKNIX/devices/RK3326/packages/u-boot/sources/dts/upstream/src/arm64/rockchip/rk3326-common-handheld.dts",
+        "relative": "dts/upstream/src/arm64/rockchip/rk3326-common-handheld.dts",
+        "mode": "100644",
+        "oid": "3fd3cb5a50c95bf47bbcf5e18584b02654865c1b"
+      }
+    ]
+  },
+  "started": "2026-11-02T21:57:57.833233+00:00",
+  "rows": [
+    {
+      "path": "projects/ROCKNIX/devices/RK3326/packages/u-boot/patches/0001-add-support-for-k36-clone-with-emmc-rk3326.patch",
+      "referent": "projects/ROCKNIX/devices/RK3326/packages/u-boot/patches/0001-add-support-for-k36-clone-with-emmc-rk3326.patch",
+      "mode": "100644",
+      "literal_sha256": "c499064b4c8f7ec3583c98d644eea429300eec69415220ee731554b73aa3cccb",
+      "content_sha256": "c499064b4c8f7ec3583c98d644eea429300eec69415220ee731554b73aa3cccb",
+      "rendered_sha256": "c499064b4c8f7ec3583c98d644eea429300eec69415220ee731554b73aa3cccb",
+      "targets": [
+        "board/hardkernel/odroid_go2/go2.c"
+      ],
+      "backend": "patch",
+      "index": 1,
+      "native": true,
+      "normal_called": true,
+      "normal": {
+        "argv": [
+          "patch",
+          "-d",
+          "/workspace/tmp/m6-t43/G005-001-candidate-jrr590h5",
+          "-p1"
+        ],
+        "start": "2026-11-02T21:57:58.909360+00:00",
+        "end": "2026-11-02T21:57:58.910125+00:00",
+        "exit": 0,
+        "stdout_sha256": "d3a2dbed175a64b45fba98e35275ac705c299162ff90fc77aac32d49338b7f27",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "output": "patching file board/hardkernel/odroid_go2/go2.c\n",
+        "error": ""
+      },
+      "input_digest": "69436581bc347dc794431faf9024bdd46a6e1f0de473319ddab66e31dcc87167",
+      "output_digest": "be6b26fb285f9cd1ac29a17fb92b163d49fe91a173f40a2b653e5f4681db7f08",
+      "candidate_snapshot": {
+        "board/hardkernel/odroid_go2/go2.c": {
+          "type": "file",
+          "mode": "0o664",
+          "sha256": "650928d60c8e0d3f4e892f1a22de5a349c6056a64bb39777002fa65f5151fde1",
+          "bytes": 2388
+        }
+      },
+      "candidate_root": "/workspace/tmp/m6-t43/G005-001-candidate-jrr590h5",
+      "status": "applies",
+      "promoted": true
+    }
+  ],
+  "input_snapshot": {
+    "board/hardkernel/odroid_go2/go2.c": {
+      "type": "file",
+      "mode": "0o664",
+      "sha256": "5d8d1d589e86db34eee4e0a4450713c2e622c75560631daa35be645195e8255f",
+      "bytes": 2246
+    }
+  },
+  "limits": [],
+  "cache_observations": [
+    {
+      "path": "/workspace/cache/rocknix-sources/u-boot/u-boot-v2025.10.tar.gz",
+      "sha256": "5414ee86562abc5ed524c6dc5e092511ad281441020a88e7027de6e83fd16116",
+      "expected": "5414ee86562abc5ed524c6dc5e092511ad281441020a88e7027de6e83fd16116"
+    }
+  ],
+  "archive": {
+    "path": "/workspace/cache/rocknix-sources/u-boot/u-boot-v2025.10.tar.gz",
+    "sha256": "5414ee86562abc5ed524c6dc5e092511ad281441020a88e7027de6e83fd16116",
+    "recipe_url": "https://github.com/u-boot/u-boot/archive/refs/tags/v2025.10.tar.gz"
+  },
+  "stack": [
+    {
+      "path": "projects/ROCKNIX/devices/RK3326/packages/u-boot/patches/0001-add-support-for-k36-clone-with-emmc-rk3326.patch",
+      "referent": "projects/ROCKNIX/devices/RK3326/packages/u-boot/patches/0001-add-support-for-k36-clone-with-emmc-rk3326.patch",
+      "mode": "100644",
+      "literal_sha256": "c499064b4c8f7ec3583c98d644eea429300eec69415220ee731554b73aa3cccb",
+      "content_sha256": "c499064b4c8f7ec3583c98d644eea429300eec69415220ee731554b73aa3cccb",
+      "rendered_sha256": "c499064b4c8f7ec3583c98d644eea429300eec69415220ee731554b73aa3cccb",
+      "targets": [
+        "board/hardkernel/odroid_go2/go2.c"
+      ],
+      "backend": "patch"
+    }
+  ],
+  "stack_sha256": "2fa405eab40618acf6a2d8f728a4f219c6facb3d2a1041e7c65165f5325530a2",
+  "projection": {
+    "archive_header_count": 39588,
+    "archive_header_sha256": "18a5eae2f1563e3d808f912c7904820976138569206af9cf4fac4e91116128dc",
+    "projected_members": {
+      "board/hardkernel/odroid_go2/go2.c": {
+        "type": "file",
+        "mode": "0o664",
+        "sha256": "5d8d1d589e86db34eee4e0a4450713c2e622c75560631daa35be645195e8255f",
+        "bytes": 2246
+      }
+    },
+    "absent_targets": [],
+    "projection_root": "/workspace/tmp/m6-t43/source-members-urne3n6a"
+  },
+  "overlay_evidence": [
+    {
+      "path": "projects/ROCKNIX/devices/RK3326/packages/u-boot/sources/arch/arm/dts/rk3326-odroid-go2-emmc.dtsi",
+      "relative": "arch/arm/dts/rk3326-odroid-go2-emmc.dtsi",
+      "mode": "100644",
+      "oid": "b25e54d7bb74683d0ce1fe6d2fe19b4d4ad0af2a",
+      "sha256": "41b909b9f528872aa0ff565698cfebee65ee9359d09cf9f2d9db727815e3cf9f",
+      "projected": false
+    },
+    {
+      "path": "projects/ROCKNIX/devices/RK3326/packages/u-boot/sources/arch/arm/dts/rk3326-odroid-go2-uart5.dtsi",
+      "relative": "arch/arm/dts/rk3326-odroid-go2-uart5.dtsi",
+      "mode": "100644",
+      "oid": "b2bd0be717c428d4ebf3e950a3c9ee3d0b48ac16",
+      "sha256": "3d6b5e029ce9bb7eec45acc5c14acb02515ce74e623377c7b4537e906bee5bcd",
+      "projected": false
+    },
+    {
+      "path": "projects/ROCKNIX/devices/RK3326/packages/u-boot/sources/configs/rk3326-handheld_defconfig",
+      "relative": "configs/rk3326-handheld_defconfig",
+      "mode": "100644",
+      "oid": "fa4fb13982108f71658c36340d3e9439d9e24729",
+      "sha256": "227f660e258388c2513b2d8a1c743371e610e61ab04be3c38bfb803778b4239f",
+      "projected": false
+    },
+    {
+      "path": "projects/ROCKNIX/devices/RK3326/packages/u-boot/sources/dts/upstream/src/arm64/rockchip/rk3326-common-handheld.dts",
+      "relative": "dts/upstream/src/arm64/rockchip/rk3326-common-handheld.dts",
+      "mode": "100644",
+      "oid": "3fd3cb5a50c95bf47bbcf5e18584b02654865c1b",
+      "sha256": "85d0e6e551ca951b8fab6a72b61e28f4a22b8c3bc02161f54f036beb42f948dd",
+      "projected": false
+    }
+  ],
+  "status": "applies",
+  "final_prefix_root": "/workspace/tmp/m6-t43/G005-001-candidate-jrr590h5",
+  "final_prefix_snapshot": {
+    "board/hardkernel/odroid_go2/go2.c": {
+      "type": "file",
+      "mode": "0o664",
+      "sha256": "650928d60c8e0d3f4e892f1a22de5a349c6056a64bb39777002fa65f5151fde1",
+      "bytes": 2388
+    }
+  },
+  "finished": "2026-11-02T21:57:58.910524+00:00"
+}

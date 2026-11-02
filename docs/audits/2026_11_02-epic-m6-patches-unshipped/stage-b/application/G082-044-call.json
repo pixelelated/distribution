@@ -1,0 +1,15 @@
+{
+  "argv": [
+    "patch",
+    "-d",
+    "/workspace/tmp/m6-t43/G082-044-candidate-283frfxy",
+    "-p1"
+  ],
+  "start": "2026-11-02T21:56:11.130729+00:00",
+  "end": "2026-11-02T21:56:11.132700+00:00",
+  "exit": 0,
+  "stdout_sha256": "8068dda79ef48aec9caf39eff6008a53486f02d710937eda98450b170571da39",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "output": "patching file drivers/hwmon/pwm-fan.c\nHunk #1 succeeded at 565 (offset 6 lines).\n",
+  "error": ""
+}

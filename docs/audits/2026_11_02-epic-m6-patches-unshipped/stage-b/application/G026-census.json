@@ -1,0 +1,57 @@
+{
+  "id": "G026",
+  "census": {
+    "id": "G026",
+    "recipe": "projects/ROCKNIX/packages/audio/alsa-lib/package.mk",
+    "recipe_sha256": "592f3654b64cdf1a1b9140d1c0fd28195c80f70cbfb9c3274a49c032839b22ab",
+    "owner": [
+      "image-packages"
+    ],
+    "consumer": "SM8250-arm",
+    "device": "SM8250",
+    "arch": "arm",
+    "target_cpu": "cortex-a76.cortex-a55",
+    "patch_arch": "arm",
+    "LINUX": "unset in clean default source config",
+    "batteryplus": "no or unset; exact yes predicate false",
+    "name": "alsa-lib",
+    "pin": "1.2.14",
+    "url": "https://www.alsa-project.org/files/pub/lib/alsa-lib-1.2.14.tar.bz2",
+    "expected_sha256": "be9c88a0b3604367dd74167a2b754a35e142f670292ae47a2fdef27a2ee97a32",
+    "selectors": [
+      "SM8250"
+    ],
+    "ordered_pattern_directories": [
+      "projects/ROCKNIX/packages/audio/alsa-lib/patches",
+      "projects/ROCKNIX/packages/audio/alsa-lib/patches/arm",
+      "projects/ROCKNIX/packages/audio/alsa-lib/patches/SM8250",
+      "projects/ROCKNIX/packages/audio/alsa-lib/patches/1.2.14",
+      "projects/ROCKNIX/packages/audio/alsa-lib/patches/1.2.14/arm",
+      "projects/ROCKNIX/patches/alsa-lib",
+      "projects/ROCKNIX/patches/alsa-lib/arm",
+      "projects/ROCKNIX/patches/alsa-lib/SM8250",
+      "projects/ROCKNIX/devices/SM8250/patches/alsa-lib/SM8250",
+      "projects/ROCKNIX/patches/alsa-lib/1.2.14",
+      "projects/ROCKNIX/devices/SM8250/patches/alsa-lib"
+    ],
+    "stack": [
+      "projects/ROCKNIX/packages/audio/alsa-lib/patches/001-silence-underruns.patch",
+      "projects/ROCKNIX/packages/audio/alsa-lib/patches/alsa-lib-asound.conf_configdir.patch",
+      "projects/ROCKNIX/packages/audio/alsa-lib/patches/SM8250/0001-Enabled-extended-namehints-in-alsa.conf.patch"
+    ],
+    "native_paths": [
+      "projects/ROCKNIX/packages/audio/alsa-lib/patches/SM8250/0001-Enabled-extended-namehints-in-alsa.conf.patch"
+    ],
+    "config_paths": [],
+    "cache_candidates": [
+      "/workspace/cache/rocknix-sources/alsa-lib/alsa-lib-1.2.14.tar.bz2"
+    ],
+    "preimage_limits": [],
+    "source_only": true,
+    "runtime": false
+  },
+  "started": "2026-11-02T21:55:19.480614+00:00",
+  "rows": [],
+  "input_snapshot": {},
+  "limits": []
+}

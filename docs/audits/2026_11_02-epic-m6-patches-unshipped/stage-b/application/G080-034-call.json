@@ -1,0 +1,15 @@
+{
+  "argv": [
+    "patch",
+    "-d",
+    "/workspace/tmp/m6-t43/G080-034-candidate-p0y7whrf",
+    "-p1"
+  ],
+  "start": "2026-11-02T21:56:02.084776+00:00",
+  "end": "2026-11-02T21:56:02.086751+00:00",
+  "exit": 0,
+  "stdout_sha256": "23e3e2dc006dd885d15141198bef3c5b6cb7786647231b98b7b9a3a5ab1d2441",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "output": "patching file drivers/bluetooth/hci_qca.c\nHunk #1 succeeded at 2034 (offset 9 lines).\nHunk #2 succeeded at 2668 (offset 10 lines).\n",
+  "error": ""
+}

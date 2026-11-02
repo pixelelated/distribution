@@ -1,0 +1,15 @@
+{
+  "argv": [
+    "patch",
+    "-d",
+    "/workspace/tmp/m6-t43/G083-004-candidate-dkz425rc",
+    "-p1"
+  ],
+  "start": "2026-11-02T21:56:18.302783+00:00",
+  "end": "2026-11-02T21:56:18.304025+00:00",
+  "exit": 0,
+  "stdout_sha256": "f9aaac6cb314b1d2789472e9136920981f0577b8c4587891ce1943661a8d26de",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "output": "patching file drivers/bluetooth/btrtl.c\nHunk #1 succeeded at 180 (offset 1 line).\nHunk #2 succeeded at 675 (offset 4 lines).\nHunk #3 succeeded at 1553 (offset 34 lines).\npatching file drivers/bluetooth/btusb.c\nHunk #1 succeeded at 826 with fuzz 2 (offset 161 lines).\n",
+  "error": ""
+}

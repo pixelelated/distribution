@@ -1,0 +1,15 @@
+{
+  "argv": [
+    "patch",
+    "-d",
+    "/workspace/tmp/m6-t43/G084-045-candidate-an15japg",
+    "-p1"
+  ],
+  "start": "2026-11-02T21:56:26.678527+00:00",
+  "end": "2026-11-02T21:56:26.679618+00:00",
+  "exit": 0,
+  "stdout_sha256": "5fa36243e14b0a5f8e40437016fa91d296e87b0c8dd78afb0da838f53e9e5b80",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "output": "patching file drivers/input/misc/Kconfig\npatching file drivers/input/misc/Makefile\npatching file drivers/input/misc/konkr_sysbtn.c\n",
+  "error": ""
+}

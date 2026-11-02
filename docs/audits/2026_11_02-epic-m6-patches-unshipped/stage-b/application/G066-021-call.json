@@ -1,0 +1,15 @@
+{
+  "argv": [
+    "patch",
+    "-d",
+    "/workspace/tmp/m6-t43/G066-021-candidate-lpv1mwtk",
+    "-p1"
+  ],
+  "start": "2026-11-02T21:55:28.772457+00:00",
+  "end": "2026-11-02T21:55:28.774560+00:00",
+  "exit": 0,
+  "stdout_sha256": "47060e94d859028c4db8ac0d17d48ae195d4fa917e3ca4cf179320bb8c830342",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "output": "patching file drivers/usb/dwc2/core.h\npatching file drivers/usb/dwc2/hcd.c\n",
+  "error": ""
+}

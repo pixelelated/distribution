@@ -1,0 +1,15 @@
+{
+  "argv": [
+    "patch",
+    "-d",
+    "/workspace/tmp/m6-t43/G084-039-candidate-mg9i1xas",
+    "-p1"
+  ],
+  "start": "2026-11-02T21:56:26.561340+00:00",
+  "end": "2026-11-02T21:56:26.563279+00:00",
+  "exit": 0,
+  "stdout_sha256": "b49bea35accd70937c6095d94cf7378efca726b364dffb3817feb62e5c247bb2",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "output": "patching file drivers/input/touchscreen/Kconfig\npatching file drivers/input/touchscreen/Makefile\npatching file drivers/input/touchscreen/chipone-tddi.c\n",
+  "error": ""
+}

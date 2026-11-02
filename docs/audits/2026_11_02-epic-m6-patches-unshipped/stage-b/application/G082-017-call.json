@@ -1,0 +1,15 @@
+{
+  "argv": [
+    "patch",
+    "-d",
+    "/workspace/tmp/m6-t43/G082-017-candidate-co8xjs_f",
+    "-p1"
+  ],
+  "start": "2026-11-02T21:56:10.622434+00:00",
+  "end": "2026-11-02T21:56:10.624859+00:00",
+  "exit": 0,
+  "stdout_sha256": "e31bd29bcd93dddb308297d25ca8ea43399265ea1dd11555cec0a6fd08762f63",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "output": "patching file drivers/power/supply/Kconfig\nHunk #1 succeeded at 1165 (offset 101 lines).\npatching file drivers/power/supply/Makefile\nHunk #1 succeeded at 130 with fuzz 2 (offset 9 lines).\npatching file drivers/power/supply/qcom_fg.c\npatching file drivers/power/supply/qcom_pm8150b_charger.c\n",
+  "error": ""
+}

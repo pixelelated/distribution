@@ -1,0 +1,70 @@
+archaeology: patch AND provenance
+
+== The decision register (6)
+  2026-09-30  register decided D-WORKFLOW-083  The whole codebase is reviewed adversarially, in tiers, gradually over the fork's `0.0.x` releases: first the fork's own 121,000 lines, then the OS scripts, launcher, re…
+  2026-10-22  register decided D-WORKFLOW-184  The review-depth defaults of `docs/reviews/plan-for-the-plan.md` § 6c stand: Local (the executor alone; the lint and the counts are the check) for a dead-end table, a pr…
+  2026-10-23  register decided D-WORKFLOW-188  The renovation order is `docs/reviews/order.md`'s fourth version (`eb4763e3cc`, ledgers `00ca350666`): 46 slices, T1 to T46, whose membership `tools/renovation-inventory…
+  2026-11-02  register decided D-WORKFLOW-221  T41 (#688) owns the provenance table of `patches-shipped-kernel` -- the 107 paths of area `patches-and-configs` under `projects/ROCKNIX/devices/`, `projects/ROCKNIX/pack…
+  2026-11-02  register decided D-WORKFLOW-225  T42 (#689), `patches-shipped`, owns the 384 native provenance rows / 71,387 logical Git-blob lines and the separate 50 inherited T40 comparison questions in 26 overrides…
+  2026-11-02  register decided D-WORKFLOW-231  T43 (#690), `patches-unshipped`, owns the source-only provenance/reachability table of exactly432 vendor-carried paths /328,516 logical Git-blob lines, and edits none of…
+
+== The blindspot register (0)
+
+== Work logs (33)
+  2026-10-08  work-log 21:21                #492 SM8550 cache preparation after accepted H700
+  2026-10-11  work-log 21:37                authorized independent review dispatched (#553)
+  2026-10-14  work-log 18:42                #588 repaired, English640 complete, current native and source composition
+  2026-10-22  work-log 16:43                The stranger's proof of the P1 brief found sixteen gaps; the brief and the plan corrected (#346, #641)
+  2026-10-24  work-log 12:32                #677: T30 accepted at hand-back; #887's packet ticked; #889's packet dispatched
+  2026-10-24  work-log 14:48                #655: T8 accepted at hand-back (`13394550d6`); #895 closed; #902 to route
+  2026-10-25  work-log 02:37                T15's stage-D pause answered: `t15-streams.md`, the two Highs first, the `--old` shape with the seat's three distinctions, #1041 and #1007's rows (#6…
+  2026-10-25  work-log 02:55                T45 dispatched from brief v2: the branch's two council commits tabled, the read kept at the hash; D-QA-063 answers T15's exit question (#692, #662)
+  2026-10-25  work-log 03:20                M7's selective integration of #825, #887, #889 answered; D-WORKFLOW-206/207 reserved for M7; T45's stage B: fifteen leads, no bug, #1044 and #1045 fi…
+  2026-10-25  work-log 03:35                T45 accepted at the hand-back `bbb5f28824` (merged `cd08f82d07`), #1046 closed; T15's `--old` shape: per-tool provenance under `--old` only (#692, #1…
+  2026-10-25  work-log 05:48                T40 through stage C by 05:38; its two questions answered with every punch item's disposition; M7's GENERIC build01 failed on a manifest that applied …
+  2026-10-25  work-log 06:02                T40 accepted at `e863379cec` and closed out at `bf3409ea18` (#1074 closed); the class decision's second half on #346; T13's stage-E stream brief writ…
+  2026-10-25  work-log 06:48                T11 dispatched (lane tip `2103f0271d`) and through stage A in two minutes; the launcher's real caller is `vm-pair` by full path; T13's positives' dri…
+  2026-10-25  work-log 07:19                T27's brief (v1 `1756e60b78`, v2 `d292110962`) and T22's brief (v1 `f68b0cda81`) written ahead of their sessions; T11 through stage B, its M7-root re…
+  2026-10-25  work-log 07:44                T11 at its stage-D pause (`499628a049`; five bugs #1086-#1090, audit #1091), its stages A to D reproduced, and its four-stream stage-E brief dispatch…
+  2026-10-25  work-log 08:08                T11 accepted at `47672fe4a0` (#1091 closed; #1087-#1090 ticked, open until `next`); the brief's and futro's errata; T27 prepared for the T5 session (…
+  2026-10-25  work-log 08:54                T27 accepted at `78579255e4` (#674, #1095, #1096); T13's retro proposals housed (#660, #1097, #909)
+  2026-10-25  work-log 09:02                T13 accepted at `a7a5bb94aa` (#660, #1073, #1098)
+  2026-10-25  work-log 11:25                T28 accepted at `d6a4e08fda` (#675, #1108, #1109); T29's brief, version 1 (#676); #676 re-parented under #695
+  2026-10-26  work-log 06:09                T29 accepted at `54f323dc89` (#676, #1121): three fixture-proven streams, the devices-adjacent OS quirks closed
+  2026-10-26  work-log 06:44                T17's stages A and B accepted (#664): three candidate bugs in the cloud setup scripts; the guest queue restated
+  2026-10-26  work-log 09:58                T19's brief, version 1 (`b9df37061b`), the area epic #1139 and its futro; the stranger's proof running
+  2026-10-26  work-log 17:08                #666: T19 accepted at `c0af666edf`; #1156 closed; the six #585 lines posted; T20's worktree at the fresh merge
+  2026-10-26  work-log 17:36                #667: T20's stages A and B; its guest window granted (60 + 10 from START)
+  2026-10-26  work-log 20:41                #667: T20 accepted; #1167 closed; the retro's three recommendations landed
+  2026-10-27  work-log 02:34                #668: T21 accepted; #1184 closed; T26 prepared for the T5 session
+  2026-10-27  work-log 11:56                #673: T26 accepted and closed out; #1213 closed; T31 next
+  2026-10-31  work-log 01:02                #681: T34's stage E dispatched from `t34-streams.md` (fourteen rulings; S1 held); the acceptance scripts for T16 and T34 ready; T16 at S3
+  2026-10-31  work-log 11:13                #681, #682, #683: M7's slot 2 and T35's slot 3; T34's re-run at 28 of 28 with a 50 s overlap of my own; T36's research launched
+  2026-10-31  work-log 16:42                #683, #682, #684: T36's acceptance script; T35's script to be re-derived; T37's research launched; T35's S2
+  2026-11-01  work-log 05:47                T41's research fan-out started for the free T3 session; T38's stage E at S0's closing; its acceptance derivation being set from the stream brief (#68…
+  2026-11-01  work-log 05:59                T38's stage-E hand-back in; T41's five research files in and its brief being drafted (#685, #688)
+  2026-11-02  work-log 16:43                #346: Codex resumes all six M6 tabs; T39/T41 gates released, T42 research assigned
+
+== Rules (2)
+              rule device-builds.md         Publishing
+              rule instruction-files.md     The fork's own tools, and which rule documents each
+
+== Git history (-G, on this checkout) (16)
+  2026-11-02  git 07d01c898f                docs: prove and scope T42 execution (#689)
+  2026-11-02  git 10e055e304                docs: bind T41 final generator controls to exact inputs (#688)
+  2026-11-02  git 239808e372                docs: correct T41 recipe quotation count (#688)
+  2026-11-02  git 3099d69fcc                docs: close T39 acceptance and bind T41 fixture scope (#346)
+  2026-11-02  git 329011b9ea                docs: align final acceptance with retained M6 evidence (#346)
+  2026-11-02  git 4c8a118cfb                docs: correct T41 applicability method after its blocker (#688)
+  2026-11-02  git 601e4694f9                docs: seed T43 unshipped table lane (#690)
+  2026-11-02  git 7f25f9f78b                docs: release T39 fixes and T41 continuation (#346)
+  2026-11-02  git 82cb787674                docs: route T41 finding and release final records (#688)
+  2026-11-02  git 8b83e45245                docs: reconcile T41 final acceptance gates (#688)
+  2026-11-02  git 92e8d07b61                docs: prove and scope T43 unshipped table (#690)
+  2026-11-02  git af43136b15                docs: reconcile active M6 lanes and completion boundaries (#346)
+  2026-11-02  git afdec2bf8b                docs: accept T42 D and route its final records (#689)
+  2026-11-02  git b6332dbc13                docs: settle T39 choices and home the follow-up backlog (#1407)
+  2026-11-02  git cdb7361510                docs: reconcile T39 final integration evidence (#686)
+  2026-11-02  git f994d7ed57                docs: reconcile T42 final records and integration (#689)
+
+57 line(s). A decision listed as pending without a register OPEN row above is a claim to check.

@@ -1,0 +1,15 @@
+{
+  "argv": [
+    "patch",
+    "-d",
+    "/workspace/tmp/m6-t43/G082-015-candidate-1r_m8wr6",
+    "-p1"
+  ],
+  "start": "2026-11-02T21:56:10.591201+00:00",
+  "end": "2026-11-02T21:56:10.592285+00:00",
+  "exit": 0,
+  "stdout_sha256": "a73af55223f07b52eab7e9ac31edde7945107b7df1fe694ca932583a9fa2d6ae",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "output": "patching file drivers/input/misc/Kconfig\nHunk #1 succeeded at 236 (offset 22 lines).\npatching file drivers/input/misc/Makefile\nHunk #1 succeeded at 42 (offset 1 line).\npatching file drivers/input/misc/qcom-spmi-haptics.c\npatching file include/dt-bindings/input/qcom,spmi-haptics.h\n",
+  "error": ""
+}

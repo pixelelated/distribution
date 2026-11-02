@@ -1,0 +1,354 @@
+{
+  "id": "G052",
+  "census": {
+    "id": "G052",
+    "recipe": "projects/ROCKNIX/packages/graphics/mesa/package.mk",
+    "recipe_sha256": "ac5dca86bde7cfb9287542d201d53a757fb6f0d5f4842dd9f53013bf3f3f48cc",
+    "owner": [
+      "image-packages"
+    ],
+    "consumer": "SM8750-aarch64",
+    "device": "SM8750",
+    "arch": "aarch64",
+    "target_cpu": "cortex-x4",
+    "patch_arch": "aarch64",
+    "LINUX": "unset in clean default source config",
+    "batteryplus": "no or unset; exact yes predicate false",
+    "name": "mesa",
+    "pin": "26.2.2",
+    "url": "https://gitlab.freedesktop.org/mesa/mesa/-/archive/mesa-26.2.2/mesa-mesa-26.2.2.tar.gz",
+    "expected_sha256": "9b6850189d4b4a595b1718d57d462412090fab820d3e235e2c1d122c1cf9e9bc",
+    "selectors": [
+      "SM8750"
+    ],
+    "ordered_pattern_directories": [
+      "projects/ROCKNIX/packages/graphics/mesa/patches",
+      "projects/ROCKNIX/packages/graphics/mesa/patches/aarch64",
+      "projects/ROCKNIX/packages/graphics/mesa/patches/SM8750",
+      "projects/ROCKNIX/packages/graphics/mesa/patches/26.2.2",
+      "projects/ROCKNIX/packages/graphics/mesa/patches/26.2.2/aarch64",
+      "projects/ROCKNIX/patches/mesa",
+      "projects/ROCKNIX/patches/mesa/aarch64",
+      "projects/ROCKNIX/patches/mesa/SM8750",
+      "projects/ROCKNIX/devices/SM8750/patches/mesa/SM8750",
+      "projects/ROCKNIX/patches/mesa/26.2.2",
+      "projects/ROCKNIX/devices/SM8750/patches/mesa"
+    ],
+    "stack": [
+      "projects/ROCKNIX/packages/graphics/mesa/patches/001-rtasm-release-executable-heap-on-unload.patch",
+      "projects/ROCKNIX/packages/graphics/mesa/patches/002-virgl-release-empty-screen-cache.patch",
+      "projects/ROCKNIX/packages/graphics/mesa/patches/SM8750/0001-add-a830-chip-id.patch"
+    ],
+    "native_paths": [
+      "projects/ROCKNIX/packages/graphics/mesa/patches/SM8750/0001-add-a830-chip-id.patch"
+    ],
+    "config_paths": [],
+    "cache_candidates": [
+      "/workspace/cache/rocknix-sources/mesa/mesa-26.2.2.tar.gz"
+    ],
+    "preimage_limits": [],
+    "source_only": true,
+    "runtime": false
+  },
+  "started": "2026-11-02T21:55:19.964604+00:00",
+  "rows": [
+    {
+      "path": "projects/ROCKNIX/packages/graphics/mesa/patches/001-rtasm-release-executable-heap-on-unload.patch",
+      "referent": "projects/ROCKNIX/packages/graphics/mesa/patches/001-rtasm-release-executable-heap-on-unload.patch",
+      "mode": "100644",
+      "literal_sha256": "d2e933063184d546d98695586f033bca7896618a913a19d82d6794bd76dd1c98",
+      "content_sha256": "d2e933063184d546d98695586f033bca7896618a913a19d82d6794bd76dd1c98",
+      "rendered_sha256": "d2e933063184d546d98695586f033bca7896618a913a19d82d6794bd76dd1c98",
+      "targets": [
+        "src/gallium/auxiliary/rtasm/rtasm_execmem.c"
+      ],
+      "backend": "patch",
+      "index": 1,
+      "native": false,
+      "normal_called": true,
+      "normal": {
+        "argv": [
+          "patch",
+          "-d",
+          "/workspace/tmp/m6-t43/G052-001-candidate-03qqir9y",
+          "-p1"
+        ],
+        "start": "2026-11-02T21:55:21.015566+00:00",
+        "end": "2026-11-02T21:55:21.016720+00:00",
+        "exit": 0,
+        "stdout_sha256": "b0fadb585d07b6916a847327c034ff326480a709b5c5f6725478c8c556861227",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "output": "patching file src/gallium/auxiliary/rtasm/rtasm_execmem.c\n",
+        "error": ""
+      },
+      "input_digest": "22f7eff7d9e5fc465bfcfa5378a5a19529814351546acfa3fe5d1034819dc135",
+      "output_digest": "90ec929733d7884ecb0d8f1656671565666692abda4fc40dedafadbda2c03242",
+      "candidate_snapshot": {
+        "src/freedreno/common/freedreno_devices.py": {
+          "type": "file",
+          "mode": "0o664",
+          "sha256": "976933b06b3104904faee300951a1f077431a291fc78686e7b468351e3e90a46",
+          "bytes": 54603
+        },
+        "src/gallium/auxiliary/rtasm/rtasm_execmem.c": {
+          "type": "file",
+          "mode": "0o664",
+          "sha256": "bf461169eb9717a43733a66d3bee02b8d410398d4939e3996dec02036973532a",
+          "bytes": 4109
+        },
+        "src/gallium/winsys/virgl/drm/virgl_drm_winsys.c": {
+          "type": "file",
+          "mode": "0o664",
+          "sha256": "225262525697f2b252fddd56fa05db36ae81ee7d3d8bd8f8d15ae8049d19d246",
+          "bytes": 46009
+        }
+      },
+      "candidate_root": "/workspace/tmp/m6-t43/G052-001-candidate-03qqir9y",
+      "status": "applies",
+      "promoted": true
+    },
+    {
+      "path": "projects/ROCKNIX/packages/graphics/mesa/patches/002-virgl-release-empty-screen-cache.patch",
+      "referent": "projects/ROCKNIX/packages/graphics/mesa/patches/002-virgl-release-empty-screen-cache.patch",
+      "mode": "100644",
+      "literal_sha256": "a987913efbbbf351f1d152638c28448ac7553c9ff0524c61587277184322bc84",
+      "content_sha256": "a987913efbbbf351f1d152638c28448ac7553c9ff0524c61587277184322bc84",
+      "rendered_sha256": "a987913efbbbf351f1d152638c28448ac7553c9ff0524c61587277184322bc84",
+      "targets": [
+        "src/gallium/winsys/virgl/drm/virgl_drm_winsys.c"
+      ],
+      "backend": "patch",
+      "index": 2,
+      "native": false,
+      "normal_called": true,
+      "normal": {
+        "argv": [
+          "patch",
+          "-d",
+          "/workspace/tmp/m6-t43/G052-002-candidate-ahf8y1pf",
+          "-p1"
+        ],
+        "start": "2026-11-02T21:55:21.017980+00:00",
+        "end": "2026-11-02T21:55:21.019921+00:00",
+        "exit": 0,
+        "stdout_sha256": "d687f1cde80f33de3fb855641bdbe1874e58dba62235661b6e479acf6b7208e4",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "output": "patching file src/gallium/winsys/virgl/drm/virgl_drm_winsys.c\n",
+        "error": ""
+      },
+      "input_digest": "90ec929733d7884ecb0d8f1656671565666692abda4fc40dedafadbda2c03242",
+      "output_digest": "7e33b4edb355444266661571528aeb7c7690392b9c407cec55ad2ee0088fe915",
+      "candidate_snapshot": {
+        "src/freedreno/common/freedreno_devices.py": {
+          "type": "file",
+          "mode": "0o664",
+          "sha256": "976933b06b3104904faee300951a1f077431a291fc78686e7b468351e3e90a46",
+          "bytes": 54603
+        },
+        "src/gallium/auxiliary/rtasm/rtasm_execmem.c": {
+          "type": "file",
+          "mode": "0o664",
+          "sha256": "bf461169eb9717a43733a66d3bee02b8d410398d4939e3996dec02036973532a",
+          "bytes": 4109
+        },
+        "src/gallium/winsys/virgl/drm/virgl_drm_winsys.c": {
+          "type": "file",
+          "mode": "0o664",
+          "sha256": "a0565a7cf06d88e8c8178bdd72a299717678a3e1fcee5eb821dbab8f2e81ae6c",
+          "bytes": 46345
+        }
+      },
+      "candidate_root": "/workspace/tmp/m6-t43/G052-002-candidate-ahf8y1pf",
+      "status": "applies",
+      "promoted": true
+    },
+    {
+      "path": "projects/ROCKNIX/packages/graphics/mesa/patches/SM8750/0001-add-a830-chip-id.patch",
+      "referent": "projects/ROCKNIX/packages/graphics/mesa/patches/SM8750/0001-add-a830-chip-id.patch",
+      "mode": "100644",
+      "literal_sha256": "62e448fba0a6acf4088bbb83358ffc08e81ec65167f8c9e76aecb0f8987528ac",
+      "content_sha256": "62e448fba0a6acf4088bbb83358ffc08e81ec65167f8c9e76aecb0f8987528ac",
+      "rendered_sha256": "62e448fba0a6acf4088bbb83358ffc08e81ec65167f8c9e76aecb0f8987528ac",
+      "targets": [
+        "src/freedreno/common/freedreno_devices.py"
+      ],
+      "backend": "patch",
+      "index": 3,
+      "native": true,
+      "normal_called": true,
+      "normal": {
+        "argv": [
+          "patch",
+          "-d",
+          "/workspace/tmp/m6-t43/G052-003-candidate-oyn1dzb8",
+          "-p1"
+        ],
+        "start": "2026-11-02T21:55:21.021191+00:00",
+        "end": "2026-11-02T21:55:21.022092+00:00",
+        "exit": 0,
+        "stdout_sha256": "bf2ae612b7270e7a29cafb87fbc5ffe61fef2e692525770249c94eafd17e7d7f",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "output": "patching file src/freedreno/common/freedreno_devices.py\nHunk #1 succeeded at 1382 (offset 40 lines).\n",
+        "error": ""
+      },
+      "input_digest": "7e33b4edb355444266661571528aeb7c7690392b9c407cec55ad2ee0088fe915",
+      "output_digest": "12f96b4201c46efaaadb521b96075395dcaa41dc38641073be7127861c7e4247",
+      "candidate_snapshot": {
+        "src/freedreno/common/freedreno_devices.py": {
+          "type": "file",
+          "mode": "0o664",
+          "sha256": "b8a9494e6af91e0377cbf4116b076b00a9f6bc1e923f9b26f2450b0f1bd9f9c1",
+          "bytes": 54737
+        },
+        "src/freedreno/common/freedreno_devices.py.orig": {
+          "type": "file",
+          "mode": "0o664",
+          "sha256": "976933b06b3104904faee300951a1f077431a291fc78686e7b468351e3e90a46",
+          "bytes": 54603
+        },
+        "src/gallium/auxiliary/rtasm/rtasm_execmem.c": {
+          "type": "file",
+          "mode": "0o664",
+          "sha256": "bf461169eb9717a43733a66d3bee02b8d410398d4939e3996dec02036973532a",
+          "bytes": 4109
+        },
+        "src/gallium/winsys/virgl/drm/virgl_drm_winsys.c": {
+          "type": "file",
+          "mode": "0o664",
+          "sha256": "a0565a7cf06d88e8c8178bdd72a299717678a3e1fcee5eb821dbab8f2e81ae6c",
+          "bytes": 46345
+        }
+      },
+      "candidate_root": "/workspace/tmp/m6-t43/G052-003-candidate-oyn1dzb8",
+      "status": "offset",
+      "promoted": true
+    }
+  ],
+  "input_snapshot": {
+    "src/freedreno/common/freedreno_devices.py": {
+      "type": "file",
+      "mode": "0o664",
+      "sha256": "976933b06b3104904faee300951a1f077431a291fc78686e7b468351e3e90a46",
+      "bytes": 54603
+    },
+    "src/gallium/auxiliary/rtasm/rtasm_execmem.c": {
+      "type": "file",
+      "mode": "0o664",
+      "sha256": "e5a77a4a87803ae0eee5b45fdaea83639ce1e50469ee2c8c80e62182bec9c749",
+      "bytes": 3624
+    },
+    "src/gallium/winsys/virgl/drm/virgl_drm_winsys.c": {
+      "type": "file",
+      "mode": "0o664",
+      "sha256": "225262525697f2b252fddd56fa05db36ae81ee7d3d8bd8f8d15ae8049d19d246",
+      "bytes": 46009
+    }
+  },
+  "limits": [],
+  "cache_observations": [
+    {
+      "path": "/workspace/cache/rocknix-sources/mesa/mesa-26.2.2.tar.gz",
+      "sha256": "9b6850189d4b4a595b1718d57d462412090fab820d3e235e2c1d122c1cf9e9bc",
+      "expected": "9b6850189d4b4a595b1718d57d462412090fab820d3e235e2c1d122c1cf9e9bc"
+    }
+  ],
+  "archive": {
+    "path": "/workspace/cache/rocknix-sources/mesa/mesa-26.2.2.tar.gz",
+    "sha256": "9b6850189d4b4a595b1718d57d462412090fab820d3e235e2c1d122c1cf9e9bc",
+    "recipe_url": "https://gitlab.freedesktop.org/mesa/mesa/-/archive/mesa-26.2.2/mesa-mesa-26.2.2.tar.gz"
+  },
+  "stack": [
+    {
+      "path": "projects/ROCKNIX/packages/graphics/mesa/patches/001-rtasm-release-executable-heap-on-unload.patch",
+      "referent": "projects/ROCKNIX/packages/graphics/mesa/patches/001-rtasm-release-executable-heap-on-unload.patch",
+      "mode": "100644",
+      "literal_sha256": "d2e933063184d546d98695586f033bca7896618a913a19d82d6794bd76dd1c98",
+      "content_sha256": "d2e933063184d546d98695586f033bca7896618a913a19d82d6794bd76dd1c98",
+      "rendered_sha256": "d2e933063184d546d98695586f033bca7896618a913a19d82d6794bd76dd1c98",
+      "targets": [
+        "src/gallium/auxiliary/rtasm/rtasm_execmem.c"
+      ],
+      "backend": "patch"
+    },
+    {
+      "path": "projects/ROCKNIX/packages/graphics/mesa/patches/002-virgl-release-empty-screen-cache.patch",
+      "referent": "projects/ROCKNIX/packages/graphics/mesa/patches/002-virgl-release-empty-screen-cache.patch",
+      "mode": "100644",
+      "literal_sha256": "a987913efbbbf351f1d152638c28448ac7553c9ff0524c61587277184322bc84",
+      "content_sha256": "a987913efbbbf351f1d152638c28448ac7553c9ff0524c61587277184322bc84",
+      "rendered_sha256": "a987913efbbbf351f1d152638c28448ac7553c9ff0524c61587277184322bc84",
+      "targets": [
+        "src/gallium/winsys/virgl/drm/virgl_drm_winsys.c"
+      ],
+      "backend": "patch"
+    },
+    {
+      "path": "projects/ROCKNIX/packages/graphics/mesa/patches/SM8750/0001-add-a830-chip-id.patch",
+      "referent": "projects/ROCKNIX/packages/graphics/mesa/patches/SM8750/0001-add-a830-chip-id.patch",
+      "mode": "100644",
+      "literal_sha256": "62e448fba0a6acf4088bbb83358ffc08e81ec65167f8c9e76aecb0f8987528ac",
+      "content_sha256": "62e448fba0a6acf4088bbb83358ffc08e81ec65167f8c9e76aecb0f8987528ac",
+      "rendered_sha256": "62e448fba0a6acf4088bbb83358ffc08e81ec65167f8c9e76aecb0f8987528ac",
+      "targets": [
+        "src/freedreno/common/freedreno_devices.py"
+      ],
+      "backend": "patch"
+    }
+  ],
+  "stack_sha256": "58e18479ca761269be5af7b4701d649c8b51b358027e48e0006babb3f0ba4bda",
+  "projection": {
+    "archive_header_count": 13625,
+    "archive_header_sha256": "4b247a9c6dea03093106b0c8f5941576c703846639191f46d500e606eb7c4ab6",
+    "projected_members": {
+      "src/freedreno/common/freedreno_devices.py": {
+        "type": "file",
+        "mode": "0o664",
+        "sha256": "976933b06b3104904faee300951a1f077431a291fc78686e7b468351e3e90a46",
+        "bytes": 54603
+      },
+      "src/gallium/auxiliary/rtasm/rtasm_execmem.c": {
+        "type": "file",
+        "mode": "0o664",
+        "sha256": "e5a77a4a87803ae0eee5b45fdaea83639ce1e50469ee2c8c80e62182bec9c749",
+        "bytes": 3624
+      },
+      "src/gallium/winsys/virgl/drm/virgl_drm_winsys.c": {
+        "type": "file",
+        "mode": "0o664",
+        "sha256": "225262525697f2b252fddd56fa05db36ae81ee7d3d8bd8f8d15ae8049d19d246",
+        "bytes": 46009
+      }
+    },
+    "absent_targets": [],
+    "projection_root": "/workspace/tmp/m6-t43/source-members-0o0nm4va"
+  },
+  "status": "applies",
+  "final_prefix_root": "/workspace/tmp/m6-t43/G052-003-candidate-oyn1dzb8",
+  "final_prefix_snapshot": {
+    "src/freedreno/common/freedreno_devices.py": {
+      "type": "file",
+      "mode": "0o664",
+      "sha256": "b8a9494e6af91e0377cbf4116b076b00a9f6bc1e923f9b26f2450b0f1bd9f9c1",
+      "bytes": 54737
+    },
+    "src/freedreno/common/freedreno_devices.py.orig": {
+      "type": "file",
+      "mode": "0o664",
+      "sha256": "976933b06b3104904faee300951a1f077431a291fc78686e7b468351e3e90a46",
+      "bytes": 54603
+    },
+    "src/gallium/auxiliary/rtasm/rtasm_execmem.c": {
+      "type": "file",
+      "mode": "0o664",
+      "sha256": "bf461169eb9717a43733a66d3bee02b8d410398d4939e3996dec02036973532a",
+      "bytes": 4109
+    },
+    "src/gallium/winsys/virgl/drm/virgl_drm_winsys.c": {
+      "type": "file",
+      "mode": "0o664",
+      "sha256": "a0565a7cf06d88e8c8178bdd72a299717678a3e1fcee5eb821dbab8f2e81ae6c",
+      "bytes": 46345
+    }
+  },
+  "finished": "2026-11-02T21:55:21.023210+00:00"
+}

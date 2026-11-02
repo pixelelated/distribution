@@ -1,0 +1,15 @@
+{
+  "argv": [
+    "patch",
+    "-d",
+    "/workspace/tmp/m6-t43/G084-052-candidate-9nsvl1ks",
+    "-p1"
+  ],
+  "start": "2026-11-02T21:56:26.818576+00:00",
+  "end": "2026-11-02T21:56:26.820417+00:00",
+  "exit": 0,
+  "stdout_sha256": "07baaf9b6a8ff2147c4c1bf51241d2e3699a6efdabfa73f2e7b3c686c6d58359",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "output": "patching file drivers/bluetooth/btqca.c\npatching file drivers/net/wireless/ath/ath12k/mac.c\npatching file drivers/soc/qcom/socinfo.c\n",
+  "error": ""
+}

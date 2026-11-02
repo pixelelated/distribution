@@ -1,0 +1,56 @@
+{
+  "id": "G062",
+  "census": {
+    "id": "G062",
+    "recipe": "projects/ROCKNIX/packages/linux-drivers/mali-bifrost/package.mk",
+    "recipe_sha256": "2f1e8a77bcd7845626456e61086a69975750818e6ad9d8baa19f984c69f3b538",
+    "owner": [
+      "devices-unshipped"
+    ],
+    "consumer": "RK3566-aarch64",
+    "device": "RK3566",
+    "arch": "aarch64",
+    "target_cpu": "cortex-a55",
+    "patch_arch": "aarch64",
+    "LINUX": "unset in clean default source config",
+    "batteryplus": "no or unset; exact yes predicate false",
+    "name": "mali-bifrost",
+    "pin": "39da994bb6fc8819e5e8c1873907dd21d17e53c1",
+    "url": "http://github.com/rocknix/mali_kbase/archive/39da994bb6fc8819e5e8c1873907dd21d17e53c1.tar.gz",
+    "expected_sha256": "f947b99a1bcb5b86ea270c1ce4cd189f4df26b3c0c8ba92c1ef256bb757afa66",
+    "selectors": [],
+    "ordered_pattern_directories": [
+      "projects/ROCKNIX/packages/linux-drivers/mali-bifrost/patches",
+      "projects/ROCKNIX/packages/linux-drivers/mali-bifrost/patches/aarch64",
+      "projects/ROCKNIX/packages/linux-drivers/mali-bifrost/patches/39da994bb6fc8819e5e8c1873907dd21d17e53c1",
+      "projects/ROCKNIX/packages/linux-drivers/mali-bifrost/patches/39da994bb6fc8819e5e8c1873907dd21d17e53c1/aarch64",
+      "projects/ROCKNIX/patches/mali-bifrost",
+      "projects/ROCKNIX/patches/mali-bifrost/aarch64",
+      "projects/ROCKNIX/patches/mali-bifrost/39da994bb6fc8819e5e8c1873907dd21d17e53c1",
+      "projects/ROCKNIX/devices/RK3566/patches/mali-bifrost"
+    ],
+    "stack": [
+      "projects/ROCKNIX/devices/RK3566/patches/mali-bifrost/002-lowercase-interrupts-first.patch",
+      "projects/ROCKNIX/devices/RK3566/patches/mali-bifrost/003-fix-unbalanced-regulator.patch"
+    ],
+    "native_paths": [
+      "projects/ROCKNIX/devices/RK3566/patches/mali-bifrost/002-lowercase-interrupts-first.patch",
+      "projects/ROCKNIX/devices/RK3566/patches/mali-bifrost/003-fix-unbalanced-regulator.patch"
+    ],
+    "config_paths": [],
+    "cache_candidates": [
+      "/workspace/cache/rocknix-sources/mali-bifrost/mali-bifrost-39da994bb6fc8819e5e8c1873907dd21d17e53c1.tar.gz"
+    ],
+    "preimage_limits": [
+      "package sources/ overlay present; exact overlap/preimage not materialized"
+    ],
+    "source_only": true,
+    "runtime": false
+  },
+  "started": "2026-11-02T21:55:21.092480+00:00",
+  "rows": [],
+  "input_snapshot": {},
+  "limits": [
+    "package sources/ overlay present; exact overlap/preimage not materialized"
+  ]
+}

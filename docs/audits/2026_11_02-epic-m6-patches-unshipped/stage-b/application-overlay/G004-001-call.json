@@ -1,0 +1,15 @@
+{
+  "argv": [
+    "patch",
+    "-d",
+    "/workspace/tmp/m6-t43/G004-001-candidate-c0w0i03c",
+    "-p1"
+  ],
+  "start": "2026-11-02T21:57:57.831225+00:00",
+  "end": "2026-11-02T21:57:57.832371+00:00",
+  "exit": 0,
+  "stdout_sha256": "8f510ad7cdee164744cfe653886c52d425ccebcd2a7989be85894db81d52bd6b",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "output": "patching file include/linux/compiler-gcc.h\npatching file include/u-boot/rsa.h\npatching file lib/rsa/rsa-sign.c\nHunk #1 succeeded at 417 (offset 1 line).\npatching file tools/Makefile\n",
+  "error": ""
+}

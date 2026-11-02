@@ -1,0 +1,15 @@
+{
+  "argv": [
+    "patch",
+    "-d",
+    "/workspace/tmp/m6-t43/G080-031-candidate-gwrgmxeq",
+    "-p1"
+  ],
+  "start": "2026-11-02T21:56:02.034594+00:00",
+  "end": "2026-11-02T21:56:02.036910+00:00",
+  "exit": 0,
+  "stdout_sha256": "39b01694ab4ae60f42b13d97f0466a9899b3dcc20c578ec3fe7e5fc7d01bd614",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "output": "patching file drivers/bluetooth/hci_qca.c\nHunk #1 succeeded at 2395 (offset 6 lines).\nHunk #2 succeeded at 2458 (offset 6 lines).\nHunk #3 succeeded at 2488 (offset 6 lines).\nHunk #4 succeeded at 2526 (offset 6 lines).\nHunk #5 succeeded at 2544 (offset 6 lines).\npatching file drivers/power/sequencing/core.c\nHunk #3 succeeded at 994 with fuzz 2 (offset 26 lines).\npatching file drivers/power/sequencing/pwrseq-qcom-wcn.c\nHunk #1 succeeded at 253 (offset -1 lines).\nHunk #2 succeeded at 277 (offset -1 lines).\nHunk #3 succeeded at 289 (offset -1 lines).\npatching file include/linux/pwrseq/consumer.h\nHunk #1 succeeded at 22 with fuzz 2.\nHunk #2 succeeded at 59 with fuzz 1 (offset 7 lines).\npatching file include/linux/pwrseq/provider.h\n",
+  "error": ""
+}

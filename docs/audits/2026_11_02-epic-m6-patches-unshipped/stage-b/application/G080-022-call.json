@@ -1,0 +1,15 @@
+{
+  "argv": [
+    "patch",
+    "-d",
+    "/workspace/tmp/m6-t43/G080-022-candidate-zlngzmy9",
+    "-p1"
+  ],
+  "start": "2026-11-02T21:56:01.895961+00:00",
+  "end": "2026-11-02T21:56:01.896963+00:00",
+  "exit": 0,
+  "stdout_sha256": "687b668c103e69a3666ea2d359ceaafa771492200cd48591174b185d9a9efc43",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "output": "patching file drivers/leds/leds-aw200xx.c\nHunk #1 succeeded at 16 (offset -2 lines).\nHunk #2 succeeded at 463 (offset -1 lines).\nHunk #3 succeeded at 568 (offset -1 lines).\n",
+  "error": ""
+}

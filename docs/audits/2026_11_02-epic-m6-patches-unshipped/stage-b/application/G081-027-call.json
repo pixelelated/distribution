@@ -1,0 +1,15 @@
+{
+  "argv": [
+    "patch",
+    "-d",
+    "/workspace/tmp/m6-t43/G081-027-candidate-lhzjimp8",
+    "-p1"
+  ],
+  "start": "2026-11-02T21:56:10.001565+00:00",
+  "end": "2026-11-02T21:56:10.002786+00:00",
+  "exit": 0,
+  "stdout_sha256": "fd5fb7d1fc3d2c18b1ab64c8b95638f088df9d534679531079e43a14af8041eb",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "output": "patching file drivers/gpu/drm/panel/Kconfig\nHunk #1 succeeded at 116 with fuzz 2 (offset 1 line).\npatching file drivers/gpu/drm/panel/Makefile\npatching file drivers/gpu/drm/panel/panel-chipone-icna35xx.c\n",
+  "error": ""
+}

@@ -1,0 +1,52 @@
+{
+  "id": "G002",
+  "census": {
+    "id": "G002",
+    "recipe": "projects/ROCKNIX/devices/AMD64/packages/dmidecode/package.mk",
+    "recipe_sha256": "4a83fe2edf74f6d0f200aca1b8d0ce9ce6b3b4a4e808614c5b6b29f7b6a710d3",
+    "owner": [
+      "devices-unshipped"
+    ],
+    "consumer": "AMD64-x86_64",
+    "device": "AMD64",
+    "arch": "x86_64",
+    "target_cpu": "x86-64-v3",
+    "patch_arch": "x86",
+    "LINUX": "unset in clean default source config",
+    "batteryplus": "no or unset; exact yes predicate false",
+    "name": "dmidecode",
+    "pin": "3.5",
+    "url": "http://download.savannah.gnu.org/releases/dmidecode/dmidecode-3.5.tar.xz",
+    "expected_sha256": "79d76735ee8e25196e2a722964cf9683f5a09581503537884b256b01389cc073",
+    "selectors": [],
+    "ordered_pattern_directories": [
+      "projects/ROCKNIX/devices/AMD64/packages/dmidecode/patches",
+      "projects/ROCKNIX/devices/AMD64/packages/dmidecode/patches/x86",
+      "projects/ROCKNIX/devices/AMD64/packages/dmidecode/patches/3.5",
+      "projects/ROCKNIX/devices/AMD64/packages/dmidecode/patches/3.5/x86",
+      "projects/ROCKNIX/patches/dmidecode",
+      "projects/ROCKNIX/patches/dmidecode/x86",
+      "projects/ROCKNIX/patches/dmidecode/3.5",
+      "projects/ROCKNIX/devices/AMD64/patches/dmidecode"
+    ],
+    "stack": [
+      "projects/ROCKNIX/devices/AMD64/packages/dmidecode/patches/001-bin-path.patch"
+    ],
+    "native_paths": [
+      "projects/ROCKNIX/devices/AMD64/packages/dmidecode/patches/001-bin-path.patch"
+    ],
+    "config_paths": [],
+    "cache_candidates": [],
+    "preimage_limits": [],
+    "source_only": true,
+    "runtime": false
+  },
+  "started": "2026-11-02T21:55:17.003218+00:00",
+  "rows": [],
+  "input_snapshot": {},
+  "limits": [
+    "exact source archive absent from inspected package cache directory"
+  ],
+  "cache_observations": [],
+  "status": "open-item"
+}

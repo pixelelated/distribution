@@ -1,0 +1,48 @@
+{
+  "id": "G112",
+  "census": {
+    "id": "G112",
+    "recipe": "projects/ROCKNIX/packages/wayland/weston-kiosk-shell-dpms/package.mk",
+    "recipe_sha256": "ef29abb66587ca38610d489b1e4b575fcd349a7e4c7410fdc794d67f2333cbb9",
+    "owner": [
+      "packages-dead-ends"
+    ],
+    "consumer": "RK3588-aarch64",
+    "device": "RK3588",
+    "arch": "aarch64",
+    "target_cpu": "cortex-a76.cortex-a55",
+    "patch_arch": "aarch64",
+    "LINUX": "unset in clean default source config",
+    "batteryplus": "no or unset; exact yes predicate false",
+    "name": "weston-kiosk-shell-dpms",
+    "pin": "1273a6ed6a3fdd7af9e3d5d70b4ef40ecb929309",
+    "url": "https://github.com/akhilharihar/Weston-kiosk-shell-DPMS/archive/1273a6ed6a3fdd7af9e3d5d70b4ef40ecb929309.tar.gz",
+    "expected_sha256": "db8fad234a8fde069217986f44134f619bd475fb89aa95f8b9c419cf11ae992f",
+    "selectors": [],
+    "ordered_pattern_directories": [
+      "projects/ROCKNIX/packages/wayland/weston-kiosk-shell-dpms/patches",
+      "projects/ROCKNIX/packages/wayland/weston-kiosk-shell-dpms/patches/aarch64",
+      "projects/ROCKNIX/packages/wayland/weston-kiosk-shell-dpms/patches/1273a6ed6a3fdd7af9e3d5d70b4ef40ecb929309",
+      "projects/ROCKNIX/packages/wayland/weston-kiosk-shell-dpms/patches/1273a6ed6a3fdd7af9e3d5d70b4ef40ecb929309/aarch64",
+      "projects/ROCKNIX/patches/weston-kiosk-shell-dpms",
+      "projects/ROCKNIX/patches/weston-kiosk-shell-dpms/aarch64",
+      "projects/ROCKNIX/patches/weston-kiosk-shell-dpms/1273a6ed6a3fdd7af9e3d5d70b4ef40ecb929309",
+      "projects/ROCKNIX/devices/RK3588/patches/weston-kiosk-shell-dpms"
+    ],
+    "stack": [
+      "projects/ROCKNIX/packages/wayland/weston-kiosk-shell-dpms/patches/0001-Fix-build.patch"
+    ],
+    "native_paths": [
+      "projects/ROCKNIX/packages/wayland/weston-kiosk-shell-dpms/patches/0001-Fix-build.patch"
+    ],
+    "config_paths": [],
+    "cache_candidates": [],
+    "preimage_limits": [],
+    "source_only": true,
+    "runtime": false
+  },
+  "started": "2026-11-02T21:56:27.344157+00:00",
+  "rows": [],
+  "input_snapshot": {},
+  "limits": []
+}

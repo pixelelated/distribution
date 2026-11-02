@@ -1,0 +1,15 @@
+{
+  "argv": [
+    "patch",
+    "-d",
+    "/workspace/tmp/m6-t43/G082-033-candidate-icrqnym5",
+    "-p1"
+  ],
+  "start": "2026-11-02T21:56:10.899983+00:00",
+  "end": "2026-11-02T21:56:10.901109+00:00",
+  "exit": 0,
+  "stdout_sha256": "e7366069bea29a47ca1ac16f3eb8c684e2ea429342089d2939d6614eb7dd4b39",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "output": "patching file drivers/gpu/drm/panel/Kconfig\npatching file drivers/gpu/drm/panel/Makefile\npatching file drivers/gpu/drm/panel/panel-mangmi-air-y-pro.c\n",
+  "error": ""
+}

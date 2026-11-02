@@ -1,0 +1,212 @@
+{
+  "ref": "651150fc88a8ee40e3f8e69c6d36feb6b005bde5",
+  "path": "projects/ROCKNIX/packages/linux/package.mk",
+  "sha256": "ff12f792508e3f99241731aab8765b53f66462d7182cf969296d14c333b34c04",
+  "lines": [
+    [
+      16,
+      "PKG_PATCH_DIRS=\"${LINUX} mainline ${DEVICE} default\""
+    ],
+    [
+      17,
+      ""
+    ],
+    [
+      18,
+      "[[ \"${DEVICE}\" =~ \"RK3326|RK3399|S922X|H700\" ]] && PKG_PATCH_DIRS+=\" rocknix-joypad\""
+    ],
+    [
+      19,
+      "[[ \"${DEVICE}\" == RK* ]] && PKG_PATCH_DIRS+=\" mainline-rockchip\""
+    ],
+    [
+      20,
+      ""
+    ],
+    [
+      21,
+      "case ${DEVICE} in"
+    ],
+    [
+      22,
+      "  RK3588)"
+    ],
+    [
+      23,
+      "    PKG_VERSION=\"b8e62bed74766b6c8c423a767b35495e78b64caf\""
+    ],
+    [
+      24,
+      "    PKG_SHA256=\"0e0fe5a2f108d525a044e190c3f23a4603cdbf8d54bc1cc488d6ee04b9fc5b3a\""
+    ],
+    [
+      25,
+      "    PKG_URL=\"https://github.com/armbian/linux-rockchip/archive/${PKG_VERSION}.tar.gz\""
+    ],
+    [
+      26,
+      "    PKG_GIT_CLONE_BRANCH=\"rk-6.1-rkr3\""
+    ],
+    [
+      27,
+      "    PKG_PATCH_DIRS=\"${LINUX} ${DEVICE} default\""
+    ],
+    [
+      28,
+      "    ;;"
+    ],
+    [
+      29,
+      "  RK3566|RK3576|S922X)"
+    ],
+    [
+      30,
+      "    PKG_VERSION=\"7.2.11\""
+    ],
+    [
+      31,
+      "    PKG_SHA256=\"fd0fc479f983a8c05313f13e9c36330fe6651cf725396748c40d5cd93fa1e6a4\""
+    ],
+    [
+      32,
+      "    PKG_URL=\"https://www.kernel.org/pub/linux/kernel/v${PKG_VERSION/.*/}.x/${PKG_NAME}-${PKG_VERSION}.tar.xz\""
+    ],
+    [
+      33,
+      "    PKG_PATCH_DIRS+=\" 7.2.6\""
+    ],
+    [
+      34,
+      "    ;;"
+    ],
+    [
+      35,
+      "  H700|SM4450|SM6115|SM8250|SM8550|SM8650|SM8750)"
+    ],
+    [
+      36,
+      "    PKG_VERSION=\"7.2\""
+    ],
+    [
+      37,
+      "    PKG_SHA256=\"f9fef3d14c0df53819026f4be74459835c2a0b0dcbf5b5bbd9ea19f0829402b3\""
+    ],
+    [
+      38,
+      "    PKG_URL=\"https://www.kernel.org/pub/linux/kernel/v${PKG_VERSION/.*/}.x/${PKG_NAME}-${PKG_VERSION}.tar.xz\""
+    ],
+    [
+      39,
+      "    # Note that the patch dir 7.2 is automatically added as it matches the"
+    ],
+    [
+      40,
+      "    # version. When we move past 7.2, remember to add 7.2 to patch dirs."
+    ],
+    [
+      41,
+      "    ;;"
+    ],
+    [
+      42,
+      "  RK3326|AMD64)"
+    ],
+    [
+      43,
+      "    PKG_VERSION=\"7.1.2\""
+    ],
+    [
+      44,
+      "    PKG_SHA256=\"37198c93727be247c9fb5309bb86cd5e496c61e5322cd8c4eca9476bb0b5883f\""
+    ],
+    [
+      45,
+      "    PKG_URL=\"https://www.kernel.org/pub/linux/kernel/v${PKG_VERSION/.*/}.x/${PKG_NAME}-${PKG_VERSION}.tar.xz\""
+    ],
+    [
+      46,
+      "    PKG_PATCH_DIRS+=\" 7.0\""
+    ],
+    [
+      47,
+      "    ;;"
+    ],
+    [
+      48,
+      "  RK3399)"
+    ],
+    [
+      49,
+      "    PKG_VERSION=\"6.18.54\""
+    ],
+    [
+      50,
+      "    PKG_SHA256=\"9df30b02dd8102bbd0be52556288ef6889ddbe7f1ddb96fbf847d0becf3eacac\""
+    ],
+    [
+      51,
+      "    PKG_URL=\"https://www.kernel.org/pub/linux/kernel/v${PKG_VERSION/.*/}.x/${PKG_NAME}-${PKG_VERSION}.tar.xz\""
+    ],
+    [
+      52,
+      "    ;;"
+    ],
+    [
+      53,
+      "esac"
+    ],
+    [
+      54,
+      ""
+    ],
+    [
+      55,
+      "PKG_KERNEL_CFG_FILE=$(kernel_config_path) || die"
+    ],
+    [
+      56,
+      ""
+    ],
+    [
+      57,
+      "if [ -n \"${KERNEL_TOOLCHAIN}\" ]; then"
+    ],
+    [
+      58,
+      "  PKG_DEPENDS_TARGET+=\" gcc-${KERNEL_TOOLCHAIN}:host\""
+    ],
+    [
+      59,
+      "  HEADERS_ARCH=${TARGET_ARCH}"
+    ],
+    [
+      60,
+      "else"
+    ],
+    [
+      61,
+      "  PKG_DEPENDS_TARGET+=\" toolchain\""
+    ],
+    [
+      62,
+      "fi"
+    ],
+    [
+      63,
+      ""
+    ],
+    [
+      64,
+      "if [ \"${PKG_BUILD_PERF}\" != \"no\" ] && grep -q ^CONFIG_PERF_EVENTS= ${PKG_KERNEL_CFG_FILE}; then"
+    ],
+    [
+      65,
+      "  PKG_BUILD_PERF=\"yes\""
+    ]
+  ],
+  "integration_owners": [
+    "#563",
+    "#559"
+  ],
+  "limits": "7.2.6 is a directory selector, not 7.2.11 source version; no source adopted"
+}

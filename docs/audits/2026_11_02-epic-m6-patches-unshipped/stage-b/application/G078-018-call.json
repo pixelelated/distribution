@@ -1,0 +1,15 @@
+{
+  "argv": [
+    "patch",
+    "-d",
+    "/workspace/tmp/m6-t43/G078-018-candidate-b1q5b9cv",
+    "-p1"
+  ],
+  "start": "2026-11-02T21:55:52.980230+00:00",
+  "end": "2026-11-02T21:55:52.981480+00:00",
+  "exit": 0,
+  "stdout_sha256": "52fba421aaf866e3f03a7e12e95dac33b79366deb481cca0f0d912da33ff2a2a",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "output": "patching file drivers/gpu/drm/msm/disp/dpu1/catalog/dpu_8_6_sm4450.h\npatching file drivers/gpu/drm/msm/disp/dpu1/dpu_hw_catalog.c\npatching file drivers/gpu/drm/msm/disp/dpu1/dpu_hw_catalog.h\npatching file drivers/gpu/drm/msm/disp/dpu1/dpu_kms.c\npatching file drivers/gpu/drm/msm/msm_mdss.c\npatching file drivers/soc/qcom/ubwc_config.c\n",
+  "error": ""
+}

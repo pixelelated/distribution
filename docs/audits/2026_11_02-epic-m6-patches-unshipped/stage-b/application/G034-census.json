@@ -1,0 +1,58 @@
+{
+  "id": "G034",
+  "census": {
+    "id": "G034",
+    "recipe": "projects/ROCKNIX/packages/audio/pipewire/package.mk",
+    "recipe_sha256": "ab5dc61a2e91e9bb5018911684a21cd03d349be242c47b84b3cab0816c54596c",
+    "owner": [
+      "image-packages"
+    ],
+    "consumer": "SM6115-arm",
+    "device": "SM6115",
+    "arch": "arm",
+    "target_cpu": "cortex-a73.cortex-a53",
+    "patch_arch": "arm",
+    "LINUX": "unset in clean default source config",
+    "batteryplus": "no or unset; exact yes predicate false",
+    "name": "pipewire",
+    "pin": "1.2.6",
+    "url": "https://github.com/PipeWire/pipewire/archive/1.2.6.tar.gz",
+    "expected_sha256": "8d9b4e95dba33d218c760fecbb71672c86a56917f803e96fe6c3af62fa783a95",
+    "selectors": [
+      "SM6115"
+    ],
+    "ordered_pattern_directories": [
+      "projects/ROCKNIX/packages/audio/pipewire/patches",
+      "projects/ROCKNIX/packages/audio/pipewire/patches/arm",
+      "projects/ROCKNIX/packages/audio/pipewire/patches/SM6115",
+      "projects/ROCKNIX/packages/audio/pipewire/patches/1.2.6",
+      "projects/ROCKNIX/packages/audio/pipewire/patches/1.2.6/arm",
+      "projects/ROCKNIX/patches/pipewire",
+      "projects/ROCKNIX/patches/pipewire/arm",
+      "projects/ROCKNIX/patches/pipewire/SM6115",
+      "projects/ROCKNIX/devices/SM6115/patches/pipewire/SM6115",
+      "projects/ROCKNIX/patches/pipewire/1.2.6",
+      "projects/ROCKNIX/devices/SM6115/patches/pipewire"
+    ],
+    "stack": [
+      "projects/ROCKNIX/packages/audio/pipewire/patches/001-pipewire-pulse.patch",
+      "projects/ROCKNIX/packages/audio/pipewire/patches/SM6115/001-increase-pulse-buffer-size.patch",
+      "projects/ROCKNIX/packages/audio/pipewire/patches/SM6115/002-increase-pipewire-buffer-size.patch"
+    ],
+    "native_paths": [
+      "projects/ROCKNIX/packages/audio/pipewire/patches/SM6115/001-increase-pulse-buffer-size.patch",
+      "projects/ROCKNIX/packages/audio/pipewire/patches/SM6115/002-increase-pipewire-buffer-size.patch"
+    ],
+    "config_paths": [],
+    "cache_candidates": [
+      "/workspace/cache/rocknix-sources/pipewire/pipewire-1.2.6.tar.gz"
+    ],
+    "preimage_limits": [],
+    "source_only": true,
+    "runtime": false
+  },
+  "started": "2026-11-02T21:55:19.555227+00:00",
+  "rows": [],
+  "input_snapshot": {},
+  "limits": []
+}

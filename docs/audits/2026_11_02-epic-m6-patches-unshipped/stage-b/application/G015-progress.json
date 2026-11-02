@@ -1,0 +1,171 @@
+{
+  "id": "G015",
+  "census": {
+    "id": "G015",
+    "recipe": "projects/ROCKNIX/packages/apps/gamepadtester/package.mk",
+    "recipe_sha256": "f5a5aed95afec1a87cdab04aee65c2f41060c7053e71cf90fe61b0b5d85debe2",
+    "owner": [
+      "image-packages"
+    ],
+    "consumer": "SM6115-aarch64",
+    "device": "SM6115",
+    "arch": "aarch64",
+    "target_cpu": "cortex-a73.cortex-a53",
+    "patch_arch": "aarch64",
+    "LINUX": "unset in clean default source config",
+    "batteryplus": "no or unset; exact yes predicate false",
+    "name": "gamepadtester",
+    "pin": "6ac49e67aa98fe3dd5c27f73306d65d4b7a82daa",
+    "url": "https://github.com/timre13/GamepadTester/archive/6ac49e67aa98fe3dd5c27f73306d65d4b7a82daa.tar.gz",
+    "expected_sha256": "dcba71ac2e673b7714a6cac12661d56e61a2eb861136bf7d74a42165d6a69be6",
+    "selectors": [
+      "SM6115",
+      "legacy"
+    ],
+    "ordered_pattern_directories": [
+      "projects/ROCKNIX/packages/apps/gamepadtester/patches",
+      "projects/ROCKNIX/packages/apps/gamepadtester/patches/aarch64",
+      "projects/ROCKNIX/packages/apps/gamepadtester/patches/SM6115",
+      "projects/ROCKNIX/packages/apps/gamepadtester/patches/legacy",
+      "projects/ROCKNIX/packages/apps/gamepadtester/patches/6ac49e67aa98fe3dd5c27f73306d65d4b7a82daa",
+      "projects/ROCKNIX/packages/apps/gamepadtester/patches/6ac49e67aa98fe3dd5c27f73306d65d4b7a82daa/aarch64",
+      "projects/ROCKNIX/patches/gamepadtester",
+      "projects/ROCKNIX/patches/gamepadtester/aarch64",
+      "projects/ROCKNIX/patches/gamepadtester/SM6115",
+      "projects/ROCKNIX/devices/SM6115/patches/gamepadtester/SM6115",
+      "projects/ROCKNIX/patches/gamepadtester/legacy",
+      "projects/ROCKNIX/devices/SM6115/patches/gamepadtester/legacy",
+      "projects/ROCKNIX/patches/gamepadtester/6ac49e67aa98fe3dd5c27f73306d65d4b7a82daa",
+      "projects/ROCKNIX/devices/SM6115/patches/gamepadtester"
+    ],
+    "stack": [
+      "projects/ROCKNIX/packages/apps/gamepadtester/patches/legacy/000-gamepad-tester.patch"
+    ],
+    "native_paths": [
+      "projects/ROCKNIX/packages/apps/gamepadtester/patches/legacy/000-gamepad-tester.patch"
+    ],
+    "config_paths": [],
+    "cache_candidates": [
+      "/workspace/cache/rocknix-sources/gamepadtester/gamepadtester-6ac49e67aa98fe3dd5c27f73306d65d4b7a82daa.tar.gz"
+    ],
+    "preimage_limits": [],
+    "source_only": true,
+    "runtime": false
+  },
+  "started": "2026-11-02T21:55:19.308106+00:00",
+  "rows": [
+    {
+      "path": "projects/ROCKNIX/packages/apps/gamepadtester/patches/legacy/000-gamepad-tester.patch",
+      "referent": "projects/ROCKNIX/packages/apps/gamepadtester/patches/legacy/000-gamepad-tester.patch",
+      "mode": "100644",
+      "literal_sha256": "7836626db42249a5fea450bb247849b6980a50381cafa2cda461f4fc0c049a10",
+      "content_sha256": "7836626db42249a5fea450bb247849b6980a50381cafa2cda461f4fc0c049a10",
+      "rendered_sha256": "7836626db42249a5fea450bb247849b6980a50381cafa2cda461f4fc0c049a10",
+      "targets": [
+        "CMakeLists.txt",
+        "src/main.cpp"
+      ],
+      "backend": "patch",
+      "index": 1,
+      "native": true,
+      "normal_called": true,
+      "normal": {
+        "argv": [
+          "patch",
+          "-d",
+          "/workspace/tmp/m6-t43/G015-001-candidate-g2ibbm03",
+          "-p1"
+        ],
+        "start": "2026-11-02T21:55:19.308682+00:00",
+        "end": "2026-11-02T21:55:19.309586+00:00",
+        "exit": 0,
+        "stdout_sha256": "e6b749aef3cd8b803b0f494dedd8db1e9173057f4fb1a4a6513128bafe59c063",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "output": "patching file CMakeLists.txt\npatching file src/main.cpp\n",
+        "error": ""
+      },
+      "input_digest": "83edcde0c7b927323ac9d310441ae911815560e2cb092d70004a88a34f12c457",
+      "output_digest": "727a6444dc36857f691f1e47ca47742ae056952ec74845ab1591678c04fcd987",
+      "candidate_snapshot": {
+        "CMakeLists.txt": {
+          "type": "file",
+          "mode": "0o664",
+          "sha256": "220815f0c73a8cfae721fc0d5505bc39ba60012b13a6d5e3c2a5a787e5e3e7a5",
+          "bytes": 299
+        },
+        "src/main.cpp": {
+          "type": "file",
+          "mode": "0o664",
+          "sha256": "87f55415d1a5b8ac6e5b9b45ecbad730e10aad640e256f8a13f896e1be7fb2e4",
+          "bytes": 10360
+        }
+      },
+      "candidate_root": "/workspace/tmp/m6-t43/G015-001-candidate-g2ibbm03",
+      "status": "applies",
+      "promoted": true
+    }
+  ],
+  "input_snapshot": {
+    "CMakeLists.txt": {
+      "type": "file",
+      "mode": "0o664",
+      "sha256": "4a0931fd165a0ef77716c51e240c9b5517ee36285f5a9d1fc2592b0056050162",
+      "bytes": 338
+    },
+    "src/main.cpp": {
+      "type": "file",
+      "mode": "0o664",
+      "sha256": "e8add4cae3bf4695d7b72d5ef850e435f90796065eb54aa523a7bfe55127d58e",
+      "bytes": 10018
+    }
+  },
+  "limits": [],
+  "cache_observations": [
+    {
+      "path": "/workspace/cache/rocknix-sources/gamepadtester/gamepadtester-6ac49e67aa98fe3dd5c27f73306d65d4b7a82daa.tar.gz",
+      "sha256": "dcba71ac2e673b7714a6cac12661d56e61a2eb861136bf7d74a42165d6a69be6",
+      "expected": "dcba71ac2e673b7714a6cac12661d56e61a2eb861136bf7d74a42165d6a69be6"
+    }
+  ],
+  "archive": {
+    "path": "/workspace/cache/rocknix-sources/gamepadtester/gamepadtester-6ac49e67aa98fe3dd5c27f73306d65d4b7a82daa.tar.gz",
+    "sha256": "dcba71ac2e673b7714a6cac12661d56e61a2eb861136bf7d74a42165d6a69be6",
+    "recipe_url": "https://github.com/timre13/GamepadTester/archive/6ac49e67aa98fe3dd5c27f73306d65d4b7a82daa.tar.gz"
+  },
+  "stack": [
+    {
+      "path": "projects/ROCKNIX/packages/apps/gamepadtester/patches/legacy/000-gamepad-tester.patch",
+      "referent": "projects/ROCKNIX/packages/apps/gamepadtester/patches/legacy/000-gamepad-tester.patch",
+      "mode": "100644",
+      "literal_sha256": "7836626db42249a5fea450bb247849b6980a50381cafa2cda461f4fc0c049a10",
+      "content_sha256": "7836626db42249a5fea450bb247849b6980a50381cafa2cda461f4fc0c049a10",
+      "rendered_sha256": "7836626db42249a5fea450bb247849b6980a50381cafa2cda461f4fc0c049a10",
+      "targets": [
+        "CMakeLists.txt",
+        "src/main.cpp"
+      ],
+      "backend": "patch"
+    }
+  ],
+  "stack_sha256": "3051d5a4f1f25ca0c7042f233f7459e164992a3f586bec4f286d42f53a98619f",
+  "projection": {
+    "archive_header_count": 8,
+    "archive_header_sha256": "e14060733f16652a152d025bfd20953002b794ee5080334c553c866e72c8bed4",
+    "projected_members": {
+      "CMakeLists.txt": {
+        "type": "file",
+        "mode": "0o664",
+        "sha256": "4a0931fd165a0ef77716c51e240c9b5517ee36285f5a9d1fc2592b0056050162",
+        "bytes": 338
+      },
+      "src/main.cpp": {
+        "type": "file",
+        "mode": "0o664",
+        "sha256": "e8add4cae3bf4695d7b72d5ef850e435f90796065eb54aa523a7bfe55127d58e",
+        "bytes": 10018
+      }
+    },
+    "absent_targets": [],
+    "projection_root": "/workspace/tmp/m6-t43/source-members-ebgffy5h"
+  }
+}

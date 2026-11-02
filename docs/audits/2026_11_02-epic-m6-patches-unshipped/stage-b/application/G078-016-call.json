@@ -1,0 +1,15 @@
+{
+  "argv": [
+    "patch",
+    "-d",
+    "/workspace/tmp/m6-t43/G078-016-candidate-nxkbjhyu",
+    "-p1"
+  ],
+  "start": "2026-11-02T21:55:52.949525+00:00",
+  "end": "2026-11-02T21:55:52.951685+00:00",
+  "exit": 0,
+  "stdout_sha256": "2c7295bfe8672113877c4ab975f5fa96885c07ff9de6316ad12f180cf6281c29",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "output": "patching file drivers/interconnect/qcom/Kconfig\nHunk #1 succeeded at 338 (offset 1 line).\npatching file drivers/interconnect/qcom/Makefile\npatching file drivers/interconnect/qcom/sm4450.c\npatching file include/dt-bindings/interconnect/qcom,sm4450-rpmh.h\n",
+  "error": ""
+}

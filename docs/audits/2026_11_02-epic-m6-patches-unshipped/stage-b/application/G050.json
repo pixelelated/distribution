@@ -1,0 +1,73 @@
+{
+  "id": "G050",
+  "census": {
+    "id": "G050",
+    "recipe": "projects/ROCKNIX/packages/graphics/libmali/package.mk",
+    "recipe_sha256": "eb06a98b192a2150a80dcc6da068c8602c36cbdc5b23ffbd749ab9dc33637f74",
+    "owner": [
+      "packages-dead-ends"
+    ],
+    "consumer": "RK3576-arm",
+    "device": "RK3576",
+    "arch": "arm",
+    "target_cpu": "cortex-a72.cortex-a53",
+    "patch_arch": "arm",
+    "LINUX": "unset in clean default source config",
+    "batteryplus": "no or unset; exact yes predicate false",
+    "name": "libmali",
+    "pin": "4233031d818e97a19e8a9cdbbd5c15795ededd93",
+    "url": "https://github.com/JeffyCN/mirrors/archive/4233031d818e97a19e8a9cdbbd5c15795ededd93.zip",
+    "expected_sha256": "54b8af924f582f7da7e120fbad4812a502cc7cc67f6d6ab061377cb403f3eb2d",
+    "selectors": [
+      "RK3576",
+      "next"
+    ],
+    "ordered_pattern_directories": [
+      "projects/ROCKNIX/packages/graphics/libmali/patches",
+      "projects/ROCKNIX/packages/graphics/libmali/patches/arm",
+      "projects/ROCKNIX/packages/graphics/libmali/patches/RK3576",
+      "projects/ROCKNIX/packages/graphics/libmali/patches/next",
+      "projects/ROCKNIX/packages/graphics/libmali/patches/4233031d818e97a19e8a9cdbbd5c15795ededd93",
+      "projects/ROCKNIX/packages/graphics/libmali/patches/4233031d818e97a19e8a9cdbbd5c15795ededd93/arm",
+      "projects/ROCKNIX/patches/libmali",
+      "projects/ROCKNIX/patches/libmali/arm",
+      "projects/ROCKNIX/patches/libmali/RK3576",
+      "projects/ROCKNIX/devices/RK3576/patches/libmali/RK3576",
+      "projects/ROCKNIX/patches/libmali/next",
+      "projects/ROCKNIX/devices/RK3576/patches/libmali/next",
+      "projects/ROCKNIX/patches/libmali/4233031d818e97a19e8a9cdbbd5c15795ededd93",
+      "projects/ROCKNIX/devices/RK3576/patches/libmali"
+    ],
+    "stack": [
+      "projects/ROCKNIX/packages/graphics/libmali/patches/next/001-map-loader-gap-at-runtime.patch",
+      "projects/ROCKNIX/packages/graphics/libmali/patches/next/next.patch"
+    ],
+    "native_paths": [
+      "projects/ROCKNIX/packages/graphics/libmali/patches/next/001-map-loader-gap-at-runtime.patch",
+      "projects/ROCKNIX/packages/graphics/libmali/patches/next/next.patch"
+    ],
+    "config_paths": [],
+    "cache_candidates": [
+      "/workspace/cache/rocknix-sources/libmali/libmali-4233031d818e97a19e8a9cdbbd5c15795ededd93.zip"
+    ],
+    "preimage_limits": [
+      "custom unpack selects LIBNAME/MALI_FAMILY/PLATFORM and renames data; exact complete preimage not established"
+    ],
+    "source_only": true,
+    "runtime": false
+  },
+  "started": "2026-11-02T21:55:19.964470+00:00",
+  "rows": [],
+  "input_snapshot": {},
+  "limits": [
+    "custom unpack selects LIBNAME/MALI_FAMILY/PLATFORM and renames data; exact complete preimage not established"
+  ],
+  "cache_observations": [
+    {
+      "path": "/workspace/cache/rocknix-sources/libmali/libmali-4233031d818e97a19e8a9cdbbd5c15795ededd93.zip",
+      "sha256": "54b8af924f582f7da7e120fbad4812a502cc7cc67f6d6ab061377cb403f3eb2d",
+      "expected": "54b8af924f582f7da7e120fbad4812a502cc7cc67f6d6ab061377cb403f3eb2d"
+    }
+  ],
+  "status": "open-item"
+}

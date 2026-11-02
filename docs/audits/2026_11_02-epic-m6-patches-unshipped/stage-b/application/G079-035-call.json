@@ -1,0 +1,15 @@
+{
+  "argv": [
+    "patch",
+    "-d",
+    "/workspace/tmp/m6-t43/G079-035-candidate-t3pgnf9o",
+    "-p1"
+  ],
+  "start": "2026-11-02T21:56:01.208600+00:00",
+  "end": "2026-11-02T21:56:01.210491+00:00",
+  "exit": 0,
+  "stdout_sha256": "3e811383506b3ca970982f7e5ddb56a3594c6273978d66590dddf916f2422de1",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "output": "patching file drivers/power/supply/Kconfig\npatching file drivers/power/supply/Makefile\npatching file drivers/power/supply/cw221x_battery.c\n",
+  "error": ""
+}

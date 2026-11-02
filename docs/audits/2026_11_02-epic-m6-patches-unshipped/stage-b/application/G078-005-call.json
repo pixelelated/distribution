@@ -1,0 +1,15 @@
+{
+  "argv": [
+    "patch",
+    "-d",
+    "/workspace/tmp/m6-t43/G078-005-candidate-9n7r_qj7",
+    "-p1"
+  ],
+  "start": "2026-11-02T21:55:52.794286+00:00",
+  "end": "2026-11-02T21:55:52.797171+00:00",
+  "exit": 0,
+  "stdout_sha256": "a08bd526810fac48a484dbc9c07f3e300cf23177ead25067a04add13af518bfc",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "output": "patching file drivers/gpu/drm/msm/disp/dpu1/dpu_crtc.c\nHunk #1 succeeded at 1450 (offset 8 lines).\nHunk #2 succeeded at 1458 (offset 8 lines).\npatching file drivers/gpu/drm/msm/disp/dpu1/dpu_encoder.c\npatching file drivers/gpu/drm/msm/disp/dpu1/dpu_encoder.c\npatching file drivers/gpu/drm/msm/disp/dpu1/dpu_encoder_phys.h\npatching file drivers/gpu/drm/msm/disp/dpu1/dpu_encoder.c\npatching file drivers/gpu/drm/msm/disp/dpu1/dpu_encoder.c\npatching file drivers/gpu/drm/msm/disp/dpu1/dpu_encoder.c\npatching file drivers/gpu/drm/msm/disp/dpu1/dpu_encoder_phys_cmd.c\nHunk #1 succeeded at 538 (offset 6 lines).\nHunk #2 succeeded at 565 (offset 6 lines).\npatching file drivers/gpu/drm/msm/disp/dpu1/dpu_hw_dsc_1_2.c\n",
+  "error": ""
+}

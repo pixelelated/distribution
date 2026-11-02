@@ -1,0 +1,70 @@
+{
+  "id": "G044",
+  "census": {
+    "id": "G044",
+    "recipe": "projects/ROCKNIX/packages/emulators/standalone/xemu-sa/package.mk",
+    "recipe_sha256": "cceeb22476428a2bbdfe9c5d8562332157035e3ba104313e4e77e27d2df39207",
+    "owner": [
+      "emulators-standalone"
+    ],
+    "consumer": "SM8250-aarch64",
+    "device": "SM8250",
+    "arch": "aarch64",
+    "target_cpu": "cortex-a76.cortex-a55",
+    "patch_arch": "aarch64",
+    "LINUX": "unset in clean default source config",
+    "batteryplus": "no or unset; exact yes predicate false",
+    "name": "xemu-sa",
+    "pin": "cbffb57d084c70351a596e99e32a8b73e0c5eabf",
+    "url": "https://github.com/xemu-project/xemu/archive/cbffb57d084c70351a596e99e32a8b73e0c5eabf.tar.gz",
+    "expected_sha256": "fe6bfb3f1e2e3b4ed4cb028e637a530f0e813440dd4fa39c1f597c3ec08407d3",
+    "selectors": [
+      "SM8250"
+    ],
+    "ordered_pattern_directories": [
+      "projects/ROCKNIX/packages/emulators/standalone/xemu-sa/patches",
+      "projects/ROCKNIX/packages/emulators/standalone/xemu-sa/patches/aarch64",
+      "projects/ROCKNIX/packages/emulators/standalone/xemu-sa/patches/SM8250",
+      "projects/ROCKNIX/packages/emulators/standalone/xemu-sa/patches/cbffb57d084c70351a596e99e32a8b73e0c5eabf",
+      "projects/ROCKNIX/packages/emulators/standalone/xemu-sa/patches/cbffb57d084c70351a596e99e32a8b73e0c5eabf/aarch64",
+      "projects/ROCKNIX/patches/xemu-sa",
+      "projects/ROCKNIX/patches/xemu-sa/aarch64",
+      "projects/ROCKNIX/patches/xemu-sa/SM8250",
+      "projects/ROCKNIX/devices/SM8250/patches/xemu-sa/SM8250",
+      "projects/ROCKNIX/patches/xemu-sa/cbffb57d084c70351a596e99e32a8b73e0c5eabf",
+      "projects/ROCKNIX/devices/SM8250/patches/xemu-sa"
+    ],
+    "stack": [
+      "projects/ROCKNIX/packages/emulators/standalone/xemu-sa/patches/000-use-xemu-glslang.patch",
+      "projects/ROCKNIX/packages/emulators/standalone/xemu-sa/patches/001-cpu-display-speed.patch",
+      "projects/ROCKNIX/packages/emulators/standalone/xemu-sa/patches/002-integer-scaling.patch",
+      "projects/ROCKNIX/packages/emulators/standalone/xemu-sa/patches/SM8250/000-fix-face-buttons.patch"
+    ],
+    "native_paths": [
+      "projects/ROCKNIX/packages/emulators/standalone/xemu-sa/patches/SM8250/000-fix-face-buttons.patch"
+    ],
+    "config_paths": [],
+    "cache_candidates": [
+      "/workspace/cache/rocknix-sources/xemu-sa/xemu-sa-cbffb57d084c70351a596e99e32a8b73e0c5eabf.tar.gz"
+    ],
+    "preimage_limits": [
+      "post_unpack edits configure using build TOOLCHAIN path; full preimage not established"
+    ],
+    "source_only": true,
+    "runtime": false
+  },
+  "started": "2026-11-02T21:55:19.652266+00:00",
+  "rows": [],
+  "input_snapshot": {},
+  "limits": [
+    "post_unpack edits configure using build TOOLCHAIN path; full preimage not established"
+  ],
+  "cache_observations": [
+    {
+      "path": "/workspace/cache/rocknix-sources/xemu-sa/xemu-sa-cbffb57d084c70351a596e99e32a8b73e0c5eabf.tar.gz",
+      "sha256": "fe6bfb3f1e2e3b4ed4cb028e637a530f0e813440dd4fa39c1f597c3ec08407d3",
+      "expected": "fe6bfb3f1e2e3b4ed4cb028e637a530f0e813440dd4fa39c1f597c3ec08407d3"
+    }
+  ],
+  "status": "open-item"
+}

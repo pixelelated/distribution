@@ -1,0 +1,56 @@
+{
+  "id": "G036",
+  "census": {
+    "id": "G036",
+    "recipe": "projects/ROCKNIX/packages/audio/pipewire/package.mk",
+    "recipe_sha256": "ab5dc61a2e91e9bb5018911684a21cd03d349be242c47b84b3cab0816c54596c",
+    "owner": [
+      "image-packages"
+    ],
+    "consumer": "SM8250-arm",
+    "device": "SM8250",
+    "arch": "arm",
+    "target_cpu": "cortex-a76.cortex-a55",
+    "patch_arch": "arm",
+    "LINUX": "unset in clean default source config",
+    "batteryplus": "no or unset; exact yes predicate false",
+    "name": "pipewire",
+    "pin": "1.2.6",
+    "url": "https://github.com/PipeWire/pipewire/archive/1.2.6.tar.gz",
+    "expected_sha256": "8d9b4e95dba33d218c760fecbb71672c86a56917f803e96fe6c3af62fa783a95",
+    "selectors": [
+      "SM8250"
+    ],
+    "ordered_pattern_directories": [
+      "projects/ROCKNIX/packages/audio/pipewire/patches",
+      "projects/ROCKNIX/packages/audio/pipewire/patches/arm",
+      "projects/ROCKNIX/packages/audio/pipewire/patches/SM8250",
+      "projects/ROCKNIX/packages/audio/pipewire/patches/1.2.6",
+      "projects/ROCKNIX/packages/audio/pipewire/patches/1.2.6/arm",
+      "projects/ROCKNIX/patches/pipewire",
+      "projects/ROCKNIX/patches/pipewire/arm",
+      "projects/ROCKNIX/patches/pipewire/SM8250",
+      "projects/ROCKNIX/devices/SM8250/patches/pipewire/SM8250",
+      "projects/ROCKNIX/patches/pipewire/1.2.6",
+      "projects/ROCKNIX/devices/SM8250/patches/pipewire"
+    ],
+    "stack": [
+      "projects/ROCKNIX/packages/audio/pipewire/patches/001-pipewire-pulse.patch",
+      "projects/ROCKNIX/packages/audio/pipewire/patches/SM8250/000-increase-buffer.patch"
+    ],
+    "native_paths": [
+      "projects/ROCKNIX/packages/audio/pipewire/patches/SM8250/000-increase-buffer.patch"
+    ],
+    "config_paths": [],
+    "cache_candidates": [
+      "/workspace/cache/rocknix-sources/pipewire/pipewire-1.2.6.tar.gz"
+    ],
+    "preimage_limits": [],
+    "source_only": true,
+    "runtime": false
+  },
+  "started": "2026-11-02T21:55:19.617291+00:00",
+  "rows": [],
+  "input_snapshot": {},
+  "limits": []
+}

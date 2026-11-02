@@ -1,0 +1,57 @@
+{
+  "id": "G003",
+  "census": {
+    "id": "G003",
+    "recipe": "projects/ROCKNIX/devices/AMD64/packages/ectool/package.mk",
+    "recipe_sha256": "f3afcf528ea29419fcbaa13aa1f556ddff17c909b6a7fb2643712d6cb2f1adc5",
+    "owner": [
+      "devices-unshipped"
+    ],
+    "consumer": "AMD64-x86_64",
+    "device": "AMD64",
+    "arch": "x86_64",
+    "target_cpu": "x86-64-v3",
+    "patch_arch": "x86",
+    "LINUX": "unset in clean default source config",
+    "batteryplus": "no or unset; exact yes predicate false",
+    "name": "ectool",
+    "pin": "053c901548b751dd10eeae5e0afae8359290bede",
+    "url": "https://review.coreboot.org/coreboot.git",
+    "expected_sha256": null,
+    "selectors": [],
+    "ordered_pattern_directories": [
+      "projects/ROCKNIX/devices/AMD64/packages/ectool/patches",
+      "projects/ROCKNIX/devices/AMD64/packages/ectool/patches/x86",
+      "projects/ROCKNIX/devices/AMD64/packages/ectool/patches/053c901548b751dd10eeae5e0afae8359290bede",
+      "projects/ROCKNIX/devices/AMD64/packages/ectool/patches/053c901548b751dd10eeae5e0afae8359290bede/x86",
+      "projects/ROCKNIX/patches/ectool",
+      "projects/ROCKNIX/patches/ectool/x86",
+      "projects/ROCKNIX/patches/ectool/053c901548b751dd10eeae5e0afae8359290bede",
+      "projects/ROCKNIX/devices/AMD64/patches/ectool"
+    ],
+    "stack": [
+      "projects/ROCKNIX/devices/AMD64/packages/ectool/patches/001-read.patch"
+    ],
+    "native_paths": [
+      "projects/ROCKNIX/devices/AMD64/packages/ectool/patches/001-read.patch"
+    ],
+    "config_paths": [],
+    "cache_candidates": [],
+    "preimage_limits": [
+      "Git source recipe has no archive SHA256; no cached exact archive",
+      "recipe lacks archive checksum"
+    ],
+    "source_only": true,
+    "runtime": false
+  },
+  "started": "2026-11-02T21:55:17.003287+00:00",
+  "rows": [],
+  "input_snapshot": {},
+  "limits": [
+    "Git source recipe has no archive SHA256; no cached exact archive",
+    "recipe lacks archive checksum",
+    "exact source archive absent from inspected package cache directory"
+  ],
+  "cache_observations": [],
+  "status": "open-item"
+}

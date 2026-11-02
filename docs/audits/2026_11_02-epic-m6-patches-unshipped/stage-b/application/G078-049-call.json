@@ -1,0 +1,15 @@
+{
+  "argv": [
+    "patch",
+    "-d",
+    "/workspace/tmp/m6-t43/G078-049-candidate-_auq1kyx",
+    "-p1"
+  ],
+  "start": "2026-11-02T21:55:53.480311+00:00",
+  "end": "2026-11-02T21:55:53.482403+00:00",
+  "exit": 0,
+  "stdout_sha256": "d4f4867f244b0c2c5c61ef463d7b6c177d8239f19e3b66feb41565f1d974212e",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "output": "patching file drivers/input/joystick/Kconfig\nHunk #1 succeeded at 404 (offset 4 lines).\npatching file drivers/input/joystick/Makefile\nHunk #1 succeeded at 30 with fuzz 2 (offset 1 line).\npatching file drivers/input/joystick/singleadc-joypad.c\n",
+  "error": ""
+}

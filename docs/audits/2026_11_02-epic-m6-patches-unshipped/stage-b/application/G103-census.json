@@ -1,0 +1,53 @@
+{
+  "id": "G103",
+  "census": {
+    "id": "G103",
+    "recipe": "projects/ROCKNIX/packages/tools/atf/package.mk",
+    "recipe_sha256": "c71f0a30925468574ffa9c3bc971bb8b08382535e1bc3cf69fbaaf112db73fc0",
+    "owner": [
+      "image-packages"
+    ],
+    "consumer": "RK3399-aarch64",
+    "device": "RK3399",
+    "arch": "aarch64",
+    "target_cpu": "cortex-a72.cortex-a53",
+    "patch_arch": "aarch64",
+    "LINUX": "unset in clean default source config",
+    "batteryplus": "no or unset; exact yes predicate false",
+    "name": "atf",
+    "pin": "2.10.0",
+    "url": "https://github.com/ARM-software/arm-trusted-firmware/archive/v2.10.0.tar.gz",
+    "expected_sha256": "696b8e53923aac4474532da7dd681f0bd044b329732facd65aeabea3e61adca9",
+    "selectors": [
+      "RK3399"
+    ],
+    "ordered_pattern_directories": [
+      "projects/ROCKNIX/packages/tools/atf/patches",
+      "projects/ROCKNIX/packages/tools/atf/patches/aarch64",
+      "projects/ROCKNIX/packages/tools/atf/patches/RK3399",
+      "projects/ROCKNIX/packages/tools/atf/patches/2.10.0",
+      "projects/ROCKNIX/packages/tools/atf/patches/2.10.0/aarch64",
+      "projects/ROCKNIX/patches/atf",
+      "projects/ROCKNIX/patches/atf/aarch64",
+      "projects/ROCKNIX/patches/atf/RK3399",
+      "projects/ROCKNIX/devices/RK3399/patches/atf/RK3399",
+      "projects/ROCKNIX/patches/atf/2.10.0",
+      "projects/ROCKNIX/devices/RK3399/patches/atf"
+    ],
+    "stack": [
+      "projects/ROCKNIX/packages/tools/atf/patches/RK3399/000-atf-fix-baud.patch"
+    ],
+    "native_paths": [
+      "projects/ROCKNIX/packages/tools/atf/patches/RK3399/000-atf-fix-baud.patch"
+    ],
+    "config_paths": [],
+    "cache_candidates": [],
+    "preimage_limits": [],
+    "source_only": true,
+    "runtime": false
+  },
+  "started": "2026-11-02T21:56:27.302633+00:00",
+  "rows": [],
+  "input_snapshot": {},
+  "limits": []
+}

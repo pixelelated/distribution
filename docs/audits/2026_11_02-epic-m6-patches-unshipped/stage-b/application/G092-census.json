@@ -1,0 +1,74 @@
+{
+  "id": "G092",
+  "census": {
+    "id": "G092",
+    "recipe": "projects/ROCKNIX/packages/multimedia/ffmpeg/package.mk",
+    "recipe_sha256": "f893b3c33bb3a69286ec2ee7d7e8365118f8bf76d643c32d6bc41e2fb0dd4922",
+    "owner": [
+      "image-packages"
+    ],
+    "consumer": "RK3576-arm",
+    "device": "RK3576",
+    "arch": "arm",
+    "target_cpu": "cortex-a72.cortex-a53",
+    "patch_arch": "arm",
+    "LINUX": "unset in clean default source config",
+    "batteryplus": "no or unset; exact yes predicate false",
+    "name": "ffmpeg",
+    "pin": "7.1.1",
+    "url": "http://ffmpeg.org/releases/ffmpeg-7.1.1.tar.xz",
+    "expected_sha256": "733984395e0dbbe5c046abda2dc49a5544e7e0e1e2366bba849222ae9e3a03b1",
+    "selectors": [
+      "libreelec",
+      "v4l2-request",
+      "v4l2-drmprime",
+      "vf-deinterlace-v4l2m2m"
+    ],
+    "ordered_pattern_directories": [
+      "projects/ROCKNIX/packages/multimedia/ffmpeg/patches",
+      "projects/ROCKNIX/packages/multimedia/ffmpeg/patches/arm",
+      "projects/ROCKNIX/packages/multimedia/ffmpeg/patches/libreelec",
+      "projects/ROCKNIX/packages/multimedia/ffmpeg/patches/v4l2-request",
+      "projects/ROCKNIX/packages/multimedia/ffmpeg/patches/v4l2-drmprime",
+      "projects/ROCKNIX/packages/multimedia/ffmpeg/patches/vf-deinterlace-v4l2m2m",
+      "projects/ROCKNIX/packages/multimedia/ffmpeg/patches/7.1.1",
+      "projects/ROCKNIX/packages/multimedia/ffmpeg/patches/7.1.1/arm",
+      "projects/ROCKNIX/patches/ffmpeg",
+      "projects/ROCKNIX/patches/ffmpeg/arm",
+      "projects/ROCKNIX/patches/ffmpeg/libreelec",
+      "projects/ROCKNIX/devices/RK3576/patches/ffmpeg/libreelec",
+      "projects/ROCKNIX/patches/ffmpeg/v4l2-request",
+      "projects/ROCKNIX/devices/RK3576/patches/ffmpeg/v4l2-request",
+      "projects/ROCKNIX/patches/ffmpeg/v4l2-drmprime",
+      "projects/ROCKNIX/devices/RK3576/patches/ffmpeg/v4l2-drmprime",
+      "projects/ROCKNIX/patches/ffmpeg/vf-deinterlace-v4l2m2m",
+      "projects/ROCKNIX/devices/RK3576/patches/ffmpeg/vf-deinterlace-v4l2m2m",
+      "projects/ROCKNIX/patches/ffmpeg/7.1.1",
+      "projects/ROCKNIX/devices/RK3576/patches/ffmpeg"
+    ],
+    "stack": [
+      "projects/ROCKNIX/packages/multimedia/ffmpeg/patches/libreelec/ffmpeg-001-libreelec.patch",
+      "projects/ROCKNIX/packages/multimedia/ffmpeg/patches/v4l2-request/ffmpeg-001-v4l2-request.patch",
+      "projects/ROCKNIX/packages/multimedia/ffmpeg/patches/v4l2-drmprime/ffmpeg-001-v4l2-drmprime.patch",
+      "projects/ROCKNIX/packages/multimedia/ffmpeg/patches/vf-deinterlace-v4l2m2m/ffmpeg-001-vf-deinterlace-v4l2m2m.patch"
+    ],
+    "native_paths": [
+      "projects/ROCKNIX/packages/multimedia/ffmpeg/patches/vf-deinterlace-v4l2m2m/ffmpeg-001-vf-deinterlace-v4l2m2m.patch"
+    ],
+    "config_paths": [],
+    "cache_candidates": [
+      "/workspace/cache/rocknix-sources/ffmpeg/ffmpeg-7.1.1.tar.xz"
+    ],
+    "preimage_limits": [
+      "post_unpack VERSION/RELEASE write and PKG_FFMPEG_BRANCH input not materialized; no full preimage claim"
+    ],
+    "source_only": true,
+    "runtime": false
+  },
+  "started": "2026-11-02T21:56:27.181619+00:00",
+  "rows": [],
+  "input_snapshot": {},
+  "limits": [
+    "post_unpack VERSION/RELEASE write and PKG_FFMPEG_BRANCH input not materialized; no full preimage claim"
+  ]
+}

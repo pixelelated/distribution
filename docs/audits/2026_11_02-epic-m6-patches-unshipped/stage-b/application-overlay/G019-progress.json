@@ -1,0 +1,659 @@
+{
+  "id": "G019",
+  "census": {
+    "id": "G019",
+    "recipe": "projects/ROCKNIX/packages/apps/mangohud/package.mk",
+    "recipe_sha256": "eedb1ec41c904ed890d50d67f8a9dd922ff188e4dff32c80cca94230367cf826",
+    "owner": [
+      "image-packages"
+    ],
+    "consumer": "SM6115-aarch64",
+    "device": "SM6115",
+    "arch": "aarch64",
+    "target_cpu": "cortex-a73.cortex-a53",
+    "patch_arch": "aarch64",
+    "LINUX": "unset in clean default source config",
+    "batteryplus": "no or unset; exact yes predicate false",
+    "name": "mangohud",
+    "pin": "992103e4fb744897826de04ea00a2f71e7018214",
+    "url": "https://github.com/flightlessmango/MangoHud/archive/992103e4fb744897826de04ea00a2f71e7018214.tar.gz",
+    "expected_sha256": "edd61f4716710681a9e3b535556831ee0c6187b7b6f90d29f8d8ac234448f4a5",
+    "selectors": [
+      "common",
+      "qualcomm",
+      "SM6115"
+    ],
+    "ordered_pattern_directories": [
+      "projects/ROCKNIX/packages/apps/mangohud/patches",
+      "projects/ROCKNIX/packages/apps/mangohud/patches/aarch64",
+      "projects/ROCKNIX/packages/apps/mangohud/patches/common",
+      "projects/ROCKNIX/packages/apps/mangohud/patches/qualcomm",
+      "projects/ROCKNIX/packages/apps/mangohud/patches/SM6115",
+      "projects/ROCKNIX/packages/apps/mangohud/patches/992103e4fb744897826de04ea00a2f71e7018214",
+      "projects/ROCKNIX/packages/apps/mangohud/patches/992103e4fb744897826de04ea00a2f71e7018214/aarch64",
+      "projects/ROCKNIX/patches/mangohud",
+      "projects/ROCKNIX/patches/mangohud/aarch64",
+      "projects/ROCKNIX/patches/mangohud/common",
+      "projects/ROCKNIX/devices/SM6115/patches/mangohud/common",
+      "projects/ROCKNIX/patches/mangohud/qualcomm",
+      "projects/ROCKNIX/devices/SM6115/patches/mangohud/qualcomm",
+      "projects/ROCKNIX/patches/mangohud/SM6115",
+      "projects/ROCKNIX/devices/SM6115/patches/mangohud/SM6115",
+      "projects/ROCKNIX/patches/mangohud/992103e4fb744897826de04ea00a2f71e7018214",
+      "projects/ROCKNIX/devices/SM6115/patches/mangohud"
+    ],
+    "stack": [
+      "projects/ROCKNIX/packages/apps/mangohud/patches/common/0001-No-static-lib.patch",
+      "projects/ROCKNIX/packages/apps/mangohud/patches/common/0002-Battery-name.patch",
+      "projects/ROCKNIX/packages/apps/mangohud/patches/common/0003-RAM-name.patch",
+      "projects/ROCKNIX/packages/apps/mangohud/patches/qualcomm/0001-Qualcomm-GPU-support.patch",
+      "projects/ROCKNIX/packages/apps/mangohud/patches/qualcomm/0002-Qualcomm-battery-power_now.patch",
+      "projects/ROCKNIX/packages/apps/mangohud/patches/SM6115/0001-SM6115-GPU.patch"
+    ],
+    "native_paths": [
+      "projects/ROCKNIX/packages/apps/mangohud/patches/SM6115/0001-SM6115-GPU.patch"
+    ],
+    "config_paths": [],
+    "cache_candidates": [
+      "/workspace/cache/rocknix-sources/mangohud/mangohud-992103e4fb744897826de04ea00a2f71e7018214.tar.gz"
+    ],
+    "preimage_limits": [],
+    "source_only": true,
+    "runtime": false,
+    "source_overlays": [
+      {
+        "path": "projects/ROCKNIX/packages/apps/mangohud/sources/mangohud_set",
+        "relative": "mangohud_set",
+        "mode": "100644",
+        "oid": "a086a4d0f7895be186e89baea871b9ba941d8620"
+      }
+    ]
+  },
+  "started": "2026-11-02T21:57:59.145021+00:00",
+  "rows": [
+    {
+      "path": "projects/ROCKNIX/packages/apps/mangohud/patches/common/0001-No-static-lib.patch",
+      "referent": "projects/ROCKNIX/packages/apps/mangohud/patches/common/0001-No-static-lib.patch",
+      "mode": "100644",
+      "literal_sha256": "117bd8e8f4ef37c4b375f5b0390927bbee3866b05cb4b8c382e62f70c4ef5328",
+      "content_sha256": "117bd8e8f4ef37c4b375f5b0390927bbee3866b05cb4b8c382e62f70c4ef5328",
+      "rendered_sha256": "117bd8e8f4ef37c4b375f5b0390927bbee3866b05cb4b8c382e62f70c4ef5328",
+      "targets": [
+        "src/meson.build"
+      ],
+      "backend": "patch",
+      "index": 1,
+      "native": false,
+      "normal_called": true,
+      "normal": {
+        "argv": [
+          "patch",
+          "-d",
+          "/workspace/tmp/m6-t43/G019-001-candidate-vxsz612z",
+          "-p1"
+        ],
+        "start": "2026-11-02T21:57:59.150039+00:00",
+        "end": "2026-11-02T21:57:59.151761+00:00",
+        "exit": 0,
+        "stdout_sha256": "55184119d2e6f20e4c08e61bf9bfbec274b9fac3b33b119917f3ecbde2f8398b",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "output": "patching file src/meson.build\n",
+        "error": ""
+      },
+      "input_digest": "34cf9de025c24bc22df0a9877bbec247c5b3a59edb80efbc6ae880bf42ab02cb",
+      "output_digest": "26a8b1d191aa9fdd88df45de193235cac8e103b65aa56bd0a97f5990ad7f6053",
+      "candidate_snapshot": {
+        "src/battery.cpp": {
+          "type": "file",
+          "mode": "0o664",
+          "sha256": "3769e5c453ef83efcdd8d57bc7b5ed723e9650b504f9aff3a8dbd0bf7fc13c73",
+          "bytes": 7286
+        },
+        "src/gpu_fdinfo.cpp": {
+          "type": "file",
+          "mode": "0o664",
+          "sha256": "01a3fa797c530913e32493d7e46c9e0160095530bf2267611fecefeca12aada9",
+          "bytes": 20816
+        },
+        "src/gpu_fdinfo.h": {
+          "type": "file",
+          "mode": "0o664",
+          "sha256": "fc35b1070dee33331c1a74be5a725334caf2658bf33215a0f3b348a210158329",
+          "bytes": 7574
+        },
+        "src/hud_elements.cpp": {
+          "type": "file",
+          "mode": "0o664",
+          "sha256": "1fd21eaebf250a4f5a5e433f901aca91b7b9dec8bae9409f15a92fdd28b72be9",
+          "bytes": 95001
+        },
+        "src/meson.build": {
+          "type": "file",
+          "mode": "0o664",
+          "sha256": "42ec9a85d5a16d223e17b2a748b95665b7c794334665ff684bae02f57a1a7b91",
+          "bytes": 7792
+        }
+      },
+      "candidate_root": "/workspace/tmp/m6-t43/G019-001-candidate-vxsz612z",
+      "status": "applies",
+      "promoted": true
+    },
+    {
+      "path": "projects/ROCKNIX/packages/apps/mangohud/patches/common/0002-Battery-name.patch",
+      "referent": "projects/ROCKNIX/packages/apps/mangohud/patches/common/0002-Battery-name.patch",
+      "mode": "100644",
+      "literal_sha256": "7b1bb759b57a4e6ea8b67896a57ad0aaf0aa4032abbd9426e67b4811927f6b2c",
+      "content_sha256": "7b1bb759b57a4e6ea8b67896a57ad0aaf0aa4032abbd9426e67b4811927f6b2c",
+      "rendered_sha256": "7b1bb759b57a4e6ea8b67896a57ad0aaf0aa4032abbd9426e67b4811927f6b2c",
+      "targets": [
+        "src/battery.cpp"
+      ],
+      "backend": "patch",
+      "index": 2,
+      "native": false,
+      "normal_called": true,
+      "normal": {
+        "argv": [
+          "patch",
+          "-d",
+          "/workspace/tmp/m6-t43/G019-002-candidate-zwwnmakg",
+          "-p1"
+        ],
+        "start": "2026-11-02T21:57:59.152608+00:00",
+        "end": "2026-11-02T21:57:59.154256+00:00",
+        "exit": 0,
+        "stdout_sha256": "ed66c5f52e6bd1c0f4deb23c3896adc0ca365e4ab82c7e5216aae9274454a73a",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "output": "patching file src/battery.cpp\n",
+        "error": ""
+      },
+      "input_digest": "26a8b1d191aa9fdd88df45de193235cac8e103b65aa56bd0a97f5990ad7f6053",
+      "output_digest": "cf70ee766c6de31e29f80009c59e1ae9afd38eb9a54266dc62bfe0c31d22d748",
+      "candidate_snapshot": {
+        "src/battery.cpp": {
+          "type": "file",
+          "mode": "0o664",
+          "sha256": "b67227580608200ba1e8aaad7e37e6a709c0296048b7eb0476022cbb5df8d7cf",
+          "bytes": 7204
+        },
+        "src/gpu_fdinfo.cpp": {
+          "type": "file",
+          "mode": "0o664",
+          "sha256": "01a3fa797c530913e32493d7e46c9e0160095530bf2267611fecefeca12aada9",
+          "bytes": 20816
+        },
+        "src/gpu_fdinfo.h": {
+          "type": "file",
+          "mode": "0o664",
+          "sha256": "fc35b1070dee33331c1a74be5a725334caf2658bf33215a0f3b348a210158329",
+          "bytes": 7574
+        },
+        "src/hud_elements.cpp": {
+          "type": "file",
+          "mode": "0o664",
+          "sha256": "1fd21eaebf250a4f5a5e433f901aca91b7b9dec8bae9409f15a92fdd28b72be9",
+          "bytes": 95001
+        },
+        "src/meson.build": {
+          "type": "file",
+          "mode": "0o664",
+          "sha256": "42ec9a85d5a16d223e17b2a748b95665b7c794334665ff684bae02f57a1a7b91",
+          "bytes": 7792
+        }
+      },
+      "candidate_root": "/workspace/tmp/m6-t43/G019-002-candidate-zwwnmakg",
+      "status": "applies",
+      "promoted": true
+    },
+    {
+      "path": "projects/ROCKNIX/packages/apps/mangohud/patches/common/0003-RAM-name.patch",
+      "referent": "projects/ROCKNIX/packages/apps/mangohud/patches/common/0003-RAM-name.patch",
+      "mode": "100644",
+      "literal_sha256": "62eeb550fd1f46699b75201d767224ad072dddeb6d55771ad78d72b14d0231a5",
+      "content_sha256": "62eeb550fd1f46699b75201d767224ad072dddeb6d55771ad78d72b14d0231a5",
+      "rendered_sha256": "62eeb550fd1f46699b75201d767224ad072dddeb6d55771ad78d72b14d0231a5",
+      "targets": [
+        "src/hud_elements.cpp"
+      ],
+      "backend": "patch",
+      "index": 3,
+      "native": false,
+      "normal_called": true,
+      "normal": {
+        "argv": [
+          "patch",
+          "-d",
+          "/workspace/tmp/m6-t43/G019-003-candidate-ei40r9ui",
+          "-p1"
+        ],
+        "start": "2026-11-02T21:57:59.155062+00:00",
+        "end": "2026-11-02T21:57:59.156956+00:00",
+        "exit": 0,
+        "stdout_sha256": "3f26b802e3e3ecae404b039913b5f9328605fd6818bffd43c398e37990cb45b1",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "output": "patching file src/hud_elements.cpp\n",
+        "error": ""
+      },
+      "input_digest": "cf70ee766c6de31e29f80009c59e1ae9afd38eb9a54266dc62bfe0c31d22d748",
+      "output_digest": "4de7bcb6822866916c7b48a925519ecba2c67e8c228f1c5580ddfcd9d5472a11",
+      "candidate_snapshot": {
+        "src/battery.cpp": {
+          "type": "file",
+          "mode": "0o664",
+          "sha256": "b67227580608200ba1e8aaad7e37e6a709c0296048b7eb0476022cbb5df8d7cf",
+          "bytes": 7204
+        },
+        "src/gpu_fdinfo.cpp": {
+          "type": "file",
+          "mode": "0o664",
+          "sha256": "01a3fa797c530913e32493d7e46c9e0160095530bf2267611fecefeca12aada9",
+          "bytes": 20816
+        },
+        "src/gpu_fdinfo.h": {
+          "type": "file",
+          "mode": "0o664",
+          "sha256": "fc35b1070dee33331c1a74be5a725334caf2658bf33215a0f3b348a210158329",
+          "bytes": 7574
+        },
+        "src/hud_elements.cpp": {
+          "type": "file",
+          "mode": "0o664",
+          "sha256": "a9a4a9f0b4d1c1b7d1bc6c9781f2a1171475b13c1c767f029241a63f8a3e8047",
+          "bytes": 95000
+        },
+        "src/meson.build": {
+          "type": "file",
+          "mode": "0o664",
+          "sha256": "42ec9a85d5a16d223e17b2a748b95665b7c794334665ff684bae02f57a1a7b91",
+          "bytes": 7792
+        }
+      },
+      "candidate_root": "/workspace/tmp/m6-t43/G019-003-candidate-ei40r9ui",
+      "status": "applies",
+      "promoted": true
+    },
+    {
+      "path": "projects/ROCKNIX/packages/apps/mangohud/patches/qualcomm/0001-Qualcomm-GPU-support.patch",
+      "referent": "projects/ROCKNIX/packages/apps/mangohud/patches/qualcomm/0001-Qualcomm-GPU-support.patch",
+      "mode": "100644",
+      "literal_sha256": "099114969f367117c11f965647e96e92d3a4e78ebb416db28d6f555e8ced9ac6",
+      "content_sha256": "099114969f367117c11f965647e96e92d3a4e78ebb416db28d6f555e8ced9ac6",
+      "rendered_sha256": "099114969f367117c11f965647e96e92d3a4e78ebb416db28d6f555e8ced9ac6",
+      "targets": [
+        "src/gpu_fdinfo.cpp",
+        "src/gpu_fdinfo.h"
+      ],
+      "backend": "patch",
+      "index": 4,
+      "native": false,
+      "normal_called": true,
+      "normal": {
+        "argv": [
+          "patch",
+          "-d",
+          "/workspace/tmp/m6-t43/G019-004-candidate-ybx04_os",
+          "-p1"
+        ],
+        "start": "2026-11-02T21:57:59.157866+00:00",
+        "end": "2026-11-02T21:57:59.159641+00:00",
+        "exit": 0,
+        "stdout_sha256": "9753500a85874cdfbaa9c2a8a1eeae5a538b0e4b6b71d1fa09eea47510ee316c",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "output": "patching file src/gpu_fdinfo.cpp\npatching file src/gpu_fdinfo.h\n",
+        "error": ""
+      },
+      "input_digest": "4de7bcb6822866916c7b48a925519ecba2c67e8c228f1c5580ddfcd9d5472a11",
+      "output_digest": "b744bd8f624b8eacd949129cc573614595b7845aac8d4f927de1e2247d5699ef",
+      "candidate_snapshot": {
+        "src/battery.cpp": {
+          "type": "file",
+          "mode": "0o664",
+          "sha256": "b67227580608200ba1e8aaad7e37e6a709c0296048b7eb0476022cbb5df8d7cf",
+          "bytes": 7204
+        },
+        "src/gpu_fdinfo.cpp": {
+          "type": "file",
+          "mode": "0o664",
+          "sha256": "6004f792ddebf6f2936482c859617180c6edc7b116e924a10c7b8e4a2a266b0f",
+          "bytes": 21758
+        },
+        "src/gpu_fdinfo.h": {
+          "type": "file",
+          "mode": "0o664",
+          "sha256": "22a7c8a40eeb5e2d93212a3949cc9e07c795fc459455c5a89b1d95058b6e8d3d",
+          "bytes": 7625
+        },
+        "src/hud_elements.cpp": {
+          "type": "file",
+          "mode": "0o664",
+          "sha256": "a9a4a9f0b4d1c1b7d1bc6c9781f2a1171475b13c1c767f029241a63f8a3e8047",
+          "bytes": 95000
+        },
+        "src/meson.build": {
+          "type": "file",
+          "mode": "0o664",
+          "sha256": "42ec9a85d5a16d223e17b2a748b95665b7c794334665ff684bae02f57a1a7b91",
+          "bytes": 7792
+        }
+      },
+      "candidate_root": "/workspace/tmp/m6-t43/G019-004-candidate-ybx04_os",
+      "status": "applies",
+      "promoted": true
+    },
+    {
+      "path": "projects/ROCKNIX/packages/apps/mangohud/patches/qualcomm/0002-Qualcomm-battery-power_now.patch",
+      "referent": "projects/ROCKNIX/packages/apps/mangohud/patches/qualcomm/0002-Qualcomm-battery-power_now.patch",
+      "mode": "100644",
+      "literal_sha256": "e288047623a6bbe4b0f63bd14fa9bfb6bab3828e225063f6a8f0ae469fe966a4",
+      "content_sha256": "e288047623a6bbe4b0f63bd14fa9bfb6bab3828e225063f6a8f0ae469fe966a4",
+      "rendered_sha256": "e288047623a6bbe4b0f63bd14fa9bfb6bab3828e225063f6a8f0ae469fe966a4",
+      "targets": [
+        "src/battery.cpp"
+      ],
+      "backend": "patch",
+      "index": 5,
+      "native": false,
+      "normal_called": true,
+      "normal": {
+        "argv": [
+          "patch",
+          "-d",
+          "/workspace/tmp/m6-t43/G019-005-candidate-f1rt6s_0",
+          "-p1"
+        ],
+        "start": "2026-11-02T21:57:59.160469+00:00",
+        "end": "2026-11-02T21:57:59.162215+00:00",
+        "exit": 0,
+        "stdout_sha256": "536ad51cf3edd37e3e6d9fbaaca98b4e2aa7e6c2d6be41c045b7cf4fad5feb11",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "output": "patching file src/battery.cpp\nHunk #1 succeeded at 113 (offset 2 lines).\nHunk #2 succeeded at 135 (offset 2 lines).\n",
+        "error": ""
+      },
+      "input_digest": "b744bd8f624b8eacd949129cc573614595b7845aac8d4f927de1e2247d5699ef",
+      "output_digest": "d4f3bbbdcf929bd09d4a4ce5f5777390e4d5bed2317c5bdde7dc95c86c1b1928",
+      "candidate_snapshot": {
+        "src/battery.cpp": {
+          "type": "file",
+          "mode": "0o664",
+          "sha256": "de04789a0494f8c7e2db993af4d0f2c735ce13c372cd2282ebb0770eeb2a7f46",
+          "bytes": 7249
+        },
+        "src/battery.cpp.orig": {
+          "type": "file",
+          "mode": "0o664",
+          "sha256": "b67227580608200ba1e8aaad7e37e6a709c0296048b7eb0476022cbb5df8d7cf",
+          "bytes": 7204
+        },
+        "src/gpu_fdinfo.cpp": {
+          "type": "file",
+          "mode": "0o664",
+          "sha256": "6004f792ddebf6f2936482c859617180c6edc7b116e924a10c7b8e4a2a266b0f",
+          "bytes": 21758
+        },
+        "src/gpu_fdinfo.h": {
+          "type": "file",
+          "mode": "0o664",
+          "sha256": "22a7c8a40eeb5e2d93212a3949cc9e07c795fc459455c5a89b1d95058b6e8d3d",
+          "bytes": 7625
+        },
+        "src/hud_elements.cpp": {
+          "type": "file",
+          "mode": "0o664",
+          "sha256": "a9a4a9f0b4d1c1b7d1bc6c9781f2a1171475b13c1c767f029241a63f8a3e8047",
+          "bytes": 95000
+        },
+        "src/meson.build": {
+          "type": "file",
+          "mode": "0o664",
+          "sha256": "42ec9a85d5a16d223e17b2a748b95665b7c794334665ff684bae02f57a1a7b91",
+          "bytes": 7792
+        }
+      },
+      "candidate_root": "/workspace/tmp/m6-t43/G019-005-candidate-f1rt6s_0",
+      "status": "offset",
+      "promoted": true
+    },
+    {
+      "path": "projects/ROCKNIX/packages/apps/mangohud/patches/SM6115/0001-SM6115-GPU.patch",
+      "referent": "projects/ROCKNIX/packages/apps/mangohud/patches/SM6115/0001-SM6115-GPU.patch",
+      "mode": "100644",
+      "literal_sha256": "7d4c1e996346d39069c14e08f17266a4fe5e0735e02f3a5ca39f68f3e2cec5c4",
+      "content_sha256": "7d4c1e996346d39069c14e08f17266a4fe5e0735e02f3a5ca39f68f3e2cec5c4",
+      "rendered_sha256": "7d4c1e996346d39069c14e08f17266a4fe5e0735e02f3a5ca39f68f3e2cec5c4",
+      "targets": [
+        "src/gpu_fdinfo.cpp"
+      ],
+      "backend": "patch",
+      "index": 6,
+      "native": true,
+      "normal_called": true,
+      "normal": {
+        "argv": [
+          "patch",
+          "-d",
+          "/workspace/tmp/m6-t43/G019-006-candidate-r7uqisjt",
+          "-p1"
+        ],
+        "start": "2026-11-02T21:57:59.163220+00:00",
+        "end": "2026-11-02T21:57:59.163840+00:00",
+        "exit": 0,
+        "stdout_sha256": "cad31732fe54920d4c4b1216e3afc995a5d43ab82ec68e4b20193bb64c617ca9",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "output": "patching file src/gpu_fdinfo.cpp\n",
+        "error": ""
+      },
+      "input_digest": "d4f3bbbdcf929bd09d4a4ce5f5777390e4d5bed2317c5bdde7dc95c86c1b1928",
+      "output_digest": "7ea297f0d20b1f892b01e0ee966f31213f0cb7703869badae4fcb2c71194c87b",
+      "candidate_snapshot": {
+        "src/battery.cpp": {
+          "type": "file",
+          "mode": "0o664",
+          "sha256": "de04789a0494f8c7e2db993af4d0f2c735ce13c372cd2282ebb0770eeb2a7f46",
+          "bytes": 7249
+        },
+        "src/battery.cpp.orig": {
+          "type": "file",
+          "mode": "0o664",
+          "sha256": "b67227580608200ba1e8aaad7e37e6a709c0296048b7eb0476022cbb5df8d7cf",
+          "bytes": 7204
+        },
+        "src/gpu_fdinfo.cpp": {
+          "type": "file",
+          "mode": "0o664",
+          "sha256": "4a1a6f4f774296b2cea1b566dafbc8758b6b2dd556515671bafc9b07b9141890",
+          "bytes": 21772
+        },
+        "src/gpu_fdinfo.h": {
+          "type": "file",
+          "mode": "0o664",
+          "sha256": "22a7c8a40eeb5e2d93212a3949cc9e07c795fc459455c5a89b1d95058b6e8d3d",
+          "bytes": 7625
+        },
+        "src/hud_elements.cpp": {
+          "type": "file",
+          "mode": "0o664",
+          "sha256": "a9a4a9f0b4d1c1b7d1bc6c9781f2a1171475b13c1c767f029241a63f8a3e8047",
+          "bytes": 95000
+        },
+        "src/meson.build": {
+          "type": "file",
+          "mode": "0o664",
+          "sha256": "42ec9a85d5a16d223e17b2a748b95665b7c794334665ff684bae02f57a1a7b91",
+          "bytes": 7792
+        }
+      },
+      "candidate_root": "/workspace/tmp/m6-t43/G019-006-candidate-r7uqisjt",
+      "status": "applies",
+      "promoted": true
+    }
+  ],
+  "input_snapshot": {
+    "src/battery.cpp": {
+      "type": "file",
+      "mode": "0o664",
+      "sha256": "3769e5c453ef83efcdd8d57bc7b5ed723e9650b504f9aff3a8dbd0bf7fc13c73",
+      "bytes": 7286
+    },
+    "src/gpu_fdinfo.cpp": {
+      "type": "file",
+      "mode": "0o664",
+      "sha256": "01a3fa797c530913e32493d7e46c9e0160095530bf2267611fecefeca12aada9",
+      "bytes": 20816
+    },
+    "src/gpu_fdinfo.h": {
+      "type": "file",
+      "mode": "0o664",
+      "sha256": "fc35b1070dee33331c1a74be5a725334caf2658bf33215a0f3b348a210158329",
+      "bytes": 7574
+    },
+    "src/hud_elements.cpp": {
+      "type": "file",
+      "mode": "0o664",
+      "sha256": "1fd21eaebf250a4f5a5e433f901aca91b7b9dec8bae9409f15a92fdd28b72be9",
+      "bytes": 95001
+    },
+    "src/meson.build": {
+      "type": "file",
+      "mode": "0o664",
+      "sha256": "b4b611e3a067113a97d26659883a0f00ded210296398e52f0aeeca779cc04939",
+      "bytes": 7813
+    }
+  },
+  "limits": [],
+  "cache_observations": [
+    {
+      "path": "/workspace/cache/rocknix-sources/mangohud/mangohud-992103e4fb744897826de04ea00a2f71e7018214.tar.gz",
+      "sha256": "edd61f4716710681a9e3b535556831ee0c6187b7b6f90d29f8d8ac234448f4a5",
+      "expected": "edd61f4716710681a9e3b535556831ee0c6187b7b6f90d29f8d8ac234448f4a5"
+    }
+  ],
+  "archive": {
+    "path": "/workspace/cache/rocknix-sources/mangohud/mangohud-992103e4fb744897826de04ea00a2f71e7018214.tar.gz",
+    "sha256": "edd61f4716710681a9e3b535556831ee0c6187b7b6f90d29f8d8ac234448f4a5",
+    "recipe_url": "https://github.com/flightlessmango/MangoHud/archive/992103e4fb744897826de04ea00a2f71e7018214.tar.gz"
+  },
+  "stack": [
+    {
+      "path": "projects/ROCKNIX/packages/apps/mangohud/patches/common/0001-No-static-lib.patch",
+      "referent": "projects/ROCKNIX/packages/apps/mangohud/patches/common/0001-No-static-lib.patch",
+      "mode": "100644",
+      "literal_sha256": "117bd8e8f4ef37c4b375f5b0390927bbee3866b05cb4b8c382e62f70c4ef5328",
+      "content_sha256": "117bd8e8f4ef37c4b375f5b0390927bbee3866b05cb4b8c382e62f70c4ef5328",
+      "rendered_sha256": "117bd8e8f4ef37c4b375f5b0390927bbee3866b05cb4b8c382e62f70c4ef5328",
+      "targets": [
+        "src/meson.build"
+      ],
+      "backend": "patch"
+    },
+    {
+      "path": "projects/ROCKNIX/packages/apps/mangohud/patches/common/0002-Battery-name.patch",
+      "referent": "projects/ROCKNIX/packages/apps/mangohud/patches/common/0002-Battery-name.patch",
+      "mode": "100644",
+      "literal_sha256": "7b1bb759b57a4e6ea8b67896a57ad0aaf0aa4032abbd9426e67b4811927f6b2c",
+      "content_sha256": "7b1bb759b57a4e6ea8b67896a57ad0aaf0aa4032abbd9426e67b4811927f6b2c",
+      "rendered_sha256": "7b1bb759b57a4e6ea8b67896a57ad0aaf0aa4032abbd9426e67b4811927f6b2c",
+      "targets": [
+        "src/battery.cpp"
+      ],
+      "backend": "patch"
+    },
+    {
+      "path": "projects/ROCKNIX/packages/apps/mangohud/patches/common/0003-RAM-name.patch",
+      "referent": "projects/ROCKNIX/packages/apps/mangohud/patches/common/0003-RAM-name.patch",
+      "mode": "100644",
+      "literal_sha256": "62eeb550fd1f46699b75201d767224ad072dddeb6d55771ad78d72b14d0231a5",
+      "content_sha256": "62eeb550fd1f46699b75201d767224ad072dddeb6d55771ad78d72b14d0231a5",
+      "rendered_sha256": "62eeb550fd1f46699b75201d767224ad072dddeb6d55771ad78d72b14d0231a5",
+      "targets": [
+        "src/hud_elements.cpp"
+      ],
+      "backend": "patch"
+    },
+    {
+      "path": "projects/ROCKNIX/packages/apps/mangohud/patches/qualcomm/0001-Qualcomm-GPU-support.patch",
+      "referent": "projects/ROCKNIX/packages/apps/mangohud/patches/qualcomm/0001-Qualcomm-GPU-support.patch",
+      "mode": "100644",
+      "literal_sha256": "099114969f367117c11f965647e96e92d3a4e78ebb416db28d6f555e8ced9ac6",
+      "content_sha256": "099114969f367117c11f965647e96e92d3a4e78ebb416db28d6f555e8ced9ac6",
+      "rendered_sha256": "099114969f367117c11f965647e96e92d3a4e78ebb416db28d6f555e8ced9ac6",
+      "targets": [
+        "src/gpu_fdinfo.cpp",
+        "src/gpu_fdinfo.h"
+      ],
+      "backend": "patch"
+    },
+    {
+      "path": "projects/ROCKNIX/packages/apps/mangohud/patches/qualcomm/0002-Qualcomm-battery-power_now.patch",
+      "referent": "projects/ROCKNIX/packages/apps/mangohud/patches/qualcomm/0002-Qualcomm-battery-power_now.patch",
+      "mode": "100644",
+      "literal_sha256": "e288047623a6bbe4b0f63bd14fa9bfb6bab3828e225063f6a8f0ae469fe966a4",
+      "content_sha256": "e288047623a6bbe4b0f63bd14fa9bfb6bab3828e225063f6a8f0ae469fe966a4",
+      "rendered_sha256": "e288047623a6bbe4b0f63bd14fa9bfb6bab3828e225063f6a8f0ae469fe966a4",
+      "targets": [
+        "src/battery.cpp"
+      ],
+      "backend": "patch"
+    },
+    {
+      "path": "projects/ROCKNIX/packages/apps/mangohud/patches/SM6115/0001-SM6115-GPU.patch",
+      "referent": "projects/ROCKNIX/packages/apps/mangohud/patches/SM6115/0001-SM6115-GPU.patch",
+      "mode": "100644",
+      "literal_sha256": "7d4c1e996346d39069c14e08f17266a4fe5e0735e02f3a5ca39f68f3e2cec5c4",
+      "content_sha256": "7d4c1e996346d39069c14e08f17266a4fe5e0735e02f3a5ca39f68f3e2cec5c4",
+      "rendered_sha256": "7d4c1e996346d39069c14e08f17266a4fe5e0735e02f3a5ca39f68f3e2cec5c4",
+      "targets": [
+        "src/gpu_fdinfo.cpp"
+      ],
+      "backend": "patch"
+    }
+  ],
+  "stack_sha256": "830165fbc05e98427ee30d13fac9404c3a2ed20962ab1c55914d433abc496451",
+  "projection": {
+    "archive_header_count": 225,
+    "archive_header_sha256": "528c80db0379f57428fff622b0b0842489725dd6f7f5eb466e04e842e048a068",
+    "projected_members": {
+      "src/battery.cpp": {
+        "type": "file",
+        "mode": "0o664",
+        "sha256": "3769e5c453ef83efcdd8d57bc7b5ed723e9650b504f9aff3a8dbd0bf7fc13c73",
+        "bytes": 7286
+      },
+      "src/gpu_fdinfo.cpp": {
+        "type": "file",
+        "mode": "0o664",
+        "sha256": "01a3fa797c530913e32493d7e46c9e0160095530bf2267611fecefeca12aada9",
+        "bytes": 20816
+      },
+      "src/gpu_fdinfo.h": {
+        "type": "file",
+        "mode": "0o664",
+        "sha256": "fc35b1070dee33331c1a74be5a725334caf2658bf33215a0f3b348a210158329",
+        "bytes": 7574
+      },
+      "src/hud_elements.cpp": {
+        "type": "file",
+        "mode": "0o664",
+        "sha256": "1fd21eaebf250a4f5a5e433f901aca91b7b9dec8bae9409f15a92fdd28b72be9",
+        "bytes": 95001
+      },
+      "src/meson.build": {
+        "type": "file",
+        "mode": "0o664",
+        "sha256": "b4b611e3a067113a97d26659883a0f00ded210296398e52f0aeeca779cc04939",
+        "bytes": 7813
+      }
+    },
+    "absent_targets": [],
+    "projection_root": "/workspace/tmp/m6-t43/source-members-szjmojyq"
+  },
+  "overlay_evidence": [
+    {
+      "path": "projects/ROCKNIX/packages/apps/mangohud/sources/mangohud_set",
+      "relative": "mangohud_set",
+      "mode": "100644",
+      "oid": "a086a4d0f7895be186e89baea871b9ba941d8620",
+      "sha256": "d10f8fc3feb459575dcab711635ca66fd53b26d40f80032041a898ddef02c235",
+      "projected": false
+    }
+  ]
+}

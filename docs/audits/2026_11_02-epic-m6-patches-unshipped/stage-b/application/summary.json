@@ -1,0 +1,926 @@
+{
+  "finished": "2026-11-02T21:56:27.344392+00:00",
+  "groups": [
+    {
+      "id": "G001",
+      "status": "open-item",
+      "limits": [
+        "exact source archive absent from inspected package cache directory"
+      ]
+    },
+    {
+      "id": "G002",
+      "status": "open-item",
+      "limits": [
+        "exact source archive absent from inspected package cache directory"
+      ]
+    },
+    {
+      "id": "G003",
+      "status": "open-item",
+      "limits": [
+        "Git source recipe has no archive SHA256; no cached exact archive",
+        "recipe lacks archive checksum",
+        "exact source archive absent from inspected package cache directory"
+      ]
+    },
+    {
+      "id": "G004",
+      "status": "open-item",
+      "limits": [
+        "package sources/ overlay present; exact overlap/preimage not materialized"
+      ]
+    },
+    {
+      "id": "G005",
+      "status": "open-item",
+      "limits": [
+        "package sources/ overlay present; exact overlap/preimage not materialized"
+      ]
+    },
+    {
+      "id": "G006",
+      "status": "open-item",
+      "limits": [
+        "available candidate SHA256 does not match exact recipe input"
+      ]
+    },
+    {
+      "id": "G007",
+      "status": "applies",
+      "limits": [],
+      "native_results": {
+        "offset": 1,
+        "fuzz": 2
+      }
+    },
+    {
+      "id": "G008",
+      "status": "applies",
+      "limits": [],
+      "native_results": {
+        "offset": 1,
+        "applies": 1
+      }
+    },
+    {
+      "id": "G009",
+      "status": "open-item",
+      "limits": [
+        "exact source archive absent from inspected package cache directory"
+      ]
+    },
+    {
+      "id": "G010",
+      "status": "open-item",
+      "limits": [
+        "exact source archive absent from inspected package cache directory"
+      ]
+    },
+    {
+      "id": "G011",
+      "status": "open-item",
+      "limits": [
+        "exact source archive absent from inspected package cache directory"
+      ]
+    },
+    {
+      "id": "G012",
+      "status": "applies",
+      "limits": [],
+      "native_results": {
+        "applies": 2
+      }
+    },
+    {
+      "id": "G013",
+      "status": "applies",
+      "limits": [],
+      "native_results": {
+        "applies": 2
+      }
+    },
+    {
+      "id": "G014",
+      "status": "applies",
+      "limits": [],
+      "native_results": {
+        "applies": 1
+      }
+    },
+    {
+      "id": "G015",
+      "status": "applies",
+      "limits": [],
+      "native_results": {
+        "applies": 1
+      }
+    },
+    {
+      "id": "G016",
+      "status": "open-item",
+      "limits": [
+        "package sources/ overlay present; exact overlap/preimage not materialized"
+      ]
+    },
+    {
+      "id": "G017",
+      "status": "open-item",
+      "limits": [
+        "package sources/ overlay present; exact overlap/preimage not materialized"
+      ]
+    },
+    {
+      "id": "G018",
+      "status": "open-item",
+      "limits": [
+        "package sources/ overlay present; exact overlap/preimage not materialized"
+      ]
+    },
+    {
+      "id": "G019",
+      "status": "open-item",
+      "limits": [
+        "package sources/ overlay present; exact overlap/preimage not materialized"
+      ]
+    },
+    {
+      "id": "G020",
+      "status": "open-item",
+      "limits": [
+        "package sources/ overlay present; exact overlap/preimage not materialized"
+      ]
+    },
+    {
+      "id": "G021",
+      "status": "open-item",
+      "limits": [
+        "package sources/ overlay present; exact overlap/preimage not materialized"
+      ]
+    },
+    {
+      "id": "G022",
+      "status": "open-item",
+      "limits": [
+        "package sources/ overlay present; exact overlap/preimage not materialized"
+      ]
+    },
+    {
+      "id": "G023",
+      "status": "open-item",
+      "limits": [
+        "package sources/ overlay present; exact overlap/preimage not materialized"
+      ]
+    },
+    {
+      "id": "G024",
+      "status": "open-item",
+      "limits": [
+        "package sources/ overlay present; exact overlap/preimage not materialized"
+      ]
+    },
+    {
+      "id": "G025",
+      "status": "applies",
+      "limits": [],
+      "native_results": {
+        "offset": 1
+      }
+    },
+    {
+      "id": "G026",
+      "status": "applies",
+      "limits": [],
+      "native_results": {
+        "offset": 1
+      }
+    },
+    {
+      "id": "G027",
+      "status": "open-item",
+      "limits": [
+        "package sources/ overlay present; exact overlap/preimage not materialized"
+      ]
+    },
+    {
+      "id": "G028",
+      "status": "open-item",
+      "limits": [
+        "package sources/ overlay present; exact overlap/preimage not materialized"
+      ]
+    },
+    {
+      "id": "G029",
+      "status": "open-item",
+      "limits": [
+        "package sources/ overlay present; exact overlap/preimage not materialized"
+      ]
+    },
+    {
+      "id": "G030",
+      "status": "open-item",
+      "limits": [
+        "package sources/ overlay present; exact overlap/preimage not materialized"
+      ]
+    },
+    {
+      "id": "G031",
+      "status": "open-item",
+      "limits": [
+        "package sources/ overlay present; exact overlap/preimage not materialized"
+      ]
+    },
+    {
+      "id": "G032",
+      "status": "open-item",
+      "limits": [
+        "package sources/ overlay present; exact overlap/preimage not materialized"
+      ]
+    },
+    {
+      "id": "G033",
+      "status": "applies",
+      "limits": [],
+      "native_results": {
+        "applies": 2
+      }
+    },
+    {
+      "id": "G034",
+      "status": "applies",
+      "limits": [],
+      "native_results": {
+        "applies": 2
+      }
+    },
+    {
+      "id": "G035",
+      "status": "applies",
+      "limits": [],
+      "native_results": {
+        "applies": 1
+      }
+    },
+    {
+      "id": "G036",
+      "status": "applies",
+      "limits": [],
+      "native_results": {
+        "applies": 1
+      }
+    },
+    {
+      "id": "G037",
+      "status": "applies",
+      "limits": [],
+      "native_results": {
+        "applies": 2
+      }
+    },
+    {
+      "id": "G038",
+      "status": "applies",
+      "limits": [],
+      "native_results": {
+        "applies": 2
+      }
+    },
+    {
+      "id": "G039",
+      "status": "open-item",
+      "limits": [
+        "Git/submodule source recipe has no archive SHA256; no exact archive input permitted by this runner",
+        "recipe lacks archive checksum",
+        "exact source archive absent from inspected package cache directory"
+      ]
+    },
+    {
+      "id": "G040",
+      "status": "open-item",
+      "limits": [
+        "Git/submodule source recipe has no archive SHA256; no exact archive input permitted by this runner",
+        "recipe lacks archive checksum",
+        "exact source archive absent from inspected package cache directory"
+      ]
+    },
+    {
+      "id": "G041",
+      "status": "open-item",
+      "limits": [
+        "Git/submodule source recipe has no archive SHA256; no exact archive input permitted by this runner",
+        "recipe lacks archive checksum",
+        "exact source archive absent from inspected package cache directory"
+      ]
+    },
+    {
+      "id": "G042",
+      "status": "open-item",
+      "limits": [
+        "Git/submodule source recipe has no archive SHA256; no exact archive input permitted by this runner",
+        "recipe lacks archive checksum",
+        "exact source archive absent from inspected package cache directory"
+      ]
+    },
+    {
+      "id": "G043",
+      "status": "open-item",
+      "limits": [
+        "Git/submodule source lacks archive SHA256; post_unpack generated make/ninja inputs not established",
+        "package sources/ overlay present; exact overlap/preimage not materialized",
+        "recipe lacks archive checksum",
+        "exact source archive absent from inspected package cache directory"
+      ]
+    },
+    {
+      "id": "G044",
+      "status": "open-item",
+      "limits": [
+        "post_unpack edits configure using build TOOLCHAIN path; full preimage not established"
+      ]
+    },
+    {
+      "id": "G045",
+      "status": "open-item",
+      "limits": [
+        "custom unpack selects LIBNAME/MALI_FAMILY/PLATFORM and renames data; exact complete preimage not established"
+      ]
+    },
+    {
+      "id": "G046",
+      "status": "open-item",
+      "limits": [
+        "custom unpack selects LIBNAME/MALI_FAMILY/PLATFORM and renames data; exact complete preimage not established"
+      ]
+    },
+    {
+      "id": "G047",
+      "status": "open-item",
+      "limits": [
+        "custom unpack selects LIBNAME/MALI_FAMILY/PLATFORM and renames data; exact complete preimage not established"
+      ]
+    },
+    {
+      "id": "G048",
+      "status": "open-item",
+      "limits": [
+        "custom unpack selects LIBNAME/MALI_FAMILY/PLATFORM and renames data; exact complete preimage not established"
+      ]
+    },
+    {
+      "id": "G049",
+      "status": "open-item",
+      "limits": [
+        "custom unpack selects LIBNAME/MALI_FAMILY/PLATFORM and renames data; exact complete preimage not established"
+      ]
+    },
+    {
+      "id": "G050",
+      "status": "open-item",
+      "limits": [
+        "custom unpack selects LIBNAME/MALI_FAMILY/PLATFORM and renames data; exact complete preimage not established"
+      ]
+    },
+    {
+      "id": "G051",
+      "status": "open-item",
+      "limits": [
+        "custom unpack selects LIBNAME/MALI_FAMILY/PLATFORM and renames data; exact complete preimage not established",
+        "exact source archive absent from inspected package cache directory"
+      ]
+    },
+    {
+      "id": "G052",
+      "status": "applies",
+      "limits": [],
+      "native_results": {
+        "offset": 1
+      }
+    },
+    {
+      "id": "G053",
+      "status": "applies",
+      "limits": [],
+      "native_results": {
+        "applies": 2
+      }
+    },
+    {
+      "id": "G054",
+      "status": "applies",
+      "limits": [],
+      "native_results": {
+        "applies": 2
+      }
+    },
+    {
+      "id": "G055",
+      "status": "applies",
+      "limits": [],
+      "native_results": {
+        "applies": 2
+      }
+    },
+    {
+      "id": "G056",
+      "status": "applies",
+      "limits": [],
+      "native_results": {
+        "applies": 2
+      }
+    },
+    {
+      "id": "G057",
+      "status": "applies",
+      "limits": [],
+      "native_results": {
+        "applies": 2
+      }
+    },
+    {
+      "id": "G058",
+      "status": "applies",
+      "limits": [],
+      "native_results": {
+        "applies": 2
+      }
+    },
+    {
+      "id": "G059",
+      "status": "applies",
+      "limits": [],
+      "native_results": {
+        "applies": 2
+      }
+    },
+    {
+      "id": "G060",
+      "status": "applies",
+      "limits": [],
+      "native_results": {
+        "applies": 2
+      }
+    },
+    {
+      "id": "G061",
+      "status": "open-item",
+      "limits": [
+        "package sources/ overlay present; exact overlap/preimage not materialized"
+      ]
+    },
+    {
+      "id": "G062",
+      "status": "open-item",
+      "limits": [
+        "package sources/ overlay present; exact overlap/preimage not materialized"
+      ]
+    },
+    {
+      "id": "G063",
+      "status": "open-item",
+      "limits": [
+        "package sources/ overlay present; exact overlap/preimage not materialized"
+      ]
+    },
+    {
+      "id": "G064",
+      "status": "config-source-only",
+      "limits": [
+        "configuration-only plan: no patch application claim"
+      ]
+    },
+    {
+      "id": "G065",
+      "status": "applies",
+      "limits": [],
+      "native_results": {
+        "applies": 12,
+        "offset": 6,
+        "fuzz": 6
+      }
+    },
+    {
+      "id": "G066",
+      "status": "applies",
+      "limits": [],
+      "native_results": {
+        "applies": 12,
+        "offset": 6,
+        "fuzz": 6
+      }
+    },
+    {
+      "id": "G067",
+      "status": "open-item",
+      "limits": [
+        "exact source archive absent from inspected package cache directory"
+      ]
+    },
+    {
+      "id": "G068",
+      "status": "open-item",
+      "limits": [
+        "exact source archive absent from inspected package cache directory"
+      ]
+    },
+    {
+      "id": "G069",
+      "status": "applies",
+      "limits": [],
+      "native_results": {
+        "applies": 18,
+        "offset": 15,
+        "fuzz": 6
+      }
+    },
+    {
+      "id": "G070",
+      "status": "applies",
+      "limits": [],
+      "native_results": {
+        "applies": 18,
+        "offset": 15,
+        "fuzz": 6
+      }
+    },
+    {
+      "id": "G071",
+      "status": "applies",
+      "limits": [],
+      "native_results": {
+        "applies": 15,
+        "offset": 8,
+        "fuzz": 2
+      }
+    },
+    {
+      "id": "G072",
+      "status": "applies",
+      "limits": [],
+      "native_results": {
+        "applies": 15,
+        "offset": 8,
+        "fuzz": 2
+      }
+    },
+    {
+      "id": "G073",
+      "status": "open-item",
+      "limits": [
+        "exact source archive absent from inspected package cache directory"
+      ]
+    },
+    {
+      "id": "G074",
+      "status": "open-item",
+      "limits": [
+        "exact source archive absent from inspected package cache directory"
+      ]
+    },
+    {
+      "id": "G075",
+      "status": "open-item",
+      "limits": [
+        "exact source archive absent from inspected package cache directory"
+      ]
+    },
+    {
+      "id": "G076",
+      "status": "open-item",
+      "limits": [
+        "exact source archive absent from inspected package cache directory"
+      ]
+    },
+    {
+      "id": "G077",
+      "status": "applies",
+      "limits": [],
+      "native_results": {
+        "applies": 28,
+        "offset": 11,
+        "fuzz": 5
+      }
+    },
+    {
+      "id": "G078",
+      "status": "applies",
+      "limits": [],
+      "native_results": {
+        "applies": 28,
+        "offset": 11,
+        "fuzz": 5
+      }
+    },
+    {
+      "id": "G079",
+      "status": "applies",
+      "limits": [],
+      "native_results": {
+        "offset": 29,
+        "applies": 15,
+        "fuzz": 2
+      }
+    },
+    {
+      "id": "G080",
+      "status": "applies",
+      "limits": [],
+      "native_results": {
+        "offset": 29,
+        "applies": 15,
+        "fuzz": 2
+      }
+    },
+    {
+      "id": "G081",
+      "status": "applies",
+      "limits": [],
+      "native_results": {
+        "offset": 14,
+        "applies": 12,
+        "fuzz": 10
+      }
+    },
+    {
+      "id": "G082",
+      "status": "applies",
+      "limits": [],
+      "native_results": {
+        "offset": 14,
+        "applies": 12,
+        "fuzz": 10
+      }
+    },
+    {
+      "id": "G083",
+      "status": "applies",
+      "limits": [],
+      "native_results": {
+        "applies": 7,
+        "offset": 9,
+        "fuzz": 4
+      }
+    },
+    {
+      "id": "G084",
+      "status": "applies",
+      "limits": [],
+      "native_results": {
+        "applies": 55,
+        "fuzz": 1,
+        "offset": 2
+      }
+    },
+    {
+      "id": "G085",
+      "status": "open-item",
+      "limits": [
+        "post_unpack VERSION/RELEASE write and PKG_FFMPEG_BRANCH input not materialized; no full preimage claim"
+      ]
+    },
+    {
+      "id": "G086",
+      "status": "open-item",
+      "limits": [
+        "post_unpack VERSION/RELEASE write and PKG_FFMPEG_BRANCH input not materialized; no full preimage claim"
+      ]
+    },
+    {
+      "id": "G087",
+      "status": "open-item",
+      "limits": [
+        "post_unpack VERSION/RELEASE write and PKG_FFMPEG_BRANCH input not materialized; no full preimage claim"
+      ]
+    },
+    {
+      "id": "G088",
+      "status": "open-item",
+      "limits": [
+        "post_unpack VERSION/RELEASE write and PKG_FFMPEG_BRANCH input not materialized; no full preimage claim"
+      ]
+    },
+    {
+      "id": "G089",
+      "status": "open-item",
+      "limits": [
+        "post_unpack VERSION/RELEASE write and PKG_FFMPEG_BRANCH input not materialized; no full preimage claim"
+      ]
+    },
+    {
+      "id": "G090",
+      "status": "open-item",
+      "limits": [
+        "post_unpack VERSION/RELEASE write and PKG_FFMPEG_BRANCH input not materialized; no full preimage claim"
+      ]
+    },
+    {
+      "id": "G091",
+      "status": "open-item",
+      "limits": [
+        "post_unpack VERSION/RELEASE write and PKG_FFMPEG_BRANCH input not materialized; no full preimage claim"
+      ]
+    },
+    {
+      "id": "G092",
+      "status": "open-item",
+      "limits": [
+        "post_unpack VERSION/RELEASE write and PKG_FFMPEG_BRANCH input not materialized; no full preimage claim"
+      ]
+    },
+    {
+      "id": "G093",
+      "status": "applies",
+      "limits": [],
+      "native_results": {
+        "applies": 1
+      }
+    },
+    {
+      "id": "G094",
+      "status": "applies",
+      "limits": [],
+      "native_results": {
+        "applies": 1
+      }
+    },
+    {
+      "id": "G095",
+      "status": "applies",
+      "limits": [],
+      "native_results": {
+        "applies": 1
+      }
+    },
+    {
+      "id": "G096",
+      "status": "applies",
+      "limits": [],
+      "native_results": {
+        "applies": 1
+      }
+    },
+    {
+      "id": "G097",
+      "status": "applies",
+      "limits": [],
+      "native_results": {
+        "applies": 1
+      }
+    },
+    {
+      "id": "G098",
+      "status": "applies",
+      "limits": [],
+      "native_results": {
+        "applies": 1
+      }
+    },
+    {
+      "id": "G099",
+      "status": "applies",
+      "limits": [],
+      "native_results": {
+        "applies": 1
+      }
+    },
+    {
+      "id": "G100",
+      "status": "applies",
+      "limits": [],
+      "native_results": {
+        "applies": 1
+      }
+    },
+    {
+      "id": "G101",
+      "status": "applies",
+      "limits": [],
+      "native_results": {
+        "applies": 1
+      }
+    },
+    {
+      "id": "G102",
+      "status": "applies",
+      "limits": [],
+      "native_results": {
+        "applies": 1
+      }
+    },
+    {
+      "id": "G103",
+      "status": "open-item",
+      "limits": [
+        "exact source archive absent from inspected package cache directory"
+      ]
+    },
+    {
+      "id": "G104",
+      "status": "applies",
+      "limits": [],
+      "native_results": {
+        "offset": 1
+      }
+    },
+    {
+      "id": "G105",
+      "status": "applies",
+      "limits": [],
+      "native_results": {
+        "offset": 1
+      }
+    },
+    {
+      "id": "G106",
+      "status": "applies",
+      "limits": [],
+      "native_results": {
+        "offset": 1
+      }
+    },
+    {
+      "id": "G107",
+      "status": "applies",
+      "limits": [],
+      "native_results": {
+        "offset": 1
+      }
+    },
+    {
+      "id": "G108",
+      "status": "applies",
+      "limits": [],
+      "native_results": {
+        "offset": 1
+      }
+    },
+    {
+      "id": "G109",
+      "status": "applies",
+      "limits": [],
+      "native_results": {
+        "offset": 1
+      }
+    },
+    {
+      "id": "G110",
+      "status": "applies",
+      "limits": [],
+      "native_results": {
+        "offset": 1
+      }
+    },
+    {
+      "id": "G111",
+      "status": "applies",
+      "limits": [],
+      "native_results": {
+        "offset": 1
+      }
+    },
+    {
+      "id": "G112",
+      "status": "open-item",
+      "limits": [
+        "exact source archive absent from inspected package cache directory"
+      ]
+    },
+    {
+      "id": "G113",
+      "status": "open-item",
+      "limits": [
+        "exact source archive absent from inspected package cache directory"
+      ]
+    },
+    {
+      "id": "G114",
+      "status": "open-item",
+      "limits": [
+        "exact source archive absent from inspected package cache directory"
+      ]
+    }
+  ],
+  "archive_hashes": {
+    "/workspace/cache/rocknix-sources/u-boot-legacy/u-boot-legacy-2492a3e467e332e2350d987234ce6123700b3392.tar.gz": "d8b358f20394ff1c901af989d0a5b7740f46708bd93ff714459d7bc3794a72f8",
+    "/workspace/cache/rocknix-sources/u-boot/u-boot-v2025.10.tar.gz": "5414ee86562abc5ed524c6dc5e092511ad281441020a88e7027de6e83fd16116",
+    "/workspace/cache/rocknix-sources/u-boot-Generic/u-boot-Generic-v2026.01.tar.gz": "03bb43c58d2343ee48dd191e0f181f0108425b179d84519add3a977071c3f654",
+    "/workspace/cache/rocknix-sources/u-boot-Specific/u-boot-Specific-v2026.01.tar.gz": "03bb43c58d2343ee48dd191e0f181f0108425b179d84519add3a977071c3f654",
+    "/workspace/cache/rocknix-sources/gamepadtester/gamepadtester-6ac49e67aa98fe3dd5c27f73306d65d4b7a82daa.tar.gz": "dcba71ac2e673b7714a6cac12661d56e61a2eb861136bf7d74a42165d6a69be6",
+    "/workspace/cache/rocknix-sources/mangohud/mangohud-992103e4fb744897826de04ea00a2f71e7018214.tar.gz": "edd61f4716710681a9e3b535556831ee0c6187b7b6f90d29f8d8ac234448f4a5",
+    "/workspace/cache/rocknix-sources/oga_controls/oga_controls-1604ee24150c1c5bb7c66bc4670919c2ad8f0064.tar.gz": "cdfa89581e3494220ef1d91246376179947bdd2ba1dd084249c224cc9ce0d8f4",
+    "/workspace/cache/rocknix-sources/alsa-lib/alsa-lib-1.2.14.tar.bz2": "be9c88a0b3604367dd74167a2b754a35e142f670292ae47a2fdef27a2ee97a32",
+    "/workspace/cache/rocknix-sources/alsa-ucm-conf/alsa-ucm-conf-1.2.13.tar.bz2": "4483b6e3983cca08fd326a73fbae449b5036e444fb1a07c0dee74b504b7ab5af",
+    "/workspace/cache/rocknix-sources/pipewire/pipewire-1.2.6.tar.gz": "8d9b4e95dba33d218c760fecbb71672c86a56917f803e96fe6c3af62fa783a95",
+    "/workspace/cache/rocknix-sources/xemu-sa/xemu-sa-cbffb57d084c70351a596e99e32a8b73e0c5eabf.tar.gz": "fe6bfb3f1e2e3b4ed4cb028e637a530f0e813440dd4fa39c1f597c3ec08407d3",
+    "/workspace/cache/rocknix-sources/libmali/libmali-4233031d818e97a19e8a9cdbbd5c15795ededd93.zip": "54b8af924f582f7da7e120fbad4812a502cc7cc67f6d6ab061377cb403f3eb2d",
+    "/workspace/cache/rocknix-sources/mesa/mesa-26.2.2.tar.gz": "9b6850189d4b4a595b1718d57d462412090fab820d3e235e2c1d122c1cf9e9bc",
+    "/workspace/cache/rocknix-sources/vulkan-wsi-layer/vulkan-wsi-layer-8f077c5c862e5259841d524de8280b8c2429990a.tar.gz": "cd45a40c476e59557385c334f4266b62b05c73e50d725d4a464b7dc44ca61de8",
+    "/workspace/cache/rocknix-sources/mali-bifrost/mali-bifrost-39da994bb6fc8819e5e8c1873907dd21d17e53c1.tar.gz": "f947b99a1bcb5b86ea270c1ce4cd189f4df26b3c0c8ba92c1ef256bb757afa66",
+    "/workspace/cache/rocknix-sources/linux/linux-7.1.2.tar.xz": "37198c93727be247c9fb5309bb86cd5e496c61e5322cd8c4eca9476bb0b5883f",
+    "/workspace/cache/rocknix-sources/linux/linux-7.0.2.tar.xz": "53591a03294527a48ccb0b9e559e922df8a38554745a1206827ca751d2ca7662",
+    "/workspace/cache/rocknix-sources/linux/linux-7.2.tar.xz": "f9fef3d14c0df53819026f4be74459835c2a0b0dcbf5b5bbd9ea19f0829402b3",
+    "/workspace/cache/rocknix-sources/ffmpeg/ffmpeg-7.1.1.tar.xz": "733984395e0dbbe5c046abda2dc49a5544e7e0e1e2366bba849222ae9e3a03b1",
+    "/workspace/cache/rocknix-sources/rkmpp/rkmpp-239e15eaebf98f68c0093b00ff8108d23b0147e7.tar.gz": "9a4d6a01ed827f39325953d6277975e3f1eecede768b0e7c9c16d91d4d62974b",
+    "/workspace/cache/rocknix-sources/wlroots/wlroots-0.19.3-rk.tar.gz": "5385dc105f2c4c5fe3157e0b0299d6508765086d605fe4efe3ae437d4f18a5d9"
+  },
+  "normal_calls": 704
+}

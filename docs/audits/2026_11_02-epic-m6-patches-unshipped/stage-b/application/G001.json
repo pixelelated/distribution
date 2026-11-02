@@ -1,0 +1,52 @@
+{
+  "id": "G001",
+  "census": {
+    "id": "G001",
+    "recipe": "projects/ROCKNIX/devices/AMD64/packages/ayn-platform/package.mk",
+    "recipe_sha256": "a4c7a222ddfdd7a3f471b215385e434e5b4b29f52bcdd27bf3211220146de134",
+    "owner": [
+      "devices-unshipped"
+    ],
+    "consumer": "AMD64-x86_64",
+    "device": "AMD64",
+    "arch": "x86_64",
+    "target_cpu": "x86-64-v3",
+    "patch_arch": "x86",
+    "LINUX": "unset in clean default source config",
+    "batteryplus": "no or unset; exact yes predicate false",
+    "name": "ayn-platform",
+    "pin": "7ec810ed2aebe196b68b9cce580d3c9e520e6425",
+    "url": "https://github.com/ShadowBlip/ayn-platform/archive/7ec810ed2aebe196b68b9cce580d3c9e520e6425.tar.gz",
+    "expected_sha256": "10ebdf5c2611d957491cd46eea93d942292d5b92213a94dea1008a7eadac11a0",
+    "selectors": [],
+    "ordered_pattern_directories": [
+      "projects/ROCKNIX/devices/AMD64/packages/ayn-platform/patches",
+      "projects/ROCKNIX/devices/AMD64/packages/ayn-platform/patches/x86",
+      "projects/ROCKNIX/devices/AMD64/packages/ayn-platform/patches/7ec810ed2aebe196b68b9cce580d3c9e520e6425",
+      "projects/ROCKNIX/devices/AMD64/packages/ayn-platform/patches/7ec810ed2aebe196b68b9cce580d3c9e520e6425/x86",
+      "projects/ROCKNIX/patches/ayn-platform",
+      "projects/ROCKNIX/patches/ayn-platform/x86",
+      "projects/ROCKNIX/patches/ayn-platform/7ec810ed2aebe196b68b9cce580d3c9e520e6425",
+      "projects/ROCKNIX/devices/AMD64/patches/ayn-platform"
+    ],
+    "stack": [
+      "projects/ROCKNIX/devices/AMD64/packages/ayn-platform/patches/001-build.patch"
+    ],
+    "native_paths": [
+      "projects/ROCKNIX/devices/AMD64/packages/ayn-platform/patches/001-build.patch"
+    ],
+    "config_paths": [],
+    "cache_candidates": [],
+    "preimage_limits": [],
+    "source_only": true,
+    "runtime": false
+  },
+  "started": "2026-11-02T21:55:17.003127+00:00",
+  "rows": [],
+  "input_snapshot": {},
+  "limits": [
+    "exact source archive absent from inspected package cache directory"
+  ],
+  "cache_observations": [],
+  "status": "open-item"
+}

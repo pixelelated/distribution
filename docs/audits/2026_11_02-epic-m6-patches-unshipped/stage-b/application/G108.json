@@ -1,0 +1,174 @@
+{
+  "id": "G108",
+  "census": {
+    "id": "G108",
+    "recipe": "projects/ROCKNIX/packages/wayland/lib/wlroots/package.mk",
+    "recipe_sha256": "97054ba7d095da0389251c0b6b8356115894c31340f3a1fd17af02fc07b429fa",
+    "owner": [
+      "image-packages"
+    ],
+    "consumer": "RK3576-aarch64",
+    "device": "RK3576",
+    "arch": "aarch64",
+    "target_cpu": "cortex-a72.cortex-a53",
+    "patch_arch": "aarch64",
+    "LINUX": "unset in clean default source config",
+    "batteryplus": "no or unset; exact yes predicate false",
+    "name": "wlroots",
+    "pin": "0.19.3-rk",
+    "url": "https://github.com/rocknix/rockchip-wlroots/archive/refs/tags/0.19.3-rk.tar.gz",
+    "expected_sha256": "5385dc105f2c4c5fe3157e0b0299d6508765086d605fe4efe3ae437d4f18a5d9",
+    "selectors": [
+      "libmali"
+    ],
+    "ordered_pattern_directories": [
+      "projects/ROCKNIX/packages/wayland/lib/wlroots/patches",
+      "projects/ROCKNIX/packages/wayland/lib/wlroots/patches/aarch64",
+      "projects/ROCKNIX/packages/wayland/lib/wlroots/patches/libmali",
+      "projects/ROCKNIX/packages/wayland/lib/wlroots/patches/0.19.3-rk",
+      "projects/ROCKNIX/packages/wayland/lib/wlroots/patches/0.19.3-rk/aarch64",
+      "projects/ROCKNIX/patches/wlroots",
+      "projects/ROCKNIX/patches/wlroots/aarch64",
+      "projects/ROCKNIX/patches/wlroots/libmali",
+      "projects/ROCKNIX/devices/RK3576/patches/wlroots/libmali",
+      "projects/ROCKNIX/patches/wlroots/0.19.3-rk",
+      "projects/ROCKNIX/devices/RK3576/patches/wlroots"
+    ],
+    "stack": [
+      "projects/ROCKNIX/packages/wayland/lib/wlroots/patches/libmali/001-libmali-workaround-allow-zero-stride.patch"
+    ],
+    "native_paths": [
+      "projects/ROCKNIX/packages/wayland/lib/wlroots/patches/libmali/001-libmali-workaround-allow-zero-stride.patch"
+    ],
+    "config_paths": [],
+    "cache_candidates": [
+      "/workspace/cache/rocknix-sources/wlroots/wlroots-0.19.3-rk.tar.gz"
+    ],
+    "preimage_limits": [],
+    "source_only": true,
+    "runtime": false
+  },
+  "started": "2026-11-02T21:56:27.333645+00:00",
+  "rows": [
+    {
+      "path": "projects/ROCKNIX/packages/wayland/lib/wlroots/patches/libmali/001-libmali-workaround-allow-zero-stride.patch",
+      "referent": "projects/ROCKNIX/packages/wayland/lib/wlroots/patches/libmali/001-libmali-workaround-allow-zero-stride.patch",
+      "mode": "100644",
+      "literal_sha256": "cda1cfc9f6ddcccd338f8f389caf204fae9d4f3c38deacad66d4967f7dbf95f5",
+      "content_sha256": "cda1cfc9f6ddcccd338f8f389caf204fae9d4f3c38deacad66d4967f7dbf95f5",
+      "rendered_sha256": "cda1cfc9f6ddcccd338f8f389caf204fae9d4f3c38deacad66d4967f7dbf95f5",
+      "targets": [
+        "types/wlr_linux_dmabuf_v1.c",
+        "types/wlr_linux_dmabuf_v1.c.orig"
+      ],
+      "backend": "patch",
+      "index": 1,
+      "native": true,
+      "normal_called": true,
+      "normal": {
+        "argv": [
+          "patch",
+          "-d",
+          "/workspace/tmp/m6-t43/G108-001-candidate-ggodcpux",
+          "-p1"
+        ],
+        "start": "2026-11-02T21:56:27.334165+00:00",
+        "end": "2026-11-02T21:56:27.335909+00:00",
+        "exit": 0,
+        "stdout_sha256": "96c5bc4a01f53ff70f2f91b5504fa433092128dfe78cdfeb340531356c397b2c",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "output": "patching file types/wlr_linux_dmabuf_v1.c\nHunk #1 succeeded at 323 (offset -1 lines).\n",
+        "error": ""
+      },
+      "input_digest": "4617d805e7e1ef520a196d7992b7591908d95e22a2b9d9fa5e53210c098b4e88",
+      "output_digest": "dbebd03594d660db2c8e07d1d17f6bd5c458b41c2ff202a3003f50d09ad17b44",
+      "candidate_snapshot": {
+        "types/wlr_linux_dmabuf_v1.c": {
+          "type": "file",
+          "mode": "0o664",
+          "sha256": "0cca24c4ae8b7ba805119e9bd58e520ab522895181b6befeaa5e3c847048760b",
+          "bytes": 36591
+        },
+        "types/wlr_linux_dmabuf_v1.c.orig": {
+          "type": "file",
+          "mode": "0o664",
+          "sha256": "708d5a96322f22665fbf624f9f40b630b737280ba445931a186b753bc0d378b7",
+          "bytes": 36621
+        }
+      },
+      "candidate_root": "/workspace/tmp/m6-t43/G108-001-candidate-ggodcpux",
+      "status": "offset",
+      "promoted": true
+    }
+  ],
+  "input_snapshot": {
+    "types/wlr_linux_dmabuf_v1.c": {
+      "type": "file",
+      "mode": "0o664",
+      "sha256": "708d5a96322f22665fbf624f9f40b630b737280ba445931a186b753bc0d378b7",
+      "bytes": 36621
+    }
+  },
+  "limits": [],
+  "cache_observations": [
+    {
+      "path": "/workspace/cache/rocknix-sources/wlroots/wlroots-0.19.3-rk.tar.gz",
+      "sha256": "5385dc105f2c4c5fe3157e0b0299d6508765086d605fe4efe3ae437d4f18a5d9",
+      "expected": "5385dc105f2c4c5fe3157e0b0299d6508765086d605fe4efe3ae437d4f18a5d9"
+    }
+  ],
+  "archive": {
+    "path": "/workspace/cache/rocknix-sources/wlroots/wlroots-0.19.3-rk.tar.gz",
+    "sha256": "5385dc105f2c4c5fe3157e0b0299d6508765086d605fe4efe3ae437d4f18a5d9",
+    "recipe_url": "https://github.com/rocknix/rockchip-wlroots/archive/refs/tags/0.19.3-rk.tar.gz"
+  },
+  "stack": [
+    {
+      "path": "projects/ROCKNIX/packages/wayland/lib/wlroots/patches/libmali/001-libmali-workaround-allow-zero-stride.patch",
+      "referent": "projects/ROCKNIX/packages/wayland/lib/wlroots/patches/libmali/001-libmali-workaround-allow-zero-stride.patch",
+      "mode": "100644",
+      "literal_sha256": "cda1cfc9f6ddcccd338f8f389caf204fae9d4f3c38deacad66d4967f7dbf95f5",
+      "content_sha256": "cda1cfc9f6ddcccd338f8f389caf204fae9d4f3c38deacad66d4967f7dbf95f5",
+      "rendered_sha256": "cda1cfc9f6ddcccd338f8f389caf204fae9d4f3c38deacad66d4967f7dbf95f5",
+      "targets": [
+        "types/wlr_linux_dmabuf_v1.c",
+        "types/wlr_linux_dmabuf_v1.c.orig"
+      ],
+      "backend": "patch"
+    }
+  ],
+  "stack_sha256": "1d080c4e29e91b826f0a126b4c8eb5739dad622739f2ca2614d86989f6216190",
+  "projection": {
+    "archive_header_count": 510,
+    "archive_header_sha256": "e6ca8fcafffc74a0b865cfcc87e64a5d1f976baf883b6150f93a4a6f2c718c5c",
+    "projected_members": {
+      "types/wlr_linux_dmabuf_v1.c": {
+        "type": "file",
+        "mode": "0o664",
+        "sha256": "708d5a96322f22665fbf624f9f40b630b737280ba445931a186b753bc0d378b7",
+        "bytes": 36621
+      }
+    },
+    "absent_targets": [
+      "types/wlr_linux_dmabuf_v1.c.orig"
+    ],
+    "projection_root": "/workspace/tmp/m6-t43/source-members-lq_e7y6i"
+  },
+  "status": "applies",
+  "final_prefix_root": "/workspace/tmp/m6-t43/G108-001-candidate-ggodcpux",
+  "final_prefix_snapshot": {
+    "types/wlr_linux_dmabuf_v1.c": {
+      "type": "file",
+      "mode": "0o664",
+      "sha256": "0cca24c4ae8b7ba805119e9bd58e520ab522895181b6befeaa5e3c847048760b",
+      "bytes": 36591
+    },
+    "types/wlr_linux_dmabuf_v1.c.orig": {
+      "type": "file",
+      "mode": "0o664",
+      "sha256": "708d5a96322f22665fbf624f9f40b630b737280ba445931a186b753bc0d378b7",
+      "bytes": 36621
+    }
+  },
+  "finished": "2026-11-02T21:56:27.336317+00:00"
+}

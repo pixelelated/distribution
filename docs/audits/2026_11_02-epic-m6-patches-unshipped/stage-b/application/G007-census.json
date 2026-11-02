@@ -1,0 +1,54 @@
+{
+  "id": "G007",
+  "census": {
+    "id": "G007",
+    "recipe": "projects/ROCKNIX/devices/RK3566/packages/u-boot-Generic/package.mk",
+    "recipe_sha256": "b9476a8d5cd2499e49d75bd38fd9d41fc40342e1d3f30b950d2ab34240940b08",
+    "owner": [
+      "devices-unshipped"
+    ],
+    "consumer": "RK3566-aarch64",
+    "device": "RK3566",
+    "arch": "aarch64",
+    "target_cpu": "cortex-a55",
+    "patch_arch": "aarch64",
+    "LINUX": "unset in clean default source config",
+    "batteryplus": "no or unset; exact yes predicate false",
+    "name": "u-boot-Generic",
+    "pin": "v2026.01",
+    "url": "https://github.com/u-boot/u-boot/archive/refs/tags/v2026.01.tar.gz",
+    "expected_sha256": "03bb43c58d2343ee48dd191e0f181f0108425b179d84519add3a977071c3f654",
+    "selectors": [],
+    "ordered_pattern_directories": [
+      "projects/ROCKNIX/devices/RK3566/packages/u-boot-Generic/patches",
+      "projects/ROCKNIX/devices/RK3566/packages/u-boot-Generic/patches/aarch64",
+      "projects/ROCKNIX/devices/RK3566/packages/u-boot-Generic/patches/v2026.01",
+      "projects/ROCKNIX/devices/RK3566/packages/u-boot-Generic/patches/v2026.01/aarch64",
+      "projects/ROCKNIX/patches/u-boot-Generic",
+      "projects/ROCKNIX/patches/u-boot-Generic/aarch64",
+      "projects/ROCKNIX/patches/u-boot-Generic/v2026.01",
+      "projects/ROCKNIX/devices/RK3566/patches/u-boot-Generic"
+    ],
+    "stack": [
+      "projects/ROCKNIX/devices/RK3566/packages/u-boot-Generic/patches/0003-board-rockchip-Fix-panel-detection-logic-for-mainlin.patch",
+      "projects/ROCKNIX/devices/RK3566/packages/u-boot-Generic/patches/003-fix-dtb-and-vs.patch",
+      "projects/ROCKNIX/devices/RK3566/packages/u-boot-Generic/patches/004-rgb20pro.patch"
+    ],
+    "native_paths": [
+      "projects/ROCKNIX/devices/RK3566/packages/u-boot-Generic/patches/0003-board-rockchip-Fix-panel-detection-logic-for-mainlin.patch",
+      "projects/ROCKNIX/devices/RK3566/packages/u-boot-Generic/patches/003-fix-dtb-and-vs.patch",
+      "projects/ROCKNIX/devices/RK3566/packages/u-boot-Generic/patches/004-rgb20pro.patch"
+    ],
+    "config_paths": [],
+    "cache_candidates": [
+      "/workspace/cache/rocknix-sources/u-boot-Generic/u-boot-Generic-v2026.01.tar.gz"
+    ],
+    "preimage_limits": [],
+    "source_only": true,
+    "runtime": false
+  },
+  "started": "2026-11-02T21:55:17.057665+00:00",
+  "rows": [],
+  "input_snapshot": {},
+  "limits": []
+}

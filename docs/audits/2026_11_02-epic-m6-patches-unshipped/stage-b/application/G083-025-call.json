@@ -1,0 +1,15 @@
+{
+  "argv": [
+    "patch",
+    "-d",
+    "/workspace/tmp/m6-t43/G083-025-candidate-uj2fc0s2",
+    "-p1"
+  ],
+  "start": "2026-11-02T21:56:18.586453+00:00",
+  "end": "2026-11-02T21:56:18.588600+00:00",
+  "exit": 0,
+  "stdout_sha256": "fb28b94e22fb6f3e8a94e0428e78db985c8ea0a93b2197af4163c8ceef2fd4f5",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "output": "patching file drivers/input/input-compat.c\nHunk #1 succeeded at 15 (offset 1 line).\nHunk #2 succeeded at 39 (offset 1 line).\nHunk #3 succeeded at 63 (offset 1 line).\npatching file drivers/input/input-compat.h\npatching file include/linux/sched.h\nHunk #1 succeeded at 1544 with fuzz 2 (offset 9 lines).\npatching file include/uapi/linux/prctl.h\nHunk #1 succeeded at 416 with fuzz 2 (offset 105 lines).\npatching file kernel/sys.c\nHunk #1 succeeded at 2907 with fuzz 2 (offset 139 lines).\n",
+  "error": ""
+}

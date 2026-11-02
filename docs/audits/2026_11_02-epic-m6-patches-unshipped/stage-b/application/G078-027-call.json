@@ -1,0 +1,15 @@
+{
+  "argv": [
+    "patch",
+    "-d",
+    "/workspace/tmp/m6-t43/G078-027-candidate-ckhyvj7p",
+    "-p1"
+  ],
+  "start": "2026-11-02T21:55:53.118131+00:00",
+  "end": "2026-11-02T21:55:53.118974+00:00",
+  "exit": 0,
+  "stdout_sha256": "198e181818b342201846250d1d29944d58d5b83af287cfc183180f5cf8c144a3",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "output": "patching file drivers/clk/qcom/gpucc-sm4450.c\nHunk #1 succeeded at 702 with fuzz 2 (offset 13 lines).\n",
+  "error": ""
+}

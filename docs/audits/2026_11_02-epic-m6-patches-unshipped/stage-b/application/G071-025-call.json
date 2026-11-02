@@ -1,0 +1,15 @@
+{
+  "argv": [
+    "patch",
+    "-d",
+    "/workspace/tmp/m6-t43/G071-025-candidate-c3et0v90",
+    "-p1"
+  ],
+  "start": "2026-11-02T21:55:44.127953+00:00",
+  "end": "2026-11-02T21:55:44.129730+00:00",
+  "exit": 0,
+  "stdout_sha256": "1ce2d4eb2c0f23b3be5d49a62e24f2cf56278ea71a2b115f7140345081ce4ee1",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "output": "patching file drivers/input/joystick/Kconfig\npatching file drivers/input/joystick/Makefile\npatching file drivers/input/joystick/spi-mcu-joypad/Kconfig\npatching file drivers/input/joystick/spi-mcu-joypad/Makefile\n",
+  "error": ""
+}

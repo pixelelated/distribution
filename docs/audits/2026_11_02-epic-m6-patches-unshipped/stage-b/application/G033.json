@@ -1,0 +1,407 @@
+{
+  "id": "G033",
+  "census": {
+    "id": "G033",
+    "recipe": "projects/ROCKNIX/packages/audio/pipewire/package.mk",
+    "recipe_sha256": "ab5dc61a2e91e9bb5018911684a21cd03d349be242c47b84b3cab0816c54596c",
+    "owner": [
+      "image-packages"
+    ],
+    "consumer": "SM6115-aarch64",
+    "device": "SM6115",
+    "arch": "aarch64",
+    "target_cpu": "cortex-a73.cortex-a53",
+    "patch_arch": "aarch64",
+    "LINUX": "unset in clean default source config",
+    "batteryplus": "no or unset; exact yes predicate false",
+    "name": "pipewire",
+    "pin": "1.2.6",
+    "url": "https://github.com/PipeWire/pipewire/archive/1.2.6.tar.gz",
+    "expected_sha256": "8d9b4e95dba33d218c760fecbb71672c86a56917f803e96fe6c3af62fa783a95",
+    "selectors": [
+      "SM6115"
+    ],
+    "ordered_pattern_directories": [
+      "projects/ROCKNIX/packages/audio/pipewire/patches",
+      "projects/ROCKNIX/packages/audio/pipewire/patches/aarch64",
+      "projects/ROCKNIX/packages/audio/pipewire/patches/SM6115",
+      "projects/ROCKNIX/packages/audio/pipewire/patches/1.2.6",
+      "projects/ROCKNIX/packages/audio/pipewire/patches/1.2.6/aarch64",
+      "projects/ROCKNIX/patches/pipewire",
+      "projects/ROCKNIX/patches/pipewire/aarch64",
+      "projects/ROCKNIX/patches/pipewire/SM6115",
+      "projects/ROCKNIX/devices/SM6115/patches/pipewire/SM6115",
+      "projects/ROCKNIX/patches/pipewire/1.2.6",
+      "projects/ROCKNIX/devices/SM6115/patches/pipewire"
+    ],
+    "stack": [
+      "projects/ROCKNIX/packages/audio/pipewire/patches/001-pipewire-pulse.patch",
+      "projects/ROCKNIX/packages/audio/pipewire/patches/SM6115/001-increase-pulse-buffer-size.patch",
+      "projects/ROCKNIX/packages/audio/pipewire/patches/SM6115/002-increase-pipewire-buffer-size.patch"
+    ],
+    "native_paths": [
+      "projects/ROCKNIX/packages/audio/pipewire/patches/SM6115/001-increase-pulse-buffer-size.patch",
+      "projects/ROCKNIX/packages/audio/pipewire/patches/SM6115/002-increase-pipewire-buffer-size.patch"
+    ],
+    "config_paths": [],
+    "cache_candidates": [
+      "/workspace/cache/rocknix-sources/pipewire/pipewire-1.2.6.tar.gz"
+    ],
+    "preimage_limits": [],
+    "source_only": true,
+    "runtime": false
+  },
+  "started": "2026-11-02T21:55:19.490506+00:00",
+  "rows": [
+    {
+      "path": "projects/ROCKNIX/packages/audio/pipewire/patches/001-pipewire-pulse.patch",
+      "referent": "projects/ROCKNIX/packages/audio/pipewire/patches/001-pipewire-pulse.patch",
+      "mode": "100644",
+      "literal_sha256": "1f5336812690ab493a75f059476161473b49d8616208e1d5a47adf50f7143c6b",
+      "content_sha256": "1f5336812690ab493a75f059476161473b49d8616208e1d5a47adf50f7143c6b",
+      "rendered_sha256": "1f5336812690ab493a75f059476161473b49d8616208e1d5a47adf50f7143c6b",
+      "targets": [
+        "src/daemon/pipewire-pulse.conf.in",
+        "src/daemon/systemd/system/pipewire.service.in",
+        "src/daemon/systemd/system/pipewire.socket"
+      ],
+      "backend": "patch",
+      "index": 1,
+      "native": false,
+      "normal_called": true,
+      "normal": {
+        "argv": [
+          "patch",
+          "-d",
+          "/workspace/tmp/m6-t43/G033-001-candidate-lx1lay1l",
+          "-p1"
+        ],
+        "start": "2026-11-02T21:55:19.548140+00:00",
+        "end": "2026-11-02T21:55:19.550077+00:00",
+        "exit": 0,
+        "stdout_sha256": "c0a715923885e53b77100894de876cf05a1fe72b9054d985c2e40dbe114a4449",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "output": "patching file src/daemon/pipewire-pulse.conf.in\nHunk #1 succeeded at 94 with fuzz 1 (offset 2 lines).\npatching file src/daemon/systemd/system/pipewire.service.in\npatching file src/daemon/systemd/system/pipewire.socket\n",
+        "error": ""
+      },
+      "input_digest": "bb2be86c59d9be1bf895358aab0a8db775b7fcdcfa77a7b2206d5b4c106d85f3",
+      "output_digest": "7b65ff219dc7b84cc3b93ed5c5276d131f91c492a85e7e0d5cceab4a8cb6a2c1",
+      "candidate_snapshot": {
+        "src/daemon/pipewire-pulse.conf.in": {
+          "type": "file",
+          "mode": "0o664",
+          "sha256": "808dd3930eee3c8eb2f966c0fdacf47971afe8cc5b7bc4697472400881089fc8",
+          "bytes": 6481
+        },
+        "src/daemon/pipewire-pulse.conf.in.orig": {
+          "type": "file",
+          "mode": "0o664",
+          "sha256": "941d4a37e7cbbae176bfa9d1d8ca834c4ef2cb3bf37e78261cde087257dd7ffd",
+          "bytes": 6479
+        },
+        "src/daemon/pipewire.conf.in": {
+          "type": "file",
+          "mode": "0o664",
+          "sha256": "aa5cd39a5ced8c9978c4c98d9a278938777439e5981b08653de71da279974010",
+          "bytes": 13259
+        },
+        "src/daemon/systemd/system/pipewire.service.in": {
+          "type": "file",
+          "mode": "0o664",
+          "sha256": "eab2fa4bebf11bdfe0c3c7c40829466595502f95ec4b9b8eb428fd27c92240a1",
+          "bytes": 1644
+        },
+        "src/daemon/systemd/system/pipewire.socket": {
+          "type": "file",
+          "mode": "0o664",
+          "sha256": "b8468904cb74d83b1d9dfe5321f07b27b8250148c61f4c333e7553519f616671",
+          "bytes": 194
+        }
+      },
+      "candidate_root": "/workspace/tmp/m6-t43/G033-001-candidate-lx1lay1l",
+      "status": "fuzz",
+      "promoted": true
+    },
+    {
+      "path": "projects/ROCKNIX/packages/audio/pipewire/patches/SM6115/001-increase-pulse-buffer-size.patch",
+      "referent": "projects/ROCKNIX/packages/audio/pipewire/patches/SM6115/001-increase-pulse-buffer-size.patch",
+      "mode": "100644",
+      "literal_sha256": "8b540d6ed17c257ff656748b3fd7b073c19a6f8e96356b96b35eae548801744c",
+      "content_sha256": "8b540d6ed17c257ff656748b3fd7b073c19a6f8e96356b96b35eae548801744c",
+      "rendered_sha256": "8b540d6ed17c257ff656748b3fd7b073c19a6f8e96356b96b35eae548801744c",
+      "targets": [
+        "src/daemon/pipewire-pulse.conf.in"
+      ],
+      "backend": "patch",
+      "index": 2,
+      "native": true,
+      "normal_called": true,
+      "normal": {
+        "argv": [
+          "patch",
+          "-d",
+          "/workspace/tmp/m6-t43/G033-002-candidate-1dzxc1oi",
+          "-p1"
+        ],
+        "start": "2026-11-02T21:55:19.551113+00:00",
+        "end": "2026-11-02T21:55:19.552674+00:00",
+        "exit": 0,
+        "stdout_sha256": "c86a4c1b0bb8ec6967c467e63bc39e4a6ceb5d78db56bfb4ad430b226eeb4aed",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "output": "patching file src/daemon/pipewire-pulse.conf.in\n",
+        "error": ""
+      },
+      "input_digest": "7b65ff219dc7b84cc3b93ed5c5276d131f91c492a85e7e0d5cceab4a8cb6a2c1",
+      "output_digest": "df204452d43b213ac0b5fbff56cba3edfd5182993423ebc14b575030ca3bdb3f",
+      "candidate_snapshot": {
+        "src/daemon/pipewire-pulse.conf.in": {
+          "type": "file",
+          "mode": "0o664",
+          "sha256": "4d8f942c97aad576058ecb0c0e80317727cd05fd1167091649a82ded94175afe",
+          "bytes": 6475
+        },
+        "src/daemon/pipewire-pulse.conf.in.orig": {
+          "type": "file",
+          "mode": "0o664",
+          "sha256": "941d4a37e7cbbae176bfa9d1d8ca834c4ef2cb3bf37e78261cde087257dd7ffd",
+          "bytes": 6479
+        },
+        "src/daemon/pipewire.conf.in": {
+          "type": "file",
+          "mode": "0o664",
+          "sha256": "aa5cd39a5ced8c9978c4c98d9a278938777439e5981b08653de71da279974010",
+          "bytes": 13259
+        },
+        "src/daemon/systemd/system/pipewire.service.in": {
+          "type": "file",
+          "mode": "0o664",
+          "sha256": "eab2fa4bebf11bdfe0c3c7c40829466595502f95ec4b9b8eb428fd27c92240a1",
+          "bytes": 1644
+        },
+        "src/daemon/systemd/system/pipewire.socket": {
+          "type": "file",
+          "mode": "0o664",
+          "sha256": "b8468904cb74d83b1d9dfe5321f07b27b8250148c61f4c333e7553519f616671",
+          "bytes": 194
+        }
+      },
+      "candidate_root": "/workspace/tmp/m6-t43/G033-002-candidate-1dzxc1oi",
+      "status": "applies",
+      "promoted": true
+    },
+    {
+      "path": "projects/ROCKNIX/packages/audio/pipewire/patches/SM6115/002-increase-pipewire-buffer-size.patch",
+      "referent": "projects/ROCKNIX/packages/audio/pipewire/patches/SM6115/002-increase-pipewire-buffer-size.patch",
+      "mode": "100644",
+      "literal_sha256": "90b0f9e285359943da3c067566c258a243c50b0c4fabeda81d3820e3ab50a16e",
+      "content_sha256": "90b0f9e285359943da3c067566c258a243c50b0c4fabeda81d3820e3ab50a16e",
+      "rendered_sha256": "90b0f9e285359943da3c067566c258a243c50b0c4fabeda81d3820e3ab50a16e",
+      "targets": [
+        "src/daemon/pipewire.conf.in"
+      ],
+      "backend": "patch",
+      "index": 3,
+      "native": true,
+      "normal_called": true,
+      "normal": {
+        "argv": [
+          "patch",
+          "-d",
+          "/workspace/tmp/m6-t43/G033-003-candidate-dh9wwhy0",
+          "-p1"
+        ],
+        "start": "2026-11-02T21:55:19.553665+00:00",
+        "end": "2026-11-02T21:55:19.554425+00:00",
+        "exit": 0,
+        "stdout_sha256": "4e52d88f866fdaaf1485dc0a80bd9763e89d28cda02b601d2d33c9b256d6290c",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "output": "patching file src/daemon/pipewire.conf.in\n",
+        "error": ""
+      },
+      "input_digest": "df204452d43b213ac0b5fbff56cba3edfd5182993423ebc14b575030ca3bdb3f",
+      "output_digest": "2c4aa4631beee61ada76f7acd167c60adf0298f1465cb4b566325d209c9ff0b3",
+      "candidate_snapshot": {
+        "src/daemon/pipewire-pulse.conf.in": {
+          "type": "file",
+          "mode": "0o664",
+          "sha256": "4d8f942c97aad576058ecb0c0e80317727cd05fd1167091649a82ded94175afe",
+          "bytes": 6475
+        },
+        "src/daemon/pipewire-pulse.conf.in.orig": {
+          "type": "file",
+          "mode": "0o664",
+          "sha256": "941d4a37e7cbbae176bfa9d1d8ca834c4ef2cb3bf37e78261cde087257dd7ffd",
+          "bytes": 6479
+        },
+        "src/daemon/pipewire.conf.in": {
+          "type": "file",
+          "mode": "0o664",
+          "sha256": "d0a83904742b8342128aa1931ce872d860f4a3fb09dd99dcfd3efdf4d8655fcb",
+          "bytes": 13259
+        },
+        "src/daemon/systemd/system/pipewire.service.in": {
+          "type": "file",
+          "mode": "0o664",
+          "sha256": "eab2fa4bebf11bdfe0c3c7c40829466595502f95ec4b9b8eb428fd27c92240a1",
+          "bytes": 1644
+        },
+        "src/daemon/systemd/system/pipewire.socket": {
+          "type": "file",
+          "mode": "0o664",
+          "sha256": "b8468904cb74d83b1d9dfe5321f07b27b8250148c61f4c333e7553519f616671",
+          "bytes": 194
+        }
+      },
+      "candidate_root": "/workspace/tmp/m6-t43/G033-003-candidate-dh9wwhy0",
+      "status": "applies",
+      "promoted": true
+    }
+  ],
+  "input_snapshot": {
+    "src/daemon/pipewire-pulse.conf.in": {
+      "type": "file",
+      "mode": "0o664",
+      "sha256": "941d4a37e7cbbae176bfa9d1d8ca834c4ef2cb3bf37e78261cde087257dd7ffd",
+      "bytes": 6479
+    },
+    "src/daemon/pipewire.conf.in": {
+      "type": "file",
+      "mode": "0o664",
+      "sha256": "aa5cd39a5ced8c9978c4c98d9a278938777439e5981b08653de71da279974010",
+      "bytes": 13259
+    },
+    "src/daemon/systemd/system/pipewire.service.in": {
+      "type": "file",
+      "mode": "0o664",
+      "sha256": "c86c7b18382b726f0f20fbf7b1198dfffdaa536480dd741e32b332ad55ea9bd6",
+      "bytes": 1131
+    },
+    "src/daemon/systemd/system/pipewire.socket": {
+      "type": "file",
+      "mode": "0o664",
+      "sha256": "6a4ad7598913242df21cc04d9e25b9f1d89336e1e8a059aeccb641af8463d21a",
+      "bytes": 202
+    }
+  },
+  "limits": [],
+  "cache_observations": [
+    {
+      "path": "/workspace/cache/rocknix-sources/pipewire/pipewire-1.2.6.tar.gz",
+      "sha256": "8d9b4e95dba33d218c760fecbb71672c86a56917f803e96fe6c3af62fa783a95",
+      "expected": "8d9b4e95dba33d218c760fecbb71672c86a56917f803e96fe6c3af62fa783a95"
+    }
+  ],
+  "archive": {
+    "path": "/workspace/cache/rocknix-sources/pipewire/pipewire-1.2.6.tar.gz",
+    "sha256": "8d9b4e95dba33d218c760fecbb71672c86a56917f803e96fe6c3af62fa783a95",
+    "recipe_url": "https://github.com/PipeWire/pipewire/archive/1.2.6.tar.gz"
+  },
+  "stack": [
+    {
+      "path": "projects/ROCKNIX/packages/audio/pipewire/patches/001-pipewire-pulse.patch",
+      "referent": "projects/ROCKNIX/packages/audio/pipewire/patches/001-pipewire-pulse.patch",
+      "mode": "100644",
+      "literal_sha256": "1f5336812690ab493a75f059476161473b49d8616208e1d5a47adf50f7143c6b",
+      "content_sha256": "1f5336812690ab493a75f059476161473b49d8616208e1d5a47adf50f7143c6b",
+      "rendered_sha256": "1f5336812690ab493a75f059476161473b49d8616208e1d5a47adf50f7143c6b",
+      "targets": [
+        "src/daemon/pipewire-pulse.conf.in",
+        "src/daemon/systemd/system/pipewire.service.in",
+        "src/daemon/systemd/system/pipewire.socket"
+      ],
+      "backend": "patch"
+    },
+    {
+      "path": "projects/ROCKNIX/packages/audio/pipewire/patches/SM6115/001-increase-pulse-buffer-size.patch",
+      "referent": "projects/ROCKNIX/packages/audio/pipewire/patches/SM6115/001-increase-pulse-buffer-size.patch",
+      "mode": "100644",
+      "literal_sha256": "8b540d6ed17c257ff656748b3fd7b073c19a6f8e96356b96b35eae548801744c",
+      "content_sha256": "8b540d6ed17c257ff656748b3fd7b073c19a6f8e96356b96b35eae548801744c",
+      "rendered_sha256": "8b540d6ed17c257ff656748b3fd7b073c19a6f8e96356b96b35eae548801744c",
+      "targets": [
+        "src/daemon/pipewire-pulse.conf.in"
+      ],
+      "backend": "patch"
+    },
+    {
+      "path": "projects/ROCKNIX/packages/audio/pipewire/patches/SM6115/002-increase-pipewire-buffer-size.patch",
+      "referent": "projects/ROCKNIX/packages/audio/pipewire/patches/SM6115/002-increase-pipewire-buffer-size.patch",
+      "mode": "100644",
+      "literal_sha256": "90b0f9e285359943da3c067566c258a243c50b0c4fabeda81d3820e3ab50a16e",
+      "content_sha256": "90b0f9e285359943da3c067566c258a243c50b0c4fabeda81d3820e3ab50a16e",
+      "rendered_sha256": "90b0f9e285359943da3c067566c258a243c50b0c4fabeda81d3820e3ab50a16e",
+      "targets": [
+        "src/daemon/pipewire.conf.in"
+      ],
+      "backend": "patch"
+    }
+  ],
+  "stack_sha256": "96a20ed816a838dc1dfc57d0327f600edd8a03f925c2ca06abb0011fca804731",
+  "projection": {
+    "archive_header_count": 1354,
+    "archive_header_sha256": "897ed670ea83c7e00e361b79b4020517e1a7092ccba6991c2c2486d4ac9f22f1",
+    "projected_members": {
+      "src/daemon/pipewire-pulse.conf.in": {
+        "type": "file",
+        "mode": "0o664",
+        "sha256": "941d4a37e7cbbae176bfa9d1d8ca834c4ef2cb3bf37e78261cde087257dd7ffd",
+        "bytes": 6479
+      },
+      "src/daemon/pipewire.conf.in": {
+        "type": "file",
+        "mode": "0o664",
+        "sha256": "aa5cd39a5ced8c9978c4c98d9a278938777439e5981b08653de71da279974010",
+        "bytes": 13259
+      },
+      "src/daemon/systemd/system/pipewire.service.in": {
+        "type": "file",
+        "mode": "0o664",
+        "sha256": "c86c7b18382b726f0f20fbf7b1198dfffdaa536480dd741e32b332ad55ea9bd6",
+        "bytes": 1131
+      },
+      "src/daemon/systemd/system/pipewire.socket": {
+        "type": "file",
+        "mode": "0o664",
+        "sha256": "6a4ad7598913242df21cc04d9e25b9f1d89336e1e8a059aeccb641af8463d21a",
+        "bytes": 202
+      }
+    },
+    "absent_targets": [],
+    "projection_root": "/workspace/tmp/m6-t43/source-members-szyaob5u"
+  },
+  "status": "applies",
+  "final_prefix_root": "/workspace/tmp/m6-t43/G033-003-candidate-dh9wwhy0",
+  "final_prefix_snapshot": {
+    "src/daemon/pipewire-pulse.conf.in": {
+      "type": "file",
+      "mode": "0o664",
+      "sha256": "4d8f942c97aad576058ecb0c0e80317727cd05fd1167091649a82ded94175afe",
+      "bytes": 6475
+    },
+    "src/daemon/pipewire-pulse.conf.in.orig": {
+      "type": "file",
+      "mode": "0o664",
+      "sha256": "941d4a37e7cbbae176bfa9d1d8ca834c4ef2cb3bf37e78261cde087257dd7ffd",
+      "bytes": 6479
+    },
+    "src/daemon/pipewire.conf.in": {
+      "type": "file",
+      "mode": "0o664",
+      "sha256": "d0a83904742b8342128aa1931ce872d860f4a3fb09dd99dcfd3efdf4d8655fcb",
+      "bytes": 13259
+    },
+    "src/daemon/systemd/system/pipewire.service.in": {
+      "type": "file",
+      "mode": "0o664",
+      "sha256": "eab2fa4bebf11bdfe0c3c7c40829466595502f95ec4b9b8eb428fd27c92240a1",
+      "bytes": 1644
+    },
+    "src/daemon/systemd/system/pipewire.socket": {
+      "type": "file",
+      "mode": "0o664",
+      "sha256": "b8468904cb74d83b1d9dfe5321f07b27b8250148c61f4c333e7553519f616671",
+      "bytes": 194
+    }
+  },
+  "finished": "2026-11-02T21:55:19.555122+00:00"
+}

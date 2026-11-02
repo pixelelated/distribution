@@ -1,0 +1,15 @@
+{
+  "argv": [
+    "patch",
+    "-d",
+    "/workspace/tmp/m6-t43/G083-023-candidate-j_almisn",
+    "-p1"
+  ],
+  "start": "2026-11-02T21:56:18.555001+00:00",
+  "end": "2026-11-02T21:56:18.557780+00:00",
+  "exit": 0,
+  "stdout_sha256": "237574f70883e389446580dce3e000a3ad75c6a24bbee59b2dbe54d1b3939b3d",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "output": "patching file drivers/bluetooth/btqca.c\nHunk #2 succeeded at 771 (offset 31 lines).\nHunk #3 succeeded at 847 (offset 36 lines).\nHunk #4 succeeded at 1083 (offset 92 lines).\npatching file drivers/soc/qcom/socinfo.c\nHunk #1 succeeded at 237 (offset 74 lines).\nHunk #2 succeeded at 929 (offset 130 lines).\nHunk #3 succeeded at 955 (offset 130 lines).\npatching file drivers/net/wireless/ath/ath12k/mac.c\nHunk #1 succeeded at 176 with fuzz 2 (offset 17 lines).\nHunk #2 succeeded at 14864 (offset 5246 lines).\nHunk #3 succeeded at 14888 (offset 5246 lines).\n",
+  "error": ""
+}

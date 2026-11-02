@@ -1,0 +1,15 @@
+{
+  "argv": [
+    "patch",
+    "-d",
+    "/workspace/tmp/m6-t43/partial-failure-v2-candidate-280lrdzl",
+    "-p1"
+  ],
+  "start": "2026-11-02T21:52:29.499355+00:00",
+  "end": "2026-11-02T21:52:29.501312+00:00",
+  "exit": 1,
+  "stdout_sha256": "06d4027b60e9faf5fbe010082217979cd9f34bbadebdbf3e7ac014515edd4283",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "output": "patching file a.txt\nHunk #2 FAILED at 7.\n1 out of 2 hunks FAILED -- saving rejects to file a.txt.rej\n",
+  "error": ""
+}

@@ -1,0 +1,348 @@
+{
+  "id": "G025",
+  "census": {
+    "id": "G025",
+    "recipe": "projects/ROCKNIX/packages/audio/alsa-lib/package.mk",
+    "recipe_sha256": "592f3654b64cdf1a1b9140d1c0fd28195c80f70cbfb9c3274a49c032839b22ab",
+    "owner": [
+      "image-packages"
+    ],
+    "consumer": "SM8250-aarch64",
+    "device": "SM8250",
+    "arch": "aarch64",
+    "target_cpu": "cortex-a76.cortex-a55",
+    "patch_arch": "aarch64",
+    "LINUX": "unset in clean default source config",
+    "batteryplus": "no or unset; exact yes predicate false",
+    "name": "alsa-lib",
+    "pin": "1.2.14",
+    "url": "https://www.alsa-project.org/files/pub/lib/alsa-lib-1.2.14.tar.bz2",
+    "expected_sha256": "be9c88a0b3604367dd74167a2b754a35e142f670292ae47a2fdef27a2ee97a32",
+    "selectors": [
+      "SM8250"
+    ],
+    "ordered_pattern_directories": [
+      "projects/ROCKNIX/packages/audio/alsa-lib/patches",
+      "projects/ROCKNIX/packages/audio/alsa-lib/patches/aarch64",
+      "projects/ROCKNIX/packages/audio/alsa-lib/patches/SM8250",
+      "projects/ROCKNIX/packages/audio/alsa-lib/patches/1.2.14",
+      "projects/ROCKNIX/packages/audio/alsa-lib/patches/1.2.14/aarch64",
+      "projects/ROCKNIX/patches/alsa-lib",
+      "projects/ROCKNIX/patches/alsa-lib/aarch64",
+      "projects/ROCKNIX/patches/alsa-lib/SM8250",
+      "projects/ROCKNIX/devices/SM8250/patches/alsa-lib/SM8250",
+      "projects/ROCKNIX/patches/alsa-lib/1.2.14",
+      "projects/ROCKNIX/devices/SM8250/patches/alsa-lib"
+    ],
+    "stack": [
+      "projects/ROCKNIX/packages/audio/alsa-lib/patches/001-silence-underruns.patch",
+      "projects/ROCKNIX/packages/audio/alsa-lib/patches/alsa-lib-asound.conf_configdir.patch",
+      "projects/ROCKNIX/packages/audio/alsa-lib/patches/SM8250/0001-Enabled-extended-namehints-in-alsa.conf.patch"
+    ],
+    "native_paths": [
+      "projects/ROCKNIX/packages/audio/alsa-lib/patches/SM8250/0001-Enabled-extended-namehints-in-alsa.conf.patch"
+    ],
+    "config_paths": [],
+    "cache_candidates": [
+      "/workspace/cache/rocknix-sources/alsa-lib/alsa-lib-1.2.14.tar.bz2"
+    ],
+    "preimage_limits": [],
+    "source_only": true,
+    "runtime": false
+  },
+  "started": "2026-11-02T21:55:19.324018+00:00",
+  "rows": [
+    {
+      "path": "projects/ROCKNIX/packages/audio/alsa-lib/patches/001-silence-underruns.patch",
+      "referent": "projects/ROCKNIX/packages/audio/alsa-lib/patches/001-silence-underruns.patch",
+      "mode": "100644",
+      "literal_sha256": "89a8f1d443a9f5c788bef8b6a36ab5e2decc70f91ab8ab883b4b846428216ad2",
+      "content_sha256": "89a8f1d443a9f5c788bef8b6a36ab5e2decc70f91ab8ab883b4b846428216ad2",
+      "rendered_sha256": "89a8f1d443a9f5c788bef8b6a36ab5e2decc70f91ab8ab883b4b846428216ad2",
+      "targets": [
+        "src/pcm/pcm.c"
+      ],
+      "backend": "patch",
+      "index": 1,
+      "native": false,
+      "normal_called": true,
+      "normal": {
+        "argv": [
+          "patch",
+          "-d",
+          "/workspace/tmp/m6-t43/G025-001-candidate-pm89uurw",
+          "-p1"
+        ],
+        "start": "2026-11-02T21:55:19.470260+00:00",
+        "end": "2026-11-02T21:55:19.472555+00:00",
+        "exit": 0,
+        "stdout_sha256": "c47dcc231c1f54fa0f4a8fde3317a375ed185d2fd0bb25c4dfbe4c3f318a797f",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "output": "patching file src/pcm/pcm.c\nHunk #1 succeeded at 8768 (offset 202 lines).\n",
+        "error": ""
+      },
+      "input_digest": "fee0700c11ed9dd29884681897886cb1bc433d7d599088b828caf5b8820f9517",
+      "output_digest": "7af19d0d34752e11090003d3a2d2dfb46e3d392dafdde456f75d4e3b7c979193",
+      "candidate_snapshot": {
+        "src/conf/alsa.conf": {
+          "type": "file",
+          "mode": "0o644",
+          "sha256": "fbcae1033c90a32bbda2d88296ba104ee0527dcbe2fec4380b1cee65f895b89c",
+          "bytes": 10119
+        },
+        "src/pcm/pcm.c": {
+          "type": "file",
+          "mode": "0o644",
+          "sha256": "50f851c4b61cc726214d53b6edcf851331dbf1fa294a5109fe2deafdcb73f161",
+          "bytes": 287985
+        },
+        "src/pcm/pcm.c.orig": {
+          "type": "file",
+          "mode": "0o644",
+          "sha256": "bb5598e486e7f47ff33506fe13ef8d153c6a8e6f2e93d88403171fe9f3d25806",
+          "bytes": 287981
+        }
+      },
+      "candidate_root": "/workspace/tmp/m6-t43/G025-001-candidate-pm89uurw",
+      "status": "offset",
+      "promoted": true
+    },
+    {
+      "path": "projects/ROCKNIX/packages/audio/alsa-lib/patches/alsa-lib-asound.conf_configdir.patch",
+      "referent": "projects/ROCKNIX/packages/audio/alsa-lib/patches/alsa-lib-asound.conf_configdir.patch",
+      "mode": "100644",
+      "literal_sha256": "6e34c1078f69477be2facc958f1da5ee2c9e9974435dd196741e95d4341af95e",
+      "content_sha256": "6e34c1078f69477be2facc958f1da5ee2c9e9974435dd196741e95d4341af95e",
+      "rendered_sha256": "6e34c1078f69477be2facc958f1da5ee2c9e9974435dd196741e95d4341af95e",
+      "targets": [
+        "src/conf/alsa.conf"
+      ],
+      "backend": "patch",
+      "index": 2,
+      "native": false,
+      "normal_called": true,
+      "normal": {
+        "argv": [
+          "patch",
+          "-d",
+          "/workspace/tmp/m6-t43/G025-002-candidate-y4c9x1cz",
+          "-p1"
+        ],
+        "start": "2026-11-02T21:55:19.473804+00:00",
+        "end": "2026-11-02T21:55:19.475438+00:00",
+        "exit": 0,
+        "stdout_sha256": "3121974691ee5a88c0ff4f4a627885c5e684e9533ebfaf1aec2288d2c308ef67",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "output": "patching file src/conf/alsa.conf\nHunk #1 succeeded at 12 (offset 1 line).\n",
+        "error": ""
+      },
+      "input_digest": "7af19d0d34752e11090003d3a2d2dfb46e3d392dafdde456f75d4e3b7c979193",
+      "output_digest": "550699da3f98220ce9650d22a6dafb014bd5f15a1bc4c2447bd8e40b949fffc3",
+      "candidate_snapshot": {
+        "src/conf/alsa.conf": {
+          "type": "file",
+          "mode": "0o644",
+          "sha256": "ccda2fe73e524b8f3d97c6b1f3792c95922b24ce3b2a4a2ada9bd1aceb1632b8",
+          "bytes": 10158
+        },
+        "src/conf/alsa.conf.orig": {
+          "type": "file",
+          "mode": "0o644",
+          "sha256": "fbcae1033c90a32bbda2d88296ba104ee0527dcbe2fec4380b1cee65f895b89c",
+          "bytes": 10119
+        },
+        "src/pcm/pcm.c": {
+          "type": "file",
+          "mode": "0o644",
+          "sha256": "50f851c4b61cc726214d53b6edcf851331dbf1fa294a5109fe2deafdcb73f161",
+          "bytes": 287985
+        },
+        "src/pcm/pcm.c.orig": {
+          "type": "file",
+          "mode": "0o644",
+          "sha256": "bb5598e486e7f47ff33506fe13ef8d153c6a8e6f2e93d88403171fe9f3d25806",
+          "bytes": 287981
+        }
+      },
+      "candidate_root": "/workspace/tmp/m6-t43/G025-002-candidate-y4c9x1cz",
+      "status": "offset",
+      "promoted": true
+    },
+    {
+      "path": "projects/ROCKNIX/packages/audio/alsa-lib/patches/SM8250/0001-Enabled-extended-namehints-in-alsa.conf.patch",
+      "referent": "projects/ROCKNIX/packages/audio/alsa-lib/patches/SM8250/0001-Enabled-extended-namehints-in-alsa.conf.patch",
+      "mode": "100644",
+      "literal_sha256": "8c44fb34d1bcd1ec031a6b16359894edf6ad58e767370db75cf88229a6eb3db7",
+      "content_sha256": "8c44fb34d1bcd1ec031a6b16359894edf6ad58e767370db75cf88229a6eb3db7",
+      "rendered_sha256": "8c44fb34d1bcd1ec031a6b16359894edf6ad58e767370db75cf88229a6eb3db7",
+      "targets": [
+        "src/conf/alsa.conf"
+      ],
+      "backend": "patch",
+      "index": 3,
+      "native": true,
+      "normal_called": true,
+      "normal": {
+        "argv": [
+          "patch",
+          "-d",
+          "/workspace/tmp/m6-t43/G025-003-candidate-o53w52aw",
+          "-p1"
+        ],
+        "start": "2026-11-02T21:55:19.476703+00:00",
+        "end": "2026-11-02T21:55:19.478362+00:00",
+        "exit": 0,
+        "stdout_sha256": "e1b446956684de77612222f906efa95d6a15d71d9aef8e24e0ce0f17d4ba2e96",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "output": "patching file src/conf/alsa.conf\nHunk #1 succeeded at 97 (offset 44 lines).\n",
+        "error": ""
+      },
+      "input_digest": "550699da3f98220ce9650d22a6dafb014bd5f15a1bc4c2447bd8e40b949fffc3",
+      "output_digest": "a2feff14d591e466ae38a956a1861a18485df482f81a6a752a2db1218c358faf",
+      "candidate_snapshot": {
+        "src/conf/alsa.conf": {
+          "type": "file",
+          "mode": "0o644",
+          "sha256": "159bae2851b3607d20dafb56268f3b334e1ce397802d054f7eabf12e456fde6e",
+          "bytes": 10156
+        },
+        "src/conf/alsa.conf.orig": {
+          "type": "file",
+          "mode": "0o644",
+          "sha256": "ccda2fe73e524b8f3d97c6b1f3792c95922b24ce3b2a4a2ada9bd1aceb1632b8",
+          "bytes": 10158
+        },
+        "src/pcm/pcm.c": {
+          "type": "file",
+          "mode": "0o644",
+          "sha256": "50f851c4b61cc726214d53b6edcf851331dbf1fa294a5109fe2deafdcb73f161",
+          "bytes": 287985
+        },
+        "src/pcm/pcm.c.orig": {
+          "type": "file",
+          "mode": "0o644",
+          "sha256": "bb5598e486e7f47ff33506fe13ef8d153c6a8e6f2e93d88403171fe9f3d25806",
+          "bytes": 287981
+        }
+      },
+      "candidate_root": "/workspace/tmp/m6-t43/G025-003-candidate-o53w52aw",
+      "status": "offset",
+      "promoted": true
+    }
+  ],
+  "input_snapshot": {
+    "src/conf/alsa.conf": {
+      "type": "file",
+      "mode": "0o644",
+      "sha256": "fbcae1033c90a32bbda2d88296ba104ee0527dcbe2fec4380b1cee65f895b89c",
+      "bytes": 10119
+    },
+    "src/pcm/pcm.c": {
+      "type": "file",
+      "mode": "0o644",
+      "sha256": "bb5598e486e7f47ff33506fe13ef8d153c6a8e6f2e93d88403171fe9f3d25806",
+      "bytes": 287981
+    }
+  },
+  "limits": [],
+  "cache_observations": [
+    {
+      "path": "/workspace/cache/rocknix-sources/alsa-lib/alsa-lib-1.2.14.tar.bz2",
+      "sha256": "be9c88a0b3604367dd74167a2b754a35e142f670292ae47a2fdef27a2ee97a32",
+      "expected": "be9c88a0b3604367dd74167a2b754a35e142f670292ae47a2fdef27a2ee97a32"
+    }
+  ],
+  "archive": {
+    "path": "/workspace/cache/rocknix-sources/alsa-lib/alsa-lib-1.2.14.tar.bz2",
+    "sha256": "be9c88a0b3604367dd74167a2b754a35e142f670292ae47a2fdef27a2ee97a32",
+    "recipe_url": "https://www.alsa-project.org/files/pub/lib/alsa-lib-1.2.14.tar.bz2"
+  },
+  "stack": [
+    {
+      "path": "projects/ROCKNIX/packages/audio/alsa-lib/patches/001-silence-underruns.patch",
+      "referent": "projects/ROCKNIX/packages/audio/alsa-lib/patches/001-silence-underruns.patch",
+      "mode": "100644",
+      "literal_sha256": "89a8f1d443a9f5c788bef8b6a36ab5e2decc70f91ab8ab883b4b846428216ad2",
+      "content_sha256": "89a8f1d443a9f5c788bef8b6a36ab5e2decc70f91ab8ab883b4b846428216ad2",
+      "rendered_sha256": "89a8f1d443a9f5c788bef8b6a36ab5e2decc70f91ab8ab883b4b846428216ad2",
+      "targets": [
+        "src/pcm/pcm.c"
+      ],
+      "backend": "patch"
+    },
+    {
+      "path": "projects/ROCKNIX/packages/audio/alsa-lib/patches/alsa-lib-asound.conf_configdir.patch",
+      "referent": "projects/ROCKNIX/packages/audio/alsa-lib/patches/alsa-lib-asound.conf_configdir.patch",
+      "mode": "100644",
+      "literal_sha256": "6e34c1078f69477be2facc958f1da5ee2c9e9974435dd196741e95d4341af95e",
+      "content_sha256": "6e34c1078f69477be2facc958f1da5ee2c9e9974435dd196741e95d4341af95e",
+      "rendered_sha256": "6e34c1078f69477be2facc958f1da5ee2c9e9974435dd196741e95d4341af95e",
+      "targets": [
+        "src/conf/alsa.conf"
+      ],
+      "backend": "patch"
+    },
+    {
+      "path": "projects/ROCKNIX/packages/audio/alsa-lib/patches/SM8250/0001-Enabled-extended-namehints-in-alsa.conf.patch",
+      "referent": "projects/ROCKNIX/packages/audio/alsa-lib/patches/SM8250/0001-Enabled-extended-namehints-in-alsa.conf.patch",
+      "mode": "100644",
+      "literal_sha256": "8c44fb34d1bcd1ec031a6b16359894edf6ad58e767370db75cf88229a6eb3db7",
+      "content_sha256": "8c44fb34d1bcd1ec031a6b16359894edf6ad58e767370db75cf88229a6eb3db7",
+      "rendered_sha256": "8c44fb34d1bcd1ec031a6b16359894edf6ad58e767370db75cf88229a6eb3db7",
+      "targets": [
+        "src/conf/alsa.conf"
+      ],
+      "backend": "patch"
+    }
+  ],
+  "stack_sha256": "315d62363c80abff7c2001bdea3962bd3bf336c3fcebac89eddf2f3b108334b4",
+  "projection": {
+    "archive_header_count": 455,
+    "archive_header_sha256": "6b3062346f210675e88d511abcbd16c8bbe176f17f5d1c3946993b4b6e27941d",
+    "projected_members": {
+      "src/conf/alsa.conf": {
+        "type": "file",
+        "mode": "0o644",
+        "sha256": "fbcae1033c90a32bbda2d88296ba104ee0527dcbe2fec4380b1cee65f895b89c",
+        "bytes": 10119
+      },
+      "src/pcm/pcm.c": {
+        "type": "file",
+        "mode": "0o644",
+        "sha256": "bb5598e486e7f47ff33506fe13ef8d153c6a8e6f2e93d88403171fe9f3d25806",
+        "bytes": 287981
+      }
+    },
+    "absent_targets": [],
+    "projection_root": "/workspace/tmp/m6-t43/source-members-ey7fm2ey"
+  },
+  "status": "applies",
+  "final_prefix_root": "/workspace/tmp/m6-t43/G025-003-candidate-o53w52aw",
+  "final_prefix_snapshot": {
+    "src/conf/alsa.conf": {
+      "type": "file",
+      "mode": "0o644",
+      "sha256": "159bae2851b3607d20dafb56268f3b334e1ce397802d054f7eabf12e456fde6e",
+      "bytes": 10156
+    },
+    "src/conf/alsa.conf.orig": {
+      "type": "file",
+      "mode": "0o644",
+      "sha256": "ccda2fe73e524b8f3d97c6b1f3792c95922b24ce3b2a4a2ada9bd1aceb1632b8",
+      "bytes": 10158
+    },
+    "src/pcm/pcm.c": {
+      "type": "file",
+      "mode": "0o644",
+      "sha256": "50f851c4b61cc726214d53b6edcf851331dbf1fa294a5109fe2deafdcb73f161",
+      "bytes": 287985
+    },
+    "src/pcm/pcm.c.orig": {
+      "type": "file",
+      "mode": "0o644",
+      "sha256": "bb5598e486e7f47ff33506fe13ef8d153c6a8e6f2e93d88403171fe9f3d25806",
+      "bytes": 287981
+    }
+  },
+  "finished": "2026-11-02T21:55:19.480513+00:00"
+}

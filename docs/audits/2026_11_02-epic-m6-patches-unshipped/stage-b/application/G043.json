@@ -1,0 +1,70 @@
+{
+  "id": "G043",
+  "census": {
+    "id": "G043",
+    "recipe": "projects/ROCKNIX/packages/emulators/standalone/ppsspp-sa/package.mk",
+    "recipe_sha256": "a27682013e91d2fa8f63fe7f06aa64ebc0e35449eacb30d712302ef66642f52a",
+    "owner": [
+      "emulators-standalone"
+    ],
+    "consumer": "SM8250-aarch64",
+    "device": "SM8250",
+    "arch": "aarch64",
+    "target_cpu": "cortex-a76.cortex-a55",
+    "patch_arch": "aarch64",
+    "LINUX": "unset in clean default source config",
+    "batteryplus": "no or unset; exact yes predicate false",
+    "name": "ppsspp-sa",
+    "pin": "afbc66a318b86432642b532c575241f3716642ef",
+    "url": "https://github.com/hrydgard/ppsspp.git",
+    "expected_sha256": null,
+    "selectors": [
+      "SM8250"
+    ],
+    "ordered_pattern_directories": [
+      "projects/ROCKNIX/packages/emulators/standalone/ppsspp-sa/patches",
+      "projects/ROCKNIX/packages/emulators/standalone/ppsspp-sa/patches/aarch64",
+      "projects/ROCKNIX/packages/emulators/standalone/ppsspp-sa/patches/SM8250",
+      "projects/ROCKNIX/packages/emulators/standalone/ppsspp-sa/patches/afbc66a318b86432642b532c575241f3716642ef",
+      "projects/ROCKNIX/packages/emulators/standalone/ppsspp-sa/patches/afbc66a318b86432642b532c575241f3716642ef/aarch64",
+      "projects/ROCKNIX/patches/ppsspp-sa",
+      "projects/ROCKNIX/patches/ppsspp-sa/aarch64",
+      "projects/ROCKNIX/patches/ppsspp-sa/SM8250",
+      "projects/ROCKNIX/devices/SM8250/patches/ppsspp-sa/SM8250",
+      "projects/ROCKNIX/patches/ppsspp-sa/afbc66a318b86432642b532c575241f3716642ef",
+      "projects/ROCKNIX/devices/SM8250/patches/ppsspp-sa"
+    ],
+    "stack": [
+      "projects/ROCKNIX/packages/emulators/standalone/ppsspp-sa/patches/001-do-not-mute.patch",
+      "projects/ROCKNIX/packages/emulators/standalone/ppsspp-sa/patches/002-fullscreen-drm.patch",
+      "projects/ROCKNIX/packages/emulators/standalone/ppsspp-sa/patches/003-disable-mouse.patch",
+      "projects/ROCKNIX/packages/emulators/standalone/ppsspp-sa/patches/004-set-paths.patch",
+      "projects/ROCKNIX/packages/emulators/standalone/ppsspp-sa/patches/005-hide-unsupported-ui-items.patch",
+      "projects/ROCKNIX/packages/emulators/standalone/ppsspp-sa/patches/007-disable-home-pause.patch",
+      "projects/ROCKNIX/packages/emulators/standalone/ppsspp-sa/patches/SM8250/000-swap-guid-and-misc.patch"
+    ],
+    "native_paths": [
+      "projects/ROCKNIX/packages/emulators/standalone/ppsspp-sa/patches/SM8250/000-swap-guid-and-misc.patch"
+    ],
+    "config_paths": [],
+    "cache_candidates": [],
+    "preimage_limits": [
+      "Git/submodule source lacks archive SHA256; post_unpack generated make/ninja inputs not established",
+      "package sources/ overlay present; exact overlap/preimage not materialized",
+      "recipe lacks archive checksum"
+    ],
+    "source_only": true,
+    "runtime": false
+  },
+  "started": "2026-11-02T21:55:19.652203+00:00",
+  "rows": [],
+  "input_snapshot": {},
+  "limits": [
+    "Git/submodule source lacks archive SHA256; post_unpack generated make/ninja inputs not established",
+    "package sources/ overlay present; exact overlap/preimage not materialized",
+    "recipe lacks archive checksum",
+    "exact source archive absent from inspected package cache directory"
+  ],
+  "cache_observations": [],
+  "status": "open-item"
+}

@@ -1,0 +1,15 @@
+{
+  "argv": [
+    "patch",
+    "-d",
+    "/workspace/tmp/m6-t43/G084-054-candidate-p9obih7y",
+    "-p1"
+  ],
+  "start": "2026-11-02T21:56:26.858543+00:00",
+  "end": "2026-11-02T21:56:26.861022+00:00",
+  "exit": 0,
+  "stdout_sha256": "19e92349fff04f6eb83788094f6b255e73cb395594c38258dcd42481af15ca4d",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "output": "patching file drivers/input/input-compat.c\npatching file drivers/input/input-compat.h\npatching file include/linux/sched.h\npatching file include/uapi/linux/prctl.h\npatching file kernel/sys.c\n",
+  "error": ""
+}

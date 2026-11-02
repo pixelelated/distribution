@@ -1,0 +1,15 @@
+{
+  "argv": [
+    "patch",
+    "-d",
+    "/workspace/tmp/m6-t43/G065-011-candidate-4q7h40ty",
+    "-p1"
+  ],
+  "start": "2026-11-02T21:55:28.243850+00:00",
+  "end": "2026-11-02T21:55:28.246072+00:00",
+  "exit": 0,
+  "stdout_sha256": "209732bc6707ce9ba7825217959e58b9aeffb4838833670a0981ebf583b16772",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "output": "patching file drivers/hid/hid-playstation.c\nHunk #1 succeeded at 111 with fuzz 2.\nHunk #3 succeeded at 1504 with fuzz 2.\n",
+  "error": ""
+}

@@ -1,0 +1,70 @@
+{
+  "id": "G032",
+  "census": {
+    "id": "G032",
+    "recipe": "projects/ROCKNIX/packages/audio/alsa-ucm-conf/package.mk",
+    "recipe_sha256": "fae1706ea36634a04b80a0f747dfcb383c6e410073a728faad7027e9c795b66e",
+    "owner": [
+      "image-packages"
+    ],
+    "consumer": "SM8750-aarch64",
+    "device": "SM8750",
+    "arch": "aarch64",
+    "target_cpu": "cortex-x4",
+    "patch_arch": "aarch64",
+    "LINUX": "unset in clean default source config",
+    "batteryplus": "no or unset; exact yes predicate false",
+    "name": "alsa-ucm-conf",
+    "pin": "1.2.13",
+    "url": "https://www.alsa-project.org/files/pub/lib/alsa-ucm-conf-1.2.13.tar.bz2",
+    "expected_sha256": "4483b6e3983cca08fd326a73fbae449b5036e444fb1a07c0dee74b504b7ab5af",
+    "selectors": [
+      "SM8750"
+    ],
+    "ordered_pattern_directories": [
+      "projects/ROCKNIX/packages/audio/alsa-ucm-conf/patches",
+      "projects/ROCKNIX/packages/audio/alsa-ucm-conf/patches/aarch64",
+      "projects/ROCKNIX/packages/audio/alsa-ucm-conf/patches/SM8750",
+      "projects/ROCKNIX/packages/audio/alsa-ucm-conf/patches/1.2.13",
+      "projects/ROCKNIX/packages/audio/alsa-ucm-conf/patches/1.2.13/aarch64",
+      "projects/ROCKNIX/patches/alsa-ucm-conf",
+      "projects/ROCKNIX/patches/alsa-ucm-conf/aarch64",
+      "projects/ROCKNIX/patches/alsa-ucm-conf/SM8750",
+      "projects/ROCKNIX/devices/SM8750/patches/alsa-ucm-conf/SM8750",
+      "projects/ROCKNIX/patches/alsa-ucm-conf/1.2.13",
+      "projects/ROCKNIX/devices/SM8750/patches/alsa-ucm-conf"
+    ],
+    "stack": [
+      "projects/ROCKNIX/packages/audio/alsa-ucm-conf/patches/001-steamdeck.patch",
+      "projects/ROCKNIX/packages/audio/alsa-ucm-conf/patches/SM8750/0001_SM8750-AYN-Odin3.patch",
+      "projects/ROCKNIX/packages/audio/alsa-ucm-conf/patches/SM8750/0002_SM8750-AYN-Odin3-Add-EFI-boot-compatibility.patch"
+    ],
+    "native_paths": [
+      "projects/ROCKNIX/packages/audio/alsa-ucm-conf/patches/SM8750/0001_SM8750-AYN-Odin3.patch",
+      "projects/ROCKNIX/packages/audio/alsa-ucm-conf/patches/SM8750/0002_SM8750-AYN-Odin3-Add-EFI-boot-compatibility.patch"
+    ],
+    "config_paths": [],
+    "cache_candidates": [
+      "/workspace/cache/rocknix-sources/alsa-ucm-conf/alsa-ucm-conf-1.2.13.tar.bz2"
+    ],
+    "preimage_limits": [
+      "package sources/ overlay present; exact overlap/preimage not materialized"
+    ],
+    "source_only": true,
+    "runtime": false
+  },
+  "started": "2026-11-02T21:55:19.490439+00:00",
+  "rows": [],
+  "input_snapshot": {},
+  "limits": [
+    "package sources/ overlay present; exact overlap/preimage not materialized"
+  ],
+  "cache_observations": [
+    {
+      "path": "/workspace/cache/rocknix-sources/alsa-ucm-conf/alsa-ucm-conf-1.2.13.tar.bz2",
+      "sha256": "4483b6e3983cca08fd326a73fbae449b5036e444fb1a07c0dee74b504b7ab5af",
+      "expected": "4483b6e3983cca08fd326a73fbae449b5036e444fb1a07c0dee74b504b7ab5af"
+    }
+  ],
+  "status": "open-item"
+}

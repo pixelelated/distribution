@@ -1,0 +1,15 @@
+{
+  "argv": [
+    "patch",
+    "-d",
+    "/workspace/tmp/m6-t43/G056-001-candidate-utybc9iy",
+    "-p1"
+  ],
+  "start": "2026-11-02T21:55:21.059353+00:00",
+  "end": "2026-11-02T21:55:21.061440+00:00",
+  "exit": 0,
+  "stdout_sha256": "67a00b033c687d0c09344ea905346c243ca346e96e0dbed39b3e84181189bcfb",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "output": "patching file README.md\npatching file layer/swapchain_api.cpp\npatching file util/drm/format_table.c\npatching file wsi/wayland/surface.cpp\npatching file wsi/wayland/surface_properties.cpp\npatching file wsi/wayland/swapchain.cpp\n",
+  "error": ""
+}

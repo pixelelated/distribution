@@ -1,0 +1,15 @@
+{
+  "argv": [
+    "patch",
+    "-d",
+    "/workspace/tmp/m6-t43/G065-017-candidate-9328svy0",
+    "-p1"
+  ],
+  "start": "2026-11-02T21:55:28.308594+00:00",
+  "end": "2026-11-02T21:55:28.311724+00:00",
+  "exit": 0,
+  "stdout_sha256": "9e5769c2a5ab3dbc0ee85bd4c2617b9ad71721b88ea3f8ece28e98e3a6c27c65",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "output": "patching file drivers/input/joystick/Kconfig\npatching file drivers/input/joystick/Makefile\npatching file drivers/input/joystick/gameforce-joypad.c\npatching file drivers/input/joystick/odroidgo2-joypad.c\npatching file drivers/input/joystick/odroidgo2-v11-joypad.c\npatching file drivers/input/joystick/odroidgo3-joypad.c\npatching file drivers/input/joystick/rgb20s-joypad.c\npatching file drivers/input/joystick/xu10-joypad.c\npatching file drivers/power/supply/rk817_charger.c\nHunk #1 succeeded at 748 with fuzz 1 (offset 69 lines).\n",
+  "error": ""
+}

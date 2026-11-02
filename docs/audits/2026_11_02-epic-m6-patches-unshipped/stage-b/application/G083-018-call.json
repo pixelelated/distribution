@@ -1,0 +1,15 @@
+{
+  "argv": [
+    "patch",
+    "-d",
+    "/workspace/tmp/m6-t43/G083-018-candidate-6ufblkn2",
+    "-p1"
+  ],
+  "start": "2026-11-02T21:56:18.484192+00:00",
+  "end": "2026-11-02T21:56:18.486263+00:00",
+  "exit": 0,
+  "stdout_sha256": "a4bfd9227c808e92a4dc82081225c552aa892334c7515296bf1cb83e62a83072",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "output": "patching file drivers/gpu/drm/msm/disp/dpu1/dpu_hw_util.h\npatching file drivers/gpu/drm/msm/disp/dpu1/dpu_hw_util.c\npatching file drivers/gpu/drm/msm/disp/dpu1/dpu_plane.c\n",
+  "error": ""
+}

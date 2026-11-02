@@ -1,0 +1,15 @@
+{
+  "argv": [
+    "patch",
+    "-d",
+    "/workspace/tmp/m6-t43/G070-040-candidate-bug3fpyg",
+    "-p1"
+  ],
+  "start": "2026-11-02T21:55:36.884592+00:00",
+  "end": "2026-11-02T21:55:36.885616+00:00",
+  "exit": 0,
+  "stdout_sha256": "9884ee25e9ec0695e10764a5bc4b0eee2fa228f4befd160af87aaf4f40bbed9c",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "output": "patching file arch/arm64/boot/dts/rockchip/rk356x-base.dtsi\nHunk #1 succeeded at 55 with fuzz 2.\nHunk #2 succeeded at 72 with fuzz 2.\nHunk #3 succeeded at 89 with fuzz 2.\nHunk #4 succeeded at 106 with fuzz 2.\nHunk #5 succeeded at 116 (offset -1 lines).\n",
+  "error": ""
+}

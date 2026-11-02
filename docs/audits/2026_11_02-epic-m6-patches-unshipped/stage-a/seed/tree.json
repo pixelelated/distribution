@@ -1,0 +1,2162 @@
+{
+  "projects/ROCKNIX/devices/AMD64/linux/linux.x86_64.conf": {
+    "mode": "100644",
+    "oid": "f967b6ffcbc07b26e1be2e3f887f76d90a6ea8a5",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/devices/AMD64/packages/ayn-platform/patches/001-build.patch": {
+    "mode": "100644",
+    "oid": "fcafc90ad39d87e76cd2f09dbd011b6fbf8deaff",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/devices/AMD64/packages/dmidecode/patches/001-bin-path.patch": {
+    "mode": "100644",
+    "oid": "1623ae98ee8a6f70640bf6b2fc795474eadf88c9",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/devices/AMD64/packages/ectool/patches/001-read.patch": {
+    "mode": "100644",
+    "oid": "29289c51bf4c734dec3ca84e481f3c5371d49d9a",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/devices/RK3326/linux/linux.aarch64.conf": {
+    "mode": "100644",
+    "oid": "13efb6eab79ebeb74664d255a28064b2930c64c2",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/devices/RK3326/packages/u-boot-legacy/patches/01-fix-building.patch": {
+    "mode": "100644",
+    "oid": "776e592180de383c7e6a1c60c22b2a10fe2c6aff",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/devices/RK3326/packages/u-boot/patches/0001-add-support-for-k36-clone-with-emmc-rk3326.patch": {
+    "mode": "100644",
+    "oid": "3d73d62fe95ebf3bc330044d9c0330546a4fcab6",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/devices/RK3326/patches/linux/001-panel-updates.patch": {
+    "mode": "100644",
+    "oid": "e29338fbfc4e980da8f55540fdf92f76d9107292",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/devices/RK3326/patches/linux/002-gpiolib-of-legacy-api.patch": {
+    "mode": "100644",
+    "oid": "f716931cc7e4144e0edc589ca016ce20c5190233",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/devices/RK3326/patches/linux/004-input-drivers.patch": {
+    "mode": "100644",
+    "oid": "45c9b93693175868cffd6a82762c67b6a31bc9aa",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/devices/RK3326/patches/linux/005-unigue-gpio-guid.patch": {
+    "mode": "100644",
+    "oid": "92cce0e35269f2d253d612eaec0ec04332107d45",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/devices/RK3326/patches/linux/007-ogs-panel-timings.patch": {
+    "mode": "100644",
+    "oid": "c440a804de2844995f88ee8b766a971650c2a0c6",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/devices/RK3326/patches/linux/008-esp-8089-wifi.patch": {
+    "mode": "100644",
+    "oid": "c06f577bf60f7dc0b31797f4e0bca16c6beb0d6d",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/devices/RK3326/patches/linux/010-dwc2-track-vbus-supply-state.patch": {
+    "mode": "100644",
+    "oid": "8dc800258cd7ece1720a4b47e7d38c94b418e510",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/devices/RK3326/patches/linux/023-px30s-tsadc-support.patch": {
+    "mode": "100644",
+    "oid": "36a7841261a86fa34ea2df20d72efcefb688f5f8",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/devices/RK3326/patches/linux/024-px30s-gpu-power-domain-workaround.patch": {
+    "mode": "100644",
+    "oid": "7acfe86af3884d6a8933ba225649ccb2613637d9",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/devices/RK3326/patches/linux/025-px30s-dsi-dphy-timing-table.patch": {
+    "mode": "100644",
+    "oid": "42c9d9787d75eb19afbd897c55b6834a6f87a7f1",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/devices/RK3326/patches/linux/026-px30s-cpuinfo-soc-detection.patch": {
+    "mode": "100644",
+    "oid": "e81f88a2893a7b89662352a4d41c97bf84c8b127",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/devices/RK3326/patches/linux/027-px30s-io-domain-pmuio1.patch": {
+    "mode": "100644",
+    "oid": "4a8975b5d6f55a82729e46e1e78b68ebbb11854c",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/devices/RK3326/patches/linux/028-px30s-usb2phy-tuning.patch": {
+    "mode": "100644",
+    "oid": "f29e33eac07e10fd6d10759e903598124a3a7f64",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/devices/RK3326/patches/linux/030-pwm-vibra-kick-stuck-boot-state.patch": {
+    "mode": "100644",
+    "oid": "0eb16c89dbab06540ccd964c73adf537b6aa7879",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/devices/RK3326/patches/linux/031-px30s-suspend-wakeup-config.patch": {
+    "mode": "100644",
+    "oid": "2b397703cb0973c9d76c40651b3b3b314790d7f5",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/devices/RK3326/patches/linux/032-px30s-otp-read-protocol.patch": {
+    "mode": "100644",
+    "oid": "9ea385401a9548d1df0d8e64e09b1ecf9a51102c",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/devices/RK3326/patches/linux/033-px30s-ddrphy-clock-topology.patch": {
+    "mode": "100644",
+    "oid": "6cdbf55c6b42ba6b78071fe2a37e48dd9339407f",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/devices/RK3326/patches/linux/034-px30s-cru-suspend-resume-restore.patch": {
+    "mode": "100644",
+    "oid": "d3a1f088dd65e0d46d46ccb9259356d31b907cb6",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/devices/RK3326/patches/mali-bifrost/0001-platform-devicetree-add-reset-control-and-runtime-pm.patch": {
+    "mode": "100644",
+    "oid": "2dfb76ed51570d06add7112bcdc69aa78165dcd4",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/devices/RK3326/patches/mali-bifrost/002-lowercase-interrupts-first.patch": {
+    "mode": "100644",
+    "oid": "96e0d4c8cd60faab60bcf83f670c20a5adaa76d7",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/devices/RK3326/patches/mali-bifrost/003-fix-unbalanced-regulator.patch": {
+    "mode": "100644",
+    "oid": "d7a7c805ceb374973372e451edf48d29260991da",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/devices/RK3326/patches/mali-bifrost/004-devfreq-resume-flush-workqueue.patch": {
+    "mode": "100644",
+    "oid": "6e13e4f42c72169f158f470446fd79c0234f1655",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/devices/RK3399/linux/linux.aarch64.conf": {
+    "mode": "100644",
+    "oid": "f19eb492512db640dee367822908caaf17033931",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/devices/RK3399/packages/u-boot/patches/001-no-efi.patch": {
+    "mode": "100644",
+    "oid": "01b919e07c5e858759612e9cd02da02f8b84ad2a",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/devices/RK3399/patches/linux/001-rk3399-opp.patch": {
+    "mode": "100644",
+    "oid": "276e7893db7645125de8114b3a08337ea122f778",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/devices/RK3399/patches/linux/001-rk_crypto-fix-ahash-sg-fallback.patch": {
+    "mode": "100644",
+    "oid": "788fb0f6e93c134a9a7c8bdd8b5502655080f53d",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/devices/RK3399/patches/linux/002-panel-sharp-ls054b3sx01.patch": {
+    "mode": "100644",
+    "oid": "f747ff26cb181ea5722eb8b0da33aaa001ef6c3e",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/devices/RK3399/patches/linux/004-battery-name.patch": {
+    "mode": "100644",
+    "oid": "00a3ddde3b05d0f3714c1d07ec1982a97b031204",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/devices/RK3399/patches/linux/006-mali-midgard.patch": {
+    "mode": "100644",
+    "oid": "0bdbed2b8b6cb8acc0a8872d95948a7f154e01d4",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/devices/RK3399/patches/linux/007-enable-cpu-nvmem.patch": {
+    "mode": "100644",
+    "oid": "744bc3fc00ebf1b738bf01f1ee2b4dad16b6ff68",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/devices/RK3399/patches/linux/998-set-boot-fanspeed.patch": {
+    "mode": "100644",
+    "oid": "85d6137cb16babbfb774821f04891cd1c40f4415",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/devices/RK3399/patches/linux/999-clear-log-spam.patch": {
+    "mode": "100644",
+    "oid": "abee6e2369d92ddef96bc999824665e848443781",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/devices/RK3566/linux/linux.aarch64.conf": {
+    "mode": "100644",
+    "oid": "bd90752b47b13335379e494a92004358a0d6a91c",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/devices/RK3566/packages/u-boot-Generic/patches/0003-board-rockchip-Fix-panel-detection-logic-for-mainlin.patch": {
+    "mode": "100644",
+    "oid": "a3f943b716f57205205f7dcfb82c08b163c44f3b",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/devices/RK3566/packages/u-boot-Generic/patches/003-fix-dtb-and-vs.patch": {
+    "mode": "100644",
+    "oid": "71b3f99021ee6f56fd4ef52dd9171cb5a27f4e6f",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/devices/RK3566/packages/u-boot-Generic/patches/004-rgb20pro.patch": {
+    "mode": "100644",
+    "oid": "04291bb6912236468644053d59434468da1f3e65",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/devices/RK3566/packages/u-boot-Specific/patches/001-fix-defconfig.patch": {
+    "mode": "100644",
+    "oid": "d3f5da46e336135bf78c43e19aabb8ebcda36b14",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/devices/RK3566/packages/u-boot-Specific/patches/002-boot-order.patch": {
+    "mode": "100644",
+    "oid": "c03c005ec6398e0a2d8922c61ca2fbb31a8565c6",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/devices/RK3566/patches/linux/0001-arm64-dts-rockchip-rk356x-add-1992mhz-cpu-opp-with-t.patch": {
+    "mode": "100644",
+    "oid": "1cc96e8d289450ee2d7687bbb923819acb566730",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/devices/RK3566/patches/linux/0002-power-supply-rk817-update-battery-and-charger-name-s.patch": {
+    "mode": "100644",
+    "oid": "d50073c4c8342bc00c5fb8b7cae7b0d50e47b6de",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/devices/RK3566/patches/linux/0003-drm-panel-st7703-Fix-Panel-Initialization-for-Anbern.patch": {
+    "mode": "100644",
+    "oid": "39c7d3ace87ed7af631c4d12a018ff44543a1a43",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/devices/RK3566/patches/linux/0004-arm64-dts-rockchip-fix-wifi-sdio-errors.patch": {
+    "mode": "100644",
+    "oid": "e69f461895d14df0fe1f6269d2304ac93849535f",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/devices/RK3566/patches/linux/0005-arm64-dts-rockchip-fixup-anbernic-controls.patch": {
+    "mode": "100644",
+    "oid": "149cd343eb07ad81329f213c04db8596f4b04a78",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/devices/RK3566/patches/linux/0006-drm-panel-nv3051d-fix-panel-timings-and-display-mode.patch": {
+    "mode": "100644",
+    "oid": "1b62fbd453e9bca2c2720b1de2b7da504c14d7df",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/devices/RK3566/patches/linux/0008-arm64-dts-rockchip-add-support-for-mali-bifrost-driv.patch": {
+    "mode": "100644",
+    "oid": "a7302e584d14c46861c06b24413cae1428fa2d60",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/devices/RK3566/patches/linux/0009-arm64-dts-rockchip-fix-shoulders-triggers-on-powkidd.patch": {
+    "mode": "100644",
+    "oid": "19fc525c5c3a96b33955fff937596134a64e9763",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/devices/RK3566/patches/linux/0010-drm-panel-st7703-request-higher-pixelclock-for-RGB30.patch": {
+    "mode": "100644",
+    "oid": "35ffe2e3448dee534119a94fa7416ff2815ba9b5",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/devices/RK3566/patches/linux/0012-arm64-dts-rockchip-update-powkiddy-x55-dts-to-suppor.patch": {
+    "mode": "100644",
+    "oid": "5fdf7c38c159384340061cd15c5563a6498168f2",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/devices/RK3566/patches/linux/0013-Bluetooth-Check-key-sizes-only-when-Secure-Simple-Pa.patch": {
+    "mode": "100644",
+    "oid": "303a8f6d5eb69c38637b3a835484f6f93ad5ac81",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/devices/RK3566/patches/linux/0014-drm-panel-st7701-fixup-Anbernic-RG-Arc-panel-timings.patch": {
+    "mode": "100644",
+    "oid": "8c729b46814dcd82ce59429b124d543754680dfc",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/devices/RK3566/patches/linux/0015-arm64-dts-rockchip-use-linear-backlight-levels-to-im.patch": {
+    "mode": "100644",
+    "oid": "f54c901b036eca56aea65da67edb710adc3630ef",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/devices/RK3566/patches/linux/0016-arm64-dts-rockchip-add-device-tree-for-powkiddy-x35s.patch": {
+    "mode": "100644",
+    "oid": "774cf1c72d1dfd17aabe5d64200630e356c776cd",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/devices/RK3566/patches/linux/0018-arm64-dts-rockchip-add-device-tree-for-powkiddy-rgb2.patch": {
+    "mode": "100644",
+    "oid": "76b1022d67aac2548946443f5f1890ae4fa30156",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/devices/RK3566/patches/linux/0019-arm64-dts-rockchip-add-system-power-controller-attri.patch": {
+    "mode": "100644",
+    "oid": "7e22a602135ebf166e5a28cb4c4467822e35494b",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/devices/RK3566/patches/linux/0021-arm64-dts-rockchip-fix-missing-dma-names.patch": {
+    "mode": "100644",
+    "oid": "5f89a6a0fe9e67615fec8aeaba439b9a8c978576",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/devices/RK3566/patches/linux/0022-nvmem-rockchip-otp-Add-support-for-rk3568-otp.patch": {
+    "mode": "100644",
+    "oid": "fde414ffb9ec30ecded684361aa67b9bbc76cbf1",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/devices/RK3566/patches/linux/0023-arm64-dts-rockchip-rk3568-Add-otp-device-node.patch": {
+    "mode": "100644",
+    "oid": "e465c8a84c2fd921a2a62073d02f32445b33680f",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/devices/RK3566/patches/linux/0024-sdmmc1-card-detect-delay.patch": {
+    "mode": "100644",
+    "oid": "a923ab890460994529f1d32c407e1258dfc85eaf",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/devices/RK3566/patches/linux/0025-arc-swap-touch-axes.patch": {
+    "mode": "100644",
+    "oid": "c4914ed0c0a95884d4a10720442de44e8b2eb113",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/devices/RK3566/patches/linux/0026-ASoC-codecs-Add-aw87391-amplifier-driver.patch": {
+    "mode": "100644",
+    "oid": "8b3f3f03d31140cb0d1a20340a970576cb9e3251",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/devices/RK3566/patches/linux/0027-ASoC-codecs-aw88166-load-firmware-without-stalling-boot.patch": {
+    "mode": "100644",
+    "oid": "7590ef2776bc793e2b7096cbe4523cbcdde8d2f0",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/devices/RK3566/patches/linux/0028-regulator-fan53555-accept-the-STI8070A-on-the-Silergy-path.patch": {
+    "mode": "100644",
+    "oid": "8052552bd1267b199751c92572ecc5f057f82252",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/devices/RK3566/patches/linux/0666-cma-region.patch": {
+    "mode": "100644",
+    "oid": "cf6025ae3f588ab427817d9cc04b982a1645c53e",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/devices/RK3566/patches/linux/1001-arm64-dts-rockchip-Add-idle-states-for-rk356x.patch": {
+    "mode": "100644",
+    "oid": "a12aab060c659bae103b739eb4f73ff0c8dfcc0e",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/devices/RK3566/patches/linux/1002-arm64-dts-rockchip-Add-spk_amp-regulator-for-Anberni.patch": {
+    "mode": "100644",
+    "oid": "40ba4410345bc91ad744d121da8c9e1c42d8d778",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/devices/RK3566/patches/linux/1004-arm64-dts-rockchip-Add-avdd_0v9-and-avdd_1v8-for-RGx.patch": {
+    "mode": "100644",
+    "oid": "2f59828cd28188b3810ac406ee7a1dc39ae34013",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/devices/RK3566/patches/linux/1006-arm64-dts-rockchip-Correct-boot-enabled-regulators-f.patch": {
+    "mode": "100644",
+    "oid": "dd805e1f1f8b12998fba4de6691b2051045487b9",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/devices/RK3566/patches/linux/1008-arm64-dts-rockchip-Enable-DMA-for-uart1-on-RGxx3.patch": {
+    "mode": "100644",
+    "oid": "11132bdd1667c7d249b21f6695164163ac05f5f1",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/devices/RK3566/patches/linux/1009-arm64-dts-rockchip-Map-wifi-host-wake-interrupt-for-.patch": {
+    "mode": "100644",
+    "oid": "c3818afab40b0c4286496d8c413008da9a1275cb",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/devices/RK3566/patches/linux/1011-input-touchscreen-goodix-usability-fixes.patch": {
+    "mode": "100644",
+    "oid": "12c3ddbb1b49a53ad09af05ec5501c387d886df7",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/devices/RK3566/patches/linux/1012-pmdomain-rockchip-let-mali_kbase-own-the-rk3568-GPU-clocks.patch": {
+    "mode": "100644",
+    "oid": "a5d4e4eb09189f5d540fb5be4105fa3944ac6e71",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/devices/RK3566/patches/mali-bifrost/002-lowercase-interrupts-first.patch": {
+    "mode": "100644",
+    "oid": "96e0d4c8cd60faab60bcf83f670c20a5adaa76d7",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/devices/RK3566/patches/mali-bifrost/003-fix-unbalanced-regulator.patch": {
+    "mode": "100644",
+    "oid": "d7a7c805ceb374973372e451edf48d29260991da",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/devices/RK3576/linux/linux.aarch64.conf": {
+    "mode": "100644",
+    "oid": "8b5cb40da0fb3f81967cd51fff3870eb2e9c9d96",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/devices/RK3576/packages/u-boot/patches/0001-rockchip-mkimage-Add-rk3576-align-and-sd-card-workar.patch": {
+    "mode": "100644",
+    "oid": "0036a9ace7ef2c5281e6cce4a7b6466ece218dc5",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/devices/RK3576/patches/linux/0000-ASoC-codecs-Add-aw87391-amplifier-driver.patch": {
+    "mode": "100644",
+    "oid": "8b3f3f03d31140cb0d1a20340a970576cb9e3251",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/devices/RK3576/patches/linux/0001-mfd-Add-Rockchip-mfpwm-driver.patch": {
+    "mode": "100644",
+    "oid": "471ebd766c4f61621b4c73a1574159f7db33cad6",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/devices/RK3576/patches/linux/0002-pwm-Add-rockchip-PWMv4-driver.patch": {
+    "mode": "100644",
+    "oid": "63ff0454852323fa56557766ea167c6b3113ab40",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/devices/RK3576/patches/linux/0003-dt-bindings-vendor-prefixes-Add-Hynetek.patch": {
+    "mode": "100644",
+    "oid": "870f35f477612f3521f41c516ff3fb4f6b4a6b7a",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/devices/RK3576/patches/linux/0004-dt-bindings-usb-rt1711h-Add-Hynetek-HUSB311.patch": {
+    "mode": "100644",
+    "oid": "79360341eb13a0ef64cd5c77e858350b86fa0987",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/devices/RK3576/patches/linux/0005-usb-typec-tcpci_rt1711h-Add-support-for-HUSB311.patch": {
+    "mode": "100644",
+    "oid": "36e47b7e10b5cbe90187ab5c33489b7600635789",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/devices/RK3576/patches/linux/0006-power-supply-Add-CW221x-battery-fuel-gauge-driver.patch": {
+    "mode": "100644",
+    "oid": "e56cf47b0e18c0b76c2a04bf9589b70f78edb57e",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/devices/RK3576/patches/linux/0007-power-supply-Add-SGM41542-charger-driver.patch": {
+    "mode": "100644",
+    "oid": "463b8c250d35d7b368e1393641d38729ea88018e",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/devices/RK3576/patches/linux/0008-Input-synaptics-rmi4-handle-reset-gpio.patch": {
+    "mode": "100644",
+    "oid": "683d276022972ae2f7e0ca37d9ae459bb89b2bfe",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/devices/RK3576/patches/linux/0009-PCI-rockchip-Add-system-sleep-PM-ops-for-link-resume.patch": {
+    "mode": "100644",
+    "oid": "8baf984076bc5febde66832a3a01c3300df4fd45",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/devices/RK3576/patches/linux/0010-Input-add-SPI-MCU-Joypad-driver-options.patch": {
+    "mode": "100644",
+    "oid": "733088132ff8f22e6d93013bee2bcd4962c1fc51",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/devices/RK3576/patches/linux/0011-Input-add-SPI-MCU-Joypad-driver-core-header.patch": {
+    "mode": "100644",
+    "oid": "7288ba7a54dd1eefe56a118b1ec7886a3f153a75",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/devices/RK3576/patches/linux/0012-Input-add-SPI-MCU-Joypad-driver-input.patch": {
+    "mode": "100644",
+    "oid": "f934670614232f3ed67f73cac5907fcf011df5a3",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/devices/RK3576/patches/linux/0013-Input-add-SPI-MCU-Joypad-driver-leds.patch": {
+    "mode": "100644",
+    "oid": "0b08d87d34958fb0ffeb1520cf5fe1dd7f4e5ed4",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/devices/RK3576/patches/linux/0014-Input-rk805-pwrkey-enable-wakeup-irq-for-power-butto.patch": {
+    "mode": "100644",
+    "oid": "cf9ca4e2282f2d89d57b86edc3855648f03fe58a",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/devices/RK3576/patches/linux/0015-drm-rockchip-vop2-Fix-RK3576-VP2-for-DisplayPort-Alt-Mode.patch": {
+    "mode": "100644",
+    "oid": "cc9426fd0eb5973b32c5c0d74e920161411d3354",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/devices/RK3576/patches/linux/0016-drm-bridge-dw-dp-Add-RK3576-USB-C-DisplayPort-Alt-Mode-support.patch": {
+    "mode": "100644",
+    "oid": "d31dc0df1aee24a98982c5527ae38aa9b7eb6021",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/devices/RK3576/patches/linux/0017-arm64-dts-rockchip-rk3576-Add-DP-controller-node.patch": {
+    "mode": "100644",
+    "oid": "cb96ae67e2fe5faf4f42bbd5eb7f47d595f184ce",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/devices/RK3576/patches/linux/0018-phy-rockchip-usbdp-Replay-HPD-state-on-dp-phy-init.patch": {
+    "mode": "100644",
+    "oid": "9b3243ac4b3baea4cd60bc17d98b84651e92a6ca",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/devices/RK3576/patches/mali-bifrost/0001-platform-devicetree-add-reset-control-and-runtime-pm.patch": {
+    "mode": "100644",
+    "oid": "2dfb76ed51570d06add7112bcdc69aa78165dcd4",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/devices/RK3576/patches/mali-bifrost/002-lowercase-interrupts-first.patch": {
+    "mode": "100644",
+    "oid": "92f46d3dfa7ff2bc2db0c15a64e23c54c070aae1",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/devices/RK3576/patches/mali-bifrost/003-fix-unbalanced-regulator.patch": {
+    "mode": "100644",
+    "oid": "d7a7c805ceb374973372e451edf48d29260991da",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/devices/RK3588/linux/linux.aarch64.conf": {
+    "mode": "100644",
+    "oid": "0dbe9f69321cd1131384496de53df7734b2da6e8",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/devices/RK3588/packages/u-boot/patches/01-fix-building.patch": {
+    "mode": "100644",
+    "oid": "7553b8ac15b2f82421d74f4c5218efc2aee5af01",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/devices/RK3588/patches/linux/000-gameforce-ace.patch": {
+    "mode": "100644",
+    "oid": "14b075ad1b507a2ab7a369f41240beacc086d0ca",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/devices/RK3588/patches/linux/002-opp-table.patch": {
+    "mode": "100644",
+    "oid": "3ca889a65c6c627cae46647edfd0d59335847b73",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/devices/RK3588/patches/linux/003-audio-fix.patch": {
+    "mode": "100644",
+    "oid": "46e09010576666152048b13014c4e9ec58531520",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/devices/RK3588/patches/linux/004-battery-name.patch": {
+    "mode": "100644",
+    "oid": "00a3ddde3b05d0f3714c1d07ec1982a97b031204",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/devices/RK3588/patches/linux/005-polldev-driver.patch": {
+    "mode": "100644",
+    "oid": "05f7faf525b4f4765d7e8cb0fe80a45e4660ab62",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/devices/RK3588/patches/linux/006-rk3588-rock-5b-plus.patch": {
+    "mode": "100644",
+    "oid": "2d5ec7f6356611b97d650d592d43831e97d8cd91",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/devices/RK3588/patches/linux/007-add-ion-allocator.patch": {
+    "mode": "100755",
+    "oid": "20a6039cc9cd2969349f85139417810f85a412de",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/devices/RK3588/patches/linux/008-increase-cma.patch": {
+    "mode": "100644",
+    "oid": "9ce23a2ba54ee4bcb106f545bcc1416240695d5e",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/devices/RK3588/patches/linux/009-fix-sleep.patch": {
+    "mode": "100644",
+    "oid": "34c25896b9426cc5d13051bc4359af81679abe39",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/devices/RK3588/patches/linux/012-Multiaxis.patch": {
+    "mode": "100644",
+    "oid": "461f82ecd8615156ee3274499e031314d98f1e1e",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/devices/RK3588/patches/linux/013-MAX17055-EZ-Config.patch": {
+    "mode": "100644",
+    "oid": "ceacbbd4d753eeafe0bfec99c730daadafb960d6",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/devices/RK3588/patches/linux/014-Fix-gpio-poweroff.patch": {
+    "mode": "100644",
+    "oid": "d9ef5e576ec56bab87b51613b53eeaf724a9d35a",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/devices/RK3588/patches/linux/015-iwlwifi.patch": {
+    "mode": "100644",
+    "oid": "2a98d30e77903e67ddf16043fbc0f5819ef59a1c",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/devices/RK3588/patches/linux/997-remove-log-spam.patch": {
+    "mode": "100644",
+    "oid": "b4f726c93622f82cea9b2486f088af74e0f3ddd5",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/devices/RK3588/patches/linux/998-fix-gcc14-compile.patch": {
+    "mode": "100644",
+    "oid": "7efb7ef29e8b708495fdb72e6d18ae48e3649b05",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/devices/RK3588/patches/linux/999-MALI-rockchip-upgrade-bifrost-DDK-to-g21p0-01eac0-fr.patch": {
+    "mode": "100644",
+    "oid": "38d42fb5e0425c1ccc8a10679ff9ed1f995e8075",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/devices/S922X/linux/linux.aarch64.conf": {
+    "mode": "100644",
+    "oid": "af43cc64491895c2ef6aef69623dd8f9390ab848",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/devices/S922X/packages/u-boot/patches/001-disable-bootmode-hotkey-check.patch": {
+    "mode": "100644",
+    "oid": "a5ffc04a51eb5262eebd01d446356f588fbcb635",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/devices/S922X/packages/u-boot/patches/002-overlay.patch": {
+    "mode": "100644",
+    "oid": "9fca5a75600d9e4f16ee3c4945fe31e422e1b52e",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/devices/S922X/packages/u-boot/patches/003-fix-building.patch": {
+    "mode": "100644",
+    "oid": "74476d0686922055f87cda5b2d452aca54706bfb",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/devices/S922X/patches/linux/S922X/0001-drm-panel-st7701-add-odroid-go-ultra-panel-support.patch": {
+    "mode": "100644",
+    "oid": "c90f17fc7fcb5d1202d0027671d90bcc8235d19d",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/devices/S922X/patches/linux/S922X/0002-arm64-meson-odroid-go-ultra-add-DSI-panel.patch": {
+    "mode": "100644",
+    "oid": "59c57816edddfe6dd0d2e251f5dcb022672cfac7",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/devices/S922X/patches/linux/S922X/0003-arm64-meson-odroid-go-ultra-correct-voltages.patch": {
+    "mode": "100644",
+    "oid": "6e6081ae66b11e497607d6e3a93100bcc375c057",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/devices/S922X/patches/linux/S922X/0004-arm64-meson-odroid-go-ultra-add-over-clocking-freque.patch": {
+    "mode": "100644",
+    "oid": "da192e4d96c9efbc5e71269dea087a31e59f393b",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/devices/S922X/patches/linux/S922X/0005-arm64-meson-odroid-go-ultra-add-joypad.patch": {
+    "mode": "100644",
+    "oid": "345bc05ca9f55b370b95623c34b37732e483f92d",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/devices/S922X/patches/linux/S922X/0006-arm64-meson-odroid-disable-heartbeat.patch": {
+    "mode": "100644",
+    "oid": "29d3cfe01fd1c62a537b8edbdf3abf8f6f1cdfae",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/devices/S922X/patches/linux/S922X/0007-arm64-meson-g12-common-add-dual-panfrost-mali-to-dts.patch": {
+    "mode": "100644",
+    "oid": "67a8aa2bde04e44fe4a0d4893a18986fb6a6ba13",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/devices/S922X/patches/linux/S922X/0008-arm64-meson-add-dt-for-powkiddy-rgb10-max-3-pro.patch": {
+    "mode": "100644",
+    "oid": "ce8a82ca6b9c2d87465b310ae645c2a4674488b4",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/devices/S922X/patches/linux/S922X/0009-power-rk818-Configure-rk808-clkout2-function.patch": {
+    "mode": "100644",
+    "oid": "bcdb142ed2cbd4ec41f9e579918bcde605e8acf8",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/devices/S922X/patches/linux/S922X/0010-power-supply-rk818-battery-Add-battery-driver-for-RK.patch": {
+    "mode": "100644",
+    "oid": "0c74e0bd1fc4e6dab751396f1e21df20d96abe0d",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/devices/S922X/patches/linux/S922X/0011-power-supply-rk818-battery-Use-a-more-propper-compat.patch": {
+    "mode": "100644",
+    "oid": "bce52e8e32fa9cdd160f2969e5c247e31bd90166",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/devices/S922X/patches/linux/S922X/0012-power-supply-rk818-charger-Implement-charger-driver-.patch": {
+    "mode": "100644",
+    "oid": "3d8bfd37ab12576acd67d41bb007c312fc180f5e",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/devices/S922X/patches/linux/S922X/0013-power-supply-rk818-charger-Change-charger-type-to-MA.patch": {
+    "mode": "100644",
+    "oid": "c3ad5aca1f2453be8b95280230b06ae935fe8d07",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/devices/S922X/patches/linux/S922X/0014-power-supply-rk818-battery-Report-charging-status-ba.patch": {
+    "mode": "100644",
+    "oid": "90567df439a569ccb337d90c721e0fc4efa644ce",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/devices/S922X/patches/linux/S922X/0015-power-supply-rk818-battery-Drop-dependency-on-frameb.patch": {
+    "mode": "100644",
+    "oid": "1761f5272a8b20480e854055cb87e774106adca4",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/devices/S922X/patches/linux/S922X/0016-power-supply-rk818-charger-Unify-rk818-charger-and-r.patch": {
+    "mode": "100644",
+    "oid": "c4b1a2b8d9d0f46c21215c30006d2ad7894ded5a",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/devices/S922X/patches/linux/S922X/0017-power-supply-rk818-battery-Speed-up-battery-current-.patch": {
+    "mode": "100644",
+    "oid": "4b0e90665da34e2d489342d19b104978c42b2766",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/devices/S922X/patches/linux/S922X/0018-power-supply-rk818-charger-Delay-applying-input-curr.patch": {
+    "mode": "100644",
+    "oid": "2e1877e9dd0195f7fff2e18047b25bd1f52bb3e8",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/devices/S922X/patches/linux/S922X/0019-power-supply-rk818-battery-Don-t-auto-poweroff-the-P.patch": {
+    "mode": "100644",
+    "oid": "f939c243e8e80b06b80fd8107d804cd01d650473",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/devices/S922X/patches/linux/S922X/0020-power-supply-rk818-charger-Add-support-for-POWER_SUP.patch": {
+    "mode": "100644",
+    "oid": "c4e7db32fbf56dad533657d029f102041e9ec05c",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/devices/S922X/patches/linux/S922X/0021-power-supply-rk818-battery-Don-t-reset-dsoc-to-0-on-.patch": {
+    "mode": "100644",
+    "oid": "aac0ffe9cf76152a81a6322946cabccfcee2168d",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/devices/S922X/patches/linux/S922X/0022-power-supply-Cleanup-rk818_battery-driver-from-usele.patch": {
+    "mode": "100644",
+    "oid": "95710271c9df349e9bfd55b412d2e5c5a23abffb",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/devices/S922X/patches/linux/S922X/0023-power-supply-rk818-battery-Re-organize-code.patch": {
+    "mode": "100644",
+    "oid": "52113a1748f06723bd39adcee0677d0696427d8e",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/devices/S922X/patches/linux/S922X/0024-power-supply-rk817-charger-Fix-battery-capacity-sani.patch": {
+    "mode": "100644",
+    "oid": "45e9741dff679bdfa32dd8cb2f78d78ca8e9fade",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/devices/S922X/patches/linux/S922X/0025-power-supply-rk817-charger-Add-input-current-limit-s.patch": {
+    "mode": "100644",
+    "oid": "8d034fe90a9575d898e118c76b9ee32a47ebd970",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/devices/S922X/patches/linux/S922X/0026-power-supply-rk817-charger-Take-input-current-limit-.patch": {
+    "mode": "100644",
+    "oid": "cb834231e37beee82d7399918e3d0b252ebb8732",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/devices/S922X/patches/linux/S922X/0027-power-supply-rk817-charger-Propagate-proper-errors.patch": {
+    "mode": "100644",
+    "oid": "60080fb018442ca125f6bbb143597d11a6c34a75",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/devices/S922X/patches/linux/S922X/0028-power-supply-rk817-charger-Add-support-for-runtime-c.patch": {
+    "mode": "100644",
+    "oid": "91d9d9b653e90b18941a987667ddb162ae439b05",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/devices/S922X/patches/linux/S922X/0029-arm64-meson-odroid-go-ultra-add-battery-and-charger-.patch": {
+    "mode": "100644",
+    "oid": "f3e1957d8d04887ecc448d0f74d5356dc06bfa90",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/devices/S922X/patches/linux/S922X/0030-ASoC-meson-axg-card-limit-the-volume-to-prevent-clip.patch": {
+    "mode": "100644",
+    "oid": "7a0828468f8423208bc10c4832cf4a1c6da6d3d5",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/devices/S922X/patches/linux/S922X/0031-power-supply-rk818_charger-change-syfs-node-name-so-.patch": {
+    "mode": "100644",
+    "oid": "fdf2e38c2e01b5c315d35848b3f081ba4ac6c350",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/devices/S922X/patches/linux/S922X/0032-arm64-meson-odroid-go-ultra-add-headphone-detection.patch": {
+    "mode": "100644",
+    "oid": "c5a9de4f26a0eefb091883d8ea0b32f7e95edb54",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/devices/S922X/patches/linux/S922X/0033-arm64-dts-amlogic-odroid-go-ultra-Improve-sound-outp.patch": {
+    "mode": "100644",
+    "oid": "490b823f3aca2dca459c250e7d870180c82aa51a",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/devices/S922X/patches/linux/S922X/0034-LOCAL-ALSA-Assign-internal-PCM-chmap-ELD-IEC958-kctl.patch": {
+    "mode": "100644",
+    "oid": "435b9301e5d05344c88d20c8a2883f8250862e6c",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/devices/S922X/patches/linux/S922X/0035-power-reset-add-the-Powkiddy-RGB10-Max-3-Pro-to-the-.patch": {
+    "mode": "100644",
+    "oid": "60003ca86f1d67035b35ba2b02efcf96fd3df0dd",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/devices/S922X/patches/linux/S922X/0036-arm64-dts-amlogic-meson-g12b-odroid-add-support-for-.patch": {
+    "mode": "100644",
+    "oid": "09cbf6f695ca542d02bb4bb78156c3891390fdb8",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/devices/S922X/patches/linux/S922X/0037-Revert-power-supply-core-ease-special-formatting-imp.patch": {
+    "mode": "100644",
+    "oid": "53323d4f330de986130de6a7793da54b6cb21725",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/devices/S922X/patches/linux/S922X/0038-power-supply-core-return-EAGAIN-on-uninitialized-rea.patch": {
+    "mode": "100644",
+    "oid": "9275d4f70f68b218ae91615bd185c5d45d376281",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/devices/S922X/patches/linux/S922X/0039-drm-meson-venc-HACK-panic-when-gamma-is-not-set-corr.patch": {
+    "mode": "100644",
+    "oid": "48bc78058aea5862a59d440bbc6f197b51c169e7",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/devices/S922X/patches/linux/S922X/0040-arm64-dts-amlogic-odroid-go-ultra-unify-volume-butto.patch": {
+    "mode": "100644",
+    "oid": "b6eb251acf8f2e838f05602bb2d85e18b08cfcef",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/devices/S922X/patches/linux/S922X/0041-drm-panel-st7701-disable-EoTp-as-this-causes-issues-.patch": {
+    "mode": "100644",
+    "oid": "56e71618b156d4205dc5521d04e0dc72b1d03df0",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/devices/S922X/patches/linux/S922X/0042-power-supply-rk818-charger-align-POWER_SUPPLY_PROP_E.patch": {
+    "mode": "100644",
+    "oid": "c8cc18cf06818cf0356f58d7ab5fa798c058c3ea",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/devices/SM4450/linux/linux.aarch64.conf": {
+    "mode": "100644",
+    "oid": "5bcceb9ab13f8ab0242e19ca9552a21dc9f00325",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/devices/SM4450/patches/linux/0001-drm-msm-adreno-add-a613-catalog-entry.patch": {
+    "mode": "100644",
+    "oid": "fbe4ae017f6ebf5098ac75e1d3fdd542278f3826",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/devices/SM4450/patches/linux/0002-pmdomain-qcom-rpmhpd-add-lcx-for-sm4450.patch": {
+    "mode": "100644",
+    "oid": "e60ba335020ee1ef0fc2a8017b98dd4de8296cca",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/devices/SM4450/patches/linux/0003-remoteproc-qcom-pas-add-sm4450-adsp-wpss.patch": {
+    "mode": "100644",
+    "oid": "426f26ecaca772641a1e6f32b38ac73d3c7745d7",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/devices/SM4450/patches/linux/0004-regulator-qcom-rpmh-add-pm6450.patch": {
+    "mode": "100644",
+    "oid": "b5d4df9e898a98dfa9178f401efc47eb7577232c",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/devices/SM4450/patches/linux/0005-soc-qcom-pd-mapper-add-sm4450.patch": {
+    "mode": "100644",
+    "oid": "a1471ed6641843ffde43f545e36377bff000a4dc",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/devices/SM4450/patches/linux/0006-interconnect-qcom-add-sm4450.patch": {
+    "mode": "100644",
+    "oid": "b0f38e74d0c24db64e6b430aa61d2b7ced07aeae",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/devices/SM4450/patches/linux/0008-iommu-arm-smmu-qcom-add-sm4450.patch": {
+    "mode": "100644",
+    "oid": "8919b406f791554d0e4221f8a58e2d9a4f62d935",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/devices/SM4450/patches/linux/0009-drm-msm-add-sm4450-display.patch": {
+    "mode": "100644",
+    "oid": "4a257686e0d97840d07279bbee702ec70f06a5a1",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/devices/SM4450/patches/linux/0010-drm-panel-chipwealth-ch13726a-vendor-timings-rp-classic.patch": {
+    "mode": "100644",
+    "oid": "3a104869887bd66dd1bdf3d96147051c5ca713d7",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/devices/SM4450/patches/linux/0011-clk-qcom-dispcc-sm4450-fix-mdp-clk-src-ops.patch": {
+    "mode": "100644",
+    "oid": "5967924857bcc7e8f49d31f9b7e723ef871196cd",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/devices/SM4450/patches/linux/0012-clk-qcom-dispcc-sm4450-quiesce-splash.patch": {
+    "mode": "100644",
+    "oid": "4011499f4947d243d375825d4217fa0cfa04dd6f",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/devices/SM4450/patches/linux/0013-clk-qcom-gpucc-sm4450-add-hlos1-vote-gpu-smmu.patch": {
+    "mode": "100644",
+    "oid": "c66600ffaefccbfe7faebab0799c5435f02841c6",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/devices/SM4450/patches/linux/0014-clk-qcom-gpucc-sm4450-enable-gx-gdsc.patch": {
+    "mode": "100644",
+    "oid": "4312da166e034f2d4c6b50130f446b5a4ce917d3",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/devices/SM4450/patches/linux/0015-drm-msm-a6xx-avoid-gmu-cx-reads-on-a613.patch": {
+    "mode": "100644",
+    "oid": "1597687f3b895719c7d6bc98951274e3f7189f85",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/devices/SM4450/patches/linux/0016-input-add-rsinput-gamepad.patch": {
+    "mode": "100644",
+    "oid": "3e5f7e65df611d273e62abd664be0b5992861968",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/devices/SM4450/patches/linux/0017-clk-qcom-gpucc-sm4450-fix-gfx3d-rcg-ops.patch": {
+    "mode": "100644",
+    "oid": "19350cfad37af103a856f1db04520d8e123728bb",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/devices/SM4450/patches/linux/0018-clk-qcom-gpucc-sm4450-retain-gx-gdsc-regs.patch": {
+    "mode": "100644",
+    "oid": "a3fc119e865955459102b54fbc661aa29f8b2752",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/devices/SM4450/patches/linux/0019-drm-msm-dpu-stop-boot-scanout.patch": {
+    "mode": "100644",
+    "oid": "1af3a861f0c41bd2e09408a3403257f02bafc97a",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/devices/SM4450/patches/linux/0022-regulator-qcom-rpmh-add-pbs-type.patch": {
+    "mode": "100644",
+    "oid": "e3666f43acbf62399ce6cebac340d43420918a5b",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/devices/SM4450/patches/linux/0023-leds-qcom-lpg-add-pm6450-pwm.patch": {
+    "mode": "100644",
+    "oid": "e69b70ad5113b8abe77c5c1f2810c0e8ba77a04e",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/devices/SM4450/patches/linux/0024-serial-qcom-geni-restart-terminated-rx-command.patch": {
+    "mode": "100644",
+    "oid": "babb2e5f64e386412afc3f4b20047aec919fa549",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/devices/SM4450/patches/linux/0030-ASoC-qcom-sc8280xp-i2s-clk-support.patch": {
+    "mode": "100644",
+    "oid": "8dd0e4181280d4fd1e7c208ed1ed010b62627ff2",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/devices/SM4450/patches/linux/0031-ASoC-codecs-aw88166-support-changing-sample-rate-and-bit-width.patch": {
+    "mode": "100644",
+    "oid": "d6d67d02207a9c93a6c8d4c5c715faad9c731d8d",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/devices/SM4450/patches/linux/0032-ASoC-codecs-aw88166-reduce-log-spam.patch": {
+    "mode": "100644",
+    "oid": "dd2ceb0da453f2df14fcdea06f54d70a85308135",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/devices/SM4450/patches/linux/0033-ASoC-codecs-aw88166-remove-fade-in-out-on-start-stop.patch": {
+    "mode": "100644",
+    "oid": "58ae8ff8be7fc2e397cebd4e8d2d403c24a4b790",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/devices/SM4450/patches/linux/0034-ASoC-codecs-aw88166-make-volume-control-usable.patch": {
+    "mode": "100644",
+    "oid": "a054ad7aadff217febe6351bc55fabe29c6c7e71",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/devices/SM4450/patches/linux/0039-soundwire-qcom-arm-wake-detector-for-clock-stop.patch": {
+    "mode": "100644",
+    "oid": "0fdca778243995a37bcadb80ce7e8ddeb03997c4",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/devices/SM4450/patches/linux/0040-phy-qcom-qmp-combo-add-sm4450.patch": {
+    "mode": "100644",
+    "oid": "e95804b9656ce2edd657ba08d3e42cdc4ed6643e",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/devices/SM4450/patches/linux/0041-phy-qcom-qmp-combo-correct-v4-dp-pre-emphasis.patch": {
+    "mode": "100644",
+    "oid": "f2499af78562e4b1e55a3b60f3c1fc45d303d786",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/devices/SM4450/patches/linux/0042-phy-qcom-qmp-combo-prevent-pm-runtime-suspend-at-boot.patch": {
+    "mode": "100644",
+    "oid": "661cce4534b86547f8e6302724b832990a97a121",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/devices/SM4450/patches/linux/0045-drivers-use-soc-serial-for-wifi-and-bluetooth.patch": {
+    "mode": "100644",
+    "oid": "4da5de669b76b4e9e63e3c6d09327414f5f921cc",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/devices/SM4450/patches/linux/0046-bluetooth-hci_qca-include-wcn3950-in-wcn-family-switches.patch": {
+    "mode": "100644",
+    "oid": "c6dad65b1a8a5accc921276a9424e7a490fc1338",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/devices/SM4450/patches/linux/0047-bluetooth-hci_qca-drop-baudrate-vendor-event-for-wcn3950.patch": {
+    "mode": "100644",
+    "oid": "55c57013974fc9e00a64ed57325e8ceb5998255a",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/devices/SM4450/patches/linux/0048-bluetooth-hci_qca-keep-ibs-disabled-for-wcn3950.patch": {
+    "mode": "100644",
+    "oid": "d5b0b810555796d1e4d1e9f8539a0886a0f637fa",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/devices/SM4450/patches/linux/0049-usb-typec-ucsi_glink-add-sm4450-quirk.patch": {
+    "mode": "100644",
+    "oid": "41bed948d26ccd5ccca8c0825cf4746a1a9fd973",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/devices/SM4450/patches/linux/0050-drm-panel-add-focaltech-ft7131m.patch": {
+    "mode": "100644",
+    "oid": "2fea06ebcba03586dcf42149331a3b00e7173f49",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/devices/SM4450/patches/linux/0051-power-supply-qcom_battmgr-allow-setting-the-USB-input-current-limit.patch": {
+    "mode": "100644",
+    "oid": "9f94ef6f4bcef326d4deae9c9c0f8282db38c4e4",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/devices/SM4450/patches/linux/0052-power-supply-qcom_battmgr-report-the-USB-adapter-type.patch": {
+    "mode": "100644",
+    "oid": "244c8d0c3c0493416b7edf763bd7511b93d2d4a0",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/devices/SM4450/patches/linux/0053-input-add-singleadc-joypad.patch": {
+    "mode": "100644",
+    "oid": "226b58465e8136bb9533d011fb3ad5713307dfd8",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/devices/SM4450/patches/linux/0054-power-supply-rename-qcom-battmgr-sysfs.patch": {
+    "mode": "100644",
+    "oid": "bd02cb4b880330fdbc167b509cc218df1bda052b",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/devices/SM4450/patches/linux/0055-bato-singleadc-joypad-rgb-leds.patch": {
+    "mode": "100644",
+    "oid": "c1c6f0415079a1e0c62ba7c5873f821b8aa539e7",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/devices/SM4450/patches/linux/0056-bato-ASoC-wcd937x-fix-headphone-volume-tlv.patch": {
+    "mode": "100644",
+    "oid": "d7e2160062bfc8acec1b0e7ea54817b9d3d09c96",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/devices/SM4450/patches/linux/0057-bato-arm64-dts-qcom-sm4450-add-cpu-capacity-and-power-coefficients.patch": {
+    "mode": "100644",
+    "oid": "dccb01d7fa862b29a1a0c247dfb8f7dbdc04d398",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/devices/SM4450/patches/linux/0058-bato-singleadc-joypad-park-leds-across-suspend.patch": {
+    "mode": "100644",
+    "oid": "1f4044cb3376da957d3ce4366f3591cd89f1e8bf",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/devices/SM6115/linux/linux.aarch64.conf": {
+    "mode": "100644",
+    "oid": "eb90c70f7301956dc630e2e38b3cf9c12b46de71",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/devices/SM6115/patches/linux/0001-gpu-drm-panel-add-mangmi-airx-panel.patch": {
+    "mode": "100644",
+    "oid": "21c752c52303ed69bac3405e0f19f6cc5d086fb3",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/devices/SM6115/patches/linux/0002-add-mq66-bm5460bb1-panel.patch": {
+    "mode": "100644",
+    "oid": "edc317d10de8de7e486eef26429174052c3f7bf3",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/devices/SM6115/patches/linux/0003-gpu-drm-panel-add-mangmi-td4310-panel.patch": {
+    "mode": "100644",
+    "oid": "85159f2fc3cb94d60d5db71447e87abdd7413438",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/devices/SM6115/patches/linux/0004-gpu-drm-msm-a610-unlock-1050MHz-overclock.patch": {
+    "mode": "100644",
+    "oid": "8256dc2eec01d10d7a56efeebc19f21a51ccdf0b",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/devices/SM6115/patches/linux/0006-clk-qcom-gcc-sm6115-use-gp_ops-for-GP-clocks.patch": {
+    "mode": "100644",
+    "oid": "7a2c0f310b7d6ccdb5d11998af06b18c5013d549",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/devices/SM6115/patches/linux/0007-clk-qcom-gcc-sm6115-set-hw-ctrl-trigger-for-video-gdsc.patch": {
+    "mode": "100644",
+    "oid": "c4d22ad59a5d162b246c002c86886a42c690ac5c",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/devices/SM6115/patches/linux/0008_gcc_usb_gdsc_retention.patch": {
+    "mode": "100644",
+    "oid": "b4fc5e93f47d6a031d0d9c9ca507a6c9f2294a9d",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/devices/SM6115/patches/linux/0009-input-joystick-add-mangmi-airx-driver.patch": {
+    "mode": "100644",
+    "oid": "26a22c48efdf196427300d40cf6257a9a812f1ee",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/devices/SM6115/patches/linux/0010-clk-qcom-clk-rcg2-fix-set_duty_cycle-boundary-checks.patch": {
+    "mode": "100644",
+    "oid": "022e137bba53d04fba4a2da99b4cb791b003161a",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/devices/SM6115/patches/linux/0011-input-touchscreen-add-himax-hx83112a-spi-driver.patch": {
+    "mode": "100644",
+    "oid": "b866923719cfeea95bfdec6834f2178bfd5aeda2",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/devices/SM6115/patches/linux/0012-add-pm6125-pwm.patch": {
+    "mode": "100644",
+    "oid": "2d7ff7afcaa9efda1f7dcc1afa4651451261b2eb",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/devices/SM6115/patches/linux/0013-leds-aw200xx-add-vdd-supply-regulator.patch": {
+    "mode": "100644",
+    "oid": "8384b9aab0c01bd030ae53423250b0dcf5e7b1f5",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/devices/SM6115/patches/linux/0014-dts-sm6115-add-thermal-labels.patch": {
+    "mode": "100644",
+    "oid": "0ed0d5b8c5b7574ce0817b80ed7b41653123bc73",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/devices/SM6115/patches/linux/0015-dts-sm6115-add-venus-video-codec-node.patch": {
+    "mode": "100644",
+    "oid": "17677cab59ba40e3bbec917d655a7715bb5e679e",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/devices/SM6115/patches/linux/0016-dts-sm6115-add-mpm-wake-controller.patch": {
+    "mode": "100644",
+    "oid": "8bc76dc2ad04c9f2eaabfcfe64b4d0f74dc02491",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/devices/SM6115/patches/linux/0017-cpuidle-psci-defer-to-late_initcall_sync.patch": {
+    "mode": "100644",
+    "oid": "d453dcf434117e5204eb67177090216b2250bcb5",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/devices/SM6115/patches/linux/0018-soc-qcom-add-psci-suspend-fallback-driver.patch": {
+    "mode": "100644",
+    "oid": "e5066f8107bd3aaaa9baa222fd0ea2e50586c02f",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/devices/SM6115/patches/linux/0019-irqchip-qcom-mpm-program-wakeup-timer-via-genpd-notifier.patch": {
+    "mode": "100644",
+    "oid": "8e5d032da286ab868c7faea261eaf8dcb5a48364",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/devices/SM6115/patches/linux/0020-input-pwm-vibra-support-minimum-duty-cycle.patch": {
+    "mode": "100644",
+    "oid": "60fbec364d85cd2348f09dd004859554ba49b071",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/devices/SM6115/patches/linux/0021-drivers-use-soc-serial-for-wifi-and-bluetooth.patch": {
+    "mode": "100644",
+    "oid": "4da5de669b76b4e9e63e3c6d09327414f5f921cc",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/devices/SM6115/patches/linux/0023-bluetooth-and-pwrseq-upstream-backports-wcn3950.patch": {
+    "mode": "100644",
+    "oid": "5f747f39d6f8d33cbd28b93ccada296893afcf0c",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/devices/SM6115/patches/linux/0024-bluetooth-hci_qca-include-wcn3950-in-wcn-family-switches.patch": {
+    "mode": "100644",
+    "oid": "9381e6e7f945af2d5e729b63191ccd42fcb43546",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/devices/SM6115/patches/linux/0025-bluetooth-hci_qca-drop-baudrate-vendor-event-for-wcn3950.patch": {
+    "mode": "100644",
+    "oid": "784989ffe5124e8d072eb74da2d5591bea5f7729",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/devices/SM6115/patches/linux/0026-bluetooth-hci_qca-keep-ibs-disabled-for-wcn3950.patch": {
+    "mode": "100644",
+    "oid": "9664797bba5060839ce4dd2952a2b3cfa0af1898",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/devices/SM6115/patches/linux/0027-power-supply-add-cx221x-battery-gauge.patch": {
+    "mode": "100644",
+    "oid": "8715b73efac2118d8424b17daf839e3e97ac3053",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/devices/SM6115/patches/linux/0028-power-supply-bq256xx-add-sgm41515-alias.patch": {
+    "mode": "100644",
+    "oid": "7fae25228e0c97af2eb443873acd6d3a71a9be34",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/devices/SM6115/patches/linux/0029-power-supply-bq256xx-reset-chip-on-init.patch": {
+    "mode": "100644",
+    "oid": "5262c0d75e36eb87a4c25c535e23f6112ccf0da4",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/devices/SM6115/patches/linux/0030-power-supply-bq256xx-add-otg-vbus-regulator.patch": {
+    "mode": "100644",
+    "oid": "8e02600065dd3e73f9e81dfa969cf2c17cee653c",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/devices/SM6115/patches/linux/0031-power-supply-bq256xx-push-chip-max-on-attach.patch": {
+    "mode": "100644",
+    "oid": "7051534f3e700b33bf8f497da2dcaf9cd1033a69",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/devices/SM6115/patches/linux/0032-power-supply-bq256xx-software-jeita.patch": {
+    "mode": "100644",
+    "oid": "47a2eb0cdd7cdf04822a14346ad6d437595d5b45",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/devices/SM6115/patches/linux/0034-serial-qcom-geni-mask\u002dirq-during-system-suspend.patch": {
+    "mode": "100644",
+    "oid": "d4cd73ecef6777cd1b8557f812bb75028f86c37f",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/devices/SM6115/patches/linux/0035-pinctrl-qcom-sm6115-add-ext-mclk-and-extra-functions.patch": {
+    "mode": "100644",
+    "oid": "eb578e607e5577a005379e42c034fe48488a931a",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/devices/SM6115/patches/linux/0037-ASoC-qcom-sm8250-constrain-BE-format-to-S16_LE.patch": {
+    "mode": "100644",
+    "oid": "5b90e9e01edbd751f13084cdb4b36630a1d12e1e",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/devices/SM6115/patches/linux/0041-ASoC-qcom-qdsp6-q6afe-fix-clk-vote-response-type-mismatch.patch": {
+    "mode": "100644",
+    "oid": "db7ccbc3e90c7519a43306f5148cc676ba71a369",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/devices/SM6115/patches/linux/0042-ASoC-qcom-sm8250-apply-codec_fmt-to-all-codec-DAIs.patch": {
+    "mode": "100644",
+    "oid": "138d00839593a799e3e4db59075a93c9c1ae6dc0",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/devices/SM6115/patches/linux/0044-ASoC-qcom-sm8250-add-QUATERNARY_MI2S_RX-case.patch": {
+    "mode": "100644",
+    "oid": "40c8063d3f25890602a7cf85288832428c1e25c4",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/devices/SM6115/patches/linux/0045-ASoC-qcom-sm8250-shut-down-MI2S-AFE-port-clocks.patch": {
+    "mode": "100644",
+    "oid": "3bb887bc70c468f1786bd48728451f96749455bf",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/devices/SM6115/patches/linux/0051-sound-soc-es8326-sysclk-from-mclk-and-balance-bias-level.patch": {
+    "mode": "100644",
+    "oid": "fe9ddb7820c8f60d45235c0c1dbe5fec2f6afcce",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/devices/SM6115/patches/linux/0052-asoc-qcom-common-enable-jack-detection-for-mi2s.patch": {
+    "mode": "100644",
+    "oid": "e9e23b0bbdfd7c342311fb4516d7df866c9d965a",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/devices/SM6115/patches/linux/0053-sound-soc-es8326-add-vdd-supply.patch": {
+    "mode": "100644",
+    "oid": "f3761cd69435813f011bb6dfae6afe864552977c",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/devices/SM6115/patches/linux/0054-sound-soc-es8326-combine-stereo-volume-controls.patch": {
+    "mode": "100644",
+    "oid": "f2b21cbc77b8c9f25867fee427d576842fcac816",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/devices/SM6115/patches/linux/0055-fusb302-signal-tx-completion-from-interrupt-bit.patch": {
+    "mode": "100644",
+    "oid": "f002fb5270f5f1d71b43bd8923df35cd6810e2a6",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/devices/SM6115/patches/linux/0056-fusb302-map-collision-to-tx-discarded.patch": {
+    "mode": "100644",
+    "oid": "64cea184bbae88fd1ad5c2d0293fc3364e02edda",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/devices/SM6115/patches/linux/0057-tcpm-requeue-control-msg-on-eagain.patch": {
+    "mode": "100644",
+    "oid": "7b012bdac1be64966986858cbe4657e06fadf6e3",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/devices/SM6115/patches/linux/0058-fusb302-trigger-tx-via-tx-start-bit-not-txon-token.patch": {
+    "mode": "100644",
+    "oid": "5fbb1e341dd7238f9a2e3c923b4c3efa15d495e7",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/devices/SM6115/patches/linux/0059-fusb302-enable-pd-3-0-message-support-on-aw35615.patch": {
+    "mode": "100644",
+    "oid": "0d4bf055f59179f7e3af87f18119f0373c0d35f7",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/devices/SM8250/linux/linux.aarch64.conf": {
+    "mode": "100644",
+    "oid": "d56a553d7b596d7b55e28bca2179c4f95c409353",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/devices/SM8250/patches/linux/0001-msm-dsi-restore-wide_bus-bpp-calculation.patch": {
+    "mode": "100644",
+    "oid": "bd8cb46e205d0816c41600f6ed9f4951f70bb9d7",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/devices/SM8250/patches/linux/0004-pm8150b.patch": {
+    "mode": "100644",
+    "oid": "f0962e9aaa36001e4b77fbda0fe5fc22613e7c10",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/devices/SM8250/patches/linux/0005-sm8250-uart.patch": {
+    "mode": "100644",
+    "oid": "0094db8b6c9d8ead8e4efa6819be3f94589bea58",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/devices/SM8250/patches/linux/0008-retroid-gamepad.patch": {
+    "mode": "100644",
+    "oid": "00897636425848d7757497eca1ca57679816b380",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/devices/SM8250/patches/linux/0009-qcom-spmi-haptics.patch": {
+    "mode": "100644",
+    "oid": "98ddc61ff9f9c9ef34d7bf7fc495fe834b890997",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/devices/SM8250/patches/linux/0010-leds-htr3212.patch": {
+    "mode": "100644",
+    "oid": "f1bdc09f9f792b9452d7c521916ec379f5c24240",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/devices/SM8250/patches/linux/0011-qcom-pm8150b-charger.patch": {
+    "mode": "100644",
+    "oid": "dd676bdfe72e542e510013f47d935e08acbb9b01",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/devices/SM8250/patches/linux/0012-ASoC-qcom-q6asm-dai-Change-some-default-periods.patch": {
+    "mode": "100644",
+    "oid": "2fde2ea08daff663161e5351b567634941d15bbb",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/devices/SM8250/patches/linux/0013-add-force-feedback.patch": {
+    "mode": "100644",
+    "oid": "d3e90661f1ea74380880018a704d598b4a79799e",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/devices/SM8250/patches/linux/0014-fix-wifi-and-bt-mac.patch": {
+    "mode": "100644",
+    "oid": "cc12fa6ada134e723b68e881f08e352051dfdc80",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/devices/SM8250/patches/linux/0015-touchscreen-edt-ft5x06-allow-to-override-input-name.patch": {
+    "mode": "100644",
+    "oid": "80e4032466459fb1bde4bb01e41fdd711ef05bbf",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/devices/SM8250/patches/linux/0016-rp5-smooth-brightness-adjustment.patch": {
+    "mode": "100644",
+    "oid": "311bf0ba9b876c5efa406b54871b31ad9ad45750",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/devices/SM8250/patches/linux/0017-drm-display-add-hw_params-callback-to-hdmi-audio-ops.patch": {
+    "mode": "100644",
+    "oid": "4ec5739ae30cce6742ef291fbea46ef5d4c831c6",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/devices/SM8250/patches/linux/0018-usb-typec-qcom-pmic-typec-switch-termination-on-pr-swap.patch": {
+    "mode": "100644",
+    "oid": "fef03fcf420b95c0101925216351a02b0f78e6b5",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/devices/SM8250/patches/linux/0019-drm-msm-dp-on-sm8250-refuse-to-start-dp-audio-while-the-link-is-down.patch": {
+    "mode": "100644",
+    "oid": "d08282286e1bc7ebcbc20d9ec2f5e6931145fcac",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/devices/SM8250/patches/linux/0047_ASoC--codecs--aw88166--AYN-Odin2-Specific-modifica.patch": {
+    "mode": "100644",
+    "oid": "0f085ddbdc1ce9c5102542c90cf093fa5d0d4d05",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/devices/SM8250/patches/linux/0057_Chipone-ICNA35XX-panel.patch": {
+    "mode": "100644",
+    "oid": "7e2e2b6674a189676203708af5ec74bf7da31b71",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/devices/SM8250/patches/linux/0058_DDIC-CH13726A-panel.patch": {
+    "mode": "100644",
+    "oid": "15be664e726af6470bf50bc363236d6ac029f82d",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/devices/SM8250/patches/linux/0060_Mangmi-Pocket-Max-SPI-joypad.patch": {
+    "mode": "100644",
+    "oid": "31f8e412fb3469fe848e9a356dcd5d14c972f7fa",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/devices/SM8250/patches/linux/0061_leds-aw200xx-vdd-supply.patch": {
+    "mode": "100644",
+    "oid": "443e267e44011e2f243588b05cbd5cf08e2a6cae",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/devices/SM8250/patches/linux/0062_wsa881x-shared-powerdown-gpio.patch": {
+    "mode": "100644",
+    "oid": "3fc935200f7091f41a8d3ffb6d54b6a1081570a9",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/devices/SM8250/patches/linux/0063_Mangmi-Pocket-Max-HL7139-charge-pump.patch": {
+    "mode": "100644",
+    "oid": "11a56c84bbc7fc0ca76b988901d0bc946c108a74",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/devices/SM8250/patches/linux/0064_Mangmi-Air-Y-Pro-panel.patch": {
+    "mode": "100644",
+    "oid": "a9071348ff5efea0119a06fd6cca70440a8e60c2",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/devices/SM8250/patches/linux/0065-input-touchscreen-add-hynitron-cst66xx.patch": {
+    "mode": "100644",
+    "oid": "c93c3ba0f99e29fc17da808831872f5613c41f68",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/devices/SM8250/patches/linux/0066-regulator-add-qcom-pm8150l-lcdb.patch": {
+    "mode": "100644",
+    "oid": "3365d1c8beef3d831a912e77aecae49297d86d15",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/devices/SM8250/patches/linux/0067-arm64-dts-qcom-pm8150l-add-lcdb-node.patch": {
+    "mode": "100644",
+    "oid": "6ce86de7c4804abf6bf10e89c64a2073400bbb6e",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/devices/SM8250/patches/linux/0100-revert-force-16bit-audio.patch": {
+    "mode": "100644",
+    "oid": "da4b7ec7570f03eba18439ca52a5eb2c6a9c6fde",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/devices/SM8250/patches/linux/0102-arm64-dts-qcom-pm8150-Add-nvmem-support-for-PM8150-R.patch": {
+    "mode": "100644",
+    "oid": "791e0c2cafd7e0636100802d8c40d74bbff9b000",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/devices/SM8250/patches/linux/0104-drm-panel-Add-Retroid-Pocket-6-panel.patch": {
+    "mode": "100644",
+    "oid": "73a2ed81486f99a8cf0179ee42c898ec4f70dffb",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/devices/SM8250/patches/linux/0105-drm-panel-visionox-vtdr6130-add-sm8250.patch": {
+    "mode": "100644",
+    "oid": "fae23f66f04df7e66e8af7e61ace38edc3e6fcdc",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/devices/SM8250/patches/linux/0300-batocera-fix-headphone-jack-detection.patch": {
+    "mode": "100644",
+    "oid": "3545923c7dd1c6ac6aa451432857e245648d33a8",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/devices/SM8250/patches/linux/0504-Enable-64-bit-processes-to-use-compat-input-syscalls.patch": {
+    "mode": "100644",
+    "oid": "341014c1a9796bfa818e522f96a5add8cb700335",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/devices/SM8250/patches/linux/0505-msm_gem-lock-before-put_iova_spaces.patch": {
+    "mode": "100644",
+    "oid": "88b1cdc644b54e7b7d650bf17416b1cc873c0283",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/devices/SM8250/patches/linux/9997-set-boot-fanspeed.patch": {
+    "mode": "100644",
+    "oid": "58c7dd408a08e77be5ed5915b3bf268d40d517ef",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/devices/SM8250/patches/linux/9998-gpu-tuning.patch": {
+    "mode": "100644",
+    "oid": "88a0588711042462dc981778c713268bceeb3568",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/devices/SM8250/patches/linux/9999-remove-log-spam.patch": {
+    "mode": "100644",
+    "oid": "894b728aa0e7a85cc13e7ead3e7ebc4dfa518df4",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/devices/SM8650/linux/linux.aarch64.conf": {
+    "mode": "100644",
+    "oid": "a25ea783c0158155aed907053efdf2e74ed685c8",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/devices/SM8650/patches/linux/0001-pcie-update-sm8650-dtsi.patch": {
+    "mode": "100644",
+    "oid": "4d4718e4d21782ef1349702b4220885d5df332d2",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/devices/SM8650/patches/linux/0006-add-hw_params-callback-function-to-drm_connector_hdmi_audio_ops.patch": {
+    "mode": "100644",
+    "oid": "a87ccd1bccf2cd09e0aa1be0a1ac853776bf8be2",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/devices/SM8650/patches/linux/0007-audioreach-Add-dedicated-WSA2-support.patch": {
+    "mode": "100644",
+    "oid": "953a4b2e1a73e93e32c0b349b5b5f2a951d21793",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/devices/SM8650/patches/linux/0060-Add-Silergy-SY7758-backlight-driver.patch": {
+    "mode": "100644",
+    "oid": "6ca393d1df4ebe8c4a3d0c4eb6536e5d0b568b84",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/devices/SM8650/patches/linux/0062-gpu-drm-panel-add-wt0630-panel.patch": {
+    "mode": "100644",
+    "oid": "e08cf02b0ee7ce2afc539f018415636ac2bf5ae1",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/devices/SM8650/patches/linux/0063-gpu-drm-panel-add-pocket-fit-panel.patch": {
+    "mode": "100644",
+    "oid": "28f7a5eb17afb207756e40a6f1be10f0e204850d",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/devices/SM8650/patches/linux/0066-drm-msm-dpu-enable-sm8650-inline-rotation.patch": {
+    "mode": "100644",
+    "oid": "c06f51c428dab5edcf7da4c6e1ba329561f55463",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/devices/SM8650/patches/linux/0067-drm-msm-dpu-enable-qseed-detail-enhancer.patch": {
+    "mode": "100644",
+    "oid": "7cc962759b23bbea5d8762b826167d0b04fcd582",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/devices/SM8650/patches/linux/0071-HACK-fix-usb-boot-hang.patch": {
+    "mode": "100644",
+    "oid": "601aecb47f97855771b2988766f551c9e62aebde",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/devices/SM8650/patches/linux/0120-arm64-dts-qcom-sm8650-gpucc-power-domains.patch": {
+    "mode": "100644",
+    "oid": "fcc6be19396b660e4a322da1f9d8cf956e1e8030",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/devices/SM8650/patches/linux/0121-pmdomain-qcom-rpmhpd-presync-floor-gmu-rails.patch": {
+    "mode": "100644",
+    "oid": "ea9f020ea6612e187136c612ea390f1644b272ff",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/devices/SM8650/patches/linux/0500-ROCKNIX-set-boot-fanspeed.patch": {
+    "mode": "100644",
+    "oid": "8abc9dca03eb4be787b2c7dfa7e94b31d325ba22",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/devices/SM8650/patches/linux/0501-ROCKNIX-fix-wifi-and-bt-mac.patch": {
+    "mode": "100644",
+    "oid": "0da597a68d126e2362af568a79eb0783c2997415",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/devices/SM8650/patches/linux/0503-ROCKNIX-battery-name.patch": {
+    "mode": "100644",
+    "oid": "730d7565dee920b5f691aa7c6bfd576f61050ef9",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/devices/SM8650/patches/linux/0504-Enable-64-bit-processes-to-use-compat-input-syscalls.patch": {
+    "mode": "100644",
+    "oid": "341014c1a9796bfa818e522f96a5add8cb700335",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/devices/SM8650/patches/linux/0505-msm_gem-lock-before-put_iova_spaces.patch": {
+    "mode": "100644",
+    "oid": "88b1cdc644b54e7b7d650bf17416b1cc873c0283",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/devices/SM8650/patches/linux/0506-usbcore-add-interrupt-interval-override.patch": {
+    "mode": "100644",
+    "oid": "eb99eb816befd4e429acce701b7fae490e0a0a7f",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/devices/SM8650/patches/linux/20260424_neil_armstrong_arm64_dts_qcom_sm8_456_50_add_missing_cx_power_domain_to_gcc.patch": {
+    "mode": "100644",
+    "oid": "71abf08f943fdee2f00ae8c6b7d5ce6b8a3fc32c",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/devices/SM8650/patches/linux/v2_20260420_neil_armstrong_arm64_qcom_sm8650_misc_enhancements.patch": {
+    "mode": "100644",
+    "oid": "9338519e3975eaa064bd8ac4874951f8ea77163d",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/devices/SM8650/patches/linux/v6_20260210_quic_utiwari_crypto_qce_add_runtime_pm_and_interconnect_bandwidth_scaling_support.patch": {
+    "mode": "100644",
+    "oid": "0708b8ce404cc0fa3edd78ff73b9803bbc290be4",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/devices/SM8750/linux/linux.aarch64.conf": {
+    "mode": "100644",
+    "oid": "9daddf8a2d5115f1decf8fc02c373e78b8317663",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/devices/SM8750/patches/linux/0026-dt-bindings-arm-qcom-ids-Add-SoC-ID-for-CQ8725S.patch": {
+    "mode": "100644",
+    "oid": "fd3800266e27d155da810a67094dc2ff87ba1951",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/devices/SM8750/patches/linux/0027-soc-qcom-socinfo-Add-CQ8725S-SoC-ID.patch": {
+    "mode": "100644",
+    "oid": "f686e47bc15cc008e2910cb99b7d5b4956532706",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/devices/SM8750/patches/linux/0028-drm-panel-Add-panel-driver-for-Chipone-ICNA35XX-base.patch": {
+    "mode": "100644",
+    "oid": "54f98aff3d8886833eed3a6b8acc1c0a9a8aec48",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/devices/SM8750/patches/linux/0029-Input-edt-ft5x06-add-no_regmap_bulk_read-option.patch": {
+    "mode": "100644",
+    "oid": "86bd7849870991b6cd132d4e8eee109f258fa7f5",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/devices/SM8750/patches/linux/0030-leds-Add-driver-for-HEROIC-HTR3212.patch": {
+    "mode": "100644",
+    "oid": "a546ccfd6e12956a46d614f4cfe65d2cdbca4e83",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/devices/SM8750/patches/linux/0031_input--Add-driver-for-RSInput-Gamepad.patch": {
+    "mode": "100644",
+    "oid": "0f38268cbbd0c9bfff9b7bfaca35149b5b521bef",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/devices/SM8750/patches/linux/0032-ASoC-codecs-aw88166-AYN-Products-Specific-modificati.patch": {
+    "mode": "100644",
+    "oid": "81484ebfe6324ccc96944668efd885b912e52d79",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/devices/SM8750/patches/linux/0033-arm64-dts-qcom-sm8750-gpu-clock-controllers.patch": {
+    "mode": "100644",
+    "oid": "ca17a7cee50406e431b3aaa5e9d231ea35f64c3c",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/devices/SM8750/patches/linux/0034-arm64-dts-qcom-sm8750-Add-UART15.patch": {
+    "mode": "100644",
+    "oid": "7a89892a77aec9905f579570c18aec4654cdb505",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/devices/SM8750/patches/linux/0038-arm64-dts-qcom-sm8750-add-GPU-nodes.patch": {
+    "mode": "100644",
+    "oid": "252cca54beddfac84a45975c8d75ccfdff650a8c",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/devices/SM8750/patches/linux/0039-wifi-ath12k-add-initial-hardware-definition-for-WCN7.patch": {
+    "mode": "100644",
+    "oid": "55e10517889e35fd8a74665622a6608f5ab1c125",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/devices/SM8750/patches/linux/0040-wifi-ath12k-send-QDSS-config-when-CNSS_QDSS_CFG_MISS.patch": {
+    "mode": "100644",
+    "oid": "70dc20bd282572a1ab5f53a7352f8ac30b29432f",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/devices/SM8750/patches/linux/0041-wifi-ath12k-disable-CNSS_QDSS_CFG_MISS_V01-for-the-W.patch": {
+    "mode": "100644",
+    "oid": "9007a7e97dc85d387874d47fc49aedb2594f6deb",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/devices/SM8750/patches/linux/0042-PCI-pwrctrl-pwrseq-add-support-for-WCN7860.patch": {
+    "mode": "100644",
+    "oid": "873f21d0dddccff9e42d66b9f31d7ebf83d60786",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/devices/SM8750/patches/linux/0043-power-sequencing-qcom-wcn-add-support-for-WCN7860.patch": {
+    "mode": "100644",
+    "oid": "e1b4d14d64a792773cfb9f7c99be0313400a82f4",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/devices/SM8750/patches/linux/0044-clk-qcom-gcc-sm8750-Do-not-turn-off-PCIe-GDSCs-durin.patch": {
+    "mode": "100644",
+    "oid": "8062f3b46813922fc8323d14c485717d8f12086a",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/devices/SM8750/patches/linux/0045-Bluetooth-qca-add-WCN7860-support.patch": {
+    "mode": "100644",
+    "oid": "855912f841d4b25148fbda6608ecb3c426f9823c",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/devices/SM8750/patches/linux/0048-drm-msm-dsi-reparent-byte-pixel-src-to-xo-on-disable.patch": {
+    "mode": "100644",
+    "oid": "844172185d8a10f7c268a676f26b0752306c84ae",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/devices/SM8750/patches/linux/0049-drm-msm-a8xx-add-adreno-830-catalog.patch": {
+    "mode": "100644",
+    "oid": "fd230f903be090825a796472e536e80acef87426",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/devices/SM8750/patches/linux/0050-clk-qcom-gxclkctl-kaanapali-fix-gx-gdsc-collapse.patch": {
+    "mode": "100644",
+    "oid": "047e7bf862f8a20bdf489cba17986209c0d67656",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/devices/SM8750/patches/linux/0052-pmdomain-qcom-rpmhpd-presync-floor-gmu-rails.patch": {
+    "mode": "100644",
+    "oid": "d8a4e4b8b0ac39b319488e7af7130510e421a5fa",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/devices/SM8750/patches/linux/0055-backlight-aw99706-upstream-fixes.patch": {
+    "mode": "100644",
+    "oid": "882cac47191c2975da2be2c860f83fa3246e6ce3",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/devices/SM8750/patches/linux/0055-gpu-drm-panel-add-pocket-fit-panel.patch": {
+    "mode": "100644",
+    "oid": "28f7a5eb17afb207756e40a6f1be10f0e204850d",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/devices/SM8750/patches/linux/0056-backlight-aw99706-enable-hwen-before-chip-id-read.patch": {
+    "mode": "100644",
+    "oid": "555cc41ed03bd2776ef5e138d5b2e9e2a03c9435",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/devices/SM8750/patches/linux/0057-backlight-aw99706-konkr-cfg7.patch": {
+    "mode": "100644",
+    "oid": "6fe8fbca2a427e7573e9f5f64302bd43ef1e7557",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/devices/SM8750/patches/linux/0058-input-joystick-add-ayaneo-mcu-joystick.patch": {
+    "mode": "100644",
+    "oid": "21907fa2c3ce0a7964365d53cf4c6fede00bdb98",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/devices/SM8750/patches/linux/0059-ASoC-aw88395-lib-skip-monitor-sections-in-V1-ACF-parse.patch": {
+    "mode": "100644",
+    "oid": "245ed6d139a97c4b639378cc8da3873b1229a601",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/devices/SM8750/patches/linux/0060-ASoC-qcom-sc8280xp-enable-MI2S-bit-clock-on-BE-startup.patch": {
+    "mode": "100644",
+    "oid": "85e3499d6093c095ace3deddbae2ef00e330dd17",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/devices/SM8750/patches/linux/0061-input-touchscreen-add-chipone-tddi.patch": {
+    "mode": "100644",
+    "oid": "e1ff4767617e504cfa7712f5030dea94db85e8ca",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/devices/SM8750/patches/linux/0063-ASoC-wcd939x-route-usbss-on-integrated-jack-insert.patch": {
+    "mode": "100644",
+    "oid": "270c91bc92c953337dfa6d10aafbe0b05a9531cc",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/devices/SM8750/patches/linux/0064-ASoC-wcd-mbhc-clear-stale-jack-report-on-mechanical-removal.patch": {
+    "mode": "100644",
+    "oid": "0c7074fd5f8abd434cf21c84662295ae33bd32e8",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/devices/SM8750/patches/linux/0066-scsi-ufs-ufs-qcom-add-sm8750-compatible.patch": {
+    "mode": "100644",
+    "oid": "53ee895af393e34a8b1125877233c0e143cdbd2e",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/devices/SM8750/patches/linux/0067-drm-msm-dpu-enable-qseed-detail-enhancer.patch": {
+    "mode": "100644",
+    "oid": "7cc962759b23bbea5d8762b826167d0b04fcd582",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/devices/SM8750/patches/linux/0068-drm-msm-dpu-enable-sm8750-inline-rotation.patch": {
+    "mode": "100644",
+    "oid": "2a27ee6e85f0070909fd32a6f4a1b5afea5c5f39",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/devices/SM8750/patches/linux/0069-input-misc-add-konkr-sysbtn-MCU-system-buttons.patch": {
+    "mode": "100644",
+    "oid": "207d675fc8119f789ebcef9e2d225063b24bbcb3",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/devices/SM8750/patches/linux/0072-ASoC-lpass-rx-macro-add-HPH-PCM-mode.patch": {
+    "mode": "100644",
+    "oid": "1894731a3a1cb599b851331ac443663f7d702193",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/devices/SM8750/patches/linux/0073-ASoC-wcd939x-add-HPH-PCM-HiFi-mode.patch": {
+    "mode": "100644",
+    "oid": "bce1af451266f797c4e18d7b6802cc96c2ed9911",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/devices/SM8750/patches/linux/0074-soundwire-qcom-PCM-data-port-format-enable.patch": {
+    "mode": "100644",
+    "oid": "2a24aefebdb5b8c05510dfb4a0a9a16fcda99e53",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/devices/SM8750/patches/linux/0075-arm64-dts-qcom-sm8750-add-CPU-thermal-cooling.patch": {
+    "mode": "100644",
+    "oid": "12282860756c5dbb22a1a16a9cef6f09e5ff3e01",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/devices/SM8750/patches/linux/0076-arm64-dts-qcom-sm8750-set-CPU-capacity-dmips-mhz.patch": {
+    "mode": "100644",
+    "oid": "dd4ece54c8ccf163c398d6c5d9f8e76297863029",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/devices/SM8750/patches/linux/0500-ROCKNIX-set-boot-fanspeed.patch": {
+    "mode": "100644",
+    "oid": "5b6008e1002d78bc8ee5857944faa27799d00846",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/devices/SM8750/patches/linux/0501-ROCKNIX-fix-wifi-and-bt-mac.patch": {
+    "mode": "100644",
+    "oid": "2f3fceebdf1b4076600bac552c174d3e590270be",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/devices/SM8750/patches/linux/0503-ROCKNIX-battery-name.patch": {
+    "mode": "100644",
+    "oid": "f7a6332764e03ce44f71ea1020fc8e157cb512cd",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/devices/SM8750/patches/linux/0504-Enable-64-bit-processes-to-use-compat-input-syscalls.patch": {
+    "mode": "100644",
+    "oid": "ff89124662527e0c149374d3d8b1526b1616578d",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/devices/SM8750/patches/linux/0504-wakeup-qcom-ipcc-remove-IRQF-NO-SUSPEND.patch": {
+    "mode": "100644",
+    "oid": "f2db939ed97768c54862d9c099da9c97d93e4f0e",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/devices/SM8750/patches/linux/0505-msm_gem-lock-before-put_iova_spaces.patch": {
+    "mode": "100644",
+    "oid": "5ea1fe385850624d24c2ae7ae4b8b368e012ce26",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/devices/SM8750/patches/linux/0508-input-rsinput-add-pm-resume-to-reinit-mcu-after-suspend.patch": {
+    "mode": "100644",
+    "oid": "6a14afd8cb421ba71cda9624b8774acc4135201d",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/devices/SM8750/patches/linux/0509-soc-qcom-pmic_glink_altmode-defer-until-mux-switch-ready.patch": {
+    "mode": "100644",
+    "oid": "0bf385ddb95a0e8c2414b9afdef3c0c1130ffe4b",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/devices/SM8750/patches/linux/0509-usb-typec-ucsi-clear-USB-role.patch": {
+    "mode": "100644",
+    "oid": "bfdffacc652f885c8af588bfe59939e239ae9374",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/devices/SM8750/patches/linux/0517-usb-typec-mux-dont-swallow-EPROBE_DEFER.patch": {
+    "mode": "100644",
+    "oid": "1aa4be54f9b10bcc16f55bc8a51126e9639655d6",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/devices/SM8750/patches/linux/0603-ASoC-codecs-wcd939x-keep-the-codec-resumed-while-a-ja.patch": {
+    "mode": "100644",
+    "oid": "808cdfdab83d8d0078c978addf06ee16967ad6ac",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/devices/SM8750/patches/linux/0606-phy-qcom-qmp-pcie-switch-pipe-clk-mux-to-phy.patch": {
+    "mode": "100644",
+    "oid": "a50ee34b0532bc22c3a72309da5621a76e90d297",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/devices/SM8750/patches/linux/0612-ROCKNIX-odin3-q6apm-start-mi2s-port-at-prepare.patch": {
+    "mode": "100644",
+    "oid": "57087b0fbc0459efe63962ee7d7397ea5c823443",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/devices/SM8750/patches/linux/1000-input-misc-qcom-hv-haptics-sm8750.patch": {
+    "mode": "100644",
+    "oid": "c03c723a2319fc77ba8ba18aecac24593b187aca",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/devices/SM8750/patches/linux/1001-haptics-driver-support-periodic-sine-and-fixes.patch": {
+    "mode": "100644",
+    "oid": "400a503029c854b4f489b69cb0c5733b97e27acd",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/devices/SM8750/patches/linux/1002-input-rsinput-sm8750-ff.patch": {
+    "mode": "100644",
+    "oid": "caca18f631ef6994233f562ec97a332f6683ea3f",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/devices/SM8750/patches/linux/1004-input-qcom-hv-haptics-defer-rsinput-playback.patch": {
+    "mode": "100644",
+    "oid": "10bd9a50a877ad2412b586efa9c053054f71ca94",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/devices/SM8750/patches/linux/1300-input-rsinput-ranges.patch": {
+    "mode": "100644",
+    "oid": "a462428ed042b884b379c9eed313d153a6b19580",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/packages/apps/gamepadtester/patches/RK3399/000-set-resolution.patch": {
+    "mode": "100644",
+    "oid": "8c6ffab5995dc78dcee3daa00c9f90b483f25be6",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/packages/apps/gamepadtester/patches/RK3588/000-set-resolution.patch": {
+    "mode": "100644",
+    "oid": "6ca1fc8f89a71442b47003231a429dcc4aaa1212",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/packages/apps/gamepadtester/patches/legacy/000-gamepad-tester.patch": {
+    "mode": "100644",
+    "oid": "1f1fe715827b238641d628f035775249acb2fae6",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/packages/apps/mangohud/patches/RK3326/0001-RK3326-soc_thermal.patch": {
+    "mode": "100644",
+    "oid": "c40c9143fc30d3fa9a8cd185278e4b0cc5828622",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/packages/apps/mangohud/patches/RK3326/0002-RK3326-power-timeRemaining.patch": {
+    "mode": "100644",
+    "oid": "8060e1426e243dfc677bb325c4a46b632c541d36",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/packages/apps/mangohud/patches/SM4450/0001-SM4450-GPU.patch": {
+    "mode": "100644",
+    "oid": "0af280dee5017816eb20f892e361e764e8b10a0e",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/packages/apps/mangohud/patches/SM4450/0002-SM4450-battery-fix-remaining-time-display.patch": {
+    "mode": "100644",
+    "oid": "3d604aa1f406ffefbe1668c0cdef896e590c601f",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/packages/apps/mangohud/patches/SM6115/0001-SM6115-GPU.patch": {
+    "mode": "100644",
+    "oid": "cb4ba51ed1193b7bce781de1900189097243a262",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/packages/apps/mangohud/patches/SM8250/0001-SM8250-GPU.patch": {
+    "mode": "100644",
+    "oid": "371be3a851ad1580b9d329fb2790216582584ba1",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/packages/apps/mangohud/patches/SM8650/0001-SM8650-GPU.patch": {
+    "mode": "120000",
+    "oid": "f1f97504f2ed00454fe066a5566087cd963755f2",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/packages/apps/mangohud/patches/SM8650/0002-SM8750-Battery.patch": {
+    "mode": "120000",
+    "oid": "77f00f11a744931e14787c8d7f033a8cab866229",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/packages/apps/mangohud/patches/SM8750/0001-SM8750-GPU.patch": {
+    "mode": "100644",
+    "oid": "d8c3456058663ff5100380282c2a3e74a133af06",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/packages/apps/mangohud/patches/SM8750/0002-SM8750-Battery.patch": {
+    "mode": "100644",
+    "oid": "84176a1dad503fe03ff3535a552b454c60cf859f",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/packages/apps/mangohud/patches/batteryplus/0001-batteryplus-capacity.patch": {
+    "mode": "100644",
+    "oid": "1594fe3c7ddaa9ae0b991fc52d860aee024a862b",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/packages/apps/oga_controls/patches/RK3326/000-platform.patch": {
+    "mode": "100644",
+    "oid": "70dee864a0b1a71b14620f151263a2b0d7c525d7",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/packages/apps/oga_controls/patches/S922X/000-platform.patch": {
+    "mode": "100644",
+    "oid": "54eff6a259c523c47542859eea76e753ec39c013",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/packages/audio/alsa-lib/patches/SM8250/0001-Enabled-extended-namehints-in-alsa.conf.patch": {
+    "mode": "100644",
+    "oid": "aeba6d016f85e67a54e8c3444c5f323e8e9e4358",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/packages/audio/alsa-ucm-conf/patches/RK3326/0001_fix_speaker_when_booting_with_headphones.patch": {
+    "mode": "100644",
+    "oid": "c163d7dc1cb6d54a82040b7a49763943ec792a9f",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/packages/audio/alsa-ucm-conf/patches/SM8250/0002_Add-Retroid-Pocket-SM8250-configuration.patch": {
+    "mode": "100755",
+    "oid": "e6e1c640fff51b4e5b98362be09be3842d76ef1b",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/packages/audio/alsa-ucm-conf/patches/SM8250/0003_Maintain-compatibility-with-old-loader-u-boot.patch": {
+    "mode": "100644",
+    "oid": "f33d3cb801392b32ea228f04124c905da2f9056d",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/packages/audio/alsa-ucm-conf/patches/SM8250/0004_Add-HDMI-DisplayPort-audio-device.patch": {
+    "mode": "100644",
+    "oid": "ead67fe2a8c43f75e0439b697f7e9254c0a83d2c",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/packages/audio/alsa-ucm-conf/patches/SM8650/0001-AYANEO-Pocket-S2.patch": {
+    "mode": "100644",
+    "oid": "7125c09b4d78c0b68944681e57a3b50b514e9079",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/packages/audio/alsa-ucm-conf/patches/SM8650/0002_AYANEO-Pocket-S2---Add-EFI-boot-compatibility.patch": {
+    "mode": "100644",
+    "oid": "76ad34fd6331422bfd77080517cb1c16bd3ee375",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/packages/audio/alsa-ucm-conf/patches/SM8750/0001_SM8750-AYN-Odin3.patch": {
+    "mode": "100644",
+    "oid": "26f3679908379a236b2f9feaae7ff34027da1d32",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/packages/audio/alsa-ucm-conf/patches/SM8750/0002_SM8750-AYN-Odin3-Add-EFI-boot-compatibility.patch": {
+    "mode": "100644",
+    "oid": "ef830385f39963597caccb8fb5eb3d390a6907fa",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/packages/audio/pipewire/patches/SM6115/001-increase-pulse-buffer-size.patch": {
+    "mode": "100644",
+    "oid": "e4c8cdb343e21432f69d49610ac7f8e62952adbd",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/packages/audio/pipewire/patches/SM6115/002-increase-pipewire-buffer-size.patch": {
+    "mode": "100644",
+    "oid": "cb77ba5f20583a32379282f627c3b527bef932d9",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/packages/audio/pipewire/patches/SM8250/000-increase-buffer.patch": {
+    "mode": "100644",
+    "oid": "74d57d7292929a4a6476a5dc994cbf4dd2278ccb",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/packages/audio/pipewire/patches/SM8650/001-increase-pulse-buffer-size.patch": {
+    "mode": "100644",
+    "oid": "e4c8cdb343e21432f69d49610ac7f8e62952adbd",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/packages/audio/pipewire/patches/SM8650/002-increase-pipewire-buffer-size.patch": {
+    "mode": "100644",
+    "oid": "cb77ba5f20583a32379282f627c3b527bef932d9",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/packages/audio/pipewire/patches/SM8750/001-increase-pulse-buffer-size.patch": {
+    "mode": "100644",
+    "oid": "e4c8cdb343e21432f69d49610ac7f8e62952adbd",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/packages/audio/pipewire/patches/SM8750/002-increase-pipewire-buffer-size.patch": {
+    "mode": "100644",
+    "oid": "cb77ba5f20583a32379282f627c3b527bef932d9",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/packages/emulators/standalone/azahar-sa/patches/prefer_gles/0002-Enable-use_gles-for-OpenGL-ES-rendering.patch": {
+    "mode": "100644",
+    "oid": "1dfac2101594135b77c48862ae86839b6f225b6d",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/packages/emulators/standalone/ppsspp-sa/patches/SM8250/000-swap-guid-and-misc.patch": {
+    "mode": "100644",
+    "oid": "0aa3aee6e14e90eb9aa4eb80356d90bb25693d1b",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/packages/emulators/standalone/xemu-sa/patches/SM8250/000-fix-face-buttons.patch": {
+    "mode": "100644",
+    "oid": "47f41fde3b7f74f8db9c24e814862e8db084d544",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/packages/graphics/libmali/patches/RK3588/000-dont-install-firmware.patch": {
+    "mode": "100644",
+    "oid": "3f7def1a5abf2d458a323975e47902d94ca5d36a",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/packages/graphics/libmali/patches/next/001-map-loader-gap-at-runtime.patch": {
+    "mode": "100644",
+    "oid": "7a37f766959f8d81acf50691ebbc821bd45bcb2a",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/packages/graphics/libmali/patches/next/next.patch": {
+    "mode": "100644",
+    "oid": "7320079605535724473d562e3d12c39e0e708f71",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/packages/graphics/mesa/patches/SM8750/0001-add-a830-chip-id.patch": {
+    "mode": "100644",
+    "oid": "52fdd3b258c5c1672c9eb3b3c284908b16e9bb00",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/packages/graphics/vulkan-wsi-layer/patches/sync.patch": {
+    "mode": "100644",
+    "oid": "9c81ea43ad9d9c684854160d2e07b1971fdc5250",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/packages/graphics/vulkan-wsi-layer/patches/vklayer-driver-path.patch": {
+    "mode": "100644",
+    "oid": "2208c7b998d8fba3cd2d8b7276f09a6adf4fe614",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/packages/linux/patches/mainline-rockchip/001-power-supply-rk817-charger-Fix-NVRAM-SoC-Value.patch": {
+    "mode": "100644",
+    "oid": "218fdaf26be49f00407cce049892c4f6c055cf6b",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/packages/linux/patches/mainline-rockchip/002-power-supply-rk817-battery-resolve-boot-soc-from-counter.patch": {
+    "mode": "100644",
+    "oid": "94b712985abd9ebb3e25ca851694dd215beaa668",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/packages/linux/patches/mainline-rockchip/005-power-supply-rk817-charger-correct-gauge-across-sleep.patch": {
+    "mode": "100644",
+    "oid": "f10551e6045ca1edec415cc3a1ff84399977caa9",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/packages/linux/patches/mainline-rockchip/006-dt-bindings-power-supply-rk817-charger-add-rockchip-gate-function-disable.patch": {
+    "mode": "100644",
+    "oid": "8aaab30e993b756884d5106b912b6483da58964e",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/packages/linux/patches/mainline-rockchip/007-power-supply-rk817-clear-sys-can-sd-register-by-default.patch": {
+    "mode": "100644",
+    "oid": "6575e902713f7711e5d75e63e97a15dec1c7fc62",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/packages/linux/patches/mainline-rockchip/008-power-supply-rk817-bound-the-boot-soc-with-the-ocv-table.patch": {
+    "mode": "100644",
+    "oid": "ca63328eb8e647e9d8f394ca2852d472c80e8340",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/packages/multimedia/ffmpeg/patches/vf-deinterlace-v4l2m2m/ffmpeg-001-vf-deinterlace-v4l2m2m.patch": {
+    "mode": "100644",
+    "oid": "0720cc34913641c9cbb14221e2ee0a20c962c23d",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/packages/multimedia/rkmpp/patches/01-dont-compile-tests.patch": {
+    "mode": "100644",
+    "oid": "44639033fd363a0e25eac81fba6e789896a4f5bd",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/packages/tools/atf/patches/RK3399/000-atf-fix-baud.patch": {
+    "mode": "100644",
+    "oid": "06fbc195a628c844de8c1b61330f897f0e2c0da6",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/packages/wayland/lib/wlroots/patches/libmali/001-libmali-workaround-allow-zero-stride.patch": {
+    "mode": "100644",
+    "oid": "fa9502c2274415aba78646873ce43a2fa26f1e51",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/packages/wayland/weston-kiosk-shell-dpms/patches/0001-Fix-build.patch": {
+    "mode": "100644",
+    "oid": "4922bb9c2ee4585d9582839f3f01414f8e5ef20f",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/packages/wayland/weston/patches/001-terminal.patch": {
+    "mode": "100644",
+    "oid": "26dc25f69d51d563869745f9d4406b819598a39c",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/packages/wayland/weston/patches/002-weston-image.patch": {
+    "mode": "100644",
+    "oid": "924c16b605dbf14dc1d2499bf31fb96523a09d68",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/packages/wayland/weston/patches/003-use-old-repaint-behavior.patch": {
+    "mode": "100644",
+    "oid": "a9c0af1b541ff4a761bcc791b5d47ab1ee358201",
+    "type": "blob"
+  }
+}

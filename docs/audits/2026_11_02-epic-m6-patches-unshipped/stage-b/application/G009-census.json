@@ -1,0 +1,48 @@
+{
+  "id": "G009",
+  "census": {
+    "id": "G009",
+    "recipe": "projects/ROCKNIX/devices/RK3576/packages/u-boot/package.mk",
+    "recipe_sha256": "2a4fce9d355bfd1070c4ea0880b602973770d8628082091195bac68d51d35a84",
+    "owner": [
+      "devices-unshipped"
+    ],
+    "consumer": "RK3576-aarch64",
+    "device": "RK3576",
+    "arch": "aarch64",
+    "target_cpu": "cortex-a72.cortex-a53",
+    "patch_arch": "aarch64",
+    "LINUX": "unset in clean default source config",
+    "batteryplus": "no or unset; exact yes predicate false",
+    "name": "u-boot",
+    "pin": "88dc2788777babfd6322fa655df549a019aa1e69",
+    "url": "https://source.denx.de/u-boot/u-boot/-/archive/88dc2788777babfd6322fa655df549a019aa1e69/u-boot-88dc2788777babfd6322fa655df549a019aa1e69.tar.gz",
+    "expected_sha256": "c9858cd5fdc0204e72d5c2d4f0e185883fe627a5901f91c165ddecd787899117",
+    "selectors": [],
+    "ordered_pattern_directories": [
+      "projects/ROCKNIX/devices/RK3576/packages/u-boot/patches",
+      "projects/ROCKNIX/devices/RK3576/packages/u-boot/patches/aarch64",
+      "projects/ROCKNIX/devices/RK3576/packages/u-boot/patches/88dc2788777babfd6322fa655df549a019aa1e69",
+      "projects/ROCKNIX/devices/RK3576/packages/u-boot/patches/88dc2788777babfd6322fa655df549a019aa1e69/aarch64",
+      "projects/ROCKNIX/patches/u-boot",
+      "projects/ROCKNIX/patches/u-boot/aarch64",
+      "projects/ROCKNIX/patches/u-boot/88dc2788777babfd6322fa655df549a019aa1e69",
+      "projects/ROCKNIX/devices/RK3576/patches/u-boot"
+    ],
+    "stack": [
+      "projects/ROCKNIX/devices/RK3576/packages/u-boot/patches/0001-rockchip-mkimage-Add-rk3576-align-and-sd-card-workar.patch"
+    ],
+    "native_paths": [
+      "projects/ROCKNIX/devices/RK3576/packages/u-boot/patches/0001-rockchip-mkimage-Add-rk3576-align-and-sd-card-workar.patch"
+    ],
+    "config_paths": [],
+    "cache_candidates": [],
+    "preimage_limits": [],
+    "source_only": true,
+    "runtime": false
+  },
+  "started": "2026-11-02T21:55:19.274000+00:00",
+  "rows": [],
+  "input_snapshot": {},
+  "limits": []
+}

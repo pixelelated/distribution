@@ -1,0 +1,52 @@
+{
+  "id": "G057",
+  "census": {
+    "id": "G057",
+    "recipe": "projects/ROCKNIX/packages/graphics/vulkan-wsi-layer/package.mk",
+    "recipe_sha256": "c53e518eb70d0c02f99ee6dc0dfed664423bd5bfb2efb15216851a04e153d60f",
+    "owner": [
+      "packages-dead-ends"
+    ],
+    "consumer": "RK3576-aarch64",
+    "device": "RK3576",
+    "arch": "aarch64",
+    "target_cpu": "cortex-a72.cortex-a53",
+    "patch_arch": "aarch64",
+    "LINUX": "unset in clean default source config",
+    "batteryplus": "no or unset; exact yes predicate false",
+    "name": "vulkan-wsi-layer",
+    "pin": "8f077c5c862e5259841d524de8280b8c2429990a",
+    "url": "https://gitlab.freedesktop.org/mesa/vulkan-wsi-layer/-/archive/8f077c5c862e5259841d524de8280b8c2429990a.tar.gz",
+    "expected_sha256": "cd45a40c476e59557385c334f4266b62b05c73e50d725d4a464b7dc44ca61de8",
+    "selectors": [],
+    "ordered_pattern_directories": [
+      "projects/ROCKNIX/packages/graphics/vulkan-wsi-layer/patches",
+      "projects/ROCKNIX/packages/graphics/vulkan-wsi-layer/patches/aarch64",
+      "projects/ROCKNIX/packages/graphics/vulkan-wsi-layer/patches/8f077c5c862e5259841d524de8280b8c2429990a",
+      "projects/ROCKNIX/packages/graphics/vulkan-wsi-layer/patches/8f077c5c862e5259841d524de8280b8c2429990a/aarch64",
+      "projects/ROCKNIX/patches/vulkan-wsi-layer",
+      "projects/ROCKNIX/patches/vulkan-wsi-layer/aarch64",
+      "projects/ROCKNIX/patches/vulkan-wsi-layer/8f077c5c862e5259841d524de8280b8c2429990a",
+      "projects/ROCKNIX/devices/RK3576/patches/vulkan-wsi-layer"
+    ],
+    "stack": [
+      "projects/ROCKNIX/packages/graphics/vulkan-wsi-layer/patches/sync.patch",
+      "projects/ROCKNIX/packages/graphics/vulkan-wsi-layer/patches/vklayer-driver-path.patch"
+    ],
+    "native_paths": [
+      "projects/ROCKNIX/packages/graphics/vulkan-wsi-layer/patches/sync.patch",
+      "projects/ROCKNIX/packages/graphics/vulkan-wsi-layer/patches/vklayer-driver-path.patch"
+    ],
+    "config_paths": [],
+    "cache_candidates": [
+      "/workspace/cache/rocknix-sources/vulkan-wsi-layer/vulkan-wsi-layer-8f077c5c862e5259841d524de8280b8c2429990a.tar.gz"
+    ],
+    "preimage_limits": [],
+    "source_only": true,
+    "runtime": false
+  },
+  "started": "2026-11-02T21:55:21.064349+00:00",
+  "rows": [],
+  "input_snapshot": {},
+  "limits": []
+}

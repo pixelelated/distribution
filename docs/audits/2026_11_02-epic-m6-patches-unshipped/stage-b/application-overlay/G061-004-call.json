@@ -1,0 +1,15 @@
+{
+  "argv": [
+    "patch",
+    "-d",
+    "/workspace/tmp/m6-t43/G061-004-candidate-0d78opfe",
+    "-p1"
+  ],
+  "start": "2026-11-02T21:57:59.647655+00:00",
+  "end": "2026-11-02T21:57:59.649842+00:00",
+  "exit": 0,
+  "stdout_sha256": "d1cae7e13a5a1022317a103ddadb8abc686ac51033aace3f320d0123955323f5",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "output": "patching file product/kernel/drivers/gpu/arm/midgard/mali_kbase_core_linux.c\nHunk #1 succeeded at 6020 (offset 44 lines).\n",
+  "error": ""
+}

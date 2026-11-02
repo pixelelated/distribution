@@ -1,0 +1,62 @@
+{
+  "at": "2026-11-02T22:17:26.827040+00:00",
+  "checks": {
+    "rules": {
+      "receipt": "stage-d/check-rules.json",
+      "sha256": "e7c35db85dce8bcfd2e6a26fec5ef4ea1e3a422e534066945029ae31fa8b4a94",
+      "exit": 0
+    },
+    "register": {
+      "receipt": "stage-d/check-register.json",
+      "sha256": "b7def420e69a51e8c111eb2ee2279d13147ae47f57481671fdf1569378fe584c",
+      "exit": 0
+    },
+    "index": {
+      "receipt": "stage-d/check-index.json",
+      "sha256": "3947e9e16276e79ab1d109acf06afdfacc76bb8235bfe8736d60746114e4e592",
+      "exit": 0
+    },
+    "ceremony": {
+      "receipt": "stage-d/check-ceremony.json",
+      "sha256": "1833e3c467b85500f62398b073e87c739c5ffd9ae2cad8587d9cdb7330b79c13",
+      "exit": 0
+    },
+    "forbidden": {
+      "receipt": "stage-d/check-forbidden.json",
+      "sha256": "240e3e0fd95ad5b9b1bcbfe26ca313b434faf1c84a51760b3f9f5be6b7d1bb28",
+      "exit": 0
+    },
+    "hooks": {
+      "receipt": "stage-d/check-hooks.json",
+      "sha256": "717ab5913e624c1253d2bcf72bd011b357ebcf4dfbf7946befcf05f698907ef9",
+      "exit": 0
+    },
+    "box-audit": {
+      "receipt": "stage-d/check-box-audit.json",
+      "sha256": "0e863af0dc241ff59f35cdc9f7a28c06eb8e723dc2a4d3da6ddea91f2304f3fc",
+      "exit": 0
+    },
+    "box-slice": {
+      "receipt": "stage-d/check-box-slice.json",
+      "sha256": "24361d6f3dea9efd6616de835cb92fd604cc296ba8d19d8d470e29200137ccc7",
+      "exit": 0
+    },
+    "pre-issue": {
+      "receipt": "stage-d/check-pre-issue.json",
+      "sha256": "b3a8c13ff12ebb77a7591dd62f4fa98a4adadde74da33666b08cc578e8fe5118",
+      "exit": 0
+    },
+    "scope": {
+      "receipt": "stage-d/check-scope.json",
+      "sha256": "3f1a434c69f2a946a4e0d6e7dc98806d341cfb6960a449fe3fe0ca44a5da726e",
+      "exit": 0
+    },
+    "records-v2": {
+      "receipt": "stage-d/check-records-v2.json",
+      "sha256": "102a88f62e594c80030500c641ad029fdda47059d7682b8ba14ef902ecc05d38",
+      "exit": 0
+    }
+  },
+  "qualification": "Forbidden whole-tree check covers 133950 previously tracked files; normal commit/push hooks and a new-record stdin scan cover the staged addition. Pre-issue PASS does not certify Phase-7 resolution. Per-commit/final publication receipts are external, bound to the eventual commit.",
+  "superseded_failure": "check-records.json exit1: D checker used an incorrect heading delimiter; check-records-v1.py retained, corrected parser v2 passes. No A-C producer replay."
+}

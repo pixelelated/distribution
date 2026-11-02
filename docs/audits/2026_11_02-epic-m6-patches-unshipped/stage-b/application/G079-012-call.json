@@ -1,0 +1,15 @@
+{
+  "argv": [
+    "patch",
+    "-d",
+    "/workspace/tmp/m6-t43/G079-012-candidate-sbheq8ve",
+    "-p1"
+  ],
+  "start": "2026-11-02T21:56:00.843723+00:00",
+  "end": "2026-11-02T21:56:00.845704+00:00",
+  "exit": 0,
+  "stdout_sha256": "5d812b32d5e43889344d7874c1bb71bb5a9748a27d8f80bc0218d9e245bd2b23",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "output": "patching file drivers/gpu/drm/panel/Kconfig\nHunk #1 succeeded at 530 (offset 29 lines).\npatching file drivers/gpu/drm/panel/Makefile\nHunk #1 succeeded at 52 (offset 2 lines).\npatching file drivers/gpu/drm/panel/panel-bm5460bb1.c\n",
+  "error": ""
+}

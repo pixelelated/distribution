@@ -1,0 +1,8 @@
+Traceback (most recent call last):
+  File "/workspace/repos/pixelelated/distribution.worktrees/m6-patches-unshipped-690/docs/audits/2026_11_02-epic-m6-patches-unshipped/tools/table.py", line 40, in <module>
+    rows=load(sys.argv[1]);assert_input(rows)
+                           ~~~~~~~~~~~~^^^^^^
+  File "/workspace/repos/pixelelated/distribution.worktrees/m6-patches-unshipped-690/docs/audits/2026_11_02-epic-m6-patches-unshipped/tools/table.py", line 12, in assert_input
+    e=by[x['path']];assert x['kind']==e['kind'],'kind: '+x['path']
+                           ^^^^^^^^^^^^^^^^^^^^
+AssertionError: kind: projects/ROCKNIX/devices/AMD64/linux/linux.x86_64.conf
