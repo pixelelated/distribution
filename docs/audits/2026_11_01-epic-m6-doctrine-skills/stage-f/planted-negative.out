@@ -1,0 +1,7 @@
+Traceback (most recent call last):
+  File "<string>", line 4, in <module>
+    print('completed_audit_marker:', m.completed_audit_marker('/workspace/tmp/m6-t38/f/docs/audits/2026_11_01-epic-m6-doctrine-skills/audit-completion.json', '/workspace/tmp/m6-t38/f', dt.datetime.now(dt.timezone.utc)))
+                                     ~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "tools/ceremony-check", line 114, in completed_audit_marker
+    raise ValueError('completion evidence changed: ' + name)
+ValueError: completion evidence changed: docs/audits/2026_11_01-epic-m6-doctrine-skills/04-analysis.md

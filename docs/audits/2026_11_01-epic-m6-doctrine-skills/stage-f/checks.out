@@ -1,0 +1,15 @@
+00:23:15 validator: tools/ceremony-check completed_audit_marker()
+completed_audit_marker: (datetime.datetime(2026, 11, 2, 0, 23, 1, 200276, tzinfo=datetime.timezone.utc), 1394)
+rc=0
+00:23:15 tools/lint-audit-artifacts <folder>
+PASS
+rc=0
+00:23:15 tools/lint-audit-artifacts <folder> --issue 1394
+PASS
+rc=0
+00:23:16 tools/lint-audit-artifacts <folder> --phase resolution
+PASS
+rc=0
+00:23:24 planted negative: the validator on a copy whose 04 gained one byte
+ValueError: completion evidence changed: docs/audits/2026_11_01-epic-m6-doctrine-skills/04-analysis.md
+rc=1 (want 1)

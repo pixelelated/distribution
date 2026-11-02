@@ -58,6 +58,11 @@ T38 read the 52 paths of `.claude/**` less `.claude/rules/**`: ten skills and ei
 
 **Pass rate:** 15 of 22 met at stage E's amendment; 5 partial, each with its later stage named; 2 skipped as later stages' work (counted from the table by the command that wrote this line).
 
+**At stage F (2026-11-02), the table above stands as stage E's verdicts; the coordinator's ticks are on #685's body, 21 of 22 (comment 6566095780).** What stage F settles for the partial rows:
+- **Criterion 1:** `audit-completion.json` is written beside `tracker-final-readback.json` and `tracker-completion.json` by `tools/t38-completion.py`, from #1394's closed readback.
+- **Criterion 4:** #1394 was closed as completed by the coordinator, with its 57 checkboxes ticked (comment 6566067730).
+- **Criterion 11:** run 4 was proved on the acceptance's own withheld run, `962 of 962` (#685, 06:45 UTC 2026-11-01: *"no run 4 is asked of you"*). The lane did not re-run it.
+
 ## Code Quality Assessment
 
 ### Strengths

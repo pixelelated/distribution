@@ -545,3 +545,18 @@ PROOF: E-S6 (fix-tree) -- S6's 5 items: every check FAILed at its parent's expor
   - Its harness self-coverage check rests on a new planted positive: the helper's `register-check` step refused a citation of a row no register holds (`stage-e/S0-helper-register-check-positive.txt`: `rc=1`, nothing committed).
   - Its count of the audits using *cornerstone* is the command's: 16 on the merged tree.
 - **Exports:** the two the planted test made are retired (`stage-e/exports.log`). `/workspace/tmp/m6-t38/e/420b845656` stays for stage F.
+
+### [Stage F] 00:21-00:23 (2026-11-02) — the completion marker, after #1394's close
+
+- **The dispatch:** the coordinator's acceptance on #685, comment 6566095780 (00:21:20 UTC), 21 of 22 ticked, and #1394 closed as completed (00:19:10 UTC, comment 6566067730). Both are saved under `/workspace/tmp/m6-t38/`.
+- **The writer:** `tools/t38-completion.py`, T5's `write-completion.py` (`cdc664fbf9`) adapted to this folder and to #1394. It writes nothing unless the issue reads back closed, completed, with ticks and no open checkbox.
+  - Its run at 00:23:00 printed `#1394 closed/completed, 57 ticked, 0 open; completed_at 2026-11-02T00:23:01.200276+00:00`, then `rc=0` (`stage-f/completion.out`).
+  - It wrote `tracker-final-readback.json`, `tracker-completion.json` and `audit-completion.json`, whose evidence hashes `04` and `05` as they stand at this commit.
+- **`04`:** before the marker, one paragraph below the scorecard. It records what stage F settles for criteria 1, 4 and 11 and leaves stage E's verdicts as they were. **`02`:** run 4's row cites the acceptance's own withheld run, which the coordinator ruled sufficient at 06:45 UTC 2026-11-01.
+- **The checks** (`stage-f/checks.out`, each `rc=$?` on its own line):
+  - `tools/ceremony-check`'s `completed_audit_marker()` on the marker returned `(2026-11-02 00:23:01.200276+00:00, 1394)`, then `rc=0`;
+  - `tools/lint-audit-artifacts` `PASS` `rc=0` on its default phase, with `--issue 1394` and with `--phase resolution` (the phase `ceremony-check` runs on a marker's folder).
+  - The planted negative: the validator on a scratch copy of this folder whose `04` gained one byte raised `ValueError: completion evidence changed: .../04-analysis.md` and `rc=1 (want 1)`. The copy `/workspace/tmp/m6-t38/f/` (1,263,955 bytes by `du -sb`) was made after `df -i` and retired by `rm -rf` straight after.
+- **Census:** no build, compiler, guest, fetch, council run or keyed call, and no line in the host file. Nothing under `.claude/` was edited. The tracker reads were #685's comments and #1394, by `gh` against `pixelelated/distribution`.
+
+PROOF: F-01 (tool-run) -- 00:23:15 `tools/ceremony-check`'s `completed_audit_marker()` on `audit-completion.json` accepted it (`rc=0`), and `tools/lint-audit-artifacts` printed `PASS` with `rc=0` on its default phase, with `--issue 1394` and with `--phase resolution` (`stage-f/checks.out`). A FAIL would have been any of these: the validator raising on the marker; the planted one-byte change to `04` passing it (it raised, `rc=1`); a lint phase failing; or the writer writing while #1394 was open.
