@@ -2,13 +2,13 @@
   "schema_version": 1,
   "depth": "local",
   "primary": {
-    "harness": "Claude Code (stages A and B, session 33bed370-5d5d-4a1e-a4e2-38ef09d04359); Antigravity CLI (stage B completion and stage C, conversation 1364d92f-d934-4080-ac5b-5b7ee9ff8d0a, switched from Claude Opus 5.5 (High) to Gemini 4 Argon (High) at 15:08 UTC 2026-11-02 for the stage-C stash)",
+    "harness": "Claude Code (stages A and B, session 33bed370-5d5d-4a1e-a4e2-38ef09d04359); Antigravity CLI (stage B completion and stage C, conversation 1364d92f-d934-4080-ac5b-5b7ee9ff8d0a, switched from Claude Opus 5.5 (High) to Gemini 4 Argon (High) at 15:08 UTC 2026-11-02 for the stage-C stash); Codex (Stage-D recovery and filing, session 01a19d12-0c07-7ba3-88b8-ab9d609f4d67)",
     "model": "anthropic/claude-opus-4-8",
     "lab": "anthropic",
-    "identity_source": "three readings, per the coordinator's stage-B acceptance on #686 (issuecomment-6565981458, 2026-11-02 00:12 UTC), which replaces the 06:43 ruling's single id, plus the 15:08 UTC stash switch: (1) the dispatch on #686 labels the executor 'Opus 5.5 at high effort' (the coordinator's erratum: the label was copied from T38's dispatch); (2) the Claude Code harness reported the model id claude-opus-4-8 for stages A and B, the reading this review rests on, so primary.model records it; (3) from stage C the owner moved the session to the Antigravity CLI, whose model setting read 'Claude Opus 5.5 (High)' from 00:10 to 05:30 UTC 2026-11-02 and was switched by the owner to 'Gemini 4 Argon (High)' at 15:08 UTC 2026-11-02 to stash and checkpoint stage C; herdr agent m6-t1-os-launch"
+    "identity_source": "three readings, per the coordinator's stage-B acceptance on #686 (issuecomment-6565981458, 2026-11-02 00:12 UTC), which replaces the 06:43 ruling's single id, plus the 15:08 UTC stash switch: (1) the dispatch on #686 labels the executor 'Opus 5.5 at high effort' (the coordinator's erratum: the label was copied from T38's dispatch); (2) the Claude Code harness reported the model id claude-opus-4-8 for stages A and B, the reading this review rests on, so primary.model records it; (3) from stage C the owner moved the session to the Antigravity CLI, whose model setting read 'Claude Opus 5.5 (High)' from 00:10 to 05:30 UTC 2026-11-02 and was switched by the owner to 'Gemini 4 Argon (High)' at 15:08 UTC 2026-11-02 to stash and checkpoint stage C; herdr agent m6-t1-os-launch; (4) 2026-11-02 Stage-D recovery/filing: observed harness Codex, visible model GPT-6-Astra, effort xhigh, session 01a19d12-0c07-7ba3-88b8-ab9d609f4d67, Herdr T1 wN:p4. Appended per Stage-C acceptance 6582545265; no reattribution of A-C or change of primary.model/lab."
   },
   "reviewers": [],
   "tier_exception": "D-WORKFLOW-184",
-  "reason": "plan § 6c: a dead-end table, a provenance table, a doctrine read is Local (the executor alone; the lint and the counts are the check), the depth slices.json k 39 records (depth Local, depth_reason 'a table')",
+  "reason": "plan \u00a7 6c: a dead-end table, a provenance table, a doctrine read is Local (the executor alone; the lint and the counts are the check), the depth slices.json k 39 records (depth Local, depth_reason 'a table')",
   "written_before_first_call": "2026-11-02"
 }

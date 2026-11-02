@@ -1,0 +1,22 @@
+T39 #686, PL-05 / L-05. **Severity: Medium.** Confirmed by the accepted A–C audit; filing at Stage D does not claim a fix.
+
+## Trace
+
+The accepted L-05 audit of `docs/device-flashing-runbook.md` counts 21 lines containing ROCKNIX and no pixelelated. Its last edit predates D-WORKFLOW-144. AGENTS.md, CLAUDE.md and device-builds.md:616 send fresh-card readers here. A reader is directed to flash the current fork while the instructions identify it by the upstream OS name.
+
+Evidence: [accepted finding verification](https://github.com/pixelelated/distribution/blob/c61bcdcb5f2de47dfa35ac25776965e77f962914/docs/audits/2026_11_01-epic-m6-doctrine-reference/04-analysis.md#l-05-docsdevice-flashing-runbookmd); [forward audit and retained receipts](https://github.com/pixelelated/distribution/blob/c61bcdcb5f2de47dfa35ac25776965e77f962914/docs/audits/2026_11_01-epic-m6-doctrine-reference/02-forward-audit.md). Reviewed source: `86ebb6dffc`. [Stage-C acceptance](https://github.com/pixelelated/distribution/issues/686#issuecomment-6582545265).
+
+**Already written:** The flashing runbook and the three entrypoint references already direct readers through the outdated identity.
+
+**Can this be done on the VM?** No -- the tree, the tool or the register shows it.
+
+## Acceptance
+
+- [ ] The fix receipt classifies all 21 original ROCKNIX lines against NAMING.md. Current fork OS references use pixelelated; retained paths, stored interfaces, upstream credits and historical names each have a reason. The committed runbook and L-05/identity check output establish the correction without a device operation.
+
+## Ownership
+
+Only words NAMING.md identifies as the current OS name; no flashing, device access or interface rename. Execution waits for the coordinator's `docs/reviews/briefs/t39-streams.md`. This reactive bug has no milestone or parent; the audit punch list will link it.
+
+Stage-D filing identity: Codex / GPT-6-Astra / xhigh; session 01a19d12-0c07-7ba3-88b8-ab9d609f4d67; Herdr T1 wN:p4.
+No A–C test was repeated for this filing.

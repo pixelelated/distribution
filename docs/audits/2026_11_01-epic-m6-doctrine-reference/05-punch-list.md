@@ -4,7 +4,7 @@
 - **6 Medium**, each a `bug` filed at stage D: PL-02, PL-03, PL-04, PL-05, PL-07, PL-16.
 - **40 Low**: the remaining fix candidates, and the ledger, inherited, #528 and #585 items, each with its owner.
 
-Each item gives the rung of `working-principles.md`'s ladder its statement sits at (*written*: the sentence exists) and the tool that would hold it at the next rung, or *no tool can*. **Nothing in the 254 is changed here.** Every edit waits for the stage-D pause's stream brief (`docs/reviews/briefs/t39-streams.md`, the coordinator's). The audit issue (a sub-issue of #686) and the bugs are filed at stage D; until then each item's `Tracked:` reads *stage D*. Drafted at stage C so the pre-issue lint reads the shape.
+Each item gives the rung of `working-principles.md`'s ladder its statement sits at (*written*: the sentence exists) and the tool that would hold it at the next rung, or *no tool can*. **Nothing in the 254 is changed here.** Every edit waits for the stage-D pause's stream brief (`docs/reviews/briefs/t39-streams.md`, the coordinator's). Audit [#1406](https://github.com/pixelelated/distribution/issues/1406) is a sub-issue of #686; the six reactive bugs are linked below. Drafted at Stage C and tracked at Stage D. Outcomes remain open until the later resolution stage.
 
 ---
 
@@ -19,7 +19,7 @@ Each item gives the rung of `working-principles.md`'s ladder its statement sits 
 - **Can this be done on the VM?** No -- the tree, the tool or the register shows it (brief § 5)
 - **Already written:** nothing: resolved before any reader acted
 - **Acceptance:** L-01's check line (brief § 3) prints the corrected line or nothing after its disposition lands, or the owner's issue carries it
-- **Tracked:** stage D
+- **Tracked:** #1406
 
 ## PL-02: the front page sends a player to instructions attached to a release that does not exist
 - **Severity:** Medium
@@ -32,7 +32,7 @@ Each item gives the rung of `working-principles.md`'s ladder its statement sits 
 - **Can this be done on the VM?** No -- the tree, the tool or the register shows it (brief § 5)
 - **Already written:** every session that opens the front page; #344 is open
 - **Acceptance:** L-02's check line (brief § 3) prints the corrected line or nothing after its disposition lands, or the owner's issue carries it
-- **Tracked:** stage D
+- **Tracked:** #1406; #1400
 
 ## PL-03: the device-testing policy calls D-QA-016 open
 - **Severity:** Medium
@@ -45,7 +45,7 @@ Each item gives the rung of `working-principles.md`'s ladder its statement sits 
 - **Can this be done on the VM?** No -- the tree, the tool or the register shows it (brief § 5)
 - **Already written:** the five rule files that send testers to the policy
 - **Acceptance:** L-03's check line (brief § 3) prints the corrected line or nothing after its disposition lands, or the owner's issue carries it
-- **Tracked:** stage D
+- **Tracked:** #1406; #1401
 
 ## PL-04: the retired cloud-folder migration script described as current
 - **Severity:** Medium
@@ -58,7 +58,7 @@ Each item gives the rung of `working-principles.md`'s ladder its statement sits 
 - **Can this be done on the VM?** No -- the tree, the tool or the register shows it (brief § 5)
 - **Already written:** the 08-saves PR description; the cloud-layout record
 - **Acceptance:** L-04's check line (brief § 3) prints the corrected line or nothing after its disposition lands, or the owner's issue carries it
-- **Tracked:** stage D
+- **Tracked:** #1406; #1402
 
 ## PL-05: the flashing runbook names the OS ROCKNIX throughout
 - **Severity:** Medium
@@ -71,7 +71,7 @@ Each item gives the rung of `working-principles.md`'s ladder its statement sits 
 - **Can this be done on the VM?** No -- the tree, the tool or the register shows it (brief § 5)
 - **Already written:** `CLAUDE.md`, `AGENTS.md` and `device-builds.md:616` send every fresh-card flasher here
 - **Acceptance:** L-05's check line (brief § 3) prints the corrected line or nothing after its disposition lands, or the owner's issue carries it
-- **Tracked:** stage D
+- **Tracked:** #1406; #1403
 
 ## PL-06: an M7 order of closed issues
 - **Severity:** Low
@@ -84,7 +84,7 @@ Each item gives the rung of `working-principles.md`'s ladder its statement sits 
 - **Can this be done on the VM?** No -- the tree, the tool or the register shows it (brief § 5)
 - **Already written:** nothing traced
 - **Acceptance:** L-06's check line (brief § 3) prints the corrected line or nothing after its disposition lands, or the owner's issue carries it
-- **Tracked:** stage D
+- **Tracked:** #1406
 
 ## PL-07: labels the pin does not ship, in banned words, in the public docs' stated source
 - **Severity:** Medium
@@ -97,7 +97,7 @@ Each item gives the rung of `working-principles.md`'s ladder its statement sits 
 - **Can this be done on the VM?** No -- the tree, the tool or the register shows it (brief § 5)
 - **Already written:** the rocknix.org backup page drafts that copy it
 - **Acceptance:** L-07's check line (brief § 3) prints the corrected line or nothing after its disposition lands, or the owner's issue carries it
-- **Tracked:** stage D
+- **Tracked:** #1406; #1404
 
 ## PL-08: the map's journal calls closed #570 work pending
 - **Severity:** Low
@@ -110,7 +110,7 @@ Each item gives the rung of `working-principles.md`'s ladder its statement sits 
 - **Can this be done on the VM?** No -- the tree, the tool or the register shows it (brief § 5)
 - **Already written:** agents placing a row read it
 - **Acceptance:** L-08's check line (brief § 3) prints the corrected line or nothing after its disposition lands, or the owner's issue carries it
-- **Tracked:** stage D
+- **Tracked:** #1406
 
 ## PL-09: a superseded baseline build named as the baseline
 - **Severity:** Low
@@ -123,7 +123,7 @@ Each item gives the rung of `working-principles.md`'s ladder its statement sits 
 - **Can this be done on the VM?** No -- the tree, the tool or the register shows it (brief § 5)
 - **Already written:** nothing traced
 - **Acceptance:** L-09's check line (brief § 3) prints the corrected line or nothing after its disposition lands, or the owner's issue carries it
-- **Tracked:** stage D
+- **Tracked:** #1406
 
 ## PL-10: the player's cloud-folder guide ends in internal release status
 - **Severity:** Low
@@ -136,7 +136,7 @@ Each item gives the rung of `working-principles.md`'s ladder its statement sits 
 - **Can this be done on the VM?** No -- the tree, the tool or the register shows it (brief § 5)
 - **Already written:** `README.md:22` sends players here
 - **Acceptance:** L-10's check line (brief § 3) prints the corrected line or nothing after its disposition lands, or the owner's issue carries it
-- **Tracked:** stage D
+- **Tracked:** #1406
 
 ## PL-11: words and numbers run together
 - **Severity:** Low
@@ -149,7 +149,7 @@ Each item gives the rung of `working-principles.md`'s ladder its statement sits 
 - **Can this be done on the VM?** No -- the tree, the tool or the register shows it (brief § 5)
 - **Already written:** nothing traced
 - **Acceptance:** L-11's check line (brief § 3) prints the corrected line or nothing after its disposition lands, or the owner's issue carries it
-- **Tracked:** stage D
+- **Tracked:** #1406
 
 ## PL-12: a counter note for a seat outside every run profile, no banner
 - **Severity:** Low
@@ -162,7 +162,7 @@ Each item gives the rung of `working-principles.md`'s ladder its statement sits 
 - **Can this be done on the VM?** No -- the tree, the tool or the register shows it (brief § 5)
 - **Already written:** nothing traced
 - **Acceptance:** L-12's check line (brief § 3) prints the corrected line or nothing after its disposition lands, or the owner's issue carries it
-- **Tracked:** stage D
+- **Tracked:** #1406
 
 ## PL-13: rocknix.org drafts naming pages without their repository
 - **Severity:** Low
@@ -175,7 +175,7 @@ Each item gives the rung of `working-principles.md`'s ladder its statement sits 
 - **Can this be done on the VM?** No -- the tree, the tool or the register shows it (brief § 5)
 - **Already written:** nothing traced
 - **Acceptance:** L-13's check line (brief § 3) prints the corrected line or nothing after its disposition lands, or the owner's issue carries it
-- **Tracked:** stage D
+- **Tracked:** #1406
 
 ## PL-14: the splash repository's wordmark tool, named with its repository
 - **Severity:** Low
@@ -188,7 +188,7 @@ Each item gives the rung of `working-principles.md`'s ladder its statement sits 
 - **Can this be done on the VM?** No -- the tree, the tool or the register shows it (brief § 5)
 - **Already written:** --
 - **Acceptance:** L-14's check line (brief § 3) prints the corrected line or nothing after its disposition lands, or the owner's issue carries it
-- **Tracked:** stage D
+- **Tracked:** #1406
 
 ## PL-15: the device facts point to a catalog with none of their cuts
 - **Severity:** Low
@@ -201,7 +201,7 @@ Each item gives the rung of `working-principles.md`'s ladder its statement sits 
 - **Can this be done on the VM?** No -- the tree, the tool or the register shows it (brief § 5)
 - **Already written:** #1100, #1126 and #1094 cite its rows
 - **Acceptance:** L-15's check line (brief § 3) prints the corrected line or nothing after its disposition lands, or the owner's issue carries it
-- **Tracked:** stage D
+- **Tracked:** #1406
 
 ## PL-16: the read mask's long form lacks the flag form
 - **Severity:** Medium
@@ -214,7 +214,7 @@ Each item gives the rung of `working-principles.md`'s ladder its statement sits 
 - **Can this be done on the VM?** No -- the tree, the tool or the register shows it (brief § 5)
 - **Already written:** readers who copy the policy's mask
 - **Acceptance:** L-16's check line (brief § 3) prints the corrected line or nothing after its disposition lands, or the owner's issue carries it
-- **Tracked:** stage D
+- **Tracked:** #1406; #1405
 
 ## PL-17: the wizard's IA against its decided rows
 - **Severity:** Low
@@ -227,7 +227,7 @@ Each item gives the rung of `working-principles.md`'s ladder its statement sits 
 - **Can this be done on the VM?** No -- the tree, the tool or the register shows it (brief § 5)
 - **Already written:** #23 still says rev 5
 - **Acceptance:** L-17's check line (brief § 3) prints the corrected line or nothing after its disposition lands, or the owner's issue carries it
-- **Tracked:** stage D
+- **Tracked:** #1406
 
 ## PL-18: low-inbound reference documents presenting themselves as current
 - **Severity:** Low
@@ -240,7 +240,7 @@ Each item gives the rung of `working-principles.md`'s ladder its statement sits 
 - **Can this be done on the VM?** No -- the tree, the tool or the register shows it (brief § 5)
 - **Already written:** search results that look current
 - **Acceptance:** L-18's check line (brief § 3) prints the corrected line or nothing after its disposition lands, or the owner's issue carries it
-- **Tracked:** stage D
+- **Tracked:** #1406
 
 ## PL-19: the splash repository's tool in a historical artifact's README
 - **Severity:** Low
@@ -253,7 +253,7 @@ Each item gives the rung of `working-principles.md`'s ladder its statement sits 
 - **Can this be done on the VM?** No -- the tree, the tool or the register shows it (brief § 5)
 - **Already written:** --
 - **Acceptance:** L-19's check line (brief § 3) prints the corrected line or nothing after its disposition lands, or the owner's issue carries it
-- **Tracked:** stage D
+- **Tracked:** #1406
 
 ## PL-20: `packages/rocknix` in dated P0 records
 - **Severity:** Low
@@ -266,7 +266,7 @@ Each item gives the rung of `working-principles.md`'s ladder its statement sits 
 - **Can this be done on the VM?** No -- the tree, the tool or the register shows it (brief § 5)
 - **Already written:** --
 - **Acceptance:** L-20's check line (brief § 3) prints the corrected line or nothing after its disposition lands, or the owner's issue carries it
-- **Tracked:** stage D
+- **Tracked:** #1406
 
 ## PL-21: Rasteratops as the OS's identity in dated records
 - **Severity:** Low
@@ -279,7 +279,7 @@ Each item gives the rung of `working-principles.md`'s ladder its statement sits 
 - **Can this be done on the VM?** No -- the tree, the tool or the register shows it (brief § 5)
 - **Already written:** --
 - **Acceptance:** L-21's check line (brief § 3) prints the corrected line or nothing after its disposition lands, or the owner's issue carries it
-- **Tracked:** stage D
+- **Tracked:** #1406
 
 ## PL-22: a current plan says the site remotes still name the retired owner
 - **Severity:** Low
@@ -292,7 +292,7 @@ Each item gives the rung of `working-principles.md`'s ladder its statement sits 
 - **Can this be done on the VM?** No -- the tree, the tool or the register shows it (brief § 5)
 - **Already written:** nothing traced
 - **Acceptance:** L-22's check line (brief § 3) prints the corrected line or nothing after its disposition lands, or the owner's issue carries it
-- **Tracked:** stage D
+- **Tracked:** #1406
 
 ## PL-23: `maxengel/rocknix` links resolving only by redirect
 - **Severity:** Low
@@ -305,7 +305,7 @@ Each item gives the rung of `working-principles.md`'s ladder its statement sits 
 - **Can this be done on the VM?** No -- the tree, the tool or the register shows it (brief § 5)
 - **Already written:** --
 - **Acceptance:** L-23's check line (brief § 3) prints the corrected line or nothing after its disposition lands, or the owner's issue carries it
-- **Tracked:** stage D
+- **Tracked:** #1406
 
 ## PL-24: the one plan, superseded and unmarked
 - **Severity:** Low
@@ -318,7 +318,7 @@ Each item gives the rung of `working-principles.md`'s ladder its statement sits 
 - **Can this be done on the VM?** No -- the tree, the tool or the register shows it (brief § 5)
 - **Already written:** --
 - **Acceptance:** L-24's check line (brief § 3) prints the corrected line or nothing after its disposition lands, or the owner's issue carries it
-- **Tracked:** stage D
+- **Tracked:** #1406
 
 ## PL-25: 0.0.1 called the first Rasteratops release in the RC ledger
 - **Severity:** Low
@@ -331,7 +331,7 @@ Each item gives the rung of `working-principles.md`'s ladder its statement sits 
 - **Can this be done on the VM?** No -- the tree, the tool or the register shows it (brief § 5)
 - **Already written:** --
 - **Acceptance:** L-25's check line (brief § 3) prints the corrected line or nothing after its disposition lands, or the owner's issue carries it
-- **Tracked:** stage D
+- **Tracked:** #1406
 
 ## PL-26: two stale acceptances kept as the record
 - **Severity:** Low
@@ -344,7 +344,7 @@ Each item gives the rung of `working-principles.md`'s ladder its statement sits 
 - **Can this be done on the VM?** No -- the tree, the tool or the register shows it (brief § 5)
 - **Already written:** --
 - **Acceptance:** L-26's check line (brief § 3) prints the corrected line or nothing after its disposition lands, or the owner's issue carries it
-- **Tracked:** stage D
+- **Tracked:** #1406
 
 ## PL-27: the upstream-series map names two deleted paths
 - **Severity:** Low
@@ -357,7 +357,7 @@ Each item gives the rung of `working-principles.md`'s ladder its statement sits 
 - **Can this be done on the VM?** No -- the tree, the tool or the register shows it (brief § 5)
 - **Already written:** --
 - **Acceptance:** L-27's check line (brief § 3) prints the corrected line or nothing after its disposition lands, or the owner's issue carries it
-- **Tracked:** stage D
+- **Tracked:** #1406
 
 ## PL-28: the plan says it exists on next; next has no docs/reviews/
 - **Severity:** Low
@@ -370,7 +370,7 @@ Each item gives the rung of `working-principles.md`'s ladder its statement sits 
 - **Can this be done on the VM?** No -- the tree, the tool or the register shows it (brief § 5)
 - **Already written:** --
 - **Acceptance:** L-28's check line (brief § 3) prints the corrected line or nothing after its disposition lands, or the owner's issue carries it
-- **Tracked:** stage D
+- **Tracked:** #1406
 
 ## PL-29: a preliminary slice number in the order
 - **Severity:** Low
@@ -383,7 +383,7 @@ Each item gives the rung of `working-principles.md`'s ladder its statement sits 
 - **Can this be done on the VM?** No -- the tree, the tool or the register shows it (brief § 5)
 - **Already written:** --
 - **Acceptance:** L-29's check line (brief § 3) prints the corrected line or nothing after its disposition lands, or the owner's issue carries it
-- **Tracked:** stage D
+- **Tracked:** #1406
 
 ## PL-30: current release records under the retired name's folder
 - **Severity:** Low
@@ -396,7 +396,7 @@ Each item gives the rung of `working-principles.md`'s ladder its statement sits 
 - **Can this be done on the VM?** No -- the tree, the tool or the register shows it (brief § 5)
 - **Already written:** --
 - **Acceptance:** L-30's check line (brief § 3) prints the corrected line or nothing after its disposition lands, or the owner's issue carries it
-- **Tracked:** stage D
+- **Tracked:** #1406
 
 ## PL-31: the fork's GENERIC_X64 emulator table has drifted and has no generator
 - **Severity:** Low
@@ -409,7 +409,7 @@ Each item gives the rung of `working-principles.md`'s ladder its statement sits 
 - **Can this be done on the VM?** No -- the tree, the tool or the register shows it (brief § 5)
 - **Already written:** --
 - **Acceptance:** L-31's check line (brief § 3) prints the corrected line or nothing after its disposition lands, or the owner's issue carries it
-- **Tracked:** stage D
+- **Tracked:** #1406
 
 ## PL-32: the most-cited map, cited by line by open issues
 - **Severity:** Low
@@ -422,7 +422,7 @@ Each item gives the rung of `working-principles.md`'s ladder its statement sits 
 - **Can this be done on the VM?** No -- the tree, the tool or the register shows it (brief § 5)
 - **Already written:** --
 - **Acceptance:** L-32's check line (brief § 3) prints the corrected line or nothing after its disposition lands, or the owner's issue carries it
-- **Tracked:** stage D
+- **Tracked:** #1406
 
 ## PL-33: two open issues cite a document the tree lacks
 - **Severity:** Low
@@ -435,7 +435,7 @@ Each item gives the rung of `working-principles.md`'s ladder its statement sits 
 - **Can this be done on the VM?** No -- the tree, the tool or the register shows it (brief § 5)
 - **Already written:** --
 - **Acceptance:** L-33's check line (brief § 3) prints the corrected line or nothing after its disposition lands, or the owner's issue carries it
-- **Tracked:** stage D
+- **Tracked:** #1406
 
 ## PL-34: register rows describe a series D-WORKFLOW-084 ended
 - **Severity:** Low
@@ -448,7 +448,7 @@ Each item gives the rung of `working-principles.md`'s ladder its statement sits 
 - **Can this be done on the VM?** No -- the tree, the tool or the register shows it (brief § 5)
 - **Already written:** --
 - **Acceptance:** L-34's check line (brief § 3) prints the corrected line or nothing after its disposition lands, or the owner's issue carries it
-- **Tracked:** stage D
+- **Tracked:** #1406
 
 ## PL-35: a docs/** glob loads a device rule for any record
 - **Severity:** Low
@@ -461,7 +461,7 @@ Each item gives the rung of `working-principles.md`'s ladder its statement sits 
 - **Can this be done on the VM?** No -- the tree, the tool or the register shows it (brief § 5)
 - **Already written:** --
 - **Acceptance:** L-35's check line (brief § 3) prints the corrected line or nothing after its disposition lands, or the owner's issue carries it
-- **Tracked:** stage D
+- **Tracked:** #1406
 
 ## PL-36: two documents or three that load nowhere
 - **Severity:** Low
@@ -474,7 +474,7 @@ Each item gives the rung of `working-principles.md`'s ladder its statement sits 
 - **Can this be done on the VM?** No -- the tree, the tool or the register shows it (brief § 5)
 - **Already written:** --
 - **Acceptance:** L-36's check line (brief § 3) prints the corrected line or nothing after its disposition lands, or the owner's issue carries it
-- **Tracked:** stage D
+- **Tracked:** #1406
 
 ## PL-37: an area sentence untrue of this slice
 - **Severity:** Low
@@ -487,7 +487,7 @@ Each item gives the rung of `working-principles.md`'s ladder its statement sits 
 - **Can this be done on the VM?** No -- the tree, the tool or the register shows it (brief § 5)
 - **Already written:** --
 - **Acceptance:** L-37's check line (brief § 3) prints the corrected line or nothing after its disposition lands, or the owner's issue carries it
-- **Tracked:** stage D
+- **Tracked:** #1406
 
 ## PL-38: citations no tool checks
 - **Severity:** Low
@@ -500,7 +500,7 @@ Each item gives the rung of `working-principles.md`'s ladder its statement sits 
 - **Can this be done on the VM?** No -- the tree, the tool or the register shows it (brief § 5)
 - **Already written:** --
 - **Acceptance:** L-38's check line (brief § 3) prints the corrected line or nothing after its disposition lands, or the owner's issue carries it
-- **Tracked:** stage D
+- **Tracked:** #1406
 
 ## PL-39: an open criterion on the versioning document
 - **Severity:** Low
@@ -513,7 +513,7 @@ Each item gives the rung of `working-principles.md`'s ladder its statement sits 
 - **Can this be done on the VM?** No -- the tree, the tool or the register shows it (brief § 5)
 - **Already written:** --
 - **Acceptance:** L-39's check line (brief § 3) prints the corrected line or nothing after its disposition lands, or the owner's issue carries it
-- **Tracked:** stage D
+- **Tracked:** #1406
 
 ## PL-40: a path word the machine retired
 - **Severity:** Low
@@ -526,7 +526,7 @@ Each item gives the rung of `working-principles.md`'s ladder its statement sits 
 - **Can this be done on the VM?** No -- the tree, the tool or the register shows it (brief § 5)
 - **Already written:** --
 - **Acceptance:** L-40's check line (brief § 3) prints the corrected line or nothing after its disposition lands, or the owner's issue carries it
-- **Tracked:** stage D
+- **Tracked:** #1406
 
 ## PL-41: upstream's generated tables, behind upstream
 - **Severity:** Low
@@ -539,7 +539,7 @@ Each item gives the rung of `working-principles.md`'s ladder its statement sits 
 - **Can this be done on the VM?** No -- the tree, the tool or the register shows it (brief § 5)
 - **Already written:** --
 - **Acceptance:** L-41's check line (brief § 3) prints the corrected line or nothing after its disposition lands, or the owner's issue carries it
-- **Tracked:** stage D
+- **Tracked:** #1406
 
 ## PL-42: an open checkbox against the licence file
 - **Severity:** Low
@@ -552,7 +552,7 @@ Each item gives the rung of `working-principles.md`'s ladder its statement sits 
 - **Can this be done on the VM?** No -- the tree, the tool or the register shows it (brief § 5)
 - **Already written:** --
 - **Acceptance:** L-42's check line (brief § 3) prints the corrected line or nothing after its disposition lands, or the owner's issue carries it
-- **Tracked:** stage D
+- **Tracked:** #1406
 
 ## PL-43: the licence statements disagree
 - **Severity:** Low
@@ -565,7 +565,7 @@ Each item gives the rung of `working-principles.md`'s ladder its statement sits 
 - **Can this be done on the VM?** No -- the tree, the tool or the register shows it (brief § 5)
 - **Already written:** --
 - **Acceptance:** L-43's check line (brief § 3) prints the corrected line or nothing after its disposition lands, or the owner's issue carries it
-- **Tracked:** stage D
+- **Tracked:** #1406
 
 ## PL-44: a licence upstream dropped for a licensing concern
 - **Severity:** Low
@@ -578,7 +578,7 @@ Each item gives the rung of `working-principles.md`'s ladder its statement sits 
 - **Can this be done on the VM?** No -- the tree, the tool or the register shows it (brief § 5)
 - **Already written:** --
 - **Acceptance:** L-44's check line (brief § 3) prints the corrected line or nothing after its disposition lands, or the owner's issue carries it
-- **Tracked:** stage D
+- **Tracked:** #1406
 
 ## PL-45: a qualified candidate's recorded licence bytes
 - **Severity:** Low
@@ -591,7 +591,7 @@ Each item gives the rung of `working-principles.md`'s ladder its statement sits 
 - **Can this be done on the VM?** No -- the tree, the tool or the register shows it (brief § 5)
 - **Already written:** --
 - **Acceptance:** L-45's check line (brief § 3) prints the corrected line or nothing after its disposition lands, or the owner's issue carries it
-- **Tracked:** stage D
+- **Tracked:** #1406
 
 ## PL-46: the contribution queue's drafts, read-only
 - **Severity:** Low
@@ -604,7 +604,7 @@ Each item gives the rung of `working-principles.md`'s ladder its statement sits 
 - **Can this be done on the VM?** No -- the tree, the tool or the register shows it (brief § 5)
 - **Already written:** --
 - **Acceptance:** L-46's check line (brief § 3) prints the corrected line or nothing after its disposition lands, or the owner's issue carries it
-- **Tracked:** stage D
+- **Tracked:** #1406
 
 ## Machine-readable index
 
@@ -616,7 +616,7 @@ punch_index:
   question: Q6
   source_finding: "L-01"
   disposition: "ledger: resolved at dispatch"
-  tracked: "stage D"
+  tracked: "#1406"
   outcome: "open"
 - id: PL-02
   severity: Medium
@@ -624,7 +624,7 @@ punch_index:
   question: Q3
   source_finding: "L-02"
   disposition: "fix"
-  tracked: "stage D"
+  tracked: "#1406; #1400"
   outcome: "open"
 - id: PL-03
   severity: Medium
@@ -632,7 +632,7 @@ punch_index:
   question: Q3
   source_finding: "L-03"
   disposition: "fix"
-  tracked: "stage D"
+  tracked: "#1406; #1401"
   outcome: "open"
 - id: PL-04
   severity: Medium
@@ -640,7 +640,7 @@ punch_index:
   question: Q3
   source_finding: "L-04"
   disposition: "fix"
-  tracked: "stage D"
+  tracked: "#1406; #1402"
   outcome: "open"
 - id: PL-05
   severity: Medium
@@ -648,7 +648,7 @@ punch_index:
   question: Q3
   source_finding: "L-05"
   disposition: "fix where NAMING.md decides the word"
-  tracked: "stage D"
+  tracked: "#1406; #1403"
   outcome: "open"
 - id: PL-06
   severity: Low
@@ -656,7 +656,7 @@ punch_index:
   question: Q4
   source_finding: "L-06"
   disposition: "fix"
-  tracked: "stage D"
+  tracked: "#1406"
   outcome: "open"
 - id: PL-07
   severity: Medium
@@ -664,7 +664,7 @@ punch_index:
   question: Q3
   source_finding: "L-07"
   disposition: "fix"
-  tracked: "stage D"
+  tracked: "#1406; #1404"
   outcome: "open"
 - id: PL-08
   severity: Low
@@ -672,7 +672,7 @@ punch_index:
   question: Q4
   source_finding: "L-08"
   disposition: "fix: the headings only"
-  tracked: "stage D"
+  tracked: "#1406"
   outcome: "open"
 - id: PL-09
   severity: Low
@@ -680,7 +680,7 @@ punch_index:
   question: Q4
   source_finding: "L-09"
   disposition: "fix"
-  tracked: "stage D"
+  tracked: "#1406"
   outcome: "open"
 - id: PL-10
   severity: Low
@@ -688,7 +688,7 @@ punch_index:
   question: Q7
   source_finding: "L-10"
   disposition: "fix"
-  tracked: "stage D"
+  tracked: "#1406"
   outcome: "open"
 - id: PL-11
   severity: Low
@@ -696,7 +696,7 @@ punch_index:
   question: Q7
   source_finding: "L-11"
   disposition: "fix in the edit scope"
-  tracked: "stage D"
+  tracked: "#1406"
   outcome: "open"
 - id: PL-12
   severity: Low
@@ -704,7 +704,7 @@ punch_index:
   question: Q5
   source_finding: "L-12"
   disposition: "fix: a banner"
-  tracked: "stage D"
+  tracked: "#1406"
   outcome: "open"
 - id: PL-13
   severity: Low
@@ -712,7 +712,7 @@ punch_index:
   question: Q6
   source_finding: "L-13"
   disposition: "fix: the repository named beside each page"
-  tracked: "stage D"
+  tracked: "#1406"
   outcome: "open"
 - id: PL-14
   severity: Low
@@ -720,7 +720,7 @@ punch_index:
   question: Q6
   source_finding: "L-14"
   disposition: "withdrawn as a defect: a Coverage `none`"
-  tracked: "stage D"
+  tracked: "#1406"
   outcome: "open"
 - id: PL-15
   severity: Low
@@ -728,7 +728,7 @@ punch_index:
   question: Q4
   source_finding: "L-15"
   disposition: "fix the pointer without moving a cited row"
-  tracked: "stage D"
+  tracked: "#1406"
   outcome: "open"
 - id: PL-16
   severity: Medium
@@ -736,7 +736,7 @@ punch_index:
   question: Q3
   source_finding: "L-16"
   disposition: "fix"
-  tracked: "stage D"
+  tracked: "#1406; #1405"
   outcome: "open"
 - id: PL-17
   severity: Low
@@ -744,7 +744,7 @@ punch_index:
   question: Q4
   source_finding: "L-17"
   disposition: "fix where a sentence contradicts a decided row and no screen change owns it"
-  tracked: "stage D"
+  tracked: "#1406"
   outcome: "open"
 - id: PL-18
   severity: Low
@@ -752,7 +752,7 @@ punch_index:
   question: Q5
   source_finding: "L-18"
   disposition: "fix: a dated first line where a record presents itself as current"
-  tracked: "stage D"
+  tracked: "#1406"
   outcome: "open"
 - id: PL-19
   severity: Low
@@ -760,7 +760,7 @@ punch_index:
   question: Q6
   source_finding: "L-19"
   disposition: "ledger"
-  tracked: "stage D"
+  tracked: "#1406"
   outcome: "open"
 - id: PL-20
   severity: Low
@@ -768,7 +768,7 @@ punch_index:
   question: Q6
   source_finding: "L-20"
   disposition: "ledger"
-  tracked: "stage D"
+  tracked: "#1406"
   outcome: "open"
 - id: PL-21
   severity: Low
@@ -776,7 +776,7 @@ punch_index:
   question: Q2
   source_finding: "L-21"
   disposition: "ledger"
-  tracked: "stage D"
+  tracked: "#1406"
   outcome: "open"
 - id: PL-22
   severity: Low
@@ -784,7 +784,7 @@ punch_index:
   question: Q4
   source_finding: "L-22"
   disposition: "fix where it misstates the present"
-  tracked: "stage D"
+  tracked: "#1406"
   outcome: "open"
 - id: PL-23
   severity: Low
@@ -792,7 +792,7 @@ punch_index:
   question: Q2
   source_finding: "L-23"
   disposition: "ledger"
-  tracked: "stage D"
+  tracked: "#1406"
   outcome: "open"
 - id: PL-24
   severity: Low
@@ -800,7 +800,7 @@ punch_index:
   question: Q1
   source_finding: "L-24"
   disposition: "ledger: one historical-plan row naming the superseding row"
-  tracked: "stage D"
+  tracked: "#1406"
   outcome: "open"
 - id: PL-25
   severity: Low
@@ -808,7 +808,7 @@ punch_index:
   question: Q2
   source_finding: "L-25"
   disposition: "inherit:coordinator"
-  tracked: "stage D"
+  tracked: "#1406"
   outcome: "open"
 - id: PL-26
   severity: Low
@@ -816,7 +816,7 @@ punch_index:
   question: Q4
   source_finding: "L-26"
   disposition: "ledger"
-  tracked: "stage D"
+  tracked: "#1406"
   outcome: "open"
 - id: PL-27
   severity: Low
@@ -824,7 +824,7 @@ punch_index:
   question: Q6
   source_finding: "L-27"
   disposition: "inherit:coordinator"
-  tracked: "stage D"
+  tracked: "#1406"
   outcome: "open"
 - id: PL-28
   severity: Low
@@ -832,7 +832,7 @@ punch_index:
   question: Q4
   source_finding: "L-28"
   disposition: "inherit:coordinator"
-  tracked: "stage D"
+  tracked: "#1406"
   outcome: "open"
 - id: PL-29
   severity: Low
@@ -840,7 +840,7 @@ punch_index:
   question: Q7
   source_finding: "L-29"
   disposition: "inherit:coordinator"
-  tracked: "stage D"
+  tracked: "#1406"
   outcome: "open"
 - id: PL-30
   severity: Low
@@ -848,7 +848,7 @@ punch_index:
   question: Q2
   source_finding: "L-30"
   disposition: "inherit:#509"
-  tracked: "stage D"
+  tracked: "#1406"
   outcome: "open"
 - id: PL-31
   severity: Low
@@ -856,7 +856,7 @@ punch_index:
   question: Q6
   source_finding: "L-31"
   disposition: "inherit:coordinator: a Backlog candidate, generate or drop"
-  tracked: "stage D"
+  tracked: "#1406"
   outcome: "open"
 - id: PL-32
   severity: Low
@@ -864,7 +864,7 @@ punch_index:
   question: Q4
   source_finding: "L-32"
   disposition: "inherit:the interface lanes"
-  tracked: "stage D"
+  tracked: "#1406"
   outcome: "open"
 - id: PL-33
   severity: Low
@@ -872,7 +872,7 @@ punch_index:
   question: Q6
   source_finding: "L-33"
   disposition: "inherit:coordinator"
-  tracked: "stage D"
+  tracked: "#1406"
   outcome: "open"
 - id: PL-34
   severity: Low
@@ -880,7 +880,7 @@ punch_index:
   question: Q4
   source_finding: "L-34"
   disposition: "inherit:coordinator"
-  tracked: "stage D"
+  tracked: "#1406"
   outcome: "open"
 - id: PL-35
   severity: Low
@@ -888,7 +888,7 @@ punch_index:
   question: Q5
   source_finding: "L-35"
   disposition: "inherit:coordinator"
-  tracked: "stage D"
+  tracked: "#1406"
   outcome: "open"
 - id: PL-36
   severity: Low
@@ -896,7 +896,7 @@ punch_index:
   question: Q7
   source_finding: "L-36"
   disposition: "inherit:coordinator"
-  tracked: "stage D"
+  tracked: "#1406"
   outcome: "open"
 - id: PL-37
   severity: Low
@@ -904,7 +904,7 @@ punch_index:
   question: Q4
   source_finding: "L-37"
   disposition: "inherit:coordinator: the erratum is present"
-  tracked: "stage D"
+  tracked: "#1406"
   outcome: "open"
 - id: PL-38
   severity: Low
@@ -912,7 +912,7 @@ punch_index:
   question: Q4
   source_finding: "L-38"
   disposition: "inherit:#947"
-  tracked: "stage D"
+  tracked: "#1406"
   outcome: "open"
 - id: PL-39
   severity: Low
@@ -920,7 +920,7 @@ punch_index:
   question: Q4
   source_finding: "L-39"
   disposition: "inherit:#1013"
-  tracked: "stage D"
+  tracked: "#1406"
   outcome: "open"
 - id: PL-40
   severity: Low
@@ -928,7 +928,7 @@ punch_index:
   question: Q2
   source_finding: "L-40"
   disposition: "inherit:coordinator"
-  tracked: "stage D"
+  tracked: "#1406"
   outcome: "open"
 - id: PL-41
   severity: Low
@@ -936,7 +936,7 @@ punch_index:
   question: Q4
   source_finding: "L-41"
   disposition: "inherit:the next upstream base merge"
-  tracked: "stage D"
+  tracked: "#1406"
   outcome: "open"
 - id: PL-42
   severity: Low
@@ -944,7 +944,7 @@ punch_index:
   question: Q4
   source_finding: "L-42"
   disposition: "inherit:coordinator"
-  tracked: "stage D"
+  tracked: "#1406"
   outcome: "open"
 - id: PL-43
   severity: Low
@@ -952,7 +952,7 @@ punch_index:
   question: Q2
   source_finding: "L-43"
   disposition: "inherit:#528"
-  tracked: "stage D"
+  tracked: "#1406"
   outcome: "open"
 - id: PL-44
   severity: Low
@@ -960,7 +960,7 @@ punch_index:
   question: Q1
   source_finding: "L-44"
   disposition: "inherit:#528"
-  tracked: "stage D"
+  tracked: "#1406"
   outcome: "open"
 - id: PL-45
   severity: Low
@@ -968,7 +968,7 @@ punch_index:
   question: Q4
   source_finding: "L-45"
   disposition: "inherit:#528"
-  tracked: "stage D"
+  tracked: "#1406"
   outcome: "open"
 - id: PL-46
   severity: Low
@@ -976,7 +976,7 @@ punch_index:
   question: Q4
   source_finding: "L-46"
   disposition: "inherit:#585"
-  tracked: "stage D"
+  tracked: "#1406"
   outcome: "open"
 ```
 

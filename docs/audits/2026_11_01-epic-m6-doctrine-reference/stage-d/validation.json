@@ -1,0 +1,138 @@
+[
+  {
+    "name": "work-log-index-write",
+    "command": [
+      "tools/work-log-index",
+      "--write"
+    ],
+    "started_at": "2026-11-02T16:48:25.473744+00:00",
+    "rc": 0
+  },
+  {
+    "name": "checkbox-1400",
+    "command": [
+      "tools/box-check",
+      "--issue",
+      "1400"
+    ],
+    "started_at": "2026-11-02T16:48:25.502658+00:00",
+    "rc": 0
+  },
+  {
+    "name": "checkbox-1401",
+    "command": [
+      "tools/box-check",
+      "--issue",
+      "1401"
+    ],
+    "started_at": "2026-11-02T16:48:26.029615+00:00",
+    "rc": 0
+  },
+  {
+    "name": "checkbox-1402",
+    "command": [
+      "tools/box-check",
+      "--issue",
+      "1402"
+    ],
+    "started_at": "2026-11-02T16:48:26.494732+00:00",
+    "rc": 0
+  },
+  {
+    "name": "checkbox-1403",
+    "command": [
+      "tools/box-check",
+      "--issue",
+      "1403"
+    ],
+    "started_at": "2026-11-02T16:48:26.916667+00:00",
+    "rc": 0
+  },
+  {
+    "name": "checkbox-1404",
+    "command": [
+      "tools/box-check",
+      "--issue",
+      "1404"
+    ],
+    "started_at": "2026-11-02T16:48:27.326233+00:00",
+    "rc": 0
+  },
+  {
+    "name": "checkbox-1405",
+    "command": [
+      "tools/box-check",
+      "--issue",
+      "1405"
+    ],
+    "started_at": "2026-11-02T16:48:27.739906+00:00",
+    "rc": 0
+  },
+  {
+    "name": "checkbox-1406",
+    "command": [
+      "tools/box-check",
+      "--issue",
+      "1406"
+    ],
+    "started_at": "2026-11-02T16:48:28.161945+00:00",
+    "rc": 0
+  },
+  {
+    "name": "lint-pre-issue",
+    "command": [
+      "tools/lint-audit-artifacts",
+      "docs/audits/2026_11_01-epic-m6-doctrine-reference",
+      "--phase",
+      "pre-issue",
+      "--issue",
+      "1406"
+    ],
+    "started_at": "2026-11-02T16:48:28.661629+00:00",
+    "rc": 0
+  },
+  {
+    "name": "rules-check",
+    "command": [
+      "tools/rules-check"
+    ],
+    "started_at": "2026-11-02T16:48:29.146654+00:00",
+    "rc": 0
+  },
+  {
+    "name": "register-check",
+    "command": [
+      "tools/register-check"
+    ],
+    "started_at": "2026-11-02T16:48:29.168307+00:00",
+    "rc": 0
+  },
+  {
+    "name": "work-log-index-check",
+    "command": [
+      "tools/work-log-index",
+      "--check"
+    ],
+    "started_at": "2026-11-02T16:48:30.701013+00:00",
+    "rc": 0
+  },
+  {
+    "name": "ceremony-check",
+    "command": [
+      "tools/ceremony-check",
+      "--gate"
+    ],
+    "started_at": "2026-11-02T16:48:30.722406+00:00",
+    "rc": 0
+  },
+  {
+    "name": "diff-check",
+    "command": [
+      "git",
+      "diff",
+      "--check"
+    ],
+    "started_at": "2026-11-02T16:48:38.704216+00:00",
+    "rc": 0
+  }
+]

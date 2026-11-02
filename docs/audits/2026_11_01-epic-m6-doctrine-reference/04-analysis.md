@@ -705,3 +705,12 @@ depth `local` and `tier_exception` `D-WORKFLOW-184`.
 | a fix landed at stage B | none: `git status --short` was empty for the 254 at each stage-B session's end |
 | unverified items | marked (L-13, L-17, L-24), each with what would settle it |
 | the lane's own errors | recorded: the 417-dead probe, the case-sensitive `errat`, and the four artifacts missing from the first stage-B checkpoint |
+
+
+## Stage-D filing addendum -- 2026-11-02
+
+Audit [#1406](https://github.com/pixelelated/distribution/issues/1406) tracks all 46 items (six Medium, 40 Low). The historical scorecard and identity above describe their own stages; 06-audit-summary.md carries the current Stage-D scorecard and the accepted generated counts. All outcomes remain open.
+
+The two questions are posted as [6582760931](https://github.com/pixelelated/distribution/issues/686#issuecomment-6582760931) and [6582762282](https://github.com/pixelelated/distribution/issues/686#issuecomment-6582762282). Question 2 now uses the accepted Q5 count of 33 files / 2,770 lines (population 70, 69 table rows), superseding the preliminary 17 / 2,135 research subset above. Low inbound measures repository references, not actual readership. Posted wording and readback are in 07 and stage-d/question-readbacks.json.
+
+Codex / GPT-6-Astra / xhigh; session 01a19d12-0c07-7ba3-88b8-ab9d609f4d67; Herdr T1 wN:p4. Historical primary.model remains unchanged; this author performed Stage-D filing, not the earlier review. No A–C test was repeated. Await the coordinator's stream brief before Stage E.

@@ -728,3 +728,24 @@ Named here at its `file:line`, read at stages A-C, never edited by the lane (§ 
   - `L-39` (`docs/releases/versioning.md:1-95` -- `#1013`'s open criterion on `emulationstation` stamp/versioning).
 - **the next upstream base merge:**
   - `L-41` (`documentation/PER_DEVICE_DOCUMENTATION/*/SUPPORTED_EMULATORS_AND_CORES.md`, 13 of 15 upstream-carried tables behind `upstream/next` `651150fc88`).
+
+
+## Stage-D issue and question routing -- 2026-11-02
+
+Audit: [#1406](https://github.com/pixelelated/distribution/issues/1406), real sub-issue of #686, M6. All 46 outcomes remain open; the six bugs remain reactive, milestone-less and without parents.
+
+| Lead | Stage-D record |
+| --- | --- |
+| L-16 | Bug [#1405](https://github.com/pixelelated/distribution/issues/1405); accepted trace and criterion retained in stage-d/issues/bug-L-16.md |
+| L-02 | Bug [#1400](https://github.com/pixelelated/distribution/issues/1400); accepted trace and criterion retained in stage-d/issues/bug-L-02.md |
+| L-03 | Bug [#1401](https://github.com/pixelelated/distribution/issues/1401); accepted trace and criterion retained in stage-d/issues/bug-L-03.md |
+| L-04 | Bug [#1402](https://github.com/pixelelated/distribution/issues/1402); accepted trace and criterion retained in stage-d/issues/bug-L-04.md |
+| L-05 | Bug [#1403](https://github.com/pixelelated/distribution/issues/1403); accepted trace and criterion retained in stage-d/issues/bug-L-05.md |
+| L-07 | Bug [#1404](https://github.com/pixelelated/distribution/issues/1404); accepted trace and criterion retained in stage-d/issues/bug-L-07.md |
+| L-08 | Journal placement question [6582760931](https://github.com/pixelelated/distribution/issues/686#issuecomment-6582760931); coordinator disposition awaited |
+| L-12 | Low-inbound disposition question [6582762282](https://github.com/pixelelated/distribution/issues/686#issuecomment-6582762282); accepted Q5: 33 files / 2,770 lines; coordinator disposition awaited |
+| L-13 | Low-inbound disposition question [6582762282](https://github.com/pixelelated/distribution/issues/686#issuecomment-6582762282); accepted Q5: 33 files / 2,770 lines; coordinator disposition awaited |
+| L-18 | Low-inbound disposition question [6582762282](https://github.com/pixelelated/distribution/issues/686#issuecomment-6582762282); accepted Q5: 33 files / 2,770 lines; coordinator disposition awaited |
+| L-22 | #511 readback through comment 6129207059 describes private design planning, not current remotes; remains conditional for the stream brief / #511 owner |
+
+Question IDs and exact posted bodies were read back through the GitHub comments API and retained in stage-d/question-readbacks.json. 06/07 and stage-d/ hold the filing/checkpoint records; they do not replace the 12 accepted A–C proofs or claim a fix. Stage D's checks validate the new records only.

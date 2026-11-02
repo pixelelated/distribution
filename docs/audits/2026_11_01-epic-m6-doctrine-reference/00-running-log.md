@@ -153,3 +153,26 @@ PROOF: 05:30 UTC `tools/lint-audit-artifacts docs/audits/2026_11_01-epic-m6-doct
 - At 15:08 UTC 2026-11-02, the owner switched the Antigravity CLI harness model to **Gemini 4 Argon (High)** (read from the harness itself) and asked every lane to stash all work cleanly in git and push to `origin` so sessions can resume in a new harness.
 - Updated `second-opinions/review-plan.json` (`harness` and `identity_source` recording the 15:08 UTC switch to Gemini 4 Argon (High)), `02-forward-audit.md` (§ The table's `COUNTS TABLE` line, § The identity words, § The retired names, § The runs, § Proofs with 12 `proved:` cells matching the 12 `^PROOF:` lines here, § The § 1 rulings `(a)` to `(q)`, and § What the coordinator and the next slices inherit), this running log, the archived/updated session pointer, and the 2026-11-02 work log.
 - **Stage-C census:** `git status --short` for the 254 is empty (no fix to any of the 254 at stage C). No build, no compiler, no guest, no fetch, no council, Facilitator or keyed call, no held directory opened, no `--write` of a generated file (`tools/work-log-index --write` excepted). The export `/workspace/tmp/m6-t39/export/` (254 files) remains intact for stages D-H and is retired at stage H. No line written to `/workspace/tmp/m7-m6-host-coordination.txt` or to #807.
+
+
+## 16:47 UTC -- Stage D: accepted evidence filed, new identity appended (#686)
+
+Codex / GPT-6-Astra / xhigh; session 01a19d12-0c07-7ba3-88b8-ab9d609f4d67; Herdr T1 wN:p4.
+
+Read the full Stage-C acceptance 6582545265 at c61bcdcb5f2de47dfa35ac25776965e77f962914. No A-C tests or reviews repeated. The initial recovery observed a clean assigned tree. Read the coordinator's newer M6 rules and the code-auditor Stage-5/6 contract. The historical launch tree was not edited.
+
+- GitHub duplicate searches before filing found no matching T39 audit or matching documentation bug. Unrelated hits #810, #109 and #1095 were excluded by subject. Milestone API read: 6, M6: Codebase renovation, open; audit/bug/punch-list labels exist. The connector could not fetch the milestone resource, so the repository CLI read it.
+- New content guards: the first ad-hoc wrapper exited 1 without completing under shell errexit; rerun with the guard's supported status handling returned 0 for all eight bug/question drafts and the audit draft. No A-C suite was invoked.
+- Filed audit #1406 (46 unchecked items) with labels audit,punch-list and milestone 6; attached it beneath #686 through the sub-issue API. Filed bugs #1400-#1405 for L-02/03/04/05/07/16, with no milestone or parent. Bodies are retained in stage-d/issues/.
+- Posted questions 6582760931 and 6582762282 on #686 and read both bodies back (stage-d/question-readbacks.json). The second uses accepted Q5's 33 files / 2,770 lines. #511 was read through 6129207059; it does not settle current remote configuration, so L-22 remains conditional.
+- Wrote 06/07, appended tracking to 02/04/05, preserved all outcomes as open and historical primary.model, and appended observed identity. The coordinator received a substantive Herdr update at wN:p2.
+- New record validation is retained in stage-d/checkers/ and stage-d/validation.json. Normal commit/push hygiene checks apply to this new packet; accepted A-C evidence is retained without replay.
+
+Stage-D boundary: no source fix, runtime allocation, guest, compile, physical/cloud action, host-log write, fetch, provider/Facilitator call, held-directory read or direct credential/wordlist read. The existing export /workspace/tmp/m6-t39/export/ remains for later stages and is retired at H. The next action belongs to the coordinator: t39-streams.md, then an explicit Stage-E dispatch.
+
+
+### Stage-D record validation -- 16:49:41 UTC
+
+All new issue bodies matched their submitted files on readback. Audit #1406 is an M6 child of #686; the six bug issues have no milestone or parent. All seven box-check runs exit 0 (six one-checkbox bugs and the 46-checkbox audit; 0 fail). The updated packet pre-issue lint with --issue 1406 exits 0: PASS pre-issue artifacts (does not certify resolution). rules-check (30 files), register-check (716 IDs), work-log-index --check, ceremony-check --gate and git diff --check all exit 0. Commands and timestamps: stage-d/validation.json; individual outputs: stage-d/checkers/.
+
+The Stage-D diff-scope check permits only 00/02/04/05/review-plan tracking, 06/07 and stage-d/, the session pointer and this lane's work-log/index update. It passes; all 46 outcomes remain open and historical primary.model remains anthropic/claude-opus-4-8. No A-C receipt or audit tool changed. Commit hooks and push will validate the final staged packet; the checkpoint records their result.

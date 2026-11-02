@@ -17,6 +17,18 @@
 
 ## Current focus
 
+**2026-11-02 16:47 UTC -- Stage D packet complete; pause for the coordinator's stream brief.**
+
+- Stage C accepted at c61bcdcb5f2de47dfa35ac25776965e77f962914 by comment 6582545265; historical checkpoint 6580794498. No A-C replay.
+- Current author: Codex / GPT-6-Astra / xhigh; session 01a19d12-0c07-7ba3-88b8-ab9d609f4d67; Herdr T1 wN:p4. Historical A-C identity below and primary.model in review-plan.json are preserved; Stage-D identity is appended.
+- Audit [#1406](https://github.com/pixelelated/distribution/issues/1406), real child of #686, M6, 46 open findings. Six reactive bugs: #1400 (L-02), #1401 (L-03), #1402 (L-04), #1403 (L-05), #1404 (L-07), #1405 (L-16).
+- Questions on #686: 6582760931 (journal), 6582762282 (low-inbound documents). Exact bodies/readbacks in audit stage-d/.
+- Current artifacts: audit 06-audit-summary.md, 07-questions-for-the-maintainer.md, updated 00/02/04/05 and review-plan.json, stage-d/ filing and validation receipts. All findings remain open.
+- Next owner/action: m6-coordinator wN:p2 writes docs/reviews/briefs/t39-streams.md and supplies the Stage-E dispatch. Do not author that brief or begin Stage E. L-17 remains unverified/conditional; L-22 remains conditional after the #511 comment read.
+- No runtime or host-log allocation; no physical/cloud action; no source fix or historical launch-tree edit. Local depth unchanged. Commit/push and the #686 Stage-D checkpoint identify this packet's final tip.
+
+### Historical A-C checkpoint text (retained; next-step instructions below are superseded by the Stage-D pause)
+
 **2026-11-02 15:18 UTC -- stage C complete and stashed; ready for stage D on resume.**
 Prior pointer archived at `.github/sessions/archived/saved-session-state-feature-m6-doctrine-reference-686-20261102T052127Z.md`.
 - **Model & harness history:**
@@ -98,7 +110,7 @@ and `git status --short` is read before every `git add`; temporary files under
 `/workspace/tmp/m6-t39/`, never `/tmp`. No network beyond
 `gh --repo pixelelated/distribution` reads and the lane's own posts.
 
-## Next commands
+## Historical recovery commands (A-C; do not replay)
 
 ```bash
 D=/workspace/repos/pixelelated/distribution.worktrees/m6-doctrine-reference-686
@@ -142,3 +154,5 @@ or the pins.
 - Stage B -- 2026-11-01 06:59:45 UTC -- tip 86ebb6dffc (the dispatch merge); this commit carries 02-forward-audit.md (§ The table, 46 leads; § Binaries 31; § Art bytes 18; the probes and § The runs), 01 § Read order + § The reader's pass, 00's stage-B section (8 PROOF lines) and the #686 work-log entry; no fix to any of the 254; checkpoint posted on #686.
 - Stage B completion -- 2026-11-02 05:21 UTC -- tip 2d09ed5c4d; this commit carries 03-retrospective.md, 04-analysis.md, stage-a/, stage-b/, 00's entry (the model switch), 02's R3 C24 inherited row and the #686 work-log entry; no fix to any of the 254; short checkpoint posted on #686.
 - Stage C (and session stash) -- 2026-11-02 15:18 UTC -- base tip 3f241300f0; this commit carries tools/{t39-checks.sh,t39-checks.py,t39-tables.py,t39-tables-drift.sh,t39-punch.py,allow-legit.txt,allow-inherited.txt,allow-findings.txt}, second-opinions/review-plan.json, stage-c/, 02-forward-audit.md (§ Coverage 254, § Binaries 31, § Art bytes 18, § The identity words, § The retired names, § The runs, § Proofs 12 rows, § The § 1 rulings (a)-(q), § What the coordinator and the next slices inherit), 04-analysis.md (§ Q4, § Q5, § Q6), 05-punch-list.md (46 items), 00's stage-C section, the archived and updated session pointer, and the #686 work-log entry; no fix to any of the 254; checkpoint posted on #686.
+
+- Stage D -- 2026-11-02 16:47 UTC -- based on accepted c61bcdcb5f: audit #1406; bugs #1400-#1405; questions 6582760931/6582762282; 06/07 and stage-d/ plus tracking, identity and pointer updates. Await coordinator stream brief; no source fix or runtime. The Stage-D checkpoint on #686 names the pushed tip.
