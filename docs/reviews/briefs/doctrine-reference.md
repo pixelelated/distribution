@@ -1771,6 +1771,16 @@ restated here. What is this slice's:
 
 ## 10. Hand-back, the pointer, the host, the stops and what never runs
 
+**2026-11-02 final integration erratum (D-WORKFLOW-229):** the precise
+replacements for § 5/§ 7 criteria 5/12/24 and this section's blanket replay
+procedure are in
+`docs/qa-logs/2026-11-02-m6-resume/t39-final-acceptance-contract.md`.
+Exact authorized coordinator ancestry is distinguished from lane edits,
+with an independent final-byte comparison; coordinator host-log mentions
+are attributed, not suppressed. Accepted stage evidence is reconciled and
+new final integration gates execute. The original wording below remains
+historical and is not claimed to pass unchanged.
+
 **The hand-back.** The coordinator accepts by reading, in this order, without
 re-reviewing: #686's checkboxes against their artifacts; the lint's `PASS`
 line on the default phase and with `--issue`; `review-plan.json` (Local, no

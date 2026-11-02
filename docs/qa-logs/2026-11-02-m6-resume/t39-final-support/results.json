@@ -1,0 +1,1046 @@
+{
+  "identity": "Codex / OpenAI; session 01a19d11-dda5-72e3-86f9-416f36341c24; wN:p3 m6-p1-survey",
+  "refs": {
+    "tip": "4eb5dfab8e745914a55e7de3e5a43c5b91ebc608",
+    "reviewed": "86ebb6dffce7bec2dda6296bd84dd225a28b1347",
+    "coordinator": "329011b9eae20922b4d0727e13bf1626b2e1c04f",
+    "merge": "24a5e0e294607bc6fc99025873cb063d26c9a4da",
+    "accepted_ad": "96ef183aae39da587e5dc51d19d7c1fc9e850704"
+  },
+  "merge_parents": [
+    "ad5516f6603509954d241e62585b22d32402b03c",
+    "329011b9eae20922b4d0727e13bf1626b2e1c04f"
+  ],
+  "history": {
+    "unfiltered_count": 46,
+    "lane_count": 16,
+    "imported_count": 30,
+    "lane_commits": [
+      "4eb5dfab8e745914a55e7de3e5a43c5b91ebc608",
+      "ad5516f6603509954d241e62585b22d32402b03c",
+      "cccb14daf484d19eeed5a040566b38ba5701baaa",
+      "de11515859d231a82a511c3867e12211190041a2",
+      "a2d4a33d4aa310d78c1b5c23b5bcdcd93f8ffe89",
+      "895b90abcf44e62d3aa7339eba043cfe01e9b98e",
+      "424eea28ecbfaa8fbbe49cdee6c99750becd13cf",
+      "de40e931a469f6aa6889f08ec9d4d31266f4c6d4",
+      "79866517db8601a5d2976f0d98d9dbf1886962df",
+      "96ef183aae39da587e5dc51d19d7c1fc9e850704",
+      "c61bcdcb5f2de47dfa35ac25776965e77f962914",
+      "3f241300f03d32c25283cb2c18c36d04baefa66d",
+      "2d09ed5c4d80240b46e7f538efb38b5ae1bb28b6",
+      "f60c2c08bffeee245c3af8c89677818bd440a040",
+      "f2f5342ce4497d0e76c181f779f5b6079050beaa",
+      "f469acc7c8b8c7f40efda8e1ae6277684f59f5df"
+    ]
+  },
+  "criterion5_protected_diff_stat": " docs/reviews/briefs/doctrine-reference.md     |   32 +\n docs/reviews/briefs/doctrine-skills.md        |    9 +\n docs/reviews/briefs/patches-shipped-kernel.md | 2318 +++++++++++++++++++++++++\n docs/reviews/briefs/patches-shipped.md        |  344 ++++\n docs/reviews/briefs/t38-streams.md            |    9 +\n docs/reviews/briefs/t39-streams.md            |  344 ++++\n 6 files changed, 3056 insertions(+)\n",
+  "criterion5_protected_paths": [
+    "docs/reviews/briefs/doctrine-reference.md",
+    "docs/reviews/briefs/doctrine-skills.md",
+    "docs/reviews/briefs/patches-shipped-kernel.md",
+    "docs/reviews/briefs/patches-shipped.md",
+    "docs/reviews/briefs/t38-streams.md",
+    "docs/reviews/briefs/t39-streams.md"
+  ],
+  "criterion12_unfiltered_commits": [
+    "329011b9eae20922b4d0727e13bf1626b2e1c04f",
+    "07d01c898fba867e042342017fd8d5257508a28c",
+    "7f25f9f78b3da3a6b2c893397b58a3ce5a04be75",
+    "b6332dbc13f5929f05ec5ba23c44285c5ee56b38",
+    "4c8a118cfb4efa8d13c1b41b72ef7a205da5f766",
+    "9313492990eb52b70f7ab17fbca0b9b4c13806f8",
+    "6a4981eb18ea40efae45ab773807e5f603f64401",
+    "b29877a3540412495fc8e3c6d1218442d618a986",
+    "019e8263155571f96c253d37854b4f7ff0ad9347",
+    "7d70da59722279f3b1bb22370b243c9de2b8b83c"
+  ],
+  "criterion12_excluding_coordinator": [],
+  "criterion13_unfiltered_commits": [],
+  "removed_register_lines": 0,
+  "source": {
+    "manifest_count": 48,
+    "sha_mismatch": [],
+    "mode_blob_mismatch_F_merge_final": [],
+    "source_rows_by_stream": {
+      "S1": 3,
+      "S2": 4,
+      "S3": 5,
+      "S5": 29,
+      "S4": 12
+    },
+    "changed_membership_paths": 48,
+    "changed_membership_outside_manifest": [],
+    "final_vs_coordinator_membership": [
+      "README.md",
+      "docs/backup-contents.md",
+      "docs/cloud-save-integrity.md",
+      "docs/cloud-vocabulary-audit.md",
+      "docs/council-limits.md",
+      "docs/council-mistral-counter.md",
+      "docs/device-flashing-runbook.md",
+      "docs/device-testing-policy.md",
+      "docs/es-menu-map.md",
+      "docs/pixelelated/cloud-folder-flow-review.md",
+      "docs/pixelelated/cloud-folders.md",
+      "docs/pixelelated/site-plan.md",
+      "docs/pr-series/es-review-guide.md",
+      "docs/ra-offline/2026_09_13-phase-1-design-note.md",
+      "docs/ra-offline/rocknix-org-offline-achievements.md",
+      "docs/rasteratops/candidate-source-plan.md",
+      "docs/rasteratops/cloud-layout.md",
+      "docs/rasteratops/cloud-provider-2026-09-30.md",
+      "docs/rasteratops/p0-read.md",
+      "docs/rasteratops/p0-sweep.md",
+      "docs/rasteratops/release-readiness.md",
+      "docs/rasteratops/support-matrix.md",
+      "docs/releases/0.0.1-release-preparation.md",
+      "docs/releases/device-facts.md",
+      "docs/releases/next-candidate-scope.md",
+      "docs/releases/next-candidate-work.md",
+      "docs/releases/pr/01-build.md",
+      "docs/releases/pr/02-generic-x64.md",
+      "docs/releases/pr/03-evidence.md",
+      "docs/releases/pr/04-settings.md",
+      "docs/releases/pr/05-network.md",
+      "docs/releases/pr/06-retroachievements.md",
+      "docs/releases/pr/07-cloud-setup.md",
+      "docs/releases/pr/08-saves.md",
+      "docs/releases/pr/09-retroarch.md",
+      "docs/releases/pr/10-es-pin.md",
+      "docs/releases/pr/11-interface.md",
+      "docs/releases/rc1-20260929-release-note.md",
+      "docs/releases/rc2-20260929-release-note.md",
+      "docs/releases/rocknix-org-pr-cloud-sync-wifi-achievements.md",
+      "docs/releases/versioning.md",
+      "docs/rules-sweep-2026-09-12.md",
+      "docs/save-history-gap-analysis.md",
+      "docs/save-history-plan-delta.md",
+      "docs/save-history-serial-model-addendum.md",
+      "docs/save-manifest-alignment-review.md",
+      "docs/savestate-compat-test.md",
+      "docs/technical-appendix-cloud-sync-and-offline-achievements.md"
+    ]
+  },
+  "protected": {
+    "count": 49,
+    "classes": {
+      "binaries": 31,
+      "art": 18
+    },
+    "mode_blob_mismatch": [],
+    "recorded_hash_mismatch": []
+  },
+  "accepted_preservation": {
+    "count": 125,
+    "missing_changed": [
+      "docs/audits/2026_11_01-epic-m6-doctrine-reference/second-opinions/review-plan.json"
+    ],
+    "added": []
+  },
+  "outcomes": {
+    "count": 46,
+    "counts": {
+      "Withdrawn": 9,
+      "Resolved": 15,
+      "Deferred": 22
+    },
+    "missing_gate": [],
+    "live_checkboxes": {
+      "x": 24,
+      " ": 22
+    },
+    "live_outcome_mismatch": []
+  },
+  "q5": {
+    "rows": 33,
+    "lines": 2770,
+    "decisions": {
+      "reuse S2 status without duplicate notice": 3,
+      "add separate status; original content unchanged": 29,
+      "table-only; unchanged under D-WORKFLOW-220": 1
+    }
+  },
+  "proofs": {
+    "forward": 28,
+    "log": 28,
+    "classes_equal_in_order": true
+  },
+  "checker_hashes": {
+    "tools/t39-checks.sh": true,
+    "tools/t39-checks.py": true,
+    "stage-e/stream-check.py": true
+  },
+  "raw_receipts": [
+    {
+      "path": "docs/audits/2026_11_01-epic-m6-doctrine-reference/stage-e/S1/candidate/steps/identity.raw.json",
+      "sha_matches": true,
+      "display_matches": true
+    },
+    {
+      "path": "docs/audits/2026_11_01-epic-m6-doctrine-reference/stage-e/S1/candidate/steps/retired.raw.json",
+      "sha_matches": true,
+      "display_matches": true
+    },
+    {
+      "path": "docs/audits/2026_11_01-epic-m6-doctrine-reference/stage-e/S1/committed/steps/identity.raw.json",
+      "sha_matches": true,
+      "display_matches": true
+    },
+    {
+      "path": "docs/audits/2026_11_01-epic-m6-doctrine-reference/stage-e/S1/committed/steps/retired.raw.json",
+      "sha_matches": true,
+      "display_matches": true
+    },
+    {
+      "path": "docs/audits/2026_11_01-epic-m6-doctrine-reference/stage-e/S2/candidate-rejected-unused/steps/identity.raw.json",
+      "sha_matches": true,
+      "display_matches": true
+    },
+    {
+      "path": "docs/audits/2026_11_01-epic-m6-doctrine-reference/stage-e/S2/candidate-rejected-unused/steps/retired.raw.json",
+      "sha_matches": true,
+      "display_matches": true
+    },
+    {
+      "path": "docs/audits/2026_11_01-epic-m6-doctrine-reference/stage-e/S2/candidate/steps/identity.raw.json",
+      "sha_matches": true,
+      "display_matches": true
+    },
+    {
+      "path": "docs/audits/2026_11_01-epic-m6-doctrine-reference/stage-e/S2/candidate/steps/retired.raw.json",
+      "sha_matches": true,
+      "display_matches": true
+    },
+    {
+      "path": "docs/audits/2026_11_01-epic-m6-doctrine-reference/stage-e/S2/committed/steps/identity.raw.json",
+      "sha_matches": true,
+      "display_matches": true
+    },
+    {
+      "path": "docs/audits/2026_11_01-epic-m6-doctrine-reference/stage-e/S2/committed/steps/retired.raw.json",
+      "sha_matches": true,
+      "display_matches": true
+    },
+    {
+      "path": "docs/audits/2026_11_01-epic-m6-doctrine-reference/stage-e/S3/candidate/steps/identity.raw.json",
+      "sha_matches": true,
+      "display_matches": true
+    },
+    {
+      "path": "docs/audits/2026_11_01-epic-m6-doctrine-reference/stage-e/S3/candidate/steps/retired.raw.json",
+      "sha_matches": true,
+      "display_matches": true
+    },
+    {
+      "path": "docs/audits/2026_11_01-epic-m6-doctrine-reference/stage-e/S3/committed/steps/identity.raw.json",
+      "sha_matches": true,
+      "display_matches": true
+    },
+    {
+      "path": "docs/audits/2026_11_01-epic-m6-doctrine-reference/stage-e/S3/committed/steps/retired.raw.json",
+      "sha_matches": true,
+      "display_matches": true
+    },
+    {
+      "path": "docs/audits/2026_11_01-epic-m6-doctrine-reference/stage-e/S4/candidate/steps/identity.raw.json",
+      "sha_matches": true,
+      "display_matches": true
+    },
+    {
+      "path": "docs/audits/2026_11_01-epic-m6-doctrine-reference/stage-e/S4/candidate/steps/retired.raw.json",
+      "sha_matches": true,
+      "display_matches": true
+    },
+    {
+      "path": "docs/audits/2026_11_01-epic-m6-doctrine-reference/stage-e/S4/committed/steps/identity.raw.json",
+      "sha_matches": true,
+      "display_matches": true
+    },
+    {
+      "path": "docs/audits/2026_11_01-epic-m6-doctrine-reference/stage-e/S4/committed/steps/retired.raw.json",
+      "sha_matches": true,
+      "display_matches": true
+    },
+    {
+      "path": "docs/audits/2026_11_01-epic-m6-doctrine-reference/stage-e/S5/candidate/steps/identity.raw.json",
+      "sha_matches": true,
+      "display_matches": true
+    },
+    {
+      "path": "docs/audits/2026_11_01-epic-m6-doctrine-reference/stage-e/S5/candidate/steps/retired.raw.json",
+      "sha_matches": true,
+      "display_matches": true
+    },
+    {
+      "path": "docs/audits/2026_11_01-epic-m6-doctrine-reference/stage-e/S5/committed/steps/identity.raw.json",
+      "sha_matches": true,
+      "display_matches": true
+    },
+    {
+      "path": "docs/audits/2026_11_01-epic-m6-doctrine-reference/stage-e/S5/committed/steps/retired.raw.json",
+      "sha_matches": true,
+      "display_matches": true
+    },
+    {
+      "path": "docs/audits/2026_11_01-epic-m6-doctrine-reference/stage-f/final-source/steps/identity.raw.json",
+      "sha_matches": true,
+      "display_matches": true
+    },
+    {
+      "path": "docs/audits/2026_11_01-epic-m6-doctrine-reference/stage-f/final-source/steps/retired.raw.json",
+      "sha_matches": true,
+      "display_matches": true
+    },
+    {
+      "path": "docs/audits/2026_11_01-epic-m6-doctrine-reference/stage-f/withheld-findings/steps/identity.raw.json",
+      "sha_matches": true,
+      "display_matches": true
+    },
+    {
+      "path": "docs/audits/2026_11_01-epic-m6-doctrine-reference/stage-f/withheld-findings/steps/retired.raw.json",
+      "sha_matches": true,
+      "display_matches": true
+    },
+    {
+      "path": "docs/audits/2026_11_01-epic-m6-doctrine-reference/stage-h/initial-integrated/steps/identity.raw.json",
+      "sha_matches": true,
+      "display_matches": true
+    },
+    {
+      "path": "docs/audits/2026_11_01-epic-m6-doctrine-reference/stage-h/initial-integrated/steps/retired.raw.json",
+      "sha_matches": true,
+      "display_matches": true
+    },
+    {
+      "path": "docs/audits/2026_11_01-epic-m6-doctrine-reference/stage-h/integrated-withheld-findings/steps/identity.raw.json",
+      "sha_matches": true,
+      "display_matches": true
+    },
+    {
+      "path": "docs/audits/2026_11_01-epic-m6-doctrine-reference/stage-h/integrated-withheld-findings/steps/retired.raw.json",
+      "sha_matches": true,
+      "display_matches": true
+    },
+    {
+      "path": "docs/audits/2026_11_01-epic-m6-doctrine-reference/stage-h/reject-merge-resolution-edit/steps/identity.raw.json",
+      "sha_matches": true,
+      "display_matches": true
+    },
+    {
+      "path": "docs/audits/2026_11_01-epic-m6-doctrine-reference/stage-h/reject-merge-resolution-edit/steps/retired.raw.json",
+      "sha_matches": true,
+      "display_matches": true
+    },
+    {
+      "path": "docs/audits/2026_11_01-epic-m6-doctrine-reference/stage-h/reject-owned-postmerge-edit/steps/identity.raw.json",
+      "sha_matches": true,
+      "display_matches": true
+    },
+    {
+      "path": "docs/audits/2026_11_01-epic-m6-doctrine-reference/stage-h/reject-owned-postmerge-edit/steps/retired.raw.json",
+      "sha_matches": true,
+      "display_matches": true
+    }
+  ],
+  "h_controls": [
+    {
+      "case": "refuse-wrong-integration-tip",
+      "commit": "24a5e0e294607bc6fc99025873cb063d26c9a4da",
+      "coordinator": "24a5e0e294607bc6fc99025873cb063d26c9a4da",
+      "expected": 2,
+      "actual": 2,
+      "export": "/workspace/tmp/m6-t39/export-24a5e0e29460-refuse-wrong-integration-tip",
+      "total": "refused before checks"
+    },
+    {
+      "case": "refuse-unmerged-integration-tip",
+      "commit": "ad5516f6603509954d241e62585b22d32402b03c",
+      "coordinator": "329011b9eae20922b4d0727e13bf1626b2e1c04f",
+      "expected": 2,
+      "actual": 2,
+      "export": "/workspace/tmp/m6-t39/export-ad5516f66035-refuse-unmerged-integration-tip",
+      "total": "refused before checks"
+    },
+    {
+      "case": "reject-owned-postmerge-edit",
+      "commit": "3e3f0bc1a14c98dca327575321bb50d30e37b9a2",
+      "coordinator": "329011b9eae20922b4d0727e13bf1626b2e1c04f",
+      "expected": 1,
+      "actual": 1,
+      "export": "/workspace/tmp/m6-t39/export-3e3f0bc1a14c-reject-owned-postmerge-edit",
+      "total": "TOTAL: 12 of 13 steps"
+    },
+    {
+      "case": "reject-merge-resolution-edit",
+      "commit": "412c22027c7470af6d9139a6911bf2663cda2e54",
+      "coordinator": "329011b9eae20922b4d0727e13bf1626b2e1c04f",
+      "expected": 1,
+      "actual": 1,
+      "export": "/workspace/tmp/m6-t39/export-412c22027c74-reject-merge-resolution-edit",
+      "total": "TOTAL: 12 of 13 steps"
+    },
+    {
+      "case": "integrated-withheld-findings",
+      "commit": "24a5e0e294607bc6fc99025873cb063d26c9a4da",
+      "coordinator": "329011b9eae20922b4d0727e13bf1626b2e1c04f",
+      "expected": 0,
+      "actual": 0,
+      "export": "/workspace/tmp/m6-t39/export-24a5e0e29460-integrated-withheld-findings",
+      "total": "TOTAL: 13 of 13 steps"
+    }
+  ],
+  "harness_receipts": [
+    {
+      "path": "docs/audits/2026_11_01-epic-m6-doctrine-reference/stage-e/S1/candidate/harness.out",
+      "command": "$ bash /workspace/repos/pixelelated/distribution.worktrees/m6-doctrine-reference-686/docs/audits/2026_11_01-epic-m6-doctrine-reference/tools/t39-checks.sh --tree /workspace/tmp/m6-t39/export-a1ef0f64ea4d-candidate --repo /workspace/repos/pixelelated/distribution.worktrees/m6-doctrine-reference-686 --commit a1ef0f64ea4d5b17fd453ede2f64a35e27b6a6c3 --since 86ebb6dffc --paths /workspace/repos/pixelelated/distribution.worktrees/m6-doctrine-reference-686/docs/audits/2026_11_01-epic-m6-doctrine-reference/stage-a/paths.txt --allow /workspace/repos/pixelelated/distribution.worktrees/m6-doctrine-reference-686/docs/audits/2026_11_01-epic-m6-doctrine-reference/tools --out /workspace/repos/pixelelated/distribution.worktrees/m6-doctrine-reference-686/docs/audits/2026_11_01-epic-m6-doctrine-reference/stage-e/S1/candidate/steps",
+      "rc": [
+        "0"
+      ],
+      "total": [
+        "TOTAL: 13 of 13 steps"
+      ],
+      "commit": [
+        "a1ef0f64ea4d5b17fd453ede2f64a35e27b6a6c3"
+      ],
+      "step_results": [
+        "ok    inventory  510 of 510 assertions; paths 254 text 223 binary 31",
+        "ok    scope      11 of 11 assertions; CARVE art-bytes 18 edit-scope 68 edit-under-naming 1 ledger-binary 31 ledger-named 6 ledger-plan 1 ledger-reviews 12 read-only-528 1 read-only-585 27 read-only-upstream 88 tabled-generic-x64 1 total 254",
+        "ok    links      511 of 511 assertions; 511 relative links",
+        "ok    paths      2061 of 2061 assertions; 39 allowlisted; 2061 backticked repository paths",
+        "ok    tools      366 of 366 assertions; 2 allowlisted; 366 tools/ names",
+        "ok    identity   58 of 58 assertions; 58 allowlisted",
+        "ok    retired    51 of 51 assertions; 51 allowlisted",
+        "ok    cites      1272 of 1272 assertions; register IDs 716, citations 1272",
+        "ok    untouched  201 of 201 assertions; 9 non-merge commits since 86ebb6dffc",
+        "ok    generated  3 of 3 assertions",
+        "ok    binaries   98 of 98 assertions; held 49 (ledger-binary 31, art-bytes 18)",
+        "ok    leads      16 of 16 assertions; 12 allowlisted; 13 lead checks, 9 printing a defect",
+        "ok    allowlists 75 of 75 assertions"
+      ]
+    },
+    {
+      "path": "docs/audits/2026_11_01-epic-m6-doctrine-reference/stage-e/S1/committed/harness.out",
+      "command": "$ bash /workspace/repos/pixelelated/distribution.worktrees/m6-doctrine-reference-686/docs/audits/2026_11_01-epic-m6-doctrine-reference/tools/t39-checks.sh --tree /workspace/tmp/m6-t39/export-de40e931a469-committed --repo /workspace/repos/pixelelated/distribution.worktrees/m6-doctrine-reference-686 --commit de40e931a469f6aa6889f08ec9d4d31266f4c6d4 --since 86ebb6dffc --paths /workspace/repos/pixelelated/distribution.worktrees/m6-doctrine-reference-686/docs/audits/2026_11_01-epic-m6-doctrine-reference/stage-a/paths.txt --allow /workspace/repos/pixelelated/distribution.worktrees/m6-doctrine-reference-686/docs/audits/2026_11_01-epic-m6-doctrine-reference/tools --out /workspace/repos/pixelelated/distribution.worktrees/m6-doctrine-reference-686/docs/audits/2026_11_01-epic-m6-doctrine-reference/stage-e/S1/committed/steps",
+      "rc": [
+        "0"
+      ],
+      "total": [
+        "TOTAL: 13 of 13 steps"
+      ],
+      "commit": [
+        "de40e931a469f6aa6889f08ec9d4d31266f4c6d4"
+      ],
+      "step_results": [
+        "ok    inventory  510 of 510 assertions; paths 254 text 223 binary 31",
+        "ok    scope      11 of 11 assertions; CARVE art-bytes 18 edit-scope 68 edit-under-naming 1 ledger-binary 31 ledger-named 6 ledger-plan 1 ledger-reviews 12 read-only-528 1 read-only-585 27 read-only-upstream 88 tabled-generic-x64 1 total 254",
+        "ok    links      511 of 511 assertions; 511 relative links",
+        "ok    paths      2061 of 2061 assertions; 39 allowlisted; 2061 backticked repository paths",
+        "ok    tools      366 of 366 assertions; 2 allowlisted; 366 tools/ names",
+        "ok    identity   58 of 58 assertions; 58 allowlisted",
+        "ok    retired    51 of 51 assertions; 51 allowlisted",
+        "ok    cites      1272 of 1272 assertions; register IDs 716, citations 1272",
+        "ok    untouched  201 of 201 assertions; 9 non-merge commits since 86ebb6dffc",
+        "ok    generated  3 of 3 assertions",
+        "ok    binaries   98 of 98 assertions; held 49 (ledger-binary 31, art-bytes 18)",
+        "ok    leads      16 of 16 assertions; 12 allowlisted; 13 lead checks, 9 printing a defect",
+        "ok    allowlists 75 of 75 assertions"
+      ]
+    },
+    {
+      "path": "docs/audits/2026_11_01-epic-m6-doctrine-reference/stage-e/S2/candidate-rejected-unused/harness.out",
+      "command": "$ bash /workspace/repos/pixelelated/distribution.worktrees/m6-doctrine-reference-686/docs/audits/2026_11_01-epic-m6-doctrine-reference/tools/t39-checks.sh --tree /workspace/tmp/m6-t39/export-1e12e8e0662b-candidate --repo /workspace/repos/pixelelated/distribution.worktrees/m6-doctrine-reference-686 --commit 1e12e8e0662bbfa120ea65202259e62cdd9eec19 --since 86ebb6dffc --paths /workspace/repos/pixelelated/distribution.worktrees/m6-doctrine-reference-686/docs/audits/2026_11_01-epic-m6-doctrine-reference/stage-a/paths.txt --allow /workspace/repos/pixelelated/distribution.worktrees/m6-doctrine-reference-686/docs/audits/2026_11_01-epic-m6-doctrine-reference/tools --out /workspace/repos/pixelelated/distribution.worktrees/m6-doctrine-reference-686/docs/audits/2026_11_01-epic-m6-doctrine-reference/stage-e/S2/candidate/steps",
+      "rc": [
+        "1"
+      ],
+      "total": [
+        "TOTAL: 12 of 13 steps"
+      ],
+      "commit": [
+        "1e12e8e0662bbfa120ea65202259e62cdd9eec19"
+      ],
+      "step_results": [
+        "ok    inventory  510 of 510 assertions; paths 254 text 223 binary 31",
+        "ok    scope      11 of 11 assertions; CARVE art-bytes 18 edit-scope 68 edit-under-naming 1 ledger-binary 31 ledger-named 6 ledger-plan 1 ledger-reviews 12 read-only-528 1 read-only-585 27 read-only-upstream 88 tabled-generic-x64 1 total 254",
+        "ok    links      512 of 512 assertions; 512 relative links",
+        "ok    paths      2061 of 2061 assertions; 39 allowlisted; 2061 backticked repository paths",
+        "ok    tools      366 of 366 assertions; 2 allowlisted; 366 tools/ names",
+        "ok    identity   58 of 58 assertions; 58 allowlisted",
+        "ok    retired    51 of 51 assertions; 51 allowlisted",
+        "ok    cites      1273 of 1273 assertions; register IDs 716, citations 1273",
+        "ok    untouched  213 of 213 assertions; 10 non-merge commits since 86ebb6dffc",
+        "ok    generated  3 of 3 assertions",
+        "ok    binaries   98 of 98 assertions; held 49 (ledger-binary 31, art-bytes 18)",
+        "ok    leads      15 of 15 assertions; 7 allowlisted; 13 lead checks, 5 printing a defect",
+        "FAIL  allowlists 71 of 72 assertions"
+      ]
+    },
+    {
+      "path": "docs/audits/2026_11_01-epic-m6-doctrine-reference/stage-e/S2/candidate/harness.out",
+      "command": "$ bash /workspace/repos/pixelelated/distribution.worktrees/m6-doctrine-reference-686/docs/audits/2026_11_01-epic-m6-doctrine-reference/tools/t39-checks.sh --tree /workspace/tmp/m6-t39/export-4acbafb7a789-candidate --repo /workspace/repos/pixelelated/distribution.worktrees/m6-doctrine-reference-686 --commit 4acbafb7a789edaa77d2b87c4e3052bf5ebbd955 --since 86ebb6dffc --paths /workspace/repos/pixelelated/distribution.worktrees/m6-doctrine-reference-686/docs/audits/2026_11_01-epic-m6-doctrine-reference/stage-a/paths.txt --allow /workspace/repos/pixelelated/distribution.worktrees/m6-doctrine-reference-686/docs/audits/2026_11_01-epic-m6-doctrine-reference/tools --out /workspace/repos/pixelelated/distribution.worktrees/m6-doctrine-reference-686/docs/audits/2026_11_01-epic-m6-doctrine-reference/stage-e/S2/candidate/steps",
+      "rc": [
+        "0"
+      ],
+      "total": [
+        "TOTAL: 13 of 13 steps"
+      ],
+      "commit": [
+        "4acbafb7a789edaa77d2b87c4e3052bf5ebbd955"
+      ],
+      "step_results": [
+        "ok    inventory  510 of 510 assertions; paths 254 text 223 binary 31",
+        "ok    scope      11 of 11 assertions; CARVE art-bytes 18 edit-scope 68 edit-under-naming 1 ledger-binary 31 ledger-named 6 ledger-plan 1 ledger-reviews 12 read-only-528 1 read-only-585 27 read-only-upstream 88 tabled-generic-x64 1 total 254",
+        "ok    links      512 of 512 assertions; 512 relative links",
+        "ok    paths      2061 of 2061 assertions; 39 allowlisted; 2061 backticked repository paths",
+        "ok    tools      366 of 366 assertions; 2 allowlisted; 366 tools/ names",
+        "ok    identity   58 of 58 assertions; 58 allowlisted",
+        "ok    retired    51 of 51 assertions; 51 allowlisted",
+        "ok    cites      1273 of 1273 assertions; register IDs 716, citations 1273",
+        "ok    untouched  213 of 213 assertions; 10 non-merge commits since 86ebb6dffc",
+        "ok    generated  3 of 3 assertions",
+        "ok    binaries   98 of 98 assertions; held 49 (ledger-binary 31, art-bytes 18)",
+        "ok    leads      15 of 15 assertions; 7 allowlisted; 13 lead checks, 5 printing a defect",
+        "ok    allowlists 71 of 71 assertions"
+      ]
+    },
+    {
+      "path": "docs/audits/2026_11_01-epic-m6-doctrine-reference/stage-e/S2/committed/harness.out",
+      "command": "$ bash /workspace/repos/pixelelated/distribution.worktrees/m6-doctrine-reference-686/docs/audits/2026_11_01-epic-m6-doctrine-reference/tools/t39-checks.sh --tree /workspace/tmp/m6-t39/export-424eea28ecbf-committed --repo /workspace/repos/pixelelated/distribution.worktrees/m6-doctrine-reference-686 --commit 424eea28ecbfaa8fbbe49cdee6c99750becd13cf --since 86ebb6dffc --paths /workspace/repos/pixelelated/distribution.worktrees/m6-doctrine-reference-686/docs/audits/2026_11_01-epic-m6-doctrine-reference/stage-a/paths.txt --allow /workspace/repos/pixelelated/distribution.worktrees/m6-doctrine-reference-686/docs/audits/2026_11_01-epic-m6-doctrine-reference/tools --out /workspace/repos/pixelelated/distribution.worktrees/m6-doctrine-reference-686/docs/audits/2026_11_01-epic-m6-doctrine-reference/stage-e/S2/committed/steps",
+      "rc": [
+        "0"
+      ],
+      "total": [
+        "TOTAL: 13 of 13 steps"
+      ],
+      "commit": [
+        "424eea28ecbfaa8fbbe49cdee6c99750becd13cf"
+      ],
+      "step_results": [
+        "ok    inventory  510 of 510 assertions; paths 254 text 223 binary 31",
+        "ok    scope      11 of 11 assertions; CARVE art-bytes 18 edit-scope 68 edit-under-naming 1 ledger-binary 31 ledger-named 6 ledger-plan 1 ledger-reviews 12 read-only-528 1 read-only-585 27 read-only-upstream 88 tabled-generic-x64 1 total 254",
+        "ok    links      512 of 512 assertions; 512 relative links",
+        "ok    paths      2061 of 2061 assertions; 39 allowlisted; 2061 backticked repository paths",
+        "ok    tools      366 of 366 assertions; 2 allowlisted; 366 tools/ names",
+        "ok    identity   58 of 58 assertions; 58 allowlisted",
+        "ok    retired    51 of 51 assertions; 51 allowlisted",
+        "ok    cites      1273 of 1273 assertions; register IDs 716, citations 1273",
+        "ok    untouched  213 of 213 assertions; 10 non-merge commits since 86ebb6dffc",
+        "ok    generated  3 of 3 assertions",
+        "ok    binaries   98 of 98 assertions; held 49 (ledger-binary 31, art-bytes 18)",
+        "ok    leads      15 of 15 assertions; 7 allowlisted; 13 lead checks, 5 printing a defect",
+        "ok    allowlists 71 of 71 assertions"
+      ]
+    },
+    {
+      "path": "docs/audits/2026_11_01-epic-m6-doctrine-reference/stage-e/S3/candidate/harness.out",
+      "command": "$ bash /workspace/repos/pixelelated/distribution.worktrees/m6-doctrine-reference-686/docs/audits/2026_11_01-epic-m6-doctrine-reference/tools/t39-checks.sh --tree /workspace/tmp/m6-t39/export-b5f86f39d495-candidate --repo /workspace/repos/pixelelated/distribution.worktrees/m6-doctrine-reference-686 --commit b5f86f39d495d04193d36d96c8026b9e048c90e9 --since 86ebb6dffc --paths /workspace/repos/pixelelated/distribution.worktrees/m6-doctrine-reference-686/docs/audits/2026_11_01-epic-m6-doctrine-reference/stage-a/paths.txt --allow /workspace/repos/pixelelated/distribution.worktrees/m6-doctrine-reference-686/docs/audits/2026_11_01-epic-m6-doctrine-reference/tools --out /workspace/repos/pixelelated/distribution.worktrees/m6-doctrine-reference-686/docs/audits/2026_11_01-epic-m6-doctrine-reference/stage-e/S3/candidate/steps",
+      "rc": [
+        "0"
+      ],
+      "total": [
+        "TOTAL: 13 of 13 steps"
+      ],
+      "commit": [
+        "b5f86f39d495d04193d36d96c8026b9e048c90e9"
+      ],
+      "step_results": [
+        "ok    inventory  510 of 510 assertions; paths 254 text 223 binary 31",
+        "ok    scope      11 of 11 assertions; CARVE art-bytes 18 edit-scope 68 edit-under-naming 1 ledger-binary 31 ledger-named 6 ledger-plan 1 ledger-reviews 12 read-only-528 1 read-only-585 27 read-only-upstream 88 tabled-generic-x64 1 total 254",
+        "ok    links      512 of 512 assertions; 512 relative links",
+        "ok    paths      2062 of 2062 assertions; 39 allowlisted; 2062 backticked repository paths",
+        "ok    tools      366 of 366 assertions; 2 allowlisted; 366 tools/ names",
+        "ok    identity   58 of 58 assertions; 58 allowlisted",
+        "ok    retired    51 of 51 assertions; 51 allowlisted",
+        "ok    cites      1273 of 1273 assertions; register IDs 716, citations 1273",
+        "ok    untouched  225 of 225 assertions; 11 non-merge commits since 86ebb6dffc",
+        "ok    generated  3 of 3 assertions",
+        "ok    binaries   98 of 98 assertions; held 49 (ledger-binary 31, art-bytes 18)",
+        "ok    leads      13 of 13 assertions; 13 lead checks, 0 printing a defect",
+        "ok    allowlists 64 of 64 assertions"
+      ]
+    },
+    {
+      "path": "docs/audits/2026_11_01-epic-m6-doctrine-reference/stage-e/S3/committed/harness.out",
+      "command": "$ bash /workspace/repos/pixelelated/distribution.worktrees/m6-doctrine-reference-686/docs/audits/2026_11_01-epic-m6-doctrine-reference/tools/t39-checks.sh --tree /workspace/tmp/m6-t39/export-895b90abcf44-committed --repo /workspace/repos/pixelelated/distribution.worktrees/m6-doctrine-reference-686 --commit 895b90abcf44e62d3aa7339eba043cfe01e9b98e --since 86ebb6dffc --paths /workspace/repos/pixelelated/distribution.worktrees/m6-doctrine-reference-686/docs/audits/2026_11_01-epic-m6-doctrine-reference/stage-a/paths.txt --allow /workspace/repos/pixelelated/distribution.worktrees/m6-doctrine-reference-686/docs/audits/2026_11_01-epic-m6-doctrine-reference/tools --out /workspace/repos/pixelelated/distribution.worktrees/m6-doctrine-reference-686/docs/audits/2026_11_01-epic-m6-doctrine-reference/stage-e/S3/committed/steps",
+      "rc": [
+        "0"
+      ],
+      "total": [
+        "TOTAL: 13 of 13 steps"
+      ],
+      "commit": [
+        "895b90abcf44e62d3aa7339eba043cfe01e9b98e"
+      ],
+      "step_results": [
+        "ok    inventory  510 of 510 assertions; paths 254 text 223 binary 31",
+        "ok    scope      11 of 11 assertions; CARVE art-bytes 18 edit-scope 68 edit-under-naming 1 ledger-binary 31 ledger-named 6 ledger-plan 1 ledger-reviews 12 read-only-528 1 read-only-585 27 read-only-upstream 88 tabled-generic-x64 1 total 254",
+        "ok    links      512 of 512 assertions; 512 relative links",
+        "ok    paths      2062 of 2062 assertions; 39 allowlisted; 2062 backticked repository paths",
+        "ok    tools      366 of 366 assertions; 2 allowlisted; 366 tools/ names",
+        "ok    identity   58 of 58 assertions; 58 allowlisted",
+        "ok    retired    51 of 51 assertions; 51 allowlisted",
+        "ok    cites      1273 of 1273 assertions; register IDs 716, citations 1273",
+        "ok    untouched  225 of 225 assertions; 11 non-merge commits since 86ebb6dffc",
+        "ok    generated  3 of 3 assertions",
+        "ok    binaries   98 of 98 assertions; held 49 (ledger-binary 31, art-bytes 18)",
+        "ok    leads      13 of 13 assertions; 13 lead checks, 0 printing a defect",
+        "ok    allowlists 64 of 64 assertions"
+      ]
+    },
+    {
+      "path": "docs/audits/2026_11_01-epic-m6-doctrine-reference/stage-e/S4/candidate/harness.out",
+      "command": "$ bash /workspace/repos/pixelelated/distribution.worktrees/m6-doctrine-reference-686/docs/audits/2026_11_01-epic-m6-doctrine-reference/tools/t39-checks.sh --tree /workspace/tmp/m6-t39/export-62d0410a3f33-candidate --repo /workspace/repos/pixelelated/distribution.worktrees/m6-doctrine-reference-686 --commit 62d0410a3f33ad45c5ebe7dddf3f9dee2977e2aa --since 86ebb6dffc --paths /workspace/repos/pixelelated/distribution.worktrees/m6-doctrine-reference-686/docs/audits/2026_11_01-epic-m6-doctrine-reference/stage-a/paths.txt --allow /workspace/repos/pixelelated/distribution.worktrees/m6-doctrine-reference-686/docs/audits/2026_11_01-epic-m6-doctrine-reference/tools --out /workspace/repos/pixelelated/distribution.worktrees/m6-doctrine-reference-686/docs/audits/2026_11_01-epic-m6-doctrine-reference/stage-e/S4/candidate/steps",
+      "rc": [
+        "0"
+      ],
+      "total": [
+        "TOTAL: 13 of 13 steps"
+      ],
+      "commit": [
+        "62d0410a3f33ad45c5ebe7dddf3f9dee2977e2aa"
+      ],
+      "step_results": [
+        "ok    inventory  510 of 510 assertions; paths 254 text 223 binary 31",
+        "ok    scope      11 of 11 assertions; CARVE art-bytes 18 edit-scope 68 edit-under-naming 1 ledger-binary 31 ledger-named 6 ledger-plan 1 ledger-reviews 12 read-only-528 1 read-only-585 27 read-only-upstream 88 tabled-generic-x64 1 total 254",
+        "ok    links      512 of 512 assertions; 512 relative links",
+        "ok    paths      2062 of 2062 assertions; 39 allowlisted; 2062 backticked repository paths",
+        "ok    tools      366 of 366 assertions; 2 allowlisted; 366 tools/ names",
+        "ok    identity   58 of 58 assertions; 58 allowlisted",
+        "ok    retired    51 of 51 assertions; 51 allowlisted",
+        "ok    cites      1273 of 1273 assertions; register IDs 716, citations 1273",
+        "ok    untouched  249 of 249 assertions; 12 non-merge commits since 86ebb6dffc",
+        "ok    generated  3 of 3 assertions",
+        "ok    binaries   98 of 98 assertions; held 49 (ledger-binary 31, art-bytes 18)",
+        "ok    leads      13 of 13 assertions; 13 lead checks, 0 printing a defect",
+        "ok    allowlists 64 of 64 assertions"
+      ]
+    },
+    {
+      "path": "docs/audits/2026_11_01-epic-m6-doctrine-reference/stage-e/S4/committed/harness.out",
+      "command": "$ bash /workspace/repos/pixelelated/distribution.worktrees/m6-doctrine-reference-686/docs/audits/2026_11_01-epic-m6-doctrine-reference/tools/t39-checks.sh --tree /workspace/tmp/m6-t39/export-a2d4a33d4aa3-committed --repo /workspace/repos/pixelelated/distribution.worktrees/m6-doctrine-reference-686 --commit a2d4a33d4aa310d78c1b5c23b5bcdcd93f8ffe89 --since 86ebb6dffc --paths /workspace/repos/pixelelated/distribution.worktrees/m6-doctrine-reference-686/docs/audits/2026_11_01-epic-m6-doctrine-reference/stage-a/paths.txt --allow /workspace/repos/pixelelated/distribution.worktrees/m6-doctrine-reference-686/docs/audits/2026_11_01-epic-m6-doctrine-reference/tools --out /workspace/repos/pixelelated/distribution.worktrees/m6-doctrine-reference-686/docs/audits/2026_11_01-epic-m6-doctrine-reference/stage-e/S4/committed/steps",
+      "rc": [
+        "0"
+      ],
+      "total": [
+        "TOTAL: 13 of 13 steps"
+      ],
+      "commit": [
+        "a2d4a33d4aa310d78c1b5c23b5bcdcd93f8ffe89"
+      ],
+      "step_results": [
+        "ok    inventory  510 of 510 assertions; paths 254 text 223 binary 31",
+        "ok    scope      11 of 11 assertions; CARVE art-bytes 18 edit-scope 68 edit-under-naming 1 ledger-binary 31 ledger-named 6 ledger-plan 1 ledger-reviews 12 read-only-528 1 read-only-585 27 read-only-upstream 88 tabled-generic-x64 1 total 254",
+        "ok    links      512 of 512 assertions; 512 relative links",
+        "ok    paths      2062 of 2062 assertions; 39 allowlisted; 2062 backticked repository paths",
+        "ok    tools      366 of 366 assertions; 2 allowlisted; 366 tools/ names",
+        "ok    identity   58 of 58 assertions; 58 allowlisted",
+        "ok    retired    51 of 51 assertions; 51 allowlisted",
+        "ok    cites      1273 of 1273 assertions; register IDs 716, citations 1273",
+        "ok    untouched  249 of 249 assertions; 12 non-merge commits since 86ebb6dffc",
+        "ok    generated  3 of 3 assertions",
+        "ok    binaries   98 of 98 assertions; held 49 (ledger-binary 31, art-bytes 18)",
+        "ok    leads      13 of 13 assertions; 13 lead checks, 0 printing a defect",
+        "ok    allowlists 64 of 64 assertions"
+      ]
+    },
+    {
+      "path": "docs/audits/2026_11_01-epic-m6-doctrine-reference/stage-e/S5/candidate/harness.out",
+      "command": "$ bash /workspace/repos/pixelelated/distribution.worktrees/m6-doctrine-reference-686/docs/audits/2026_11_01-epic-m6-doctrine-reference/tools/t39-checks.sh --tree /workspace/tmp/m6-t39/export-c71e0e4e56ba-candidate --repo /workspace/repos/pixelelated/distribution.worktrees/m6-doctrine-reference-686 --commit c71e0e4e56bad1e4bdd34c5dc26e470dc4bb013c --since 86ebb6dffc --paths /workspace/repos/pixelelated/distribution.worktrees/m6-doctrine-reference-686/docs/audits/2026_11_01-epic-m6-doctrine-reference/stage-a/paths.txt --allow /workspace/repos/pixelelated/distribution.worktrees/m6-doctrine-reference-686/docs/audits/2026_11_01-epic-m6-doctrine-reference/tools --out /workspace/repos/pixelelated/distribution.worktrees/m6-doctrine-reference-686/docs/audits/2026_11_01-epic-m6-doctrine-reference/stage-e/S5/candidate/steps",
+      "rc": [
+        "0"
+      ],
+      "total": [
+        "TOTAL: 13 of 13 steps"
+      ],
+      "commit": [
+        "c71e0e4e56bad1e4bdd34c5dc26e470dc4bb013c"
+      ],
+      "step_results": [
+        "ok    inventory  510 of 510 assertions; paths 254 text 223 binary 31",
+        "ok    scope      11 of 11 assertions; CARVE art-bytes 18 edit-scope 68 edit-under-naming 1 ledger-binary 31 ledger-named 6 ledger-plan 1 ledger-reviews 12 read-only-528 1 read-only-585 27 read-only-upstream 88 tabled-generic-x64 1 total 254",
+        "ok    links      525 of 525 assertions; 525 relative links",
+        "ok    paths      2062 of 2062 assertions; 39 allowlisted; 2062 backticked repository paths",
+        "ok    tools      366 of 366 assertions; 2 allowlisted; 366 tools/ names",
+        "ok    identity   58 of 58 assertions; 58 allowlisted",
+        "ok    retired    51 of 51 assertions; 51 allowlisted",
+        "ok    cites      1273 of 1273 assertions; register IDs 716, citations 1273",
+        "ok    untouched  285 of 285 assertions; 13 non-merge commits since 86ebb6dffc",
+        "ok    generated  3 of 3 assertions",
+        "ok    binaries   98 of 98 assertions; held 49 (ledger-binary 31, art-bytes 18)",
+        "ok    leads      13 of 13 assertions; 13 lead checks, 0 printing a defect",
+        "ok    allowlists 64 of 64 assertions"
+      ]
+    },
+    {
+      "path": "docs/audits/2026_11_01-epic-m6-doctrine-reference/stage-e/S5/committed/harness.out",
+      "command": "$ bash /workspace/repos/pixelelated/distribution.worktrees/m6-doctrine-reference-686/docs/audits/2026_11_01-epic-m6-doctrine-reference/tools/t39-checks.sh --tree /workspace/tmp/m6-t39/export-de11515859d2-committed --repo /workspace/repos/pixelelated/distribution.worktrees/m6-doctrine-reference-686 --commit de11515859d231a82a511c3867e12211190041a2 --since 86ebb6dffc --paths /workspace/repos/pixelelated/distribution.worktrees/m6-doctrine-reference-686/docs/audits/2026_11_01-epic-m6-doctrine-reference/stage-a/paths.txt --allow /workspace/repos/pixelelated/distribution.worktrees/m6-doctrine-reference-686/docs/audits/2026_11_01-epic-m6-doctrine-reference/tools --out /workspace/repos/pixelelated/distribution.worktrees/m6-doctrine-reference-686/docs/audits/2026_11_01-epic-m6-doctrine-reference/stage-e/S5/committed/steps",
+      "rc": [
+        "0"
+      ],
+      "total": [
+        "TOTAL: 13 of 13 steps"
+      ],
+      "commit": [
+        "de11515859d231a82a511c3867e12211190041a2"
+      ],
+      "step_results": [
+        "ok    inventory  510 of 510 assertions; paths 254 text 223 binary 31",
+        "ok    scope      11 of 11 assertions; CARVE art-bytes 18 edit-scope 68 edit-under-naming 1 ledger-binary 31 ledger-named 6 ledger-plan 1 ledger-reviews 12 read-only-528 1 read-only-585 27 read-only-upstream 88 tabled-generic-x64 1 total 254",
+        "ok    links      525 of 525 assertions; 525 relative links",
+        "ok    paths      2062 of 2062 assertions; 39 allowlisted; 2062 backticked repository paths",
+        "ok    tools      366 of 366 assertions; 2 allowlisted; 366 tools/ names",
+        "ok    identity   58 of 58 assertions; 58 allowlisted",
+        "ok    retired    51 of 51 assertions; 51 allowlisted",
+        "ok    cites      1273 of 1273 assertions; register IDs 716, citations 1273",
+        "ok    untouched  285 of 285 assertions; 13 non-merge commits since 86ebb6dffc",
+        "ok    generated  3 of 3 assertions",
+        "ok    binaries   98 of 98 assertions; held 49 (ledger-binary 31, art-bytes 18)",
+        "ok    leads      13 of 13 assertions; 13 lead checks, 0 printing a defect",
+        "ok    allowlists 64 of 64 assertions"
+      ]
+    },
+    {
+      "path": "docs/audits/2026_11_01-epic-m6-doctrine-reference/stage-f/final-source/harness.out",
+      "command": "$ bash /workspace/repos/pixelelated/distribution.worktrees/m6-doctrine-reference-686/docs/audits/2026_11_01-epic-m6-doctrine-reference/tools/t39-checks.sh --tree /workspace/tmp/m6-t39/export-de11515859d2-final-source --repo /workspace/repos/pixelelated/distribution.worktrees/m6-doctrine-reference-686 --commit de11515859d231a82a511c3867e12211190041a2 --since 86ebb6dffc --paths /workspace/repos/pixelelated/distribution.worktrees/m6-doctrine-reference-686/docs/audits/2026_11_01-epic-m6-doctrine-reference/stage-a/paths.txt --allow /workspace/repos/pixelelated/distribution.worktrees/m6-doctrine-reference-686/docs/audits/2026_11_01-epic-m6-doctrine-reference/tools --out docs/audits/2026_11_01-epic-m6-doctrine-reference/stage-f/final-source/steps",
+      "rc": [
+        "0"
+      ],
+      "total": [
+        "TOTAL: 13 of 13 steps"
+      ],
+      "commit": [
+        "de11515859d231a82a511c3867e12211190041a2"
+      ],
+      "step_results": [
+        "ok    inventory  510 of 510 assertions; paths 254 text 223 binary 31",
+        "ok    scope      11 of 11 assertions; CARVE art-bytes 18 edit-scope 68 edit-under-naming 1 ledger-binary 31 ledger-named 6 ledger-plan 1 ledger-reviews 12 read-only-528 1 read-only-585 27 read-only-upstream 88 tabled-generic-x64 1 total 254",
+        "ok    links      525 of 525 assertions; 525 relative links",
+        "ok    paths      2062 of 2062 assertions; 39 allowlisted; 2062 backticked repository paths",
+        "ok    tools      366 of 366 assertions; 2 allowlisted; 366 tools/ names",
+        "ok    identity   58 of 58 assertions; 58 allowlisted",
+        "ok    retired    51 of 51 assertions; 51 allowlisted",
+        "ok    cites      1273 of 1273 assertions; register IDs 716, citations 1273",
+        "ok    untouched  285 of 285 assertions; 13 non-merge commits since 86ebb6dffc",
+        "ok    generated  3 of 3 assertions",
+        "ok    binaries   98 of 98 assertions; held 49 (ledger-binary 31, art-bytes 18)",
+        "ok    leads      13 of 13 assertions; 13 lead checks, 0 printing a defect",
+        "ok    allowlists 64 of 64 assertions"
+      ]
+    },
+    {
+      "path": "docs/audits/2026_11_01-epic-m6-doctrine-reference/stage-f/withheld-findings/harness.out",
+      "command": "$ bash /workspace/repos/pixelelated/distribution.worktrees/m6-doctrine-reference-686/docs/audits/2026_11_01-epic-m6-doctrine-reference/tools/t39-checks.sh --tree /workspace/tmp/m6-t39/export-de11515859d2-withheld-findings --repo /workspace/repos/pixelelated/distribution.worktrees/m6-doctrine-reference-686 --commit de11515859d231a82a511c3867e12211190041a2 --since 86ebb6dffc --paths /workspace/repos/pixelelated/distribution.worktrees/m6-doctrine-reference-686/docs/audits/2026_11_01-epic-m6-doctrine-reference/stage-a/paths.txt --allow /workspace/repos/pixelelated/distribution.worktrees/m6-doctrine-reference-686/docs/audits/2026_11_01-epic-m6-doctrine-reference/tools --out docs/audits/2026_11_01-epic-m6-doctrine-reference/stage-f/withheld-findings/steps --withhold findings",
+      "rc": [
+        "0"
+      ],
+      "total": [
+        "TOTAL: 13 of 13 steps"
+      ],
+      "commit": [
+        "de11515859d231a82a511c3867e12211190041a2"
+      ],
+      "step_results": [
+        "ok    inventory  510 of 510 assertions; paths 254 text 223 binary 31",
+        "ok    scope      11 of 11 assertions; CARVE art-bytes 18 edit-scope 68 edit-under-naming 1 ledger-binary 31 ledger-named 6 ledger-plan 1 ledger-reviews 12 read-only-528 1 read-only-585 27 read-only-upstream 88 tabled-generic-x64 1 total 254",
+        "ok    links      525 of 525 assertions; 525 relative links",
+        "ok    paths      2062 of 2062 assertions; 39 allowlisted; 2062 backticked repository paths",
+        "ok    tools      366 of 366 assertions; 2 allowlisted; 366 tools/ names",
+        "ok    identity   58 of 58 assertions; 58 allowlisted",
+        "ok    retired    51 of 51 assertions; 51 allowlisted",
+        "ok    cites      1273 of 1273 assertions; register IDs 716, citations 1273",
+        "ok    untouched  285 of 285 assertions; 13 non-merge commits since 86ebb6dffc",
+        "ok    generated  3 of 3 assertions",
+        "ok    binaries   98 of 98 assertions; held 49 (ledger-binary 31, art-bytes 18)",
+        "ok    leads      13 of 13 assertions; 13 lead checks, 0 printing a defect",
+        "ok    allowlists 64 of 64 assertions"
+      ]
+    },
+    {
+      "path": "docs/audits/2026_11_01-epic-m6-doctrine-reference/stage-h/initial-integrated/harness.out",
+      "command": "$ bash /workspace/repos/pixelelated/distribution.worktrees/m6-doctrine-reference-686/docs/audits/2026_11_01-epic-m6-doctrine-reference/tools/t39-checks.sh --tree /workspace/tmp/m6-t39/export-24a5e0e29460-initial-integrated --repo /workspace/repos/pixelelated/distribution.worktrees/m6-doctrine-reference-686 --commit 24a5e0e294607bc6fc99025873cb063d26c9a4da --since 86ebb6dffc --paths /workspace/repos/pixelelated/distribution.worktrees/m6-doctrine-reference-686/docs/audits/2026_11_01-epic-m6-doctrine-reference/stage-a/paths.txt --allow /workspace/repos/pixelelated/distribution.worktrees/m6-doctrine-reference-686/docs/audits/2026_11_01-epic-m6-doctrine-reference/tools --out docs/audits/2026_11_01-epic-m6-doctrine-reference/stage-h/initial-integrated/steps --withhold findings",
+      "rc": [
+        "1"
+      ],
+      "total": [
+        "TOTAL: 12 of 13 steps"
+      ],
+      "commit": [
+        "24a5e0e294607bc6fc99025873cb063d26c9a4da"
+      ],
+      "step_results": [
+        "ok    inventory  510 of 510 assertions; paths 254 text 223 binary 31",
+        "ok    scope      11 of 11 assertions; CARVE art-bytes 18 edit-scope 68 edit-under-naming 1 ledger-binary 31 ledger-named 6 ledger-plan 1 ledger-reviews 12 read-only-528 1 read-only-585 27 read-only-upstream 88 tabled-generic-x64 1 total 254",
+        "ok    links      525 of 525 assertions; 525 relative links",
+        "ok    paths      2062 of 2062 assertions; 39 allowlisted; 2062 backticked repository paths",
+        "ok    tools      366 of 366 assertions; 2 allowlisted; 366 tools/ names",
+        "ok    identity   58 of 58 assertions; 58 allowlisted",
+        "ok    retired    51 of 51 assertions; 51 allowlisted",
+        "ok    cites      1273 of 1273 assertions; register IDs 722, citations 1273",
+        "FAIL  untouched  716 of 829 assertions; 45 non-merge commits since 86ebb6dffc",
+        "ok    generated  3 of 3 assertions",
+        "ok    binaries   98 of 98 assertions; held 49 (ledger-binary 31, art-bytes 18)",
+        "ok    leads      13 of 13 assertions; 13 lead checks, 0 printing a defect",
+        "ok    allowlists 64 of 64 assertions"
+      ]
+    },
+    {
+      "path": "docs/audits/2026_11_01-epic-m6-doctrine-reference/stage-h/integrated-withheld-findings/harness.out",
+      "command": "$ bash /workspace/repos/pixelelated/distribution.worktrees/m6-doctrine-reference-686/docs/audits/2026_11_01-epic-m6-doctrine-reference/tools/t39-checks.sh --tree /workspace/tmp/m6-t39/export-24a5e0e29460-integrated-withheld-findings --repo /workspace/repos/pixelelated/distribution.worktrees/m6-doctrine-reference-686 --commit 24a5e0e294607bc6fc99025873cb063d26c9a4da --since 86ebb6dffc --paths /workspace/repos/pixelelated/distribution.worktrees/m6-doctrine-reference-686/docs/audits/2026_11_01-epic-m6-doctrine-reference/stage-a/paths.txt --allow /workspace/repos/pixelelated/distribution.worktrees/m6-doctrine-reference-686/docs/audits/2026_11_01-epic-m6-doctrine-reference/tools --out docs/audits/2026_11_01-epic-m6-doctrine-reference/stage-h/integrated-withheld-findings/steps --withhold findings --coordinator-tip 329011b9eae20922b4d0727e13bf1626b2e1c04f",
+      "rc": [
+        "0"
+      ],
+      "total": [
+        "TOTAL: 13 of 13 steps"
+      ],
+      "commit": [
+        "24a5e0e294607bc6fc99025873cb063d26c9a4da"
+      ],
+      "step_results": [
+        "ok    inventory  510 of 510 assertions; paths 254 text 223 binary 31",
+        "ok    scope      11 of 11 assertions; CARVE art-bytes 18 edit-scope 68 edit-under-naming 1 ledger-binary 31 ledger-named 6 ledger-plan 1 ledger-reviews 12 read-only-528 1 read-only-585 27 read-only-upstream 88 tabled-generic-x64 1 total 254",
+        "ok    links      525 of 525 assertions; 525 relative links",
+        "ok    paths      2062 of 2062 assertions; 39 allowlisted; 2062 backticked repository paths",
+        "ok    tools      366 of 366 assertions; 2 allowlisted; 366 tools/ names",
+        "ok    identity   58 of 58 assertions; 58 allowlisted",
+        "ok    retired    51 of 51 assertions; 51 allowlisted",
+        "ok    cites      1273 of 1273 assertions; register IDs 722, citations 1273",
+        "ok    untouched  1262 of 1262 assertions; 15 non-merge commits since 86ebb6dffc",
+        "ok    generated  3 of 3 assertions",
+        "ok    binaries   98 of 98 assertions; held 49 (ledger-binary 31, art-bytes 18)",
+        "ok    leads      13 of 13 assertions; 13 lead checks, 0 printing a defect",
+        "ok    allowlists 64 of 64 assertions"
+      ]
+    },
+    {
+      "path": "docs/audits/2026_11_01-epic-m6-doctrine-reference/stage-h/refuse-unmerged-integration-tip/harness.out",
+      "command": "$ bash /workspace/repos/pixelelated/distribution.worktrees/m6-doctrine-reference-686/docs/audits/2026_11_01-epic-m6-doctrine-reference/tools/t39-checks.sh --tree /workspace/tmp/m6-t39/export-ad5516f66035-refuse-unmerged-integration-tip --repo /workspace/repos/pixelelated/distribution.worktrees/m6-doctrine-reference-686 --commit ad5516f6603509954d241e62585b22d32402b03c --since 86ebb6dffc --paths /workspace/repos/pixelelated/distribution.worktrees/m6-doctrine-reference-686/docs/audits/2026_11_01-epic-m6-doctrine-reference/stage-a/paths.txt --allow /workspace/repos/pixelelated/distribution.worktrees/m6-doctrine-reference-686/docs/audits/2026_11_01-epic-m6-doctrine-reference/tools --out docs/audits/2026_11_01-epic-m6-doctrine-reference/stage-h/refuse-unmerged-integration-tip/steps --withhold findings --coordinator-tip 329011b9eae20922b4d0727e13bf1626b2e1c04f",
+      "rc": [
+        "2"
+      ],
+      "total": [],
+      "commit": [
+        "ad5516f6603509954d241e62585b22d32402b03c"
+      ],
+      "step_results": []
+    },
+    {
+      "path": "docs/audits/2026_11_01-epic-m6-doctrine-reference/stage-h/refuse-wrong-integration-tip/harness.out",
+      "command": "$ bash /workspace/repos/pixelelated/distribution.worktrees/m6-doctrine-reference-686/docs/audits/2026_11_01-epic-m6-doctrine-reference/tools/t39-checks.sh --tree /workspace/tmp/m6-t39/export-24a5e0e29460-refuse-wrong-integration-tip --repo /workspace/repos/pixelelated/distribution.worktrees/m6-doctrine-reference-686 --commit 24a5e0e294607bc6fc99025873cb063d26c9a4da --since 86ebb6dffc --paths /workspace/repos/pixelelated/distribution.worktrees/m6-doctrine-reference-686/docs/audits/2026_11_01-epic-m6-doctrine-reference/stage-a/paths.txt --allow /workspace/repos/pixelelated/distribution.worktrees/m6-doctrine-reference-686/docs/audits/2026_11_01-epic-m6-doctrine-reference/tools --out docs/audits/2026_11_01-epic-m6-doctrine-reference/stage-h/refuse-wrong-integration-tip/steps --withhold findings --coordinator-tip 24a5e0e294607bc6fc99025873cb063d26c9a4da",
+      "rc": [
+        "2"
+      ],
+      "total": [],
+      "commit": [
+        "24a5e0e294607bc6fc99025873cb063d26c9a4da"
+      ],
+      "step_results": []
+    },
+    {
+      "path": "docs/audits/2026_11_01-epic-m6-doctrine-reference/stage-h/reject-merge-resolution-edit/harness.out",
+      "command": "$ bash /workspace/repos/pixelelated/distribution.worktrees/m6-doctrine-reference-686/docs/audits/2026_11_01-epic-m6-doctrine-reference/tools/t39-checks.sh --tree /workspace/tmp/m6-t39/export-412c22027c74-reject-merge-resolution-edit --repo /workspace/repos/pixelelated/distribution.worktrees/m6-doctrine-reference-686 --commit 412c22027c7470af6d9139a6911bf2663cda2e54 --since 86ebb6dffc --paths /workspace/repos/pixelelated/distribution.worktrees/m6-doctrine-reference-686/docs/audits/2026_11_01-epic-m6-doctrine-reference/stage-a/paths.txt --allow /workspace/repos/pixelelated/distribution.worktrees/m6-doctrine-reference-686/docs/audits/2026_11_01-epic-m6-doctrine-reference/tools --out docs/audits/2026_11_01-epic-m6-doctrine-reference/stage-h/reject-merge-resolution-edit/steps --withhold findings --coordinator-tip 329011b9eae20922b4d0727e13bf1626b2e1c04f",
+      "rc": [
+        "1"
+      ],
+      "total": [
+        "TOTAL: 12 of 13 steps"
+      ],
+      "commit": [
+        "412c22027c7470af6d9139a6911bf2663cda2e54"
+      ],
+      "step_results": [
+        "ok    inventory  510 of 510 assertions; paths 254 text 223 binary 31",
+        "ok    scope      11 of 11 assertions; CARVE art-bytes 18 edit-scope 68 edit-under-naming 1 ledger-binary 31 ledger-named 6 ledger-plan 1 ledger-reviews 12 read-only-528 1 read-only-585 27 read-only-upstream 88 tabled-generic-x64 1 total 254",
+        "ok    links      525 of 525 assertions; 525 relative links",
+        "ok    paths      2062 of 2062 assertions; 39 allowlisted; 2062 backticked repository paths",
+        "ok    tools      366 of 366 assertions; 2 allowlisted; 366 tools/ names",
+        "ok    identity   58 of 58 assertions; 58 allowlisted",
+        "ok    retired    51 of 51 assertions; 51 allowlisted",
+        "ok    cites      1273 of 1273 assertions; register IDs 722, citations 1273",
+        "FAIL  untouched  1262 of 1263 assertions; 15 non-merge commits since 86ebb6dffc",
+        "ok    generated  3 of 3 assertions",
+        "ok    binaries   98 of 98 assertions; held 49 (ledger-binary 31, art-bytes 18)",
+        "ok    leads      13 of 13 assertions; 13 lead checks, 0 printing a defect",
+        "ok    allowlists 64 of 64 assertions"
+      ]
+    },
+    {
+      "path": "docs/audits/2026_11_01-epic-m6-doctrine-reference/stage-h/reject-owned-postmerge-edit/harness.out",
+      "command": "$ bash /workspace/repos/pixelelated/distribution.worktrees/m6-doctrine-reference-686/docs/audits/2026_11_01-epic-m6-doctrine-reference/tools/t39-checks.sh --tree /workspace/tmp/m6-t39/export-3e3f0bc1a14c-reject-owned-postmerge-edit --repo /workspace/repos/pixelelated/distribution.worktrees/m6-doctrine-reference-686 --commit 3e3f0bc1a14c98dca327575321bb50d30e37b9a2 --since 86ebb6dffc --paths /workspace/repos/pixelelated/distribution.worktrees/m6-doctrine-reference-686/docs/audits/2026_11_01-epic-m6-doctrine-reference/stage-a/paths.txt --allow /workspace/repos/pixelelated/distribution.worktrees/m6-doctrine-reference-686/docs/audits/2026_11_01-epic-m6-doctrine-reference/tools --out docs/audits/2026_11_01-epic-m6-doctrine-reference/stage-h/reject-owned-postmerge-edit/steps --withhold findings --coordinator-tip 329011b9eae20922b4d0727e13bf1626b2e1c04f",
+      "rc": [
+        "1"
+      ],
+      "total": [
+        "TOTAL: 12 of 13 steps"
+      ],
+      "commit": [
+        "3e3f0bc1a14c98dca327575321bb50d30e37b9a2"
+      ],
+      "step_results": [
+        "ok    inventory  510 of 510 assertions; paths 254 text 223 binary 31",
+        "ok    scope      11 of 11 assertions; CARVE art-bytes 18 edit-scope 68 edit-under-naming 1 ledger-binary 31 ledger-named 6 ledger-plan 1 ledger-reviews 12 read-only-528 1 read-only-585 27 read-only-upstream 88 tabled-generic-x64 1 total 254",
+        "ok    links      525 of 525 assertions; 525 relative links",
+        "ok    paths      2062 of 2062 assertions; 39 allowlisted; 2062 backticked repository paths",
+        "ok    tools      366 of 366 assertions; 2 allowlisted; 366 tools/ names",
+        "ok    identity   58 of 58 assertions; 58 allowlisted",
+        "ok    retired    51 of 51 assertions; 51 allowlisted",
+        "ok    cites      1273 of 1273 assertions; register IDs 722, citations 1273",
+        "FAIL  untouched  1262 of 1264 assertions; 16 non-merge commits since 86ebb6dffc",
+        "ok    generated  3 of 3 assertions",
+        "ok    binaries   98 of 98 assertions; held 49 (ledger-binary 31, art-bytes 18)",
+        "ok    leads      13 of 13 assertions; 13 lead checks, 0 printing a defect",
+        "ok    allowlists 64 of 64 assertions"
+      ]
+    }
+  ],
+  "streams": [
+    {
+      "stream": 1,
+      "commit": "de40e931a469f6aa6889f08ec9d4d31266f4c6d4",
+      "candidate_rc": 0,
+      "committed_rc": 0,
+      "candidate_tree_matches_record": true,
+      "committed_tree_equals_candidate": true,
+      "source_paths": 3,
+      "candidate_source_equals_committed": true
+    },
+    {
+      "stream": 2,
+      "commit": "424eea28ecbfaa8fbbe49cdee6c99750becd13cf",
+      "candidate_rc": 0,
+      "committed_rc": 0,
+      "candidate_tree_matches_record": true,
+      "committed_tree_equals_candidate": true,
+      "source_paths": 4,
+      "candidate_source_equals_committed": true
+    },
+    {
+      "stream": 3,
+      "commit": "895b90abcf44e62d3aa7339eba043cfe01e9b98e",
+      "candidate_rc": 0,
+      "committed_rc": 0,
+      "candidate_tree_matches_record": true,
+      "committed_tree_equals_candidate": true,
+      "source_paths": 5,
+      "candidate_source_equals_committed": true
+    },
+    {
+      "stream": 4,
+      "commit": "a2d4a33d4aa310d78c1b5c23b5bcdcd93f8ffe89",
+      "candidate_rc": 0,
+      "committed_rc": 0,
+      "candidate_tree_matches_record": true,
+      "committed_tree_equals_candidate": true,
+      "source_paths": 12,
+      "candidate_source_equals_committed": true
+    },
+    {
+      "stream": 5,
+      "commit": "de11515859d231a82a511c3867e12211190041a2",
+      "candidate_rc": 0,
+      "committed_rc": 0,
+      "candidate_tree_matches_record": true,
+      "committed_tree_equals_candidate": true,
+      "source_paths": 29,
+      "candidate_source_equals_committed": true
+    }
+  ],
+  "h_checks": [
+    {
+      "name": "lint",
+      "rc": 0,
+      "receipt": "docs/audits/2026_11_01-epic-m6-doctrine-reference/stage-h/checks/lint.out",
+      "tail": [
+        "PASS"
+      ],
+      "actual_tail_rc": [
+        "0"
+      ]
+    },
+    {
+      "name": "lint-issue",
+      "rc": 0,
+      "receipt": "docs/audits/2026_11_01-epic-m6-doctrine-reference/stage-h/checks/lint-issue.out",
+      "tail": [
+        "PASS"
+      ],
+      "actual_tail_rc": [
+        "0"
+      ]
+    },
+    {
+      "name": "record-check",
+      "rc": 0,
+      "receipt": "docs/audits/2026_11_01-epic-m6-doctrine-reference/stage-h/checks/record-check.out",
+      "tail": [
+        "PASS new records: 33 Q5 rows / 2770 lines, 46 outcomes, 27 proof pairs, 49 protected rows; historical identity and accepted receipts retained"
+      ],
+      "actual_tail_rc": [
+        "0"
+      ]
+    },
+    {
+      "name": "rules",
+      "rc": 0,
+      "receipt": "docs/audits/2026_11_01-epic-m6-doctrine-reference/stage-h/checks/rules.out",
+      "tail": [],
+      "actual_tail_rc": [
+        "0"
+      ]
+    },
+    {
+      "name": "register",
+      "rc": 0,
+      "receipt": "docs/audits/2026_11_01-epic-m6-doctrine-reference/stage-h/checks/register.out",
+      "tail": [
+        "register-check: 722 IDs, each once; every citation in the live documents names a row"
+      ],
+      "actual_tail_rc": [
+        "0"
+      ]
+    },
+    {
+      "name": "index",
+      "rc": 0,
+      "receipt": "docs/audits/2026_11_01-epic-m6-doctrine-reference/stage-h/checks/index.out",
+      "tail": [
+        "work-log index: current"
+      ],
+      "actual_tail_rc": [
+        "0"
+      ]
+    },
+    {
+      "name": "ceremony",
+      "rc": 0,
+      "receipt": "docs/audits/2026_11_01-epic-m6-doctrine-reference/stage-h/checks/ceremony.out",
+      "tail": [],
+      "actual_tail_rc": [
+        "0"
+      ]
+    },
+    {
+      "name": "hooks",
+      "rc": 0,
+      "receipt": "docs/audits/2026_11_01-epic-m6-doctrine-reference/stage-h/checks/hooks.out",
+      "tail": [
+        "PASS"
+      ],
+      "actual_tail_rc": [
+        "0"
+      ]
+    },
+    {
+      "name": "menu-map",
+      "rc": 0,
+      "receipt": "docs/audits/2026_11_01-epic-m6-doctrine-reference/stage-h/checks/menu-map.out",
+      "tail": [
+        "55 screen(s) at 16dbac521, 31 in the map, 24 declared unmapped, 0 missing"
+      ],
+      "actual_tail_rc": [
+        "0"
+      ]
+    }
+  ],
+  "final_tip_harness_receipts": [],
+  "actual_final_nonowned_delta": []
+}

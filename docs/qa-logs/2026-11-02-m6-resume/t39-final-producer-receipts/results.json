@@ -1,0 +1,135 @@
+{
+  "tip": "4eb5dfab8e745914a55e7de3e5a43c5b91ebc608",
+  "coordinator": "329011b9eae20922b4d0727e13bf1626b2e1c04f",
+  "reviewed": "86ebb6dffce7bec2dda6296bd84dd225a28b1347",
+  "timestamp": "2026-11-02T19:17:38Z",
+  "normal_rc": 0,
+  "withheld_findings_rc": 0,
+  "checks": [
+    {
+      "name": "lint",
+      "rc": 0,
+      "tail": [
+        "PASS"
+      ]
+    },
+    {
+      "name": "lint-issue",
+      "rc": 0,
+      "tail": [
+        "PASS"
+      ]
+    },
+    {
+      "name": "record-check",
+      "rc": 0,
+      "tail": [
+        "PASS new records: 33 Q5 rows / 2770 lines, 46 outcomes, 28 proof pairs, 49 protected rows; historical identity and accepted receipts retained"
+      ]
+    },
+    {
+      "name": "rules",
+      "rc": 0,
+      "tail": []
+    },
+    {
+      "name": "register",
+      "rc": 0,
+      "tail": [
+        "register-check: 722 IDs, each once; every citation in the live documents names a row"
+      ]
+    },
+    {
+      "name": "index",
+      "rc": 0,
+      "tail": [
+        "work-log index: current"
+      ]
+    },
+    {
+      "name": "ceremony",
+      "rc": 0,
+      "tail": []
+    },
+    {
+      "name": "hooks",
+      "rc": 0,
+      "tail": [
+        "PASS"
+      ]
+    },
+    {
+      "name": "menu-map",
+      "rc": 0,
+      "tail": [
+        "55 screen(s) at 16dbac521, 31 in the map, 24 declared unmapped, 0 missing"
+      ]
+    },
+    {
+      "name": "box-686",
+      "rc": 0,
+      "tail": [
+        "box-check: 1 issue(s), 27 open checkbox(es), 0 fail, 1 issue(s) with rows to re-derive against"
+      ]
+    },
+    {
+      "name": "box-1406",
+      "rc": 0,
+      "tail": [
+        "box-check: 1 issue(s), 22 open checkbox(es), 0 fail, 0 issue(s) with rows to re-derive against"
+      ]
+    },
+    {
+      "name": "box-1400",
+      "rc": 0,
+      "tail": [
+        "box-check: 1 issue(s), 1 open checkbox(es), 0 fail, 0 issue(s) with rows to re-derive against"
+      ]
+    },
+    {
+      "name": "box-1401",
+      "rc": 0,
+      "tail": [
+        "box-check: 1 issue(s), 1 open checkbox(es), 0 fail, 0 issue(s) with rows to re-derive against"
+      ]
+    },
+    {
+      "name": "box-1402",
+      "rc": 0,
+      "tail": [
+        "box-check: 1 issue(s), 1 open checkbox(es), 0 fail, 0 issue(s) with rows to re-derive against"
+      ]
+    },
+    {
+      "name": "box-1403",
+      "rc": 0,
+      "tail": [
+        "box-check: 1 issue(s), 1 open checkbox(es), 0 fail, 0 issue(s) with rows to re-derive against"
+      ]
+    },
+    {
+      "name": "box-1404",
+      "rc": 0,
+      "tail": [
+        "box-check: 1 issue(s), 1 open checkbox(es), 0 fail, 0 issue(s) with rows to re-derive against"
+      ]
+    },
+    {
+      "name": "box-1405",
+      "rc": 0,
+      "tail": [
+        "box-check: 1 issue(s), 1 open checkbox(es), 0 fail, 0 issue(s) with rows to re-derive against"
+      ]
+    }
+  ],
+  "forbidden_rc": 0,
+  "owned_nonmerge_commits": 16,
+  "owned_deletions": 0,
+  "removed_register_lines": 0,
+  "exports_retired": [
+    "/workspace/tmp/m6-t39/export-4eb5dfab8e74-normal",
+    "/workspace/tmp/m6-t39/export-4eb5dfab8e74-withheld-findings"
+  ],
+  "clean": true,
+  "receipt_directory": "/workspace/tmp/m6-t39/final-4eb5dfab8e74"
+}

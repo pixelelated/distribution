@@ -1,0 +1,763 @@
+{
+  "kind": "retained producer receipts; read only, not rerun; separate from immutable merge packet",
+  "root": "/workspace/tmp/m6-t39/final-4eb5dfab8e74",
+  "recorded_results": {
+    "tip": "4eb5dfab8e745914a55e7de3e5a43c5b91ebc608",
+    "coordinator": "329011b9eae20922b4d0727e13bf1626b2e1c04f",
+    "reviewed": "86ebb6dffce7bec2dda6296bd84dd225a28b1347",
+    "timestamp": "2026-11-02T19:17:38Z",
+    "normal_rc": 0,
+    "withheld_findings_rc": 0,
+    "checks": [
+      {
+        "name": "lint",
+        "rc": 0,
+        "tail": [
+          "PASS"
+        ]
+      },
+      {
+        "name": "lint-issue",
+        "rc": 0,
+        "tail": [
+          "PASS"
+        ]
+      },
+      {
+        "name": "record-check",
+        "rc": 0,
+        "tail": [
+          "PASS new records: 33 Q5 rows / 2770 lines, 46 outcomes, 28 proof pairs, 49 protected rows; historical identity and accepted receipts retained"
+        ]
+      },
+      {
+        "name": "rules",
+        "rc": 0,
+        "tail": []
+      },
+      {
+        "name": "register",
+        "rc": 0,
+        "tail": [
+          "register-check: 722 IDs, each once; every citation in the live documents names a row"
+        ]
+      },
+      {
+        "name": "index",
+        "rc": 0,
+        "tail": [
+          "work-log index: current"
+        ]
+      },
+      {
+        "name": "ceremony",
+        "rc": 0,
+        "tail": []
+      },
+      {
+        "name": "hooks",
+        "rc": 0,
+        "tail": [
+          "PASS"
+        ]
+      },
+      {
+        "name": "menu-map",
+        "rc": 0,
+        "tail": [
+          "55 screen(s) at 16dbac521, 31 in the map, 24 declared unmapped, 0 missing"
+        ]
+      },
+      {
+        "name": "box-686",
+        "rc": 0,
+        "tail": [
+          "box-check: 1 issue(s), 27 open checkbox(es), 0 fail, 1 issue(s) with rows to re-derive against"
+        ]
+      },
+      {
+        "name": "box-1406",
+        "rc": 0,
+        "tail": [
+          "box-check: 1 issue(s), 22 open checkbox(es), 0 fail, 0 issue(s) with rows to re-derive against"
+        ]
+      },
+      {
+        "name": "box-1400",
+        "rc": 0,
+        "tail": [
+          "box-check: 1 issue(s), 1 open checkbox(es), 0 fail, 0 issue(s) with rows to re-derive against"
+        ]
+      },
+      {
+        "name": "box-1401",
+        "rc": 0,
+        "tail": [
+          "box-check: 1 issue(s), 1 open checkbox(es), 0 fail, 0 issue(s) with rows to re-derive against"
+        ]
+      },
+      {
+        "name": "box-1402",
+        "rc": 0,
+        "tail": [
+          "box-check: 1 issue(s), 1 open checkbox(es), 0 fail, 0 issue(s) with rows to re-derive against"
+        ]
+      },
+      {
+        "name": "box-1403",
+        "rc": 0,
+        "tail": [
+          "box-check: 1 issue(s), 1 open checkbox(es), 0 fail, 0 issue(s) with rows to re-derive against"
+        ]
+      },
+      {
+        "name": "box-1404",
+        "rc": 0,
+        "tail": [
+          "box-check: 1 issue(s), 1 open checkbox(es), 0 fail, 0 issue(s) with rows to re-derive against"
+        ]
+      },
+      {
+        "name": "box-1405",
+        "rc": 0,
+        "tail": [
+          "box-check: 1 issue(s), 1 open checkbox(es), 0 fail, 0 issue(s) with rows to re-derive against"
+        ]
+      }
+    ],
+    "forbidden_rc": 0,
+    "owned_nonmerge_commits": 16,
+    "owned_deletions": 0,
+    "removed_register_lines": 0,
+    "exports_retired": [
+      "/workspace/tmp/m6-t39/export-4eb5dfab8e74-normal",
+      "/workspace/tmp/m6-t39/export-4eb5dfab8e74-withheld-findings"
+    ],
+    "clean": true,
+    "receipt_directory": "/workspace/tmp/m6-t39/final-4eb5dfab8e74"
+  },
+  "files": [
+    {
+      "path": "box-1400.out",
+      "bytes": 131,
+      "sha256": "cf254b5015c9edc64aaaa17eaa53237033d4a7b9c95494a45b52b10af76f6ffe"
+    },
+    {
+      "path": "box-1401.out",
+      "bytes": 131,
+      "sha256": "f0e7b4cdc2446eb74c033e4c8be0d162744fffdbb1fbfc88ede98772f5224608"
+    },
+    {
+      "path": "box-1402.out",
+      "bytes": 131,
+      "sha256": "7530c784f8e5a78ede27eda6302b29844293cbcc50324782e9f9ddcaac4f2022"
+    },
+    {
+      "path": "box-1403.out",
+      "bytes": 131,
+      "sha256": "4b377afd209b2fda6ea73201d2397bef9ce760b9cfb2caab7b0f4c52103192c8"
+    },
+    {
+      "path": "box-1404.out",
+      "bytes": 131,
+      "sha256": "7c43556ce0a1942361a05beec7b367de671ad29cb68e50959f35e6f5c9d7994a"
+    },
+    {
+      "path": "box-1405.out",
+      "bytes": 131,
+      "sha256": "c78385b3298d2eba47a40d334044cac2d3d5c5c65a46c7eee303e6cafa9a9cdc"
+    },
+    {
+      "path": "box-1406-final.out",
+      "bytes": 132,
+      "sha256": "721fddb7e3deb31aa4f8ff45fa32a0f389a204182bf3e40fa5ae438e460490b1"
+    },
+    {
+      "path": "box-1406.out",
+      "bytes": 132,
+      "sha256": "721fddb7e3deb31aa4f8ff45fa32a0f389a204182bf3e40fa5ae438e460490b1"
+    },
+    {
+      "path": "box-686-final.out",
+      "bytes": 258,
+      "sha256": "d23eb047c68d8c237c819940ae9bf5a86d6dfdd79e7b236ac6f8a170c63a9e65"
+    },
+    {
+      "path": "box-686.out",
+      "bytes": 258,
+      "sha256": "d23eb047c68d8c237c819940ae9bf5a86d6dfdd79e7b236ac6f8a170c63a9e65"
+    },
+    {
+      "path": "ceremony.out",
+      "bytes": 36,
+      "sha256": "1284a76c5ce04d1c2502647b38c6b55933d41d96268bffc61c30052e516ad6c7"
+    },
+    {
+      "path": "forbidden.out",
+      "bytes": 45,
+      "sha256": "3714841700ebed8de2d1bcc26ecbeaff5979d1d297495e37b4225a6d63d7e4e5"
+    },
+    {
+      "path": "hooks.out",
+      "bytes": 2399,
+      "sha256": "5ea2a93ce6b34b7987a8555d016875f4292282346e64d9c37a71badb5b5b52a1"
+    },
+    {
+      "path": "index.out",
+      "bytes": 61,
+      "sha256": "c36b7ad2a701b644000cb14e13ae054de5b2508b1dec082edb5ce357437c19fd"
+    },
+    {
+      "path": "lint-issue-final.out",
+      "bytes": 8537,
+      "sha256": "0a7754b23085381a945b41d1180e6bfa3d62319f48a0f46564415c0b13852855"
+    },
+    {
+      "path": "lint-issue.out",
+      "bytes": 8537,
+      "sha256": "0a7754b23085381a945b41d1180e6bfa3d62319f48a0f46564415c0b13852855"
+    },
+    {
+      "path": "lint.out",
+      "bytes": 6771,
+      "sha256": "e6ccb22fd48ad113412c7a71e8d75d4887b228699dabdc8098f4b0e43382f889"
+    },
+    {
+      "path": "menu-map.out",
+      "bytes": 106,
+      "sha256": "e0ff635e853b195c511291f00dd07918802b443f44fc4a42873d4eb7e033b110"
+    },
+    {
+      "path": "normal/harness.out",
+      "bytes": 1939,
+      "sha256": "319aebfa109b3971048ea7f8e3d5cf43971c5d7682e4a9f443b4f0a6d97e7a31"
+    },
+    {
+      "path": "normal/inodes.out",
+      "bytes": 190,
+      "sha256": "05ed63c2b14a6ec0564eb3d043b9d557ec31acc41d030d8336f031c189c348e8"
+    },
+    {
+      "path": "normal/steps/allowlists.txt",
+      "bytes": 1,
+      "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b"
+    },
+    {
+      "path": "normal/steps/binaries.txt",
+      "bytes": 1,
+      "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b"
+    },
+    {
+      "path": "normal/steps/cites.txt",
+      "bytes": 1,
+      "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b"
+    },
+    {
+      "path": "normal/steps/generated.txt",
+      "bytes": 1,
+      "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b"
+    },
+    {
+      "path": "normal/steps/identity.txt",
+      "bytes": 9134,
+      "sha256": "7c3b4736441a85de3fcf4f8dcb81cb1a9dca7dffa67cc59f510d86682adc0c8b"
+    },
+    {
+      "path": "normal/steps/inventory.txt",
+      "bytes": 1,
+      "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b"
+    },
+    {
+      "path": "normal/steps/leads.txt",
+      "bytes": 1,
+      "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b"
+    },
+    {
+      "path": "normal/steps/links.txt",
+      "bytes": 1,
+      "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b"
+    },
+    {
+      "path": "normal/steps/paths.txt",
+      "bytes": 4391,
+      "sha256": "092c8bf91909d5c2fa0580affdcaa75b3b6409f0b95de1c95759431638724450"
+    },
+    {
+      "path": "normal/steps/probes.tsv",
+      "bytes": 20108,
+      "sha256": "e1c77984e02ea9f795ce2cb599d2aa7936d576fa528e242bafc2925e98bc8d80"
+    },
+    {
+      "path": "normal/steps/read-cites.tsv",
+      "bytes": 60363,
+      "sha256": "2e79faf351fb842713d04bdd98b2e77e90335deb5a56d35fd7e9598a84367b0c"
+    },
+    {
+      "path": "normal/steps/read-identity.tsv",
+      "bytes": 3209,
+      "sha256": "a4396778527f628af663b4af2b8ac3b9d2815df5fd48d4a5c46ee659a1d4f466"
+    },
+    {
+      "path": "normal/steps/read-paths.tsv",
+      "bytes": 151711,
+      "sha256": "012697936053e98f61f0042ab9dac42bd607e58b762e59ddc4503de6b44ffba6"
+    },
+    {
+      "path": "normal/steps/read-retired.tsv",
+      "bytes": 3020,
+      "sha256": "cb001f123060dd3cd7bdd6197029c13f95463d9f2808e53a2c3a144aec6f272d"
+    },
+    {
+      "path": "normal/steps/read-tools.tsv",
+      "bytes": 20392,
+      "sha256": "5dc46b7513ca0988fc05139b17a69461bcc1dd3ac02b28e2f91655b422510c45"
+    },
+    {
+      "path": "normal/steps/retired.txt",
+      "bytes": 8773,
+      "sha256": "1a78e4a8a8d04a0c8bbf9707fbe75726ac07b3544c0a0c3a4ff39c01b818d865"
+    },
+    {
+      "path": "normal/steps/scope.txt",
+      "bytes": 1,
+      "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b"
+    },
+    {
+      "path": "normal/steps/tools.txt",
+      "bytes": 175,
+      "sha256": "959ee220edcab4870d92435bc3fd6df39f1991c9a5e6e2abdf53f01d0440fc08"
+    },
+    {
+      "path": "normal/steps/untouched.txt",
+      "bytes": 1,
+      "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b"
+    },
+    {
+      "path": "record-check.out",
+      "bytes": 422,
+      "sha256": "b801ab972ea8b28c8cd411c76f3f7ed4263a0ef30c9477912ad9e9c4682c01f8"
+    },
+    {
+      "path": "register.out",
+      "bytes": 114,
+      "sha256": "18761e2347edeef01563c214b86188cfa5aaa6a24c0eadc36798da319057ce7a"
+    },
+    {
+      "path": "results.json",
+      "bytes": 3169,
+      "sha256": "cb50da659a5bc5c63e521bd4b49cd80d8b64121d1484c23b2a75c14b5b25053a"
+    },
+    {
+      "path": "rules.out",
+      "bytes": 34,
+      "sha256": "2bb7d778e4d344a0c031621fe23d129e2f0919a2d42bff6ed2f0a5dc66a5c9f2"
+    },
+    {
+      "path": "withheld-findings/harness.out",
+      "bytes": 2011,
+      "sha256": "833ab89575663dc7dbd9cddee3f4298ef4ef3e545f0931a0b274c3a87a0b3810"
+    },
+    {
+      "path": "withheld-findings/inodes.out",
+      "bytes": 190,
+      "sha256": "eba240a6b0fd379ff7f19f514a58450e4096e79ea714f0ce3a346f81746ed879"
+    },
+    {
+      "path": "withheld-findings/steps/allowlists.txt",
+      "bytes": 1,
+      "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b"
+    },
+    {
+      "path": "withheld-findings/steps/binaries.txt",
+      "bytes": 1,
+      "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b"
+    },
+    {
+      "path": "withheld-findings/steps/cites.txt",
+      "bytes": 1,
+      "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b"
+    },
+    {
+      "path": "withheld-findings/steps/generated.txt",
+      "bytes": 1,
+      "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b"
+    },
+    {
+      "path": "withheld-findings/steps/identity.txt",
+      "bytes": 9134,
+      "sha256": "7c3b4736441a85de3fcf4f8dcb81cb1a9dca7dffa67cc59f510d86682adc0c8b"
+    },
+    {
+      "path": "withheld-findings/steps/inventory.txt",
+      "bytes": 1,
+      "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b"
+    },
+    {
+      "path": "withheld-findings/steps/leads.txt",
+      "bytes": 1,
+      "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b"
+    },
+    {
+      "path": "withheld-findings/steps/links.txt",
+      "bytes": 1,
+      "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b"
+    },
+    {
+      "path": "withheld-findings/steps/paths.txt",
+      "bytes": 4391,
+      "sha256": "092c8bf91909d5c2fa0580affdcaa75b3b6409f0b95de1c95759431638724450"
+    },
+    {
+      "path": "withheld-findings/steps/probes.tsv",
+      "bytes": 20108,
+      "sha256": "e1c77984e02ea9f795ce2cb599d2aa7936d576fa528e242bafc2925e98bc8d80"
+    },
+    {
+      "path": "withheld-findings/steps/read-cites.tsv",
+      "bytes": 60363,
+      "sha256": "2e79faf351fb842713d04bdd98b2e77e90335deb5a56d35fd7e9598a84367b0c"
+    },
+    {
+      "path": "withheld-findings/steps/read-identity.tsv",
+      "bytes": 3209,
+      "sha256": "a4396778527f628af663b4af2b8ac3b9d2815df5fd48d4a5c46ee659a1d4f466"
+    },
+    {
+      "path": "withheld-findings/steps/read-paths.tsv",
+      "bytes": 151711,
+      "sha256": "012697936053e98f61f0042ab9dac42bd607e58b762e59ddc4503de6b44ffba6"
+    },
+    {
+      "path": "withheld-findings/steps/read-retired.tsv",
+      "bytes": 3020,
+      "sha256": "cb001f123060dd3cd7bdd6197029c13f95463d9f2808e53a2c3a144aec6f272d"
+    },
+    {
+      "path": "withheld-findings/steps/read-tools.tsv",
+      "bytes": 20392,
+      "sha256": "5dc46b7513ca0988fc05139b17a69461bcc1dd3ac02b28e2f91655b422510c45"
+    },
+    {
+      "path": "withheld-findings/steps/retired.txt",
+      "bytes": 8773,
+      "sha256": "1a78e4a8a8d04a0c8bbf9707fbe75726ac07b3544c0a0c3a4ff39c01b818d865"
+    },
+    {
+      "path": "withheld-findings/steps/scope.txt",
+      "bytes": 1,
+      "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b"
+    },
+    {
+      "path": "withheld-findings/steps/tools.txt",
+      "bytes": 175,
+      "sha256": "959ee220edcab4870d92435bc3fd6df39f1991c9a5e6e2abdf53f01d0440fc08"
+    },
+    {
+      "path": "withheld-findings/steps/untouched.txt",
+      "bytes": 1,
+      "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b"
+    }
+  ],
+  "out_summaries": [
+    {
+      "path": "box-1400.out",
+      "first_line": "$ tools/box-check --issue 1400",
+      "rc": [
+        "0"
+      ],
+      "total": [],
+      "status_lines": [
+        "box-check: 1 issue(s), 1 open checkbox(es), 0 fail, 0 issue(s) with rows to re-derive against"
+      ]
+    },
+    {
+      "path": "box-1401.out",
+      "first_line": "$ tools/box-check --issue 1401",
+      "rc": [
+        "0"
+      ],
+      "total": [],
+      "status_lines": [
+        "box-check: 1 issue(s), 1 open checkbox(es), 0 fail, 0 issue(s) with rows to re-derive against"
+      ]
+    },
+    {
+      "path": "box-1402.out",
+      "first_line": "$ tools/box-check --issue 1402",
+      "rc": [
+        "0"
+      ],
+      "total": [],
+      "status_lines": [
+        "box-check: 1 issue(s), 1 open checkbox(es), 0 fail, 0 issue(s) with rows to re-derive against"
+      ]
+    },
+    {
+      "path": "box-1403.out",
+      "first_line": "$ tools/box-check --issue 1403",
+      "rc": [
+        "0"
+      ],
+      "total": [],
+      "status_lines": [
+        "box-check: 1 issue(s), 1 open checkbox(es), 0 fail, 0 issue(s) with rows to re-derive against"
+      ]
+    },
+    {
+      "path": "box-1404.out",
+      "first_line": "$ tools/box-check --issue 1404",
+      "rc": [
+        "0"
+      ],
+      "total": [],
+      "status_lines": [
+        "box-check: 1 issue(s), 1 open checkbox(es), 0 fail, 0 issue(s) with rows to re-derive against"
+      ]
+    },
+    {
+      "path": "box-1405.out",
+      "first_line": "$ tools/box-check --issue 1405",
+      "rc": [
+        "0"
+      ],
+      "total": [],
+      "status_lines": [
+        "box-check: 1 issue(s), 1 open checkbox(es), 0 fail, 0 issue(s) with rows to re-derive against"
+      ]
+    },
+    {
+      "path": "box-1406-final.out",
+      "first_line": "$ tools/box-check --issue 1406",
+      "rc": [
+        "0"
+      ],
+      "total": [],
+      "status_lines": [
+        "box-check: 1 issue(s), 22 open checkbox(es), 0 fail, 0 issue(s) with rows to re-derive against"
+      ]
+    },
+    {
+      "path": "box-1406.out",
+      "first_line": "$ tools/box-check --issue 1406",
+      "rc": [
+        "0"
+      ],
+      "total": [],
+      "status_lines": [
+        "box-check: 1 issue(s), 22 open checkbox(es), 0 fail, 0 issue(s) with rows to re-derive against"
+      ]
+    },
+    {
+      "path": "box-686-final.out",
+      "first_line": "$ tools/box-check --issue 686",
+      "rc": [
+        "0"
+      ],
+      "total": [],
+      "status_lines": [
+        "box-check: 1 issue(s), 27 open checkbox(es), 0 fail, 1 issue(s) with rows to re-derive against"
+      ]
+    },
+    {
+      "path": "box-686.out",
+      "first_line": "$ tools/box-check --issue 686",
+      "rc": [
+        "0"
+      ],
+      "total": [],
+      "status_lines": [
+        "box-check: 1 issue(s), 27 open checkbox(es), 0 fail, 1 issue(s) with rows to re-derive against"
+      ]
+    },
+    {
+      "path": "ceremony.out",
+      "first_line": "$ tools/ceremony-check --gate",
+      "rc": [
+        "0"
+      ],
+      "total": [],
+      "status_lines": []
+    },
+    {
+      "path": "forbidden.out",
+      "first_line": "forbidden-terms-check: 0 hits on stdin",
+      "rc": [
+        "0"
+      ],
+      "total": [],
+      "status_lines": [
+        "forbidden-terms-check: 0 hits on stdin"
+      ]
+    },
+    {
+      "path": "hooks.out",
+      "first_line": "$ .githooks/hooks-test",
+      "rc": [
+        "0"
+      ],
+      "total": [],
+      "status_lines": [
+        "PASS"
+      ]
+    },
+    {
+      "path": "index.out",
+      "first_line": "$ tools/work-log-index --check",
+      "rc": [
+        "0"
+      ],
+      "total": [],
+      "status_lines": [
+        "work-log index: current"
+      ]
+    },
+    {
+      "path": "lint-issue-final.out",
+      "first_line": "$ tools/lint-audit-artifacts docs/audits/2026_11_01-epic-m6-doctrine-reference --issue 1406",
+      "rc": [
+        "0"
+      ],
+      "total": [],
+      "status_lines": [
+        "PASS"
+      ]
+    },
+    {
+      "path": "lint-issue.out",
+      "first_line": "$ tools/lint-audit-artifacts docs/audits/2026_11_01-epic-m6-doctrine-reference --issue 1406",
+      "rc": [
+        "0"
+      ],
+      "total": [],
+      "status_lines": [
+        "PASS"
+      ]
+    },
+    {
+      "path": "lint.out",
+      "first_line": "$ tools/lint-audit-artifacts docs/audits/2026_11_01-epic-m6-doctrine-reference",
+      "rc": [
+        "0"
+      ],
+      "total": [],
+      "status_lines": [
+        "PASS"
+      ]
+    },
+    {
+      "path": "menu-map.out",
+      "first_line": "$ tools/es-menu-map-check",
+      "rc": [
+        "0"
+      ],
+      "total": [],
+      "status_lines": [
+        "55 screen(s) at 16dbac521, 31 in the map, 24 declared unmapped, 0 missing"
+      ]
+    },
+    {
+      "path": "normal/harness.out",
+      "first_line": "$ bash /workspace/repos/pixelelated/distribution.worktrees/m6-doctrine-reference-686/docs/audits/2026_11_01-epic-m6-doctrine-reference/tools/t39-checks.sh --tree /workspace/tmp/m6-t39/export-4eb5dfab8e74-normal --repo /workspace/repos/pixelelated/distribution.worktrees/m6-doctrine-reference-686 --commit 4eb5dfab8e745914a55e7de3e5a43c5b91ebc608 --since 86ebb6dffc --paths /workspace/repos/pixelelated/distribution.worktrees/m6-doctrine-reference-686/docs/audits/2026_11_01-epic-m6-doctrine-reference/stage-a/paths.txt --allow /workspace/repos/pixelelated/distribution.worktrees/m6-doctrine-reference-686/docs/audits/2026_11_01-epic-m6-doctrine-reference/tools --out /workspace/tmp/m6-t39/final-4eb5dfab8e74/normal/steps --coordinator-tip 329011b9eae20922b4d0727e13bf1626b2e1c04f",
+      "rc": [
+        "0"
+      ],
+      "total": [
+        "TOTAL: 13 of 13 steps"
+      ],
+      "status_lines": [
+        "ok    inventory  510 of 510 assertions; paths 254 text 223 binary 31",
+        "ok    scope      11 of 11 assertions; CARVE art-bytes 18 edit-scope 68 edit-under-naming 1 ledger-binary 31 ledger-named 6 ledger-plan 1 ledger-reviews 12 read-only-528 1 read-only-585 27 read-only-upstream 88 tabled-generic-x64 1 total 254",
+        "ok    links      525 of 525 assertions; 525 relative links",
+        "ok    paths      2062 of 2062 assertions; 39 allowlisted; 2062 backticked repository paths",
+        "ok    tools      366 of 366 assertions; 2 allowlisted; 366 tools/ names",
+        "ok    identity   58 of 58 assertions; 58 allowlisted",
+        "ok    retired    51 of 51 assertions; 51 allowlisted",
+        "ok    cites      1273 of 1273 assertions; register IDs 722, citations 1273",
+        "ok    untouched  1503 of 1503 assertions; 16 non-merge commits since 86ebb6dffc",
+        "ok    generated  3 of 3 assertions",
+        "ok    binaries   98 of 98 assertions; held 49 (ledger-binary 31, art-bytes 18)",
+        "ok    leads      13 of 13 assertions; 13 lead checks, 0 printing a defect",
+        "ok    allowlists 64 of 64 assertions"
+      ]
+    },
+    {
+      "path": "normal/inodes.out",
+      "first_line": "$ df -i /workspace/tmp/m6-t39",
+      "rc": [
+        "0"
+      ],
+      "total": [],
+      "status_lines": []
+    },
+    {
+      "path": "record-check.out",
+      "first_line": "$ python3 docs/audits/2026_11_01-epic-m6-doctrine-reference/stage-f/record-check.py",
+      "rc": [
+        "0"
+      ],
+      "total": [],
+      "status_lines": [
+        "CONTROL REJECTED: missing Q5 row",
+        "CONTROL REJECTED: historical model rewritten",
+        "CONTROL REJECTED: missing outcome",
+        "CONTROL REJECTED: missing proof line",
+        "CONTROL REJECTED: changed protected hash",
+        "PASS new records: 33 Q5 rows / 2770 lines, 46 outcomes, 28 proof pairs, 49 protected rows; historical identity and accepted receipts retained"
+      ]
+    },
+    {
+      "path": "register.out",
+      "first_line": "$ tools/register-check",
+      "rc": [
+        "0"
+      ],
+      "total": [],
+      "status_lines": [
+        "register-check: 722 IDs, each once; every citation in the live documents names a row"
+      ]
+    },
+    {
+      "path": "rules.out",
+      "first_line": "$ tools/rules-check --quiet",
+      "rc": [
+        "0"
+      ],
+      "total": [],
+      "status_lines": []
+    },
+    {
+      "path": "withheld-findings/harness.out",
+      "first_line": "$ bash /workspace/repos/pixelelated/distribution.worktrees/m6-doctrine-reference-686/docs/audits/2026_11_01-epic-m6-doctrine-reference/tools/t39-checks.sh --tree /workspace/tmp/m6-t39/export-4eb5dfab8e74-withheld-findings --repo /workspace/repos/pixelelated/distribution.worktrees/m6-doctrine-reference-686 --commit 4eb5dfab8e745914a55e7de3e5a43c5b91ebc608 --since 86ebb6dffc --paths /workspace/repos/pixelelated/distribution.worktrees/m6-doctrine-reference-686/docs/audits/2026_11_01-epic-m6-doctrine-reference/stage-a/paths.txt --allow /workspace/repos/pixelelated/distribution.worktrees/m6-doctrine-reference-686/docs/audits/2026_11_01-epic-m6-doctrine-reference/tools --out /workspace/tmp/m6-t39/final-4eb5dfab8e74/withheld-findings/steps --withhold findings --coordinator-tip 329011b9eae20922b4d0727e13bf1626b2e1c04f",
+      "rc": [
+        "0"
+      ],
+      "total": [
+        "TOTAL: 13 of 13 steps"
+      ],
+      "status_lines": [
+        "ok    inventory  510 of 510 assertions; paths 254 text 223 binary 31",
+        "ok    scope      11 of 11 assertions; CARVE art-bytes 18 edit-scope 68 edit-under-naming 1 ledger-binary 31 ledger-named 6 ledger-plan 1 ledger-reviews 12 read-only-528 1 read-only-585 27 read-only-upstream 88 tabled-generic-x64 1 total 254",
+        "ok    links      525 of 525 assertions; 525 relative links",
+        "ok    paths      2062 of 2062 assertions; 39 allowlisted; 2062 backticked repository paths",
+        "ok    tools      366 of 366 assertions; 2 allowlisted; 366 tools/ names",
+        "ok    identity   58 of 58 assertions; 58 allowlisted",
+        "ok    retired    51 of 51 assertions; 51 allowlisted",
+        "ok    cites      1273 of 1273 assertions; register IDs 722, citations 1273",
+        "ok    untouched  1503 of 1503 assertions; 16 non-merge commits since 86ebb6dffc",
+        "ok    generated  3 of 3 assertions",
+        "ok    binaries   98 of 98 assertions; held 49 (ledger-binary 31, art-bytes 18)",
+        "ok    leads      13 of 13 assertions; 13 lead checks, 0 printing a defect",
+        "ok    allowlists 64 of 64 assertions"
+      ]
+    },
+    {
+      "path": "withheld-findings/inodes.out",
+      "first_line": "$ df -i /workspace/tmp/m6-t39",
+      "rc": [
+        "0"
+      ],
+      "total": [],
+      "status_lines": []
+    }
+  ]
+}

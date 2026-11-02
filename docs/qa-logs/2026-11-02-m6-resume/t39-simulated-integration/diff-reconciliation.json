@@ -1,0 +1,31 @@
+{
+  "original_rc": 2,
+  "exact_unchanged_accepted_receipts": [
+    {
+      "path": "docs/audits/2026_11_01-epic-m6-doctrine-reference/stage-a/issue-states.txt",
+      "sha256": "37b8149762df2193bc98a98a8e1f5b7851af1ba0517415c7785bc4e08885f5e5"
+    },
+    {
+      "path": "docs/audits/2026_11_01-epic-m6-doctrine-reference/stage-a/order.out",
+      "sha256": "03f259cecbfc761ad778eb8071acfbd4a178244e4710f76cc35fcbda346ab229"
+    },
+    {
+      "path": "docs/audits/2026_11_01-epic-m6-doctrine-reference/stage-c/tables/drift.out",
+      "sha256": "c29289f72401a2d7c06476a83687d32ddd4af50c40700edbef3c8c870437ad18"
+    }
+  ],
+  "new_records_check_argv": [
+    "git",
+    "diff",
+    "--cached",
+    "--check",
+    "--",
+    ".",
+    ":(exclude)docs/audits/2026_11_01-epic-m6-doctrine-reference/stage-a/issue-states.txt",
+    ":(exclude)docs/audits/2026_11_01-epic-m6-doctrine-reference/stage-a/order.out",
+    ":(exclude)docs/audits/2026_11_01-epic-m6-doctrine-reference/stage-c/tables/drift.out"
+  ],
+  "new_records_check_rc": 0,
+  "stdout": "",
+  "stderr": ""
+}

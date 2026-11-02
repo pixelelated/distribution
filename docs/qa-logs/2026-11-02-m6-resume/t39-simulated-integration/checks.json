@@ -1,0 +1,138 @@
+[
+  {
+    "name": "rules",
+    "argv": [
+      "tools/rules-check",
+      "--quiet"
+    ],
+    "cwd": "/workspace/tmp/m6-coordinator/t39-final-20261102T1929/clone",
+    "start": "2026-11-02T19:35:02.053676+00:00",
+    "elapsed_seconds": 0.023540010035503656,
+    "rc": 0,
+    "stdout": "rules.out",
+    "stderr": "rules.err",
+    "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "register",
+    "argv": [
+      "tools/register-check"
+    ],
+    "cwd": "/workspace/tmp/m6-coordinator/t39-final-20261102T1929/clone",
+    "start": "2026-11-02T19:35:02.077348+00:00",
+    "elapsed_seconds": 1.5742967430269346,
+    "rc": 0,
+    "stdout": "register.out",
+    "stderr": "register.err",
+    "stdout_sha256": "645848028d5787c90b7951a5225bcb74bcc54189d71fc37beecd0e5720978d56",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "index",
+    "argv": [
+      "tools/work-log-index",
+      "--check"
+    ],
+    "cwd": "/workspace/tmp/m6-coordinator/t39-final-20261102T1929/clone",
+    "start": "2026-11-02T19:35:03.651809+00:00",
+    "elapsed_seconds": 0.0213197449920699,
+    "rc": 0,
+    "stdout": "index.out",
+    "stderr": "index.err",
+    "stdout_sha256": "232b345c76ad64a47de4d43e62d9aeb4f2850472cde78ddd1b1e56d72103d927",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "ceremony",
+    "argv": [
+      "tools/ceremony-check",
+      "--gate"
+    ],
+    "cwd": "/workspace/tmp/m6-coordinator/t39-final-20261102T1929/clone",
+    "start": "2026-11-02T19:35:03.673253+00:00",
+    "elapsed_seconds": 9.349734735966194,
+    "rc": 0,
+    "stdout": "ceremony.out",
+    "stderr": "ceremony.err",
+    "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "forbidden",
+    "argv": [
+      "tools/forbidden-terms-check"
+    ],
+    "cwd": "/workspace/tmp/m6-coordinator/t39-final-20261102T1929/clone",
+    "start": "2026-11-02T19:35:13.023165+00:00",
+    "elapsed_seconds": 156.99676934198942,
+    "rc": 0,
+    "stdout": "forbidden.out",
+    "stderr": "forbidden.err",
+    "stdout_sha256": "39dd125528f65d6ff41bfcfe94fc6f0e8ad31b7524dd157df2725b7b70d78466",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "hooks",
+    "argv": [
+      ".githooks/hooks-test"
+    ],
+    "cwd": "/workspace/tmp/m6-coordinator/t39-final-20261102T1929/clone",
+    "start": "2026-11-02T19:37:50.020109+00:00",
+    "elapsed_seconds": 0.7499041269766167,
+    "rc": 0,
+    "stdout": "hooks.out",
+    "stderr": "hooks.err",
+    "stdout_sha256": "3402d5f59e65118cf905eb74dd1cda7660eeffd181ad248e23a56f68395e0a5c",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "lint",
+    "argv": [
+      "tools/lint-audit-artifacts",
+      "docs/audits/2026_11_01-epic-m6-doctrine-reference"
+    ],
+    "cwd": "/workspace/tmp/m6-coordinator/t39-final-20261102T1929/clone",
+    "start": "2026-11-02T19:37:50.770183+00:00",
+    "elapsed_seconds": 0.042631289979908615,
+    "rc": 0,
+    "stdout": "lint.out",
+    "stderr": "lint.err",
+    "stdout_sha256": "a8da5f8d6c3dd4f241a80b0109d9eff5aec3baa2be9d32b41e35f107c1bf8b14",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "lint-issue",
+    "argv": [
+      "tools/lint-audit-artifacts",
+      "docs/audits/2026_11_01-epic-m6-doctrine-reference",
+      "--issue",
+      "1406"
+    ],
+    "cwd": "/workspace/tmp/m6-coordinator/t39-final-20261102T1929/clone",
+    "start": "2026-11-02T19:37:50.812929+00:00",
+    "elapsed_seconds": 0.6279727470246144,
+    "rc": 0,
+    "stdout": "lint-issue.out",
+    "stderr": "lint-issue.err",
+    "stdout_sha256": "0ef7f2fb49422b6f9103c4ed389fc6c017d6b9e535cebaeb8c4e8eef88895adb",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "diff",
+    "argv": [
+      "git",
+      "diff",
+      "--cached",
+      "--check"
+    ],
+    "cwd": "/workspace/tmp/m6-coordinator/t39-final-20261102T1929/clone",
+    "start": "2026-11-02T19:37:51.441046+00:00",
+    "elapsed_seconds": 0.03712820605142042,
+    "rc": 2,
+    "stdout": "diff.out",
+    "stderr": "diff.err",
+    "stdout_sha256": "d0f9189cfe01fcafe76f615d23a4bcc6ab1258b6388ad338e8660f366b844c38",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  }
+]

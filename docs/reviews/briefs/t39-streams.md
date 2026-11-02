@@ -342,3 +342,12 @@ accepted A–D behavior was rerun. At resolution, S0's recorded designs are
 represented as Withdrawn with the design/evidence sentence, inherited routes
 as Deferred with their issue, and verified fixes as Resolved; the YAML and
 Phase-7 outcomes must agree with the existing linter vocabulary.
+
+## Final integration reconciliation — 2026-11-02
+
+D-WORKFLOW-229 supplies the exact-K ancestry plus final-byte predicates for
+criteria 5/12, the attributed host-census predicate for criterion 24, and
+the final immutable-receipt/new-integration-check procedure. Read
+`docs/qa-logs/2026-11-02-m6-resume/t39-final-acceptance-contract.md` before
+acceptance. Original failed unfiltered predicates remain evidence; source
+ownership and the exact authorized coordinator tip remain unchanged.

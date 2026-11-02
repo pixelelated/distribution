@@ -1,0 +1,60 @@
+PASS TEST absent supplement is ABSENT: ABSENT
+PASS TEST missing fixture file: FAIL
+PASS TEST wrong schema: FAIL
+PASS TEST wrong authority: FAIL
+PASS TEST historical identity falsely claimed: FAIL
+PASS TEST wrong source ref: FAIL
+PASS TEST wrong Stage-C ref: FAIL
+PASS TEST unrelated run head: FAIL
+PASS TEST run head is not a commit: FAIL
+PASS TEST failed producer result: FAIL
+PASS TEST wrong program hash: FAIL
+PASS TEST wrong baseline hash: FAIL
+PASS TEST accepted Stage-D receipt changed: FAIL
+PASS TEST selected source changed at run head: FAIL
+PASS TEST remove first row instead of last: FAIL
+PASS TEST reordered dropped rows: FAIL
+PASS TEST extra changed row field: FAIL
+PASS TEST changed second shipped row: FAIL
+PASS TEST header changed extra byte: FAIL
+PASS TEST header stripped instead of renamed prefix: FAIL
+PASS TEST wrong header source path: FAIL
+PASS TEST wrong baseline blob id: FAIL
+PASS TEST wrong baseline source hash: FAIL
+PASS TEST wrong input hash: FAIL
+PASS TEST wrong input length: FAIL
+PASS TEST bool is not integer size: FAIL
+PASS TEST extra overlay file: FAIL
+PASS TEST extra JSON fixture: FAIL
+PASS TEST symlink overlay refused: FAIL
+PASS TEST executable overlay refused: FAIL
+PASS TEST parent traversal path: FAIL
+PASS TEST absolute artifact path: FAIL
+PASS TEST duplicate input kind: FAIL
+PASS TEST non-object input refused: FAIL
+PASS TEST non-object check refused: FAIL
+PASS TEST wrong command order: FAIL
+PASS TEST extra fifth command: FAIL
+PASS TEST wrong generator argv: FAIL
+PASS TEST wrong input argv: FAIL
+PASS TEST wrong header flag: FAIL
+PASS TEST negative rc is not exactly one: FAIL
+PASS TEST bool is not integer rc: FAIL
+PASS TEST non-UTC timestamp: FAIL
+PASS TEST new proof backdated as old: FAIL
+PASS TEST negative elapsed time: FAIL
+PASS TEST wrong raw output hash: FAIL
+PASS TEST missing raw output: FAIL
+PASS TEST wrong final assertion even with valid hash: FAIL
+PASS TEST positive differs even with valid hash: FAIL
+PASS TEST positive stderr nonempty: FAIL
+PASS TEST output path alias: FAIL
+PASS TEST builder missing: FAIL
+PASS TEST builder changed without README binding: FAIL
+PASS TEST README file list missing: FAIL
+PASS TEST duplicate JSON manifest key: FAIL
+PASS TEST exact sealed supplement plus historical receipt control: PASS
+PASS TEST absolute bound command paths control: PASS
+PASS TEST known filename escape normalization control: PASS
+PASS TEST actual Git full-tree seam
+D228 SUPPLEMENT TEST SUMMARY: 59 passed, 0 failed

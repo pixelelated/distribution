@@ -792,6 +792,8 @@ This is the index of decisions; `docs/work-logs/` is the narrative,
 
 | D-WORKFLOW-228 | 2026-11-02 | **T41’s missing Stage-C negative-fixture input identities are not invented or waived.** Under D-WORKFLOW-226’s failed-predicate exception, T3 adds three new dated generator negatives and one stats positive with exact retained inputs/output hashes, unchanged accepted program/source and explicit separation from historical receipts. This closes only final generator-control evidence; no patch application, archive extraction or whole-stage replay. T2 validates the sealed supplemental packet in its candidate and synthetic refusals; final installation/acceptance remain the coordinator’s. | #688; #346; T2 D226 return 2026-11-02; D-WORKFLOW-226 |
 
+| D-WORKFLOW-229 | 2026-11-02 | **T39 final acceptance distinguishes the exact authorized coordinator integration from lane ownership, without widening source scope.** Refine D-WORKFLOW-220 and criteria 5/12 with exact K ancestry exclusion plus independent final mode/blob equality and edit-refusal controls; criterion 24 counts lane actions with attributed coordinator mentions retained. Original unfiltered failures remain recorded. Reconcile accepted immutable receipts under the stream brief's no-replay instruction; execute new disposable integration/record gates. The dated final contract replaces the old blanket-replay procedure, not the evidence obligations; missing evidence blocks acceptance. | #686; #346; D-WORKFLOW-220; `docs/qa-logs/2026-11-02-m6-resume/t39-final-acceptance-contract.md`; hand-back 6586260088 |
+
 ## Open decisions
 
 

@@ -1,0 +1,73 @@
+T41 #688 D228 consumer implementation return to wN:p2
+Author: Codex (GPT-6), /root; Herdr m6-t2-es-launch, wN:p5;
+session 01a19d12-1c5f-7022-8053-102f6a94b7fe.
+
+Result: consumer implementation complete in the same isolated candidate. No remaining
+implementation blocker identified. T3's actual supplemental packet was not invoked
+or assessed; its presence/validity and real final acceptance remain for the coordinator.
+Missing supplement is ABSENT. This return supersedes the prior D226 implementation
+blocker without claiming that the unavailable historical inputs were recovered.
+
+Owned root:
+/workspace/tmp/m6-coordinator/kit/selftest/accept-t41-candidate-01a19d12/
+
+SHA256:
+9731d73d1a6563d8f5003d556f120a659d4193018f687cfb2b92e353c085842d  derive-t41.py
+be24d1a24331b7767f5402c93742e7840c7a047ad3b5b91435145f41b7873123  t41-accept.sh
+d5060458865fb0d4fb53413ddda0acb04a024345f7a63f1a7f02f6110142503d  t41_supplement.py
+32b194e40d5e2d02be1be08fd206f8a4b8b7f41b5e5e7e50382ba894166861f8  t41_reconcile.py
+4be3dd4d03eec9ee22a8ee68d189bc2cfe277bebb2dbf22a0d2c1a78676f0ed3  t41_checks.py
+
+Read full #688 comment 6586375296 and D-WORKFLOW-228 at coordinator
+10e055e3043b7bd41f9dcca3e04abce9d979817e. Contract path:
+docs/qa-logs/2026-11-02-m6-resume/t41-generator-input-ruling.md
+Contract SHA256: 367c1c92b5d505a3fe470d0f4aff5f1c20ef7e965cb83e1ae41a58d481d52028.
+
+Consumer behavior:
+- Requires stage-f/generator-input-proof/manifest.json with the exact shared
+  t41-final-generator-controls-v1 schema, authority and historical-unknown wording.
+- Keeps historical C program/command/output reconciliation. Preserves A-D tree
+  modes/blobs, exact formal-program hash, retained baseline, source ref and all
+  107 selected source identities at the declared run_head and candidate tip.
+- Independently checks last-row removal, first-shipped reach mutation and the
+  first eligible patch/first From-prefix mutation, including newline preservation.
+  Exact retained input sizes/hashes and sole regular mode-100644 overlay are required.
+- Requires exactly ordered drop/reach/header/stats argv, bound artifact paths,
+  UTC timestamps newer than historical controls, nonnegative elapsed time,
+  exact rc1 assertions, rc0/empty-stderr stats byte equality, and raw output hashes.
+- Rejects missing/extra/altered fixtures, symlinks, unsafe or aliased artifact paths,
+  incorrect source/program/commands, malformed records, duplicate JSON keys,
+  changed historical receipts, false historical-identity claims and bad outcomes.
+- Checks retained builder SHA and input/output listing in README; never runs it.
+  PASS explicitly says historical inputs remain unavailable and new sealed controls
+  supply the final proof. An absent manifest remains ABSENT, never historical PASS.
+- Fixed a concrete Reader.tree defect found during this work: a full-tree query
+  now omits the pathspec instead of passing an invalid empty string to git ls-tree.
+  A tiny real Git fixture exercises this interface.
+
+Validation: complete run-selftest-t41.sh rc=0; 164 passed, 0 failed:
+65 retained regressions/refusals + 26 executable seams + 14 historical
+reconciliations + 59 D228 controls. Evidence in checks-all.json,
+checks-final-gates.json, checks-reconcile.json, checks-supplement.json and their
+selftest output files. D228 controls include valid relative/absolute command paths,
+known filename-escape normalization, and all principal missing/tampered refusals.
+The in-memory record fixture uses an explicitly synthetic program hash; the actual
+candidate remains pinned to ac6fe1ea48775d0c4c3b285b9b6811c1d12a83ed4ca2414d466ab6490989e558.
+No generator or new T3 producer was executed. No actual final acceptance ran.
+
+Reproduce synthetic validation only (all writes confined to the owned candidate):
+ROOT=/workspace/tmp/m6-coordinator/kit/selftest/accept-t41-candidate-01a19d12
+bash "$ROOT/run-selftest-t41.sh"
+rc=$?
+# Expected: 65 / 26 / 14 / 59 passed; rc=0.
+
+Reproduce authority read only:
+git show 10e055e3043b7bd41f9dcca3e04abce9d979817e:docs/qa-logs/2026-11-02-m6-resume/t41-generator-input-ruling.md
+
+The shared t36 source still hashes e32e28e0145570008d08493594795a878c442e88ed9fb3aac70f95e10d6b5b1b;
+all four named T39 reference hashes remain unchanged. Current historical T2 worktree
+status is empty. Candidate is local/uninstalled; all artifacts including synthetic
+Git/record fixtures total about 3.5 MB. No repository/tracker/host change, accepted
+producer replay, source export/extraction, build, guest/runtime allocation, fetch,
+private/held read, provider/device/cloud action or permission answer. Stop at this
+bounded return. Coordinator owns review, installation and real final acceptance.
