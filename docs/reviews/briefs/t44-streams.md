@@ -72,3 +72,15 @@ No coordinator or ES merge. Publish one clean final distribution tip with review
 ## Continuous execution
 
 After explicit dispatch, proceed S1/E through H continuously. Report a substantive result or concrete blocker; successful stages are not approval gates. Keep all commands/children on CPUs 8–23. No source change, acquisition/fetch, config/CMake/hook/test execution, source export, accepted replay, compiler/guest/runtime, host-ledger write, provider/reviewer, physical/cloud action or permission-prompt answer. Normal repository hooks for the authorized record commits are required; the prohibition on hook execution concerns the ES product hooks being audited. T46 stays last.
+
+## Version 2 — correction from the bounded unfamiliar-executor proof
+
+T3 wN:p6 read the published candidate at 749e5c7f2df2c8444b07f8521493d12b7f7a962b in eight read operations and returned report SHA256 6ac5ffa7b14f485b148d50ac2092ab4e5fd281b9cc76b2ef001aab268958b46e. The report and exact command/input identities are retained under t44-stage-d/stream-proof/. Carry decision, five routes, four historical qualifications and the retention fallback agree. No old producer was executed.
+
+The frozen D tools/confinement.py permits only the audit root, lane pointer, November 2 worklog and INDEX. It does not admit the mandatory retro or a later UTC-day worklog. Therefore F uses a **new separately named E–H confinement reader**, for example tools/final-confinement.py, with its own bound controls; do not rerun or modify the frozen D guard as though it certified G/H.
+
+The new reader must retain seed-to-tip and every-commit protection, no merges/deletions/renames or unsafe record modes, whole ES commit/root/clean identity, and exact D artifact preservation except the explicitly editable narrative paths. Its exact record allowlist adds the actual dated T44 retro and actual dated worklog file(s) derived from recorded UTC execution dates; it does not allow all retros or arbitrary work logs. New E–H records/tools remain confined to this audit. Bind the allowlist as an input.
+
+Before its positive, prove relevant new refusals: a product edit and its later revert remain visible per commit; a changed frozen A–D artifact refuses; an unrelated retro/worklog refuses; a symlink or other non-record mode refuses. A tiny synthetic Git fixture may exercise those new predicates with no product source copied or executed. Its positive includes the exact authorized retro/date paths. Retain fixture/program/input/output/exit identities. This is new E–H guard validation, not replay of the accepted D guard controls.
+
+H's D census contains 14 named files and 35 tiny-fixture files as content/owner observations, not recovered historical inode/creation evidence. Do not invent the missing provenance. The previously stated retained-path fallback remains available; no extra cleanup gate or source execution is introduced. The rest of this stream is unchanged.

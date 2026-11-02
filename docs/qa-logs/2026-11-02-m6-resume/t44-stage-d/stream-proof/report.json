@@ -1,0 +1,410 @@
+{
+  "aligned": {
+    "current_program": {
+      "current_path": "tools/records.py",
+      "current_sha256": "c6bf939816cb15c0b7bb0d7a5d241ab89e70c5dcda1ea1572682ba497294db5b",
+      "historical_binding_path": "stage-c/consumer-input-bindings.json",
+      "historical_binding_unchanged": true,
+      "new_binding_path": "stage-e/current-program-binding.json",
+      "old_path": "stage-d/pre-issue-1/records.py",
+      "old_sha256": "6858cf1cb719839b3d0e16c9976c847e0abbe3c07e2797abeab0931fdaeb2cee",
+      "only_difference": [
+        "## Acceptance criteria Scorecard",
+        "## Acceptance-criteria scorecard"
+      ]
+    },
+    "custody": {
+      "census_fields": [
+        "bytes",
+        "owner",
+        "path",
+        "retired",
+        "sha256"
+      ],
+      "census_sha256": "5104b1e2f129dc6db63deba38e10ab5e0b6a260dba38dd6a43ee7062a7520c7e",
+      "durable_receipts": "/tmp/m6-t44-d-publication-spbna76t stays preserved; not read during this proof",
+      "limit": "Census is content/claimed-ownership snapshot, not historical inode/creation or all completed-job proof. Tiny fixture receipt and completed driver are retained named inputs. Candidate requires fresh confined checks, prior committed eligible/retain plan and specific owner binding; missing/ambiguous provenance takes retention route, which does not block handback.",
+      "named_file_meaning": "13 small ephemeral script files plus one ignored bytecode path; no actual scratch paths read",
+      "named_files": 14,
+      "tiny_fixture_files": 35
+    },
+    "gates": "T2 owns S1/E-F-G-H after explicit dispatch. Root owns acceptance/simulation/audit closure/completion and actual area integration. No coordinator/ES merge; final external receipts bind actual tip without self-receipt commit loop. Normal repository commit hooks distinguished from prohibited ES product hooks.",
+    "paths": "18 explicitly named existing D paths found; stage-e/disposition.md and current-program-binding.json are future outputs, intentionally absent",
+    "pl001": "#1413 permits carry decision resolution with versions/rationale/revisit/owners; S1 and live #1414 supply all. Source unchanged; documentation only resolved; #1413 remains open for root and #1414 five future criteria remain unchecked",
+    "provenance_qualifications": [
+      "historical records.py hash remains historical; new binding distinguishes retained old/current bytes",
+      "old lint/gate snapshots predate final 00/02/06; index-2/syntax-3/diff-3 bind own inputs; new F resolution and final gates required",
+      "first manifest exit1/diagnostic lacks full original argv/times/raw hashes; later MANIFEST_KEYSET refusal is separate",
+      "worklog-index-write receipt has no stderr hash/file; preserve missing metadata"
+    ],
+    "root_comparison": "Support and coordinator-run results.json byte-equal SHA256 9ce25a255f2e6b60a35c680d0faa7527583d9954bc26f4281b389ddc11d6683c; errors []; supplement errors []; two retained rc0 command rows have four matching raw-stream hashes. No comparison program replayed.",
+    "routes": {
+      "NanoSVG": "#700 with T36 #683 rendering",
+      "doctest": "#700, T18 #665; T2 #649/T34 #681/T35 #682; consumer list explicitly not exhaustive",
+      "id3v2lib": "#700 with T37 #684 build configuration",
+      "libretro-common": "#700 with T20 #667, excluded MD5/hash behavior retained",
+      "rcheevos": "#700 with inherited T20 #667 R13 and excluded hash/RVZ/three-hasher obligations"
+    }
+  },
+  "api_reads": [
+    {
+      "args": {
+        "issue_number": 691,
+        "link_id": "link_6ac2961edf2081918a8d75b020eff02b",
+        "repo_full_name": "pixelelated/distribution"
+      },
+      "comment_count": 7,
+      "comments": [
+        {
+          "body_utf8_sha256": "b3dff99988bcf5186bed0b7d3735eed89736ab40e281f59a615da0c830ee7b59",
+          "id": 6375264017,
+          "url": "https://github.com/pixelelated/distribution/issues/691#issuecomment-6375264017"
+        },
+        {
+          "body_utf8_sha256": "64e37459f1479f8dcf0ca4a091e49ef20e523a75281edec7b8d54fcd490b840c",
+          "id": 6589185959,
+          "url": "https://github.com/pixelelated/distribution/issues/691#issuecomment-6589185959"
+        },
+        {
+          "body_utf8_sha256": "490191037002a2bdc8966cc2ab7c677f17f4d8e6160e62b6f480a52dd68a213a",
+          "id": 6589821529,
+          "url": "https://github.com/pixelelated/distribution/issues/691#issuecomment-6589821529"
+        },
+        {
+          "body_utf8_sha256": "c72eb82db17e26bf131bb9ec0a186353952d66916f608c4ff18ae624b7ebc9ad",
+          "id": 6590429015,
+          "url": "https://github.com/pixelelated/distribution/issues/691#issuecomment-6590429015"
+        },
+        {
+          "body_utf8_sha256": "8406bf0625e529e146392cb16cfd6cb743ae3be8d7253f8760af4a084438ebfb",
+          "id": 6591199715,
+          "url": "https://github.com/pixelelated/distribution/issues/691#issuecomment-6591199715"
+        },
+        {
+          "body_utf8_sha256": "d35e8e021d64ec7289f2b24465ac46aa83a9cbb5f7b39aac21c3f9600427a5e5",
+          "id": 6591236206,
+          "url": "https://github.com/pixelelated/distribution/issues/691#issuecomment-6591236206"
+        },
+        {
+          "body_utf8_sha256": "d311ac1f58e016faa100bec9b9daedd95d0d26b8211af35a59645e65131d4339",
+          "id": 6591444804,
+          "url": "https://github.com/pixelelated/distribution/issues/691#issuecomment-6591444804"
+        }
+      ],
+      "tool": "github_fetch_issue_comments"
+    },
+    {
+      "args": {
+        "issue_number": 691,
+        "link_id": "link_6ac2961edf2081918a8d75b020eff02b",
+        "repository_full_name": "pixelelated/distribution"
+      },
+      "issue": {
+        "body_utf8_sha256": "3189c6460c5b9cada40ae77c7b3066d1a72a3eb5db213ec9eb47efb8cf123524",
+        "comments": 7,
+        "state": "open",
+        "title": "M6.P2 E700/T44: interface: EmulationStation's vendored libraries, translations and build files",
+        "unchecked_criteria": 20,
+        "updated_at": "2026-11-02T23:48:04Z",
+        "url": "https://github.com/pixelelated/distribution/issues/691"
+      },
+      "tool": "github_fetch_issue"
+    },
+    {
+      "args": {
+        "issue_number": 1413,
+        "link_id": "link_6ac2961edf2081918a8d75b020eff02b",
+        "repository_full_name": "pixelelated/distribution"
+      },
+      "issue": {
+        "body_utf8_sha256": "77e835aeee3e4f5beb79224f8170eda9b110260aec030762b0a31ff0a9964538",
+        "comments": 0,
+        "state": "open",
+        "title": "M6.P2 E700/T44: audit \u2014 vendored/data provenance, 1 Low item",
+        "unchecked_criteria": 1,
+        "updated_at": "2026-11-02T23:19:48Z",
+        "url": "https://github.com/pixelelated/distribution/issues/1413"
+      },
+      "tool": "github_fetch_issue"
+    },
+    {
+      "args": {
+        "issue_number": 1414,
+        "link_id": "link_6ac2961edf2081918a8d75b020eff02b",
+        "repository_full_name": "pixelelated/distribution"
+      },
+      "issue": {
+        "body_utf8_sha256": "e592710c6adaa5cac287a3aeb148dc511c5800b1a4b99926792d35b994676628",
+        "comments": 0,
+        "state": "open",
+        "title": "Backlog: map EmulationStation vendor imports and evaluate the doctest refresh (T44)",
+        "unchecked_criteria": 5,
+        "updated_at": "2026-11-02T23:39:27Z",
+        "url": "https://github.com/pixelelated/distribution/issues/1414"
+      },
+      "tool": "github_fetch_issue"
+    }
+  ],
+  "authority": "https://github.com/pixelelated/distribution/issues/691#issuecomment-6591444804",
+  "command_budget": {
+    "cpu_affinity": "8-23 for every shell/child; connector API calls have no local CPU subprocess under this harness",
+    "detail": "4 read-only GitHub API calls plus 4 top-level CPU-pinned shell read batches; the private report write and explicit Herdr return bring all external top-level operations to 10. In-memory formatting introduced no shell/API command.",
+    "read_operations": 8
+  },
+  "created_at": "2026-11-02T23:53:36.265908+00:00",
+  "finding": {
+    "consequence": "Frozen guard cannot satisfy the final current per-commit gate after mandatory G output, regardless of currently clean source. Old guard/control PASS is dated A-D evidence.",
+    "evidence_sha256": "ee4bf46b31cf71859869bf2f0fe3ef42921950717a42c3575e1ea73c0f049ea5",
+    "fact": "EXACT permits only the lane pointer, 2026_11_02-work_log.md and INDEX in addition to the audit root. Required docs/retros/<actual-date>-m6-es-vendored-and-data.md and a later UTC-day worklog produce FORBIDDEN_PATH by literal source logic.",
+    "location": "candidate S1 Files owned / F current per-commit confinement / G; D tools/confinement.py EXACT and validate_paths",
+    "proof_kind": "immutable source trace, no guard or negative control executed",
+    "route_within_existing_candidate": "Use a separately named E-H record guard under the permitted audit stage/tools namespace, with exact authorized retro/date paths, preservation/source predicates and its own relevant refusal/positive binding; preserve D tools and accepted controls. Root retains any wording correction and dispatch."
+  },
+  "identity": {
+    "effort_label": "xhigh",
+    "harness": "Codex",
+    "identity_basis": "actual harness identity recovered in this session; not provider attestation",
+    "lane": "m6-t3-emulators",
+    "model_label": "GPT-6-Astra",
+    "pane": "wN:p6",
+    "recipient": "m6-coordinator wN:p2",
+    "session": "01a19d12-29e3-7fe0-9f41-038dac0a5deb"
+  },
+  "input_identities": [
+    {
+      "argv": [
+        "git",
+        "show",
+        "749e5c7f2df2c8444b07f8521493d12b7f7a962b:docs/reviews/briefs/t44-streams.md"
+      ],
+      "sha256": "ef2d18a3c3629fadffe6a258c8a318cd2262a862ffa517d30f56cc39a46b46be"
+    },
+    {
+      "argv": [
+        "git",
+        "show",
+        "749e5c7f2df2c8444b07f8521493d12b7f7a962b:docs/reviews/briefs/es-vendored-and-data.md"
+      ],
+      "bytes": 23698,
+      "sha256": "1c27e3380ddde5ed310f4164704ab2257f6b7336d9b114df84a1897b7fd3e631"
+    },
+    {
+      "argv": [
+        "git",
+        "show",
+        "749e5c7f2df2c8444b07f8521493d12b7f7a962b:docs/qa-logs/2026-11-02-m6-resume/t44-stage-d/support/report.md"
+      ],
+      "bytes": 8445,
+      "sha256": "61679332417da386cac98031ec1395e8fc7feb3179264f03525ba48b0c4fb7ca"
+    },
+    {
+      "argv": [
+        "git",
+        "show",
+        "749e5c7f2df2c8444b07f8521493d12b7f7a962b:docs/qa-logs/2026-11-02-m6-resume/t44-stage-d/support/results.json"
+      ],
+      "bytes": 51699,
+      "sha256": "9ce25a255f2e6b60a35c680d0faa7527583d9954bc26f4281b389ddc11d6683c"
+    },
+    {
+      "argv": [
+        "git",
+        "show",
+        "749e5c7f2df2c8444b07f8521493d12b7f7a962b:docs/qa-logs/2026-11-02-m6-resume/t44-stage-d/coordinator-run/results.json"
+      ],
+      "bytes": 51699,
+      "sha256": "9ce25a255f2e6b60a35c680d0faa7527583d9954bc26f4281b389ddc11d6683c"
+    },
+    {
+      "argv": [
+        "git",
+        "show",
+        "749e5c7f2df2c8444b07f8521493d12b7f7a962b:docs/qa-logs/2026-11-02-m6-resume/t44-stage-d/coordinator-run/supplement-results.json"
+      ],
+      "bytes": 4215,
+      "sha256": "f2dbf0071e70574c911df0e0c0791342c4142fcecdb35ddc3f8d78093da7ade9"
+    },
+    {
+      "argv": [
+        "git",
+        "show",
+        "749e5c7f2df2c8444b07f8521493d12b7f7a962b:docs/qa-logs/2026-11-02-m6-resume/t44-stage-d/coordinator-run/commands-exits.json"
+      ],
+      "bytes": 860,
+      "sha256": "c43cbc0b0fbe06d0d1e4c875252058bea90d477e08dc662d3518be51fd09c0da"
+    },
+    {
+      "argv": [
+        "git",
+        "show",
+        "923dd5371ded83fa965449a83f7a16d15a174772:docs/audits/2026_11_02-epic-m6-es-vendored-and-data/stage-d/pre-issue-1/records.py"
+      ],
+      "bytes": 36769,
+      "sha256": "6858cf1cb719839b3d0e16c9976c847e0abbe3c07e2797abeab0931fdaeb2cee"
+    },
+    {
+      "argv": [
+        "git",
+        "show",
+        "923dd5371ded83fa965449a83f7a16d15a174772:docs/audits/2026_11_02-epic-m6-es-vendored-and-data/tools/records.py"
+      ],
+      "bytes": 36769,
+      "sha256": "c6bf939816cb15c0b7bb0d7a5d241ab89e70c5dcda1ea1572682ba497294db5b"
+    },
+    {
+      "argv": [
+        "git",
+        "show",
+        "923dd5371ded83fa965449a83f7a16d15a174772:docs/audits/2026_11_02-epic-m6-es-vendored-and-data/stage-c/consumer-input-bindings.json"
+      ],
+      "bytes": 2308,
+      "sha256": "5095efac0207627ce9865283e987d92529e404d76aad96f93afa83a3ef6df4df"
+    },
+    {
+      "argv": [
+        "git",
+        "show",
+        "923dd5371ded83fa965449a83f7a16d15a174772:docs/audits/2026_11_02-epic-m6-es-vendored-and-data/stage-d/worklog-index-write.receipt.json"
+      ],
+      "bytes": 394,
+      "sha256": "db6cd89b3ca44a2264d91989513dfc9573439d471594eb39428b24d2460245a4"
+    },
+    {
+      "argv": [
+        "git",
+        "show",
+        "923dd5371ded83fa965449a83f7a16d15a174772:docs/audits/2026_11_02-epic-m6-es-vendored-and-data/tools/confinement.py"
+      ],
+      "bytes": 3031,
+      "sha256": "ee4bf46b31cf71859869bf2f0fe3ef42921950717a42c3575e1ea73c0f049ea5"
+    },
+    {
+      "argv": [
+        "git",
+        "show",
+        "923dd5371ded83fa965449a83f7a16d15a174772:docs/audits/2026_11_02-epic-m6-es-vendored-and-data/stage-c/tiny-git-driver-1/receipt.json"
+      ],
+      "bytes": 1425,
+      "sha256": "51032624e4c68d05fda08c5325e251323cab9273fe17722b9557becfe71e0024"
+    },
+    {
+      "argv": [
+        "git",
+        "show",
+        "923dd5371ded83fa965449a83f7a16d15a174772:docs/audits/2026_11_02-epic-m6-es-vendored-and-data/stage-d/owned-scratch-census.json"
+      ],
+      "bytes": 11048,
+      "sha256": "5104b1e2f129dc6db63deba38e10ab5e0b6a260dba38dd6a43ee7062a7520c7e"
+    },
+    {
+      "argv": [
+        "git",
+        "show",
+        "923dd5371ded83fa965449a83f7a16d15a174772:docs/audits/2026_11_02-epic-m6-es-vendored-and-data/stage-c/tiny-git/receipt.json"
+      ],
+      "bytes": 7602,
+      "sha256": "c477a74cc921c0c2537a36a458474b710ad75ca6c843615f73df7be94f397db4"
+    },
+    {
+      "argv": [
+        "git",
+        "show",
+        "749e5c7f2df2c8444b07f8521493d12b7f7a962b:docs/qa-logs/2026-11-02-m6-resume/t44-stage-d/followup-parent-readback.json"
+      ],
+      "bytes": 89761,
+      "sha256": "01e250f77c35d1801fa2b9e29b08fd342043b7af371427ef889b771ac3d19fa8"
+    },
+    {
+      "argv": [
+        "git",
+        "show",
+        "749e5c7f2df2c8444b07f8521493d12b7f7a962b:docs/qa-logs/2026-11-02-m6-resume/t44-stage-d/epic-followup-readback.json"
+      ],
+      "bytes": 6838,
+      "sha256": "4008e225d79473f13106b8c2fdad85fd255299f490934b0aa873f5eceeeac6f2"
+    },
+    {
+      "argv": [
+        "git",
+        "show",
+        "749e5c7f2df2c8444b07f8521493d12b7f7a962b:docs/qa-logs/2026-11-02-m6-resume/t44-stage-d/coordinator-run/reconcile.py.stdout"
+      ],
+      "bytes": 4693,
+      "sha256": "d4a1c14d71ce8130c36e22e8824b8f2ad40a4fb636150a3562c46d440e21038a"
+    },
+    {
+      "argv": [
+        "git",
+        "show",
+        "749e5c7f2df2c8444b07f8521493d12b7f7a962b:docs/qa-logs/2026-11-02-m6-resume/t44-stage-d/coordinator-run/reconcile.py.stderr"
+      ],
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "show",
+        "749e5c7f2df2c8444b07f8521493d12b7f7a962b:docs/qa-logs/2026-11-02-m6-resume/t44-stage-d/coordinator-run/supplement.py.stdout"
+      ],
+      "bytes": 4215,
+      "sha256": "5e92aec8e403e7e02b112df5fcce50d0d0f9c0e4df21fa86f6029840e7e7b61a"
+    },
+    {
+      "argv": [
+        "git",
+        "show",
+        "749e5c7f2df2c8444b07f8521493d12b7f7a962b:docs/qa-logs/2026-11-02-m6-resume/t44-stage-d/coordinator-run/supplement.py.stderr"
+      ],
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ],
+  "limits": [
+    "No audit/reviewer verdict, new source membership, currency choice or dispatch by T3.",
+    "No accepted producer/parser/generator/test/cleanup executed; only Git bytes/metadata, JSON receipt decoding and textual difference.",
+    "No source tree export/checkout, cache/process/private-held/credential inspection or runtime/provider/device/cloud/permission action.",
+    "No repository/tracker/kit/shared-ref write. Only new private report scratch. T41 unchanged and T46 last.",
+    "No fresh ES status or actual scratch custody claim. Accepted source/membership/control findings reused from immutable D support/root readback.",
+    "Parent #700 support is retained coordinator readback plus #1414 contract; normalized live issue API does not expose parent, so this proof does not invent a fresh parent query."
+  ],
+  "pins": {
+    "candidate": "749e5c7f2df2c8444b07f8521493d12b7f7a962b",
+    "distribution_seed": "48a335700d05a733703e1b58536877b91b921259",
+    "es_accepted": "55158d2a64c69fe295fb4e67fd174424a71b1b4d",
+    "es_root": "64b90eb8cb07bdfcd690c74ff6bc980ae490657c",
+    "stage_d": "923dd5371ded83fa965449a83f7a16d15a174772"
+  },
+  "schema": 1,
+  "shell_reads": [
+    {
+      "cmd": "taskset -c 8-23 python3 - <<'PY'\nimport subprocess,hashlib\nc='749e5c7f2df2c8444b07f8521493d12b7f7a962b'\np='docs/reviews/briefs/t44-streams.md'\nb=subprocess.check_output(['git','show',c+':'+p]);print('BRIEF',p,'sha256',hashlib.sha256(b).hexdigest());print(b.decode())\nprint('STAGE_D_METADATA')\nprint(subprocess.check_output(['git','ls-tree','-r','-l',c,'--','docs/qa-logs/2026-11-02-m6-resume/t44-stage-d/'],text=True))\nPY",
+      "exit_code": 0,
+      "n": 1,
+      "output_note": "read-only result retained by harness",
+      "workdir": "/workspace/repos/pixelelated/distribution.worktrees/m6-patches-shipped-kernel-688"
+    },
+    {
+      "cmd": "taskset -c 8-23 python3 - <<'PY'\nimport subprocess,hashlib,json\nC='749e5c7f2df2c8444b07f8521493d12b7f7a962b';D='923dd5371ded83fa965449a83f7a16d15a174772';A='docs/audits/2026_11_02-epic-m6-es-vendored-and-data/'\ndef read(ref,path):\n b=subprocess.check_output(['git','show',ref+':'+path]);print('\\nFILE',ref,path,'bytes',len(b),'sha256',hashlib.sha256(b).hexdigest());return b\nfor path in ['docs/reviews/briefs/es-vendored-and-data.md','docs/qa-logs/2026-11-02-m6-resume/t44-stage-d/support/report.md','docs/qa-logs/2026-11-02-m6-resume/t44-stage-d/coordinator-run/supplement-results.json']:\n print(read(C,path).decode())\nfor label in ['support','coordinator-run']:\n p='docs/qa-logs/2026-11-02-m6-resume/t44-stage-d/'+label+'/results.json';x=json.loads(read(C,p));print('RESULT_KEYS',list(x));print(json.dumps({k:v for k,v in x.items() if k not in ['checks','hashes','observed_hashes','commands']},indent=2)[:8000])\nprint('D_SELECTED_METADATA')\nraw=subprocess.check_output(['git','ls-tree','-r','-l','-z',D,'--',A])\nfor line in raw.split(b'\\0'):\n if not line:continue\n p=line.split(b'\\t',1)[1].decode()\n if any(s in p for s in ['consumer-input-bindings','owned-scratch','worklog-index-write','records.py','creation','custody']):print(line.decode())\nprint(read(D,A+'stage-d/owned-scratch-census.json').decode())\nPY",
+      "exit_code": 0,
+      "n": 2,
+      "output_note": "Initial display truncated; required base sections and full support report reread in batches 3/4. No producer rerun.",
+      "workdir": "/workspace/repos/pixelelated/distribution.worktrees/m6-patches-shipped-kernel-688"
+    },
+    {
+      "cmd": "taskset -c 8-23 python3 - <<'PY'\nimport subprocess,json,hashlib,difflib\nC='749e5c7f2df2c8444b07f8521493d12b7f7a962b';D='923dd5371ded83fa965449a83f7a16d15a174772';A='docs/audits/2026_11_02-epic-m6-es-vendored-and-data/';Q='docs/qa-logs/2026-11-02-m6-resume/t44-stage-d/'\nseen=[]\ndef rd(ref,path):\n b=subprocess.check_output(['git','show',ref+':'+path]);seen.append({'ref':ref,'path':path,'sha256':hashlib.sha256(b).hexdigest(),'bytes':len(b)});return b\nbase=rd(C,'docs/reviews/briefs/es-vendored-and-data.md').decode().splitlines();print('BASE_BRIEF_REMAINDER\\n'+'\\n'.join(f'{i+1}: {s}' for i,s in enumerate(base) if i>=315))\nprint('SUPPORT_REPORT\\n'+rd(C,Q+'support/report.md').decode())\ns=rd(C,Q+'support/results.json');r=rd(C,Q+'coordinator-run/results.json');print('RESULTS_BYTES_EQUAL',s==r)\nx=json.loads(r);print('ROOT_RESULTS_TOP_KEYS',list(x));print('ROOT_RESULTS_SUMMARY',json.dumps({k:v for k,v in x.items() if k in ['ok','errors','warnings','qualifications','limitations','summary','counts','result','checks_passed']},indent=2))\nprint('ROOT_SUPPLEMENT\\n'+rd(C,Q+'coordinator-run/supplement-results.json').decode())\nprint('ROOT_COMMAND_EXITS\\n'+rd(C,Q+'coordinator-run/commands-exits.json').decode())\no=rd(D,A+'stage-d/pre-issue-1/records.py');n=rd(D,A+'tools/records.py');print('OLD_CURRENT_PROGRAM_DIFF\\n'+''.join(difflib.unified_diff(o.decode().splitlines(True),n.decode().splitlines(True),fromfile='stage-d/pre-issue-1/records.py',tofile='tools/records.py')))\nprint('CONSUMER_BINDING\\n'+rd(D,A+'stage-c/consumer-input-bindings.json').decode())\nprint('INDEX_RECEIPT\\n'+rd(D,A+'stage-d/worklog-index-write.receipt.json').decode())\nraw=subprocess.check_output(['git','ls-tree','-r','-l','-z',D,'--',A]);print('RELATED_RECEIPT_PATHS')\nfor e in raw.split(b'\\0'):\n if not e:continue\n path=e.split(b'\\t',1)[1].decode()\n if any(k in path for k in ['tiny-git','guard-git','manifest','syntax-3','index-2','diff-3','record-composition-1','pre-issue-1','gate-final']): print(e.decode())\nprint('INPUT_IDENTITIES',json.dumps(seen))\nPY",
+      "exit_code": 0,
+      "n": 3,
+      "output_note": "read-only result retained by harness",
+      "workdir": "/workspace/repos/pixelelated/distribution.worktrees/m6-patches-shipped-kernel-688"
+    },
+    {
+      "cmd": "taskset -c 8-23 python3 - <<'PY'\nimport subprocess,json,hashlib\nC='749e5c7f2df2c8444b07f8521493d12b7f7a962b';D='923dd5371ded83fa965449a83f7a16d15a174772';A='docs/audits/2026_11_02-epic-m6-es-vendored-and-data/';Q='docs/qa-logs/2026-11-02-m6-resume/t44-stage-d/'\nseen=[]\ndef rd(ref,path):\n b=subprocess.check_output(['git','show',ref+':'+path]);seen.append({'argv':['git','show',ref+':'+path],'sha256':hashlib.sha256(b).hexdigest(),'bytes':len(b)});return b\nbase=rd(C,'docs/reviews/briefs/es-vendored-and-data.md').decode().splitlines();print('BASE_BRIEF_MISSING_SECTION\\n'+'\\n'.join(f'{i+1}: {s}' for i,s in enumerate(base) if 285<=i<318))\nfor p in ['tools/confinement.py','stage-c/tiny-git-driver-1/receipt.json']:\n print('FILE',p);print(rd(D,A+p).decode())\ncensus=json.loads(rd(D,A+'stage-d/owned-scratch-census.json'));tiny=json.loads(rd(D,A+'stage-c/tiny-git/receipt.json'));print('CENSUS_SHAPE',json.dumps({'files':len(census['files']),'file_keys':sorted({k for f in census['files'] for k in f}),'tiny_root':census['tiny_git']['path'],'tiny_files':len(census['tiny_git']['files']),'tiny_file_keys':sorted({k for f in census['tiny_git']['files'] for k in f}),'creation_or_inode_evidence_in_census':False}));print('TINY_RECEIPT_TOP',json.dumps({k:v for k,v in tiny.items() if k not in ['commands','events','git_events','inputs','git']},indent=2)[:3500]);print('TINY_KEYS',list(tiny))\nfor p in ['followup-parent-readback.json','epic-followup-readback.json']:\n x=json.loads(rd(C,Q+p));print('PARENT_READBACK',p,'topkeys',list(x) if isinstance(x,dict) else 'list')\n def walk(o,loc=''):\n  if isinstance(o,dict):\n   if o.get('number') in [700,1414] or o.get('issue_number') in [700,1414]:print('ISSUE_ROUTE',loc,json.dumps({k:o[k] for k in ['number','issue_number','title','state','url','parent_issue','milestone'] if k in o})[:1200])\n   for k,v in o.items():\n    if k not in ['body','body_html']:walk(v,loc+'/'+k)\n  elif isinstance(o,list):\n   for i,v in enumerate(o):walk(v,loc+'/'+str(i))\n walk(x)\nchecks={}\nraw=subprocess.check_output(['git','ls-tree','-r','-z',D,'--',A]);paths={e.split(b'\\t',1)[1].decode() for e in raw.split(b'\\0') if e}\nfor rel in ['00-running-log.md','01-research-notes.md','02-forward-audit.md','03-retrospective.md','04-analysis.md','05-punch-list.md','06-audit-summary.md','07-questions-for-the-maintainer.md','second-opinions/review-plan.json','stage-c/consumer-input-bindings.json','stage-d/pre-issue-1/records.py','tools/records.py','stage-d/owned-scratch-census.json','stage-d/worklog-index-write.receipt.json','stage-d/index-2/receipt.json','stage-d/syntax-3/receipt.json','stage-d/diff-3/receipt.json','stage-c/tiny-git/receipt.json']:\n checks[rel]=A+rel in paths\nprint('EXISTING_REQUIRED_PATHS',json.dumps(checks));print('FUTURE_OUTPUTS_NOT_YET_EXPECTED',{p:A+p in paths for p in ['stage-e/disposition.md','stage-e/current-program-binding.json']})\nexits=json.loads(rd(C,Q+'coordinator-run/commands-exits.json'));ok=[]\nfor row in exits:\n leaf=row['argv'][-1].split('/')[-1]\n for stream in ['stdout','stderr']:\n  b=rd(C,Q+'coordinator-run/'+leaf+'.'+stream);ok.append(hashlib.sha256(b).hexdigest()==row[stream+'_sha256'])\nprint('ROOT_RETAINED_RAW_STREAM_HASHES_MATCH',ok)\nprint('INPUT_IDENTITIES',json.dumps(seen))\nPY",
+      "exit_code": 0,
+      "n": 4,
+      "output_note": "read-only result retained by harness",
+      "workdir": "/workspace/repos/pixelelated/distribution.worktrees/m6-patches-shipped-kernel-688"
+    }
+  ],
+  "verdict": "Carry decision, five routes, four provenance qualifications and custody retain path are consistent. One concrete F/G implementation dependency: frozen D confinement guard rejects the required retro and later-day worklog. S1 already permits a separately named new record guard; do not use frozen D guard unchanged as final E-H gate."
+}
