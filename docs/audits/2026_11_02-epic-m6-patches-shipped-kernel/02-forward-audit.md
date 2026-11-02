@@ -687,3 +687,21 @@ The full live criterion text is preserved verbatim in `stage-b/corrected/issue-6
 **Deliberately not examined:** compiler output or built-image bytes; full functional correctness of 40,474 lines; external kernel.org/Lore contents; runtime pstore, radios, panels, battery, suspend, boot or cloud identity. The source headers' external links remain claims. Device-specific behavior and clean/upgrade runtime acceptance remain with their owners.
 
 **Dimensions not exercised:** compilation, boot/runtime, physical memory retention, performance and time-to-play, live upgrade/clean-install preservation. Applied does not imply compiled or correct. Nothing here changes either time-to-play number.
+
+## Stage-C formal generator and Local plan
+
+Recorded 2026-11-02 18:38:30 UTC. The new `tools/t41-tables.py` uses the retained receipt inputs and current-HEAD bytes, with explicit equality to the source used for the accepted applications. Its three negative checks precede the five trusted modes; all outputs are byte-equal to the accepted tables above.
+
+```text
+2026-11-02T18:37:12.085837+00:00 formal-generator-negative-drop rc=1: AssertionError: membership: expected 107 rows
+2026-11-02T18:37:12.161885+00:00 formal-generator-negative-reach rc=1: AssertionError: reach: expected shipped 103/test 4
+2026-11-02T18:37:12.227600+00:00 formal-generator-negative-header rc=1: AssertionError: From header census: expected 87
+2026-11-02T18:37:12.571669+00:00 formal-generator-stats rc=0: byte-equal to accepted Stage-B output
+2026-11-02T18:37:12.884350+00:00 formal-generator-provenance rc=0: byte-equal to accepted Stage-B output
+2026-11-02T18:37:13.197745+00:00 formal-generator-coverage rc=0: byte-equal to accepted Stage-B output
+2026-11-02T18:37:13.512124+00:00 formal-generator-currency rc=0: byte-equal to accepted Stage-B output
+2026-11-02T18:37:13.822976+00:00 formal-generator-json rc=0: byte-equal to accepted Stage-B output
+2026-11-02T18:37:14.133345+00:00 pre-issue-lint rc=0: PASS pre-issue artifacts (does not certify resolution)
+```
+
+The negative meanings are lost membership, incorrect reach and missing From metadata respectively. No application or extraction was replayed. The formal Local reader plan is `second-opinions/review-plan.json`; primary Codex/OpenAI, reviewers empty. The accepted twelve proof records remain unchanged.

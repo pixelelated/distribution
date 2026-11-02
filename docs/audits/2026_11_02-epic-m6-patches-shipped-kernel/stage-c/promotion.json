@@ -1,0 +1,13 @@
+{
+  "time": "2026-11-02T18:35:39.091488+00:00",
+  "accepted_stage_b": "7e5d1546712df2eb79c585fce663186770d1ceb9",
+  "correction": "721d6e7049185ba7303a809e2ec5b44219ac28ac",
+  "draft_sha256": "223fd915d159773f31934170e6eb47958c30d884f80dfbc7aeeb7d09b7732b58",
+  "formal_sha256": "ac6fe1ea48775d0c4c3b285b9b6811c1d12a83ed4ca2414d466ab6490989e558",
+  "changes": [
+    "relocate receipt/root lookup to audit/tools",
+    "read current HEAD and assert source equality to accepted application source",
+    "execute the existing three-level duplicate normalization across five retained equal pairs"
+  ],
+  "no_replay": "No application, extraction or accepted hygiene controls replayed; Stage C checks the new formal generator and reader plan."
+}

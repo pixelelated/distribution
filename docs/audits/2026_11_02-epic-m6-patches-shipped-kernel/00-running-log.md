@@ -195,3 +195,21 @@ Whitespace-check erratum (2026-11-02T17:52:20.241971+00:00): the first unstaged 
 ## Stage-B acceptance and AC17 quotation correction — 2026-11-02 18:33:12 UTC
 
 Read FULL #688 comment 6585065737. Substantive Stage B accepted at `7e5d1546712df2eb79c585fce663186770d1ceb9`. Copied all retained `stage-b/corrected/hygiene.out` lines verbatim into 02, including positive controls, to satisfy the literal AC17 quotation requirement; no checker, application, extraction or accepted-stage test was replayed. Receipt SHA256 `e9d38fb8763ee77506a6e29ab2e9208cc183a54df2bca9e49eafd9eba2d289c3`. Actual reader remains Codex / GPT-6-Astra / xhigh, observed-footer identity, session `01a19d12-29e3-7fe0-9f41-038dac0a5deb`. After this bounded correction commit, proceed through C and D directly, report substantive C progress, and stop at clean published D for stream disposition.
+
+## Stage C complete — 2026-11-02 18:38:30 UTC
+
+Promoted the accepted generator draft into audit-local tools with receipt/root relocation, current-HEAD source binding, and five-pair three-level duplicate assertions. These are new formal-program checks; no accepted application/extraction or hygiene control was replayed. The actual OpenAI/Codex Local reader plan is present with empty reviewers, D-WORKFLOW-184 and historical Opus/Argon identities. Full-function F-01 refutation remains accepted; its one-High open punch draft supplies the pre-issue lint contract.
+
+```text
+2026-11-02T18:37:12.085837+00:00 formal-generator-negative-drop rc=1: AssertionError: membership: expected 107 rows
+2026-11-02T18:37:12.161885+00:00 formal-generator-negative-reach rc=1: AssertionError: reach: expected shipped 103/test 4
+2026-11-02T18:37:12.227600+00:00 formal-generator-negative-header rc=1: AssertionError: From header census: expected 87
+2026-11-02T18:37:12.571669+00:00 formal-generator-stats rc=0: byte-equal to accepted Stage-B output
+2026-11-02T18:37:12.884350+00:00 formal-generator-provenance rc=0: byte-equal to accepted Stage-B output
+2026-11-02T18:37:13.197745+00:00 formal-generator-coverage rc=0: byte-equal to accepted Stage-B output
+2026-11-02T18:37:13.512124+00:00 formal-generator-currency rc=0: byte-equal to accepted Stage-B output
+2026-11-02T18:37:13.822976+00:00 formal-generator-json rc=0: byte-equal to accepted Stage-B output
+2026-11-02T18:37:14.133345+00:00 pre-issue-lint rc=0: PASS pre-issue artifacts (does not certify resolution)
+```
+
+A drop failure detects lost membership; reach failure detects classification drift; header failure detects stripped provenance. The succeeding stats remain rows107/lines40474, patch106/conf1, directory groups4/6/4/32/55/1/2/2/1, From87/Subject89, orders8/42/65/2/2/1, dispositions107. Each output is byte-equal to the accepted Stage-B table. Continue directly to D after a substantive update; no additional approval requested.

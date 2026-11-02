@@ -10,7 +10,7 @@ The 107-row provenance/coverage table is complete, including the SM8550 configur
 
 This is the complete Stage-B analysis, not final acceptance of #688. Stage C formal tool/reader-plan/lint work and Stage D issues/questions remain explicit. Local depth used one actual Codex reader and no reviewer or provider call.
 
-## Acceptance Criteria Scorecard
+## Acceptance-criteria scorecard
 
 The exact current 28 criteria are retained in `stage-b/corrected/issue-688-body.txt`; 02 supplies criterion-level evidence and refutation. The scorecard includes future stages so no later obligation disappears at this checkpoint.
 
@@ -266,7 +266,7 @@ Not applicable: no UI, display content or product behavior changed; no screensho
 
 ## Second opinion (Phase 4.6)
 
-**Not applicable at Local depth (plan § 6c).** Primary: Codex, `openai/gpt-6-astra`, lab `openai`, xhigh; identity source is the observed live Herdr footer for session `01a19d12-29e3-7fe0-9f41-038dac0a5deb`, not provider-attested identity. Preserve Opus 5.5 Stage-A execution and Argon Stage-A write-up in the Stage-C formal plan. Reviewers: zero; provider/Facilitator/council calls: zero. D-WORKFLOW-184 remains the explicit Local exception.
+**Not applicable at Local depth (plan § 6c).** Primary: Codex, `openai/gpt-6-astra`, lab `openai`, xhigh; identity source is the observed live Herdr footer for session `01a19d12-29e3-7fe0-9f41-038dac0a5deb`, not provider-attested identity. The formal `second-opinions/review-plan.json` preserves Opus 5.5 Stage-A execution and Argon Stage-A write-up in identity_source; its primary is the actual OpenAI/Codex reader. Reviewers: zero; provider/Facilitator/council calls: zero. D-WORKFLOW-184 remains the explicit Local exception.
 
 ## Quality Self-Check
 
@@ -281,3 +281,7 @@ Not applicable: no UI, display content or product behavior changed; no screensho
 | Visual-QA consolidation | Not applicable, reason stated |
 | Defined verdict vocabulary | PASS/PARTIAL/FAIL only in scorecard; source status uses closed application/disposition vocabularies |
 | Traceable / evidence-backed / reproducible / actionable / complete for Stage B | Verified against paths, exact receipts, guarded runner and explicit later-stage obligations |
+
+## Stage-C formalization — 2026-11-02T18:35:39.091488+00:00
+
+The accepted Stage-B findings and 120 application receipts are carried forward without replay. `tools/t41-tables.py` is now the audit-local generator, adapted from T40 at `e863379cec`; its current-HEAD reads assert equality to the source used by those receipts. Only its relocation/current-source binding and duplicate assertions changed from the retained draft. Three mutated-input checks and five output modes validate this newly placed program. The Local plan names the actual reader, empty reviewers and D-WORKFLOW-184. `05-punch-list.md` is the open pre-filing draft needed by the pre-issue lint; Stage D supplies its tracker. The scorecard above remains the accepted Stage-B assessment until the dated Stage-D update. No later-stage acceptance is claimed.

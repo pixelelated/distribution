@@ -1,0 +1,139 @@
+{
+  "checked_program_sha256": "ac6fe1ea48775d0c4c3b285b9b6811c1d12a83ed4ca2414d466ab6490989e558",
+  "checks": [
+    {
+      "name": "formal-generator-negative-drop",
+      "argv": [
+        "python3",
+        "-I",
+        "docs/audits/2026_11_02-epic-m6-patches-shipped-kernel/tools/t41-tables.py",
+        "stats",
+        "--rows-from",
+        "/workspace/tmp/m6-t41/stage-c-fixtures/drop.json"
+      ],
+      "start": "2026-11-02T18:37:12.085837+00:00",
+      "elapsed_seconds": 0.076,
+      "rc": 1,
+      "output": "negatives/drop.out",
+      "sha256": "251721152b3ca7b6f63f8a6383dd6a50fd3aa0167ee048d5e5d5cc1e1e173bdf"
+    },
+    {
+      "name": "formal-generator-negative-reach",
+      "argv": [
+        "python3",
+        "-I",
+        "docs/audits/2026_11_02-epic-m6-patches-shipped-kernel/tools/t41-tables.py",
+        "stats",
+        "--rows-from",
+        "/workspace/tmp/m6-t41/stage-c-fixtures/reach.json"
+      ],
+      "start": "2026-11-02T18:37:12.161885+00:00",
+      "elapsed_seconds": 0.066,
+      "rc": 1,
+      "output": "negatives/reach.out",
+      "sha256": "800b61d48c65196c256ec80a2885f86c4cbaa7c704c8638a783a3ddd7f829521"
+    },
+    {
+      "name": "formal-generator-negative-header",
+      "argv": [
+        "python3",
+        "-I",
+        "docs/audits/2026_11_02-epic-m6-patches-shipped-kernel/tools/t41-tables.py",
+        "stats",
+        "--bytes-from",
+        "/workspace/tmp/m6-t41/stage-c-fixtures/bytes"
+      ],
+      "start": "2026-11-02T18:37:12.227600+00:00",
+      "elapsed_seconds": 0.344,
+      "rc": 1,
+      "output": "negatives/header.out",
+      "sha256": "1f8ad89705cc4d9a270d005c3a29cce7805ac881c015733daaead7fee030e995"
+    },
+    {
+      "name": "formal-generator-stats",
+      "argv": [
+        "python3",
+        "-I",
+        "docs/audits/2026_11_02-epic-m6-patches-shipped-kernel/tools/t41-tables.py",
+        "stats"
+      ],
+      "start": "2026-11-02T18:37:12.571669+00:00",
+      "elapsed_seconds": 0.313,
+      "rc": 0,
+      "output": "tables/stats.txt",
+      "sha256": "9fbe71de9887088c99b28fe77111c57a8167223bf034cfac5185e8a37c817974"
+    },
+    {
+      "name": "formal-generator-provenance",
+      "argv": [
+        "python3",
+        "-I",
+        "docs/audits/2026_11_02-epic-m6-patches-shipped-kernel/tools/t41-tables.py",
+        "provenance"
+      ],
+      "start": "2026-11-02T18:37:12.884350+00:00",
+      "elapsed_seconds": 0.313,
+      "rc": 0,
+      "output": "tables/provenance.txt",
+      "sha256": "349030bc07d34294cd676d8f89bf9fd67b231c59a11b9e0f44c029a1e9250273"
+    },
+    {
+      "name": "formal-generator-coverage",
+      "argv": [
+        "python3",
+        "-I",
+        "docs/audits/2026_11_02-epic-m6-patches-shipped-kernel/tools/t41-tables.py",
+        "coverage"
+      ],
+      "start": "2026-11-02T18:37:13.197745+00:00",
+      "elapsed_seconds": 0.314,
+      "rc": 0,
+      "output": "tables/coverage.txt",
+      "sha256": "5524992d83fd53abc02983716f06e9a7da952376c43f2d361a88898e1d2305be"
+    },
+    {
+      "name": "formal-generator-currency",
+      "argv": [
+        "python3",
+        "-I",
+        "docs/audits/2026_11_02-epic-m6-patches-shipped-kernel/tools/t41-tables.py",
+        "currency"
+      ],
+      "start": "2026-11-02T18:37:13.512124+00:00",
+      "elapsed_seconds": 0.311,
+      "rc": 0,
+      "output": "tables/currency.txt",
+      "sha256": "0779a0aedda321077d37e1ab59ab704490c7789f8e7b04af2e695e43a4308412"
+    },
+    {
+      "name": "formal-generator-json",
+      "argv": [
+        "python3",
+        "-I",
+        "docs/audits/2026_11_02-epic-m6-patches-shipped-kernel/tools/t41-tables.py",
+        "json"
+      ],
+      "start": "2026-11-02T18:37:13.822976+00:00",
+      "elapsed_seconds": 0.31,
+      "rc": 0,
+      "output": "tables/json.txt",
+      "sha256": "9414afa8422c5523b9f0299e7a6094f1eb94883661f6bdd7cedad54a35aad32b"
+    },
+    {
+      "name": "pre-issue-lint",
+      "argv": [
+        "tools/lint-audit-artifacts",
+        "docs/audits/2026_11_02-epic-m6-patches-shipped-kernel",
+        "--phase",
+        "pre-issue"
+      ],
+      "start": "2026-11-02T18:37:14.133345+00:00",
+      "elapsed_seconds": 0.04,
+      "rc": 0,
+      "output": "pre-issue-lint.out",
+      "sha256": "3fa436d716cfaa78e07d0fe4a007ef3cadb206305fce5612c98bda1035c45907"
+    }
+  ],
+  "scope": "New formal generator and Local plan only; no accepted-stage application/extraction/hygiene replay.",
+  "outputs_equal_accepted_tables": true
+}
