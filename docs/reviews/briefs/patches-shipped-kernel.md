@@ -2327,3 +2327,15 @@ question for integration, and applies settled D-SYS-004 to the unsent ramoops
 draft. The live #688 disposition comment releases execution; this document
 does not claim final acceptance or a source fix. D-WORKFLOW-226 remains the
 final-check contract.
+
+
+## Final generator-control evidence — 2026-11-02T19:23:41Z (D-WORKFLOW-228)
+
+D226’s exact historical negative-input condition cannot be met by the retained
+Stage-C packet: its hashes bind outputs, not the three fixture inputs. The
+bounded corrective check is specified in
+`docs/qa-logs/2026-11-02-m6-resume/t41-generator-input-ruling.md`. T3 retains
+three new negative inputs and one positive with exact identities; T2 checks
+the sealed packet without invoking the producer. Historical receipts remain
+unchanged and explicitly incomplete for input identity. This is the narrow
+failed-predicate check allowed by D226, not replay of applications or stages.

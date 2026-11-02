@@ -1,0 +1,98 @@
+T41 #688 D226 bounded implementation return to wN:p2
+Author: Codex (GPT-6), /root; Herdr m6-t2-es-launch, wN:p5;
+session 01a19d12-1c5f-7022-8053-102f6a94b7fe.
+
+Result: executable final gates implemented and synthetically validated. NOT installed;
+NOT final slice acceptance. One exact reconciliation dependency remains in checker-run.
+Coordinator retains the evidence ruling, installation, final execution and acceptance.
+
+Owned candidate root:
+/workspace/tmp/m6-coordinator/kit/selftest/accept-t41-candidate-01a19d12/
+
+Candidate identities (SHA256):
+0af962a516b883ecdd6efcc44b804599f9778bac41b06d906303e5374a42796b  derive-t41.py
+dd26d8134b9e3e253af65c8a413237c77a3d89a61936730e16e7f0106e0fd27e  t41-accept.sh
+3e6f56bd3a41726294e4c4c61d27b979741c172db873db25fc13e5d960fdbe6a  t41_checks.py
+dfe3f2553a4fb51ce6237014c4716c6fdfc17396d0ef0878e5f9a441a4e8a570  t41_reconcile.py
+ce3f5d96353ef8dfbeb37ab638353c88e8ac5166938a3288a52cbea9d092a783  t41_execution.py
+
+Authority read: full #688 and comment 6585719218; D226 brief at
+329011b9eae20922b4d0727e13bf1626b2e1c04f (brief SHA256
+92cd24f4e104483cbd5b03c5f828b70d340e18fe5f07d942bdc91cf0e88688a0).
+Current live criteria still require hooks-test on lane and integration; included.
+
+Mapping (implementation/fixture results, not verdicts about the actual final slice):
+PASS: membership and lint-proof reconcile immutable program/input identities,
+retained command/output/exit receipts and exact selected modes/blobs; no replay.
+PASS: runs/applies-record reconcile D222 normal receipts, 120/106, 8/42/65/2/2/1,
+normal rc/promotion, raw log/source hashes, prefix links, failed-candidate guard,
+H700-011 dry1/normal0, all 329 old receipts. Archive/tree digests stay observations.
+PASS: lint executes default resolution and --issue, demands rc0 plus final PASS;
+pre-issue PASS is refused. generators executes python3 -I -m py_compile only.
+PASS: current register/index/rules/ceremony/hooks interfaces execute in disposable
+clones, plus forbidden whole-tree and new-record scans, secret compile/positive/
+record scans, live gh reads and box-check --issue. An inherited open bug and the
+lane's coordinator-owned open acceptance checkboxes do not imply premature closure.
+PASS: exact lane/coordinator disposable integration, conflict refusal, post-merge
+checks, no hooks/live merge/push. ceremony-check requires next and upstream/next:
+the runner snapshots both source-store refs once, records their full hashes, and
+creates those refs only inside each disposable clone; no fetch or silent rebinding.
+PASS: every command records argv/cwd/start/elapsed/rc, stdin hash/length, original
+stdout/stderr hashes and separately masked saved-output hashes. Timeout/missing
+executable/unavailable issue reads cannot pass. No old receipt substitutes for a
+new final command. All harness/clone/temp/output writes remain inside owned scratch.
+PASS: unchanged t36 source hash, unique replacement shapes, deterministic derivation,
+54-section VERDICT/SUMMARY/ACCEPT-RC contract, symlink/hardlink/write confinement,
+actual reader identity and escaped-path normalization retained.
+CANNOT: checker-run's exact Stage-C negative INPUT identities, described below.
+ABSENT remains expected for a missing final artifact/hand-back; no future artifact
+has been invented. No actual final runner has been invoked.
+
+Exact remaining dependency:
+At published C/D commit c9fe606e8d7e7e0f6c70cc686764d1503029d278,
+stage-c/validation.json SHA256
+8a1f326e10aa181a0f84108276a5c8302a7c07844904e6e256670db499a65821
+binds formal program ac6fe1ea48775d0c4c3b285b9b6811c1d12a83ed4ca2414d466ab6490989e558,
+three negative commands/rc1/assertions, and five positive commands/output hashes.
+Each negative record has only argv, elapsed_seconds, name, output, rc, sha256,
+start. The sha256 is the named OUTPUT hash. The argv input paths are:
+/workspace/tmp/m6-t41/stage-c-fixtures/drop.json
+/workspace/tmp/m6-t41/stage-c-fixtures/reach.json
+/workspace/tmp/m6-t41/stage-c-fixtures/bytes
+There is no retained exact negative-input hash/content manifest in this packet;
+particularly the bytes directory has no path/mode/content identity manifest.
+A path and a failing assertion do not identify the exact bytes. D226 expressly
+requires exact historical fixture identities and unchanged final inputs. The
+candidate therefore verifies the known program/receipt/input invariants, then
+returns CANNOT for these three missing identities. It does not invent a producer
+manifest, read the old scratch, reconstruct inputs, or rerun a generator. Even
+an unruled newly supplied identity shape stays CANNOT. Coordinator evidence or an
+explicit narrow interpretation/ruling is required before that predicate can PASS.
+This is distinct from the resolved blanket-replay conflict and from future E-H work.
+
+Validation: 105 synthetic checks passed, 0 failed (65 retained regressions/refusals,
+26 executable seams, 14 reconciliation controls). Last complete driver rc=0.
+Evidence: checks-all.json, checks-final-gates.json, checks-reconcile.json,
+selftest.out, final-gates-selftest.out, reconcile-selftest.out. Synthetic actual
+command receipts are under executable-runs/final-gates-*/. Only tiny constructed
+repositories/records were used; their tool stubs enforce the inspected interfaces.
+The syntax-positive fixture raises if executed; only compilation ran. Merge tests
+use divergent tiny Git histories and real local merge behavior. The entire owned
+candidate was about 2.1 MB at the final check, with no source-tree export.
+
+Reproduce implementation/fixture validation ONLY (writes stay in this root):
+ROOT=/workspace/tmp/m6-coordinator/kit/selftest/accept-t41-candidate-01a19d12
+bash "$ROOT/run-selftest-t41.sh"
+rc=$?
+# Expected: 65/26/14 passed; rc=0. This is not the real final acceptance command.
+
+Reproduce the dependency read without running any artifact:
+git show c9fe606e8d7e7e0f6c70cc686764d1503029d278:docs/audits/2026_11_02-epic-m6-patches-shipped-kernel/stage-c/validation.json
+git show c9fe606e8d7e7e0f6c70cc686764d1503029d278:docs/audits/2026_11_02-epic-m6-patches-shipped-kernel/stage-c/promotion.json
+git show 329011b9eae20922b4d0727e13bf1626b2e1c04f:docs/reviews/briefs/patches-shipped-kernel.md
+
+Shared source still e32e28e0145570008d08493594795a878c442e88ed9fb3aac70f95e10d6b5b1b;
+all four named T39 reference hashes unchanged. Historical T2 worktree status empty.
+No shared install, repo/tracker/host edit, accepted-stage replay, real final run,
+source export/extraction, build, guest/runtime allocation, fetch, private/held read,
+provider/physical/cloud action, or permission answer. Stop at this bounded return.

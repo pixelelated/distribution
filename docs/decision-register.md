@@ -790,6 +790,8 @@ This is the index of decisions; `docs/work-logs/` is the narrative,
 
 | D-WORKFLOW-227 | 2026-11-02 | **T41’s one High punch item is deferred to open reactive bug #1408, owned by the integration (#563/#559); the table completes records-only E–H and makes no source fix.** The upstream two-copy correction must be selected, landed and verified by that owner; deferral is not a fix or a release exception. Leave the three duplicate pairs unchanged here and retain the storage choice for T11’s integration review, without selecting a global symlink policy. D-SYS-004 already fixes the ramoops contribution layer as the distribution; its #585 line remains an unsent draft under D-WORKFLOW-164/165. Final lint, issue outcomes, retro, census and hand-back still precede coordinator acceptance. | #688 comments 6585346506, 6585347732 and 6585618201; #1409; #1408; D-WORKFLOW-189; D-WORKFLOW-209; D-WORKFLOW-226 |
 
+| D-WORKFLOW-228 | 2026-11-02 | **T41’s missing Stage-C negative-fixture input identities are not invented or waived.** Under D-WORKFLOW-226’s failed-predicate exception, T3 adds three new dated generator negatives and one stats positive with exact retained inputs/output hashes, unchanged accepted program/source and explicit separation from historical receipts. This closes only final generator-control evidence; no patch application, archive extraction or whole-stage replay. T2 validates the sealed supplemental packet in its candidate and synthetic refusals; final installation/acceptance remain the coordinator’s. | #688; #346; T2 D226 return 2026-11-02; D-WORKFLOW-226 |
+
 ## Open decisions
 
 
