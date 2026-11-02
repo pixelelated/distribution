@@ -1,13 +1,16 @@
 # T44 — EmulationStation's vendored libraries, translations and build files (#691)
 
-Version 1 candidate, coordinator, 2026-11-02. This is preparation while
-T43 executes. A separate stranger proof, v2 corrections, live criteria and
-an explicit dispatch naming both worktrees precede execution. T46 stays last.
+Version 2, coordinator, 2026-11-02. The stranger proof and root-tree
+correction are retained below. Execution begins only from the explicit
+dispatch naming both worktrees and after live criteria/kickoff publication.
+D-WORKFLOW-190 permits this interface table beside T43's independent patch
+records; T43 final acceptance is not a prerequisite. T46 stays last.
 
 ## 1. Identity
 
 M6.P2, interface epic #700, slice #691, canonical `es-vendored-and-data`.
-Kind table; lenses reachability and package currency. Local actual primary,
+D-WORKFLOW-232 fixes this dated source contract. Kind table; lenses
+reachability and package currency. Local actual primary,
 reviewers [], D-WORKFLOW-184 and plan §6c; no external reviewer or council.
 Intended executor: existing T2, `m6-t2-es-launch`, wN:p5, session
 `01a19d12-1c5f-7022-8053-102f6a94b7fe`. Record the actual observed harness,
@@ -110,7 +113,9 @@ The helper reads Git objects, derives the non-rest-before-rest selector,
 binds six P1 inputs and the distribution recipe, verifies the retained
 survey manifest SHA256
 `16b1da3ad4a7e4b3c7a6aadbd901c2502c940d20da697136babc27474d767965`,
-and binds the entire ES seed tree to accepted T2. During execution, also
+and directly compares the actual ES root-tree OID with accepted T2 before
+comparing flattened entries. It records actual_es_tree and primary_tree;
+extra empty subtrees are rejected. During execution, also
 pass `--es-ref HEAD` against the actual assigned ES worktree. Any unexpected
 input drift stops for the coordinator; a count with a reproducible honest
 explanation is recorded as a delta, never silently substituted. Outputs
@@ -219,9 +224,13 @@ page is read-only context, never permission to download source or call a
 model provider. Unavailable release evidence is a precise open input.
 Do not imply latest version from a local header or an unvisited URL.
 
-Use metadata fixtures to prove five refusals: missing native key, gitlink
-misrepresented as source, doctest miscredited as fork-written, omitted or
-falsely integrated companion delta, and changed immutable source identity.
+The executor's new audit-local table generator owns seven separate
+metadata refusal controls: missing native table key; gitlink credited as
+read source; doctest miscredited as fork-written; omitted supplemental test
+row; omitted companion branch row; falsely integrated companion delta;
+and changed bound source identity. These are future table-validation
+obligations, not assertions provided by the input helper or its output-equality
+comparator. Two equally tampered outputs are not a valid positive.
 Each fails its own asserted condition; the complete positive passes.
 Retain exact fixture inputs, generator and output hashes, argv, version,
 locale, actual start/end and exit. A parser's limits and malformed-input
@@ -286,7 +295,7 @@ Root installs the final proved version in live691 before execution.
 8. Vendored groups bind import/mode/blob/version/license evidence and carried reasons; dual rcheevos markers, id3v2lib history and pugixml system selection are qualified correctly.
 9. Catalogue/resource/build/test tables bind exact source writers/readers/conditions; any syntactic counts have parser limits, failing input and retained raw evidence.
 10. Q1–Q7, conformance/doctrine/interactions/self-refutation and prior-evidence comparison are complete; current currency has dated primary evidence or a specific open input.
-11. Five asserted table refusals fail and positive passes; exact program/fixture/input/output/exit bindings exist without replaying accepted producers.
+11. Seven audit-local generator refusals fail and positive passes; exact program/fixture/input/output/exit bindings exist without replaying accepted producers.
 12. Actual Local primary/lab/identity source and historical provenance are truthful; reviewers[] and no independent-review claim.
 13. Pre-issue lint and, after disposition, both normal/issue resolution lints print their actual PASS; every punch item has an evidenced Phase-7 outcome.
 14. Reactive bugs carry trace/Already written/VM rationale and observable criteria; issue checks pass and unresolved bugs remain open.
@@ -303,7 +312,8 @@ Stop at mismatched immutable inputs, an uncorrectable required predicate,
 out-of-scope action, explicit owner pause, published D, or authorized final H.
 Missing optional currency/provenance inputs become specific open items;
 they do not justify invented PASS or stopping other authorized analysis.
-No execution from this candidate before explicit dispatch after T43.
+No execution before explicit dispatch. Under D-WORKFLOW-190, independent
+T43 records may continue in parallel; no T43 acceptance gate is invented.
 
 ## 9. Ceremonies and custody
 
@@ -324,3 +334,35 @@ No ES merge is implied by a distribution-record simulation. Preserve
 literal failures and any narrow correction as separate evidence. Audit
 closure and acceptance do not close inherited bugs or claim integrated
 ES/image behavior. No baseline or upstream pin changes follow automatically.
+
+## Version 2 corrections from the stranger proof
+
+T5, separate existing wN:p7, proved the v1 handoff in exactly ten top-level
+commands at b419ae354c7046de5ee3ddb5d194f51c0ab4dc8e. Membership and stated
+quantities agree; ten input negatives refuse. This was handoff proof, not
+an audit/reviewer verdict. Root retains the original proof, arithmetic
+correction, tool-interface failures and narrow deleted-script-capture
+custody qualification under t44-brief-proof/.
+
+1. The helper compared only flattened ls-tree entries. A valid private
+   commit with an extra empty subtree passed while reporting the expected
+   tree. It now directly asserts actual root-tree OID equality and records
+   actual_es_tree. Root tested the original bbab755b0e3f7a638992aa34a2f832eb2bd6ca0e
+   counterexample: new refusal rc1, no output directory; primary positive
+   rc0, actual/expected64b90eb8cb07bdfcd690c74ff6bc980ae490657c. Native output
+   remains byte-identical. The original false-positive receipt is preserved.
+2. The input helper and equality comparator do not validate downstream
+   audit tables. Section5/AC11 now assign seven explicit table/credit/
+   supplemental/companion/identity refusals to the new audit-local generator,
+   without claiming they already ran.
+3. Coordinator clarification: plan §6/§8 and D-WORKFLOW-190 allow different
+   areas with no shared source writes to run beside one another. The v1
+   after-T43 wording is superseded; source identity/proof/dispatch gates
+   remain. T46 remains last.
+
+Proof report SHA256 d5d7c17c0239541a93ee1e47198e38339577365822d6bfc626d6405b8339dca7;
+original manifest SHA2567b943368d31fb1aaeca2bbe0dac372b9aaf50431ef5a53fdee3bb7e0394ed6e5.
+The245 original text records are stored losslessly by unique content with
+the original per-path manifest; no private Git object store is exported.
+Root correction receipts are coordinator-correction.json and its named
+stdout/stderr. No producer, source behavior or accepted audit was replayed.

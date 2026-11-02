@@ -1,0 +1,32 @@
+T44 v1 proof: exactly ten top-level shell invocations, all taskset -c 8-23 python3; absolute workdir.
+The one functions-JavaScript parse failure before command05 launched no shell or subprocess.
+Polling returned existing subprocess output and did not launch commands.
+Commands01-04 were inline Python read/display orchestration; exact subprocess argv are in the named JSON receipts.
+Commands05-10 preserve their exact Python source. The bootstrap wrote that source under this private /tmp root then exec(compile(source,...)).
+Reproduction uses a fresh private prefix substituted for this directory (outputs intentionally refuse overwrite).
+No accepted producer/test replay is part of these commands.
+
+01. cwd=/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan-346.
+    Full owning issue691/700 and comment6589821529 reads plus immutable brief/helper git shows.
+    Exact argv, actual rc/time/hash: command-01.json. Outputs: issue-691.stdout, issue-700.stdout, dispatch.stdout, brief.stdout, helper.stdout.
+02. Same cwd. Python read command-01.json; enumerate private record filenames/sizes; display complete dispatch body, brief, issue bodies, comment lengths. No subprocesses.
+03. Same cwd. Display full691/700 comments and helper. Git-show immutable plan/order/AGENTS/applicable rules.
+    Exact argv/rc/hashes/retained paths: command-03.json; printed plan4-8/order excerpts. Display output truncation did not alter retained bytes.
+04. Same cwd. Redisplay remainder700/full helper/plan4-6c and scoped rule sections. Discover prep/interface paths by git ls-tree.
+    Exact argv/rc/hash/list: command-04-discovery.json. Remaining helper and plan6b were consumed in05.
+05. taskset -c 8-23 python3 /tmp/m6-t44-stranger-proof-t5-20261102/command-05.py
+    Private metadata-only object stores, fixed private refs, literal membership block in one bash invocation, then ES_REPO-only substitution to private ES store.
+    membership-literal.sh is exact candidate block. membership-private.sh changes only the documented ES_REPO value.
+    command-05.json records internal argv/times/exits/hashes; membership-*.git-trace retains helper's Git argv.
+06. taskset -c 8-23 python3 /tmp/m6-t44-stranger-proof-t5-20261102/command-06.py
+    Synthetic metadata/Git controls and interface reads; command-06.json and controls.git-trace.
+07. taskset -c 8-23 python3 /tmp/m6-t44-stranger-proof-t5-20261102/command-07.py
+    Named source-object existence, quantities,37-file replacement proof, French deltas, doctest import, lint help in memory; command-07.json.
+08. taskset -c 8-23 python3 /tmp/m6-t44-stranger-proof-t5-20261102/command-08.py
+    rc1 at aggregate assertion before fixtures; exact sole internal argv was git -C <private distribution-proof> show b419ae354c7046de5ee3ddb5d194f51c0ab4dc8e:tools/renovation-inventory.
+09. taskset -c 8-23 python3 /tmp/m6-t44-stranger-proof-t5-20261102/command-09.py
+    Continues08 with transparent diagnostic, metadata equality controls and valid-commit/HEAD empty-tree counterexample.
+    command-09.json retains argv. Its interpretation of08's failed conjunct is superseded by proof-arithmetic-correction.json, not silently rewritten.
+10. taskset -c 8-23 python3 /tmp/m6-t44-stranger-proof-t5-20261102/command-10.py
+    Correct newline population, assemble final report/hashes/command record, Herdr identity/destination metadata reads, send one return to m6-coordinator, one delivery readback, then stop.
+    command-10-delivery.json retains exact Herdr argv/times/exits/hashes.

@@ -136,6 +136,9 @@ def derive(args):
     assert [r['path'] for r in native] == sorted(survey_manifest)
     s = tree(args.es_repo, SURVEY)
     p = tree(args.es_repo, PRIMARY)
+    expected_es_tree = git(args.es_repo, 'rev-parse', PRIMARY + '^{tree}').decode().strip()
+    actual_es_tree = git(args.es_repo, 'rev-parse', args.es_ref + '^{tree}').decode().strip()
+    assert actual_es_tree == expected_es_tree, 'ES root tree differs from accepted T2 primary'
     actual = tree(args.es_repo, args.es_ref)
     assert actual == p, 'ES seed tree differs from accepted T2 primary'
     result = []
@@ -184,7 +187,7 @@ def derive(args):
     assert git(args.es_repo, 'rev-parse', PRIMARY + ':external') == git(args.es_repo, 'rev-parse', SURVEY + ':external')
     source_lines = sum(r['primary']['text_logical_lines'] or 0 for r in result)
     summary = dict(distribution_ref=args.ref, es_ref=args.es_ref, P1=P1, survey=SURVEY,
-        primary=PRIMARY, primary_tree=git(args.es_repo, 'rev-parse', PRIMARY + '^{tree}').decode().strip(),
+        primary=PRIMARY, primary_tree=expected_es_tree, actual_es_tree=actual_es_tree,
         distribution_inputs=inputs, native_paths=len(result), inventory_lines=sum(r['lines'] or 0 for r in native),
         survey_text_lines=sum(r['survey']['text_logical_lines'] or 0 for r in result),
         primary_text_lines=source_lines, primary_newline_bytes=sum(r['primary']['newline_bytes'] or 0 for r in result),

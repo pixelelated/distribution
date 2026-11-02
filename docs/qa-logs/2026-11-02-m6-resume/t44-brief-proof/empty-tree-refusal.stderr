@@ -1,0 +1,10 @@
+Traceback (most recent call last):
+  File "/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan-346/docs/qa-logs/2026-11-02-m6-resume/t44-brief-inputs.py", line 223, in <module>
+    main()
+    ~~~~^^
+  File "/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan-346/docs/qa-logs/2026-11-02-m6-resume/t44-brief-inputs.py", line 215, in main
+    outputs = derive(args)
+  File "/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan-346/docs/qa-logs/2026-11-02-m6-resume/t44-brief-inputs.py", line 141, in derive
+    assert actual_es_tree == expected_es_tree, 'ES root tree differs from accepted T2 primary'
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ES root tree differs from accepted T2 primary

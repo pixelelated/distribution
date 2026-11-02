@@ -1,0 +1,51 @@
+{
+  "helper_sha256": "cbd1fe1e03ae78053ee90125ec34d84cf868cbc60b6c4097d7397ab836b921a8",
+  "commands": [
+    {
+      "label": "positive",
+      "argv": [
+        "python3",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan-346/docs/qa-logs/2026-11-02-m6-resume/t44-brief-inputs.py",
+        "--repo",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan-346",
+        "--ref",
+        "b419ae354c7046de5ee3ddb5d194f51c0ab4dc8e",
+        "--es-repo",
+        "/tmp/m6-t44-stranger-proof-t5-20261102/es-proof",
+        "--es-ref",
+        "55158d2a64c69fe295fb4e67fd174424a71b1b4d",
+        "--out",
+        "/tmp/m6-lane-progress/t44-root-tree-v2/positive"
+      ],
+      "start": "2026-11-02T22:29:15.362368+00:00",
+      "end": "2026-11-02T22:29:16.651193+00:00",
+      "rc": 0,
+      "stdout_sha256": "2815570f654ca6db58551e3a201d7eb4a931a5d140fdf246464b2bc3dd8e7484",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "empty-tree-refusal",
+      "argv": [
+        "python3",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan-346/docs/qa-logs/2026-11-02-m6-resume/t44-brief-inputs.py",
+        "--repo",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan-346",
+        "--ref",
+        "b419ae354c7046de5ee3ddb5d194f51c0ab4dc8e",
+        "--es-repo",
+        "/tmp/m6-t44-stranger-proof-t5-20261102/es-proof",
+        "--es-ref",
+        "bbab755b0e3f7a638992aa34a2f832eb2bd6ca0e",
+        "--out",
+        "/tmp/m6-lane-progress/t44-root-tree-v2/empty-tree-refusal"
+      ],
+      "start": "2026-11-02T22:29:16.651236+00:00",
+      "end": "2026-11-02T22:29:17.190642+00:00",
+      "rc": 1,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "9d791f2faff5933b0fc7a1f1c4e578fe5f6ce1c7f6d39cb06922c901ed2608bb"
+    }
+  ],
+  "unchanged_native_output": true,
+  "note": "Direct tree-OID correction tested on original valid metadata-only counterexample and positive; prior proof/refusals retained, not replayed."
+}

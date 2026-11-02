@@ -1,0 +1,10 @@
+{
+  "kind": "lossless deduplicated UTF-8 records",
+  "files": 245,
+  "unique_payloads": 101,
+  "raw_total_bytes": 10157131,
+  "unique_raw_bytes": 3265145,
+  "manifest_sha256": "7b943368d31fb1aaeca2bbe0dac372b9aaf50431ef5a53fdee3bb7e0394ed6e5",
+  "record_file_sha256": "bb254894c49e3a8e2bf26cd4337c05341ed4d8036e01fdfcd23cf05f877d6313",
+  "restore": "For every manifest.files path, parse unique-records.jsonl by sha256, encode utf8 string as UTF-8, verify hash/length and write only to a fresh private text-record destination. Git object stores are not retained."
+}
