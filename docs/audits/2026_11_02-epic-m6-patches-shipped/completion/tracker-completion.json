@@ -1,0 +1,54 @@
+{
+  "result": "PASS",
+  "exact_bodies_and_states": true,
+  "closed_completed": [
+    1411
+  ],
+  "open_deferred": [
+    1410
+  ],
+  "open_accepted_pending_area_integration": [
+    689
+  ],
+  "verified_utc": "2026-11-02T21:35:35.218205+00:00",
+  "closed_at": {
+    "1411": "2026-11-02T21:30:23Z"
+  },
+  "updated_at": {
+    "1411": "2026-11-02T21:30:23Z"
+  },
+  "bodies_sha256": {
+    "1411": "4a26fea45f9eb6350178a58b5c1c37f12a6a7221fa24d358cabd6cabdf50363b",
+    "689": "9db8a50b09ca8aa1a69de4c97b1e1a559d9fc59df9caf961e7f9b8c7bd405b8f",
+    "1410": "9229e0ada6de0e5fc6270f986ef7958c1c43e2fe829b7442a83819971f7624de"
+  },
+  "expected_body_comparison": {
+    "1411": "accepted H exact body plus the third acceptance checkbox checked",
+    "689": "accepted final-publication exact body with all 20 acceptance checkboxes checked; seed/final4cf8 headers unchanged",
+    "1410": "accepted H body byte-for-byte; three unchecked criteria, no parent/milestone"
+  },
+  "accepted_source_final": "4cf8c8820791624dbddad3eb3664101a03953a82",
+  "reviewed_at": "9dd0716033f8831ffbd0b5ee8efbb5e5a066cfb1",
+  "coordinator_acceptance": "f994d7ed57e878196aaf8cb575cbc5d0023c0a09",
+  "dispatch": "https://github.com/pixelelated/distribution/issues/689#issuecomment-6588933395",
+  "reader": "Codex / GPT-6-Astra / xhigh, OpenAI; T5 wN:p7; session01a19d12-3d7a-7642-9108-ae06a719cdd7",
+  "cpus": [
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21,
+    22,
+    23
+  ],
+  "tracker_writes": false
+}

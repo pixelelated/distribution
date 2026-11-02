@@ -1,3 +1,15 @@
+# Current T42 completion record — 2026-11-02T21:35:35.218205+00:00
+
+Root accepted source final4cf8 and dispatched the normal completion record in #689 comment6588933395 (immutable f994d7ed57e878196aaf8cb575cbc5d0023c0a09, docs/qa-logs/2026-11-02-m6-resume/t42-final-acceptance.md). Live exact readbacks: #689 open/20 checked; #1411 closed-completed/all3 checked; #1410 open/3 unchecked, no parent/milestone. Schema1 audit-completion.json now binds 04/05 and exact tracker evidence under audit completion/. Existing schema1 validation, both resolution lints and normal new-record checks passed. Read the completion checkpoint on #689 for the clean published records tip and exact-final scan receipt; after that checkpoint this dispatch is finished.
+
+Use absolute workdir /workspace/repos/pixelelated/distribution.worktrees/m6-patches-shipped-689, branch feature/m6-patches-shipped-689. Source reviewed-at remains 9dd0716033f8831ffbd0b5ee8efbb5e5a066cfb1 and fixed-at remains 4cf8c8820791624dbddad3eb3664101a03953a82; completion-record tip never replaces those headers. Preserve all source/program/accepted receipts, 173/22 qualification limits and G202/G203/G383 missing evidence. No producer replay, merge, runtime/host-ledger/device/cloud/provider action or permission answer. Subprocesses CPUs8–23.
+
+After the clean completion checkpoint, STOP and remain available. Root verifies the marker; actual area integration and #689 closure remain root-owned. Actual lane/reader: m6-t5-build-engine wN:p7, Codex / GPT-6-Astra / xhigh, OpenAI, session01a19d12-3d7a-7642-9108-ae06a719cdd7. Historical launch/T38 untouched.
+
+---
+
+Earlier checkpoints below are historical.
+
 # Current T42 hand-off — 2026-11-02T20:34:58.656055+00:00
 
 Start here: records-only E–H under #689 comment 6587447155 / D-WORKFLOW-230 is ready for final clean publication. Actual final tip and publication receipt hash are supplied by the H comment on #689; read it before doing any new work. Root retains final acceptance/integration, audit1411 criterion3/closure/completion marker. PL-01 is Deferred to open bug1410 / #677 context; no GUIDE/source change is chosen.

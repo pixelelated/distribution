@@ -1,0 +1,34 @@
+T42 source audit F-T42-01 / PL-01 found that the selected PPSSPP patch creates an inert nested patch instead of changing the intended SDL source. This is a reactive bug, with no milestone or parent; #689 owns the audit record, and the standalone-emulator owner (#677 context) owns any future correction.
+
+## Source trace
+
+Reviewed source: `9dd0716033f8831ffbd0b5ee8efbb5e5a066cfb1`.
+
+- `projects/ROCKNIX/packages/emulators/standalone/ppsspp-sa/package.mk:5` pins `afbc66a318b86432642b532c575241f3716642ef` (v1.20.2).
+- Its `patches/007-disable-home-pause.patch:11–16` is an outer diff creating `package/batocera/emulators/ppsspp/007-disable-home-pause.patch`.
+- Lines 17–29 are added text containing the intended `SDL/SDLJoystick.cpp` hunk, including GUIDE mapping `NKCODE_BACK` → `NKCODE_UNKNOWN`.
+- `scripts/unpack:191–196` applies the outer patch once. The recipe's post_unpack hook only adjusts compiler flag files; no hook applies the created nested file.
+
+Consequently this patch does not perform its advertised SDL change. A successful patch exit can conceal the defect. Fixed upstream `651150fc88` has a direct SDL diff returning `NKCODE_GUIDE`, a different mapping from the nested payload; importing it requires an explicit intended-behavior decision by the owning fix stream.
+
+## Evidence and limits
+
+`docs/audits/2026_11_02-epic-m6-patches-shipped/stage-b/nested-patch/receipt.json` retains a constructed fixture: GNU patch 2.8 diagnostic and normal rc 0, nested target created, sentinel SDLJoystick.cpp byte-identical. This proves the wrapper mechanism, not application at the actual PPSSPP pin or observed player behavior. Source/recipe/unpack readbacks and duplicate searches are under `stage-b/source-context/`. The sibling scan found one product-path instance; 23 other hits are legitimate historical product-diff evidence.
+
+Severity: Medium. No data-loss or security consequence is demonstrated.
+
+Already written: builds containing the outer patch may keep the preexisting SDL mapping and an inert nested file in their build source. This patch writes no player settings or cloud data. A correction must rebuild the affected binary and preserve existing `/storage`; editing the audit alone repairs no installed image.
+
+Can this be done on the VM? The source-target regression can be proved from source fixtures without a guest. The later input-flow check can run in GENERIC_X64 with injected controller input; no physical fact is required. This issue grants no runtime allocation or device/cloud action.
+
+## Acceptance criteria
+
+- [ ] A source regression fails on the reviewed wrapper, then passes on the chosen direct SDL diff: exact selected pin/stack, actual normal rc, before/after target hashes and absence of the nested patch file are retained.
+- [ ] The intended GUIDE mapping is recorded and exercised in GENERIC_X64 with an agent-verifiable input trace/frame or equivalent deterministic event assertion, bound to the corrected installed binary identity.
+- [ ] The fix's Already written record and upgrade/clean-install evidence show existing `/storage` settings are preserved; no cloud action is required by the correction.
+
+## Proposed mechanism
+
+Move the patch's written/routed intent to an audited source-target regression. A focused product-patch guard may reject inert nested patch targets, with explicit intentional exceptions; historical audit product-diff files are not product patches. The coordinator assigns a separate source-changing brief. T42 A–D makes no product edit and leaves this bug open.
+
+Recorded by Codex / GPT-6-Astra / xhigh, OpenAI, T5 wN:p7, Local reader. No external reviewer.

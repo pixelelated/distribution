@@ -1,0 +1,194 @@
+[
+  {
+    "name": "acceptance-dispatch",
+    "start": "2026-11-02T21:35:32.279757+00:00",
+    "end": "2026-11-02T21:35:33.460641+00:00",
+    "argv": [
+      "gh",
+      "api",
+      "repos/pixelelated/distribution/issues/comments/6588933395"
+    ],
+    "cwd": "/workspace/repos/pixelelated/distribution.worktrees/m6-patches-shipped-689",
+    "cpus": [
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22,
+      23
+    ],
+    "rc": 0,
+    "stdout_sha256": "fe246b5123c90adc8791ba2394d08d976ba07755dc2c51c72e8dee4e23ba8dc8",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "coordinator-acceptance",
+    "start": "2026-11-02T21:35:33.460751+00:00",
+    "end": "2026-11-02T21:35:33.465998+00:00",
+    "argv": [
+      "git",
+      "show",
+      "f994d7ed57e878196aaf8cb575cbc5d0023c0a09:docs/qa-logs/2026-11-02-m6-resume/t42-final-acceptance.md"
+    ],
+    "cwd": "/workspace/repos/pixelelated/distribution.worktrees/m6-patches-shipped-689",
+    "cpus": [
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22,
+      23
+    ],
+    "rc": 0,
+    "stdout_sha256": "cb28e8de7e88525facbb4a642109543f2f3fac4c3f69cbfc589a007c10d39f80",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "issue-1411",
+    "start": "2026-11-02T21:35:33.466065+00:00",
+    "end": "2026-11-02T21:35:33.919181+00:00",
+    "argv": [
+      "gh",
+      "api",
+      "repos/pixelelated/distribution/issues/1411"
+    ],
+    "cwd": "/workspace/repos/pixelelated/distribution.worktrees/m6-patches-shipped-689",
+    "cpus": [
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22,
+      23
+    ],
+    "rc": 0,
+    "stdout_sha256": "eb04fcca1148af457839d838bf66f96b051a973871b14af4872419eeb113340e",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "issue-689",
+    "start": "2026-11-02T21:35:33.919780+00:00",
+    "end": "2026-11-02T21:35:34.411805+00:00",
+    "argv": [
+      "gh",
+      "api",
+      "repos/pixelelated/distribution/issues/689"
+    ],
+    "cwd": "/workspace/repos/pixelelated/distribution.worktrees/m6-patches-shipped-689",
+    "cpus": [
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22,
+      23
+    ],
+    "rc": 0,
+    "stdout_sha256": "5223e743fe467d5351532f3b2d797b3cc1982c33d567277adcc0900b40ef3b42",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "issue-1410",
+    "start": "2026-11-02T21:35:34.412279+00:00",
+    "end": "2026-11-02T21:35:34.841386+00:00",
+    "argv": [
+      "gh",
+      "api",
+      "repos/pixelelated/distribution/issues/1410"
+    ],
+    "cwd": "/workspace/repos/pixelelated/distribution.worktrees/m6-patches-shipped-689",
+    "cpus": [
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22,
+      23
+    ],
+    "rc": 0,
+    "stdout_sha256": "142fbd86f1ea805836aec621cffe3d7d96a8dc40e55f0c19be51378005f88d6b",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "bug-parent",
+    "start": "2026-11-02T21:35:34.854609+00:00",
+    "end": "2026-11-02T21:35:35.217869+00:00",
+    "argv": [
+      "gh",
+      "api",
+      "repos/pixelelated/distribution/issues/1410/parent"
+    ],
+    "cwd": "/workspace/repos/pixelelated/distribution.worktrees/m6-patches-shipped-689",
+    "cpus": [
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22,
+      23
+    ],
+    "rc": 1,
+    "stdout_sha256": "6d7731a82b4347d24f537948ae6df0a1d1489a21b8f13d6fec56c206fadaee74",
+    "stderr_sha256": "00e190220cf8c7763d83286d47b3e1247e2e06959ff5500d507e393e5272d0ad"
+  }
+]
