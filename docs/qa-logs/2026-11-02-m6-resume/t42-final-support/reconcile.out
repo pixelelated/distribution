@@ -1,0 +1,52 @@
+{
+  "errors": [],
+  "accepted_artifacts": 3931,
+  "source_identities": 391,
+  "changed_paths_since_D": 129,
+  "commits_since_D": [
+    {
+      "commit": "7c9e4c3ac06f1a23ed5bd94f88e12b0fabce5bba",
+      "parent": "d37670de318eb428604e4442f95defe10eade173",
+      "changed_paths": 82
+    },
+    {
+      "commit": "4cf8c8820791624dbddad3eb3664101a03953a82",
+      "parent": "7c9e4c3ac06f1a23ed5bd94f88e12b0fabce5bba",
+      "changed_paths": 54
+    }
+  ],
+  "owner_matrix": {
+    "native_limits": 173,
+    "inherited": 50,
+    "unresolved_inherited": 22,
+    "contribution_drafts": 12,
+    "PL-01": {
+      "outcome": "deferred",
+      "bug": 1410,
+      "context": 677,
+      "route": "Coordinator-owned separate source-changing fix brief; no GUIDE mapping chosen",
+      "bug_state": "open"
+    }
+  },
+  "new_command_exit_counts": {
+    "0": 64,
+    "1": 6
+  },
+  "retirement": {
+    "roots": 522,
+    "logical_file_bytes": 502085226,
+    "origin_counts": {
+      "ephemeral small-text Stage A export": 1,
+      "package-plan target projection": 401,
+      "safe cached-member projection": 116,
+      "inherited raw-source projections": 1,
+      "accepted synthetic proof fixture": 3
+    },
+    "cache_metadata_count": 129,
+    "needed_receipts_committed_at": "7c9e4c3ac06f1a23ed5bd94f88e12b0fabce5bba",
+    "mount_exclusions": 54,
+    "no_fresh_host_or_cache_verification": true
+  }
+}
+bindings 70 external_files 41
+results_sha256 6722608c86a138a74df5ddd0295118f5aa029826b09375cdbc13115cb0acbd6e

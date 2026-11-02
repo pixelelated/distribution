@@ -1,0 +1,144 @@
+[
+  {
+    "name": "issue-before",
+    "argv": [
+      "gh",
+      "api",
+      "repos/pixelelated/distribution/issues/688"
+    ],
+    "start": "2026-11-02T20:57:15.448567+00:00",
+    "end": "2026-11-02T20:57:15.962532+00:00",
+    "rc": 0,
+    "stdout_sha256": "4145a042b705420c407ac7f8a266730d33adc4a6650e72b00a4f7dab890ef4bd",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "audit-before",
+    "argv": [
+      "gh",
+      "api",
+      "repos/pixelelated/distribution/issues/1409"
+    ],
+    "start": "2026-11-02T20:57:15.963300+00:00",
+    "end": "2026-11-02T20:57:16.692514+00:00",
+    "rc": 0,
+    "stdout_sha256": "18b9f95f26d9547271fdb5ba0d5f7415f90bea65a1fc4a6c8f67ebeb398ab173",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "bug-before",
+    "argv": [
+      "gh",
+      "api",
+      "repos/pixelelated/distribution/issues/1408"
+    ],
+    "start": "2026-11-02T20:57:16.693217+00:00",
+    "end": "2026-11-02T20:57:17.220788+00:00",
+    "rc": 0,
+    "stdout_sha256": "520a644e6e3ac809b72ff1f107c42aa424de1aff5e9d3cafca1bdabdf3c021d0",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "acceptance-post",
+    "argv": [
+      "gh",
+      "api",
+      "-X",
+      "POST",
+      "repos/pixelelated/distribution/issues/688/comments",
+      "--input",
+      "/tmp/m6-lane-progress/t41-acceptance-publication/acceptance-post-request.json"
+    ],
+    "start": "2026-11-02T20:57:17.221109+00:00",
+    "end": "2026-11-02T20:57:18.724753+00:00",
+    "rc": 0,
+    "stdout_sha256": "821483c72785bfbd9ca06a9832c56910e851ac66646a15a77327cfcf51a937cf",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "acceptance-readback",
+    "argv": [
+      "gh",
+      "api",
+      "repos/pixelelated/distribution/issues/comments/6588269141"
+    ],
+    "start": "2026-11-02T20:57:18.725202+00:00",
+    "end": "2026-11-02T20:57:19.392886+00:00",
+    "rc": 0,
+    "stdout_sha256": "821483c72785bfbd9ca06a9832c56910e851ac66646a15a77327cfcf51a937cf",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "audit-close",
+    "argv": [
+      "gh",
+      "api",
+      "-X",
+      "PATCH",
+      "repos/pixelelated/distribution/issues/1409",
+      "--input",
+      "/tmp/m6-lane-progress/t41-acceptance-publication/audit-close-request.json"
+    ],
+    "start": "2026-11-02T20:57:19.393164+00:00",
+    "end": "2026-11-02T20:57:21.203162+00:00",
+    "rc": 0,
+    "stdout_sha256": "b4897ae5fdee2edb35f1be20171ac9252fa17fdd40e46ab475e19e6a776869c3",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "audit-final-readback",
+    "argv": [
+      "gh",
+      "api",
+      "repos/pixelelated/distribution/issues/1409"
+    ],
+    "start": "2026-11-02T20:57:21.203504+00:00",
+    "end": "2026-11-02T20:57:21.694315+00:00",
+    "rc": 0,
+    "stdout_sha256": "b4897ae5fdee2edb35f1be20171ac9252fa17fdd40e46ab475e19e6a776869c3",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "issue-checks",
+    "argv": [
+      "gh",
+      "api",
+      "-X",
+      "PATCH",
+      "repos/pixelelated/distribution/issues/688",
+      "--input",
+      "/tmp/m6-lane-progress/t41-acceptance-publication/issue-checks-request.json"
+    ],
+    "start": "2026-11-02T20:57:21.694744+00:00",
+    "end": "2026-11-02T20:57:23.215225+00:00",
+    "rc": 0,
+    "stdout_sha256": "eaf98b5338bf735ebe466c14adca63875e0a25049da6f9b91f3c5085228a7f07",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "issue-final-readback",
+    "argv": [
+      "gh",
+      "api",
+      "repos/pixelelated/distribution/issues/688"
+    ],
+    "start": "2026-11-02T20:57:23.215588+00:00",
+    "end": "2026-11-02T20:57:23.739359+00:00",
+    "rc": 0,
+    "stdout_sha256": "eaf98b5338bf735ebe466c14adca63875e0a25049da6f9b91f3c5085228a7f07",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "bug-final-readback",
+    "argv": [
+      "gh",
+      "api",
+      "repos/pixelelated/distribution/issues/1408"
+    ],
+    "start": "2026-11-02T20:57:23.739657+00:00",
+    "end": "2026-11-02T20:57:24.108709+00:00",
+    "rc": 0,
+    "stdout_sha256": "520a644e6e3ac809b72ff1f107c42aa424de1aff5e9d3cafca1bdabdf3c021d0",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  }
+]

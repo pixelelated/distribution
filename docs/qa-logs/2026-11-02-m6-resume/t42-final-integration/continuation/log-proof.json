@@ -1,0 +1,45 @@
+{
+  "base": "07d01c898fba867e042342017fd8d5257508a28c",
+  "coordinator": "8b83e452459f6696ac959b4e4e5494701d5d2f93",
+  "lane": "4cf8c8820791624dbddad3eb3664101a03953a82",
+  "coordinator_continuation_bytes": 10620,
+  "coordinator_continuation_sha256": "cdd4e04f41743495de00b81bd2b034d9aa970e9d04451907ed4d3baaf790f964",
+  "entry_sequences": [
+    [
+      "f95c68042e7139f387d371b9e3161941a359cf62aa86bc4cf347b58bf579e15c",
+      "8e70d8afd8b9c85e005546f8d19a8a76733d1b65e270c8753a149ee7ebde1707"
+    ],
+    [
+      "deaad2d506bf7d84ffdb0ab110fd467fafa6cf5fbdd4dd8937877f6a1228c547",
+      "b898d78c025837526549459e8d1cb42e3fb7eb7c61b7bc2d11524ab17803b00b",
+      "43940c93608864dcbabca714508b44b9f3666c835ae288ac6bf3873b05d0af65",
+      "160bb0898f47753a5455e9213aeaa1374a5463890f33dacc91a1c7ec8ac793dd",
+      "5edf8d3e62ab0129396694402d1ca56f1b7a432380d35e79baee9d3966fb2037",
+      "e45d15b02b0cbc25cdc1c4aa78bc260ba941951bd1d509b1be6a67df27369e87"
+    ]
+  ],
+  "merged_sha256": "41850e973755b4004d864cd188ebc51b88001daf33c98168b8ae60e29b2577ee",
+  "controls": [
+    {
+      "name": "base-edited",
+      "rejected": true,
+      "reason": "pre-existing log bytes changed"
+    },
+    {
+      "name": "coordinator-prefix-edited",
+      "rejected": true,
+      "reason": "coordinator continuation identity differs"
+    },
+    {
+      "name": "lane-old-bytes-edited",
+      "rejected": true,
+      "reason": "pre-existing log bytes changed"
+    },
+    {
+      "name": "lane-no-final-newline",
+      "rejected": true,
+      "reason": "append suffix lacks whole entries or exact terminal newline"
+    }
+  ],
+  "scope": "Exact coordinator continuation preserved plus unchanged whole-entry parser; no original gate relabelled."
+}

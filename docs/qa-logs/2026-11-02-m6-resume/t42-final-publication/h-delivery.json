@@ -1,0 +1,44 @@
+{
+  "utc": "2026-11-02T20:41:36.715669+00:00",
+  "final_commit": "4cf8c8820791624dbddad3eb3664101a03953a82",
+  "publication_manifest": "/workspace/tmp/m6-t42-final-publication-20261102T203040Z/manifest.json",
+  "publication_manifest_sha256": "62ef887c2fd2cc67c7b88ebd9c1bdb80091423596c60a1cf0e6e1cdc01dc8781",
+  "manifest_listed_files_verified": 36,
+  "handback_url": "https://github.com/pixelelated/distribution/issues/689#issuecomment-6587952866",
+  "post_argv": [
+    "gh",
+    "issue",
+    "comment",
+    "689",
+    "--repo",
+    "pixelelated/distribution",
+    "--body-file",
+    "/workspace/tmp/m6-t42-final-publication-20261102T203040Z/h-handback-body.md"
+  ],
+  "post_rc": 0,
+  "readback_argv": [
+    "gh",
+    "api",
+    "repos/pixelelated/distribution/issues/comments/6587952866"
+  ],
+  "readback_rc": 0,
+  "readback_sha256": "7dc958787b688d749f6571ff17643626b6333ed95957b08acce70e32950e9856",
+  "exact_handback_readback": true,
+  "herdr_argv": [
+    "herdr",
+    "agent",
+    "prompt",
+    "m6-coordinator",
+    "T42 #689 records-only E-H COMPLETE, stopped for root acceptance/integration. Clean published tip 4cf8c8820791624dbddad3eb3664101a03953a82; reviewed-at seed9dd0716033f8831ffbd0b5ee8efbb5e5a066cfb1; exact m6-patches-shipped-689 tree/branch. H handback/readback: https://github.com/pixelelated/distribution/issues/689#issuecomment-6587952866. PL-01 Deferred to open1410/#677, no GUIDE/source choice; audit1411 criteria1/2 checked, criterion3/closure/marker root-owned. New resolution PASS both forms;3931accepted artifacts/391source identities preserved without producer replay;173native/22inherited limits and G202/G203/G383 missing evidence unchanged. H retired522 exact owned roots/502085226logical bytes,129cache archives preserved, source root empty/no runtime held. External final-publication manifest /workspace/tmp/m6-t42-final-publication-20261102T203040Z/manifest.json; SHA256 62ef887c2fd2cc67c7b88ebd9c1bdb80091423596c60a1cf0e6e1cdc01dc8781. Actual final commit/push/remote/status exits0 retained outside observed commit; no receipt loop. #689 reviewed-at/fixed-at exact readback, criteria unchanged. Please retain external receipt directory for final acceptance. T5 available; no further work until dispatch."
+  ],
+  "herdr_rc": 0,
+  "target_pane": "wN:p2",
+  "final_status_argv": [
+    "git",
+    "status",
+    "--porcelain=v1"
+  ],
+  "final_status_rc": 0,
+  "final_status_empty": true,
+  "stopped": true
+}

@@ -1,0 +1,1816 @@
+{
+  "accepted_D": "d37670de318eb428604e4442f95defe10eade173",
+  "accepted_artifacts": 3931,
+  "artifact_sha256": {
+    "stage-a/seed/summary.json": "b03e3dab383b3fa2a6fb72371750f631f603978cbd5dfe4a4e4c060ad3de5d76",
+    "stage-a/seed/tree.json": "54528e338d8ea9ba07e01cbb55de8191720f5ac24e4f34571ef85991b65a4a95",
+    "stage-b/tables.json": "6e125aa1d48d7bf97e23e0cb427a0fc87becb8325aa6ed476ab7f623e33e6694",
+    "stage-e/actual-footer.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stage-e/actual-footer.stdout": "045ab653fe1cc2a9c46f39a1ad617db749c26af47d91b0091262a33415edaa67",
+    "stage-e/actual-lane.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stage-e/actual-lane.stdout": "58f21d6139d94a385b3519fad035865631642abf037aaec77605cf4b4c582aba",
+    "stage-e/audit-before.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stage-e/audit-before.stdout": "c3696313005032e825dcaae16c818b1231820792d2aa7d197a90d213bd21ecd6",
+    "stage-e/audit-criterion1-edit.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stage-e/audit-criterion1-edit.stdout": "a1e63c789c50f209579e6730e5ffc6557d932a761d4386c2081f4d56ef0626f6",
+    "stage-e/audit-criterion1-readback.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stage-e/audit-criterion1-readback.stdout": "4e14f26ead96d597330d69a072d0b2978640998dd20ffe80dba2cad34bfed744",
+    "stage-e/audit-disposition-edit.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stage-e/audit-disposition-edit.stdout": "a1e63c789c50f209579e6730e5ffc6557d932a761d4386c2081f4d56ef0626f6",
+    "stage-e/audit-disposition-readback.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stage-e/audit-disposition-readback.stdout": "195970f904277a156cf5d833ce2cd300b937c60b35b99e638ca8307d154c204e",
+    "stage-e/bug-handoff.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stage-e/bug-handoff.stdout": "cc23b57f348d3e02ef3009dd42e3b1c7dc86995296a9e616da966cf0441aa785",
+    "stage-e/bug-unchanged.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stage-e/bug-unchanged.stdout": "c5a6071fcf500917e1d291bb2cbbb358185958546b4d40bf96de341399a0eea1",
+    "stage-e/commands.json": "219d344455d0031c4d4251df94a8608ba57b577ca1d1cf13fa64ceb3c74d7168",
+    "stage-e/coordinator-register.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stage-e/coordinator-register.stdout": "3887c9f231be6606223f4f674c62d1d4908caa1ca8f9c728c43ebc3b8921f758",
+    "stage-e/dispatch.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stage-e/dispatch.stdout": "f126ee924d0b7799d0bb0a6454e3d03e66ea4277356f49a7f62a9926135831f6",
+    "stage-e/disposition.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stage-e/disposition.stdout": "0ba5c31b27c011ee08ea6664660f6f81b1ada965f39017966d9fe67eca94dc17",
+    "stage-e/owner-actions.json": "618e81bf0bd6b0aa3b73d95d0b61454d140149d5c9dba3e3024e6c43b72c0998",
+    "stage-f/accepted-manifest.json": "399504f2f77d967e4b131341b674fdb0ec5cf9da7d3a46ae5212b208b3cbb672",
+    "stage-f/audit-criterion2-edit.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stage-f/audit-criterion2-edit.stdout": "a1e63c789c50f209579e6730e5ffc6557d932a761d4386c2081f4d56ef0626f6",
+    "stage-f/audit-criterion2-readback.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stage-f/audit-criterion2-readback.stdout": "0ddf8a6bf3c67fe7e77de30484b3d978a864ae17b1a855876dcbb7bef2df080e",
+    "stage-f/ceremony.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stage-f/ceremony.stdout": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stage-f/checkbox-1410.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stage-f/checkbox-1410.stdout": "ba2106c8e0839eebd4c378af612a29b132b2d984183d5b62871ca20e98856945",
+    "stage-f/checkbox-1411.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stage-f/checkbox-1411.stdout": "71f21b5f65b777c3c18799c08624626e7530b84922db3c7b7c3256eab7f277aa",
+    "stage-f/checkbox-689.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stage-f/checkbox-689.stdout": "89574cf62c10d48bcc0aae9e2c9575dab22248ee306fc1d65a7a538ead695114",
+    "stage-f/commands.json": "7d305e121f07a9c4b33b4227668e3ae7d235ca37d86b1d73af96399400a8a20f",
+    "stage-f/final-record-check.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stage-f/final-record-check.stdout": "705a1c390a57066294718d8bc0afc95a563d4af6e403618fec69428e90809296",
+    "stage-f/forbidden.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stage-f/forbidden.stdout": "dbffe93db83456398c6bca0b27a88467331fa149154479c46a4a3453869ce039",
+    "stage-f/hooks.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stage-f/hooks.stdout": "3402d5f59e65118cf905eb74dd1cda7660eeffd181ad248e23a56f68395e0a5c",
+    "stage-f/index.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stage-f/index.stdout": "232b345c76ad64a47de4d43e62d9aeb4f2850472cde78ddd1b1e56d72103d927",
+    "stage-f/protected-paths.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stage-f/protected-paths.stdout": "efe53b28a665d7dd02a5bd2e648b420184bf376bf4a5abefaf4ad49baf655e15",
+    "stage-f/register.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stage-f/register.stdout": "d19a26d7b8d788f598d97e36c29ba1f7318204f847c64234cdf5fcca8ed22dca",
+    "stage-f/resolution-with-issue.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stage-f/resolution-with-issue.stdout": "bbc268b2a9fdeef41dc56571d22314844298c03a57107df8176c55e8525cd052",
+    "stage-f/resolution.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stage-f/resolution.stdout": "1379332ac34e98fddfe7692d9b2c27c88e492d4637c29ccbae578692a9585f3d",
+    "stage-f/rules.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stage-f/rules.stdout": "5ecec1bf185709d166b0c35447dd7ef65107be90632d41665f1d26e3bd0afbb1",
+    "stage-g/comment-body.md": "d2bde27b8539c1dcbb492d36573bd1a1209bd4293d5282dd2f4a7fc360656681",
+    "stage-g/post.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stage-g/post.stdout": "35a90bcf6217e0bc0c9a0862958f051ec3aeaa2dc78460fecb84c5284b77688f",
+    "stage-g/readback.json": "c1714a637977bf5e66ada786b1e5770e896eec2ead280c7492d27509727c4267",
+    "stage-g/receipt.json": "71cb200191ed8d11305144b58681378cf1a56d77986f6517a1aab598e02e14b3",
+    "stage-h/accepted-receipt-diff.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stage-h/accepted-receipt-diff.stdout": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stage-h/audit-final.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stage-h/audit-final.stdout": "098f1b9a59ddde589cee51d7d46ea5c17001a9817899339d59b80013bf9d583d",
+    "stage-h/audit-parent.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stage-h/audit-parent.stdout": "108558688fa1a44afefebaf5b35017f9f20b040e0316c64d57adb59fe906604d",
+    "stage-h/bug-final.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stage-h/bug-final.stdout": "c5a6071fcf500917e1d291bb2cbbb358185958546b4d40bf96de341399a0eea1",
+    "stage-h/bug-parent.stderr": "00e190220cf8c7763d83286d47b3e1247e2e06959ff5500d507e393e5272d0ad",
+    "stage-h/bug-parent.stdout": "6d7731a82b4347d24f537948ae6df0a1d1489a21b8f13d6fec56c206fadaee74",
+    "stage-h/checkbox-final-1410.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stage-h/checkbox-final-1410.stdout": "ba2106c8e0839eebd4c378af612a29b132b2d984183d5b62871ca20e98856945",
+    "stage-h/checkbox-final-1411.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stage-h/checkbox-final-1411.stdout": "71f21b5f65b777c3c18799c08624626e7530b84922db3c7b7c3256eab7f277aa",
+    "stage-h/cleanup-commands.json": "c2f94426e92cd0a9403818dbf167085482687eda1860f4facbbc0ae8cc5e6601",
+    "stage-h/cleanup-controls.json": "d1db3cc334baf9bb5692fa4939a654f2f26bb0420ba4a969a6b5a930d8e1163d",
+    "stage-h/cleanup-manifest.json": "5a19dd4caf5046e51736933e2db88c07381e05d12d54a53673f0ea4b78dffbb7",
+    "stage-h/cleanup-result.json": "9b41985cf673d2265710c1457f9cacba406b4caa3232038d29d25dd78ac6783b",
+    "stage-h/committed-manifest.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stage-h/committed-manifest.stdout": "399504f2f77d967e4b131341b674fdb0ec5cf9da7d3a46ae5212b208b3cbb672",
+    "stage-h/current-scan-inputs.json": "9efafb1facccd534abfd22974509f113597e37221294671a6884dbbe3806c5d4",
+    "stage-h/final-census.json": "3226f09e3d0e98d60e46fabdfb8090339ac4adb48cb60508794cb469dcfb8634",
+    "stage-h/final-checks.json": "d354aa124de745237a5e6aa1ec5e4981cbf83aba4b4018abb68fe5ef4b9ace10",
+    "stage-h/final-process-census.stdout": "5dad056b3c6cac20ffd5491e4267b7eef3d81bbcbdd679bc685cd75e4389cd43",
+    "stage-h/final-source-paths.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stage-h/final-source-paths.stdout": "efe53b28a665d7dd02a5bd2e648b420184bf376bf4a5abefaf4ad49baf655e15",
+    "stage-h/forbidden-current.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stage-h/forbidden-current.stdout": "ae7d101f07c8c55bfd82db597d8d383d0f9c1102459a98a228136f4248a15379",
+    "stage-h/index-final.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stage-h/index-final.stdout": "232b345c76ad64a47de4d43e62d9aeb4f2850472cde78ddd1b1e56d72103d927",
+    "stage-h/new-record-reconciliation.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stage-h/new-record-reconciliation.stdout": "705a1c390a57066294718d8bc0afc95a563d4af6e403618fec69428e90809296",
+    "stage-h/owner-census-baseline.stderr": "91f6b2b939d2b692d29d520fd2bdc07a913c3f443516dd5fed27fa05b870d3d4",
+    "stage-h/owner-census-baseline.stdout": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stage-h/owner-control-closed.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stage-h/owner-control-closed.stdout": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stage-h/owner-control-live.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stage-h/owner-control-live.stdout": "fa9a79e7b9d744be0b7856ede3851944b34d6c5a438f7255f8e849fdbf8260b5",
+    "stage-h/pre-delete-owned-source.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stage-h/pre-delete-owned-source.stdout": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stage-h/pre-delete-owned-text-export.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stage-h/pre-delete-owned-text-export.stdout": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stage-h/resolution-final.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stage-h/resolution-final.stdout": "1379332ac34e98fddfe7692d9b2c27c88e492d4637c29ccbae578692a9585f3d",
+    "stage-h/resolution-issue-final.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stage-h/resolution-issue-final.stdout": "bbc268b2a9fdeef41dc56571d22314844298c03a57107df8176c55e8525cd052",
+    "stage-h/retirement-exit-observation.json": "8ad4f7bc4370a098619eed952b1516b1026c07089ada576c4becf021d8bde143"
+  },
+  "changed_paths_since_D": 129,
+  "commits_since_D": [
+    {
+      "changed_paths": 82,
+      "commit": "7c9e4c3ac06f1a23ed5bd94f88e12b0fabce5bba",
+      "parent": "d37670de318eb428604e4442f95defe10eade173"
+    },
+    {
+      "changed_paths": 54,
+      "commit": "4cf8c8820791624dbddad3eb3664101a03953a82",
+      "parent": "7c9e4c3ac06f1a23ed5bd94f88e12b0fabce5bba"
+    }
+  ],
+  "errors": [],
+  "external_files": {
+    "branch.stderr": {
+      "bytes": 0,
+      "nlink": 1,
+      "regular": true,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "branch.stdout": {
+      "bytes": 31,
+      "nlink": 1,
+      "regular": true,
+      "sha256": "c5a328a3b87014a4051f4be1aa205ccaed54cb825ea711f200cd4c494917220b"
+    },
+    "commands.json": {
+      "bytes": 11319,
+      "nlink": 1,
+      "regular": true,
+      "sha256": "9cc70bbb3b790bf5bcf1ca202b4bc377e959d98027ada70fc0abc926a4986471"
+    },
+    "commit-message.txt": {
+      "bytes": 317,
+      "nlink": 1,
+      "regular": true,
+      "sha256": "fefc05b482093de5bc1f63ff3721fba66dedfd3ad14fd1f8aca17826dba9329d"
+    },
+    "final-clean.stderr": {
+      "bytes": 0,
+      "nlink": 1,
+      "regular": true,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "final-clean.stdout": {
+      "bytes": 0,
+      "nlink": 1,
+      "regular": true,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "final-commit.stderr": {
+      "bytes": 0,
+      "nlink": 1,
+      "regular": true,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "final-commit.stdout": {
+      "bytes": 0,
+      "nlink": 1,
+      "regular": true,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "final-head.stderr": {
+      "bytes": 0,
+      "nlink": 1,
+      "regular": true,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "final-head.stdout": {
+      "bytes": 41,
+      "nlink": 1,
+      "regular": true,
+      "sha256": "0ce5e947048a2f3f3794e448af67d70af908effc6a967c70c9412c77d3308f95"
+    },
+    "final-push.stderr": {
+      "bytes": 0,
+      "nlink": 1,
+      "regular": true,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "final-push.stdout": {
+      "bytes": 0,
+      "nlink": 1,
+      "regular": true,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "final-tip.stderr": {
+      "bytes": 0,
+      "nlink": 1,
+      "regular": true,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "final-tip.stdout": {
+      "bytes": 41,
+      "nlink": 1,
+      "regular": true,
+      "sha256": "0ce5e947048a2f3f3794e448af67d70af908effc6a967c70c9412c77d3308f95"
+    },
+    "h-delivery.json": {
+      "bytes": 2441,
+      "nlink": 1,
+      "regular": true,
+      "sha256": "bb6d589ec32f8f2d30b6875439c8fa58f0bd7833f11c7b90f6c18bb08cbd2788"
+    },
+    "h-handback-body.md": {
+      "bytes": 5557,
+      "nlink": 1,
+      "regular": true,
+      "sha256": "3e62d17a6fdc387d7b841c15df70fed9626870a13db62a7c266980aa6572c282"
+    },
+    "h-handback-readback.json": {
+      "bytes": 7279,
+      "nlink": 1,
+      "regular": true,
+      "sha256": "7dc958787b688d749f6571ff17643626b6333ed95957b08acce70e32950e9856"
+    },
+    "herdr-h-handback.json": {
+      "bytes": 737,
+      "nlink": 1,
+      "regular": true,
+      "sha256": "cfa6bd406217134a78532fc9effb531b8b9c6802beecd281c51b7174987e5d03"
+    },
+    "issue-689-final-body.md": {
+      "bytes": 5415,
+      "nlink": 1,
+      "regular": true,
+      "sha256": "c167afd03498295ba193edad8d2a1d8c71089517a0b0c3784bfd3f6316b72a84"
+    },
+    "issue-689-final-checkbox.stderr": {
+      "bytes": 0,
+      "nlink": 1,
+      "regular": true,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "issue-689-final-checkbox.stdout": {
+      "bytes": 192,
+      "nlink": 1,
+      "regular": true,
+      "sha256": "89574cf62c10d48bcc0aae9e2c9575dab22248ee306fc1d65a7a538ead695114"
+    },
+    "issue-after.stderr": {
+      "bytes": 0,
+      "nlink": 1,
+      "regular": true,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "issue-after.stdout": {
+      "bytes": 5492,
+      "nlink": 1,
+      "regular": true,
+      "sha256": "648924e817d28f7bfba7368f8fcb2699e5037eea117ba3a34892e550cb85b3b4"
+    },
+    "issue-before.stderr": {
+      "bytes": 0,
+      "nlink": 1,
+      "regular": true,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "issue-before.stdout": {
+      "bytes": 5410,
+      "nlink": 1,
+      "regular": true,
+      "sha256": "6963a6cd70889215183b29c050a4837f383eb99fbb1019505dbb904de27b25a1"
+    },
+    "issue-fields-edit.stderr": {
+      "bytes": 0,
+      "nlink": 1,
+      "regular": true,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "issue-fields-edit.stdout": {
+      "bytes": 55,
+      "nlink": 1,
+      "regular": true,
+      "sha256": "2c2c2cfdba1ca7372c5913802f362fbd06659a7b5fe0a08f3b76c8538d296592"
+    },
+    "manifest.json": {
+      "bytes": 5984,
+      "nlink": 1,
+      "regular": true,
+      "sha256": "62ef887c2fd2cc67c7b88ebd9c1bdb80091423596c60a1cf0e6e1cdc01dc8781"
+    },
+    "publication.json": {
+      "bytes": 12813,
+      "nlink": 1,
+      "regular": true,
+      "sha256": "eca2d51e5857955cb64bc8626f12175bddd95a92dcfe843abff2b353874afe29"
+    },
+    "remote-readback.stderr": {
+      "bytes": 0,
+      "nlink": 1,
+      "regular": true,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "remote-readback.stdout": {
+      "bytes": 83,
+      "nlink": 1,
+      "regular": true,
+      "sha256": "a2abaeed701da77d4a88558162eb4b96a93f34bf33df9ed70035b7ef8884c8c6"
+    },
+    "source-path-guard-after.stderr": {
+      "bytes": 0,
+      "nlink": 1,
+      "regular": true,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "source-path-guard-after.stdout": {
+      "bytes": 45,
+      "nlink": 1,
+      "regular": true,
+      "sha256": "efe53b28a665d7dd02a5bd2e648b420184bf376bf4a5abefaf4ad49baf655e15"
+    },
+    "source-path-guard-before.stderr": {
+      "bytes": 0,
+      "nlink": 1,
+      "regular": true,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "source-path-guard-before.stdout": {
+      "bytes": 45,
+      "nlink": 1,
+      "regular": true,
+      "sha256": "efe53b28a665d7dd02a5bd2e648b420184bf376bf4a5abefaf4ad49baf655e15"
+    },
+    "stage.stderr": {
+      "bytes": 0,
+      "nlink": 1,
+      "regular": true,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "stage.stdout": {
+      "bytes": 0,
+      "nlink": 1,
+      "regular": true,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "status-after-push.stderr": {
+      "bytes": 0,
+      "nlink": 1,
+      "regular": true,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "status-after-push.stdout": {
+      "bytes": 0,
+      "nlink": 1,
+      "regular": true,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "status-before-push.stderr": {
+      "bytes": 0,
+      "nlink": 1,
+      "regular": true,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "status-before-push.stdout": {
+      "bytes": 0,
+      "nlink": 1,
+      "regular": true,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  },
+  "external_manifest_sha256": "62ef887c2fd2cc67c7b88ebd9c1bdb80091423596c60a1cf0e6e1cdc01dc8781",
+  "final": "4cf8c8820791624dbddad3eb3664101a03953a82",
+  "identity": "Codex / OpenAI; session01a19d11-dda5-72e3-86f9-416f36341c24; m6-p1-survey wN:p3",
+  "limits": [
+    "Accepted A-D correctness reused, not re-audited; preservation proved by immutable Git mode/blob IDs.",
+    "3931 manifest SHA values are producer records; no reread of accepted exported source content.",
+    "Retirement and census remain retained-time observations; no live host, cache, archive or deleted-root read. Cache preservation receipt checks inode/size/mtime, not content hashes.",
+    "Later H delivery final-status has rc/empty boolean, without separate raw stdout; earlier final-clean raw output is independently hash-bound.",
+    "H scoped scan names 126 of 129 final changed paths, excluding its own input manifest/stdout/stderr; recorded input digest is not an independently reconstructed final-byte scan.",
+    "Root integration/acceptance, audit criterion3/closure/completion marker, all689 criterion ticks and future1410 fix remain pending."
+  ],
+  "new_command_bindings": [
+    {
+      "argv": [
+        "git",
+        "show",
+        "afdec2bf8b88135befcb7ec56efb3a7ea327bd73:docs/qa-logs/2026-11-02-m6-resume/t42-stage-d-disposition.md"
+      ],
+      "rc": 0,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "0ba5c31b27c011ee08ea6664660f6f81b1ada965f39017966d9fe67eca94dc17",
+      "stem": "stage-e/disposition",
+      "utc": "2026-11-02T20:22:49.350944+00:00"
+    },
+    {
+      "argv": [
+        "git",
+        "show",
+        "afdec2bf8b88135befcb7ec56efb3a7ea327bd73:docs/decision-register.md"
+      ],
+      "rc": 0,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "3887c9f231be6606223f4f674c62d1d4908caa1ca8f9c728c43ebc3b8921f758",
+      "stem": "stage-e/coordinator-register",
+      "utc": "2026-11-02T20:22:49.355746+00:00"
+    },
+    {
+      "argv": [
+        "gh",
+        "api",
+        "repos/pixelelated/distribution/issues/comments/6587447155"
+      ],
+      "rc": 0,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "f126ee924d0b7799d0bb0a6454e3d03e66ea4277356f49a7f62a9926135831f6",
+      "stem": "stage-e/dispatch",
+      "utc": "2026-11-02T20:22:49.859997+00:00"
+    },
+    {
+      "argv": [
+        "gh",
+        "api",
+        "repos/pixelelated/distribution/issues/comments/6587447724"
+      ],
+      "rc": 0,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "cc23b57f348d3e02ef3009dd42e3b1c7dc86995296a9e616da966cf0441aa785",
+      "stem": "stage-e/bug-handoff",
+      "utc": "2026-11-02T20:22:50.349539+00:00"
+    },
+    {
+      "argv": [
+        "herdr",
+        "agent",
+        "get",
+        "m6-t5-build-engine"
+      ],
+      "rc": 0,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "58f21d6139d94a385b3519fad035865631642abf037aaec77605cf4b4c582aba",
+      "stem": "stage-e/actual-lane",
+      "utc": "2026-11-02T20:22:50.353479+00:00"
+    },
+    {
+      "argv": [
+        "herdr",
+        "agent",
+        "read",
+        "m6-t5-build-engine"
+      ],
+      "rc": 0,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "045ab653fe1cc2a9c46f39a1ad617db749c26af47d91b0091262a33415edaa67",
+      "stem": "stage-e/actual-footer",
+      "utc": "2026-11-02T20:22:50.358461+00:00"
+    },
+    {
+      "argv": [
+        "gh",
+        "issue",
+        "view",
+        "1411",
+        "--repo",
+        "pixelelated/distribution",
+        "--json",
+        "number,body,state"
+      ],
+      "rc": 0,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "c3696313005032e825dcaae16c818b1231820792d2aa7d197a90d213bd21ecd6",
+      "stem": "stage-e/audit-before",
+      "utc": "2026-11-02T20:22:50.758674+00:00"
+    },
+    {
+      "argv": [
+        "gh",
+        "issue",
+        "edit",
+        "1411",
+        "--repo",
+        "pixelelated/distribution",
+        "--body-file",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-patches-shipped-689/docs/audits/2026_11_02-epic-m6-patches-shipped/stage-e/audit-body-disposition.md"
+      ],
+      "rc": 0,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "a1e63c789c50f209579e6730e5ffc6557d932a761d4386c2081f4d56ef0626f6",
+      "stem": "stage-e/audit-disposition-edit",
+      "utc": "2026-11-02T20:22:52.123084+00:00"
+    },
+    {
+      "argv": [
+        "gh",
+        "issue",
+        "view",
+        "1411",
+        "--repo",
+        "pixelelated/distribution",
+        "--json",
+        "body,state"
+      ],
+      "rc": 0,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "195970f904277a156cf5d833ce2cd300b937c60b35b99e638ca8307d154c204e",
+      "stem": "stage-e/audit-disposition-readback",
+      "utc": "2026-11-02T20:22:52.526724+00:00"
+    },
+    {
+      "argv": [
+        "gh",
+        "issue",
+        "view",
+        "1410",
+        "--repo",
+        "pixelelated/distribution",
+        "--json",
+        "number,body,state,milestone"
+      ],
+      "rc": 0,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "c5a6071fcf500917e1d291bb2cbbb358185958546b4d40bf96de341399a0eea1",
+      "stem": "stage-e/bug-unchanged",
+      "utc": "2026-11-02T20:22:52.901307+00:00"
+    },
+    {
+      "argv": [
+        "gh",
+        "issue",
+        "edit",
+        "1411",
+        "--repo",
+        "pixelelated/distribution",
+        "--body-file",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-patches-shipped-689/docs/audits/2026_11_02-epic-m6-patches-shipped/stage-e/audit-body-criterion1.md"
+      ],
+      "rc": 0,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "a1e63c789c50f209579e6730e5ffc6557d932a761d4386c2081f4d56ef0626f6",
+      "stem": "stage-e/audit-criterion1-edit",
+      "utc": "2026-11-02T20:22:54.282605+00:00"
+    },
+    {
+      "argv": [
+        "gh",
+        "issue",
+        "view",
+        "1411",
+        "--repo",
+        "pixelelated/distribution",
+        "--json",
+        "body,state"
+      ],
+      "rc": 0,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "4e14f26ead96d597330d69a072d0b2978640998dd20ffe80dba2cad34bfed744",
+      "stem": "stage-e/audit-criterion1-readback",
+      "utc": "2026-11-02T20:22:54.667276+00:00"
+    },
+    {
+      "argv": [
+        "python3",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-patches-shipped-689/docs/audits/2026_11_02-epic-m6-patches-shipped/tools/final-record-check.py",
+        "--manifest",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-patches-shipped-689/docs/audits/2026_11_02-epic-m6-patches-shipped/stage-f/accepted-manifest.json"
+      ],
+      "rc": 0,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "705a1c390a57066294718d8bc0afc95a563d4af6e403618fec69428e90809296",
+      "stem": "stage-f/final-record-check",
+      "utc": "2026-11-02T20:25:22.024979+00:00"
+    },
+    {
+      "argv": [
+        "tools/lint-audit-artifacts",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-patches-shipped-689/docs/audits/2026_11_02-epic-m6-patches-shipped"
+      ],
+      "rc": 0,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "1379332ac34e98fddfe7692d9b2c27c88e492d4637c29ccbae578692a9585f3d",
+      "stem": "stage-f/resolution",
+      "utc": "2026-11-02T20:25:22.068127+00:00"
+    },
+    {
+      "argv": [
+        "tools/lint-audit-artifacts",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-patches-shipped-689/docs/audits/2026_11_02-epic-m6-patches-shipped",
+        "--issue",
+        "1411"
+      ],
+      "rc": 0,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "bbc268b2a9fdeef41dc56571d22314844298c03a57107df8176c55e8525cd052",
+      "stem": "stage-f/resolution-with-issue",
+      "utc": "2026-11-02T20:25:22.661556+00:00"
+    },
+    {
+      "argv": [
+        "gh",
+        "issue",
+        "edit",
+        "1411",
+        "--repo",
+        "pixelelated/distribution",
+        "--body-file",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-patches-shipped-689/docs/audits/2026_11_02-epic-m6-patches-shipped/stage-f/audit-body-criterion2.md"
+      ],
+      "rc": 0,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "a1e63c789c50f209579e6730e5ffc6557d932a761d4386c2081f4d56ef0626f6",
+      "stem": "stage-f/audit-criterion2-edit",
+      "utc": "2026-11-02T20:25:25.439254+00:00"
+    },
+    {
+      "argv": [
+        "gh",
+        "issue",
+        "view",
+        "1411",
+        "--repo",
+        "pixelelated/distribution",
+        "--json",
+        "body,state"
+      ],
+      "rc": 0,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "0ddf8a6bf3c67fe7e77de30484b3d978a864ae17b1a855876dcbb7bef2df080e",
+      "stem": "stage-f/audit-criterion2-readback",
+      "utc": "2026-11-02T20:25:26.321018+00:00"
+    },
+    {
+      "argv": [
+        "tools/box-check",
+        "--issue",
+        "1410"
+      ],
+      "rc": 0,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "ba2106c8e0839eebd4c378af612a29b132b2d984183d5b62871ca20e98856945",
+      "stem": "stage-f/checkbox-1410",
+      "utc": "2026-11-02T20:25:26.733544+00:00"
+    },
+    {
+      "argv": [
+        "tools/box-check",
+        "--issue",
+        "1411"
+      ],
+      "rc": 0,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "71f21b5f65b777c3c18799c08624626e7530b84922db3c7b7c3256eab7f277aa",
+      "stem": "stage-f/checkbox-1411",
+      "utc": "2026-11-02T20:25:27.230546+00:00"
+    },
+    {
+      "argv": [
+        "tools/box-check",
+        "--issue",
+        "689"
+      ],
+      "rc": 0,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "89574cf62c10d48bcc0aae9e2c9575dab22248ee306fc1d65a7a538ead695114",
+      "stem": "stage-f/checkbox-689",
+      "utc": "2026-11-02T20:25:27.733187+00:00"
+    },
+    {
+      "argv": [
+        "python3",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-patches-shipped-689/docs/audits/2026_11_02-epic-m6-patches-shipped/tools/validate.py",
+        "guard",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-patches-shipped-689",
+        "9dd0716033f8831ffbd0b5ee8efbb5e5a066cfb1"
+      ],
+      "rc": 0,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "efe53b28a665d7dd02a5bd2e648b420184bf376bf4a5abefaf4ad49baf655e15",
+      "stem": "stage-f/protected-paths",
+      "utc": "2026-11-02T20:25:28.080259+00:00"
+    },
+    {
+      "argv": [
+        "tools/rules-check"
+      ],
+      "rc": 0,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "5ecec1bf185709d166b0c35447dd7ef65107be90632d41665f1d26e3bd0afbb1",
+      "stem": "stage-f/rules",
+      "utc": "2026-11-02T20:25:28.221532+00:00"
+    },
+    {
+      "argv": [
+        "tools/register-check"
+      ],
+      "rc": 0,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "d19a26d7b8d788f598d97e36c29ba1f7318204f847c64234cdf5fcca8ed22dca",
+      "stem": "stage-f/register",
+      "utc": "2026-11-02T20:25:29.894275+00:00"
+    },
+    {
+      "argv": [
+        "tools/work-log-index",
+        "--check"
+      ],
+      "rc": 0,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "232b345c76ad64a47de4d43e62d9aeb4f2850472cde78ddd1b1e56d72103d927",
+      "stem": "stage-f/index",
+      "utc": "2026-11-02T20:25:29.915898+00:00"
+    },
+    {
+      "argv": [
+        "tools/ceremony-check",
+        "--gate"
+      ],
+      "rc": 0,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stem": "stage-f/ceremony",
+      "utc": "2026-11-02T20:25:38.527754+00:00"
+    },
+    {
+      "argv": [
+        ".githooks/hooks-test"
+      ],
+      "rc": 0,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "3402d5f59e65118cf905eb74dd1cda7660eeffd181ad248e23a56f68395e0a5c",
+      "stem": "stage-f/hooks",
+      "utc": "2026-11-02T20:25:39.275728+00:00"
+    },
+    {
+      "argv": [
+        "tools/forbidden-terms-check"
+      ],
+      "rc": 0,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "dbffe93db83456398c6bca0b27a88467331fa149154479c46a4a3453869ce039",
+      "stem": "stage-f/forbidden",
+      "utc": "2026-11-02T20:28:18.668204+00:00"
+    },
+    {
+      "argv": [
+        "git",
+        "show",
+        "HEAD:docs/audits/2026_11_02-epic-m6-patches-shipped/stage-f/accepted-manifest.json"
+      ],
+      "rc": 0,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "399504f2f77d967e4b131341b674fdb0ec5cf9da7d3a46ae5212b208b3cbb672",
+      "stem": "stage-h/committed-manifest",
+      "utc": "2026-11-02T20:32:14.104483+00:00"
+    },
+    {
+      "argv": [
+        "git",
+        "diff",
+        "--exit-code",
+        "d37670de318eb428604e4442f95defe10eade173",
+        "--",
+        "docs/audits/2026_11_02-epic-m6-patches-shipped/stage-a",
+        "docs/audits/2026_11_02-epic-m6-patches-shipped/stage-b",
+        "docs/audits/2026_11_02-epic-m6-patches-shipped/stage-c",
+        "docs/audits/2026_11_02-epic-m6-patches-shipped/stage-d"
+      ],
+      "rc": 0,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stem": "stage-h/accepted-receipt-diff",
+      "utc": "2026-11-02T20:32:14.182953+00:00"
+    },
+    {
+      "argv": [
+        "lsof",
+        "-nP",
+        "-Fpcn",
+        "+D",
+        "/workspace/tmp/m6-t42"
+      ],
+      "rc": 1,
+      "stderr_sha256": "91f6b2b939d2b692d29d520fd2bdc07a913c3f443516dd5fed27fa05b870d3d4",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stem": "stage-h/owner-census-baseline",
+      "utc": "2026-11-02T20:32:14.418122+00:00"
+    },
+    {
+      "argv": [
+        "lsof",
+        "-nP",
+        "-Fpcn",
+        "-e",
+        "/run/docker/netns/0823bfbb2497",
+        "-e",
+        "/run/docker/netns/0c7f293638be",
+        "-e",
+        "/run/docker/netns/0e32bdbb92a7",
+        "-e",
+        "/run/docker/netns/112eb3472d1e",
+        "-e",
+        "/run/docker/netns/1d3591afb4e9",
+        "-e",
+        "/run/docker/netns/24ca0ada4cfb",
+        "-e",
+        "/run/docker/netns/2abb7437247c",
+        "-e",
+        "/run/docker/netns/4a539cb068d8",
+        "-e",
+        "/run/docker/netns/4c29d7d24738",
+        "-e",
+        "/run/docker/netns/5347ba4e8411",
+        "-e",
+        "/run/docker/netns/6cf17f7e7874",
+        "-e",
+        "/run/docker/netns/75cec29eb6be",
+        "-e",
+        "/run/docker/netns/81bdbe3ad43a",
+        "-e",
+        "/run/docker/netns/81dbfbafece9",
+        "-e",
+        "/run/docker/netns/824009aac812",
+        "-e",
+        "/run/docker/netns/902bb3ff6746",
+        "-e",
+        "/run/docker/netns/90694cd7d9ee",
+        "-e",
+        "/run/docker/netns/9090114f5c07",
+        "-e",
+        "/run/docker/netns/b3a7679145e7",
+        "-e",
+        "/run/docker/netns/c1a727ac2cac",
+        "-e",
+        "/run/docker/netns/c6f874b465b4",
+        "-e",
+        "/run/docker/netns/dd128fbc4621",
+        "-e",
+        "/run/docker/netns/e00ed617770f",
+        "-e",
+        "/run/docker/netns/e5479abb52fd",
+        "-e",
+        "/run/docker/netns/fb16ed3f2962",
+        "-e",
+        "/run/docker/netns/ffa804295012",
+        "-e",
+        "/run/snapd/ns",
+        "-e",
+        "/run/snapd/ns/firefox.mnt",
+        "-e",
+        "/var/lib/docker/rootfs/overlayfs/11f4d35236b236a2588c682c3a473e84f39c8903870893aa602e36868175673c",
+        "-e",
+        "/var/lib/docker/rootfs/overlayfs/23adf7012ab9eff23f460eda717f98e0e077049018bbfd415f47ad73660de8ea",
+        "-e",
+        "/var/lib/docker/rootfs/overlayfs/2b9c0330b90e3a4b40a97d1fbd412a5929e3133ddb92826e51447f40cb7fda4d",
+        "-e",
+        "/var/lib/docker/rootfs/overlayfs/3137f44a8628feee45fcd35aaacc35936c87215a02fab157630c7a8b2f573b17",
+        "-e",
+        "/var/lib/docker/rootfs/overlayfs/36900e5df0f0b86d7b87e1c767aa8967885ce1ffdea95d525adc057874da56a4",
+        "-e",
+        "/var/lib/docker/rootfs/overlayfs/3b5866d9f6f36ff462460e0d1653f41fc45d01c7611f8d2f098b66c944875d0d",
+        "-e",
+        "/var/lib/docker/rootfs/overlayfs/44ab6bbeecc8b6905a7ca3d41d8206786eafed0d7783d1831475eb47589a651b",
+        "-e",
+        "/var/lib/docker/rootfs/overlayfs/54a1d102beb4e6e7bd2655096b81d942eda73b1cb71da28eefed11962d726bb3",
+        "-e",
+        "/var/lib/docker/rootfs/overlayfs/54e70ebaf5357538a168f124b9fe0a1e561fac6d6ad1712c3187b94caec33746",
+        "-e",
+        "/var/lib/docker/rootfs/overlayfs/586abd9fcc17d2234ff934a81d8fa635534d106a9df505adf5823f4db6dfd43b",
+        "-e",
+        "/var/lib/docker/rootfs/overlayfs/611ad3d0940e6488c15d729734d07e64b631bc6e799cb3444c4ab993c99fc055",
+        "-e",
+        "/var/lib/docker/rootfs/overlayfs/693364b15b63b5e1245eea1d09b26bed8cd3bd11b81945c45c69ea89ad522f0b",
+        "-e",
+        "/var/lib/docker/rootfs/overlayfs/6ed08684fe6fd5aa84454e29aaa9fabce3997c46eafacb7a2aa858529d850d1e",
+        "-e",
+        "/var/lib/docker/rootfs/overlayfs/7388f34162f125f1366781ad35907a2c0cc04c9a8a86a07c5e993a275a49dbea",
+        "-e",
+        "/var/lib/docker/rootfs/overlayfs/8c3e136cb143babed1d45f470083785de973abb16b713dc2984551b10deaa611",
+        "-e",
+        "/var/lib/docker/rootfs/overlayfs/9ef26806bd34ec18db998b6fa24ab40de97030099c260da2102bf6023f72c0aa",
+        "-e",
+        "/var/lib/docker/rootfs/overlayfs/9fac8000b5add5f7c8825c73eca53d993726c46e614192ee696ea9377bd53c17",
+        "-e",
+        "/var/lib/docker/rootfs/overlayfs/a3571466955b0332ae6ad26fe5445f5fa9242533c5d2c7c89a8e21c5964bafaa",
+        "-e",
+        "/var/lib/docker/rootfs/overlayfs/ab585a2cd4411afef403b405dd42132f3bfc28d06630706c17be5c5b71878fc9",
+        "-e",
+        "/var/lib/docker/rootfs/overlayfs/ab71a14d6bc30a7fcd9961b83488a9c23cbd69297eb54404b087c9125827985a",
+        "-e",
+        "/var/lib/docker/rootfs/overlayfs/bcf3e4c5eedc4afe2423b62dcc2d0402b874d31a9db069ded444a79c0a07c2f0",
+        "-e",
+        "/var/lib/docker/rootfs/overlayfs/c08c053d7ba57a6a5485fbb2b7ad740bc2c2781afc911cf903206a56bf6dea54",
+        "-e",
+        "/var/lib/docker/rootfs/overlayfs/c68ff8cfd613ecdce8f368d2dbe04e0cb2f3b8badf29c3dcead3aacce07adf13",
+        "-e",
+        "/var/lib/docker/rootfs/overlayfs/d944c4839a63a7fdc9aa24c7a019ba460f483ec81a03dd5e9d7debabd7cafc45",
+        "-e",
+        "/var/lib/docker/rootfs/overlayfs/e25c4eadffc14b29f847bacb0ec043dff96b30e6f987d5a98744ee12344ad487",
+        "-e",
+        "/var/lib/docker/rootfs/overlayfs/f1df07cf183206038eb61b4bd0e5e435fd2829d5202eaac9f846cf87de3f1898",
+        "+D",
+        "/tmp/m6-t42-cleanup-control-mwbginro"
+      ],
+      "rc": 1,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "fa9a79e7b9d744be0b7856ede3851944b34d6c5a438f7255f8e849fdbf8260b5",
+      "stem": "stage-h/owner-control-live",
+      "utc": "2026-11-02T20:32:14.492836+00:00"
+    },
+    {
+      "argv": [
+        "lsof",
+        "-nP",
+        "-Fpcn",
+        "-e",
+        "/run/docker/netns/0823bfbb2497",
+        "-e",
+        "/run/docker/netns/0c7f293638be",
+        "-e",
+        "/run/docker/netns/0e32bdbb92a7",
+        "-e",
+        "/run/docker/netns/112eb3472d1e",
+        "-e",
+        "/run/docker/netns/1d3591afb4e9",
+        "-e",
+        "/run/docker/netns/24ca0ada4cfb",
+        "-e",
+        "/run/docker/netns/2abb7437247c",
+        "-e",
+        "/run/docker/netns/4a539cb068d8",
+        "-e",
+        "/run/docker/netns/4c29d7d24738",
+        "-e",
+        "/run/docker/netns/5347ba4e8411",
+        "-e",
+        "/run/docker/netns/6cf17f7e7874",
+        "-e",
+        "/run/docker/netns/75cec29eb6be",
+        "-e",
+        "/run/docker/netns/81bdbe3ad43a",
+        "-e",
+        "/run/docker/netns/81dbfbafece9",
+        "-e",
+        "/run/docker/netns/824009aac812",
+        "-e",
+        "/run/docker/netns/902bb3ff6746",
+        "-e",
+        "/run/docker/netns/90694cd7d9ee",
+        "-e",
+        "/run/docker/netns/9090114f5c07",
+        "-e",
+        "/run/docker/netns/b3a7679145e7",
+        "-e",
+        "/run/docker/netns/c1a727ac2cac",
+        "-e",
+        "/run/docker/netns/c6f874b465b4",
+        "-e",
+        "/run/docker/netns/dd128fbc4621",
+        "-e",
+        "/run/docker/netns/e00ed617770f",
+        "-e",
+        "/run/docker/netns/e5479abb52fd",
+        "-e",
+        "/run/docker/netns/fb16ed3f2962",
+        "-e",
+        "/run/docker/netns/ffa804295012",
+        "-e",
+        "/run/snapd/ns",
+        "-e",
+        "/run/snapd/ns/firefox.mnt",
+        "-e",
+        "/var/lib/docker/rootfs/overlayfs/11f4d35236b236a2588c682c3a473e84f39c8903870893aa602e36868175673c",
+        "-e",
+        "/var/lib/docker/rootfs/overlayfs/23adf7012ab9eff23f460eda717f98e0e077049018bbfd415f47ad73660de8ea",
+        "-e",
+        "/var/lib/docker/rootfs/overlayfs/2b9c0330b90e3a4b40a97d1fbd412a5929e3133ddb92826e51447f40cb7fda4d",
+        "-e",
+        "/var/lib/docker/rootfs/overlayfs/3137f44a8628feee45fcd35aaacc35936c87215a02fab157630c7a8b2f573b17",
+        "-e",
+        "/var/lib/docker/rootfs/overlayfs/36900e5df0f0b86d7b87e1c767aa8967885ce1ffdea95d525adc057874da56a4",
+        "-e",
+        "/var/lib/docker/rootfs/overlayfs/3b5866d9f6f36ff462460e0d1653f41fc45d01c7611f8d2f098b66c944875d0d",
+        "-e",
+        "/var/lib/docker/rootfs/overlayfs/44ab6bbeecc8b6905a7ca3d41d8206786eafed0d7783d1831475eb47589a651b",
+        "-e",
+        "/var/lib/docker/rootfs/overlayfs/54a1d102beb4e6e7bd2655096b81d942eda73b1cb71da28eefed11962d726bb3",
+        "-e",
+        "/var/lib/docker/rootfs/overlayfs/54e70ebaf5357538a168f124b9fe0a1e561fac6d6ad1712c3187b94caec33746",
+        "-e",
+        "/var/lib/docker/rootfs/overlayfs/586abd9fcc17d2234ff934a81d8fa635534d106a9df505adf5823f4db6dfd43b",
+        "-e",
+        "/var/lib/docker/rootfs/overlayfs/611ad3d0940e6488c15d729734d07e64b631bc6e799cb3444c4ab993c99fc055",
+        "-e",
+        "/var/lib/docker/rootfs/overlayfs/693364b15b63b5e1245eea1d09b26bed8cd3bd11b81945c45c69ea89ad522f0b",
+        "-e",
+        "/var/lib/docker/rootfs/overlayfs/6ed08684fe6fd5aa84454e29aaa9fabce3997c46eafacb7a2aa858529d850d1e",
+        "-e",
+        "/var/lib/docker/rootfs/overlayfs/7388f34162f125f1366781ad35907a2c0cc04c9a8a86a07c5e993a275a49dbea",
+        "-e",
+        "/var/lib/docker/rootfs/overlayfs/8c3e136cb143babed1d45f470083785de973abb16b713dc2984551b10deaa611",
+        "-e",
+        "/var/lib/docker/rootfs/overlayfs/9ef26806bd34ec18db998b6fa24ab40de97030099c260da2102bf6023f72c0aa",
+        "-e",
+        "/var/lib/docker/rootfs/overlayfs/9fac8000b5add5f7c8825c73eca53d993726c46e614192ee696ea9377bd53c17",
+        "-e",
+        "/var/lib/docker/rootfs/overlayfs/a3571466955b0332ae6ad26fe5445f5fa9242533c5d2c7c89a8e21c5964bafaa",
+        "-e",
+        "/var/lib/docker/rootfs/overlayfs/ab585a2cd4411afef403b405dd42132f3bfc28d06630706c17be5c5b71878fc9",
+        "-e",
+        "/var/lib/docker/rootfs/overlayfs/ab71a14d6bc30a7fcd9961b83488a9c23cbd69297eb54404b087c9125827985a",
+        "-e",
+        "/var/lib/docker/rootfs/overlayfs/bcf3e4c5eedc4afe2423b62dcc2d0402b874d31a9db069ded444a79c0a07c2f0",
+        "-e",
+        "/var/lib/docker/rootfs/overlayfs/c08c053d7ba57a6a5485fbb2b7ad740bc2c2781afc911cf903206a56bf6dea54",
+        "-e",
+        "/var/lib/docker/rootfs/overlayfs/c68ff8cfd613ecdce8f368d2dbe04e0cb2f3b8badf29c3dcead3aacce07adf13",
+        "-e",
+        "/var/lib/docker/rootfs/overlayfs/d944c4839a63a7fdc9aa24c7a019ba460f483ec81a03dd5e9d7debabd7cafc45",
+        "-e",
+        "/var/lib/docker/rootfs/overlayfs/e25c4eadffc14b29f847bacb0ec043dff96b30e6f987d5a98744ee12344ad487",
+        "-e",
+        "/var/lib/docker/rootfs/overlayfs/f1df07cf183206038eb61b4bd0e5e435fd2829d5202eaac9f846cf87de3f1898",
+        "+D",
+        "/tmp/m6-t42-cleanup-control-mwbginro"
+      ],
+      "rc": 1,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stem": "stage-h/owner-control-closed",
+      "utc": "2026-11-02T20:32:14.554385+00:00"
+    },
+    {
+      "argv": [
+        "lsof",
+        "-nP",
+        "-Fpcn",
+        "-e",
+        "/run/docker/netns/0823bfbb2497",
+        "-e",
+        "/run/docker/netns/0c7f293638be",
+        "-e",
+        "/run/docker/netns/0e32bdbb92a7",
+        "-e",
+        "/run/docker/netns/112eb3472d1e",
+        "-e",
+        "/run/docker/netns/1d3591afb4e9",
+        "-e",
+        "/run/docker/netns/24ca0ada4cfb",
+        "-e",
+        "/run/docker/netns/2abb7437247c",
+        "-e",
+        "/run/docker/netns/4a539cb068d8",
+        "-e",
+        "/run/docker/netns/4c29d7d24738",
+        "-e",
+        "/run/docker/netns/5347ba4e8411",
+        "-e",
+        "/run/docker/netns/6cf17f7e7874",
+        "-e",
+        "/run/docker/netns/75cec29eb6be",
+        "-e",
+        "/run/docker/netns/81bdbe3ad43a",
+        "-e",
+        "/run/docker/netns/81dbfbafece9",
+        "-e",
+        "/run/docker/netns/824009aac812",
+        "-e",
+        "/run/docker/netns/902bb3ff6746",
+        "-e",
+        "/run/docker/netns/90694cd7d9ee",
+        "-e",
+        "/run/docker/netns/9090114f5c07",
+        "-e",
+        "/run/docker/netns/b3a7679145e7",
+        "-e",
+        "/run/docker/netns/c1a727ac2cac",
+        "-e",
+        "/run/docker/netns/c6f874b465b4",
+        "-e",
+        "/run/docker/netns/dd128fbc4621",
+        "-e",
+        "/run/docker/netns/e00ed617770f",
+        "-e",
+        "/run/docker/netns/e5479abb52fd",
+        "-e",
+        "/run/docker/netns/fb16ed3f2962",
+        "-e",
+        "/run/docker/netns/ffa804295012",
+        "-e",
+        "/run/snapd/ns",
+        "-e",
+        "/run/snapd/ns/firefox.mnt",
+        "-e",
+        "/var/lib/docker/rootfs/overlayfs/11f4d35236b236a2588c682c3a473e84f39c8903870893aa602e36868175673c",
+        "-e",
+        "/var/lib/docker/rootfs/overlayfs/23adf7012ab9eff23f460eda717f98e0e077049018bbfd415f47ad73660de8ea",
+        "-e",
+        "/var/lib/docker/rootfs/overlayfs/2b9c0330b90e3a4b40a97d1fbd412a5929e3133ddb92826e51447f40cb7fda4d",
+        "-e",
+        "/var/lib/docker/rootfs/overlayfs/3137f44a8628feee45fcd35aaacc35936c87215a02fab157630c7a8b2f573b17",
+        "-e",
+        "/var/lib/docker/rootfs/overlayfs/36900e5df0f0b86d7b87e1c767aa8967885ce1ffdea95d525adc057874da56a4",
+        "-e",
+        "/var/lib/docker/rootfs/overlayfs/3b5866d9f6f36ff462460e0d1653f41fc45d01c7611f8d2f098b66c944875d0d",
+        "-e",
+        "/var/lib/docker/rootfs/overlayfs/44ab6bbeecc8b6905a7ca3d41d8206786eafed0d7783d1831475eb47589a651b",
+        "-e",
+        "/var/lib/docker/rootfs/overlayfs/54a1d102beb4e6e7bd2655096b81d942eda73b1cb71da28eefed11962d726bb3",
+        "-e",
+        "/var/lib/docker/rootfs/overlayfs/54e70ebaf5357538a168f124b9fe0a1e561fac6d6ad1712c3187b94caec33746",
+        "-e",
+        "/var/lib/docker/rootfs/overlayfs/586abd9fcc17d2234ff934a81d8fa635534d106a9df505adf5823f4db6dfd43b",
+        "-e",
+        "/var/lib/docker/rootfs/overlayfs/611ad3d0940e6488c15d729734d07e64b631bc6e799cb3444c4ab993c99fc055",
+        "-e",
+        "/var/lib/docker/rootfs/overlayfs/693364b15b63b5e1245eea1d09b26bed8cd3bd11b81945c45c69ea89ad522f0b",
+        "-e",
+        "/var/lib/docker/rootfs/overlayfs/6ed08684fe6fd5aa84454e29aaa9fabce3997c46eafacb7a2aa858529d850d1e",
+        "-e",
+        "/var/lib/docker/rootfs/overlayfs/7388f34162f125f1366781ad35907a2c0cc04c9a8a86a07c5e993a275a49dbea",
+        "-e",
+        "/var/lib/docker/rootfs/overlayfs/8c3e136cb143babed1d45f470083785de973abb16b713dc2984551b10deaa611",
+        "-e",
+        "/var/lib/docker/rootfs/overlayfs/9ef26806bd34ec18db998b6fa24ab40de97030099c260da2102bf6023f72c0aa",
+        "-e",
+        "/var/lib/docker/rootfs/overlayfs/9fac8000b5add5f7c8825c73eca53d993726c46e614192ee696ea9377bd53c17",
+        "-e",
+        "/var/lib/docker/rootfs/overlayfs/a3571466955b0332ae6ad26fe5445f5fa9242533c5d2c7c89a8e21c5964bafaa",
+        "-e",
+        "/var/lib/docker/rootfs/overlayfs/ab585a2cd4411afef403b405dd42132f3bfc28d06630706c17be5c5b71878fc9",
+        "-e",
+        "/var/lib/docker/rootfs/overlayfs/ab71a14d6bc30a7fcd9961b83488a9c23cbd69297eb54404b087c9125827985a",
+        "-e",
+        "/var/lib/docker/rootfs/overlayfs/bcf3e4c5eedc4afe2423b62dcc2d0402b874d31a9db069ded444a79c0a07c2f0",
+        "-e",
+        "/var/lib/docker/rootfs/overlayfs/c08c053d7ba57a6a5485fbb2b7ad740bc2c2781afc911cf903206a56bf6dea54",
+        "-e",
+        "/var/lib/docker/rootfs/overlayfs/c68ff8cfd613ecdce8f368d2dbe04e0cb2f3b8badf29c3dcead3aacce07adf13",
+        "-e",
+        "/var/lib/docker/rootfs/overlayfs/d944c4839a63a7fdc9aa24c7a019ba460f483ec81a03dd5e9d7debabd7cafc45",
+        "-e",
+        "/var/lib/docker/rootfs/overlayfs/e25c4eadffc14b29f847bacb0ec043dff96b30e6f987d5a98744ee12344ad487",
+        "-e",
+        "/var/lib/docker/rootfs/overlayfs/f1df07cf183206038eb61b4bd0e5e435fd2829d5202eaac9f846cf87de3f1898",
+        "+D",
+        "/workspace/tmp/m6-t42"
+      ],
+      "rc": 1,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stem": "stage-h/pre-delete-owned-source",
+      "utc": "2026-11-02T20:32:14.795039+00:00"
+    },
+    {
+      "argv": [
+        "lsof",
+        "-nP",
+        "-Fpcn",
+        "-e",
+        "/run/docker/netns/0823bfbb2497",
+        "-e",
+        "/run/docker/netns/0c7f293638be",
+        "-e",
+        "/run/docker/netns/0e32bdbb92a7",
+        "-e",
+        "/run/docker/netns/112eb3472d1e",
+        "-e",
+        "/run/docker/netns/1d3591afb4e9",
+        "-e",
+        "/run/docker/netns/24ca0ada4cfb",
+        "-e",
+        "/run/docker/netns/2abb7437247c",
+        "-e",
+        "/run/docker/netns/4a539cb068d8",
+        "-e",
+        "/run/docker/netns/4c29d7d24738",
+        "-e",
+        "/run/docker/netns/5347ba4e8411",
+        "-e",
+        "/run/docker/netns/6cf17f7e7874",
+        "-e",
+        "/run/docker/netns/75cec29eb6be",
+        "-e",
+        "/run/docker/netns/81bdbe3ad43a",
+        "-e",
+        "/run/docker/netns/81dbfbafece9",
+        "-e",
+        "/run/docker/netns/824009aac812",
+        "-e",
+        "/run/docker/netns/902bb3ff6746",
+        "-e",
+        "/run/docker/netns/90694cd7d9ee",
+        "-e",
+        "/run/docker/netns/9090114f5c07",
+        "-e",
+        "/run/docker/netns/b3a7679145e7",
+        "-e",
+        "/run/docker/netns/c1a727ac2cac",
+        "-e",
+        "/run/docker/netns/c6f874b465b4",
+        "-e",
+        "/run/docker/netns/dd128fbc4621",
+        "-e",
+        "/run/docker/netns/e00ed617770f",
+        "-e",
+        "/run/docker/netns/e5479abb52fd",
+        "-e",
+        "/run/docker/netns/fb16ed3f2962",
+        "-e",
+        "/run/docker/netns/ffa804295012",
+        "-e",
+        "/run/snapd/ns",
+        "-e",
+        "/run/snapd/ns/firefox.mnt",
+        "-e",
+        "/var/lib/docker/rootfs/overlayfs/11f4d35236b236a2588c682c3a473e84f39c8903870893aa602e36868175673c",
+        "-e",
+        "/var/lib/docker/rootfs/overlayfs/23adf7012ab9eff23f460eda717f98e0e077049018bbfd415f47ad73660de8ea",
+        "-e",
+        "/var/lib/docker/rootfs/overlayfs/2b9c0330b90e3a4b40a97d1fbd412a5929e3133ddb92826e51447f40cb7fda4d",
+        "-e",
+        "/var/lib/docker/rootfs/overlayfs/3137f44a8628feee45fcd35aaacc35936c87215a02fab157630c7a8b2f573b17",
+        "-e",
+        "/var/lib/docker/rootfs/overlayfs/36900e5df0f0b86d7b87e1c767aa8967885ce1ffdea95d525adc057874da56a4",
+        "-e",
+        "/var/lib/docker/rootfs/overlayfs/3b5866d9f6f36ff462460e0d1653f41fc45d01c7611f8d2f098b66c944875d0d",
+        "-e",
+        "/var/lib/docker/rootfs/overlayfs/44ab6bbeecc8b6905a7ca3d41d8206786eafed0d7783d1831475eb47589a651b",
+        "-e",
+        "/var/lib/docker/rootfs/overlayfs/54a1d102beb4e6e7bd2655096b81d942eda73b1cb71da28eefed11962d726bb3",
+        "-e",
+        "/var/lib/docker/rootfs/overlayfs/54e70ebaf5357538a168f124b9fe0a1e561fac6d6ad1712c3187b94caec33746",
+        "-e",
+        "/var/lib/docker/rootfs/overlayfs/586abd9fcc17d2234ff934a81d8fa635534d106a9df505adf5823f4db6dfd43b",
+        "-e",
+        "/var/lib/docker/rootfs/overlayfs/611ad3d0940e6488c15d729734d07e64b631bc6e799cb3444c4ab993c99fc055",
+        "-e",
+        "/var/lib/docker/rootfs/overlayfs/693364b15b63b5e1245eea1d09b26bed8cd3bd11b81945c45c69ea89ad522f0b",
+        "-e",
+        "/var/lib/docker/rootfs/overlayfs/6ed08684fe6fd5aa84454e29aaa9fabce3997c46eafacb7a2aa858529d850d1e",
+        "-e",
+        "/var/lib/docker/rootfs/overlayfs/7388f34162f125f1366781ad35907a2c0cc04c9a8a86a07c5e993a275a49dbea",
+        "-e",
+        "/var/lib/docker/rootfs/overlayfs/8c3e136cb143babed1d45f470083785de973abb16b713dc2984551b10deaa611",
+        "-e",
+        "/var/lib/docker/rootfs/overlayfs/9ef26806bd34ec18db998b6fa24ab40de97030099c260da2102bf6023f72c0aa",
+        "-e",
+        "/var/lib/docker/rootfs/overlayfs/9fac8000b5add5f7c8825c73eca53d993726c46e614192ee696ea9377bd53c17",
+        "-e",
+        "/var/lib/docker/rootfs/overlayfs/a3571466955b0332ae6ad26fe5445f5fa9242533c5d2c7c89a8e21c5964bafaa",
+        "-e",
+        "/var/lib/docker/rootfs/overlayfs/ab585a2cd4411afef403b405dd42132f3bfc28d06630706c17be5c5b71878fc9",
+        "-e",
+        "/var/lib/docker/rootfs/overlayfs/ab71a14d6bc30a7fcd9961b83488a9c23cbd69297eb54404b087c9125827985a",
+        "-e",
+        "/var/lib/docker/rootfs/overlayfs/bcf3e4c5eedc4afe2423b62dcc2d0402b874d31a9db069ded444a79c0a07c2f0",
+        "-e",
+        "/var/lib/docker/rootfs/overlayfs/c08c053d7ba57a6a5485fbb2b7ad740bc2c2781afc911cf903206a56bf6dea54",
+        "-e",
+        "/var/lib/docker/rootfs/overlayfs/c68ff8cfd613ecdce8f368d2dbe04e0cb2f3b8badf29c3dcead3aacce07adf13",
+        "-e",
+        "/var/lib/docker/rootfs/overlayfs/d944c4839a63a7fdc9aa24c7a019ba460f483ec81a03dd5e9d7debabd7cafc45",
+        "-e",
+        "/var/lib/docker/rootfs/overlayfs/e25c4eadffc14b29f847bacb0ec043dff96b30e6f987d5a98744ee12344ad487",
+        "-e",
+        "/var/lib/docker/rootfs/overlayfs/f1df07cf183206038eb61b4bd0e5e435fd2829d5202eaac9f846cf87de3f1898",
+        "+D",
+        "/tmp/m6-t42-inputs.8whm3634"
+      ],
+      "rc": 1,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stem": "stage-h/pre-delete-owned-text-export",
+      "utc": "2026-11-02T20:32:14.860964+00:00"
+    },
+    {
+      "argv": [
+        "python3",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-patches-shipped-689/docs/audits/2026_11_02-epic-m6-patches-shipped/tools/final-record-check.py"
+      ],
+      "rc": 0,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "705a1c390a57066294718d8bc0afc95a563d4af6e403618fec69428e90809296",
+      "stem": "stage-h/new-record-reconciliation",
+      "utc": "2026-11-02T20:36:48.743877+00:00"
+    },
+    {
+      "argv": [
+        "python3",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-patches-shipped-689/docs/audits/2026_11_02-epic-m6-patches-shipped/tools/validate.py",
+        "guard",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-patches-shipped-689",
+        "9dd0716033f8831ffbd0b5ee8efbb5e5a066cfb1"
+      ],
+      "rc": 0,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "efe53b28a665d7dd02a5bd2e648b420184bf376bf4a5abefaf4ad49baf655e15",
+      "stem": "stage-h/final-source-paths",
+      "utc": "2026-11-02T20:36:49.112634+00:00"
+    },
+    {
+      "argv": [
+        "tools/lint-audit-artifacts",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-patches-shipped-689/docs/audits/2026_11_02-epic-m6-patches-shipped"
+      ],
+      "rc": 0,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "1379332ac34e98fddfe7692d9b2c27c88e492d4637c29ccbae578692a9585f3d",
+      "stem": "stage-h/resolution-final",
+      "utc": "2026-11-02T20:36:49.152559+00:00"
+    },
+    {
+      "argv": [
+        "tools/lint-audit-artifacts",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-patches-shipped-689/docs/audits/2026_11_02-epic-m6-patches-shipped",
+        "--issue",
+        "1411"
+      ],
+      "rc": 0,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "bbc268b2a9fdeef41dc56571d22314844298c03a57107df8176c55e8525cd052",
+      "stem": "stage-h/resolution-issue-final",
+      "utc": "2026-11-02T20:36:49.630491+00:00"
+    },
+    {
+      "argv": [
+        "tools/work-log-index",
+        "--check"
+      ],
+      "rc": 0,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "232b345c76ad64a47de4d43e62d9aeb4f2850472cde78ddd1b1e56d72103d927",
+      "stem": "stage-h/index-final",
+      "utc": "2026-11-02T20:36:49.656324+00:00"
+    },
+    {
+      "argv": [
+        "gh",
+        "issue",
+        "view",
+        "1410",
+        "--repo",
+        "pixelelated/distribution",
+        "--json",
+        "number,body,state,milestone"
+      ],
+      "rc": 0,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "c5a6071fcf500917e1d291bb2cbbb358185958546b4d40bf96de341399a0eea1",
+      "stem": "stage-h/bug-final",
+      "utc": "2026-11-02T20:36:50.094138+00:00"
+    },
+    {
+      "argv": [
+        "gh",
+        "api",
+        "repos/pixelelated/distribution/issues/1410/parent"
+      ],
+      "rc": 1,
+      "stderr_sha256": "00e190220cf8c7763d83286d47b3e1247e2e06959ff5500d507e393e5272d0ad",
+      "stdout_sha256": "6d7731a82b4347d24f537948ae6df0a1d1489a21b8f13d6fec56c206fadaee74",
+      "stem": "stage-h/bug-parent",
+      "utc": "2026-11-02T20:36:50.464658+00:00"
+    },
+    {
+      "argv": [
+        "gh",
+        "issue",
+        "view",
+        "1411",
+        "--repo",
+        "pixelelated/distribution",
+        "--json",
+        "number,body,state,milestone"
+      ],
+      "rc": 0,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "098f1b9a59ddde589cee51d7d46ea5c17001a9817899339d59b80013bf9d583d",
+      "stem": "stage-h/audit-final",
+      "utc": "2026-11-02T20:36:51.000392+00:00"
+    },
+    {
+      "argv": [
+        "gh",
+        "api",
+        "repos/pixelelated/distribution/issues/1411/parent"
+      ],
+      "rc": 0,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "108558688fa1a44afefebaf5b35017f9f20b040e0316c64d57adb59fe906604d",
+      "stem": "stage-h/audit-parent",
+      "utc": "2026-11-02T20:36:51.651452+00:00"
+    },
+    {
+      "argv": [
+        "tools/box-check",
+        "--issue",
+        "1410"
+      ],
+      "rc": 0,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "ba2106c8e0839eebd4c378af612a29b132b2d984183d5b62871ca20e98856945",
+      "stem": "stage-h/checkbox-final-1410",
+      "utc": "2026-11-02T20:36:52.119631+00:00"
+    },
+    {
+      "argv": [
+        "tools/box-check",
+        "--issue",
+        "1411"
+      ],
+      "rc": 0,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "71f21b5f65b777c3c18799c08624626e7530b84922db3c7b7c3256eab7f277aa",
+      "stem": "stage-h/checkbox-final-1411",
+      "utc": "2026-11-02T20:36:52.547882+00:00"
+    },
+    {
+      "argv": [
+        "tools/forbidden-terms-check",
+        "--stdin"
+      ],
+      "rc": 0,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "ae7d101f07c8c55bfd82db597d8d383d0f9c1102459a98a228136f4248a15379",
+      "stem": "stage-h/forbidden-current",
+      "utc": "2026-11-02T20:36:52.812876+00:00"
+    },
+    {
+      "argv": [
+        "gh",
+        "issue",
+        "comment",
+        "689",
+        "--repo",
+        "pixelelated/distribution",
+        "--body-file",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-patches-shipped-689/docs/audits/2026_11_02-epic-m6-patches-shipped/stage-g/comment-body.md"
+      ],
+      "rc": 0,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "35a90bcf6217e0bc0c9a0862958f051ec3aeaa2dc78460fecb84c5284b77688f",
+      "stem": "stage-g/post"
+    },
+    {
+      "argv": [
+        "gh",
+        "api",
+        "repos/pixelelated/distribution/issues/comments/6587734065"
+      ],
+      "rc": 0,
+      "stdout_sha256": "c1714a637977bf5e66ada786b1e5770e896eec2ead280c7492d27509727c4267",
+      "stem": "stage-g/readback"
+    },
+    {
+      "argv": [
+        "ps",
+        "-eo",
+        "pid,ppid,comm"
+      ],
+      "rc": 0,
+      "stdout_sha256": "5dad056b3c6cac20ffd5491e4267b7eef3d81bbcbdd679bc685cd75e4389cd43",
+      "stem": "stage-h/final-census"
+    },
+    {
+      "argv": [
+        "python3",
+        "docs/audits/2026_11_02-epic-m6-patches-shipped/tools/retire-owned-scratch.py"
+      ],
+      "custody": "producer recorded completed exec-tool observation; not standalone raw shell stdout",
+      "rc": 0,
+      "stdout_sha256": "d79f45515ddff24e4b9320f5013d84283f186b53aacba444789a3394e8cd4a91",
+      "stem": "stage-h/retirement-exit-observation"
+    },
+    {
+      "argv": [
+        "git",
+        "add",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-patches-shipped-689/docs/audits/2026_11_02-epic-m6-patches-shipped",
+        ".github/sessions/saved-session-state-feature-m6-patches-shipped-689.md",
+        "docs/work-logs/2026_11-work_logs/2026_11_02-work_log.md",
+        "docs/work-logs/INDEX.md",
+        "docs/retros/2026-11-02-m6-patches-shipped.md"
+      ],
+      "end": "2026-11-02T20:39:17.287322+00:00",
+      "rc": 0,
+      "start": "2026-11-02T20:39:17.176794+00:00",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stem": "external/stage"
+    },
+    {
+      "argv": [
+        "python3",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-patches-shipped-689/docs/audits/2026_11_02-epic-m6-patches-shipped/tools/validate.py",
+        "guard",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-patches-shipped-689",
+        "9dd0716033f8831ffbd0b5ee8efbb5e5a066cfb1"
+      ],
+      "end": "2026-11-02T20:39:17.641957+00:00",
+      "rc": 0,
+      "start": "2026-11-02T20:39:17.287528+00:00",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "efe53b28a665d7dd02a5bd2e648b420184bf376bf4a5abefaf4ad49baf655e15",
+      "stem": "external/source-path-guard-before"
+    },
+    {
+      "argv": [
+        "git",
+        "commit",
+        "-q",
+        "-F",
+        "/workspace/tmp/m6-t42-final-publication-20261102T203040Z/commit-message.txt"
+      ],
+      "end": "2026-11-02T20:39:17.865334+00:00",
+      "rc": 0,
+      "start": "2026-11-02T20:39:17.642271+00:00",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stem": "external/final-commit"
+    },
+    {
+      "argv": [
+        "git",
+        "rev-parse",
+        "HEAD"
+      ],
+      "end": "2026-11-02T20:39:17.866580+00:00",
+      "rc": 0,
+      "start": "2026-11-02T20:39:17.865583+00:00",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "0ce5e947048a2f3f3794e448af67d70af908effc6a967c70c9412c77d3308f95",
+      "stem": "external/final-tip"
+    },
+    {
+      "argv": [
+        "git",
+        "branch",
+        "--show-current"
+      ],
+      "end": "2026-11-02T20:39:17.867678+00:00",
+      "rc": 0,
+      "start": "2026-11-02T20:39:17.866776+00:00",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "c5a328a3b87014a4051f4be1aa205ccaed54cb825ea711f200cd4c494917220b",
+      "stem": "external/branch"
+    },
+    {
+      "argv": [
+        "git",
+        "status",
+        "--porcelain=v1"
+      ],
+      "end": "2026-11-02T20:39:18.144970+00:00",
+      "rc": 0,
+      "start": "2026-11-02T20:39:17.867855+00:00",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stem": "external/status-before-push"
+    },
+    {
+      "argv": [
+        "git",
+        "-c",
+        "credential.helper=",
+        "-c",
+        "credential.helper=!gh auth git-credential",
+        "push",
+        "-q",
+        "origin-https",
+        "feature/m6-patches-shipped-689:feature/m6-patches-shipped-689"
+      ],
+      "end": "2026-11-02T20:39:21.978857+00:00",
+      "rc": 0,
+      "start": "2026-11-02T20:39:18.145508+00:00",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stem": "external/final-push"
+    },
+    {
+      "argv": [
+        "git",
+        "ls-remote",
+        "origin-https",
+        "refs/heads/feature/m6-patches-shipped-689"
+      ],
+      "end": "2026-11-02T20:39:22.211994+00:00",
+      "rc": 0,
+      "start": "2026-11-02T20:39:21.979237+00:00",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "a2abaeed701da77d4a88558162eb4b96a93f34bf33df9ed70035b7ef8884c8c6",
+      "stem": "external/remote-readback"
+    },
+    {
+      "argv": [
+        "python3",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-patches-shipped-689/docs/audits/2026_11_02-epic-m6-patches-shipped/tools/validate.py",
+        "guard",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-patches-shipped-689",
+        "9dd0716033f8831ffbd0b5ee8efbb5e5a066cfb1"
+      ],
+      "end": "2026-11-02T20:39:22.582391+00:00",
+      "rc": 0,
+      "start": "2026-11-02T20:39:22.212380+00:00",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "efe53b28a665d7dd02a5bd2e648b420184bf376bf4a5abefaf4ad49baf655e15",
+      "stem": "external/source-path-guard-after"
+    },
+    {
+      "argv": [
+        "git",
+        "status",
+        "--porcelain=v1"
+      ],
+      "end": "2026-11-02T20:39:22.806750+00:00",
+      "rc": 0,
+      "start": "2026-11-02T20:39:22.582689+00:00",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stem": "external/status-after-push"
+    },
+    {
+      "argv": [
+        "gh",
+        "issue",
+        "view",
+        "689",
+        "--repo",
+        "pixelelated/distribution",
+        "--json",
+        "number,body,state"
+      ],
+      "end": "2026-11-02T20:39:23.336254+00:00",
+      "rc": 0,
+      "start": "2026-11-02T20:39:22.807334+00:00",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "6963a6cd70889215183b29c050a4837f383eb99fbb1019505dbb904de27b25a1",
+      "stem": "external/issue-before"
+    },
+    {
+      "argv": [
+        "gh",
+        "issue",
+        "edit",
+        "689",
+        "--repo",
+        "pixelelated/distribution",
+        "--body-file",
+        "/workspace/tmp/m6-t42-final-publication-20261102T203040Z/issue-689-final-body.md"
+      ],
+      "end": "2026-11-02T20:39:25.314716+00:00",
+      "rc": 0,
+      "start": "2026-11-02T20:39:23.341681+00:00",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "2c2c2cfdba1ca7372c5913802f362fbd06659a7b5fe0a08f3b76c8538d296592",
+      "stem": "external/issue-fields-edit"
+    },
+    {
+      "argv": [
+        "gh",
+        "issue",
+        "view",
+        "689",
+        "--repo",
+        "pixelelated/distribution",
+        "--json",
+        "number,body,state"
+      ],
+      "end": "2026-11-02T20:39:25.820228+00:00",
+      "rc": 0,
+      "start": "2026-11-02T20:39:25.314985+00:00",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "648924e817d28f7bfba7368f8fcb2699e5037eea117ba3a34892e550cb85b3b4",
+      "stem": "external/issue-after"
+    },
+    {
+      "argv": [
+        "tools/box-check",
+        "--issue",
+        "689"
+      ],
+      "end": "2026-11-02T20:39:26.224674+00:00",
+      "rc": 0,
+      "start": "2026-11-02T20:39:25.820744+00:00",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "89574cf62c10d48bcc0aae9e2c9575dab22248ee306fc1d65a7a538ead695114",
+      "stem": "external/issue-689-final-checkbox"
+    },
+    {
+      "argv": [
+        "git",
+        "status",
+        "--porcelain=v1"
+      ],
+      "end": "2026-11-02T20:39:26.453856+00:00",
+      "rc": 0,
+      "start": "2026-11-02T20:39:26.225000+00:00",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stem": "external/final-clean"
+    },
+    {
+      "argv": [
+        "git",
+        "rev-parse",
+        "HEAD"
+      ],
+      "end": "2026-11-02T20:39:26.457206+00:00",
+      "rc": 0,
+      "start": "2026-11-02T20:39:26.454456+00:00",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "0ce5e947048a2f3f3794e448af67d70af908effc6a967c70c9412c77d3308f95",
+      "stem": "external/final-head"
+    },
+    {
+      "argv": [
+        "gh",
+        "issue",
+        "comment",
+        "689",
+        "--repo",
+        "pixelelated/distribution",
+        "--body-file",
+        "/workspace/tmp/m6-t42-final-publication-20261102T203040Z/h-handback-body.md"
+      ],
+      "custody": "recorded exit; live/readback establishes posted body; no separate post stdout file",
+      "rc": 0,
+      "stem": "external/h-post"
+    },
+    {
+      "argv": [
+        "gh",
+        "api",
+        "repos/pixelelated/distribution/issues/comments/6587952866"
+      ],
+      "rc": 0,
+      "stdout_sha256": "7dc958787b688d749f6571ff17643626b6333ed95957b08acce70e32950e9856",
+      "stem": "external/h-readback"
+    },
+    {
+      "argv": [
+        "herdr",
+        "agent",
+        "prompt",
+        "m6-coordinator",
+        "T42 #689 records-only E-H COMPLETE, stopped for root acceptance/integration. Clean published tip 4cf8c8820791624dbddad3eb3664101a03953a82; reviewed-at seed9dd0716033f8831ffbd0b5ee8efbb5e5a066cfb1; exact m6-patches-shipped-689 tree/branch. H handback/readback: https://github.com/pixelelated/distribution/issues/689#issuecomment-6587952866. PL-01 Deferred to open1410/#677, no GUIDE/source choice; audit1411 criteria1/2 checked, criterion3/closure/marker root-owned. New resolution PASS both forms;3931accepted artifacts/391source identities preserved without producer replay;173native/22inherited limits and G202/G203/G383 missing evidence unchanged. H retired522 exact owned roots/502085226logical bytes,129cache archives preserved, source root empty/no runtime held. External final-publication manifest /workspace/tmp/m6-t42-final-publication-20261102T203040Z/manifest.json; SHA256 62ef887c2fd2cc67c7b88ebd9c1bdb80091423596c60a1cf0e6e1cdc01dc8781. Actual final commit/push/remote/status exits0 retained outside observed commit; no receipt loop. #689 reviewed-at/fixed-at exact readback, criteria unchanged. Please retain external receipt directory for final acceptance. T5 available; no further work until dispatch."
+      ],
+      "rc": 0,
+      "stdout_sha256": "cfa6bd406217134a78532fc9effb531b8b9c6802beecd281c51b7174987e5d03",
+      "stem": "external/h-herdr"
+    },
+    {
+      "argv": [
+        "git",
+        "status",
+        "--porcelain=v1"
+      ],
+      "custody": "recorded empty-status boolean; no separate raw stdout file at this later time",
+      "rc": 0,
+      "stem": "external/h-final-status"
+    }
+  ],
+  "new_command_exit_counts": {
+    "0": 64,
+    "1": 6
+  },
+  "owner_matrix": {
+    "PL-01": {
+      "bug": 1410,
+      "bug_state": "open",
+      "context": 677,
+      "outcome": "deferred",
+      "route": "Coordinator-owned separate source-changing fix brief; no GUIDE mapping chosen"
+    },
+    "contribution_drafts": 12,
+    "inherited": 50,
+    "native_limits": 173,
+    "unresolved_inherited": 22
+  },
+  "retirement": {
+    "cache_metadata_count": 129,
+    "logical_file_bytes": 502085226,
+    "mount_exclusions": 54,
+    "needed_receipts_committed_at": "7c9e4c3ac06f1a23ed5bd94f88e12b0fabce5bba",
+    "no_fresh_host_or_cache_verification": true,
+    "origin_counts": {
+      "accepted synthetic proof fixture": 3,
+      "ephemeral small-text Stage A export": 1,
+      "inherited raw-source projections": 1,
+      "package-plan target projection": 401,
+      "safe cached-member projection": 116
+    },
+    "roots": 522
+  },
+  "scan_scope": {
+    "final_changed_paths": 129,
+    "listed_paths": 126,
+    "omitted_from_final_delta": [
+      "docs/audits/2026_11_02-epic-m6-patches-shipped/stage-h/current-scan-inputs.json",
+      "docs/audits/2026_11_02-epic-m6-patches-shipped/stage-h/forbidden-current.stderr",
+      "docs/audits/2026_11_02-epic-m6-patches-shipped/stage-h/forbidden-current.stdout"
+    ],
+    "recorded_input_sha256": "e458e7651db206a25418c92ef678ac92c6aadaf1a7ec81f63396be029cab3861",
+    "scope_text": "Every changed/new E\u2013H record; complements F full tracked-tree scan. Normal commit/push hooks remain enabled."
+  },
+  "seed": "9dd0716033f8831ffbd0b5ee8efbb5e5a066cfb1",
+  "source_identities": 391
+}

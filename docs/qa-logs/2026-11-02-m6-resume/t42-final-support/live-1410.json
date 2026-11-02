@@ -1,0 +1,39 @@
+{
+  "issue": {
+    "url": "https://github.com/pixelelated/distribution/issues/1410",
+    "title": "ppsspp-sa: home-pause patch creates a nested patch instead of changing SDL",
+    "issue_number": 1410,
+    "body": "T42 source audit F-T42-01 / PL-01 found that the selected PPSSPP patch creates an inert nested patch instead of changing the intended SDL source. This is a reactive bug, with no milestone or parent; #689 owns the audit record, and the standalone-emulator owner (#677 context) owns any future correction.\n\n## Source trace\n\nReviewed source: `9dd0716033f8831ffbd0b5ee8efbb5e5a066cfb1`.\n\n- `projects/ROCKNIX/packages/emulators/standalone/ppsspp-sa/package.mk:5` pins `afbc66a318b86432642b532c575241f3716642ef` (v1.20.2).\n- Its `patches/007-disable-home-pause.patch:11–16` is an outer diff creating `package/batocera/emulators/ppsspp/007-disable-home-pause.patch`.\n- Lines 17–29 are added text containing the intended `SDL/SDLJoystick.cpp` hunk, including GUIDE mapping `NKCODE_BACK` → `NKCODE_UNKNOWN`.\n- `scripts/unpack:191–196` applies the outer patch once. The recipe's post_unpack hook only adjusts compiler flag files; no hook applies the created nested file.\n\nConsequently this patch does not perform its advertised SDL change. A successful patch exit can conceal the defect. Fixed upstream `651150fc88` has a direct SDL diff returning `NKCODE_GUIDE`, a different mapping from the nested payload; importing it requires an explicit intended-behavior decision by the owning fix stream.\n\n## Evidence and limits\n\n`docs/audits/2026_11_02-epic-m6-patches-shipped/stage-b/nested-patch/receipt.json` retains a constructed fixture: GNU patch 2.8 diagnostic and normal rc 0, nested target created, sentinel SDLJoystick.cpp byte-identical. This proves the wrapper mechanism, not application at the actual PPSSPP pin or observed player behavior. Source/recipe/unpack readbacks and duplicate searches are under `stage-b/source-context/`. The sibling scan found one product-path instance; 23 other hits are legitimate historical product-diff evidence.\n\nSeverity: Medium. No data-loss or security consequence is demonstrated.\n\nAlready written: builds containing the outer patch may keep the preexisting SDL mapping and an inert nested file in their build source. This patch writes no player settings or cloud data. A correction must rebuild the affected binary and preserve existing `/storage`; editing the audit alone repairs no installed image.\n\nCan this be done on the VM? The source-target regression can be proved from source fixtures without a guest. The later input-flow check can run in GENERIC_X64 with injected controller input; no physical fact is required. This issue grants no runtime allocation or device/cloud action.\n\n## Acceptance criteria\n\n- [ ] A source regression fails on the reviewed wrapper, then passes on the chosen direct SDL diff: exact selected pin/stack, actual normal rc, before/after target hashes and absence of the nested patch file are retained.\n- [ ] The intended GUIDE mapping is recorded and exercised in GENERIC_X64 with an agent-verifiable input trace/frame or equivalent deterministic event assertion, bound to the corrected installed binary identity.\n- [ ] The fix's Already written record and upgrade/clean-install evidence show existing `/storage` settings are preserved; no cloud action is required by the correction.\n\n## Proposed mechanism\n\nMove the patch's written/routed intent to an audited source-target regression. A focused product-patch guard may reject inert nested patch targets, with explicit intentional exceptions; historical audit product-diff files are not product patches. The coordinator assigns a separate source-changing brief. T42 A–D makes no product edit and leaves this bug open.\n\nRecorded by Codex / GPT-6-Astra / xhigh, OpenAI, T5 wN:p7, Local reader. No external reviewer.\n",
+    "state": "open",
+    "user": {
+      "login": "blitterbot",
+      "name": "blitterbot",
+      "email": null,
+      "avatar_url": "https://avatars.githubusercontent.com/u/335883270?v=4",
+      "id": 335883270
+    },
+    "assignees": null,
+    "labels": [
+      {
+        "name": "bug",
+        "color": "d73a4a",
+        "description": "Something isn't working"
+      }
+    ],
+    "milestone": null,
+    "state_reason": null,
+    "comments": 1,
+    "created_at": "2026-11-02T19:42:15Z",
+    "updated_at": "2026-11-02T20:16:30Z",
+    "closed_at": null,
+    "display_url": "https://github.com/pixelelated/distribution/issues/1410",
+    "display_title": "ppsspp-sa: home-pause patch creates a nested patch instead of changing SDL"
+  },
+  "comments": [
+    {
+      "url": "https://github.com/pixelelated/distribution/issues/1410#issuecomment-6587447724",
+      "id": 6587447724,
+      "body": "Coordinator D-WORKFLOW-230 disposition: T42 audit PL-01 is Deferred here while this Medium bug remains open and unfixed. Standalone-emulator implementation context is #677; the coordinator will assign a separate source-changing fix brief. It must establish intended GUIDE mapping and exact-pin consumers before adopting a direct diff, then satisfy all three existing source/installed/upgrade criteria. No NKCODE_UNKNOWN/NKCODE_GUIDE decision, runtime authorization or release exception is made by the audit closeout. T42 preserves its constructed-only proof and source bytes. Full disposition: #689 acceptance/dispatch at coordinatorafdec2bf8b88135befcb7ec56efb3a7ea327bd73."
+    }
+  ]
+}

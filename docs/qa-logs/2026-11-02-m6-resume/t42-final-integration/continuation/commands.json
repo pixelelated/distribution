@@ -1,0 +1,489 @@
+[
+  {
+    "name": "head",
+    "argv": [
+      "git",
+      "rev-parse",
+      "HEAD"
+    ],
+    "cwd": "/workspace/tmp/m6-coordinator/t42-final-20261102T2101/integration",
+    "start": "2026-11-02T21:14:00.384507+00:00",
+    "end": "2026-11-02T21:14:00.385893+00:00",
+    "elapsed_seconds": 0.0013888570247218013,
+    "rc": 0,
+    "timed_out": false,
+    "stdout": "001-head.stdout",
+    "stdout_sha256": "a8b53ac9d1b1e26be0cb2ad234d9f7732e02a9a9a038703227a02d6e0d9e6043",
+    "stdout_masked_sha256": "a8b53ac9d1b1e26be0cb2ad234d9f7732e02a9a9a038703227a02d6e0d9e6043",
+    "stderr": "001-head.stderr",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stderr_masked_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "merge-head",
+    "argv": [
+      "git",
+      "rev-parse",
+      "MERGE_HEAD"
+    ],
+    "cwd": "/workspace/tmp/m6-coordinator/t42-final-20261102T2101/integration",
+    "start": "2026-11-02T21:14:00.386504+00:00",
+    "end": "2026-11-02T21:14:00.387552+00:00",
+    "elapsed_seconds": 0.0010492990259081125,
+    "rc": 0,
+    "timed_out": false,
+    "stdout": "002-merge-head.stdout",
+    "stdout_sha256": "0ce5e947048a2f3f3794e448af67d70af908effc6a967c70c9412c77d3308f95",
+    "stdout_masked_sha256": "0ce5e947048a2f3f3794e448af67d70af908effc6a967c70c9412c77d3308f95",
+    "stderr": "002-merge-head.stderr",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stderr_masked_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "conflicts",
+    "argv": [
+      "git",
+      "ls-files",
+      "-u",
+      "-z"
+    ],
+    "cwd": "/workspace/tmp/m6-coordinator/t42-final-20261102T2101/integration",
+    "start": "2026-11-02T21:14:00.387763+00:00",
+    "end": "2026-11-02T21:14:00.414240+00:00",
+    "elapsed_seconds": 0.02648809499805793,
+    "rc": 0,
+    "timed_out": false,
+    "stdout": "003-conflicts.stdout",
+    "stdout_sha256": "6fed760a9077c75ea85e53a3885084fa6581b5b9e95755a15ced098d5815557e",
+    "stdout_masked_sha256": "6fed760a9077c75ea85e53a3885084fa6581b5b9e95755a15ced098d5815557e",
+    "stderr": "003-conflicts.stderr",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stderr_masked_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "log-source",
+    "argv": [
+      "git",
+      "show",
+      "07d01c898fba867e042342017fd8d5257508a28c:docs/work-logs/2026_11-work_logs/2026_11_02-work_log.md"
+    ],
+    "cwd": "/workspace/tmp/m6-coordinator/t42-final-20261102T2101/integration",
+    "start": "2026-11-02T21:14:00.414574+00:00",
+    "end": "2026-11-02T21:14:00.416267+00:00",
+    "elapsed_seconds": 0.0016976719489321113,
+    "rc": 0,
+    "timed_out": false,
+    "stdout": "004-log-source.stdout",
+    "stdout_sha256": "adaae163cdcabfcc2f633590b67ed6ce5fd99c38372034c2fd7fe72fee28f7ff",
+    "stdout_masked_sha256": "adaae163cdcabfcc2f633590b67ed6ce5fd99c38372034c2fd7fe72fee28f7ff",
+    "stderr": "004-log-source.stderr",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stderr_masked_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "log-source",
+    "argv": [
+      "git",
+      "show",
+      "8b83e452459f6696ac959b4e4e5494701d5d2f93:docs/work-logs/2026_11-work_logs/2026_11_02-work_log.md"
+    ],
+    "cwd": "/workspace/tmp/m6-coordinator/t42-final-20261102T2101/integration",
+    "start": "2026-11-02T21:14:00.417017+00:00",
+    "end": "2026-11-02T21:14:00.418603+00:00",
+    "elapsed_seconds": 0.0015872879885137081,
+    "rc": 0,
+    "timed_out": false,
+    "stdout": "005-log-source.stdout",
+    "stdout_sha256": "038aeb25e80a9c9a0897b4cee845e7cbd959c4809dbcbcc776e509dff38343ea",
+    "stdout_masked_sha256": "038aeb25e80a9c9a0897b4cee845e7cbd959c4809dbcbcc776e509dff38343ea",
+    "stderr": "005-log-source.stderr",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stderr_masked_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "log-source",
+    "argv": [
+      "git",
+      "show",
+      "4cf8c8820791624dbddad3eb3664101a03953a82:docs/work-logs/2026_11-work_logs/2026_11_02-work_log.md"
+    ],
+    "cwd": "/workspace/tmp/m6-coordinator/t42-final-20261102T2101/integration",
+    "start": "2026-11-02T21:14:00.419867+00:00",
+    "end": "2026-11-02T21:14:00.421287+00:00",
+    "elapsed_seconds": 0.0014221509918570518,
+    "rc": 0,
+    "timed_out": false,
+    "stdout": "006-log-source.stdout",
+    "stdout_sha256": "e60b19f7aff2c37ae52d78bb591d187174cd0174773f94cdd4098c506a3a2f90",
+    "stdout_masked_sha256": "e60b19f7aff2c37ae52d78bb591d187174cd0174773f94cdd4098c506a3a2f90",
+    "stderr": "006-log-source.stderr",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stderr_masked_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "index-render",
+    "argv": [
+      "tools/work-log-index"
+    ],
+    "cwd": "/workspace/tmp/m6-coordinator/t42-final-20261102T2101/integration",
+    "start": "2026-11-02T21:14:00.434618+00:00",
+    "end": "2026-11-02T21:14:00.465701+00:00",
+    "elapsed_seconds": 0.031085429014638066,
+    "rc": 0,
+    "timed_out": false,
+    "stdout": "007-index-render.stdout",
+    "stdout_sha256": "9ca0c3c6fdb1f042a7ebf8996551a9f5643e5aed00c1d9813c258e936f9b6868",
+    "stdout_masked_sha256": "31e8650c4190acfb6a5a0d6dede0d53010475580425354ca6ca7bada14e94439",
+    "stderr": "007-index-render.stderr",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stderr_masked_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "index-write",
+    "argv": [
+      "tools/work-log-index",
+      "--write"
+    ],
+    "cwd": "/workspace/tmp/m6-coordinator/t42-final-20261102T2101/integration",
+    "start": "2026-11-02T21:14:00.470367+00:00",
+    "end": "2026-11-02T21:14:00.494397+00:00",
+    "elapsed_seconds": 0.02403423096984625,
+    "rc": 0,
+    "timed_out": false,
+    "stdout": "008-index-write.stdout",
+    "stdout_sha256": "8190961d200e642871919048d057e876e462a3d78d32f659a33622abd7f81f9b",
+    "stdout_masked_sha256": "8190961d200e642871919048d057e876e462a3d78d32f659a33622abd7f81f9b",
+    "stderr": "008-index-write.stderr",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stderr_masked_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "other-unstaged",
+    "argv": [
+      "git",
+      "diff",
+      "--name-only",
+      "-z",
+      "--",
+      ".",
+      ":(exclude,literal)docs/work-logs/2026_11-work_logs/2026_11_02-work_log.md",
+      ":(exclude,literal)docs/work-logs/INDEX.md"
+    ],
+    "cwd": "/workspace/tmp/m6-coordinator/t42-final-20261102T2101/integration",
+    "start": "2026-11-02T21:14:00.494763+00:00",
+    "end": "2026-11-02T21:14:00.689296+00:00",
+    "elapsed_seconds": 0.19454541301820427,
+    "rc": 0,
+    "timed_out": false,
+    "stdout": "009-other-unstaged.stdout",
+    "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stdout_masked_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stderr": "009-other-unstaged.stderr",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stderr_masked_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "stage-log-index",
+    "argv": [
+      "git",
+      "add",
+      "--",
+      "docs/work-logs/2026_11-work_logs/2026_11_02-work_log.md",
+      "docs/work-logs/INDEX.md"
+    ],
+    "cwd": "/workspace/tmp/m6-coordinator/t42-final-20261102T2101/integration",
+    "start": "2026-11-02T21:14:00.689650+00:00",
+    "end": "2026-11-02T21:14:00.864378+00:00",
+    "elapsed_seconds": 0.17473890900146216,
+    "rc": 0,
+    "timed_out": false,
+    "stdout": "010-stage-log-index.stdout",
+    "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stdout_masked_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stderr": "010-stage-log-index.stderr",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stderr_masked_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "protected-paths",
+    "argv": [
+      "git",
+      "diff",
+      "--cached",
+      "--name-only",
+      "8b83e452459f6696ac959b4e4e5494701d5d2f93",
+      "--",
+      "packages",
+      "projects",
+      "tools",
+      "scripts",
+      ".claude",
+      ".githooks",
+      "docs/reviews"
+    ],
+    "cwd": "/workspace/tmp/m6-coordinator/t42-final-20261102T2101/integration",
+    "start": "2026-11-02T21:14:00.864712+00:00",
+    "end": "2026-11-02T21:14:00.889979+00:00",
+    "elapsed_seconds": 0.02527936699334532,
+    "rc": 0,
+    "timed_out": false,
+    "stdout": "011-protected-paths.stdout",
+    "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stdout_masked_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stderr": "011-protected-paths.stderr",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stderr_masked_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "unmerged",
+    "argv": [
+      "git",
+      "ls-files",
+      "-u"
+    ],
+    "cwd": "/workspace/tmp/m6-coordinator/t42-final-20261102T2101/integration",
+    "start": "2026-11-02T21:14:00.890361+00:00",
+    "end": "2026-11-02T21:14:00.907974+00:00",
+    "elapsed_seconds": 0.017624252010136843,
+    "rc": 0,
+    "timed_out": false,
+    "stdout": "012-unmerged.stdout",
+    "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stdout_masked_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stderr": "012-unmerged.stderr",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stderr_masked_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "whitespace",
+    "argv": [
+      "git",
+      "diff",
+      "--cached",
+      "--check"
+    ],
+    "cwd": "/workspace/tmp/m6-coordinator/t42-final-20261102T2101/integration",
+    "start": "2026-11-02T21:14:00.908348+00:00",
+    "end": "2026-11-02T21:14:01.000704+00:00",
+    "elapsed_seconds": 0.09236825298285112,
+    "rc": 2,
+    "timed_out": false,
+    "stdout": "013-whitespace.stdout",
+    "stdout_sha256": "c1fd144acfdafb13bf5c2d0e538c864699fdfb1fa5f1adf7f873ac4435359069",
+    "stdout_masked_sha256": "c1fd144acfdafb13bf5c2d0e538c864699fdfb1fa5f1adf7f873ac4435359069",
+    "stderr": "013-whitespace.stderr",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stderr_masked_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "rules",
+    "argv": [
+      "tools/rules-check",
+      "--quiet"
+    ],
+    "cwd": "/workspace/tmp/m6-coordinator/t42-final-20261102T2101/integration",
+    "start": "2026-11-02T21:14:01.008445+00:00",
+    "end": "2026-11-02T21:14:01.030793+00:00",
+    "elapsed_seconds": 0.02235354605363682,
+    "rc": 0,
+    "timed_out": false,
+    "stdout": "014-rules.stdout",
+    "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stdout_masked_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stderr": "014-rules.stderr",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stderr_masked_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "register",
+    "argv": [
+      "tools/register-check"
+    ],
+    "cwd": "/workspace/tmp/m6-coordinator/t42-final-20261102T2101/integration",
+    "start": "2026-11-02T21:14:01.031128+00:00",
+    "end": "2026-11-02T21:14:02.428325+00:00",
+    "elapsed_seconds": 1.3972085760324262,
+    "rc": 0,
+    "timed_out": false,
+    "stdout": "015-register.stdout",
+    "stdout_sha256": "fc7abeab966316b997d66e442e785e67b180f52ee5a1faf971fcd46aea20210c",
+    "stdout_masked_sha256": "fc7abeab966316b997d66e442e785e67b180f52ee5a1faf971fcd46aea20210c",
+    "stderr": "015-register.stderr",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stderr_masked_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "index",
+    "argv": [
+      "tools/work-log-index",
+      "--check"
+    ],
+    "cwd": "/workspace/tmp/m6-coordinator/t42-final-20261102T2101/integration",
+    "start": "2026-11-02T21:14:02.428736+00:00",
+    "end": "2026-11-02T21:14:02.451382+00:00",
+    "elapsed_seconds": 0.02265437098685652,
+    "rc": 0,
+    "timed_out": false,
+    "stdout": "016-index.stdout",
+    "stdout_sha256": "232b345c76ad64a47de4d43e62d9aeb4f2850472cde78ddd1b1e56d72103d927",
+    "stdout_masked_sha256": "232b345c76ad64a47de4d43e62d9aeb4f2850472cde78ddd1b1e56d72103d927",
+    "stderr": "016-index.stderr",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stderr_masked_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "ceremony",
+    "argv": [
+      "tools/ceremony-check",
+      "--gate"
+    ],
+    "cwd": "/workspace/tmp/m6-coordinator/t42-final-20261102T2101/integration",
+    "start": "2026-11-02T21:14:02.451779+00:00",
+    "end": "2026-11-02T21:14:10.498523+00:00",
+    "elapsed_seconds": 8.04675340896938,
+    "rc": 0,
+    "timed_out": false,
+    "stdout": "017-ceremony.stdout",
+    "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stdout_masked_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stderr": "017-ceremony.stderr",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stderr_masked_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "hooks",
+    "argv": [
+      ".githooks/hooks-test"
+    ],
+    "cwd": "/workspace/tmp/m6-coordinator/t42-final-20261102T2101/integration",
+    "start": "2026-11-02T21:14:10.498893+00:00",
+    "end": "2026-11-02T21:14:11.217261+00:00",
+    "elapsed_seconds": 0.7183788060210645,
+    "rc": 0,
+    "timed_out": false,
+    "stdout": "018-hooks.stdout",
+    "stdout_sha256": "3402d5f59e65118cf905eb74dd1cda7660eeffd181ad248e23a56f68395e0a5c",
+    "stdout_masked_sha256": "18ef560c4d0be87e49a931308c3a8fe53b1009f72831d8cb542a822e6c886c2b",
+    "stderr": "018-hooks.stderr",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stderr_masked_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "forbidden",
+    "argv": [
+      "tools/forbidden-terms-check"
+    ],
+    "cwd": "/workspace/tmp/m6-coordinator/t42-final-20261102T2101/integration",
+    "start": "2026-11-02T21:14:11.217709+00:00",
+    "end": "2026-11-02T21:17:08.234468+00:00",
+    "elapsed_seconds": 177.0167788050021,
+    "rc": 0,
+    "timed_out": false,
+    "stdout": "019-forbidden.stdout",
+    "stdout_sha256": "87796b30641561eb893b5da01661013e3d178cc9d70cb5a16c2f140a230dadc3",
+    "stdout_masked_sha256": "87796b30641561eb893b5da01661013e3d178cc9d70cb5a16c2f140a230dadc3",
+    "stderr": "019-forbidden.stderr",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stderr_masked_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "lint",
+    "argv": [
+      "tools/lint-audit-artifacts",
+      "docs/audits/2026_11_02-epic-m6-patches-shipped"
+    ],
+    "cwd": "/workspace/tmp/m6-coordinator/t42-final-20261102T2101/integration",
+    "start": "2026-11-02T21:17:08.235040+00:00",
+    "end": "2026-11-02T21:17:08.285279+00:00",
+    "elapsed_seconds": 0.05024728400167078,
+    "rc": 0,
+    "timed_out": false,
+    "stdout": "020-lint.stdout",
+    "stdout_sha256": "90fb9a0ce6f029e4cfe1e8d9a1ff6b3016ee98a538327e2be6f347d73d209676",
+    "stdout_masked_sha256": "90fb9a0ce6f029e4cfe1e8d9a1ff6b3016ee98a538327e2be6f347d73d209676",
+    "stderr": "020-lint.stderr",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stderr_masked_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "lint-issue",
+    "argv": [
+      "tools/lint-audit-artifacts",
+      "docs/audits/2026_11_02-epic-m6-patches-shipped",
+      "--issue",
+      "1411"
+    ],
+    "cwd": "/workspace/tmp/m6-coordinator/t42-final-20261102T2101/integration",
+    "start": "2026-11-02T21:17:08.285779+00:00",
+    "end": "2026-11-02T21:17:08.790112+00:00",
+    "elapsed_seconds": 0.5043432310339995,
+    "rc": 0,
+    "timed_out": false,
+    "stdout": "021-lint-issue.stdout",
+    "stdout_sha256": "9dd4abc2f00ac027159d71e7617002a2d7136d8c26e21f02df23937c1a8bda40",
+    "stdout_masked_sha256": "9dd4abc2f00ac027159d71e7617002a2d7136d8c26e21f02df23937c1a8bda40",
+    "stderr": "021-lint-issue.stderr",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stderr_masked_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "issue-check",
+    "argv": [
+      "tools/box-check",
+      "--issue",
+      "689"
+    ],
+    "cwd": "/workspace/tmp/m6-coordinator/t42-final-20261102T2101/integration",
+    "start": "2026-11-02T21:17:08.790545+00:00",
+    "end": "2026-11-02T21:17:09.255239+00:00",
+    "elapsed_seconds": 0.4647043499862775,
+    "rc": 0,
+    "timed_out": false,
+    "stdout": "022-issue-check.stdout",
+    "stdout_sha256": "4fbb0f3d8941c829eac07453408fc3dba673d5076a3713b9264c1394cb4c1a48",
+    "stdout_masked_sha256": "4fbb0f3d8941c829eac07453408fc3dba673d5076a3713b9264c1394cb4c1a48",
+    "stderr": "022-issue-check.stderr",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stderr_masked_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "audit-check",
+    "argv": [
+      "tools/box-check",
+      "--issue",
+      "1411"
+    ],
+    "cwd": "/workspace/tmp/m6-coordinator/t42-final-20261102T2101/integration",
+    "start": "2026-11-02T21:17:09.255681+00:00",
+    "end": "2026-11-02T21:17:09.773771+00:00",
+    "elapsed_seconds": 0.5180996300186962,
+    "rc": 0,
+    "timed_out": false,
+    "stdout": "023-audit-check.stdout",
+    "stdout_sha256": "572d41f6f7790bb5db6030e78435e8d59c2ad4131e4080e00bdff3c70a732b33",
+    "stdout_masked_sha256": "572d41f6f7790bb5db6030e78435e8d59c2ad4131e4080e00bdff3c70a732b33",
+    "stderr": "023-audit-check.stderr",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stderr_masked_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "bug-check",
+    "argv": [
+      "tools/box-check",
+      "--issue",
+      "1410"
+    ],
+    "cwd": "/workspace/tmp/m6-coordinator/t42-final-20261102T2101/integration",
+    "start": "2026-11-02T21:17:09.774199+00:00",
+    "end": "2026-11-02T21:17:10.172479+00:00",
+    "elapsed_seconds": 0.39828961103921756,
+    "rc": 0,
+    "timed_out": false,
+    "stdout": "024-bug-check.stdout",
+    "stdout_sha256": "2926fda36b88fd91fcaa1980262b6b57daeab40344ebafafb08d8c61907584f7",
+    "stdout_masked_sha256": "2926fda36b88fd91fcaa1980262b6b57daeab40344ebafafb08d8c61907584f7",
+    "stderr": "024-bug-check.stderr",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stderr_masked_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  }
+]

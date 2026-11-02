@@ -1,0 +1,94 @@
+{
+  "result": "PASS exact accepted raw-receipt preservation and all-other-path hygiene",
+  "original_full_rc": 2,
+  "new_full_rc": 2,
+  "all_other_paths_rc": 0,
+  "literal_failure_preserved": true,
+  "scope": "Six exact accepted D-stage raw receipts only; no product/new-record whitespace exception or byte normalization.",
+  "accepted_D": "d37670de318eb428604e4442f95defe10eade173",
+  "final": "4cf8c8820791624dbddad3eb3664101a03953a82",
+  "identities": [
+    {
+      "path": "docs/audits/2026_11_02-epic-m6-patches-shipped/stage-b/fork-written-reading.txt",
+      "accepted_identity": "100644 blob feef5da5be6aa4a3a692c957ee8a196c128e311e\tdocs/audits/2026_11_02-epic-m6-patches-shipped/stage-b/fork-written-reading.txt",
+      "final_identity": "100644 blob feef5da5be6aa4a3a692c957ee8a196c128e311e\tdocs/audits/2026_11_02-epic-m6-patches-shipped/stage-b/fork-written-reading.txt",
+      "same": true,
+      "accepted_stage_receipt": true
+    },
+    {
+      "path": "docs/audits/2026_11_02-epic-m6-patches-shipped/stage-b/inherited-reading.txt",
+      "accepted_identity": "100644 blob b655974ce1b965dcfc238f5c4189ab69592fb057\tdocs/audits/2026_11_02-epic-m6-patches-shipped/stage-b/inherited-reading.txt",
+      "final_identity": "100644 blob b655974ce1b965dcfc238f5c4189ab69592fb057\tdocs/audits/2026_11_02-epic-m6-patches-shipped/stage-b/inherited-reading.txt",
+      "same": true,
+      "accepted_stage_receipt": true
+    },
+    {
+      "path": "docs/audits/2026_11_02-epic-m6-patches-shipped/stage-b/native-reading.txt",
+      "accepted_identity": "100644 blob c8fb5bd8b68a8403021477fdfc9c56a800dbe339\tdocs/audits/2026_11_02-epic-m6-patches-shipped/stage-b/native-reading.txt",
+      "final_identity": "100644 blob c8fb5bd8b68a8403021477fdfc9c56a800dbe339\tdocs/audits/2026_11_02-epic-m6-patches-shipped/stage-b/native-reading.txt",
+      "same": true,
+      "accepted_stage_receipt": true
+    },
+    {
+      "path": "docs/audits/2026_11_02-epic-m6-patches-shipped/stage-b/prior-context/t22-02-forward-audit.md",
+      "accepted_identity": "100644 blob 3e68f56dc79c6362f16089ba39bf1242e3d0b94c\tdocs/audits/2026_11_02-epic-m6-patches-shipped/stage-b/prior-context/t22-02-forward-audit.md",
+      "final_identity": "100644 blob 3e68f56dc79c6362f16089ba39bf1242e3d0b94c\tdocs/audits/2026_11_02-epic-m6-patches-shipped/stage-b/prior-context/t22-02-forward-audit.md",
+      "same": true,
+      "accepted_stage_receipt": true
+    },
+    {
+      "path": "docs/audits/2026_11_02-epic-m6-patches-shipped/stage-b/source-context/ppsspp-upstream.stdout",
+      "accepted_identity": "100644 blob af4dc7ffcb63ab298b2c83f556b1d67aee86b1ed\tdocs/audits/2026_11_02-epic-m6-patches-shipped/stage-b/source-context/ppsspp-upstream.stdout",
+      "final_identity": "100644 blob af4dc7ffcb63ab298b2c83f556b1d67aee86b1ed\tdocs/audits/2026_11_02-epic-m6-patches-shipped/stage-b/source-context/ppsspp-upstream.stdout",
+      "same": true,
+      "accepted_stage_receipt": true
+    },
+    {
+      "path": "docs/audits/2026_11_02-epic-m6-patches-shipped/stage-b/source-context/prior-t30-punch.stdout",
+      "accepted_identity": "100644 blob bf8bd1e9fd3bfcccc7648b586e94d8940cc7ba78\tdocs/audits/2026_11_02-epic-m6-patches-shipped/stage-b/source-context/prior-t30-punch.stdout",
+      "final_identity": "100644 blob bf8bd1e9fd3bfcccc7648b586e94d8940cc7ba78\tdocs/audits/2026_11_02-epic-m6-patches-shipped/stage-b/source-context/prior-t30-punch.stdout",
+      "same": true,
+      "accepted_stage_receipt": true
+    }
+  ],
+  "commands": [
+    {
+      "name": "full",
+      "argv": [
+        "git",
+        "diff",
+        "--cached",
+        "--check"
+      ],
+      "cwd": "/workspace/tmp/m6-coordinator/t42-final-20261102T2101/integration",
+      "start": "2026-11-02T21:19:31.820157+00:00",
+      "end": "2026-11-02T21:19:32.012222+00:00",
+      "rc": 2,
+      "stdout_sha256": "c1fd144acfdafb13bf5c2d0e538c864699fdfb1fa5f1adf7f873ac4435359069",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "remaining",
+      "argv": [
+        "git",
+        "diff",
+        "--cached",
+        "--check",
+        "--",
+        ".",
+        ":(exclude,literal)docs/audits/2026_11_02-epic-m6-patches-shipped/stage-b/fork-written-reading.txt",
+        ":(exclude,literal)docs/audits/2026_11_02-epic-m6-patches-shipped/stage-b/inherited-reading.txt",
+        ":(exclude,literal)docs/audits/2026_11_02-epic-m6-patches-shipped/stage-b/native-reading.txt",
+        ":(exclude,literal)docs/audits/2026_11_02-epic-m6-patches-shipped/stage-b/prior-context/t22-02-forward-audit.md",
+        ":(exclude,literal)docs/audits/2026_11_02-epic-m6-patches-shipped/stage-b/source-context/ppsspp-upstream.stdout",
+        ":(exclude,literal)docs/audits/2026_11_02-epic-m6-patches-shipped/stage-b/source-context/prior-t30-punch.stdout"
+      ],
+      "cwd": "/workspace/tmp/m6-coordinator/t42-final-20261102T2101/integration",
+      "start": "2026-11-02T21:19:32.115733+00:00",
+      "end": "2026-11-02T21:19:32.201988+00:00",
+      "rc": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ]
+}
