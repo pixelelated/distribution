@@ -221,3 +221,11 @@ Each item from § 2's take-up table, verified at Stage A (`f03b64419f`):
 | Area futro's asks and kickoff addendum (`docs/futros/2026-10-25-m6-patches-and-configs.md:202`) | Added by the coordinator at `d7dd766659` | **read** | Present in tree at `f03b64419f` |
 | D-WORKFLOW-185, -187, -189, -198, -209, -162, -164, -165, -221 | Bounds reach, no-edit rule, upstream column, and T41 ownership | **read** | Verified in `docs/decision-register.md` |
 | Device slices' retros (T11, T27, T28, T25) | No extra T41 items beyond those above | **none** | Branch tips and read commits verified present |
+
+## Records correction — 2026-11-02 16:44:30 UTC
+
+Codex / GPT-6-Astra / xhigh, session `01a19d12-29e3-7fe0-9f41-038dac0a5deb`, observed live Herdr footer (not provider-attested), resumed T3 at Local depth. Acceptance #688 comment 6582546759 authorizes Stage B after this correction. Historical Stage-A Opus execution and Argon write-up remain above.
+
+Verified seed `f03b64419fa656fb3af61cbc8d174284020d439c` by `git rev-parse`; brief SHA256 `24794608bcc7a0f9dc523b95e70e74e102c0aa1ba0fde41e6a353306f6ec6b87`; accepted tree `cffe3f869c`: 37 audit files / 35 under `stage-a/`. Correct directory counts in brief order: **4 / 6 / 4 / 32 / 55 / 1 / 2 / 2 / 1**. The original 00/01 group rows already agree; the checkpoint prose did not. Corrected the pointer/README to actual `ls-tree`, removed fictitious artifact names, corrected the expanded seed hash in 00, and replaced stale Stage-B pins/patch/split/section. D-WORKFLOW-221 is at register line 782, not the old pointer/work-log's 2089. Original receipts under `stage-a/` except its README are unchanged.
+
+Next: dated erratum on checkpoint 6580886152, then v2 Stage B: 8 / 42 / 65 kernel sequences, four U-Boot v2026.01 rows and one firmware 20260309 row, complete 02/03/04 and stage-b packet. Committed paths retain literal `\u002d`; normalize only for comparison/source access. No product, historical launch tree, runtime or host-ledger changes.

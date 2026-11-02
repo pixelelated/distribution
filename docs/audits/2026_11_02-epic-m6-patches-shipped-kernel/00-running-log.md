@@ -62,7 +62,7 @@
   block = the brief's expected lines
   ```
   `diff .qa-scratch/t41/block-expected.txt /workspace/tmp/m6-t41/tmp/block.out` exited `0` (0 differing lines across all 99 lines). Saved the P1 run's scratch under `/workspace/tmp/m6-t41/stage-a-p1/` and committed its artifacts under `stage-a/p1-qa-scratch/` (`tree-ih.txt` sha256 `e0840a0ad48f861236a3b05360178657eb283462bfbfa296aa408215086f8a23`, 133,520 lines; `tree-p1.txt` sha256 `fa347753df4b8b49f58a59139ce1639beb957447846a35c6edad0222020b1402`, 133,521 lines, recorded in `stage-a/p1-qa-scratch/tree-listings.sha256`).
-- Rebound `W` to this worktree and `P1` to `HEAD` (`f03b64419f70e965b733eb9496e4057b70316e66`; rebinding grep count `1`) and ran `bash .qa-scratch/t41/block-tip.sh > /workspace/tmp/m6-t41/tmp/block-tip.out 2>&1`:
+- Rebound `W` to this worktree and `P1` to `HEAD` (`f03b64419fa656fb3af61cbc8d174284020d439c`; rebinding grep count `1`) and ran `bash .qa-scratch/t41/block-tip.sh > /workspace/tmp/m6-t41/tmp/block-tip.out 2>&1`:
   ```text
   block at the tip rc=0
   the same lines at the tip
@@ -140,3 +140,13 @@
 - **Secret-pattern collision on `0158-mmc-sunxi-mmc-mask\u002ddata0-...` found during Stage-A packaging (`15:10Z`):**
   - Scanning `docs/audits/2026_11_02-epic-m6-patches-shipped-kernel/stage-a/` against `.githooks/secret-patterns` matched 11 files (`order-H700.txt`, and `paths.txt`, `text.txt`, `block-1.txt`, `block-2.txt`, `mb-compare.txt` under `p1-qa-scratch/` and `tip-qa-scratch/`) on H700 patch #32 (`0158`), because its filename substring after `ma` matches the unanchored `sk-[A-Za-z0-9_-]{24,}` rule in `.githooks/secret-patterns` — the exact row `docs/reviews/inventory.json` lists in `escaped_rows` (`tools/renovation-inventory:633-642`).
   - In the committed `stage-a/` copies, that single hyphen is escaped as `\u002d` (matching `inventory.json`), reducing `.githooks/secret-patterns` matches across `docs/audits/2026_11_02-epic-m6-patches-shipped-kernel/` to `0` (`rc=1`) while keeping the raw unescaped files in `/workspace/tmp/m6-t41/` and `.qa-scratch/t41/`. Flagged on #688 for the Stage-B `02-forward-audit.md` table vs Criterion 9 (`diff` against `.qa-scratch/t41/paths.txt`) and Criterion 17 (`0` files matching `.githooks/secret-patterns`).
+
+## Records correction — 2026-11-02 16:44:30 UTC
+
+Codex / GPT-6-Astra / xhigh, session `01a19d12-29e3-7fe0-9f41-038dac0a5deb`, observed live Herdr footer (not provider-attested), resumed T3 at Local depth. Acceptance #688 comment 6582546759 authorizes Stage B after this correction. Historical Stage-A Opus execution and Argon write-up remain above.
+
+Verified seed `f03b64419fa656fb3af61cbc8d174284020d439c` by `git rev-parse`; brief SHA256 `24794608bcc7a0f9dc523b95e70e74e102c0aa1ba0fde41e6a353306f6ec6b87`; accepted tree `cffe3f869c`: 37 audit files / 35 under `stage-a/`. Correct directory counts in brief order: **4 / 6 / 4 / 32 / 55 / 1 / 2 / 2 / 1**. The original 00/01 group rows already agree; the checkpoint prose did not. Corrected the pointer/README to actual `ls-tree`, removed fictitious artifact names, corrected the expanded seed hash in 00, and replaced stale Stage-B pins/patch/split/section. D-WORKFLOW-221 is at register line 782, not the old pointer/work-log's 2089. Original receipts under `stage-a/` except its README are unchanged.
+
+Next: dated erratum on checkpoint 6580886152, then v2 Stage B: 8 / 42 / 65 kernel sequences, four U-Boot v2026.01 rows and one firmware 20260309 row, complete 02/03/04 and stage-b packet. Committed paths retain literal `\u002d`; normalize only for comparison/source access. No product, historical launch tree, runtime or host-ledger changes.
+
+Correction verification (2026-11-02 16:45:55 UTC): `git diff --check` rc=0; the v2-byte/full-seed/ls-tree/107-source-path assertion script rc=0; `tools/rules-check` rc=0 (30 rules), `tools/register-check` rc=0 (717 IDs), `tools/work-log-index --check` rc=0, `.githooks/hooks-test` rc=0 (PASS). The initial sandbox `tools/ceremony-check --gate` returned rc=0 with tracker-network warnings; the authorized read-only retry with network access returned rc=0 with no output. These are correction checks, not a rerun of Stage-A behavior evidence.
