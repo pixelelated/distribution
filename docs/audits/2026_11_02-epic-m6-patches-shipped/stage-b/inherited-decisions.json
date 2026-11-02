@@ -1,0 +1,852 @@
+[
+  {
+    "index": 1,
+    "patch": "packages/tools/u-boot/patches/0001-libfdt-Fix-build-with-swig-4-5-0.patch",
+    "override": "projects/ROCKNIX/devices/H700/packages/u-boot",
+    "prior_recipe_owner": "T27 #674",
+    "prior_base_disposition": "T27 accepted pin/PL-01 and consolidation PL-10",
+    "conclusion": "unresolved-with-specific-evidence-needed",
+    "feature_architecture_and_intent": "H700 DDR3 and DDR4 both v2026.01; both recipes depend on swig:host, whose generic recipe pins 4.5.0. Both raw libfdt.i_shipped files retain all two preimage hunks; the old PyString/PyInt calls are not absorbed.",
+    "remaining_owner_action": "T27 #674: establish the actual configured pylibfdt/SWIG path for both defconfigs, then qualify the three macro replacements. T41 owns the four existing U-Boot patches; none transferred.",
+    "evidence": [
+      "stage-b/inherited-inputs.json",
+      "stage-b/inherited-hunks.json",
+      "stage-b/inherited-source/index.json"
+    ],
+    "reader": "Codex / GPT-6-Astra / xhigh",
+    "utc": "2026-11-02T19:22:14.080720+00:00"
+  },
+  {
+    "index": 2,
+    "patch": "packages/audio/alsa-lib/patches/0001-add-run-asound.conf-as-a-config-location.patch",
+    "override": "projects/ROCKNIX/packages/audio/alsa-lib",
+    "prior_recipe_owner": "T8 #655",
+    "prior_base_disposition": "T8 q4: follows the base merge; recipe acceptance is not patch adoption",
+    "conclusion": "already-carried",
+    "feature_architecture_and_intent": "The live alsa-lib-asound.conf_configdir.patch has identical ordered changes and targets: /run/asound.conf and /storage/.config/asound.conf replace ~/.asoundrc.",
+    "remaining_owner_action": "T8 #655: preserve the native counterpart through the base merge; no duplicate adoption.",
+    "evidence": [
+      "stage-b/inherited-inputs.json",
+      "stage-b/inherited-hunks.json",
+      "stage-b/inherited-source/index.json"
+    ],
+    "reader": "Codex / GPT-6-Astra / xhigh",
+    "utc": "2026-11-02T19:22:14.080739+00:00"
+  },
+  {
+    "index": 3,
+    "patch": "packages/audio/fluidsynth/patches/0001-libsndfile-use-static-libraries.patch",
+    "override": "projects/ROCKNIX/packages/audio/fluidsynth",
+    "prior_recipe_owner": "T8 #655",
+    "prior_base_disposition": "T8 q4: follows the base merge; recipe acceptance is not patch adoption",
+    "conclusion": "not-applicable-with-reason",
+    "feature_architecture_and_intent": "Generic patch substitutes LIBSNDFILE_STATIC_LIBRARIES. The ROCKNIX override explicitly builds shared FluidSynth and enables sndfile; libsndfile also builds shared. The 2.5.7 source first uses SndFile config and then legacy discovery. No static-only requirement is established for this target.",
+    "remaining_owner_action": "T8 #655: revisit only if the target changes to static sndfile; no adoption for the observed shared configuration.",
+    "evidence": [
+      "stage-b/inherited-inputs.json",
+      "stage-b/inherited-hunks.json",
+      "stage-b/inherited-source/index.json"
+    ],
+    "reader": "Codex / GPT-6-Astra / xhigh",
+    "utc": "2026-11-02T19:22:14.080743+00:00"
+  },
+  {
+    "index": 4,
+    "patch": "packages/audio/libsndfile/patches/1073-build-with-cmake-4.0.0.patch",
+    "override": "projects/ROCKNIX/packages/audio/libsndfile",
+    "prior_recipe_owner": "T8 #655",
+    "prior_base_disposition": "T8 q4: follows the base merge; recipe acceptance is not patch adoption",
+    "conclusion": "unresolved-with-specific-evidence-needed",
+    "feature_architecture_and_intent": "The generic patch changes 3.1..3.18 to 3.1...3.18. Exact e486f20 cached source instead has 3.5..3.26 at CMakeLists.txt:1. Neither whole hunk matches; the same two-dot spelling deserves a version-specific check, not a claim of absorption.",
+    "remaining_owner_action": "T8 #655: qualify CMake 4 interpretation of 3.5..3.26 on this pin; preserve the already queued short-pin issue in #585.",
+    "evidence": [
+      "stage-b/inherited-inputs.json",
+      "stage-b/inherited-hunks.json",
+      "stage-b/inherited-source/index.json"
+    ],
+    "reader": "Codex / GPT-6-Astra / xhigh",
+    "utc": "2026-11-02T19:22:14.080745+00:00"
+  },
+  {
+    "index": 5,
+    "patch": "packages/audio/pulseaudio/patches/1002-check-uid.patch",
+    "override": "projects/ROCKNIX/packages/audio/pulseaudio",
+    "prior_recipe_owner": "T8 #655",
+    "prior_base_disposition": "T8 q4: follows the base merge; recipe acceptance is not patch adoption",
+    "conclusion": "already-carried",
+    "feature_architecture_and_intent": "pulseaudio-100.02-check_uid.patch removes the same four-line HAVE_GETUID ownership test at the same target as the generic patch.",
+    "remaining_owner_action": "T8 #655: preserve the live policy patch; this comparison does not approve or change the UID policy.",
+    "evidence": [
+      "stage-b/inherited-inputs.json",
+      "stage-b/inherited-hunks.json",
+      "stage-b/inherited-source/index.json"
+    ],
+    "reader": "Codex / GPT-6-Astra / xhigh",
+    "utc": "2026-11-02T19:22:14.080747+00:00"
+  },
+  {
+    "index": 6,
+    "patch": "packages/devel/glibc/patches/0001-Makerules-install-the-ABI-lib-names-header-from-the-.patch",
+    "override": "projects/ROCKNIX/packages/devel/glibc",
+    "prior_recipe_owner": "T8 #655",
+    "prior_base_disposition": "T8 q4: follows the base merge; recipe acceptance is not patch adoption",
+    "conclusion": "unresolved-with-specific-evidence-needed",
+    "feature_architecture_and_intent": "glibc 2.41 Makerules retains the complete preimage of the top-level ABI lib-names header installation guard. No corresponding live patch supplies ifndef subdir.",
+    "remaining_owner_action": "T8 #655: establish whether the selected parallel subdirectory build can race this install at 2.41, then qualify this one guard or the base-merge replacement.",
+    "evidence": [
+      "stage-b/inherited-inputs.json",
+      "stage-b/inherited-hunks.json",
+      "stage-b/inherited-source/index.json"
+    ],
+    "reader": "Codex / GPT-6-Astra / xhigh",
+    "utc": "2026-11-02T19:22:14.080748+00:00"
+  },
+  {
+    "index": 7,
+    "patch": "packages/devel/glibc/patches/0002-Fix-gen-as-const-headers-races-with-the-parallel-sub.patch",
+    "override": "projects/ROCKNIX/packages/devel/glibc",
+    "prior_recipe_owner": "T8 #655",
+    "prior_base_disposition": "T8 q4: follows the base merge; recipe acceptance is not patch adoption",
+    "conclusion": "unresolved-with-specific-evidence-needed",
+    "feature_architecture_and_intent": "All six preimage hunks for gen-as-const header generation match glibc 2.41, including Hurd/x86 and Linux/sh/x86_64. Their affected architectures and cross-subdirectory consumers differ; presence alone is not a race proof on the five plans.",
+    "remaining_owner_action": "T8 #655: map each .sym consumer to selected x86_64/arm/aarch64 subdirectories and prove parallel ordering at 2.41 before adoption.",
+    "evidence": [
+      "stage-b/inherited-inputs.json",
+      "stage-b/inherited-hunks.json",
+      "stage-b/inherited-source/index.json"
+    ],
+    "reader": "Codex / GPT-6-Astra / xhigh",
+    "utc": "2026-11-02T19:22:14.080750+00:00"
+  },
+  {
+    "index": 8,
+    "patch": "packages/devel/glibc/patches/0003-Makefile-Order-the-top-level-stamp-files-before-the-.patch",
+    "override": "projects/ROCKNIX/packages/devel/glibc",
+    "prior_recipe_owner": "T8 #655",
+    "prior_base_disposition": "T8 q4: follows the base merge; recipe acceptance is not patch adoption",
+    "conclusion": "unresolved-with-specific-evidence-needed",
+    "feature_architecture_and_intent": "The glibc top-level stamp ordering hunk matches neither preimage nor postimage at 2.41. It depends on a different Makefile recursion shape than merely finding a missing patch file.",
+    "remaining_owner_action": "T8 #655: map the 2.41 top-level stamp and elf fan-out prerequisites to the generic patch before deciding whether this fix applies.",
+    "evidence": [
+      "stage-b/inherited-inputs.json",
+      "stage-b/inherited-hunks.json",
+      "stage-b/inherited-source/index.json"
+    ],
+    "reader": "Codex / GPT-6-Astra / xhigh",
+    "utc": "2026-11-02T19:22:14.080751+00:00"
+  },
+  {
+    "index": 9,
+    "patch": "packages/devel/glibc/patches/0004-Makerules-Make-the-.dt-to-.d-conversion-safe-against.patch",
+    "override": "projects/ROCKNIX/packages/devel/glibc",
+    "prior_recipe_owner": "T8 #655",
+    "prior_base_disposition": "T8 q4: follows the base merge; recipe acceptance is not patch adoption",
+    "conclusion": "unresolved-with-specific-evidence-needed",
+    "feature_architecture_and_intent": "Both Makerules .dt conversion preimages match glibc 2.41; the generic fix claims input by rename and uses PID-specific temporaries. No whole-postimage match exists.",
+    "remaining_owner_action": "T8 #655: establish simultaneous elf rtld-Rules/subdir conversion on the selected 2.41 build, then qualify the atomic-claim change independently of I06-I08.",
+    "evidence": [
+      "stage-b/inherited-inputs.json",
+      "stage-b/inherited-hunks.json",
+      "stage-b/inherited-source/index.json"
+    ],
+    "reader": "Codex / GPT-6-Astra / xhigh",
+    "utc": "2026-11-02T19:22:14.080753+00:00"
+  },
+  {
+    "index": 10,
+    "patch": "packages/devel/glibc/patches/0005-arm-Order-the-rtld-link-after-libgcc-stubs.a.patch",
+    "override": "projects/ROCKNIX/packages/devel/glibc",
+    "prior_recipe_owner": "T8 #655",
+    "prior_base_disposition": "T8 q4: follows the base merge; recipe acceptance is not patch adoption",
+    "conclusion": "unresolved-with-specific-evidence-needed",
+    "feature_architecture_and_intent": "glibc 2.41 sysdeps/arm/Makefile retains the whole preimage for ordering librtld.map/librtld.os after libgcc-stubs.a. This question concerns H700-arm and SM8550-arm, not the aarch64 or x86_64 targets.",
+    "remaining_owner_action": "T8 #655: prove the arm link dependency path and qualify the prerequisite; no blanket glibc adoption.",
+    "evidence": [
+      "stage-b/inherited-inputs.json",
+      "stage-b/inherited-hunks.json",
+      "stage-b/inherited-source/index.json"
+    ],
+    "reader": "Codex / GPT-6-Astra / xhigh",
+    "utc": "2026-11-02T19:22:14.080755+00:00"
+  },
+  {
+    "index": 11,
+    "patch": "packages/devel/glibc/patches/widevine-arm/0001-HACK-Dont-check-GLIBC-ABI-DT-RELR-support-for-ChromeO.patch",
+    "override": "projects/ROCKNIX/packages/devel/glibc",
+    "prior_recipe_owner": "T8 #655",
+    "prior_base_disposition": "T8 q4: follows the base merge; recipe acceptance is not patch adoption",
+    "conclusion": "unresolved-with-specific-evidence-needed",
+    "feature_architecture_and_intent": "glibc 2.41 has the preimage of the ChromeOS Widevine DT_RELR bypass. The override names widevine-arm for arm/aarch64, but no such override patch is present. The actual CDM consumer/version is not established.",
+    "remaining_owner_action": "T8 #655: supply the reached libwidevinecdm consumer/version and ABI requirement for the ARM plans before carrying an ABI-check exception.",
+    "evidence": [
+      "stage-b/inherited-inputs.json",
+      "stage-b/inherited-hunks.json",
+      "stage-b/inherited-source/index.json"
+    ],
+    "reader": "Codex / GPT-6-Astra / xhigh",
+    "utc": "2026-11-02T19:22:14.080756+00:00"
+  },
+  {
+    "index": 12,
+    "patch": "packages/devel/glibc/patches/widevine-arm/0002-tls-libwidevinecdm.so-since-4.10.2252.0-has-TLS-with.patch",
+    "override": "projects/ROCKNIX/packages/devel/glibc",
+    "prior_recipe_owner": "T8 #655",
+    "prior_base_disposition": "T8 q4: follows the base merge; recipe acceptance is not patch adoption",
+    "conclusion": "unresolved-with-specific-evidence-needed",
+    "feature_architecture_and_intent": "glibc 2.41 has the preimage of the Widevine TLS alignment floor. The new code would globally raise max_align to 64; that cost and a CDM needing it are not proved by directory selection.",
+    "remaining_owner_action": "T8 #655: supply the CDM TLS alignment requirement and selected-loader compatibility; decide independently of the DT_RELR exception.",
+    "evidence": [
+      "stage-b/inherited-inputs.json",
+      "stage-b/inherited-hunks.json",
+      "stage-b/inherited-source/index.json"
+    ],
+    "reader": "Codex / GPT-6-Astra / xhigh",
+    "utc": "2026-11-02T19:22:14.080758+00:00"
+  },
+  {
+    "index": 13,
+    "patch": "packages/devel/make/patches/0001-fix-large-command-line-on-POSIX-systems.patch",
+    "override": "projects/ROCKNIX/packages/devel/make",
+    "prior_recipe_owner": "T8 #655",
+    "prior_base_disposition": "T8 q4: follows the base merge; recipe acceptance is not patch adoption",
+    "conclusion": "already-carried",
+    "feature_architecture_and_intent": "Native make-02 carries the long-command eval split, allocation extension and test. The changed-lines diff differs only in whether the WINDOWS32-closing #endif is context or addition; both postimages close WINDOWS32 before args_ptr and guard EVAL_LEN with MAX_ARG_STRLEN.",
+    "remaining_owner_action": "T8 #655: retain this equivalent current-pin implementation; normal native application is fuzzy and needs recontextualization before a later pin change.",
+    "evidence": [
+      "stage-b/inherited-inputs.json",
+      "stage-b/inherited-hunks.json",
+      "stage-b/inherited-source/index.json"
+    ],
+    "reader": "Codex / GPT-6-Astra / xhigh",
+    "utc": "2026-11-02T19:22:14.080759+00:00"
+  },
+  {
+    "index": 14,
+    "patch": "packages/devel/readline/patches/0001-display-null-prompt.patch",
+    "override": "projects/ROCKNIX/packages/devel/readline",
+    "prior_recipe_owner": "T8 #655",
+    "prior_base_disposition": "T8 q4: follows the base merge; recipe acceptance is not patch adoption",
+    "conclusion": "already-carried",
+    "feature_architecture_and_intent": "The native context-format 01-fix-iwd.patch changes exactly the same WRAP_OFFSET macro to guard local_prompt_invis_chars. Unified-only parsing must not erase this counterpart.",
+    "remaining_owner_action": "T8 #655: preserve the native guard; no second null-prompt patch.",
+    "evidence": [
+      "stage-b/inherited-inputs.json",
+      "stage-b/inherited-hunks.json",
+      "stage-b/inherited-source/index.json"
+    ],
+    "reader": "Codex / GPT-6-Astra / xhigh",
+    "utc": "2026-11-02T19:22:14.080761+00:00"
+  },
+  {
+    "index": 15,
+    "patch": "packages/graphics/mesa/patches/mesa-001-fix-addrlib-lgcc-link.patch",
+    "override": "projects/ROCKNIX/packages/graphics/mesa",
+    "prior_recipe_owner": "T8 #655",
+    "prior_base_disposition": "T8 q4: follows the base merge; recipe acceptance is not patch adoption",
+    "conclusion": "unresolved-with-specific-evidence-needed",
+    "feature_architecture_and_intent": "Mesa 26.2.2 retains the whole meson.build preimage lacking -lgcc. The generic reason is addrlib linkage, which depends on selected drivers and compiler linkage, not on patch-directory absence.",
+    "remaining_owner_action": "T8 #655: establish the selected addrlib/AMD driver and libgcc link closure for each reached plan; then decide this linker workaround.",
+    "evidence": [
+      "stage-b/inherited-inputs.json",
+      "stage-b/inherited-hunks.json",
+      "stage-b/inherited-source/index.json"
+    ],
+    "reader": "Codex / GPT-6-Astra / xhigh",
+    "utc": "2026-11-02T19:22:14.080762+00:00"
+  },
+  {
+    "index": 16,
+    "patch": "packages/graphics/vulkan/vulkan-tools/patches/9951-cmakelists-opts.patch",
+    "override": "projects/ROCKNIX/packages/graphics/vulkan/vulkan-tools",
+    "prior_recipe_owner": "T8 #655",
+    "prior_base_disposition": "T8 q4: follows the base merge; recipe acceptance is not patch adoption",
+    "conclusion": "unresolved-with-specific-evidence-needed",
+    "feature_architecture_and_intent": "Vulkan-Tools 1.4.347 top-level CMakeLists retains the generic hunk preimage. The override passes WSI/CUBE variables in display-server branches; this read has not established where all those variables are declared or consumed in subdirectories.",
+    "remaining_owner_action": "T8 #655: trace BUILD_WSI_* and CUBE_WSI_SELECTION through cube/vulkaninfo CMake files at 1.4.347; avoid equating an unused option with a missing feature.",
+    "evidence": [
+      "stage-b/inherited-inputs.json",
+      "stage-b/inherited-hunks.json",
+      "stage-b/inherited-source/index.json"
+    ],
+    "reader": "Codex / GPT-6-Astra / xhigh",
+    "utc": "2026-11-02T19:22:14.080764+00:00"
+  },
+  {
+    "index": 17,
+    "patch": "packages/addons/addon-depends/go/patches/0001-add-ca-cert-location.patch",
+    "override": "projects/ROCKNIX/packages/lang/go",
+    "prior_recipe_owner": "T8 #655",
+    "prior_base_disposition": "T8 q4: follows the base merge; recipe acceptance is not patch adoption",
+    "conclusion": "already-carried",
+    "feature_architecture_and_intent": "The native Go patch adds /etc/ssl to certDirectories, with a ROCKNIX comment instead of LibreELEC and different spacing. Same directory-search behavior at 1.21.4; no whole-patch byte equality claimed.",
+    "remaining_owner_action": "T8 #655: preserve the native search path during merge.",
+    "evidence": [
+      "stage-b/inherited-inputs.json",
+      "stage-b/inherited-hunks.json",
+      "stage-b/inherited-source/index.json"
+    ],
+    "reader": "Codex / GPT-6-Astra / xhigh",
+    "utc": "2026-11-02T19:22:14.080765+00:00"
+  },
+  {
+    "index": 18,
+    "patch": "packages/lang/llvm/patches/0001-14.0.0-force-disable-cmakelist-options.patch",
+    "override": "projects/ROCKNIX/packages/lang/llvm",
+    "prior_recipe_owner": "T8 #655",
+    "prior_base_disposition": "T8 q4: follows the base merge; recipe acceptance is not patch adoption",
+    "conclusion": "already-carried",
+    "feature_architecture_and_intent": "The generic patch flips LLVM_INCLUDE_BENCHMARKS default to OFF. The live 22.1.8 recipe explicitly passes -DLLVM_INCLUDE_BENCHMARKS=OFF in its common options used by host/target configuration.",
+    "remaining_owner_action": "T8 #655: preserve the explicit configuration option; no source-default patch required.",
+    "evidence": [
+      "stage-b/inherited-inputs.json",
+      "stage-b/inherited-hunks.json",
+      "stage-b/inherited-source/index.json"
+    ],
+    "reader": "Codex / GPT-6-Astra / xhigh",
+    "utc": "2026-11-02T19:22:14.080767+00:00"
+  },
+  {
+    "index": 19,
+    "patch": "packages/multimedia/ffmpeg/patches/detlev/0001-wip-hevc-Add-support-for-sps-st-rps-control.patch",
+    "override": "projects/ROCKNIX/packages/multimedia/ffmpeg",
+    "prior_recipe_owner": "T8 #655",
+    "prior_base_disposition": "T8 q4: follows the base merge; recipe acceptance is not patch adoption",
+    "conclusion": "unresolved-with-specific-evidence-needed",
+    "feature_architecture_and_intent": "FFmpeg 7.1.1 matches seven of twelve HEVC sps_st_rps preimage hunks and no complete postimage. The detlev parser/control change is not in the override stack, and kernel-control consumers are not established here.",
+    "remaining_owner_action": "T8 #655: compare the complete HEVC parser and selected request-driver control ABI at 7.1.1; qualify the newer generic series as a unit before any adoption.",
+    "evidence": [
+      "stage-b/inherited-inputs.json",
+      "stage-b/inherited-hunks.json",
+      "stage-b/inherited-source/index.json"
+    ],
+    "reader": "Codex / GPT-6-Astra / xhigh",
+    "utc": "2026-11-02T19:22:14.080768+00:00"
+  },
+  {
+    "index": 20,
+    "patch": "packages/multimedia/ffmpeg/patches/libreelec/0001-libreelec.patch",
+    "override": "projects/ROCKNIX/packages/multimedia/ffmpeg",
+    "prior_recipe_owner": "T8 #655",
+    "prior_base_disposition": "T8 q4: follows the base merge; recipe acceptance is not patch adoption",
+    "conclusion": "already-carried",
+    "feature_architecture_and_intent": "The native libreelec series carries libdav1d_get_format and the yuv2rgb warning removal. The complete changed-lines comparison differs only in the old pin field spellings c->srcFormat/dstFormat versus newer c->opts.src_format/dst_format.",
+    "remaining_owner_action": "T8 #655: retain the pin-appropriate three hunks; do not apply both versions.",
+    "evidence": [
+      "stage-b/inherited-inputs.json",
+      "stage-b/inherited-hunks.json",
+      "stage-b/inherited-source/index.json"
+    ],
+    "reader": "Codex / GPT-6-Astra / xhigh",
+    "utc": "2026-11-02T19:22:14.080769+00:00"
+  },
+  {
+    "index": 21,
+    "patch": "packages/multimedia/ffmpeg/patches/postproc/0001-postproc.patch",
+    "override": "projects/ROCKNIX/packages/multimedia/ffmpeg",
+    "prior_recipe_owner": "T8 #655",
+    "prior_base_disposition": "T8 q4: follows the base merge; recipe acceptance is not patch adoption",
+    "conclusion": "not-applicable-with-reason",
+    "feature_architecture_and_intent": "The generic series reintroduces libpostproc into a newer source layout. FFmpeg 7.1.1 already contains libpostproc/postprocess.c, its Makefile and configure --disable-postproc/pp_filter dependencies; the override enables postproc. Only 31/56 postimage hunks match, so this is not whole-patch absorption.",
+    "remaining_owner_action": "T8 #655: reassess the reintroduction when merging the newer FFmpeg pin; no wholesale 9,844-line addition at 7.1.1.",
+    "evidence": [
+      "stage-b/inherited-inputs.json",
+      "stage-b/inherited-hunks.json",
+      "stage-b/inherited-source/index.json"
+    ],
+    "reader": "Codex / GPT-6-Astra / xhigh",
+    "utc": "2026-11-02T19:22:14.080770+00:00"
+  },
+  {
+    "index": 22,
+    "patch": "packages/multimedia/ffmpeg/patches/rpi/0001-rpi.patch",
+    "override": "projects/ROCKNIX/packages/multimedia/ffmpeg",
+    "prior_recipe_owner": "T8 #655",
+    "prior_base_disposition": "T8 q4: follows the base merge; recipe acceptance is not patch adoption",
+    "conclusion": "not-applicable-with-reason",
+    "feature_architecture_and_intent": "The rpi series adds Broadcom SAND/vout and request-code machinery. None of the five retained target plans is Raspberry Pi and the live FFmpeg recipe selects libreelec/v4l2-request/v4l2-drmprime, not rpi. No selected Raspberry Pi requirement was found.",
+    "remaining_owner_action": "T8 #655: retain the generic source under the #1048/#346 class decision; revisit only with a selected Raspberry Pi consumer.",
+    "evidence": [
+      "stage-b/inherited-inputs.json",
+      "stage-b/inherited-hunks.json",
+      "stage-b/inherited-source/index.json"
+    ],
+    "reader": "Codex / GPT-6-Astra / xhigh",
+    "utc": "2026-11-02T19:22:14.080772+00:00"
+  },
+  {
+    "index": 23,
+    "patch": "packages/multimedia/ffmpeg/patches/v4l2-drmprime/0001-v4l2-drmprime.patch",
+    "override": "projects/ROCKNIX/packages/multimedia/ffmpeg",
+    "prior_recipe_owner": "T8 #655",
+    "prior_base_disposition": "T8 q4: follows the base merge; recipe acceptance is not patch adoption",
+    "conclusion": "already-carried",
+    "feature_architecture_and_intent": "The native drmprime series carries the same ordered functional changes; its changed-lines delta additionally relocates v4l2_free_buffer and renames that callback parameter from unused to data. No additional generic drmprime feature is identified by this complete change-sequence comparison.",
+    "remaining_owner_action": "T8 #655: retain the pin-appropriate series; application remains open because FFmpeg post_unpack input is not composed in this pass.",
+    "evidence": [
+      "stage-b/inherited-inputs.json",
+      "stage-b/inherited-hunks.json",
+      "stage-b/inherited-source/index.json"
+    ],
+    "reader": "Codex / GPT-6-Astra / xhigh",
+    "utc": "2026-11-02T19:22:14.080773+00:00"
+  },
+  {
+    "index": 24,
+    "patch": "packages/multimedia/ffmpeg/patches/v4l2-request/0001-v4l2-request.patch",
+    "override": "projects/ROCKNIX/packages/multimedia/ffmpeg",
+    "prior_recipe_owner": "T8 #655",
+    "prior_base_disposition": "T8 q4: follows the base merge; recipe acceptance is not patch adoption",
+    "conclusion": "unresolved-with-specific-evidence-needed",
+    "feature_architecture_and_intent": "The generic 13-part V4L2 request series and native 11-part series have a 5,254-line changed-sequence diff, including frame-context internals, modifiers and libdrm dependencies. One postimage hunk is not evidence that the new series is absorbed.",
+    "remaining_owner_action": "T8 #655: supply the selected kernel/media API and prove full-series compatibility at the eventual FFmpeg pin; do not mix the series hunk by hunk.",
+    "evidence": [
+      "stage-b/inherited-inputs.json",
+      "stage-b/inherited-hunks.json",
+      "stage-b/inherited-source/index.json"
+    ],
+    "reader": "Codex / GPT-6-Astra / xhigh",
+    "utc": "2026-11-02T19:22:14.080774+00:00"
+  },
+  {
+    "index": 25,
+    "patch": "packages/multimedia/ffmpeg/patches/vf-deinterlace-v4l2m2m/0001-vf-deinterlace-v4l2m2m.patch",
+    "override": "projects/ROCKNIX/packages/multimedia/ffmpeg",
+    "prior_recipe_owner": "T8 #655",
+    "prior_base_disposition": "T8 q4: follows the base merge; recipe acceptance is not patch adoption",
+    "conclusion": "not-applicable-with-reason",
+    "feature_architecture_and_intent": "The override adds vf-deinterlace-v4l2m2m only for RK* except RK3588. The five retained plans are GENERIC_X64, H700 and SM8550 and do not select that branch.",
+    "remaining_owner_action": "T8 #655: retain the generic lead for any future RK scope; no adoption into these five plans.",
+    "evidence": [
+      "stage-b/inherited-inputs.json",
+      "stage-b/inherited-hunks.json",
+      "stage-b/inherited-source/index.json"
+    ],
+    "reader": "Codex / GPT-6-Astra / xhigh",
+    "utc": "2026-11-02T19:22:14.080775+00:00"
+  },
+  {
+    "index": 26,
+    "patch": "packages/network/avahi/patches/0001-dbus--Use-non-deprecated-installation-path.patch",
+    "override": "projects/ROCKNIX/packages/network/avahi",
+    "prior_recipe_owner": "T8 #655",
+    "prior_base_disposition": "T8 q4: follows the base merge; recipe acceptance is not patch adoption",
+    "conclusion": "unresolved-with-specific-evidence-needed",
+    "feature_architecture_and_intent": "Avahi 0.8 retains the whole configure.ac preimage using sysconfdir for D-Bus policy; the recipe enables D-Bus and installs/removes related files. Moving policy to datadir needs an installed-path compatibility decision.",
+    "remaining_owner_action": "T8 #655: compare installed D-Bus policy search paths and recipe copy/removal operations before moving the location; no runtime probe authorized here.",
+    "evidence": [
+      "stage-b/inherited-inputs.json",
+      "stage-b/inherited-hunks.json",
+      "stage-b/inherited-source/index.json"
+    ],
+    "reader": "Codex / GPT-6-Astra / xhigh",
+    "utc": "2026-11-02T19:22:14.080777+00:00"
+  },
+  {
+    "index": 27,
+    "patch": "packages/network/bluez/patches/0001-add-obexd-policy.patch",
+    "override": "projects/ROCKNIX/packages/network/bluez",
+    "prior_recipe_owner": "T8 #655",
+    "prior_base_disposition": "T8 q4: follows the base merge; recipe acceptance is not patch adoption",
+    "conclusion": "already-carried",
+    "feature_architecture_and_intent": "The live bluez-01 policy patch has every ordered change and target of the generic OBEX policy patch. The recipe disables OBEX but copies bluetooth.conf; adoption is already represented in source, not a statement that the OBEX service runs.",
+    "remaining_owner_action": "T8 #655: retain the existing policy or let its feature owner retire it explicitly; no duplicate patch.",
+    "evidence": [
+      "stage-b/inherited-inputs.json",
+      "stage-b/inherited-hunks.json",
+      "stage-b/inherited-source/index.json"
+    ],
+    "reader": "Codex / GPT-6-Astra / xhigh",
+    "utc": "2026-11-02T19:22:14.080778+00:00"
+  },
+  {
+    "index": 28,
+    "patch": "packages/network/bluez/patches/0002-storagedir.patch",
+    "override": "projects/ROCKNIX/packages/network/bluez",
+    "prior_recipe_owner": "T8 #655",
+    "prior_base_disposition": "T8 q4: follows the base merge; recipe acceptance is not patch adoption",
+    "conclusion": "already-carried",
+    "feature_architecture_and_intent": "bluez-03_storagedir.patch has identical complete changes, guarding default storagedir assignment; the recipe explicitly supplies /storage/.cache/bluetooth.",
+    "remaining_owner_action": "T8 #655: preserve the state location and counterpart through integration.",
+    "evidence": [
+      "stage-b/inherited-inputs.json",
+      "stage-b/inherited-hunks.json",
+      "stage-b/inherited-source/index.json"
+    ],
+    "reader": "Codex / GPT-6-Astra / xhigh",
+    "utc": "2026-11-02T19:22:14.080779+00:00"
+  },
+  {
+    "index": 29,
+    "patch": "packages/network/bluez/patches/0003-work-around-Logitech-diNovo-Edge-keyboard-firmware-i.patch",
+    "override": "projects/ROCKNIX/packages/network/bluez",
+    "prior_recipe_owner": "T8 #655",
+    "prior_base_disposition": "T8 q4: follows the base merge; recipe acceptance is not patch adoption",
+    "conclusion": "unresolved-with-specific-evidence-needed",
+    "feature_architecture_and_intent": "BlueZ 5.83 tools/hid2hci.rules retains the preimage for diNovo c714 hiddev-to-hidraw handling; the override enables hid2hci. Hardware presence and the rule interaction are not established by source reach.",
+    "remaining_owner_action": "T8 #655: establish support intent for Logitech diNovo Edge c714 and qualify the rule with a synthetic udev record before any physical test.",
+    "evidence": [
+      "stage-b/inherited-inputs.json",
+      "stage-b/inherited-hunks.json",
+      "stage-b/inherited-source/index.json"
+    ],
+    "reader": "Codex / GPT-6-Astra / xhigh",
+    "utc": "2026-11-02T19:22:14.080780+00:00"
+  },
+  {
+    "index": 30,
+    "patch": "packages/network/bluez/patches/0004-046d-c52b-Logitech-Inc.-Unifying-Receiver.patch",
+    "override": "projects/ROCKNIX/packages/network/bluez",
+    "prior_recipe_owner": "T8 #655",
+    "prior_base_disposition": "T8 q4: follows the base merge; recipe acceptance is not patch adoption",
+    "conclusion": "unresolved-with-specific-evidence-needed",
+    "feature_architecture_and_intent": "The Unifying c52b rule is absent at the raw pin, but its preimage assumes the preceding diNovo rule modification. It cannot be classified independently as an apply-ready patch.",
+    "remaining_owner_action": "T8 #655: establish c52b device support and compare the composed I29/I30 rule ordering; use a synthetic udev record before hardware.",
+    "evidence": [
+      "stage-b/inherited-inputs.json",
+      "stage-b/inherited-hunks.json",
+      "stage-b/inherited-source/index.json"
+    ],
+    "reader": "Codex / GPT-6-Astra / xhigh",
+    "utc": "2026-11-02T19:22:14.080781+00:00"
+  },
+  {
+    "index": 31,
+    "patch": "packages/network/bluez/patches/0006-fix-obexd-after-5-73.patch",
+    "override": "projects/ROCKNIX/packages/network/bluez",
+    "prior_recipe_owner": "T8 #655",
+    "prior_base_disposition": "T8 q4: follows the base merge; recipe acceptance is not patch adoption",
+    "conclusion": "already-carried",
+    "feature_architecture_and_intent": "bluez-12-fix-obexd-after-5_73.patch has identical ordered changes in all four hunks. The disabled OBEX branch still needs well-formed Automake conditionals.",
+    "remaining_owner_action": "T8 #655: preserve the existing Makefile.obexd repair; no duplicate adoption.",
+    "evidence": [
+      "stage-b/inherited-inputs.json",
+      "stage-b/inherited-hunks.json",
+      "stage-b/inherited-source/index.json"
+    ],
+    "reader": "Codex / GPT-6-Astra / xhigh",
+    "utc": "2026-11-02T19:22:14.080782+00:00"
+  },
+  {
+    "index": 32,
+    "patch": "packages/network/bluez/patches/0007-hciattach-add-QCA9377-Tuffello-support.patch",
+    "override": "projects/ROCKNIX/packages/network/bluez",
+    "prior_recipe_owner": "T8 #655",
+    "prior_base_disposition": "T8 q4: follows the base merge; recipe acceptance is not patch adoption",
+    "conclusion": "unresolved-with-specific-evidence-needed",
+    "feature_architecture_and_intent": "The QCA9377 Tuffello series adds hciattach_rome.c and qca registration. The override enables deprecated/tools but this source read establishes no selected Tuffello UART consumer. Five of seven raw preimages match; source absence alone is not a runtime defect.",
+    "remaining_owner_action": "T8 #655 with device owners: name a reached QCA9377 Tuffello consumer and transport before carrying the 2,366-line implementation.",
+    "evidence": [
+      "stage-b/inherited-inputs.json",
+      "stage-b/inherited-hunks.json",
+      "stage-b/inherited-source/index.json"
+    ],
+    "reader": "Codex / GPT-6-Astra / xhigh",
+    "utc": "2026-11-02T19:22:14.080784+00:00"
+  },
+  {
+    "index": 33,
+    "patch": "packages/network/bluez/patches/0008-hciattach-rome-fix-compiler-warnings.patch",
+    "override": "projects/ROCKNIX/packages/network/bluez",
+    "prior_recipe_owner": "T8 #655",
+    "prior_base_disposition": "T8 q4: follows the base merge; recipe acceptance is not patch adoption",
+    "conclusion": "not-applicable-with-reason",
+    "feature_architecture_and_intent": "The compiler-warning patch changes hciattach_rome.c, which is absent in the qualified raw 5.83 archive and not supplied by any live override patch. It depends on the unadopted I32 source file.",
+    "remaining_owner_action": "T8 #655: carry these warning corrections if and only if I32 is adopted; no standalone application to a nonexistent file.",
+    "evidence": [
+      "stage-b/inherited-inputs.json",
+      "stage-b/inherited-hunks.json",
+      "stage-b/inherited-source/index.json"
+    ],
+    "reader": "Codex / GPT-6-Astra / xhigh",
+    "utc": "2026-11-02T19:22:14.080786+00:00"
+  },
+  {
+    "index": 34,
+    "patch": "packages/addons/addon-depends/network-tools-depends/depends/libpcap/patches/0001-remove-manpages.patch",
+    "override": "projects/ROCKNIX/packages/network/libpcap",
+    "prior_recipe_owner": "T8 #655",
+    "prior_base_disposition": "T8 q4: follows the base merge; recipe acceptance is not patch adoption",
+    "conclusion": "already-carried",
+    "feature_architecture_and_intent": "The override remove-manpages.patch has identical complete ordered changes to the generic CMakeLists hunk.",
+    "remaining_owner_action": "T8 #655: preserve native doc-generation policy; no second patch.",
+    "evidence": [
+      "stage-b/inherited-inputs.json",
+      "stage-b/inherited-hunks.json",
+      "stage-b/inherited-source/index.json"
+    ],
+    "reader": "Codex / GPT-6-Astra / xhigh",
+    "utc": "2026-11-02T19:22:14.080788+00:00"
+  },
+  {
+    "index": 35,
+    "patch": "packages/network/openssh/patches/0001-keydir.patch",
+    "override": "projects/ROCKNIX/packages/network/openssh",
+    "prior_recipe_owner": "T8 #655",
+    "prior_base_disposition": "T8 q4: follows the base merge; recipe acceptance is not patch adoption",
+    "conclusion": "already-carried",
+    "feature_architecture_and_intent": "Native openssh keydir patch carries configure/Makefile/pathname relocation at 9.8p1. The full changed-lines delta is version-specific key types: native DSA/XMSS versus generic MLDSA44_ED25519 and reordered declarations. This is current-pin intent, not whole newer-patch equivalence.",
+    "remaining_owner_action": "T8 #655: update the key-type mapping with the future pin; preserve /storage credential paths and #1104 integration boundaries.",
+    "evidence": [
+      "stage-b/inherited-inputs.json",
+      "stage-b/inherited-hunks.json",
+      "stage-b/inherited-source/index.json"
+    ],
+    "reader": "Codex / GPT-6-Astra / xhigh",
+    "utc": "2026-11-02T19:22:14.080789+00:00"
+  },
+  {
+    "index": 36,
+    "patch": "packages/network/openssh/patches/0002-silence-missing-identity-error.patch",
+    "override": "projects/ROCKNIX/packages/network/openssh",
+    "prior_recipe_owner": "T8 #655",
+    "prior_base_disposition": "T8 q4: follows the base merge; recipe acceptance is not patch adoption",
+    "conclusion": "already-carried",
+    "feature_architecture_and_intent": "The override silence-missing-identity patch has identical complete changed lines and target to the generic log-level change.",
+    "remaining_owner_action": "T8 #655: preserve the intentional logging policy; no duplicate.",
+    "evidence": [
+      "stage-b/inherited-inputs.json",
+      "stage-b/inherited-hunks.json",
+      "stage-b/inherited-source/index.json"
+    ],
+    "reader": "Codex / GPT-6-Astra / xhigh",
+    "utc": "2026-11-02T19:22:14.080790+00:00"
+  },
+  {
+    "index": 37,
+    "patch": "packages/network/samba/patches/0200-4.11-fix-ASN1-bso14164.patch",
+    "override": "projects/ROCKNIX/packages/network/samba",
+    "prior_recipe_owner": "T8 #655",
+    "prior_base_disposition": "T8 q4: follows the base merge; recipe acceptance is not patch adoption",
+    "conclusion": "already-carried",
+    "feature_architecture_and_intent": "The override samba-200 patch contains the same complete changed lines and target for prebuilt Heimdal tools. Samba archive comparison was withheld because duplicate members need extraction-order proof.",
+    "remaining_owner_action": "T8 #655: preserve counterpart; resolve the archive ambiguity before claiming application at 4.21.0.",
+    "evidence": [
+      "stage-b/inherited-inputs.json",
+      "stage-b/inherited-hunks.json",
+      "stage-b/inherited-source/index.json"
+    ],
+    "reader": "Codex / GPT-6-Astra / xhigh",
+    "utc": "2026-11-02T19:22:14.080791+00:00"
+  },
+  {
+    "index": 38,
+    "patch": "packages/network/samba/patches/0951-no-man-4.16.patch",
+    "override": "projects/ROCKNIX/packages/network/samba",
+    "prior_recipe_owner": "T8 #655",
+    "prior_base_disposition": "T8 q4: follows the base merge; recipe acceptance is not patch adoption",
+    "conclusion": "unresolved-with-specific-evidence-needed",
+    "feature_architecture_and_intent": "The native 4.16 manpage patch removes the same major generation block but lacks the newer generic prometheus_manpages condition. Duplicate Samba archive members prevented a qualified source view of which block 4.21.0 carries.",
+    "remaining_owner_action": "T8 #655: inspect and qualify duplicate archive member semantics, then compare the entire docs-xml/wscript_build block for the 4.21.0 pin.",
+    "evidence": [
+      "stage-b/inherited-inputs.json",
+      "stage-b/inherited-hunks.json",
+      "stage-b/inherited-source/index.json"
+    ],
+    "reader": "Codex / GPT-6-Astra / xhigh",
+    "utc": "2026-11-02T19:22:14.080793+00:00"
+  },
+  {
+    "index": 39,
+    "patch": "packages/rust/rust/patches/9999-target-add-LibreELEC-target-specifications-for-aarch.patch",
+    "override": "projects/ROCKNIX/packages/rust/rust",
+    "prior_recipe_owner": "T8 #655",
+    "prior_base_disposition": "T8 q4: follows the base merge; recipe acceptance is not patch adoption",
+    "conclusion": "unresolved-with-specific-evidence-needed",
+    "feature_architecture_and_intent": "The generic Rust patch adds four built-in LibreELEC targets. The fork instead copies JSON specifications into PKG_BUILD/targets and exports RUST_TARGET_PATH, including an arm-subarchitecture mapping. Similar target names do not prove equivalent ABI/linker options.",
+    "remaining_owner_action": "T8 #655: compare all four built-in target definitions to the fork JSON specifications and target-name mapping before the base merge changes the recipe.",
+    "evidence": [
+      "stage-b/inherited-inputs.json",
+      "stage-b/inherited-hunks.json",
+      "stage-b/inherited-source/index.json"
+    ],
+    "reader": "Codex / GPT-6-Astra / xhigh",
+    "utc": "2026-11-02T19:22:14.080794+00:00"
+  },
+  {
+    "index": 40,
+    "patch": "packages/sysutils/busybox/patches/0002-silence-crond-startup-logging.patch",
+    "override": "projects/ROCKNIX/packages/sysutils/busybox",
+    "prior_recipe_owner": "T22 #669",
+    "prior_base_disposition": "T22 PL-15 next base merge; #1104 retains design collisions; #997 is not a version owner",
+    "conclusion": "already-carried",
+    "feature_architecture_and_intent": "The native busybox-02 patch has identical complete change/target to the inherited crond logging patch. The fixed upstream added 0002-silence-crond-startup-logging.patch is compared separately in pair-diffs.json.",
+    "remaining_owner_action": "T22 #669: preserve the equivalent logging policy during the base merge; #997 is a test identity bug, not bump ownership.",
+    "evidence": [
+      "stage-b/inherited-inputs.json",
+      "stage-b/inherited-hunks.json",
+      "stage-b/inherited-source/index.json"
+    ],
+    "reader": "Codex / GPT-6-Astra / xhigh",
+    "utc": "2026-11-02T19:22:14.080795+00:00"
+  },
+  {
+    "index": 41,
+    "patch": "packages/sysutils/systemd/patches/0001-move-etc-systemd-system-to-storage-.config-system.d.patch",
+    "override": "projects/ROCKNIX/packages/sysutils/systemd",
+    "prior_recipe_owner": "T22 #669",
+    "prior_base_disposition": "T22 PL-15 next base merge; #1104 retains design collisions; #997 is not a version owner",
+    "conclusion": "already-carried",
+    "feature_architecture_and_intent": "The abbreviated native systemd-0001 diff contains the same SYSTEM_CONFIG_UNIT_DIR replacement with /storage/.config/system.d. Its missing ---/+++ headers must not erase the target encoded in diff --git.",
+    "remaining_owner_action": "T22 #669 / integration #1104: preserve the state path; no new design or duplicate adoption.",
+    "evidence": [
+      "stage-b/inherited-inputs.json",
+      "stage-b/inherited-hunks.json",
+      "stage-b/inherited-source/index.json"
+    ],
+    "reader": "Codex / GPT-6-Astra / xhigh",
+    "utc": "2026-11-02T19:22:14.080797+00:00"
+  },
+  {
+    "index": 42,
+    "patch": "packages/sysutils/systemd/patches/0002-move-hwdb.bin-to-run.patch",
+    "override": "projects/ROCKNIX/packages/sysutils/systemd",
+    "prior_recipe_owner": "T22 #669",
+    "prior_base_disposition": "T22 PL-15 next base merge; #1104 retains design collisions; #997 is not a version owner",
+    "conclusion": "already-carried",
+    "feature_architecture_and_intent": "All three native hunks relocate hwdb.bin to /run. The full changed-lines delta is only path_join(root,...) versus newer path_join(root_abs,...); both the reader and service condition use /run.",
+    "remaining_owner_action": "T22 #669 / #1104: preserve generated hwdb placement through the base merge; no new state-location decision.",
+    "evidence": [
+      "stage-b/inherited-inputs.json",
+      "stage-b/inherited-hunks.json",
+      "stage-b/inherited-source/index.json"
+    ],
+    "reader": "Codex / GPT-6-Astra / xhigh",
+    "utc": "2026-11-02T19:22:14.080799+00:00"
+  },
+  {
+    "index": 43,
+    "patch": "packages/sysutils/systemd/patches/0200-persist-persistent-timer-stamps.patch",
+    "override": "projects/ROCKNIX/packages/sysutils/systemd",
+    "prior_recipe_owner": "T22 #669",
+    "prior_base_disposition": "T22 PL-15 next base merge; #1104 retains design collisions; #997 is not a version owner",
+    "conclusion": "already-carried",
+    "feature_architecture_and_intent": "Native timer patch moves both mount dependency and stamp path to /storage/.cache/systemd/timers. The version-specific API is unit_require_mounts_for versus generic unit_add_mounts_for with UNIT_MOUNT_REQUIRES.",
+    "remaining_owner_action": "T22 #669 / #1104: preserve persistent timer storage while adapting the API at merge; no duplicate patch.",
+    "evidence": [
+      "stage-b/inherited-inputs.json",
+      "stage-b/inherited-hunks.json",
+      "stage-b/inherited-source/index.json"
+    ],
+    "reader": "Codex / GPT-6-Astra / xhigh",
+    "utc": "2026-11-02T19:22:14.080800+00:00"
+  },
+  {
+    "index": 44,
+    "patch": "packages/sysutils/util-linux/patches/0001-fix-pkgconf.patch",
+    "override": "projects/ROCKNIX/packages/sysutils/util-linux",
+    "prior_recipe_owner": "T22 #669",
+    "prior_base_disposition": "T22 PL-15 next base merge; #1104 retains design collisions; #997 is not a version owner",
+    "conclusion": "already-carried",
+    "feature_architecture_and_intent": "The native util-linux-01 patch has identical complete changes in all four pkg-config targets. The fixed-upstream added 0001-fix-pkgconf.patch is compared separately.",
+    "remaining_owner_action": "T22 #669: retain the equivalent pkg-config correction at merge; decide gettext separately in I45.",
+    "evidence": [
+      "stage-b/inherited-inputs.json",
+      "stage-b/inherited-hunks.json",
+      "stage-b/inherited-source/index.json"
+    ],
+    "reader": "Codex / GPT-6-Astra / xhigh",
+    "utc": "2026-11-02T19:22:14.080802+00:00"
+  },
+  {
+    "index": 45,
+    "patch": "packages/sysutils/util-linux/patches/0002-fix-gettext.patch",
+    "override": "projects/ROCKNIX/packages/sysutils/util-linux",
+    "prior_recipe_owner": "T22 #669",
+    "prior_base_disposition": "T22 PL-15 next base merge; #1104 retains design collisions; #997 is not a version owner",
+    "conclusion": "unresolved-with-specific-evidence-needed",
+    "feature_architecture_and_intent": "util-linux 2.39.2 configure.ac:270 requests gettext 0.18.3 while the inherited change requests 0.24. Its whole hunk context differs. --disable-nls does not by itself prove bootstrap/gettext macro compatibility.",
+    "remaining_owner_action": "T22 #669: qualify the 2.39.2 autotools/gettext bootstrap with the selected host gettext, or record the newer pin replacing this requirement; independent of I44.",
+    "evidence": [
+      "stage-b/inherited-inputs.json",
+      "stage-b/inherited-hunks.json",
+      "stage-b/inherited-source/index.json"
+    ],
+    "reader": "Codex / GPT-6-Astra / xhigh",
+    "utc": "2026-11-02T19:22:14.080803+00:00"
+  },
+  {
+    "index": 46,
+    "patch": "packages/addons/addon-depends/icu/patches/0001-ldflags.patch",
+    "override": "projects/ROCKNIX/packages/textproc/icu",
+    "prior_recipe_owner": "T8 #655",
+    "prior_base_disposition": "T8 q4: follows the base merge; recipe acceptance is not patch adoption",
+    "conclusion": "unresolved-with-specific-evidence-needed",
+    "feature_architecture_and_intent": "ICU 74.1 source/config/mh-linux retains the whole LDFLAGSICUDT preimage with -nodefaultlibs -nostdlib. The generic change comments it out; the selected data-link mode and resulting runtime dependency closure remain unproved.",
+    "remaining_owner_action": "T8 #655: inspect target data-library linkage and required startup libraries before changing these flags.",
+    "evidence": [
+      "stage-b/inherited-inputs.json",
+      "stage-b/inherited-hunks.json",
+      "stage-b/inherited-source/index.json"
+    ],
+    "reader": "Codex / GPT-6-Astra / xhigh",
+    "utc": "2026-11-02T19:22:14.080804+00:00"
+  },
+  {
+    "index": 47,
+    "patch": "projects/Qualcomm/devices/Dragonboard/packages/mkbootimg/patches/0001-add-extra-devices.patch",
+    "override": "projects/ROCKNIX/packages/tools/mkbootimg",
+    "prior_recipe_owner": "T8 #655",
+    "prior_base_disposition": "T8 q4: follows the base merge; recipe acceptance is not patch adoption",
+    "conclusion": "not-applicable-with-reason",
+    "feature_architecture_and_intent": "The Dragonboard patch targets dtbTool tables for ipq8074/hk01. The qualified ROCKNIX mkbootimg archive has no dtbTool and its recipe installs gki/ and mkbootimg.py from the Android boot-image implementation for SM8550. Different source consumers, despite the package basename.",
+    "remaining_owner_action": "T8 #655 / T28 #675: no adoption into Android mkbootimg; keep generic Dragonboard material under the existing class-removal decision.",
+    "evidence": [
+      "stage-b/inherited-inputs.json",
+      "stage-b/inherited-hunks.json",
+      "stage-b/inherited-source/index.json"
+    ],
+    "reader": "Codex / GPT-6-Astra / xhigh",
+    "utc": "2026-11-02T19:22:14.080806+00:00"
+  },
+  {
+    "index": 48,
+    "patch": "packages/wayland/compositor/sway/patches/1001-static-ipc-socket.patch",
+    "override": "projects/ROCKNIX/packages/wayland/compositor/sway",
+    "prior_recipe_owner": "T8 #655",
+    "prior_base_disposition": "T8 q4: follows the base merge; recipe acceptance is not patch adoption",
+    "conclusion": "already-carried",
+    "feature_architecture_and_intent": "The native sway-100.01 patch has identical complete changed lines and target: omit PID from the IPC socket name. All five target plans select 1.11, not the RK3588-only 1.9 branch.",
+    "remaining_owner_action": "T8 #655: preserve the socket contract at merge.",
+    "evidence": [
+      "stage-b/inherited-inputs.json",
+      "stage-b/inherited-hunks.json",
+      "stage-b/inherited-source/index.json"
+    ],
+    "reader": "Codex / GPT-6-Astra / xhigh",
+    "utc": "2026-11-02T19:22:14.080807+00:00"
+  },
+  {
+    "index": 49,
+    "patch": "packages/wayland/compositor/sway/patches/1002-do-not-use-git-version.patch",
+    "override": "projects/ROCKNIX/packages/wayland/compositor/sway",
+    "prior_recipe_owner": "T8 #655",
+    "prior_base_disposition": "T8 q4: follows the base merge; recipe acceptance is not patch adoption",
+    "conclusion": "unresolved-with-specific-evidence-needed",
+    "feature_architecture_and_intent": "Sway 1.11 raw meson.build retains all git-version-probing preimage lines. The selected input is a release archive, but the behavior of git probing in the actual extraction/build working directory has not been proved.",
+    "remaining_owner_action": "T8 #655: establish deterministic version text for archive builds inside the distribution Git worktree; then choose source patch or explicit build option.",
+    "evidence": [
+      "stage-b/inherited-inputs.json",
+      "stage-b/inherited-hunks.json",
+      "stage-b/inherited-source/index.json"
+    ],
+    "reader": "Codex / GPT-6-Astra / xhigh",
+    "utc": "2026-11-02T19:22:14.080808+00:00"
+  },
+  {
+    "index": 50,
+    "patch": "packages/wayland/lib/seatd/patches/0001-add-option-to-specify-seatd-path.patch",
+    "override": "projects/ROCKNIX/packages/wayland/lib/seatd",
+    "prior_recipe_owner": "T8 #655",
+    "prior_base_disposition": "T8 q4: follows the base merge; recipe acceptance is not patch adoption",
+    "conclusion": "not-applicable-with-reason",
+    "feature_architecture_and_intent": "The generic seatd-launch patch adds a -p executable override. The 0.9.0 raw source uses SEATD_INSTALLPATH and no live recipe/caller in this comparison requests -p; the override enables libseat-seatd and installs the ordinary service.",
+    "remaining_owner_action": "T8 #655: no new configurable-executable interface without a named caller; revisit if a launch consumer requires it.",
+    "evidence": [
+      "stage-b/inherited-inputs.json",
+      "stage-b/inherited-hunks.json",
+      "stage-b/inherited-source/index.json"
+    ],
+    "reader": "Codex / GPT-6-Astra / xhigh",
+    "utc": "2026-11-02T19:22:14.080809+00:00"
+  }
+]

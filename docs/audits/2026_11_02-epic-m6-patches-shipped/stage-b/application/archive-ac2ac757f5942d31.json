@@ -1,0 +1,187 @@
+{
+  "base": "/workspace/tmp/m6-t42/archive-ac2ac757f5942d31",
+  "extracted": [
+    {
+      "bytes": 7459,
+      "member": "gtk+-2.24.33/Makefile.am",
+      "path": "Makefile.am",
+      "sha256": "01e5ea2539a33535b258fb32aee60128aca1de7b2d1eab52efb328d406ce6728"
+    },
+    {
+      "bytes": 44480,
+      "member": "gtk+-2.24.33/Makefile.in",
+      "path": "Makefile.in",
+      "sha256": "2c3ca7344bf0486e4e9d7287ca686ef02aa63ea2e8598ac42e3f7e3e462de4f5"
+    },
+    {
+      "bytes": 618000,
+      "member": "gtk+-2.24.33/gtk/Makefile.in",
+      "path": "gtk/Makefile.in",
+      "sha256": "106243ccc0fa71b33382c9dd29af774e6e4ac76e11c576ae1c4b614d4a49f534"
+    },
+    {
+      "bytes": 9641,
+      "member": "gtk+-2.24.33/gtk/gtkcellrendererspin.c",
+      "path": "gtk/gtkcellrendererspin.c",
+      "sha256": "94d1be2acf26036ad9fc4964cf1b6ce8904f24483ab63f2e0de9955d01aca30d"
+    },
+    {
+      "bytes": 15223,
+      "member": "gtk+-2.24.33/gtk/gtkcomboboxtext.c",
+      "path": "gtk/gtkcomboboxtext.c",
+      "sha256": "657fae78547c8020e7e656c8c1525c7505e013241b02dff3d2ddab621697e444"
+    },
+    {
+      "bytes": 19436,
+      "member": "gtk+-2.24.33/gtk/gtkimmodule.c",
+      "path": "gtk/gtkimmodule.c",
+      "sha256": "450e9d0e43f29c444697cae1fa7901ca762ea492469097be65bf04c667caa239"
+    },
+    {
+      "bytes": 43962,
+      "member": "gtk+-2.24.33/gtk/gtkitemfactory.c",
+      "path": "gtk/gtkitemfactory.c",
+      "sha256": "559705c8397e822f2bd9792d3195ce8372a013cf8c5fecc2980a8cc90b01eb02"
+    },
+    {
+      "bytes": 171382,
+      "member": "gtk+-2.24.33/gtk/gtklabel.c",
+      "path": "gtk/gtklabel.c",
+      "sha256": "b7db3436df9ba63adc0361726ca17d1190706617303e2208a7cbfd49bbfcb12e"
+    },
+    {
+      "bytes": 52411,
+      "member": "gtk+-2.24.33/gtk/gtkscale.c",
+      "path": "gtk/gtkscale.c",
+      "sha256": "c89ba2af93505f63d153585b52b9f104daa1750998da04f786b847e7740d4c48"
+    },
+    {
+      "bytes": 57661,
+      "member": "gtk+-2.24.33/gtk/gtktoolpalette.c",
+      "path": "gtk/gtktoolpalette.c",
+      "sha256": "88a106d2ceda2e26ad45532f48b6ba72b3bb2ed6b1d189101cec4647bf0d503b"
+    },
+    {
+      "bytes": 478747,
+      "member": "gtk+-2.24.33/gtk/gtktreeview.c",
+      "path": "gtk/gtktreeview.c",
+      "sha256": "65754a6a9d80e3f9353cac1547be532210a4ad8841c50cff522330ff047cc57d"
+    },
+    {
+      "bytes": 83498,
+      "member": "gtk+-2.24.33/gtk/gtkuimanager.c",
+      "path": "gtk/gtkuimanager.c",
+      "sha256": "bce2477cdd4b0b0e835ac1ba8b585201b881e18408187bca8b9fab1328806400"
+    },
+    {
+      "bytes": 350932,
+      "member": "gtk+-2.24.33/gtk/gtkwidget.c",
+      "path": "gtk/gtkwidget.c",
+      "sha256": "11242b23aaa49a74b919aa8d3ed17167069ae2eb20e76a7ea13d4b5a12c0c8b9"
+    },
+    {
+      "bytes": 150806,
+      "member": "gtk+-2.24.33/modules/other/gail/gailtreeview.c",
+      "path": "modules/other/gail/gailtreeview.c",
+      "sha256": "cfe39de0e3b464d5bc15b80ee831f4eb05372df0513b840d77d16785e7377a69"
+    },
+    {
+      "bytes": 184349,
+      "member": "gtk+-2.24.33/modules/printbackends/cups/gtkprintbackendcups.c",
+      "path": "modules/printbackends/cups/gtkprintbackendcups.c",
+      "sha256": "9b7086e6219e93ecbc4d6d38f38121b0cf896fd82eb60f68bc2b8ae4c5fd0eca"
+    }
+  ],
+  "member_count": 3282,
+  "member_manifest_sha256": "76d4e1ee02514f185c1411b5e055a009db05b98c99794b2964c9648306bb8023",
+  "missing": [
+    "Makefile.am.orig",
+    "Makefile.in.orig",
+    "gtk/Makefile.in.orig"
+  ],
+  "path": "/workspace/cache/rocknix-sources/gtk2/gtk2-2.24.33.tar.xz",
+  "recipe_sha256": "ac2ac757f5942d318a311a54b0c80b5ef295f299c2a73c632f6bfb1ff49cc6da",
+  "root": "gtk+-2.24.33",
+  "sha256": "ac2ac757f5942d318a311a54b0c80b5ef295f299c2a73c632f6bfb1ff49cc6da",
+  "sidecar_sha256": "d6c3aad9670f71fdc9dbb144814f4f3a41c815cc1904a65af32304822607c066",
+  "source_tree": {
+    "files": [
+      {
+        "mode": "0o644",
+        "path": "Makefile.am",
+        "sha256": "01e5ea2539a33535b258fb32aee60128aca1de7b2d1eab52efb328d406ce6728"
+      },
+      {
+        "mode": "0o644",
+        "path": "Makefile.in",
+        "sha256": "2c3ca7344bf0486e4e9d7287ca686ef02aa63ea2e8598ac42e3f7e3e462de4f5"
+      },
+      {
+        "mode": "0o644",
+        "path": "gtk/Makefile.in",
+        "sha256": "106243ccc0fa71b33382c9dd29af774e6e4ac76e11c576ae1c4b614d4a49f534"
+      },
+      {
+        "mode": "0o644",
+        "path": "gtk/gtkcellrendererspin.c",
+        "sha256": "94d1be2acf26036ad9fc4964cf1b6ce8904f24483ab63f2e0de9955d01aca30d"
+      },
+      {
+        "mode": "0o644",
+        "path": "gtk/gtkcomboboxtext.c",
+        "sha256": "657fae78547c8020e7e656c8c1525c7505e013241b02dff3d2ddab621697e444"
+      },
+      {
+        "mode": "0o644",
+        "path": "gtk/gtkimmodule.c",
+        "sha256": "450e9d0e43f29c444697cae1fa7901ca762ea492469097be65bf04c667caa239"
+      },
+      {
+        "mode": "0o644",
+        "path": "gtk/gtkitemfactory.c",
+        "sha256": "559705c8397e822f2bd9792d3195ce8372a013cf8c5fecc2980a8cc90b01eb02"
+      },
+      {
+        "mode": "0o644",
+        "path": "gtk/gtklabel.c",
+        "sha256": "b7db3436df9ba63adc0361726ca17d1190706617303e2208a7cbfd49bbfcb12e"
+      },
+      {
+        "mode": "0o644",
+        "path": "gtk/gtkscale.c",
+        "sha256": "c89ba2af93505f63d153585b52b9f104daa1750998da04f786b847e7740d4c48"
+      },
+      {
+        "mode": "0o644",
+        "path": "gtk/gtktoolpalette.c",
+        "sha256": "88a106d2ceda2e26ad45532f48b6ba72b3bb2ed6b1d189101cec4647bf0d503b"
+      },
+      {
+        "mode": "0o644",
+        "path": "gtk/gtktreeview.c",
+        "sha256": "65754a6a9d80e3f9353cac1547be532210a4ad8841c50cff522330ff047cc57d"
+      },
+      {
+        "mode": "0o644",
+        "path": "gtk/gtkuimanager.c",
+        "sha256": "bce2477cdd4b0b0e835ac1ba8b585201b881e18408187bca8b9fab1328806400"
+      },
+      {
+        "mode": "0o644",
+        "path": "gtk/gtkwidget.c",
+        "sha256": "11242b23aaa49a74b919aa8d3ed17167069ae2eb20e76a7ea13d4b5a12c0c8b9"
+      },
+      {
+        "mode": "0o644",
+        "path": "modules/other/gail/gailtreeview.c",
+        "sha256": "cfe39de0e3b464d5bc15b80ee831f4eb05372df0513b840d77d16785e7377a69"
+      },
+      {
+        "mode": "0o644",
+        "path": "modules/printbackends/cups/gtkprintbackendcups.c",
+        "sha256": "9b7086e6219e93ecbc4d6d38f38121b0cf896fd82eb60f68bc2b8ae4c5fd0eca"
+      }
+    ],
+    "sha256": "57041cc070429c4b1be6cc72036c48aba812eeb5b75c04daa4b0957a471e6a95"
+  }
+}

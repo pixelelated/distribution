@@ -1,0 +1,51 @@
+{
+  "base": "/workspace/tmp/m6-t42/archive-1df88a204e1673e2",
+  "extracted": [
+    {
+      "bytes": 3842,
+      "member": "libfuse-5a43d0f724c56f8836f3f92411e0de1b5f82db32/configure.ac",
+      "path": "configure.ac",
+      "sha256": "cbca598dc39ecf3ef784f51234e08f39e9dbfc113f02ff7eaf551c7a0a1e09eb"
+    },
+    {
+      "bytes": 13811,
+      "member": "libfuse-5a43d0f724c56f8836f3f92411e0de1b5f82db32/include/fuse_kernel.h",
+      "path": "include/fuse_kernel.h",
+      "sha256": "691e01a9e7f5499e52488ca0addd088edd77bad33ab3dc8be1202f7c9a4eeb76"
+    },
+    {
+      "bytes": 2058,
+      "member": "libfuse-5a43d0f724c56f8836f3f92411e0de1b5f82db32/util/Makefile.am",
+      "path": "util/Makefile.am",
+      "sha256": "63ea5e7e7179e982de6daa172dce13a05087782bde4614922fdcbe26c6916f9e"
+    }
+  ],
+  "member_count": 88,
+  "member_manifest_sha256": "63e2b7d59e68bd0efdbcfcbfe9dface59a1e6eb3cc1d6029274e828f86fb653c",
+  "missing": [],
+  "path": "/workspace/cache/rocknix-sources/fuse/fuse-5a43d0f724c56f8836f3f92411e0de1b5f82db32.tar.gz",
+  "recipe_sha256": "1df88a204e1673e29112f1ee4efe6b3cd4de2ae78945838e406ead0fe24ec5f1",
+  "root": "libfuse-5a43d0f724c56f8836f3f92411e0de1b5f82db32",
+  "sha256": "1df88a204e1673e29112f1ee4efe6b3cd4de2ae78945838e406ead0fe24ec5f1",
+  "sidecar_sha256": "45c7e1ad0eb56f8043c3a5d58d0be9d33e8c4d67b0f88e76ed04abf25c89622d",
+  "source_tree": {
+    "files": [
+      {
+        "mode": "0o644",
+        "path": "configure.ac",
+        "sha256": "cbca598dc39ecf3ef784f51234e08f39e9dbfc113f02ff7eaf551c7a0a1e09eb"
+      },
+      {
+        "mode": "0o644",
+        "path": "include/fuse_kernel.h",
+        "sha256": "691e01a9e7f5499e52488ca0addd088edd77bad33ab3dc8be1202f7c9a4eeb76"
+      },
+      {
+        "mode": "0o644",
+        "path": "util/Makefile.am",
+        "sha256": "63ea5e7e7179e982de6daa172dce13a05087782bde4614922fdcbe26c6916f9e"
+      }
+    ],
+    "sha256": "9bcb0a310172f115722a2c7384a86d776c536aee39c36ac1adad8c111d194506"
+  }
+}

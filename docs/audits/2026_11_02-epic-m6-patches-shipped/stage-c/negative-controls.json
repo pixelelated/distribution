@@ -1,0 +1,30 @@
+[
+  {
+    "control": "removed-native",
+    "exception_type": "AssertionError",
+    "expected": "native membership assertion",
+    "observed": "native membership assertion",
+    "rejected": true
+  },
+  {
+    "control": "duplicate-inherited",
+    "exception_type": "AssertionError",
+    "expected": "inherited unique-key assertion",
+    "observed": "inherited unique-key assertion",
+    "rejected": true
+  },
+  {
+    "control": "altered-referent",
+    "exception_type": "AssertionError",
+    "expected": "symlink referent identity assertion",
+    "observed": "symlink referent identity assertion",
+    "rejected": true
+  },
+  {
+    "control": "fabricated-attribution",
+    "exception_type": "AssertionError",
+    "expected": "header attribution assertion",
+    "observed": "header attribution assertion",
+    "rejected": true
+  }
+]

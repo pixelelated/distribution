@@ -1,0 +1,84 @@
+{
+  "base": "/workspace/tmp/m6-t42/archive-b8cc24c9574d809e",
+  "extracted": [
+    {
+      "bytes": 18373,
+      "member": "busybox-1.36.1/coreutils/dd.c",
+      "path": "coreutils/dd.c",
+      "sha256": "a9a6d3fd5ab3075cc2b141ca72b25705d03d4cb0681aa5c9453c07d038c5fdc5"
+    },
+    {
+      "bytes": 7344,
+      "member": "busybox-1.36.1/init/halt.c",
+      "path": "init/halt.c",
+      "sha256": "93b77564ccaecb490592ae7fa0364e4713d70285a073797d74deb40e7236e381"
+    },
+    {
+      "bytes": 1143,
+      "member": "busybox-1.36.1/libbb/printable_string.c",
+      "path": "libbb/printable_string.c",
+      "sha256": "f3f19a3a9ffb232828b65b4e5a4c7c6ace89b36005097bf5a5496cc6307271dc"
+    },
+    {
+      "bytes": 6927,
+      "member": "busybox-1.36.1/loginutils/passwd.c",
+      "path": "loginutils/passwd.c",
+      "sha256": "cf00bd7dc4a5979a5c73b78b690f847bbead56fb2bba4357d2a74a2b9aa847b3"
+    },
+    {
+      "bytes": 29510,
+      "member": "busybox-1.36.1/miscutils/crond.c",
+      "path": "miscutils/crond.c",
+      "sha256": "5bcb098ccb469dc7b4373c4c4a1cf13bb336e5f3117ae6ee1443d5561ddb07e2"
+    },
+    {
+      "bytes": 69085,
+      "member": "busybox-1.36.1/util-linux/mount.c",
+      "path": "util-linux/mount.c",
+      "sha256": "7c77f2d25fab0dfc880add7d8ec5837be8e32ff3a9b8077c4e95bb6577271477"
+    }
+  ],
+  "member_count": 2955,
+  "member_manifest_sha256": "1bfbac80c77927b4ddf4d02e792ca117ce0271b1b814210473ce1f857e8b3bd3",
+  "missing": [],
+  "path": "/workspace/cache/rocknix-sources/busybox/busybox-1.36.1.tar.bz2",
+  "recipe_sha256": "b8cc24c9574d809e7279c3be349795c5d5ceb6fdf19ca709f80cde50e47de314",
+  "root": "busybox-1.36.1",
+  "sha256": "b8cc24c9574d809e7279c3be349795c5d5ceb6fdf19ca709f80cde50e47de314",
+  "sidecar_sha256": "81791bb470e0537ac5cd9ccaacd39c532f3458812fda2185dd6bd9e016ad849f",
+  "source_tree": {
+    "files": [
+      {
+        "mode": "0o644",
+        "path": "coreutils/dd.c",
+        "sha256": "a9a6d3fd5ab3075cc2b141ca72b25705d03d4cb0681aa5c9453c07d038c5fdc5"
+      },
+      {
+        "mode": "0o644",
+        "path": "init/halt.c",
+        "sha256": "93b77564ccaecb490592ae7fa0364e4713d70285a073797d74deb40e7236e381"
+      },
+      {
+        "mode": "0o644",
+        "path": "libbb/printable_string.c",
+        "sha256": "f3f19a3a9ffb232828b65b4e5a4c7c6ace89b36005097bf5a5496cc6307271dc"
+      },
+      {
+        "mode": "0o644",
+        "path": "loginutils/passwd.c",
+        "sha256": "cf00bd7dc4a5979a5c73b78b690f847bbead56fb2bba4357d2a74a2b9aa847b3"
+      },
+      {
+        "mode": "0o644",
+        "path": "miscutils/crond.c",
+        "sha256": "5bcb098ccb469dc7b4373c4c4a1cf13bb336e5f3117ae6ee1443d5561ddb07e2"
+      },
+      {
+        "mode": "0o644",
+        "path": "util-linux/mount.c",
+        "sha256": "7c77f2d25fab0dfc880add7d8ec5837be8e32ff3a9b8077c4e95bb6577271477"
+      }
+    ],
+    "sha256": "0479cb6ad1d87f30b334101b55ca9e78d57fcd55ffe7a10fa32c27cbcd4596db"
+  }
+}

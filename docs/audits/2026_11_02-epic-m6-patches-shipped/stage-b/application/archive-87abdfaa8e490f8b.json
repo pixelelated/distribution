@@ -1,0 +1,75 @@
+{
+  "base": "/workspace/tmp/m6-t42/archive-87abdfaa8e490f8b",
+  "extracted": [
+    {
+      "bytes": 89970,
+      "member": "util-linux-2.39.2/configure.ac",
+      "path": "configure.ac",
+      "sha256": "78cf6b5222236dd7d08e0d6a48005ad97d3d853e9e8774c6ad539c78821159e3"
+    },
+    {
+      "bytes": 224,
+      "member": "util-linux-2.39.2/libblkid/blkid.pc.in",
+      "path": "libblkid/blkid.pc.in",
+      "sha256": "8147c165446c2ee62111fb59d765c06f251be79e93c4cc4e1672eb8b2256d9b8"
+    },
+    {
+      "bytes": 709,
+      "member": "util-linux-2.39.2/libmount/mount.pc.in",
+      "path": "libmount/mount.pc.in",
+      "sha256": "82086543b59b9a966688c2db98f8214e2c69c5d13686f7a14826f2bccd43f847"
+    },
+    {
+      "bytes": 241,
+      "member": "util-linux-2.39.2/libsmartcols/smartcols.pc.in",
+      "path": "libsmartcols/smartcols.pc.in",
+      "sha256": "dfeabcdcc21e4699c4b9bafe6bb9106a3326258d33be3ff8ea2c46a21defba5a"
+    },
+    {
+      "bytes": 236,
+      "member": "util-linux-2.39.2/libuuid/uuid.pc.in",
+      "path": "libuuid/uuid.pc.in",
+      "sha256": "7e365ab94c8bbca63fcca3543e6d43a22c475885120010a85fababc273221f10"
+    }
+  ],
+  "member_count": 3334,
+  "member_manifest_sha256": "6be622978e1002a35ca2af9425828648d68c679d9033d7a2ffbf84c19300f38c",
+  "missing": [
+    "configure.ac.orig"
+  ],
+  "path": "/workspace/cache/rocknix-sources/util-linux/util-linux-2.39.2.tar.xz",
+  "recipe_sha256": "87abdfaa8e490f8be6dde976f7c80b9b5ff9f301e1b67e3899e1f05a59a1531f",
+  "root": "util-linux-2.39.2",
+  "sha256": "87abdfaa8e490f8be6dde976f7c80b9b5ff9f301e1b67e3899e1f05a59a1531f",
+  "sidecar_sha256": "c38075c12b8fb3526f29dd384623cf98e2dbf4ef7b09db858d667ea892142259",
+  "source_tree": {
+    "files": [
+      {
+        "mode": "0o644",
+        "path": "configure.ac",
+        "sha256": "78cf6b5222236dd7d08e0d6a48005ad97d3d853e9e8774c6ad539c78821159e3"
+      },
+      {
+        "mode": "0o644",
+        "path": "libblkid/blkid.pc.in",
+        "sha256": "8147c165446c2ee62111fb59d765c06f251be79e93c4cc4e1672eb8b2256d9b8"
+      },
+      {
+        "mode": "0o644",
+        "path": "libmount/mount.pc.in",
+        "sha256": "82086543b59b9a966688c2db98f8214e2c69c5d13686f7a14826f2bccd43f847"
+      },
+      {
+        "mode": "0o644",
+        "path": "libsmartcols/smartcols.pc.in",
+        "sha256": "dfeabcdcc21e4699c4b9bafe6bb9106a3326258d33be3ff8ea2c46a21defba5a"
+      },
+      {
+        "mode": "0o644",
+        "path": "libuuid/uuid.pc.in",
+        "sha256": "7e365ab94c8bbca63fcca3543e6d43a22c475885120010a85fababc273221f10"
+      }
+    ],
+    "sha256": "be8e90cb17eb244753da5d48a60c90b91b358056cd8535009f3576aed67646b8"
+  }
+}

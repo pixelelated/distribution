@@ -1,0 +1,40 @@
+{
+  "base": "/workspace/tmp/m6-t42/archive-f0e8bb1f9b7eb0b0",
+  "extracted": [
+    {
+      "bytes": 25824,
+      "member": "zip30/timezone.c",
+      "path": "timezone.c",
+      "sha256": "03c2fe1d994ef7fbca1b2081d922b3442558916bf762205366f69ef83e46cf0d"
+    },
+    {
+      "bytes": 18387,
+      "member": "zip30/unix/configure",
+      "path": "unix/configure",
+      "sha256": "805c0708d7fef344dabfa0109a08296e489f4f3f27af8fdb9e134e1de65bc2c8"
+    }
+  ],
+  "member_count": 395,
+  "member_manifest_sha256": "4c1a9c70b1fa4d45993bb8b1a76c428d4ce9e4d8efa5aa77d40404b5d034f3a1",
+  "missing": [],
+  "path": "/workspace/cache/rocknix-sources/zip/zip-3.0.tar.gz",
+  "recipe_sha256": "f0e8bb1f9b7eb0b01285495a2699df3a4b766784c1765a8f1aeedf63c0806369",
+  "root": "zip30",
+  "sha256": "f0e8bb1f9b7eb0b01285495a2699df3a4b766784c1765a8f1aeedf63c0806369",
+  "sidecar_sha256": "25f668eacfa938aca0fe82058080a14bc538ae457bf91e1fa43d6b842c1d5f66",
+  "source_tree": {
+    "files": [
+      {
+        "mode": "0o644",
+        "path": "timezone.c",
+        "sha256": "03c2fe1d994ef7fbca1b2081d922b3442558916bf762205366f69ef83e46cf0d"
+      },
+      {
+        "mode": "0o644",
+        "path": "unix/configure",
+        "sha256": "805c0708d7fef344dabfa0109a08296e489f4f3f27af8fdb9e134e1de65bc2c8"
+      }
+    ],
+    "sha256": "35c439091c900c0ef47890cfd32d7565a02160e3d10f29a4db6b69d0fa88f63e"
+  }
+}

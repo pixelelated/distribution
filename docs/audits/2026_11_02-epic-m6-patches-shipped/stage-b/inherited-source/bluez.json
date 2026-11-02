@@ -1,0 +1,74 @@
+{
+  "archive": "/workspace/cache/rocknix-sources/bluez/bluez-5.83.tar.xz",
+  "archive_sha256": "108522d909d220581399bfec93daab62035539ceef3dda3e79970785c63bd24c",
+  "files": [
+    {
+      "bytes": 4266,
+      "member": "bluez-5.83/Makefile.obexd",
+      "path": "Makefile.obexd",
+      "sha256": "e899586d23905bfcc4f768343c97cbca82e61bdd7319bea9c33844ff39675dfe"
+    },
+    {
+      "bytes": 20112,
+      "member": "bluez-5.83/Makefile.tools",
+      "path": "Makefile.tools",
+      "sha256": "4d333db71bbfa1439826e5dd7b9178c30e4caaf94fd68d98e83a48d26a0fd030"
+    },
+    {
+      "bytes": 18872,
+      "member": "bluez-5.83/configure.ac",
+      "path": "configure.ac",
+      "sha256": "13fbbdfc8f169fd4f2b749b68b31b36836e57826ca2a4305286a59b671ba80cb"
+    },
+    {
+      "bytes": 1182,
+      "member": "bluez-5.83/src/bluetooth.conf",
+      "path": "src/bluetooth.conf",
+      "sha256": "c211c4412f39dec5dd93c3da9a8b4bbeec37825fdb74d5fd8efd23573f11f1ed"
+    },
+    {
+      "bytes": 31501,
+      "member": "bluez-5.83/tools/hciattach.c",
+      "path": "tools/hciattach.c",
+      "sha256": "ee0c5fcb019bf25eba46925bb82baf33ab603f621faebafbfba0e550890a8dbd"
+    },
+    {
+      "bytes": 1765,
+      "member": "bluez-5.83/tools/hciattach.h",
+      "path": "tools/hciattach.h",
+      "sha256": "f1f0d0adafbddd7f2c24e84cacac8cd9aedfa156b42aa0459149a5f9d4be71d3"
+    },
+    {
+      "bytes": 1357,
+      "member": "bluez-5.83/tools/hid2hci.rules",
+      "path": "tools/hid2hci.rules",
+      "sha256": "e81ae4c2291b7604beb895af193c08fbfd20b40ed4681549d4e2d553caa0730b"
+    }
+  ],
+  "kind": "unmodified cached-source comparison, not stack application",
+  "member_count": 1294,
+  "member_manifest_sha256": "b06eacff9ccb0facd2c7ef153f5c1af9894cc626bc7d1a0afb68fe8b4697ac88",
+  "missing": [
+    "tools/hciattach_rome.c",
+    "tools/hciattach_rome.h"
+  ],
+  "pin": "5.83",
+  "recipe": "projects/ROCKNIX/packages/network/bluez/package.mk",
+  "recipe_sha256": "4d46c96a7c702da463e230d03a798a8e7c474ec88f07570cb654da9d3b6dc89b",
+  "requested": [
+    "Makefile.obexd",
+    "Makefile.tools",
+    "configure.ac",
+    "src/bluetooth.conf",
+    "tools/hciattach.c",
+    "tools/hciattach.h",
+    "tools/hciattach_rome.c",
+    "tools/hciattach_rome.h",
+    "tools/hid2hci.rules"
+  ],
+  "root": "bluez-5.83",
+  "scratch": "/workspace/tmp/m6-t42/inherited-source/bluez",
+  "sidecar_sha256": "5ad66116ac55253798f351bd0aadd79a09a02a2e4ca55d6ea990b9157cddbadb",
+  "status": "qualified raw source",
+  "utc": "2026-11-02T19:14:06.970458+00:00"
+}

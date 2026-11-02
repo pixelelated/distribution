@@ -1,0 +1,27 @@
+{
+  "archive": "/workspace/cache/rocknix-sources/readline/readline-8.3.tar.gz",
+  "archive_sha256": "fe5383204467828cd495ee8d1d3c037a7eba1389c22bc6a041f627976f9061cc",
+  "files": [
+    {
+      "bytes": 124574,
+      "member": "readline-8.3/display.c",
+      "path": "display.c",
+      "sha256": "cf775ea85f801f452551959b9158aa07d0617abc643b18a6ee64335438a16a2f"
+    }
+  ],
+  "kind": "unmodified cached-source comparison, not stack application",
+  "member_count": 173,
+  "member_manifest_sha256": "65ab0f3a1e3fe3fd2326da1239bc8c096d442c609516266a9b6ca34376a5e2e3",
+  "missing": [],
+  "pin": "8.3",
+  "recipe": "projects/ROCKNIX/packages/devel/readline/package.mk",
+  "recipe_sha256": "2cb10378a5d80f065e381a7a5c57ec17aaf010842889a7b02e454f695382905b",
+  "requested": [
+    "display.c"
+  ],
+  "root": "readline-8.3",
+  "scratch": "/workspace/tmp/m6-t42/inherited-source/readline",
+  "sidecar_sha256": "9900fc5227ed5e1474e845f1ee1d674749d6f07766adc949725b5d2ba506639a",
+  "status": "qualified raw source",
+  "utc": "2026-11-02T19:13:50.613951+00:00"
+}

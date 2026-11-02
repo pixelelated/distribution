@@ -24,3 +24,11 @@ Read the retained T42 proof and prior P1/T2 research as inputs; historical audit
 ## Executor checkpoint — 2026-11-02T18:56:01.390367+00:00
 
 Stage A input binding and Local validator capability are complete. Actual identity independently read from own footer: Codex / GPT-6-Astra / xhigh, session 01a19d12-3d7a-7642-9108-ae06a719cdd7. Audit folder docs/audits/2026_11_02-epic-m6-patches-shipped; source/seed comparisons and controls under stage-a/. Continue B through D without another approval; stop at published D. No application has been claimed, no runtime allocated, no product path changed.
+
+## Executor checkpoint — 2026-11-02T19:38:34.061729+00:00
+
+B and C evidence complete: 384 native path/coverage rows; separate 50 inherited keys / 26 overrides; twelve fork-written / 498 lines read. Native application aggregate 151 applies / 38 offset / 22 fuzz / 173 explicit open items. Inherited 21 already-carried / 7 not-applicable / 22 specific unresolved owner inputs. One Medium PPSSPP nested-patch defect, PL-01; no source fix. Table controls, tree/commit source guards, retained receipts and pre-issue lint pass. Continue D filing/readbacks/checks and clean publication, then STOP for coordinator disposition. Source scratch /workspace/tmp/m6-t42 retained; no runtime allocation.
+
+## Stage D hand-back — 2026-11-02T19:46:10.220313+00:00
+
+All A–D artifacts complete and checks passed; audit #1411 under #689/M6 carries one Medium finding, and reactive bug #1410 remains open without milestone/parent. 06-audit-summary.md and 07-questions-for-the-maintainer.md are the current readback. Normal clean publication/checkpoint follows this record; the #689 D comment binds its exact published tip. STOP at D for m6-coordinator wN:p2 stream disposition. Do not start E–H, edit product source, allocate runtime or answer another agent permission prompt. Existing comparison inputs keep their named owners; #585 text remains drafts. Source scratch /workspace/tmp/m6-t42 is retained until acceptance and H retirement.

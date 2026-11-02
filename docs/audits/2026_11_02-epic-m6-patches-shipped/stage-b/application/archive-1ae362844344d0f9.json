@@ -1,0 +1,51 @@
+{
+  "base": "/workspace/tmp/m6-t42/archive-1ae362844344d0f9",
+  "extracted": [
+    {
+      "bytes": 4641,
+      "member": "vkmark-2025.01/src/meson.build",
+      "path": "src/meson.build",
+      "sha256": "b977dff923e19553f8db0626afb5ec7ffac3141503fb7b6fd4490a8bfb27491a"
+    },
+    {
+      "bytes": 12385,
+      "member": "vkmark-2025.01/src/vulkan_state.cpp",
+      "path": "src/vulkan_state.cpp",
+      "sha256": "12e077010f314cfa307856139ad0e42a400ac1c80c1ac5669115154c01630a33"
+    },
+    {
+      "bytes": 28422,
+      "member": "vkmark-2025.01/src/ws/kms_window_system.cpp",
+      "path": "src/ws/kms_window_system.cpp",
+      "sha256": "789ec2603ee5b59b7cf5fde3a34ac2ce41a73364803095665f723e6bc5c22dcb"
+    }
+  ],
+  "member_count": 199,
+  "member_manifest_sha256": "63d69a1a85eeb412e0d4cb32f7ced6478a656dc4dc0899f68be81438bb02e9a9",
+  "missing": [],
+  "path": "/workspace/cache/rocknix-sources/vkmark/vkmark-2025.01.tar.gz",
+  "recipe_sha256": "1ae362844344d0f9878b7a3f13005f77eae705108892a4e8abf237d452d37edc",
+  "root": "vkmark-2025.01",
+  "sha256": "1ae362844344d0f9878b7a3f13005f77eae705108892a4e8abf237d452d37edc",
+  "sidecar_sha256": "c6e31b85e560e61f23344f7798e212ea11025783e756f105b91897c9f912f953",
+  "source_tree": {
+    "files": [
+      {
+        "mode": "0o644",
+        "path": "src/meson.build",
+        "sha256": "b977dff923e19553f8db0626afb5ec7ffac3141503fb7b6fd4490a8bfb27491a"
+      },
+      {
+        "mode": "0o644",
+        "path": "src/vulkan_state.cpp",
+        "sha256": "12e077010f314cfa307856139ad0e42a400ac1c80c1ac5669115154c01630a33"
+      },
+      {
+        "mode": "0o644",
+        "path": "src/ws/kms_window_system.cpp",
+        "sha256": "789ec2603ee5b59b7cf5fde3a34ac2ce41a73364803095665f723e6bc5c22dcb"
+      }
+    ],
+    "sha256": "fc0ecade02109e00af7fd8e7ae90e92a6950b776eec2c4042b7006550c5dba79"
+  }
+}

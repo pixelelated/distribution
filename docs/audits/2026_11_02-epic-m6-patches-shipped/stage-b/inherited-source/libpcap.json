@@ -1,0 +1,27 @@
+{
+  "archive": "/workspace/cache/rocknix-sources/libpcap/libpcap-1.10.4.tar.gz",
+  "archive_sha256": "ed19a0383fad72e3ad435fd239d7cd80d64916b87269550159d20e47160ebe5f",
+  "files": [
+    {
+      "bytes": 123520,
+      "member": "libpcap-1.10.4/CMakeLists.txt",
+      "path": "CMakeLists.txt",
+      "sha256": "613263a980c7f6de3948512d27ef4616941056363c1e464ca0386adb2df14098"
+    }
+  ],
+  "kind": "unmodified cached-source comparison, not stack application",
+  "member_count": 317,
+  "member_manifest_sha256": "e7e405f7c12f32be7f2af97734cd472a3c84605ffd9c820c6ea8665f3c8725ce",
+  "missing": [],
+  "pin": "1.10.4",
+  "recipe": "projects/ROCKNIX/packages/network/libpcap/package.mk",
+  "recipe_sha256": "dbc69b7df235c682e3bf7eb8a96823f3c0bb2031cd4f26c73be08cd4f3fea1d5",
+  "requested": [
+    "CMakeLists.txt"
+  ],
+  "root": "libpcap-1.10.4",
+  "scratch": "/workspace/tmp/m6-t42/inherited-source/libpcap",
+  "sidecar_sha256": "0b94574ce89ba86ea9b8f38b66a20c3e92ecc98ae9d2f273babdb9c903a93d99",
+  "status": "qualified raw source",
+  "utc": "2026-11-02T19:14:07.142376+00:00"
+}

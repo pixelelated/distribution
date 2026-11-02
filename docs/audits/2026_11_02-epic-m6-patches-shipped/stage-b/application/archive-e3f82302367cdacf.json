@@ -1,0 +1,64 @@
+{
+  "base": "/workspace/tmp/m6-t42/archive-e3f82302367cdacf",
+  "extracted": [
+    {
+      "bytes": 1497,
+      "member": "wvkbd-0.17/Makefile",
+      "path": "Makefile",
+      "sha256": "a36598a47ac2342b2823a4073cbba8190d8333cf0a30eac8a8853209c6a3e5d2"
+    },
+    {
+      "bytes": 21995,
+      "member": "wvkbd-0.17/keyboard.c",
+      "path": "keyboard.c",
+      "sha256": "25af4f23b11f0d9335f528c37305238b3fece64da92b595bf3384c3bd1bc3a4b"
+    },
+    {
+      "bytes": 59314,
+      "member": "wvkbd-0.17/layout.mobintl.h",
+      "path": "layout.mobintl.h",
+      "sha256": "7e557b0377fb1305132e70da02fa4a1319bc4d510ce41796312afe1fcd8a3fd3"
+    },
+    {
+      "bytes": 36534,
+      "member": "wvkbd-0.17/main.c",
+      "path": "main.c",
+      "sha256": "1545e61d7c3f25ee319409d9ad51436a93357c9c766b4b9bb429325f24d565d1"
+    }
+  ],
+  "member_count": 34,
+  "member_manifest_sha256": "ff30574879405977a8f9d05e082bf5f25bb3d43d72fc4c402860a159b2fb88d4",
+  "missing": [
+    "proto/xdg-output-unstable-v1.xml"
+  ],
+  "path": "/workspace/cache/rocknix-sources/rocknix-touchscreen-keyboard/rocknix-touchscreen-keyboard-v0.17.tar.gz",
+  "recipe_sha256": "e3f82302367cdacf7a0c59d6d1bb4f5140083da1b3083da7c835dab0c250034c",
+  "root": "wvkbd-0.17",
+  "sha256": "e3f82302367cdacf7a0c59d6d1bb4f5140083da1b3083da7c835dab0c250034c",
+  "sidecar_sha256": "f04bc0b73913d0b94c4cfcc0a4e02d02d86070dbc529aab5f30b7003888e8050",
+  "source_tree": {
+    "files": [
+      {
+        "mode": "0o644",
+        "path": "Makefile",
+        "sha256": "a36598a47ac2342b2823a4073cbba8190d8333cf0a30eac8a8853209c6a3e5d2"
+      },
+      {
+        "mode": "0o644",
+        "path": "keyboard.c",
+        "sha256": "25af4f23b11f0d9335f528c37305238b3fece64da92b595bf3384c3bd1bc3a4b"
+      },
+      {
+        "mode": "0o644",
+        "path": "layout.mobintl.h",
+        "sha256": "7e557b0377fb1305132e70da02fa4a1319bc4d510ce41796312afe1fcd8a3fd3"
+      },
+      {
+        "mode": "0o644",
+        "path": "main.c",
+        "sha256": "1545e61d7c3f25ee319409d9ad51436a93357c9c766b4b9bb429325f24d565d1"
+      }
+    ],
+    "sha256": "97217871afd5f11cc9e632aacebea4c903df4fd32f60b27d9030d20a7eb35cf4"
+  }
+}

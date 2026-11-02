@@ -1,0 +1,77 @@
+{
+  "base": "/workspace/tmp/m6-t42/archive-c95a4cf93d693900",
+  "extracted": [
+    {
+      "bytes": 3414,
+      "member": "nss-3.126/nspr/config/autoconf.mk.in",
+      "path": "nspr/config/autoconf.mk.in",
+      "sha256": "0abe2a9fb647a7b9cd17d9a979a4e33b589dfc33f437773b3b5c9908ec613c2d"
+    },
+    {
+      "bytes": 5082,
+      "member": "nss-3.126/nss/Makefile",
+      "path": "nss/Makefile",
+      "sha256": "947e0e0a1b573fd3112fce4713e990d3a771c96075a7bf65ad4bc5f015e8b614"
+    },
+    {
+      "bytes": 7214,
+      "member": "nss-3.126/nss/cmd/platlibs.mk",
+      "path": "nss/cmd/platlibs.mk",
+      "sha256": "d09bdd4e9b0262589c53b5903a8e5971b665c3171f484d9d90f09750ac177d5b"
+    },
+    {
+      "bytes": 3392,
+      "member": "nss-3.126/nss/cmd/shlibsign/Makefile",
+      "path": "nss/cmd/shlibsign/Makefile",
+      "sha256": "de0ecac030b885d87f7afa93058015188bf201e9f8edd45dcf322cf3f61acd3d"
+    },
+    {
+      "bytes": 608,
+      "member": "nss-3.126/nss/manifest.mn",
+      "path": "nss/manifest.mn",
+      "sha256": "46091f67fb9649874ca10aac6e4c4a17c90c1bb68608d958f64ab957639a5b52"
+    }
+  ],
+  "member_count": 6229,
+  "member_manifest_sha256": "f99aab4bc401844c9fca4c8f6f6516d5ce69eaedf1e34d200e880343ccba96e1",
+  "missing": [
+    "nss/config/Makefile",
+    "nss/config/nss-config.in",
+    "nss/config/nss.pc.in"
+  ],
+  "path": "/workspace/cache/rocknix-sources/nss/nss-3.126.tar.gz",
+  "recipe_sha256": "c95a4cf93d6939000642254422d71dffccb5c017d0f40733d3e2be18aa93f1be",
+  "root": "nss-3.126",
+  "sha256": "c95a4cf93d6939000642254422d71dffccb5c017d0f40733d3e2be18aa93f1be",
+  "sidecar_sha256": "657e348e1f0c3131551466680f016fbecd5f8dfaf54ad95bc6af063c5908d48a",
+  "source_tree": {
+    "files": [
+      {
+        "mode": "0o644",
+        "path": "nspr/config/autoconf.mk.in",
+        "sha256": "0abe2a9fb647a7b9cd17d9a979a4e33b589dfc33f437773b3b5c9908ec613c2d"
+      },
+      {
+        "mode": "0o644",
+        "path": "nss/Makefile",
+        "sha256": "947e0e0a1b573fd3112fce4713e990d3a771c96075a7bf65ad4bc5f015e8b614"
+      },
+      {
+        "mode": "0o644",
+        "path": "nss/cmd/platlibs.mk",
+        "sha256": "d09bdd4e9b0262589c53b5903a8e5971b665c3171f484d9d90f09750ac177d5b"
+      },
+      {
+        "mode": "0o644",
+        "path": "nss/cmd/shlibsign/Makefile",
+        "sha256": "de0ecac030b885d87f7afa93058015188bf201e9f8edd45dcf322cf3f61acd3d"
+      },
+      {
+        "mode": "0o644",
+        "path": "nss/manifest.mn",
+        "sha256": "46091f67fb9649874ca10aac6e4c4a17c90c1bb68608d958f64ab957639a5b52"
+      }
+    ],
+    "sha256": "8a0790c4f20ac7219f9e512666e5434f9f8a62341a4c637822b7360de1c85e73"
+  }
+}

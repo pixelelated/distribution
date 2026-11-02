@@ -1,0 +1,188 @@
+[
+  {
+    "argv": [
+      "git",
+      "show",
+      "9dd0716033f8831ffbd0b5ee8efbb5e5a066cfb1:projects/ROCKNIX/packages/emulators/standalone/ppsspp-sa/package.mk"
+    ],
+    "cwd": "/workspace/repos/pixelelated/distribution.worktrees/m6-patches-shipped-689",
+    "name": "ppsspp-recipe",
+    "rc": 0,
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stdout_sha256": "a27682013e91d2fa8f63fe7f06aa64ebc0e35449eacb30d712302ef66642f52a",
+    "utc": "2026-11-02T19:34:25.411465+00:00"
+  },
+  {
+    "argv": [
+      "git",
+      "show",
+      "9dd0716033f8831ffbd0b5ee8efbb5e5a066cfb1:projects/ROCKNIX/packages/emulators/standalone/ppsspp-sa/patches/007-disable-home-pause.patch"
+    ],
+    "cwd": "/workspace/repos/pixelelated/distribution.worktrees/m6-patches-shipped-689",
+    "name": "ppsspp-patch",
+    "rc": 0,
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stdout_sha256": "7c3a42477118d3a08f5d8801e587d602b29d934391892f57feafabf993c74c91",
+    "utc": "2026-11-02T19:34:25.412991+00:00"
+  },
+  {
+    "argv": [
+      "git",
+      "show",
+      "9dd0716033f8831ffbd0b5ee8efbb5e5a066cfb1:scripts/unpack"
+    ],
+    "cwd": "/workspace/repos/pixelelated/distribution.worktrees/m6-patches-shipped-689",
+    "name": "unpack",
+    "rc": 0,
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stdout_sha256": "fd8f2e501cbf39df1024d61fd82621c8c662bcdaee2c674c4daad2c3d0b8fa41",
+    "utc": "2026-11-02T19:34:25.414558+00:00"
+  },
+  {
+    "argv": [
+      "git",
+      "show",
+      "651150fc88:projects/ROCKNIX/packages/emulators/standalone/ppsspp-sa/patches/007-disable-home-pause.patch"
+    ],
+    "cwd": "/workspace/repos/pixelelated/distribution.worktrees/m6-patches-shipped-689",
+    "name": "ppsspp-upstream",
+    "rc": 0,
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stdout_sha256": "4e7bfed33c6d92009f9b2d4efe8f4fd74faff43f7296191f066ebbb44cc7b5fe",
+    "utc": "2026-11-02T19:34:25.415950+00:00"
+  },
+  {
+    "argv": [
+      "rg",
+      "-n",
+      "seatd-launch",
+      "projects/ROCKNIX/packages",
+      "--glob",
+      "!*.patch",
+      "--glob",
+      "!package.mk"
+    ],
+    "cwd": "/workspace/repos/pixelelated/distribution.worktrees/m6-patches-shipped-689",
+    "name": "seatd-consumers",
+    "rc": 1,
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "utc": "2026-11-02T19:34:25.425038+00:00"
+  },
+  {
+    "argv": [
+      "git",
+      "show",
+      "e869aa644a16e4332cdc15c1ea0b4d13d482385d:ThunkLibs/GuestLibs/CMakeLists.txt"
+    ],
+    "cwd": "/workspace/cache/rocknix-sources/fex-emu/fex-emu-e869aa644a16e4332cdc15c1ea0b4d13d482385d",
+    "name": "fex-thunk-cmake",
+    "rc": 0,
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stdout_sha256": "25bf8c6e9b305bc92e1dccff89e0e543577464c2f9794078f1eee82276cb2038",
+    "utc": "2026-11-02T19:34:25.426454+00:00"
+  },
+  {
+    "argv": [
+      "git",
+      "show",
+      "6094cfcf7b8fba733b3116fdf3414d51c1c0e4a4:Source/Core/Common/ScopeGuard.h"
+    ],
+    "cwd": "/workspace/cache/rocknix-sources/dolphin-sa/dolphin-sa-6094cfcf7b8fba733b3116fdf3414d51c1c0e4a4",
+    "name": "dolphin-scopeguard",
+    "rc": 0,
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stdout_sha256": "febb82901071213f32e684a8dcbf41d508f072898c66304acabf4bdfb262d18e",
+    "utc": "2026-11-02T19:34:25.427816+00:00"
+  },
+  {
+    "argv": [
+      "git",
+      "show",
+      "6094cfcf7b8fba733b3116fdf3414d51c1c0e4a4:Source/Core/DolphinNoGUI/MainNoGUI.cpp"
+    ],
+    "cwd": "/workspace/cache/rocknix-sources/dolphin-sa/dolphin-sa-6094cfcf7b8fba733b3116fdf3414d51c1c0e4a4",
+    "name": "dolphin-mainnogui",
+    "rc": 0,
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stdout_sha256": "d4994f690b92e5810d5264129991542f503bdd92182f9d7a2d540ca4508ef030",
+    "utc": "2026-11-02T19:34:25.429843+00:00"
+  },
+  {
+    "argv": [
+      "git",
+      "show",
+      "f8a0f35931:docs/audits/2026_10_24-epic-m6-emulators-standalone/05-punch-list.md"
+    ],
+    "cwd": "/workspace/repos/pixelelated/distribution.worktrees/m6-patches-shipped-689",
+    "name": "prior-t30-punch",
+    "rc": 0,
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stdout_sha256": "dab0cdd871a528ecd89531eee4142243dfb940bad3441a915b945ec00e3ed969",
+    "utc": "2026-11-02T19:34:25.431788+00:00"
+  },
+  {
+    "argv": [
+      "gh",
+      "issue",
+      "list",
+      "--repo",
+      "pixelelated/distribution",
+      "--state",
+      "all",
+      "--search",
+      "ppsspp pause",
+      "--json",
+      "number,title,state"
+    ],
+    "cwd": "/workspace/repos/pixelelated/distribution.worktrees/m6-patches-shipped-689",
+    "name": "ppsspp-issue-search",
+    "rc": 0,
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stdout_sha256": "6fde5aa56c922cb61e98357ac8e28fd15405061c26983df42dc271d9af62999b",
+    "utc": "2026-11-02T19:34:26.115620+00:00"
+  },
+  {
+    "argv": [
+      "tools/archaeology",
+      "ppsspp pause"
+    ],
+    "cwd": "/workspace/repos/pixelelated/distribution.worktrees/m6-patches-shipped-689",
+    "name": "ppsspp-archaeology",
+    "rc": 0,
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stdout_sha256": "2c1e2f55976f862cf6f1a9737dbaa3bf030204d88b0a23b00f563452e797b9fe",
+    "utc": "2026-11-02T19:35:04.105041+00:00"
+  },
+  {
+    "argv": [
+      "gh",
+      "issue",
+      "view",
+      "689",
+      "--repo",
+      "pixelelated/distribution",
+      "--json",
+      "id,title,body,comments,milestone,labels,state"
+    ],
+    "cwd": "/workspace/repos/pixelelated/distribution.worktrees/m6-patches-shipped-689",
+    "name": "issue-689",
+    "rc": 0,
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stdout_sha256": "64ed0ce12c23c23be567aa29b35fa4098eda7c165a524749efdb3d23028e61a5",
+    "utc": "2026-11-02T19:35:04.845101+00:00"
+  },
+  {
+    "argv": [
+      "gh",
+      "api",
+      "repos/pixelelated/distribution/issues/comments/6585520800"
+    ],
+    "cwd": "/workspace/repos/pixelelated/distribution.worktrees/m6-patches-shipped-689",
+    "name": "dispatch",
+    "rc": 0,
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stdout_sha256": "98ff4482e876ee37c6a30d3fcb9f1e555d543c002bb2f9b3b402424620619855",
+    "utc": "2026-11-02T19:35:05.406947+00:00"
+  }
+]

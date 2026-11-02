@@ -1,0 +1,40 @@
+{
+  "base": "/workspace/tmp/m6-t42/archive-71513a31c01a428b",
+  "extracted": [
+    {
+      "bytes": 5697,
+      "member": "libxcrypt-4.5.2/lib/crypt-gost-yescrypt.c",
+      "path": "lib/crypt-gost-yescrypt.c",
+      "sha256": "a4bca98dccf0b74a1a3d027faaef7c79209681b6b8908cf6dfd44ff721255dad"
+    },
+    {
+      "bytes": 5724,
+      "member": "libxcrypt-4.5.2/lib/crypt-sm3-yescrypt.c",
+      "path": "lib/crypt-sm3-yescrypt.c",
+      "sha256": "9ceeee7cbcbf757f09237c94388aa18e01532e5ced60aba454bd8b16141c5519"
+    }
+  ],
+  "member_count": 178,
+  "member_manifest_sha256": "7736c6d002afc4d8fce5e6cf4612a9926b8061e01e7c3d16d441c5d0dd4c1ac3",
+  "missing": [],
+  "path": "/workspace/cache/rocknix-sources/libxcrypt/libxcrypt-4.5.2.tar.xz",
+  "recipe_sha256": "71513a31c01a428bccd5367a32fd95f115d6dac50fb5b60c779d5c7942aec071",
+  "root": "libxcrypt-4.5.2",
+  "sha256": "71513a31c01a428bccd5367a32fd95f115d6dac50fb5b60c779d5c7942aec071",
+  "sidecar_sha256": "281160832ed9ac52e7f36e34dc76c578c4231abe93f809ae653ff53c7783e2a5",
+  "source_tree": {
+    "files": [
+      {
+        "mode": "0o644",
+        "path": "lib/crypt-gost-yescrypt.c",
+        "sha256": "a4bca98dccf0b74a1a3d027faaef7c79209681b6b8908cf6dfd44ff721255dad"
+      },
+      {
+        "mode": "0o644",
+        "path": "lib/crypt-sm3-yescrypt.c",
+        "sha256": "9ceeee7cbcbf757f09237c94388aa18e01532e5ced60aba454bd8b16141c5519"
+      }
+    ],
+    "sha256": "cd9e091205c1f1b6543ac2bd5a6dc7cf1bf9c46405bbe71709633b005b48aaef"
+  }
+}

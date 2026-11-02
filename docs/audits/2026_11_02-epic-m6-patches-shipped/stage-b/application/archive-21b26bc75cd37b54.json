@@ -1,0 +1,40 @@
+{
+  "base": "/workspace/tmp/m6-t42/archive-21b26bc75cd37b54",
+  "extracted": [
+    {
+      "bytes": 1999,
+      "member": "libunwind-1.8.3/include/tdep-arm/ex_tables.h",
+      "path": "include/tdep-arm/ex_tables.h",
+      "sha256": "6d5ae27b938ae09c3af96e377714750e5f42beacbde16ebde0a5aa45cce293f8"
+    },
+    {
+      "bytes": 236,
+      "member": "libunwind-1.8.3/src/unwind/libunwind.pc.in",
+      "path": "src/unwind/libunwind.pc.in",
+      "sha256": "0ee4d25046ca84884bbaa68689db745e6445565fbc8e6df6c394a0692f074c54"
+    }
+  ],
+  "member_count": 992,
+  "member_manifest_sha256": "d1cc6ae060ee8c1256d655a5e937fe8fef57e9c2a32a00af6d8851a2ac222eee",
+  "missing": [],
+  "path": "/workspace/cache/rocknix-sources/libunwind/libunwind-1.8.3.tar.gz",
+  "recipe_sha256": "21b26bc75cd37b548d7952f2794cde711efa6c6151c4147cc3c52cfedbf11df4",
+  "root": "libunwind-1.8.3",
+  "sha256": "21b26bc75cd37b548d7952f2794cde711efa6c6151c4147cc3c52cfedbf11df4",
+  "sidecar_sha256": "66f19b35be5a0b4e32640d8aae7d5309ed5ec8eac46230791cc108abc9ecc4d5",
+  "source_tree": {
+    "files": [
+      {
+        "mode": "0o644",
+        "path": "include/tdep-arm/ex_tables.h",
+        "sha256": "6d5ae27b938ae09c3af96e377714750e5f42beacbde16ebde0a5aa45cce293f8"
+      },
+      {
+        "mode": "0o644",
+        "path": "src/unwind/libunwind.pc.in",
+        "sha256": "0ee4d25046ca84884bbaa68689db745e6445565fbc8e6df6c394a0692f074c54"
+      }
+    ],
+    "sha256": "ba0a8a0dd4a5a6f6a4a26c39a54dd192227a6cc1b513cb86eae654c88bc8e737"
+  }
+}

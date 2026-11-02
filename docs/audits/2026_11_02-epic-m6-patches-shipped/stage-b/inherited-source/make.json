@@ -1,0 +1,30 @@
+{
+  "archive": "/workspace/cache/rocknix-sources/make/make-4.4.1.tar.gz",
+  "archive_sha256": "dd16fb1d67bfab79a72f5e8390735c49e3e8e70b4945a15ab1f81ddb78658fb3",
+  "files": [
+    {
+      "bytes": 117381,
+      "member": "make-4.4.1/src/job.c",
+      "path": "src/job.c",
+      "sha256": "c1c32d4bd7fd56d898e952ed094a488edf2d4333a02058a3302d28f5e3f8ca09"
+    }
+  ],
+  "kind": "unmodified cached-source comparison, not stack application",
+  "member_count": 416,
+  "member_manifest_sha256": "fa31dec4f0b8e7e3b14b2eb4a55667881da6d29a9ce0755efc66b7b11491d636",
+  "missing": [
+    "tests/scripts/features/long_command_line"
+  ],
+  "pin": "4.4.1",
+  "recipe": "projects/ROCKNIX/packages/devel/make/package.mk",
+  "recipe_sha256": "1bf015e59c38cdd748a189eb0632fc0c8f698cdd503a477fe13020e02592b083",
+  "requested": [
+    "src/job.c",
+    "tests/scripts/features/long_command_line"
+  ],
+  "root": "make-4.4.1",
+  "scratch": "/workspace/tmp/m6-t42/inherited-source/make",
+  "sidecar_sha256": "8d014b48f4dadcf7ce3cf88e77c854f3da12a61722e774c92bd31f983bab6686",
+  "status": "qualified raw source",
+  "utc": "2026-11-02T19:13:50.555792+00:00"
+}

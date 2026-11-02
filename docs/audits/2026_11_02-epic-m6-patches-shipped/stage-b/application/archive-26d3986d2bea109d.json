@@ -1,0 +1,40 @@
+{
+  "base": "/workspace/tmp/m6-t42/archive-26d3986d2bea109d",
+  "extracted": [
+    {
+      "bytes": 38787,
+      "member": "syslinux-6.03/extlinux/main.c",
+      "path": "extlinux/main.c",
+      "sha256": "028232a6b797846aafd03fbf6d574357575c998246466cc8cc3a3a1ddf4d2f0a"
+    },
+    {
+      "bytes": 1405,
+      "member": "syslinux-6.03/libinstaller/linuxioctl.h",
+      "path": "libinstaller/linuxioctl.h",
+      "sha256": "e5d6043822eb2451f35b5c3c69ad8df7d9e466512effb19ed9389dd6609efb02"
+    }
+  ],
+  "member_count": 3458,
+  "member_manifest_sha256": "74296f4d4bc2b473114f4bebcd7c82ebce5e8a57e8bb35bea4aaeb92caf3a230",
+  "missing": [],
+  "path": "/workspace/cache/rocknix-sources/syslinux/syslinux-6.03.tar.xz",
+  "recipe_sha256": "26d3986d2bea109d5dc0e4f8c4822a459276cf021125e8c9f23c3cca5d8c850e",
+  "root": "syslinux-6.03",
+  "sha256": "26d3986d2bea109d5dc0e4f8c4822a459276cf021125e8c9f23c3cca5d8c850e",
+  "sidecar_sha256": "efddd2af103bbd21661d136f79b080ecea0793f50c062018990bc81af5aa29f1",
+  "source_tree": {
+    "files": [
+      {
+        "mode": "0o644",
+        "path": "extlinux/main.c",
+        "sha256": "028232a6b797846aafd03fbf6d574357575c998246466cc8cc3a3a1ddf4d2f0a"
+      },
+      {
+        "mode": "0o644",
+        "path": "libinstaller/linuxioctl.h",
+        "sha256": "e5d6043822eb2451f35b5c3c69ad8df7d9e466512effb19ed9389dd6609efb02"
+      }
+    ],
+    "sha256": "b64d69b6f395b9171bd1fa821cd1b48db21129355c3c78fce1796475384ad27d"
+  }
+}

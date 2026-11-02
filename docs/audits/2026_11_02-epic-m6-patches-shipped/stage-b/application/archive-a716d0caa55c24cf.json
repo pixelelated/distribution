@@ -1,0 +1,62 @@
+{
+  "base": "/workspace/tmp/m6-t42/archive-a716d0caa55c24cf",
+  "extracted": [
+    {
+      "bytes": 5401,
+      "member": "duckstation-24c373245ebdab946f11627520edea76e1f23b8e/src/common/log.h",
+      "path": "src/common/log.h",
+      "sha256": "5399d1ce286a89a7d20e174815d8722f70672982839e9acd82febb88300d7410"
+    },
+    {
+      "bytes": 4990,
+      "member": "duckstation-24c373245ebdab946f11627520edea76e1f23b8e/src/core/cpu_core.h",
+      "path": "src/core/cpu_core.h",
+      "sha256": "ad91961d1d0fb5fc6d0ca4cbcb2dbb4ebe3730dd8479d0b0ccda6f4284f69351"
+    },
+    {
+      "bytes": 78760,
+      "member": "duckstation-24c373245ebdab946f11627520edea76e1f23b8e/src/core/cpu_recompiler_code_generator.cpp",
+      "path": "src/core/cpu_recompiler_code_generator.cpp",
+      "sha256": "3df702e49bab9b4f5a559c37752632b8a996725f26682dcbc20d52d65b0bcd49"
+    },
+    {
+      "bytes": 56860,
+      "member": "duckstation-24c373245ebdab946f11627520edea76e1f23b8e/src/duckstation-libretro/libretro_host_interface.cpp",
+      "path": "src/duckstation-libretro/libretro_host_interface.cpp",
+      "sha256": "b08cde2fda63cd44678a39aa30179104406b39c0bee35587bc5edbe91d57dfdd"
+    }
+  ],
+  "member_count": 1937,
+  "member_manifest_sha256": "2299d532881e50563cbb072cb3ca38fe0e1773dd0c93f9f371e1d52b26013209",
+  "missing": [],
+  "path": "/workspace/cache/rocknix-sources/duckstation-lr/duckstation-lr-24c373245ebdab946f11627520edea76e1f23b8e.tar.gz",
+  "recipe_sha256": "a716d0caa55c24cfa23495d46bf5268a58fec0055e23df41caa7239d7da28fa4",
+  "root": "duckstation-24c373245ebdab946f11627520edea76e1f23b8e",
+  "sha256": "a716d0caa55c24cfa23495d46bf5268a58fec0055e23df41caa7239d7da28fa4",
+  "sidecar_sha256": "002a314c33734acf9d1d589287cec15c21e97fdeee3d8102179708ef6295cd51",
+  "source_tree": {
+    "files": [
+      {
+        "mode": "0o644",
+        "path": "src/common/log.h",
+        "sha256": "5399d1ce286a89a7d20e174815d8722f70672982839e9acd82febb88300d7410"
+      },
+      {
+        "mode": "0o644",
+        "path": "src/core/cpu_core.h",
+        "sha256": "ad91961d1d0fb5fc6d0ca4cbcb2dbb4ebe3730dd8479d0b0ccda6f4284f69351"
+      },
+      {
+        "mode": "0o644",
+        "path": "src/core/cpu_recompiler_code_generator.cpp",
+        "sha256": "3df702e49bab9b4f5a559c37752632b8a996725f26682dcbc20d52d65b0bcd49"
+      },
+      {
+        "mode": "0o644",
+        "path": "src/duckstation-libretro/libretro_host_interface.cpp",
+        "sha256": "b08cde2fda63cd44678a39aa30179104406b39c0bee35587bc5edbe91d57dfdd"
+      }
+    ],
+    "sha256": "81b61c6d131b35c49372ea8ae2bb4bf6b9654424422a1faed368e1e019dba58f"
+  }
+}

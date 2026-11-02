@@ -1,0 +1,40 @@
+{
+  "base": "/workspace/tmp/m6-t42/archive-a3c2b80201b89e68",
+  "extracted": [
+    {
+      "bytes": 124225,
+      "member": "gmp-6.3.0/acinclude.m4",
+      "path": "acinclude.m4",
+      "sha256": "a529de1f8403b3b25c4b3ec0424b360c4d984bb04585aad32049805161fce028"
+    },
+    {
+      "bytes": 942195,
+      "member": "gmp-6.3.0/configure",
+      "path": "configure",
+      "sha256": "a7f4836f9d77f63d0bffc70d27c6c303b6bb83edcdb7b13615c9cc96b761e092"
+    }
+  ],
+  "member_count": 2343,
+  "member_manifest_sha256": "7d61ae5354e6d55d6561fb930e1fe0cf723d4e878766d3dd539dbf6186c179c1",
+  "missing": [],
+  "path": "/workspace/cache/rocknix-sources/gmp/gmp-6.3.0.tar.xz",
+  "recipe_sha256": "a3c2b80201b89e68616f4ad30bc66aee4927c3ce50e33929ca819d5c43538898",
+  "root": "gmp-6.3.0",
+  "sha256": "a3c2b80201b89e68616f4ad30bc66aee4927c3ce50e33929ca819d5c43538898",
+  "sidecar_sha256": "0d86b5ecfd3609afc056a748f5381a7632582a060a49ad84b2e5bf0489c1af4b",
+  "source_tree": {
+    "files": [
+      {
+        "mode": "0o644",
+        "path": "acinclude.m4",
+        "sha256": "a529de1f8403b3b25c4b3ec0424b360c4d984bb04585aad32049805161fce028"
+      },
+      {
+        "mode": "0o755",
+        "path": "configure",
+        "sha256": "a7f4836f9d77f63d0bffc70d27c6c303b6bb83edcdb7b13615c9cc96b761e092"
+      }
+    ],
+    "sha256": "ce99a6fcec4faaf867a5af89c6a361e5f496268982575635ebf413ee514f975d"
+  }
+}

@@ -1,0 +1,73 @@
+{
+  "base": "/workspace/tmp/m6-t42/archive-15d838c4f3375332",
+  "extracted": [
+    {
+      "bytes": 6353,
+      "member": "xmlstarlet-1.6.1/src/trans.c",
+      "path": "src/trans.c",
+      "sha256": "0599e76d3861b874050773a81297ccee747da364bdfdb7f11e8103188a825833"
+    },
+    {
+      "bytes": 22149,
+      "member": "xmlstarlet-1.6.1/src/xml_edit.c",
+      "path": "src/xml_edit.c",
+      "sha256": "ac44ab25e0c1c9288eb12653203b5746609a7a5361e24b5ec3bc1e61de814147"
+    },
+    {
+      "bytes": 9381,
+      "member": "xmlstarlet-1.6.1/src/xml_format.c",
+      "path": "src/xml_format.c",
+      "sha256": "38b9a150f43b41eae4d6d13006c05a40792873d2814293da70b4cb8425263924"
+    },
+    {
+      "bytes": 8087,
+      "member": "xmlstarlet-1.6.1/src/xml_pyx.c",
+      "path": "src/xml_pyx.c",
+      "sha256": "6e2eb0ced298c1bcd7247448a8399a8b1e96af0b2ccdc502e55543236978445b"
+    },
+    {
+      "bytes": 1579,
+      "member": "xmlstarlet-1.6.1/usage2c.awk",
+      "path": "usage2c.awk",
+      "sha256": "1511857d13bae0c5dc3fc767ecb60f0046d9230536694fb95a6ac79855159188"
+    }
+  ],
+  "member_count": 318,
+  "member_manifest_sha256": "b5ff3c8cd8bc9616d4d306f40834ce4c8b7325a18c6b570e943da427695f7c9c",
+  "missing": [],
+  "path": "/workspace/cache/rocknix-sources/xmlstarlet/xmlstarlet-1.6.1.tar.gz",
+  "recipe_sha256": "15d838c4f3375332fd95554619179b69e4ec91418a3a5296e7c631b7ed19e7ca",
+  "root": "xmlstarlet-1.6.1",
+  "sha256": "15d838c4f3375332fd95554619179b69e4ec91418a3a5296e7c631b7ed19e7ca",
+  "sidecar_sha256": "9f27cfbfb6c6bc7789a80d95ebe1e266a1b3c76f2e63f8003acc8348f0931781",
+  "source_tree": {
+    "files": [
+      {
+        "mode": "0o644",
+        "path": "src/trans.c",
+        "sha256": "0599e76d3861b874050773a81297ccee747da364bdfdb7f11e8103188a825833"
+      },
+      {
+        "mode": "0o644",
+        "path": "src/xml_edit.c",
+        "sha256": "ac44ab25e0c1c9288eb12653203b5746609a7a5361e24b5ec3bc1e61de814147"
+      },
+      {
+        "mode": "0o644",
+        "path": "src/xml_format.c",
+        "sha256": "38b9a150f43b41eae4d6d13006c05a40792873d2814293da70b4cb8425263924"
+      },
+      {
+        "mode": "0o644",
+        "path": "src/xml_pyx.c",
+        "sha256": "6e2eb0ced298c1bcd7247448a8399a8b1e96af0b2ccdc502e55543236978445b"
+      },
+      {
+        "mode": "0o755",
+        "path": "usage2c.awk",
+        "sha256": "1511857d13bae0c5dc3fc767ecb60f0046d9230536694fb95a6ac79855159188"
+      }
+    ],
+    "sha256": "b1fa9790a8906d6d62d9655e339d937d158029c97ee5b3c03a7e109b9bf143dc"
+  }
+}

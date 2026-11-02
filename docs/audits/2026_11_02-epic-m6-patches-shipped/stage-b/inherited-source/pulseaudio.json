@@ -1,0 +1,27 @@
+{
+  "archive": "/workspace/cache/rocknix-sources/pulseaudio/pulseaudio-17.0.tar.xz",
+  "archive_sha256": "053794d6671a3e397d849e478a80b82a63cb9d8ca296bd35b73317bb5ceb87b5",
+  "files": [
+    {
+      "bytes": 85660,
+      "member": "pulseaudio-17.0/src/pulsecore/core-util.c",
+      "path": "src/pulsecore/core-util.c",
+      "sha256": "40647007bd0148d3675712dd59b3afaf1ede2792fa3c8e14fc1071f9c9341e2c"
+    }
+  ],
+  "kind": "unmodified cached-source comparison, not stack application",
+  "member_count": 915,
+  "member_manifest_sha256": "ad2f84b92c6336576e928cb19886005e71a165a277d8b821cd9fc5d3b19c2782",
+  "missing": [],
+  "pin": "17.0",
+  "recipe": "projects/ROCKNIX/packages/audio/pulseaudio/package.mk",
+  "recipe_sha256": "c4f185666bc59df1b241f26bc8f18ec650248fbe27dc3a54322fa7f2bc2d9cdc",
+  "requested": [
+    "src/pulsecore/core-util.c"
+  ],
+  "root": "pulseaudio-17.0",
+  "scratch": "/workspace/tmp/m6-t42/inherited-source/pulseaudio",
+  "sidecar_sha256": "66514900cabb8e437f9eb87cbc1e73ffe04ddb178422aedc99a4fb913f041313",
+  "status": "qualified raw source",
+  "utc": "2026-11-02T19:13:49.222405+00:00"
+}

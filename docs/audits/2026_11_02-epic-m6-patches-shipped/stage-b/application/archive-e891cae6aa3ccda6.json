@@ -1,0 +1,40 @@
+{
+  "base": "/workspace/tmp/m6-t42/archive-e891cae6aa3ccda6",
+  "extracted": [
+    {
+      "bytes": 139475,
+      "member": "vlc-3.0.23/configure.ac",
+      "path": "configure.ac",
+      "sha256": "43d77f2bb2d0314a3ee7bd45ed027308e0a38e5c8ec4a2e920613dd53f9ced18"
+    },
+    {
+      "bytes": 2604,
+      "member": "vlc-3.0.23/modules/codec/gstreamer/gstvlcvideopool.h",
+      "path": "modules/codec/gstreamer/gstvlcvideopool.h",
+      "sha256": "3b4505ca7ce614b81a5871c2d9e1f17b18c2a4b36fe74c7ee166f1e935a29a5e"
+    }
+  ],
+  "member_count": 4830,
+  "member_manifest_sha256": "ff7d31304bc817ed26c4ed38dc84828ff646e7a90dcb59d092ba5371fb04fbc5",
+  "missing": [],
+  "path": "/workspace/cache/rocknix-sources/vlc/vlc-3.0.23.tar.xz",
+  "recipe_sha256": "e891cae6aa3ccda69bf94173d5105cbc55c7a7d9b1d21b9b21666e69eff3e7e0",
+  "root": "vlc-3.0.23",
+  "sha256": "e891cae6aa3ccda69bf94173d5105cbc55c7a7d9b1d21b9b21666e69eff3e7e0",
+  "sidecar_sha256": "de68a87279f378f67aa3884dd93358b21be609b00dc338f095ce0ee259cb85cb",
+  "source_tree": {
+    "files": [
+      {
+        "mode": "0o644",
+        "path": "configure.ac",
+        "sha256": "43d77f2bb2d0314a3ee7bd45ed027308e0a38e5c8ec4a2e920613dd53f9ced18"
+      },
+      {
+        "mode": "0o644",
+        "path": "modules/codec/gstreamer/gstvlcvideopool.h",
+        "sha256": "3b4505ca7ce614b81a5871c2d9e1f17b18c2a4b36fe74c7ee166f1e935a29a5e"
+      }
+    ],
+    "sha256": "f0acc90c64a82908b1f2b805c4cfe1b15714037a2024d17a5470a31472dd749a"
+  }
+}

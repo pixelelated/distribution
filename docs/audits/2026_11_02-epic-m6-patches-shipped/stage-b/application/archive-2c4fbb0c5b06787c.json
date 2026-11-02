@@ -1,0 +1,95 @@
+{
+  "base": "/workspace/tmp/m6-t42/archive-2c4fbb0c5b06787c",
+  "extracted": [
+    {
+      "bytes": 40045,
+      "member": "gzdoom-g4.14.2/specs/udmf_zdoom.txt",
+      "path": "specs/udmf_zdoom.txt",
+      "sha256": "f5bcb3b12ea12ddb6bfb92cd84b21b1e1f6d2164834685a9d637938aa6d67e53"
+    },
+    {
+      "bytes": 3426,
+      "member": "gzdoom-g4.14.2/src/common/console/keydef.h",
+      "path": "src/common/console/keydef.h",
+      "sha256": "f5fe4fe1d1b4534302d27edd450f841a4343b3541b88df84e0aedd75058662c7"
+    },
+    {
+      "bytes": 32372,
+      "member": "gzdoom-g4.14.2/src/common/menu/menu.cpp",
+      "path": "src/common/menu/menu.cpp",
+      "sha256": "f42a12e1f27fe0c07f926f78be9fb9d9773819f2fce2195132025e8783b222f2"
+    },
+    {
+      "bytes": 2899,
+      "member": "gzdoom-g4.14.2/src/common/platform/posix/sdl/i_gui.cpp",
+      "path": "src/common/platform/posix/sdl/i_gui.cpp",
+      "sha256": "8f1f2d166d80d5ea5f3ebb38918f6170e4ed42fe5e935ef75a0e0e14adff5b5d"
+    },
+    {
+      "bytes": 5678,
+      "member": "gzdoom-g4.14.2/src/common/rendering/gles/gles_system.cpp",
+      "path": "src/common/rendering/gles/gles_system.cpp",
+      "sha256": "bcd7679dda2b61477be2880531f1d81a987a8a36e701c93d0875dcbc71769787"
+    },
+    {
+      "bytes": 4478,
+      "member": "gzdoom-g4.14.2/src/gamedata/doomfont.h",
+      "path": "src/gamedata/doomfont.h",
+      "sha256": "484c2a6c13e1444448d74e4b509b3ceede119bc845ee983b54eed02ba1134e09"
+    },
+    {
+      "bytes": 8575,
+      "member": "gzdoom-g4.14.2/wadsrc/static/language.def",
+      "path": "wadsrc/static/language.def",
+      "sha256": "49ef3078da3c2df67d608b7cfd568f1fed73e6a5f16c08ceaa908316e26c4c94"
+    }
+  ],
+  "member_count": 7163,
+  "member_manifest_sha256": "6557d81548ab8d952c912382dbf278c02a569646c2b2ad9d9541708b776da749",
+  "missing": [],
+  "path": "/workspace/cache/rocknix-sources/gzdoom-sa/gzdoom-sa-g4.14.2.tar.gz",
+  "recipe_sha256": "2c4fbb0c5b06787c8a2ade9fbbbe2fa5eaa7c49cf7f62a73627c381f8f890156",
+  "root": "gzdoom-g4.14.2",
+  "sha256": "2c4fbb0c5b06787c8a2ade9fbbbe2fa5eaa7c49cf7f62a73627c381f8f890156",
+  "sidecar_sha256": "90c52ed67d4a6e178e65737456f02aa94c17e71133ca295bbe135de52f0eaabb",
+  "source_tree": {
+    "files": [
+      {
+        "mode": "0o644",
+        "path": "specs/udmf_zdoom.txt",
+        "sha256": "f5bcb3b12ea12ddb6bfb92cd84b21b1e1f6d2164834685a9d637938aa6d67e53"
+      },
+      {
+        "mode": "0o644",
+        "path": "src/common/console/keydef.h",
+        "sha256": "f5fe4fe1d1b4534302d27edd450f841a4343b3541b88df84e0aedd75058662c7"
+      },
+      {
+        "mode": "0o644",
+        "path": "src/common/menu/menu.cpp",
+        "sha256": "f42a12e1f27fe0c07f926f78be9fb9d9773819f2fce2195132025e8783b222f2"
+      },
+      {
+        "mode": "0o644",
+        "path": "src/common/platform/posix/sdl/i_gui.cpp",
+        "sha256": "8f1f2d166d80d5ea5f3ebb38918f6170e4ed42fe5e935ef75a0e0e14adff5b5d"
+      },
+      {
+        "mode": "0o644",
+        "path": "src/common/rendering/gles/gles_system.cpp",
+        "sha256": "bcd7679dda2b61477be2880531f1d81a987a8a36e701c93d0875dcbc71769787"
+      },
+      {
+        "mode": "0o644",
+        "path": "src/gamedata/doomfont.h",
+        "sha256": "484c2a6c13e1444448d74e4b509b3ceede119bc845ee983b54eed02ba1134e09"
+      },
+      {
+        "mode": "0o644",
+        "path": "wadsrc/static/language.def",
+        "sha256": "49ef3078da3c2df67d608b7cfd568f1fed73e6a5f16c08ceaa908316e26c4c94"
+      }
+    ],
+    "sha256": "8669885f978275d41be50a333120ae09203a2a812f0fbf98b846480ee0933c1c"
+  }
+}

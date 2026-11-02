@@ -1,0 +1,40 @@
+{
+  "base": "/workspace/tmp/m6-t42/archive-778778b35dd48701",
+  "extracted": [
+    {
+      "bytes": 59796,
+      "member": "spleen-2.0.0/spleen-5x8.bdf",
+      "path": "spleen-5x8.bdf",
+      "sha256": "eb18803ffd75c17e8d2eb6041800504ba9a8604b74093c3cf90c2d2f04ceb87c"
+    },
+    {
+      "bytes": 65939,
+      "member": "spleen-2.0.0/spleen-6x12.bdf",
+      "path": "spleen-6x12.bdf",
+      "sha256": "123eb5333820d64c429200139007fd542db81680c70833bd4a16a354f9ad0759"
+    }
+  ],
+  "member_count": 74,
+  "member_manifest_sha256": "eec09205e3adf2c1bf8aaa58338e6f011ec90b09359727d6ad7a80c4893c988c",
+  "missing": [],
+  "path": "/workspace/cache/rocknix-sources/spleen-font/spleen-font-2.0.0.tar.gz",
+  "recipe_sha256": "778778b35dd48701b803db247a6ac8759154ce5fc3abd5cc0b6db98a44ba5a0c",
+  "root": "spleen-2.0.0",
+  "sha256": "778778b35dd48701b803db247a6ac8759154ce5fc3abd5cc0b6db98a44ba5a0c",
+  "sidecar_sha256": "7d189cdd6bad8844be3ca4ed50126d4eb1b09073d476e18c197b5c0db75cf7be",
+  "source_tree": {
+    "files": [
+      {
+        "mode": "0o644",
+        "path": "spleen-5x8.bdf",
+        "sha256": "eb18803ffd75c17e8d2eb6041800504ba9a8604b74093c3cf90c2d2f04ceb87c"
+      },
+      {
+        "mode": "0o644",
+        "path": "spleen-6x12.bdf",
+        "sha256": "123eb5333820d64c429200139007fd542db81680c70833bd4a16a354f9ad0759"
+      }
+    ],
+    "sha256": "3d10e3d31000c0120ac2394abab75926786a791398f65ed8108b7b8c4e9e18bc"
+  }
+}

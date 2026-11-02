@@ -1,0 +1,27 @@
+{
+  "archive": "/workspace/cache/rocknix-sources/go/go-1.21.4.tar.gz",
+  "archive_sha256": "13b2395f666e77234d0731ec82c008a584ef0408ca32e52fe95b98f02f32db17",
+  "files": [
+    {
+      "bytes": 959,
+      "member": "go-go1.21.4/src/crypto/x509/root_linux.go",
+      "path": "src/crypto/x509/root_linux.go",
+      "sha256": "cd05796cc82c3aed980364301d44225c055a8eb53d7ea276ffa679a2e4b3e53f"
+    }
+  ],
+  "kind": "unmodified cached-source comparison, not stack application",
+  "member_count": 13913,
+  "member_manifest_sha256": "ca70cf0c1b475537e12eb60426f1c9f5ba70a269947e9d18d1a7c4b10e2ac286",
+  "missing": [],
+  "pin": "1.21.4",
+  "recipe": "projects/ROCKNIX/packages/lang/go/package.mk",
+  "recipe_sha256": "90ef65d9101bf936155c06398e370497eaaeb9db85357900b866e1e149ee129a",
+  "requested": [
+    "src/crypto/x509/root_linux.go"
+  ],
+  "root": "go-go1.21.4",
+  "scratch": "/workspace/tmp/m6-t42/inherited-source/go",
+  "sidecar_sha256": "4b45650f6d9a494196f06d30ff1208bd40e8b5bc6ba620670a774a293c684ecc",
+  "status": "qualified raw source",
+  "utc": "2026-11-02T19:13:51.678432+00:00"
+}

@@ -1,0 +1,27 @@
+{
+  "archive": "/workspace/cache/rocknix-sources/llvm/llvm-22.1.8.tar.xz",
+  "archive_sha256": "922f1817a0df7b1489272d18134ee0087a8b068828f87ac63b9861b1a9965888",
+  "files": [
+    {
+      "bytes": 63730,
+      "member": "llvm-project-22.1.8.src/llvm/CMakeLists.txt",
+      "path": "llvm/CMakeLists.txt",
+      "sha256": "47801a5802487a8cfcf4cf612185b985dce87c7ec802e5a966db7a4567677b12"
+    }
+  ],
+  "kind": "unmodified cached-source comparison, not stack application",
+  "member_count": 184826,
+  "member_manifest_sha256": "b4350795d14169acebd6eaa3a925c2566b1ccbd756afd1ace76f3975ef8508c4",
+  "missing": [],
+  "pin": "22.1.8",
+  "recipe": "projects/ROCKNIX/packages/lang/llvm/package.mk",
+  "recipe_sha256": "98c9ba28dcf9a54bbb8dd06d61a0393fb404b5efbef5b54bad626f01f5e9c85e",
+  "requested": [
+    "llvm/CMakeLists.txt"
+  ],
+  "root": "llvm-project-22.1.8.src",
+  "scratch": "/workspace/tmp/m6-t42/inherited-source/llvm",
+  "sidecar_sha256": "a89315224bc8cb4eddb6e09e1998abb83861e1fc3aa63339b88999b78603e45f",
+  "status": "qualified raw source",
+  "utc": "2026-11-02T19:13:52.113928+00:00"
+}

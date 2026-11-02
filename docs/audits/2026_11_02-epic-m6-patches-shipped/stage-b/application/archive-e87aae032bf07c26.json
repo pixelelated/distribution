@@ -1,0 +1,62 @@
+{
+  "base": "/workspace/tmp/m6-t42/archive-e87aae032bf07c26",
+  "extracted": [
+    {
+      "bytes": 1756,
+      "member": "flex-2.6.4/Makefile.am",
+      "path": "Makefile.am",
+      "sha256": "d723c35b1800ee2dc08de68b47d184fcb8fe1ccae53c8ad58dac32d565f408a5"
+    },
+    {
+      "bytes": 6456,
+      "member": "flex-2.6.4/configure.ac",
+      "path": "configure.ac",
+      "sha256": "61e2cea4a69d53ef281b19f4ac6851539dea3b071f5c5b099b056fabd718496a"
+    },
+    {
+      "bytes": 341,
+      "member": "flex-2.6.4/lib/malloc.c",
+      "path": "lib/malloc.c",
+      "sha256": "30d74d459f3156671210b6116f0944e3876fc7ebf3b3e6fb5017fe700506c749"
+    },
+    {
+      "bytes": 3422,
+      "member": "flex-2.6.4/src/Makefile.am",
+      "path": "src/Makefile.am",
+      "sha256": "51c9ec68a6ebc72f5ed6df09eb292a9542ceada82a2707793d93288eab6f6956"
+    }
+  ],
+  "member_count": 334,
+  "member_manifest_sha256": "499c82bcbc8e758adafac0bc792dcd9c6450a340299d5346f7881db1f32d0c5b",
+  "missing": [],
+  "path": "/workspace/cache/rocknix-sources/flex/flex-2.6.4.tar.gz",
+  "recipe_sha256": "e87aae032bf07c26f85ac0ed3250998c37621d95f8bd748b31f15b33c45ee995",
+  "root": "flex-2.6.4",
+  "sha256": "e87aae032bf07c26f85ac0ed3250998c37621d95f8bd748b31f15b33c45ee995",
+  "sidecar_sha256": "ae08bc7c245a813c99e9fce0b8f94329566218abff6fec020cbf595d85e64f71",
+  "source_tree": {
+    "files": [
+      {
+        "mode": "0o644",
+        "path": "Makefile.am",
+        "sha256": "d723c35b1800ee2dc08de68b47d184fcb8fe1ccae53c8ad58dac32d565f408a5"
+      },
+      {
+        "mode": "0o644",
+        "path": "configure.ac",
+        "sha256": "61e2cea4a69d53ef281b19f4ac6851539dea3b071f5c5b099b056fabd718496a"
+      },
+      {
+        "mode": "0o755",
+        "path": "lib/malloc.c",
+        "sha256": "30d74d459f3156671210b6116f0944e3876fc7ebf3b3e6fb5017fe700506c749"
+      },
+      {
+        "mode": "0o644",
+        "path": "src/Makefile.am",
+        "sha256": "51c9ec68a6ebc72f5ed6df09eb292a9542ceada82a2707793d93288eab6f6956"
+      }
+    ],
+    "sha256": "ed6ec4d033677cc116a43c5eabc7e020612da731fcad87d96400b663a8a05b2b"
+  }
+}

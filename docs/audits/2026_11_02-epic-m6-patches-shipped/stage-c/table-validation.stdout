@@ -1,0 +1,30 @@
+EXPECTED FAIL removed-native native membership assertion
+EXPECTED FAIL duplicate-inherited inherited unique-key assertion
+EXPECTED FAIL altered-referent symlink referent identity assertion
+EXPECTED FAIL fabricated-attribution header attribution assertion
+PASS native 384 / inherited 50 / overrides 26 / fork-written 12:498; four fail-first controls
+{
+  "native_disposition": {
+    "keep": 199,
+    "open-item": 172,
+    "#585": 4,
+    "upstream-changed": 7,
+    "upstream-moved": 1,
+    "bug": 1
+  },
+  "native_application": {
+    "applies": 151,
+    "open-item": 173,
+    "fuzz": 22,
+    "offset": 38
+  },
+  "inherited_conclusion": {
+    "unresolved-with-specific-evidence-needed": 22,
+    "already-carried": 21,
+    "not-applicable-with-reason": 7
+  },
+  "application_groups": 542,
+  "raw_native_application_limit": "one status per native path takes the worst of its per-plan rows; source target projections only",
+  "native_paths": 384,
+  "inherited_keys": 50
+}

@@ -1,0 +1,62 @@
+{
+  "base": "/workspace/tmp/m6-t42/archive-8d9b4e95dba33d21",
+  "extracted": [
+    {
+      "bytes": 6479,
+      "member": "pipewire-1.2.6/src/daemon/pipewire-pulse.conf.in",
+      "path": "src/daemon/pipewire-pulse.conf.in",
+      "sha256": "941d4a37e7cbbae176bfa9d1d8ca834c4ef2cb3bf37e78261cde087257dd7ffd"
+    },
+    {
+      "bytes": 13259,
+      "member": "pipewire-1.2.6/src/daemon/pipewire.conf.in",
+      "path": "src/daemon/pipewire.conf.in",
+      "sha256": "aa5cd39a5ced8c9978c4c98d9a278938777439e5981b08653de71da279974010"
+    },
+    {
+      "bytes": 1131,
+      "member": "pipewire-1.2.6/src/daemon/systemd/system/pipewire.service.in",
+      "path": "src/daemon/systemd/system/pipewire.service.in",
+      "sha256": "c86c7b18382b726f0f20fbf7b1198dfffdaa536480dd741e32b332ad55ea9bd6"
+    },
+    {
+      "bytes": 202,
+      "member": "pipewire-1.2.6/src/daemon/systemd/system/pipewire.socket",
+      "path": "src/daemon/systemd/system/pipewire.socket",
+      "sha256": "6a4ad7598913242df21cc04d9e25b9f1d89336e1e8a059aeccb641af8463d21a"
+    }
+  ],
+  "member_count": 1354,
+  "member_manifest_sha256": "edcfa7afb8da25114db9b4e8cafacee33a6dc09b2545c3456c5230c9104a72d4",
+  "missing": [],
+  "path": "/workspace/cache/rocknix-sources/pipewire/pipewire-1.2.6.tar.gz",
+  "recipe_sha256": "8d9b4e95dba33d218c760fecbb71672c86a56917f803e96fe6c3af62fa783a95",
+  "root": "pipewire-1.2.6",
+  "sha256": "8d9b4e95dba33d218c760fecbb71672c86a56917f803e96fe6c3af62fa783a95",
+  "sidecar_sha256": "e38173fc411737be6169442bb4142ca08c34b61e33c95a194db1182d0bb0b17f",
+  "source_tree": {
+    "files": [
+      {
+        "mode": "0o644",
+        "path": "src/daemon/pipewire-pulse.conf.in",
+        "sha256": "941d4a37e7cbbae176bfa9d1d8ca834c4ef2cb3bf37e78261cde087257dd7ffd"
+      },
+      {
+        "mode": "0o644",
+        "path": "src/daemon/pipewire.conf.in",
+        "sha256": "aa5cd39a5ced8c9978c4c98d9a278938777439e5981b08653de71da279974010"
+      },
+      {
+        "mode": "0o644",
+        "path": "src/daemon/systemd/system/pipewire.service.in",
+        "sha256": "c86c7b18382b726f0f20fbf7b1198dfffdaa536480dd741e32b332ad55ea9bd6"
+      },
+      {
+        "mode": "0o644",
+        "path": "src/daemon/systemd/system/pipewire.socket",
+        "sha256": "6a4ad7598913242df21cc04d9e25b9f1d89336e1e8a059aeccb641af8463d21a"
+      }
+    ],
+    "sha256": "e437b056841e21e0109f8a7b310fb2ee819326e40b6b7a4a3bf4d64b801748c2"
+  }
+}

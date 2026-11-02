@@ -20,3 +20,7 @@ scripts/unpack:126–196 selects PATCH_ARCH, package/project/device directories,
 ## Research summary
 
 Source/seed/P1 inputs match, including selectors and referents; no early immutable-input blocker. The real Local review-plan validator refuses a removed tier exception and accepts the actual identity. This tests the capability only, not completed audit artifacts. Readback: stage-a/local-lint-controls.json. Application and semantic tables are not yet completed; no application or runtime PASS is inferred from membership.
+
+## Completed B evidence
+
+02–04 now record all declared tables, independent reading and backward comparison. Application scope and gaps are explicit in 03/04; the earlier “not yet completed” statement above is the original A checkpoint, not the current status. Source-only receipts and fixed-ref recipe currency are in stage-b/. One confirmed nested-patch defect proceeds to C/D; all other open inputs retain their individual owners.

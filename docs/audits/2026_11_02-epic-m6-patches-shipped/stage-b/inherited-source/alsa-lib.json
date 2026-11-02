@@ -1,0 +1,27 @@
+{
+  "archive": "/workspace/cache/rocknix-sources/alsa-lib/alsa-lib-1.2.14.tar.bz2",
+  "archive_sha256": "be9c88a0b3604367dd74167a2b754a35e142f670292ae47a2fdef27a2ee97a32",
+  "files": [
+    {
+      "bytes": 10119,
+      "member": "alsa-lib-1.2.14/src/conf/alsa.conf",
+      "path": "src/conf/alsa.conf",
+      "sha256": "fbcae1033c90a32bbda2d88296ba104ee0527dcbe2fec4380b1cee65f895b89c"
+    }
+  ],
+  "kind": "unmodified cached-source comparison, not stack application",
+  "member_count": 455,
+  "member_manifest_sha256": "a6f8bc80f3e1cd81615accd028b6807c465536fb1fe0b834cfc3254fdb465861",
+  "missing": [],
+  "pin": "1.2.14",
+  "recipe": "projects/ROCKNIX/packages/audio/alsa-lib/package.mk",
+  "recipe_sha256": "592f3654b64cdf1a1b9140d1c0fd28195c80f70cbfb9c3274a49c032839b22ab",
+  "requested": [
+    "src/conf/alsa.conf"
+  ],
+  "root": "alsa-lib-1.2.14",
+  "scratch": "/workspace/tmp/m6-t42/inherited-source/alsa-lib",
+  "sidecar_sha256": "21a249a2a3a25579e9121513e39e9ac89eecb25f44d53f50da9810db50095b4c",
+  "status": "qualified raw source",
+  "utc": "2026-11-02T19:13:48.983956+00:00"
+}

@@ -1,0 +1,1809 @@
+[
+  {
+    "archive": "/workspace/cache/rocknix-sources/alsa-lib/alsa-lib-1.2.14.tar.bz2",
+    "archive_sha256": "be9c88a0b3604367dd74167a2b754a35e142f670292ae47a2fdef27a2ee97a32",
+    "files": [
+      {
+        "bytes": 10119,
+        "member": "alsa-lib-1.2.14/src/conf/alsa.conf",
+        "path": "src/conf/alsa.conf",
+        "sha256": "fbcae1033c90a32bbda2d88296ba104ee0527dcbe2fec4380b1cee65f895b89c"
+      }
+    ],
+    "kind": "unmodified cached-source comparison, not stack application",
+    "member_count": 455,
+    "member_manifest_sha256": "a6f8bc80f3e1cd81615accd028b6807c465536fb1fe0b834cfc3254fdb465861",
+    "missing": [],
+    "pin": "1.2.14",
+    "recipe": "projects/ROCKNIX/packages/audio/alsa-lib/package.mk",
+    "recipe_sha256": "592f3654b64cdf1a1b9140d1c0fd28195c80f70cbfb9c3274a49c032839b22ab",
+    "requested": [
+      "src/conf/alsa.conf"
+    ],
+    "root": "alsa-lib-1.2.14",
+    "scratch": "/workspace/tmp/m6-t42/inherited-source/alsa-lib",
+    "sidecar_sha256": "21a249a2a3a25579e9121513e39e9ac89eecb25f44d53f50da9810db50095b4c",
+    "status": "qualified raw source",
+    "utc": "2026-11-02T19:13:48.983956+00:00"
+  },
+  {
+    "archive": "/workspace/cache/rocknix-sources/fluidsynth/fluidsynth-2.5.7.tar.gz",
+    "archive_sha256": "ce27840221ab00dd59bf27e85ecbba480c6c2a7c9fbec4243658f68f59c07f4a",
+    "files": [
+      {
+        "bytes": 39090,
+        "member": "fluidsynth-2.5.7/CMakeLists.txt",
+        "path": "CMakeLists.txt",
+        "sha256": "c39190ec4309d93ede80130e3b83cae8ba5e74417ee69bd09408b7361414c5a0"
+      }
+    ],
+    "kind": "unmodified cached-source comparison, not stack application",
+    "member_count": 469,
+    "member_manifest_sha256": "48d84723922a554b9331ccacc82e967958752fc97e5f02badc6190f176e8cc18",
+    "missing": [],
+    "pin": "2.5.7",
+    "recipe": "projects/ROCKNIX/packages/audio/fluidsynth/package.mk",
+    "recipe_sha256": "ceca8100165fb660629b04698588ff8cdb84c2fdcea8e49d688b99cd35ef5141",
+    "requested": [
+      "CMakeLists.txt"
+    ],
+    "root": "fluidsynth-2.5.7",
+    "scratch": "/workspace/tmp/m6-t42/inherited-source/fluidsynth",
+    "sidecar_sha256": "86063c0c07b45c5c6b99a025b59183bff27bc5015e3332eb0e491d535b47eb0b",
+    "status": "qualified raw source",
+    "utc": "2026-11-02T19:13:49.173139+00:00"
+  },
+  {
+    "archive": "/workspace/cache/rocknix-sources/libsndfile/libsndfile-e486f20.tar.gz",
+    "archive_sha256": "1227bc78df8eece089e6b984ba7c32e74e210f146d2bac1b76bd218baaf35ce5",
+    "files": [
+      {
+        "bytes": 41464,
+        "member": "libsndfile-e486f20fd4b1c7490cde84f22635e1c267ae882b/CMakeLists.txt",
+        "path": "CMakeLists.txt",
+        "sha256": "066047f9c5b19058bf75a39f0d0319aa807ca9bf8694a634b70446bd1f8f476f"
+      }
+    ],
+    "kind": "unmodified cached-source comparison, not stack application",
+    "member_count": 378,
+    "member_manifest_sha256": "3e5f2f32ca8940986d932892cac1d86e2d845c9f16deab6067eb5fa45d30b67d",
+    "missing": [],
+    "pin": "e486f20",
+    "recipe": "projects/ROCKNIX/packages/audio/libsndfile/package.mk",
+    "recipe_sha256": "999f40705a12abe17a04cb34c4199e3751cf681d470301edd271d8b814835417",
+    "requested": [
+      "CMakeLists.txt"
+    ],
+    "root": "libsndfile-e486f20fd4b1c7490cde84f22635e1c267ae882b",
+    "scratch": "/workspace/tmp/m6-t42/inherited-source/libsndfile",
+    "sidecar_sha256": "0e888775de41ac3d13e9fc24ab4984b154ef377026e432e27d0c21181699dafe",
+    "status": "qualified raw source",
+    "utc": "2026-11-02T19:13:49.207063+00:00"
+  },
+  {
+    "archive": "/workspace/cache/rocknix-sources/pulseaudio/pulseaudio-17.0.tar.xz",
+    "archive_sha256": "053794d6671a3e397d849e478a80b82a63cb9d8ca296bd35b73317bb5ceb87b5",
+    "files": [
+      {
+        "bytes": 85660,
+        "member": "pulseaudio-17.0/src/pulsecore/core-util.c",
+        "path": "src/pulsecore/core-util.c",
+        "sha256": "40647007bd0148d3675712dd59b3afaf1ede2792fa3c8e14fc1071f9c9341e2c"
+      }
+    ],
+    "kind": "unmodified cached-source comparison, not stack application",
+    "member_count": 915,
+    "member_manifest_sha256": "ad2f84b92c6336576e928cb19886005e71a165a277d8b821cd9fc5d3b19c2782",
+    "missing": [],
+    "pin": "17.0",
+    "recipe": "projects/ROCKNIX/packages/audio/pulseaudio/package.mk",
+    "recipe_sha256": "c4f185666bc59df1b241f26bc8f18ec650248fbe27dc3a54322fa7f2bc2d9cdc",
+    "requested": [
+      "src/pulsecore/core-util.c"
+    ],
+    "root": "pulseaudio-17.0",
+    "scratch": "/workspace/tmp/m6-t42/inherited-source/pulseaudio",
+    "sidecar_sha256": "66514900cabb8e437f9eb87cbc1e73ffe04ddb178422aedc99a4fb913f041313",
+    "status": "qualified raw source",
+    "utc": "2026-11-02T19:13:49.222405+00:00"
+  },
+  {
+    "archive": "/workspace/cache/rocknix-sources/glibc/glibc-2.41.tar.xz",
+    "archive_sha256": "a5a26b22f545d6b7d7b3dd828e11e428f24f4fac43c934fb071b6a7d0828e901",
+    "files": [
+      {
+        "bytes": 23742,
+        "member": "glibc-2.41/Makefile",
+        "path": "Makefile",
+        "sha256": "05af7adfbfd426d85f09592058a06c062c9ad4ad0c786c191c0f3f73ac2b588d"
+      },
+      {
+        "bytes": 50084,
+        "member": "glibc-2.41/Makerules",
+        "path": "Makerules",
+        "sha256": "77ea81b29bf53ef700340b8cfea071275730436d8abd34c3177363a3d8535aaa"
+      },
+      {
+        "bytes": 40245,
+        "member": "glibc-2.41/elf/dl-tls.c",
+        "path": "elf/dl-tls.c",
+        "sha256": "09fe86e6b2bdfb7d203d78026e640379856c4ba00e2148cc454f792ea9735649"
+      },
+      {
+        "bytes": 11836,
+        "member": "glibc-2.41/elf/dl-version.c",
+        "path": "elf/dl-version.c",
+        "sha256": "13f6d88fb867cf0d19585eb1153ea36a097cb99dc9765d3f4492ccb789fec1a5"
+      },
+      {
+        "bytes": 2313,
+        "member": "glibc-2.41/sysdeps/arm/Makefile",
+        "path": "sysdeps/arm/Makefile",
+        "sha256": "bbbf600c3cbda04973e82c90f83956768a268dedf38954dc2c497a3e5bf93d6c"
+      },
+      {
+        "bytes": 298,
+        "member": "glibc-2.41/sysdeps/mach/hurd/x86/Makefile",
+        "path": "sysdeps/mach/hurd/x86/Makefile",
+        "sha256": "2e9fa92fe9dbd62e050b4cf51970fd69683a1c7771b405b5d94a634a9f1beb6c"
+      },
+      {
+        "bytes": 295,
+        "member": "glibc-2.41/sysdeps/unix/sysv/linux/sh/Makefile",
+        "path": "sysdeps/unix/sysv/linux/sh/Makefile",
+        "sha256": "f4a5c5b76dc6d2bada8deb59db47d8f270527bc56c57beb5f967cf4ba9397588"
+      },
+      {
+        "bytes": 3666,
+        "member": "glibc-2.41/sysdeps/unix/sysv/linux/x86_64/Makefile",
+        "path": "sysdeps/unix/sysv/linux/x86_64/Makefile",
+        "sha256": "6524e256fb94ba0ddc0b667334edde14476ad764deede35602b5de4aa5c38b1b"
+      },
+      {
+        "bytes": 3946,
+        "member": "glibc-2.41/sysdeps/x86/Makefile",
+        "path": "sysdeps/x86/Makefile",
+        "sha256": "3830c1aa76ea8fe14cf1146a327b35ce33fe655339b67111e2626dc767e1a662"
+      }
+    ],
+    "kind": "unmodified cached-source comparison, not stack application",
+    "member_count": 20972,
+    "member_manifest_sha256": "377bb5e5f8e7ad9bfa5217bcd10db21e4f2570aab7c127f8e7003fd609cc018f",
+    "missing": [],
+    "pin": "2.41",
+    "recipe": "projects/ROCKNIX/packages/devel/glibc/package.mk",
+    "recipe_sha256": "75ca74000d712cdf023868c0969fd7a9d567e9b17cb10e64f9f72373858a201e",
+    "requested": [
+      "Makefile",
+      "Makerules",
+      "elf/dl-tls.c",
+      "elf/dl-version.c",
+      "sysdeps/arm/Makefile",
+      "sysdeps/mach/hurd/x86/Makefile",
+      "sysdeps/unix/sysv/linux/sh/Makefile",
+      "sysdeps/unix/sysv/linux/x86_64/Makefile",
+      "sysdeps/x86/Makefile"
+    ],
+    "root": "glibc-2.41",
+    "scratch": "/workspace/tmp/m6-t42/inherited-source/glibc",
+    "sidecar_sha256": "36b7b79e2aefa7e6f7b3aefb172d942066fbd8fc123bf26255184adc9cfa9906",
+    "status": "qualified raw source",
+    "utc": "2026-11-02T19:13:49.306556+00:00"
+  },
+  {
+    "archive": "/workspace/cache/rocknix-sources/make/make-4.4.1.tar.gz",
+    "archive_sha256": "dd16fb1d67bfab79a72f5e8390735c49e3e8e70b4945a15ab1f81ddb78658fb3",
+    "files": [
+      {
+        "bytes": 117381,
+        "member": "make-4.4.1/src/job.c",
+        "path": "src/job.c",
+        "sha256": "c1c32d4bd7fd56d898e952ed094a488edf2d4333a02058a3302d28f5e3f8ca09"
+      }
+    ],
+    "kind": "unmodified cached-source comparison, not stack application",
+    "member_count": 416,
+    "member_manifest_sha256": "fa31dec4f0b8e7e3b14b2eb4a55667881da6d29a9ce0755efc66b7b11491d636",
+    "missing": [
+      "tests/scripts/features/long_command_line"
+    ],
+    "pin": "4.4.1",
+    "recipe": "projects/ROCKNIX/packages/devel/make/package.mk",
+    "recipe_sha256": "1bf015e59c38cdd748a189eb0632fc0c8f698cdd503a477fe13020e02592b083",
+    "requested": [
+      "src/job.c",
+      "tests/scripts/features/long_command_line"
+    ],
+    "root": "make-4.4.1",
+    "scratch": "/workspace/tmp/m6-t42/inherited-source/make",
+    "sidecar_sha256": "8d014b48f4dadcf7ce3cf88e77c854f3da12a61722e774c92bd31f983bab6686",
+    "status": "qualified raw source",
+    "utc": "2026-11-02T19:13:50.555792+00:00"
+  },
+  {
+    "archive": "/workspace/cache/rocknix-sources/readline/readline-8.3.tar.gz",
+    "archive_sha256": "fe5383204467828cd495ee8d1d3c037a7eba1389c22bc6a041f627976f9061cc",
+    "files": [
+      {
+        "bytes": 124574,
+        "member": "readline-8.3/display.c",
+        "path": "display.c",
+        "sha256": "cf775ea85f801f452551959b9158aa07d0617abc643b18a6ee64335438a16a2f"
+      }
+    ],
+    "kind": "unmodified cached-source comparison, not stack application",
+    "member_count": 173,
+    "member_manifest_sha256": "65ab0f3a1e3fe3fd2326da1239bc8c096d442c609516266a9b6ca34376a5e2e3",
+    "missing": [],
+    "pin": "8.3",
+    "recipe": "projects/ROCKNIX/packages/devel/readline/package.mk",
+    "recipe_sha256": "2cb10378a5d80f065e381a7a5c57ec17aaf010842889a7b02e454f695382905b",
+    "requested": [
+      "display.c"
+    ],
+    "root": "readline-8.3",
+    "scratch": "/workspace/tmp/m6-t42/inherited-source/readline",
+    "sidecar_sha256": "9900fc5227ed5e1474e845f1ee1d674749d6f07766adc949725b5d2ba506639a",
+    "status": "qualified raw source",
+    "utc": "2026-11-02T19:13:50.613951+00:00"
+  },
+  {
+    "archive": "/workspace/cache/rocknix-sources/mesa/mesa-26.2.2.tar.gz",
+    "archive_sha256": "9b6850189d4b4a595b1718d57d462412090fab820d3e235e2c1d122c1cf9e9bc",
+    "files": [
+      {
+        "bytes": 3469,
+        "member": "mesa-mesa-26.2.2/src/gallium/targets/dri/meson.build",
+        "path": "src/gallium/targets/dri/meson.build",
+        "sha256": "b2e62ee857c50fa23ab2b01f1fe0db3d4124a816855e78ff22444632fb93cbba"
+      }
+    ],
+    "kind": "unmodified cached-source comparison, not stack application",
+    "member_count": 13625,
+    "member_manifest_sha256": "66fe17e9e7e286198ae8e9e3e795e4633d9ecf8705bb85f5e6280c09037bec36",
+    "missing": [],
+    "pin": "26.2.2",
+    "recipe": "projects/ROCKNIX/packages/graphics/mesa/package.mk",
+    "recipe_sha256": "ac5dca86bde7cfb9287542d201d53a757fb6f0d5f4842dd9f53013bf3f3f48cc",
+    "requested": [
+      "src/gallium/targets/dri/meson.build"
+    ],
+    "root": "mesa-mesa-26.2.2",
+    "scratch": "/workspace/tmp/m6-t42/inherited-source/mesa",
+    "sidecar_sha256": "75a1fa5161292640b71a8be0899aac602e373a327067a50fd5d2d1ed7363d32c",
+    "status": "qualified raw source",
+    "utc": "2026-11-02T19:13:50.647310+00:00"
+  },
+  {
+    "archive": "/workspace/cache/rocknix-sources/vulkan-tools/vulkan-tools-1.4.347.tar.gz",
+    "archive_sha256": "4ed73bd973069633ef2b830c7b9f3ebcb7bc8aaac5783b9e5aa36c888e687a78",
+    "files": [
+      {
+        "bytes": 4913,
+        "member": "Vulkan-Tools-1.4.347/CMakeLists.txt",
+        "path": "CMakeLists.txt",
+        "sha256": "5205a97123e02f5110b58e2b8661559ea1ffc0d604edb7ed49852139778378ac"
+      }
+    ],
+    "kind": "unmodified cached-source comparison, not stack application",
+    "member_count": 172,
+    "member_manifest_sha256": "4f7d0162fe55c75f27b4ebc90cc7b2276ff9a5349e913579290c463ba5676500",
+    "missing": [],
+    "pin": "1.4.347",
+    "recipe": "projects/ROCKNIX/packages/graphics/vulkan/vulkan-tools/package.mk",
+    "recipe_sha256": "136e094caa0f846bfb044616c8c60cb50bba82d5ca1f3df44a803633420c80f4",
+    "requested": [
+      "CMakeLists.txt"
+    ],
+    "root": "Vulkan-Tools-1.4.347",
+    "scratch": "/workspace/tmp/m6-t42/inherited-source/vulkan-tools",
+    "sidecar_sha256": "d269f4e76e837ef2ca7fb8b1ef3f9f0efa4c608ffa8f01a7f7be7d42e2d9cddf",
+    "status": "qualified raw source",
+    "utc": "2026-11-02T19:13:51.656394+00:00"
+  },
+  {
+    "archive": "/workspace/cache/rocknix-sources/go/go-1.21.4.tar.gz",
+    "archive_sha256": "13b2395f666e77234d0731ec82c008a584ef0408ca32e52fe95b98f02f32db17",
+    "files": [
+      {
+        "bytes": 959,
+        "member": "go-go1.21.4/src/crypto/x509/root_linux.go",
+        "path": "src/crypto/x509/root_linux.go",
+        "sha256": "cd05796cc82c3aed980364301d44225c055a8eb53d7ea276ffa679a2e4b3e53f"
+      }
+    ],
+    "kind": "unmodified cached-source comparison, not stack application",
+    "member_count": 13913,
+    "member_manifest_sha256": "ca70cf0c1b475537e12eb60426f1c9f5ba70a269947e9d18d1a7c4b10e2ac286",
+    "missing": [],
+    "pin": "1.21.4",
+    "recipe": "projects/ROCKNIX/packages/lang/go/package.mk",
+    "recipe_sha256": "90ef65d9101bf936155c06398e370497eaaeb9db85357900b866e1e149ee129a",
+    "requested": [
+      "src/crypto/x509/root_linux.go"
+    ],
+    "root": "go-go1.21.4",
+    "scratch": "/workspace/tmp/m6-t42/inherited-source/go",
+    "sidecar_sha256": "4b45650f6d9a494196f06d30ff1208bd40e8b5bc6ba620670a774a293c684ecc",
+    "status": "qualified raw source",
+    "utc": "2026-11-02T19:13:51.678432+00:00"
+  },
+  {
+    "archive": "/workspace/cache/rocknix-sources/llvm/llvm-22.1.8.tar.xz",
+    "archive_sha256": "922f1817a0df7b1489272d18134ee0087a8b068828f87ac63b9861b1a9965888",
+    "files": [
+      {
+        "bytes": 63730,
+        "member": "llvm-project-22.1.8.src/llvm/CMakeLists.txt",
+        "path": "llvm/CMakeLists.txt",
+        "sha256": "47801a5802487a8cfcf4cf612185b985dce87c7ec802e5a966db7a4567677b12"
+      }
+    ],
+    "kind": "unmodified cached-source comparison, not stack application",
+    "member_count": 184826,
+    "member_manifest_sha256": "b4350795d14169acebd6eaa3a925c2566b1ccbd756afd1ace76f3975ef8508c4",
+    "missing": [],
+    "pin": "22.1.8",
+    "recipe": "projects/ROCKNIX/packages/lang/llvm/package.mk",
+    "recipe_sha256": "98c9ba28dcf9a54bbb8dd06d61a0393fb404b5efbef5b54bad626f01f5e9c85e",
+    "requested": [
+      "llvm/CMakeLists.txt"
+    ],
+    "root": "llvm-project-22.1.8.src",
+    "scratch": "/workspace/tmp/m6-t42/inherited-source/llvm",
+    "sidecar_sha256": "a89315224bc8cb4eddb6e09e1998abb83861e1fc3aa63339b88999b78603e45f",
+    "status": "qualified raw source",
+    "utc": "2026-11-02T19:13:52.113928+00:00"
+  },
+  {
+    "archive": "/workspace/cache/rocknix-sources/ffmpeg/ffmpeg-7.1.1.tar.xz",
+    "archive_sha256": "733984395e0dbbe5c046abda2dc49a5544e7e0e1e2366bba849222ae9e3a03b1",
+    "files": [
+      {
+        "bytes": 4376,
+        "member": "ffmpeg-7.1.1/LICENSE.md",
+        "path": "LICENSE.md",
+        "sha256": "cb48bf09a11f5fb576cddb0431c8f5ed0a60157a9ec942adffc13907cbe083f2"
+      },
+      {
+        "bytes": 30372,
+        "member": "ffmpeg-7.1.1/MAINTAINERS",
+        "path": "MAINTAINERS",
+        "sha256": "7582efbb0c0aefe28ffcc7b826f9738c1fd37afe8e07a4bade07e3c5c9303d39"
+      },
+      {
+        "bytes": 7338,
+        "member": "ffmpeg-7.1.1/Makefile",
+        "path": "Makefile",
+        "sha256": "52380cc6e8de3a583ce14f429156ea307a77931037be019ea000aa548809ed6e"
+      },
+      {
+        "bytes": 286727,
+        "member": "ffmpeg-7.1.1/configure",
+        "path": "configure",
+        "sha256": "e7c000ab52464fe5bf1e88b07ff2118875e79c056cd85ff0b877415f7d9deb54"
+      },
+      {
+        "bytes": 914310,
+        "member": "ffmpeg-7.1.1/doc/filters.texi",
+        "path": "doc/filters.texi",
+        "sha256": "a36633ab9fc250aebbd716503a92388510ae27be0c568bb1346d186f7ca97708"
+      },
+      {
+        "bytes": 25388,
+        "member": "ffmpeg-7.1.1/fftools/ffmpeg.h",
+        "path": "fftools/ffmpeg.h",
+        "sha256": "08ae6c279fdc11cf750dbb1943baf590dfa057b1e1e1ae615b1622390e0d66bc"
+      },
+      {
+        "bytes": 55857,
+        "member": "ffmpeg-7.1.1/fftools/ffmpeg_dec.c",
+        "path": "fftools/ffmpeg_dec.c",
+        "sha256": "6425a1b9e14b42d51fd43c4e767855fd80a8cc3a38f7a46961609a44db199b50"
+      },
+      {
+        "bytes": 100196,
+        "member": "ffmpeg-7.1.1/fftools/ffmpeg_filter.c",
+        "path": "fftools/ffmpeg_filter.c",
+        "sha256": "59f82c0f3e49b7a1b14390c1d2d523f00d66a30f43b587284d45e7089df22f0f"
+      },
+      {
+        "bytes": 8465,
+        "member": "ffmpeg-7.1.1/fftools/ffmpeg_hw.c",
+        "path": "fftools/ffmpeg_hw.c",
+        "sha256": "ef86a23c08f318008234f750692d207a4c6c19a86dceda95bcd276031cc70c97"
+      },
+      {
+        "bytes": 83042,
+        "member": "ffmpeg-7.1.1/fftools/ffmpeg_opt.c",
+        "path": "fftools/ffmpeg_opt.c",
+        "sha256": "cd955807d472e318c602507233ce0e0380b6ff759d627b4805ddf31aa3f8f3d8"
+      },
+      {
+        "bytes": 194386,
+        "member": "ffmpeg-7.1.1/fftools/ffprobe.c",
+        "path": "fftools/ffprobe.c",
+        "sha256": "add82e4107e153f232362602e818e7804dd08abbb0e4a2db94cb43781b3beccc"
+      },
+      {
+        "bytes": 49140,
+        "member": "ffmpeg-7.1.1/fftools/opt_common.c",
+        "path": "fftools/opt_common.c",
+        "sha256": "722d3f642cbb52052454ddd32d04409b9d78cd0982e8cf13000d867c946d9646"
+      },
+      {
+        "bytes": 80819,
+        "member": "ffmpeg-7.1.1/libavcodec/Makefile",
+        "path": "libavcodec/Makefile",
+        "sha256": "e09c3ea50c984d184b40271e7180c6b2369d7e683d3f7b65c137c090eb633f45"
+      },
+      {
+        "bytes": 40288,
+        "member": "ffmpeg-7.1.1/libavcodec/allcodecs.c",
+        "path": "libavcodec/allcodecs.c",
+        "sha256": "dc3b6461241596f66dfd7ee2f5b8c061cea697be890d7a772c3a3cdbda664b0f"
+      },
+      {
+        "bytes": 52323,
+        "member": "ffmpeg-7.1.1/libavcodec/av1dec.c",
+        "path": "libavcodec/av1dec.c",
+        "sha256": "cb223acb641d89aa1210365e84a075c14a84ced573e3bc59bac3b414e535bff1"
+      },
+      {
+        "bytes": 108266,
+        "member": "ffmpeg-7.1.1/libavcodec/h264_slice.c",
+        "path": "libavcodec/h264_slice.c",
+        "sha256": "656241a08d225d48e3931624789f8cecd2a627f8cfed2da98344a5a9de7765a8"
+      },
+      {
+        "bytes": 39945,
+        "member": "ffmpeg-7.1.1/libavcodec/h264dec.c",
+        "path": "libavcodec/h264dec.c",
+        "sha256": "4c127cf31a1a91ecdf251b39ee0b57f032393b2ed8afefcf8212e278a2fb7f5d"
+      },
+      {
+        "bytes": 21056,
+        "member": "ffmpeg-7.1.1/libavcodec/h264dec.h",
+        "path": "libavcodec/h264dec.h",
+        "sha256": "387f9ea3af02edd0c1f87b6fa2ba61a9e28f9a854f15a86cc6f62710f1d7806f"
+      },
+      {
+        "bytes": 162285,
+        "member": "ffmpeg-7.1.1/libavcodec/hevc/hevcdec.c",
+        "path": "libavcodec/hevc/hevcdec.c",
+        "sha256": "2a14b07dcca75fac0522637d7abd3837ea22ce6b893513c610d60ca63604958d"
+      },
+      {
+        "bytes": 11763,
+        "member": "ffmpeg-7.1.1/libavcodec/hevc/parser.c",
+        "path": "libavcodec/hevc/parser.c",
+        "sha256": "3127719ea00520ded75d99ce43b0604fe11583b7fcb920bfff2ed9289931a007"
+      },
+      {
+        "bytes": 95274,
+        "member": "ffmpeg-7.1.1/libavcodec/hevc/ps.c",
+        "path": "libavcodec/hevc/ps.c",
+        "sha256": "447d0084d48445cf9f2c87450496fe444dcb7f9f77d65a4a89e6ddd3c6cd6467"
+      },
+      {
+        "bytes": 17875,
+        "member": "ffmpeg-7.1.1/libavcodec/hevc/ps.h",
+        "path": "libavcodec/hevc/ps.h",
+        "sha256": "640fbd8a0a3287ee47697a0377c937fe5dde308d854420cceed8adb3afea0acb"
+      },
+      {
+        "bytes": 19828,
+        "member": "ffmpeg-7.1.1/libavcodec/hevc/refs.c",
+        "path": "libavcodec/hevc/refs.c",
+        "sha256": "bd536f95909cb392629680ae2245d0a8acdf58db67a8e75b15f1ff20d4782799"
+      },
+      {
+        "bytes": 5829,
+        "member": "ffmpeg-7.1.1/libavcodec/hwaccel_internal.h",
+        "path": "libavcodec/hwaccel_internal.h",
+        "sha256": "314879f66b3ee163d606810da34069d859c2f935a3e608c0a5837b30d48030c0"
+      },
+      {
+        "bytes": 4664,
+        "member": "ffmpeg-7.1.1/libavcodec/hwaccels.h",
+        "path": "libavcodec/hwaccels.h",
+        "sha256": "c7e0109b6c222d634bfa21c2f3f3d2151bad879d68ae754514ef9e69caeaa966"
+      },
+      {
+        "bytes": 4207,
+        "member": "ffmpeg-7.1.1/libavcodec/hwconfig.h",
+        "path": "libavcodec/hwconfig.h",
+        "sha256": "2bf8ba6f645c018e765a5326027ff40a7d869369364eb997b286f6c0822cebf6"
+      },
+      {
+        "bytes": 24484,
+        "member": "ffmpeg-7.1.1/libavcodec/libdav1d.c",
+        "path": "libavcodec/libdav1d.c",
+        "sha256": "c013cdf36368afe78478b6f0cd50878954d907c8187e08cf625c2dd68445a171"
+      },
+      {
+        "bytes": 28166,
+        "member": "ffmpeg-7.1.1/libavcodec/mmaldec.c",
+        "path": "libavcodec/mmaldec.c",
+        "sha256": "8ac59079abe70f941a2ea485ec58da5db44623001d8efe120417c8e1f5f3ac2b"
+      },
+      {
+        "bytes": 105458,
+        "member": "ffmpeg-7.1.1/libavcodec/mpeg12dec.c",
+        "path": "libavcodec/mpeg12dec.c",
+        "sha256": "eaff01685c2e7b062b33b8f19d9582cc3f0a1d9f715163c8464ebffc60eb3c44"
+      },
+      {
+        "bytes": 3126,
+        "member": "ffmpeg-7.1.1/libavcodec/rawenc.c",
+        "path": "libavcodec/rawenc.c",
+        "sha256": "3104d187bbdd7f1d3b7d9f609f0508d42616c9e062431872fe581766b3d24071"
+      },
+      {
+        "bytes": 17231,
+        "member": "ffmpeg-7.1.1/libavcodec/v4l2_buffers.c",
+        "path": "libavcodec/v4l2_buffers.c",
+        "sha256": "a52538c75d5a3663a71a4b61837dd00648860b82a04fc28e0c99bdb8e7ce05df"
+      },
+      {
+        "bytes": 4010,
+        "member": "ffmpeg-7.1.1/libavcodec/v4l2_buffers.h",
+        "path": "libavcodec/v4l2_buffers.h",
+        "sha256": "04a75d15311ba27ee1d34c13e43429eb5fbd1fd52f9c5d6ea26d0291240fe63b"
+      },
+      {
+        "bytes": 21782,
+        "member": "ffmpeg-7.1.1/libavcodec/v4l2_context.c",
+        "path": "libavcodec/v4l2_context.c",
+        "sha256": "385243a2ab4a3b077d440aac25a53d70a7af52195d266f8aade93bf2d7e089f4"
+      },
+      {
+        "bytes": 6063,
+        "member": "ffmpeg-7.1.1/libavcodec/v4l2_context.h",
+        "path": "libavcodec/v4l2_context.h",
+        "sha256": "21081a087de03c5db18263a9f0f6e69edacf5f5b143431cca4ccbf124a8cc501"
+      },
+      {
+        "bytes": 5292,
+        "member": "ffmpeg-7.1.1/libavcodec/v4l2_fmt.c",
+        "path": "libavcodec/v4l2_fmt.c",
+        "sha256": "a4b4f486aae6cbd0905c38f0d413241aeca7e30632c71d04a9a432bab8e61039"
+      },
+      {
+        "bytes": 10017,
+        "member": "ffmpeg-7.1.1/libavcodec/v4l2_m2m.c",
+        "path": "libavcodec/v4l2_m2m.c",
+        "sha256": "8fd08a39df62f95db816b5d31d7fde78732118168ab9851827114d2970f978ad"
+      },
+      {
+        "bytes": 3864,
+        "member": "ffmpeg-7.1.1/libavcodec/v4l2_m2m.h",
+        "path": "libavcodec/v4l2_m2m.h",
+        "sha256": "b906edb8563aa13e0ad0959a71468457b97381654a5b19b77da08de416bf92a1"
+      },
+      {
+        "bytes": 8822,
+        "member": "ffmpeg-7.1.1/libavcodec/v4l2_m2m_dec.c",
+        "path": "libavcodec/v4l2_m2m_dec.c",
+        "sha256": "fe4c53a355e3f0f8e0571b7e8a8c7d803b7eb7229774a20b422df170bdd2f4e2"
+      },
+      {
+        "bytes": 15022,
+        "member": "ffmpeg-7.1.1/libavcodec/v4l2_m2m_enc.c",
+        "path": "libavcodec/v4l2_m2m_enc.c",
+        "sha256": "2df529dc600a19e25f9f28a7f861bce7c0c2de449adeceffad3c31b8f247fae0"
+      },
+      {
+        "bytes": 109748,
+        "member": "ffmpeg-7.1.1/libavcodec/vp8.c",
+        "path": "libavcodec/vp8.c",
+        "sha256": "db3dc942f002521002703b22db9a9e3e1f763988f1f3d975bdcae11365a67c6e"
+      },
+      {
+        "bytes": 74718,
+        "member": "ffmpeg-7.1.1/libavcodec/vp9.c",
+        "path": "libavcodec/vp9.c",
+        "sha256": "dec7ed44be2259383da4402c22dd6ee0fc2c90dd56b3a39fa5dd26e6e3b175a2"
+      },
+      {
+        "bytes": 4113,
+        "member": "ffmpeg-7.1.1/libavdevice/Makefile",
+        "path": "libavdevice/Makefile",
+        "sha256": "cd07b9f70af4da6d4537820782476c983ec1ae73bc50bd5c76e6e07f7a909fd2"
+      },
+      {
+        "bytes": 4682,
+        "member": "ffmpeg-7.1.1/libavdevice/alldevices.c",
+        "path": "libavdevice/alldevices.c",
+        "sha256": "1a06b56da1cde635d39e4e9f390a30c4bfbbb0ad997ee1a9c940c9040346c8e0"
+      },
+      {
+        "bytes": 43657,
+        "member": "ffmpeg-7.1.1/libavfilter/Makefile",
+        "path": "libavfilter/Makefile",
+        "sha256": "12bc7aef208f4f6bbf0dfe93f0dbf254765255fd94bc47a99bded354cd0da56d"
+      },
+      {
+        "bytes": 24111,
+        "member": "ffmpeg-7.1.1/libavfilter/allfilters.c",
+        "path": "libavfilter/allfilters.c",
+        "sha256": "1c0b5cee4995b689d7586459fcf6e301e8ceec2ec5b974573348b733953a6a4a"
+      },
+      {
+        "bytes": 13001,
+        "member": "ffmpeg-7.1.1/libavfilter/buffersink.c",
+        "path": "libavfilter/buffersink.c",
+        "sha256": "357fd7d76c97748407db3b336437c3a047524cfcc42c37bc465321cd1e6e5ee7"
+      },
+      {
+        "bytes": 6923,
+        "member": "ffmpeg-7.1.1/libavfilter/buffersink.h",
+        "path": "libavfilter/buffersink.h",
+        "sha256": "ab5fe19d11f039ba40d97bc40855d3ffc3df4c8a2d91be6efb141304510c8f34"
+      },
+      {
+        "bytes": 24117,
+        "member": "ffmpeg-7.1.1/libavfilter/buffersrc.c",
+        "path": "libavfilter/buffersrc.c",
+        "sha256": "2440830aadaafcbc4973d4ab194007fc09d690a570c652ed4c0311da4b9478dd"
+      },
+      {
+        "bytes": 9617,
+        "member": "ffmpeg-7.1.1/libavfilter/vf_bwdif.c",
+        "path": "libavfilter/vf_bwdif.c",
+        "sha256": "bf4ef851b79811503c7ecfc8c6b6de74d2627372f6ce2bada0a164f7a363ddab"
+      },
+      {
+        "bytes": 5640,
+        "member": "ffmpeg-7.1.1/libavfilter/vf_pp.c",
+        "path": "libavfilter/vf_pp.c",
+        "sha256": "706307cdbf8865464d40133548d9e7531a34e9f4cd84afabdd5bbaf572ed3183"
+      },
+      {
+        "bytes": 44416,
+        "member": "ffmpeg-7.1.1/libavformat/Makefile",
+        "path": "libavformat/Makefile",
+        "sha256": "3c0788710d8138f4c955de40e53fb8e27b72424517d0455238d4e71595b7a463"
+      },
+      {
+        "bytes": 27684,
+        "member": "ffmpeg-7.1.1/libavformat/allformats.c",
+        "path": "libavformat/allformats.c",
+        "sha256": "f9e5d9496a274934857abe2b671e204f4a8c2301fae19ae15518ba46eb39aa25"
+      },
+      {
+        "bytes": 136107,
+        "member": "ffmpeg-7.1.1/libavformat/matroskaenc.c",
+        "path": "libavformat/matroskaenc.c",
+        "sha256": "e3e089b27e9a8b49c4243306147764741eb66ef442128b114eee1e0efb974557"
+      },
+      {
+        "bytes": 330586,
+        "member": "ffmpeg-7.1.1/libavformat/movenc.c",
+        "path": "libavformat/movenc.c",
+        "sha256": "a3d9bd4d1fd2bfa737f71e66989f68922a603096caecf68f772c82691d2f286b"
+      },
+      {
+        "bytes": 23232,
+        "member": "ffmpeg-7.1.1/libavformat/rtpenc.c",
+        "path": "libavformat/rtpenc.c",
+        "sha256": "dba2a7b8438ca2505d0565f6f053a5f1eca67bf834d7e713b4d01e2700d20e09"
+      },
+      {
+        "bytes": 19775,
+        "member": "ffmpeg-7.1.1/libavutil/Makefile",
+        "path": "libavutil/Makefile",
+        "sha256": "1b1d231e69d5bc81b54956749f35cc0cbdd5c45211e9f171ab63d374aac6e6b1"
+      },
+      {
+        "bytes": 361,
+        "member": "ffmpeg-7.1.1/libavutil/aarch64/Makefile",
+        "path": "libavutil/aarch64/Makefile",
+        "sha256": "4548b4a482e52e51ee6fcea83934c36b53db3ba23ef5b6d3ad5f2b01ca4d0b91"
+      },
+      {
+        "bytes": 446,
+        "member": "ffmpeg-7.1.1/libavutil/arm/Makefile",
+        "path": "libavutil/arm/Makefile",
+        "sha256": "aceaefa622eccd370ad6708e88f57564e532778643ff06cc1bab174be5445eda"
+      },
+      {
+        "bytes": 9495,
+        "member": "ffmpeg-7.1.1/libavutil/avutil.h",
+        "path": "libavutil/avutil.h",
+        "sha256": "c4bc464c1f6b85e08141772a3f07cdaad00b46d9a970f374f171f2b2b810eb90"
+      },
+      {
+        "bytes": 35667,
+        "member": "ffmpeg-7.1.1/libavutil/frame.c",
+        "path": "libavutil/frame.c",
+        "sha256": "ac919e8890c0b5111bfbb92bf50892bb8d76d9c8cecb3bf473cd739e5aa40c6f"
+      },
+      {
+        "bytes": 41581,
+        "member": "ffmpeg-7.1.1/libavutil/frame.h",
+        "path": "libavutil/frame.h",
+        "sha256": "8218f0295206a6543e7d3974a6fcb1f22100a273b09234d0cb84c60cd1638e75"
+      },
+      {
+        "bytes": 26406,
+        "member": "ffmpeg-7.1.1/libavutil/hwcontext.c",
+        "path": "libavutil/hwcontext.c",
+        "sha256": "d542a8722dbb3f0adc778445ce1660f59874bca69a80587172062f9d475666a9"
+      },
+      {
+        "bytes": 24079,
+        "member": "ffmpeg-7.1.1/libavutil/hwcontext.h",
+        "path": "libavutil/hwcontext.h",
+        "sha256": "828cc9ed7e8c7a6d0a706fde2a16a0ec09d36e7c37d4ccdfd452ff1594f34614"
+      },
+      {
+        "bytes": 8794,
+        "member": "ffmpeg-7.1.1/libavutil/hwcontext_drm.c",
+        "path": "libavutil/hwcontext_drm.c",
+        "sha256": "184d6bef0b40a6ae7654dfe70ea338a46aa5c159fe53c21fb319337a9187d75a"
+      },
+      {
+        "bytes": 4673,
+        "member": "ffmpeg-7.1.1/libavutil/hwcontext_drm.h",
+        "path": "libavutil/hwcontext_drm.h",
+        "sha256": "b598f37f40cf1342f923c0b97784a6f2830b543868eccee046375e096fbd5f24"
+      },
+      {
+        "bytes": 6154,
+        "member": "ffmpeg-7.1.1/libavutil/hwcontext_internal.h",
+        "path": "libavutil/hwcontext_internal.h",
+        "sha256": "a34402d3545176ca5efcbc90fb1211395566bb35709c023f178c7afc738883da"
+      },
+      {
+        "bytes": 173156,
+        "member": "ffmpeg-7.1.1/libavutil/hwcontext_vulkan.c",
+        "path": "libavutil/hwcontext_vulkan.c",
+        "sha256": "a38ddfbe8abfac8c2f0ac436bb9208b77fd1acbe777e47262339b0c5e8794636"
+      },
+      {
+        "bytes": 106518,
+        "member": "ffmpeg-7.1.1/libavutil/pixdesc.c",
+        "path": "libavutil/pixdesc.c",
+        "sha256": "a20d0e9e2e23f9ec6404198c2f20714a5474ef28236315cab17e61c1200339e8"
+      },
+      {
+        "bytes": 41991,
+        "member": "ffmpeg-7.1.1/libavutil/pixfmt.h",
+        "path": "libavutil/pixfmt.h",
+        "sha256": "ace2ebcf84a382269c21ad7a050d69ab293b0dbceab350ac7f728a1b37dc0336"
+      },
+      {
+        "bytes": 308,
+        "member": "ffmpeg-7.1.1/libpostproc/Makefile",
+        "path": "libpostproc/Makefile",
+        "sha256": "67446f6acd930a9ba88c755f4bdaeb0ac8a62bfaa370c2396a0ccae7d927eb63"
+      },
+      {
+        "bytes": 91,
+        "member": "ffmpeg-7.1.1/libpostproc/libpostproc.v",
+        "path": "libpostproc/libpostproc.v",
+        "sha256": "0d62eaab5ab3c9569c382d46a27899f2ee1ba20040d119f36948e3f3372a5900"
+      },
+      {
+        "bytes": 35907,
+        "member": "ffmpeg-7.1.1/libpostproc/postprocess.c",
+        "path": "libpostproc/postprocess.c",
+        "sha256": "50e67dd30e4c6645dbe3bebd38bae5b8ce4a561ee5263177138bf3aaa71ea993"
+      },
+      {
+        "bytes": 3025,
+        "member": "ffmpeg-7.1.1/libpostproc/postprocess.h",
+        "path": "libpostproc/postprocess.h",
+        "sha256": "ec3300d8249687df6b9503af1d437bf5453eb41bb30df180328e102a367db481"
+      },
+      {
+        "bytes": 54310,
+        "member": "ffmpeg-7.1.1/libpostproc/postprocess_altivec_template.c",
+        "path": "libpostproc/postprocess_altivec_template.c",
+        "sha256": "bdf5e66f8db33e02f57ee3eaca8279f9dcdbdc63f1e2a12f978f1b74243ae3f1"
+      },
+      {
+        "bytes": 6003,
+        "member": "ffmpeg-7.1.1/libpostproc/postprocess_internal.h",
+        "path": "libpostproc/postprocess_internal.h",
+        "sha256": "e3f8ef13bba7099118f7e571088a9e2084fac0b21f83f2e1c37dd82a59a535c9"
+      },
+      {
+        "bytes": 142781,
+        "member": "ffmpeg-7.1.1/libpostproc/postprocess_template.c",
+        "path": "libpostproc/postprocess_template.c",
+        "sha256": "5d9c6c157a09a63ea5a0a7befd345918036f2757afe9c950145977be959667d4"
+      },
+      {
+        "bytes": 2041,
+        "member": "ffmpeg-7.1.1/libpostproc/postprocres.rc",
+        "path": "libpostproc/postprocres.rc",
+        "sha256": "6863ef70670fdd6e554666844ee66bd12f4a572847bf074d210492a20fa05e27"
+      },
+      {
+        "bytes": 1372,
+        "member": "ffmpeg-7.1.1/libpostproc/version.c",
+        "path": "libpostproc/version.c",
+        "sha256": "b1b6051b220cbe77860f2fc4f2e146a95b6ee36d01a20223094bd884c6664dc2"
+      },
+      {
+        "bytes": 1633,
+        "member": "ffmpeg-7.1.1/libpostproc/version.h",
+        "path": "libpostproc/version.h",
+        "sha256": "b502b29483c0367fca23a0b46443afeb4df9b819dfe8f13a5b24b830dcb94007"
+      },
+      {
+        "bytes": 978,
+        "member": "ffmpeg-7.1.1/libpostproc/version_major.h",
+        "path": "libpostproc/version_major.h",
+        "sha256": "be43dd4b9c49745501a6b657ee8f03d1b48866e5519611e67eff987017cdb080"
+      },
+      {
+        "bytes": 2735,
+        "member": "ffmpeg-7.1.1/libswscale/aarch64/rgb2rgb.c",
+        "path": "libswscale/aarch64/rgb2rgb.c",
+        "sha256": "f8117d3755fbc8a21a3ad08143f217d9e7602f6f8d74c0188ba904ab9c566839"
+      },
+      {
+        "bytes": 10561,
+        "member": "ffmpeg-7.1.1/libswscale/aarch64/rgb2rgb_neon.S",
+        "path": "libswscale/aarch64/rgb2rgb_neon.S",
+        "sha256": "fb481e103b55a74dae534a0896a075f461eb63e49f6ba5231cb639f4eca5255f"
+      },
+      {
+        "bytes": 17563,
+        "member": "ffmpeg-7.1.1/libswscale/rgb2rgb.c",
+        "path": "libswscale/rgb2rgb.c",
+        "sha256": "b1e22d56751f56d282f91755e7a2a4e41b4fae6834da5dba16b01a82bf8d42be"
+      },
+      {
+        "bytes": 9026,
+        "member": "ffmpeg-7.1.1/libswscale/rgb2rgb.h",
+        "path": "libswscale/rgb2rgb.h",
+        "sha256": "33af24850c4f8ec1a30dd9ccd7df16daaa63046ef11aac1197bba6b59e6f44ff"
+      },
+      {
+        "bytes": 32242,
+        "member": "ffmpeg-7.1.1/libswscale/rgb2rgb_template.c",
+        "path": "libswscale/rgb2rgb_template.c",
+        "sha256": "8cd34617196fd1847ecb25292050ef6afd5fc4c601a58eeda45bc0d4c9a0521f"
+      },
+      {
+        "bytes": 95036,
+        "member": "ffmpeg-7.1.1/libswscale/swscale_unscaled.c",
+        "path": "libswscale/swscale_unscaled.c",
+        "sha256": "9285d6206131e6cbfac60c9e3e50f3c200dc4bd48130fa474a9b2d27044a4d40"
+      },
+      {
+        "bytes": 46246,
+        "member": "ffmpeg-7.1.1/libswscale/yuv2rgb.c",
+        "path": "libswscale/yuv2rgb.c",
+        "sha256": "f0a61e340defcbb193f51d9f8c7faed727cc89987d2786551f6a966458f8f29b"
+      },
+      {
+        "bytes": 13701,
+        "member": "ffmpeg-7.1.1/tests/Makefile",
+        "path": "tests/Makefile",
+        "sha256": "05cd859d782fac3002ce7d1b7d9e228a4b3751bcb968c8fc5fd4d42439b6f453"
+      },
+      {
+        "bytes": 4746,
+        "member": "ffmpeg-7.1.1/tests/checkasm/Makefile",
+        "path": "tests/checkasm/Makefile",
+        "sha256": "1b00a03482748f04fb1e3c301b71ed248b6ee04f1810c115805e1296dc86d669"
+      },
+      {
+        "bytes": 34528,
+        "member": "ffmpeg-7.1.1/tests/checkasm/checkasm.c",
+        "path": "tests/checkasm/checkasm.c",
+        "sha256": "bc0cc6f9d3a05d8e8f47f1691c6da4b8c793543e388337f9f8dd6675d8120dc5"
+      },
+      {
+        "bytes": 16455,
+        "member": "ffmpeg-7.1.1/tests/checkasm/checkasm.h",
+        "path": "tests/checkasm/checkasm.h",
+        "sha256": "9f050cc0d618cc02944a52347dcf6b0bb5cc8fb0dffd76b72585993bc12fee9f"
+      },
+      {
+        "bytes": 5336,
+        "member": "ffmpeg-7.1.1/tests/fate/checkasm.mak",
+        "path": "tests/fate/checkasm.mak",
+        "sha256": "3ea934a93a89e3d2c1e6e3e38e89267d883f3f37acc32a371f5a888f995a6c3a"
+      },
+      {
+        "bytes": 53476,
+        "member": "ffmpeg-7.1.1/tests/fate/filter-video.mak",
+        "path": "tests/fate/filter-video.mak",
+        "sha256": "f441325521fcbbb2c4dc9d190d9676ea0cad1300ca5d65c8faf336a4f3667183"
+      },
+      {
+        "bytes": 380,
+        "member": "ffmpeg-7.1.1/tests/ref/fate/filter-pp",
+        "path": "tests/ref/fate/filter-pp",
+        "sha256": "a0419ca58fb31cd0de7d4f101137c6e877b24d133a6b886aff43c5486288fd2f"
+      },
+      {
+        "bytes": 53,
+        "member": "ffmpeg-7.1.1/tests/ref/fate/filter-pp1",
+        "path": "tests/ref/fate/filter-pp1",
+        "sha256": "f99688972354662b7d16b62af8814f609164459de2f373369ba5ad2109ad54fb"
+      },
+      {
+        "bytes": 53,
+        "member": "ffmpeg-7.1.1/tests/ref/fate/filter-pp2",
+        "path": "tests/ref/fate/filter-pp2",
+        "sha256": "9b9c1777b25d22d36d1b598e2bb07b61705c8015b53085a3d5717b2203fa63bd"
+      },
+      {
+        "bytes": 53,
+        "member": "ffmpeg-7.1.1/tests/ref/fate/filter-pp3",
+        "path": "tests/ref/fate/filter-pp3",
+        "sha256": "f6140f8d381728bb7beda4a481fdbbca100f9b35f7c45c92a88720f4babf1fdd"
+      },
+      {
+        "bytes": 53,
+        "member": "ffmpeg-7.1.1/tests/ref/fate/filter-pp4",
+        "path": "tests/ref/fate/filter-pp4",
+        "sha256": "b75d51f1a43cf55b6c0d950ac07c1f725ee2b1dd4481d93f495ba88f64077243"
+      },
+      {
+        "bytes": 53,
+        "member": "ffmpeg-7.1.1/tests/ref/fate/filter-pp5",
+        "path": "tests/ref/fate/filter-pp5",
+        "sha256": "5fc104b61666c42ddc658b4022b332c9ef1c3493092ba3b8487e5fa18103f7b7"
+      },
+      {
+        "bytes": 53,
+        "member": "ffmpeg-7.1.1/tests/ref/fate/filter-pp6",
+        "path": "tests/ref/fate/filter-pp6",
+        "sha256": "d117344b9cafe2e6a5488fb53534544e6ba72454a7a5a25a4e7d52b842a18f15"
+      },
+      {
+        "bytes": 53,
+        "member": "ffmpeg-7.1.1/tests/ref/fate/filter-qp",
+        "path": "tests/ref/fate/filter-qp",
+        "sha256": "2eddd4f81380093cde4be3602e6a4a37d34d7c70fde22680214af9437387b939"
+      },
+      {
+        "bytes": 59960,
+        "member": "ffmpeg-7.1.1/tests/ref/fate/imgutils",
+        "path": "tests/ref/fate/imgutils",
+        "sha256": "de0f8b457a1e75d0a735b6c4f6c7ec272202da8d55a8af0c984bd3e700ba29cb"
+      },
+      {
+        "bytes": 855,
+        "member": "ffmpeg-7.1.1/tests/ref/fate/source",
+        "path": "tests/ref/fate/source",
+        "sha256": "bf7a7fedba014ac4bfa3a701a1fe7fc7ba067cee745fd360355f66d2401e33a6"
+      },
+      {
+        "bytes": 12242,
+        "member": "ffmpeg-7.1.1/tests/ref/fate/sws-pixdesc-query",
+        "path": "tests/ref/fate/sws-pixdesc-query",
+        "sha256": "86af76343ff31245573112f6b4f5ad99db81730756f09742737e4471101ab4cf"
+      },
+      {
+        "bytes": 4041,
+        "member": "ffmpeg-7.1.1/tools/gen-rc",
+        "path": "tools/gen-rc",
+        "sha256": "c72f62f15b574dd4df85cd1cf286ef628ae4fde31d9912fe63cc8a59c1387791"
+      }
+    ],
+    "kind": "unmodified cached-source comparison, not stack application",
+    "member_count": 8646,
+    "member_manifest_sha256": "598f286aef3456440d733762fdb0e488ad751b65f05623d4ea13bff349122548",
+    "missing": [
+      "libavcodec/hevc-ctrls-v1.h",
+      "libavcodec/hevc-ctrls-v2.h",
+      "libavcodec/hevc-ctrls-v3.h",
+      "libavcodec/hevc-ctrls-v4.h",
+      "libavcodec/raw_pix_fmt_tags.h",
+      "libavcodec/v4l2_req_decode_q.c",
+      "libavcodec/v4l2_req_decode_q.h",
+      "libavcodec/v4l2_req_devscan.c",
+      "libavcodec/v4l2_req_devscan.h",
+      "libavcodec/v4l2_req_dmabufs.c",
+      "libavcodec/v4l2_req_dmabufs.h",
+      "libavcodec/v4l2_req_hevc_v1.c",
+      "libavcodec/v4l2_req_hevc_v2.c",
+      "libavcodec/v4l2_req_hevc_v3.c",
+      "libavcodec/v4l2_req_hevc_v4.c",
+      "libavcodec/v4l2_req_hevc_vx.c",
+      "libavcodec/v4l2_req_media.c",
+      "libavcodec/v4l2_req_media.h",
+      "libavcodec/v4l2_req_pollqueue.c",
+      "libavcodec/v4l2_req_pollqueue.h",
+      "libavcodec/v4l2_req_utils.h",
+      "libavcodec/v4l2_request.c",
+      "libavcodec/v4l2_request.h",
+      "libavcodec/v4l2_request_av1.c",
+      "libavcodec/v4l2_request_h264.c",
+      "libavcodec/v4l2_request_hevc.c",
+      "libavcodec/v4l2_request_hevc.h",
+      "libavcodec/v4l2_request_mpeg2.c",
+      "libavcodec/v4l2_request_vp8.c",
+      "libavcodec/v4l2_request_vp9.c",
+      "libavcodec/weak_link.c",
+      "libavcodec/weak_link.h",
+      "libavdevice/drm_vout.c",
+      "libavdevice/egl_vout.c",
+      "libavfilter/vf_deinterlace_v4l2m2m.c",
+      "libavfilter/vf_unsand.c",
+      "libavformat/conformenc.c",
+      "libavutil/aarch64/rpi_sand_neon.S",
+      "libavutil/aarch64/rpi_sand_neon.h",
+      "libavutil/arm/rpi_sand_neon.S",
+      "libavutil/arm/rpi_sand_neon.h",
+      "libavutil/hwcontext_v4l2request.c",
+      "libavutil/hwcontext_v4l2request.h",
+      "libavutil/hwcontext_v4l2request_internal.h",
+      "libavutil/rpi_sand_fn_pw.c",
+      "libavutil/rpi_sand_fns.c",
+      "libavutil/rpi_sand_fns.h",
+      "libpostproc/tests/.gitignore",
+      "libpostproc/tests/blocktest.c",
+      "libpostproc/tests/stripetest.c",
+      "libpostproc/tests/temptest.c",
+      "libpostproc/tests/test_utils.c",
+      "libpostproc/tests/test_utils.h",
+      "pi-util/BUILD.txt",
+      "pi-util/NOTES.txt",
+      "pi-util/TESTMESA.txt",
+      "pi-util/clean_usr_libs.sh",
+      "pi-util/conf_arm64_native.sh",
+      "pi-util/conf_h265.2016.csv",
+      "pi-util/conf_h265.2016_HEVC_v1.csv",
+      "pi-util/conf_h265.csv",
+      "pi-util/conf_native.sh",
+      "pi-util/ffconf.py",
+      "pi-util/ffperf.py",
+      "pi-util/genpatch.sh",
+      "pi-util/make_array.py",
+      "pi-util/mkinst.sh",
+      "pi-util/patkodi.sh",
+      "pi-util/perfcmp.py",
+      "pi-util/qem.sh",
+      "pi-util/testfilt.py",
+      "pi-util/v3dusage.py",
+      "tests/checkasm/rpi_sand.c",
+      "tests/fate/libpostproc.mak",
+      "tests/ref/fate/blocktest",
+      "tests/ref/fate/stripetest",
+      "tests/ref/fate/temptest"
+    ],
+    "pin": "7.1.1",
+    "recipe": "projects/ROCKNIX/packages/multimedia/ffmpeg/package.mk",
+    "recipe_sha256": "f893b3c33bb3a69286ec2ee7d7e8365118f8bf76d643c32d6bc41e2fb0dd4922",
+    "requested": [
+      "LICENSE.md",
+      "MAINTAINERS",
+      "Makefile",
+      "configure",
+      "doc/filters.texi",
+      "fftools/ffmpeg.h",
+      "fftools/ffmpeg_dec.c",
+      "fftools/ffmpeg_filter.c",
+      "fftools/ffmpeg_hw.c",
+      "fftools/ffmpeg_opt.c",
+      "fftools/ffprobe.c",
+      "fftools/opt_common.c",
+      "libavcodec/Makefile",
+      "libavcodec/allcodecs.c",
+      "libavcodec/av1dec.c",
+      "libavcodec/h264_slice.c",
+      "libavcodec/h264dec.c",
+      "libavcodec/h264dec.h",
+      "libavcodec/hevc-ctrls-v1.h",
+      "libavcodec/hevc-ctrls-v2.h",
+      "libavcodec/hevc-ctrls-v3.h",
+      "libavcodec/hevc-ctrls-v4.h",
+      "libavcodec/hevc/hevcdec.c",
+      "libavcodec/hevc/parser.c",
+      "libavcodec/hevc/ps.c",
+      "libavcodec/hevc/ps.h",
+      "libavcodec/hevc/refs.c",
+      "libavcodec/hwaccel_internal.h",
+      "libavcodec/hwaccels.h",
+      "libavcodec/hwconfig.h",
+      "libavcodec/libdav1d.c",
+      "libavcodec/mmaldec.c",
+      "libavcodec/mpeg12dec.c",
+      "libavcodec/raw_pix_fmt_tags.h",
+      "libavcodec/rawenc.c",
+      "libavcodec/v4l2_buffers.c",
+      "libavcodec/v4l2_buffers.h",
+      "libavcodec/v4l2_context.c",
+      "libavcodec/v4l2_context.h",
+      "libavcodec/v4l2_fmt.c",
+      "libavcodec/v4l2_m2m.c",
+      "libavcodec/v4l2_m2m.h",
+      "libavcodec/v4l2_m2m_dec.c",
+      "libavcodec/v4l2_m2m_enc.c",
+      "libavcodec/v4l2_req_decode_q.c",
+      "libavcodec/v4l2_req_decode_q.h",
+      "libavcodec/v4l2_req_devscan.c",
+      "libavcodec/v4l2_req_devscan.h",
+      "libavcodec/v4l2_req_dmabufs.c",
+      "libavcodec/v4l2_req_dmabufs.h",
+      "libavcodec/v4l2_req_hevc_v1.c",
+      "libavcodec/v4l2_req_hevc_v2.c",
+      "libavcodec/v4l2_req_hevc_v3.c",
+      "libavcodec/v4l2_req_hevc_v4.c",
+      "libavcodec/v4l2_req_hevc_vx.c",
+      "libavcodec/v4l2_req_media.c",
+      "libavcodec/v4l2_req_media.h",
+      "libavcodec/v4l2_req_pollqueue.c",
+      "libavcodec/v4l2_req_pollqueue.h",
+      "libavcodec/v4l2_req_utils.h",
+      "libavcodec/v4l2_request.c",
+      "libavcodec/v4l2_request.h",
+      "libavcodec/v4l2_request_av1.c",
+      "libavcodec/v4l2_request_h264.c",
+      "libavcodec/v4l2_request_hevc.c",
+      "libavcodec/v4l2_request_hevc.h",
+      "libavcodec/v4l2_request_mpeg2.c",
+      "libavcodec/v4l2_request_vp8.c",
+      "libavcodec/v4l2_request_vp9.c",
+      "libavcodec/vp8.c",
+      "libavcodec/vp9.c",
+      "libavcodec/weak_link.c",
+      "libavcodec/weak_link.h",
+      "libavdevice/Makefile",
+      "libavdevice/alldevices.c",
+      "libavdevice/drm_vout.c",
+      "libavdevice/egl_vout.c",
+      "libavfilter/Makefile",
+      "libavfilter/allfilters.c",
+      "libavfilter/buffersink.c",
+      "libavfilter/buffersink.h",
+      "libavfilter/buffersrc.c",
+      "libavfilter/vf_bwdif.c",
+      "libavfilter/vf_deinterlace_v4l2m2m.c",
+      "libavfilter/vf_pp.c",
+      "libavfilter/vf_unsand.c",
+      "libavformat/Makefile",
+      "libavformat/allformats.c",
+      "libavformat/conformenc.c",
+      "libavformat/matroskaenc.c",
+      "libavformat/movenc.c",
+      "libavformat/rtpenc.c",
+      "libavutil/Makefile",
+      "libavutil/aarch64/Makefile",
+      "libavutil/aarch64/rpi_sand_neon.S",
+      "libavutil/aarch64/rpi_sand_neon.h",
+      "libavutil/arm/Makefile",
+      "libavutil/arm/rpi_sand_neon.S",
+      "libavutil/arm/rpi_sand_neon.h",
+      "libavutil/avutil.h",
+      "libavutil/frame.c",
+      "libavutil/frame.h",
+      "libavutil/hwcontext.c",
+      "libavutil/hwcontext.h",
+      "libavutil/hwcontext_drm.c",
+      "libavutil/hwcontext_drm.h",
+      "libavutil/hwcontext_internal.h",
+      "libavutil/hwcontext_v4l2request.c",
+      "libavutil/hwcontext_v4l2request.h",
+      "libavutil/hwcontext_v4l2request_internal.h",
+      "libavutil/hwcontext_vulkan.c",
+      "libavutil/pixdesc.c",
+      "libavutil/pixfmt.h",
+      "libavutil/rpi_sand_fn_pw.c",
+      "libavutil/rpi_sand_fns.c",
+      "libavutil/rpi_sand_fns.h",
+      "libpostproc/Makefile",
+      "libpostproc/libpostproc.v",
+      "libpostproc/postprocess.c",
+      "libpostproc/postprocess.h",
+      "libpostproc/postprocess_altivec_template.c",
+      "libpostproc/postprocess_internal.h",
+      "libpostproc/postprocess_template.c",
+      "libpostproc/postprocres.rc",
+      "libpostproc/tests/.gitignore",
+      "libpostproc/tests/blocktest.c",
+      "libpostproc/tests/stripetest.c",
+      "libpostproc/tests/temptest.c",
+      "libpostproc/tests/test_utils.c",
+      "libpostproc/tests/test_utils.h",
+      "libpostproc/version.c",
+      "libpostproc/version.h",
+      "libpostproc/version_major.h",
+      "libswscale/aarch64/rgb2rgb.c",
+      "libswscale/aarch64/rgb2rgb_neon.S",
+      "libswscale/rgb2rgb.c",
+      "libswscale/rgb2rgb.h",
+      "libswscale/rgb2rgb_template.c",
+      "libswscale/swscale_unscaled.c",
+      "libswscale/yuv2rgb.c",
+      "pi-util/BUILD.txt",
+      "pi-util/NOTES.txt",
+      "pi-util/TESTMESA.txt",
+      "pi-util/clean_usr_libs.sh",
+      "pi-util/conf_arm64_native.sh",
+      "pi-util/conf_h265.2016.csv",
+      "pi-util/conf_h265.2016_HEVC_v1.csv",
+      "pi-util/conf_h265.csv",
+      "pi-util/conf_native.sh",
+      "pi-util/ffconf.py",
+      "pi-util/ffperf.py",
+      "pi-util/genpatch.sh",
+      "pi-util/make_array.py",
+      "pi-util/mkinst.sh",
+      "pi-util/patkodi.sh",
+      "pi-util/perfcmp.py",
+      "pi-util/qem.sh",
+      "pi-util/testfilt.py",
+      "pi-util/v3dusage.py",
+      "tests/Makefile",
+      "tests/checkasm/Makefile",
+      "tests/checkasm/checkasm.c",
+      "tests/checkasm/checkasm.h",
+      "tests/checkasm/rpi_sand.c",
+      "tests/fate/checkasm.mak",
+      "tests/fate/filter-video.mak",
+      "tests/fate/libpostproc.mak",
+      "tests/ref/fate/blocktest",
+      "tests/ref/fate/filter-pp",
+      "tests/ref/fate/filter-pp1",
+      "tests/ref/fate/filter-pp2",
+      "tests/ref/fate/filter-pp3",
+      "tests/ref/fate/filter-pp4",
+      "tests/ref/fate/filter-pp5",
+      "tests/ref/fate/filter-pp6",
+      "tests/ref/fate/filter-qp",
+      "tests/ref/fate/imgutils",
+      "tests/ref/fate/source",
+      "tests/ref/fate/stripetest",
+      "tests/ref/fate/sws-pixdesc-query",
+      "tests/ref/fate/temptest",
+      "tools/gen-rc"
+    ],
+    "root": "ffmpeg-7.1.1",
+    "scratch": "/workspace/tmp/m6-t42/inherited-source/ffmpeg",
+    "sidecar_sha256": "0876249cbba3423a339344891a59fc0c9251004e0efa64f243779a056e05342f",
+    "status": "qualified raw source",
+    "utc": "2026-11-02T19:13:58.782850+00:00"
+  },
+  {
+    "archive": "/workspace/cache/rocknix-sources/avahi/avahi-0.8.tar.gz",
+    "archive_sha256": "c15e750ef7c6df595fb5f2ce10cac0fee2353649600e6919ad08ae8871e4945f",
+    "files": [
+      {
+        "bytes": 43110,
+        "member": "avahi-0.8/configure.ac",
+        "path": "configure.ac",
+        "sha256": "fbd0b3e5881427d2f246c26a6aaa345dbaf6f4a8d6f793b64d11102488147f42"
+      }
+    ],
+    "kind": "unmodified cached-source comparison, not stack application",
+    "member_count": 629,
+    "member_manifest_sha256": "c60ffbe0e9588a06d34e702b1a5e2301830d9f4a2fbff583400e13aba7f52443",
+    "missing": [],
+    "pin": "0.8",
+    "recipe": "projects/ROCKNIX/packages/network/avahi/package.mk",
+    "recipe_sha256": "f83f4632f156d9089af9bca1b61b3975dff08b8c8124705baba2c36263fbefc4",
+    "requested": [
+      "configure.ac"
+    ],
+    "root": "avahi-0.8",
+    "scratch": "/workspace/tmp/m6-t42/inherited-source/avahi",
+    "sidecar_sha256": "19c04eee20b3725e077a200759270f81fd13a5aa9aa0fadd570f52f19c58a7a1",
+    "status": "qualified raw source",
+    "utc": "2026-11-02T19:14:06.938098+00:00"
+  },
+  {
+    "archive": "/workspace/cache/rocknix-sources/bluez/bluez-5.83.tar.xz",
+    "archive_sha256": "108522d909d220581399bfec93daab62035539ceef3dda3e79970785c63bd24c",
+    "files": [
+      {
+        "bytes": 4266,
+        "member": "bluez-5.83/Makefile.obexd",
+        "path": "Makefile.obexd",
+        "sha256": "e899586d23905bfcc4f768343c97cbca82e61bdd7319bea9c33844ff39675dfe"
+      },
+      {
+        "bytes": 20112,
+        "member": "bluez-5.83/Makefile.tools",
+        "path": "Makefile.tools",
+        "sha256": "4d333db71bbfa1439826e5dd7b9178c30e4caaf94fd68d98e83a48d26a0fd030"
+      },
+      {
+        "bytes": 18872,
+        "member": "bluez-5.83/configure.ac",
+        "path": "configure.ac",
+        "sha256": "13fbbdfc8f169fd4f2b749b68b31b36836e57826ca2a4305286a59b671ba80cb"
+      },
+      {
+        "bytes": 1182,
+        "member": "bluez-5.83/src/bluetooth.conf",
+        "path": "src/bluetooth.conf",
+        "sha256": "c211c4412f39dec5dd93c3da9a8b4bbeec37825fdb74d5fd8efd23573f11f1ed"
+      },
+      {
+        "bytes": 31501,
+        "member": "bluez-5.83/tools/hciattach.c",
+        "path": "tools/hciattach.c",
+        "sha256": "ee0c5fcb019bf25eba46925bb82baf33ab603f621faebafbfba0e550890a8dbd"
+      },
+      {
+        "bytes": 1765,
+        "member": "bluez-5.83/tools/hciattach.h",
+        "path": "tools/hciattach.h",
+        "sha256": "f1f0d0adafbddd7f2c24e84cacac8cd9aedfa156b42aa0459149a5f9d4be71d3"
+      },
+      {
+        "bytes": 1357,
+        "member": "bluez-5.83/tools/hid2hci.rules",
+        "path": "tools/hid2hci.rules",
+        "sha256": "e81ae4c2291b7604beb895af193c08fbfd20b40ed4681549d4e2d553caa0730b"
+      }
+    ],
+    "kind": "unmodified cached-source comparison, not stack application",
+    "member_count": 1294,
+    "member_manifest_sha256": "b06eacff9ccb0facd2c7ef153f5c1af9894cc626bc7d1a0afb68fe8b4697ac88",
+    "missing": [
+      "tools/hciattach_rome.c",
+      "tools/hciattach_rome.h"
+    ],
+    "pin": "5.83",
+    "recipe": "projects/ROCKNIX/packages/network/bluez/package.mk",
+    "recipe_sha256": "4d46c96a7c702da463e230d03a798a8e7c474ec88f07570cb654da9d3b6dc89b",
+    "requested": [
+      "Makefile.obexd",
+      "Makefile.tools",
+      "configure.ac",
+      "src/bluetooth.conf",
+      "tools/hciattach.c",
+      "tools/hciattach.h",
+      "tools/hciattach_rome.c",
+      "tools/hciattach_rome.h",
+      "tools/hid2hci.rules"
+    ],
+    "root": "bluez-5.83",
+    "scratch": "/workspace/tmp/m6-t42/inherited-source/bluez",
+    "sidecar_sha256": "5ad66116ac55253798f351bd0aadd79a09a02a2e4ca55d6ea990b9157cddbadb",
+    "status": "qualified raw source",
+    "utc": "2026-11-02T19:14:06.970458+00:00"
+  },
+  {
+    "archive": "/workspace/cache/rocknix-sources/libpcap/libpcap-1.10.4.tar.gz",
+    "archive_sha256": "ed19a0383fad72e3ad435fd239d7cd80d64916b87269550159d20e47160ebe5f",
+    "files": [
+      {
+        "bytes": 123520,
+        "member": "libpcap-1.10.4/CMakeLists.txt",
+        "path": "CMakeLists.txt",
+        "sha256": "613263a980c7f6de3948512d27ef4616941056363c1e464ca0386adb2df14098"
+      }
+    ],
+    "kind": "unmodified cached-source comparison, not stack application",
+    "member_count": 317,
+    "member_manifest_sha256": "e7e405f7c12f32be7f2af97734cd472a3c84605ffd9c820c6ea8665f3c8725ce",
+    "missing": [],
+    "pin": "1.10.4",
+    "recipe": "projects/ROCKNIX/packages/network/libpcap/package.mk",
+    "recipe_sha256": "dbc69b7df235c682e3bf7eb8a96823f3c0bb2031cd4f26c73be08cd4f3fea1d5",
+    "requested": [
+      "CMakeLists.txt"
+    ],
+    "root": "libpcap-1.10.4",
+    "scratch": "/workspace/tmp/m6-t42/inherited-source/libpcap",
+    "sidecar_sha256": "0b94574ce89ba86ea9b8f38b66a20c3e92ecc98ae9d2f273babdb9c903a93d99",
+    "status": "qualified raw source",
+    "utc": "2026-11-02T19:14:07.142376+00:00"
+  },
+  {
+    "archive": "/workspace/cache/rocknix-sources/openssh/openssh-9.8p1.tar.gz",
+    "archive_sha256": "dd8bd002a379b5d499dfb050dd1fa9af8029e80461f4bb6c523c49973f5a39f3",
+    "files": [
+      {
+        "bytes": 30492,
+        "member": "openssh-9.8p1/Makefile.in",
+        "path": "Makefile.in",
+        "sha256": "1dfa3f0d7b3b5b6eacbdd1df736ee7dc88e1cc5ae9e72afdab459d4aaeb89ab1"
+      },
+      {
+        "bytes": 159588,
+        "member": "openssh-9.8p1/configure.ac",
+        "path": "configure.ac",
+        "sha256": "f7ba94e4fc2b0b8621ab28f466e613d92434eb13bd431f2e1783ee3330031c48"
+      },
+      {
+        "bytes": 6250,
+        "member": "openssh-9.8p1/pathnames.h",
+        "path": "pathnames.h",
+        "sha256": "f9f8249d59e0870af9ecb21c3fc01791ba098e3e76df1e25600c4cc3ba05357d"
+      },
+      {
+        "bytes": 66469,
+        "member": "openssh-9.8p1/sshconnect2.c",
+        "path": "sshconnect2.c",
+        "sha256": "dcddf60e71cd288df7c792710de3d342bb2b354dbf459d4a4204d59f0079755f"
+      }
+    ],
+    "kind": "unmodified cached-source comparison, not stack application",
+    "member_count": 909,
+    "member_manifest_sha256": "b536d3197095653620f994e9bd762004b75c12a4a80a60a57f91bd6f23f73f3d",
+    "missing": [],
+    "pin": "9.8p1",
+    "recipe": "projects/ROCKNIX/packages/network/openssh/package.mk",
+    "recipe_sha256": "64e19cbe6ce59ab3b763b776f34d0386a9904a38334bb39e35af8698f0a87027",
+    "requested": [
+      "Makefile.in",
+      "configure.ac",
+      "pathnames.h",
+      "sshconnect2.c"
+    ],
+    "root": "openssh-9.8p1",
+    "scratch": "/workspace/tmp/m6-t42/inherited-source/openssh",
+    "sidecar_sha256": "caaff66392031ea6af25cf67d534f85ddb2e509bf63a901dc48ccfd9bad54293",
+    "status": "qualified raw source",
+    "utc": "2026-11-02T19:14:07.162020+00:00"
+  },
+  {
+    "kind": "unmodified cached-source comparison, not stack application",
+    "missing_input": "duplicate archive members; first ctdb/doc/ctdb-tunables.7.xml",
+    "pin": "4.21.0",
+    "recipe": "projects/ROCKNIX/packages/network/samba/package.mk",
+    "recipe_sha256": "3b7c503feb120edd68692b34b487a1d58fd86c9a4c97e478fba42fb1c4b388de",
+    "requested": [
+      "docs-xml/wscript_build",
+      "wscript_configure_embedded_heimdal"
+    ],
+    "status": "open-item",
+    "utc": "2026-11-02T19:14:07.218355+00:00"
+  },
+  {
+    "archive": "/workspace/cache/rocknix-sources/rust/rust-1.94.1.tar.gz",
+    "archive_sha256": "4c142a625f12e3cdf716c68ae19f4f60d98ad1482627b08579b15838e95ad514",
+    "files": [
+      {
+        "bytes": 145667,
+        "member": "rustc-1.94.1-src/compiler/rustc_target/src/spec/mod.rs",
+        "path": "compiler/rustc_target/src/spec/mod.rs",
+        "sha256": "597d3a3f6fc8f8b274b562d6353d743034a08553fc410bbeeca2f53eed92a019"
+      }
+    ],
+    "kind": "unmodified cached-source comparison, not stack application",
+    "member_count": 305215,
+    "member_manifest_sha256": "ed00a08088da77ebc1312523bf33b3fe8dd9a45e28f222918a3afc87e34d4c0b",
+    "missing": [
+      "compiler/rustc_target/src/spec/targets/aarch64_libreelec_linux_gnu.rs",
+      "compiler/rustc_target/src/spec/targets/armv7a_libreelec_linux_gnueabihf.rs",
+      "compiler/rustc_target/src/spec/targets/armv7ve_libreelec_linux_gnueabihf.rs",
+      "compiler/rustc_target/src/spec/targets/x86_64_libreelec_linux_gnu.rs"
+    ],
+    "pin": "1.94.1",
+    "recipe": "projects/ROCKNIX/packages/rust/rust/package.mk",
+    "recipe_sha256": "e09d560e20f12856244bc99d90f45081d1b412e78e1466145ede03e6012e34b0",
+    "requested": [
+      "compiler/rustc_target/src/spec/mod.rs",
+      "compiler/rustc_target/src/spec/targets/aarch64_libreelec_linux_gnu.rs",
+      "compiler/rustc_target/src/spec/targets/armv7a_libreelec_linux_gnueabihf.rs",
+      "compiler/rustc_target/src/spec/targets/armv7ve_libreelec_linux_gnueabihf.rs",
+      "compiler/rustc_target/src/spec/targets/x86_64_libreelec_linux_gnu.rs"
+    ],
+    "root": "rustc-1.94.1-src",
+    "scratch": "/workspace/tmp/m6-t42/inherited-source/rust",
+    "sidecar_sha256": "db85e52c9582e94170692b546d9c61ff2c9f7729420def9d32175f0b84c74a84",
+    "status": "qualified raw source",
+    "utc": "2026-11-02T19:14:07.697198+00:00"
+  },
+  {
+    "archive": "/workspace/cache/rocknix-sources/busybox/busybox-1.36.1.tar.bz2",
+    "archive_sha256": "b8cc24c9574d809e7279c3be349795c5d5ceb6fdf19ca709f80cde50e47de314",
+    "files": [
+      {
+        "bytes": 29510,
+        "member": "busybox-1.36.1/miscutils/crond.c",
+        "path": "miscutils/crond.c",
+        "sha256": "5bcb098ccb469dc7b4373c4c4a1cf13bb336e5f3117ae6ee1443d5561ddb07e2"
+      }
+    ],
+    "kind": "unmodified cached-source comparison, not stack application",
+    "member_count": 2955,
+    "member_manifest_sha256": "3e25fb01d75f9df8a165c1389dedcc34c911120f1bd7a9757cd3e402e20421fb",
+    "missing": [],
+    "pin": "1.36.1",
+    "recipe": "projects/ROCKNIX/packages/sysutils/busybox/package.mk",
+    "recipe_sha256": "a4e1e75fad75a785e773f3aa05556026014ccf95cd2fef50a572ccf80a9a87b5",
+    "requested": [
+      "miscutils/crond.c"
+    ],
+    "root": "busybox-1.36.1",
+    "scratch": "/workspace/tmp/m6-t42/inherited-source/busybox",
+    "sidecar_sha256": "81791bb470e0537ac5cd9ccaacd39c532f3458812fda2185dd6bd9e016ad849f",
+    "status": "qualified raw source",
+    "utc": "2026-11-02T19:14:18.670937+00:00"
+  },
+  {
+    "archive": "/workspace/cache/rocknix-sources/systemd/systemd-255.8.tar.gz",
+    "archive_sha256": "e770b9c4b5e36c1badf94444a27c9cd427931251009e4363f3239ad45ff75f3d",
+    "files": [
+      {
+        "bytes": 112870,
+        "member": "systemd-stable-255.8/meson.build",
+        "path": "meson.build",
+        "sha256": "a50ee376a7280870391183a05a075be89cb423e0dc6d961143a70e18eb5798bc"
+      },
+      {
+        "bytes": 36806,
+        "member": "systemd-stable-255.8/src/core/timer.c",
+        "path": "src/core/timer.c",
+        "sha256": "944d316bd2bf10286fb1aafbd76fbb6d97ac27b25322b8aa811106e255cfae7b"
+      },
+      {
+        "bytes": 2346,
+        "member": "systemd-stable-255.8/src/libsystemd/sd-hwdb/hwdb-internal.h",
+        "path": "src/libsystemd/sd-hwdb/hwdb-internal.h",
+        "sha256": "eea723a35b0b93dd1f7cf66f185985d879a97a30cb97803228bd62fef4521699"
+      },
+      {
+        "bytes": 25825,
+        "member": "systemd-stable-255.8/src/shared/hwdb-util.c",
+        "path": "src/shared/hwdb-util.c",
+        "sha256": "e971d617cf833051261dbaff9c938db3d8487c016de982c25e0a4f420b683324"
+      },
+      {
+        "bytes": 839,
+        "member": "systemd-stable-255.8/units/systemd-hwdb-update.service.in",
+        "path": "units/systemd-hwdb-update.service.in",
+        "sha256": "63cec57a798c0a6af55d6ae57f983fcf3a621e02cf85d147e403a5d560db9ac6"
+      }
+    ],
+    "kind": "unmodified cached-source comparison, not stack application",
+    "member_count": 6319,
+    "member_manifest_sha256": "768176e6fdba707209efb648c4c871e4f6bf7c88081d5f648faa82fb3f20035e",
+    "missing": [],
+    "pin": "255.8",
+    "recipe": "projects/ROCKNIX/packages/sysutils/systemd/package.mk",
+    "recipe_sha256": "06aad226fd1e6ac5bd55f7cde48d8925d5f1f9a557ada41779ce8aac0053e5db",
+    "requested": [
+      "meson.build",
+      "src/core/timer.c",
+      "src/libsystemd/sd-hwdb/hwdb-internal.h",
+      "src/shared/hwdb-util.c",
+      "units/systemd-hwdb-update.service.in"
+    ],
+    "root": "systemd-stable-255.8",
+    "scratch": "/workspace/tmp/m6-t42/inherited-source/systemd",
+    "sidecar_sha256": "1bce57d8937509da97858902c0bf13a619669057b0c433ef36b1211fe1098ad3",
+    "status": "qualified raw source",
+    "utc": "2026-11-02T19:14:19.097703+00:00"
+  },
+  {
+    "archive": "/workspace/cache/rocknix-sources/util-linux/util-linux-2.39.2.tar.xz",
+    "archive_sha256": "87abdfaa8e490f8be6dde976f7c80b9b5ff9f301e1b67e3899e1f05a59a1531f",
+    "files": [
+      {
+        "bytes": 89970,
+        "member": "util-linux-2.39.2/configure.ac",
+        "path": "configure.ac",
+        "sha256": "78cf6b5222236dd7d08e0d6a48005ad97d3d853e9e8774c6ad539c78821159e3"
+      },
+      {
+        "bytes": 224,
+        "member": "util-linux-2.39.2/libblkid/blkid.pc.in",
+        "path": "libblkid/blkid.pc.in",
+        "sha256": "8147c165446c2ee62111fb59d765c06f251be79e93c4cc4e1672eb8b2256d9b8"
+      },
+      {
+        "bytes": 709,
+        "member": "util-linux-2.39.2/libmount/mount.pc.in",
+        "path": "libmount/mount.pc.in",
+        "sha256": "82086543b59b9a966688c2db98f8214e2c69c5d13686f7a14826f2bccd43f847"
+      },
+      {
+        "bytes": 241,
+        "member": "util-linux-2.39.2/libsmartcols/smartcols.pc.in",
+        "path": "libsmartcols/smartcols.pc.in",
+        "sha256": "dfeabcdcc21e4699c4b9bafe6bb9106a3326258d33be3ff8ea2c46a21defba5a"
+      },
+      {
+        "bytes": 236,
+        "member": "util-linux-2.39.2/libuuid/uuid.pc.in",
+        "path": "libuuid/uuid.pc.in",
+        "sha256": "7e365ab94c8bbca63fcca3543e6d43a22c475885120010a85fababc273221f10"
+      }
+    ],
+    "kind": "unmodified cached-source comparison, not stack application",
+    "member_count": 3334,
+    "member_manifest_sha256": "87f0922b242e96e8534ba8800f6938ea057ab9ce72bae4ddb0bf79462394a810",
+    "missing": [],
+    "pin": "2.39.2",
+    "recipe": "projects/ROCKNIX/packages/sysutils/util-linux/package.mk",
+    "recipe_sha256": "963064b5bc9aee03fb88c2d26d5d2b95bee839470a045bdecdf2ee1317322f30",
+    "requested": [
+      "configure.ac",
+      "libblkid/blkid.pc.in",
+      "libmount/mount.pc.in",
+      "libsmartcols/smartcols.pc.in",
+      "libuuid/uuid.pc.in"
+    ],
+    "root": "util-linux-2.39.2",
+    "scratch": "/workspace/tmp/m6-t42/inherited-source/util-linux",
+    "sidecar_sha256": "c38075c12b8fb3526f29dd384623cf98e2dbf4ef7b09db858d667ea892142259",
+    "status": "qualified raw source",
+    "utc": "2026-11-02T19:14:19.384584+00:00"
+  },
+  {
+    "archive": "/workspace/cache/rocknix-sources/icu/icu-74.1.tgz",
+    "archive_sha256": "86ce8e60681972e60e4dcb2490c697463fcec60dd400a5f9bffba26d0b52b8d0",
+    "files": [
+      {
+        "bytes": 2557,
+        "member": "icu/source/config/mh-linux",
+        "path": "source/config/mh-linux",
+        "sha256": "548f780bb9caba18bfe613d4b8317f66ab0f07c58abfb7d9d6c0aa88c4fe9e74"
+      }
+    ],
+    "kind": "unmodified cached-source comparison, not stack application",
+    "member_count": 2801,
+    "member_manifest_sha256": "8027a327bb4e59d0d12ca1a701f17ff21132471b73b57644ff4631a81cf8bfa4",
+    "missing": [],
+    "pin": "74.1",
+    "recipe": "projects/ROCKNIX/packages/textproc/icu/package.mk",
+    "recipe_sha256": "289f95eacaab71de144c9d6ab9f504b1a16d76bb984489d1900f2f4b32f2e6fc",
+    "requested": [
+      "source/config/mh-linux"
+    ],
+    "root": "icu",
+    "scratch": "/workspace/tmp/m6-t42/inherited-source/icu",
+    "sidecar_sha256": "3b5f484487426a4d71dee6932698c8796387f37cd910c38f53dedcd80d16cb74",
+    "status": "qualified raw source",
+    "utc": "2026-11-02T19:14:19.794547+00:00"
+  },
+  {
+    "archive": "/workspace/cache/rocknix-sources/mkbootimg/mkbootimg-d2bb0af5ba6d3198a3e99529c97eda1be0b5a093.tar.gz",
+    "archive_sha256": "418bb875c03d5c5844d6d289956d8294ae6a2bd5be78c7d912d797e7826ca3d9",
+    "files": [
+      {
+        "bytes": 26667,
+        "member": "platform_system_tools_mkbootimg-d2bb0af5ba6d3198a3e99529c97eda1be0b5a093/mkbootimg.py",
+        "path": "mkbootimg.py",
+        "sha256": "37d84b3d162e0bc62e36c1f4e1c63c85ea0caa9f29be023eb2f8efe006ad948c"
+      }
+    ],
+    "kind": "unmodified cached-source comparison, not stack application",
+    "member_count": 32,
+    "member_manifest_sha256": "0db85fad5cda408d016b7733d53f5602ec00c61672c62cf4659332fca7f0b227",
+    "missing": [
+      "dtbTool"
+    ],
+    "pin": "d2bb0af5ba6d3198a3e99529c97eda1be0b5a093",
+    "recipe": "projects/ROCKNIX/packages/tools/mkbootimg/package.mk",
+    "recipe_sha256": "3c3a0a9595a523501bf4bc71e4b686432e9c9671cb7895bf0979736033107ac9",
+    "requested": [
+      "dtbTool",
+      "mkbootimg.py"
+    ],
+    "root": "platform_system_tools_mkbootimg-d2bb0af5ba6d3198a3e99529c97eda1be0b5a093",
+    "scratch": "/workspace/tmp/m6-t42/inherited-source/mkbootimg",
+    "sidecar_sha256": "d96f5c44b3d4d3bcf03284a6eea4e45463d7dbcffb2d67f3252af425f0555fd4",
+    "status": "qualified raw source",
+    "utc": "2026-11-02T19:14:20.181111+00:00"
+  },
+  {
+    "archive": "/workspace/cache/rocknix-sources/sway/sway-1.11.tar.gz",
+    "archive_sha256": "0e37a55b7c3379230e97e1ad982542b75016a0c7d6676198604e557f9b373dae",
+    "files": [
+      {
+        "bytes": 7237,
+        "member": "sway-1.11/meson.build",
+        "path": "meson.build",
+        "sha256": "bd497d61dddfcd9f703f4888c935bc01bb92e37989f31b98246a813942e6f8b1"
+      },
+      {
+        "bytes": 31490,
+        "member": "sway-1.11/sway/ipc-server.c",
+        "path": "sway/ipc-server.c",
+        "sha256": "2af7f2449cf42474ab17678133fe5425fb80f5ed749234ae0022b3761a4a4d9c"
+      }
+    ],
+    "kind": "unmodified cached-source comparison, not stack application",
+    "member_count": 429,
+    "member_manifest_sha256": "f3a4f085e58c6349a4530c0998441ca9553820eff0ec36e258b3656d14cf61fe",
+    "missing": [],
+    "pin": "1.11",
+    "recipe": "projects/ROCKNIX/packages/wayland/compositor/sway/package.mk",
+    "recipe_sha256": "aff81d13319752e24ff0c77e3da8120cdd2253cf31a95a96a3f1ec4ff342792a",
+    "requested": [
+      "meson.build",
+      "sway/ipc-server.c"
+    ],
+    "root": "sway-1.11",
+    "scratch": "/workspace/tmp/m6-t42/inherited-source/sway",
+    "sidecar_sha256": "f9e4ce9c9da6f85df7521abd1d62a74719f7ed3c36f4a05f04adcd8e4251cfb6",
+    "status": "qualified raw source",
+    "utc": "2026-11-02T19:14:20.195265+00:00"
+  },
+  {
+    "archive": "/workspace/cache/rocknix-sources/seatd/seatd-0.9.0.tar.gz",
+    "archive_sha256": "4276d1380c67e30a63c289b35f7bf955e126e6daf3596cd5aa6080670aa1214c",
+    "files": [
+      {
+        "bytes": 6883,
+        "member": "seatd-0.9.0/meson.build",
+        "path": "meson.build",
+        "sha256": "867c651615445734ced09371dc297cfb1932f86b69903dfb27e3e8c1a662ca24"
+      },
+      {
+        "bytes": 3934,
+        "member": "seatd-0.9.0/seatd-launch/seatd-launch.c",
+        "path": "seatd-launch/seatd-launch.c",
+        "sha256": "f3f70737ac021b63bd24861552ec59aff23d0a26eb6c27b55e2121e8624e5f60"
+      }
+    ],
+    "kind": "unmodified cached-source comparison, not stack application",
+    "member_count": 66,
+    "member_manifest_sha256": "42fcfeded9b236282c5f5675ff94b175d30ec90ccf6c193f3a1705896bd8ef5b",
+    "missing": [],
+    "pin": "0.9.0",
+    "recipe": "projects/ROCKNIX/packages/wayland/lib/seatd/package.mk",
+    "recipe_sha256": "3303a05253c1ce4a55c9fc72b4e45d404a4429376d5dea423b1db0e6d54a02e9",
+    "requested": [
+      "meson.build",
+      "seatd-launch/seatd-launch.c"
+    ],
+    "root": "seatd-0.9.0",
+    "scratch": "/workspace/tmp/m6-t42/inherited-source/seatd",
+    "sidecar_sha256": "becb226a46954b04ccdca9b07c77fd1cad602a052afd759c3a86fbb37fc7f71d",
+    "status": "qualified raw source",
+    "utc": "2026-11-02T19:14:20.241431+00:00"
+  },
+  {
+    "archive": "/workspace/cache/rocknix-sources/u-boot-DDR3/u-boot-DDR3-v2026.01.tar.gz",
+    "archive_sha256": "03bb43c58d2343ee48dd191e0f181f0108425b179d84519add3a977071c3f654",
+    "files": [
+      {
+        "bytes": 33508,
+        "member": "u-boot-2026.01/scripts/dtc/pylibfdt/libfdt.i_shipped",
+        "path": "scripts/dtc/pylibfdt/libfdt.i_shipped",
+        "sha256": "a3717f6dee39cc02436a36c0bdd352af100da2d739de11407574a16096088b18"
+      }
+    ],
+    "kind": "unmodified cached-source comparison, not stack application",
+    "member_count": 39976,
+    "member_manifest_sha256": "e19fe93f633a2349d8b80b5aa1e7bc51f6ab60e0edd04d50bcc3ec3721b52fe2",
+    "missing": [],
+    "pin": "v2026.01",
+    "recipe": "projects/ROCKNIX/devices/H700/packages/u-boot-DDR3/package.mk",
+    "recipe_sha256": "84acc5ed5ce045435ff5f12073571baa26967d859be165e6b729d8b2dc1d8a71",
+    "requested": [
+      "scripts/dtc/pylibfdt/libfdt.i_shipped"
+    ],
+    "root": "u-boot-2026.01",
+    "scratch": "/workspace/tmp/m6-t42/inherited-source/u-boot-DDR3",
+    "sidecar_sha256": "426b1bf6cdd38e16a8022726c10a776189d531f221c8c88d4347cac026f4bdab",
+    "status": "qualified raw source",
+    "utc": "2026-11-02T19:14:20.250867+00:00"
+  },
+  {
+    "archive": "/workspace/cache/rocknix-sources/u-boot-DDR4/u-boot-DDR4-v2026.01.tar.gz",
+    "archive_sha256": "03bb43c58d2343ee48dd191e0f181f0108425b179d84519add3a977071c3f654",
+    "files": [
+      {
+        "bytes": 33508,
+        "member": "u-boot-2026.01/scripts/dtc/pylibfdt/libfdt.i_shipped",
+        "path": "scripts/dtc/pylibfdt/libfdt.i_shipped",
+        "sha256": "a3717f6dee39cc02436a36c0bdd352af100da2d739de11407574a16096088b18"
+      }
+    ],
+    "kind": "unmodified cached-source comparison, not stack application",
+    "member_count": 39976,
+    "member_manifest_sha256": "e19fe93f633a2349d8b80b5aa1e7bc51f6ab60e0edd04d50bcc3ec3721b52fe2",
+    "missing": [],
+    "pin": "v2026.01",
+    "recipe": "projects/ROCKNIX/devices/H700/packages/u-boot-DDR4/package.mk",
+    "recipe_sha256": "044fe9c69410f4b27e2cc3bcb3e514273e2739ef593d881416367239122efef5",
+    "requested": [
+      "scripts/dtc/pylibfdt/libfdt.i_shipped"
+    ],
+    "root": "u-boot-2026.01",
+    "scratch": "/workspace/tmp/m6-t42/inherited-source/u-boot-DDR4",
+    "sidecar_sha256": "426b1bf6cdd38e16a8022726c10a776189d531f221c8c88d4347cac026f4bdab",
+    "status": "qualified raw source",
+    "utc": "2026-11-02T19:14:21.375377+00:00"
+  }
+]

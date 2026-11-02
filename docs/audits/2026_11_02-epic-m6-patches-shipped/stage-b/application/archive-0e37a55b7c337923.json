@@ -1,0 +1,40 @@
+{
+  "base": "/workspace/tmp/m6-t42/archive-0e37a55b7c337923",
+  "extracted": [
+    {
+      "bytes": 7237,
+      "member": "sway-1.11/meson.build",
+      "path": "meson.build",
+      "sha256": "bd497d61dddfcd9f703f4888c935bc01bb92e37989f31b98246a813942e6f8b1"
+    },
+    {
+      "bytes": 31490,
+      "member": "sway-1.11/sway/ipc-server.c",
+      "path": "sway/ipc-server.c",
+      "sha256": "2af7f2449cf42474ab17678133fe5425fb80f5ed749234ae0022b3761a4a4d9c"
+    }
+  ],
+  "member_count": 429,
+  "member_manifest_sha256": "27d9fcdcad8c6b4d8f0e364233c21f6f0cab5403d71b688318c16b1fa5e418e3",
+  "missing": [],
+  "path": "/workspace/cache/rocknix-sources/sway/sway-1.11.tar.gz",
+  "recipe_sha256": "0e37a55b7c3379230e97e1ad982542b75016a0c7d6676198604e557f9b373dae",
+  "root": "sway-1.11",
+  "sha256": "0e37a55b7c3379230e97e1ad982542b75016a0c7d6676198604e557f9b373dae",
+  "sidecar_sha256": "f9e4ce9c9da6f85df7521abd1d62a74719f7ed3c36f4a05f04adcd8e4251cfb6",
+  "source_tree": {
+    "files": [
+      {
+        "mode": "0o644",
+        "path": "meson.build",
+        "sha256": "bd497d61dddfcd9f703f4888c935bc01bb92e37989f31b98246a813942e6f8b1"
+      },
+      {
+        "mode": "0o644",
+        "path": "sway/ipc-server.c",
+        "sha256": "2af7f2449cf42474ab17678133fe5425fb80f5ed749234ae0022b3761a4a4d9c"
+      }
+    ],
+    "sha256": "c1e4c76836ef4608b0b894526a2db0b69e7d14658b88bb7c59d57963781c00ab"
+  }
+}

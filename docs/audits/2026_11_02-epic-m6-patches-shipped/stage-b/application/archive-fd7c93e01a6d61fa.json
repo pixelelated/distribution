@@ -1,0 +1,84 @@
+{
+  "base": "/workspace/tmp/m6-t42/archive-fd7c93e01a6d61fa",
+  "extracted": [
+    {
+      "bytes": 9763,
+      "member": "syncthing/lib/locations/locations.go",
+      "path": "lib/locations/locations.go",
+      "sha256": "25eee01c9870883945ad169379e932d1a5cfd269ceac0b03b58c066288ce36fa"
+    },
+    {
+      "bytes": 4522,
+      "member": "syncthing/lib/locations/locations_test.go",
+      "path": "lib/locations/locations_test.go",
+      "sha256": "cb9a4d183d462bee3fb4268e9415515208fe68e6c36862661e6c52395ec0b540"
+    },
+    {
+      "bytes": 14032,
+      "member": "syncthing/lib/syncthing/syncthing.go",
+      "path": "lib/syncthing/syncthing.go",
+      "sha256": "3948686976ba5912f802e0b1b369a8faa49b1f8fac67ec7b78cc82d1a32b641e"
+    },
+    {
+      "bytes": 59419,
+      "member": "syncthing/man/syncthing-config.5",
+      "path": "man/syncthing-config.5",
+      "sha256": "3197f5584a60cf0ee2b5ad2da8b048e676d8c39091359fa1b60f3aac9d5e1985"
+    },
+    {
+      "bytes": 33737,
+      "member": "syncthing/man/syncthing-faq.7",
+      "path": "man/syncthing-faq.7",
+      "sha256": "fac345da97a1220e77ecec5a06ee061a0d966262cfacb48dbd0ea11f82fdd3c5"
+    },
+    {
+      "bytes": 17079,
+      "member": "syncthing/man/syncthing.1",
+      "path": "man/syncthing.1",
+      "sha256": "bf083428def75d27a9675854e782d0d4c16ca417a9f06d6b7c85ccc483039cd1"
+    }
+  ],
+  "member_count": 6164,
+  "member_manifest_sha256": "282b27f29ef9aa4637e5f48a7d3d42eb09381ecd45835c0ef36d3f3f39ca66cf",
+  "missing": [],
+  "path": "/workspace/cache/rocknix-sources/syncthing/syncthing-2.0.13.tar.gz",
+  "recipe_sha256": "fd7c93e01a6d61faa84adda8b22479dd7fd106144fbbb2eb15d773707d8a382e",
+  "root": "syncthing",
+  "sha256": "fd7c93e01a6d61faa84adda8b22479dd7fd106144fbbb2eb15d773707d8a382e",
+  "sidecar_sha256": "1045d2f07352f98783b5c64cfb2b969f1443342664a334c31e0f122d3b2b0de4",
+  "source_tree": {
+    "files": [
+      {
+        "mode": "0o644",
+        "path": "lib/locations/locations.go",
+        "sha256": "25eee01c9870883945ad169379e932d1a5cfd269ceac0b03b58c066288ce36fa"
+      },
+      {
+        "mode": "0o644",
+        "path": "lib/locations/locations_test.go",
+        "sha256": "cb9a4d183d462bee3fb4268e9415515208fe68e6c36862661e6c52395ec0b540"
+      },
+      {
+        "mode": "0o644",
+        "path": "lib/syncthing/syncthing.go",
+        "sha256": "3948686976ba5912f802e0b1b369a8faa49b1f8fac67ec7b78cc82d1a32b641e"
+      },
+      {
+        "mode": "0o644",
+        "path": "man/syncthing-config.5",
+        "sha256": "3197f5584a60cf0ee2b5ad2da8b048e676d8c39091359fa1b60f3aac9d5e1985"
+      },
+      {
+        "mode": "0o644",
+        "path": "man/syncthing-faq.7",
+        "sha256": "fac345da97a1220e77ecec5a06ee061a0d966262cfacb48dbd0ea11f82fdd3c5"
+      },
+      {
+        "mode": "0o644",
+        "path": "man/syncthing.1",
+        "sha256": "bf083428def75d27a9675854e782d0d4c16ca417a9f06d6b7c85ccc483039cd1"
+      }
+    ],
+    "sha256": "b428901cc8133daffa09c04881bfb937d0657672043cc715105735833d4907db"
+  }
+}

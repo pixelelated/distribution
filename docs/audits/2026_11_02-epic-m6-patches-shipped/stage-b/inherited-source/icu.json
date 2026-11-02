@@ -1,0 +1,27 @@
+{
+  "archive": "/workspace/cache/rocknix-sources/icu/icu-74.1.tgz",
+  "archive_sha256": "86ce8e60681972e60e4dcb2490c697463fcec60dd400a5f9bffba26d0b52b8d0",
+  "files": [
+    {
+      "bytes": 2557,
+      "member": "icu/source/config/mh-linux",
+      "path": "source/config/mh-linux",
+      "sha256": "548f780bb9caba18bfe613d4b8317f66ab0f07c58abfb7d9d6c0aa88c4fe9e74"
+    }
+  ],
+  "kind": "unmodified cached-source comparison, not stack application",
+  "member_count": 2801,
+  "member_manifest_sha256": "8027a327bb4e59d0d12ca1a701f17ff21132471b73b57644ff4631a81cf8bfa4",
+  "missing": [],
+  "pin": "74.1",
+  "recipe": "projects/ROCKNIX/packages/textproc/icu/package.mk",
+  "recipe_sha256": "289f95eacaab71de144c9d6ab9f504b1a16d76bb984489d1900f2f4b32f2e6fc",
+  "requested": [
+    "source/config/mh-linux"
+  ],
+  "root": "icu",
+  "scratch": "/workspace/tmp/m6-t42/inherited-source/icu",
+  "sidecar_sha256": "3b5f484487426a4d71dee6932698c8796387f37cd910c38f53dedcd80d16cb74",
+  "status": "qualified raw source",
+  "utc": "2026-11-02T19:14:19.794547+00:00"
+}

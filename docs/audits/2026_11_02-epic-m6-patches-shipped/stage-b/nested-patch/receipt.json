@@ -1,0 +1,145 @@
+{
+  "utc": "2026-11-02T19:18:26.392910+00:00",
+  "kind": "constructed source fixture, NOT applies-at-pin",
+  "path": "projects/ROCKNIX/packages/emulators/standalone/ppsspp-sa/patches/007-disable-home-pause.patch",
+  "patch_sha256": "7c3a42477118d3a08f5d8801e587d602b29d934391892f57feafabf993c74c91",
+  "tool": "GNU patch 2.8",
+  "runs": [
+    {
+      "argv": [
+        "patch",
+        "-p1",
+        "-N",
+        "--batch",
+        "--dry-run"
+      ],
+      "cwd": "/workspace/tmp/m6-t42/nested-patch/diagnostic",
+      "rc": 0,
+      "stdout_sha256": "407d4617d6dc679bdce58e56aaf27e0999563bdc1b3b54df1b809cd60eb95995",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "patch",
+        "-p1",
+        "-N",
+        "--batch"
+      ],
+      "cwd": "/workspace/tmp/m6-t42/nested-patch/normal",
+      "rc": 0,
+      "stdout_sha256": "5a85f84b8facdb9fce8c13804092fb8166f75460d724de0e8bf1a57db219dcc2",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ],
+  "created_path": "package/batocera/emulators/ppsspp/007-disable-home-pause.patch",
+  "created_sha256": "2492686ef128e2812952cb2a831a1020220d096c8ff38aa367fe0a950a1e853d",
+  "source_unchanged": true,
+  "sibling_search": {
+    "argv": [
+      "git",
+      "ls-tree",
+      "-r",
+      "--name-only",
+      "9dd0716033f8831ffbd0b5ee8efbb5e5a066cfb1"
+    ],
+    "predicate": "every tracked *.patch; added-file +++ header ends .patch; inspect outer creation and inner +diff separately",
+    "hits": [
+      {
+        "path": "docs/audits/2026_10_06-milestone-m7-p4-fixes-383/inputs/distribution-product-diff.patch",
+        "header": "+++ b/projects/ROCKNIX/packages/graphics/SDL2/patches/0010-release-display-modes-on-display-removal.patch"
+      },
+      {
+        "path": "docs/audits/2026_10_06-milestone-m7-p4-fixes-383/inputs/distribution-product-diff.patch",
+        "header": "+++ b/projects/ROCKNIX/packages/graphics/mesa/patches/001-rtasm-release-executable-heap-on-unload.patch"
+      },
+      {
+        "path": "docs/audits/2026_10_06-milestone-m7-p4-fixes-383/inputs/distribution-product-diff.patch",
+        "header": "+++ b/projects/ROCKNIX/packages/graphics/mesa/patches/002-virgl-release-empty-screen-cache.patch"
+      },
+      {
+        "path": "docs/audits/2026_10_06-milestone-m7-p4-fixes-383/inputs/distribution-product-diff.patch",
+        "header": "+++ b/projects/ROCKNIX/packages/graphics/shaderc/patches/001-fix-overwriting-dependencies.patch"
+      },
+      {
+        "path": "docs/audits/2026_10_06-milestone-m7-p4-fixes-383/inputs/distribution-product-diff.patch",
+        "header": "+++ b/projects/ROCKNIX/packages/network/raofflineproxy/patches/001-dorequest-4xx-passthrough.patch"
+      },
+      {
+        "path": "docs/audits/2026_10_06-milestone-m7-p4-fixes-383/inputs/distribution-product-diff.patch",
+        "header": "+++ b/projects/ROCKNIX/packages/network/raofflineproxy/patches/002-no-synthetic-casual-only-achievement.patch"
+      },
+      {
+        "path": "docs/audits/2026_10_06-milestone-m7-p4-fixes-383/inputs/distribution-product-diff.patch",
+        "header": "+++ b/projects/ROCKNIX/packages/network/raofflineproxy/patches/003-flush-stamp.patch"
+      },
+      {
+        "path": "docs/audits/2026_10_06-milestone-m7-p4-fixes-383/inputs/distribution-product-diff.patch",
+        "header": "+++ b/projects/ROCKNIX/packages/network/raofflineproxy/patches/004-no-cap-on-cached-games.patch"
+      },
+      {
+        "path": "docs/audits/2026_10_06-milestone-m7-p4-fixes-383/inputs/distribution-product-diff.patch",
+        "header": "+++ b/projects/ROCKNIX/packages/network/raofflineproxy/patches/005-keep-the-refresh-thread-alive.patch"
+      },
+      {
+        "path": "docs/audits/2026_10_06-milestone-m7-p4-fixes-383/inputs/distribution-product-diff.patch",
+        "header": "+++ b/projects/ROCKNIX/packages/network/raofflineproxy/patches/007-cached-sign-in-of-the-configured-account.patch"
+      },
+      {
+        "path": "docs/audits/2026_10_06-milestone-m7-p4-fixes-383/inputs/distribution-product-diff.patch",
+        "header": "+++ b/projects/ROCKNIX/packages/network/raofflineproxy/patches/008-log-upload-opt-in.patch"
+      },
+      {
+        "path": "docs/audits/2026_10_06-milestone-m7-p4-fixes-383/inputs/distribution-product-diff.patch",
+        "header": "+++ b/projects/ROCKNIX/packages/network/raofflineproxy/patches/009-unique-image-temp-names.patch"
+      },
+      {
+        "path": "docs/audits/2026_10_06-milestone-m7-p4-fixes-383/inputs/distribution-product-diff.patch",
+        "header": "+++ b/projects/ROCKNIX/packages/network/raofflineproxy/patches/010-store-only-header.patch"
+      },
+      {
+        "path": "docs/audits/2026_10_06-milestone-m7-p4-fixes-383/inputs/distribution-product-diff.patch",
+        "header": "+++ b/projects/ROCKNIX/packages/network/raofflineproxy/patches/011-offline-login-header.patch"
+      },
+      {
+        "path": "docs/audits/2026_10_06-milestone-m7-p4-fixes-383/inputs/distribution-product-diff.patch",
+        "header": "+++ b/projects/ROCKNIX/packages/network/raofflineproxy/patches/012-offline-image-miss.patch"
+      },
+      {
+        "path": "docs/audits/2026_10_06-milestone-m7-p4-fixes-383/inputs/distribution-product-diff.patch",
+        "header": "+++ b/projects/ROCKNIX/packages/network/raofflineproxy/patches/013-validate-a-cached-image-before-publishing-it.patch"
+      },
+      {
+        "path": "docs/audits/2026_10_06-milestone-m7-p4-fixes-383/inputs/distribution-product-diff.patch",
+        "header": "+++ b/projects/ROCKNIX/packages/network/raofflineproxy/patches/015-bounded-name-lookup.patch"
+      },
+      {
+        "path": "docs/audits/2026_10_06-milestone-m7-p4-fixes-383/inputs/distribution-product-diff.patch",
+        "header": "+++ b/projects/ROCKNIX/packages/network/raofflineproxy/patches/016-say-what-became-of-a-download.patch"
+      },
+      {
+        "path": "docs/audits/2026_10_06-milestone-m7-p4-fixes-383/inputs/distribution-product-diff.patch",
+        "header": "+++ b/projects/ROCKNIX/packages/network/raofflineproxy/patches/018-pixelelated-platform-identity.patch"
+      },
+      {
+        "path": "docs/audits/2026_10_06-milestone-m7-p4-fixes-383/inputs/distribution-product-diff.patch",
+        "header": "+++ b/projects/ROCKNIX/packages/network/raofflineproxy/patches/019-consent-cache-initial-observation.patch"
+      },
+      {
+        "path": "docs/audits/2026_10_06-milestone-m7-p4-fixes-383/inputs/distribution-product-diff.patch",
+        "header": "+++ b/projects/ROCKNIX/packages/ui/themes/es-theme-art-book-next/patches/001-pixelelated-splash.patch"
+      },
+      {
+        "path": "docs/audits/2026_10_08-milestone-m7-p5-delta-507/inputs/distribution-product-diff.patch",
+        "header": "+++ b/projects/ROCKNIX/packages/compat/fex-emu/patches/0006-guest-thunks-exclude-rebased-system-headers.patch"
+      },
+      {
+        "path": "docs/qa-logs/2026-10-15-next-image-delta/product-delta.patch",
+        "header": "+++ b/projects/ROCKNIX/packages/emulators/standalone/dolphin-sa/patches/018-nogui-achievements-lifecycle.patch"
+      },
+      {
+        "path": "projects/ROCKNIX/packages/emulators/standalone/ppsspp-sa/patches/007-disable-home-pause.patch",
+        "header": "+++ b/package/batocera/emulators/ppsspp/007-disable-home-pause.patch"
+      }
+    ]
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "archive": "/workspace/cache/rocknix-sources/mesa/mesa-26.2.2.tar.gz",
+  "archive_sha256": "9b6850189d4b4a595b1718d57d462412090fab820d3e235e2c1d122c1cf9e9bc",
+  "files": [
+    {
+      "bytes": 3469,
+      "member": "mesa-mesa-26.2.2/src/gallium/targets/dri/meson.build",
+      "path": "src/gallium/targets/dri/meson.build",
+      "sha256": "b2e62ee857c50fa23ab2b01f1fe0db3d4124a816855e78ff22444632fb93cbba"
+    }
+  ],
+  "kind": "unmodified cached-source comparison, not stack application",
+  "member_count": 13625,
+  "member_manifest_sha256": "66fe17e9e7e286198ae8e9e3e795e4633d9ecf8705bb85f5e6280c09037bec36",
+  "missing": [],
+  "pin": "26.2.2",
+  "recipe": "projects/ROCKNIX/packages/graphics/mesa/package.mk",
+  "recipe_sha256": "ac5dca86bde7cfb9287542d201d53a757fb6f0d5f4842dd9f53013bf3f3f48cc",
+  "requested": [
+    "src/gallium/targets/dri/meson.build"
+  ],
+  "root": "mesa-mesa-26.2.2",
+  "scratch": "/workspace/tmp/m6-t42/inherited-source/mesa",
+  "sidecar_sha256": "75a1fa5161292640b71a8be0899aac602e373a327067a50fd5d2d1ed7363d32c",
+  "status": "qualified raw source",
+  "utc": "2026-11-02T19:13:50.647310+00:00"
+}

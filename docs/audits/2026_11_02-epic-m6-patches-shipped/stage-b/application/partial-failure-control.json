@@ -1,0 +1,85 @@
+{
+  "after": {
+    "files": [
+      {
+        "mode": "0o664",
+        "path": "one",
+        "sha256": "7aa7a5359173d05b63cfd682e3c38487f3cb4f7f1d60659fe59fab1505977d4c"
+      },
+      {
+        "mode": "0o664",
+        "path": "two",
+        "sha256": "14bca160a84ec9e8e5b25cb86ec8b0945f870b8781c8e94ef883b58d27b508db"
+      },
+      {
+        "mode": "0o664",
+        "path": "two.orig",
+        "sha256": "14bca160a84ec9e8e5b25cb86ec8b0945f870b8781c8e94ef883b58d27b508db"
+      },
+      {
+        "mode": "0o664",
+        "path": "two.rej",
+        "sha256": "c27c09ccc8ea7a02b031e6d0d6cce20904a36c4891ec5430e13646c0e3941943"
+      }
+    ],
+    "sha256": "bea240fc2c5bbe040aff158fd676437e297949358109b4ec7835392dea986f89"
+  },
+  "before": {
+    "files": [
+      {
+        "mode": "0o664",
+        "path": "one",
+        "sha256": "01d09d19c2139a46aebfb577780d123d7396e97201bc7ead210a2ebff8239dee"
+      },
+      {
+        "mode": "0o664",
+        "path": "two",
+        "sha256": "14bca160a84ec9e8e5b25cb86ec8b0945f870b8781c8e94ef883b58d27b508db"
+      }
+    ],
+    "sha256": "d0e72cef2616bab6137116ae42d120cb75c34ad681908df1e3b764ac9ce9a8d0"
+  },
+  "diagnostic": {
+    "argv": [
+      "patch",
+      "--dry-run",
+      "-p1",
+      "-N",
+      "--batch"
+    ],
+    "cwd": "/workspace/tmp/m6-t42/runner-fixture/diagnostic-1",
+    "elapsed_s": 0.011641267978120595,
+    "locale": "C",
+    "rc": 1,
+    "stderr": "stage-b/application/runner-fixture-1-diagnostic.stderr",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stdout": "stage-b/application/runner-fixture-1-diagnostic.stdout",
+    "stdout_sha256": "b12841d6f9dc2cd8e02035f864d39488f43d6b87362e271bfb61a8f13c563d63",
+    "utc": "2026-11-02T19:11:12.660059+00:00"
+  },
+  "normal": {
+    "argv": [
+      "patch",
+      "-p1",
+      "-N",
+      "--batch"
+    ],
+    "cwd": "/workspace/tmp/m6-t42/runner-fixture/candidate-1",
+    "elapsed_s": 0.0018190100090578198,
+    "locale": "C",
+    "rc": 1,
+    "stderr": "stage-b/application/runner-fixture-1-normal.stderr",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stdout": "stage-b/application/runner-fixture-1-normal.stdout",
+    "stdout_sha256": "d90de3de3593ce5d81db3724cbb797106efbfac4e053714062ed3c3fe2be3b1e",
+    "utc": "2026-11-02T19:11:12.671777+00:00"
+  },
+  "patch_sha256": "f0b498e71d0305216dd2a5501823df5bcbf16d58d81dd9902f89d2ffcfad1aa9",
+  "promoted": false,
+  "status": "fails",
+  "successor": {
+    "invoked": false,
+    "reason": "failed predecessor is not promoted",
+    "status": "blocked"
+  }
+}

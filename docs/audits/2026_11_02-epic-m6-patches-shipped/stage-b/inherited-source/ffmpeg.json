@@ -1,0 +1,910 @@
+{
+  "archive": "/workspace/cache/rocknix-sources/ffmpeg/ffmpeg-7.1.1.tar.xz",
+  "archive_sha256": "733984395e0dbbe5c046abda2dc49a5544e7e0e1e2366bba849222ae9e3a03b1",
+  "files": [
+    {
+      "bytes": 4376,
+      "member": "ffmpeg-7.1.1/LICENSE.md",
+      "path": "LICENSE.md",
+      "sha256": "cb48bf09a11f5fb576cddb0431c8f5ed0a60157a9ec942adffc13907cbe083f2"
+    },
+    {
+      "bytes": 30372,
+      "member": "ffmpeg-7.1.1/MAINTAINERS",
+      "path": "MAINTAINERS",
+      "sha256": "7582efbb0c0aefe28ffcc7b826f9738c1fd37afe8e07a4bade07e3c5c9303d39"
+    },
+    {
+      "bytes": 7338,
+      "member": "ffmpeg-7.1.1/Makefile",
+      "path": "Makefile",
+      "sha256": "52380cc6e8de3a583ce14f429156ea307a77931037be019ea000aa548809ed6e"
+    },
+    {
+      "bytes": 286727,
+      "member": "ffmpeg-7.1.1/configure",
+      "path": "configure",
+      "sha256": "e7c000ab52464fe5bf1e88b07ff2118875e79c056cd85ff0b877415f7d9deb54"
+    },
+    {
+      "bytes": 914310,
+      "member": "ffmpeg-7.1.1/doc/filters.texi",
+      "path": "doc/filters.texi",
+      "sha256": "a36633ab9fc250aebbd716503a92388510ae27be0c568bb1346d186f7ca97708"
+    },
+    {
+      "bytes": 25388,
+      "member": "ffmpeg-7.1.1/fftools/ffmpeg.h",
+      "path": "fftools/ffmpeg.h",
+      "sha256": "08ae6c279fdc11cf750dbb1943baf590dfa057b1e1e1ae615b1622390e0d66bc"
+    },
+    {
+      "bytes": 55857,
+      "member": "ffmpeg-7.1.1/fftools/ffmpeg_dec.c",
+      "path": "fftools/ffmpeg_dec.c",
+      "sha256": "6425a1b9e14b42d51fd43c4e767855fd80a8cc3a38f7a46961609a44db199b50"
+    },
+    {
+      "bytes": 100196,
+      "member": "ffmpeg-7.1.1/fftools/ffmpeg_filter.c",
+      "path": "fftools/ffmpeg_filter.c",
+      "sha256": "59f82c0f3e49b7a1b14390c1d2d523f00d66a30f43b587284d45e7089df22f0f"
+    },
+    {
+      "bytes": 8465,
+      "member": "ffmpeg-7.1.1/fftools/ffmpeg_hw.c",
+      "path": "fftools/ffmpeg_hw.c",
+      "sha256": "ef86a23c08f318008234f750692d207a4c6c19a86dceda95bcd276031cc70c97"
+    },
+    {
+      "bytes": 83042,
+      "member": "ffmpeg-7.1.1/fftools/ffmpeg_opt.c",
+      "path": "fftools/ffmpeg_opt.c",
+      "sha256": "cd955807d472e318c602507233ce0e0380b6ff759d627b4805ddf31aa3f8f3d8"
+    },
+    {
+      "bytes": 194386,
+      "member": "ffmpeg-7.1.1/fftools/ffprobe.c",
+      "path": "fftools/ffprobe.c",
+      "sha256": "add82e4107e153f232362602e818e7804dd08abbb0e4a2db94cb43781b3beccc"
+    },
+    {
+      "bytes": 49140,
+      "member": "ffmpeg-7.1.1/fftools/opt_common.c",
+      "path": "fftools/opt_common.c",
+      "sha256": "722d3f642cbb52052454ddd32d04409b9d78cd0982e8cf13000d867c946d9646"
+    },
+    {
+      "bytes": 80819,
+      "member": "ffmpeg-7.1.1/libavcodec/Makefile",
+      "path": "libavcodec/Makefile",
+      "sha256": "e09c3ea50c984d184b40271e7180c6b2369d7e683d3f7b65c137c090eb633f45"
+    },
+    {
+      "bytes": 40288,
+      "member": "ffmpeg-7.1.1/libavcodec/allcodecs.c",
+      "path": "libavcodec/allcodecs.c",
+      "sha256": "dc3b6461241596f66dfd7ee2f5b8c061cea697be890d7a772c3a3cdbda664b0f"
+    },
+    {
+      "bytes": 52323,
+      "member": "ffmpeg-7.1.1/libavcodec/av1dec.c",
+      "path": "libavcodec/av1dec.c",
+      "sha256": "cb223acb641d89aa1210365e84a075c14a84ced573e3bc59bac3b414e535bff1"
+    },
+    {
+      "bytes": 108266,
+      "member": "ffmpeg-7.1.1/libavcodec/h264_slice.c",
+      "path": "libavcodec/h264_slice.c",
+      "sha256": "656241a08d225d48e3931624789f8cecd2a627f8cfed2da98344a5a9de7765a8"
+    },
+    {
+      "bytes": 39945,
+      "member": "ffmpeg-7.1.1/libavcodec/h264dec.c",
+      "path": "libavcodec/h264dec.c",
+      "sha256": "4c127cf31a1a91ecdf251b39ee0b57f032393b2ed8afefcf8212e278a2fb7f5d"
+    },
+    {
+      "bytes": 21056,
+      "member": "ffmpeg-7.1.1/libavcodec/h264dec.h",
+      "path": "libavcodec/h264dec.h",
+      "sha256": "387f9ea3af02edd0c1f87b6fa2ba61a9e28f9a854f15a86cc6f62710f1d7806f"
+    },
+    {
+      "bytes": 162285,
+      "member": "ffmpeg-7.1.1/libavcodec/hevc/hevcdec.c",
+      "path": "libavcodec/hevc/hevcdec.c",
+      "sha256": "2a14b07dcca75fac0522637d7abd3837ea22ce6b893513c610d60ca63604958d"
+    },
+    {
+      "bytes": 11763,
+      "member": "ffmpeg-7.1.1/libavcodec/hevc/parser.c",
+      "path": "libavcodec/hevc/parser.c",
+      "sha256": "3127719ea00520ded75d99ce43b0604fe11583b7fcb920bfff2ed9289931a007"
+    },
+    {
+      "bytes": 95274,
+      "member": "ffmpeg-7.1.1/libavcodec/hevc/ps.c",
+      "path": "libavcodec/hevc/ps.c",
+      "sha256": "447d0084d48445cf9f2c87450496fe444dcb7f9f77d65a4a89e6ddd3c6cd6467"
+    },
+    {
+      "bytes": 17875,
+      "member": "ffmpeg-7.1.1/libavcodec/hevc/ps.h",
+      "path": "libavcodec/hevc/ps.h",
+      "sha256": "640fbd8a0a3287ee47697a0377c937fe5dde308d854420cceed8adb3afea0acb"
+    },
+    {
+      "bytes": 19828,
+      "member": "ffmpeg-7.1.1/libavcodec/hevc/refs.c",
+      "path": "libavcodec/hevc/refs.c",
+      "sha256": "bd536f95909cb392629680ae2245d0a8acdf58db67a8e75b15f1ff20d4782799"
+    },
+    {
+      "bytes": 5829,
+      "member": "ffmpeg-7.1.1/libavcodec/hwaccel_internal.h",
+      "path": "libavcodec/hwaccel_internal.h",
+      "sha256": "314879f66b3ee163d606810da34069d859c2f935a3e608c0a5837b30d48030c0"
+    },
+    {
+      "bytes": 4664,
+      "member": "ffmpeg-7.1.1/libavcodec/hwaccels.h",
+      "path": "libavcodec/hwaccels.h",
+      "sha256": "c7e0109b6c222d634bfa21c2f3f3d2151bad879d68ae754514ef9e69caeaa966"
+    },
+    {
+      "bytes": 4207,
+      "member": "ffmpeg-7.1.1/libavcodec/hwconfig.h",
+      "path": "libavcodec/hwconfig.h",
+      "sha256": "2bf8ba6f645c018e765a5326027ff40a7d869369364eb997b286f6c0822cebf6"
+    },
+    {
+      "bytes": 24484,
+      "member": "ffmpeg-7.1.1/libavcodec/libdav1d.c",
+      "path": "libavcodec/libdav1d.c",
+      "sha256": "c013cdf36368afe78478b6f0cd50878954d907c8187e08cf625c2dd68445a171"
+    },
+    {
+      "bytes": 28166,
+      "member": "ffmpeg-7.1.1/libavcodec/mmaldec.c",
+      "path": "libavcodec/mmaldec.c",
+      "sha256": "8ac59079abe70f941a2ea485ec58da5db44623001d8efe120417c8e1f5f3ac2b"
+    },
+    {
+      "bytes": 105458,
+      "member": "ffmpeg-7.1.1/libavcodec/mpeg12dec.c",
+      "path": "libavcodec/mpeg12dec.c",
+      "sha256": "eaff01685c2e7b062b33b8f19d9582cc3f0a1d9f715163c8464ebffc60eb3c44"
+    },
+    {
+      "bytes": 3126,
+      "member": "ffmpeg-7.1.1/libavcodec/rawenc.c",
+      "path": "libavcodec/rawenc.c",
+      "sha256": "3104d187bbdd7f1d3b7d9f609f0508d42616c9e062431872fe581766b3d24071"
+    },
+    {
+      "bytes": 17231,
+      "member": "ffmpeg-7.1.1/libavcodec/v4l2_buffers.c",
+      "path": "libavcodec/v4l2_buffers.c",
+      "sha256": "a52538c75d5a3663a71a4b61837dd00648860b82a04fc28e0c99bdb8e7ce05df"
+    },
+    {
+      "bytes": 4010,
+      "member": "ffmpeg-7.1.1/libavcodec/v4l2_buffers.h",
+      "path": "libavcodec/v4l2_buffers.h",
+      "sha256": "04a75d15311ba27ee1d34c13e43429eb5fbd1fd52f9c5d6ea26d0291240fe63b"
+    },
+    {
+      "bytes": 21782,
+      "member": "ffmpeg-7.1.1/libavcodec/v4l2_context.c",
+      "path": "libavcodec/v4l2_context.c",
+      "sha256": "385243a2ab4a3b077d440aac25a53d70a7af52195d266f8aade93bf2d7e089f4"
+    },
+    {
+      "bytes": 6063,
+      "member": "ffmpeg-7.1.1/libavcodec/v4l2_context.h",
+      "path": "libavcodec/v4l2_context.h",
+      "sha256": "21081a087de03c5db18263a9f0f6e69edacf5f5b143431cca4ccbf124a8cc501"
+    },
+    {
+      "bytes": 5292,
+      "member": "ffmpeg-7.1.1/libavcodec/v4l2_fmt.c",
+      "path": "libavcodec/v4l2_fmt.c",
+      "sha256": "a4b4f486aae6cbd0905c38f0d413241aeca7e30632c71d04a9a432bab8e61039"
+    },
+    {
+      "bytes": 10017,
+      "member": "ffmpeg-7.1.1/libavcodec/v4l2_m2m.c",
+      "path": "libavcodec/v4l2_m2m.c",
+      "sha256": "8fd08a39df62f95db816b5d31d7fde78732118168ab9851827114d2970f978ad"
+    },
+    {
+      "bytes": 3864,
+      "member": "ffmpeg-7.1.1/libavcodec/v4l2_m2m.h",
+      "path": "libavcodec/v4l2_m2m.h",
+      "sha256": "b906edb8563aa13e0ad0959a71468457b97381654a5b19b77da08de416bf92a1"
+    },
+    {
+      "bytes": 8822,
+      "member": "ffmpeg-7.1.1/libavcodec/v4l2_m2m_dec.c",
+      "path": "libavcodec/v4l2_m2m_dec.c",
+      "sha256": "fe4c53a355e3f0f8e0571b7e8a8c7d803b7eb7229774a20b422df170bdd2f4e2"
+    },
+    {
+      "bytes": 15022,
+      "member": "ffmpeg-7.1.1/libavcodec/v4l2_m2m_enc.c",
+      "path": "libavcodec/v4l2_m2m_enc.c",
+      "sha256": "2df529dc600a19e25f9f28a7f861bce7c0c2de449adeceffad3c31b8f247fae0"
+    },
+    {
+      "bytes": 109748,
+      "member": "ffmpeg-7.1.1/libavcodec/vp8.c",
+      "path": "libavcodec/vp8.c",
+      "sha256": "db3dc942f002521002703b22db9a9e3e1f763988f1f3d975bdcae11365a67c6e"
+    },
+    {
+      "bytes": 74718,
+      "member": "ffmpeg-7.1.1/libavcodec/vp9.c",
+      "path": "libavcodec/vp9.c",
+      "sha256": "dec7ed44be2259383da4402c22dd6ee0fc2c90dd56b3a39fa5dd26e6e3b175a2"
+    },
+    {
+      "bytes": 4113,
+      "member": "ffmpeg-7.1.1/libavdevice/Makefile",
+      "path": "libavdevice/Makefile",
+      "sha256": "cd07b9f70af4da6d4537820782476c983ec1ae73bc50bd5c76e6e07f7a909fd2"
+    },
+    {
+      "bytes": 4682,
+      "member": "ffmpeg-7.1.1/libavdevice/alldevices.c",
+      "path": "libavdevice/alldevices.c",
+      "sha256": "1a06b56da1cde635d39e4e9f390a30c4bfbbb0ad997ee1a9c940c9040346c8e0"
+    },
+    {
+      "bytes": 43657,
+      "member": "ffmpeg-7.1.1/libavfilter/Makefile",
+      "path": "libavfilter/Makefile",
+      "sha256": "12bc7aef208f4f6bbf0dfe93f0dbf254765255fd94bc47a99bded354cd0da56d"
+    },
+    {
+      "bytes": 24111,
+      "member": "ffmpeg-7.1.1/libavfilter/allfilters.c",
+      "path": "libavfilter/allfilters.c",
+      "sha256": "1c0b5cee4995b689d7586459fcf6e301e8ceec2ec5b974573348b733953a6a4a"
+    },
+    {
+      "bytes": 13001,
+      "member": "ffmpeg-7.1.1/libavfilter/buffersink.c",
+      "path": "libavfilter/buffersink.c",
+      "sha256": "357fd7d76c97748407db3b336437c3a047524cfcc42c37bc465321cd1e6e5ee7"
+    },
+    {
+      "bytes": 6923,
+      "member": "ffmpeg-7.1.1/libavfilter/buffersink.h",
+      "path": "libavfilter/buffersink.h",
+      "sha256": "ab5fe19d11f039ba40d97bc40855d3ffc3df4c8a2d91be6efb141304510c8f34"
+    },
+    {
+      "bytes": 24117,
+      "member": "ffmpeg-7.1.1/libavfilter/buffersrc.c",
+      "path": "libavfilter/buffersrc.c",
+      "sha256": "2440830aadaafcbc4973d4ab194007fc09d690a570c652ed4c0311da4b9478dd"
+    },
+    {
+      "bytes": 9617,
+      "member": "ffmpeg-7.1.1/libavfilter/vf_bwdif.c",
+      "path": "libavfilter/vf_bwdif.c",
+      "sha256": "bf4ef851b79811503c7ecfc8c6b6de74d2627372f6ce2bada0a164f7a363ddab"
+    },
+    {
+      "bytes": 5640,
+      "member": "ffmpeg-7.1.1/libavfilter/vf_pp.c",
+      "path": "libavfilter/vf_pp.c",
+      "sha256": "706307cdbf8865464d40133548d9e7531a34e9f4cd84afabdd5bbaf572ed3183"
+    },
+    {
+      "bytes": 44416,
+      "member": "ffmpeg-7.1.1/libavformat/Makefile",
+      "path": "libavformat/Makefile",
+      "sha256": "3c0788710d8138f4c955de40e53fb8e27b72424517d0455238d4e71595b7a463"
+    },
+    {
+      "bytes": 27684,
+      "member": "ffmpeg-7.1.1/libavformat/allformats.c",
+      "path": "libavformat/allformats.c",
+      "sha256": "f9e5d9496a274934857abe2b671e204f4a8c2301fae19ae15518ba46eb39aa25"
+    },
+    {
+      "bytes": 136107,
+      "member": "ffmpeg-7.1.1/libavformat/matroskaenc.c",
+      "path": "libavformat/matroskaenc.c",
+      "sha256": "e3e089b27e9a8b49c4243306147764741eb66ef442128b114eee1e0efb974557"
+    },
+    {
+      "bytes": 330586,
+      "member": "ffmpeg-7.1.1/libavformat/movenc.c",
+      "path": "libavformat/movenc.c",
+      "sha256": "a3d9bd4d1fd2bfa737f71e66989f68922a603096caecf68f772c82691d2f286b"
+    },
+    {
+      "bytes": 23232,
+      "member": "ffmpeg-7.1.1/libavformat/rtpenc.c",
+      "path": "libavformat/rtpenc.c",
+      "sha256": "dba2a7b8438ca2505d0565f6f053a5f1eca67bf834d7e713b4d01e2700d20e09"
+    },
+    {
+      "bytes": 19775,
+      "member": "ffmpeg-7.1.1/libavutil/Makefile",
+      "path": "libavutil/Makefile",
+      "sha256": "1b1d231e69d5bc81b54956749f35cc0cbdd5c45211e9f171ab63d374aac6e6b1"
+    },
+    {
+      "bytes": 361,
+      "member": "ffmpeg-7.1.1/libavutil/aarch64/Makefile",
+      "path": "libavutil/aarch64/Makefile",
+      "sha256": "4548b4a482e52e51ee6fcea83934c36b53db3ba23ef5b6d3ad5f2b01ca4d0b91"
+    },
+    {
+      "bytes": 446,
+      "member": "ffmpeg-7.1.1/libavutil/arm/Makefile",
+      "path": "libavutil/arm/Makefile",
+      "sha256": "aceaefa622eccd370ad6708e88f57564e532778643ff06cc1bab174be5445eda"
+    },
+    {
+      "bytes": 9495,
+      "member": "ffmpeg-7.1.1/libavutil/avutil.h",
+      "path": "libavutil/avutil.h",
+      "sha256": "c4bc464c1f6b85e08141772a3f07cdaad00b46d9a970f374f171f2b2b810eb90"
+    },
+    {
+      "bytes": 35667,
+      "member": "ffmpeg-7.1.1/libavutil/frame.c",
+      "path": "libavutil/frame.c",
+      "sha256": "ac919e8890c0b5111bfbb92bf50892bb8d76d9c8cecb3bf473cd739e5aa40c6f"
+    },
+    {
+      "bytes": 41581,
+      "member": "ffmpeg-7.1.1/libavutil/frame.h",
+      "path": "libavutil/frame.h",
+      "sha256": "8218f0295206a6543e7d3974a6fcb1f22100a273b09234d0cb84c60cd1638e75"
+    },
+    {
+      "bytes": 26406,
+      "member": "ffmpeg-7.1.1/libavutil/hwcontext.c",
+      "path": "libavutil/hwcontext.c",
+      "sha256": "d542a8722dbb3f0adc778445ce1660f59874bca69a80587172062f9d475666a9"
+    },
+    {
+      "bytes": 24079,
+      "member": "ffmpeg-7.1.1/libavutil/hwcontext.h",
+      "path": "libavutil/hwcontext.h",
+      "sha256": "828cc9ed7e8c7a6d0a706fde2a16a0ec09d36e7c37d4ccdfd452ff1594f34614"
+    },
+    {
+      "bytes": 8794,
+      "member": "ffmpeg-7.1.1/libavutil/hwcontext_drm.c",
+      "path": "libavutil/hwcontext_drm.c",
+      "sha256": "184d6bef0b40a6ae7654dfe70ea338a46aa5c159fe53c21fb319337a9187d75a"
+    },
+    {
+      "bytes": 4673,
+      "member": "ffmpeg-7.1.1/libavutil/hwcontext_drm.h",
+      "path": "libavutil/hwcontext_drm.h",
+      "sha256": "b598f37f40cf1342f923c0b97784a6f2830b543868eccee046375e096fbd5f24"
+    },
+    {
+      "bytes": 6154,
+      "member": "ffmpeg-7.1.1/libavutil/hwcontext_internal.h",
+      "path": "libavutil/hwcontext_internal.h",
+      "sha256": "a34402d3545176ca5efcbc90fb1211395566bb35709c023f178c7afc738883da"
+    },
+    {
+      "bytes": 173156,
+      "member": "ffmpeg-7.1.1/libavutil/hwcontext_vulkan.c",
+      "path": "libavutil/hwcontext_vulkan.c",
+      "sha256": "a38ddfbe8abfac8c2f0ac436bb9208b77fd1acbe777e47262339b0c5e8794636"
+    },
+    {
+      "bytes": 106518,
+      "member": "ffmpeg-7.1.1/libavutil/pixdesc.c",
+      "path": "libavutil/pixdesc.c",
+      "sha256": "a20d0e9e2e23f9ec6404198c2f20714a5474ef28236315cab17e61c1200339e8"
+    },
+    {
+      "bytes": 41991,
+      "member": "ffmpeg-7.1.1/libavutil/pixfmt.h",
+      "path": "libavutil/pixfmt.h",
+      "sha256": "ace2ebcf84a382269c21ad7a050d69ab293b0dbceab350ac7f728a1b37dc0336"
+    },
+    {
+      "bytes": 308,
+      "member": "ffmpeg-7.1.1/libpostproc/Makefile",
+      "path": "libpostproc/Makefile",
+      "sha256": "67446f6acd930a9ba88c755f4bdaeb0ac8a62bfaa370c2396a0ccae7d927eb63"
+    },
+    {
+      "bytes": 91,
+      "member": "ffmpeg-7.1.1/libpostproc/libpostproc.v",
+      "path": "libpostproc/libpostproc.v",
+      "sha256": "0d62eaab5ab3c9569c382d46a27899f2ee1ba20040d119f36948e3f3372a5900"
+    },
+    {
+      "bytes": 35907,
+      "member": "ffmpeg-7.1.1/libpostproc/postprocess.c",
+      "path": "libpostproc/postprocess.c",
+      "sha256": "50e67dd30e4c6645dbe3bebd38bae5b8ce4a561ee5263177138bf3aaa71ea993"
+    },
+    {
+      "bytes": 3025,
+      "member": "ffmpeg-7.1.1/libpostproc/postprocess.h",
+      "path": "libpostproc/postprocess.h",
+      "sha256": "ec3300d8249687df6b9503af1d437bf5453eb41bb30df180328e102a367db481"
+    },
+    {
+      "bytes": 54310,
+      "member": "ffmpeg-7.1.1/libpostproc/postprocess_altivec_template.c",
+      "path": "libpostproc/postprocess_altivec_template.c",
+      "sha256": "bdf5e66f8db33e02f57ee3eaca8279f9dcdbdc63f1e2a12f978f1b74243ae3f1"
+    },
+    {
+      "bytes": 6003,
+      "member": "ffmpeg-7.1.1/libpostproc/postprocess_internal.h",
+      "path": "libpostproc/postprocess_internal.h",
+      "sha256": "e3f8ef13bba7099118f7e571088a9e2084fac0b21f83f2e1c37dd82a59a535c9"
+    },
+    {
+      "bytes": 142781,
+      "member": "ffmpeg-7.1.1/libpostproc/postprocess_template.c",
+      "path": "libpostproc/postprocess_template.c",
+      "sha256": "5d9c6c157a09a63ea5a0a7befd345918036f2757afe9c950145977be959667d4"
+    },
+    {
+      "bytes": 2041,
+      "member": "ffmpeg-7.1.1/libpostproc/postprocres.rc",
+      "path": "libpostproc/postprocres.rc",
+      "sha256": "6863ef70670fdd6e554666844ee66bd12f4a572847bf074d210492a20fa05e27"
+    },
+    {
+      "bytes": 1372,
+      "member": "ffmpeg-7.1.1/libpostproc/version.c",
+      "path": "libpostproc/version.c",
+      "sha256": "b1b6051b220cbe77860f2fc4f2e146a95b6ee36d01a20223094bd884c6664dc2"
+    },
+    {
+      "bytes": 1633,
+      "member": "ffmpeg-7.1.1/libpostproc/version.h",
+      "path": "libpostproc/version.h",
+      "sha256": "b502b29483c0367fca23a0b46443afeb4df9b819dfe8f13a5b24b830dcb94007"
+    },
+    {
+      "bytes": 978,
+      "member": "ffmpeg-7.1.1/libpostproc/version_major.h",
+      "path": "libpostproc/version_major.h",
+      "sha256": "be43dd4b9c49745501a6b657ee8f03d1b48866e5519611e67eff987017cdb080"
+    },
+    {
+      "bytes": 2735,
+      "member": "ffmpeg-7.1.1/libswscale/aarch64/rgb2rgb.c",
+      "path": "libswscale/aarch64/rgb2rgb.c",
+      "sha256": "f8117d3755fbc8a21a3ad08143f217d9e7602f6f8d74c0188ba904ab9c566839"
+    },
+    {
+      "bytes": 10561,
+      "member": "ffmpeg-7.1.1/libswscale/aarch64/rgb2rgb_neon.S",
+      "path": "libswscale/aarch64/rgb2rgb_neon.S",
+      "sha256": "fb481e103b55a74dae534a0896a075f461eb63e49f6ba5231cb639f4eca5255f"
+    },
+    {
+      "bytes": 17563,
+      "member": "ffmpeg-7.1.1/libswscale/rgb2rgb.c",
+      "path": "libswscale/rgb2rgb.c",
+      "sha256": "b1e22d56751f56d282f91755e7a2a4e41b4fae6834da5dba16b01a82bf8d42be"
+    },
+    {
+      "bytes": 9026,
+      "member": "ffmpeg-7.1.1/libswscale/rgb2rgb.h",
+      "path": "libswscale/rgb2rgb.h",
+      "sha256": "33af24850c4f8ec1a30dd9ccd7df16daaa63046ef11aac1197bba6b59e6f44ff"
+    },
+    {
+      "bytes": 32242,
+      "member": "ffmpeg-7.1.1/libswscale/rgb2rgb_template.c",
+      "path": "libswscale/rgb2rgb_template.c",
+      "sha256": "8cd34617196fd1847ecb25292050ef6afd5fc4c601a58eeda45bc0d4c9a0521f"
+    },
+    {
+      "bytes": 95036,
+      "member": "ffmpeg-7.1.1/libswscale/swscale_unscaled.c",
+      "path": "libswscale/swscale_unscaled.c",
+      "sha256": "9285d6206131e6cbfac60c9e3e50f3c200dc4bd48130fa474a9b2d27044a4d40"
+    },
+    {
+      "bytes": 46246,
+      "member": "ffmpeg-7.1.1/libswscale/yuv2rgb.c",
+      "path": "libswscale/yuv2rgb.c",
+      "sha256": "f0a61e340defcbb193f51d9f8c7faed727cc89987d2786551f6a966458f8f29b"
+    },
+    {
+      "bytes": 13701,
+      "member": "ffmpeg-7.1.1/tests/Makefile",
+      "path": "tests/Makefile",
+      "sha256": "05cd859d782fac3002ce7d1b7d9e228a4b3751bcb968c8fc5fd4d42439b6f453"
+    },
+    {
+      "bytes": 4746,
+      "member": "ffmpeg-7.1.1/tests/checkasm/Makefile",
+      "path": "tests/checkasm/Makefile",
+      "sha256": "1b00a03482748f04fb1e3c301b71ed248b6ee04f1810c115805e1296dc86d669"
+    },
+    {
+      "bytes": 34528,
+      "member": "ffmpeg-7.1.1/tests/checkasm/checkasm.c",
+      "path": "tests/checkasm/checkasm.c",
+      "sha256": "bc0cc6f9d3a05d8e8f47f1691c6da4b8c793543e388337f9f8dd6675d8120dc5"
+    },
+    {
+      "bytes": 16455,
+      "member": "ffmpeg-7.1.1/tests/checkasm/checkasm.h",
+      "path": "tests/checkasm/checkasm.h",
+      "sha256": "9f050cc0d618cc02944a52347dcf6b0bb5cc8fb0dffd76b72585993bc12fee9f"
+    },
+    {
+      "bytes": 5336,
+      "member": "ffmpeg-7.1.1/tests/fate/checkasm.mak",
+      "path": "tests/fate/checkasm.mak",
+      "sha256": "3ea934a93a89e3d2c1e6e3e38e89267d883f3f37acc32a371f5a888f995a6c3a"
+    },
+    {
+      "bytes": 53476,
+      "member": "ffmpeg-7.1.1/tests/fate/filter-video.mak",
+      "path": "tests/fate/filter-video.mak",
+      "sha256": "f441325521fcbbb2c4dc9d190d9676ea0cad1300ca5d65c8faf336a4f3667183"
+    },
+    {
+      "bytes": 380,
+      "member": "ffmpeg-7.1.1/tests/ref/fate/filter-pp",
+      "path": "tests/ref/fate/filter-pp",
+      "sha256": "a0419ca58fb31cd0de7d4f101137c6e877b24d133a6b886aff43c5486288fd2f"
+    },
+    {
+      "bytes": 53,
+      "member": "ffmpeg-7.1.1/tests/ref/fate/filter-pp1",
+      "path": "tests/ref/fate/filter-pp1",
+      "sha256": "f99688972354662b7d16b62af8814f609164459de2f373369ba5ad2109ad54fb"
+    },
+    {
+      "bytes": 53,
+      "member": "ffmpeg-7.1.1/tests/ref/fate/filter-pp2",
+      "path": "tests/ref/fate/filter-pp2",
+      "sha256": "9b9c1777b25d22d36d1b598e2bb07b61705c8015b53085a3d5717b2203fa63bd"
+    },
+    {
+      "bytes": 53,
+      "member": "ffmpeg-7.1.1/tests/ref/fate/filter-pp3",
+      "path": "tests/ref/fate/filter-pp3",
+      "sha256": "f6140f8d381728bb7beda4a481fdbbca100f9b35f7c45c92a88720f4babf1fdd"
+    },
+    {
+      "bytes": 53,
+      "member": "ffmpeg-7.1.1/tests/ref/fate/filter-pp4",
+      "path": "tests/ref/fate/filter-pp4",
+      "sha256": "b75d51f1a43cf55b6c0d950ac07c1f725ee2b1dd4481d93f495ba88f64077243"
+    },
+    {
+      "bytes": 53,
+      "member": "ffmpeg-7.1.1/tests/ref/fate/filter-pp5",
+      "path": "tests/ref/fate/filter-pp5",
+      "sha256": "5fc104b61666c42ddc658b4022b332c9ef1c3493092ba3b8487e5fa18103f7b7"
+    },
+    {
+      "bytes": 53,
+      "member": "ffmpeg-7.1.1/tests/ref/fate/filter-pp6",
+      "path": "tests/ref/fate/filter-pp6",
+      "sha256": "d117344b9cafe2e6a5488fb53534544e6ba72454a7a5a25a4e7d52b842a18f15"
+    },
+    {
+      "bytes": 53,
+      "member": "ffmpeg-7.1.1/tests/ref/fate/filter-qp",
+      "path": "tests/ref/fate/filter-qp",
+      "sha256": "2eddd4f81380093cde4be3602e6a4a37d34d7c70fde22680214af9437387b939"
+    },
+    {
+      "bytes": 59960,
+      "member": "ffmpeg-7.1.1/tests/ref/fate/imgutils",
+      "path": "tests/ref/fate/imgutils",
+      "sha256": "de0f8b457a1e75d0a735b6c4f6c7ec272202da8d55a8af0c984bd3e700ba29cb"
+    },
+    {
+      "bytes": 855,
+      "member": "ffmpeg-7.1.1/tests/ref/fate/source",
+      "path": "tests/ref/fate/source",
+      "sha256": "bf7a7fedba014ac4bfa3a701a1fe7fc7ba067cee745fd360355f66d2401e33a6"
+    },
+    {
+      "bytes": 12242,
+      "member": "ffmpeg-7.1.1/tests/ref/fate/sws-pixdesc-query",
+      "path": "tests/ref/fate/sws-pixdesc-query",
+      "sha256": "86af76343ff31245573112f6b4f5ad99db81730756f09742737e4471101ab4cf"
+    },
+    {
+      "bytes": 4041,
+      "member": "ffmpeg-7.1.1/tools/gen-rc",
+      "path": "tools/gen-rc",
+      "sha256": "c72f62f15b574dd4df85cd1cf286ef628ae4fde31d9912fe63cc8a59c1387791"
+    }
+  ],
+  "kind": "unmodified cached-source comparison, not stack application",
+  "member_count": 8646,
+  "member_manifest_sha256": "598f286aef3456440d733762fdb0e488ad751b65f05623d4ea13bff349122548",
+  "missing": [
+    "libavcodec/hevc-ctrls-v1.h",
+    "libavcodec/hevc-ctrls-v2.h",
+    "libavcodec/hevc-ctrls-v3.h",
+    "libavcodec/hevc-ctrls-v4.h",
+    "libavcodec/raw_pix_fmt_tags.h",
+    "libavcodec/v4l2_req_decode_q.c",
+    "libavcodec/v4l2_req_decode_q.h",
+    "libavcodec/v4l2_req_devscan.c",
+    "libavcodec/v4l2_req_devscan.h",
+    "libavcodec/v4l2_req_dmabufs.c",
+    "libavcodec/v4l2_req_dmabufs.h",
+    "libavcodec/v4l2_req_hevc_v1.c",
+    "libavcodec/v4l2_req_hevc_v2.c",
+    "libavcodec/v4l2_req_hevc_v3.c",
+    "libavcodec/v4l2_req_hevc_v4.c",
+    "libavcodec/v4l2_req_hevc_vx.c",
+    "libavcodec/v4l2_req_media.c",
+    "libavcodec/v4l2_req_media.h",
+    "libavcodec/v4l2_req_pollqueue.c",
+    "libavcodec/v4l2_req_pollqueue.h",
+    "libavcodec/v4l2_req_utils.h",
+    "libavcodec/v4l2_request.c",
+    "libavcodec/v4l2_request.h",
+    "libavcodec/v4l2_request_av1.c",
+    "libavcodec/v4l2_request_h264.c",
+    "libavcodec/v4l2_request_hevc.c",
+    "libavcodec/v4l2_request_hevc.h",
+    "libavcodec/v4l2_request_mpeg2.c",
+    "libavcodec/v4l2_request_vp8.c",
+    "libavcodec/v4l2_request_vp9.c",
+    "libavcodec/weak_link.c",
+    "libavcodec/weak_link.h",
+    "libavdevice/drm_vout.c",
+    "libavdevice/egl_vout.c",
+    "libavfilter/vf_deinterlace_v4l2m2m.c",
+    "libavfilter/vf_unsand.c",
+    "libavformat/conformenc.c",
+    "libavutil/aarch64/rpi_sand_neon.S",
+    "libavutil/aarch64/rpi_sand_neon.h",
+    "libavutil/arm/rpi_sand_neon.S",
+    "libavutil/arm/rpi_sand_neon.h",
+    "libavutil/hwcontext_v4l2request.c",
+    "libavutil/hwcontext_v4l2request.h",
+    "libavutil/hwcontext_v4l2request_internal.h",
+    "libavutil/rpi_sand_fn_pw.c",
+    "libavutil/rpi_sand_fns.c",
+    "libavutil/rpi_sand_fns.h",
+    "libpostproc/tests/.gitignore",
+    "libpostproc/tests/blocktest.c",
+    "libpostproc/tests/stripetest.c",
+    "libpostproc/tests/temptest.c",
+    "libpostproc/tests/test_utils.c",
+    "libpostproc/tests/test_utils.h",
+    "pi-util/BUILD.txt",
+    "pi-util/NOTES.txt",
+    "pi-util/TESTMESA.txt",
+    "pi-util/clean_usr_libs.sh",
+    "pi-util/conf_arm64_native.sh",
+    "pi-util/conf_h265.2016.csv",
+    "pi-util/conf_h265.2016_HEVC_v1.csv",
+    "pi-util/conf_h265.csv",
+    "pi-util/conf_native.sh",
+    "pi-util/ffconf.py",
+    "pi-util/ffperf.py",
+    "pi-util/genpatch.sh",
+    "pi-util/make_array.py",
+    "pi-util/mkinst.sh",
+    "pi-util/patkodi.sh",
+    "pi-util/perfcmp.py",
+    "pi-util/qem.sh",
+    "pi-util/testfilt.py",
+    "pi-util/v3dusage.py",
+    "tests/checkasm/rpi_sand.c",
+    "tests/fate/libpostproc.mak",
+    "tests/ref/fate/blocktest",
+    "tests/ref/fate/stripetest",
+    "tests/ref/fate/temptest"
+  ],
+  "pin": "7.1.1",
+  "recipe": "projects/ROCKNIX/packages/multimedia/ffmpeg/package.mk",
+  "recipe_sha256": "f893b3c33bb3a69286ec2ee7d7e8365118f8bf76d643c32d6bc41e2fb0dd4922",
+  "requested": [
+    "LICENSE.md",
+    "MAINTAINERS",
+    "Makefile",
+    "configure",
+    "doc/filters.texi",
+    "fftools/ffmpeg.h",
+    "fftools/ffmpeg_dec.c",
+    "fftools/ffmpeg_filter.c",
+    "fftools/ffmpeg_hw.c",
+    "fftools/ffmpeg_opt.c",
+    "fftools/ffprobe.c",
+    "fftools/opt_common.c",
+    "libavcodec/Makefile",
+    "libavcodec/allcodecs.c",
+    "libavcodec/av1dec.c",
+    "libavcodec/h264_slice.c",
+    "libavcodec/h264dec.c",
+    "libavcodec/h264dec.h",
+    "libavcodec/hevc-ctrls-v1.h",
+    "libavcodec/hevc-ctrls-v2.h",
+    "libavcodec/hevc-ctrls-v3.h",
+    "libavcodec/hevc-ctrls-v4.h",
+    "libavcodec/hevc/hevcdec.c",
+    "libavcodec/hevc/parser.c",
+    "libavcodec/hevc/ps.c",
+    "libavcodec/hevc/ps.h",
+    "libavcodec/hevc/refs.c",
+    "libavcodec/hwaccel_internal.h",
+    "libavcodec/hwaccels.h",
+    "libavcodec/hwconfig.h",
+    "libavcodec/libdav1d.c",
+    "libavcodec/mmaldec.c",
+    "libavcodec/mpeg12dec.c",
+    "libavcodec/raw_pix_fmt_tags.h",
+    "libavcodec/rawenc.c",
+    "libavcodec/v4l2_buffers.c",
+    "libavcodec/v4l2_buffers.h",
+    "libavcodec/v4l2_context.c",
+    "libavcodec/v4l2_context.h",
+    "libavcodec/v4l2_fmt.c",
+    "libavcodec/v4l2_m2m.c",
+    "libavcodec/v4l2_m2m.h",
+    "libavcodec/v4l2_m2m_dec.c",
+    "libavcodec/v4l2_m2m_enc.c",
+    "libavcodec/v4l2_req_decode_q.c",
+    "libavcodec/v4l2_req_decode_q.h",
+    "libavcodec/v4l2_req_devscan.c",
+    "libavcodec/v4l2_req_devscan.h",
+    "libavcodec/v4l2_req_dmabufs.c",
+    "libavcodec/v4l2_req_dmabufs.h",
+    "libavcodec/v4l2_req_hevc_v1.c",
+    "libavcodec/v4l2_req_hevc_v2.c",
+    "libavcodec/v4l2_req_hevc_v3.c",
+    "libavcodec/v4l2_req_hevc_v4.c",
+    "libavcodec/v4l2_req_hevc_vx.c",
+    "libavcodec/v4l2_req_media.c",
+    "libavcodec/v4l2_req_media.h",
+    "libavcodec/v4l2_req_pollqueue.c",
+    "libavcodec/v4l2_req_pollqueue.h",
+    "libavcodec/v4l2_req_utils.h",
+    "libavcodec/v4l2_request.c",
+    "libavcodec/v4l2_request.h",
+    "libavcodec/v4l2_request_av1.c",
+    "libavcodec/v4l2_request_h264.c",
+    "libavcodec/v4l2_request_hevc.c",
+    "libavcodec/v4l2_request_hevc.h",
+    "libavcodec/v4l2_request_mpeg2.c",
+    "libavcodec/v4l2_request_vp8.c",
+    "libavcodec/v4l2_request_vp9.c",
+    "libavcodec/vp8.c",
+    "libavcodec/vp9.c",
+    "libavcodec/weak_link.c",
+    "libavcodec/weak_link.h",
+    "libavdevice/Makefile",
+    "libavdevice/alldevices.c",
+    "libavdevice/drm_vout.c",
+    "libavdevice/egl_vout.c",
+    "libavfilter/Makefile",
+    "libavfilter/allfilters.c",
+    "libavfilter/buffersink.c",
+    "libavfilter/buffersink.h",
+    "libavfilter/buffersrc.c",
+    "libavfilter/vf_bwdif.c",
+    "libavfilter/vf_deinterlace_v4l2m2m.c",
+    "libavfilter/vf_pp.c",
+    "libavfilter/vf_unsand.c",
+    "libavformat/Makefile",
+    "libavformat/allformats.c",
+    "libavformat/conformenc.c",
+    "libavformat/matroskaenc.c",
+    "libavformat/movenc.c",
+    "libavformat/rtpenc.c",
+    "libavutil/Makefile",
+    "libavutil/aarch64/Makefile",
+    "libavutil/aarch64/rpi_sand_neon.S",
+    "libavutil/aarch64/rpi_sand_neon.h",
+    "libavutil/arm/Makefile",
+    "libavutil/arm/rpi_sand_neon.S",
+    "libavutil/arm/rpi_sand_neon.h",
+    "libavutil/avutil.h",
+    "libavutil/frame.c",
+    "libavutil/frame.h",
+    "libavutil/hwcontext.c",
+    "libavutil/hwcontext.h",
+    "libavutil/hwcontext_drm.c",
+    "libavutil/hwcontext_drm.h",
+    "libavutil/hwcontext_internal.h",
+    "libavutil/hwcontext_v4l2request.c",
+    "libavutil/hwcontext_v4l2request.h",
+    "libavutil/hwcontext_v4l2request_internal.h",
+    "libavutil/hwcontext_vulkan.c",
+    "libavutil/pixdesc.c",
+    "libavutil/pixfmt.h",
+    "libavutil/rpi_sand_fn_pw.c",
+    "libavutil/rpi_sand_fns.c",
+    "libavutil/rpi_sand_fns.h",
+    "libpostproc/Makefile",
+    "libpostproc/libpostproc.v",
+    "libpostproc/postprocess.c",
+    "libpostproc/postprocess.h",
+    "libpostproc/postprocess_altivec_template.c",
+    "libpostproc/postprocess_internal.h",
+    "libpostproc/postprocess_template.c",
+    "libpostproc/postprocres.rc",
+    "libpostproc/tests/.gitignore",
+    "libpostproc/tests/blocktest.c",
+    "libpostproc/tests/stripetest.c",
+    "libpostproc/tests/temptest.c",
+    "libpostproc/tests/test_utils.c",
+    "libpostproc/tests/test_utils.h",
+    "libpostproc/version.c",
+    "libpostproc/version.h",
+    "libpostproc/version_major.h",
+    "libswscale/aarch64/rgb2rgb.c",
+    "libswscale/aarch64/rgb2rgb_neon.S",
+    "libswscale/rgb2rgb.c",
+    "libswscale/rgb2rgb.h",
+    "libswscale/rgb2rgb_template.c",
+    "libswscale/swscale_unscaled.c",
+    "libswscale/yuv2rgb.c",
+    "pi-util/BUILD.txt",
+    "pi-util/NOTES.txt",
+    "pi-util/TESTMESA.txt",
+    "pi-util/clean_usr_libs.sh",
+    "pi-util/conf_arm64_native.sh",
+    "pi-util/conf_h265.2016.csv",
+    "pi-util/conf_h265.2016_HEVC_v1.csv",
+    "pi-util/conf_h265.csv",
+    "pi-util/conf_native.sh",
+    "pi-util/ffconf.py",
+    "pi-util/ffperf.py",
+    "pi-util/genpatch.sh",
+    "pi-util/make_array.py",
+    "pi-util/mkinst.sh",
+    "pi-util/patkodi.sh",
+    "pi-util/perfcmp.py",
+    "pi-util/qem.sh",
+    "pi-util/testfilt.py",
+    "pi-util/v3dusage.py",
+    "tests/Makefile",
+    "tests/checkasm/Makefile",
+    "tests/checkasm/checkasm.c",
+    "tests/checkasm/checkasm.h",
+    "tests/checkasm/rpi_sand.c",
+    "tests/fate/checkasm.mak",
+    "tests/fate/filter-video.mak",
+    "tests/fate/libpostproc.mak",
+    "tests/ref/fate/blocktest",
+    "tests/ref/fate/filter-pp",
+    "tests/ref/fate/filter-pp1",
+    "tests/ref/fate/filter-pp2",
+    "tests/ref/fate/filter-pp3",
+    "tests/ref/fate/filter-pp4",
+    "tests/ref/fate/filter-pp5",
+    "tests/ref/fate/filter-pp6",
+    "tests/ref/fate/filter-qp",
+    "tests/ref/fate/imgutils",
+    "tests/ref/fate/source",
+    "tests/ref/fate/stripetest",
+    "tests/ref/fate/sws-pixdesc-query",
+    "tests/ref/fate/temptest",
+    "tools/gen-rc"
+  ],
+  "root": "ffmpeg-7.1.1",
+  "scratch": "/workspace/tmp/m6-t42/inherited-source/ffmpeg",
+  "sidecar_sha256": "0876249cbba3423a339344891a59fc0c9251004e0efa64f243779a056e05342f",
+  "status": "qualified raw source",
+  "utc": "2026-11-02T19:13:58.782850+00:00"
+}

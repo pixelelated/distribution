@@ -1,0 +1,48 @@
+{
+  "archive": "/workspace/cache/rocknix-sources/openssh/openssh-9.8p1.tar.gz",
+  "archive_sha256": "dd8bd002a379b5d499dfb050dd1fa9af8029e80461f4bb6c523c49973f5a39f3",
+  "files": [
+    {
+      "bytes": 30492,
+      "member": "openssh-9.8p1/Makefile.in",
+      "path": "Makefile.in",
+      "sha256": "1dfa3f0d7b3b5b6eacbdd1df736ee7dc88e1cc5ae9e72afdab459d4aaeb89ab1"
+    },
+    {
+      "bytes": 159588,
+      "member": "openssh-9.8p1/configure.ac",
+      "path": "configure.ac",
+      "sha256": "f7ba94e4fc2b0b8621ab28f466e613d92434eb13bd431f2e1783ee3330031c48"
+    },
+    {
+      "bytes": 6250,
+      "member": "openssh-9.8p1/pathnames.h",
+      "path": "pathnames.h",
+      "sha256": "f9f8249d59e0870af9ecb21c3fc01791ba098e3e76df1e25600c4cc3ba05357d"
+    },
+    {
+      "bytes": 66469,
+      "member": "openssh-9.8p1/sshconnect2.c",
+      "path": "sshconnect2.c",
+      "sha256": "dcddf60e71cd288df7c792710de3d342bb2b354dbf459d4a4204d59f0079755f"
+    }
+  ],
+  "kind": "unmodified cached-source comparison, not stack application",
+  "member_count": 909,
+  "member_manifest_sha256": "b536d3197095653620f994e9bd762004b75c12a4a80a60a57f91bd6f23f73f3d",
+  "missing": [],
+  "pin": "9.8p1",
+  "recipe": "projects/ROCKNIX/packages/network/openssh/package.mk",
+  "recipe_sha256": "64e19cbe6ce59ab3b763b776f34d0386a9904a38334bb39e35af8698f0a87027",
+  "requested": [
+    "Makefile.in",
+    "configure.ac",
+    "pathnames.h",
+    "sshconnect2.c"
+  ],
+  "root": "openssh-9.8p1",
+  "scratch": "/workspace/tmp/m6-t42/inherited-source/openssh",
+  "sidecar_sha256": "caaff66392031ea6af25cf67d534f85ddb2e509bf63a901dc48ccfd9bad54293",
+  "status": "qualified raw source",
+  "utc": "2026-11-02T19:14:07.162020+00:00"
+}

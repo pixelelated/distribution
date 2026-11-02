@@ -1,0 +1,34 @@
+{
+  "archive": "/workspace/cache/rocknix-sources/sway/sway-1.11.tar.gz",
+  "archive_sha256": "0e37a55b7c3379230e97e1ad982542b75016a0c7d6676198604e557f9b373dae",
+  "files": [
+    {
+      "bytes": 7237,
+      "member": "sway-1.11/meson.build",
+      "path": "meson.build",
+      "sha256": "bd497d61dddfcd9f703f4888c935bc01bb92e37989f31b98246a813942e6f8b1"
+    },
+    {
+      "bytes": 31490,
+      "member": "sway-1.11/sway/ipc-server.c",
+      "path": "sway/ipc-server.c",
+      "sha256": "2af7f2449cf42474ab17678133fe5425fb80f5ed749234ae0022b3761a4a4d9c"
+    }
+  ],
+  "kind": "unmodified cached-source comparison, not stack application",
+  "member_count": 429,
+  "member_manifest_sha256": "f3a4f085e58c6349a4530c0998441ca9553820eff0ec36e258b3656d14cf61fe",
+  "missing": [],
+  "pin": "1.11",
+  "recipe": "projects/ROCKNIX/packages/wayland/compositor/sway/package.mk",
+  "recipe_sha256": "aff81d13319752e24ff0c77e3da8120cdd2253cf31a95a96a3f1ec4ff342792a",
+  "requested": [
+    "meson.build",
+    "sway/ipc-server.c"
+  ],
+  "root": "sway-1.11",
+  "scratch": "/workspace/tmp/m6-t42/inherited-source/sway",
+  "sidecar_sha256": "f9e4ce9c9da6f85df7521abd1d62a74719f7ed3c36f4a05f04adcd8e4251cfb6",
+  "status": "qualified raw source",
+  "utc": "2026-11-02T19:14:20.195265+00:00"
+}

@@ -1,0 +1,62 @@
+{
+  "base": "/workspace/tmp/m6-t42/archive-136d91bc269a9a57",
+  "extracted": [
+    {
+      "bytes": 844785,
+      "member": "ncurses-6.5/configure",
+      "path": "configure",
+      "sha256": "ea7a23679c11400fbe29aa1412e269c4f21c996089d5aa779d65c7712b307570"
+    },
+    {
+      "bytes": 1143268,
+      "member": "ncurses-6.5/misc/terminfo.src",
+      "path": "misc/terminfo.src",
+      "sha256": "0980a43dd03cfeec080c5d8f441695dce9dfb3b8d06e542f8deefd2b659e071d"
+    },
+    {
+      "bytes": 86646,
+      "member": "ncurses-6.5/ncurses/curses.priv.h",
+      "path": "ncurses/curses.priv.h",
+      "sha256": "0af025e76b5213b13496df9d79311c5355881ffe6c3a39ecc258fd0f0097caf5"
+    },
+    {
+      "bytes": 37808,
+      "member": "ncurses-6.5/ncurses/tinfo/tinfo_driver.c",
+      "path": "ncurses/tinfo/tinfo_driver.c",
+      "sha256": "ee8de568fa9c0f10eb899481f1e66a1ee872d033c49a3eadbd415b997055b984"
+    }
+  ],
+  "member_count": 1297,
+  "member_manifest_sha256": "6c468c83679193e9fdda87a7418386f0b5fcdb940c793db72ec3100d9dda7aaa",
+  "missing": [],
+  "path": "/workspace/cache/rocknix-sources/ncurses/ncurses-6.5.tar.gz",
+  "recipe_sha256": "136d91bc269a9a5785e5f9e980bc76ab57428f604ce3e5a5a90cebc767971cc6",
+  "root": "ncurses-6.5",
+  "sha256": "136d91bc269a9a5785e5f9e980bc76ab57428f604ce3e5a5a90cebc767971cc6",
+  "sidecar_sha256": "10724939ec0c3fd0f5183f51276f921dbe10ef4d8d3361ea1a917558c8bdf271",
+  "source_tree": {
+    "files": [
+      {
+        "mode": "0o755",
+        "path": "configure",
+        "sha256": "ea7a23679c11400fbe29aa1412e269c4f21c996089d5aa779d65c7712b307570"
+      },
+      {
+        "mode": "0o644",
+        "path": "misc/terminfo.src",
+        "sha256": "0980a43dd03cfeec080c5d8f441695dce9dfb3b8d06e542f8deefd2b659e071d"
+      },
+      {
+        "mode": "0o644",
+        "path": "ncurses/curses.priv.h",
+        "sha256": "0af025e76b5213b13496df9d79311c5355881ffe6c3a39ecc258fd0f0097caf5"
+      },
+      {
+        "mode": "0o644",
+        "path": "ncurses/tinfo/tinfo_driver.c",
+        "sha256": "ee8de568fa9c0f10eb899481f1e66a1ee872d033c49a3eadbd415b997055b984"
+      }
+    ],
+    "sha256": "31955c3244b53d789a0431baec77fc59a9a10dc4ec6100b1a4e58d7b476e3bac"
+  }
+}

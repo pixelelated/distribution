@@ -1,0 +1,31 @@
+{
+  "base": "/workspace/tmp/m6-t42/archive-dd16fb1d67bfab79",
+  "extracted": [
+    {
+      "bytes": 117381,
+      "member": "make-4.4.1/src/job.c",
+      "path": "src/job.c",
+      "sha256": "c1c32d4bd7fd56d898e952ed094a488edf2d4333a02058a3302d28f5e3f8ca09"
+    }
+  ],
+  "member_count": 416,
+  "member_manifest_sha256": "685e5cb95cf12a90aa53c1513bf677f68e040f1236f8fc1096dcaea2e53290f8",
+  "missing": [
+    "tests/scripts/features/long_command_line"
+  ],
+  "path": "/workspace/cache/rocknix-sources/make/make-4.4.1.tar.gz",
+  "recipe_sha256": "dd16fb1d67bfab79a72f5e8390735c49e3e8e70b4945a15ab1f81ddb78658fb3",
+  "root": "make-4.4.1",
+  "sha256": "dd16fb1d67bfab79a72f5e8390735c49e3e8e70b4945a15ab1f81ddb78658fb3",
+  "sidecar_sha256": "8d014b48f4dadcf7ce3cf88e77c854f3da12a61722e774c92bd31f983bab6686",
+  "source_tree": {
+    "files": [
+      {
+        "mode": "0o644",
+        "path": "src/job.c",
+        "sha256": "c1c32d4bd7fd56d898e952ed094a488edf2d4333a02058a3302d28f5e3f8ca09"
+      }
+    ],
+    "sha256": "aeab6b125f5306f50fe0726c80e030facf42a4d2beab331f79e22f0232bdf45a"
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "baseline": "cfb6984400eee6b66bee7bea716c3136cf878acd",
+  "controls": [
+    {
+      "argv": [
+        "/usr/bin/python3",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-patches-shipped-689/docs/audits/2026_11_02-epic-m6-patches-shipped/tools/validate.py",
+        "guard",
+        "/workspace/tmp/m6-t42/path-guard-fixture",
+        "cfb6984400eee6b66bee7bea716c3136cf878acd"
+      ],
+      "name": "planted-working-source-edit",
+      "rc": 1,
+      "stderr": "",
+      "stdout": "FAIL tree protected-path assertion: scripts/unpack\n"
+    },
+    {
+      "argv": [
+        "/usr/bin/python3",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-patches-shipped-689/docs/audits/2026_11_02-epic-m6-patches-shipped/tools/validate.py",
+        "guard",
+        "/workspace/tmp/m6-t42/path-guard-fixture",
+        "cfb6984400eee6b66bee7bea716c3136cf878acd"
+      ],
+      "name": "planted-committed-source-edit-restored",
+      "rc": 1,
+      "stderr": "",
+      "stdout": "FAIL commit protected-path assertion: scripts/unpack\n"
+    }
+  ],
+  "fixture": "/workspace/tmp/m6-t42/path-guard-fixture",
+  "utc": "2026-11-02T19:37:28.638546+00:00"
+}

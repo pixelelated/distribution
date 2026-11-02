@@ -1,0 +1,11 @@
+# T42 audit-local tools and receipt custody
+
+Use absolute workdir `/workspace/repos/pixelelated/distribution.worktrees/m6-patches-shipped-689`. These tools are part of the source-only audit, not product tools. Fixed input identities and authority are in 01 and brief v2. No tool grants runtime, source-fix, fetch or tracker permissions.
+
+- `tables.py` regenerates the exact native/coverage/inherited/fork tables from retained inputs and runs four fail-first in-process assertions. The enclosing command receipts record actual process exits. It preserves reviewed-at source identity; it does not reapply patches.
+- `validate.py guard ABS_REPO SEED` checks the current diff, untracked paths and every lane commit against the narrow record allowlist. It is suitable for a final new-record check. The no-argument run is the one-shot synthetic-fixture and retained-scratch verifier; it refuses to overwrite its fixture. Its original positive/negative results remain in stage-c/.
+- `apply-stacks.py`, `inherited-source.py`, `nested-probe.py` produced the retained source-only receipts. They use only the owned /workspace/tmp/m6-t42 scratch and cached sources. Do not replay an accepted application to fill time. Inspect receipts and code first; unsupported transformations remain open.
+- `gather.py`, `select.py`, `compare-hunks.py`, `inherited-decisions.py` are the extraction/analysis procedures used for the recorded tables. They can overwrite their generated records; they are provenance, not instructions to reopen accepted work.
+- `stage-a.py`, `finish-b.py`, `stage-c.py`, `file-d.py` record one-time assembly/filing commands. Some refer to the original /tmp small-text staging files. They are not a recovery entrypoint and must not be rerun after publication; especially do not recreate tracker issues. Resume from the saved lane pointer and actual Stage D readbacks.
+
+Application receipts use target-member projections, not full component trees. G202/G203's regular-file snapshot guard omitted the link-creating candidate exit; no positive is reconstructed. The negative table controls are actual AssertionError rejections, not subprocess rc 1; the path controls really invoke a subprocess and retain rc 1. No unobserved exit, success or review is synthesized.

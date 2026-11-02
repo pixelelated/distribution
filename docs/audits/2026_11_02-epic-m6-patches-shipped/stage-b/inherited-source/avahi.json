@@ -1,0 +1,27 @@
+{
+  "archive": "/workspace/cache/rocknix-sources/avahi/avahi-0.8.tar.gz",
+  "archive_sha256": "c15e750ef7c6df595fb5f2ce10cac0fee2353649600e6919ad08ae8871e4945f",
+  "files": [
+    {
+      "bytes": 43110,
+      "member": "avahi-0.8/configure.ac",
+      "path": "configure.ac",
+      "sha256": "fbd0b3e5881427d2f246c26a6aaa345dbaf6f4a8d6f793b64d11102488147f42"
+    }
+  ],
+  "kind": "unmodified cached-source comparison, not stack application",
+  "member_count": 629,
+  "member_manifest_sha256": "c60ffbe0e9588a06d34e702b1a5e2301830d9f4a2fbff583400e13aba7f52443",
+  "missing": [],
+  "pin": "0.8",
+  "recipe": "projects/ROCKNIX/packages/network/avahi/package.mk",
+  "recipe_sha256": "f83f4632f156d9089af9bca1b61b3975dff08b8c8124705baba2c36263fbefc4",
+  "requested": [
+    "configure.ac"
+  ],
+  "root": "avahi-0.8",
+  "scratch": "/workspace/tmp/m6-t42/inherited-source/avahi",
+  "sidecar_sha256": "19c04eee20b3725e077a200759270f81fd13a5aa9aa0fadd570f52f19c58a7a1",
+  "status": "qualified raw source",
+  "utc": "2026-11-02T19:14:06.938098+00:00"
+}

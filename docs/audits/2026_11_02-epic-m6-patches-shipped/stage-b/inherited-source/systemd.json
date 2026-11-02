@@ -1,0 +1,55 @@
+{
+  "archive": "/workspace/cache/rocknix-sources/systemd/systemd-255.8.tar.gz",
+  "archive_sha256": "e770b9c4b5e36c1badf94444a27c9cd427931251009e4363f3239ad45ff75f3d",
+  "files": [
+    {
+      "bytes": 112870,
+      "member": "systemd-stable-255.8/meson.build",
+      "path": "meson.build",
+      "sha256": "a50ee376a7280870391183a05a075be89cb423e0dc6d961143a70e18eb5798bc"
+    },
+    {
+      "bytes": 36806,
+      "member": "systemd-stable-255.8/src/core/timer.c",
+      "path": "src/core/timer.c",
+      "sha256": "944d316bd2bf10286fb1aafbd76fbb6d97ac27b25322b8aa811106e255cfae7b"
+    },
+    {
+      "bytes": 2346,
+      "member": "systemd-stable-255.8/src/libsystemd/sd-hwdb/hwdb-internal.h",
+      "path": "src/libsystemd/sd-hwdb/hwdb-internal.h",
+      "sha256": "eea723a35b0b93dd1f7cf66f185985d879a97a30cb97803228bd62fef4521699"
+    },
+    {
+      "bytes": 25825,
+      "member": "systemd-stable-255.8/src/shared/hwdb-util.c",
+      "path": "src/shared/hwdb-util.c",
+      "sha256": "e971d617cf833051261dbaff9c938db3d8487c016de982c25e0a4f420b683324"
+    },
+    {
+      "bytes": 839,
+      "member": "systemd-stable-255.8/units/systemd-hwdb-update.service.in",
+      "path": "units/systemd-hwdb-update.service.in",
+      "sha256": "63cec57a798c0a6af55d6ae57f983fcf3a621e02cf85d147e403a5d560db9ac6"
+    }
+  ],
+  "kind": "unmodified cached-source comparison, not stack application",
+  "member_count": 6319,
+  "member_manifest_sha256": "768176e6fdba707209efb648c4c871e4f6bf7c88081d5f648faa82fb3f20035e",
+  "missing": [],
+  "pin": "255.8",
+  "recipe": "projects/ROCKNIX/packages/sysutils/systemd/package.mk",
+  "recipe_sha256": "06aad226fd1e6ac5bd55f7cde48d8925d5f1f9a557ada41779ce8aac0053e5db",
+  "requested": [
+    "meson.build",
+    "src/core/timer.c",
+    "src/libsystemd/sd-hwdb/hwdb-internal.h",
+    "src/shared/hwdb-util.c",
+    "units/systemd-hwdb-update.service.in"
+  ],
+  "root": "systemd-stable-255.8",
+  "scratch": "/workspace/tmp/m6-t42/inherited-source/systemd",
+  "sidecar_sha256": "1bce57d8937509da97858902c0bf13a619669057b0c433ef36b1211fe1098ad3",
+  "status": "qualified raw source",
+  "utc": "2026-11-02T19:14:19.097703+00:00"
+}

@@ -1,0 +1,73 @@
+{
+  "base": "/workspace/tmp/m6-t42/archive-5f5993c530f08453",
+  "extracted": [
+    {
+      "bytes": 59319,
+      "member": "SDL2-2.32.10/src/audio/SDL_audio.c",
+      "path": "src/audio/SDL_audio.c",
+      "sha256": "e4ff1836b449f9b00d5eb5d73487fa92ee06afa4df9b2bae76b0f0811e6b7644"
+    },
+    {
+      "bytes": 37992,
+      "member": "SDL2-2.32.10/src/audio/alsa/SDL_alsa_audio.c",
+      "path": "src/audio/alsa/SDL_alsa_audio.c",
+      "sha256": "09cdf1749c9e94511756a1a313315fb2f87f7322884e5db1953ac1ac00349a14"
+    },
+    {
+      "bytes": 143054,
+      "member": "SDL2-2.32.10/src/video/SDL_video.c",
+      "path": "src/video/SDL_video.c",
+      "sha256": "5bfa785be78fbf897332a8b41982c164e81c617e596010c3574babd8fe7fb858"
+    },
+    {
+      "bytes": 15338,
+      "member": "SDL2-2.32.10/src/video/kmsdrm/SDL_kmsdrmmouse.c",
+      "path": "src/video/kmsdrm/SDL_kmsdrmmouse.c",
+      "sha256": "0ced4fc5c1564bcee7788be7d13bbc8cbffdd9411c4e4d0e3f150ae15c142bce"
+    },
+    {
+      "bytes": 61240,
+      "member": "SDL2-2.32.10/src/video/kmsdrm/SDL_kmsdrmvideo.c",
+      "path": "src/video/kmsdrm/SDL_kmsdrmvideo.c",
+      "sha256": "c4e502dc65caf70337bb055662602632d8a1a53bd7b44181a90560634011fd1e"
+    }
+  ],
+  "member_count": 1751,
+  "member_manifest_sha256": "895bea28a1d7eb9e510c8cc2ae879a6d623633fd46207a56e4042b1e12a6c3e1",
+  "missing": [],
+  "path": "/workspace/cache/rocknix-sources/SDL2/SDL2-2.32.10.tar.gz",
+  "recipe_sha256": "5f5993c530f084535c65a6879e9b26ad441169b3e25d789d83287040a9ca5165",
+  "root": "SDL2-2.32.10",
+  "sha256": "5f5993c530f084535c65a6879e9b26ad441169b3e25d789d83287040a9ca5165",
+  "sidecar_sha256": "83707addad3477bf7cc33e5ee43633219ef055aa4d725ef7972b038e3dd6065d",
+  "source_tree": {
+    "files": [
+      {
+        "mode": "0o644",
+        "path": "src/audio/SDL_audio.c",
+        "sha256": "e4ff1836b449f9b00d5eb5d73487fa92ee06afa4df9b2bae76b0f0811e6b7644"
+      },
+      {
+        "mode": "0o644",
+        "path": "src/audio/alsa/SDL_alsa_audio.c",
+        "sha256": "09cdf1749c9e94511756a1a313315fb2f87f7322884e5db1953ac1ac00349a14"
+      },
+      {
+        "mode": "0o644",
+        "path": "src/video/SDL_video.c",
+        "sha256": "5bfa785be78fbf897332a8b41982c164e81c617e596010c3574babd8fe7fb858"
+      },
+      {
+        "mode": "0o644",
+        "path": "src/video/kmsdrm/SDL_kmsdrmmouse.c",
+        "sha256": "0ced4fc5c1564bcee7788be7d13bbc8cbffdd9411c4e4d0e3f150ae15c142bce"
+      },
+      {
+        "mode": "0o644",
+        "path": "src/video/kmsdrm/SDL_kmsdrmvideo.c",
+        "sha256": "c4e502dc65caf70337bb055662602632d8a1a53bd7b44181a90560634011fd1e"
+      }
+    ],
+    "sha256": "ee766d7722f23e68913bf23a26304e1ce35de0c56829fdbcca8913a56ef474a1"
+  }
+}

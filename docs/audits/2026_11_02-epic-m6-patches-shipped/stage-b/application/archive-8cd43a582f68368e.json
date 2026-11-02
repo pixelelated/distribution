@@ -1,0 +1,40 @@
+{
+  "base": "/workspace/tmp/m6-t42/archive-8cd43a582f68368e",
+  "extracted": [
+    {
+      "bytes": 555,
+      "member": "wireplumber-0.5.7/src/systemd/system/wireplumber.service.in",
+      "path": "src/systemd/system/wireplumber.service.in",
+      "sha256": "b9197379f00e549b416e2bcf9c55d0d9e0b4fc520efce5eb610ec8c43bdb1407"
+    },
+    {
+      "bytes": 807,
+      "member": "wireplumber-0.5.7/src/systemd/system/wireplumber@.service.in",
+      "path": "src/systemd/system/wireplumber@.service.in",
+      "sha256": "0be680446016c461d2a2ad9c1783ce9ed262a2d665f1f0a02c084305ee99c0a8"
+    }
+  ],
+  "member_count": 519,
+  "member_manifest_sha256": "8bb9f9a7a0c63635193264050487c35c41e740ed0f2ab3d1050bafe28da72162",
+  "missing": [],
+  "path": "/workspace/cache/rocknix-sources/wireplumber/wireplumber-0.5.7.tar.gz",
+  "recipe_sha256": "8cd43a582f68368ee5a915e97bf9dadc44d2dfe8c7bb4f96bb7b40ea2ed7848f",
+  "root": "wireplumber-0.5.7",
+  "sha256": "8cd43a582f68368ee5a915e97bf9dadc44d2dfe8c7bb4f96bb7b40ea2ed7848f",
+  "sidecar_sha256": "d190f8b895170cadc186f16640c0a66fe2530578c75b7f338f21054de375599a",
+  "source_tree": {
+    "files": [
+      {
+        "mode": "0o644",
+        "path": "src/systemd/system/wireplumber.service.in",
+        "sha256": "b9197379f00e549b416e2bcf9c55d0d9e0b4fc520efce5eb610ec8c43bdb1407"
+      },
+      {
+        "mode": "0o644",
+        "path": "src/systemd/system/wireplumber@.service.in",
+        "sha256": "0be680446016c461d2a2ad9c1783ce9ed262a2d665f1f0a02c084305ee99c0a8"
+      }
+    ],
+    "sha256": "883acd9fdf31fa826560f066a643aa1d13b9c05bb2a8406263a2400b2dca4004"
+  }
+}

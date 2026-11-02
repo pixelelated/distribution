@@ -1,0 +1,34 @@
+{
+  "archive": "/workspace/cache/rocknix-sources/seatd/seatd-0.9.0.tar.gz",
+  "archive_sha256": "4276d1380c67e30a63c289b35f7bf955e126e6daf3596cd5aa6080670aa1214c",
+  "files": [
+    {
+      "bytes": 6883,
+      "member": "seatd-0.9.0/meson.build",
+      "path": "meson.build",
+      "sha256": "867c651615445734ced09371dc297cfb1932f86b69903dfb27e3e8c1a662ca24"
+    },
+    {
+      "bytes": 3934,
+      "member": "seatd-0.9.0/seatd-launch/seatd-launch.c",
+      "path": "seatd-launch/seatd-launch.c",
+      "sha256": "f3f70737ac021b63bd24861552ec59aff23d0a26eb6c27b55e2121e8624e5f60"
+    }
+  ],
+  "kind": "unmodified cached-source comparison, not stack application",
+  "member_count": 66,
+  "member_manifest_sha256": "42fcfeded9b236282c5f5675ff94b175d30ec90ccf6c193f3a1705896bd8ef5b",
+  "missing": [],
+  "pin": "0.9.0",
+  "recipe": "projects/ROCKNIX/packages/wayland/lib/seatd/package.mk",
+  "recipe_sha256": "3303a05253c1ce4a55c9fc72b4e45d404a4429376d5dea423b1db0e6d54a02e9",
+  "requested": [
+    "meson.build",
+    "seatd-launch/seatd-launch.c"
+  ],
+  "root": "seatd-0.9.0",
+  "scratch": "/workspace/tmp/m6-t42/inherited-source/seatd",
+  "sidecar_sha256": "becb226a46954b04ccdca9b07c77fd1cad602a052afd759c3a86fbb37fc7f71d",
+  "status": "qualified raw source",
+  "utc": "2026-11-02T19:14:20.241431+00:00"
+}

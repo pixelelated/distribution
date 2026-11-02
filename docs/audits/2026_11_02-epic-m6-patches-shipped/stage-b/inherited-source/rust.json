@@ -1,0 +1,36 @@
+{
+  "archive": "/workspace/cache/rocknix-sources/rust/rust-1.94.1.tar.gz",
+  "archive_sha256": "4c142a625f12e3cdf716c68ae19f4f60d98ad1482627b08579b15838e95ad514",
+  "files": [
+    {
+      "bytes": 145667,
+      "member": "rustc-1.94.1-src/compiler/rustc_target/src/spec/mod.rs",
+      "path": "compiler/rustc_target/src/spec/mod.rs",
+      "sha256": "597d3a3f6fc8f8b274b562d6353d743034a08553fc410bbeeca2f53eed92a019"
+    }
+  ],
+  "kind": "unmodified cached-source comparison, not stack application",
+  "member_count": 305215,
+  "member_manifest_sha256": "ed00a08088da77ebc1312523bf33b3fe8dd9a45e28f222918a3afc87e34d4c0b",
+  "missing": [
+    "compiler/rustc_target/src/spec/targets/aarch64_libreelec_linux_gnu.rs",
+    "compiler/rustc_target/src/spec/targets/armv7a_libreelec_linux_gnueabihf.rs",
+    "compiler/rustc_target/src/spec/targets/armv7ve_libreelec_linux_gnueabihf.rs",
+    "compiler/rustc_target/src/spec/targets/x86_64_libreelec_linux_gnu.rs"
+  ],
+  "pin": "1.94.1",
+  "recipe": "projects/ROCKNIX/packages/rust/rust/package.mk",
+  "recipe_sha256": "e09d560e20f12856244bc99d90f45081d1b412e78e1466145ede03e6012e34b0",
+  "requested": [
+    "compiler/rustc_target/src/spec/mod.rs",
+    "compiler/rustc_target/src/spec/targets/aarch64_libreelec_linux_gnu.rs",
+    "compiler/rustc_target/src/spec/targets/armv7a_libreelec_linux_gnueabihf.rs",
+    "compiler/rustc_target/src/spec/targets/armv7ve_libreelec_linux_gnueabihf.rs",
+    "compiler/rustc_target/src/spec/targets/x86_64_libreelec_linux_gnu.rs"
+  ],
+  "root": "rustc-1.94.1-src",
+  "scratch": "/workspace/tmp/m6-t42/inherited-source/rust",
+  "sidecar_sha256": "db85e52c9582e94170692b546d9c61ff2c9f7729420def9d32175f0b84c74a84",
+  "status": "qualified raw source",
+  "utc": "2026-11-02T19:14:07.697198+00:00"
+}

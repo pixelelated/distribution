@@ -1,0 +1,62 @@
+{
+  "base": "/workspace/tmp/m6-t42/archive-7ce33c2492221a04",
+  "extracted": [
+    {
+      "bytes": 5832,
+      "member": "libgcrypt-1.12.2/Makefile.am",
+      "path": "Makefile.am",
+      "sha256": "f9e29fea9555226f6fe7b632330597c33a3092a41671ae44c0443ba72647fa8e"
+    },
+    {
+      "bytes": 34111,
+      "member": "libgcrypt-1.12.2/Makefile.in",
+      "path": "Makefile.in",
+      "sha256": "bef26bb7ebb6ae0a593518a3a8d13e15daf60b0850b2c8b74dee9bba4a02f6f9"
+    },
+    {
+      "bytes": 16301,
+      "member": "libgcrypt-1.12.2/cipher/Makefile.am",
+      "path": "cipher/Makefile.am",
+      "sha256": "604fd23b766aa0634c1aaf1e46bb7abf48362ea004256a0302134fcf77b861e5"
+    },
+    {
+      "bytes": 81408,
+      "member": "libgcrypt-1.12.2/cipher/Makefile.in",
+      "path": "cipher/Makefile.in",
+      "sha256": "ffb0ce9f0b4325129cd72d2f8fe29b90d5041878c325bf950d856babfabf25c4"
+    }
+  ],
+  "member_count": 647,
+  "member_manifest_sha256": "f0b87edc6290a1c29a6ac390b58989cd600156a749c28a24283bcefb1d73fd04",
+  "missing": [],
+  "path": "/workspace/cache/rocknix-sources/libgcrypt/libgcrypt-1.12.2.tar.bz2",
+  "recipe_sha256": "7ce33c2492221a0436f96a8500215e9f3e3dcb5fd26a757cd415e7a843babd5e",
+  "root": "libgcrypt-1.12.2",
+  "sha256": "7ce33c2492221a0436f96a8500215e9f3e3dcb5fd26a757cd415e7a843babd5e",
+  "sidecar_sha256": "e857a50d247037983ecaf7aba75a9e9110db92098bec36c384aaf2dc11b16307",
+  "source_tree": {
+    "files": [
+      {
+        "mode": "0o644",
+        "path": "Makefile.am",
+        "sha256": "f9e29fea9555226f6fe7b632330597c33a3092a41671ae44c0443ba72647fa8e"
+      },
+      {
+        "mode": "0o644",
+        "path": "Makefile.in",
+        "sha256": "bef26bb7ebb6ae0a593518a3a8d13e15daf60b0850b2c8b74dee9bba4a02f6f9"
+      },
+      {
+        "mode": "0o644",
+        "path": "cipher/Makefile.am",
+        "sha256": "604fd23b766aa0634c1aaf1e46bb7abf48362ea004256a0302134fcf77b861e5"
+      },
+      {
+        "mode": "0o644",
+        "path": "cipher/Makefile.in",
+        "sha256": "ffb0ce9f0b4325129cd72d2f8fe29b90d5041878c325bf950d856babfabf25c4"
+      }
+    ],
+    "sha256": "f3baccd92f203144100a3dde2a1b5e1d5835d05d827dce0d646b462672eea077"
+  }
+}

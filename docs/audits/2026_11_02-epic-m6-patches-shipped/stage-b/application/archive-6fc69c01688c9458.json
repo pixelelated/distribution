@@ -1,0 +1,73 @@
+{
+  "base": "/workspace/tmp/m6-t42/archive-6fc69c01688c9458",
+  "extracted": [
+    {
+      "bytes": 71832,
+      "member": "pkg-config-0.29.2/glib/glib/goption.c",
+      "path": "glib/glib/goption.c",
+      "sha256": "5da2da0239f26162150f7e24ed43541310ab4d57abcc0e0a13f36aabedd6dca0"
+    },
+    {
+      "bytes": 24615,
+      "member": "pkg-config-0.29.2/main.c",
+      "path": "main.c",
+      "sha256": "0871adc396e32e6533d6f05ced7e07d6e34eee5ebb5c701ac7119cca975657d3"
+    },
+    {
+      "bytes": 28168,
+      "member": "pkg-config-0.29.2/parse.c",
+      "path": "parse.c",
+      "sha256": "b1ca6534bb928379c71d96976fbe599b7b1bc79deaacd4c23c12edeac1ed5377"
+    },
+    {
+      "bytes": 30963,
+      "member": "pkg-config-0.29.2/pkg.c",
+      "path": "pkg.c",
+      "sha256": "6b5e4857764746606b8d4b6cd70ef0345f6b6bb5c5493b6a80b4688fc7149010"
+    },
+    {
+      "bytes": 4475,
+      "member": "pkg-config-0.29.2/pkg.h",
+      "path": "pkg.h",
+      "sha256": "4c5f1b8a57733f30230050a9a8424301d72bbf4e8cc30812c49d6610b7d2843a"
+    }
+  ],
+  "member_count": 433,
+  "member_manifest_sha256": "d22ee3e1f8e8d6e79a2cfc3be70731582ba6feaa09e224830cc5f9c11392d066",
+  "missing": [],
+  "path": "/workspace/cache/rocknix-sources/pkg-config/pkg-config-0.29.2.tar.gz",
+  "recipe_sha256": "6fc69c01688c9458a57eb9a1664c9aba372ccda420a02bf4429fe610e7e7d591",
+  "root": "pkg-config-0.29.2",
+  "sha256": "6fc69c01688c9458a57eb9a1664c9aba372ccda420a02bf4429fe610e7e7d591",
+  "sidecar_sha256": "61d47ede614a2937531c6f44caf2c2ad041c4566e6a3772e5f73f808e1413b8d",
+  "source_tree": {
+    "files": [
+      {
+        "mode": "0o644",
+        "path": "glib/glib/goption.c",
+        "sha256": "5da2da0239f26162150f7e24ed43541310ab4d57abcc0e0a13f36aabedd6dca0"
+      },
+      {
+        "mode": "0o644",
+        "path": "main.c",
+        "sha256": "0871adc396e32e6533d6f05ced7e07d6e34eee5ebb5c701ac7119cca975657d3"
+      },
+      {
+        "mode": "0o644",
+        "path": "parse.c",
+        "sha256": "b1ca6534bb928379c71d96976fbe599b7b1bc79deaacd4c23c12edeac1ed5377"
+      },
+      {
+        "mode": "0o644",
+        "path": "pkg.c",
+        "sha256": "6b5e4857764746606b8d4b6cd70ef0345f6b6bb5c5493b6a80b4688fc7149010"
+      },
+      {
+        "mode": "0o644",
+        "path": "pkg.h",
+        "sha256": "4c5f1b8a57733f30230050a9a8424301d72bbf4e8cc30812c49d6610b7d2843a"
+      }
+    ],
+    "sha256": "ed27fe4ee5e6dc6376cfa9af1efe7667984df856fe4bebbbf4e0e41d618e1221"
+  }
+}

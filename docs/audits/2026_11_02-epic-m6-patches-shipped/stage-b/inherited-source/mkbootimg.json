@@ -1,0 +1,30 @@
+{
+  "archive": "/workspace/cache/rocknix-sources/mkbootimg/mkbootimg-d2bb0af5ba6d3198a3e99529c97eda1be0b5a093.tar.gz",
+  "archive_sha256": "418bb875c03d5c5844d6d289956d8294ae6a2bd5be78c7d912d797e7826ca3d9",
+  "files": [
+    {
+      "bytes": 26667,
+      "member": "platform_system_tools_mkbootimg-d2bb0af5ba6d3198a3e99529c97eda1be0b5a093/mkbootimg.py",
+      "path": "mkbootimg.py",
+      "sha256": "37d84b3d162e0bc62e36c1f4e1c63c85ea0caa9f29be023eb2f8efe006ad948c"
+    }
+  ],
+  "kind": "unmodified cached-source comparison, not stack application",
+  "member_count": 32,
+  "member_manifest_sha256": "0db85fad5cda408d016b7733d53f5602ec00c61672c62cf4659332fca7f0b227",
+  "missing": [
+    "dtbTool"
+  ],
+  "pin": "d2bb0af5ba6d3198a3e99529c97eda1be0b5a093",
+  "recipe": "projects/ROCKNIX/packages/tools/mkbootimg/package.mk",
+  "recipe_sha256": "3c3a0a9595a523501bf4bc71e4b686432e9c9671cb7895bf0979736033107ac9",
+  "requested": [
+    "dtbTool",
+    "mkbootimg.py"
+  ],
+  "root": "platform_system_tools_mkbootimg-d2bb0af5ba6d3198a3e99529c97eda1be0b5a093",
+  "scratch": "/workspace/tmp/m6-t42/inherited-source/mkbootimg",
+  "sidecar_sha256": "d96f5c44b3d4d3bcf03284a6eea4e45463d7dbcffb2d67f3252af425f0555fd4",
+  "status": "qualified raw source",
+  "utc": "2026-11-02T19:14:20.181111+00:00"
+}

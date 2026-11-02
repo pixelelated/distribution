@@ -1,0 +1,27 @@
+{
+  "archive": "/workspace/cache/rocknix-sources/busybox/busybox-1.36.1.tar.bz2",
+  "archive_sha256": "b8cc24c9574d809e7279c3be349795c5d5ceb6fdf19ca709f80cde50e47de314",
+  "files": [
+    {
+      "bytes": 29510,
+      "member": "busybox-1.36.1/miscutils/crond.c",
+      "path": "miscutils/crond.c",
+      "sha256": "5bcb098ccb469dc7b4373c4c4a1cf13bb336e5f3117ae6ee1443d5561ddb07e2"
+    }
+  ],
+  "kind": "unmodified cached-source comparison, not stack application",
+  "member_count": 2955,
+  "member_manifest_sha256": "3e25fb01d75f9df8a165c1389dedcc34c911120f1bd7a9757cd3e402e20421fb",
+  "missing": [],
+  "pin": "1.36.1",
+  "recipe": "projects/ROCKNIX/packages/sysutils/busybox/package.mk",
+  "recipe_sha256": "a4e1e75fad75a785e773f3aa05556026014ccf95cd2fef50a572ccf80a9a87b5",
+  "requested": [
+    "miscutils/crond.c"
+  ],
+  "root": "busybox-1.36.1",
+  "scratch": "/workspace/tmp/m6-t42/inherited-source/busybox",
+  "sidecar_sha256": "81791bb470e0537ac5cd9ccaacd39c532f3458812fda2185dd6bd9e016ad849f",
+  "status": "qualified raw source",
+  "utc": "2026-11-02T19:14:18.670937+00:00"
+}

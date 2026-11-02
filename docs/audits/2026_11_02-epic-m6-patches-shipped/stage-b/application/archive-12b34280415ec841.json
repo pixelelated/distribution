@@ -1,0 +1,40 @@
+{
+  "base": "/workspace/tmp/m6-t42/archive-12b34280415ec841",
+  "extracted": [
+    {
+      "bytes": 18995,
+      "member": "SDL3-3.4.10/src/video/kmsdrm/SDL_kmsdrmmouse.c",
+      "path": "src/video/kmsdrm/SDL_kmsdrmmouse.c",
+      "sha256": "88f598fe95577eae0ac019eb648fe902646b53cfbef90c8e822d23454a631fd1"
+    },
+    {
+      "bytes": 81963,
+      "member": "SDL3-3.4.10/src/video/kmsdrm/SDL_kmsdrmvideo.c",
+      "path": "src/video/kmsdrm/SDL_kmsdrmvideo.c",
+      "sha256": "ad62a2b98ad694df3d140d6532d08490e13ef7cf830de2cd311f2ba90767025e"
+    }
+  ],
+  "member_count": 2181,
+  "member_manifest_sha256": "296c8eaf5c2a8ce5072996f92345749bb980a9fe5538be119a97c69b7aa28252",
+  "missing": [],
+  "path": "/workspace/cache/rocknix-sources/SDL3/SDL3-3.4.10.tar.gz",
+  "recipe_sha256": "12b34280415ec8418c864408b93d008a20a6530687ee613d60bfbd20411f2785",
+  "root": "SDL3-3.4.10",
+  "sha256": "12b34280415ec8418c864408b93d008a20a6530687ee613d60bfbd20411f2785",
+  "sidecar_sha256": "49539bb47ecd2fbe3efc2a1c2beb0554db5012a18bb593fde1142f1ad00ddb9b",
+  "source_tree": {
+    "files": [
+      {
+        "mode": "0o644",
+        "path": "src/video/kmsdrm/SDL_kmsdrmmouse.c",
+        "sha256": "88f598fe95577eae0ac019eb648fe902646b53cfbef90c8e822d23454a631fd1"
+      },
+      {
+        "mode": "0o644",
+        "path": "src/video/kmsdrm/SDL_kmsdrmvideo.c",
+        "sha256": "ad62a2b98ad694df3d140d6532d08490e13ef7cf830de2cd311f2ba90767025e"
+      }
+    ],
+    "sha256": "9e71a9219cd8b58a0652e49fa395421926dbb8582fcaf79e2083864882d261b3"
+  }
+}

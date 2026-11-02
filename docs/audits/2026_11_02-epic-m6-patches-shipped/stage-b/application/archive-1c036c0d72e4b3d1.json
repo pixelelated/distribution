@@ -1,0 +1,40 @@
+{
+  "base": "/workspace/tmp/m6-t42/archive-1c036c0d72e4b3d1",
+  "extracted": [
+    {
+      "bytes": 198696,
+      "member": "gdb-17.2/gdbserver/linux-low.cc",
+      "path": "gdbserver/linux-low.cc",
+      "sha256": "f36e6c68cf990842558eb1e4350cae6007bea9ecf7bf5b56403dd2f795f0ce90"
+    },
+    {
+      "bytes": 6872,
+      "member": "gdb-17.2/missing",
+      "path": "missing",
+      "sha256": "b1a337b731bbb58846d31ca2f5143c293a455fa41b481e236e89a9016d96b034"
+    }
+  ],
+  "member_count": 14436,
+  "member_manifest_sha256": "d9a3210c138caee42ebbd56dff36914acea93a3c764dee08a7451b4c114f2f96",
+  "missing": [],
+  "path": "/workspace/cache/rocknix-sources/gdb/gdb-17.2.tar.xz",
+  "recipe_sha256": "1c036c0d72e4b3d1fb5c94c88632add6f9d76f4d7c4d2ea793c12a9f19a3228c",
+  "root": "gdb-17.2",
+  "sha256": "1c036c0d72e4b3d1fb5c94c88632add6f9d76f4d7c4d2ea793c12a9f19a3228c",
+  "sidecar_sha256": "64eb5d01cc3db06631e2f33036a2b04a5692f4959ec803bd370bd8c8a5b63514",
+  "source_tree": {
+    "files": [
+      {
+        "mode": "0o644",
+        "path": "gdbserver/linux-low.cc",
+        "sha256": "f36e6c68cf990842558eb1e4350cae6007bea9ecf7bf5b56403dd2f795f0ce90"
+      },
+      {
+        "mode": "0o755",
+        "path": "missing",
+        "sha256": "b1a337b731bbb58846d31ca2f5143c293a455fa41b481e236e89a9016d96b034"
+      }
+    ],
+    "sha256": "25f55bf920e748c76061d67ab791f4f13f61a49dbeea7fd29cfa822895e33501"
+  }
+}

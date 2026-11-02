@@ -1,0 +1,27 @@
+{
+  "archive": "/workspace/cache/rocknix-sources/u-boot-DDR3/u-boot-DDR3-v2026.01.tar.gz",
+  "archive_sha256": "03bb43c58d2343ee48dd191e0f181f0108425b179d84519add3a977071c3f654",
+  "files": [
+    {
+      "bytes": 33508,
+      "member": "u-boot-2026.01/scripts/dtc/pylibfdt/libfdt.i_shipped",
+      "path": "scripts/dtc/pylibfdt/libfdt.i_shipped",
+      "sha256": "a3717f6dee39cc02436a36c0bdd352af100da2d739de11407574a16096088b18"
+    }
+  ],
+  "kind": "unmodified cached-source comparison, not stack application",
+  "member_count": 39976,
+  "member_manifest_sha256": "e19fe93f633a2349d8b80b5aa1e7bc51f6ab60e0edd04d50bcc3ec3721b52fe2",
+  "missing": [],
+  "pin": "v2026.01",
+  "recipe": "projects/ROCKNIX/devices/H700/packages/u-boot-DDR3/package.mk",
+  "recipe_sha256": "84acc5ed5ce045435ff5f12073571baa26967d859be165e6b729d8b2dc1d8a71",
+  "requested": [
+    "scripts/dtc/pylibfdt/libfdt.i_shipped"
+  ],
+  "root": "u-boot-2026.01",
+  "scratch": "/workspace/tmp/m6-t42/inherited-source/u-boot-DDR3",
+  "sidecar_sha256": "426b1bf6cdd38e16a8022726c10a776189d531f221c8c88d4347cac026f4bdab",
+  "status": "qualified raw source",
+  "utc": "2026-11-02T19:14:20.250867+00:00"
+}

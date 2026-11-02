@@ -1,0 +1,83 @@
+{
+  "archive": "/workspace/cache/rocknix-sources/glibc/glibc-2.41.tar.xz",
+  "archive_sha256": "a5a26b22f545d6b7d7b3dd828e11e428f24f4fac43c934fb071b6a7d0828e901",
+  "files": [
+    {
+      "bytes": 23742,
+      "member": "glibc-2.41/Makefile",
+      "path": "Makefile",
+      "sha256": "05af7adfbfd426d85f09592058a06c062c9ad4ad0c786c191c0f3f73ac2b588d"
+    },
+    {
+      "bytes": 50084,
+      "member": "glibc-2.41/Makerules",
+      "path": "Makerules",
+      "sha256": "77ea81b29bf53ef700340b8cfea071275730436d8abd34c3177363a3d8535aaa"
+    },
+    {
+      "bytes": 40245,
+      "member": "glibc-2.41/elf/dl-tls.c",
+      "path": "elf/dl-tls.c",
+      "sha256": "09fe86e6b2bdfb7d203d78026e640379856c4ba00e2148cc454f792ea9735649"
+    },
+    {
+      "bytes": 11836,
+      "member": "glibc-2.41/elf/dl-version.c",
+      "path": "elf/dl-version.c",
+      "sha256": "13f6d88fb867cf0d19585eb1153ea36a097cb99dc9765d3f4492ccb789fec1a5"
+    },
+    {
+      "bytes": 2313,
+      "member": "glibc-2.41/sysdeps/arm/Makefile",
+      "path": "sysdeps/arm/Makefile",
+      "sha256": "bbbf600c3cbda04973e82c90f83956768a268dedf38954dc2c497a3e5bf93d6c"
+    },
+    {
+      "bytes": 298,
+      "member": "glibc-2.41/sysdeps/mach/hurd/x86/Makefile",
+      "path": "sysdeps/mach/hurd/x86/Makefile",
+      "sha256": "2e9fa92fe9dbd62e050b4cf51970fd69683a1c7771b405b5d94a634a9f1beb6c"
+    },
+    {
+      "bytes": 295,
+      "member": "glibc-2.41/sysdeps/unix/sysv/linux/sh/Makefile",
+      "path": "sysdeps/unix/sysv/linux/sh/Makefile",
+      "sha256": "f4a5c5b76dc6d2bada8deb59db47d8f270527bc56c57beb5f967cf4ba9397588"
+    },
+    {
+      "bytes": 3666,
+      "member": "glibc-2.41/sysdeps/unix/sysv/linux/x86_64/Makefile",
+      "path": "sysdeps/unix/sysv/linux/x86_64/Makefile",
+      "sha256": "6524e256fb94ba0ddc0b667334edde14476ad764deede35602b5de4aa5c38b1b"
+    },
+    {
+      "bytes": 3946,
+      "member": "glibc-2.41/sysdeps/x86/Makefile",
+      "path": "sysdeps/x86/Makefile",
+      "sha256": "3830c1aa76ea8fe14cf1146a327b35ce33fe655339b67111e2626dc767e1a662"
+    }
+  ],
+  "kind": "unmodified cached-source comparison, not stack application",
+  "member_count": 20972,
+  "member_manifest_sha256": "377bb5e5f8e7ad9bfa5217bcd10db21e4f2570aab7c127f8e7003fd609cc018f",
+  "missing": [],
+  "pin": "2.41",
+  "recipe": "projects/ROCKNIX/packages/devel/glibc/package.mk",
+  "recipe_sha256": "75ca74000d712cdf023868c0969fd7a9d567e9b17cb10e64f9f72373858a201e",
+  "requested": [
+    "Makefile",
+    "Makerules",
+    "elf/dl-tls.c",
+    "elf/dl-version.c",
+    "sysdeps/arm/Makefile",
+    "sysdeps/mach/hurd/x86/Makefile",
+    "sysdeps/unix/sysv/linux/sh/Makefile",
+    "sysdeps/unix/sysv/linux/x86_64/Makefile",
+    "sysdeps/x86/Makefile"
+  ],
+  "root": "glibc-2.41",
+  "scratch": "/workspace/tmp/m6-t42/inherited-source/glibc",
+  "sidecar_sha256": "36b7b79e2aefa7e6f7b3aefb172d942066fbd8fc123bf26255184adc9cfa9906",
+  "status": "qualified raw source",
+  "utc": "2026-11-02T19:13:49.306556+00:00"
+}

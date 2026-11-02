@@ -1,0 +1,51 @@
+{
+  "base": "/workspace/tmp/m6-t42/archive-9b6850189d4b4a59",
+  "extracted": [
+    {
+      "bytes": 3624,
+      "member": "mesa-mesa-26.2.2/src/gallium/auxiliary/rtasm/rtasm_execmem.c",
+      "path": "src/gallium/auxiliary/rtasm/rtasm_execmem.c",
+      "sha256": "e5a77a4a87803ae0eee5b45fdaea83639ce1e50469ee2c8c80e62182bec9c749"
+    },
+    {
+      "bytes": 3469,
+      "member": "mesa-mesa-26.2.2/src/gallium/targets/dri/meson.build",
+      "path": "src/gallium/targets/dri/meson.build",
+      "sha256": "b2e62ee857c50fa23ab2b01f1fe0db3d4124a816855e78ff22444632fb93cbba"
+    },
+    {
+      "bytes": 46009,
+      "member": "mesa-mesa-26.2.2/src/gallium/winsys/virgl/drm/virgl_drm_winsys.c",
+      "path": "src/gallium/winsys/virgl/drm/virgl_drm_winsys.c",
+      "sha256": "225262525697f2b252fddd56fa05db36ae81ee7d3d8bd8f8d15ae8049d19d246"
+    }
+  ],
+  "member_count": 13625,
+  "member_manifest_sha256": "cfb6222d187dbd7ec48ab5577609bddbd12ffc83953eeb63f9d67ecf400b4cc1",
+  "missing": [],
+  "path": "/workspace/cache/rocknix-sources/mesa/mesa-26.2.2.tar.gz",
+  "recipe_sha256": "9b6850189d4b4a595b1718d57d462412090fab820d3e235e2c1d122c1cf9e9bc",
+  "root": "mesa-mesa-26.2.2",
+  "sha256": "9b6850189d4b4a595b1718d57d462412090fab820d3e235e2c1d122c1cf9e9bc",
+  "sidecar_sha256": "75a1fa5161292640b71a8be0899aac602e373a327067a50fd5d2d1ed7363d32c",
+  "source_tree": {
+    "files": [
+      {
+        "mode": "0o644",
+        "path": "src/gallium/auxiliary/rtasm/rtasm_execmem.c",
+        "sha256": "e5a77a4a87803ae0eee5b45fdaea83639ce1e50469ee2c8c80e62182bec9c749"
+      },
+      {
+        "mode": "0o644",
+        "path": "src/gallium/targets/dri/meson.build",
+        "sha256": "b2e62ee857c50fa23ab2b01f1fe0db3d4124a816855e78ff22444632fb93cbba"
+      },
+      {
+        "mode": "0o644",
+        "path": "src/gallium/winsys/virgl/drm/virgl_drm_winsys.c",
+        "sha256": "225262525697f2b252fddd56fa05db36ae81ee7d3d8bd8f8d15ae8049d19d246"
+      }
+    ],
+    "sha256": "e4853d171cdb113833288f3c228d87dc8b6f792308ca6c5451bb55844da182f5"
+  }
+}

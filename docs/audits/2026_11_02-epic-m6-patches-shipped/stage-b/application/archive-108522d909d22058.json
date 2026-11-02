@@ -1,0 +1,120 @@
+{
+  "base": "/workspace/tmp/m6-t42/archive-108522d909d22058",
+  "extracted": [
+    {
+      "bytes": 4266,
+      "member": "bluez-5.83/Makefile.obexd",
+      "path": "Makefile.obexd",
+      "sha256": "e899586d23905bfcc4f768343c97cbca82e61bdd7319bea9c33844ff39675dfe"
+    },
+    {
+      "bytes": 20112,
+      "member": "bluez-5.83/Makefile.tools",
+      "path": "Makefile.tools",
+      "sha256": "4d333db71bbfa1439826e5dd7b9178c30e4caaf94fd68d98e83a48d26a0fd030"
+    },
+    {
+      "bytes": 18872,
+      "member": "bluez-5.83/configure.ac",
+      "path": "configure.ac",
+      "sha256": "13fbbdfc8f169fd4f2b749b68b31b36836e57826ca2a4305286a59b671ba80cb"
+    },
+    {
+      "bytes": 13677,
+      "member": "bluez-5.83/plugins/sixaxis.c",
+      "path": "plugins/sixaxis.c",
+      "sha256": "8d42c6891a8b23f05001887c157368b88ca9b498fe22496efc2190331ae84cc9"
+    },
+    {
+      "bytes": 1807,
+      "member": "bluez-5.83/profiles/input/sixaxis.h",
+      "path": "profiles/input/sixaxis.h",
+      "sha256": "5acdb74e21da7f95bd024c1183502ed866ca3586fd0ad9e4252a39f7d7898fab"
+    },
+    {
+      "bytes": 1182,
+      "member": "bluez-5.83/src/bluetooth.conf",
+      "path": "src/bluetooth.conf",
+      "sha256": "c211c4412f39dec5dd93c3da9a8b4bbeec37825fdb74d5fd8efd23573f11f1ed"
+    },
+    {
+      "bytes": 31501,
+      "member": "bluez-5.83/tools/hciattach.c",
+      "path": "tools/hciattach.c",
+      "sha256": "ee0c5fcb019bf25eba46925bb82baf33ab603f621faebafbfba0e550890a8dbd"
+    },
+    {
+      "bytes": 1765,
+      "member": "bluez-5.83/tools/hciattach.h",
+      "path": "tools/hciattach.h",
+      "sha256": "f1f0d0adafbddd7f2c24e84cacac8cd9aedfa156b42aa0459149a5f9d4be71d3"
+    },
+    {
+      "bytes": 1357,
+      "member": "bluez-5.83/tools/hid2hci.rules",
+      "path": "tools/hid2hci.rules",
+      "sha256": "e81ae4c2291b7604beb895af193c08fbfd20b40ed4681549d4e2d553caa0730b"
+    }
+  ],
+  "member_count": 1294,
+  "member_manifest_sha256": "bf5440b123a839bd9508c440bbb510667f8c2329594b8db22c5779923aa1a5e7",
+  "missing": [
+    "tools/hciattach_rome.c",
+    "tools/hciattach_rome.h"
+  ],
+  "path": "/workspace/cache/rocknix-sources/bluez/bluez-5.83.tar.xz",
+  "recipe_sha256": "108522d909d220581399bfec93daab62035539ceef3dda3e79970785c63bd24c",
+  "root": "bluez-5.83",
+  "sha256": "108522d909d220581399bfec93daab62035539ceef3dda3e79970785c63bd24c",
+  "sidecar_sha256": "5ad66116ac55253798f351bd0aadd79a09a02a2e4ca55d6ea990b9157cddbadb",
+  "source_tree": {
+    "files": [
+      {
+        "mode": "0o644",
+        "path": "Makefile.obexd",
+        "sha256": "e899586d23905bfcc4f768343c97cbca82e61bdd7319bea9c33844ff39675dfe"
+      },
+      {
+        "mode": "0o644",
+        "path": "Makefile.tools",
+        "sha256": "4d333db71bbfa1439826e5dd7b9178c30e4caaf94fd68d98e83a48d26a0fd030"
+      },
+      {
+        "mode": "0o644",
+        "path": "configure.ac",
+        "sha256": "13fbbdfc8f169fd4f2b749b68b31b36836e57826ca2a4305286a59b671ba80cb"
+      },
+      {
+        "mode": "0o644",
+        "path": "plugins/sixaxis.c",
+        "sha256": "8d42c6891a8b23f05001887c157368b88ca9b498fe22496efc2190331ae84cc9"
+      },
+      {
+        "mode": "0o644",
+        "path": "profiles/input/sixaxis.h",
+        "sha256": "5acdb74e21da7f95bd024c1183502ed866ca3586fd0ad9e4252a39f7d7898fab"
+      },
+      {
+        "mode": "0o644",
+        "path": "src/bluetooth.conf",
+        "sha256": "c211c4412f39dec5dd93c3da9a8b4bbeec37825fdb74d5fd8efd23573f11f1ed"
+      },
+      {
+        "mode": "0o644",
+        "path": "tools/hciattach.c",
+        "sha256": "ee0c5fcb019bf25eba46925bb82baf33ab603f621faebafbfba0e550890a8dbd"
+      },
+      {
+        "mode": "0o644",
+        "path": "tools/hciattach.h",
+        "sha256": "f1f0d0adafbddd7f2c24e84cacac8cd9aedfa156b42aa0459149a5f9d4be71d3"
+      },
+      {
+        "mode": "0o644",
+        "path": "tools/hid2hci.rules",
+        "sha256": "e81ae4c2291b7604beb895af193c08fbfd20b40ed4681549d4e2d553caa0730b"
+      }
+    ],
+    "sha256": "d6cff51d3b42e4ca36dca2242b7e483775b5086366bd6c31c8675bb6f8ba913e"
+  }
+}

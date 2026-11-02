@@ -1,0 +1,40 @@
+{
+  "base": "/workspace/tmp/m6-t42/archive-00cdcf02e83072d1",
+  "extracted": [
+    {
+      "bytes": 17956,
+      "member": "mednafen-1.32.1-chd/src/drivers/Joystick.cpp",
+      "path": "src/drivers/Joystick.cpp",
+      "sha256": "a464442ebf9b9def058f6b845c9f20b652594b55602e9033845e39219443207a"
+    },
+    {
+      "bytes": 74155,
+      "member": "mednafen-1.32.1-chd/src/drivers/main.cpp",
+      "path": "src/drivers/main.cpp",
+      "sha256": "08dca8eba533daae7a67fb1b49b83dcb7e0b215e9411f30eac9860c32591b8e0"
+    }
+  ],
+  "member_count": 2090,
+  "member_manifest_sha256": "8eb441231fda982f1120f39d8660b56625fb4023378c9276a46fbf5aebcb1acd",
+  "missing": [],
+  "path": "/workspace/cache/rocknix-sources/mednafen/mednafen-1.32.1.tar.gz",
+  "recipe_sha256": "00cdcf02e83072d1d0e861b61e86d1d12eac18accc03cfa161e84bd3744b0137",
+  "root": "mednafen-1.32.1-chd",
+  "sha256": "00cdcf02e83072d1d0e861b61e86d1d12eac18accc03cfa161e84bd3744b0137",
+  "sidecar_sha256": "2ff24b7d97d655592bf53727a757637eda60b76e6d346c9fead23c90be0a0daa",
+  "source_tree": {
+    "files": [
+      {
+        "mode": "0o644",
+        "path": "src/drivers/Joystick.cpp",
+        "sha256": "a464442ebf9b9def058f6b845c9f20b652594b55602e9033845e39219443207a"
+      },
+      {
+        "mode": "0o644",
+        "path": "src/drivers/main.cpp",
+        "sha256": "08dca8eba533daae7a67fb1b49b83dcb7e0b215e9411f30eac9860c32591b8e0"
+      }
+    ],
+    "sha256": "8b86d9becf4ebd4fc067f5c715dfe7233ca816647df726293eb0ae56d9bd5611"
+  }
+}

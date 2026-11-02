@@ -1,0 +1,73 @@
+{
+  "base": "/workspace/tmp/m6-t42/archive-dd8bd002a379b5d4",
+  "extracted": [
+    {
+      "bytes": 30492,
+      "member": "openssh-9.8p1/Makefile.in",
+      "path": "Makefile.in",
+      "sha256": "1dfa3f0d7b3b5b6eacbdd1df736ee7dc88e1cc5ae9e72afdab459d4aaeb89ab1"
+    },
+    {
+      "bytes": 159588,
+      "member": "openssh-9.8p1/configure.ac",
+      "path": "configure.ac",
+      "sha256": "f7ba94e4fc2b0b8621ab28f466e613d92434eb13bd431f2e1783ee3330031c48"
+    },
+    {
+      "bytes": 6250,
+      "member": "openssh-9.8p1/pathnames.h",
+      "path": "pathnames.h",
+      "sha256": "f9f8249d59e0870af9ecb21c3fc01791ba098e3e76df1e25600c4cc3ba05357d"
+    },
+    {
+      "bytes": 68630,
+      "member": "openssh-9.8p1/session.c",
+      "path": "session.c",
+      "sha256": "05113a9413336600d055f19190c1a057bc164f57e215df240016478db1c4944e"
+    },
+    {
+      "bytes": 66469,
+      "member": "openssh-9.8p1/sshconnect2.c",
+      "path": "sshconnect2.c",
+      "sha256": "dcddf60e71cd288df7c792710de3d342bb2b354dbf459d4a4204d59f0079755f"
+    }
+  ],
+  "member_count": 909,
+  "member_manifest_sha256": "57ad515eafdbec7788758a802883ca7b707cf36c1c7557787cd94171bc07724e",
+  "missing": [],
+  "path": "/workspace/cache/rocknix-sources/openssh/openssh-9.8p1.tar.gz",
+  "recipe_sha256": "dd8bd002a379b5d499dfb050dd1fa9af8029e80461f4bb6c523c49973f5a39f3",
+  "root": "openssh-9.8p1",
+  "sha256": "dd8bd002a379b5d499dfb050dd1fa9af8029e80461f4bb6c523c49973f5a39f3",
+  "sidecar_sha256": "caaff66392031ea6af25cf67d534f85ddb2e509bf63a901dc48ccfd9bad54293",
+  "source_tree": {
+    "files": [
+      {
+        "mode": "0o644",
+        "path": "Makefile.in",
+        "sha256": "1dfa3f0d7b3b5b6eacbdd1df736ee7dc88e1cc5ae9e72afdab459d4aaeb89ab1"
+      },
+      {
+        "mode": "0o644",
+        "path": "configure.ac",
+        "sha256": "f7ba94e4fc2b0b8621ab28f466e613d92434eb13bd431f2e1783ee3330031c48"
+      },
+      {
+        "mode": "0o644",
+        "path": "pathnames.h",
+        "sha256": "f9f8249d59e0870af9ecb21c3fc01791ba098e3e76df1e25600c4cc3ba05357d"
+      },
+      {
+        "mode": "0o644",
+        "path": "session.c",
+        "sha256": "05113a9413336600d055f19190c1a057bc164f57e215df240016478db1c4944e"
+      },
+      {
+        "mode": "0o644",
+        "path": "sshconnect2.c",
+        "sha256": "dcddf60e71cd288df7c792710de3d342bb2b354dbf459d4a4204d59f0079755f"
+      }
+    ],
+    "sha256": "e84e4a5abecc82ea7475ee8c97088b9f36f9ad65081422b24cf549f391a840e8"
+  }
+}

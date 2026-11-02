@@ -1,0 +1,20 @@
+{
+  "application_pairs": 760,
+  "archive_projections": 116,
+  "limitations": [
+    {
+      "group": "G202",
+      "recorded_rows": 1,
+      "unclaimed_normal_exit": "Candidate created a relative UCM link; snapshot asserted before receipt serialization; no exit reconstructed."
+    },
+    {
+      "group": "G203",
+      "recorded_rows": 1,
+      "unclaimed_normal_exit": "Candidate created a relative UCM link; snapshot asserted before receipt serialization; no exit reconstructed."
+    }
+  ],
+  "native_bytes_checked": 384,
+  "output_hashes": 3040,
+  "scope": "No application rerun. Validates retained receipts and diagnostic input projection against recorded prefix. Not a full source-tree or runtime result.",
+  "utc": "2026-11-02T19:37:30.205072+00:00"
+}

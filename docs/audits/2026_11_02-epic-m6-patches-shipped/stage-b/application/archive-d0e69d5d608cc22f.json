@@ -1,0 +1,62 @@
+{
+  "base": "/workspace/tmp/m6-t42/archive-d0e69d5d608cc22f",
+  "extracted": [
+    {
+      "bytes": 3814,
+      "member": "fuse-2.9.9/configure.ac",
+      "path": "configure.ac",
+      "sha256": "9fdb4eb5c4ec2b5263074ee5d3c81aa0177d6edf27f0aa9d2f757e7ad8574406"
+    },
+    {
+      "bytes": 13811,
+      "member": "fuse-2.9.9/include/fuse_kernel.h",
+      "path": "include/fuse_kernel.h",
+      "sha256": "691e01a9e7f5499e52488ca0addd088edd77bad33ab3dc8be1202f7c9a4eeb76"
+    },
+    {
+      "bytes": 29592,
+      "member": "fuse-2.9.9/util/Makefile.in",
+      "path": "util/Makefile.in",
+      "sha256": "23ba5260bf5ae5b63dd246ac375be269595242adf49293f8fb40d1cca5f8dde0"
+    },
+    {
+      "bytes": 8190,
+      "member": "fuse-2.9.9/util/ulockmgr_server.c",
+      "path": "util/ulockmgr_server.c",
+      "sha256": "fc222e2be9c2140f48c7085f431c87229683e35ff846be8b0116f300281d0faf"
+    }
+  ],
+  "member_count": 233,
+  "member_manifest_sha256": "deaf04ba269927c024b524f49bd157d2f5c57c7f79fa21df53021c0a865fa506",
+  "missing": [],
+  "path": "/workspace/cache/rocknix-sources/fuse2/fuse2-2.9.9.tar.gz",
+  "recipe_sha256": "d0e69d5d608cc22ff4843791ad097f554dd32540ddc9bed7638cc6fea7c1b4b5",
+  "root": "fuse-2.9.9",
+  "sha256": "d0e69d5d608cc22ff4843791ad097f554dd32540ddc9bed7638cc6fea7c1b4b5",
+  "sidecar_sha256": "b57aa49d99afa94d3cf1a558fabee066b3627d9024456a952213b15a631e62fe",
+  "source_tree": {
+    "files": [
+      {
+        "mode": "0o644",
+        "path": "configure.ac",
+        "sha256": "9fdb4eb5c4ec2b5263074ee5d3c81aa0177d6edf27f0aa9d2f757e7ad8574406"
+      },
+      {
+        "mode": "0o644",
+        "path": "include/fuse_kernel.h",
+        "sha256": "691e01a9e7f5499e52488ca0addd088edd77bad33ab3dc8be1202f7c9a4eeb76"
+      },
+      {
+        "mode": "0o644",
+        "path": "util/Makefile.in",
+        "sha256": "23ba5260bf5ae5b63dd246ac375be269595242adf49293f8fb40d1cca5f8dde0"
+      },
+      {
+        "mode": "0o644",
+        "path": "util/ulockmgr_server.c",
+        "sha256": "fc222e2be9c2140f48c7085f431c87229683e35ff846be8b0116f300281d0faf"
+      }
+    ],
+    "sha256": "7afef171eb224bbad7aa44f12ba3b8e6572d1959398c056aa4708ba70295d9a6"
+  }
+}

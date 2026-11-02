@@ -1,0 +1,4181 @@
+{
+  "archive_receipt": "stage-b/application/archive-5edcd49fe593df24.json",
+  "archive_sha256": "5edcd49fe593df24e47f29eb27636c8c4d3698dc21ac224697708a8fcd9ea262",
+  "census": {
+    "process_names": [
+      "    PID COMMAND",
+      "      1 systemd",
+      "      2 kthreadd",
+      "      3 pool_workqueue_release",
+      "      4 kworker/R-rcu_gp",
+      "      5 kworker/R-sync_wq",
+      "      6 kworker/R-kvfree_rcu_reclaim",
+      "      7 kworker/R-slub_flushwq",
+      "      8 kworker/R-netns",
+      "     10 kworker/0:0H-kblockd",
+      "     13 kworker/R-mm_percpu_wq",
+      "     14 ksoftirqd/0",
+      "     15 rcu_preempt",
+      "     16 rcu_exp_par_gp_kthread_worker/1",
+      "     17 rcu_exp_gp_kthread_worker",
+      "     18 migration/0",
+      "     19 kprobe-optimizer",
+      "     20 idle_inject/0",
+      "     21 cpuhp/0",
+      "     22 cpuhp/1",
+      "     23 idle_inject/1",
+      "     24 migration/1",
+      "     25 ksoftirqd/1",
+      "     27 kworker/1:0H-kblockd",
+      "     28 cpuhp/2",
+      "     29 idle_inject/2",
+      "     30 migration/2",
+      "     31 ksoftirqd/2",
+      "     33 kworker/2:0H-kblockd",
+      "     34 cpuhp/3",
+      "     35 idle_inject/3",
+      "     36 migration/3",
+      "     37 ksoftirqd/3",
+      "     39 kworker/3:0H-kblockd",
+      "     40 cpuhp/4",
+      "     41 idle_inject/4",
+      "     42 migration/4",
+      "     43 ksoftirqd/4",
+      "     45 kworker/4:0H-kblockd",
+      "     46 cpuhp/5",
+      "     47 idle_inject/5",
+      "     48 migration/5",
+      "     49 ksoftirqd/5",
+      "     51 kworker/5:0H-kblockd",
+      "     52 cpuhp/6",
+      "     53 idle_inject/6",
+      "     54 migration/6",
+      "     55 ksoftirqd/6",
+      "     57 kworker/6:0H-kblockd",
+      "     58 cpuhp/7",
+      "     59 idle_inject/7",
+      "     60 migration/7",
+      "     61 ksoftirqd/7",
+      "     63 kworker/7:0H-kblockd",
+      "     64 cpuhp/8",
+      "     65 idle_inject/8",
+      "     66 migration/8",
+      "     67 ksoftirqd/8",
+      "     69 kworker/8:0H-kblockd",
+      "     70 cpuhp/9",
+      "     71 idle_inject/9",
+      "     72 migration/9",
+      "     73 ksoftirqd/9",
+      "     75 kworker/9:0H-kblockd",
+      "     76 cpuhp/10",
+      "     77 idle_inject/10",
+      "     78 migration/10",
+      "     79 ksoftirqd/10",
+      "     81 kworker/10:0H-kblockd",
+      "     82 cpuhp/11",
+      "     83 idle_inject/11",
+      "     84 migration/11",
+      "     85 ksoftirqd/11",
+      "     87 kworker/11:0H-kblockd",
+      "     88 cpuhp/12",
+      "     89 idle_inject/12",
+      "     90 migration/12",
+      "     91 ksoftirqd/12",
+      "     93 kworker/12:0H-kblockd",
+      "     94 rcu_exp_par_gp_kthread_worker/2",
+      "     95 cpuhp/13",
+      "     96 idle_inject/13",
+      "     97 migration/13",
+      "     98 ksoftirqd/13",
+      "    100 kworker/13:0H-kblockd",
+      "    101 cpuhp/14",
+      "    102 idle_inject/14",
+      "    103 migration/14",
+      "    104 ksoftirqd/14",
+      "    106 kworker/14:0H-kblockd",
+      "    107 cpuhp/15",
+      "    108 idle_inject/15",
+      "    109 migration/15",
+      "    110 ksoftirqd/15",
+      "    112 kworker/15:0H-kblockd",
+      "    113 cpuhp/16",
+      "    114 idle_inject/16",
+      "    115 migration/16",
+      "    116 ksoftirqd/16",
+      "    118 kworker/16:0H-kblockd",
+      "    119 cpuhp/17",
+      "    120 idle_inject/17",
+      "    121 migration/17",
+      "    122 ksoftirqd/17",
+      "    124 kworker/17:0H-kblockd",
+      "    125 cpuhp/18",
+      "    126 idle_inject/18",
+      "    127 migration/18",
+      "    128 ksoftirqd/18",
+      "    130 kworker/18:0H-kblockd",
+      "    131 cpuhp/19",
+      "    132 idle_inject/19",
+      "    133 migration/19",
+      "    134 ksoftirqd/19",
+      "    136 kworker/19:0H-kblockd",
+      "    137 cpuhp/20",
+      "    138 idle_inject/20",
+      "    139 migration/20",
+      "    140 ksoftirqd/20",
+      "    142 kworker/20:0H-kblockd",
+      "    143 cpuhp/21",
+      "    144 idle_inject/21",
+      "    145 migration/21",
+      "    146 ksoftirqd/21",
+      "    148 kworker/21:0H-kblockd",
+      "    149 cpuhp/22",
+      "    150 idle_inject/22",
+      "    151 migration/22",
+      "    152 ksoftirqd/22",
+      "    154 kworker/22:0H-kblockd",
+      "    155 cpuhp/23",
+      "    156 idle_inject/23",
+      "    157 migration/23",
+      "    158 ksoftirqd/23",
+      "    160 kworker/23:0H-kblockd",
+      "    161 kdevtmpfs",
+      "    162 kworker/R-inet_frag_wq",
+      "    163 rcu_tasks_kthread",
+      "    164 rcu_tasks_rude_kthread",
+      "    165 kauditd",
+      "    166 khungtaskd",
+      "    167 oom_reaper",
+      "    169 kworker/R-writeback",
+      "    171 kcompactd0",
+      "    172 ksmd",
+      "    173 khugepaged",
+      "    174 kworker/R-kblockd",
+      "    175 kworker/R-blkcg_punt_bio",
+      "    176 kworker/R-kintegrityd",
+      "    178 irq/9-acpi",
+      "    182 kworker/R-tpm_dev_wq",
+      "    183 kworker/R-ata_sff",
+      "    184 kworker/R-md_bitmap",
+      "    185 kworker/R-md_llbitmap_io",
+      "    186 kworker/R-md_llbitmap_unplug",
+      "    187 kworker/R-edac-poller",
+      "    188 kworker/R-devfreq_wq",
+      "    189 watchdogd",
+      "    191 kworker/R-quota_events_unbound",
+      "    192 irq/122-dmar0-perf",
+      "    193 irq/123-dmar1-perf",
+      "    195 kswapd0",
+      "    196 ecryptfs-kthread",
+      "    197 kworker/R-kthrotld",
+      "    198 irq/124-aerdrv",
+      "    199 irq/125-aerdrv",
+      "    200 irq/126-aerdrv",
+      "    201 irq/127-aerdrv",
+      "    202 kworker/R-acpi_thermal_pm",
+      "    204 hwrng",
+      "    205 kworker/R-hfi-updates",
+      "    206 kworker/R-mld",
+      "    207 kworker/R-ipv6_addrconf",
+      "    208 kworker/R-kstrp",
+      "    218 kworker/u97:0-rb_allocator",
+      "    231 kworker/R-charger_manager",
+      "    540 kworker/R-nvme-wq",
+      "    541 kworker/R-nvme-reset-wq",
+      "    542 kworker/R-nvme-delete-wq",
+      "    543 kworker/R-nvme-auth-wq",
+      "    602 kworker/R-kdmflush/252:0",
+      "    635 kworker/12:1H-kblockd",
+      "    636 kworker/1:1H-kblockd",
+      "    670 jbd2/dm-0-8",
+      "    671 kworker/R-ext4-rsv-conversion",
+      "    775 systemd-journal",
+      "    777 kworker/8:1H-kblockd",
+      "    804 kworker/R-kmpathd",
+      "    805 kworker/R-kmpath_handlerd",
+      "    814 multipathd",
+      "    819 systemd-resolve",
+      "    822 kworker/20:1H-kblockd",
+      "    826 systemd-udevd",
+      "    827 kworker/22:1H-kblockd",
+      "    839 kworker/23:1H-kblockd",
+      "    842 psimon",
+      "    934 kworker/2:1H-kblockd",
+      "    950 kworker/10:1H-kblockd",
+      "    951 kworker/14:1H-kblockd",
+      "    952 kworker/13:1H-kblockd",
+      "    953 kworker/7:1H-kblockd",
+      "   1171 kworker/R-cfg80211",
+      "   1187 irq/179-mei_me",
+      "   1340 irq/180-iwlwifi:default_queue",
+      "   1341 irq/181-iwlwifi:queue_1",
+      "   1342 irq/182-iwlwifi:queue_2",
+      "   1343 irq/183-iwlwifi:queue_3",
+      "   1344 irq/184-iwlwifi:queue_4",
+      "   1345 irq/185-iwlwifi:queue_5",
+      "   1346 irq/186-iwlwifi:queue_6",
+      "   1347 irq/187-iwlwifi:queue_7",
+      "   1348 irq/188-iwlwifi:queue_8",
+      "   1349 irq/189-iwlwifi:queue_9",
+      "   1350 irq/190-iwlwifi:queue_10",
+      "   1351 irq/191-iwlwifi:queue_11",
+      "   1352 irq/192-iwlwifi:queue_12",
+      "   1353 irq/193-iwlwifi:queue_13",
+      "   1354 irq/194-iwlwifi:queue_14",
+      "   1355 irq/195-iwlwifi:exception",
+      "   1365 nv_queue",
+      "   1366 nv_mem_pool_scrubber_queue",
+      "   1367 nv_mem_pool_scrubber_queue",
+      "   1368 nv_mem_pool_scrubber_queue",
+      "   1369 nv_queue",
+      "   1370 nv_open_q",
+      "   1372 kworker/0:1H-kblockd",
+      "   1399 nvidia-modeset/kthread_q",
+      "   1400 nvidia-modeset/deferred_close_kthread_q",
+      "   1402 kworker/R-ttm",
+      "   1403 irq/196-nvidia",
+      "   1404 nvidia",
+      "   1405 nv_queue",
+      "   1406 irq/16-processor_thermal_device_pci",
+      "   1408 card1-crtc0",
+      "   1409 card1-crtc1",
+      "   1410 card1-crtc2",
+      "   1411 card1-crtc3",
+      "   1422 kworker/18:1H-kblockd",
+      "   1423 jbd2/nvme0n1p2-8",
+      "   1424 kworker/R-ext4-rsv-conversion",
+      "   1425 kworker/11:1H-kblockd",
+      "   1429 kworker/16:1H-kblockd",
+      "   1435 kworker/21:1H-kblockd",
+      "   1438 kworker/19:1H-kblockd",
+      "   1444 kworker/3:1H-kblockd",
+      "   1445 kworker/4:1H-kblockd",
+      "   1564 jbd2/nvme1n1-8",
+      "   1565 kworker/R-ext4-rsv-conversion",
+      "   1784 wpa_supplicant",
+      "   1786 systemd-network",
+      "   1821 kworker/17:1H-kblockd",
+      "   1830 accounts-daemon",
+      "   1831 avahi-daemon",
+      "   1833 chronyd-starter",
+      "   1834 dbus-daemon",
+      "   1843 networkd-dispat",
+      "   1848 polkitd",
+      "   1861 snapd",
+      "   1863 systemd-logind",
+      "   1864 tailscaled",
+      "   1865 thermald",
+      "   1867 udisksd",
+      "   1887 avahi-daemon",
+      "   1969 wpa_supplicant",
+      "   1971 chronyd",
+      "   1972 kworker/15:1H-kblockd",
+      "   1973 chronyd",
+      "   1978 rsyslogd",
+      "   2013 kworker/5:1H-kblockd",
+      "   2056 unattended-upgr",
+      "   2058 xrdp-sesman",
+      "   2088 ModemManager",
+      "   2111 UVM global queue",
+      "   2113 UVM deferred release queue",
+      "   2117 UVM Tools Event Queue",
+      "   2162 nvidia-persiste",
+      "   2259 upowerd",
+      "   2279 containerd",
+      "   2339 kworker/6:1H-kblockd",
+      "   2368 kworker/9:1H-kblockd",
+      "   2377 dockerd",
+      "   2380 cron",
+      "   2383 xrdp",
+      "   2387 lightdm",
+      "   2389 systemd",
+      "   2399 Xorg",
+      "   2406 agetty",
+      "   2408 (sd-pam)",
+      "   2474 moshi-hook",
+      "   2475 pulseaudio",
+      "   2517 rtkit-daemon",
+      "   2576 dbus-daemon",
+      "   2685 lightdm",
+      "   2720 systemd",
+      "   2722 (sd-pam)",
+      "   2741 pulseaudio",
+      "   2743 lightdm-greeter",
+      "   2744 lightdm-gtk-gre",
+      "   2746 dbus-daemon",
+      "   2751 at-spi-bus-laun",
+      "   2760 dbus-daemon",
+      "   2771 gvfsd",
+      "   2833 gvfsd-metadata",
+      "   3112 lightdm",
+      "   3115 at-spi2-registr",
+      "   4157 gnome-keyring-d",
+      "   4487 containerd-shim",
+      "   4488 containerd-shim",
+      "   4489 containerd-shim",
+      "   4490 containerd-shim",
+      "   4502 containerd-shim",
+      "   4505 containerd-shim",
+      "   4530 containerd-shim",
+      "   4656 containerd-shim",
+      "   4676 containerd-shim",
+      "   4703 containerd-shim",
+      "   4739 containerd-shim",
+      "   4768 containerd-shim",
+      "   4771 postgres",
+      "   4789 postgres",
+      "   4795 containerd-shim",
+      "   4802 postgres",
+      "   4818 postgres",
+      "   4841 postgres",
+      "   4849 containerd-shim",
+      "   4854 postgres",
+      "   4879 containerd-shim",
+      "   4883 postgres",
+      "   4923 containerd-shim",
+      "   4937 postgres",
+      "   4944 postgres",
+      "   4964 postgres",
+      "   4990 containerd-shim",
+      "   5011 postgres",
+      "   5026 postgres",
+      "   5042 containerd-shim",
+      "   5044 postgres",
+      "   5063 containerd-shim",
+      "   5090 postgres",
+      "   5099 postgres",
+      "   5114 containerd-shim",
+      "   5136 postgres",
+      "   5146 containerd-shim",
+      "   5184 containerd-shim",
+      "   5236 postgres",
+      "   5244 postgres",
+      "   5250 postgres",
+      "   5255 postgres",
+      "   5256 postgres",
+      "   5267 postgres",
+      "   5389 docker-proxy",
+      "   5508 docker-proxy",
+      "   5629 docker-proxy",
+      "   5655 docker-proxy",
+      "   5691 docker-proxy",
+      "   5825 postgres",
+      "   5826 postgres",
+      "   5827 postgres",
+      "   5828 postgres",
+      "   5831 postgres",
+      "   5832 postgres",
+      "   5837 postgres",
+      "   5838 postgres",
+      "   5839 postgres",
+      "   5840 postgres",
+      "   5874 sshd",
+      "   5928 docker-proxy",
+      "   5982 docker-proxy",
+      "   6014 docker-proxy",
+      "   6049 docker-proxy",
+      "   6085 docker-proxy",
+      "   6135 docker-proxy",
+      "   6181 docker-proxy",
+      "   6227 docker-proxy",
+      "   6248 postgres",
+      "   6249 postgres",
+      "   6252 postgres",
+      "   6253 postgres",
+      "   6277 docker-proxy",
+      "   6316 docker-proxy",
+      "   6336 postgres",
+      "   6337 postgres",
+      "   6349 postgres",
+      "   6351 postgres",
+      "   6382 docker-proxy",
+      "   6396 postgres",
+      "   6397 postgres",
+      "   6440 postgres",
+      "   6441 postgres",
+      "   6442 docker-proxy",
+      "   6466 postgres",
+      "   6467 postgres",
+      "   6496 docker-proxy",
+      "   6531 docker-proxy",
+      "   6563 postgres",
+      "   6564 postgres",
+      "   6576 docker-proxy",
+      "   6589 postgres",
+      "   6590 postgres",
+      "   6598 postgres",
+      "   6599 postgres",
+      "   6689 postgres",
+      "   6690 postgres",
+      "   6691 postgres",
+      "   6692 postgres",
+      "   6695 postgres",
+      "   6696 postgres",
+      "   6698 postgres",
+      "   6699 postgres",
+      "   6701 postgres",
+      "   6702 postgres",
+      "   6704 postgres",
+      "   6705 postgres",
+      "   6707 postgres",
+      "   6708 postgres",
+      "   6714 stacker",
+      "   6958 postgres",
+      "   6959 postgres",
+      "   6960 postgres",
+      "   6961 postgres",
+      "   6962 postgres",
+      "   6963 postgres",
+      "   6966 postgres",
+      "   6967 postgres",
+      "   6968 postgres",
+      "   6971 postgres",
+      "   6972 postgres",
+      "   6973 postgres",
+      "   6975 herdr",
+      "   7001 bash",
+      "   7004 bash",
+      "   7007 bash",
+      "   7013 bash",
+      "   7033 bash",
+      "   7041 bash",
+      "   7504 postgres",
+      "   7505 postgres",
+      "   7506 postgres",
+      "   7507 postgres",
+      "   7508 postgres",
+      "   7509 postgres",
+      "   7510 postgres",
+      "   7511 postgres",
+      "   7512 postgres",
+      "   7520 postgres",
+      "   7521 postgres",
+      "   7522 postgres",
+      "   7523 postgres",
+      "   7524 postgres",
+      "   7525 postgres",
+      "   7528 postgres",
+      "   7529 postgres",
+      "   7530 postgres",
+      "   7531 postgres",
+      "   7532 postgres",
+      "   7533 postgres",
+      "   7546 postgres",
+      "   7547 postgres",
+      "   7548 postgres",
+      "   7551 postgres",
+      "   7552 postgres",
+      "   7553 postgres",
+      "   7554 postgres",
+      "   7555 postgres",
+      "   7556 postgres",
+      "   7559 postgres",
+      "   7560 postgres",
+      "   7561 postgres",
+      "   7562 postgres",
+      "   7563 postgres",
+      "   7564 postgres",
+      "   7567 postgres",
+      "   7568 postgres",
+      "   7569 postgres",
+      "   7570 postgres",
+      "   7571 postgres",
+      "   7572 postgres",
+      "   7575 postgres",
+      "   7576 postgres",
+      "   7577 postgres",
+      "   7578 postgres",
+      "   7579 postgres",
+      "   7580 postgres",
+      "   7583 postgres",
+      "   7584 postgres",
+      "   7585 postgres",
+      "   7586 postgres",
+      "   7587 postgres",
+      "   7588 postgres",
+      "   7591 bash",
+      "   7668 bash",
+      "   7748 bash",
+      "   7829 bash",
+      "   7916 bash",
+      "   8002 bash",
+      "   8120 bash",
+      "   8252 bash",
+      "   8397 claude",
+      "   8458 bash",
+      "   8559 claude",
+      "   8588 bash",
+      "   8723 claude",
+      "   8853 bash",
+      "   9020 claude",
+      "   9093 bash",
+      "   9282 claude",
+      "   9329 herdr",
+      "   9349 bash",
+      "   9525 claude",
+      "   9581 bash",
+      "   9701 claude",
+      "   9723 bash",
+      "   9838 claude",
+      "   9868 bash",
+      "  10023 claude",
+      "  10801 npm exec @sentr",
+      "  10802 npm exec @sentr",
+      "  10819 npm exec @sentr",
+      "  10820 npm exec @sentr",
+      "  11037 npm exec @sentr",
+      "  11038 npm exec @sentr",
+      "  11210 sh",
+      "  11215 MainThread",
+      "  11249 sh",
+      "  11250 MainThread",
+      "  11269 sh",
+      "  11270 MainThread",
+      "  11283 sh",
+      "  11284 MainThread",
+      "  11371 sh",
+      "  11372 MainThread",
+      "  11564 npm exec @sentr",
+      "  11577 npm exec @sentr",
+      "  11704 sh",
+      "  11709 MainThread",
+      "  11827 npm exec @sentr",
+      "  11832 npm exec @sentr",
+      "  11861 npm exec @sentr",
+      "  11862 npm exec @sentr",
+      "  12061 npm exec @sentr",
+      "  12065 npm exec @sentr",
+      "  12085 sh",
+      "  12086 MainThread",
+      "  12113 npm exec @sentr",
+      "  12118 npm exec @sentr",
+      "  12232 sh",
+      "  12233 MainThread",
+      "  12259 npm exec @sentr",
+      "  12262 npm exec @sentr",
+      "  12268 sh",
+      "  12269 MainThread",
+      "  12308 sh",
+      "  12309 MainThread",
+      "  12358 sh",
+      "  12361 MainThread",
+      "  12402 sh",
+      "  12403 MainThread",
+      "  12405 sh",
+      "  12407 MainThread",
+      "  12433 sh",
+      "  12434 MainThread",
+      "  12449 sh",
+      "  12450 MainThread",
+      "  12469 sh",
+      "  12470 MainThread",
+      "  12479 sh",
+      "  12480 MainThread",
+      "  12488 sh",
+      "  12489 MainThread",
+      "  14100 sshd-session",
+      "  14436 sshd-session",
+      " 590856 mosh-server",
+      " 590857 herdr",
+      "1121721 codex",
+      "1125929 codex-code-mode",
+      "1135914 codex",
+      "1138059 codex",
+      "1141306 codex",
+      "1142498 codex-code-mode",
+      "1145220 codex-code-mode",
+      "1148033 codex-code-mode",
+      "1153852 gcr-ssh-agent",
+      "1153856 ssh-agent",
+      "1154825 uuidd",
+      "1230731 bash",
+      "1230737 bash",
+      "1230738 tail",
+      "1552127 codex",
+      "1552853 codex",
+      "1553626 codex",
+      "1554314 codex",
+      "1555017 codex",
+      "1555780 codex",
+      "1559965 codex-code-mode",
+      "1581139 codex-code-mode",
+      "1581842 codex-code-mode",
+      "1582826 codex-code-mode",
+      "1590340 codex-code-mode",
+      "1591761 codex-code-mode",
+      "1643012 kworker/u97:2-rb_allocator",
+      "2098183 fwupd",
+      "2236717 containerd-shim",
+      "2236740 postgres",
+      "2236823 docker-proxy",
+      "2236872 containerd-shim",
+      "2236905 postgres",
+      "2236940 docker-proxy",
+      "2237114 postgres",
+      "2237115 postgres",
+      "2237117 postgres",
+      "2237118 postgres",
+      "2237119 postgres",
+      "2237122 postgres",
+      "2237123 postgres",
+      "2237125 postgres",
+      "2237126 postgres",
+      "2237127 postgres",
+      "2575048 containerd-shim",
+      "2575073 postgres",
+      "2575155 docker-proxy",
+      "2575192 containerd-shim",
+      "2575231 postgres",
+      "2575268 docker-proxy",
+      "2575430 postgres",
+      "2575431 postgres",
+      "2575433 postgres",
+      "2575434 postgres",
+      "2575435 postgres",
+      "2575438 postgres",
+      "2575439 postgres",
+      "2575441 postgres",
+      "2575442 postgres",
+      "2575443 postgres",
+      "2605218 kworker/2:1-events",
+      "2661249 kworker/u96:7-events_unbound",
+      "2706042 kworker/14:0-events",
+      "2707474 kworker/13:2-events",
+      "2726810 kworker/7:2-events",
+      "2730383 kworker/u96:16-events_power_efficient",
+      "2734482 kworker/17:1-events",
+      "2759262 kworker/16:2-cgroup_release",
+      "2761883 kworker/6:2-mm_percpu_wq",
+      "2792061 kworker/21:1-events",
+      "2819901 psimon",
+      "2827997 kworker/11:1-events",
+      "2828835 kworker/19:1-cgroup_release",
+      "2853322 kworker/u96:1-events_unbound",
+      "2931890 kworker/9:0-events",
+      "2932471 kworker/0:1-events",
+      "2959039 kworker/5:1-events",
+      "2961327 kworker/1:2-events",
+      "2961373 kworker/15:2-events",
+      "2967624 kworker/u96:5-flush-259:0",
+      "2968170 kworker/3:2-events",
+      "2969303 kworker/16:1-events",
+      "3113715 kworker/18:1-events",
+      "3115662 kworker/22:1-events",
+      "3131439 kworker/2:2-events",
+      "3161689 kworker/23:0-events",
+      "3178253 kworker/9:2-events",
+      "3236376 kworker/4:0-mm_percpu_wq",
+      "3245622 kworker/10:1-events",
+      "3264065 kworker/12:1-events",
+      "3290359 kworker/20:0-events",
+      "3299110 kworker/5:0-events",
+      "3299688 kworker/8:0-events",
+      "3312640 kworker/3:0-events",
+      "3318756 kworker/6:1-events",
+      "3318824 kworker/19:0-events",
+      "3321399 kworker/15:0-events",
+      "3321469 kworker/14:1-events",
+      "3332642 kworker/2:0-events",
+      "3334426 kworker/18:0-events",
+      "3334591 kworker/22:2-events",
+      "3337360 kworker/23:2-events",
+      "3337993 kworker/9:1-events",
+      "3339190 kworker/17:2-events",
+      "3339232 kworker/12:2-events",
+      "3340057 kworker/11:0-events",
+      "3340602 kworker/4:2-events",
+      "3351039 kworker/21:0-mm_percpu_wq",
+      "3351529 kworker/1:0-events",
+      "3354575 kworker/20:2-events",
+      "3357338 kworker/7:1-mm_percpu_wq",
+      "3358667 kworker/13:1-events",
+      "3361980 kworker/10:0-events",
+      "3364020 kworker/0:2-events",
+      "3364732 kworker/8:2-events",
+      "3366700 kworker/16:0-events",
+      "3373494 kworker/9:3",
+      "3377868 kworker/6:0-events",
+      "3379692 kworker/19:2-events",
+      "3380383 kworker/u96:0-events_unbound",
+      "3380961 kworker/2:3",
+      "3382076 kworker/3:1-events",
+      "3385138 kworker/5:2-events",
+      "3385193 kworker/14:2-events",
+      "3386375 kworker/15:1-events",
+      "3390140 kworker/18:2-events",
+      "3391677 kworker/22:0-events",
+      "3411270 kworker/11:2-events",
+      "3412448 kworker/20:1-events",
+      "3413060 kworker/4:1-events",
+      "3413084 kworker/7:0-events",
+      "3413165 kworker/4:3-mm_percpu_wq",
+      "3418182 kworker/1:1-events",
+      "3418185 kworker/1:3",
+      "3422063 kworker/21:2-events",
+      "3422877 python3",
+      "3424866 kworker/13:0-events",
+      "3430212 kworker/12:0-events",
+      "3431328 kworker/0:0-events",
+      "3432343 kworker/17:0-events",
+      "3435208 ps",
+      "3901453 mosh-server",
+      "3901454 herdr",
+      "3922063 bash",
+      "3922716 claude",
+      "3922817 npm exec @sentr",
+      "3922818 npm exec @sentr",
+      "3922912 sh",
+      "3922913 MainThread",
+      "3922923 sh",
+      "3922924 MainThread",
+      "4011249 herdr",
+      "4102297 mosh-server",
+      "4102298 herdr"
+    ],
+    "scope": "source-only; no build/guest/device/cloud/fetch/config sourcing"
+  },
+  "group": "G368",
+  "locale": "C",
+  "open_reasons": [],
+  "plan": "SM8550-aarch64",
+  "recipe": "projects/ROCKNIX/packages/emulators/standalone/melonds-sa/package.mk",
+  "rows": [
+    {
+      "after": {
+        "files": [
+          {
+            "mode": "0o644",
+            "path": "src/CMakeLists.txt",
+            "sha256": "9eb96267f64a062f9982a9bfa6e485fe1029ed8b3e69d9ded62e0759cbf350b0"
+          },
+          {
+            "mode": "0o644",
+            "path": "src/NDS.cpp",
+            "sha256": "88dae13579dde0a5b63b05b072dabce6769b90f0d87f6fe597a34e09d752ff9d"
+          },
+          {
+            "mode": "0o644",
+            "path": "src/NDS.h",
+            "sha256": "1d67c2663356bc26e625756a143023dfa0780e77e7786dc20bd50a90c10f2838"
+          },
+          {
+            "mode": "0o644",
+            "path": "src/NDSCart/CartCommon.cpp",
+            "sha256": "e80cdd0a709b8ef8fc0b6e31e23607c0afc9b9c26e5751fc569704522fd0eb44"
+          },
+          {
+            "mode": "0o644",
+            "path": "src/NDSCart/CartCommon.h",
+            "sha256": "94591ff29fcbada653186533b289a76dbe23b9de00eee569370f095351d24f46"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/RetroAchievements/RAClient.cpp",
+            "sha256": "e8577c46f3e8543cba98131fd074f8e120eec25b9613cb650afddaf28ddcdd26"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/RetroAchievements/RAClient.h",
+            "sha256": "0b24f09c0383119fbbe3b23515691cacf66920d3f7ea3124e2e049031d09c2b4"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/RetroAchievements/cacert.c",
+            "sha256": "cb04f86dd19c7f68bd0b701fcab6ef8c8c0bf867b58b0b832deaa23d16facb99"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/frontend/qt_sdl/AchievementItemWidget.cpp",
+            "sha256": "81664f238e735b84318411839ce73b6bda939734e663cac2613162d9f702d690"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/frontend/qt_sdl/AchievementItemWidget.h",
+            "sha256": "224820aaea6136b1afab2ddcf47d58ed752c7458c4882c781c9723d75892f04e"
+          },
+          {
+            "mode": "0o644",
+            "path": "src/frontend/qt_sdl/CMakeLists.txt",
+            "sha256": "39c99567f0eae4539d751be54e7bc2b542a9688679a26abacd7ab3fa2cb385a6"
+          },
+          {
+            "mode": "0o644",
+            "path": "src/frontend/qt_sdl/Config.cpp",
+            "sha256": "ede5a6020de28b22076ce76d138e836359e5acea371d639d28d808d0c1b3e90f"
+          },
+          {
+            "mode": "0o644",
+            "path": "src/frontend/qt_sdl/Config.h",
+            "sha256": "7a3fb2871551f0a9d1fc839ae2ad8ce245549d2ffe06a80ef2d4ee8e56bfb162"
+          },
+          {
+            "mode": "0o755",
+            "path": "src/frontend/qt_sdl/EmuInstance.cpp",
+            "sha256": "239c58bc298e688b41c8ea1c14a386d9ed3b9c19802b85767fd776f196d9b295"
+          },
+          {
+            "mode": "0o755",
+            "path": "src/frontend/qt_sdl/EmuInstance.h",
+            "sha256": "56b787b058771e1bb87ffa936653bb61d849c5245c94d033ce929573dc216b2a"
+          },
+          {
+            "mode": "0o644",
+            "path": "src/frontend/qt_sdl/EmuInstanceInput.cpp",
+            "sha256": "7d59989bc536a8ebabb55078e2243769f2f7fdfc2c3a7f5f0b120adde5043d54"
+          },
+          {
+            "mode": "0o755",
+            "path": "src/frontend/qt_sdl/EmuThread.cpp",
+            "sha256": "8f710b9b8075e6207a1567fb2aba3ae740c00cf88522bb960a48ee3643d3844a"
+          },
+          {
+            "mode": "0o755",
+            "path": "src/frontend/qt_sdl/EmuThread.h",
+            "sha256": "80f0a1a93e6745c3b11b6ebc4060b1b2254ad76dbcda8231176445b8cec5164e"
+          },
+          {
+            "mode": "0o644",
+            "path": "src/frontend/qt_sdl/InputConfig/InputConfigDialog.h",
+            "sha256": "bfa2ca8b8cf5aa659fa9d63941f435bb77435c313f8b396baa01786fe7be0513"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/frontend/qt_sdl/RAOverlayWidget.cpp",
+            "sha256": "1bf4e8147acecc7632dffa1439aaccf21bbd434618996d47b134491f6a0ddbe0"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/frontend/qt_sdl/RAOverlayWidget.h",
+            "sha256": "0d3e0c3797b48104735937228e3d36b295abb761614afa2782ed7f5fa86022cc"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/frontend/qt_sdl/RASettingsDialog.cpp",
+            "sha256": "588033fe37ee070953c71740b09d236695d8b9ec623e07990aeb2b28610f212e"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/frontend/qt_sdl/RASettingsDialog.h",
+            "sha256": "261fc69463d893f248c78690f5932f544149f720a914c33b880a13fe7064c159"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/frontend/qt_sdl/RASettingsDialog.ui",
+            "sha256": "727ac17fc255cff5f9326ee86b68351d9000665a4d287a7ee2f61f5303472c68"
+          },
+          {
+            "mode": "0o755",
+            "path": "src/frontend/qt_sdl/Window.cpp",
+            "sha256": "75df5188af883d5ca6ce4d5480c7571bbd654b3cb10ae2ecd2a95ec3d2f4db2d"
+          },
+          {
+            "mode": "0o755",
+            "path": "src/frontend/qt_sdl/Window.h",
+            "sha256": "1f581869b0d9da88a055794a5adf3c8879c7a20c539f6b80c2fed8f0bfd5c86c"
+          },
+          {
+            "mode": "0o644",
+            "path": "src/frontend/qt_sdl/main.cpp",
+            "sha256": "aefad229af3d94541fdd3199745c10818944f9ba4a7ab0b59c2cef4e48d92d2f"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/frontend/qt_sdl/retroachievements/resources/ra.qrc",
+            "sha256": "ee3307ca74d91d69828e9d597eb8314f516907e5bb91388782f718268305f9e5"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/frontend/qt_sdl/toast/BadgeCache.cpp",
+            "sha256": "6f5d22c2fad3f019411e0a10647bbe7849293d7655dc32ace1062745591ccc01"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/frontend/qt_sdl/toast/BadgeCache.h",
+            "sha256": "bb928ffc730319fd0cd0c0f519ac84ddfaec5d6e5b5075636b9ec930ec4fdd41"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/frontend/qt_sdl/toast/ToastManager.cpp",
+            "sha256": "8a7c42464b991b68af3a014ba87d962e57433b620b0f821ffac95e5f08de2a69"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/frontend/qt_sdl/toast/ToastManager.h",
+            "sha256": "3c10d24b0b2ee1b268266dde8163de856f5e174f276335a89567d3cfacf078e3"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/frontend/qt_sdl/toast/ToastOverlay.cpp",
+            "sha256": "b810c9aaa3c96d16d96cbb438b7a49ba84f96df86980ddd4f3ea012322f0355c"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/frontend/qt_sdl/toast/ToastOverlay.h",
+            "sha256": "1e5f9b3780ef7db487b73d96cc40002190cc5811eadc4d54a2c7794d7a742b9a"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/rcheevos/include/rc_api_editor.h",
+            "sha256": "c0787749fbe42f7a655e91e09f20c6cc6eeba234e5ea4e14243facf9dd9d1f32"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/rcheevos/include/rc_api_info.h",
+            "sha256": "891aeb46705930aff14cca8122643d7aa10036d4ebad6c2ec1a080e6f56c0f11"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/rcheevos/include/rc_api_request.h",
+            "sha256": "2d27109deb502ed447cb821815a04c30bec37b90b1016f805960efc056a2d9bc"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/rcheevos/include/rc_api_runtime.h",
+            "sha256": "32688333ba3923695fc568acf5580805158302de85da2fc078e590ed550409f8"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/rcheevos/include/rc_api_user.h",
+            "sha256": "12311f849a5fe23d35784ed0901e2b8cbee455d7cf8e0997e392c7ebc5df2ed0"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/rcheevos/include/rc_client.h",
+            "sha256": "8080a3173010a45d28097ca033e80d40345c14aedcab7d4e1ce1d048ba8fac31"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/rcheevos/include/rc_client_raintegration.h",
+            "sha256": "c0b32edf79bd12bb3dc0656e33dac078b32c30b9c7ec4ebfbed9f08a368bb143"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/rcheevos/include/rc_consoles.h",
+            "sha256": "9d2c9bd4223fdffbc3d9d4987120b16919bc6470a8eae8a8986c50bfe37329b8"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/rcheevos/include/rc_error.h",
+            "sha256": "f1135cc5059ad363051f399828be1fc63f437c68a0b628c945e3406e3b7430e3"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/rcheevos/include/rc_export.h",
+            "sha256": "9683f979bb152781677ffd952a68fdddcb5d951eb227e96a2d1f7fd0feb3be62"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/rcheevos/include/rc_hash.h",
+            "sha256": "b2eeb7eb928ed07094463eefd8111ecc69a2f8aeb04e63b23172dcf3663a271b"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/rcheevos/include/rc_runtime.h",
+            "sha256": "a3c5e73681844036bc9d343e82fbc0d79c8bb6b6c584044b200515ac025a3063"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/rcheevos/include/rc_runtime_types.h",
+            "sha256": "f7d63f647773e4dc251ae8dc577d15a329093715c3c8b5172fb5b652d099c416"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/rcheevos/include/rc_util.h",
+            "sha256": "12840744dcca64ffd2e5f0a1c92fca2e235236edd5a66d8787d1d26189254344"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/rcheevos/include/rcheevos.h",
+            "sha256": "0264f2a35a7f79f144263384d5378976c4c1062fa7477a281ed6fe2d64eba760"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/rcheevos/src/rapi/rc_api_common.c",
+            "sha256": "601d932f4152fb2f611c15633aef561c7df8458cddd3593b8e6e78fdfef9d493"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/rcheevos/src/rapi/rc_api_common.h",
+            "sha256": "1290e08bc41363431501ee1826c2d8b7406916d71887440d3921c475eb7cf4c0"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/rcheevos/src/rapi/rc_api_editor.c",
+            "sha256": "a6486980432bbb9f877f443b2c8c49ee706b960c5af93aaa33fd2b777ee8b615"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/rcheevos/src/rapi/rc_api_info.c",
+            "sha256": "ade89d5330b3df8006d2c90df77205954b0f64aa97f1ad8021043a4afdcdc8b7"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/rcheevos/src/rapi/rc_api_runtime.c",
+            "sha256": "161daf504087a0c218f6731fe93492a99c4d1844df79fa4038ce8d86799a4b72"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/rcheevos/src/rapi/rc_api_user.c",
+            "sha256": "9896c0b84b404973b21e395a4a7f82334b3418692f0c65e92000a605a5c31ce9"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/rcheevos/src/rc_client.c",
+            "sha256": "6b5e60713c3ec1f8ea3b0e4f7db32e52085390fc8fc7ffe72419f16784826ad2"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/rcheevos/src/rc_client_internal.h",
+            "sha256": "a7fa88dbad2cb390cf84a5b2697284c928ef74fd4438afa81e6e633cbd8aacd2"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/rcheevos/src/rc_compat.c",
+            "sha256": "22cbbc177b5507960f4e18072e972234502a858b62dcd7171b1d6170eda7a8b9"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/rcheevos/src/rc_compat.h",
+            "sha256": "55322453c31d888fa336a3232a44cbad896810288b93974de4e5a82d4f6476e0"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/rcheevos/src/rc_util.c",
+            "sha256": "20df7a41ae0cbb89187684254be071a3aafaf71175c3362646d0ddb2ff2e3456"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/rcheevos/src/rc_version.c",
+            "sha256": "210091300446cf20bcbfc8f80c747c543a5a99e143887cf6aff16ab5f5a245a3"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/rcheevos/src/rc_version.h",
+            "sha256": "4b2e2b6b36ee78700cd37bc908caf256a28acc8a1c4f59978d9b42f9b667512e"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/rcheevos/src/rcheevos/alloc.c",
+            "sha256": "ba03228d2a0b5722d4a94ea009d46000bda7410de832ee49f4f61b43c117a84c"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/rcheevos/src/rcheevos/condition.c",
+            "sha256": "4d12eb0c368f5b72b5655513dab7a048e2f0611330bba241e5c1b8813015746a"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/rcheevos/src/rcheevos/condset.c",
+            "sha256": "9ff9a1791f9b7ebb9ad16377e143b119f338ddd372d5de229aa93cf394a18ecd"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/rcheevos/src/rcheevos/consoleinfo.c",
+            "sha256": "adef7ea7e37807058de529b4134ce935b7620387ad120c32764dd59b051af6cd"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/rcheevos/src/rcheevos/format.c",
+            "sha256": "1deaa114504049b9f303b4a01087f1639ff7939e6729671b3677106e33f8c59d"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/rcheevos/src/rcheevos/lboard.c",
+            "sha256": "14d94ba718d3e694e4874bbcead3c32fb0141728ef4fe011646d266b9261249e"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/rcheevos/src/rcheevos/memref.c",
+            "sha256": "f37a0fa2d009b434c01047bda9bff8186e8587b9ad7322840c4ea8e6d3f44a37"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/rcheevos/src/rcheevos/operand.c",
+            "sha256": "199668e3f03da0fd1b46802e4bc6626108093317c8f58c2166a3a620fb44e926"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/rcheevos/src/rcheevos/rc_internal.h",
+            "sha256": "b9dbc03b1b1632db50b90f7dcea2a48e5646612826dcb5d35289437df273dddc"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/rcheevos/src/rcheevos/rc_validate.c",
+            "sha256": "49dc595f90fff68a4e5b803653fd98cace749f00706d013867fb6cab351ae1f6"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/rcheevos/src/rcheevos/rc_validate.h",
+            "sha256": "d3da5219ebf38d2c34008417b3415658997cb3b63ee26b859d4036fd3fff3191"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/rcheevos/src/rcheevos/richpresence.c",
+            "sha256": "53f163610c002bee454c9505c1e5a47c86250cb8a92c122d507900dbdd299b94"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/rcheevos/src/rcheevos/runtime.c",
+            "sha256": "1e6dba494d11348b2c929564b5bf1a01f7f4cb85202f4f242d97b9a6ab0e04ef"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/rcheevos/src/rcheevos/runtime_progress.c",
+            "sha256": "db4e3c340ad02fbfe66b7bcd2fc9be69f953c170a0dc01a39ef8fcd938a9bf6a"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/rcheevos/src/rcheevos/trigger.c",
+            "sha256": "fe38429dd6c0e18d2c27c1eb797c963d61f63130c6546a20e1f8d27ed8271ece"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/rcheevos/src/rcheevos/value.c",
+            "sha256": "1c9a02ab8eb103b8c98e411256bbb6d727fa6fbc929bd19874b19b683b411ca3"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/rcheevos/src/rhash/aes.h",
+            "sha256": "cf769a50604be6d7a8d940675131c44ce834356ddf090419ae68abb2996b1f68"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/rcheevos/src/rhash/cdreader.c",
+            "sha256": "e70f231222b72cbb5b11c37d08e2e498c4f630fbe687dc1b6a96addf471208c5"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/rcheevos/src/rhash/hash.c",
+            "sha256": "66ab71c525ddb155d87fb5e276f8cb12e2f09523578637eb5ec2c2546b0e2d34"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/rcheevos/src/rhash/hash_disc.c",
+            "sha256": "725036c9326929b704662ad8abe99f5b3655922bb2b35c2e06d7d487cfd5d2d1"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/rcheevos/src/rhash/hash_encrypted.c",
+            "sha256": "5d92d63fd5a6ec227583e8cbc2203ea4170d48c412c367ea7ffae0741866e521"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/rcheevos/src/rhash/hash_rom.c",
+            "sha256": "31b46fedd44b1ddd4ff076ba85c86124214e757f2b7dfc860cad41e5734b175e"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/rcheevos/src/rhash/hash_zip.c",
+            "sha256": "136ee295a3d3e747b9703c3c272b05685afd70e20b0221bdc0ff585cb833cfa2"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/rcheevos/src/rhash/md5.c",
+            "sha256": "fd38ee6a43316007d4aa816f23c24a8355c58df106b4c54e43ec44afc55df521"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/rcheevos/src/rhash/md5.h",
+            "sha256": "8341e2a307d7cfaeb816b261d92ce87a07be62e3eb58c98d2c769e75a6e2b959"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/rcheevos/src/rhash/rc_hash_internal.h",
+            "sha256": "86479fbaceaa463792d726000618382138025b8102a117ec74c52329318a7884"
+          }
+        ],
+        "sha256": "66e434ab8d27d42b0e31f7057d47dd478277b4e06f2377bf194617ecf669e6ad"
+      },
+      "backend": "patch",
+      "before": {
+        "files": [
+          {
+            "mode": "0o644",
+            "path": "src/CMakeLists.txt",
+            "sha256": "0be784896f03c9478b8f8e0296a44b2eb71bd289a384037de76336e45872bc44"
+          },
+          {
+            "mode": "0o644",
+            "path": "src/NDS.cpp",
+            "sha256": "d70456a70fb2d487baba7024e65abddb97fb94774ee5132c5e6ca53f7721b87e"
+          },
+          {
+            "mode": "0o644",
+            "path": "src/NDS.h",
+            "sha256": "836c5f3e941c72e538c12f24abad315225fea4b93ed3e45d56a2033229a42385"
+          },
+          {
+            "mode": "0o644",
+            "path": "src/NDSCart/CartCommon.cpp",
+            "sha256": "b81fc175b52ddcf100007dd1f6eb395a07f710c44d7890b895be3fc2294770e7"
+          },
+          {
+            "mode": "0o644",
+            "path": "src/NDSCart/CartCommon.h",
+            "sha256": "63799468c3afdb586a356bc7ba603cf3c87df4080ca4b0888a7e62af7c797e10"
+          },
+          {
+            "mode": "0o644",
+            "path": "src/frontend/qt_sdl/CMakeLists.txt",
+            "sha256": "9765a19773ffffd4e920e5024adc2e37c46685e15172568978e0bb1a96cd3ced"
+          },
+          {
+            "mode": "0o644",
+            "path": "src/frontend/qt_sdl/Config.cpp",
+            "sha256": "3d766f24f6849bb9586b5458ee777c178372762daad4f07d3491ec622e7d10b7"
+          },
+          {
+            "mode": "0o644",
+            "path": "src/frontend/qt_sdl/Config.h",
+            "sha256": "43d9a0e32a68d2701ce72092c005a77aded1bca8d1d31901a23977b150d66ed4"
+          },
+          {
+            "mode": "0o755",
+            "path": "src/frontend/qt_sdl/EmuInstance.cpp",
+            "sha256": "568ba9ef9602cf8de5ad4e6f4ba8a2493fdb359990e772cf7b2107aff98a8fc2"
+          },
+          {
+            "mode": "0o755",
+            "path": "src/frontend/qt_sdl/EmuInstance.h",
+            "sha256": "f43fa506f6ce4366dc726f008c929160313f7726e5b6ddf7a6dd290c3fb18232"
+          },
+          {
+            "mode": "0o644",
+            "path": "src/frontend/qt_sdl/EmuInstanceInput.cpp",
+            "sha256": "67c4ed07a563c218b514618ef06f81695ba4b241ce5b2296ab0927e52473c2aa"
+          },
+          {
+            "mode": "0o755",
+            "path": "src/frontend/qt_sdl/EmuThread.cpp",
+            "sha256": "bf2e654f3e861f04d0fa55a147d2efbc0862facf1ac8436e34a1562b928edddf"
+          },
+          {
+            "mode": "0o755",
+            "path": "src/frontend/qt_sdl/EmuThread.h",
+            "sha256": "becdc3404f9c80f60d72a2638cdaf1585a4110f036b901b40481502a04bc5950"
+          },
+          {
+            "mode": "0o644",
+            "path": "src/frontend/qt_sdl/InputConfig/InputConfigDialog.h",
+            "sha256": "537c7f2bdc95e078678f3226f448981339c878c0e733387fa5ea448a0ed4655d"
+          },
+          {
+            "mode": "0o755",
+            "path": "src/frontend/qt_sdl/Window.cpp",
+            "sha256": "4263cdbf8a1ac84f6eeb2aa344de5ceef9fb803cfa717dff3e8242cd6a59f089"
+          },
+          {
+            "mode": "0o755",
+            "path": "src/frontend/qt_sdl/Window.h",
+            "sha256": "a6433bed74accc53c6c352ac592c290dba8a36de915193e4e74941931033a58a"
+          },
+          {
+            "mode": "0o644",
+            "path": "src/frontend/qt_sdl/main.cpp",
+            "sha256": "034c654e5a96cc15b953ddd5c3e8ac106efbef3325fe0e9fb14e890baeb47edf"
+          }
+        ],
+        "sha256": "7f88b6f996117fb7d88a9315b3b09d3eab51583318a8b78be3152deb12300ecb"
+      },
+      "device": "SM8550",
+      "diagnostic": {
+        "argv": [
+          "patch",
+          "--dry-run",
+          "-p1",
+          "-N",
+          "--batch"
+        ],
+        "cwd": "/workspace/tmp/m6-t42/G368/diagnostic-1",
+        "elapsed_s": 0.011155380983836949,
+        "locale": "C",
+        "rc": 0,
+        "stderr": "stage-b/application/G368-1-diagnostic.stderr",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout": "stage-b/application/G368-1-diagnostic.stdout",
+        "stdout_sha256": "4073f27cb3367fe156d938f80fb6cd521416837fc56ad6047eb179cbce431043",
+        "utc": "2026-11-02T19:11:46.024137+00:00"
+      },
+      "invoked": true,
+      "literal_sha256": "adf33234efe345de15e1c8d7820c3ecc2f7d221169c6018458d86a4d5bf29cd0",
+      "normal": {
+        "argv": [
+          "patch",
+          "-p1",
+          "-N",
+          "--batch"
+        ],
+        "cwd": "/workspace/tmp/m6-t42/G368/candidate-1",
+        "elapsed_s": 0.01282959699165076,
+        "locale": "C",
+        "rc": 0,
+        "stderr": "stage-b/application/G368-1-normal.stderr",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout": "stage-b/application/G368-1-normal.stdout",
+        "stdout_sha256": "fbc3ed513f982ee8d6a286d175082f24948a9cf5c134e5a261dc4e8619d4f271",
+        "utc": "2026-11-02T19:11:46.035355+00:00"
+      },
+      "order": 1,
+      "patch_sha256": "adf33234efe345de15e1c8d7820c3ecc2f7d221169c6018458d86a4d5bf29cd0",
+      "path": "projects/ROCKNIX/packages/emulators/standalone/melonds-sa/patches/000-retro-achievements.patch",
+      "promoted": true,
+      "referent": "projects/ROCKNIX/packages/emulators/standalone/melonds-sa/patches/000-retro-achievements.patch",
+      "rendered_sha256": "adf33234efe345de15e1c8d7820c3ecc2f7d221169c6018458d86a4d5bf29cd0",
+      "status": "applies",
+      "target_cpu": "unused: no @TARGET_CPU@ token"
+    },
+    {
+      "after": {
+        "files": [
+          {
+            "mode": "0o644",
+            "path": "src/CMakeLists.txt",
+            "sha256": "9eb96267f64a062f9982a9bfa6e485fe1029ed8b3e69d9ded62e0759cbf350b0"
+          },
+          {
+            "mode": "0o644",
+            "path": "src/NDS.cpp",
+            "sha256": "88dae13579dde0a5b63b05b072dabce6769b90f0d87f6fe597a34e09d752ff9d"
+          },
+          {
+            "mode": "0o644",
+            "path": "src/NDS.h",
+            "sha256": "1d67c2663356bc26e625756a143023dfa0780e77e7786dc20bd50a90c10f2838"
+          },
+          {
+            "mode": "0o644",
+            "path": "src/NDSCart/CartCommon.cpp",
+            "sha256": "e80cdd0a709b8ef8fc0b6e31e23607c0afc9b9c26e5751fc569704522fd0eb44"
+          },
+          {
+            "mode": "0o644",
+            "path": "src/NDSCart/CartCommon.h",
+            "sha256": "94591ff29fcbada653186533b289a76dbe23b9de00eee569370f095351d24f46"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/RetroAchievements/RAClient.cpp",
+            "sha256": "e8577c46f3e8543cba98131fd074f8e120eec25b9613cb650afddaf28ddcdd26"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/RetroAchievements/RAClient.h",
+            "sha256": "0b24f09c0383119fbbe3b23515691cacf66920d3f7ea3124e2e049031d09c2b4"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/RetroAchievements/cacert.c",
+            "sha256": "cb04f86dd19c7f68bd0b701fcab6ef8c8c0bf867b58b0b832deaa23d16facb99"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/frontend/qt_sdl/AchievementItemWidget.cpp",
+            "sha256": "81664f238e735b84318411839ce73b6bda939734e663cac2613162d9f702d690"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/frontend/qt_sdl/AchievementItemWidget.h",
+            "sha256": "224820aaea6136b1afab2ddcf47d58ed752c7458c4882c781c9723d75892f04e"
+          },
+          {
+            "mode": "0o644",
+            "path": "src/frontend/qt_sdl/CMakeLists.txt",
+            "sha256": "39c99567f0eae4539d751be54e7bc2b542a9688679a26abacd7ab3fa2cb385a6"
+          },
+          {
+            "mode": "0o644",
+            "path": "src/frontend/qt_sdl/Config.cpp",
+            "sha256": "2b0ef68c03dd0fbcc08a3ff6c288656e9d108d5d3e4b52c1a3c04b19ceaaef21"
+          },
+          {
+            "mode": "0o644",
+            "path": "src/frontend/qt_sdl/Config.h",
+            "sha256": "7a3fb2871551f0a9d1fc839ae2ad8ce245549d2ffe06a80ef2d4ee8e56bfb162"
+          },
+          {
+            "mode": "0o755",
+            "path": "src/frontend/qt_sdl/EmuInstance.cpp",
+            "sha256": "239c58bc298e688b41c8ea1c14a386d9ed3b9c19802b85767fd776f196d9b295"
+          },
+          {
+            "mode": "0o755",
+            "path": "src/frontend/qt_sdl/EmuInstance.h",
+            "sha256": "56b787b058771e1bb87ffa936653bb61d849c5245c94d033ce929573dc216b2a"
+          },
+          {
+            "mode": "0o644",
+            "path": "src/frontend/qt_sdl/EmuInstanceInput.cpp",
+            "sha256": "7d59989bc536a8ebabb55078e2243769f2f7fdfc2c3a7f5f0b120adde5043d54"
+          },
+          {
+            "mode": "0o755",
+            "path": "src/frontend/qt_sdl/EmuThread.cpp",
+            "sha256": "8f710b9b8075e6207a1567fb2aba3ae740c00cf88522bb960a48ee3643d3844a"
+          },
+          {
+            "mode": "0o755",
+            "path": "src/frontend/qt_sdl/EmuThread.h",
+            "sha256": "80f0a1a93e6745c3b11b6ebc4060b1b2254ad76dbcda8231176445b8cec5164e"
+          },
+          {
+            "mode": "0o644",
+            "path": "src/frontend/qt_sdl/InputConfig/InputConfigDialog.h",
+            "sha256": "bfa2ca8b8cf5aa659fa9d63941f435bb77435c313f8b396baa01786fe7be0513"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/frontend/qt_sdl/RAOverlayWidget.cpp",
+            "sha256": "1bf4e8147acecc7632dffa1439aaccf21bbd434618996d47b134491f6a0ddbe0"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/frontend/qt_sdl/RAOverlayWidget.h",
+            "sha256": "0d3e0c3797b48104735937228e3d36b295abb761614afa2782ed7f5fa86022cc"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/frontend/qt_sdl/RASettingsDialog.cpp",
+            "sha256": "588033fe37ee070953c71740b09d236695d8b9ec623e07990aeb2b28610f212e"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/frontend/qt_sdl/RASettingsDialog.h",
+            "sha256": "261fc69463d893f248c78690f5932f544149f720a914c33b880a13fe7064c159"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/frontend/qt_sdl/RASettingsDialog.ui",
+            "sha256": "727ac17fc255cff5f9326ee86b68351d9000665a4d287a7ee2f61f5303472c68"
+          },
+          {
+            "mode": "0o755",
+            "path": "src/frontend/qt_sdl/Window.cpp",
+            "sha256": "75df5188af883d5ca6ce4d5480c7571bbd654b3cb10ae2ecd2a95ec3d2f4db2d"
+          },
+          {
+            "mode": "0o755",
+            "path": "src/frontend/qt_sdl/Window.h",
+            "sha256": "1f581869b0d9da88a055794a5adf3c8879c7a20c539f6b80c2fed8f0bfd5c86c"
+          },
+          {
+            "mode": "0o644",
+            "path": "src/frontend/qt_sdl/main.cpp",
+            "sha256": "aefad229af3d94541fdd3199745c10818944f9ba4a7ab0b59c2cef4e48d92d2f"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/frontend/qt_sdl/retroachievements/resources/ra.qrc",
+            "sha256": "ee3307ca74d91d69828e9d597eb8314f516907e5bb91388782f718268305f9e5"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/frontend/qt_sdl/toast/BadgeCache.cpp",
+            "sha256": "6f5d22c2fad3f019411e0a10647bbe7849293d7655dc32ace1062745591ccc01"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/frontend/qt_sdl/toast/BadgeCache.h",
+            "sha256": "bb928ffc730319fd0cd0c0f519ac84ddfaec5d6e5b5075636b9ec930ec4fdd41"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/frontend/qt_sdl/toast/ToastManager.cpp",
+            "sha256": "8a7c42464b991b68af3a014ba87d962e57433b620b0f821ffac95e5f08de2a69"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/frontend/qt_sdl/toast/ToastManager.h",
+            "sha256": "3c10d24b0b2ee1b268266dde8163de856f5e174f276335a89567d3cfacf078e3"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/frontend/qt_sdl/toast/ToastOverlay.cpp",
+            "sha256": "b810c9aaa3c96d16d96cbb438b7a49ba84f96df86980ddd4f3ea012322f0355c"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/frontend/qt_sdl/toast/ToastOverlay.h",
+            "sha256": "1e5f9b3780ef7db487b73d96cc40002190cc5811eadc4d54a2c7794d7a742b9a"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/rcheevos/include/rc_api_editor.h",
+            "sha256": "c0787749fbe42f7a655e91e09f20c6cc6eeba234e5ea4e14243facf9dd9d1f32"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/rcheevos/include/rc_api_info.h",
+            "sha256": "891aeb46705930aff14cca8122643d7aa10036d4ebad6c2ec1a080e6f56c0f11"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/rcheevos/include/rc_api_request.h",
+            "sha256": "2d27109deb502ed447cb821815a04c30bec37b90b1016f805960efc056a2d9bc"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/rcheevos/include/rc_api_runtime.h",
+            "sha256": "32688333ba3923695fc568acf5580805158302de85da2fc078e590ed550409f8"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/rcheevos/include/rc_api_user.h",
+            "sha256": "12311f849a5fe23d35784ed0901e2b8cbee455d7cf8e0997e392c7ebc5df2ed0"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/rcheevos/include/rc_client.h",
+            "sha256": "8080a3173010a45d28097ca033e80d40345c14aedcab7d4e1ce1d048ba8fac31"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/rcheevos/include/rc_client_raintegration.h",
+            "sha256": "c0b32edf79bd12bb3dc0656e33dac078b32c30b9c7ec4ebfbed9f08a368bb143"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/rcheevos/include/rc_consoles.h",
+            "sha256": "9d2c9bd4223fdffbc3d9d4987120b16919bc6470a8eae8a8986c50bfe37329b8"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/rcheevos/include/rc_error.h",
+            "sha256": "f1135cc5059ad363051f399828be1fc63f437c68a0b628c945e3406e3b7430e3"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/rcheevos/include/rc_export.h",
+            "sha256": "9683f979bb152781677ffd952a68fdddcb5d951eb227e96a2d1f7fd0feb3be62"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/rcheevos/include/rc_hash.h",
+            "sha256": "b2eeb7eb928ed07094463eefd8111ecc69a2f8aeb04e63b23172dcf3663a271b"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/rcheevos/include/rc_runtime.h",
+            "sha256": "a3c5e73681844036bc9d343e82fbc0d79c8bb6b6c584044b200515ac025a3063"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/rcheevos/include/rc_runtime_types.h",
+            "sha256": "f7d63f647773e4dc251ae8dc577d15a329093715c3c8b5172fb5b652d099c416"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/rcheevos/include/rc_util.h",
+            "sha256": "12840744dcca64ffd2e5f0a1c92fca2e235236edd5a66d8787d1d26189254344"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/rcheevos/include/rcheevos.h",
+            "sha256": "0264f2a35a7f79f144263384d5378976c4c1062fa7477a281ed6fe2d64eba760"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/rcheevos/src/rapi/rc_api_common.c",
+            "sha256": "601d932f4152fb2f611c15633aef561c7df8458cddd3593b8e6e78fdfef9d493"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/rcheevos/src/rapi/rc_api_common.h",
+            "sha256": "1290e08bc41363431501ee1826c2d8b7406916d71887440d3921c475eb7cf4c0"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/rcheevos/src/rapi/rc_api_editor.c",
+            "sha256": "a6486980432bbb9f877f443b2c8c49ee706b960c5af93aaa33fd2b777ee8b615"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/rcheevos/src/rapi/rc_api_info.c",
+            "sha256": "ade89d5330b3df8006d2c90df77205954b0f64aa97f1ad8021043a4afdcdc8b7"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/rcheevos/src/rapi/rc_api_runtime.c",
+            "sha256": "161daf504087a0c218f6731fe93492a99c4d1844df79fa4038ce8d86799a4b72"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/rcheevos/src/rapi/rc_api_user.c",
+            "sha256": "9896c0b84b404973b21e395a4a7f82334b3418692f0c65e92000a605a5c31ce9"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/rcheevos/src/rc_client.c",
+            "sha256": "6b5e60713c3ec1f8ea3b0e4f7db32e52085390fc8fc7ffe72419f16784826ad2"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/rcheevos/src/rc_client_internal.h",
+            "sha256": "a7fa88dbad2cb390cf84a5b2697284c928ef74fd4438afa81e6e633cbd8aacd2"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/rcheevos/src/rc_compat.c",
+            "sha256": "22cbbc177b5507960f4e18072e972234502a858b62dcd7171b1d6170eda7a8b9"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/rcheevos/src/rc_compat.h",
+            "sha256": "55322453c31d888fa336a3232a44cbad896810288b93974de4e5a82d4f6476e0"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/rcheevos/src/rc_util.c",
+            "sha256": "20df7a41ae0cbb89187684254be071a3aafaf71175c3362646d0ddb2ff2e3456"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/rcheevos/src/rc_version.c",
+            "sha256": "210091300446cf20bcbfc8f80c747c543a5a99e143887cf6aff16ab5f5a245a3"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/rcheevos/src/rc_version.h",
+            "sha256": "4b2e2b6b36ee78700cd37bc908caf256a28acc8a1c4f59978d9b42f9b667512e"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/rcheevos/src/rcheevos/alloc.c",
+            "sha256": "ba03228d2a0b5722d4a94ea009d46000bda7410de832ee49f4f61b43c117a84c"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/rcheevos/src/rcheevos/condition.c",
+            "sha256": "4d12eb0c368f5b72b5655513dab7a048e2f0611330bba241e5c1b8813015746a"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/rcheevos/src/rcheevos/condset.c",
+            "sha256": "9ff9a1791f9b7ebb9ad16377e143b119f338ddd372d5de229aa93cf394a18ecd"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/rcheevos/src/rcheevos/consoleinfo.c",
+            "sha256": "adef7ea7e37807058de529b4134ce935b7620387ad120c32764dd59b051af6cd"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/rcheevos/src/rcheevos/format.c",
+            "sha256": "1deaa114504049b9f303b4a01087f1639ff7939e6729671b3677106e33f8c59d"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/rcheevos/src/rcheevos/lboard.c",
+            "sha256": "14d94ba718d3e694e4874bbcead3c32fb0141728ef4fe011646d266b9261249e"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/rcheevos/src/rcheevos/memref.c",
+            "sha256": "f37a0fa2d009b434c01047bda9bff8186e8587b9ad7322840c4ea8e6d3f44a37"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/rcheevos/src/rcheevos/operand.c",
+            "sha256": "199668e3f03da0fd1b46802e4bc6626108093317c8f58c2166a3a620fb44e926"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/rcheevos/src/rcheevos/rc_internal.h",
+            "sha256": "b9dbc03b1b1632db50b90f7dcea2a48e5646612826dcb5d35289437df273dddc"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/rcheevos/src/rcheevos/rc_validate.c",
+            "sha256": "49dc595f90fff68a4e5b803653fd98cace749f00706d013867fb6cab351ae1f6"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/rcheevos/src/rcheevos/rc_validate.h",
+            "sha256": "d3da5219ebf38d2c34008417b3415658997cb3b63ee26b859d4036fd3fff3191"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/rcheevos/src/rcheevos/richpresence.c",
+            "sha256": "53f163610c002bee454c9505c1e5a47c86250cb8a92c122d507900dbdd299b94"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/rcheevos/src/rcheevos/runtime.c",
+            "sha256": "1e6dba494d11348b2c929564b5bf1a01f7f4cb85202f4f242d97b9a6ab0e04ef"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/rcheevos/src/rcheevos/runtime_progress.c",
+            "sha256": "db4e3c340ad02fbfe66b7bcd2fc9be69f953c170a0dc01a39ef8fcd938a9bf6a"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/rcheevos/src/rcheevos/trigger.c",
+            "sha256": "fe38429dd6c0e18d2c27c1eb797c963d61f63130c6546a20e1f8d27ed8271ece"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/rcheevos/src/rcheevos/value.c",
+            "sha256": "1c9a02ab8eb103b8c98e411256bbb6d727fa6fbc929bd19874b19b683b411ca3"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/rcheevos/src/rhash/aes.h",
+            "sha256": "cf769a50604be6d7a8d940675131c44ce834356ddf090419ae68abb2996b1f68"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/rcheevos/src/rhash/cdreader.c",
+            "sha256": "e70f231222b72cbb5b11c37d08e2e498c4f630fbe687dc1b6a96addf471208c5"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/rcheevos/src/rhash/hash.c",
+            "sha256": "66ab71c525ddb155d87fb5e276f8cb12e2f09523578637eb5ec2c2546b0e2d34"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/rcheevos/src/rhash/hash_disc.c",
+            "sha256": "725036c9326929b704662ad8abe99f5b3655922bb2b35c2e06d7d487cfd5d2d1"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/rcheevos/src/rhash/hash_encrypted.c",
+            "sha256": "5d92d63fd5a6ec227583e8cbc2203ea4170d48c412c367ea7ffae0741866e521"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/rcheevos/src/rhash/hash_rom.c",
+            "sha256": "31b46fedd44b1ddd4ff076ba85c86124214e757f2b7dfc860cad41e5734b175e"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/rcheevos/src/rhash/hash_zip.c",
+            "sha256": "136ee295a3d3e747b9703c3c272b05685afd70e20b0221bdc0ff585cb833cfa2"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/rcheevos/src/rhash/md5.c",
+            "sha256": "fd38ee6a43316007d4aa816f23c24a8355c58df106b4c54e43ec44afc55df521"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/rcheevos/src/rhash/md5.h",
+            "sha256": "8341e2a307d7cfaeb816b261d92ce87a07be62e3eb58c98d2c769e75a6e2b959"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/rcheevos/src/rhash/rc_hash_internal.h",
+            "sha256": "86479fbaceaa463792d726000618382138025b8102a117ec74c52329318a7884"
+          }
+        ],
+        "sha256": "03a6a9db5cced58fef8eab0042dfac0991f72b17f9584ea4654ebcc41a4b6972"
+      },
+      "backend": "patch",
+      "before": {
+        "files": [
+          {
+            "mode": "0o644",
+            "path": "src/CMakeLists.txt",
+            "sha256": "9eb96267f64a062f9982a9bfa6e485fe1029ed8b3e69d9ded62e0759cbf350b0"
+          },
+          {
+            "mode": "0o644",
+            "path": "src/NDS.cpp",
+            "sha256": "88dae13579dde0a5b63b05b072dabce6769b90f0d87f6fe597a34e09d752ff9d"
+          },
+          {
+            "mode": "0o644",
+            "path": "src/NDS.h",
+            "sha256": "1d67c2663356bc26e625756a143023dfa0780e77e7786dc20bd50a90c10f2838"
+          },
+          {
+            "mode": "0o644",
+            "path": "src/NDSCart/CartCommon.cpp",
+            "sha256": "e80cdd0a709b8ef8fc0b6e31e23607c0afc9b9c26e5751fc569704522fd0eb44"
+          },
+          {
+            "mode": "0o644",
+            "path": "src/NDSCart/CartCommon.h",
+            "sha256": "94591ff29fcbada653186533b289a76dbe23b9de00eee569370f095351d24f46"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/RetroAchievements/RAClient.cpp",
+            "sha256": "e8577c46f3e8543cba98131fd074f8e120eec25b9613cb650afddaf28ddcdd26"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/RetroAchievements/RAClient.h",
+            "sha256": "0b24f09c0383119fbbe3b23515691cacf66920d3f7ea3124e2e049031d09c2b4"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/RetroAchievements/cacert.c",
+            "sha256": "cb04f86dd19c7f68bd0b701fcab6ef8c8c0bf867b58b0b832deaa23d16facb99"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/frontend/qt_sdl/AchievementItemWidget.cpp",
+            "sha256": "81664f238e735b84318411839ce73b6bda939734e663cac2613162d9f702d690"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/frontend/qt_sdl/AchievementItemWidget.h",
+            "sha256": "224820aaea6136b1afab2ddcf47d58ed752c7458c4882c781c9723d75892f04e"
+          },
+          {
+            "mode": "0o644",
+            "path": "src/frontend/qt_sdl/CMakeLists.txt",
+            "sha256": "39c99567f0eae4539d751be54e7bc2b542a9688679a26abacd7ab3fa2cb385a6"
+          },
+          {
+            "mode": "0o644",
+            "path": "src/frontend/qt_sdl/Config.cpp",
+            "sha256": "ede5a6020de28b22076ce76d138e836359e5acea371d639d28d808d0c1b3e90f"
+          },
+          {
+            "mode": "0o644",
+            "path": "src/frontend/qt_sdl/Config.h",
+            "sha256": "7a3fb2871551f0a9d1fc839ae2ad8ce245549d2ffe06a80ef2d4ee8e56bfb162"
+          },
+          {
+            "mode": "0o755",
+            "path": "src/frontend/qt_sdl/EmuInstance.cpp",
+            "sha256": "239c58bc298e688b41c8ea1c14a386d9ed3b9c19802b85767fd776f196d9b295"
+          },
+          {
+            "mode": "0o755",
+            "path": "src/frontend/qt_sdl/EmuInstance.h",
+            "sha256": "56b787b058771e1bb87ffa936653bb61d849c5245c94d033ce929573dc216b2a"
+          },
+          {
+            "mode": "0o644",
+            "path": "src/frontend/qt_sdl/EmuInstanceInput.cpp",
+            "sha256": "7d59989bc536a8ebabb55078e2243769f2f7fdfc2c3a7f5f0b120adde5043d54"
+          },
+          {
+            "mode": "0o755",
+            "path": "src/frontend/qt_sdl/EmuThread.cpp",
+            "sha256": "8f710b9b8075e6207a1567fb2aba3ae740c00cf88522bb960a48ee3643d3844a"
+          },
+          {
+            "mode": "0o755",
+            "path": "src/frontend/qt_sdl/EmuThread.h",
+            "sha256": "80f0a1a93e6745c3b11b6ebc4060b1b2254ad76dbcda8231176445b8cec5164e"
+          },
+          {
+            "mode": "0o644",
+            "path": "src/frontend/qt_sdl/InputConfig/InputConfigDialog.h",
+            "sha256": "bfa2ca8b8cf5aa659fa9d63941f435bb77435c313f8b396baa01786fe7be0513"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/frontend/qt_sdl/RAOverlayWidget.cpp",
+            "sha256": "1bf4e8147acecc7632dffa1439aaccf21bbd434618996d47b134491f6a0ddbe0"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/frontend/qt_sdl/RAOverlayWidget.h",
+            "sha256": "0d3e0c3797b48104735937228e3d36b295abb761614afa2782ed7f5fa86022cc"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/frontend/qt_sdl/RASettingsDialog.cpp",
+            "sha256": "588033fe37ee070953c71740b09d236695d8b9ec623e07990aeb2b28610f212e"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/frontend/qt_sdl/RASettingsDialog.h",
+            "sha256": "261fc69463d893f248c78690f5932f544149f720a914c33b880a13fe7064c159"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/frontend/qt_sdl/RASettingsDialog.ui",
+            "sha256": "727ac17fc255cff5f9326ee86b68351d9000665a4d287a7ee2f61f5303472c68"
+          },
+          {
+            "mode": "0o755",
+            "path": "src/frontend/qt_sdl/Window.cpp",
+            "sha256": "75df5188af883d5ca6ce4d5480c7571bbd654b3cb10ae2ecd2a95ec3d2f4db2d"
+          },
+          {
+            "mode": "0o755",
+            "path": "src/frontend/qt_sdl/Window.h",
+            "sha256": "1f581869b0d9da88a055794a5adf3c8879c7a20c539f6b80c2fed8f0bfd5c86c"
+          },
+          {
+            "mode": "0o644",
+            "path": "src/frontend/qt_sdl/main.cpp",
+            "sha256": "aefad229af3d94541fdd3199745c10818944f9ba4a7ab0b59c2cef4e48d92d2f"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/frontend/qt_sdl/retroachievements/resources/ra.qrc",
+            "sha256": "ee3307ca74d91d69828e9d597eb8314f516907e5bb91388782f718268305f9e5"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/frontend/qt_sdl/toast/BadgeCache.cpp",
+            "sha256": "6f5d22c2fad3f019411e0a10647bbe7849293d7655dc32ace1062745591ccc01"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/frontend/qt_sdl/toast/BadgeCache.h",
+            "sha256": "bb928ffc730319fd0cd0c0f519ac84ddfaec5d6e5b5075636b9ec930ec4fdd41"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/frontend/qt_sdl/toast/ToastManager.cpp",
+            "sha256": "8a7c42464b991b68af3a014ba87d962e57433b620b0f821ffac95e5f08de2a69"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/frontend/qt_sdl/toast/ToastManager.h",
+            "sha256": "3c10d24b0b2ee1b268266dde8163de856f5e174f276335a89567d3cfacf078e3"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/frontend/qt_sdl/toast/ToastOverlay.cpp",
+            "sha256": "b810c9aaa3c96d16d96cbb438b7a49ba84f96df86980ddd4f3ea012322f0355c"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/frontend/qt_sdl/toast/ToastOverlay.h",
+            "sha256": "1e5f9b3780ef7db487b73d96cc40002190cc5811eadc4d54a2c7794d7a742b9a"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/rcheevos/include/rc_api_editor.h",
+            "sha256": "c0787749fbe42f7a655e91e09f20c6cc6eeba234e5ea4e14243facf9dd9d1f32"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/rcheevos/include/rc_api_info.h",
+            "sha256": "891aeb46705930aff14cca8122643d7aa10036d4ebad6c2ec1a080e6f56c0f11"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/rcheevos/include/rc_api_request.h",
+            "sha256": "2d27109deb502ed447cb821815a04c30bec37b90b1016f805960efc056a2d9bc"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/rcheevos/include/rc_api_runtime.h",
+            "sha256": "32688333ba3923695fc568acf5580805158302de85da2fc078e590ed550409f8"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/rcheevos/include/rc_api_user.h",
+            "sha256": "12311f849a5fe23d35784ed0901e2b8cbee455d7cf8e0997e392c7ebc5df2ed0"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/rcheevos/include/rc_client.h",
+            "sha256": "8080a3173010a45d28097ca033e80d40345c14aedcab7d4e1ce1d048ba8fac31"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/rcheevos/include/rc_client_raintegration.h",
+            "sha256": "c0b32edf79bd12bb3dc0656e33dac078b32c30b9c7ec4ebfbed9f08a368bb143"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/rcheevos/include/rc_consoles.h",
+            "sha256": "9d2c9bd4223fdffbc3d9d4987120b16919bc6470a8eae8a8986c50bfe37329b8"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/rcheevos/include/rc_error.h",
+            "sha256": "f1135cc5059ad363051f399828be1fc63f437c68a0b628c945e3406e3b7430e3"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/rcheevos/include/rc_export.h",
+            "sha256": "9683f979bb152781677ffd952a68fdddcb5d951eb227e96a2d1f7fd0feb3be62"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/rcheevos/include/rc_hash.h",
+            "sha256": "b2eeb7eb928ed07094463eefd8111ecc69a2f8aeb04e63b23172dcf3663a271b"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/rcheevos/include/rc_runtime.h",
+            "sha256": "a3c5e73681844036bc9d343e82fbc0d79c8bb6b6c584044b200515ac025a3063"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/rcheevos/include/rc_runtime_types.h",
+            "sha256": "f7d63f647773e4dc251ae8dc577d15a329093715c3c8b5172fb5b652d099c416"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/rcheevos/include/rc_util.h",
+            "sha256": "12840744dcca64ffd2e5f0a1c92fca2e235236edd5a66d8787d1d26189254344"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/rcheevos/include/rcheevos.h",
+            "sha256": "0264f2a35a7f79f144263384d5378976c4c1062fa7477a281ed6fe2d64eba760"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/rcheevos/src/rapi/rc_api_common.c",
+            "sha256": "601d932f4152fb2f611c15633aef561c7df8458cddd3593b8e6e78fdfef9d493"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/rcheevos/src/rapi/rc_api_common.h",
+            "sha256": "1290e08bc41363431501ee1826c2d8b7406916d71887440d3921c475eb7cf4c0"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/rcheevos/src/rapi/rc_api_editor.c",
+            "sha256": "a6486980432bbb9f877f443b2c8c49ee706b960c5af93aaa33fd2b777ee8b615"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/rcheevos/src/rapi/rc_api_info.c",
+            "sha256": "ade89d5330b3df8006d2c90df77205954b0f64aa97f1ad8021043a4afdcdc8b7"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/rcheevos/src/rapi/rc_api_runtime.c",
+            "sha256": "161daf504087a0c218f6731fe93492a99c4d1844df79fa4038ce8d86799a4b72"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/rcheevos/src/rapi/rc_api_user.c",
+            "sha256": "9896c0b84b404973b21e395a4a7f82334b3418692f0c65e92000a605a5c31ce9"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/rcheevos/src/rc_client.c",
+            "sha256": "6b5e60713c3ec1f8ea3b0e4f7db32e52085390fc8fc7ffe72419f16784826ad2"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/rcheevos/src/rc_client_internal.h",
+            "sha256": "a7fa88dbad2cb390cf84a5b2697284c928ef74fd4438afa81e6e633cbd8aacd2"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/rcheevos/src/rc_compat.c",
+            "sha256": "22cbbc177b5507960f4e18072e972234502a858b62dcd7171b1d6170eda7a8b9"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/rcheevos/src/rc_compat.h",
+            "sha256": "55322453c31d888fa336a3232a44cbad896810288b93974de4e5a82d4f6476e0"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/rcheevos/src/rc_util.c",
+            "sha256": "20df7a41ae0cbb89187684254be071a3aafaf71175c3362646d0ddb2ff2e3456"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/rcheevos/src/rc_version.c",
+            "sha256": "210091300446cf20bcbfc8f80c747c543a5a99e143887cf6aff16ab5f5a245a3"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/rcheevos/src/rc_version.h",
+            "sha256": "4b2e2b6b36ee78700cd37bc908caf256a28acc8a1c4f59978d9b42f9b667512e"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/rcheevos/src/rcheevos/alloc.c",
+            "sha256": "ba03228d2a0b5722d4a94ea009d46000bda7410de832ee49f4f61b43c117a84c"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/rcheevos/src/rcheevos/condition.c",
+            "sha256": "4d12eb0c368f5b72b5655513dab7a048e2f0611330bba241e5c1b8813015746a"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/rcheevos/src/rcheevos/condset.c",
+            "sha256": "9ff9a1791f9b7ebb9ad16377e143b119f338ddd372d5de229aa93cf394a18ecd"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/rcheevos/src/rcheevos/consoleinfo.c",
+            "sha256": "adef7ea7e37807058de529b4134ce935b7620387ad120c32764dd59b051af6cd"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/rcheevos/src/rcheevos/format.c",
+            "sha256": "1deaa114504049b9f303b4a01087f1639ff7939e6729671b3677106e33f8c59d"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/rcheevos/src/rcheevos/lboard.c",
+            "sha256": "14d94ba718d3e694e4874bbcead3c32fb0141728ef4fe011646d266b9261249e"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/rcheevos/src/rcheevos/memref.c",
+            "sha256": "f37a0fa2d009b434c01047bda9bff8186e8587b9ad7322840c4ea8e6d3f44a37"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/rcheevos/src/rcheevos/operand.c",
+            "sha256": "199668e3f03da0fd1b46802e4bc6626108093317c8f58c2166a3a620fb44e926"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/rcheevos/src/rcheevos/rc_internal.h",
+            "sha256": "b9dbc03b1b1632db50b90f7dcea2a48e5646612826dcb5d35289437df273dddc"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/rcheevos/src/rcheevos/rc_validate.c",
+            "sha256": "49dc595f90fff68a4e5b803653fd98cace749f00706d013867fb6cab351ae1f6"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/rcheevos/src/rcheevos/rc_validate.h",
+            "sha256": "d3da5219ebf38d2c34008417b3415658997cb3b63ee26b859d4036fd3fff3191"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/rcheevos/src/rcheevos/richpresence.c",
+            "sha256": "53f163610c002bee454c9505c1e5a47c86250cb8a92c122d507900dbdd299b94"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/rcheevos/src/rcheevos/runtime.c",
+            "sha256": "1e6dba494d11348b2c929564b5bf1a01f7f4cb85202f4f242d97b9a6ab0e04ef"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/rcheevos/src/rcheevos/runtime_progress.c",
+            "sha256": "db4e3c340ad02fbfe66b7bcd2fc9be69f953c170a0dc01a39ef8fcd938a9bf6a"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/rcheevos/src/rcheevos/trigger.c",
+            "sha256": "fe38429dd6c0e18d2c27c1eb797c963d61f63130c6546a20e1f8d27ed8271ece"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/rcheevos/src/rcheevos/value.c",
+            "sha256": "1c9a02ab8eb103b8c98e411256bbb6d727fa6fbc929bd19874b19b683b411ca3"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/rcheevos/src/rhash/aes.h",
+            "sha256": "cf769a50604be6d7a8d940675131c44ce834356ddf090419ae68abb2996b1f68"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/rcheevos/src/rhash/cdreader.c",
+            "sha256": "e70f231222b72cbb5b11c37d08e2e498c4f630fbe687dc1b6a96addf471208c5"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/rcheevos/src/rhash/hash.c",
+            "sha256": "66ab71c525ddb155d87fb5e276f8cb12e2f09523578637eb5ec2c2546b0e2d34"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/rcheevos/src/rhash/hash_disc.c",
+            "sha256": "725036c9326929b704662ad8abe99f5b3655922bb2b35c2e06d7d487cfd5d2d1"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/rcheevos/src/rhash/hash_encrypted.c",
+            "sha256": "5d92d63fd5a6ec227583e8cbc2203ea4170d48c412c367ea7ffae0741866e521"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/rcheevos/src/rhash/hash_rom.c",
+            "sha256": "31b46fedd44b1ddd4ff076ba85c86124214e757f2b7dfc860cad41e5734b175e"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/rcheevos/src/rhash/hash_zip.c",
+            "sha256": "136ee295a3d3e747b9703c3c272b05685afd70e20b0221bdc0ff585cb833cfa2"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/rcheevos/src/rhash/md5.c",
+            "sha256": "fd38ee6a43316007d4aa816f23c24a8355c58df106b4c54e43ec44afc55df521"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/rcheevos/src/rhash/md5.h",
+            "sha256": "8341e2a307d7cfaeb816b261d92ce87a07be62e3eb58c98d2c769e75a6e2b959"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/rcheevos/src/rhash/rc_hash_internal.h",
+            "sha256": "86479fbaceaa463792d726000618382138025b8102a117ec74c52329318a7884"
+          }
+        ],
+        "sha256": "66e434ab8d27d42b0e31f7057d47dd478277b4e06f2377bf194617ecf669e6ad"
+      },
+      "device": "SM8550",
+      "diagnostic": {
+        "argv": [
+          "patch",
+          "--dry-run",
+          "-p1",
+          "-N",
+          "--batch"
+        ],
+        "cwd": "/workspace/tmp/m6-t42/G368/diagnostic-2",
+        "elapsed_s": 0.000891129020601511,
+        "locale": "C",
+        "rc": 0,
+        "stderr": "stage-b/application/G368-2-diagnostic.stderr",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout": "stage-b/application/G368-2-diagnostic.stdout",
+        "stdout_sha256": "61f2c2544e77da5e5a9cb3c8687a1b544095a8843ecdd15e587c0915ba4b06a7",
+        "utc": "2026-11-02T19:11:46.067686+00:00"
+      },
+      "invoked": true,
+      "literal_sha256": "ed6ece95a3a24ef3aae19979d77ecf9d8e9e1605d66728aa96d09d7c7df70ab2",
+      "normal": {
+        "argv": [
+          "patch",
+          "-p1",
+          "-N",
+          "--batch"
+        ],
+        "cwd": "/workspace/tmp/m6-t42/G368/candidate-2",
+        "elapsed_s": 0.0018016020185314119,
+        "locale": "C",
+        "rc": 0,
+        "stderr": "stage-b/application/G368-2-normal.stderr",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout": "stage-b/application/G368-2-normal.stdout",
+        "stdout_sha256": "617aa95b953346866584bdbfddf9be08eed72b39fb51c60cd560a187b55fb3de",
+        "utc": "2026-11-02T19:11:46.068623+00:00"
+      },
+      "order": 2,
+      "patch_sha256": "ed6ece95a3a24ef3aae19979d77ecf9d8e9e1605d66728aa96d09d7c7df70ab2",
+      "path": "projects/ROCKNIX/packages/emulators/standalone/melonds-sa/patches/001-default-config.patch",
+      "promoted": true,
+      "referent": "projects/ROCKNIX/packages/emulators/standalone/melonds-sa/patches/001-default-config.patch",
+      "rendered_sha256": "ed6ece95a3a24ef3aae19979d77ecf9d8e9e1605d66728aa96d09d7c7df70ab2",
+      "status": "applies",
+      "target_cpu": "unused: no @TARGET_CPU@ token"
+    },
+    {
+      "after": {
+        "files": [
+          {
+            "mode": "0o644",
+            "path": "src/CMakeLists.txt",
+            "sha256": "9eb96267f64a062f9982a9bfa6e485fe1029ed8b3e69d9ded62e0759cbf350b0"
+          },
+          {
+            "mode": "0o644",
+            "path": "src/NDS.cpp",
+            "sha256": "88dae13579dde0a5b63b05b072dabce6769b90f0d87f6fe597a34e09d752ff9d"
+          },
+          {
+            "mode": "0o644",
+            "path": "src/NDS.h",
+            "sha256": "1d67c2663356bc26e625756a143023dfa0780e77e7786dc20bd50a90c10f2838"
+          },
+          {
+            "mode": "0o644",
+            "path": "src/NDSCart/CartCommon.cpp",
+            "sha256": "e80cdd0a709b8ef8fc0b6e31e23607c0afc9b9c26e5751fc569704522fd0eb44"
+          },
+          {
+            "mode": "0o644",
+            "path": "src/NDSCart/CartCommon.h",
+            "sha256": "94591ff29fcbada653186533b289a76dbe23b9de00eee569370f095351d24f46"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/RetroAchievements/RAClient.cpp",
+            "sha256": "e8577c46f3e8543cba98131fd074f8e120eec25b9613cb650afddaf28ddcdd26"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/RetroAchievements/RAClient.h",
+            "sha256": "0b24f09c0383119fbbe3b23515691cacf66920d3f7ea3124e2e049031d09c2b4"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/RetroAchievements/cacert.c",
+            "sha256": "cb04f86dd19c7f68bd0b701fcab6ef8c8c0bf867b58b0b832deaa23d16facb99"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/frontend/qt_sdl/AchievementItemWidget.cpp",
+            "sha256": "81664f238e735b84318411839ce73b6bda939734e663cac2613162d9f702d690"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/frontend/qt_sdl/AchievementItemWidget.h",
+            "sha256": "224820aaea6136b1afab2ddcf47d58ed752c7458c4882c781c9723d75892f04e"
+          },
+          {
+            "mode": "0o644",
+            "path": "src/frontend/qt_sdl/CMakeLists.txt",
+            "sha256": "39c99567f0eae4539d751be54e7bc2b542a9688679a26abacd7ab3fa2cb385a6"
+          },
+          {
+            "mode": "0o644",
+            "path": "src/frontend/qt_sdl/Config.cpp",
+            "sha256": "5d349af244e796e3908065823aef63529f5b288b4da661371439463960cc3493"
+          },
+          {
+            "mode": "0o644",
+            "path": "src/frontend/qt_sdl/Config.cpp.orig",
+            "sha256": "2b0ef68c03dd0fbcc08a3ff6c288656e9d108d5d3e4b52c1a3c04b19ceaaef21"
+          },
+          {
+            "mode": "0o644",
+            "path": "src/frontend/qt_sdl/Config.h",
+            "sha256": "7a3fb2871551f0a9d1fc839ae2ad8ce245549d2ffe06a80ef2d4ee8e56bfb162"
+          },
+          {
+            "mode": "0o755",
+            "path": "src/frontend/qt_sdl/EmuInstance.cpp",
+            "sha256": "239c58bc298e688b41c8ea1c14a386d9ed3b9c19802b85767fd776f196d9b295"
+          },
+          {
+            "mode": "0o755",
+            "path": "src/frontend/qt_sdl/EmuInstance.h",
+            "sha256": "56b787b058771e1bb87ffa936653bb61d849c5245c94d033ce929573dc216b2a"
+          },
+          {
+            "mode": "0o644",
+            "path": "src/frontend/qt_sdl/EmuInstanceInput.cpp",
+            "sha256": "7d59989bc536a8ebabb55078e2243769f2f7fdfc2c3a7f5f0b120adde5043d54"
+          },
+          {
+            "mode": "0o755",
+            "path": "src/frontend/qt_sdl/EmuThread.cpp",
+            "sha256": "8f710b9b8075e6207a1567fb2aba3ae740c00cf88522bb960a48ee3643d3844a"
+          },
+          {
+            "mode": "0o755",
+            "path": "src/frontend/qt_sdl/EmuThread.h",
+            "sha256": "80f0a1a93e6745c3b11b6ebc4060b1b2254ad76dbcda8231176445b8cec5164e"
+          },
+          {
+            "mode": "0o644",
+            "path": "src/frontend/qt_sdl/InputConfig/InputConfigDialog.h",
+            "sha256": "bfa2ca8b8cf5aa659fa9d63941f435bb77435c313f8b396baa01786fe7be0513"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/frontend/qt_sdl/RAOverlayWidget.cpp",
+            "sha256": "1bf4e8147acecc7632dffa1439aaccf21bbd434618996d47b134491f6a0ddbe0"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/frontend/qt_sdl/RAOverlayWidget.h",
+            "sha256": "0d3e0c3797b48104735937228e3d36b295abb761614afa2782ed7f5fa86022cc"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/frontend/qt_sdl/RASettingsDialog.cpp",
+            "sha256": "588033fe37ee070953c71740b09d236695d8b9ec623e07990aeb2b28610f212e"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/frontend/qt_sdl/RASettingsDialog.h",
+            "sha256": "261fc69463d893f248c78690f5932f544149f720a914c33b880a13fe7064c159"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/frontend/qt_sdl/RASettingsDialog.ui",
+            "sha256": "727ac17fc255cff5f9326ee86b68351d9000665a4d287a7ee2f61f5303472c68"
+          },
+          {
+            "mode": "0o755",
+            "path": "src/frontend/qt_sdl/Window.cpp",
+            "sha256": "75df5188af883d5ca6ce4d5480c7571bbd654b3cb10ae2ecd2a95ec3d2f4db2d"
+          },
+          {
+            "mode": "0o755",
+            "path": "src/frontend/qt_sdl/Window.h",
+            "sha256": "1f581869b0d9da88a055794a5adf3c8879c7a20c539f6b80c2fed8f0bfd5c86c"
+          },
+          {
+            "mode": "0o644",
+            "path": "src/frontend/qt_sdl/main.cpp",
+            "sha256": "7b3dd8d7a8ec0bf80fe2ccb8798d17419de429e13103439aff5535230897641f"
+          },
+          {
+            "mode": "0o644",
+            "path": "src/frontend/qt_sdl/main.cpp.orig",
+            "sha256": "aefad229af3d94541fdd3199745c10818944f9ba4a7ab0b59c2cef4e48d92d2f"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/frontend/qt_sdl/retroachievements/resources/ra.qrc",
+            "sha256": "ee3307ca74d91d69828e9d597eb8314f516907e5bb91388782f718268305f9e5"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/frontend/qt_sdl/toast/BadgeCache.cpp",
+            "sha256": "6f5d22c2fad3f019411e0a10647bbe7849293d7655dc32ace1062745591ccc01"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/frontend/qt_sdl/toast/BadgeCache.h",
+            "sha256": "bb928ffc730319fd0cd0c0f519ac84ddfaec5d6e5b5075636b9ec930ec4fdd41"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/frontend/qt_sdl/toast/ToastManager.cpp",
+            "sha256": "8a7c42464b991b68af3a014ba87d962e57433b620b0f821ffac95e5f08de2a69"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/frontend/qt_sdl/toast/ToastManager.h",
+            "sha256": "3c10d24b0b2ee1b268266dde8163de856f5e174f276335a89567d3cfacf078e3"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/frontend/qt_sdl/toast/ToastOverlay.cpp",
+            "sha256": "b810c9aaa3c96d16d96cbb438b7a49ba84f96df86980ddd4f3ea012322f0355c"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/frontend/qt_sdl/toast/ToastOverlay.h",
+            "sha256": "1e5f9b3780ef7db487b73d96cc40002190cc5811eadc4d54a2c7794d7a742b9a"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/rcheevos/include/rc_api_editor.h",
+            "sha256": "c0787749fbe42f7a655e91e09f20c6cc6eeba234e5ea4e14243facf9dd9d1f32"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/rcheevos/include/rc_api_info.h",
+            "sha256": "891aeb46705930aff14cca8122643d7aa10036d4ebad6c2ec1a080e6f56c0f11"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/rcheevos/include/rc_api_request.h",
+            "sha256": "2d27109deb502ed447cb821815a04c30bec37b90b1016f805960efc056a2d9bc"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/rcheevos/include/rc_api_runtime.h",
+            "sha256": "32688333ba3923695fc568acf5580805158302de85da2fc078e590ed550409f8"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/rcheevos/include/rc_api_user.h",
+            "sha256": "12311f849a5fe23d35784ed0901e2b8cbee455d7cf8e0997e392c7ebc5df2ed0"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/rcheevos/include/rc_client.h",
+            "sha256": "8080a3173010a45d28097ca033e80d40345c14aedcab7d4e1ce1d048ba8fac31"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/rcheevos/include/rc_client_raintegration.h",
+            "sha256": "c0b32edf79bd12bb3dc0656e33dac078b32c30b9c7ec4ebfbed9f08a368bb143"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/rcheevos/include/rc_consoles.h",
+            "sha256": "9d2c9bd4223fdffbc3d9d4987120b16919bc6470a8eae8a8986c50bfe37329b8"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/rcheevos/include/rc_error.h",
+            "sha256": "f1135cc5059ad363051f399828be1fc63f437c68a0b628c945e3406e3b7430e3"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/rcheevos/include/rc_export.h",
+            "sha256": "9683f979bb152781677ffd952a68fdddcb5d951eb227e96a2d1f7fd0feb3be62"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/rcheevos/include/rc_hash.h",
+            "sha256": "b2eeb7eb928ed07094463eefd8111ecc69a2f8aeb04e63b23172dcf3663a271b"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/rcheevos/include/rc_runtime.h",
+            "sha256": "a3c5e73681844036bc9d343e82fbc0d79c8bb6b6c584044b200515ac025a3063"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/rcheevos/include/rc_runtime_types.h",
+            "sha256": "f7d63f647773e4dc251ae8dc577d15a329093715c3c8b5172fb5b652d099c416"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/rcheevos/include/rc_util.h",
+            "sha256": "12840744dcca64ffd2e5f0a1c92fca2e235236edd5a66d8787d1d26189254344"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/rcheevos/include/rcheevos.h",
+            "sha256": "0264f2a35a7f79f144263384d5378976c4c1062fa7477a281ed6fe2d64eba760"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/rcheevos/src/rapi/rc_api_common.c",
+            "sha256": "601d932f4152fb2f611c15633aef561c7df8458cddd3593b8e6e78fdfef9d493"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/rcheevos/src/rapi/rc_api_common.h",
+            "sha256": "1290e08bc41363431501ee1826c2d8b7406916d71887440d3921c475eb7cf4c0"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/rcheevos/src/rapi/rc_api_editor.c",
+            "sha256": "a6486980432bbb9f877f443b2c8c49ee706b960c5af93aaa33fd2b777ee8b615"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/rcheevos/src/rapi/rc_api_info.c",
+            "sha256": "ade89d5330b3df8006d2c90df77205954b0f64aa97f1ad8021043a4afdcdc8b7"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/rcheevos/src/rapi/rc_api_runtime.c",
+            "sha256": "161daf504087a0c218f6731fe93492a99c4d1844df79fa4038ce8d86799a4b72"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/rcheevos/src/rapi/rc_api_user.c",
+            "sha256": "9896c0b84b404973b21e395a4a7f82334b3418692f0c65e92000a605a5c31ce9"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/rcheevos/src/rc_client.c",
+            "sha256": "6b5e60713c3ec1f8ea3b0e4f7db32e52085390fc8fc7ffe72419f16784826ad2"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/rcheevos/src/rc_client_internal.h",
+            "sha256": "a7fa88dbad2cb390cf84a5b2697284c928ef74fd4438afa81e6e633cbd8aacd2"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/rcheevos/src/rc_compat.c",
+            "sha256": "22cbbc177b5507960f4e18072e972234502a858b62dcd7171b1d6170eda7a8b9"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/rcheevos/src/rc_compat.h",
+            "sha256": "55322453c31d888fa336a3232a44cbad896810288b93974de4e5a82d4f6476e0"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/rcheevos/src/rc_util.c",
+            "sha256": "20df7a41ae0cbb89187684254be071a3aafaf71175c3362646d0ddb2ff2e3456"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/rcheevos/src/rc_version.c",
+            "sha256": "210091300446cf20bcbfc8f80c747c543a5a99e143887cf6aff16ab5f5a245a3"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/rcheevos/src/rc_version.h",
+            "sha256": "4b2e2b6b36ee78700cd37bc908caf256a28acc8a1c4f59978d9b42f9b667512e"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/rcheevos/src/rcheevos/alloc.c",
+            "sha256": "ba03228d2a0b5722d4a94ea009d46000bda7410de832ee49f4f61b43c117a84c"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/rcheevos/src/rcheevos/condition.c",
+            "sha256": "4d12eb0c368f5b72b5655513dab7a048e2f0611330bba241e5c1b8813015746a"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/rcheevos/src/rcheevos/condset.c",
+            "sha256": "9ff9a1791f9b7ebb9ad16377e143b119f338ddd372d5de229aa93cf394a18ecd"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/rcheevos/src/rcheevos/consoleinfo.c",
+            "sha256": "adef7ea7e37807058de529b4134ce935b7620387ad120c32764dd59b051af6cd"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/rcheevos/src/rcheevos/format.c",
+            "sha256": "1deaa114504049b9f303b4a01087f1639ff7939e6729671b3677106e33f8c59d"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/rcheevos/src/rcheevos/lboard.c",
+            "sha256": "14d94ba718d3e694e4874bbcead3c32fb0141728ef4fe011646d266b9261249e"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/rcheevos/src/rcheevos/memref.c",
+            "sha256": "f37a0fa2d009b434c01047bda9bff8186e8587b9ad7322840c4ea8e6d3f44a37"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/rcheevos/src/rcheevos/operand.c",
+            "sha256": "199668e3f03da0fd1b46802e4bc6626108093317c8f58c2166a3a620fb44e926"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/rcheevos/src/rcheevos/rc_internal.h",
+            "sha256": "b9dbc03b1b1632db50b90f7dcea2a48e5646612826dcb5d35289437df273dddc"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/rcheevos/src/rcheevos/rc_validate.c",
+            "sha256": "49dc595f90fff68a4e5b803653fd98cace749f00706d013867fb6cab351ae1f6"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/rcheevos/src/rcheevos/rc_validate.h",
+            "sha256": "d3da5219ebf38d2c34008417b3415658997cb3b63ee26b859d4036fd3fff3191"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/rcheevos/src/rcheevos/richpresence.c",
+            "sha256": "53f163610c002bee454c9505c1e5a47c86250cb8a92c122d507900dbdd299b94"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/rcheevos/src/rcheevos/runtime.c",
+            "sha256": "1e6dba494d11348b2c929564b5bf1a01f7f4cb85202f4f242d97b9a6ab0e04ef"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/rcheevos/src/rcheevos/runtime_progress.c",
+            "sha256": "db4e3c340ad02fbfe66b7bcd2fc9be69f953c170a0dc01a39ef8fcd938a9bf6a"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/rcheevos/src/rcheevos/trigger.c",
+            "sha256": "fe38429dd6c0e18d2c27c1eb797c963d61f63130c6546a20e1f8d27ed8271ece"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/rcheevos/src/rcheevos/value.c",
+            "sha256": "1c9a02ab8eb103b8c98e411256bbb6d727fa6fbc929bd19874b19b683b411ca3"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/rcheevos/src/rhash/aes.h",
+            "sha256": "cf769a50604be6d7a8d940675131c44ce834356ddf090419ae68abb2996b1f68"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/rcheevos/src/rhash/cdreader.c",
+            "sha256": "e70f231222b72cbb5b11c37d08e2e498c4f630fbe687dc1b6a96addf471208c5"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/rcheevos/src/rhash/hash.c",
+            "sha256": "66ab71c525ddb155d87fb5e276f8cb12e2f09523578637eb5ec2c2546b0e2d34"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/rcheevos/src/rhash/hash_disc.c",
+            "sha256": "725036c9326929b704662ad8abe99f5b3655922bb2b35c2e06d7d487cfd5d2d1"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/rcheevos/src/rhash/hash_encrypted.c",
+            "sha256": "5d92d63fd5a6ec227583e8cbc2203ea4170d48c412c367ea7ffae0741866e521"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/rcheevos/src/rhash/hash_rom.c",
+            "sha256": "31b46fedd44b1ddd4ff076ba85c86124214e757f2b7dfc860cad41e5734b175e"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/rcheevos/src/rhash/hash_zip.c",
+            "sha256": "136ee295a3d3e747b9703c3c272b05685afd70e20b0221bdc0ff585cb833cfa2"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/rcheevos/src/rhash/md5.c",
+            "sha256": "fd38ee6a43316007d4aa816f23c24a8355c58df106b4c54e43ec44afc55df521"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/rcheevos/src/rhash/md5.h",
+            "sha256": "8341e2a307d7cfaeb816b261d92ce87a07be62e3eb58c98d2c769e75a6e2b959"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/rcheevos/src/rhash/rc_hash_internal.h",
+            "sha256": "86479fbaceaa463792d726000618382138025b8102a117ec74c52329318a7884"
+          }
+        ],
+        "sha256": "783969c9bc479ba2ce05e64aa49fb1e3bce65cbfe291270f8e2d4643a9022df5"
+      },
+      "backend": "patch",
+      "before": {
+        "files": [
+          {
+            "mode": "0o644",
+            "path": "src/CMakeLists.txt",
+            "sha256": "9eb96267f64a062f9982a9bfa6e485fe1029ed8b3e69d9ded62e0759cbf350b0"
+          },
+          {
+            "mode": "0o644",
+            "path": "src/NDS.cpp",
+            "sha256": "88dae13579dde0a5b63b05b072dabce6769b90f0d87f6fe597a34e09d752ff9d"
+          },
+          {
+            "mode": "0o644",
+            "path": "src/NDS.h",
+            "sha256": "1d67c2663356bc26e625756a143023dfa0780e77e7786dc20bd50a90c10f2838"
+          },
+          {
+            "mode": "0o644",
+            "path": "src/NDSCart/CartCommon.cpp",
+            "sha256": "e80cdd0a709b8ef8fc0b6e31e23607c0afc9b9c26e5751fc569704522fd0eb44"
+          },
+          {
+            "mode": "0o644",
+            "path": "src/NDSCart/CartCommon.h",
+            "sha256": "94591ff29fcbada653186533b289a76dbe23b9de00eee569370f095351d24f46"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/RetroAchievements/RAClient.cpp",
+            "sha256": "e8577c46f3e8543cba98131fd074f8e120eec25b9613cb650afddaf28ddcdd26"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/RetroAchievements/RAClient.h",
+            "sha256": "0b24f09c0383119fbbe3b23515691cacf66920d3f7ea3124e2e049031d09c2b4"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/RetroAchievements/cacert.c",
+            "sha256": "cb04f86dd19c7f68bd0b701fcab6ef8c8c0bf867b58b0b832deaa23d16facb99"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/frontend/qt_sdl/AchievementItemWidget.cpp",
+            "sha256": "81664f238e735b84318411839ce73b6bda939734e663cac2613162d9f702d690"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/frontend/qt_sdl/AchievementItemWidget.h",
+            "sha256": "224820aaea6136b1afab2ddcf47d58ed752c7458c4882c781c9723d75892f04e"
+          },
+          {
+            "mode": "0o644",
+            "path": "src/frontend/qt_sdl/CMakeLists.txt",
+            "sha256": "39c99567f0eae4539d751be54e7bc2b542a9688679a26abacd7ab3fa2cb385a6"
+          },
+          {
+            "mode": "0o644",
+            "path": "src/frontend/qt_sdl/Config.cpp",
+            "sha256": "2b0ef68c03dd0fbcc08a3ff6c288656e9d108d5d3e4b52c1a3c04b19ceaaef21"
+          },
+          {
+            "mode": "0o644",
+            "path": "src/frontend/qt_sdl/Config.h",
+            "sha256": "7a3fb2871551f0a9d1fc839ae2ad8ce245549d2ffe06a80ef2d4ee8e56bfb162"
+          },
+          {
+            "mode": "0o755",
+            "path": "src/frontend/qt_sdl/EmuInstance.cpp",
+            "sha256": "239c58bc298e688b41c8ea1c14a386d9ed3b9c19802b85767fd776f196d9b295"
+          },
+          {
+            "mode": "0o755",
+            "path": "src/frontend/qt_sdl/EmuInstance.h",
+            "sha256": "56b787b058771e1bb87ffa936653bb61d849c5245c94d033ce929573dc216b2a"
+          },
+          {
+            "mode": "0o644",
+            "path": "src/frontend/qt_sdl/EmuInstanceInput.cpp",
+            "sha256": "7d59989bc536a8ebabb55078e2243769f2f7fdfc2c3a7f5f0b120adde5043d54"
+          },
+          {
+            "mode": "0o755",
+            "path": "src/frontend/qt_sdl/EmuThread.cpp",
+            "sha256": "8f710b9b8075e6207a1567fb2aba3ae740c00cf88522bb960a48ee3643d3844a"
+          },
+          {
+            "mode": "0o755",
+            "path": "src/frontend/qt_sdl/EmuThread.h",
+            "sha256": "80f0a1a93e6745c3b11b6ebc4060b1b2254ad76dbcda8231176445b8cec5164e"
+          },
+          {
+            "mode": "0o644",
+            "path": "src/frontend/qt_sdl/InputConfig/InputConfigDialog.h",
+            "sha256": "bfa2ca8b8cf5aa659fa9d63941f435bb77435c313f8b396baa01786fe7be0513"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/frontend/qt_sdl/RAOverlayWidget.cpp",
+            "sha256": "1bf4e8147acecc7632dffa1439aaccf21bbd434618996d47b134491f6a0ddbe0"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/frontend/qt_sdl/RAOverlayWidget.h",
+            "sha256": "0d3e0c3797b48104735937228e3d36b295abb761614afa2782ed7f5fa86022cc"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/frontend/qt_sdl/RASettingsDialog.cpp",
+            "sha256": "588033fe37ee070953c71740b09d236695d8b9ec623e07990aeb2b28610f212e"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/frontend/qt_sdl/RASettingsDialog.h",
+            "sha256": "261fc69463d893f248c78690f5932f544149f720a914c33b880a13fe7064c159"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/frontend/qt_sdl/RASettingsDialog.ui",
+            "sha256": "727ac17fc255cff5f9326ee86b68351d9000665a4d287a7ee2f61f5303472c68"
+          },
+          {
+            "mode": "0o755",
+            "path": "src/frontend/qt_sdl/Window.cpp",
+            "sha256": "75df5188af883d5ca6ce4d5480c7571bbd654b3cb10ae2ecd2a95ec3d2f4db2d"
+          },
+          {
+            "mode": "0o755",
+            "path": "src/frontend/qt_sdl/Window.h",
+            "sha256": "1f581869b0d9da88a055794a5adf3c8879c7a20c539f6b80c2fed8f0bfd5c86c"
+          },
+          {
+            "mode": "0o644",
+            "path": "src/frontend/qt_sdl/main.cpp",
+            "sha256": "aefad229af3d94541fdd3199745c10818944f9ba4a7ab0b59c2cef4e48d92d2f"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/frontend/qt_sdl/retroachievements/resources/ra.qrc",
+            "sha256": "ee3307ca74d91d69828e9d597eb8314f516907e5bb91388782f718268305f9e5"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/frontend/qt_sdl/toast/BadgeCache.cpp",
+            "sha256": "6f5d22c2fad3f019411e0a10647bbe7849293d7655dc32ace1062745591ccc01"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/frontend/qt_sdl/toast/BadgeCache.h",
+            "sha256": "bb928ffc730319fd0cd0c0f519ac84ddfaec5d6e5b5075636b9ec930ec4fdd41"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/frontend/qt_sdl/toast/ToastManager.cpp",
+            "sha256": "8a7c42464b991b68af3a014ba87d962e57433b620b0f821ffac95e5f08de2a69"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/frontend/qt_sdl/toast/ToastManager.h",
+            "sha256": "3c10d24b0b2ee1b268266dde8163de856f5e174f276335a89567d3cfacf078e3"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/frontend/qt_sdl/toast/ToastOverlay.cpp",
+            "sha256": "b810c9aaa3c96d16d96cbb438b7a49ba84f96df86980ddd4f3ea012322f0355c"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/frontend/qt_sdl/toast/ToastOverlay.h",
+            "sha256": "1e5f9b3780ef7db487b73d96cc40002190cc5811eadc4d54a2c7794d7a742b9a"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/rcheevos/include/rc_api_editor.h",
+            "sha256": "c0787749fbe42f7a655e91e09f20c6cc6eeba234e5ea4e14243facf9dd9d1f32"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/rcheevos/include/rc_api_info.h",
+            "sha256": "891aeb46705930aff14cca8122643d7aa10036d4ebad6c2ec1a080e6f56c0f11"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/rcheevos/include/rc_api_request.h",
+            "sha256": "2d27109deb502ed447cb821815a04c30bec37b90b1016f805960efc056a2d9bc"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/rcheevos/include/rc_api_runtime.h",
+            "sha256": "32688333ba3923695fc568acf5580805158302de85da2fc078e590ed550409f8"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/rcheevos/include/rc_api_user.h",
+            "sha256": "12311f849a5fe23d35784ed0901e2b8cbee455d7cf8e0997e392c7ebc5df2ed0"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/rcheevos/include/rc_client.h",
+            "sha256": "8080a3173010a45d28097ca033e80d40345c14aedcab7d4e1ce1d048ba8fac31"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/rcheevos/include/rc_client_raintegration.h",
+            "sha256": "c0b32edf79bd12bb3dc0656e33dac078b32c30b9c7ec4ebfbed9f08a368bb143"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/rcheevos/include/rc_consoles.h",
+            "sha256": "9d2c9bd4223fdffbc3d9d4987120b16919bc6470a8eae8a8986c50bfe37329b8"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/rcheevos/include/rc_error.h",
+            "sha256": "f1135cc5059ad363051f399828be1fc63f437c68a0b628c945e3406e3b7430e3"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/rcheevos/include/rc_export.h",
+            "sha256": "9683f979bb152781677ffd952a68fdddcb5d951eb227e96a2d1f7fd0feb3be62"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/rcheevos/include/rc_hash.h",
+            "sha256": "b2eeb7eb928ed07094463eefd8111ecc69a2f8aeb04e63b23172dcf3663a271b"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/rcheevos/include/rc_runtime.h",
+            "sha256": "a3c5e73681844036bc9d343e82fbc0d79c8bb6b6c584044b200515ac025a3063"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/rcheevos/include/rc_runtime_types.h",
+            "sha256": "f7d63f647773e4dc251ae8dc577d15a329093715c3c8b5172fb5b652d099c416"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/rcheevos/include/rc_util.h",
+            "sha256": "12840744dcca64ffd2e5f0a1c92fca2e235236edd5a66d8787d1d26189254344"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/rcheevos/include/rcheevos.h",
+            "sha256": "0264f2a35a7f79f144263384d5378976c4c1062fa7477a281ed6fe2d64eba760"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/rcheevos/src/rapi/rc_api_common.c",
+            "sha256": "601d932f4152fb2f611c15633aef561c7df8458cddd3593b8e6e78fdfef9d493"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/rcheevos/src/rapi/rc_api_common.h",
+            "sha256": "1290e08bc41363431501ee1826c2d8b7406916d71887440d3921c475eb7cf4c0"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/rcheevos/src/rapi/rc_api_editor.c",
+            "sha256": "a6486980432bbb9f877f443b2c8c49ee706b960c5af93aaa33fd2b777ee8b615"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/rcheevos/src/rapi/rc_api_info.c",
+            "sha256": "ade89d5330b3df8006d2c90df77205954b0f64aa97f1ad8021043a4afdcdc8b7"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/rcheevos/src/rapi/rc_api_runtime.c",
+            "sha256": "161daf504087a0c218f6731fe93492a99c4d1844df79fa4038ce8d86799a4b72"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/rcheevos/src/rapi/rc_api_user.c",
+            "sha256": "9896c0b84b404973b21e395a4a7f82334b3418692f0c65e92000a605a5c31ce9"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/rcheevos/src/rc_client.c",
+            "sha256": "6b5e60713c3ec1f8ea3b0e4f7db32e52085390fc8fc7ffe72419f16784826ad2"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/rcheevos/src/rc_client_internal.h",
+            "sha256": "a7fa88dbad2cb390cf84a5b2697284c928ef74fd4438afa81e6e633cbd8aacd2"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/rcheevos/src/rc_compat.c",
+            "sha256": "22cbbc177b5507960f4e18072e972234502a858b62dcd7171b1d6170eda7a8b9"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/rcheevos/src/rc_compat.h",
+            "sha256": "55322453c31d888fa336a3232a44cbad896810288b93974de4e5a82d4f6476e0"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/rcheevos/src/rc_util.c",
+            "sha256": "20df7a41ae0cbb89187684254be071a3aafaf71175c3362646d0ddb2ff2e3456"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/rcheevos/src/rc_version.c",
+            "sha256": "210091300446cf20bcbfc8f80c747c543a5a99e143887cf6aff16ab5f5a245a3"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/rcheevos/src/rc_version.h",
+            "sha256": "4b2e2b6b36ee78700cd37bc908caf256a28acc8a1c4f59978d9b42f9b667512e"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/rcheevos/src/rcheevos/alloc.c",
+            "sha256": "ba03228d2a0b5722d4a94ea009d46000bda7410de832ee49f4f61b43c117a84c"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/rcheevos/src/rcheevos/condition.c",
+            "sha256": "4d12eb0c368f5b72b5655513dab7a048e2f0611330bba241e5c1b8813015746a"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/rcheevos/src/rcheevos/condset.c",
+            "sha256": "9ff9a1791f9b7ebb9ad16377e143b119f338ddd372d5de229aa93cf394a18ecd"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/rcheevos/src/rcheevos/consoleinfo.c",
+            "sha256": "adef7ea7e37807058de529b4134ce935b7620387ad120c32764dd59b051af6cd"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/rcheevos/src/rcheevos/format.c",
+            "sha256": "1deaa114504049b9f303b4a01087f1639ff7939e6729671b3677106e33f8c59d"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/rcheevos/src/rcheevos/lboard.c",
+            "sha256": "14d94ba718d3e694e4874bbcead3c32fb0141728ef4fe011646d266b9261249e"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/rcheevos/src/rcheevos/memref.c",
+            "sha256": "f37a0fa2d009b434c01047bda9bff8186e8587b9ad7322840c4ea8e6d3f44a37"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/rcheevos/src/rcheevos/operand.c",
+            "sha256": "199668e3f03da0fd1b46802e4bc6626108093317c8f58c2166a3a620fb44e926"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/rcheevos/src/rcheevos/rc_internal.h",
+            "sha256": "b9dbc03b1b1632db50b90f7dcea2a48e5646612826dcb5d35289437df273dddc"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/rcheevos/src/rcheevos/rc_validate.c",
+            "sha256": "49dc595f90fff68a4e5b803653fd98cace749f00706d013867fb6cab351ae1f6"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/rcheevos/src/rcheevos/rc_validate.h",
+            "sha256": "d3da5219ebf38d2c34008417b3415658997cb3b63ee26b859d4036fd3fff3191"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/rcheevos/src/rcheevos/richpresence.c",
+            "sha256": "53f163610c002bee454c9505c1e5a47c86250cb8a92c122d507900dbdd299b94"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/rcheevos/src/rcheevos/runtime.c",
+            "sha256": "1e6dba494d11348b2c929564b5bf1a01f7f4cb85202f4f242d97b9a6ab0e04ef"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/rcheevos/src/rcheevos/runtime_progress.c",
+            "sha256": "db4e3c340ad02fbfe66b7bcd2fc9be69f953c170a0dc01a39ef8fcd938a9bf6a"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/rcheevos/src/rcheevos/trigger.c",
+            "sha256": "fe38429dd6c0e18d2c27c1eb797c963d61f63130c6546a20e1f8d27ed8271ece"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/rcheevos/src/rcheevos/value.c",
+            "sha256": "1c9a02ab8eb103b8c98e411256bbb6d727fa6fbc929bd19874b19b683b411ca3"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/rcheevos/src/rhash/aes.h",
+            "sha256": "cf769a50604be6d7a8d940675131c44ce834356ddf090419ae68abb2996b1f68"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/rcheevos/src/rhash/cdreader.c",
+            "sha256": "e70f231222b72cbb5b11c37d08e2e498c4f630fbe687dc1b6a96addf471208c5"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/rcheevos/src/rhash/hash.c",
+            "sha256": "66ab71c525ddb155d87fb5e276f8cb12e2f09523578637eb5ec2c2546b0e2d34"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/rcheevos/src/rhash/hash_disc.c",
+            "sha256": "725036c9326929b704662ad8abe99f5b3655922bb2b35c2e06d7d487cfd5d2d1"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/rcheevos/src/rhash/hash_encrypted.c",
+            "sha256": "5d92d63fd5a6ec227583e8cbc2203ea4170d48c412c367ea7ffae0741866e521"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/rcheevos/src/rhash/hash_rom.c",
+            "sha256": "31b46fedd44b1ddd4ff076ba85c86124214e757f2b7dfc860cad41e5734b175e"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/rcheevos/src/rhash/hash_zip.c",
+            "sha256": "136ee295a3d3e747b9703c3c272b05685afd70e20b0221bdc0ff585cb833cfa2"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/rcheevos/src/rhash/md5.c",
+            "sha256": "fd38ee6a43316007d4aa816f23c24a8355c58df106b4c54e43ec44afc55df521"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/rcheevos/src/rhash/md5.h",
+            "sha256": "8341e2a307d7cfaeb816b261d92ce87a07be62e3eb58c98d2c769e75a6e2b959"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/rcheevos/src/rhash/rc_hash_internal.h",
+            "sha256": "86479fbaceaa463792d726000618382138025b8102a117ec74c52329318a7884"
+          }
+        ],
+        "sha256": "03a6a9db5cced58fef8eab0042dfac0991f72b17f9584ea4654ebcc41a4b6972"
+      },
+      "device": "SM8550",
+      "diagnostic": {
+        "argv": [
+          "patch",
+          "--dry-run",
+          "-p1",
+          "-N",
+          "--batch"
+        ],
+        "cwd": "/workspace/tmp/m6-t42/G368/diagnostic-3",
+        "elapsed_s": 0.0008309509721584618,
+        "locale": "C",
+        "rc": 0,
+        "stderr": "stage-b/application/G368-3-diagnostic.stderr",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout": "stage-b/application/G368-3-diagnostic.stdout",
+        "stdout_sha256": "cbddb360a8fd9dfcd60865b189b2cff896abda58ced4ad6d7b414f92dae19a9c",
+        "utc": "2026-11-02T19:11:46.088814+00:00"
+      },
+      "invoked": true,
+      "literal_sha256": "898cd06bf964776289e9ac472b5767962bfe141cd0cf805d17d37971abac0e43",
+      "normal": {
+        "argv": [
+          "patch",
+          "-p1",
+          "-N",
+          "--batch"
+        ],
+        "cwd": "/workspace/tmp/m6-t42/G368/candidate-3",
+        "elapsed_s": 0.0020237730350345373,
+        "locale": "C",
+        "rc": 0,
+        "stderr": "stage-b/application/G368-3-normal.stderr",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout": "stage-b/application/G368-3-normal.stdout",
+        "stdout_sha256": "5ad0f48a567e5cca60ffaced9dd2594b6cf4f9fddd40bfd7c712336439073b47",
+        "utc": "2026-11-02T19:11:46.089689+00:00"
+      },
+      "order": 3,
+      "patch_sha256": "898cd06bf964776289e9ac472b5767962bfe141cd0cf805d17d37971abac0e43",
+      "path": "projects/ROCKNIX/packages/emulators/standalone/melonds-sa/patches/002-enable-dual-screen-fullscreen.patch",
+      "promoted": true,
+      "referent": "projects/ROCKNIX/packages/emulators/standalone/melonds-sa/patches/002-enable-dual-screen-fullscreen.patch",
+      "rendered_sha256": "898cd06bf964776289e9ac472b5767962bfe141cd0cf805d17d37971abac0e43",
+      "status": "fuzz",
+      "target_cpu": "unused: no @TARGET_CPU@ token"
+    },
+    {
+      "after": {
+        "files": [
+          {
+            "mode": "0o644",
+            "path": "src/CMakeLists.txt",
+            "sha256": "9eb96267f64a062f9982a9bfa6e485fe1029ed8b3e69d9ded62e0759cbf350b0"
+          },
+          {
+            "mode": "0o644",
+            "path": "src/NDS.cpp",
+            "sha256": "88dae13579dde0a5b63b05b072dabce6769b90f0d87f6fe597a34e09d752ff9d"
+          },
+          {
+            "mode": "0o644",
+            "path": "src/NDS.h",
+            "sha256": "1d67c2663356bc26e625756a143023dfa0780e77e7786dc20bd50a90c10f2838"
+          },
+          {
+            "mode": "0o644",
+            "path": "src/NDSCart/CartCommon.cpp",
+            "sha256": "e80cdd0a709b8ef8fc0b6e31e23607c0afc9b9c26e5751fc569704522fd0eb44"
+          },
+          {
+            "mode": "0o644",
+            "path": "src/NDSCart/CartCommon.h",
+            "sha256": "94591ff29fcbada653186533b289a76dbe23b9de00eee569370f095351d24f46"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/RetroAchievements/RAClient.cpp",
+            "sha256": "e8577c46f3e8543cba98131fd074f8e120eec25b9613cb650afddaf28ddcdd26"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/RetroAchievements/RAClient.h",
+            "sha256": "0b24f09c0383119fbbe3b23515691cacf66920d3f7ea3124e2e049031d09c2b4"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/RetroAchievements/cacert.c",
+            "sha256": "cb04f86dd19c7f68bd0b701fcab6ef8c8c0bf867b58b0b832deaa23d16facb99"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/frontend/qt_sdl/AchievementItemWidget.cpp",
+            "sha256": "81664f238e735b84318411839ce73b6bda939734e663cac2613162d9f702d690"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/frontend/qt_sdl/AchievementItemWidget.h",
+            "sha256": "224820aaea6136b1afab2ddcf47d58ed752c7458c4882c781c9723d75892f04e"
+          },
+          {
+            "mode": "0o644",
+            "path": "src/frontend/qt_sdl/CMakeLists.txt",
+            "sha256": "39c99567f0eae4539d751be54e7bc2b542a9688679a26abacd7ab3fa2cb385a6"
+          },
+          {
+            "mode": "0o644",
+            "path": "src/frontend/qt_sdl/Config.cpp",
+            "sha256": "defee563906ed69ab7a1a2d1eb4785cbc7e407b6659db94d36c2bceee886a5fb"
+          },
+          {
+            "mode": "0o644",
+            "path": "src/frontend/qt_sdl/Config.cpp.orig",
+            "sha256": "5d349af244e796e3908065823aef63529f5b288b4da661371439463960cc3493"
+          },
+          {
+            "mode": "0o644",
+            "path": "src/frontend/qt_sdl/Config.h",
+            "sha256": "7a3fb2871551f0a9d1fc839ae2ad8ce245549d2ffe06a80ef2d4ee8e56bfb162"
+          },
+          {
+            "mode": "0o755",
+            "path": "src/frontend/qt_sdl/EmuInstance.cpp",
+            "sha256": "239c58bc298e688b41c8ea1c14a386d9ed3b9c19802b85767fd776f196d9b295"
+          },
+          {
+            "mode": "0o755",
+            "path": "src/frontend/qt_sdl/EmuInstance.h",
+            "sha256": "bece10fb277c9571e39bf20fd939d56a465b67ddce95a4cb70b2d11df6adba31"
+          },
+          {
+            "mode": "0o644",
+            "path": "src/frontend/qt_sdl/EmuInstanceInput.cpp",
+            "sha256": "e836dceae1efe9c2e93aa6574c1c8f2258ef92e3cd785b4a0923df150d745372"
+          },
+          {
+            "mode": "0o755",
+            "path": "src/frontend/qt_sdl/EmuThread.cpp",
+            "sha256": "322cf0bf11dc5e939218a76dbe2bb1778f90b2aff03bdeaab8299ed83f875173"
+          },
+          {
+            "mode": "0o755",
+            "path": "src/frontend/qt_sdl/EmuThread.cpp.orig",
+            "sha256": "8f710b9b8075e6207a1567fb2aba3ae740c00cf88522bb960a48ee3643d3844a"
+          },
+          {
+            "mode": "0o755",
+            "path": "src/frontend/qt_sdl/EmuThread.h",
+            "sha256": "8ed5f48e6af78954fd2f02ff99c094a81979b4433c2407e36a51587e729765f1"
+          },
+          {
+            "mode": "0o644",
+            "path": "src/frontend/qt_sdl/InputConfig/InputConfigDialog.h",
+            "sha256": "1cba2a43e44e7d6e9ae214e457269fd19ec16fcd2754234f571d6584a3632890"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/frontend/qt_sdl/RAOverlayWidget.cpp",
+            "sha256": "1bf4e8147acecc7632dffa1439aaccf21bbd434618996d47b134491f6a0ddbe0"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/frontend/qt_sdl/RAOverlayWidget.h",
+            "sha256": "0d3e0c3797b48104735937228e3d36b295abb761614afa2782ed7f5fa86022cc"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/frontend/qt_sdl/RASettingsDialog.cpp",
+            "sha256": "588033fe37ee070953c71740b09d236695d8b9ec623e07990aeb2b28610f212e"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/frontend/qt_sdl/RASettingsDialog.h",
+            "sha256": "261fc69463d893f248c78690f5932f544149f720a914c33b880a13fe7064c159"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/frontend/qt_sdl/RASettingsDialog.ui",
+            "sha256": "727ac17fc255cff5f9326ee86b68351d9000665a4d287a7ee2f61f5303472c68"
+          },
+          {
+            "mode": "0o755",
+            "path": "src/frontend/qt_sdl/Window.cpp",
+            "sha256": "8d9ac8fee73402fe3871329587c1c8db7738a7d6dec635316a86c97cb7f7cdaf"
+          },
+          {
+            "mode": "0o755",
+            "path": "src/frontend/qt_sdl/Window.h",
+            "sha256": "1f581869b0d9da88a055794a5adf3c8879c7a20c539f6b80c2fed8f0bfd5c86c"
+          },
+          {
+            "mode": "0o644",
+            "path": "src/frontend/qt_sdl/main.cpp",
+            "sha256": "7b3dd8d7a8ec0bf80fe2ccb8798d17419de429e13103439aff5535230897641f"
+          },
+          {
+            "mode": "0o644",
+            "path": "src/frontend/qt_sdl/main.cpp.orig",
+            "sha256": "aefad229af3d94541fdd3199745c10818944f9ba4a7ab0b59c2cef4e48d92d2f"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/frontend/qt_sdl/retroachievements/resources/ra.qrc",
+            "sha256": "ee3307ca74d91d69828e9d597eb8314f516907e5bb91388782f718268305f9e5"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/frontend/qt_sdl/toast/BadgeCache.cpp",
+            "sha256": "6f5d22c2fad3f019411e0a10647bbe7849293d7655dc32ace1062745591ccc01"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/frontend/qt_sdl/toast/BadgeCache.h",
+            "sha256": "bb928ffc730319fd0cd0c0f519ac84ddfaec5d6e5b5075636b9ec930ec4fdd41"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/frontend/qt_sdl/toast/ToastManager.cpp",
+            "sha256": "8a7c42464b991b68af3a014ba87d962e57433b620b0f821ffac95e5f08de2a69"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/frontend/qt_sdl/toast/ToastManager.h",
+            "sha256": "3c10d24b0b2ee1b268266dde8163de856f5e174f276335a89567d3cfacf078e3"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/frontend/qt_sdl/toast/ToastOverlay.cpp",
+            "sha256": "b810c9aaa3c96d16d96cbb438b7a49ba84f96df86980ddd4f3ea012322f0355c"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/frontend/qt_sdl/toast/ToastOverlay.h",
+            "sha256": "1e5f9b3780ef7db487b73d96cc40002190cc5811eadc4d54a2c7794d7a742b9a"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/rcheevos/include/rc_api_editor.h",
+            "sha256": "c0787749fbe42f7a655e91e09f20c6cc6eeba234e5ea4e14243facf9dd9d1f32"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/rcheevos/include/rc_api_info.h",
+            "sha256": "891aeb46705930aff14cca8122643d7aa10036d4ebad6c2ec1a080e6f56c0f11"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/rcheevos/include/rc_api_request.h",
+            "sha256": "2d27109deb502ed447cb821815a04c30bec37b90b1016f805960efc056a2d9bc"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/rcheevos/include/rc_api_runtime.h",
+            "sha256": "32688333ba3923695fc568acf5580805158302de85da2fc078e590ed550409f8"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/rcheevos/include/rc_api_user.h",
+            "sha256": "12311f849a5fe23d35784ed0901e2b8cbee455d7cf8e0997e392c7ebc5df2ed0"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/rcheevos/include/rc_client.h",
+            "sha256": "8080a3173010a45d28097ca033e80d40345c14aedcab7d4e1ce1d048ba8fac31"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/rcheevos/include/rc_client_raintegration.h",
+            "sha256": "c0b32edf79bd12bb3dc0656e33dac078b32c30b9c7ec4ebfbed9f08a368bb143"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/rcheevos/include/rc_consoles.h",
+            "sha256": "9d2c9bd4223fdffbc3d9d4987120b16919bc6470a8eae8a8986c50bfe37329b8"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/rcheevos/include/rc_error.h",
+            "sha256": "f1135cc5059ad363051f399828be1fc63f437c68a0b628c945e3406e3b7430e3"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/rcheevos/include/rc_export.h",
+            "sha256": "9683f979bb152781677ffd952a68fdddcb5d951eb227e96a2d1f7fd0feb3be62"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/rcheevos/include/rc_hash.h",
+            "sha256": "b2eeb7eb928ed07094463eefd8111ecc69a2f8aeb04e63b23172dcf3663a271b"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/rcheevos/include/rc_runtime.h",
+            "sha256": "a3c5e73681844036bc9d343e82fbc0d79c8bb6b6c584044b200515ac025a3063"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/rcheevos/include/rc_runtime_types.h",
+            "sha256": "f7d63f647773e4dc251ae8dc577d15a329093715c3c8b5172fb5b652d099c416"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/rcheevos/include/rc_util.h",
+            "sha256": "12840744dcca64ffd2e5f0a1c92fca2e235236edd5a66d8787d1d26189254344"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/rcheevos/include/rcheevos.h",
+            "sha256": "0264f2a35a7f79f144263384d5378976c4c1062fa7477a281ed6fe2d64eba760"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/rcheevos/src/rapi/rc_api_common.c",
+            "sha256": "601d932f4152fb2f611c15633aef561c7df8458cddd3593b8e6e78fdfef9d493"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/rcheevos/src/rapi/rc_api_common.h",
+            "sha256": "1290e08bc41363431501ee1826c2d8b7406916d71887440d3921c475eb7cf4c0"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/rcheevos/src/rapi/rc_api_editor.c",
+            "sha256": "a6486980432bbb9f877f443b2c8c49ee706b960c5af93aaa33fd2b777ee8b615"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/rcheevos/src/rapi/rc_api_info.c",
+            "sha256": "ade89d5330b3df8006d2c90df77205954b0f64aa97f1ad8021043a4afdcdc8b7"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/rcheevos/src/rapi/rc_api_runtime.c",
+            "sha256": "161daf504087a0c218f6731fe93492a99c4d1844df79fa4038ce8d86799a4b72"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/rcheevos/src/rapi/rc_api_user.c",
+            "sha256": "9896c0b84b404973b21e395a4a7f82334b3418692f0c65e92000a605a5c31ce9"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/rcheevos/src/rc_client.c",
+            "sha256": "6b5e60713c3ec1f8ea3b0e4f7db32e52085390fc8fc7ffe72419f16784826ad2"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/rcheevos/src/rc_client_internal.h",
+            "sha256": "a7fa88dbad2cb390cf84a5b2697284c928ef74fd4438afa81e6e633cbd8aacd2"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/rcheevos/src/rc_compat.c",
+            "sha256": "22cbbc177b5507960f4e18072e972234502a858b62dcd7171b1d6170eda7a8b9"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/rcheevos/src/rc_compat.h",
+            "sha256": "55322453c31d888fa336a3232a44cbad896810288b93974de4e5a82d4f6476e0"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/rcheevos/src/rc_util.c",
+            "sha256": "20df7a41ae0cbb89187684254be071a3aafaf71175c3362646d0ddb2ff2e3456"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/rcheevos/src/rc_version.c",
+            "sha256": "210091300446cf20bcbfc8f80c747c543a5a99e143887cf6aff16ab5f5a245a3"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/rcheevos/src/rc_version.h",
+            "sha256": "4b2e2b6b36ee78700cd37bc908caf256a28acc8a1c4f59978d9b42f9b667512e"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/rcheevos/src/rcheevos/alloc.c",
+            "sha256": "ba03228d2a0b5722d4a94ea009d46000bda7410de832ee49f4f61b43c117a84c"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/rcheevos/src/rcheevos/condition.c",
+            "sha256": "4d12eb0c368f5b72b5655513dab7a048e2f0611330bba241e5c1b8813015746a"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/rcheevos/src/rcheevos/condset.c",
+            "sha256": "9ff9a1791f9b7ebb9ad16377e143b119f338ddd372d5de229aa93cf394a18ecd"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/rcheevos/src/rcheevos/consoleinfo.c",
+            "sha256": "adef7ea7e37807058de529b4134ce935b7620387ad120c32764dd59b051af6cd"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/rcheevos/src/rcheevos/format.c",
+            "sha256": "1deaa114504049b9f303b4a01087f1639ff7939e6729671b3677106e33f8c59d"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/rcheevos/src/rcheevos/lboard.c",
+            "sha256": "14d94ba718d3e694e4874bbcead3c32fb0141728ef4fe011646d266b9261249e"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/rcheevos/src/rcheevos/memref.c",
+            "sha256": "f37a0fa2d009b434c01047bda9bff8186e8587b9ad7322840c4ea8e6d3f44a37"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/rcheevos/src/rcheevos/operand.c",
+            "sha256": "199668e3f03da0fd1b46802e4bc6626108093317c8f58c2166a3a620fb44e926"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/rcheevos/src/rcheevos/rc_internal.h",
+            "sha256": "b9dbc03b1b1632db50b90f7dcea2a48e5646612826dcb5d35289437df273dddc"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/rcheevos/src/rcheevos/rc_validate.c",
+            "sha256": "49dc595f90fff68a4e5b803653fd98cace749f00706d013867fb6cab351ae1f6"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/rcheevos/src/rcheevos/rc_validate.h",
+            "sha256": "d3da5219ebf38d2c34008417b3415658997cb3b63ee26b859d4036fd3fff3191"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/rcheevos/src/rcheevos/richpresence.c",
+            "sha256": "53f163610c002bee454c9505c1e5a47c86250cb8a92c122d507900dbdd299b94"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/rcheevos/src/rcheevos/runtime.c",
+            "sha256": "1e6dba494d11348b2c929564b5bf1a01f7f4cb85202f4f242d97b9a6ab0e04ef"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/rcheevos/src/rcheevos/runtime_progress.c",
+            "sha256": "db4e3c340ad02fbfe66b7bcd2fc9be69f953c170a0dc01a39ef8fcd938a9bf6a"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/rcheevos/src/rcheevos/trigger.c",
+            "sha256": "fe38429dd6c0e18d2c27c1eb797c963d61f63130c6546a20e1f8d27ed8271ece"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/rcheevos/src/rcheevos/value.c",
+            "sha256": "1c9a02ab8eb103b8c98e411256bbb6d727fa6fbc929bd19874b19b683b411ca3"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/rcheevos/src/rhash/aes.h",
+            "sha256": "cf769a50604be6d7a8d940675131c44ce834356ddf090419ae68abb2996b1f68"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/rcheevos/src/rhash/cdreader.c",
+            "sha256": "e70f231222b72cbb5b11c37d08e2e498c4f630fbe687dc1b6a96addf471208c5"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/rcheevos/src/rhash/hash.c",
+            "sha256": "66ab71c525ddb155d87fb5e276f8cb12e2f09523578637eb5ec2c2546b0e2d34"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/rcheevos/src/rhash/hash_disc.c",
+            "sha256": "725036c9326929b704662ad8abe99f5b3655922bb2b35c2e06d7d487cfd5d2d1"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/rcheevos/src/rhash/hash_encrypted.c",
+            "sha256": "5d92d63fd5a6ec227583e8cbc2203ea4170d48c412c367ea7ffae0741866e521"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/rcheevos/src/rhash/hash_rom.c",
+            "sha256": "31b46fedd44b1ddd4ff076ba85c86124214e757f2b7dfc860cad41e5734b175e"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/rcheevos/src/rhash/hash_zip.c",
+            "sha256": "136ee295a3d3e747b9703c3c272b05685afd70e20b0221bdc0ff585cb833cfa2"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/rcheevos/src/rhash/md5.c",
+            "sha256": "fd38ee6a43316007d4aa816f23c24a8355c58df106b4c54e43ec44afc55df521"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/rcheevos/src/rhash/md5.h",
+            "sha256": "8341e2a307d7cfaeb816b261d92ce87a07be62e3eb58c98d2c769e75a6e2b959"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/rcheevos/src/rhash/rc_hash_internal.h",
+            "sha256": "86479fbaceaa463792d726000618382138025b8102a117ec74c52329318a7884"
+          }
+        ],
+        "sha256": "012ea3314ba2c5d243a93da1e7509f33c559bba219ddc27bc5e74edc8dc044bf"
+      },
+      "backend": "patch",
+      "before": {
+        "files": [
+          {
+            "mode": "0o644",
+            "path": "src/CMakeLists.txt",
+            "sha256": "9eb96267f64a062f9982a9bfa6e485fe1029ed8b3e69d9ded62e0759cbf350b0"
+          },
+          {
+            "mode": "0o644",
+            "path": "src/NDS.cpp",
+            "sha256": "88dae13579dde0a5b63b05b072dabce6769b90f0d87f6fe597a34e09d752ff9d"
+          },
+          {
+            "mode": "0o644",
+            "path": "src/NDS.h",
+            "sha256": "1d67c2663356bc26e625756a143023dfa0780e77e7786dc20bd50a90c10f2838"
+          },
+          {
+            "mode": "0o644",
+            "path": "src/NDSCart/CartCommon.cpp",
+            "sha256": "e80cdd0a709b8ef8fc0b6e31e23607c0afc9b9c26e5751fc569704522fd0eb44"
+          },
+          {
+            "mode": "0o644",
+            "path": "src/NDSCart/CartCommon.h",
+            "sha256": "94591ff29fcbada653186533b289a76dbe23b9de00eee569370f095351d24f46"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/RetroAchievements/RAClient.cpp",
+            "sha256": "e8577c46f3e8543cba98131fd074f8e120eec25b9613cb650afddaf28ddcdd26"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/RetroAchievements/RAClient.h",
+            "sha256": "0b24f09c0383119fbbe3b23515691cacf66920d3f7ea3124e2e049031d09c2b4"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/RetroAchievements/cacert.c",
+            "sha256": "cb04f86dd19c7f68bd0b701fcab6ef8c8c0bf867b58b0b832deaa23d16facb99"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/frontend/qt_sdl/AchievementItemWidget.cpp",
+            "sha256": "81664f238e735b84318411839ce73b6bda939734e663cac2613162d9f702d690"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/frontend/qt_sdl/AchievementItemWidget.h",
+            "sha256": "224820aaea6136b1afab2ddcf47d58ed752c7458c4882c781c9723d75892f04e"
+          },
+          {
+            "mode": "0o644",
+            "path": "src/frontend/qt_sdl/CMakeLists.txt",
+            "sha256": "39c99567f0eae4539d751be54e7bc2b542a9688679a26abacd7ab3fa2cb385a6"
+          },
+          {
+            "mode": "0o644",
+            "path": "src/frontend/qt_sdl/Config.cpp",
+            "sha256": "5d349af244e796e3908065823aef63529f5b288b4da661371439463960cc3493"
+          },
+          {
+            "mode": "0o644",
+            "path": "src/frontend/qt_sdl/Config.cpp.orig",
+            "sha256": "2b0ef68c03dd0fbcc08a3ff6c288656e9d108d5d3e4b52c1a3c04b19ceaaef21"
+          },
+          {
+            "mode": "0o644",
+            "path": "src/frontend/qt_sdl/Config.h",
+            "sha256": "7a3fb2871551f0a9d1fc839ae2ad8ce245549d2ffe06a80ef2d4ee8e56bfb162"
+          },
+          {
+            "mode": "0o755",
+            "path": "src/frontend/qt_sdl/EmuInstance.cpp",
+            "sha256": "239c58bc298e688b41c8ea1c14a386d9ed3b9c19802b85767fd776f196d9b295"
+          },
+          {
+            "mode": "0o755",
+            "path": "src/frontend/qt_sdl/EmuInstance.h",
+            "sha256": "56b787b058771e1bb87ffa936653bb61d849c5245c94d033ce929573dc216b2a"
+          },
+          {
+            "mode": "0o644",
+            "path": "src/frontend/qt_sdl/EmuInstanceInput.cpp",
+            "sha256": "7d59989bc536a8ebabb55078e2243769f2f7fdfc2c3a7f5f0b120adde5043d54"
+          },
+          {
+            "mode": "0o755",
+            "path": "src/frontend/qt_sdl/EmuThread.cpp",
+            "sha256": "8f710b9b8075e6207a1567fb2aba3ae740c00cf88522bb960a48ee3643d3844a"
+          },
+          {
+            "mode": "0o755",
+            "path": "src/frontend/qt_sdl/EmuThread.h",
+            "sha256": "80f0a1a93e6745c3b11b6ebc4060b1b2254ad76dbcda8231176445b8cec5164e"
+          },
+          {
+            "mode": "0o644",
+            "path": "src/frontend/qt_sdl/InputConfig/InputConfigDialog.h",
+            "sha256": "bfa2ca8b8cf5aa659fa9d63941f435bb77435c313f8b396baa01786fe7be0513"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/frontend/qt_sdl/RAOverlayWidget.cpp",
+            "sha256": "1bf4e8147acecc7632dffa1439aaccf21bbd434618996d47b134491f6a0ddbe0"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/frontend/qt_sdl/RAOverlayWidget.h",
+            "sha256": "0d3e0c3797b48104735937228e3d36b295abb761614afa2782ed7f5fa86022cc"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/frontend/qt_sdl/RASettingsDialog.cpp",
+            "sha256": "588033fe37ee070953c71740b09d236695d8b9ec623e07990aeb2b28610f212e"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/frontend/qt_sdl/RASettingsDialog.h",
+            "sha256": "261fc69463d893f248c78690f5932f544149f720a914c33b880a13fe7064c159"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/frontend/qt_sdl/RASettingsDialog.ui",
+            "sha256": "727ac17fc255cff5f9326ee86b68351d9000665a4d287a7ee2f61f5303472c68"
+          },
+          {
+            "mode": "0o755",
+            "path": "src/frontend/qt_sdl/Window.cpp",
+            "sha256": "75df5188af883d5ca6ce4d5480c7571bbd654b3cb10ae2ecd2a95ec3d2f4db2d"
+          },
+          {
+            "mode": "0o755",
+            "path": "src/frontend/qt_sdl/Window.h",
+            "sha256": "1f581869b0d9da88a055794a5adf3c8879c7a20c539f6b80c2fed8f0bfd5c86c"
+          },
+          {
+            "mode": "0o644",
+            "path": "src/frontend/qt_sdl/main.cpp",
+            "sha256": "7b3dd8d7a8ec0bf80fe2ccb8798d17419de429e13103439aff5535230897641f"
+          },
+          {
+            "mode": "0o644",
+            "path": "src/frontend/qt_sdl/main.cpp.orig",
+            "sha256": "aefad229af3d94541fdd3199745c10818944f9ba4a7ab0b59c2cef4e48d92d2f"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/frontend/qt_sdl/retroachievements/resources/ra.qrc",
+            "sha256": "ee3307ca74d91d69828e9d597eb8314f516907e5bb91388782f718268305f9e5"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/frontend/qt_sdl/toast/BadgeCache.cpp",
+            "sha256": "6f5d22c2fad3f019411e0a10647bbe7849293d7655dc32ace1062745591ccc01"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/frontend/qt_sdl/toast/BadgeCache.h",
+            "sha256": "bb928ffc730319fd0cd0c0f519ac84ddfaec5d6e5b5075636b9ec930ec4fdd41"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/frontend/qt_sdl/toast/ToastManager.cpp",
+            "sha256": "8a7c42464b991b68af3a014ba87d962e57433b620b0f821ffac95e5f08de2a69"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/frontend/qt_sdl/toast/ToastManager.h",
+            "sha256": "3c10d24b0b2ee1b268266dde8163de856f5e174f276335a89567d3cfacf078e3"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/frontend/qt_sdl/toast/ToastOverlay.cpp",
+            "sha256": "b810c9aaa3c96d16d96cbb438b7a49ba84f96df86980ddd4f3ea012322f0355c"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/frontend/qt_sdl/toast/ToastOverlay.h",
+            "sha256": "1e5f9b3780ef7db487b73d96cc40002190cc5811eadc4d54a2c7794d7a742b9a"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/rcheevos/include/rc_api_editor.h",
+            "sha256": "c0787749fbe42f7a655e91e09f20c6cc6eeba234e5ea4e14243facf9dd9d1f32"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/rcheevos/include/rc_api_info.h",
+            "sha256": "891aeb46705930aff14cca8122643d7aa10036d4ebad6c2ec1a080e6f56c0f11"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/rcheevos/include/rc_api_request.h",
+            "sha256": "2d27109deb502ed447cb821815a04c30bec37b90b1016f805960efc056a2d9bc"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/rcheevos/include/rc_api_runtime.h",
+            "sha256": "32688333ba3923695fc568acf5580805158302de85da2fc078e590ed550409f8"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/rcheevos/include/rc_api_user.h",
+            "sha256": "12311f849a5fe23d35784ed0901e2b8cbee455d7cf8e0997e392c7ebc5df2ed0"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/rcheevos/include/rc_client.h",
+            "sha256": "8080a3173010a45d28097ca033e80d40345c14aedcab7d4e1ce1d048ba8fac31"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/rcheevos/include/rc_client_raintegration.h",
+            "sha256": "c0b32edf79bd12bb3dc0656e33dac078b32c30b9c7ec4ebfbed9f08a368bb143"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/rcheevos/include/rc_consoles.h",
+            "sha256": "9d2c9bd4223fdffbc3d9d4987120b16919bc6470a8eae8a8986c50bfe37329b8"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/rcheevos/include/rc_error.h",
+            "sha256": "f1135cc5059ad363051f399828be1fc63f437c68a0b628c945e3406e3b7430e3"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/rcheevos/include/rc_export.h",
+            "sha256": "9683f979bb152781677ffd952a68fdddcb5d951eb227e96a2d1f7fd0feb3be62"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/rcheevos/include/rc_hash.h",
+            "sha256": "b2eeb7eb928ed07094463eefd8111ecc69a2f8aeb04e63b23172dcf3663a271b"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/rcheevos/include/rc_runtime.h",
+            "sha256": "a3c5e73681844036bc9d343e82fbc0d79c8bb6b6c584044b200515ac025a3063"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/rcheevos/include/rc_runtime_types.h",
+            "sha256": "f7d63f647773e4dc251ae8dc577d15a329093715c3c8b5172fb5b652d099c416"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/rcheevos/include/rc_util.h",
+            "sha256": "12840744dcca64ffd2e5f0a1c92fca2e235236edd5a66d8787d1d26189254344"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/rcheevos/include/rcheevos.h",
+            "sha256": "0264f2a35a7f79f144263384d5378976c4c1062fa7477a281ed6fe2d64eba760"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/rcheevos/src/rapi/rc_api_common.c",
+            "sha256": "601d932f4152fb2f611c15633aef561c7df8458cddd3593b8e6e78fdfef9d493"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/rcheevos/src/rapi/rc_api_common.h",
+            "sha256": "1290e08bc41363431501ee1826c2d8b7406916d71887440d3921c475eb7cf4c0"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/rcheevos/src/rapi/rc_api_editor.c",
+            "sha256": "a6486980432bbb9f877f443b2c8c49ee706b960c5af93aaa33fd2b777ee8b615"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/rcheevos/src/rapi/rc_api_info.c",
+            "sha256": "ade89d5330b3df8006d2c90df77205954b0f64aa97f1ad8021043a4afdcdc8b7"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/rcheevos/src/rapi/rc_api_runtime.c",
+            "sha256": "161daf504087a0c218f6731fe93492a99c4d1844df79fa4038ce8d86799a4b72"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/rcheevos/src/rapi/rc_api_user.c",
+            "sha256": "9896c0b84b404973b21e395a4a7f82334b3418692f0c65e92000a605a5c31ce9"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/rcheevos/src/rc_client.c",
+            "sha256": "6b5e60713c3ec1f8ea3b0e4f7db32e52085390fc8fc7ffe72419f16784826ad2"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/rcheevos/src/rc_client_internal.h",
+            "sha256": "a7fa88dbad2cb390cf84a5b2697284c928ef74fd4438afa81e6e633cbd8aacd2"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/rcheevos/src/rc_compat.c",
+            "sha256": "22cbbc177b5507960f4e18072e972234502a858b62dcd7171b1d6170eda7a8b9"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/rcheevos/src/rc_compat.h",
+            "sha256": "55322453c31d888fa336a3232a44cbad896810288b93974de4e5a82d4f6476e0"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/rcheevos/src/rc_util.c",
+            "sha256": "20df7a41ae0cbb89187684254be071a3aafaf71175c3362646d0ddb2ff2e3456"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/rcheevos/src/rc_version.c",
+            "sha256": "210091300446cf20bcbfc8f80c747c543a5a99e143887cf6aff16ab5f5a245a3"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/rcheevos/src/rc_version.h",
+            "sha256": "4b2e2b6b36ee78700cd37bc908caf256a28acc8a1c4f59978d9b42f9b667512e"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/rcheevos/src/rcheevos/alloc.c",
+            "sha256": "ba03228d2a0b5722d4a94ea009d46000bda7410de832ee49f4f61b43c117a84c"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/rcheevos/src/rcheevos/condition.c",
+            "sha256": "4d12eb0c368f5b72b5655513dab7a048e2f0611330bba241e5c1b8813015746a"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/rcheevos/src/rcheevos/condset.c",
+            "sha256": "9ff9a1791f9b7ebb9ad16377e143b119f338ddd372d5de229aa93cf394a18ecd"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/rcheevos/src/rcheevos/consoleinfo.c",
+            "sha256": "adef7ea7e37807058de529b4134ce935b7620387ad120c32764dd59b051af6cd"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/rcheevos/src/rcheevos/format.c",
+            "sha256": "1deaa114504049b9f303b4a01087f1639ff7939e6729671b3677106e33f8c59d"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/rcheevos/src/rcheevos/lboard.c",
+            "sha256": "14d94ba718d3e694e4874bbcead3c32fb0141728ef4fe011646d266b9261249e"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/rcheevos/src/rcheevos/memref.c",
+            "sha256": "f37a0fa2d009b434c01047bda9bff8186e8587b9ad7322840c4ea8e6d3f44a37"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/rcheevos/src/rcheevos/operand.c",
+            "sha256": "199668e3f03da0fd1b46802e4bc6626108093317c8f58c2166a3a620fb44e926"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/rcheevos/src/rcheevos/rc_internal.h",
+            "sha256": "b9dbc03b1b1632db50b90f7dcea2a48e5646612826dcb5d35289437df273dddc"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/rcheevos/src/rcheevos/rc_validate.c",
+            "sha256": "49dc595f90fff68a4e5b803653fd98cace749f00706d013867fb6cab351ae1f6"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/rcheevos/src/rcheevos/rc_validate.h",
+            "sha256": "d3da5219ebf38d2c34008417b3415658997cb3b63ee26b859d4036fd3fff3191"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/rcheevos/src/rcheevos/richpresence.c",
+            "sha256": "53f163610c002bee454c9505c1e5a47c86250cb8a92c122d507900dbdd299b94"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/rcheevos/src/rcheevos/runtime.c",
+            "sha256": "1e6dba494d11348b2c929564b5bf1a01f7f4cb85202f4f242d97b9a6ab0e04ef"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/rcheevos/src/rcheevos/runtime_progress.c",
+            "sha256": "db4e3c340ad02fbfe66b7bcd2fc9be69f953c170a0dc01a39ef8fcd938a9bf6a"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/rcheevos/src/rcheevos/trigger.c",
+            "sha256": "fe38429dd6c0e18d2c27c1eb797c963d61f63130c6546a20e1f8d27ed8271ece"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/rcheevos/src/rcheevos/value.c",
+            "sha256": "1c9a02ab8eb103b8c98e411256bbb6d727fa6fbc929bd19874b19b683b411ca3"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/rcheevos/src/rhash/aes.h",
+            "sha256": "cf769a50604be6d7a8d940675131c44ce834356ddf090419ae68abb2996b1f68"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/rcheevos/src/rhash/cdreader.c",
+            "sha256": "e70f231222b72cbb5b11c37d08e2e498c4f630fbe687dc1b6a96addf471208c5"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/rcheevos/src/rhash/hash.c",
+            "sha256": "66ab71c525ddb155d87fb5e276f8cb12e2f09523578637eb5ec2c2546b0e2d34"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/rcheevos/src/rhash/hash_disc.c",
+            "sha256": "725036c9326929b704662ad8abe99f5b3655922bb2b35c2e06d7d487cfd5d2d1"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/rcheevos/src/rhash/hash_encrypted.c",
+            "sha256": "5d92d63fd5a6ec227583e8cbc2203ea4170d48c412c367ea7ffae0741866e521"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/rcheevos/src/rhash/hash_rom.c",
+            "sha256": "31b46fedd44b1ddd4ff076ba85c86124214e757f2b7dfc860cad41e5734b175e"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/rcheevos/src/rhash/hash_zip.c",
+            "sha256": "136ee295a3d3e747b9703c3c272b05685afd70e20b0221bdc0ff585cb833cfa2"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/rcheevos/src/rhash/md5.c",
+            "sha256": "fd38ee6a43316007d4aa816f23c24a8355c58df106b4c54e43ec44afc55df521"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/rcheevos/src/rhash/md5.h",
+            "sha256": "8341e2a307d7cfaeb816b261d92ce87a07be62e3eb58c98d2c769e75a6e2b959"
+          },
+          {
+            "mode": "0o664",
+            "path": "src/rcheevos/src/rhash/rc_hash_internal.h",
+            "sha256": "86479fbaceaa463792d726000618382138025b8102a117ec74c52329318a7884"
+          }
+        ],
+        "sha256": "783969c9bc479ba2ce05e64aa49fb1e3bce65cbfe291270f8e2d4643a9022df5"
+      },
+      "device": "SM8550",
+      "diagnostic": {
+        "argv": [
+          "patch",
+          "--dry-run",
+          "-p1",
+          "-N",
+          "--batch"
+        ],
+        "cwd": "/workspace/tmp/m6-t42/G368/diagnostic-4",
+        "elapsed_s": 0.0012369779869914055,
+        "locale": "C",
+        "rc": 0,
+        "stderr": "stage-b/application/G368-4-diagnostic.stderr",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout": "stage-b/application/G368-4-diagnostic.stdout",
+        "stdout_sha256": "0a9266bc8ef96a4c6368eec2a5a6e6185dc36e1cf4c3da60bdc8d125ee612eed",
+        "utc": "2026-11-02T19:11:46.110628+00:00"
+      },
+      "invoked": true,
+      "literal_sha256": "cd6fbce138a71781b8bc91950e8b54bea388ee48c9d239f16eb107c0f8b82c2b",
+      "normal": {
+        "argv": [
+          "patch",
+          "-p1",
+          "-N",
+          "--batch"
+        ],
+        "cwd": "/workspace/tmp/m6-t42/G368/candidate-4",
+        "elapsed_s": 0.0027451959904283285,
+        "locale": "C",
+        "rc": 0,
+        "stderr": "stage-b/application/G368-4-normal.stderr",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout": "stage-b/application/G368-4-normal.stdout",
+        "stdout_sha256": "11bf3def46ba6d1f5fd64e2ffcf72eed58ccd5f4f128e5082cfc625750eee861",
+        "utc": "2026-11-02T19:11:46.111911+00:00"
+      },
+      "order": 4,
+      "patch_sha256": "cd6fbce138a71781b8bc91950e8b54bea388ee48c9d239f16eb107c0f8b82c2b",
+      "path": "projects/ROCKNIX/packages/emulators/standalone/melonds-sa/patches/003-hotkeys.patch",
+      "promoted": true,
+      "referent": "projects/ROCKNIX/packages/emulators/standalone/melonds-sa/patches/003-hotkeys.patch",
+      "rendered_sha256": "cd6fbce138a71781b8bc91950e8b54bea388ee48c9d239f16eb107c0f8b82c2b",
+      "status": "fuzz",
+      "target_cpu": "unused: no @TARGET_CPU@ token"
+    }
+  ],
+  "tool": "GNU patch 2.8",
+  "utc": "2026-11-02T19:11:45.777778+00:00"
+}
