@@ -1201,8 +1201,8 @@ Evidence floor lists them, restated for a table as T40's § 5 did (R5 § A):
    history and the cached tarballs show it; nothing a guest shows is a
    provenance fact** (ruling (h); D-WORKFLOW-187). The inventory, the
    headers, the recipe's `case` and the devices' `options` read at the hash,
-   `scripts/unpack` read, `git log` and `git show`, `651150fc88` at
-   `651150fc88` as a local ref, and the pinned tarballs already in
+   `scripts/unpack` read, `git log` and `git show`, upstream at
+   `651150fc88` in the local store, and the pinned tarballs already in
    `/workspace/cache/rocknix-sources/` extracted file by file into the lane's
    scratch (ruling (g)). A patch's run-time effect -- a DTS node, a driver, a
    panel -- is a handheld fact, never tested here (R3 § 3: the guest can show
@@ -2146,7 +2146,7 @@ the body at the line the proof names, under the coordinator's rulings
 | **X05** | `:1068` (L-01) | `7.2/0010:12` hunk | `7.2/0010:15` hunk | C8, C12: `:12` is the `index` line; `15:@@ -1442,6 +1442,7 @@` (K60) |
 | **X06** | `:173-174` | *"moved by `fe5216ff69` 2026-09-16"* | authored 2026-09-16, committed 2026-10-09, its subject quoted | C7, C10: `fe5216ff69 author 2026-09-16 commit 2026-10-09 rocknix-joypad: update version` (K69) |
 | **X07** | `:2094` | *"on `42` lines -- the coordinator's tip `31`"* | `48` occurrences on `42` lines, the coordinator's tip `31` on `29` lines | C11: `placeholder lines 42 occ 48`; `COHASH lines 29` (K109) |
-| (X01's own) | `:1666` (the draft row) | *"as `upstream/next` `651150fc88` shows it"* | *"as `651150fc88` shows it"* (the substitution doubled the hash; corrected in the same version) | -- |
+| (X01's own) | `:1666` (the draft row), § 5 rule 3 `:1186` | *"as `upstream/next` `651150fc88` shows it"*; *"`upstream/next` at `651150fc88` as a local ref"* | *"as `651150fc88` shows it"*; *"upstream at `651150fc88` in the local store"* (the substitution doubled the hash; corrected in the same version) | -- |
 
 **The coordinator's two rulings version 1 left open:**
 
