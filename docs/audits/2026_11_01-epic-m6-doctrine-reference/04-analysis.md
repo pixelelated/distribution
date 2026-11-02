@@ -721,3 +721,26 @@ Codex / GPT-6-Astra / xhigh; session 01a19d12-0c07-7ba3-88b8-ab9d609f4d67; Herdr
 Both questions are settled: [6584515739](https://github.com/pixelelated/distribution/issues/686#issuecomment-6584515739). D-WORKFLOW-223/-224 at immutable coordinator b6332dbc13f5929f05ec5ba23c44285c5ee56b38 retain the journal in place with historical status/corrected headings and retain documents with dates/status. #1407 owns later indexed monthly storage and individual purpose/replacement review. Q5 remains 33 files / 2,770 lines: 32 editable, one ledger-plan table-only.
 
 [Dispatch 6585180759](https://github.com/pixelelated/distribution/issues/686#issuecomment-6585180759) authorizes S0-S6 and F/G/H under [stream brief v2](https://github.com/pixelelated/distribution/blob/7f25f9f78b3da3a6b2c893397b58a3ce5a04be75/docs/reviews/briefs/t39-streams.md). The original questions/readbacks above are preserved; these are answers and execution scope, not acceptance of corrections.
+
+
+## Instruction File Recommendations
+
+Stage-G update 2026-11-02T19:08:55Z. These are proposals for coordinator #346, not instruction-file edits or new owner decisions.
+
+| Findings | Existing instruction home | Coverage / limit |
+| --- | --- | --- |
+| PL-01, PL-28, PL-29, PL-37 | engineering-practices.md: verify the artifact; instruction-files.md: current source | Existing verification rule; recorded designs preserved. |
+| PL-02, PL-04, PL-07, PL-10, PL-13, PL-14, PL-46 | documentation-accuracy.md: source/public-doc agreement | Current correction; #585 owns public follow-through. |
+| PL-03, PL-06, PL-08, PL-09, PL-12, PL-18, PL-19, PL-20, PL-21, PL-24, PL-26 | decision-register.md: settled decisions; engineering-practices.md: verify artifacts | Uncovered as a date/scope-specific reference-document rule; recorded history is not a defect merely because old. |
+| PL-05, PL-22, PL-23, PL-25, PL-30, PL-40 | NAMING.md; worktrees.md: exact current identity/path versus historical evidence | Existing identity rules; conditional remote fact stays #511. |
+| PL-11 | engineering-practices.md: readable, artifact-backed claims | Bounded prose correction; hashes/paths retained. |
+| PL-15, PL-31, PL-39, PL-41 | engineering-practices.md: verify generated artifacts against their inputs | Existing rule; catalog/tool/metadata/base-merge owners retain implementation. |
+| PL-16 | engineering-practices.md: device-output reading | Existing canonical mask; literal synthetic fixture verifies this correction. |
+| PL-17, PL-32 | es-ui-style-guide.md: canonical interface reference and flow evidence | Interface owners; PL-17 remains unverified/conditional. |
+| PL-27 | fork-workflow.md: content and stack inputs | Coordinator-owned map; no lane edit. |
+| PL-33, PL-35, PL-36 | instruction-files.md: reach and canonical files | Coordinator-owned rules and missing-reference routing. |
+| PL-34, PL-38 | decision-register.md: citation and settled-row discipline | Coordinator/#947 guard coverage. |
+| PL-42 | issue-tracking.md: evidence-backed criteria | Coordinator tracker edit. |
+| PL-43, PL-44, PL-45 | #528 source/licence ownership; engineering-practices.md: verify bytes | No legal conclusion; retained byte evidence and named owner. |
+
+Pattern P-01: undated current-sounding status across PL-06, PL-08, PL-09 and PL-12. Recommend extending documentation-accuracy.md with reference status/date/scope and current-authority guidance. D-WORKFLOW-223/-224 settle the present disposition; #1407 owns later organization, not an automatic retirement rule. Existing four recommendations above remain with #346/#947/#270. No new rule is written by T39.

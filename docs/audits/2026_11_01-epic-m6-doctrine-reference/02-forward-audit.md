@@ -872,3 +872,5 @@ The complete 31 binary and 18 art rows, each with size and original/current SHA2
 | F04 | 46 dispositions under owner dispatch and open owner-issue readbacks; no downstream completion asserted | `stage-f/outcomes.json; stage-f/inherited-issue-readback.json; stage-e/inputs/t39-streams-v2.md` | `proved: design` |
 | F05 | Resolution lint default/--issue 1406; rules/register/index/ceremony/forbidden/hooks/menu-map and eight issue checkbox checks all rc=0 | `stage-f/checks/; stage-f/audit-1406-body.md (exact live readback, open)` | `proved: tool-run` |
 | F06 | New-record guard rejects five in-memory missing/drift controls before accepting the records | `stage-f/record-check.py; stage-f/checks/record-check.out` | `proved: fixture` |
+
+| G01 | Stage-G four-answer retro, ten scoped checks and complete 46-item instruction coverage map | docs/retros/2026-11-02-m6-doctrine-reference.md; 04 Instruction File Recommendations | `proved: tree` |

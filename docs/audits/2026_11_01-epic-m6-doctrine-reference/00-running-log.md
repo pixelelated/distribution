@@ -206,3 +206,5 @@ PROOF: 2026-11-02T19:02:55Z F03: grep identity/retired counts and exact current 
 PROOF: 2026-11-02T19:02:55Z F04: 46 dispositions under owner dispatch and open owner-issue readbacks; no downstream completion asserted; evidence stage-f/outcomes.json; stage-f/inherited-issue-readback.json; stage-e/inputs/t39-streams-v2.md; proved: design
 PROOF: 2026-11-02T19:06:35Z F05: Resolution lint default/--issue 1406; rules/register/index/ceremony/forbidden/hooks/menu-map and eight issue checkbox checks all rc=0; evidence stage-f/checks/; stage-f/audit-1406-body.md (exact live readback, open); proved: tool-run
 PROOF: 2026-11-02T19:06:35Z F06: New-record guard rejects five in-memory missing/drift controls before accepting the records; evidence stage-f/record-check.py; stage-f/checks/record-check.out; proved: fixture
+
+PROOF: 2026-11-02T19:08:55Z G01: Stage-G four-answer retro, ten scoped checks and complete 46-item instruction coverage map; evidence docs/retros/2026-11-02-m6-doctrine-reference.md; 04 Instruction File Recommendations; proved: tree
