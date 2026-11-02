@@ -1,0 +1,10 @@
+{
+  "recorded": "2026-11-02T18:47:25.298604+00:00",
+  "original_action": "gh api -X POST repos/pixelelated/distribution/issues/688/sub_issues -F sub_issue_id=6168762846",
+  "action_result": "Succeeded; parent-write.json is the parent #688 with total=1.",
+  "local_validator_failures": [
+    "First wrapper expected POST number=child 1409; API returned parent 688. Wrapper exited 1 after successful mutation; original per-call timing array was not saved.",
+    "Recovery GETs succeeded: audit parent=688 and bug parent absent. The second wrapper expected the absence message Not Found; actual message was No parent issue found with HTTP 404, so wrapper exited 1. These GET timings were saved."
+  ],
+  "recovery": "Read retained payloads directly and verified the documented relationship and absence semantics. No POST was retried; no timing was reconstructed."
+}

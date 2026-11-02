@@ -1,0 +1,74 @@
+[
+  {
+    "name": "audit-parent-readback",
+    "argv": [
+      "gh",
+      "api",
+      "repos/pixelelated/distribution/issues/1409/parent"
+    ],
+    "start": "2026-11-02T18:44:27.893390+00:00",
+    "elapsed_seconds": 0.636,
+    "rc": 0,
+    "stderr": ""
+  },
+  {
+    "name": "bug-parent-readback",
+    "argv": [
+      "gh",
+      "api",
+      "repos/pixelelated/distribution/issues/1408/parent"
+    ],
+    "start": "2026-11-02T18:44:28.529596+00:00",
+    "elapsed_seconds": 0.517,
+    "rc": 1,
+    "stderr": "gh: No parent issue found (HTTP 404)\n"
+  },
+  {
+    "name": "issue-1408-readback",
+    "argv": [
+      "gh",
+      "api",
+      "repos/pixelelated/distribution/issues/1408"
+    ],
+    "start": "2026-11-02T18:47:26.516588+00:00",
+    "elapsed_seconds": 0.404,
+    "rc": 0,
+    "stderr": ""
+  },
+  {
+    "name": "issue-1409-readback",
+    "argv": [
+      "gh",
+      "api",
+      "repos/pixelelated/distribution/issues/1409"
+    ],
+    "start": "2026-11-02T18:47:26.920917+00:00",
+    "elapsed_seconds": 0.56,
+    "rc": 0,
+    "stderr": ""
+  },
+  {
+    "name": "question-1-readback",
+    "argv": [
+      "gh",
+      "api",
+      "repos/pixelelated/distribution/issues/comments/6585346506"
+    ],
+    "start": "2026-11-02T18:47:27.481444+00:00",
+    "elapsed_seconds": 0.629,
+    "rc": 0,
+    "stderr": ""
+  },
+  {
+    "name": "question-2-readback",
+    "argv": [
+      "gh",
+      "api",
+      "repos/pixelelated/distribution/issues/comments/6585347732"
+    ],
+    "start": "2026-11-02T18:47:28.110624+00:00",
+    "elapsed_seconds": 0.507,
+    "rc": 0,
+    "stderr": ""
+  }
+]

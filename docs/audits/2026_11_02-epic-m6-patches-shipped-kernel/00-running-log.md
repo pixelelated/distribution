@@ -213,3 +213,30 @@ Promoted the accepted generator draft into audit-local tools with receipt/root r
 ```
 
 A drop failure detects lost membership; reach failure detects classification drift; header failure detects stripped provenance. The succeeding stats remain rows107/lines40474, patch106/conf1, directory groups4/6/4/32/55/1/2/2/1, From87/Subject89, orders8/42/65/2/2/1, dispositions107. Each output is byte-equal to the accepted Stage-B table. Continue directly to D after a substantive update; no additional approval requested.
+
+## Stage D filing — 2026-11-02 18:52:12 UTC
+
+Filed High F-01/L-01 as reactive bug #1408 (only bug label, milestone null, no parent); audit #1409 has one open PL-001, audit/punch-list labels, M6 number6/title and parent #688. Submitted and exact read-back bodies are retained in stage-d/issues and the API payloads. Question1 comment6585346506 and question2 comment6585347732 were posted on #688 and read back exactly by connector and gh API. 06/07 complete; 02/04/05 name the bug, audit, questions and current 20PASS/8PARTIAL full-issue assessment. No later criterion is ticked on GitHub and no outcome is selected.
+
+The parent-link POST ran once and succeeded; it returns the parent, not the child. A local expected-number assertion failed afterwards. Independent GET confirmed the relationship. Its bug-parent absence response is HTTP404 with “No parent issue found”; a second local assertion had expected “Not Found”. Corrected those response interpretations against retained payloads without repeating the POST or inventing missing producer times. See stage-d/parent-response-note.json.
+
+Bug box-check: 1 issue, 2 open checkboxes, 0 fail. Audit initial box-check: 1 issue, 1 open checkbox, 0 fail; its final body is checked again because D updated its current scorecard/links. Retained Stage-A/B/C evidence and source files are unchanged. No build, guest, runtime, fetch, host-ledger/device/cloud action, configuration sourcing, source-helper execution or permission answer. No held-directory or historical launch-worktree edit. Scratch remains owned under /workspace/tmp/m6-t41 for H. After the complete clean published D return, stop for coordinator stream disposition.
+
+### Final D new-record validation — 2026-11-02 18:54:45 UTC
+
+`stage-d/verify-records.py` exited0; 775 accepted A/B/C receipt/tool/plan files and 107 source paths unchanged; AC17 quotation byte-equal; 107-row tables, 31 leads, 16 rulings and12 matched proofs retained. Exactly one Open PL-001, two bug checkboxes and one audit checkbox; all actual identities/parent/milestone/body/question readbacks reconcile. No accepted-stage execution replay.
+
+```text
+2026-11-02T18:53:26.653113+00:00 audit-final-api rc=0: exact final issue body, labels, M6 and Open state
+2026-11-02T18:53:29.112651+00:00 audit-box-final rc=0: box-check: 1 issue(s), 1 open checkbox(es), 0 fail, 0 issue(s) with rows to re-derive against
+2026-11-02T18:53:29.601713+00:00 pre-issue-lint-final rc=0: PASS pre-issue artifacts (does not certify resolution)
+2026-11-02T18:53:30.181992+00:00 rules rc=0: (no output)
+2026-11-02T18:53:30.207496+00:00 register rc=0: register-check: 717 IDs, each once; every citation in the live documents names a row
+2026-11-02T18:53:31.432107+00:00 index rc=0: work-log index: current
+2026-11-02T18:53:31.453511+00:00 ceremony rc=0: (no output)
+2026-11-02T18:53:40.628896+00:00 whitespace rc=0: (no output)
+2026-11-02T18:53:40.671043+00:00 forbidden-new-records rc=0: forbidden-terms-check: 0 hits on stdin
+2026-11-02T18:53:40.677468+00:00 secret-new-records rc=1: 0
+```
+
+Final lint is explicitly pre-issue/filing validation; it does not certify resolution. Commit and push hooks scan the new publication as usual. Next action after the D return is STOP for coordinator stream disposition.

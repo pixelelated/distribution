@@ -1,0 +1,45 @@
+archaeology: ramoops
+
+== The decision register (5)
+  2026-09-10  register decided D-SYS-004    ramoops for every H700 board, from the SoC dtsi, at `0x4F000000`. One kernel patch on `sun50i-h616.dtsi` rather than fifteen board files. The address is RAM on every H70…
+  2026-09-17  register decided D-QA-027     The RG35XX SP is the dedicated QA handheld from here on: it holds no personal saves or ROMs, signs in only to QA accounts, and may be left plugged in as a bench device, …
+  2026-09-29  register decided D-WORKFLOW-065  RC1 goes on the fork's releases page for the four devices the maintainer owns -- SM8550, H700, RK3566 (RG353M), RK3326 (RG351M) -- built from the candidate's head `8dd67…
+  2026-09-29  register decided D-WORKFLOW-082  The fork's quality is its process -- the VM, the suites, the regression checks, the audits -- not the maintainer's line-by-line reading, and nothing is submitted anywher…
+  2026-11-02  register decided D-WORKFLOW-221  T41 (#688) owns the provenance table of `patches-shipped-kernel` -- the 107 paths of area `patches-and-configs` under `projects/ROCKNIX/devices/`, `projects/ROCKNIX/pack…
+
+== The blindspot register (0)
+
+== Work logs (9)
+  2026-09-10  work-log 20:26                #104: the survey found half of it already in the image
+  2026-09-10  work-log 20:41                the first panic on the VM: rebooted in 22 s, dump written, dump not archived
+  2026-09-10  work-log 20:53                `aa3df8d178`: every part of #104 proven on the VM, one test method retired
+  2026-09-11  work-log 18:40                cleanup done; why the device at all
+  2026-09-29  work-log 03:42                three requests filed while chain 90 runs: the PR stack (#322), RC1 for four devices (#321), the H700 images confirmed
+  2026-09-29  work-log 08:34                #322: the series map and `tools/pr-stack-check`, seen to fail three ways before it was believed
+  2026-09-29  work-log 08:40                #322: the interface PR's review guide and eleven PR descriptions, as files
+  2026-11-01  work-log 05:59                T38's stage-E hand-back in; T41's five research files in and its brief being drafted (#685, #688)
+  2026-11-01  work-log 06:40                T41's brief version 1 committed at `7d70da5972`; its stranger's proof started (#688)
+
+== Rules (3)
+              rule handheld-evidence.md     The hang-to-reboot path, and what it is not
+              rule handheld-evidence.md     Testing it on the VM
+              rule handheld-evidence.md     What survives what
+
+== Git history (-G, on this checkout) (15)
+  2026-10-22  git 31af3b387d                docs: the revised order, its ledgers regenerated, and the preliminary review's synthesis (#641)
+  2026-10-23  git 968ba95993                docs: T1's brief version 2 after the futro and the stranger's proof; the area epic #695's futro; the plan's stages E and H under D-WORKFLOW-189 (#648…
+  2026-10-23  git f7fcafcddb                docs: the brief for T1, the OS scripts: launch, control and state (#648), version 1
+  2026-10-25  git 1756e60b78                docs: T27's brief, version 1 (the H700 configuration has a base, upstream's own copy; the pins; the loader and the tree; the .disabled third), and th…
+  2026-11-01  git 7d70da5972                docs: T41's brief, version 1 -- the kernel patches and configurations the shipped and test images apply (patches-shipped-kernel, #688): 107 paths, on…
+  2026-11-01  git 9ae09884d5                docs: the log for T41's version 1 and proof, T39's stage A (the T1 session's model id), T38's triage and asks (#688, #686, #685)
+  2026-11-01  git c1ca24f1c0                docs: the log for T41's research fan-out and T38's stage-E hand-back (#688, #685)
+  2026-11-02  git 02aab33bd9                M6 T41: correct Stage-A handoff records
+  2026-11-02  git 3cd9ca140a                M6 T41: preserve Stage-B dry-run method blocker
+  2026-11-02  git 6a4981eb18                docs: T41's brief, version 2 -- the draft row's doubled hash and the two remaining T42 firmware mentions corrected (#688)
+  2026-11-02  git 7e5d154671                M6 T41: complete Stage B with guarded patch application
+  2026-11-02  git 94b5b1c0b9                M6 T41: formalize Local Stage C audit artifacts
+  2026-11-02  git b29877a354                docs: T41's brief, version 2 -- the stranger's seven corrections applied (upstream pinned at 651150fc88 since the local ref moved; seven reachable_by…
+  2026-11-02  git cffe3f869c                docs: T41 stage A -- running log, research scope, stage-a outputs, and stashed pointer (#688)
+  2026-11-02  git d7dd766659                docs: T41 dispatched from the coordinator's side -- D-WORKFLOW-221 (T41's ownership row), the futro's T41 kickoff addendum, the day log for the quota…
+
+32 line(s). A decision listed as pending without a register OPEN row above is a claim to check.

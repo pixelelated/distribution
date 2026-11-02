@@ -553,9 +553,9 @@ forbidden-terms-check: 1 line(s) on stdin carry a listed word
 
 | Lead | Disposition | Evidence, limit and next owner |
 | --- | --- | --- |
-| L-01 | bug | High: uninitialized cstate in both 7.0/0010 and 7.2/0010; upstream fix 9416eec2c2; final SM8550 scratch dpu_crtc.c:1441,1453,1470; bug filing at D, integration #563/#559. |
+| L-01 | bug | High: uninitialized cstate in both 7.0/0010 and 7.2/0010; upstream fix 9416eec2c2; final SM8550 scratch dpu_crtc.c:1441,1453,1470; bug filing at D, integration #563/#559. Bug #1408; audit #1409 PL-001, open for integration disposition. |
 | L-02 | #585 | Upstream recipe :18 quoted =~ yields five no-match lines; no current patch group; draft above, never sent. |
-| L-03 | inherited:T11 | Three byte-identical 7.0/7.2 pairs, remaining-reads duplicates; keep files versus symlinks question drafted for D. |
+| L-03 | inherited:T11 | Three byte-identical 7.0/7.2 pairs, remaining-reads duplicates; keep files versus symlinks question drafted for D. Stage-D question comment 6585346506; exact readback stage-d/question-1-readback.json. |
 | L-04 | row | SM8550 filename prefixes collide: 0053/0054/0057 twice, 0060 three times; exact C-locale index retained, no rename. |
 | L-05 | row | 19 absent From headers / 17 absent Subject; content and git log --follow recorded for all 107; unknown origin remains unknown. |
 | L-06 | row | Eleven dated-import probes plus context refutation in remaining-reads.json; zero complete supersessions established; one explicit Backport claim, no network validation. |
@@ -568,7 +568,7 @@ forbidden-terms-check: 1 line(s) on stdin carry a listed word
 | L-13 | row | Squashed headers underdescribe file sections/hunks: H700 0002 31/84, 0008 6/10, 0110 5/5, 0126 2/5; each 0010 9/20; dated SM8550 series 6/6. |
 | L-14 | row | mainline polldev moved unchanged to RK3326 by fe5216ff69; zero polldev hits in current H700 patches/joypad-driver read. T27 and integration own consumer verification after merge. |
 | L-15 | none | Seven empty patch-dir selections and no LINUX assignment, remaining-reads.json; recorded recipe fact, T11 owns future changes. |
-| L-16 | #585 | All 38 ramoops lines read; D-SYS-004 values match; absent at upstream and pristine source; distribution-layer proposal never sent. |
+| L-16 | #585 | All 38 ramoops lines read; D-SYS-004 values match; absent at upstream and pristine source; distribution-layer proposal never sent. Stage-D question comment 6585347732; exact readback stage-d/question-2-readback.json; existing D-SYS-004 retained. |
 | L-17 | inherited:coordinator | Inventory tier vendor-carried=107, tier_note fork-written=1; no re-tiering, preserve both measures. |
 | L-18 | none | Six reach-gap issues OPEN on this read; no current member correction. #1053 could lose the four U-Boot rows in a wrongly regenerated host plan; retained inventory is container-derived. |
 | L-19 | row | SM8550 conf 8608 lines; base 0 changes; upstream 7+/7-; four comparisons and nine-candidate method above; integration owns delta. |
@@ -645,40 +645,40 @@ The take-up table in `01-research-notes.md` has been rechecked against these row
 
 ## Acceptance criteria scorecard
 
-The full live criterion text is preserved verbatim in `stage-b/corrected/issue-688-body.txt`. Numbering below follows its 28 checkboxes, including revised criteria 3, 9 and 10. PASS is evidence coverage at this checkpoint; PARTIAL explicitly marks later authorized procedure stages, not a claim of issue completion. Each PASS was challenged by the corresponding membership, source/digest, negative fixture, context or history check above; the remaining stage is named for every partial item.
+The full live criterion text is preserved verbatim in `stage-b/corrected/issue-688-body.txt`. Numbering below follows its 28 checkboxes, including revised criteria 3, 9 and 10. Updated at Stage D: PASS is evidence coverage at this checkpoint; PARTIAL explicitly marks later authorized procedure stages, not a claim of issue completion. Each PASS was challenged by the corresponding membership, source/digest, negative fixture, context or history check above; the remaining stage is named for every partial item.
 
 | ID | Criterion (exact source: issue-688-body.txt) | Stage-B verdict | Evidence / refutation / remaining stage |
 | --- | --- | --- | --- |
-| AC-01 | Complete audit-folder contract | PARTIAL | 00–04 and both receipt generations present; 05, formal tools/ and second-opinions/ are Stage C/D work. |
-| AC-02 | Artifact lint and Q1–Q7 contract | PARTIAL | Q1–Q7 written; pre-issue lint and punch index belong to C/D, resolution lint to F/H. |
-| AC-03 | Actual Local reader and review plan | PARTIAL | Codex/OpenAI reader and historical Opus/Argon identities recorded; Stage-C formal plan not created early. |
-| AC-04 | Punch issue outcomes and coordinator closure | PARTIAL | No Stage-D audit issue exists yet; no closure claimed. |
+| AC-01 | Complete audit-folder contract | PASS | 00–07, formal audit-local tools and sole Local plan are present; all accepted receipt generations retained; no guest-cycle. |
+| AC-02 | Artifact lint and Q1–Q7 contract | PARTIAL | C pre-issue lint PASS and D pre-issue validation; resolution lint/outcomes remain F/H. |
+| AC-03 | Actual Local reader and review plan | PASS | Actual Codex/OpenAI Local plan, empty reviewers, D-WORKFLOW-184 and observed-footer/historical identity distinction; no external calls. |
+| AC-04 | Punch issue outcomes and coordinator closure | PARTIAL | Audit #1409 has one open PL-001 and no closure; stream disposition and Phase-7 outcomes remain owed. |
 | AC-05 | Issue commit headers and protected-source/register guards | PARTIAL | Protected-source diff empty; reviewed-at/fixed-at issue fields remain for final hand-back. |
 | AC-06 | Exact membership and both line totals | PASS | Accepted 99-line P1/seed receipts retained; rows and source bytes asserted again by table draft. |
 | AC-07 | Stage-A Local positive/negative lint | PASS | Original lint-local-pass.out rc=0 and lint-local-fail.out rc=1 retained, not rerun. |
 | AC-08 | 107 complete provenance rows and dispositions | PASS | Generated table below; no empty cells; five non-kernel rows identify T27/T11; dispositions total 107. |
 | AC-09 | 107 exact coverage paths with escaped-name normalization | PASS | Coverage table generated from retained P1 rows; comparison decodes literal filename escape only. |
 | AC-10 | Corrected 120-application packet and failure guard | PASS | 120 actual apply_rc=0, zero blocked; H700 011 dry_rc=1/apply_rc=0; failure fixture refuses promotion. |
-| AC-11 | Generator three FAIL-first mutations then asserted tip output | PASS | drop/reach/header each rc=1 with distinct assertion, then all five modes rc=0; retained Stage-B draft, formal tools promotion later. |
+| AC-11 | Generator three FAIL-first mutations then asserted tip output | PASS | Formal generator: three negatives rc=1 before five modes rc=0; all outputs byte-equal to accepted B tables; stage-c/validation.json. |
 | AC-12 | Ramoops node/config/upstream/pristine context | PASS | 38-line read, six numbered config lines, context at 108 instead of expected near 117, zero pristine ramoops. |
 | AC-13 | Two #585 lines, including quoted regex, never sent | PASS | Both draft contributions below; five no-match output lines retained; no #585 write. |
-| AC-14 | 0010 currency rows and filed bug | PARTIAL | Both upstream-changed; High source defect survives refutation; bug filing and its box-check belong to D. |
+| AC-14 | 0010 currency rows and filed bug | PASS | Both 0010 rows upstream-changed; High bug #1408 has trace, upstream fix, Already written/VM and base-merge criterion; box-check 2 open/0 fail. |
 | AC-15 | Four configuration comparisons and method | PASS | 2609 / 3827 / 17 / 7-7 reproduced; helpers and oldconfig were read, not run. |
 | AC-16 | 12 additions, move and four upstream changes | PASS | Exact name-status table below; 101 SAME/4 CHANGED/2 ABSENT, integration owns all changes. |
-| AC-17 | Command/output/exit/time and hygiene evidence | PASS | Historical Stage-A producers retained; new per-command timings, full apply logs, positive hygiene controls in validation packet. |
+| AC-17 | Command/output/exit/time and hygiene evidence | PASS | AC17 correction 721d6e7049 quotes retained hygiene.out verbatim in 02, including positive controls; no replay. |
 | AC-18 | 31 leads and sixteen rulings | PASS | Each appears once in its indexed table below, with evidence and owner. |
-| AC-19 | Renovation Q4 counts and Q3 bug numbers | PARTIAL | All currency counts and seven faces complete; Q3 bug number awaits Stage D. |
-| AC-20 | Two maintainer questions posted at Stage D | PARTIAL | Exact questions drafted in 04; no premature question/approval relay. |
+| AC-19 | Renovation Q4 counts and Q3 bug numbers | PASS | Q4 counts preserved by value; Q3 names bug #1408; Q5 struck and Q7 inherited; no timing effect. |
+| AC-20 | Two maintainer questions posted at Stage D | PASS | Question comments 6585346506 and 6585347732 posted on #688; exact gh API body readbacks retained and 07 quotes them. |
 | AC-21 | All inherited leads by owner | PASS | Owner/line matrix below; no lane or integration source modified. |
-| AC-22 | Bug/punch ladder and every take-up disposition | PARTIAL | Take-up reviewed in 01 and below; formal bug/punch outcomes belong to D/F. |
+| AC-22 | Bug/punch ladder and every take-up disposition | PASS | Bug #1408 trace and box-check pass; PL-001 has owner, ladder, Already written and VM; all inherited take-up rows remain in 01/02. Outcome remains open under AC04. |
 | AC-23 | Matching classified proof and running-log entries | PASS | Twelve classified proof records below, with twelve corresponding running-log lines. |
 | AC-24 | Closing host-ledger no-write evidence | PARTIAL | No host action or write in command census; closing ledger delta check belongs to H, not repeated here. |
 | AC-25 | Closing execution census and Stage-H scratch retirement | PARTIAL | Source-only Stage-B census complete; scratch intentionally retained until H. |
 | AC-26 | Final retro and its posted timestamp | PARTIAL | 03 is the audit retrospective; final docs/retros artifact and post belong to G. |
-| AC-27 | Branch and simulated-merge final checks | PARTIAL | Stage-B branch checks recorded; coordinator simulated merge and final resolution gates are later. |
-| AC-28 | Single final hand-back and issue box-check | PARTIAL | This is the Stage-B checkpoint only, not final hand-back or issue acceptance. |
+| AC-27 | Branch and simulated-merge final checks | PARTIAL | New C/D record checks are retained; final resolution and coordinator simulated-merge checks remain F/H. |
+| AC-28 | Single final hand-back and issue box-check | PARTIAL | This is the Stage-D checkpoint, not final hand-back or issue acceptance; final header/closure work remains H. |
 
-**Totals:** 14 PASS, 14 PARTIAL, 0 FAIL, 28 criteria. **Stage-B assessment: PASS WITH FINDINGS**; final slice acceptance remains incomplete.
+**Stage-D record assessment:** 20 PASS, 8 PARTIAL, 0 FAIL, 28 full-slice criteria; final slice acceptance remains incomplete. Accepted Stage-B scorecard is preserved in stage-b/corrected/scorecard.json and its immutable commit.
 
 ## Coverage Boundary
 

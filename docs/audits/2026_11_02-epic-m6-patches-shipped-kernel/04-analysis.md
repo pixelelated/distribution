@@ -6,9 +6,9 @@
 
 All **120 complete patch applications over 106 patch paths succeeded** against the same cached pins: 43 applies, 48 applies with offset and 29 fuzz. Zero production candidates failed and zero successors were blocked. The deliberately failing fixture verifies that a partial candidate cannot advance the sequence. H700 011 remains the sole diagnostic disagreement: dry-run rc=1 but complete apply rc=0; the coordinator's D-WORKFLOW-222 resolves that method error without changing product source or discarding old receipts.
 
-The 107-row provenance/coverage table is complete, including the SM8550 configuration and five non-kernel rows. Currency dispositions are **101 keep, 4 upstream-changed, 1 upstream-moved, 1 #585**. The known High source defect in both `0010-msm-resource-cleanup.patch` copies survives refutation: final patched SM8550 code writes through `cstate` before assignment. Upstream `9416eec2c2` supplies the fix; Stage D must file its bug and the integration owns landing it. Application success does not certify compilation, boot, runtime behavior or the rest of the 40,474 lines.
+The 107-row provenance/coverage table is complete, including the SM8550 configuration and five non-kernel rows. Currency dispositions are **101 keep, 4 upstream-changed, 1 upstream-moved, 1 #585**. The known High source defect in both `0010-msm-resource-cleanup.patch` copies survives refutation: final patched SM8550 code writes through `cstate` before assignment. Upstream `9416eec2c2` supplies the fix; Stage D filed bug #1408 and audit #1409 PL-001; the integration owns landing it. Application success does not certify compilation, boot, runtime behavior or the rest of the 40,474 lines.
 
-This is the complete Stage-B analysis, not final acceptance of #688. Stage C formal tool/reader-plan/lint work and Stage D issues/questions remain explicit. Local depth used one actual Codex reader and no reviewer or provider call.
+This is the Stage-D filing analysis, not final acceptance of #688. C formal tool/reader-plan/pre-issue lint is complete. D files audit #1409 and bug #1408 and posts both questions; PL-001 remains open for coordinator stream disposition. Local depth used one actual Codex reader and no reviewer or provider call.
 
 ## Acceptance-criteria scorecard
 
@@ -16,36 +16,36 @@ The exact current 28 criteria are retained in `stage-b/corrected/issue-688-body.
 
 | ID | Criterion | Verdict | Evidence / remaining stage |
 | --- | --- | --- | --- |
-| AC-01 | Complete audit-folder contract | PARTIAL | 00–04 and both receipt generations present; 05, formal tools/ and second-opinions/ are Stage C/D work. |
-| AC-02 | Artifact lint and Q1–Q7 contract | PARTIAL | Q1–Q7 written; pre-issue lint and punch index belong to C/D, resolution lint to F/H. |
-| AC-03 | Actual Local reader and review plan | PARTIAL | Codex/OpenAI reader and historical Opus/Argon identities recorded; Stage-C formal plan not created early. |
-| AC-04 | Punch issue outcomes and coordinator closure | PARTIAL | No Stage-D audit issue exists yet; no closure claimed. |
+| AC-01 | Complete audit-folder contract | PASS | 00–07, formal audit-local tools and sole Local plan are present; all accepted receipt generations retained; no guest-cycle. |
+| AC-02 | Artifact lint and Q1–Q7 contract | PARTIAL | C pre-issue lint PASS and D pre-issue validation; resolution lint/outcomes remain F/H. |
+| AC-03 | Actual Local reader and review plan | PASS | Actual Codex/OpenAI Local plan, empty reviewers, D-WORKFLOW-184 and observed-footer/historical identity distinction; no external calls. |
+| AC-04 | Punch issue outcomes and coordinator closure | PARTIAL | Audit #1409 has one open PL-001 and no closure; stream disposition and Phase-7 outcomes remain owed. |
 | AC-05 | Issue commit headers and protected-source/register guards | PARTIAL | Protected-source diff empty; reviewed-at/fixed-at issue fields remain for final hand-back. |
 | AC-06 | Exact membership and both line totals | PASS | Accepted 99-line P1/seed receipts retained; rows and source bytes asserted again by table draft. |
 | AC-07 | Stage-A Local positive/negative lint | PASS | Original lint-local-pass.out rc=0 and lint-local-fail.out rc=1 retained, not rerun. |
 | AC-08 | 107 complete provenance rows and dispositions | PASS | Generated table below; no empty cells; five non-kernel rows identify T27/T11; dispositions total 107. |
 | AC-09 | 107 exact coverage paths with escaped-name normalization | PASS | Coverage table generated from retained P1 rows; comparison decodes literal filename escape only. |
 | AC-10 | Corrected 120-application packet and failure guard | PASS | 120 actual apply_rc=0, zero blocked; H700 011 dry_rc=1/apply_rc=0; failure fixture refuses promotion. |
-| AC-11 | Generator three FAIL-first mutations then asserted tip output | PASS | drop/reach/header each rc=1 with distinct assertion, then all five modes rc=0; retained Stage-B draft, formal tools promotion later. |
+| AC-11 | Generator three FAIL-first mutations then asserted tip output | PASS | Formal generator: three negatives rc=1 before five modes rc=0; all outputs byte-equal to accepted B tables; stage-c/validation.json. |
 | AC-12 | Ramoops node/config/upstream/pristine context | PASS | 38-line read, six numbered config lines, context at 108 instead of expected near 117, zero pristine ramoops. |
 | AC-13 | Two #585 lines, including quoted regex, never sent | PASS | Both draft contributions below; five no-match output lines retained; no #585 write. |
-| AC-14 | 0010 currency rows and filed bug | PARTIAL | Both upstream-changed; High source defect survives refutation; bug filing and its box-check belong to D. |
+| AC-14 | 0010 currency rows and filed bug | PASS | Both 0010 rows upstream-changed; High bug #1408 has trace, upstream fix, Already written/VM and base-merge criterion; box-check 2 open/0 fail. |
 | AC-15 | Four configuration comparisons and method | PASS | 2609 / 3827 / 17 / 7-7 reproduced; helpers and oldconfig were read, not run. |
 | AC-16 | 12 additions, move and four upstream changes | PASS | Exact name-status table below; 101 SAME/4 CHANGED/2 ABSENT, integration owns all changes. |
-| AC-17 | Command/output/exit/time and hygiene evidence | PASS | Historical Stage-A producers retained; new per-command timings, full apply logs, positive hygiene controls in validation packet. |
+| AC-17 | Command/output/exit/time and hygiene evidence | PASS | AC17 correction 721d6e7049 quotes retained hygiene.out verbatim in 02, including positive controls; no replay. |
 | AC-18 | 31 leads and sixteen rulings | PASS | Each appears once in its indexed table below, with evidence and owner. |
-| AC-19 | Renovation Q4 counts and Q3 bug numbers | PARTIAL | All currency counts and seven faces complete; Q3 bug number awaits Stage D. |
-| AC-20 | Two maintainer questions posted at Stage D | PARTIAL | Exact questions drafted in 04; no premature question/approval relay. |
+| AC-19 | Renovation Q4 counts and Q3 bug numbers | PASS | Q4 counts preserved by value; Q3 names bug #1408; Q5 struck and Q7 inherited; no timing effect. |
+| AC-20 | Two maintainer questions posted at Stage D | PASS | Question comments 6585346506 and 6585347732 posted on #688; exact gh API body readbacks retained and 07 quotes them. |
 | AC-21 | All inherited leads by owner | PASS | Owner/line matrix below; no lane or integration source modified. |
-| AC-22 | Bug/punch ladder and every take-up disposition | PARTIAL | Take-up reviewed in 01 and below; formal bug/punch outcomes belong to D/F. |
+| AC-22 | Bug/punch ladder and every take-up disposition | PASS | Bug #1408 trace and box-check pass; PL-001 has owner, ladder, Already written and VM; all inherited take-up rows remain in 01/02. Outcome remains open under AC04. |
 | AC-23 | Matching classified proof and running-log entries | PASS | Twelve classified proof records below, with twelve corresponding running-log lines. |
 | AC-24 | Closing host-ledger no-write evidence | PARTIAL | No host action or write in command census; closing ledger delta check belongs to H, not repeated here. |
 | AC-25 | Closing execution census and Stage-H scratch retirement | PARTIAL | Source-only Stage-B census complete; scratch intentionally retained until H. |
 | AC-26 | Final retro and its posted timestamp | PARTIAL | 03 is the audit retrospective; final docs/retros artifact and post belong to G. |
-| AC-27 | Branch and simulated-merge final checks | PARTIAL | Stage-B branch checks recorded; coordinator simulated merge and final resolution gates are later. |
-| AC-28 | Single final hand-back and issue box-check | PARTIAL | This is the Stage-B checkpoint only, not final hand-back or issue acceptance. |
+| AC-27 | Branch and simulated-merge final checks | PARTIAL | New C/D record checks are retained; final resolution and coordinator simulated-merge checks remain F/H. |
+| AC-28 | Single final hand-back and issue box-check | PARTIAL | This is the Stage-D checkpoint, not final hand-back or issue acceptance; final header/closure work remains H. |
 
-**Pass rate at Stage B:** 14/28 full-issue criteria fully met (50%); 14 PARTIAL, 0 FAIL. These are full-slice criteria, not a 50% Stage-B packet. Stage-B outputs 02/03/04 and the corrected packet are present; the partial rows name later C–H obligations.
+**Stage-D record assessment:** 20/28 full-slice criteria covered here (71.4%); 8 PARTIAL, 0 FAIL. These are artifact/evidence verdicts, not coordinator ticks or final slice acceptance. The accepted 14/14 Stage-B scorecard remains unchanged in stage-b/corrected/scorecard.json. The partial rows name stream/outcome and F–H obligations.
 
 ## Code Quality Assessment
 
@@ -77,13 +77,13 @@ The full coordinator method erratum was read at `4c8a118cfb` and is retained sep
 
 ## Missing Artifacts
 
-The Stage-C formal audit `tools/t41-tables.py`, `second-opinions/review-plan.json` and pre-issue lint; Stage-D `05-punch-list.md`, audit issue, 0010 bug and two question comments; F resolution evidence; G final retro; H final issue headers, simulated merge, closing host-ledger delta and scratch retirement. They are not authorized as part of this Stage-B checkpoint/stop. The draft table tool and required FAIL-first tests already exist under `stage-b/corrected/` to support the present tables.
+Stages C/D artifacts are present: formal generator and reader plan, pre-issue lint, 05, audit #1409, bug #1408, 06/07 and exact question/issue readbacks. Phase-7 disposition/outcomes, final resolution lint, G retro and H hand-back/scratch retirement remain later work. No audit-completion receipt is fabricated.
 
 ## Risk Assessment
 
 | Risk | Severity | Impact | Mitigation / owner |
 | --- | --- | --- | --- |
-| F-01 pre-fix cstate write | High | Undefined behavior on the source path; SM8550 enables the relevant DRM driver | File bug at D; integration #563/#559 carries 9416eec2c2; no fork patch edit here |
+| F-01 pre-fix cstate write | High | Undefined behavior on the source path; SM8550 enables the relevant DRM driver | Bug #1408 filed; integration #563/#559 carries 9416eec2c2; no fork patch edit here |
 | Successful application mistaken for built/runtime correctness | Medium | False release confidence, especially for device-specific DRM/DT/firmware | Explicit source boundary; compile/guest/device owners retain qualification |
 | Duplicate versions diverge | Low | A later fix can update one version only | T11 choice at Stage D; proposed cmp guard or one-file/symlink policy |
 | Unknown or squashed provenance | Low | Readers may overstate origin/target version | Unknown cells, adding history and files/hunks metadata preserved |
@@ -104,7 +104,7 @@ The Stage-C formal audit `tools/t41-tables.py`, `second-opinions/review-plan.jso
 | --- | --- | --- | --- |
 | F-01: 0010 cstate write before initialization | High | **yes** | Read the complete final patched `dpu_crtc_assign_resources` function, retained in `0010-final-function.txt`: declaration at 1441, write at 1453, first assignment at 1470. No earlier assignment or guard initializes the local pointer; the global-state error return is not a mitigation for successful calls. Compared both byte-identical carried copies and upstream 9416eec2c2's relocation of assignment before the write, with 28+/22- stat. Rechecked final SM8550 sequence (not only the original patch) and CONFIG_DRM_MSM=y at conf:4461. H700/x86 do not enable that driver; no runtime occurrence is claimed. |
 
-**F-01 trace and already-written state:** the immutable patch set carries the pre-fix bytes; builds using that set consume them, while this audit did not inspect built images. Corrected source application retains the defective statement. Upstream fix `9416eec2c200ad969d9e421e686fc7cbfdaca36a` says the previous version writes through an uninitialized pointer. The patch's reason was resource deallocation on modeset failure; history supports that intent but does not justify using an uninitialized pointer. **Can this be done on the VM?** No guest is needed for this source/history claim; actual runtime effects are outside this slice. **Stage-D acceptance draft:** once the base merge lands, diff of the two carried copies against the then-current upstream base is empty; name the fix and verify both siblings, plus `tools/box-check` for the filed bug. No bug number is invented here.
+**F-01 trace and already-written state:** the immutable patch set carries the pre-fix bytes; builds using that set consume them, while this audit did not inspect built images. Corrected source application retains the defective statement. Upstream fix `9416eec2c200ad969d9e421e686fc7cbfdaca36a` says the previous version writes through an uninitialized pointer. The patch's reason was resource deallocation on modeset failure; history supports that intent but does not justify using an uninitialized pointer. **Can this be done on the VM?** No guest is needed for this source/history claim; actual runtime effects are outside this slice. **Stage-D acceptance draft:** once the base merge lands, diff of the two carried copies against the then-current upstream base is empty; name the fix and verify both siblings, plus `tools/box-check` for the filed bug. Bug #1408 carries this trace and the base-merge criterion; audit #1409 PL-001 remains open.
 
 The former six-failure H700 claim did **not** survive refutation: all corrected complete applications return 0. It is recorded as a resolved audit-method finding, not retained as six product defects. No Critical finding remains unexamined.
 
@@ -120,7 +120,7 @@ No complete patch was proved superseded at the current pin. Eleven dated-import 
 
 ### Q3 Bugs
 
-F-01 is the confirmed High source defect and requires a Stage-D bug with upstream fix, already-written statement, VM rationale and two-copy acceptance. Its number is **not yet assigned**, because the user explicitly stops this turn at Stage B. No true application failure was found; no additional patch-application bug is warranted from the 120 receipts. Upstream's quoted =~ is a never-sent #585 draft, not a new fork defect.
+F-01 is the confirmed High source defect; Stage D filed the required bug with upstream fix, already-written statement, VM rationale and two-copy acceptance. Its reactive issue is **#1408**, with audit #1409 PL-001; both remain open for coordinator disposition. No true application failure was found; no additional patch-application bug is warranted from the 120 receipts. Upstream's quoted =~ is a never-sent #585 draft, not a new fork defect.
 
 ### Q4 Currency
 
@@ -249,12 +249,12 @@ Applied does not mean built: Qualcomm DRM is enabled only in SM8550 among the th
 
 The table distinguishes kernel/non-kernel/config, known header claims, exact application indices and the fork-written tier note. `packaging-and-patches.md:91` and `CLAUDE.md:148–149` remain the coordinator's dead-directory erratum. Both line totals identify the one unterminated file. Source filenames and secret scanner remain unchanged; committed H700 0158 path text keeps its literal escape.
 
-## Stage-D questions (drafts, not posted early)
+## Stage-D questions (posted on #688)
 
 1. **The three 7.0 copies that equal 7.2's: keep two files, or one file and a symlink, as upstream's 7.2.6 does?** A fix to only one copy leaves the other behind; upstream fixed both 0010 copies by hand. T11 owns any recipe-tree change after the base merge; no change here. Evidence: five duplicate checks in `remaining-reads.json`, including the three kernel pairs.
 2. **The ramoops patch's contribution layer: ROCKNIX's distribution, or a mainline sun50i-h616.dtsi change?** D-SYS-004 says a distribution reservation is unlikely to belong in the mainline SoC dtsi; #369 is parked. The queue line is drafted either way and **never sent**. The layer decides its intended recipient. Evidence: full 38-line read, six config companions and pristine context.
 
-Comment IDs are deliberately absent until the authorized Stage-D pause. This checkpoint does not re-ask Stage-A acceptance or the resolved method question.
+Posted with exact readbacks: question 1 [6585346506](https://github.com/pixelelated/distribution/issues/688#issuecomment-6585346506); question 2 [6585347732](https://github.com/pixelelated/distribution/issues/688#issuecomment-6585347732). Full posted wording is in 07; question 2 preserves D-SYS-004 as settled and asks confirmation of the contribution-queue target, not an implicit policy reversal. No Stage-A or method approval is re-asked.
 
 ## Instruction File Recommendations
 
@@ -272,11 +272,11 @@ Not applicable: no UI, display content or product behavior changed; no screensho
 
 | Item | Status |
 | --- | --- |
-| Acceptance scorecard matches 02 and current 28 criteria | Present; counts computed: 14 PASS / 14 PARTIAL |
+| Acceptance scorecard matches 02 and current 28 criteria | Present; current D counts: 20 PASS / 8 PARTIAL; accepted B table retained |
 | Three conformance faces / interaction table | Present in 03, summarized here |
 | Coverage Boundary in 02 and 04 | Present; no runtime or full-code-review overclaim |
 | Every Critical/High refuted | One High, survived; no Critical |
-| Second opinion / actual identity | Local exception explicit; formal reader plan at C |
+| Second opinion / actual identity | Local exception explicit; formal actual-reader plan completed at C |
 | Instruction recommendations | Present with existing owners |
 | Visual-QA consolidation | Not applicable, reason stated |
 | Defined verdict vocabulary | PASS/PARTIAL/FAIL only in scorecard; source status uses closed application/disposition vocabularies |

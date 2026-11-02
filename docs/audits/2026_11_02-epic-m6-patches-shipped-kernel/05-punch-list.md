@@ -1,6 +1,6 @@
 # Punch list — M6 T41 shipped kernel patches and configuration (#688)
 
-**Stage:** C pre-issue draft for the authorized Stage-D filing. **Source:** 04 § Finding Verification, F-01 / L-01. **Total:** 1 finding (0 Critical, 1 High, 0 Medium, 0 Low). Local: Codex / GPT-6-Astra / xhigh; observed live footer, not provider-attested. Audit issue and reactive bug are assigned at D; no invented number.
+**Stage:** D filing packet; outcomes remain open pending coordinator stream disposition. **Source:** 04 § Finding Verification, F-01 / L-01. **Total:** 1 finding (0 Critical, 1 High, 0 Medium, 0 Low). Local: Codex / GPT-6-Astra / xhigh; observed live footer, not provider-attested. Reactive bug: [#1408](https://github.com/pixelelated/distribution/issues/1408); audit issue: [#1409](https://github.com/pixelelated/distribution/issues/1409), an M6 sub-issue of #688.
 
 This is a source-only table slice. The integration owns the carried upstream fix; T41 edits no patch, configuration, recipe or root tool. No Stage-E stream or final outcome is authorized by this draft. The twelve accepted proofs and all application receipts remain unchanged.
 
@@ -20,7 +20,7 @@ This is a source-only table slice. The integration owns the carried upstream fix
 - **Enforcement ladder:** Detected by source/history review, confirmed by full-function refutation; upstream already fixed it. A bounded ordering assertion over the two resulting functions could hold the next source integration step; the recorded two-path diff proves uptake. No current mandatory guard is claimed, and **no tool can** turn the accepted application return codes into runtime correctness. The coordinator owns the next stream disposition.
 - **Already written:** Image builds for H700, SM8550 and GENERIC_X64 using the fork's pre-fix source since the base consume these pre-fix patch bytes; this audit did not inspect built images or installed devices. The enabled affected driver is established here only for SM8550. The base merge changes future source/builds; already-installed images remain unchanged until their normal update. No storage schema, migration or cloud write is introduced by this source fix, and no existing device state was read or changed here.
 - **Can this be done on the VM?** No — the tree, history and accepted touched-source artifact show this source defect; nothing a guest shows is a provenance fact. Physical runtime effects, builds and guests remain outside this lane's authorization.
-- **Outcome:** Open, awaiting the coordinator's Stage-D stream disposition. Filing a routed bug does not itself resolve or defer this punch item.
+- **Outcome:** Open, awaiting the coordinator's Stage-D stream disposition. Filing routed bug #1408 does not itself resolve or defer this punch item.
 
 ## Pre-existing tracked scope (not punch items; exempt from this Phase 7 gate)
 
@@ -31,13 +31,23 @@ This is a source-only table slice. The integration owns the carried upstream fix
 - #1049/#1056/#1086/#1101/#879/#1053 — inherited inventory/reach/tooling gaps. No new T41 application failure is established.
 - Coordinator / #346 — kernel-patch directory rule erratum, tier/order interpretation and the two prepared Stage-D questions. The complete 31-lead owner matrix remains in 02. The lane neither files Backlog issues nor edits those owners' files.
 
+## Disposition of the analysis concerns
+
+| Analysis item | Disposition at D |
+| --- | --- |
+| F-01 | Confirmed High source defect: PL-001, bug #1408, audit #1409; open for integration/coordinator disposition. |
+| F-02 | Inherited duplicate-policy question, L-03/T11, posted as 6585346506; no source defect asserted solely because equal files are duplicated. |
+| F-03 | Provenance limitation represented by explicit unknown/headerless cells and the carrying history; no new authorship claim or verified defect requiring a fix. |
+| F-04 | Pre-existing coordinator/T4 rule erratum, L-09; owner matrix retained in 02, no duplicate T41 work item. |
+| F-05 | Audit-method issue resolved by D-WORKFLOW-222 and accepted corrected receipts; original failures preserved/refuted, no product bug. |
+
 ## Phase 7 resolution gate
 
 The Stage-D pause precedes resolution. Every item stays open until an explicit coordinator disposition; no checkbox is ticked merely because a bug exists.
 
 | Item | Outcome | Evidence / next owner |
 | --- | --- | --- |
-| PL-001 | Open | Confirmed source trace above; reactive bug filing at D; the integration owns the fix and coordinator owns stream disposition. |
+| PL-001 | Open | Confirmed source trace above; reactive bug #1408, exact readback verified; the integration owns the fix and coordinator owns stream disposition. |
 
 ## Machine-readable index
 
@@ -53,5 +63,6 @@ punch_index:
   where: "projects/ROCKNIX/packages/linux/patches/{7.0,7.2}/0010-msm-resource-cleanup.patch:19,37"
   acceptance: "Recorded base integration makes both patches equal to its named upstream base and places cstate assignment before its first write; reactive bug records trace and box-check 0 fail."
   ladder: "source/history detection; full-function refutation; next guard is bounded ordering assertion plus two-path base diff; no runtime correctness guard claimed"
+  follow_up: "#1408"
   outcome: open
 ```

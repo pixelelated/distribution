@@ -1,0 +1,9 @@
+**T41 Stage D — question 1 for the coordinator to route (L-03): the three 7.0 copies that equal 7.2's — keep two files, or one file and a symlink, as upstream's 7.2.6 does?**
+
+The accepted evidence records three byte-identical kernel pairs: `0010-msm-resource-cleanup.patch`, `9998-silence-initramfs-unpack-warn.patch`, and `9999-fix-rust-build-error.patch`. A fix made to only one independent copy leaves the other behind; upstream's `9416eec2c2` fixed both 0010 copies by hand. A shared target would make the test-image series follow the shipped-kernel copy, while keeping separate files allows series-specific changes and needs an explicit equality guard while they are intended to match.
+
+[Accepted duplicate receipts](https://github.com/pixelelated/distribution/blob/94b5b1c0b983313325dba101217761c6e5c9bca0/docs/audits/2026_11_02-epic-m6-patches-shipped-kernel/stage-b/corrected/remaining-reads.json), [question and ownership](https://github.com/pixelelated/distribution/blob/94b5b1c0b983313325dba101217761c6e5c9bca0/docs/audits/2026_11_02-epic-m6-patches-shipped-kernel/04-analysis.md#stage-d-questions-drafts-not-posted-early). Stage-D record archaeology found no decided duplicate-storage policy. This is T11's recipe-tree decision after the base merge; T41 has made no source or symlink edit. The actual pointer defect is separately tracked as bug #1408 and audit #1409 PL-001; either storage choice still requires the upstream fix.
+
+Please record the selected disposition and owner in the coordinator's stream disposition, with a decision-register row if required. This is the brief's prepared policy question, not a request for device/runtime permission. The lane stops at the Stage-D checkpoint and does not start a remediation stream.
+
+Codex / GPT-6-Astra / xhigh, session `01a19d12-29e3-7fe0-9f41-038dac0a5deb`, T3 wN:p6; observed footer, not provider-attested.

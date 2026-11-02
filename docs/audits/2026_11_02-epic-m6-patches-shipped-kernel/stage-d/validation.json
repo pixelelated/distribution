@@ -1,0 +1,160 @@
+{
+  "result": "PASS",
+  "start": "2026-11-02T18:53:26.653095+00:00",
+  "end": "2026-11-02T18:53:40.680589+00:00",
+  "script_sha256": "9cb1dce6c3cdc8ce76b93bb7a81863a2c1f89850686da07a9586b9ce1510b33b",
+  "scope": "New D filing records only; no accepted-stage execution replay",
+  "structural": {
+    "start": "2026-11-02T18:53:26.653095+00:00",
+    "elapsed_seconds": 2.46,
+    "rc": 0,
+    "accepted_records_tools_plan_unchanged": 775,
+    "source_paths_unchanged": 107,
+    "proofs": 12,
+    "lead_rows": 31,
+    "rulings": 16,
+    "criterion_verdicts": {
+      "PASS": 20,
+      "PARTIAL": 8
+    },
+    "punch_items": 1,
+    "punch_outcome": "Open",
+    "issue_bodies_equal": true,
+    "questions_equal": true,
+    "audit_parent": 688,
+    "bug_parent": null,
+    "protected_source_diff": "empty",
+    "scope": "Only D audit records/pointer/work-log changes"
+  },
+  "checks": [
+    {
+      "name": "audit-final-api",
+      "argv": [
+        "gh",
+        "api",
+        "repos/pixelelated/distribution/issues/1409"
+      ],
+      "start": "2026-11-02T18:53:26.653113+00:00",
+      "elapsed_seconds": 0.499,
+      "rc": 0,
+      "output": "checkers/audit-final-api.out",
+      "sha256": "4a2f779ce5d2d7e211ea97be57fb1f15e676c7f2233433859fef942447d0e961"
+    },
+    {
+      "name": "audit-box-final",
+      "argv": [
+        "tools/box-check",
+        "--issue",
+        "1409"
+      ],
+      "start": "2026-11-02T18:53:29.112651+00:00",
+      "elapsed_seconds": 0.489,
+      "rc": 0,
+      "output": "checkers/audit-box-final.out",
+      "sha256": "71f21b5f65b777c3c18799c08624626e7530b84922db3c7b7c3256eab7f277aa"
+    },
+    {
+      "name": "pre-issue-lint-final",
+      "argv": [
+        "tools/lint-audit-artifacts",
+        "docs/audits/2026_11_02-epic-m6-patches-shipped-kernel",
+        "--phase",
+        "pre-issue",
+        "--issue",
+        "1409"
+      ],
+      "start": "2026-11-02T18:53:29.601713+00:00",
+      "elapsed_seconds": 0.58,
+      "rc": 0,
+      "output": "checkers/pre-issue-lint-final.out",
+      "sha256": "5ccc79ea18e02860e742a2693f9f7a843abfdf187d9925b49a5f9323fcb01a2d"
+    },
+    {
+      "name": "rules",
+      "argv": [
+        "tools/rules-check",
+        "--quiet"
+      ],
+      "start": "2026-11-02T18:53:30.181992+00:00",
+      "elapsed_seconds": 0.025,
+      "rc": 0,
+      "output": "checkers/rules.out",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "register",
+      "argv": [
+        "tools/register-check"
+      ],
+      "start": "2026-11-02T18:53:30.207496+00:00",
+      "elapsed_seconds": 1.224,
+      "rc": 0,
+      "output": "checkers/register.out",
+      "sha256": "28031585dc3847e47fe4fb4e7257532763929f76143fb5451ebb4087efb759e6"
+    },
+    {
+      "name": "index",
+      "argv": [
+        "tools/work-log-index",
+        "--check"
+      ],
+      "start": "2026-11-02T18:53:31.432107+00:00",
+      "elapsed_seconds": 0.021,
+      "rc": 0,
+      "output": "checkers/index.out",
+      "sha256": "232b345c76ad64a47de4d43e62d9aeb4f2850472cde78ddd1b1e56d72103d927"
+    },
+    {
+      "name": "ceremony",
+      "argv": [
+        "tools/ceremony-check",
+        "--gate"
+      ],
+      "start": "2026-11-02T18:53:31.453511+00:00",
+      "elapsed_seconds": 9.175,
+      "rc": 0,
+      "output": "checkers/ceremony.out",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "whitespace",
+      "argv": [
+        "git",
+        "diff",
+        "--check",
+        "94b5b1c0b983313325dba101217761c6e5c9bca0"
+      ],
+      "start": "2026-11-02T18:53:40.628896+00:00",
+      "elapsed_seconds": 0.041,
+      "rc": 0,
+      "output": "checkers/whitespace.out",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "forbidden-new-records",
+      "argv": [
+        "tools/forbidden-terms-check",
+        "--stdin"
+      ],
+      "start": "2026-11-02T18:53:40.671043+00:00",
+      "elapsed_seconds": 0.006,
+      "rc": 0,
+      "output": "checkers/forbidden-new-records.out",
+      "sha256": "ae7d101f07c8c55bfd82db597d8d383d0f9c1102459a98a228136f4248a15379"
+    },
+    {
+      "name": "secret-new-records",
+      "argv": [
+        "bash",
+        "-c",
+        ". .githooks/secret-patterns; grep -a -c -E -e \"${SECRET_PATTERNS}\""
+      ],
+      "start": "2026-11-02T18:53:40.677468+00:00",
+      "elapsed_seconds": 0.003,
+      "rc": 1,
+      "meaning": "grep no-match, zero matching lines; positive control retained at B",
+      "output": "checkers/secret-new-records.out",
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+    }
+  ]
+}
