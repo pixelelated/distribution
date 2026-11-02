@@ -1,3 +1,13 @@
+# Current T44 state — D checkpoint
+
+Actual executor Codex/openai/gpt-6-astra/openai/xhigh, own visible Herdr footer (UI observation, not provider attestation); session01a19d12-1c5f-7022-8053-102f6a94b7fe/wN:p5. Dispatch #691 comment6590429015 is active; distribution seed48a335700d05a733703e1b58536877b91b921259 and whole ES55158d2a64c69fe295fb4e67fd174424a71b1b4d/tree64b90eb8cb07bdfcd690c74ff6bc980ae490657c verified.
+
+A–D records: docs/audits/2026_11_02-epic-m6-es-vendored-and-data/. Native594 tables; separate3/450 supplemental and4 companion records. Full-code5017+450 lines and fork deltas read; doctest7134 lines unchanged import, zero authored-code credit. PL02435PO/37files/38replacements and French3/6/1/1/0 exact calls. Seven table refusals/positive, PO malformed and confinement controls passed. Literal failures retained. One Low Open PL001 currency decision; inherited rcheevosR13 stays distinct. Audit#1413, M6, exact parent691 read back; pre-issue/issue lint PASS, box-check1open/0fail.
+
+D record gates all rc0, including forbidden0hits/134259files; exact gate receipts are under stage-d; the final clean tip/push/remote and ES recheck receipt stays external and is reported to wN:p2, avoiding receipt-only commits. STOP at clean published D. No E–H, source fix, combined tree, pin promotion, closure or marker without root disposition/acceptance. Both time-to-play quantities unmeasured. Historical launch tree untouched. All original boundaries below continue.
+
+## Original coordinator seed handoff (preserved)
+
 # T44 execution handoff — #691
 
 Prepared 2026-11-02T22:40:13.246242+00:00 by M6 coordinator wN:p2. This pointer seeds the assigned worktree pair; execution starts only from the explicit live691 dispatch naming its final seed commit.

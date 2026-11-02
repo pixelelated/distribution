@@ -1,0 +1,49 @@
+{
+  "argv": [
+    "python3",
+    "-I",
+    "-c",
+    "import ast,pathlib; ps=sorted(pathlib.Path(\"/workspace/repos/pixelelated/distribution.worktrees/m6-es-vendored-and-data-691/docs/audits/2026_11_02-epic-m6-es-vendored-and-data/tools\").glob(\"*.py\")); [ast.parse(p.read_bytes(),filename=str(p)) for p in ps]; print(\"PASS syntax\",len(ps),\"new audit tools\")"
+  ],
+  "cwd": "/workspace/repos/pixelelated/distribution.worktrees/m6-es-vendored-and-data-691",
+  "start": "2026-11-02T23:22:30.044601+00:00",
+  "end": "2026-11-02T23:22:30.065751+00:00",
+  "rc": 0,
+  "timeout_s": 300,
+  "timed_out": false,
+  "tool_sha256": null,
+  "runner_sha256": "4aaa3639ea79671000a409300021bf6675dda92b55f3ace256d7daf25025d846",
+  "stdout_sha256": "1e13bb2710e94d8777df0e8e0287d00f590603ad3cecbf6a469d1551ef129961",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "cpus": [
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21,
+    22,
+    23
+  ],
+  "python": "3.14.4 (main, Aug 20 2026, 10:41:58) [GCC 15.2.0]",
+  "locale": "C",
+  "head": "48a335700d05a733703e1b58536877b91b921259",
+  "inputs": {
+    "00-running-log.md": "dfc9e608daf0d077c5f89321b33d99356be6ddd603350c0212eb69978afa26d4",
+    "01-research-notes.md": "d2f0e942907e315c0d0f88c0f448dee864ae168bbb6439d6a45d731f6cd47060",
+    "03-retrospective.md": "1fcf7295facb61ac05ba9a12df6a7c75521db688bc388904061e3d67f0cb2795",
+    "07-questions-for-the-maintainer.md": "900f92a5edd24a6b2f1bcb61166befb623717affab904950232ec276a4733ba0",
+    "05-punch-list.md": "c6d78d279b0b360e43f1324af4ba4cedad51fece8a0ee4c888e844da09a11d38",
+    "02-forward-audit.md": "11e592a6950ba3a004b45b2c213b95bc0c1e76f5edc56f3ad44a9ab3c9088085",
+    "04-analysis.md": "4da76d321739afd6acda54a91a01845b338ee2eeaea33fa539e0ae53c89cd515",
+    "06-audit-summary.md": "29f1559eb8889cbe98da568209d6860543057338e0cc839f3659c107a3100ca1"
+  }
+}

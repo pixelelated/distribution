@@ -1,0 +1,11 @@
+Traceback (most recent call last):
+  File "/workspace/repos/pixelelated/distribution.worktrees/m6-es-vendored-and-data-691/docs/audits/2026_11_02-epic-m6-es-vendored-and-data/tools/collect.py", line 32, in <module>
+    if p.startswith('locale/') and p.endswith(('.po','.pot')):catalogues.append(dict(path=p,sha256=sha(b),counts=counts(b)))
+                                                                                                                 ~~~~~~^^^
+  File "/workspace/repos/pixelelated/distribution.worktrees/m6-es-vendored-and-data-691/docs/audits/2026_11_02-epic-m6-es-vendored-and-data/tools/catalogue.py", line 52, in counts
+    es,obsolete=parse(data);active=[e for e in es if e['fields']['msgid']!='']
+                ~~~~~^^^^^^
+  File "/workspace/repos/pixelelated/distribution.worktrees/m6-es-vendored-and-data-691/docs/audits/2026_11_02-epic-m6-es-vendored-and-data/tools/catalogue.py", line 41, in parse
+    if re.search(r'\\(?![abfnrtv\\"0-7]|x[0-9a-fA-F]{2})',q):raise ParseError(f'unsupported escape at {n}')
+                                                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+catalogue.ParseError: unsupported escape at 4011

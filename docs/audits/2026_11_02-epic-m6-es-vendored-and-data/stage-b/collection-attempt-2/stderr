@@ -1,0 +1,5 @@
+Traceback (most recent call last):
+  File "/workspace/repos/pixelelated/distribution.worktrees/m6-es-vendored-and-data-691/docs/audits/2026_11_02-epic-m6-es-vendored-and-data/tools/collect.py", line 55, in <module>
+    assert [len(x['added']) for x in deltas]==[3,6,1,1,0],[(x['owner'],len(x['added'])) for x in deltas]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: [('T2', 4), ('T21', 6), ('T34', 1), ('T35', 1), ('T36', 0)]

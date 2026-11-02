@@ -1,0 +1,14 @@
+Traceback (most recent call last):
+  File "/workspace/repos/pixelelated/distribution.worktrees/m6-es-vendored-and-data-691/docs/audits/2026_11_02-epic-m6-es-vendored-and-data/tools/controls.py", line 53, in <module>
+    if len(sys.argv)==3 and sys.argv[1]=='--case':worker(sys.argv[2])
+                                                  ~~~~~~^^^^^^^^^^^^^
+  File "/workspace/repos/pixelelated/distribution.worktrees/m6-es-vendored-and-data-691/docs/audits/2026_11_02-epic-m6-es-vendored-and-data/tools/controls.py", line 22, in worker
+    m=json.loads(b);mutate(m,f['case']);module('tables').validate(m)
+                                        ~~~~~~~~~~~~~~~~~~~~~~~~~^^^
+  File "/workspace/repos/pixelelated/distribution.worktrees/m6-es-vendored-and-data-691/docs/audits/2026_11_02-epic-m6-es-vendored-and-data/tools/tables.py", line 74, in validate
+    if r['path']=='external/doctest/doctest.h':check(not r['fork_written'] and r['read_lines']==0,'DOCTEST_AUTHORSHIP')
+                                               ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/repos/pixelelated/distribution.worktrees/m6-es-vendored-and-data-691/docs/audits/2026_11_02-epic-m6-es-vendored-and-data/tools/tables.py", line 8, in check
+    if not v:raise ValueError(name)
+             ^^^^^^^^^^^^^^^^^^^^^^
+ValueError: DOCTEST_AUTHORSHIP

@@ -1,0 +1,301 @@
+{
+  "schema": 1,
+  "private_scratch": "/tmp/m6-t44-confinement-1cu3u1nr",
+  "fixture_contents": {
+    "projects/ROCKNIX/packages/ui/emulationstation/package.mk": [
+      "base\n",
+      "planted source edit\n",
+      "base\n"
+    ],
+    "docs/audits/2026_11_02-epic-m6-es-vendored-and-data/synthetic-record.md": [
+      "base\n",
+      "new audit record\n"
+    ]
+  },
+  "base": "37691c99b139b859e613ec8594336c6f4471845b",
+  "positive": "06bfa6e25908c2df937fb61cdbfebe48806d3a50",
+  "bad": "d8d44b7064cf91007d43b86f918e47c4c52efa15",
+  "tip": "9f77a8619d72ef69affaf24ec25819431ec3809c",
+  "rejected_commits": [
+    "d8d44b7064cf91007d43b86f918e47c4c52efa15",
+    "9f77a8619d72ef69affaf24ec25819431ec3809c"
+  ],
+  "events": [
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/tmp/m6-t44-confinement-1cu3u1nr/repo",
+        "init",
+        "-q",
+        "--template="
+      ],
+      "start": "2026-11-02T23:24:38.767918+00:00",
+      "end": "2026-11-02T23:24:38.768914+00:00",
+      "rc": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/tmp/m6-t44-confinement-1cu3u1nr/repo",
+        "add",
+        "--",
+        "projects/ROCKNIX/packages/ui/emulationstation/package.mk",
+        "docs/audits/2026_11_02-epic-m6-es-vendored-and-data/synthetic-record.md"
+      ],
+      "start": "2026-11-02T23:24:38.769051+00:00",
+      "end": "2026-11-02T23:24:38.769981+00:00",
+      "rc": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/tmp/m6-t44-confinement-1cu3u1nr/repo",
+        "commit",
+        "-qm",
+        "synthetic base"
+      ],
+      "start": "2026-11-02T23:24:38.769988+00:00",
+      "end": "2026-11-02T23:24:38.772336+00:00",
+      "rc": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/tmp/m6-t44-confinement-1cu3u1nr/repo",
+        "rev-parse",
+        "HEAD"
+      ],
+      "start": "2026-11-02T23:24:38.772343+00:00",
+      "end": "2026-11-02T23:24:38.773001+00:00",
+      "rc": 0,
+      "stdout": "37691c99b139b859e613ec8594336c6f4471845b\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/tmp/m6-t44-confinement-1cu3u1nr/repo",
+        "add",
+        "--",
+        "docs/audits/2026_11_02-epic-m6-es-vendored-and-data/synthetic-record.md"
+      ],
+      "start": "2026-11-02T23:24:38.773058+00:00",
+      "end": "2026-11-02T23:24:38.773973+00:00",
+      "rc": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/tmp/m6-t44-confinement-1cu3u1nr/repo",
+        "commit",
+        "-qm",
+        "synthetic allowed record"
+      ],
+      "start": "2026-11-02T23:24:38.773981+00:00",
+      "end": "2026-11-02T23:24:38.776063+00:00",
+      "rc": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/tmp/m6-t44-confinement-1cu3u1nr/repo",
+        "rev-parse",
+        "HEAD"
+      ],
+      "start": "2026-11-02T23:24:38.776068+00:00",
+      "end": "2026-11-02T23:24:38.776801+00:00",
+      "rc": 0,
+      "stdout": "06bfa6e25908c2df937fb61cdbfebe48806d3a50\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/tmp/m6-t44-confinement-1cu3u1nr/repo",
+        "add",
+        "--",
+        "projects/ROCKNIX/packages/ui/emulationstation/package.mk"
+      ],
+      "start": "2026-11-02T23:24:38.777729+00:00",
+      "end": "2026-11-02T23:24:38.778618+00:00",
+      "rc": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/tmp/m6-t44-confinement-1cu3u1nr/repo",
+        "commit",
+        "-qm",
+        "synthetic forbidden source"
+      ],
+      "start": "2026-11-02T23:24:38.778626+00:00",
+      "end": "2026-11-02T23:24:38.780708+00:00",
+      "rc": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/tmp/m6-t44-confinement-1cu3u1nr/repo",
+        "rev-parse",
+        "HEAD"
+      ],
+      "start": "2026-11-02T23:24:38.780714+00:00",
+      "end": "2026-11-02T23:24:38.781370+00:00",
+      "rc": 0,
+      "stdout": "d8d44b7064cf91007d43b86f918e47c4c52efa15\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/tmp/m6-t44-confinement-1cu3u1nr/repo",
+        "add",
+        "--",
+        "projects/ROCKNIX/packages/ui/emulationstation/package.mk"
+      ],
+      "start": "2026-11-02T23:24:38.782420+00:00",
+      "end": "2026-11-02T23:24:38.783218+00:00",
+      "rc": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/tmp/m6-t44-confinement-1cu3u1nr/repo",
+        "commit",
+        "-qm",
+        "synthetic restore source"
+      ],
+      "start": "2026-11-02T23:24:38.783225+00:00",
+      "end": "2026-11-02T23:24:38.785126+00:00",
+      "rc": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/tmp/m6-t44-confinement-1cu3u1nr/repo",
+        "rev-parse",
+        "HEAD"
+      ],
+      "start": "2026-11-02T23:24:38.785133+00:00",
+      "end": "2026-11-02T23:24:38.785818+00:00",
+      "rc": 0,
+      "stdout": "9f77a8619d72ef69affaf24ec25819431ec3809c\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/tmp/m6-t44-confinement-1cu3u1nr/repo",
+        "rev-list",
+        "--reverse",
+        "37691c99b139b859e613ec8594336c6f4471845b..9f77a8619d72ef69affaf24ec25819431ec3809c"
+      ],
+      "start": "2026-11-02T23:24:38.786758+00:00",
+      "end": "2026-11-02T23:24:38.787574+00:00",
+      "rc": 0,
+      "stdout": "06bfa6e25908c2df937fb61cdbfebe48806d3a50\nd8d44b7064cf91007d43b86f918e47c4c52efa15\n9f77a8619d72ef69affaf24ec25819431ec3809c\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/tmp/m6-t44-confinement-1cu3u1nr/repo",
+        "show",
+        "-s",
+        "--format=%P",
+        "06bfa6e25908c2df937fb61cdbfebe48806d3a50"
+      ],
+      "start": "2026-11-02T23:24:38.787583+00:00",
+      "end": "2026-11-02T23:24:38.788378+00:00",
+      "rc": 0,
+      "stdout": "37691c99b139b859e613ec8594336c6f4471845b\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/tmp/m6-t44-confinement-1cu3u1nr/repo",
+        "show",
+        "-s",
+        "--format=%P",
+        "d8d44b7064cf91007d43b86f918e47c4c52efa15"
+      ],
+      "start": "2026-11-02T23:24:38.789212+00:00",
+      "end": "2026-11-02T23:24:38.789984+00:00",
+      "rc": 0,
+      "stdout": "06bfa6e25908c2df937fb61cdbfebe48806d3a50\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/tmp/m6-t44-confinement-1cu3u1nr/repo",
+        "show",
+        "-s",
+        "--format=%P",
+        "9f77a8619d72ef69affaf24ec25819431ec3809c"
+      ],
+      "start": "2026-11-02T23:24:38.790822+00:00",
+      "end": "2026-11-02T23:24:38.791564+00:00",
+      "rc": 0,
+      "stdout": "d8d44b7064cf91007d43b86f918e47c4c52efa15\n",
+      "stderr": ""
+    }
+  ],
+  "program_sha256": "9eaa0947817d68121bd94adf8501090f3cee6cb73fb58486571ca6bc39b8004d",
+  "guard_sha256": "ee4bf46b31cf71859869bf2f0fe3ef42921950717a42c3575e1ea73c0f049ea5",
+  "cpus": [
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21,
+    22,
+    23
+  ],
+  "limits": "Synthetic Git metadata only; no source copied, no live ref changed, no ES invocation; private tiny objects retained until authorized retirement"
+}

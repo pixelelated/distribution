@@ -1,0 +1,98 @@
+{
+  "recorded_at": "2026-11-02T23:26:05.335798+00:00",
+  "tables": {
+    "Provenance": {
+      "rows": 594,
+      "unique": 594
+    },
+    "Coverage": {
+      "rows": 594,
+      "unique": 594
+    }
+  },
+  "catalogue_rows": 36,
+  "vendor_rows": 7,
+  "full_code_files": 43,
+  "full_code_lines": 5467,
+  "controls": {
+    "guard-positive.receipt.json": {
+      "rc": 0,
+      "expected": null
+    },
+    "guard-prefix-neighbor.receipt.json": {
+      "rc": 1,
+      "expected": "FORBIDDEN_PATH"
+    },
+    "guard-source-edit.receipt.json": {
+      "rc": 1,
+      "expected": "FORBIDDEN_PATH"
+    },
+    "guard-symlink.receipt.json": {
+      "rc": 1,
+      "expected": "NONRECORD_MODE"
+    },
+    "guard-traversal.receipt.json": {
+      "rc": 1,
+      "expected": "NONCANONICAL_PATH"
+    },
+    "po-bad-quote.receipt.json": {
+      "rc": 1,
+      "expected": "unrecognized PO syntax"
+    },
+    "po-duplicate.receipt.json": {
+      "rc": 1,
+      "expected": "duplicate active context/msgid"
+    },
+    "po-missing-msgstr.receipt.json": {
+      "rc": 1,
+      "expected": "entry lacks msgid/msgstr"
+    },
+    "po-plural-gap.receipt.json": {
+      "rc": 1,
+      "expected": "invalid plural indices"
+    },
+    "po-positive.receipt.json": {
+      "rc": 0,
+      "expected": null
+    },
+    "table-doctest-authorship.receipt.json": {
+      "rc": 1,
+      "expected": "DOCTEST_AUTHORSHIP"
+    },
+    "table-false-integration.receipt.json": {
+      "rc": 1,
+      "expected": "COMPANION_INTEGRATION"
+    },
+    "table-gitlink-credit.receipt.json": {
+      "rc": 1,
+      "expected": "GITLINK_READ_CREDIT"
+    },
+    "table-missing-companion.receipt.json": {
+      "rc": 1,
+      "expected": "COMPANION_KEYS"
+    },
+    "table-missing-native.receipt.json": {
+      "rc": 1,
+      "expected": "NATIVE_KEYS:coverage"
+    },
+    "table-missing-supplement.receipt.json": {
+      "rc": 1,
+      "expected": "SUPPLEMENTAL_KEYS"
+    },
+    "table-positive.receipt.json": {
+      "rc": 0,
+      "expected": null
+    },
+    "table-source-drift.receipt.json": {
+      "rc": 1,
+      "expected": "SOURCE_IDENTITY"
+    }
+  },
+  "inputs": {
+    "02-forward-audit.md": "72473a2ef0140aee4e6f532b00c831db95db82012c76a967a52f9488f4c96597",
+    "tables.md": "ddc59cc6c4cf6ae9b864bb4e3d9b7dff96cf8e9c09eb48601c7bad504fb7d8ba",
+    "tables.json": "4dfa2c1ab3c255525b8607fce104dc3a5d459054246b807d1f145d1d8e390cce",
+    "reading-register.json": "6c294e4403e8e20874ea5bd601a849776814003df5f11ca8331fc9a351add6d3"
+  },
+  "result": "PASS exact rendered tables/unique keys/reading totals and retained18 control results"
+}

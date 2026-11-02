@@ -1,0 +1,105 @@
+{
+  "recorded_at": "2026-11-02T23:26:33.644334+00:00",
+  "gates": [
+    {
+      "gate": "pre-issue-2",
+      "rc": 0,
+      "start": "2026-11-02T23:19:19.662019+00:00",
+      "end": "2026-11-02T23:19:19.701770+00:00",
+      "receipt_sha256": "6bd528e6810515454c8c34aeded8c4bf4e9a0d378e7be2806a3848078cfdea47",
+      "stdout_sha256": "5453ca1f12014741d476975e816ae9d238edd002c32c516866a408c2ca233081",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "gate": "issue-lint-1",
+      "rc": 0,
+      "start": "2026-11-02T23:20:12.318358+00:00",
+      "end": "2026-11-02T23:20:12.733769+00:00",
+      "receipt_sha256": "29b42ae2581ccc693d92f1c2b57cf6dfca628aa57fa6d6e18f5dba02e9ff280d",
+      "stdout_sha256": "6a418427dece517154a055b333f6bb666bc366b82834a898db835465425871e6",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "gate": "issue-check-1",
+      "rc": 0,
+      "start": "2026-11-02T23:20:14.120466+00:00",
+      "end": "2026-11-02T23:20:14.515628+00:00",
+      "receipt_sha256": "e630c4bc5a1ee1568c0377d70c9a35b2c5e5750cd11a998059ca04b6003ecfc3",
+      "stdout_sha256": "71f21b5f65b777c3c18799c08624626e7530b84922db3c7b7c3256eab7f277aa",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "gate": "rules-1",
+      "rc": 0,
+      "start": "2026-11-02T23:22:29.215532+00:00",
+      "end": "2026-11-02T23:22:29.234026+00:00",
+      "receipt_sha256": "d8cbe87d1ad0e7eed284d675c19f491ccc06fbb728bce6ef9f6166f1ab025fdc",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "gate": "register-1",
+      "rc": 0,
+      "start": "2026-11-02T23:22:29.215497+00:00",
+      "end": "2026-11-02T23:22:30.505222+00:00",
+      "receipt_sha256": "01ccf9056a5ad704d97b18408b24f974338a73e87ae20673810a862faabb3b4f",
+      "stdout_sha256": "a663cbd892b0646df3ab8ca7417fe230f414e09711f264cda79ea904d4bbc2fa",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "gate": "index-1",
+      "rc": 0,
+      "start": "2026-11-02T23:22:29.215561+00:00",
+      "end": "2026-11-02T23:22:29.237702+00:00",
+      "receipt_sha256": "4797873de6c6a0143634641ad092dd4a588bd0fe26e2e9a2df015545d51845de",
+      "stdout_sha256": "232b345c76ad64a47de4d43e62d9aeb4f2850472cde78ddd1b1e56d72103d927",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "gate": "ceremony-1",
+      "rc": 0,
+      "start": "2026-11-02T23:22:29.257254+00:00",
+      "end": "2026-11-02T23:22:37.716372+00:00",
+      "receipt_sha256": "37da5c33fea9f5ed470d28da6cbcc86667218d10307696f93ff16c28754445a5",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "gate": "hooks-1",
+      "rc": 0,
+      "start": "2026-11-02T23:22:29.259952+00:00",
+      "end": "2026-11-02T23:22:29.941787+00:00",
+      "receipt_sha256": "86bdf8d74315b271869f17e7bddd7ec007cb58d2ab0c64a1f71676bf29cd26bf",
+      "stdout_sha256": "3402d5f59e65118cf905eb74dd1cda7660eeffd181ad248e23a56f68395e0a5c",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "gate": "syntax-2",
+      "rc": 0,
+      "start": "2026-11-02T23:25:31.760767+00:00",
+      "end": "2026-11-02T23:25:31.782413+00:00",
+      "receipt_sha256": "36e1931b7131a2465e3d0c576134daa843809061ba55c370df81431bd05fb401",
+      "stdout_sha256": "1a89d198c904c08e96c954282e2e5ed2b81b9e009210348db867cd1ceaf674fd",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "gate": "diff-2",
+      "rc": 0,
+      "start": "2026-11-02T23:23:37.938736+00:00",
+      "end": "2026-11-02T23:23:37.996825+00:00",
+      "receipt_sha256": "fa0c9f5e220d08f31742fc8f853f4465f8e6d76bee3cca1cf249ffd8144319ce",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "gate": "forbidden-1",
+      "rc": 0,
+      "start": "2026-11-02T23:22:57.024272+00:00",
+      "end": "2026-11-02T23:25:05.978843+00:00",
+      "receipt_sha256": "dc8b8f3185a4366b717c2f863ca93de258fe81651b2449960bfe2b7f7402e95d",
+      "stdout_sha256": "c4b1137413081c586178eec24a7a955ce5a3c1d6eab51b639ba7332134a38989",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ],
+  "future": "Resolution lints/retro/retirement/root final integration and acceptance await E\u2013H disposition. Final normal commit/push/current-tip/ES-clean receipts are external."
+}

@@ -1,0 +1,4 @@
+PASS tiny Git allowed audit commit
+PASS tiny Git source commit refused: FORBIDDEN_PATH:projects/ROCKNIX/packages/ui/emulationstation/package.mk
+PASS tiny Git per-commit guard rejects source edit and revert despite clean cumulative source
+OWNED_PRIVATE_SCRATCH /tmp/m6-t44-confinement-1cu3u1nr

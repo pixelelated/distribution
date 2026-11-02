@@ -1,0 +1,15 @@
+{
+  "kind": "catalogue",
+  "path": "stage-c/fixtures/po-bad-quote.txt",
+  "input_sha256": "2786c2a0a0232927146a3b71dc52bca581314b454ae80bb750e8516c765e1232",
+  "expected_counts": {
+    "entries": 2,
+    "headers": 1,
+    "plural": 1,
+    "context": 1,
+    "format_flagged": 1,
+    "fuzzy": 1,
+    "untranslated": 1,
+    "obsolete_lines": 2
+  }
+}

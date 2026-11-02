@@ -1,0 +1,16 @@
+Traceback (most recent call last):
+  File "/workspace/repos/pixelelated/distribution.worktrees/m6-es-vendored-and-data-691/docs/audits/2026_11_02-epic-m6-es-vendored-and-data/tools/controls.py", line 53, in <module>
+    if len(sys.argv)==3 and sys.argv[1]=='--case':worker(sys.argv[2])
+                                                  ~~~~~~^^^^^^^^^^^^^
+  File "/workspace/repos/pixelelated/distribution.worktrees/m6-es-vendored-and-data-691/docs/audits/2026_11_02-epic-m6-es-vendored-and-data/tools/controls.py", line 24, in worker
+    b=(A/f['path']).read_bytes();assert sha(b)==f['input_sha256'];c=module('catalogue').counts(b)
+                                                                    ~~~~~~~~~~~~~~~~~~~~~~~~~~^^^
+  File "/workspace/repos/pixelelated/distribution.worktrees/m6-es-vendored-and-data-691/docs/audits/2026_11_02-epic-m6-es-vendored-and-data/tools/catalogue.py", line 59, in counts
+    es,obsolete=parse(data);active=[e for e in es if e['fields']['msgid']!='']
+                ~~~~~^^^^^^
+  File "/workspace/repos/pixelelated/distribution.worktrees/m6-es-vendored-and-data-691/docs/audits/2026_11_02-epic-m6-es-vendored-and-data/tools/catalogue.py", line 53, in parse
+    flush()
+    ~~~~~^^
+  File "/workspace/repos/pixelelated/distribution.worktrees/m6-es-vendored-and-data-691/docs/audits/2026_11_02-epic-m6-es-vendored-and-data/tools/catalogue.py", line 13, in flush
+    raise ParseError('entry lacks msgid/msgstr')
+catalogue.ParseError: entry lacks msgid/msgstr

@@ -1,0 +1,97 @@
+{
+  "observed_at": "2026-11-02T23:06:50.242321+00:00",
+  "web_method": "web.run read-only primary release pages; displayed dates not expanded to inferred years; no source download; results are dated/crawl-qualified",
+  "groups": [
+    {
+      "group": "libretro-common",
+      "import_evidence": "e8a780fad808d4a292dcc59d7225835d71cf0b0f refresh; stage-b/history.json",
+      "version": "Composite source import, no whole-package semantic version established; 7zip marker is not libretro-common version",
+      "local_delta": "MD5 fork file is excluded T20, not a native row; all external tree identities unchanged across accepted companions",
+      "license": "Mixed per-file notices; stage-b/source-header-markers.json identifies exact markers, not blanket MIT or complete legal audit",
+      "consumer": "external/libcheevos/CMakeLists.txt:55-199,228 selected sources; wrappers and hash consumers T20",
+      "carry_reason": "Cheevos CHD/7zip/FLAC/file/hash support per 2023 refresh commit; no newly approved retention policy",
+      "upstream": "https://github.com/libretro/libretro-common/releases",
+      "upstream_result": "No published release shown in retrieved page, crawled four weeks ago; not proof of current master or latest import",
+      "missing": "Exact upstream commit(s) for mixed imported subset and dated carry/update rationale; coordinator #700 may scope with T20 #667",
+      "disposition": "retain; provenance/currency open input; no removal or update"
+    },
+    {
+      "group": "rcheevos",
+      "import_evidence": "e3b75a171841010ba9e82720aa57b6d82dfb9dbb refresh; stage-b/history.json",
+      "version": "src/rc_version.h:10-12 says 12.2.1; nested src/rcheevos/rc_version.h:8-10 says 10.7.0; neither alone describes linked subset",
+      "local_delta": "hash_disc.c fork delta belongs excluded T20; no external delta in four companions",
+      "license": "external/libcheevos/rcheevos/LICENSE:1-21 MIT; per-file markers retained",
+      "consumer": "external/libcheevos/CMakeLists.txt:18-53,228; top-level src/rc_version.c absent from explicit list",
+      "carry_reason": "RetroAchievements API/runtime/hash support; compiled subset compatibility not revalidated",
+      "upstream": "https://github.com/RetroAchievements/rcheevos/releases/tag/v12.5.0",
+      "upstream_result": "Latest v12.5.0, 14 Sep 00:51 displayed without year; commit prefix1433173; retrieved2026-11-02, crawl last week",
+      "missing": "Exact imported-upstream mapping and applicability of 12.5.0 changes to compiled subset; not a confirmed defect",
+      "disposition": "retain; Q4 proposed owner evaluation under #700/T20 #667"
+    },
+    {
+      "group": "id3v2lib",
+      "import_evidence": "96787a5970a03633e1fd6bd4f50e1d2a62528f0a flattened import; prior gitlink141ffb8e61abd736d7074e89d70b805b2fb5f6ed at72609fc9d4882aa3541ff89720901303680d8630",
+      "version": "CMakeLists.txt:2 project version2.0; README:4 points to historical1.0 documentation, not active version",
+      "local_delta": "Primary and companion external trees identical; no local fork edit inferred from Windows integration changes",
+      "license": "external/id3v2lib/LICENSE:1-22 BSD two-clause text",
+      "consumer": "external/CMakeLists.txt:9; src/CMakeLists.txt:48-59 library; test/CMakeLists.txt:29,38-40 adds main_test and copies assets unconditionally through parent:9",
+      "carry_reason": "MP3 metadata reader in AudioManager; src/CMake and consumer-lines.json",
+      "upstream": "https://github.com/larsbs/id3v2lib/releases",
+      "upstream_result": "Retrieved page says no releases; crawl last year, insufficient to assert current latest revision",
+      "missing": "Fresh upstream commit/version comparison; applicability of unconditional vendor test target to distro configure remains source-only",
+      "disposition": "retain; no test or asset removal; #700/T37 #684 future configuration decision"
+    },
+    {
+      "group": "nanosvg",
+      "import_evidence": "3fd799742f6a5c4ab686020a90bef254494b4654 update2019; 76483dd2ec3be32d0bb13393d58c28d8cf0e1063 optimizations2021",
+      "version": "Exact local snapshots; no invented semantic version",
+      "local_delta": "Historical local optimizations; no accepted companion external delta",
+      "license": "nanosvg.h:1-27 original/altered-source notice; preserve origin and notices",
+      "consumer": "external/nanosvg/CMakeLists.txt:3-13 static implementation; core SVG resource callers in consumer-lines.json (T36)",
+      "carry_reason": "SVG parsing/rasterization for interface assets; no visual correctness or removal claim",
+      "upstream": "https://github.com/memononen/nanosvg/releases",
+      "upstream_result": "No published releases shown; crawl two weeks ago; no current upstream commit comparison established",
+      "missing": "Exact upstream commit mapping through optimization delta and bounded current comparison",
+      "disposition": "retain; provenance input to #700 with T36 #683; existing rendering issues not duplicated"
+    },
+    {
+      "group": "doctest",
+      "import_evidence": "324f9c483d9b4a11249c47888b40fb5cc691be7f; 7134-line header byte-identical; SHA25694029a7d32da24a56249658147dbd2b33ff0b9ed665295cbbaf19aafff5b0ced",
+      "version": "2.4.12 header49-51; no fork-written or complete code-read credit",
+      "local_delta": "none since import at primary; dated fork-own inventory means added to fork, not authored",
+      "license": "doctest.h:7-35 MIT and attribution to Catch/lest components; header retained unchanged",
+      "consumer": "Standalone tests/app-unit and T18 es-app/tests/unit; root ES_BUILD_TESTS defaultOFF applies only latter",
+      "carry_reason": "2026-09-10 import states pure cloud text unit target and latest2.4-line then; no current2.5 compatibility conclusion",
+      "upstream": "https://github.com/doctest/doctest/releases/tag/v2.5.3",
+      "upstream_result": "Latest v2.5.3, 06 Jul21:59 displayed without year; prefix2d0a935; retrieved2026-11-02, crawl three days ago",
+      "missing": "Current decision whether2.4.12 remains appropriate for accepted harnesses; newer release alone is not incompatibility or security proof",
+      "disposition": "retain; Q4 update-or-carry evaluation proposed to coordinator #700"
+    },
+    {
+      "group": "pugixml",
+      "import_evidence": "gitlink61c944895e071872370219cadade8423dc6e04dc; .gitmodules:1-3 zeux/pugixml; not initialized",
+      "version": "Gitlink version unresolved (no source read); separate distribution packages/textproc/pugixml/package.mk at48a3357 pins1.16 MIT",
+      "local_delta": "No gitlink identity change at primary/companions",
+      "license": "Gitlink contents unavailable; selected system recipe declaresMIT and primary site statesMIT; not gitlink-content verification",
+      "consumer": "external/CMakeLists.txt:5-7 gatedNOT USE_SYSTEM_PUGIXML; root393-396 find_package; ES recipe selects1",
+      "carry_reason": "XML parser, distribution explicitly selects system package",
+      "upstream": "https://pugixml.org/",
+      "upstream_result": "Official site lists1.16 release16June2026; observed2026-11-02; matches system recipe1.16",
+      "missing": "Installed library identity remains unmeasured; gitlink-tag mapping not required for selected system source",
+      "disposition": "retain gitlink; current source-version match for system recipe only; T37 #684 context"
+    },
+    {
+      "group": "external-CMake",
+      "import_evidence": "external/CMakeLists.txt primary SHA256980a44bd539736cc6addd771127f641e2d345b46d1d81e3380e9e0d5ae100043",
+      "version": "Integration file, not a separately versioned upstream package",
+      "local_delta": "Same external tree03e88868d18b35b057a4de88d66b73c1f3703587 at all five accepted pins",
+      "license": "No license header in10-line integration file; root credits and vendor notices provide context, completeness unproved",
+      "consumer": "root CMakeLists.txt:606; nanosvg/id3v2lib/libcheevos plus conditionalpugixml",
+      "carry_reason": "Explicit project build integration",
+      "upstream": "N/A local integration file",
+      "upstream_result": "N/A version comparison; exact tree identity is the relevant datum",
+      "missing": "Configured/installed reach requires future owning build, not this table",
+      "disposition": "retain source; no dependency removal"
+    }
+  ]
+}

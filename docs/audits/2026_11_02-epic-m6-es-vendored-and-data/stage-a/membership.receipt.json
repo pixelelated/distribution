@@ -1,0 +1,51 @@
+{
+  "argv": [
+    "bash",
+    "--noprofile",
+    "--norc",
+    "-c",
+    "set -eu\nexport LC_ALL=C\nES_REPO=/home/max/Development/emulationstation-next.worktrees/m6-es-vendored-and-data-691\nINPUT_HELPER=docs/qa-logs/2026-11-02-m6-resume/t44-brief-inputs.py\nINPUT_OUT=docs/audits/2026_11_02-epic-m6-es-vendored-and-data/stage-a/inputs\npython3 \"$INPUT_HELPER\" --repo \"$PWD\" --ref c348d43dddc4bddbe1055d20d37431503283b817 --es-repo \"$ES_REPO\" --out \"$INPUT_OUT/source\"\npython3 \"$INPUT_HELPER\" --repo \"$PWD\" --ref HEAD --es-repo \"$ES_REPO\" --es-ref 55158d2a64c69fe295fb4e67fd174424a71b1b4d --out \"$INPUT_OUT/seed\"\npython3 - \"$INPUT_OUT\" <<'EQUALITY'\nimport json, pathlib, sys\np = pathlib.Path(sys.argv[1])\nfor name in ('native.json', 'additions.json', 'companions.json'):\n    assert (p/'source'/name).read_bytes() == (p/'seed'/name).read_bytes(), name\na = json.loads((p/'source/summary.json').read_bytes())\nb = json.loads((p/'seed/summary.json').read_bytes())\nfor x in (a, b):\n    x.pop('distribution_ref'); x.pop('es_ref')\nassert a == b\nprint('PASS T44 immutable input equality; native594 / additions3 / companions4')\nEQUALITY\npython3 \"$INPUT_HELPER\" --repo \"$PWD\" --ref HEAD --es-repo \"$ES_REPO\" --es-ref HEAD --out \"$INPUT_OUT/actual-head\"\n"
+  ],
+  "cwd": "/workspace/repos/pixelelated/distribution.worktrees/m6-es-vendored-and-data-691",
+  "start": "2026-11-02T22:49:49.415119+00:00",
+  "end": "2026-11-02T22:49:53.082257+00:00",
+  "elapsed_seconds": 3.667333040968515,
+  "rc": 0,
+  "cpu_affinity": [
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21,
+    22,
+    23
+  ],
+  "locale": "C",
+  "python_version": "Python 3.14.4",
+  "stdout_sha256": "54c2603a5f8c004c0246d64cff8e3c50c8f30f38a51b6cda1e1cc2284377fb81",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "helper_sha256": "cbd1fe1e03ae78053ee90125ec34d84cf868cbc60b6c4097d7397ab836b921a8",
+  "outputs": {
+    "stage-a/inputs/actual-head/additions.json": "c9ca13392ff478404ddbc4aeca580eb471b09ef39c5b298679fb740439934575",
+    "stage-a/inputs/actual-head/companions.json": "2a1676a51f25d12cc1f1fe131b5cb3b21c3bbc5b9c9d60dd79269ae8a8767f64",
+    "stage-a/inputs/actual-head/native.json": "8b83b4127ec43a0d01320f0de4871f6277df001100b5eeafa3717151693e2f8f",
+    "stage-a/inputs/actual-head/summary.json": "e454858048c8b6a16bbd7a372df431153cf5b5bae151ffe80a2d7bd8f5edb240",
+    "stage-a/inputs/seed/additions.json": "c9ca13392ff478404ddbc4aeca580eb471b09ef39c5b298679fb740439934575",
+    "stage-a/inputs/seed/companions.json": "2a1676a51f25d12cc1f1fe131b5cb3b21c3bbc5b9c9d60dd79269ae8a8767f64",
+    "stage-a/inputs/seed/native.json": "8b83b4127ec43a0d01320f0de4871f6277df001100b5eeafa3717151693e2f8f",
+    "stage-a/inputs/seed/summary.json": "5c1dea1b04df5744220353b5c57f9c9c865fbfee95b39bcae4ce4e256f16edaa",
+    "stage-a/inputs/source/additions.json": "c9ca13392ff478404ddbc4aeca580eb471b09ef39c5b298679fb740439934575",
+    "stage-a/inputs/source/companions.json": "2a1676a51f25d12cc1f1fe131b5cb3b21c3bbc5b9c9d60dd79269ae8a8767f64",
+    "stage-a/inputs/source/native.json": "8b83b4127ec43a0d01320f0de4871f6277df001100b5eeafa3717151693e2f8f",
+    "stage-a/inputs/source/summary.json": "899f510303024341e19e9c23a8e579b7726a47da9fc781328a8a209cb8f10259"
+  }
+}

@@ -1,0 +1,281 @@
+[
+  {
+    "owner": "T2",
+    "ref": "55158d2a64c69fe295fb4e67fd174424a71b1b4d",
+    "french_sha256": "e1746cd885ce3117790bb179a0f089e38cc989f056069cf8b378fb90d90ff9ed",
+    "added": [
+      {
+        "entry": {
+          "fields": {
+            "msgid": "pixelelated IS FREE SOFTWARE.\n\nIF YOU PAID FOR pixelelated YOU HAVE BEEN SCAMMED.\n\nPLEASE REQUEST A REFUND FROM THE SELLER!",
+            "msgstr": "pixelelated EST UN LOGICIEL LIBRE.\n\nSI VOUS AVEZ PAYÉ POUR pixelelated, VOUS AVEZ ÉTÉ ESCROQUÉ.\n\nDEMANDEZ UN REMBOURSEMENT AU VENDEUR !"
+          },
+          "flags": [],
+          "line": 6967
+        },
+        "source_calls": [
+          {
+            "path": "es-app/src/main.cpp",
+            "ref": "55158d2a64c69fe295fb4e67fd174424a71b1b4d",
+            "sha256": "283e0b6c8af8291bdd6bb53b22a2666245e885957d67703a09e980892d515432",
+            "line": 972,
+            "source": "_(\"pixelelated IS FREE SOFTWARE.\\n\\nIF YOU PAID FOR pixelelated YOU HAVE BEEN SCAMMED.\\n\\nPLEASE REQUEST A REFUND FROM THE SELLER!\")"
+          }
+        ],
+        "source_match_limit": "lexical adjacent C++ string literal concatenation in _() calls only; not a preprocessor or integration proof"
+      },
+      {
+        "entry": {
+          "fields": {
+            "msgid": "IT LOOKS LIKE YOUR SYSTEMS CONFIGURATION FILE HAS NOT BEEN SET UP OR IS INVALID. YOU'LL NEED TO DO THIS BY HAND, UNFORTUNATELY.\n\nVISIT EMULATIONSTATION.ORG FOR MORE INFORMATION.",
+            "msgstr": "IL SEMBLE QUE VOTRE FICHIER DE CONFIGURATION DES SYSTÈMES N’AIT PAS ÉTÉ CRÉÉ OU SOIT INVALIDE. IL FAUDRA, HÉLAS, LE FAIRE À LA MAIN.\n\nVOIR EMULATIONSTATION.ORG POUR PLUS D’INFORMATIONS."
+          },
+          "flags": [],
+          "line": 6971
+        },
+        "source_calls": [
+          {
+            "path": "es-app/src/main.cpp",
+            "ref": "55158d2a64c69fe295fb4e67fd174424a71b1b4d",
+            "sha256": "283e0b6c8af8291bdd6bb53b22a2666245e885957d67703a09e980892d515432",
+            "line": 357,
+            "source": "_(\"IT LOOKS LIKE YOUR SYSTEMS CONFIGURATION FILE HAS NOT BEEN SET UP OR IS INVALID. YOU'LL NEED TO DO THIS BY HAND, UNFORTUNATELY.\\n\\n\"\n\t\t\t\"VISIT EMULATIONSTATION.ORG FOR MORE INFORMATION.\")"
+          }
+        ],
+        "source_match_limit": "lexical adjacent C++ string literal concatenation in _() calls only; not a preprocessor or integration proof"
+      },
+      {
+        "entry": {
+          "fields": {
+            "msgid": "WE CAN'T FIND ANY SYSTEMS!\nCHECK THAT YOUR PATHS ARE CORRECT IN THE SYSTEMS CONFIGURATION FILE, AND YOUR GAME DIRECTORY HAS AT LEAST ONE GAME WITH THE CORRECT EXTENSION.\n\nVISIT EMULATIONSTATION.ORG FOR MORE INFORMATION.",
+            "msgstr": "AUCUN SYSTÈME TROUVÉ !\nVÉRIFIEZ LES CHEMINS DU FICHIER DE CONFIGURATION DES SYSTÈMES, ET QUE VOTRE DOSSIER DE JEUX CONTIENT AU MOINS UN JEU AVEC LA BONNE EXTENSION.\n\nVOIR EMULATIONSTATION.ORG POUR PLUS D’INFORMATIONS."
+          },
+          "flags": [],
+          "line": 6975
+        },
+        "source_calls": [
+          {
+            "path": "es-app/src/main.cpp",
+            "ref": "55158d2a64c69fe295fb4e67fd174424a71b1b4d",
+            "sha256": "283e0b6c8af8291bdd6bb53b22a2666245e885957d67703a09e980892d515432",
+            "line": 365,
+            "source": "_(\"WE CAN'T FIND ANY SYSTEMS!\\n\"\n\t\t\t\"CHECK THAT YOUR PATHS ARE CORRECT IN THE SYSTEMS CONFIGURATION FILE, \"\n\t\t\t\"AND YOUR GAME DIRECTORY HAS AT LEAST ONE GAME WITH THE CORRECT EXTENSION.\\n\\n\"\n\t\t\t\"VISIT EMULATIONSTATION.ORG FOR MORE INFORMATION.\")"
+          }
+        ],
+        "source_match_limit": "lexical adjacent C++ string literal concatenation in _() calls only; not a preprocessor or integration proof"
+      }
+    ],
+    "changed_existing": [],
+    "old_key_present": false,
+    "contains_T2": true,
+    "integrated": false,
+    "limit": "own accepted branch only; no combined tree"
+  },
+  {
+    "owner": "T21",
+    "ref": "3ae9610b0f3fb61d23eb6a2c3459ad19f962e2b1",
+    "french_sha256": "d44e12528725640e42d44d6f0adbd8ef436c4c7683ff93f5afa969655500af13",
+    "added": [
+      {
+        "entry": {
+          "fields": {
+            "msgid": "THE SCRAPER'S SERVER ISN'T ANSWERING RIGHT NOW.",
+            "msgstr": "LE SERVEUR DU SCRAPEUR NE RÉPOND PAS POUR LE MOMENT."
+          },
+          "flags": [],
+          "line": 4121
+        },
+        "source_calls": [
+          {
+            "path": "es-app/src/StatusText.cpp",
+            "ref": "3ae9610b0f3fb61d23eb6a2c3459ad19f962e2b1",
+            "sha256": "48c9f0b23100fba93d0dab1cdaf11d3f94616292413ad52794eb7d278d2aa561",
+            "line": 59,
+            "source": "_(\"THE SCRAPER'S SERVER ISN'T ANSWERING RIGHT NOW.\")"
+          }
+        ],
+        "source_match_limit": "lexical adjacent C++ string literal concatenation in _() calls only; not a preprocessor or integration proof"
+      },
+      {
+        "entry": {
+          "fields": {
+            "msgid": "THE SCRAPER'S SERVER COULDN'T BE VERIFIED.",
+            "msgstr": "LE SERVEUR DU SCRAPEUR N’A PAS PU ÊTRE VÉRIFIÉ."
+          },
+          "flags": [],
+          "line": 4124
+        },
+        "source_calls": [
+          {
+            "path": "es-app/src/StatusText.cpp",
+            "ref": "3ae9610b0f3fb61d23eb6a2c3459ad19f962e2b1",
+            "sha256": "48c9f0b23100fba93d0dab1cdaf11d3f94616292413ad52794eb7d278d2aa561",
+            "line": 61,
+            "source": "_(\"THE SCRAPER'S SERVER COULDN'T BE VERIFIED.\")"
+          }
+        ],
+        "source_match_limit": "lexical adjacent C++ string literal concatenation in _() calls only; not a preprocessor or integration proof"
+      },
+      {
+        "entry": {
+          "fields": {
+            "msgid": "WI-FI ISN'T AVAILABLE ON THIS DEVICE RIGHT NOW.",
+            "msgstr": "LE WI-FI N’EST PAS DISPONIBLE SUR CET APPAREIL POUR LE MOMENT."
+          },
+          "flags": [],
+          "line": 4620
+        },
+        "source_calls": [
+          {
+            "path": "es-app/src/guis/GuiWifi.cpp",
+            "ref": "3ae9610b0f3fb61d23eb6a2c3459ad19f962e2b1",
+            "sha256": "be3fc27964f4766d591760e81dcfee3ac6277df794b3bb4bb8ddf6e3fc67eedc",
+            "line": 399,
+            "source": "_(\"WI-FI ISN'T AVAILABLE ON THIS DEVICE RIGHT NOW.\")"
+          }
+        ],
+        "source_match_limit": "lexical adjacent C++ string literal concatenation in _() calls only; not a preprocessor or integration proof"
+      },
+      {
+        "entry": {
+          "fields": {
+            "msgid": "COULDN'T CHECK THE BIOS FILES RIGHT NOW.",
+            "msgstr": "IMPOSSIBLE DE VÉRIFIER LES FICHIERS BIOS POUR LE MOMENT."
+          },
+          "flags": [],
+          "line": 4743
+        },
+        "source_calls": [
+          {
+            "path": "es-app/src/StatusText.cpp",
+            "ref": "3ae9610b0f3fb61d23eb6a2c3459ad19f962e2b1",
+            "sha256": "48c9f0b23100fba93d0dab1cdaf11d3f94616292413ad52794eb7d278d2aa561",
+            "line": 47,
+            "source": "_(\"COULDN'T CHECK THE BIOS FILES RIGHT NOW.\")"
+          }
+        ],
+        "source_match_limit": "lexical adjacent C++ string literal concatenation in _() calls only; not a preprocessor or integration proof"
+      },
+      {
+        "entry": {
+          "fields": {
+            "msgid": "YOUR SETTINGS FILE WAS DAMAGED. THE LAST GOOD COPY IS IN USE AND WILL BE SAVED NEXT TIME.",
+            "msgstr": "VOTRE FICHIER DE PARAMÈTRES ÉTAIT ENDOMMAGÉ. LA DERNIÈRE BONNE COPIE EST UTILISÉE ET SERA ENREGISTRÉE LA PROCHAINE FOIS."
+          },
+          "flags": [],
+          "line": 4926
+        },
+        "source_calls": [
+          {
+            "path": "es-app/src/StatusText.cpp",
+            "ref": "3ae9610b0f3fb61d23eb6a2c3459ad19f962e2b1",
+            "sha256": "48c9f0b23100fba93d0dab1cdaf11d3f94616292413ad52794eb7d278d2aa561",
+            "line": 38,
+            "source": "_(\"YOUR SETTINGS FILE WAS DAMAGED. THE LAST GOOD COPY IS IN USE AND WILL BE SAVED NEXT TIME.\")"
+          }
+        ],
+        "source_match_limit": "lexical adjacent C++ string literal concatenation in _() calls only; not a preprocessor or integration proof"
+      },
+      {
+        "entry": {
+          "fields": {
+            "msgid": "YOUR SETTINGS FILE WAS MISSING. THE LAST GOOD COPY WAS RESTORED.",
+            "msgstr": "VOTRE FICHIER DE PARAMÈTRES ÉTAIT ABSENT. LA DERNIÈRE BONNE COPIE A ÉTÉ RESTAURÉE."
+          },
+          "flags": [],
+          "line": 4929
+        },
+        "source_calls": [
+          {
+            "path": "es-app/src/StatusText.cpp",
+            "ref": "3ae9610b0f3fb61d23eb6a2c3459ad19f962e2b1",
+            "sha256": "48c9f0b23100fba93d0dab1cdaf11d3f94616292413ad52794eb7d278d2aa561",
+            "line": 36,
+            "source": "_(\"YOUR SETTINGS FILE WAS MISSING. THE LAST GOOD COPY WAS RESTORED.\")"
+          }
+        ],
+        "source_match_limit": "lexical adjacent C++ string literal concatenation in _() calls only; not a preprocessor or integration proof"
+      }
+    ],
+    "changed_existing": [],
+    "old_key_present": true,
+    "contains_T2": false,
+    "integrated": false,
+    "limit": "own accepted branch only; no combined tree"
+  },
+  {
+    "owner": "T34",
+    "ref": "52f0ff5128cf96bfcdec9082ded75347ecea11e6",
+    "french_sha256": "12714f0ca5259b664f7ec603ff185d88bb86e3148d6ce38760597324b787ee2f",
+    "added": [
+      {
+        "entry": {
+          "fields": {
+            "msgid": "ADD STAR",
+            "msgstr": "AJOUTER UNE ÉTOILE"
+          },
+          "flags": [],
+          "line": 1574
+        },
+        "source_calls": [
+          {
+            "path": "es-core/src/components/RatingComponent.cpp",
+            "ref": "52f0ff5128cf96bfcdec9082ded75347ecea11e6",
+            "sha256": "7405151918caf1eebb9ce9ba4a992e7f44c7fe7fe3baa14edb7865b7b607c783",
+            "line": 266,
+            "source": "_(\"ADD STAR\")"
+          }
+        ],
+        "source_match_limit": "lexical adjacent C++ string literal concatenation in _() calls only; not a preprocessor or integration proof"
+      }
+    ],
+    "changed_existing": [],
+    "old_key_present": true,
+    "contains_T2": false,
+    "integrated": false,
+    "limit": "own accepted branch only; no combined tree"
+  },
+  {
+    "owner": "T35",
+    "ref": "b7fdb3a24c859ce91f9fd381bb0956901b8d23cb",
+    "french_sha256": "f547329a120a5cbd608916161167e128d5817bae55fd3f973181f0105ecaaa29",
+    "added": [
+      {
+        "entry": {
+          "fields": {
+            "msgid": "GAMEPAD",
+            "msgstr": "MANETTE"
+          },
+          "flags": [],
+          "line": 3901
+        },
+        "source_calls": [
+          {
+            "path": "es-core/src/guis/GuiInputConfig.cpp",
+            "ref": "b7fdb3a24c859ce91f9fd381bb0956901b8d23cb",
+            "sha256": "afb8ecd4cfeb569364e0e2b95f45ad50a4ba32ba099d32a063241e0a95da4ef9",
+            "line": 137,
+            "source": "_(\"GAMEPAD\")"
+          }
+        ],
+        "source_match_limit": "lexical adjacent C++ string literal concatenation in _() calls only; not a preprocessor or integration proof"
+      }
+    ],
+    "changed_existing": [],
+    "old_key_present": true,
+    "contains_T2": false,
+    "integrated": false,
+    "limit": "own accepted branch only; no combined tree"
+  },
+  {
+    "owner": "T36",
+    "ref": "9c1bd5f093cfc1ccd42640282226b7b970442ef1",
+    "french_sha256": "b197ed5c800f5d52e6e1cdb3050116df439699d633ac5a00d57ced75615a4e38",
+    "added": [],
+    "changed_existing": [],
+    "old_key_present": true,
+    "contains_T2": false,
+    "integrated": false,
+    "limit": "own accepted branch only; no combined tree"
+  }
+]

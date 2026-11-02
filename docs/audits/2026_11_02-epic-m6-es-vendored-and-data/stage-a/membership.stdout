@@ -1,0 +1,427 @@
+{
+  "P1": "2174265e9cc1b248c0fbe27fa101875984d46d6b",
+  "actual_es_tree": "64b90eb8cb07bdfcd690c74ff6bc980ae490657c",
+  "addition_text_lines": 450,
+  "additions": 3,
+  "changed_native": 40,
+  "changed_paths": [
+    "locale/emulationstation2.pot",
+    "locale/lang/ar/LC_MESSAGES/emulationstation2.po",
+    "locale/lang/ca/LC_MESSAGES/emulationstation2.po",
+    "locale/lang/cs_CZ/LC_MESSAGES/emulationstation2.po",
+    "locale/lang/cy_GB/LC_MESSAGES/emulationstation2.po",
+    "locale/lang/de/LC_MESSAGES/emulationstation2.po",
+    "locale/lang/el/LC_MESSAGES/emulationstation2.po",
+    "locale/lang/en_GB/LC_MESSAGES/emulationstation2.po",
+    "locale/lang/es/LC_MESSAGES/emulationstation2.po",
+    "locale/lang/es_MX/LC_MESSAGES/emulationstation2.po",
+    "locale/lang/eu_ES/LC_MESSAGES/emulationstation2.po",
+    "locale/lang/fi_FI/LC_MESSAGES/emulationstation2.po",
+    "locale/lang/fr/LC_MESSAGES/emulationstation2.po",
+    "locale/lang/gl_ES/LC_MESSAGES/emulationstation2.po",
+    "locale/lang/he/LC_MESSAGES/emulationstation2.po",
+    "locale/lang/hu/LC_MESSAGES/emulationstation2.po",
+    "locale/lang/id_ID/LC_MESSAGES/emulationstation2.po",
+    "locale/lang/it/LC_MESSAGES/emulationstation2.po",
+    "locale/lang/ja_JP/LC_MESSAGES/emulationstation2.po",
+    "locale/lang/ko/LC_MESSAGES/emulationstation2.po",
+    "locale/lang/nb_NO/LC_MESSAGES/emulationstation2.po",
+    "locale/lang/nl/LC_MESSAGES/emulationstation2.po",
+    "locale/lang/nn_NO/LC_MESSAGES/emulationstation2.po",
+    "locale/lang/oc_FR/LC_MESSAGES/emulationstation2.po",
+    "locale/lang/pl/LC_MESSAGES/emulationstation2.po",
+    "locale/lang/pt_BR/LC_MESSAGES/emulationstation2.po",
+    "locale/lang/pt_PT/LC_MESSAGES/emulationstation2.po",
+    "locale/lang/ro_RO/LC_MESSAGES/emulationstation2.po",
+    "locale/lang/ru_RU/LC_MESSAGES/emulationstation2.po",
+    "locale/lang/sk_SK/LC_MESSAGES/emulationstation2.po",
+    "locale/lang/sv_SE/LC_MESSAGES/emulationstation2.po",
+    "locale/lang/tr/LC_MESSAGES/emulationstation2.po",
+    "locale/lang/uk_UA/LC_MESSAGES/emulationstation2.po",
+    "locale/lang/vi_VN/LC_MESSAGES/emulationstation2.po",
+    "locale/lang/zh_CN/LC_MESSAGES/emulationstation2.po",
+    "locale/lang/zh_TW/LC_MESSAGES/emulationstation2.po",
+    "tests/app-unit/BookkeeperTests.cpp",
+    "tests/app-unit/ProxyCardsTests.cpp",
+    "tests/launch-capture-gate.py",
+    "tests/launch-deferred-state.py"
+  ],
+  "companion_branches": 4,
+  "distribution_inputs": {
+    "docs/reviews/areas.json": "985f742cfd4a2138339f1ed41bd5f5f9e3755fe69b309ff3ddb10d1466fced90",
+    "docs/reviews/inventory.json": "d17b9cac4b2c2245b7d924036a9402b2cfd066811a7ea3fc7502a380418cb2fc",
+    "docs/reviews/inventory.md": "05f32dce9bb943ce31075ca5eea8e2b355baec2ef3157d84a780af2524c343e6",
+    "docs/reviews/order.md": "d5b76af6f0865d1ce5b6f8ab36fe1e5fa33478d16033833c048fae0abfde4c18",
+    "docs/reviews/slices.json": "49bc2745664e52f4abb9037746d003fab54e21fde74f6308a81bf20ed00f12c6",
+    "projects/ROCKNIX/packages/ui/emulationstation/package.mk": "1d91f4a72032c67b89c0d986d26b728cf501f11bb9de891c168eb4f3f37d2719",
+    "tools/renovation-inventory": "e3d2cbc8743e328e20a2b9ca10b8bf2264efd5d25bdecb8e0bd3bb306117bf0b"
+  },
+  "distribution_ref": "c348d43dddc4bddbe1055d20d37431503283b817",
+  "es_ref": "55158d2a64c69fe295fb4e67fd174424a71b1b4d",
+  "excluded_nonrest": [
+    {
+      "owners": [
+        "es-achievements-pages"
+      ],
+      "path": "external/libcheevos/CMakeLists.txt"
+    },
+    {
+      "owners": [
+        "es-achievements-pages"
+      ],
+      "path": "external/libcheevos/LICENSE.rvz-padding"
+    },
+    {
+      "owners": [
+        "es-achievements-pages"
+      ],
+      "path": "external/libcheevos/RVZ-NOTICES.md"
+    },
+    {
+      "owners": [
+        "es-achievements-pages"
+      ],
+      "path": "external/libcheevos/cheevos.cpp"
+    },
+    {
+      "owners": [
+        "es-achievements-pages"
+      ],
+      "path": "external/libcheevos/cheevos.h"
+    },
+    {
+      "owners": [
+        "es-achievements-pages"
+      ],
+      "path": "external/libcheevos/libretro-common/src/utils/md5.c"
+    },
+    {
+      "owners": [
+        "es-achievements-pages"
+      ],
+      "path": "external/libcheevos/rcheevos/src/rhash/hash_disc.c"
+    },
+    {
+      "owners": [
+        "es-achievements-pages"
+      ],
+      "path": "external/libcheevos/rvz_hash.cpp"
+    },
+    {
+      "owners": [
+        "es-achievements-pages"
+      ],
+      "path": "external/libcheevos/rvz_hash.h"
+    }
+  ],
+  "inventory_lines": 374547,
+  "kinds": {
+    "binary": 50,
+    "gitlink": 1,
+    "text": 543
+  },
+  "limits": "No combined accepted tree, installed behavior, current upstream release or completed source audit is asserted.",
+  "modes": {
+    "100644": 583,
+    "100755": 10,
+    "160000": 1
+  },
+  "native_paths": 594,
+  "primary": "55158d2a64c69fe295fb4e67fd174424a71b1b4d",
+  "primary_blob_bytes": 40999100,
+  "primary_newline_bytes": 374704,
+  "primary_text_lines": 374720,
+  "primary_tree": "64b90eb8cb07bdfcd690c74ff6bc980ae490657c",
+  "survey": "16dbac5211eea7e70db7394372033be2be7df829",
+  "survey_text_lines": 374546,
+  "survey_tiers": {
+    "fork-own": 51,
+    "upstream-carried": 543
+  },
+  "unchanged_native": 554
+}
+{
+  "P1": "2174265e9cc1b248c0fbe27fa101875984d46d6b",
+  "actual_es_tree": "64b90eb8cb07bdfcd690c74ff6bc980ae490657c",
+  "addition_text_lines": 450,
+  "additions": 3,
+  "changed_native": 40,
+  "changed_paths": [
+    "locale/emulationstation2.pot",
+    "locale/lang/ar/LC_MESSAGES/emulationstation2.po",
+    "locale/lang/ca/LC_MESSAGES/emulationstation2.po",
+    "locale/lang/cs_CZ/LC_MESSAGES/emulationstation2.po",
+    "locale/lang/cy_GB/LC_MESSAGES/emulationstation2.po",
+    "locale/lang/de/LC_MESSAGES/emulationstation2.po",
+    "locale/lang/el/LC_MESSAGES/emulationstation2.po",
+    "locale/lang/en_GB/LC_MESSAGES/emulationstation2.po",
+    "locale/lang/es/LC_MESSAGES/emulationstation2.po",
+    "locale/lang/es_MX/LC_MESSAGES/emulationstation2.po",
+    "locale/lang/eu_ES/LC_MESSAGES/emulationstation2.po",
+    "locale/lang/fi_FI/LC_MESSAGES/emulationstation2.po",
+    "locale/lang/fr/LC_MESSAGES/emulationstation2.po",
+    "locale/lang/gl_ES/LC_MESSAGES/emulationstation2.po",
+    "locale/lang/he/LC_MESSAGES/emulationstation2.po",
+    "locale/lang/hu/LC_MESSAGES/emulationstation2.po",
+    "locale/lang/id_ID/LC_MESSAGES/emulationstation2.po",
+    "locale/lang/it/LC_MESSAGES/emulationstation2.po",
+    "locale/lang/ja_JP/LC_MESSAGES/emulationstation2.po",
+    "locale/lang/ko/LC_MESSAGES/emulationstation2.po",
+    "locale/lang/nb_NO/LC_MESSAGES/emulationstation2.po",
+    "locale/lang/nl/LC_MESSAGES/emulationstation2.po",
+    "locale/lang/nn_NO/LC_MESSAGES/emulationstation2.po",
+    "locale/lang/oc_FR/LC_MESSAGES/emulationstation2.po",
+    "locale/lang/pl/LC_MESSAGES/emulationstation2.po",
+    "locale/lang/pt_BR/LC_MESSAGES/emulationstation2.po",
+    "locale/lang/pt_PT/LC_MESSAGES/emulationstation2.po",
+    "locale/lang/ro_RO/LC_MESSAGES/emulationstation2.po",
+    "locale/lang/ru_RU/LC_MESSAGES/emulationstation2.po",
+    "locale/lang/sk_SK/LC_MESSAGES/emulationstation2.po",
+    "locale/lang/sv_SE/LC_MESSAGES/emulationstation2.po",
+    "locale/lang/tr/LC_MESSAGES/emulationstation2.po",
+    "locale/lang/uk_UA/LC_MESSAGES/emulationstation2.po",
+    "locale/lang/vi_VN/LC_MESSAGES/emulationstation2.po",
+    "locale/lang/zh_CN/LC_MESSAGES/emulationstation2.po",
+    "locale/lang/zh_TW/LC_MESSAGES/emulationstation2.po",
+    "tests/app-unit/BookkeeperTests.cpp",
+    "tests/app-unit/ProxyCardsTests.cpp",
+    "tests/launch-capture-gate.py",
+    "tests/launch-deferred-state.py"
+  ],
+  "companion_branches": 4,
+  "distribution_inputs": {
+    "docs/reviews/areas.json": "985f742cfd4a2138339f1ed41bd5f5f9e3755fe69b309ff3ddb10d1466fced90",
+    "docs/reviews/inventory.json": "d17b9cac4b2c2245b7d924036a9402b2cfd066811a7ea3fc7502a380418cb2fc",
+    "docs/reviews/inventory.md": "05f32dce9bb943ce31075ca5eea8e2b355baec2ef3157d84a780af2524c343e6",
+    "docs/reviews/order.md": "d5b76af6f0865d1ce5b6f8ab36fe1e5fa33478d16033833c048fae0abfde4c18",
+    "docs/reviews/slices.json": "49bc2745664e52f4abb9037746d003fab54e21fde74f6308a81bf20ed00f12c6",
+    "projects/ROCKNIX/packages/ui/emulationstation/package.mk": "1d91f4a72032c67b89c0d986d26b728cf501f11bb9de891c168eb4f3f37d2719",
+    "tools/renovation-inventory": "e3d2cbc8743e328e20a2b9ca10b8bf2264efd5d25bdecb8e0bd3bb306117bf0b"
+  },
+  "distribution_ref": "HEAD",
+  "es_ref": "55158d2a64c69fe295fb4e67fd174424a71b1b4d",
+  "excluded_nonrest": [
+    {
+      "owners": [
+        "es-achievements-pages"
+      ],
+      "path": "external/libcheevos/CMakeLists.txt"
+    },
+    {
+      "owners": [
+        "es-achievements-pages"
+      ],
+      "path": "external/libcheevos/LICENSE.rvz-padding"
+    },
+    {
+      "owners": [
+        "es-achievements-pages"
+      ],
+      "path": "external/libcheevos/RVZ-NOTICES.md"
+    },
+    {
+      "owners": [
+        "es-achievements-pages"
+      ],
+      "path": "external/libcheevos/cheevos.cpp"
+    },
+    {
+      "owners": [
+        "es-achievements-pages"
+      ],
+      "path": "external/libcheevos/cheevos.h"
+    },
+    {
+      "owners": [
+        "es-achievements-pages"
+      ],
+      "path": "external/libcheevos/libretro-common/src/utils/md5.c"
+    },
+    {
+      "owners": [
+        "es-achievements-pages"
+      ],
+      "path": "external/libcheevos/rcheevos/src/rhash/hash_disc.c"
+    },
+    {
+      "owners": [
+        "es-achievements-pages"
+      ],
+      "path": "external/libcheevos/rvz_hash.cpp"
+    },
+    {
+      "owners": [
+        "es-achievements-pages"
+      ],
+      "path": "external/libcheevos/rvz_hash.h"
+    }
+  ],
+  "inventory_lines": 374547,
+  "kinds": {
+    "binary": 50,
+    "gitlink": 1,
+    "text": 543
+  },
+  "limits": "No combined accepted tree, installed behavior, current upstream release or completed source audit is asserted.",
+  "modes": {
+    "100644": 583,
+    "100755": 10,
+    "160000": 1
+  },
+  "native_paths": 594,
+  "primary": "55158d2a64c69fe295fb4e67fd174424a71b1b4d",
+  "primary_blob_bytes": 40999100,
+  "primary_newline_bytes": 374704,
+  "primary_text_lines": 374720,
+  "primary_tree": "64b90eb8cb07bdfcd690c74ff6bc980ae490657c",
+  "survey": "16dbac5211eea7e70db7394372033be2be7df829",
+  "survey_text_lines": 374546,
+  "survey_tiers": {
+    "fork-own": 51,
+    "upstream-carried": 543
+  },
+  "unchanged_native": 554
+}
+PASS T44 immutable input equality; native594 / additions3 / companions4
+{
+  "P1": "2174265e9cc1b248c0fbe27fa101875984d46d6b",
+  "actual_es_tree": "64b90eb8cb07bdfcd690c74ff6bc980ae490657c",
+  "addition_text_lines": 450,
+  "additions": 3,
+  "changed_native": 40,
+  "changed_paths": [
+    "locale/emulationstation2.pot",
+    "locale/lang/ar/LC_MESSAGES/emulationstation2.po",
+    "locale/lang/ca/LC_MESSAGES/emulationstation2.po",
+    "locale/lang/cs_CZ/LC_MESSAGES/emulationstation2.po",
+    "locale/lang/cy_GB/LC_MESSAGES/emulationstation2.po",
+    "locale/lang/de/LC_MESSAGES/emulationstation2.po",
+    "locale/lang/el/LC_MESSAGES/emulationstation2.po",
+    "locale/lang/en_GB/LC_MESSAGES/emulationstation2.po",
+    "locale/lang/es/LC_MESSAGES/emulationstation2.po",
+    "locale/lang/es_MX/LC_MESSAGES/emulationstation2.po",
+    "locale/lang/eu_ES/LC_MESSAGES/emulationstation2.po",
+    "locale/lang/fi_FI/LC_MESSAGES/emulationstation2.po",
+    "locale/lang/fr/LC_MESSAGES/emulationstation2.po",
+    "locale/lang/gl_ES/LC_MESSAGES/emulationstation2.po",
+    "locale/lang/he/LC_MESSAGES/emulationstation2.po",
+    "locale/lang/hu/LC_MESSAGES/emulationstation2.po",
+    "locale/lang/id_ID/LC_MESSAGES/emulationstation2.po",
+    "locale/lang/it/LC_MESSAGES/emulationstation2.po",
+    "locale/lang/ja_JP/LC_MESSAGES/emulationstation2.po",
+    "locale/lang/ko/LC_MESSAGES/emulationstation2.po",
+    "locale/lang/nb_NO/LC_MESSAGES/emulationstation2.po",
+    "locale/lang/nl/LC_MESSAGES/emulationstation2.po",
+    "locale/lang/nn_NO/LC_MESSAGES/emulationstation2.po",
+    "locale/lang/oc_FR/LC_MESSAGES/emulationstation2.po",
+    "locale/lang/pl/LC_MESSAGES/emulationstation2.po",
+    "locale/lang/pt_BR/LC_MESSAGES/emulationstation2.po",
+    "locale/lang/pt_PT/LC_MESSAGES/emulationstation2.po",
+    "locale/lang/ro_RO/LC_MESSAGES/emulationstation2.po",
+    "locale/lang/ru_RU/LC_MESSAGES/emulationstation2.po",
+    "locale/lang/sk_SK/LC_MESSAGES/emulationstation2.po",
+    "locale/lang/sv_SE/LC_MESSAGES/emulationstation2.po",
+    "locale/lang/tr/LC_MESSAGES/emulationstation2.po",
+    "locale/lang/uk_UA/LC_MESSAGES/emulationstation2.po",
+    "locale/lang/vi_VN/LC_MESSAGES/emulationstation2.po",
+    "locale/lang/zh_CN/LC_MESSAGES/emulationstation2.po",
+    "locale/lang/zh_TW/LC_MESSAGES/emulationstation2.po",
+    "tests/app-unit/BookkeeperTests.cpp",
+    "tests/app-unit/ProxyCardsTests.cpp",
+    "tests/launch-capture-gate.py",
+    "tests/launch-deferred-state.py"
+  ],
+  "companion_branches": 4,
+  "distribution_inputs": {
+    "docs/reviews/areas.json": "985f742cfd4a2138339f1ed41bd5f5f9e3755fe69b309ff3ddb10d1466fced90",
+    "docs/reviews/inventory.json": "d17b9cac4b2c2245b7d924036a9402b2cfd066811a7ea3fc7502a380418cb2fc",
+    "docs/reviews/inventory.md": "05f32dce9bb943ce31075ca5eea8e2b355baec2ef3157d84a780af2524c343e6",
+    "docs/reviews/order.md": "d5b76af6f0865d1ce5b6f8ab36fe1e5fa33478d16033833c048fae0abfde4c18",
+    "docs/reviews/slices.json": "49bc2745664e52f4abb9037746d003fab54e21fde74f6308a81bf20ed00f12c6",
+    "projects/ROCKNIX/packages/ui/emulationstation/package.mk": "1d91f4a72032c67b89c0d986d26b728cf501f11bb9de891c168eb4f3f37d2719",
+    "tools/renovation-inventory": "e3d2cbc8743e328e20a2b9ca10b8bf2264efd5d25bdecb8e0bd3bb306117bf0b"
+  },
+  "distribution_ref": "HEAD",
+  "es_ref": "HEAD",
+  "excluded_nonrest": [
+    {
+      "owners": [
+        "es-achievements-pages"
+      ],
+      "path": "external/libcheevos/CMakeLists.txt"
+    },
+    {
+      "owners": [
+        "es-achievements-pages"
+      ],
+      "path": "external/libcheevos/LICENSE.rvz-padding"
+    },
+    {
+      "owners": [
+        "es-achievements-pages"
+      ],
+      "path": "external/libcheevos/RVZ-NOTICES.md"
+    },
+    {
+      "owners": [
+        "es-achievements-pages"
+      ],
+      "path": "external/libcheevos/cheevos.cpp"
+    },
+    {
+      "owners": [
+        "es-achievements-pages"
+      ],
+      "path": "external/libcheevos/cheevos.h"
+    },
+    {
+      "owners": [
+        "es-achievements-pages"
+      ],
+      "path": "external/libcheevos/libretro-common/src/utils/md5.c"
+    },
+    {
+      "owners": [
+        "es-achievements-pages"
+      ],
+      "path": "external/libcheevos/rcheevos/src/rhash/hash_disc.c"
+    },
+    {
+      "owners": [
+        "es-achievements-pages"
+      ],
+      "path": "external/libcheevos/rvz_hash.cpp"
+    },
+    {
+      "owners": [
+        "es-achievements-pages"
+      ],
+      "path": "external/libcheevos/rvz_hash.h"
+    }
+  ],
+  "inventory_lines": 374547,
+  "kinds": {
+    "binary": 50,
+    "gitlink": 1,
+    "text": 543
+  },
+  "limits": "No combined accepted tree, installed behavior, current upstream release or completed source audit is asserted.",
+  "modes": {
+    "100644": 583,
+    "100755": 10,
+    "160000": 1
+  },
+  "native_paths": 594,
+  "primary": "55158d2a64c69fe295fb4e67fd174424a71b1b4d",
+  "primary_blob_bytes": 40999100,
+  "primary_newline_bytes": 374704,
+  "primary_text_lines": 374720,
+  "primary_tree": "64b90eb8cb07bdfcd690c74ff6bc980ae490657c",
+  "survey": "16dbac5211eea7e70db7394372033be2be7df829",
+  "survey_text_lines": 374546,
+  "survey_tiers": {
+    "fork-own": 51,
+    "upstream-carried": 543
+  },
+  "unchanged_native": 554
+}

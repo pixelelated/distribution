@@ -1,0 +1,45 @@
+{
+  "name": "po-positive",
+  "argv": [
+    "/usr/bin/python3",
+    "-I",
+    "/workspace/repos/pixelelated/distribution.worktrees/m6-es-vendored-and-data-691/docs/audits/2026_11_02-epic-m6-es-vendored-and-data/tools/controls.py",
+    "--case",
+    "/workspace/repos/pixelelated/distribution.worktrees/m6-es-vendored-and-data-691/docs/audits/2026_11_02-epic-m6-es-vendored-and-data/stage-c/fixtures/po-positive.json"
+  ],
+  "start": "2026-11-02T23:13:15.550087+00:00",
+  "end": "2026-11-02T23:13:15.572576+00:00",
+  "rc": 0,
+  "expected_predicate": null,
+  "assertion_pass": true,
+  "fixture_sha256": "90dd8b44cc6862ae65283beb7c415519537ef3ba7d636fcd2c9f2bcd55661884",
+  "programs": {
+    "tables.py": "1b5dbc4a4ee1e79b4b23a14101ae01557b1bdfe635c7443be3289d3b00c6758a",
+    "catalogue.py": "c8a615797ea39598e42f8af77f7f79100b054070ed95ee2f1f10f4c55bcf3e84",
+    "confinement.py": "ee4bf46b31cf71859869bf2f0fe3ef42921950717a42c3575e1ea73c0f049ea5",
+    "collect.py": "63a9fdae566624486a51d24bbcec756678afe8ae829ae2bc89c2a9a23a7f42ba",
+    "controls.py": "61641f9992d4faa10b0af29176971ad11a863bf33c9a81a84bf56c7ff42c38cf"
+  },
+  "stdout_sha256": "a97ee915b115b0808659f317ca5db390b628fa92be1af777537dfc2fa0f31dfe",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "python": "3.14.4 (main, Aug 20 2026, 10:41:58) [GCC 15.2.0]",
+  "locale": "C",
+  "cpus": [
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21,
+    22,
+    23
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "schema_version": 1,
+  "depth": "local",
+  "tier_exception": "D-WORKFLOW-184",
+  "reason": "T44 table, plan section6c and D-WORKFLOW-232; Local primary only. Synthetic fixture, not audit completion.",
+  "primary": {
+    "harness": "Codex",
+    "model": "openai/gpt-6-astra",
+    "lab": "openai",
+    "effort": "xhigh",
+    "identity_source": "herdr agent read m6-t2-es-launch --source visible; own footer, observed 2026-11-02T22:51:26.912864+00:00"
+  },
+  "reviewers": [
+    {
+      "member": "synthetic-not-a-call"
+    }
+  ]
+}

@@ -1,0 +1,8 @@
+Traceback (most recent call last):
+  File "/workspace/repos/pixelelated/distribution.worktrees/m6-es-vendored-and-data-691/docs/audits/2026_11_02-epic-m6-es-vendored-and-data/tools/tables.py", line 100, in <module>
+    (A/'stage-b/tables.md').write_text(render(model))
+                                       ~~~~~~^^^^^^^
+  File "/workspace/repos/pixelelated/distribution.worktrees/m6-es-vendored-and-data-691/docs/audits/2026_11_02-epic-m6-es-vendored-and-data/tools/tables.py", line 88, in render
+    out+=['',f"Computed keys: {len(model[name])}; unique: {len({x['path'] for x in model[name]})}; inventory lines: {sum(x['survey_lines'] for x in model[name])}; primary text lines: {sum(x['primary_lines'] or 0 for x in model[name])}.",'']
+                                                                                                                     ~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: unsupported operand type(s) for +: 'int' and 'NoneType'

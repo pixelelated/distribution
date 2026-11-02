@@ -1,0 +1,11 @@
+Traceback (most recent call last):
+  File "/workspace/repos/pixelelated/distribution.worktrees/m6-es-vendored-and-data-691/docs/audits/2026_11_02-epic-m6-es-vendored-and-data/tools/controls.py", line 53, in <module>
+    if len(sys.argv)==3 and sys.argv[1]=='--case':worker(sys.argv[2])
+                                                  ~~~~~~^^^^^^^^^^^^^
+  File "/workspace/repos/pixelelated/distribution.worktrees/m6-es-vendored-and-data-691/docs/audits/2026_11_02-epic-m6-es-vendored-and-data/tools/controls.py", line 27, in worker
+    module('confinement').validate_paths(f['rows']);print('PASS confinement metadata')
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^
+  File "/workspace/repos/pixelelated/distribution.worktrees/m6-es-vendored-and-data-691/docs/audits/2026_11_02-epic-m6-es-vendored-and-data/tools/confinement.py", line 12, in validate_paths
+    if not p or p.startswith('/') or '\\' in p or any(x in ('','.','..') for x in p.split('/')):raise ValueError('NONCANONICAL_PATH:'+p)
+                                                                                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: NONCANONICAL_PATH:docs/audits/2026_11_02-epic-m6-es-vendored-and-data/../source.cpp

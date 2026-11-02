@@ -1,0 +1,1 @@
+The POST sub_issues endpoint returned the parent #691 snapshot, not child #1413. The original post rc0/output remains attach-1413-to-691.json; the local response-number assertion failed after successful attachment. No duplicate POST was sent. The separate GET child/parent readback proves parent691/M6; child readback proves1413 open.

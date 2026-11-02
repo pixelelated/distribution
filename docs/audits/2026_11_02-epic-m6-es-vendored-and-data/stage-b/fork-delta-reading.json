@@ -1,0 +1,121 @@
+{
+  "recorded_at": "2026-11-02T23:18:21.033068+00:00",
+  "identity": {
+    "harness": "Codex",
+    "model": "openai/gpt-6-astra",
+    "lab": "openai",
+    "effort": "xhigh",
+    "identity_source": "Own visible Herdr footer GPT-6-Astra xhigh; UI observation, not provider attestation",
+    "session": "01a19d12-1c5f-7022-8053-102f6a94b7fe",
+    "lane": "m6-t2-es-launch",
+    "pane": "wN:p5"
+  },
+  "records": [
+    {
+      "path": ".gitignore",
+      "base": "cada856d86e3115fbbf0bce09dd761b0ee8fa9fd",
+      "tip": "55158d2a64c69fe295fb4e67fd174424a71b1b4d",
+      "argv": [
+        "git",
+        "-C",
+        "/home/max/Development/emulationstation-next.worktrees/m6-es-vendored-and-data-691",
+        "diff",
+        "--no-ext-diff",
+        "--no-textconv",
+        "cada856d86e3115fbbf0bce09dd761b0ee8fa9fd",
+        "55158d2a64c69fe295fb4e67fd174424a71b1b4d",
+        "--",
+        ".gitignore"
+      ],
+      "diff_sha256": "7104519f935602203ef4793b4d8d3a469d9d601353af4509464372c4688ef57d",
+      "diff_lines": 11,
+      "coverage": "complete displayed delta read; French 3014 diff lines in bounded chunks including re-read of truncated middle; structure and inherited ownership, not translation quality",
+      "source_sha256": "63a3451a0670cc58eb26a2138ebef892cdb53c181e21206bfa26a5cf2b8b2e5a"
+    },
+    {
+      "path": "CMakeLists.txt",
+      "base": "cada856d86e3115fbbf0bce09dd761b0ee8fa9fd",
+      "tip": "55158d2a64c69fe295fb4e67fd174424a71b1b4d",
+      "argv": [
+        "git",
+        "-C",
+        "/home/max/Development/emulationstation-next.worktrees/m6-es-vendored-and-data-691",
+        "diff",
+        "--no-ext-diff",
+        "--no-textconv",
+        "cada856d86e3115fbbf0bce09dd761b0ee8fa9fd",
+        "55158d2a64c69fe295fb4e67fd174424a71b1b4d",
+        "--",
+        "CMakeLists.txt"
+      ],
+      "diff_sha256": "7c15d4d9fc8d89a6b5af17e6dfb9b63eef32b3e8d2485d4f29e9e3917b9ee462",
+      "diff_lines": 44,
+      "coverage": "complete displayed delta read; French 3014 diff lines in bounded chunks including re-read of truncated middle; structure and inherited ownership, not translation quality",
+      "source_sha256": "7821fe0a78f359789ad5fc050da19bd48a438ac845c4c43e95509ce9f61520d2"
+    },
+    {
+      "path": "locale/emulationstation2.pot",
+      "base": "cada856d86e3115fbbf0bce09dd761b0ee8fa9fd",
+      "tip": "55158d2a64c69fe295fb4e67fd174424a71b1b4d",
+      "argv": [
+        "git",
+        "-C",
+        "/home/max/Development/emulationstation-next.worktrees/m6-es-vendored-and-data-691",
+        "diff",
+        "--no-ext-diff",
+        "--no-textconv",
+        "cada856d86e3115fbbf0bce09dd761b0ee8fa9fd",
+        "55158d2a64c69fe295fb4e67fd174424a71b1b4d",
+        "--",
+        "locale/emulationstation2.pot"
+      ],
+      "diff_sha256": "2cb383be4135eb7e9d451ee364b9c751e9b8f7ff03bc7d4e453a635568395199",
+      "diff_lines": 86,
+      "coverage": "complete displayed delta read; French 3014 diff lines in bounded chunks including re-read of truncated middle; structure and inherited ownership, not translation quality",
+      "source_sha256": "12f77301256c390c16c70077ae0d95a10f6b436d85e1caee4d4faa6a7b551684"
+    },
+    {
+      "path": "locale/lang/en_GB/LC_MESSAGES/emulationstation2.po",
+      "base": "cada856d86e3115fbbf0bce09dd761b0ee8fa9fd",
+      "tip": "55158d2a64c69fe295fb4e67fd174424a71b1b4d",
+      "argv": [
+        "git",
+        "-C",
+        "/home/max/Development/emulationstation-next.worktrees/m6-es-vendored-and-data-691",
+        "diff",
+        "--no-ext-diff",
+        "--no-textconv",
+        "cada856d86e3115fbbf0bce09dd761b0ee8fa9fd",
+        "55158d2a64c69fe295fb4e67fd174424a71b1b4d",
+        "--",
+        "locale/lang/en_GB/LC_MESSAGES/emulationstation2.po"
+      ],
+      "diff_sha256": "6f55f4d1bab7467d66d62bf0807c7e3467819a912388e6097cfe9f54e48d8b87",
+      "diff_lines": 55,
+      "coverage": "complete displayed delta read; French 3014 diff lines in bounded chunks including re-read of truncated middle; structure and inherited ownership, not translation quality",
+      "source_sha256": "ac1ed98feb40b33bf2b86e3f114f3e768303c12398cd4edbb8bd225f15c8be56"
+    },
+    {
+      "path": "locale/lang/fr/LC_MESSAGES/emulationstation2.po",
+      "base": "cada856d86e3115fbbf0bce09dd761b0ee8fa9fd",
+      "tip": "55158d2a64c69fe295fb4e67fd174424a71b1b4d",
+      "argv": [
+        "git",
+        "-C",
+        "/home/max/Development/emulationstation-next.worktrees/m6-es-vendored-and-data-691",
+        "diff",
+        "--no-ext-diff",
+        "--no-textconv",
+        "cada856d86e3115fbbf0bce09dd761b0ee8fa9fd",
+        "55158d2a64c69fe295fb4e67fd174424a71b1b4d",
+        "--",
+        "locale/lang/fr/LC_MESSAGES/emulationstation2.po"
+      ],
+      "diff_sha256": "48ecbce8f35cc6deeba7c63b0450c6a9505a90a17ad09957d8da1deaf60b81e5",
+      "diff_lines": 3014,
+      "coverage": "complete displayed delta read; French 3014 diff lines in bounded chunks including re-read of truncated middle; structure and inherited ownership, not translation quality",
+      "source_sha256": "e1746cd885ce3117790bb179a0f089e38cc989f056069cf8b378fb90d90ff9ed"
+    }
+  ],
+  "friction": "Two guessed locale paths produced empty diffs; corrected from native metadata to locale/lang/... before claiming coverage. An over-broad immutable audit listing and matching read were truncated; the named sections were read again. No historical file was written."
+}

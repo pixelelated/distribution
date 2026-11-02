@@ -1,0 +1,784 @@
+[
+  {
+    "path": "CMakeLists.txt",
+    "ref": "55158d2a64c69fe295fb4e67fd174424a71b1b4d",
+    "sha256": "7821fe0a78f359789ad5fc050da19bd48a438ac845c4c43e95509ce9f61520d2",
+    "lines": 617,
+    "markers": [
+      {
+        "line": 29,
+        "text": "option(USE_SYSTEM_PUGIXML \"Set to ON to use system-wide pugixml library\" OFF)"
+      },
+      {
+        "line": 35,
+        "text": "option(ES_BUILD_TESTS \"Set to ON to build the es-unit-tests binary\" OFF)"
+      },
+      {
+        "line": 63,
+        "text": "include(FetchContent)"
+      },
+      {
+        "line": 65,
+        "text": "FetchContent_Declare(win32libs"
+      },
+      {
+        "line": 67,
+        "text": "GIT_TAG \"origin/master\""
+      },
+      {
+        "line": 71,
+        "text": "FetchContent_MakeAvailable(win32libs)"
+      },
+      {
+        "line": 170,
+        "text": "elseif(EXISTS \"${CMAKE_FIND_ROOT_PATH}/opt/vc/include/bcm_host.h\")"
+      },
+      {
+        "line": 193,
+        "text": "find_package(OpenGLES2 QUIET)"
+      },
+      {
+        "line": 212,
+        "text": "find_package(OpenGL REQUIRED)"
+      },
+      {
+        "line": 214,
+        "text": "find_package(OpenGLES3 REQUIRED)"
+      },
+      {
+        "line": 216,
+        "text": "find_package(OpenGLES2 REQUIRED)"
+      },
+      {
+        "line": 218,
+        "text": "find_package(OpenGLES REQUIRED)"
+      },
+      {
+        "line": 220,
+        "text": "find_package(Freetype REQUIRED)"
+      },
+      {
+        "line": 221,
+        "text": "find_package(FreeImage REQUIRED)"
+      },
+      {
+        "line": 223,
+        "text": "find_package(SDL2MIXER REQUIRED)"
+      },
+      {
+        "line": 225,
+        "text": "find_package(SDL2 REQUIRED)"
+      },
+      {
+        "line": 226,
+        "text": "find_package(CURL REQUIRED)"
+      },
+      {
+        "line": 227,
+        "text": "find_package(VLC REQUIRED)"
+      },
+      {
+        "line": 228,
+        "text": "find_package(RapidJSON REQUIRED)"
+      },
+      {
+        "line": 231,
+        "text": "# It is optional on purpose: when it is missing, Font.cpp falls back on tryFastBidi(), which"
+      },
+      {
+        "line": 234,
+        "text": "find_package(PkgConfig QUIET)"
+      },
+      {
+        "line": 249,
+        "text": "find_package(PulseAudio REQUIRED)"
+      },
+      {
+        "line": 255,
+        "text": "find_package(udev)"
+      },
+      {
+        "line": 276,
+        "text": "find_package(libCEC)"
+      },
+      {
+        "line": 284,
+        "text": "find_package(ALSA REQUIRED)"
+      },
+      {
+        "line": 345,
+        "text": "execute_process(COMMAND ${CMAKE_CXX_COMPILER} -dumpversion OUTPUT_VARIABLE G++_VERSION)"
+      },
+      {
+        "line": 393,
+        "text": "if(USE_SYSTEM_PUGIXML)"
+      },
+      {
+        "line": 395,
+        "text": "find_package(pugixml REQUIRED)"
+      },
+      {
+        "line": 568,
+        "text": "find_program (MSGFMT_EXECUTABLE msgfmt)"
+      },
+      {
+        "line": 569,
+        "text": "find_program (MSGMERGE_EXECUTABLE msgmerge)"
+      },
+      {
+        "line": 570,
+        "text": "find_program (XGETTEXT_EXECUTABLE xgettext)"
+      },
+      {
+        "line": 571,
+        "text": "find_package(Intl)"
+      },
+      {
+        "line": 581,
+        "text": "find_program (PYTHON3_EXECUTABLE python3)"
+      },
+      {
+        "line": 587,
+        "text": "COMMAND \"${PYTHON3_EXECUTABLE}\" \"${CMAKE_CURRENT_SOURCE_DIR}/resources/checkWheelGunGamesResources.py\""
+      },
+      {
+        "line": 606,
+        "text": "add_subdirectory(\"external\")"
+      },
+      {
+        "line": 607,
+        "text": "add_subdirectory(\"es-core\")"
+      },
+      {
+        "line": 608,
+        "text": "add_subdirectory(\"es-app\")"
+      },
+      {
+        "line": 610,
+        "text": "if(ES_BUILD_TESTS)"
+      },
+      {
+        "line": 611,
+        "text": "add_subdirectory(\"es-app/tests/unit\")"
+      },
+      {
+        "line": 615,
+        "text": "add_subdirectory (locale)"
+      }
+    ]
+  },
+  {
+    "path": "external/CMakeLists.txt",
+    "ref": "55158d2a64c69fe295fb4e67fd174424a71b1b4d",
+    "sha256": "980a44bd539736cc6addd771127f641e2d345b46d1d81e3380e9e0d5ae100043",
+    "lines": 10,
+    "markers": [
+      {
+        "line": 4,
+        "text": "add_subdirectory(\"nanosvg\")"
+      },
+      {
+        "line": 5,
+        "text": "if (NOT USE_SYSTEM_PUGIXML)"
+      },
+      {
+        "line": 6,
+        "text": "add_subdirectory(\"pugixml\")"
+      },
+      {
+        "line": 9,
+        "text": "add_subdirectory(\"id3v2lib\")"
+      },
+      {
+        "line": 10,
+        "text": "add_subdirectory(\"libcheevos\")"
+      }
+    ]
+  },
+  {
+    "path": "external/libcheevos/CMakeLists.txt",
+    "ref": "55158d2a64c69fe295fb4e67fd174424a71b1b4d",
+    "sha256": "c848b8875beb7e9b46206d787b7fc1bf20f51ad9a0360d23fe743bfc8823489c",
+    "lines": 245,
+    "markers": [
+      {
+        "line": 19,
+        "text": "${CMAKE_CURRENT_SOURCE_DIR}/cheevos.cpp"
+      },
+      {
+        "line": 203,
+        "text": "file("
+      },
+      {
+        "line": 206,
+        "text": "*.cpp *.c"
+      },
+      {
+        "line": 228,
+        "text": "add_library(libcheevos STATIC ${CHEEVOS_SOURCES} ${CHEEVOS_HEADERS} ${LIBRETRO_COMMON_HEADERS} ${LIBRETRO_COMMON_SOURCES})"
+      },
+      {
+        "line": 241,
+        "text": "target_sources(libcheevos PRIVATE rvz_hash.cpp rvz_hash.h)"
+      },
+      {
+        "line": 244,
+        "text": "target_link_libraries(libcheevos PUBLIC ${LIBCHEEVOS_ZSTD_LIBRARY})"
+      }
+    ]
+  },
+  {
+    "path": "external/id3v2lib/CMakeLists.txt",
+    "ref": "55158d2a64c69fe295fb4e67fd174424a71b1b4d",
+    "sha256": "0b6bea218d89b98800ebf2f5a5aaf10533a50a9239ee238b9e9b7682273b3c03",
+    "lines": 9,
+    "markers": [
+      {
+        "line": 8,
+        "text": "add_subdirectory(src)"
+      },
+      {
+        "line": 9,
+        "text": "add_subdirectory(test)"
+      }
+    ]
+  },
+  {
+    "path": "external/id3v2lib/src/CMakeLists.txt",
+    "ref": "55158d2a64c69fe295fb4e67fd174424a71b1b4d",
+    "sha256": "3ec33d790115bdf786aabf37409b0c3fbaa28caba694172b3dfa79e5bc0556e8",
+    "lines": 72,
+    "markers": [
+      {
+        "line": 4,
+        "text": "\"${CMAKE_CURRENT_LIST_DIR}/../include/modules/frames/apic_frame.h\""
+      },
+      {
+        "line": 5,
+        "text": "\"${CMAKE_CURRENT_LIST_DIR}/../include/modules/frames/comment_frame.h\""
+      },
+      {
+        "line": 6,
+        "text": "\"${CMAKE_CURRENT_LIST_DIR}/../include/modules/frames/text_frame.h\""
+      },
+      {
+        "line": 7,
+        "text": "\"${CMAKE_CURRENT_LIST_DIR}/../include/modules/frame_header.h\""
+      },
+      {
+        "line": 8,
+        "text": "\"${CMAKE_CURRENT_LIST_DIR}/../include/modules/frame_ids.h\""
+      },
+      {
+        "line": 9,
+        "text": "\"${CMAKE_CURRENT_LIST_DIR}/../include/modules/frame_list.h\""
+      },
+      {
+        "line": 10,
+        "text": "\"${CMAKE_CURRENT_LIST_DIR}/../include/modules/frame.h\""
+      },
+      {
+        "line": 11,
+        "text": "\"${CMAKE_CURRENT_LIST_DIR}/../include/modules/picture_types.h\""
+      },
+      {
+        "line": 12,
+        "text": "\"${CMAKE_CURRENT_LIST_DIR}/../include/modules/tag_header.h\""
+      },
+      {
+        "line": 13,
+        "text": "\"${CMAKE_CURRENT_LIST_DIR}/../include/modules/tag.h\""
+      },
+      {
+        "line": 14,
+        "text": "\"${CMAKE_CURRENT_LIST_DIR}/../include/modules/utils.h\""
+      },
+      {
+        "line": 15,
+        "text": "\"${CMAKE_CURRENT_LIST_DIR}/../include/id3v2lib.h\""
+      },
+      {
+        "line": 16,
+        "text": "\"${CMAKE_CURRENT_LIST_DIR}/../include/id3v2lib.compat.h\""
+      },
+      {
+        "line": 21,
+        "text": "\"${CMAKE_CURRENT_LIST_DIR}/modules/frames/apic_frame.private.h\""
+      },
+      {
+        "line": 22,
+        "text": "\"${CMAKE_CURRENT_LIST_DIR}/modules/frames/comment_frame.private.h\""
+      },
+      {
+        "line": 23,
+        "text": "\"${CMAKE_CURRENT_LIST_DIR}/modules/frames/text_frame.private.h\""
+      },
+      {
+        "line": 24,
+        "text": "\"${CMAKE_CURRENT_LIST_DIR}/modules/char_stream.private.h\""
+      },
+      {
+        "line": 25,
+        "text": "\"${CMAKE_CURRENT_LIST_DIR}/modules/frame_header.private.h\""
+      },
+      {
+        "line": 26,
+        "text": "\"${CMAKE_CURRENT_LIST_DIR}/modules/frame_list.private.h\""
+      },
+      {
+        "line": 27,
+        "text": "\"${CMAKE_CURRENT_LIST_DIR}/modules/frame.private.h\""
+      },
+      {
+        "line": 28,
+        "text": "\"${CMAKE_CURRENT_LIST_DIR}/modules/tag_header.private.h\""
+      },
+      {
+        "line": 29,
+        "text": "\"${CMAKE_CURRENT_LIST_DIR}/modules/tag.private.h\""
+      },
+      {
+        "line": 30,
+        "text": "\"${CMAKE_CURRENT_LIST_DIR}/modules/utils.private.h\""
+      },
+      {
+        "line": 48,
+        "text": "add_library(id3v2lib ${ID3V2_SRC} ${ID3V2_HEADERS})"
+      },
+      {
+        "line": 61,
+        "text": "install("
+      },
+      {
+        "line": 67,
+        "text": "install("
+      },
+      {
+        "line": 71,
+        "text": "PATTERN \"*.h\""
+      }
+    ]
+  },
+  {
+    "path": "external/id3v2lib/test/CMakeLists.txt",
+    "ref": "55158d2a64c69fe295fb4e67fd174424a71b1b4d",
+    "sha256": "9fa233833822846a09f3d77d9e018181709c7bc629199459a5164d188b23d7c8",
+    "lines": 41,
+    "markers": [
+      {
+        "line": 14,
+        "text": "\"${CMAKE_CURRENT_SOURCE_DIR}/assertion_utils.h\""
+      },
+      {
+        "line": 15,
+        "text": "\"${CMAKE_CURRENT_SOURCE_DIR}/compat_test.h\""
+      },
+      {
+        "line": 16,
+        "text": "\"${CMAKE_CURRENT_SOURCE_DIR}/delete_test.h\""
+      },
+      {
+        "line": 17,
+        "text": "\"${CMAKE_CURRENT_SOURCE_DIR}/get_test.h\""
+      },
+      {
+        "line": 18,
+        "text": "\"${CMAKE_CURRENT_SOURCE_DIR}/set_test.h\""
+      },
+      {
+        "line": 19,
+        "text": "\"${CMAKE_CURRENT_SOURCE_DIR}/test_utils.h\""
+      },
+      {
+        "line": 23,
+        "text": "\"${CMAKE_CURRENT_SOURCE_DIR}/extra/album_cover.png\""
+      },
+      {
+        "line": 24,
+        "text": "\"${CMAKE_CURRENT_SOURCE_DIR}/extra/empty.mp3\""
+      },
+      {
+        "line": 25,
+        "text": "\"${CMAKE_CURRENT_SOURCE_DIR}/extra/file.mp3\""
+      },
+      {
+        "line": 26,
+        "text": "\"${CMAKE_CURRENT_SOURCE_DIR}/extra/no_tag.mp3\""
+      },
+      {
+        "line": 29,
+        "text": "add_executable(main_test ${TEST_SRC} ${TEST_HEADERS})"
+      },
+      {
+        "line": 36,
+        "text": "target_link_libraries(main_test PRIVATE id3v2lib)"
+      },
+      {
+        "line": 38,
+        "text": "file("
+      }
+    ]
+  },
+  {
+    "path": "external/nanosvg/CMakeLists.txt",
+    "ref": "55158d2a64c69fe295fb4e67fd174424a71b1b4d",
+    "sha256": "1b71b6fa19c0e34ac0489a4945eb7d97f4394fbcd9de28d33297092d9999e5af",
+    "lines": 13,
+    "markers": [
+      {
+        "line": 9,
+        "text": "${CMAKE_CURRENT_SOURCE_DIR}/src/nanosvg_impl.cpp"
+      },
+      {
+        "line": 13,
+        "text": "add_library(nanosvg STATIC ${NSVG_SOURCES} ${NSVG_HEADERS})"
+      }
+    ]
+  },
+  {
+    "path": "locale/CMakeLists.txt",
+    "ref": "55158d2a64c69fe295fb4e67fd174424a71b1b4d",
+    "sha256": "93d74aa0ccec66492d6b24168420d4a42fca390fa0f88351aae48e5bc74661c3",
+    "lines": 52,
+    "markers": [
+      {
+        "line": 2,
+        "text": "file (GLOB es_PO_FILES ${dir}/locale/lang/*)"
+      },
+      {
+        "line": 9,
+        "text": "COMMAND find \"${dir}/es-app\" \"${dir}/es-core\" -name \"*.cpp\" -o -name \"*.h\" | ${XGETTEXT_EXECUTABLE} --add-comments=TRANSLATION -f - -o ${es_POT} --no-location --keyword=_"
+      },
+      {
+        "line": 14,
+        "text": "COMMAND sed -i '/^\\\"POT-Creation-Date:/d' ${es_POT}"
+      },
+      {
+        "line": 25,
+        "text": "COMMAND ${MSGMERGE_EXECUTABLE} -U --no-fuzzy-matching ${es_PO_INPUT}/LC_MESSAGES/emulationstation2.po ${es_POT}"
+      },
+      {
+        "line": 31,
+        "text": "COMMAND basename ${es_PO_INPUT} && ${MSGFMT_EXECUTABLE} -o ${es_MO_OUTPUT} ${es_PO_INPUT}/LC_MESSAGES/emulationstation2.po"
+      },
+      {
+        "line": 33,
+        "text": "install (FILES ${es_MO_OUTPUT} DESTINATION share/locale/${es_PO_LANG}/LC_MESSAGES RENAME emulationstation2.mo)"
+      },
+      {
+        "line": 39,
+        "text": "COMMAND echo"
+      },
+      {
+        "line": 45,
+        "text": "COMMAND printf \"%-5s \" `basename ${es_PO_INPUT}` && LANG=C ${MSGFMT_EXECUTABLE} -o /dev/null ${es_PO_INPUT}/LC_MESSAGES/emulationstation2.po --statistics"
+      },
+      {
+        "line": 51,
+        "text": "COMMAND echo"
+      }
+    ]
+  },
+  {
+    "path": "resources/checkWheelGunGamesResources.py",
+    "ref": "55158d2a64c69fe295fb4e67fd174424a71b1b4d",
+    "sha256": "01cd91dbd548f22d4352217ce6bc16c2e86018a0e1b28ce7739ec53e63aa3dd7",
+    "lines": 43,
+    "markers": []
+  },
+  {
+    "path": "tests/app-unit/CMakeLists.txt",
+    "ref": "55158d2a64c69fe295fb4e67fd174424a71b1b4d",
+    "sha256": "298371feeff40cacf502df074f5e2f057cb8a71746d1f81b1d13aaf9a57594fa",
+    "lines": 106,
+    "markers": [
+      {
+        "line": 15,
+        "text": "# lives with the rest in es-app/tests/unit (LaunchCommandTests.cpp)."
+      },
+      {
+        "line": 17,
+        "text": "# proxycards-tests: the shipped es-app/src/ProxyCards.cpp itself, compiled"
+      },
+      {
+        "line": 33,
+        "text": "find_package(Threads REQUIRED)"
+      },
+      {
+        "line": 35,
+        "text": "add_executable(app-unit-tests"
+      },
+      {
+        "line": 36,
+        "text": "${CMAKE_CURRENT_SOURCE_DIR}/main.cpp"
+      },
+      {
+        "line": 37,
+        "text": "${CMAKE_CURRENT_SOURCE_DIR}/JourneyTiersTests.cpp"
+      },
+      {
+        "line": 38,
+        "text": "${CMAKE_CURRENT_SOURCE_DIR}/FolderMergeTests.cpp"
+      },
+      {
+        "line": 39,
+        "text": "${CMAKE_CURRENT_SOURCE_DIR}/RunLockTests.cpp"
+      },
+      {
+        "line": 40,
+        "text": "${CMAKE_CURRENT_SOURCE_DIR}/TextFitTests.cpp"
+      },
+      {
+        "line": 41,
+        "text": "${CMAKE_CURRENT_SOURCE_DIR}/AppWindowTests.cpp"
+      },
+      {
+        "line": 43,
+        "text": "target_link_libraries(app-unit-tests Threads::Threads)"
+      },
+      {
+        "line": 50,
+        "text": "configure_file(${ES_ROOT}/es-app/src/ProxyCards.cpp ${CMAKE_BINARY_DIR}/under-test/ProxyCards.cpp COPYONLY)"
+      },
+      {
+        "line": 51,
+        "text": "add_executable(proxycards-tests"
+      },
+      {
+        "line": 52,
+        "text": "${CMAKE_CURRENT_SOURCE_DIR}/ProxyCardsTests.cpp"
+      },
+      {
+        "line": 53,
+        "text": "${CMAKE_BINARY_DIR}/under-test/ProxyCards.cpp"
+      },
+      {
+        "line": 54,
+        "text": "${ES_ROOT}/es-app/src/CloudText.cpp"
+      },
+      {
+        "line": 55,
+        "text": "${ES_ROOT}/es-core/src/utils/StringUtil.cpp"
+      },
+      {
+        "line": 63,
+        "text": "target_link_libraries(proxycards-tests Threads::Threads)"
+      },
+      {
+        "line": 65,
+        "text": "# jobs-tests: the shipped es-app/src/CloudTransferJob.cpp and"
+      },
+      {
+        "line": 66,
+        "text": "# OfflineScanJob.cpp -- the transfer and scan pages' runners -- against the"
+      },
+      {
+        "line": 69,
+        "text": "configure_file(${ES_ROOT}/es-app/src/CloudTransferJob.cpp ${CMAKE_BINARY_DIR}/under-test/CloudTransferJob.cpp COPYONLY)"
+      },
+      {
+        "line": 70,
+        "text": "configure_file(${ES_ROOT}/es-app/src/OfflineScanJob.cpp ${CMAKE_BINARY_DIR}/under-test/OfflineScanJob.cpp COPYONLY)"
+      },
+      {
+        "line": 71,
+        "text": "add_executable(jobs-tests"
+      },
+      {
+        "line": 72,
+        "text": "${CMAKE_CURRENT_SOURCE_DIR}/main.cpp"
+      },
+      {
+        "line": 73,
+        "text": "${CMAKE_CURRENT_SOURCE_DIR}/JobsTests.cpp"
+      },
+      {
+        "line": 74,
+        "text": "${CMAKE_BINARY_DIR}/under-test/CloudTransferJob.cpp"
+      },
+      {
+        "line": 75,
+        "text": "${CMAKE_BINARY_DIR}/under-test/OfflineScanJob.cpp"
+      },
+      {
+        "line": 76,
+        "text": "${ES_ROOT}/es-app/src/CloudText.cpp"
+      },
+      {
+        "line": 77,
+        "text": "${ES_ROOT}/es-core/src/utils/StringUtil.cpp"
+      },
+      {
+        "line": 85,
+        "text": "target_link_libraries(jobs-tests Threads::Threads)"
+      },
+      {
+        "line": 87,
+        "text": "# bookkeeper-tests: the shipped es-app/src/SaveStateBookkeeper.cpp with its"
+      },
+      {
+        "line": 91,
+        "text": "configure_file(${ES_ROOT}/es-app/src/SaveStateBookkeeper.cpp ${CMAKE_BINARY_DIR}/under-test/SaveStateBookkeeper.cpp COPYONLY)"
+      },
+      {
+        "line": 92,
+        "text": "add_executable(bookkeeper-tests"
+      },
+      {
+        "line": 93,
+        "text": "${CMAKE_CURRENT_SOURCE_DIR}/BookkeeperTests.cpp"
+      },
+      {
+        "line": 94,
+        "text": "${CMAKE_BINARY_DIR}/under-test/SaveStateBookkeeper.cpp"
+      },
+      {
+        "line": 95,
+        "text": "${ES_ROOT}/es-app/src/SaveStateJobQueue.cpp"
+      },
+      {
+        "line": 96,
+        "text": "${ES_ROOT}/es-core/src/utils/AtomicFileUtil.cpp"
+      },
+      {
+        "line": 97,
+        "text": "${ES_ROOT}/es-core/src/utils/StringUtil.cpp"
+      },
+      {
+        "line": 106,
+        "text": "target_link_libraries(bookkeeper-tests Threads::Threads)"
+      }
+    ]
+  },
+  {
+    "path": ".gitmodules",
+    "ref": "55158d2a64c69fe295fb4e67fd174424a71b1b4d",
+    "sha256": "b2527aa77642e378b73c546f499ede03071d73b4bc62d95df864da2f7d219a0f",
+    "lines": 3,
+    "markers": []
+  },
+  {
+    "path": "projects/ROCKNIX/packages/ui/emulationstation/package.mk",
+    "ref": "48a335700d05a733703e1b58536877b91b921259",
+    "sha256": "1d91f4a72032c67b89c0d986d26b728cf501f11bb9de891c168eb4f3f37d2719",
+    "lines": 141,
+    "markers": [
+      {
+        "line": 5,
+        "text": "PKG_VERSION=\"16dbac5211eea7e70db7394372033be2be7df829\""
+      },
+      {
+        "line": 7,
+        "text": "PKG_LICENSE=\"MIT AND BSD-3-Clause\""
+      },
+      {
+        "line": 24,
+        "text": "-DUSE_SYSTEM_PUGIXML=1 \\"
+      },
+      {
+        "line": 57,
+        "text": "makeinstall_target() {"
+      },
+      {
+        "line": 59,
+        "text": "# have no such reader; preserve their existing installation path."
+      },
+      {
+        "line": 67,
+        "text": "mkdir -p ${INSTALL}/usr/config/locale"
+      },
+      {
+        "line": 68,
+        "text": "cp -a ${PKG_BUILD}/locale/lang/* ${INSTALL}/usr/config/locale"
+      },
+      {
+        "line": 70,
+        "text": "# Pre-generate default (en_US.UTF-8) locale for lower-end devices to speed up first boot"
+      },
+      {
+        "line": 72,
+        "text": "# Copy-paste of a locale generating part of es_settings script"
+      },
+      {
+        "line": 73,
+        "text": "I18NPATH=$(get_install_dir glibc)/usr/share/i18n/locales/ \\"
+      },
+      {
+        "line": 74,
+        "text": "localedef --force --verbose --inputfile=en_US --charmap=UTF-8 \\"
+      },
+      {
+        "line": 75,
+        "text": "${INSTALL}/usr/config/locale/en_US.UTF-8 || true"
+      },
+      {
+        "line": 79,
+        "text": "rm -f ${INSTALL}/usr/config/emulationstation/resources/logo.png"
+      },
+      {
+        "line": 81,
+        "text": "mkdir -p ${INSTALL}/usr/config/emulationstation/resources"
+      },
+      {
+        "line": 82,
+        "text": "cp -a ${PKG_BUILD}/resources/* ${INSTALL}/usr/config/emulationstation/resources"
+      },
+      {
+        "line": 83,
+        "text": "rm -f ${INSTALL}/usr/config/emulationstation/resources/DroidSansFallbackFull.ttf"
+      },
+      {
+        "line": 84,
+        "text": "ln -sf /usr/share/fonts/truetype/noto-cjk/NotoSansCJKsc-Regular.otf \\"
+      },
+      {
+        "line": 85,
+        "text": "${INSTALL}/usr/config/emulationstation/resources/DroidSansFallbackFull.ttf"
+      },
+      {
+        "line": 93,
+        "text": "#ln -sf /storage/.config/emulationstation/resources ${INSTALL}/usr/bin/resources"
+      },
+      {
+        "line": 104,
+        "text": "# If we're not an emulation device, ES may still be installed so we need a default config."
+      },
+      {
+        "line": 132,
+        "text": "post_install() {"
+      },
+      {
+        "line": 134,
+        "text": "ln -sf /storage/.config/locale ${INSTALL}/usr/share/locale"
+      },
+      {
+        "line": 137,
+        "text": "ln -sf /usr/share/locale ${INSTALL}/usr/lib/locale"
+      },
+      {
+        "line": 140,
+        "text": "ln -sf /usr/share/locale  ${INSTALL}/usr/config/emulationstation/locale"
+      }
+    ]
+  },
+  {
+    "path": "packages/textproc/pugixml/package.mk",
+    "ref": "48a335700d05a733703e1b58536877b91b921259",
+    "sha256": "ae113f79550d110be37020e115de2153c07aa7ee2a12039d168b4e68e2e4d73f",
+    "lines": 13,
+    "markers": [
+      {
+        "line": 5,
+        "text": "PKG_VERSION=\"1.16\""
+      },
+      {
+        "line": 7,
+        "text": "PKG_LICENSE=\"MIT\""
+      },
+      {
+        "line": 9,
+        "text": "PKG_URL=\"https://github.com/zeux/pugixml/archive/v${PKG_VERSION}.tar.gz\""
+      }
+    ]
+  }
+]

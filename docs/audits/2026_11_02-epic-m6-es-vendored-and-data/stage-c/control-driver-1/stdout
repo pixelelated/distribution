@@ -1,0 +1,19 @@
+PASS table-positive rc 0 expected None
+PASS table-missing-native rc 1 expected NATIVE_KEYS:coverage
+PASS table-gitlink-credit rc 1 expected GITLINK_READ_CREDIT
+PASS table-doctest-authorship rc 1 expected DOCTEST_AUTHORSHIP
+PASS table-missing-supplement rc 1 expected SUPPLEMENTAL_KEYS
+PASS table-missing-companion rc 1 expected COMPANION_KEYS
+PASS table-false-integration rc 1 expected COMPANION_INTEGRATION
+PASS table-source-drift rc 1 expected SOURCE_IDENTITY
+PASS po-positive rc 0 expected None
+PASS po-missing-msgstr rc 1 expected entry lacks msgid/msgstr
+PASS po-duplicate rc 1 expected duplicate active context/msgid
+PASS po-bad-quote rc 1 expected unrecognized PO syntax
+PASS po-plural-gap rc 1 expected invalid plural indices
+PASS guard-positive rc 0 expected None
+PASS guard-source-edit rc 1 expected FORBIDDEN_PATH
+PASS guard-prefix-neighbor rc 1 expected FORBIDDEN_PATH
+PASS guard-traversal rc 1 expected NONCANONICAL_PATH
+PASS guard-symlink rc 1 expected NONRECORD_MODE
+PASS new T44 controls: table positive + 7 independent refusals; PO positive + 4 malformed refusals; confinement positive + 4 refusals

@@ -1,0 +1,14 @@
+Traceback (most recent call last):
+  File "/workspace/repos/pixelelated/distribution.worktrees/m6-es-vendored-and-data-691/docs/audits/2026_11_02-epic-m6-es-vendored-and-data/tools/controls.py", line 53, in <module>
+    if len(sys.argv)==3 and sys.argv[1]=='--case':worker(sys.argv[2])
+                                                  ~~~~~~^^^^^^^^^^^^^
+  File "/workspace/repos/pixelelated/distribution.worktrees/m6-es-vendored-and-data-691/docs/audits/2026_11_02-epic-m6-es-vendored-and-data/tools/controls.py", line 22, in worker
+    m=json.loads(b);mutate(m,f['case']);module('tables').validate(m)
+                                        ~~~~~~~~~~~~~~~~~~~~~~~~~^^^
+  File "/workspace/repos/pixelelated/distribution.worktrees/m6-es-vendored-and-data-691/docs/audits/2026_11_02-epic-m6-es-vendored-and-data/tools/tables.py", line 75, in validate
+    check(len(model.get('supplemental',[]))==3 and {x['path'] for x in model['supplemental']}=={x['path'] for x in expected['supplemental']},'SUPPLEMENTAL_KEYS')
+    ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/repos/pixelelated/distribution.worktrees/m6-es-vendored-and-data-691/docs/audits/2026_11_02-epic-m6-es-vendored-and-data/tools/tables.py", line 8, in check
+    if not v:raise ValueError(name)
+             ^^^^^^^^^^^^^^^^^^^^^^
+ValueError: SUPPLEMENTAL_KEYS

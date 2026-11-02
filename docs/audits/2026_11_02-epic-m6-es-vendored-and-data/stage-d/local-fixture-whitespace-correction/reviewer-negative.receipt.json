@@ -1,0 +1,42 @@
+{
+  "argv": [
+    "python3",
+    "-I",
+    "tools/lint-audit-artifacts",
+    "/workspace/repos/pixelelated/distribution.worktrees/m6-es-vendored-and-data-691/docs/audits/2026_11_02-epic-m6-es-vendored-and-data/stage-a/local-lint-controls/fixture-epic-m6-t44-local-reviewer-negative",
+    "--phase",
+    "pre-issue"
+  ],
+  "start": "2026-11-02T23:23:36.198828+00:00",
+  "end": "2026-11-02T23:23:36.234703+00:00",
+  "rc": 1,
+  "expected_assertion_pass": true,
+  "inputs": {
+    "01-research-notes.md": "a8f61fa77cc70870cdb8d71def72ff03405ad30eb138c1a2a9e1e5d0bee8f23f",
+    "02-forward-audit.md": "a8f61fa77cc70870cdb8d71def72ff03405ad30eb138c1a2a9e1e5d0bee8f23f",
+    "03-retrospective.md": "a8f61fa77cc70870cdb8d71def72ff03405ad30eb138c1a2a9e1e5d0bee8f23f",
+    "04-analysis.md": "a5a33f47aa91522043d643d94fcc0c8a843f41039dbcb503b8b697abaed0e067",
+    "05-punch-list.md": "160f5189ee96a83c634bc1d4271f9b46ecc21e8f8cdebf75742fa16281c5992f",
+    "second-opinions/review-plan.json": "65ce51f44ed8c81a0dc1b826f4a8738133476fa5971115a3355a960c5668cd2b"
+  },
+  "stdout_sha256": "d6b508f522c2a7f1220ad5e0e22979135fecb08451ba5bbee6c9c1fa3469cb73",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "cpus": [
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21,
+    22,
+    23
+  ]
+}
