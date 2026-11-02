@@ -1,0 +1,160 @@
+{
+  "start": "2026-11-02T17:52:59.150573+00:00",
+  "source_ref": "02aab33bd9842610b0d466c9c186454dc14373ee",
+  "preserved_at": "3cd9ca140a0da9af447a3ee2fb9cdbbbf222a95b",
+  "checks": [
+    {
+      "label": "./tools/rules-check --quiet",
+      "argv": [
+        "./tools/rules-check",
+        "--quiet"
+      ],
+      "start": "2026-11-02T17:53:00.638789+00:00",
+      "elapsed_seconds": 0.018,
+      "rc": 0,
+      "output": ""
+    },
+    {
+      "label": "./tools/register-check",
+      "argv": [
+        "./tools/register-check"
+      ],
+      "start": "2026-11-02T17:53:00.657270+00:00",
+      "elapsed_seconds": 1.203,
+      "rc": 0,
+      "output": "register-check: 717 IDs, each once; every citation in the live documents names a row\n"
+    },
+    {
+      "label": "./tools/work-log-index --check",
+      "argv": [
+        "./tools/work-log-index",
+        "--check"
+      ],
+      "start": "2026-11-02T17:53:01.860702+00:00",
+      "elapsed_seconds": 0.021,
+      "rc": 0,
+      "output": "work-log index: current\n"
+    },
+    {
+      "label": "git diff --check 3cd9ca140a0da9af447a3ee2fb9cdbbbf222a95b",
+      "argv": [
+        "git",
+        "diff",
+        "--check",
+        "3cd9ca140a0da9af447a3ee2fb9cdbbbf222a95b"
+      ],
+      "start": "2026-11-02T17:53:01.882119+00:00",
+      "elapsed_seconds": 0.044,
+      "rc": 0,
+      "output": ""
+    },
+    {
+      "label": ".githooks/hooks-test",
+      "argv": [
+        ".githooks/hooks-test"
+      ],
+      "start": "2026-11-02T17:53:01.925757+00:00",
+      "elapsed_seconds": 0.698,
+      "rc": 0,
+      "output": "--- pre-commit\n  ok    a clean file: allowed\n  ok    a leftover conflict marker: refused\n  ok    the marker's file and line are named: says \"m.txt:2\"\n  ok    a setext underline alone is not a marker (#696's control): allowed\n  ok    a credential-shaped line: refused\n  ok    the value is redacted: says \"[REDACTED]\"\n  ok    the refusal: never prints the word\n  ok    the same line under an audit packet (no path is exempt): refused\n  ok    a listed word: refused\n  ok    the refusal names the file and line: says \"c.txt:1\"\n  ok    the refusal: never prints the word\n  ok    a listed word in another case, on line 2: refused\n  ok    line 2 is named: says \"d.txt:2\"\n  ok    a credential-shaped line with diff.noprefix set (the scan forces its prefixes): refused\n  ok    a content line beginning ++ does not end the file's scan: refused\n  ok    line 2 is named: says \"h.txt:2\"\n  ok    a file name git prints in quotes is still scanned: refused\n  ok    a file NAMED like a key, clean inside (the label is not scanned): allowed\n  ok    a credential list that does not compile: refused\n  ok    it says so: says \"does not compile\"\n  ok    no wordlist at all: refused\n  ok    the wordlist from the environment instead (CI): allowed\n  ok    an index that cannot be read: refused\n--- commit-msg\n  ok    a listed word in the message: refused\n  ok    the refusal: never prints the word\n  ok    a clean message (git drops the # comment): allowed\n  ok    a credential-shaped line in the message: refused\n  ok    a message file that cannot be read (claude G3-E-02 / gpt G3-E-05): refused\n  ok    a message with no wordlist to judge it by: refused\n--- pre-push\n  ok    a listed word in a middle commit, gone at the tip: refused\n  ok    the refusal: never prints the word\n  ok    a listed word in a commit message: refused\n  ok    the message is named: says \":message:1\"\n  ok    a credential in a middle commit, gone at the tip: refused\n  ok    the value is redacted: says \"[REDACTED]\"\n  ok    an older line in a file the range only touches beside (the tip scan): refused\n  ok    a credential in a file git prints in quotes, pushed from a clone with diff.noprefix: refused\n  ok    a clean commit, touching the file named like a key: allowed\n  ok    a credential list that does not compile: refused\n  ok    no wordlist at all: refused\n  ok    a tip this clone does not have: refused\nPASS\n"
+    },
+    {
+      "label": "./tools/ceremony-check --gate",
+      "argv": [
+        "./tools/ceremony-check",
+        "--gate"
+      ],
+      "start": "2026-11-02T17:53:02.623812+00:00",
+      "elapsed_seconds": 8.358,
+      "rc": 0,
+      "output": ""
+    },
+    {
+      "label": "forbidden-terms actual packet",
+      "argv": [
+        "./tools/forbidden-terms-check",
+        "--stdin"
+      ],
+      "start": "2026-11-02T17:53:10.989586+00:00",
+      "elapsed_seconds": 0.008,
+      "rc": 0,
+      "output": "forbidden-terms-check: 0 hits on stdin\n"
+    },
+    {
+      "label": "forbidden-terms runtime positive",
+      "argv": [
+        "./tools/forbidden-terms-check",
+        "--stdin"
+      ],
+      "start": "2026-11-02T17:53:10.997678+00:00",
+      "elapsed_seconds": 0.002,
+      "rc": 1,
+      "output": "forbidden-terms-check: 1 line(s) on stdin carry a listed word\n"
+    },
+    {
+      "label": "secret regex compiles / empty input",
+      "argv": [
+        "bash",
+        "-c",
+        ". .githooks/secret-patterns; grep -a -c -E -e \"${SECRET_PATTERNS}\""
+      ],
+      "start": "2026-11-02T17:53:10.999913+00:00",
+      "elapsed_seconds": 0.001,
+      "rc": 1,
+      "output": "0\n"
+    },
+    {
+      "label": "secret runtime positive",
+      "argv": [
+        "bash",
+        "-c",
+        ". .githooks/secret-patterns; grep -a -c -E -e \"${SECRET_PATTERNS}\""
+      ],
+      "start": "2026-11-02T17:53:11.001169+00:00",
+      "elapsed_seconds": 0.003,
+      "rc": 0,
+      "output": "1\n"
+    },
+    {
+      "label": "secret actual packet",
+      "argv": [
+        "bash",
+        "-c",
+        ". .githooks/secret-patterns; grep -a -c -E -e \"${SECRET_PATTERNS}\""
+      ],
+      "start": "2026-11-02T17:53:11.003892+00:00",
+      "elapsed_seconds": 0.005,
+      "rc": 1,
+      "output": "0\n"
+    }
+  ],
+  "structural": {
+    "rc": 0,
+    "start": "2026-11-02T17:52:59.150573+00:00",
+    "elapsed_seconds": 1.488,
+    "old_receipts_unchanged": 329,
+    "source_paths_unchanged": 107,
+    "applications": 120,
+    "unique_patches": 106,
+    "status": {
+      "fuzz": 29,
+      "applies with offset": 48,
+      "applies": 43
+    },
+    "disagreements": [
+      "H700-011"
+    ],
+    "table_rows": 107,
+    "leads": 31,
+    "rulings": 16,
+    "proofs": 12,
+    "duplicate_pairs_all_three_levels": 5,
+    "scorecard": {
+      "PASS": 14,
+      "PARTIAL": 14
+    }
+  },
+  "end": "2026-11-02T17:53:11.009032+00:00",
+  "result": "PASS",
+  "validation_script_sha256": "d62b21e70d85c3685307eed6ce6354d05008841924cdd26c94dcaf039c55662b"
+}

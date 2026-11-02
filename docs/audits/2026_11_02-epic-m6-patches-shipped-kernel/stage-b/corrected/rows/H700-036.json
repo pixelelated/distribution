@@ -1,0 +1,52 @@
+{
+  "plan": "H700",
+  "index": 36,
+  "path": "projects/ROCKNIX/devices/H700/patches/linux/0162-pinctrl-sunxi-release-the-lcd0-pads-while-the-panel-is-off.patch",
+  "patch_sha256": "defdd48d2bfa83ff7ea01238fcbf35488120fde753d0c75652ab83cfb7a244a4",
+  "produced_at": "2026-11-02T17:17:00.459551+00:00",
+  "input_tree_sha256": "ae226ad19017d81580d5842a930d4a5df446259eb9be8104835029331e7f481e",
+  "candidate": "/workspace/tmp/m6-t41/src/corrected-20261102T171658Z/H700/candidates/036",
+  "dry": {
+    "argv": [
+      "patch",
+      "-p1",
+      "-N",
+      "--batch",
+      "--directory",
+      "/workspace/tmp/m6-t41/src/corrected-20261102T171658Z/H700/candidates/036",
+      "--dry-run"
+    ],
+    "start": "2026-11-02T17:17:00.468321+00:00",
+    "elapsed_seconds": 0.003,
+    "rc": 0,
+    "timed_out": false,
+    "output": "logs/H700-036.dry.out",
+    "output_sha256": "f45aa3ebb96c4b218c45928dad869f68e425a10e32ae4e4a43e050abc4e88d40"
+  },
+  "dry_rc": 0,
+  "after_dry_tree_sha256": "ae226ad19017d81580d5842a930d4a5df446259eb9be8104835029331e7f481e",
+  "attempted": true,
+  "apply": {
+    "argv": [
+      "patch",
+      "-p1",
+      "-N",
+      "--batch",
+      "--directory",
+      "/workspace/tmp/m6-t41/src/corrected-20261102T171658Z/H700/candidates/036"
+    ],
+    "start": "2026-11-02T17:17:00.474516+00:00",
+    "elapsed_seconds": 0.003,
+    "rc": 0,
+    "timed_out": false,
+    "output": "logs/H700-036.apply.out",
+    "output_sha256": "7f5c908f1c9c8720d68648f17a66d3927d3376a693817a6c076e98f2a9bcdf58"
+  },
+  "apply_rc": 0,
+  "offset": 0,
+  "fuzz": 0,
+  "FAILED": 0,
+  "output_tree_sha256": "3c98d77aa5cbbb42f95408fcdb7ad00d74905fd645ac5c53c789a9e7e67cba72",
+  "promoted": true,
+  "status": "applies"
+}

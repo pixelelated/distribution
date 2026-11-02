@@ -1,0 +1,52 @@
+{
+  "plan": "SM8550",
+  "index": 22,
+  "path": "projects/ROCKNIX/devices/SM8550/patches/linux/0051-gpu-panel-add-Pocket-ACE-panel-driver.patch",
+  "patch_sha256": "dc3e84534f7ae70e80ff8682fed9295331b9d1899afdd74e399aa18c8f8e2c61",
+  "produced_at": "2026-11-02T17:17:01.682534+00:00",
+  "input_tree_sha256": "651d9cf178917b842a1f326daaa19bb52f3ee68fe2dee16c785dabed69fcbef2",
+  "candidate": "/workspace/tmp/m6-t41/src/corrected-20261102T171658Z/SM8550/candidates/022",
+  "dry": {
+    "argv": [
+      "patch",
+      "-p1",
+      "-N",
+      "--batch",
+      "--directory",
+      "/workspace/tmp/m6-t41/src/corrected-20261102T171658Z/SM8550/candidates/022",
+      "--dry-run"
+    ],
+    "start": "2026-11-02T17:17:01.691933+00:00",
+    "elapsed_seconds": 0.003,
+    "rc": 0,
+    "timed_out": false,
+    "output": "logs/SM8550-022.dry.out",
+    "output_sha256": "57938b9cfa106228b31a094a33e62dc317ed16002408f78f8ebf2873fc3b09b1"
+  },
+  "dry_rc": 0,
+  "after_dry_tree_sha256": "651d9cf178917b842a1f326daaa19bb52f3ee68fe2dee16c785dabed69fcbef2",
+  "attempted": true,
+  "apply": {
+    "argv": [
+      "patch",
+      "-p1",
+      "-N",
+      "--batch",
+      "--directory",
+      "/workspace/tmp/m6-t41/src/corrected-20261102T171658Z/SM8550/candidates/022"
+    ],
+    "start": "2026-11-02T17:17:01.697542+00:00",
+    "elapsed_seconds": 0.003,
+    "rc": 0,
+    "timed_out": false,
+    "output": "logs/SM8550-022.apply.out",
+    "output_sha256": "f2c3d77f5da640a1c0815abf4ab11d6551e3799a7f8a5784e90d448c3d53c593"
+  },
+  "apply_rc": 0,
+  "offset": 0,
+  "fuzz": 0,
+  "FAILED": 0,
+  "output_tree_sha256": "180dff998410bea82b37c963f18aa310497aeda9f9ff463a600763ea30373e60",
+  "promoted": true,
+  "status": "applies"
+}

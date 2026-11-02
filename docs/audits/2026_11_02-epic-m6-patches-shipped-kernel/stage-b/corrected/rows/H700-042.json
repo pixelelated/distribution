@@ -1,0 +1,52 @@
+{
+  "plan": "H700",
+  "index": 42,
+  "path": "projects/ROCKNIX/devices/H700/patches/linux/0950-arm64-dts-allwinner-h616-ramoops-reserved-memory.patch",
+  "patch_sha256": "4f0758c13065b831457246a41b4098dc2180725d7d96d0b452ae88e9e0c1212b",
+  "produced_at": "2026-11-02T17:17:00.596979+00:00",
+  "input_tree_sha256": "ee02ad6b2913fc89edde4921e98f15615c46ef1c2f64cc341b53f216a91cd4ac",
+  "candidate": "/workspace/tmp/m6-t41/src/corrected-20261102T171658Z/H700/candidates/042",
+  "dry": {
+    "argv": [
+      "patch",
+      "-p1",
+      "-N",
+      "--batch",
+      "--directory",
+      "/workspace/tmp/m6-t41/src/corrected-20261102T171658Z/H700/candidates/042",
+      "--dry-run"
+    ],
+    "start": "2026-11-02T17:17:00.605721+00:00",
+    "elapsed_seconds": 0.002,
+    "rc": 0,
+    "timed_out": false,
+    "output": "logs/H700-042.dry.out",
+    "output_sha256": "7847aa2411b97aa5c0ab2664a6d0d88bc6913989d185e46ebe1fc2b997a11ce4"
+  },
+  "dry_rc": 0,
+  "after_dry_tree_sha256": "ee02ad6b2913fc89edde4921e98f15615c46ef1c2f64cc341b53f216a91cd4ac",
+  "attempted": true,
+  "apply": {
+    "argv": [
+      "patch",
+      "-p1",
+      "-N",
+      "--batch",
+      "--directory",
+      "/workspace/tmp/m6-t41/src/corrected-20261102T171658Z/H700/candidates/042"
+    ],
+    "start": "2026-11-02T17:17:00.611380+00:00",
+    "elapsed_seconds": 0.002,
+    "rc": 0,
+    "timed_out": false,
+    "output": "logs/H700-042.apply.out",
+    "output_sha256": "3d0d9242903f35e89dc981b95d91c8f8b5e5554d7f8041096b7b908a523e64ab"
+  },
+  "apply_rc": 0,
+  "offset": 0,
+  "fuzz": 0,
+  "FAILED": 0,
+  "output_tree_sha256": "99f62c45c358464f8149c04deb5a2ac904aaee9df29ce8d103c7e6a22ca82433",
+  "promoted": true,
+  "status": "applies"
+}

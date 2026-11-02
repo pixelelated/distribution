@@ -1,0 +1,52 @@
+{
+  "plan": "SM8550",
+  "index": 1,
+  "path": "projects/ROCKNIX/packages/linux/patches/mainline/0002-input-add-input-polldev-driver.patch",
+  "patch_sha256": "aa49ec749c71cd97f02a9236ef0d42780229fcb6ee59d6b07ff8acd3abb72303",
+  "produced_at": "2026-11-02T17:17:01.220882+00:00",
+  "input_tree_sha256": "285afa07c252560c75a31eb45631bcc931b5c7209e99c8bdf12f0f0f29c34c97",
+  "candidate": "/workspace/tmp/m6-t41/src/corrected-20261102T171658Z/SM8550/candidates/001",
+  "dry": {
+    "argv": [
+      "patch",
+      "-p1",
+      "-N",
+      "--batch",
+      "--directory",
+      "/workspace/tmp/m6-t41/src/corrected-20261102T171658Z/SM8550/candidates/001",
+      "--dry-run"
+    ],
+    "start": "2026-11-02T17:17:01.229115+00:00",
+    "elapsed_seconds": 0.003,
+    "rc": 0,
+    "timed_out": false,
+    "output": "logs/SM8550-001.dry.out",
+    "output_sha256": "f5dc1a3b6962878f58c79a3a3b8fd387a4301cef0de6dfdd3f22b175862e8fd1"
+  },
+  "dry_rc": 0,
+  "after_dry_tree_sha256": "285afa07c252560c75a31eb45631bcc931b5c7209e99c8bdf12f0f0f29c34c97",
+  "attempted": true,
+  "apply": {
+    "argv": [
+      "patch",
+      "-p1",
+      "-N",
+      "--batch",
+      "--directory",
+      "/workspace/tmp/m6-t41/src/corrected-20261102T171658Z/SM8550/candidates/001"
+    ],
+    "start": "2026-11-02T17:17:01.239134+00:00",
+    "elapsed_seconds": 0.001,
+    "rc": 0,
+    "timed_out": false,
+    "output": "logs/SM8550-001.apply.out",
+    "output_sha256": "b5aa7bcc79103dea482c72de8fe3c24885112ac11b218a1747a761cbfe91c082"
+  },
+  "apply_rc": 0,
+  "offset": 0,
+  "fuzz": 1,
+  "FAILED": 0,
+  "output_tree_sha256": "9fc9fb70cc5c7464acbb999074736921f43629ac44c9ff57f93de37368aec660",
+  "promoted": true,
+  "status": "fuzz"
+}

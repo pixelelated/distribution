@@ -1,0 +1,74 @@
+[
+  [
+    "P01",
+    "tree",
+    "107-member/40474-line carve, accepted 99-line outputs",
+    "stage-a/block.out, block-tip.out; corrected table input assertions"
+  ],
+  [
+    "P02",
+    "tree",
+    "107 source paths and all old receipts unchanged",
+    "validation.json protected-source/receipt assertions"
+  ],
+  [
+    "P03",
+    "tool-run",
+    "120 complete applications / 106 patches; zero true failures or blocked rows",
+    "application-results.json and 120 row receipts"
+  ],
+  [
+    "P04",
+    "fixture",
+    "Failed partial candidate not promoted; successor blocked",
+    "failed-candidate-guard.json"
+  ],
+  [
+    "P05",
+    "fixture",
+    "Missing row, changed reach, stripped From each rejected",
+    "generator-fail-first.json and three outputs"
+  ],
+  [
+    "P06",
+    "tree",
+    "Headers/config counts and resolution read",
+    "path-metadata.json; remaining-reads.json; source-readings.md"
+  ],
+  [
+    "P07",
+    "history",
+    "0010 defect and upstream fix, including final patched source refutation",
+    "source-readings.md; 9416eec2c2 diff"
+  ],
+  [
+    "P08",
+    "design",
+    "Ramoops node matches D-SYS-004; physical retention not proved",
+    "source-readings.md full 38-line read and pristine context"
+  ],
+  [
+    "P09",
+    "history",
+    "101/4/2 bytes and 12A/1D/4M currency",
+    "path-metadata.json; upstream-delta.txt"
+  ],
+  [
+    "P10",
+    "tool-run",
+    "Quoted regex yields five no-match results",
+    "remaining-reads.json quoted_regex"
+  ],
+  [
+    "P11",
+    "tree",
+    "Partial line matches do not establish complete supersession",
+    "remaining-reads.json L06_contexts and eleven probes"
+  ],
+  [
+    "P12",
+    "fixture",
+    "Hygiene controls reject planted positives and accept actual packet",
+    "validation.json; hygiene.out"
+  ]
+]

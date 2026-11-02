@@ -1,0 +1,2159 @@
+[
+  {
+    "tree": "distribution",
+    "path": "projects/ROCKNIX/devices/H700/packages/u-boot-DDR3/patches/0001-Update-dram_sun50i_h616.c.patch",
+    "area": "patches-and-configs",
+    "tier": "vendor-carried",
+    "tier_note": "None",
+    "overlap": "False",
+    "language": "patch",
+    "lines": 25,
+    "patches": "None",
+    "last_fork_commit": "None",
+    "last_upstream_commit": "2e825afd0c 2026-06-08",
+    "reach": "shipped",
+    "reachable_by": [
+      "H700-aarch64"
+    ],
+    "buildable_by": "[]",
+    "shadowed_by": "None"
+  },
+  {
+    "tree": "distribution",
+    "path": "projects/ROCKNIX/devices/H700/packages/u-boot-DDR3/patches/0002-sunxi-axp717-charge-only-boot.patch",
+    "area": "patches-and-configs",
+    "tier": "vendor-carried",
+    "tier_note": "None",
+    "overlap": "False",
+    "language": "patch",
+    "lines": 114,
+    "patches": "None",
+    "last_fork_commit": "None",
+    "last_upstream_commit": "abdf50bc24 2026-09-22",
+    "reach": "shipped",
+    "reachable_by": [
+      "H700-aarch64"
+    ],
+    "buildable_by": "[]",
+    "shadowed_by": "None"
+  },
+  {
+    "tree": "distribution",
+    "path": "projects/ROCKNIX/devices/H700/packages/u-boot-DDR4/patches/0001-Update-dram_sun50i_h616.c.patch",
+    "area": "patches-and-configs",
+    "tier": "vendor-carried",
+    "tier_note": "None",
+    "overlap": "False",
+    "language": "patch",
+    "lines": 25,
+    "patches": "None",
+    "last_fork_commit": "None",
+    "last_upstream_commit": "2e825afd0c 2026-06-08",
+    "reach": "shipped",
+    "reachable_by": [
+      "H700-aarch64"
+    ],
+    "buildable_by": "[]",
+    "shadowed_by": "None"
+  },
+  {
+    "tree": "distribution",
+    "path": "projects/ROCKNIX/devices/H700/packages/u-boot-DDR4/patches/0002-sunxi-axp717-charge-only-boot.patch",
+    "area": "patches-and-configs",
+    "tier": "vendor-carried",
+    "tier_note": "None",
+    "overlap": "False",
+    "language": "patch",
+    "lines": 114,
+    "patches": "None",
+    "last_fork_commit": "None",
+    "last_upstream_commit": "abdf50bc24 2026-09-22",
+    "reach": "shipped",
+    "reachable_by": [
+      "H700-aarch64"
+    ],
+    "buildable_by": "[]",
+    "shadowed_by": "None"
+  },
+  {
+    "tree": "distribution",
+    "path": "projects/ROCKNIX/devices/H700/patches/linux/0002-rg35xx-enable-HDMI-LCD.patch",
+    "area": "patches-and-configs",
+    "tier": "vendor-carried",
+    "tier_note": "None",
+    "overlap": "False",
+    "language": "patch",
+    "lines": 2318,
+    "patches": "None",
+    "last_fork_commit": "None",
+    "last_upstream_commit": "0c77a91dca 2026-08-21",
+    "reach": "shipped",
+    "reachable_by": [
+      "H700-aarch64",
+      "H700-arm"
+    ],
+    "buildable_by": "[]",
+    "shadowed_by": "None"
+  },
+  {
+    "tree": "distribution",
+    "path": "projects/ROCKNIX/devices/H700/patches/linux/0003-Update-sun8i_tcon_top.c.patch",
+    "area": "patches-and-configs",
+    "tier": "vendor-carried",
+    "tier_note": "None",
+    "overlap": "False",
+    "language": "patch",
+    "lines": 26,
+    "patches": "None",
+    "last_fork_commit": "None",
+    "last_upstream_commit": "fad6d7d27a 2026-03-27",
+    "reach": "shipped",
+    "reachable_by": [
+      "H700-aarch64",
+      "H700-arm"
+    ],
+    "buildable_by": "[]",
+    "shadowed_by": "None"
+  },
+  {
+    "tree": "distribution",
+    "path": "projects/ROCKNIX/devices/H700/patches/linux/0007-rg35xx-add-GPU-opp.patch",
+    "area": "patches-and-configs",
+    "tier": "vendor-carried",
+    "tier_note": "None",
+    "overlap": "False",
+    "language": "patch",
+    "lines": 71,
+    "patches": "None",
+    "last_fork_commit": "None",
+    "last_upstream_commit": "fad6d7d27a 2026-03-27",
+    "reach": "shipped",
+    "reachable_by": [
+      "H700-aarch64",
+      "H700-arm"
+    ],
+    "buildable_by": "[]",
+    "shadowed_by": "None"
+  },
+  {
+    "tree": "distribution",
+    "path": "projects/ROCKNIX/devices/H700/patches/linux/0008-v8_20260804_james_hilliard1_introduce_allwinner_h616_pwm_controller.patch",
+    "area": "patches-and-configs",
+    "tier": "vendor-carried",
+    "tier_note": "None",
+    "overlap": "False",
+    "language": "patch",
+    "lines": 1924,
+    "patches": "None",
+    "last_fork_commit": "None",
+    "last_upstream_commit": "0ad7ee83c2 2026-08-10",
+    "reach": "shipped",
+    "reachable_by": [
+      "H700-aarch64",
+      "H700-arm"
+    ],
+    "buildable_by": "[]",
+    "shadowed_by": "None"
+  },
+  {
+    "tree": "distribution",
+    "path": "projects/ROCKNIX/devices/H700/patches/linux/0010-rg35xx-enable-pwm-backlight.patch",
+    "area": "patches-and-configs",
+    "tier": "vendor-carried",
+    "tier_note": "None",
+    "overlap": "False",
+    "language": "patch",
+    "lines": 60,
+    "patches": "None",
+    "last_fork_commit": "None",
+    "last_upstream_commit": "0ad7ee83c2 2026-08-10",
+    "reach": "shipped",
+    "reachable_by": [
+      "H700-aarch64",
+      "H700-arm"
+    ],
+    "buildable_by": "[]",
+    "shadowed_by": "None"
+  },
+  {
+    "tree": "distribution",
+    "path": "projects/ROCKNIX/devices/H700/patches/linux/0040-Revert-usb-musb-Fix-hardware-lockup-on-first-Rx-endp.patch",
+    "area": "patches-and-configs",
+    "tier": "vendor-carried",
+    "tier_note": "None",
+    "overlap": "False",
+    "language": "patch",
+    "lines": 41,
+    "patches": "None",
+    "last_fork_commit": "None",
+    "last_upstream_commit": "fad6d7d27a 2026-03-27",
+    "reach": "shipped",
+    "reachable_by": [
+      "H700-aarch64",
+      "H700-arm"
+    ],
+    "buildable_by": "[]",
+    "shadowed_by": "None"
+  },
+  {
+    "tree": "distribution",
+    "path": "projects/ROCKNIX/devices/H700/patches/linux/0110-v2_20250226_kikuchan98_drm_panel_add_generic_mipi_panel_driver.patch",
+    "area": "patches-and-configs",
+    "tier": "vendor-carried",
+    "tier_note": "None",
+    "overlap": "False",
+    "language": "patch",
+    "lines": 1445,
+    "patches": "None",
+    "last_fork_commit": "None",
+    "last_upstream_commit": "e366b4407d 2026-09-20",
+    "reach": "shipped",
+    "reachable_by": [
+      "H700-aarch64",
+      "H700-arm"
+    ],
+    "buildable_by": "[]",
+    "shadowed_by": "None"
+  },
+  {
+    "tree": "distribution",
+    "path": "projects/ROCKNIX/devices/H700/patches/linux/0111-rg35xx-2024-use-panel-mipi-dpi-spi-driver.patch",
+    "area": "patches-and-configs",
+    "tier": "vendor-carried",
+    "tier_note": "None",
+    "overlap": "False",
+    "language": "patch",
+    "lines": 25,
+    "patches": "None",
+    "last_fork_commit": "None",
+    "last_upstream_commit": "fad6d7d27a 2026-03-27",
+    "reach": "shipped",
+    "reachable_by": [
+      "H700-aarch64",
+      "H700-arm"
+    ],
+    "buildable_by": "[]",
+    "shadowed_by": "None"
+  },
+  {
+    "tree": "distribution",
+    "path": "projects/ROCKNIX/devices/H700/patches/linux/0124-battery-name.patch",
+    "area": "patches-and-configs",
+    "tier": "vendor-carried",
+    "tier_note": "None",
+    "overlap": "False",
+    "language": "patch",
+    "lines": 21,
+    "patches": "None",
+    "last_fork_commit": "None",
+    "last_upstream_commit": "fad6d7d27a 2026-03-27",
+    "reach": "shipped",
+    "reachable_by": [
+      "H700-aarch64",
+      "H700-arm"
+    ],
+    "buildable_by": "[]",
+    "shadowed_by": "None"
+  },
+  {
+    "tree": "distribution",
+    "path": "projects/ROCKNIX/devices/H700/patches/linux/0126-20241018_macroalpha82_rg35xx_add_additional_hardware_support.patch",
+    "area": "patches-and-configs",
+    "tier": "vendor-carried",
+    "tier_note": "None",
+    "overlap": "False",
+    "language": "patch",
+    "lines": 137,
+    "patches": "None",
+    "last_fork_commit": "None",
+    "last_upstream_commit": "fad6d7d27a 2026-03-27",
+    "reach": "shipped",
+    "reachable_by": [
+      "H700-aarch64",
+      "H700-arm"
+    ],
+    "buildable_by": "[]",
+    "shadowed_by": "None"
+  },
+  {
+    "tree": "distribution",
+    "path": "projects/ROCKNIX/devices/H700/patches/linux/0127-enable-mmc1-for-RG35XX-2024.patch",
+    "area": "patches-and-configs",
+    "tier": "vendor-carried",
+    "tier_note": "None",
+    "overlap": "False",
+    "language": "patch",
+    "lines": 51,
+    "patches": "None",
+    "last_fork_commit": "None",
+    "last_upstream_commit": "fad6d7d27a 2026-03-27",
+    "reach": "shipped",
+    "reachable_by": [
+      "H700-aarch64",
+      "H700-arm"
+    ],
+    "buildable_by": "[]",
+    "shadowed_by": "None"
+  },
+  {
+    "tree": "distribution",
+    "path": "projects/ROCKNIX/devices/H700/patches/linux/0140-rg35xx-2024-use-rocknix-joypad-driver.patch",
+    "area": "patches-and-configs",
+    "tier": "vendor-carried",
+    "tier_note": "None",
+    "overlap": "False",
+    "language": "patch",
+    "lines": 400,
+    "patches": "None",
+    "last_fork_commit": "None",
+    "last_upstream_commit": "fad6d7d27a 2026-03-27",
+    "reach": "shipped",
+    "reachable_by": [
+      "H700-aarch64",
+      "H700-arm"
+    ],
+    "buildable_by": "[]",
+    "shadowed_by": "None"
+  },
+  {
+    "tree": "distribution",
+    "path": "projects/ROCKNIX/devices/H700/patches/linux/0144-Update-sun50i-h700-anbernic-rg35xx-h.dts.patch",
+    "area": "patches-and-configs",
+    "tier": "vendor-carried",
+    "tier_note": "None",
+    "overlap": "False",
+    "language": "patch",
+    "lines": 27,
+    "patches": "None",
+    "last_fork_commit": "None",
+    "last_upstream_commit": "4d09c8b49c 2026-04-24",
+    "reach": "shipped",
+    "reachable_by": [
+      "H700-aarch64",
+      "H700-arm"
+    ],
+    "buildable_by": "[]",
+    "shadowed_by": "None"
+  },
+  {
+    "tree": "distribution",
+    "path": "projects/ROCKNIX/devices/H700/patches/linux/0150-add-forcefeedback.patch",
+    "area": "patches-and-configs",
+    "tier": "vendor-carried",
+    "tier_note": "None",
+    "overlap": "False",
+    "language": "patch",
+    "lines": 51,
+    "patches": "None",
+    "last_fork_commit": "None",
+    "last_upstream_commit": "56af713e72 2026-08-10",
+    "reach": "shipped",
+    "reachable_by": [
+      "H700-aarch64",
+      "H700-arm"
+    ],
+    "buildable_by": "[]",
+    "shadowed_by": "None"
+  },
+  {
+    "tree": "distribution",
+    "path": "projects/ROCKNIX/devices/H700/patches/linux/0151-phy-fix-OTG-host-mode.patch",
+    "area": "patches-and-configs",
+    "tier": "vendor-carried",
+    "tier_note": "None",
+    "overlap": "False",
+    "language": "patch",
+    "lines": 105,
+    "patches": "None",
+    "last_fork_commit": "None",
+    "last_upstream_commit": "fad6d7d27a 2026-03-27",
+    "reach": "shipped",
+    "reachable_by": [
+      "H700-aarch64",
+      "H700-arm"
+    ],
+    "buildable_by": "[]",
+    "shadowed_by": "None"
+  },
+  {
+    "tree": "distribution",
+    "path": "projects/ROCKNIX/devices/H700/patches/linux/0152-rg35xx-2024-enable-usb-otg.patch",
+    "area": "patches-and-configs",
+    "tier": "vendor-carried",
+    "tier_note": "None",
+    "overlap": "False",
+    "language": "patch",
+    "lines": 49,
+    "patches": "None",
+    "last_fork_commit": "None",
+    "last_upstream_commit": "fad6d7d27a 2026-03-27",
+    "reach": "shipped",
+    "reachable_by": [
+      "H700-aarch64",
+      "H700-arm"
+    ],
+    "buildable_by": "[]",
+    "shadowed_by": "None"
+  },
+  {
+    "tree": "distribution",
+    "path": "projects/ROCKNIX/devices/H700/patches/linux/0153-enable-rgb-leds.patch",
+    "area": "patches-and-configs",
+    "tier": "vendor-carried",
+    "tier_note": "None",
+    "overlap": "False",
+    "language": "patch",
+    "lines": 49,
+    "patches": "None",
+    "last_fork_commit": "None",
+    "last_upstream_commit": "fad6d7d27a 2026-03-27",
+    "reach": "shipped",
+    "reachable_by": [
+      "H700-aarch64",
+      "H700-arm"
+    ],
+    "buildable_by": "[]",
+    "shadowed_by": "None"
+  },
+  {
+    "tree": "distribution",
+    "path": "projects/ROCKNIX/devices/H700/patches/linux/0154-rocknix-dt-id.patch",
+    "area": "patches-and-configs",
+    "tier": "vendor-carried",
+    "tier_note": "None",
+    "overlap": "False",
+    "language": "patch",
+    "lines": 44,
+    "patches": "None",
+    "last_fork_commit": "None",
+    "last_upstream_commit": "fad6d7d27a 2026-03-27",
+    "reach": "shipped",
+    "reachable_by": [
+      "H700-aarch64",
+      "H700-arm"
+    ],
+    "buildable_by": "[]",
+    "shadowed_by": "None"
+  },
+  {
+    "tree": "distribution",
+    "path": "projects/ROCKNIX/devices/H700/patches/linux/0155-sun4i-set-rgb-connector-as-DSI.patch",
+    "area": "patches-and-configs",
+    "tier": "vendor-carried",
+    "tier_note": "None",
+    "overlap": "False",
+    "language": "patch",
+    "lines": 25,
+    "patches": "None",
+    "last_fork_commit": "None",
+    "last_upstream_commit": "fad6d7d27a 2026-03-27",
+    "reach": "shipped",
+    "reachable_by": [
+      "H700-aarch64",
+      "H700-arm"
+    ],
+    "buildable_by": "[]",
+    "shadowed_by": "None"
+  },
+  {
+    "tree": "distribution",
+    "path": "projects/ROCKNIX/devices/H700/patches/linux/0156-rg35xx-plus-add-pcf8563-rtc.patch",
+    "area": "patches-and-configs",
+    "tier": "vendor-carried",
+    "tier_note": "None",
+    "overlap": "False",
+    "language": "patch",
+    "lines": 37,
+    "patches": "None",
+    "last_fork_commit": "None",
+    "last_upstream_commit": "69c664d433 2026-09-10",
+    "reach": "shipped",
+    "reachable_by": [
+      "H700-aarch64",
+      "H700-arm"
+    ],
+    "buildable_by": "[]",
+    "shadowed_by": "None"
+  },
+  {
+    "tree": "distribution",
+    "path": "projects/ROCKNIX/devices/H700/patches/linux/0157-input-axp20x-pek-do-not-report-the-key-press-that-woke-the-system.patch",
+    "area": "patches-and-configs",
+    "tier": "vendor-carried",
+    "tier_note": "None",
+    "overlap": "False",
+    "language": "patch",
+    "lines": 57,
+    "patches": "None",
+    "last_fork_commit": "None",
+    "last_upstream_commit": "fca6ac5140 2026-09-18",
+    "reach": "shipped",
+    "reachable_by": [
+      "H700-aarch64",
+      "H700-arm"
+    ],
+    "buildable_by": "[]",
+    "shadowed_by": "None"
+  },
+  {
+    "tree": "distribution",
+    "path": "projects/ROCKNIX/devices/H700/patches/linux/0158-mmc-sunxi-mmc-mask\u002ddata0-when-updating-the-clock-on-h616-emmc.patch",
+    "area": "patches-and-configs",
+    "tier": "vendor-carried",
+    "tier_note": "None",
+    "overlap": "False",
+    "language": "patch",
+    "lines": 44,
+    "patches": "None",
+    "last_fork_commit": "None",
+    "last_upstream_commit": "fca6ac5140 2026-09-18",
+    "reach": "shipped",
+    "reachable_by": [
+      "H700-aarch64",
+      "H700-arm"
+    ],
+    "buildable_by": "[]",
+    "shadowed_by": "None"
+  },
+  {
+    "tree": "distribution",
+    "path": "projects/ROCKNIX/devices/H700/patches/linux/0159-arm64-dts-rg35xx-2024-keep-the-second-sd-card-powered.patch",
+    "area": "patches-and-configs",
+    "tier": "vendor-carried",
+    "tier_note": "None",
+    "overlap": "False",
+    "language": "patch",
+    "lines": 26,
+    "patches": "None",
+    "last_fork_commit": "None",
+    "last_upstream_commit": "fca6ac5140 2026-09-18",
+    "reach": "shipped",
+    "reachable_by": [
+      "H700-aarch64",
+      "H700-arm"
+    ],
+    "buildable_by": "[]",
+    "shadowed_by": "None"
+  },
+  {
+    "tree": "distribution",
+    "path": "projects/ROCKNIX/devices/H700/patches/linux/0160-phy-sun4i-usb-disable-the-clock-that-was-enabled.patch",
+    "area": "patches-and-configs",
+    "tier": "vendor-carried",
+    "tier_note": "None",
+    "overlap": "False",
+    "language": "patch",
+    "lines": 24,
+    "patches": "None",
+    "last_fork_commit": "None",
+    "last_upstream_commit": "fca6ac5140 2026-09-18",
+    "reach": "shipped",
+    "reachable_by": [
+      "H700-aarch64",
+      "H700-arm"
+    ],
+    "buildable_by": "[]",
+    "shadowed_by": "None"
+  },
+  {
+    "tree": "distribution",
+    "path": "projects/ROCKNIX/devices/H700/patches/linux/0161-drm-sun4i-gate-the-display-pipeline-across-system-suspend.patch",
+    "area": "patches-and-configs",
+    "tier": "vendor-carried",
+    "tier_note": "None",
+    "overlap": "False",
+    "language": "patch",
+    "lines": 622,
+    "patches": "None",
+    "last_fork_commit": "None",
+    "last_upstream_commit": "fca6ac5140 2026-09-18",
+    "reach": "shipped",
+    "reachable_by": [
+      "H700-aarch64",
+      "H700-arm"
+    ],
+    "buildable_by": "[]",
+    "shadowed_by": "None"
+  },
+  {
+    "tree": "distribution",
+    "path": "projects/ROCKNIX/devices/H700/patches/linux/0162-pinctrl-sunxi-release-the-lcd0-pads-while-the-panel-is-off.patch",
+    "area": "patches-and-configs",
+    "tier": "vendor-carried",
+    "tier_note": "None",
+    "overlap": "False",
+    "language": "patch",
+    "lines": 319,
+    "patches": "None",
+    "last_fork_commit": "None",
+    "last_upstream_commit": "fca6ac5140 2026-09-18",
+    "reach": "shipped",
+    "reachable_by": [
+      "H700-aarch64",
+      "H700-arm"
+    ],
+    "buildable_by": "[]",
+    "shadowed_by": "None"
+  },
+  {
+    "tree": "distribution",
+    "path": "projects/ROCKNIX/devices/H700/patches/linux/0163-asoc-sun4i-codec-suspend-the-codec-and-switch-the-amplifier-supply.patch",
+    "area": "patches-and-configs",
+    "tier": "vendor-carried",
+    "tier_note": "None",
+    "overlap": "False",
+    "language": "patch",
+    "lines": 372,
+    "patches": "None",
+    "last_fork_commit": "None",
+    "last_upstream_commit": "fca6ac5140 2026-09-18",
+    "reach": "shipped",
+    "reachable_by": [
+      "H700-aarch64",
+      "H700-arm"
+    ],
+    "buildable_by": "[]",
+    "shadowed_by": "None"
+  },
+  {
+    "tree": "distribution",
+    "path": "projects/ROCKNIX/devices/H700/patches/linux/0200-h700-update-opps.patch",
+    "area": "patches-and-configs",
+    "tier": "vendor-carried",
+    "tier_note": "None",
+    "overlap": "False",
+    "language": "patch",
+    "lines": 48,
+    "patches": "None",
+    "last_fork_commit": "None",
+    "last_upstream_commit": "fad6d7d27a 2026-03-27",
+    "reach": "shipped",
+    "reachable_by": [
+      "H700-aarch64",
+      "H700-arm"
+    ],
+    "buildable_by": "[]",
+    "shadowed_by": "None"
+  },
+  {
+    "tree": "distribution",
+    "path": "projects/ROCKNIX/devices/H700/patches/linux/0204-dts-Enable-hdmi-sound.patch",
+    "area": "patches-and-configs",
+    "tier": "vendor-carried",
+    "tier_note": "None",
+    "overlap": "False",
+    "language": "patch",
+    "lines": 113,
+    "patches": "None",
+    "last_fork_commit": "None",
+    "last_upstream_commit": "0ad7ee83c2 2026-08-10",
+    "reach": "shipped",
+    "reachable_by": [
+      "H700-aarch64",
+      "H700-arm"
+    ],
+    "buildable_by": "[]",
+    "shadowed_by": "None"
+  },
+  {
+    "tree": "distribution",
+    "path": "projects/ROCKNIX/devices/H700/patches/linux/0210-h616-cpu-opp-mark-480MHz-as-suspend-opp.patch",
+    "area": "patches-and-configs",
+    "tier": "vendor-carried",
+    "tier_note": "None",
+    "overlap": "False",
+    "language": "patch",
+    "lines": 22,
+    "patches": "None",
+    "last_fork_commit": "None",
+    "last_upstream_commit": "fca6ac5140 2026-09-18",
+    "reach": "shipped",
+    "reachable_by": [
+      "H700-aarch64",
+      "H700-arm"
+    ],
+    "buildable_by": "[]",
+    "shadowed_by": "None"
+  },
+  {
+    "tree": "distribution",
+    "path": "projects/ROCKNIX/devices/H700/patches/linux/0901-dts-rg35xx-2024-fix-led-1-color.patch",
+    "area": "patches-and-configs",
+    "tier": "vendor-carried",
+    "tier_note": "None",
+    "overlap": "False",
+    "language": "patch",
+    "lines": 25,
+    "patches": "None",
+    "last_fork_commit": "None",
+    "last_upstream_commit": "fad6d7d27a 2026-03-27",
+    "reach": "shipped",
+    "reachable_by": [
+      "H700-aarch64",
+      "H700-arm"
+    ],
+    "buildable_by": "[]",
+    "shadowed_by": "None"
+  },
+  {
+    "tree": "distribution",
+    "path": "projects/ROCKNIX/devices/H700/patches/linux/0950-arm64-dts-allwinner-h616-ramoops-reserved-memory.patch",
+    "area": "patches-and-configs",
+    "tier": "vendor-carried",
+    "tier_note": "fork-written",
+    "overlap": "False",
+    "language": "patch",
+    "lines": 38,
+    "patches": "None",
+    "last_fork_commit": "cbf75c0b06 2026-09-10",
+    "last_upstream_commit": "None",
+    "reach": "shipped",
+    "reachable_by": [
+      "H700-aarch64",
+      "H700-arm"
+    ],
+    "buildable_by": "[]",
+    "shadowed_by": "None"
+  },
+  {
+    "tree": "distribution",
+    "path": "projects/ROCKNIX/devices/SM8550/linux/linux.aarch64.conf",
+    "area": "patches-and-configs",
+    "tier": "vendor-carried",
+    "tier_note": "None",
+    "overlap": "False",
+    "language": "kernel-config",
+    "lines": 8608,
+    "patches": "None",
+    "last_fork_commit": "None",
+    "last_upstream_commit": "dcafa74090 2026-10-22",
+    "reach": "shipped",
+    "reachable_by": [
+      "SM8550-aarch64",
+      "SM8550-arm"
+    ],
+    "buildable_by": "[]",
+    "shadowed_by": "None"
+  },
+  {
+    "tree": "distribution",
+    "path": "projects/ROCKNIX/devices/SM8550/patches/linux/0001-pcie-update-sm8550-dtsi.patch",
+    "area": "patches-and-configs",
+    "tier": "vendor-carried",
+    "tier_note": "None",
+    "overlap": "False",
+    "language": "patch",
+    "lines": 54,
+    "patches": "None",
+    "last_fork_commit": "None",
+    "last_upstream_commit": "aa458af6f9 2026-06-29",
+    "reach": "shipped",
+    "reachable_by": [
+      "SM8550-aarch64",
+      "SM8550-arm"
+    ],
+    "buildable_by": "[]",
+    "shadowed_by": "None"
+  },
+  {
+    "tree": "distribution",
+    "path": "projects/ROCKNIX/devices/SM8550/patches/linux/0002-qcom-dispcc-sm8550-Fix-disp_cc_mdss_mdp_clk_src.patch",
+    "area": "patches-and-configs",
+    "tier": "vendor-carried",
+    "tier_note": "None",
+    "overlap": "False",
+    "language": "patch",
+    "lines": 30,
+    "patches": "None",
+    "last_fork_commit": "None",
+    "last_upstream_commit": "075d23681d 2025-10-08",
+    "reach": "shipped",
+    "reachable_by": [
+      "SM8550-aarch64",
+      "SM8550-arm"
+    ],
+    "buildable_by": "[]",
+    "shadowed_by": "None"
+  },
+  {
+    "tree": "distribution",
+    "path": "projects/ROCKNIX/devices/SM8550/patches/linux/0004-drm-msm-a6xx-Enable-IFPC-on-Adreno-740.patch",
+    "area": "patches-and-configs",
+    "tier": "vendor-carried",
+    "tier_note": "None",
+    "overlap": "False",
+    "language": "patch",
+    "lines": 33,
+    "patches": "None",
+    "last_fork_commit": "None",
+    "last_upstream_commit": "08b09e813b 2026-03-08",
+    "reach": "shipped",
+    "reachable_by": [
+      "SM8550-aarch64",
+      "SM8550-arm"
+    ],
+    "buildable_by": "[]",
+    "shadowed_by": "None"
+  },
+  {
+    "tree": "distribution",
+    "path": "projects/ROCKNIX/devices/SM8550/patches/linux/0006-add-hw_params-callback-function-to-drm_connector_hdmi_audio_ops.patch",
+    "area": "patches-and-configs",
+    "tier": "vendor-carried",
+    "tier_note": "None",
+    "overlap": "False",
+    "language": "patch",
+    "lines": 54,
+    "patches": "None",
+    "last_fork_commit": "None",
+    "last_upstream_commit": "fea700c414 2026-06-12",
+    "reach": "shipped",
+    "reachable_by": [
+      "SM8550-aarch64",
+      "SM8550-arm"
+    ],
+    "buildable_by": "[]",
+    "shadowed_by": "None"
+  },
+  {
+    "tree": "distribution",
+    "path": "projects/ROCKNIX/devices/SM8550/patches/linux/0015-touchscreen-edt-ft5x06-allow-to-override-input-name.patch",
+    "area": "patches-and-configs",
+    "tier": "vendor-carried",
+    "tier_note": "None",
+    "overlap": "False",
+    "language": "patch",
+    "lines": 35,
+    "patches": "None",
+    "last_fork_commit": "None",
+    "last_upstream_commit": "8c55f30955 2026-05-18",
+    "reach": "shipped",
+    "reachable_by": [
+      "SM8550-aarch64",
+      "SM8550-arm"
+    ],
+    "buildable_by": "[]",
+    "shadowed_by": "None"
+  },
+  {
+    "tree": "distribution",
+    "path": "projects/ROCKNIX/devices/SM8550/patches/linux/0030-input-rmi4-add-reset-gpio.patch",
+    "area": "patches-and-configs",
+    "tier": "vendor-carried",
+    "tier_note": "None",
+    "overlap": "False",
+    "language": "patch",
+    "lines": 101,
+    "patches": "None",
+    "last_fork_commit": "None",
+    "last_upstream_commit": "6d3d46ca8d 2025-08-23",
+    "reach": "shipped",
+    "reachable_by": [
+      "SM8550-aarch64",
+      "SM8550-arm"
+    ],
+    "buildable_by": "[]",
+    "shadowed_by": "None"
+  },
+  {
+    "tree": "distribution",
+    "path": "projects/ROCKNIX/devices/SM8550/patches/linux/0031_input--Add-driver-for-RSInput-Gamepad.patch",
+    "area": "patches-and-configs",
+    "tier": "vendor-carried",
+    "tier_note": "None",
+    "overlap": "False",
+    "language": "patch",
+    "lines": 641,
+    "patches": "None",
+    "last_fork_commit": "None",
+    "last_upstream_commit": "320d8e445b 2026-07-27",
+    "reach": "shipped",
+    "reachable_by": [
+      "SM8550-aarch64",
+      "SM8550-arm"
+    ],
+    "buildable_by": "[]",
+    "shadowed_by": "None"
+  },
+  {
+    "tree": "distribution",
+    "path": "projects/ROCKNIX/devices/SM8550/patches/linux/0032-rmi4-silence-spam-irq-errors.patch",
+    "area": "patches-and-configs",
+    "tier": "vendor-carried",
+    "tier_note": "None",
+    "overlap": "False",
+    "language": "patch",
+    "lines": 25,
+    "patches": "None",
+    "last_fork_commit": "None",
+    "last_upstream_commit": "1fb0d2835c 2026-02-04",
+    "reach": "shipped",
+    "reachable_by": [
+      "SM8550-aarch64",
+      "SM8550-arm"
+    ],
+    "buildable_by": "[]",
+    "shadowed_by": "None"
+  },
+  {
+    "tree": "distribution",
+    "path": "projects/ROCKNIX/devices/SM8550/patches/linux/0033_leds--Add-driver-for-HEROIC-HTR3212.patch",
+    "area": "patches-and-configs",
+    "tier": "vendor-carried",
+    "tier_note": "None",
+    "overlap": "False",
+    "language": "patch",
+    "lines": 374,
+    "patches": "None",
+    "last_fork_commit": "None",
+    "last_upstream_commit": "dd2d3e4809 2025-10-28",
+    "reach": "shipped",
+    "reachable_by": [
+      "SM8550-aarch64",
+      "SM8550-arm"
+    ],
+    "buildable_by": "[]",
+    "shadowed_by": "None"
+  },
+  {
+    "tree": "distribution",
+    "path": "projects/ROCKNIX/devices/SM8550/patches/linux/0036_ASoC--qcom--sc8280xp-Add-support-for-Primary-I2S.patch",
+    "area": "patches-and-configs",
+    "tier": "vendor-carried",
+    "tier_note": "None",
+    "overlap": "False",
+    "language": "patch",
+    "lines": 99,
+    "patches": "None",
+    "last_fork_commit": "None",
+    "last_upstream_commit": "08b09e813b 2026-03-08",
+    "reach": "shipped",
+    "reachable_by": [
+      "SM8550-aarch64",
+      "SM8550-arm"
+    ],
+    "buildable_by": "[]",
+    "shadowed_by": "None"
+  },
+  {
+    "tree": "distribution",
+    "path": "projects/ROCKNIX/devices/SM8550/patches/linux/0047_ASoC--codecs--aw88166--AYN-Odin2-Specific-modifica.patch",
+    "area": "patches-and-configs",
+    "tier": "vendor-carried",
+    "tier_note": "None",
+    "overlap": "False",
+    "language": "patch",
+    "lines": 78,
+    "patches": "None",
+    "last_fork_commit": "None",
+    "last_upstream_commit": "aa458af6f9 2026-06-29",
+    "reach": "shipped",
+    "reachable_by": [
+      "SM8550-aarch64",
+      "SM8550-arm"
+    ],
+    "buildable_by": "[]",
+    "shadowed_by": "None"
+  },
+  {
+    "tree": "distribution",
+    "path": "projects/ROCKNIX/devices/SM8550/patches/linux/0051-gpu-panel-add-Pocket-ACE-panel-driver.patch",
+    "area": "patches-and-configs",
+    "tier": "vendor-carried",
+    "tier_note": "None",
+    "overlap": "False",
+    "language": "patch",
+    "lines": 288,
+    "patches": "None",
+    "last_fork_commit": "None",
+    "last_upstream_commit": "92020087fb 2026-08-24",
+    "reach": "shipped",
+    "reachable_by": [
+      "SM8550-aarch64",
+      "SM8550-arm"
+    ],
+    "buildable_by": "[]",
+    "shadowed_by": "None"
+  },
+  {
+    "tree": "distribution",
+    "path": "projects/ROCKNIX/devices/SM8550/patches/linux/0052-gpu-panel-add-Pocket-DMG-panel-driver.patch",
+    "area": "patches-and-configs",
+    "tier": "vendor-carried",
+    "tier_note": "None",
+    "overlap": "False",
+    "language": "patch",
+    "lines": 702,
+    "patches": "None",
+    "last_fork_commit": "None",
+    "last_upstream_commit": "92020087fb 2026-08-24",
+    "reach": "shipped",
+    "reachable_by": [
+      "SM8550-aarch64",
+      "SM8550-arm"
+    ],
+    "buildable_by": "[]",
+    "shadowed_by": "None"
+  },
+  {
+    "tree": "distribution",
+    "path": "projects/ROCKNIX/devices/SM8550/patches/linux/0053-edt-ft5x06-add-no_regmap_bulk_read-option.patch",
+    "area": "patches-and-configs",
+    "tier": "vendor-carried",
+    "tier_note": "None",
+    "overlap": "False",
+    "language": "patch",
+    "lines": 89,
+    "patches": "None",
+    "last_fork_commit": "None",
+    "last_upstream_commit": "dd2d3e4809 2025-10-28",
+    "reach": "shipped",
+    "reachable_by": [
+      "SM8550-aarch64",
+      "SM8550-arm"
+    ],
+    "buildable_by": "[]",
+    "shadowed_by": "None"
+  },
+  {
+    "tree": "distribution",
+    "path": "projects/ROCKNIX/devices/SM8550/patches/linux/0053-gpu-panel-st7703-add-Pocket-DS-lower-panel.patch",
+    "area": "patches-and-configs",
+    "tier": "vendor-carried",
+    "tier_note": "None",
+    "overlap": "False",
+    "language": "patch",
+    "lines": 237,
+    "patches": "None",
+    "last_fork_commit": "None",
+    "last_upstream_commit": "92020087fb 2026-08-24",
+    "reach": "shipped",
+    "reachable_by": [
+      "SM8550-aarch64",
+      "SM8550-arm"
+    ],
+    "buildable_by": "[]",
+    "shadowed_by": "None"
+  },
+  {
+    "tree": "distribution",
+    "path": "projects/ROCKNIX/devices/SM8550/patches/linux/0054-input-goodix-override-resolution-from-dt.patch",
+    "area": "patches-and-configs",
+    "tier": "vendor-carried",
+    "tier_note": "None",
+    "overlap": "False",
+    "language": "patch",
+    "lines": 110,
+    "patches": "None",
+    "last_fork_commit": "None",
+    "last_upstream_commit": "bafc779e7b 2026-07-10",
+    "reach": "shipped",
+    "reachable_by": [
+      "SM8550-aarch64",
+      "SM8550-arm"
+    ],
+    "buildable_by": "[]",
+    "shadowed_by": "None"
+  },
+  {
+    "tree": "distribution",
+    "path": "projects/ROCKNIX/devices/SM8550/patches/linux/0054_sn3112-pwm-driver.patch",
+    "area": "patches-and-configs",
+    "tier": "vendor-carried",
+    "tier_note": "None",
+    "overlap": "False",
+    "language": "patch",
+    "lines": 402,
+    "patches": "None",
+    "last_fork_commit": "None",
+    "last_upstream_commit": "4609c5017f 2026-08-04",
+    "reach": "shipped",
+    "reachable_by": [
+      "SM8550-aarch64",
+      "SM8550-arm"
+    ],
+    "buildable_by": "[]",
+    "shadowed_by": "None"
+  },
+  {
+    "tree": "distribution",
+    "path": "projects/ROCKNIX/devices/SM8550/patches/linux/0055_Synaptics-TD4328-LCD-panel.patch",
+    "area": "patches-and-configs",
+    "tier": "vendor-carried",
+    "tier_note": "None",
+    "overlap": "False",
+    "language": "patch",
+    "lines": 284,
+    "patches": "None",
+    "last_fork_commit": "None",
+    "last_upstream_commit": "92020087fb 2026-08-24",
+    "reach": "shipped",
+    "reachable_by": [
+      "SM8550-aarch64",
+      "SM8550-arm"
+    ],
+    "buildable_by": "[]",
+    "shadowed_by": "None"
+  },
+  {
+    "tree": "distribution",
+    "path": "projects/ROCKNIX/devices/SM8550/patches/linux/0056_Xm-Plus-XM91080G-panel.patch",
+    "area": "patches-and-configs",
+    "tier": "vendor-carried",
+    "tier_note": "None",
+    "overlap": "False",
+    "language": "patch",
+    "lines": 443,
+    "patches": "None",
+    "last_fork_commit": "None",
+    "last_upstream_commit": "92020087fb 2026-08-24",
+    "reach": "shipped",
+    "reachable_by": [
+      "SM8550-aarch64",
+      "SM8550-arm"
+    ],
+    "buildable_by": "[]",
+    "shadowed_by": "None"
+  },
+  {
+    "tree": "distribution",
+    "path": "projects/ROCKNIX/devices/SM8550/patches/linux/0057_Chipone-ICNA35XX-panel.patch",
+    "area": "patches-and-configs",
+    "tier": "vendor-carried",
+    "tier_note": "None",
+    "overlap": "False",
+    "language": "patch",
+    "lines": 609,
+    "patches": "None",
+    "last_fork_commit": "None",
+    "last_upstream_commit": "6a7213eab3 2026-09-18",
+    "reach": "shipped",
+    "reachable_by": [
+      "SM8550-aarch64",
+      "SM8550-arm"
+    ],
+    "buildable_by": "[]",
+    "shadowed_by": "None"
+  },
+  {
+    "tree": "distribution",
+    "path": "projects/ROCKNIX/devices/SM8550/patches/linux/0057_DDIC-CH13726A-panel.patch",
+    "area": "patches-and-configs",
+    "tier": "vendor-carried",
+    "tier_note": "None",
+    "overlap": "False",
+    "language": "patch",
+    "lines": 383,
+    "patches": "None",
+    "last_fork_commit": "None",
+    "last_upstream_commit": "92020087fb 2026-08-24",
+    "reach": "shipped",
+    "reachable_by": [
+      "SM8550-aarch64",
+      "SM8550-arm"
+    ],
+    "buildable_by": "[]",
+    "shadowed_by": "None"
+  },
+  {
+    "tree": "distribution",
+    "path": "projects/ROCKNIX/devices/SM8550/patches/linux/0058_AYN-Odin2-Mini--backlight.patch",
+    "area": "patches-and-configs",
+    "tier": "vendor-carried",
+    "tier_note": "None",
+    "overlap": "False",
+    "language": "patch",
+    "lines": 225,
+    "patches": "None",
+    "last_fork_commit": "None",
+    "last_upstream_commit": "9f1fab30f6 2025-07-13",
+    "reach": "shipped",
+    "reachable_by": [
+      "SM8550-aarch64",
+      "SM8550-arm"
+    ],
+    "buildable_by": "[]",
+    "shadowed_by": "None"
+  },
+  {
+    "tree": "distribution",
+    "path": "projects/ROCKNIX/devices/SM8550/patches/linux/0059_AYN-Odin2-Mini--hynitron--cstxxx.patch",
+    "area": "patches-and-configs",
+    "tier": "vendor-carried",
+    "tier_note": "None",
+    "overlap": "False",
+    "language": "patch",
+    "lines": 67,
+    "patches": "None",
+    "last_fork_commit": "None",
+    "last_upstream_commit": "9f1fab30f6 2025-07-13",
+    "reach": "shipped",
+    "reachable_by": [
+      "SM8550-aarch64",
+      "SM8550-arm"
+    ],
+    "buildable_by": "[]",
+    "shadowed_by": "None"
+  },
+  {
+    "tree": "distribution",
+    "path": "projects/ROCKNIX/devices/SM8550/patches/linux/0060-Add-Silergy-SY7758-backlight-driver.patch",
+    "area": "patches-and-configs",
+    "tier": "vendor-carried",
+    "tier_note": "None",
+    "overlap": "False",
+    "language": "patch",
+    "lines": 219,
+    "patches": "None",
+    "last_fork_commit": "None",
+    "last_upstream_commit": "7e92c0bf87 2025-07-22",
+    "reach": "shipped",
+    "reachable_by": [
+      "SM8550-aarch64",
+      "SM8550-arm"
+    ],
+    "buildable_by": "[]",
+    "shadowed_by": "None"
+  },
+  {
+    "tree": "distribution",
+    "path": "projects/ROCKNIX/devices/SM8550/patches/linux/0060-input-touchscreen-add-synaptics-dsx-driver.patch",
+    "area": "patches-and-configs",
+    "tier": "vendor-carried",
+    "tier_note": "None",
+    "overlap": "False",
+    "language": "patch",
+    "lines": 2856,
+    "patches": "None",
+    "last_fork_commit": "None",
+    "last_upstream_commit": "72b8328294 2026-05-25",
+    "reach": "shipped",
+    "reachable_by": [
+      "SM8550-aarch64",
+      "SM8550-arm"
+    ],
+    "buildable_by": "[]",
+    "shadowed_by": "None"
+  },
+  {
+    "tree": "distribution",
+    "path": "projects/ROCKNIX/devices/SM8550/patches/linux/0060-input-touchscreen-add-synaptics-dsx-kconfig.patch",
+    "area": "patches-and-configs",
+    "tier": "vendor-carried",
+    "tier_note": "None",
+    "overlap": "False",
+    "language": "patch",
+    "lines": 21,
+    "patches": "None",
+    "last_fork_commit": "None",
+    "last_upstream_commit": "72b8328294 2026-05-25",
+    "reach": "shipped",
+    "reachable_by": [
+      "SM8550-aarch64",
+      "SM8550-arm"
+    ],
+    "buildable_by": "[]",
+    "shadowed_by": "None"
+  },
+  {
+    "tree": "distribution",
+    "path": "projects/ROCKNIX/devices/SM8550/patches/linux/0062-gpu-drm-panel-add-wt0630-panel.patch",
+    "area": "patches-and-configs",
+    "tier": "vendor-carried",
+    "tier_note": "None",
+    "overlap": "False",
+    "language": "patch",
+    "lines": 391,
+    "patches": "None",
+    "last_fork_commit": "None",
+    "last_upstream_commit": "92020087fb 2026-08-24",
+    "reach": "shipped",
+    "reachable_by": [
+      "SM8550-aarch64",
+      "SM8550-arm"
+    ],
+    "buildable_by": "[]",
+    "shadowed_by": "None"
+  },
+  {
+    "tree": "distribution",
+    "path": "projects/ROCKNIX/devices/SM8550/patches/linux/0063-gpu-drm-panel-add-wt0600-1k-panel.patch",
+    "area": "patches-and-configs",
+    "tier": "vendor-carried",
+    "tier_note": "None",
+    "overlap": "False",
+    "language": "patch",
+    "lines": 330,
+    "patches": "None",
+    "last_fork_commit": "None",
+    "last_upstream_commit": "92020087fb 2026-08-24",
+    "reach": "shipped",
+    "reachable_by": [
+      "SM8550-aarch64",
+      "SM8550-arm"
+    ],
+    "buildable_by": "[]",
+    "shadowed_by": "None"
+  },
+  {
+    "tree": "distribution",
+    "path": "projects/ROCKNIX/devices/SM8550/patches/linux/0064-gpu-drm-panel-add-ar16-4inch-panel.patch",
+    "area": "patches-and-configs",
+    "tier": "vendor-carried",
+    "tier_note": "None",
+    "overlap": "False",
+    "language": "patch",
+    "lines": 464,
+    "patches": "None",
+    "last_fork_commit": "None",
+    "last_upstream_commit": "dfcba41737 2026-08-25",
+    "reach": "shipped",
+    "reachable_by": [
+      "SM8550-aarch64",
+      "SM8550-arm"
+    ],
+    "buildable_by": "[]",
+    "shadowed_by": "None"
+  },
+  {
+    "tree": "distribution",
+    "path": "projects/ROCKNIX/devices/SM8550/patches/linux/0065-input-touchscreen-add-hynitron-cst66xx.patch",
+    "area": "patches-and-configs",
+    "tier": "vendor-carried",
+    "tier_note": "None",
+    "overlap": "False",
+    "language": "patch",
+    "lines": 393,
+    "patches": "None",
+    "last_fork_commit": "None",
+    "last_upstream_commit": "aa418ad72e 2026-08-22",
+    "reach": "shipped",
+    "reachable_by": [
+      "SM8550-aarch64",
+      "SM8550-arm"
+    ],
+    "buildable_by": "[]",
+    "shadowed_by": "None"
+  },
+  {
+    "tree": "distribution",
+    "path": "projects/ROCKNIX/devices/SM8550/patches/linux/0066-drm-msm-dpu-enable-sm8550-inline-rotation.patch",
+    "area": "patches-and-configs",
+    "tier": "vendor-carried",
+    "tier_note": "None",
+    "overlap": "False",
+    "language": "patch",
+    "lines": 121,
+    "patches": "None",
+    "last_fork_commit": "None",
+    "last_upstream_commit": "180057b9ab 2026-09-17",
+    "reach": "shipped",
+    "reachable_by": [
+      "SM8550-aarch64",
+      "SM8550-arm"
+    ],
+    "buildable_by": "[]",
+    "shadowed_by": "None"
+  },
+  {
+    "tree": "distribution",
+    "path": "projects/ROCKNIX/devices/SM8550/patches/linux/0067-drm-msm-dpu-enable-qseed-detail-enhancer.patch",
+    "area": "patches-and-configs",
+    "tier": "vendor-carried",
+    "tier_note": "None",
+    "overlap": "False",
+    "language": "patch",
+    "lines": 98,
+    "patches": "None",
+    "last_fork_commit": "None",
+    "last_upstream_commit": "60bb58c1db 2026-09-11",
+    "reach": "shipped",
+    "reachable_by": [
+      "SM8550-aarch64",
+      "SM8550-arm"
+    ],
+    "buildable_by": "[]",
+    "shadowed_by": "None"
+  },
+  {
+    "tree": "distribution",
+    "path": "projects/ROCKNIX/devices/SM8550/patches/linux/0071-HACK-fix-usb-boot-hang.patch",
+    "area": "patches-and-configs",
+    "tier": "vendor-carried",
+    "tier_note": "None",
+    "overlap": "False",
+    "language": "patch",
+    "lines": 22,
+    "patches": "None",
+    "last_fork_commit": "None",
+    "last_upstream_commit": "c178634965 2025-12-10",
+    "reach": "shipped",
+    "reachable_by": [
+      "SM8550-aarch64",
+      "SM8550-arm"
+    ],
+    "buildable_by": "[]",
+    "shadowed_by": "None"
+  },
+  {
+    "tree": "distribution",
+    "path": "projects/ROCKNIX/devices/SM8550/patches/linux/0104-drm-panel-Add-Retroid-Pocket-6-panel.patch",
+    "area": "patches-and-configs",
+    "tier": "vendor-carried",
+    "tier_note": "None",
+    "overlap": "False",
+    "language": "patch",
+    "lines": 538,
+    "patches": "None",
+    "last_fork_commit": "None",
+    "last_upstream_commit": "abfdcfb57f 2026-10-10",
+    "reach": "shipped",
+    "reachable_by": [
+      "SM8550-aarch64",
+      "SM8550-arm"
+    ],
+    "buildable_by": "[]",
+    "shadowed_by": "None"
+  },
+  {
+    "tree": "distribution",
+    "path": "projects/ROCKNIX/devices/SM8550/patches/linux/0105-drm-panel-Add-Retroid-Pocket-Nova-panel.patch",
+    "area": "patches-and-configs",
+    "tier": "vendor-carried",
+    "tier_note": "None",
+    "overlap": "False",
+    "language": "patch",
+    "lines": 453,
+    "patches": "None",
+    "last_fork_commit": "None",
+    "last_upstream_commit": "92020087fb 2026-08-24",
+    "reach": "shipped",
+    "reachable_by": [
+      "SM8550-aarch64",
+      "SM8550-arm"
+    ],
+    "buildable_by": "[]",
+    "shadowed_by": "None"
+  },
+  {
+    "tree": "distribution",
+    "path": "projects/ROCKNIX/devices/SM8550/patches/linux/0120-20250728_konradybcio_gpu_cc_power_requirements_reality_check.patch",
+    "area": "patches-and-configs",
+    "tier": "vendor-carried",
+    "tier_note": "None",
+    "overlap": "False",
+    "language": "patch",
+    "lines": 40,
+    "patches": "None",
+    "last_fork_commit": "None",
+    "last_upstream_commit": "ef264a238d 2026-08-09",
+    "reach": "shipped",
+    "reachable_by": [
+      "SM8550-aarch64",
+      "SM8550-arm"
+    ],
+    "buildable_by": "[]",
+    "shadowed_by": "None"
+  },
+  {
+    "tree": "distribution",
+    "path": "projects/ROCKNIX/devices/SM8550/patches/linux/0121-pmdomain-qcom-rpmhpd-presync-floor-gmu-rails.patch",
+    "area": "patches-and-configs",
+    "tier": "vendor-carried",
+    "tier_note": "None",
+    "overlap": "False",
+    "language": "patch",
+    "lines": 56,
+    "patches": "None",
+    "last_fork_commit": "None",
+    "last_upstream_commit": "ef264a238d 2026-08-09",
+    "reach": "shipped",
+    "reachable_by": [
+      "SM8550-aarch64",
+      "SM8550-arm"
+    ],
+    "buildable_by": "[]",
+    "shadowed_by": "None"
+  },
+  {
+    "tree": "distribution",
+    "path": "projects/ROCKNIX/devices/SM8550/patches/linux/0122-interconnect__qcom__sm8550__Enable_QoS_configuration.patch",
+    "area": "patches-and-configs",
+    "tier": "vendor-carried",
+    "tier_note": "None",
+    "overlap": "False",
+    "language": "patch",
+    "lines": 606,
+    "patches": "None",
+    "last_fork_commit": "None",
+    "last_upstream_commit": "08b09e813b 2026-03-08",
+    "reach": "shipped",
+    "reachable_by": [
+      "SM8550-aarch64",
+      "SM8550-arm"
+    ],
+    "buildable_by": "[]",
+    "shadowed_by": "None"
+  },
+  {
+    "tree": "distribution",
+    "path": "projects/ROCKNIX/devices/SM8550/patches/linux/0200-ASoC-wcd938x-add-DMIC-DAPM-inputs.patch",
+    "area": "patches-and-configs",
+    "tier": "vendor-carried",
+    "tier_note": "None",
+    "overlap": "False",
+    "language": "patch",
+    "lines": 75,
+    "patches": "None",
+    "last_fork_commit": "None",
+    "last_upstream_commit": "1443758698 2026-05-09",
+    "reach": "shipped",
+    "reachable_by": [
+      "SM8550-aarch64",
+      "SM8550-arm"
+    ],
+    "buildable_by": "[]",
+    "shadowed_by": "None"
+  },
+  {
+    "tree": "distribution",
+    "path": "projects/ROCKNIX/devices/SM8550/patches/linux/0500-ROCKNIX-set-boot-fanspeed.patch",
+    "area": "patches-and-configs",
+    "tier": "vendor-carried",
+    "tier_note": "None",
+    "overlap": "False",
+    "language": "patch",
+    "lines": 12,
+    "patches": "None",
+    "last_fork_commit": "None",
+    "last_upstream_commit": "9f1fab30f6 2025-07-13",
+    "reach": "shipped",
+    "reachable_by": [
+      "SM8550-aarch64",
+      "SM8550-arm"
+    ],
+    "buildable_by": "[]",
+    "shadowed_by": "None"
+  },
+  {
+    "tree": "distribution",
+    "path": "projects/ROCKNIX/devices/SM8550/patches/linux/0501-ROCKNIX-fix-wifi-and-bt-mac.patch",
+    "area": "patches-and-configs",
+    "tier": "vendor-carried",
+    "tier_note": "None",
+    "overlap": "False",
+    "language": "patch",
+    "lines": 305,
+    "patches": "None",
+    "last_fork_commit": "None",
+    "last_upstream_commit": "0b8158200c 2026-08-24",
+    "reach": "shipped",
+    "reachable_by": [
+      "SM8550-aarch64",
+      "SM8550-arm"
+    ],
+    "buildable_by": "[]",
+    "shadowed_by": "None"
+  },
+  {
+    "tree": "distribution",
+    "path": "projects/ROCKNIX/devices/SM8550/patches/linux/0502-wakeup-qcom-ipcc-remove-IRQF-NO-SUSPEND.patch",
+    "area": "patches-and-configs",
+    "tier": "vendor-carried",
+    "tier_note": "None",
+    "overlap": "False",
+    "language": "patch",
+    "lines": 32,
+    "patches": "None",
+    "last_fork_commit": "None",
+    "last_upstream_commit": "f955f5b613 2026-08-04",
+    "reach": "shipped",
+    "reachable_by": [
+      "SM8550-aarch64",
+      "SM8550-arm"
+    ],
+    "buildable_by": "[]",
+    "shadowed_by": "None"
+  },
+  {
+    "tree": "distribution",
+    "path": "projects/ROCKNIX/devices/SM8550/patches/linux/0503-ROCKNIX-battery-name.patch",
+    "area": "patches-and-configs",
+    "tier": "vendor-carried",
+    "tier_note": "None",
+    "overlap": "False",
+    "language": "patch",
+    "lines": 25,
+    "patches": "None",
+    "last_fork_commit": "None",
+    "last_upstream_commit": "d93433089b 2026-01-19",
+    "reach": "shipped",
+    "reachable_by": [
+      "SM8550-aarch64",
+      "SM8550-arm"
+    ],
+    "buildable_by": "[]",
+    "shadowed_by": "None"
+  },
+  {
+    "tree": "distribution",
+    "path": "projects/ROCKNIX/devices/SM8550/patches/linux/0504-Enable-64-bit-processes-to-use-compat-input-syscalls.patch",
+    "area": "patches-and-configs",
+    "tier": "vendor-carried",
+    "tier_note": "None",
+    "overlap": "False",
+    "language": "patch",
+    "lines": 121,
+    "patches": "None",
+    "last_fork_commit": "None",
+    "last_upstream_commit": "214b17f900 2026-04-12",
+    "reach": "shipped",
+    "reachable_by": [
+      "SM8550-aarch64",
+      "SM8550-arm"
+    ],
+    "buildable_by": "[]",
+    "shadowed_by": "None"
+  },
+  {
+    "tree": "distribution",
+    "path": "projects/ROCKNIX/devices/SM8550/patches/linux/0505-msm_gem-lock-before-put_iova_spaces.patch",
+    "area": "patches-and-configs",
+    "tier": "vendor-carried",
+    "tier_note": "None",
+    "overlap": "False",
+    "language": "patch",
+    "lines": 383,
+    "patches": "None",
+    "last_fork_commit": "None",
+    "last_upstream_commit": "71e62b50df 2026-05-28",
+    "reach": "shipped",
+    "reachable_by": [
+      "SM8550-aarch64",
+      "SM8550-arm"
+    ],
+    "buildable_by": "[]",
+    "shadowed_by": "None"
+  },
+  {
+    "tree": "distribution",
+    "path": "projects/ROCKNIX/devices/SM8550/patches/linux/0506-usbcore-add-interrupt-interval-override.patch",
+    "area": "patches-and-configs",
+    "tier": "vendor-carried",
+    "tier_note": "None",
+    "overlap": "False",
+    "language": "patch",
+    "lines": 241,
+    "patches": "None",
+    "last_fork_commit": "None",
+    "last_upstream_commit": "ce5245328b 2026-04-24",
+    "reach": "shipped",
+    "reachable_by": [
+      "SM8550-aarch64",
+      "SM8550-arm"
+    ],
+    "buildable_by": "[]",
+    "shadowed_by": "None"
+  },
+  {
+    "tree": "distribution",
+    "path": "projects/ROCKNIX/devices/SM8550/patches/linux/0507-wifi-ath12k-skip-11d-scan-on-ayaneo-pocket-s-mini.patch",
+    "area": "patches-and-configs",
+    "tier": "vendor-carried",
+    "tier_note": "None",
+    "overlap": "False",
+    "language": "patch",
+    "lines": 64,
+    "patches": "None",
+    "last_fork_commit": "None",
+    "last_upstream_commit": "e28bc4004b 2026-08-22",
+    "reach": "shipped",
+    "reachable_by": [
+      "SM8550-aarch64",
+      "SM8550-arm"
+    ],
+    "buildable_by": "[]",
+    "shadowed_by": "None"
+  },
+  {
+    "tree": "distribution",
+    "path": "projects/ROCKNIX/devices/SM8550/patches/linux/0612-ROCKNIX-odin3-q6apm-start-mi2s-port-at-prepare.patch",
+    "area": "patches-and-configs",
+    "tier": "vendor-carried",
+    "tier_note": "None",
+    "overlap": "False",
+    "language": "patch",
+    "lines": 33,
+    "patches": "None",
+    "last_fork_commit": "None",
+    "last_upstream_commit": "5cf234dd33 2026-07-28",
+    "reach": "shipped",
+    "reachable_by": [
+      "SM8550-aarch64",
+      "SM8550-arm"
+    ],
+    "buildable_by": "[]",
+    "shadowed_by": "None"
+  },
+  {
+    "tree": "distribution",
+    "path": "projects/ROCKNIX/devices/SM8550/patches/linux/1000-add-qcom-haptics-driver.patch",
+    "area": "patches-and-configs",
+    "tier": "vendor-carried",
+    "tier_note": "None",
+    "overlap": "False",
+    "language": "patch",
+    "lines": 6456,
+    "patches": "None",
+    "last_fork_commit": "None",
+    "last_upstream_commit": "d8a3b36dd3 2026-08-07",
+    "reach": "shipped",
+    "reachable_by": [
+      "SM8550-aarch64",
+      "SM8550-arm"
+    ],
+    "buildable_by": "[]",
+    "shadowed_by": "None"
+  },
+  {
+    "tree": "distribution",
+    "path": "projects/ROCKNIX/devices/SM8550/patches/linux/1002-haptics-driver-support-periodic-sine-and-fixes.patch",
+    "area": "patches-and-configs",
+    "tier": "vendor-carried",
+    "tier_note": "None",
+    "overlap": "False",
+    "language": "patch",
+    "lines": 246,
+    "patches": "None",
+    "last_fork_commit": "None",
+    "last_upstream_commit": "e1588d3c80 2026-04-07",
+    "reach": "shipped",
+    "reachable_by": [
+      "SM8550-aarch64",
+      "SM8550-arm"
+    ],
+    "buildable_by": "[]",
+    "shadowed_by": "None"
+  },
+  {
+    "tree": "distribution",
+    "path": "projects/ROCKNIX/devices/SM8550/patches/linux/1003-rsinput-add-ff.patch",
+    "area": "patches-and-configs",
+    "tier": "vendor-carried",
+    "tier_note": "None",
+    "overlap": "False",
+    "language": "patch",
+    "lines": 196,
+    "patches": "None",
+    "last_fork_commit": "None",
+    "last_upstream_commit": "e1588d3c80 2026-04-07",
+    "reach": "shipped",
+    "reachable_by": [
+      "SM8550-aarch64",
+      "SM8550-arm"
+    ],
+    "buildable_by": "[]",
+    "shadowed_by": "None"
+  },
+  {
+    "tree": "distribution",
+    "path": "projects/ROCKNIX/devices/SM8550/patches/linux/1005-input-qcom-haptics-defer-rsinput-playback.patch",
+    "area": "patches-and-configs",
+    "tier": "vendor-carried",
+    "tier_note": "None",
+    "overlap": "False",
+    "language": "patch",
+    "lines": 189,
+    "patches": "None",
+    "last_fork_commit": "None",
+    "last_upstream_commit": "6c25748cb1 2026-08-05",
+    "reach": "shipped",
+    "reachable_by": [
+      "SM8550-aarch64",
+      "SM8550-arm"
+    ],
+    "buildable_by": "[]",
+    "shadowed_by": "None"
+  },
+  {
+    "tree": "distribution",
+    "path": "projects/ROCKNIX/devices/SM8550/patches/linux/1020-wifi-ath12k-send-the-computed-scan-priority-to-the-f.patch",
+    "area": "patches-and-configs",
+    "tier": "vendor-carried",
+    "tier_note": "None",
+    "overlap": "False",
+    "language": "patch",
+    "lines": 59,
+    "patches": "None",
+    "last_fork_commit": "None",
+    "last_upstream_commit": "8638e1d190 2026-08-16",
+    "reach": "shipped",
+    "reachable_by": [
+      "SM8550-aarch64",
+      "SM8550-arm"
+    ],
+    "buildable_by": "[]",
+    "shadowed_by": "None"
+  },
+  {
+    "tree": "distribution",
+    "path": "projects/ROCKNIX/devices/SM8550/patches/linux/20260424_neil_armstrong_arm64_dts_qcom_sm8_456_50_add_missing_cx_power_domain_to_gcc.patch",
+    "area": "patches-and-configs",
+    "tier": "vendor-carried",
+    "tier_note": "None",
+    "overlap": "False",
+    "language": "patch",
+    "lines": 253,
+    "patches": "None",
+    "last_fork_commit": "None",
+    "last_upstream_commit": "71cbd61d65 2026-04-26",
+    "reach": "shipped",
+    "reachable_by": [
+      "SM8550-aarch64",
+      "SM8550-arm"
+    ],
+    "buildable_by": "[]",
+    "shadowed_by": "None"
+  },
+  {
+    "tree": "distribution",
+    "path": "projects/ROCKNIX/devices/SM8550/patches/linux/v6_20260210_quic_utiwari_crypto_qce_add_runtime_pm_and_interconnect_bandwidth_scaling_support.patch",
+    "area": "patches-and-configs",
+    "tier": "vendor-carried",
+    "tier_note": "None",
+    "overlap": "False",
+    "language": "patch",
+    "lines": 239,
+    "patches": "None",
+    "last_fork_commit": "None",
+    "last_upstream_commit": "87322eb468 2026-02-11",
+    "reach": "shipped",
+    "reachable_by": [
+      "SM8550-aarch64",
+      "SM8550-arm"
+    ],
+    "buildable_by": "[]",
+    "shadowed_by": "None"
+  },
+  {
+    "tree": "distribution",
+    "path": "projects/ROCKNIX/packages/linux-firmware/kernel-firmware/patches/kernel-firmware-02-add-brcmfmac-43xxx-configs.patch",
+    "area": "patches-and-configs",
+    "tier": "vendor-carried",
+    "tier_note": "None",
+    "overlap": "False",
+    "language": "patch",
+    "lines": 188,
+    "patches": "None",
+    "last_fork_commit": "None",
+    "last_upstream_commit": "9f1fab30f6 2025-07-13",
+    "reach": "shipped",
+    "reachable_by": [
+      "GENERIC_X64-x86_64",
+      "H700-aarch64",
+      "SM8550-aarch64"
+    ],
+    "buildable_by": "['AMD64-x86_64', 'RK3326-aarch64', 'RK3399-aarch64', 'RK3566-aarch64', 'RK3576-aarch64', 'RK3588-aarch64', 'S922X-aarch64', 'SM4450-aarch64', 'SM6115-aarch64', 'SM8250-aarch64', 'SM8650-aarch64', 'SM8750-aarch64']",
+    "shadowed_by": "None"
+  },
+  {
+    "tree": "distribution",
+    "path": "projects/ROCKNIX/packages/linux/patches/7.0/0006-hid-playstation-expose-DualSense-Edge-Fn-and-back-paddles.patch",
+    "area": "patches-and-configs",
+    "tier": "vendor-carried",
+    "tier_note": "None",
+    "overlap": "False",
+    "language": "patch",
+    "lines": 66,
+    "patches": "None",
+    "last_fork_commit": "None",
+    "last_upstream_commit": "0c77a91dca 2026-08-21",
+    "reach": "test",
+    "reachable_by": [
+      "GENERIC_X64-x86_64"
+    ],
+    "buildable_by": "['AMD64-x86_64', 'RK3326-aarch64', 'RK3326-arm', 'RK3566-aarch64', 'RK3566-arm', 'RK3576-aarch64', 'RK3576-arm']",
+    "shadowed_by": "None"
+  },
+  {
+    "tree": "distribution",
+    "path": "projects/ROCKNIX/packages/linux/patches/7.0/0010-msm-resource-cleanup.patch",
+    "area": "patches-and-configs",
+    "tier": "vendor-carried",
+    "tier_note": "None",
+    "overlap": "False",
+    "language": "patch",
+    "lines": 478,
+    "patches": "None",
+    "last_fork_commit": "None",
+    "last_upstream_commit": "9416eec2c2 2026-10-06",
+    "reach": "test",
+    "reachable_by": [
+      "GENERIC_X64-x86_64"
+    ],
+    "buildable_by": "['AMD64-x86_64', 'RK3326-aarch64', 'RK3326-arm', 'RK3566-aarch64', 'RK3566-arm', 'RK3576-aarch64', 'RK3576-arm']",
+    "shadowed_by": "None"
+  },
+  {
+    "tree": "distribution",
+    "path": "projects/ROCKNIX/packages/linux/patches/7.0/9998-silence-initramfs-unpack-warn.patch",
+    "area": "patches-and-configs",
+    "tier": "vendor-carried",
+    "tier_note": "None",
+    "overlap": "False",
+    "language": "patch",
+    "lines": 12,
+    "patches": "None",
+    "last_fork_commit": "None",
+    "last_upstream_commit": "a5970d2e62 2026-07-28",
+    "reach": "test",
+    "reachable_by": [
+      "GENERIC_X64-x86_64"
+    ],
+    "buildable_by": "['AMD64-x86_64', 'RK3326-aarch64', 'RK3326-arm', 'RK3566-aarch64', 'RK3566-arm', 'RK3576-aarch64', 'RK3576-arm']",
+    "shadowed_by": "None"
+  },
+  {
+    "tree": "distribution",
+    "path": "projects/ROCKNIX/packages/linux/patches/7.0/9999-fix-rust-build-error.patch",
+    "area": "patches-and-configs",
+    "tier": "vendor-carried",
+    "tier_note": "None",
+    "overlap": "False",
+    "language": "patch",
+    "lines": 29,
+    "patches": "None",
+    "last_fork_commit": "None",
+    "last_upstream_commit": "58201c794e 2026-04-14",
+    "reach": "test",
+    "reachable_by": [
+      "GENERIC_X64-x86_64"
+    ],
+    "buildable_by": "['AMD64-x86_64', 'RK3326-aarch64', 'RK3326-arm', 'RK3566-aarch64', 'RK3566-arm', 'RK3576-aarch64', 'RK3576-arm']",
+    "shadowed_by": "None"
+  },
+  {
+    "tree": "distribution",
+    "path": "projects/ROCKNIX/packages/linux/patches/7.2/0010-msm-resource-cleanup.patch",
+    "area": "patches-and-configs",
+    "tier": "vendor-carried",
+    "tier_note": "None",
+    "overlap": "False",
+    "language": "patch",
+    "lines": 478,
+    "patches": "None",
+    "last_fork_commit": "None",
+    "last_upstream_commit": "9416eec2c2 2026-10-06",
+    "reach": "shipped",
+    "reachable_by": [
+      "H700-aarch64",
+      "H700-arm",
+      "SM8550-aarch64",
+      "SM8550-arm"
+    ],
+    "buildable_by": "['SM4450-aarch64', 'SM4450-arm', 'SM6115-aarch64', 'SM6115-arm', 'SM8250-aarch64', 'SM8250-arm', 'SM8650-aarch64', 'SM8750-aarch64']",
+    "shadowed_by": "None"
+  },
+  {
+    "tree": "distribution",
+    "path": "projects/ROCKNIX/packages/linux/patches/7.2/0011-thermal-adc-tm5-drop-iio-val-int-check.patch",
+    "area": "patches-and-configs",
+    "tier": "vendor-carried",
+    "tier_note": "None",
+    "overlap": "False",
+    "language": "patch",
+    "lines": 37,
+    "patches": "None",
+    "last_fork_commit": "None",
+    "last_upstream_commit": "1dc63e1531 2026-09-27",
+    "reach": "shipped",
+    "reachable_by": [
+      "H700-aarch64",
+      "H700-arm",
+      "SM8550-aarch64",
+      "SM8550-arm"
+    ],
+    "buildable_by": "['SM4450-aarch64', 'SM4450-arm', 'SM6115-aarch64', 'SM6115-arm', 'SM8250-aarch64', 'SM8250-arm', 'SM8650-aarch64', 'SM8750-aarch64']",
+    "shadowed_by": "None"
+  },
+  {
+    "tree": "distribution",
+    "path": "projects/ROCKNIX/packages/linux/patches/7.2/0013-drm-msm-dpu-fix-inline-rotation.patch",
+    "area": "patches-and-configs",
+    "tier": "vendor-carried",
+    "tier_note": "None",
+    "overlap": "False",
+    "language": "patch",
+    "lines": 64,
+    "patches": "None",
+    "last_fork_commit": "None",
+    "last_upstream_commit": "180057b9ab 2026-09-17",
+    "reach": "shipped",
+    "reachable_by": [
+      "H700-aarch64",
+      "H700-arm",
+      "SM8550-aarch64",
+      "SM8550-arm"
+    ],
+    "buildable_by": "['SM4450-aarch64', 'SM4450-arm', 'SM6115-aarch64', 'SM6115-arm', 'SM8250-aarch64', 'SM8250-arm', 'SM8650-aarch64', 'SM8750-aarch64']",
+    "shadowed_by": "None"
+  },
+  {
+    "tree": "distribution",
+    "path": "projects/ROCKNIX/packages/linux/patches/7.2/0016-drm-msm-dp-return-0-from-audio_prepare-when-cable-is-disconnected.patch",
+    "area": "patches-and-configs",
+    "tier": "vendor-carried",
+    "tier_note": "None",
+    "overlap": "False",
+    "language": "patch",
+    "lines": 31,
+    "patches": "None",
+    "last_fork_commit": "None",
+    "last_upstream_commit": "7b4da83200 2026-09-29",
+    "reach": "shipped",
+    "reachable_by": [
+      "H700-aarch64",
+      "H700-arm",
+      "SM8550-aarch64",
+      "SM8550-arm"
+    ],
+    "buildable_by": "['SM4450-aarch64', 'SM4450-arm', 'SM6115-aarch64', 'SM6115-arm', 'SM8250-aarch64', 'SM8250-arm', 'SM8650-aarch64', 'SM8750-aarch64']",
+    "shadowed_by": "None"
+  },
+  {
+    "tree": "distribution",
+    "path": "projects/ROCKNIX/packages/linux/patches/7.2/9998-silence-initramfs-unpack-warn.patch",
+    "area": "patches-and-configs",
+    "tier": "vendor-carried",
+    "tier_note": "None",
+    "overlap": "False",
+    "language": "patch",
+    "lines": 12,
+    "patches": "None",
+    "last_fork_commit": "None",
+    "last_upstream_commit": "0c77a91dca 2026-08-21",
+    "reach": "shipped",
+    "reachable_by": [
+      "H700-aarch64",
+      "H700-arm",
+      "SM8550-aarch64",
+      "SM8550-arm"
+    ],
+    "buildable_by": "['SM4450-aarch64', 'SM4450-arm', 'SM6115-aarch64', 'SM6115-arm', 'SM8250-aarch64', 'SM8250-arm', 'SM8650-aarch64', 'SM8750-aarch64']",
+    "shadowed_by": "None"
+  },
+  {
+    "tree": "distribution",
+    "path": "projects/ROCKNIX/packages/linux/patches/7.2/9999-fix-rust-build-error.patch",
+    "area": "patches-and-configs",
+    "tier": "vendor-carried",
+    "tier_note": "None",
+    "overlap": "False",
+    "language": "patch",
+    "lines": 29,
+    "patches": "None",
+    "last_fork_commit": "None",
+    "last_upstream_commit": "0c77a91dca 2026-08-21",
+    "reach": "shipped",
+    "reachable_by": [
+      "H700-aarch64",
+      "H700-arm",
+      "SM8550-aarch64",
+      "SM8550-arm"
+    ],
+    "buildable_by": "['SM4450-aarch64', 'SM4450-arm', 'SM6115-aarch64', 'SM6115-arm', 'SM8250-aarch64', 'SM8250-arm', 'SM8650-aarch64', 'SM8750-aarch64']",
+    "shadowed_by": "None"
+  },
+  {
+    "tree": "distribution",
+    "path": "projects/ROCKNIX/packages/linux/patches/mainline/0002-input-add-input-polldev-driver.patch",
+    "area": "patches-and-configs",
+    "tier": "vendor-carried",
+    "tier_note": "None",
+    "overlap": "False",
+    "language": "patch",
+    "lines": 485,
+    "patches": "None",
+    "last_fork_commit": "None",
+    "last_upstream_commit": "fe5216ff69 2026-10-09",
+    "reach": "shipped",
+    "reachable_by": [
+      "GENERIC_X64-x86_64",
+      "H700-aarch64",
+      "H700-arm",
+      "SM8550-aarch64",
+      "SM8550-arm"
+    ],
+    "buildable_by": "['AMD64-x86_64', 'RK3326-aarch64', 'RK3326-arm', 'RK3399-aarch64', 'RK3399-arm', 'RK3566-aarch64', 'RK3566-arm', 'RK3576-aarch64', 'RK3576-arm', 'S922X-aarch64', 'S922X-arm', 'SM4450-aarch64', 'SM4450-arm', 'SM6115-aarch64', 'SM6115-arm', 'SM8250-aarch64', 'SM8250-arm', 'SM8650-aarch64', 'SM8750-aarch64']",
+    "shadowed_by": "None"
+  },
+  {
+    "tree": "distribution",
+    "path": "projects/ROCKNIX/packages/linux/patches/mainline/0003-pwm-add-pwm_set_period.patch",
+    "area": "patches-and-configs",
+    "tier": "vendor-carried",
+    "tier_note": "None",
+    "overlap": "False",
+    "language": "patch",
+    "lines": 29,
+    "patches": "None",
+    "last_fork_commit": "None",
+    "last_upstream_commit": "9f1fab30f6 2025-07-13",
+    "reach": "shipped",
+    "reachable_by": [
+      "GENERIC_X64-x86_64",
+      "H700-aarch64",
+      "H700-arm",
+      "SM8550-aarch64",
+      "SM8550-arm"
+    ],
+    "buildable_by": "['AMD64-x86_64', 'RK3326-aarch64', 'RK3326-arm', 'RK3399-aarch64', 'RK3399-arm', 'RK3566-aarch64', 'RK3566-arm', 'RK3576-aarch64', 'RK3576-arm', 'S922X-aarch64', 'S922X-arm', 'SM4450-aarch64', 'SM4450-arm', 'SM6115-aarch64', 'SM6115-arm', 'SM8250-aarch64', 'SM8250-arm', 'SM8650-aarch64', 'SM8750-aarch64']",
+    "shadowed_by": "None"
+  },
+  {
+    "tree": "distribution",
+    "path": "projects/ROCKNIX/packages/linux/patches/mainline/0004-input-adc-keys-redirect-keycode-316-to-rocknix-joypa.patch",
+    "area": "patches-and-configs",
+    "tier": "vendor-carried",
+    "tier_note": "None",
+    "overlap": "False",
+    "language": "patch",
+    "lines": 71,
+    "patches": "None",
+    "last_fork_commit": "None",
+    "last_upstream_commit": "9f1fab30f6 2025-07-13",
+    "reach": "shipped",
+    "reachable_by": [
+      "GENERIC_X64-x86_64",
+      "H700-aarch64",
+      "H700-arm",
+      "SM8550-aarch64",
+      "SM8550-arm"
+    ],
+    "buildable_by": "['AMD64-x86_64', 'RK3326-aarch64', 'RK3326-arm', 'RK3399-aarch64', 'RK3399-arm', 'RK3566-aarch64', 'RK3566-arm', 'RK3576-aarch64', 'RK3576-arm', 'S922X-aarch64', 'S922X-arm', 'SM4450-aarch64', 'SM4450-arm', 'SM6115-aarch64', 'SM6115-arm', 'SM8250-aarch64', 'SM8250-arm', 'SM8650-aarch64', 'SM8750-aarch64']",
+    "shadowed_by": "None"
+  },
+  {
+    "tree": "distribution",
+    "path": "projects/ROCKNIX/packages/linux/patches/mainline/0005-Bluetooth-btrtl-Add-the-support-for-RTL8733BU.patch",
+    "area": "patches-and-configs",
+    "tier": "vendor-carried",
+    "tier_note": "None",
+    "overlap": "False",
+    "language": "patch",
+    "lines": 63,
+    "patches": "None",
+    "last_fork_commit": "None",
+    "last_upstream_commit": "9f1fab30f6 2025-07-13",
+    "reach": "shipped",
+    "reachable_by": [
+      "GENERIC_X64-x86_64",
+      "H700-aarch64",
+      "H700-arm",
+      "SM8550-aarch64",
+      "SM8550-arm"
+    ],
+    "buildable_by": "['AMD64-x86_64', 'RK3326-aarch64', 'RK3326-arm', 'RK3399-aarch64', 'RK3399-arm', 'RK3566-aarch64', 'RK3566-arm', 'RK3576-aarch64', 'RK3576-arm', 'S922X-aarch64', 'S922X-arm', 'SM4450-aarch64', 'SM4450-arm', 'SM6115-aarch64', 'SM6115-arm', 'SM8250-aarch64', 'SM8250-arm', 'SM8650-aarch64', 'SM8750-aarch64']",
+    "shadowed_by": "None"
+  }
+]

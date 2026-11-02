@@ -1,0 +1,52 @@
+{
+  "plan": "GENERIC_X64",
+  "index": 4,
+  "path": "projects/ROCKNIX/packages/linux/patches/mainline/0005-Bluetooth-btrtl-Add-the-support-for-RTL8733BU.patch",
+  "patch_sha256": "b4a9ba4cbc09e99730bbe3c40ba02b0021de61c58b2df54f2244a4c01fdb6316",
+  "produced_at": "2026-11-02T17:16:59.024732+00:00",
+  "input_tree_sha256": "0c20fbd42b6f284d3ec8d484cf4d4cba5a4f33196fd8b1620f0d3580c0c6adac",
+  "candidate": "/workspace/tmp/m6-t41/src/corrected-20261102T171658Z/GENERIC_X64/candidates/004",
+  "dry": {
+    "argv": [
+      "patch",
+      "-p1",
+      "-N",
+      "--batch",
+      "--directory",
+      "/workspace/tmp/m6-t41/src/corrected-20261102T171658Z/GENERIC_X64/candidates/004",
+      "--dry-run"
+    ],
+    "start": "2026-11-02T17:16:59.027135+00:00",
+    "elapsed_seconds": 0.002,
+    "rc": 0,
+    "timed_out": false,
+    "output": "logs/GENERIC_X64-004.dry.out",
+    "output_sha256": "fd264189498cbde3b3afde4da0bcdabd33bbb6b9fd83cc396173390438eed534"
+  },
+  "dry_rc": 0,
+  "after_dry_tree_sha256": "0c20fbd42b6f284d3ec8d484cf4d4cba5a4f33196fd8b1620f0d3580c0c6adac",
+  "attempted": true,
+  "apply": {
+    "argv": [
+      "patch",
+      "-p1",
+      "-N",
+      "--batch",
+      "--directory",
+      "/workspace/tmp/m6-t41/src/corrected-20261102T171658Z/GENERIC_X64/candidates/004"
+    ],
+    "start": "2026-11-02T17:16:59.030120+00:00",
+    "elapsed_seconds": 0.002,
+    "rc": 0,
+    "timed_out": false,
+    "output": "logs/GENERIC_X64-004.apply.out",
+    "output_sha256": "760d50f673da0785eab894407b9d971395e1a08159155a67c13f8f71f1d9a342"
+  },
+  "apply_rc": 0,
+  "offset": 4,
+  "fuzz": 0,
+  "FAILED": 0,
+  "output_tree_sha256": "453d70886a12fdd95ae4f41c3f43162c9c3d06dc3cd8adf5a2414dad808d1a00",
+  "promoted": true,
+  "status": "applies with offset"
+}

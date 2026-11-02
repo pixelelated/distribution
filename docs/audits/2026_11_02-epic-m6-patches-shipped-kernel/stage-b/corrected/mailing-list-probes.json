@@ -1,0 +1,119 @@
+[
+  {
+    "path": "projects/ROCKNIX/devices/H700/packages/u-boot-DDR3/patches/0002-sunxi-axp717-charge-only-boot.patch",
+    "source": "/workspace/tmp/m6-t41/src/corrected-20261102T171658Z/H700/initial/linux-7.2/arch/arm/mach-sunxi/Kconfig",
+    "source_exists": false,
+    "first_target": "arch/arm/mach-sunxi/Kconfig",
+    "probe": "\tdepends on AXP209_POWER || AXP221_POWER || AXP809_POWER || AXP818_POWER || AXP717_POWER",
+    "count": 0,
+    "interpretation": "Single added-line overlap probe only; does not establish complete patch supersession. Complete corrected application succeeds."
+  },
+  {
+    "path": "projects/ROCKNIX/devices/H700/packages/u-boot-DDR4/patches/0002-sunxi-axp717-charge-only-boot.patch",
+    "source": "/workspace/tmp/m6-t41/src/corrected-20261102T171658Z/H700/initial/linux-7.2/arch/arm/mach-sunxi/Kconfig",
+    "source_exists": false,
+    "first_target": "arch/arm/mach-sunxi/Kconfig",
+    "probe": "\tdepends on AXP209_POWER || AXP221_POWER || AXP809_POWER || AXP818_POWER || AXP717_POWER",
+    "count": 0,
+    "interpretation": "Single added-line overlap probe only; does not establish complete patch supersession. Complete corrected application succeeds."
+  },
+  {
+    "path": "projects/ROCKNIX/devices/H700/patches/linux/0002-rg35xx-enable-HDMI-LCD.patch",
+    "source": "/workspace/tmp/m6-t41/src/corrected-20261102T171658Z/H700/initial/linux-7.2/drivers/gpu/drm/sun4i/sun8i_vi_layer.c",
+    "source_exists": true,
+    "first_target": "drivers/gpu/drm/sun4i/sun8i_vi_layer.c",
+    "probe": "static const u32 sun8i_vi_layer_de33_formats[] = {",
+    "count": 0,
+    "interpretation": "Single added-line overlap probe only; does not establish complete patch supersession. Complete corrected application succeeds."
+  },
+  {
+    "path": "projects/ROCKNIX/devices/H700/patches/linux/0008-v8_20260804_james_hilliard1_introduce_allwinner_h616_pwm_controller.patch",
+    "source": "/workspace/tmp/m6-t41/src/corrected-20261102T171658Z/H700/initial/linux-7.2/Documentation/devicetree/bindings/pwm/allwinner,sun4i-a10-pwm.yaml",
+    "source_exists": true,
+    "first_target": "Documentation/devicetree/bindings/pwm/allwinner,sun4i-a10-pwm.yaml",
+    "probe": "      The cell selects the PWM channel whose hardware bypass path is exported",
+    "count": 0,
+    "interpretation": "Single added-line overlap probe only; does not establish complete patch supersession. Complete corrected application succeeds."
+  },
+  {
+    "path": "projects/ROCKNIX/devices/H700/patches/linux/0110-v2_20250226_kikuchan98_drm_panel_add_generic_mipi_panel_driver.patch",
+    "source": "/workspace/tmp/m6-t41/src/corrected-20261102T171658Z/H700/initial/linux-7.2/Documentation/devicetree/bindings/vendor-prefixes.yaml",
+    "source_exists": true,
+    "first_target": "Documentation/devicetree/bindings/vendor-prefixes.yaml",
+    "probe": "    description: Hotdisplay Technology Co.Ltd",
+    "count": 0,
+    "interpretation": "Single added-line overlap probe only; does not establish complete patch supersession. Complete corrected application succeeds."
+  },
+  {
+    "path": "projects/ROCKNIX/devices/H700/patches/linux/0126-20241018_macroalpha82_rg35xx_add_additional_hardware_support.patch",
+    "source": "/workspace/tmp/m6-t41/src/corrected-20261102T171658Z/H700/initial/linux-7.2/arch/arm64/boot/dts/allwinner/sun50i-h700-anbernic-rg35xx-2024.dts",
+    "source_exists": true,
+    "first_target": "arch/arm64/boot/dts/allwinner/sun50i-h700-anbernic-rg35xx-2024.dts",
+    "probe": "\treg_vcc3v3_mmc2: regulator-vcc3v3-mmc2 {",
+    "count": 0,
+    "interpretation": "Single added-line overlap probe only; does not establish complete patch supersession. Complete corrected application succeeds."
+  },
+  {
+    "path": "projects/ROCKNIX/devices/H700/patches/linux/0160-phy-sun4i-usb-disable-the-clock-that-was-enabled.patch",
+    "source": "/workspace/tmp/m6-t41/src/corrected-20261102T171658Z/H700/initial/linux-7.2/drivers/phy/allwinner/phy-sun4i-usb.c",
+    "source_exists": true,
+    "first_target": "drivers/phy/allwinner/phy-sun4i-usb.c",
+    "probe": "\t\tclk_disable_unprepare(phy2->clk2);",
+    "count": 0,
+    "interpretation": "Single added-line overlap probe only; does not establish complete patch supersession. Complete corrected application succeeds."
+  },
+  {
+    "path": "projects/ROCKNIX/devices/SM8550/patches/linux/0006-add-hw_params-callback-function-to-drm_connector_hdmi_audio_ops.patch",
+    "source": "/workspace/tmp/m6-t41/src/corrected-20261102T171658Z/SM8550/initial/linux-7.2/drivers/gpu/drm/display/drm_hdmi_audio_helper.c",
+    "source_exists": true,
+    "first_target": "drivers/gpu/drm/display/drm_hdmi_audio_helper.c",
+    "probe": "\t.hw_params = drm_connector_hdmi_audio_prepare,",
+    "count": 0,
+    "interpretation": "Single added-line overlap probe only; does not establish complete patch supersession. Complete corrected application succeeds."
+  },
+  {
+    "path": "projects/ROCKNIX/devices/SM8550/patches/linux/0120-20250728_konradybcio_gpu_cc_power_requirements_reality_check.patch",
+    "source": "/workspace/tmp/m6-t41/src/corrected-20261102T171658Z/SM8550/initial/linux-7.2/arch/arm64/boot/dts/qcom/sm8550.dtsi",
+    "source_exists": true,
+    "first_target": "arch/arm64/boot/dts/qcom/sm8550.dtsi",
+    "probe": "\t\t\tpower-domains = <&rpmhpd RPMHPD_CX>,",
+    "count": 2,
+    "interpretation": "Single added-line overlap probe only; does not establish complete patch supersession. Complete corrected application succeeds."
+  },
+  {
+    "path": "projects/ROCKNIX/devices/SM8550/patches/linux/20260424_neil_armstrong_arm64_dts_qcom_sm8_456_50_add_missing_cx_power_domain_to_gcc.patch",
+    "source": "/workspace/tmp/m6-t41/src/corrected-20261102T171658Z/SM8550/initial/linux-7.2/Documentation/devicetree/bindings/clock/qcom,gcc-sm8450.yaml",
+    "source_exists": true,
+    "first_target": "Documentation/devicetree/bindings/clock/qcom,gcc-sm8450.yaml",
+    "probe": "      - description: CX domain",
+    "count": 0,
+    "interpretation": "Single added-line overlap probe only; does not establish complete patch supersession. Complete corrected application succeeds."
+  },
+  {
+    "path": "projects/ROCKNIX/devices/SM8550/patches/linux/v6_20260210_quic_utiwari_crypto_qce_add_runtime_pm_and_interconnect_bandwidth_scaling_support.patch",
+    "source": "/workspace/tmp/m6-t41/src/corrected-20261102T171658Z/SM8550/initial/linux-7.2/drivers/crypto/qce/core.c",
+    "source_exists": true,
+    "first_target": "drivers/crypto/qce/core.c",
+    "probe": "\tACQUIRE(pm_runtime_active_try, pm)(qce->dev);",
+    "count": 0,
+    "interpretation": "Single added-line overlap probe only; does not establish complete patch supersession. Complete corrected application succeeds."
+  },
+  {
+    "path": "projects/ROCKNIX/packages/linux/patches/7.2/0011-thermal-adc-tm5-drop-iio-val-int-check.patch",
+    "source": "/workspace/tmp/m6-t41/src/corrected-20261102T171658Z/H700/initial/linux-7.2/drivers/thermal/qcom/qcom-spmi-adc-tm5.c",
+    "source_exists": true,
+    "first_target": "drivers/thermal/qcom/qcom-spmi-adc-tm5.c",
+    "probe": null,
+    "count": null,
+    "interpretation": "Single added-line overlap probe only; does not establish complete patch supersession. Complete corrected application succeeds."
+  },
+  {
+    "path": "projects/ROCKNIX/packages/linux/patches/7.2/0016-drm-msm-dp-return-0-from-audio_prepare-when-cable-is-disconnected.patch",
+    "source": "/workspace/tmp/m6-t41/src/corrected-20261102T171658Z/H700/initial/linux-7.2/drivers/gpu/drm/msm/dp/dp_audio.c",
+    "source_exists": true,
+    "first_target": "drivers/gpu/drm/msm/dp/dp_audio.c",
+    "probe": "\tif (!msm_dp_display->power_on)",
+    "count": 1,
+    "interpretation": "Single added-line overlap probe only; does not establish complete patch supersession. Complete corrected application succeeds."
+  }
+]

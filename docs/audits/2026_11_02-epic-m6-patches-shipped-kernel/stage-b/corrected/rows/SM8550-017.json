@@ -1,0 +1,52 @@
+{
+  "plan": "SM8550",
+  "index": 17,
+  "path": "projects/ROCKNIX/devices/SM8550/patches/linux/0031_input--Add-driver-for-RSInput-Gamepad.patch",
+  "patch_sha256": "1a1a8ec5c7a81557779d5e997f66634695ce608043b281ebf286811ae8183257",
+  "produced_at": "2026-11-02T17:17:01.570762+00:00",
+  "input_tree_sha256": "a6fa5728c4e0c2553a6cd20f535e180476da074b351eeab5a0c9d22c4e6c1f10",
+  "candidate": "/workspace/tmp/m6-t41/src/corrected-20261102T171658Z/SM8550/candidates/017",
+  "dry": {
+    "argv": [
+      "patch",
+      "-p1",
+      "-N",
+      "--batch",
+      "--directory",
+      "/workspace/tmp/m6-t41/src/corrected-20261102T171658Z/SM8550/candidates/017",
+      "--dry-run"
+    ],
+    "start": "2026-11-02T17:17:01.579960+00:00",
+    "elapsed_seconds": 0.002,
+    "rc": 0,
+    "timed_out": false,
+    "output": "logs/SM8550-017.dry.out",
+    "output_sha256": "c83c9db45d8749c70853ff98bafe70cdcaa639dc8dab8651e45281cb49ab3882"
+  },
+  "dry_rc": 0,
+  "after_dry_tree_sha256": "a6fa5728c4e0c2553a6cd20f535e180476da074b351eeab5a0c9d22c4e6c1f10",
+  "attempted": true,
+  "apply": {
+    "argv": [
+      "patch",
+      "-p1",
+      "-N",
+      "--batch",
+      "--directory",
+      "/workspace/tmp/m6-t41/src/corrected-20261102T171658Z/SM8550/candidates/017"
+    ],
+    "start": "2026-11-02T17:17:01.584742+00:00",
+    "elapsed_seconds": 0.002,
+    "rc": 0,
+    "timed_out": false,
+    "output": "logs/SM8550-017.apply.out",
+    "output_sha256": "8dc3aede004aa8ef942e9a1359cc54c4f756151a2647dec7e03fd80d666d729a"
+  },
+  "apply_rc": 0,
+  "offset": 2,
+  "fuzz": 0,
+  "FAILED": 0,
+  "output_tree_sha256": "0b0398096195f20cdce20497c18553b625cc1c1b824286c8ab5f7888b9ea0c22",
+  "promoted": true,
+  "status": "applies with offset"
+}

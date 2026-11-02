@@ -1,0 +1,52 @@
+{
+  "plan": "SM8550",
+  "index": 50,
+  "path": "projects/ROCKNIX/devices/SM8550/patches/linux/0500-ROCKNIX-set-boot-fanspeed.patch",
+  "patch_sha256": "a19c399faef515151895fc644be16bafab82eeb8212f8f53bfe90ed5e6e4c9ee",
+  "produced_at": "2026-11-02T17:17:02.368372+00:00",
+  "input_tree_sha256": "d7074597fa1befe59fc09ccb65b8f8c355e6ee0dfa48ed64d1680dc1862f566a",
+  "candidate": "/workspace/tmp/m6-t41/src/corrected-20261102T171658Z/SM8550/candidates/050",
+  "dry": {
+    "argv": [
+      "patch",
+      "-p1",
+      "-N",
+      "--batch",
+      "--directory",
+      "/workspace/tmp/m6-t41/src/corrected-20261102T171658Z/SM8550/candidates/050",
+      "--dry-run"
+    ],
+    "start": "2026-11-02T17:17:02.379584+00:00",
+    "elapsed_seconds": 0.002,
+    "rc": 0,
+    "timed_out": false,
+    "output": "logs/SM8550-050.dry.out",
+    "output_sha256": "962a6f2b9f943ac0648809c8935a2f7b82c48674c7ea04a7ae082ec697894d4f"
+  },
+  "dry_rc": 0,
+  "after_dry_tree_sha256": "d7074597fa1befe59fc09ccb65b8f8c355e6ee0dfa48ed64d1680dc1862f566a",
+  "attempted": true,
+  "apply": {
+    "argv": [
+      "patch",
+      "-p1",
+      "-N",
+      "--batch",
+      "--directory",
+      "/workspace/tmp/m6-t41/src/corrected-20261102T171658Z/SM8550/candidates/050"
+    ],
+    "start": "2026-11-02T17:17:02.385252+00:00",
+    "elapsed_seconds": 0.002,
+    "rc": 0,
+    "timed_out": false,
+    "output": "logs/SM8550-050.apply.out",
+    "output_sha256": "af78bfe25ee7c1ffa17d8f2e68ac32f262f6ebfcab77a97516ebb7a8f956a8c8"
+  },
+  "apply_rc": 0,
+  "offset": 1,
+  "fuzz": 0,
+  "FAILED": 0,
+  "output_tree_sha256": "f1ae5aaf4256c35a12349654f558eb9fa77fd17123661e82f8824ee502f29d22",
+  "promoted": true,
+  "status": "applies with offset"
+}

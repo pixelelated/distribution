@@ -1,0 +1,52 @@
+{
+  "plan": "SM8550",
+  "index": 15,
+  "path": "projects/ROCKNIX/devices/SM8550/patches/linux/0015-touchscreen-edt-ft5x06-allow-to-override-input-name.patch",
+  "patch_sha256": "ce4d632958b179f118bf2659611f3a8c084d784f90d76b5759f1722c06055a56",
+  "produced_at": "2026-11-02T17:17:01.527987+00:00",
+  "input_tree_sha256": "7c53b3465b2f496ff3f87d738d220bd2602c03f393a3cc039b7e917ba9200ecf",
+  "candidate": "/workspace/tmp/m6-t41/src/corrected-20261102T171658Z/SM8550/candidates/015",
+  "dry": {
+    "argv": [
+      "patch",
+      "-p1",
+      "-N",
+      "--batch",
+      "--directory",
+      "/workspace/tmp/m6-t41/src/corrected-20261102T171658Z/SM8550/candidates/015",
+      "--dry-run"
+    ],
+    "start": "2026-11-02T17:17:01.536570+00:00",
+    "elapsed_seconds": 0.002,
+    "rc": 0,
+    "timed_out": false,
+    "output": "logs/SM8550-015.dry.out",
+    "output_sha256": "3e29b7a79c4540be1b6bc3bacd0ca84e5948f6881606e84e82221bc974a15271"
+  },
+  "dry_rc": 0,
+  "after_dry_tree_sha256": "7c53b3465b2f496ff3f87d738d220bd2602c03f393a3cc039b7e917ba9200ecf",
+  "attempted": true,
+  "apply": {
+    "argv": [
+      "patch",
+      "-p1",
+      "-N",
+      "--batch",
+      "--directory",
+      "/workspace/tmp/m6-t41/src/corrected-20261102T171658Z/SM8550/candidates/015"
+    ],
+    "start": "2026-11-02T17:17:01.541591+00:00",
+    "elapsed_seconds": 0.002,
+    "rc": 0,
+    "timed_out": false,
+    "output": "logs/SM8550-015.apply.out",
+    "output_sha256": "b9b6bce564173717b9f09e7241ffb65359c3205f77dec68d4842aba3c4697563"
+  },
+  "apply_rc": 0,
+  "offset": 2,
+  "fuzz": 0,
+  "FAILED": 0,
+  "output_tree_sha256": "12cf091b390b7c693fd954baff70784722110ae142fa69e089aa75ac8ab7cafd",
+  "promoted": true,
+  "status": "applies with offset"
+}

@@ -1,0 +1,52 @@
+{
+  "plan": "GENERIC_X64",
+  "index": 5,
+  "path": "projects/ROCKNIX/packages/linux/patches/7.0/0006-hid-playstation-expose-DualSense-Edge-Fn-and-back-paddles.patch",
+  "patch_sha256": "d7edd724869a3767f70a4c6977771944adf75b7d034acdedc9a5c29e0c808578",
+  "produced_at": "2026-11-02T17:16:59.033731+00:00",
+  "input_tree_sha256": "453d70886a12fdd95ae4f41c3f43162c9c3d06dc3cd8adf5a2414dad808d1a00",
+  "candidate": "/workspace/tmp/m6-t41/src/corrected-20261102T171658Z/GENERIC_X64/candidates/005",
+  "dry": {
+    "argv": [
+      "patch",
+      "-p1",
+      "-N",
+      "--batch",
+      "--directory",
+      "/workspace/tmp/m6-t41/src/corrected-20261102T171658Z/GENERIC_X64/candidates/005",
+      "--dry-run"
+    ],
+    "start": "2026-11-02T17:16:59.036391+00:00",
+    "elapsed_seconds": 0.002,
+    "rc": 0,
+    "timed_out": false,
+    "output": "logs/GENERIC_X64-005.dry.out",
+    "output_sha256": "998cd59dd6b01e8174bd0a8b56fb22468b4c808225ad1da30cbab4f5707a9da8"
+  },
+  "dry_rc": 0,
+  "after_dry_tree_sha256": "453d70886a12fdd95ae4f41c3f43162c9c3d06dc3cd8adf5a2414dad808d1a00",
+  "attempted": true,
+  "apply": {
+    "argv": [
+      "patch",
+      "-p1",
+      "-N",
+      "--batch",
+      "--directory",
+      "/workspace/tmp/m6-t41/src/corrected-20261102T171658Z/GENERIC_X64/candidates/005"
+    ],
+    "start": "2026-11-02T17:16:59.039043+00:00",
+    "elapsed_seconds": 0.001,
+    "rc": 0,
+    "timed_out": false,
+    "output": "logs/GENERIC_X64-005.apply.out",
+    "output_sha256": "209732bc6707ce9ba7825217959e58b9aeffb4838833670a0981ebf583b16772"
+  },
+  "apply_rc": 0,
+  "offset": 0,
+  "fuzz": 2,
+  "FAILED": 0,
+  "output_tree_sha256": "35f84de1e3046439844df916f9e9548ba95efd80fdb06fcab697b49bad612c28",
+  "promoted": true,
+  "status": "fuzz"
+}

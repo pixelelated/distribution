@@ -1,0 +1,52 @@
+{
+  "plan": "SM8550",
+  "index": 40,
+  "path": "projects/ROCKNIX/devices/SM8550/patches/linux/0065-input-touchscreen-add-hynitron-cst66xx.patch",
+  "patch_sha256": "0b63b2c0d3236981c6cd06cc7af3696c6412007c96a3508bdd5485a7463d0de5",
+  "produced_at": "2026-11-02T17:17:02.113241+00:00",
+  "input_tree_sha256": "53fe90428a6d73ffe17d9c10167c5589bc314039c4731b2c49b840b509e964f6",
+  "candidate": "/workspace/tmp/m6-t41/src/corrected-20261102T171658Z/SM8550/candidates/040",
+  "dry": {
+    "argv": [
+      "patch",
+      "-p1",
+      "-N",
+      "--batch",
+      "--directory",
+      "/workspace/tmp/m6-t41/src/corrected-20261102T171658Z/SM8550/candidates/040",
+      "--dry-run"
+    ],
+    "start": "2026-11-02T17:17:02.123788+00:00",
+    "elapsed_seconds": 0.002,
+    "rc": 0,
+    "timed_out": false,
+    "output": "logs/SM8550-040.dry.out",
+    "output_sha256": "81a3c61f514199b7fa19e5a9c9645f9aa276720ba7261c04ccda76f2017744a7"
+  },
+  "dry_rc": 0,
+  "after_dry_tree_sha256": "53fe90428a6d73ffe17d9c10167c5589bc314039c4731b2c49b840b509e964f6",
+  "attempted": true,
+  "apply": {
+    "argv": [
+      "patch",
+      "-p1",
+      "-N",
+      "--batch",
+      "--directory",
+      "/workspace/tmp/m6-t41/src/corrected-20261102T171658Z/SM8550/candidates/040"
+    ],
+    "start": "2026-11-02T17:17:02.129535+00:00",
+    "elapsed_seconds": 0.002,
+    "rc": 0,
+    "timed_out": false,
+    "output": "logs/SM8550-040.apply.out",
+    "output_sha256": "484c68d88f5ff9dbd01a231f093ecbdf6afeed8cbe162f840fc5eccf0d260786"
+  },
+  "apply_rc": 0,
+  "offset": 2,
+  "fuzz": 0,
+  "FAILED": 0,
+  "output_tree_sha256": "d839c5568f3673b48f54fe3fdd6fde20b2c3872d19ec7bbfe143efabce643cc9",
+  "promoted": true,
+  "status": "applies with offset"
+}

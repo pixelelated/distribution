@@ -1,0 +1,52 @@
+{
+  "plan": "H700",
+  "index": 35,
+  "path": "projects/ROCKNIX/devices/H700/patches/linux/0161-drm-sun4i-gate-the-display-pipeline-across-system-suspend.patch",
+  "patch_sha256": "dd17c2e206771ef6a6e23dfec7b3e29daf0581d4e0210c65f9098fe7c0da4369",
+  "produced_at": "2026-11-02T17:17:00.435537+00:00",
+  "input_tree_sha256": "76e09f3367b41a52fdc48b622d7c819f00931fd20beb484657be7f666c7266ec",
+  "candidate": "/workspace/tmp/m6-t41/src/corrected-20261102T171658Z/H700/candidates/035",
+  "dry": {
+    "argv": [
+      "patch",
+      "-p1",
+      "-N",
+      "--batch",
+      "--directory",
+      "/workspace/tmp/m6-t41/src/corrected-20261102T171658Z/H700/candidates/035",
+      "--dry-run"
+    ],
+    "start": "2026-11-02T17:17:00.444209+00:00",
+    "elapsed_seconds": 0.002,
+    "rc": 0,
+    "timed_out": false,
+    "output": "logs/H700-035.dry.out",
+    "output_sha256": "85eefff73e0351cc15a3e6479007748dc7cb1dee06d9008093a0012300f81d07"
+  },
+  "dry_rc": 0,
+  "after_dry_tree_sha256": "76e09f3367b41a52fdc48b622d7c819f00931fd20beb484657be7f666c7266ec",
+  "attempted": true,
+  "apply": {
+    "argv": [
+      "patch",
+      "-p1",
+      "-N",
+      "--batch",
+      "--directory",
+      "/workspace/tmp/m6-t41/src/corrected-20261102T171658Z/H700/candidates/035"
+    ],
+    "start": "2026-11-02T17:17:00.449715+00:00",
+    "elapsed_seconds": 0.004,
+    "rc": 0,
+    "timed_out": false,
+    "output": "logs/H700-035.apply.out",
+    "output_sha256": "deebd18d6ade3c5211b4c599fbed87c8dab1022923d8abf32ec66924bd7ce733"
+  },
+  "apply_rc": 0,
+  "offset": 0,
+  "fuzz": 0,
+  "FAILED": 0,
+  "output_tree_sha256": "ae226ad19017d81580d5842a930d4a5df446259eb9be8104835029331e7f481e",
+  "promoted": true,
+  "status": "applies"
+}

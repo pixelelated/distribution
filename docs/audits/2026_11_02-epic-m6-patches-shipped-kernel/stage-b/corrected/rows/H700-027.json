@@ -1,0 +1,52 @@
+{
+  "plan": "H700",
+  "index": 27,
+  "path": "projects/ROCKNIX/devices/H700/patches/linux/0153-enable-rgb-leds.patch",
+  "patch_sha256": "6e9a676bfa1dac06846655146d135c09b68360cf9a58ef11833169fb7627a82f",
+  "produced_at": "2026-11-02T17:17:00.254878+00:00",
+  "input_tree_sha256": "f63a8b61757c19427fc178d4cc2426faa640190d9ad162a61fcc71560b0205dc",
+  "candidate": "/workspace/tmp/m6-t41/src/corrected-20261102T171658Z/H700/candidates/027",
+  "dry": {
+    "argv": [
+      "patch",
+      "-p1",
+      "-N",
+      "--batch",
+      "--directory",
+      "/workspace/tmp/m6-t41/src/corrected-20261102T171658Z/H700/candidates/027",
+      "--dry-run"
+    ],
+    "start": "2026-11-02T17:17:00.263584+00:00",
+    "elapsed_seconds": 0.002,
+    "rc": 0,
+    "timed_out": false,
+    "output": "logs/H700-027.dry.out",
+    "output_sha256": "38f845f2ad123b16f8b1fd24250a47d344ff64bcbb471df9c97cc81d20a123d9"
+  },
+  "dry_rc": 0,
+  "after_dry_tree_sha256": "f63a8b61757c19427fc178d4cc2426faa640190d9ad162a61fcc71560b0205dc",
+  "attempted": true,
+  "apply": {
+    "argv": [
+      "patch",
+      "-p1",
+      "-N",
+      "--batch",
+      "--directory",
+      "/workspace/tmp/m6-t41/src/corrected-20261102T171658Z/H700/candidates/027"
+    ],
+    "start": "2026-11-02T17:17:00.269061+00:00",
+    "elapsed_seconds": 0.002,
+    "rc": 0,
+    "timed_out": false,
+    "output": "logs/H700-027.apply.out",
+    "output_sha256": "f51c7ce069cfdba33811cf581a59ceb5a5a2a73eb31a31c8ae9a9cce3bff8d8e"
+  },
+  "apply_rc": 0,
+  "offset": 3,
+  "fuzz": 1,
+  "FAILED": 0,
+  "output_tree_sha256": "fc826ad4a5136da1e0c1f7eee7d1fccdbb573e82a36fc3c24cb9c8779483c5c4",
+  "promoted": true,
+  "status": "fuzz"
+}

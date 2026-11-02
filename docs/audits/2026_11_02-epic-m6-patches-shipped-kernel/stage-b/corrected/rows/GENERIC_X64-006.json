@@ -1,0 +1,52 @@
+{
+  "plan": "GENERIC_X64",
+  "index": 6,
+  "path": "projects/ROCKNIX/packages/linux/patches/7.0/0010-msm-resource-cleanup.patch",
+  "patch_sha256": "56cad9f7929bd322c8a513607d4850e53ffc75c04b02237b0ffb5a5b7cdd6d2d",
+  "produced_at": "2026-11-02T17:16:59.041655+00:00",
+  "input_tree_sha256": "35f84de1e3046439844df916f9e9548ba95efd80fdb06fcab697b49bad612c28",
+  "candidate": "/workspace/tmp/m6-t41/src/corrected-20261102T171658Z/GENERIC_X64/candidates/006",
+  "dry": {
+    "argv": [
+      "patch",
+      "-p1",
+      "-N",
+      "--batch",
+      "--directory",
+      "/workspace/tmp/m6-t41/src/corrected-20261102T171658Z/GENERIC_X64/candidates/006",
+      "--dry-run"
+    ],
+    "start": "2026-11-02T17:16:59.044448+00:00",
+    "elapsed_seconds": 0.002,
+    "rc": 0,
+    "timed_out": false,
+    "output": "logs/GENERIC_X64-006.dry.out",
+    "output_sha256": "6c9b330eb0a911493f921ee2f6bcf9445e3cea0dd97f46b872ae859a7e2d9b01"
+  },
+  "dry_rc": 0,
+  "after_dry_tree_sha256": "35f84de1e3046439844df916f9e9548ba95efd80fdb06fcab697b49bad612c28",
+  "attempted": true,
+  "apply": {
+    "argv": [
+      "patch",
+      "-p1",
+      "-N",
+      "--batch",
+      "--directory",
+      "/workspace/tmp/m6-t41/src/corrected-20261102T171658Z/GENERIC_X64/candidates/006"
+    ],
+    "start": "2026-11-02T17:16:59.047812+00:00",
+    "elapsed_seconds": 0.003,
+    "rc": 0,
+    "timed_out": false,
+    "output": "logs/GENERIC_X64-006.apply.out",
+    "output_sha256": "a08bd526810fac48a484dbc9c07f3e300cf23177ead25067a04add13af518bfc"
+  },
+  "apply_rc": 0,
+  "offset": 4,
+  "fuzz": 0,
+  "FAILED": 0,
+  "output_tree_sha256": "b660ad84e10fc102cd9db45e9c2775226bd56e51280bf63f45903be51510e9e1",
+  "promoted": true,
+  "status": "applies with offset"
+}

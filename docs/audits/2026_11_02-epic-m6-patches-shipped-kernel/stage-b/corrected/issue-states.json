@@ -1,0 +1,96 @@
+{
+  "read_recorded_at": "2026-11-02T17:22:06.207323+00:00",
+  "issues": [
+    {
+      "number": 1049,
+      "state": "open",
+      "title": "Bug: renovation-inventory's reach does not follow PKG_DEPENDS_UNPACK, so five units every image unpacks read unreached",
+      "url": "https://github.com/pixelelated/distribution/issues/1049",
+      "read_via": "GitHub plugin; body read for scope; no issue mutation"
+    },
+    {
+      "number": 1056,
+      "state": "open",
+      "title": "Bug: renovation-inventory does not resolve a symlinked patches directory, so four generic patches every image applies read unreached",
+      "url": "https://github.com/pixelelated/distribution/issues/1056",
+      "read_via": "GitHub plugin; body read for scope; no issue mutation"
+    },
+    {
+      "number": 1086,
+      "state": "open",
+      "title": "Bug: renovation-inventory reads rkhelper and six overlay sources as reached by shipped devices that never read or compile them",
+      "url": "https://github.com/pixelelated/distribution/issues/1086",
+      "read_via": "GitHub plugin; body read for scope; no issue mutation"
+    },
+    {
+      "number": 1101,
+      "state": "open",
+      "title": "Backlog: the inventory's reach misses the kernel recipe's unpack edges (intel-ucode reached for GENERIC_X64 through config/functions:789-798; generic-dsi compiled for RK3576), the opposite direction to #1086",
+      "url": "https://github.com/pixelelated/distribution/issues/1101",
+      "read_via": "GitHub plugin; body read for scope; no issue mutation"
+    },
+    {
+      "number": 879,
+      "state": "open",
+      "title": "Backlog: renovation-inventory's reach ignores PKG_ARCH, so an aarch64-only package reads as shipped on GENERIC_X64 (btrfs-progs)",
+      "url": "https://github.com/pixelelated/distribution/issues/879",
+      "read_via": "GitHub plugin; body read for scope; no issue mutation"
+    },
+    {
+      "number": 1053,
+      "state": "open",
+      "title": "Backlog: a build plan generated on the host silently lacks H700's bootloader chain when xmlstarlet is absent (SUBDEVICES read through 2>/dev/null); the inventory's plans are the container's",
+      "url": "https://github.com/pixelelated/distribution/issues/1053",
+      "read_via": "GitHub plugin; body read for scope; no issue mutation"
+    },
+    {
+      "number": 328,
+      "state": "open",
+      "title": "SM8550: 'disp_cc_mdss_mdp_clk_src: rcg didn't update its configuration' once per boot at dispcc probe (upstream's kernel; a lead for the team)",
+      "url": "https://github.com/pixelelated/distribution/issues/328",
+      "read_via": "GitHub plugin; body read for scope; no issue mutation"
+    },
+    {
+      "number": 1084,
+      "state": "open",
+      "title": "Backlog: regenerate GENERIC_X64's kernel configuration at the kernel the recipe builds (7.1.2) from the Generic conf, so the committed file is the built one",
+      "url": "https://github.com/pixelelated/distribution/issues/1084",
+      "read_via": "GitHub plugin; body read for scope; no issue mutation"
+    },
+    {
+      "number": 585,
+      "state": "open",
+      "title": "Standing: Queue upstream contributions after the initial build",
+      "url": "https://github.com/pixelelated/distribution/issues/585",
+      "read_via": "GitHub plugin; body read for scope; no issue mutation"
+    },
+    {
+      "number": 369,
+      "state": "open",
+      "title": "Parked: offer the fork's generic fixes to their own projects (RetroArch, RAOfflineProxy, the H616 kernel)",
+      "url": "https://github.com/pixelelated/distribution/issues/369",
+      "read_via": "GitHub plugin; body read for scope; no issue mutation"
+    },
+    {
+      "number": 104,
+      "state": "open",
+      "title": "Handhelds keep no evidence across a power cycle: persistent logs, watchdog, crash store",
+      "url": "https://github.com/pixelelated/distribution/issues/104",
+      "read_via": "GitHub plugin; body read for scope; no issue mutation"
+    },
+    {
+      "number": 44,
+      "state": "open",
+      "title": "H700: nothing tells a downloader whether their board is DDR3 or DDR4",
+      "url": "https://github.com/pixelelated/distribution/issues/44",
+      "read_via": "GitHub plugin; body read for scope; no issue mutation"
+    },
+    {
+      "number": 1099,
+      "state": "open",
+      "title": "Backlog: the next base merge brings upstream's Qualcomm boot change (BLS entries, openabl, no mkbootimg) onto the shipped SM8550 image; its Already written line and the loader entry's identity are read before the merge is cut",
+      "url": "https://github.com/pixelelated/distribution/issues/1099",
+      "read_via": "GitHub plugin; body read for scope; no issue mutation"
+    }
+  ]
+}

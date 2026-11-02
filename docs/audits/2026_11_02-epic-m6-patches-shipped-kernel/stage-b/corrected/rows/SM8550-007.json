@@ -1,0 +1,52 @@
+{
+  "plan": "SM8550",
+  "index": 7,
+  "path": "projects/ROCKNIX/packages/linux/patches/7.2/0013-drm-msm-dpu-fix-inline-rotation.patch",
+  "patch_sha256": "06900e2899ed9d1e3dd4549dfdb32696de7e85705b0536579b1a9831365c153d",
+  "produced_at": "2026-11-02T17:17:01.360376+00:00",
+  "input_tree_sha256": "d071293904358cdaedbf3d0f3648b50741109f71b1f5cc6d3548a8c5b9d499aa",
+  "candidate": "/workspace/tmp/m6-t41/src/corrected-20261102T171658Z/SM8550/candidates/007",
+  "dry": {
+    "argv": [
+      "patch",
+      "-p1",
+      "-N",
+      "--batch",
+      "--directory",
+      "/workspace/tmp/m6-t41/src/corrected-20261102T171658Z/SM8550/candidates/007",
+      "--dry-run"
+    ],
+    "start": "2026-11-02T17:17:01.368655+00:00",
+    "elapsed_seconds": 0.003,
+    "rc": 0,
+    "timed_out": false,
+    "output": "logs/SM8550-007.dry.out",
+    "output_sha256": "944bbe544e3e21deefb32d4b2b46f00458a1f603045125177e49a49274860963"
+  },
+  "dry_rc": 0,
+  "after_dry_tree_sha256": "d071293904358cdaedbf3d0f3648b50741109f71b1f5cc6d3548a8c5b9d499aa",
+  "attempted": true,
+  "apply": {
+    "argv": [
+      "patch",
+      "-p1",
+      "-N",
+      "--batch",
+      "--directory",
+      "/workspace/tmp/m6-t41/src/corrected-20261102T171658Z/SM8550/candidates/007"
+    ],
+    "start": "2026-11-02T17:17:01.373974+00:00",
+    "elapsed_seconds": 0.002,
+    "rc": 0,
+    "timed_out": false,
+    "output": "logs/SM8550-007.apply.out",
+    "output_sha256": "e9f22c75149b34a2c72f943eb49a6ba5768b8a8b6acd8a9d44a208bf89f54d2d"
+  },
+  "apply_rc": 0,
+  "offset": 0,
+  "fuzz": 0,
+  "FAILED": 0,
+  "output_tree_sha256": "2c220f37aae6fb4cf267862255069c53d54278746a1fc0fed342a5c390d6311a",
+  "promoted": true,
+  "status": "applies"
+}

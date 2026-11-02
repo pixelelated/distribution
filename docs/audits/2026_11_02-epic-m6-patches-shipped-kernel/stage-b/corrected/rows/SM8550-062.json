@@ -1,0 +1,52 @@
+{
+  "plan": "SM8550",
+  "index": 62,
+  "path": "projects/ROCKNIX/devices/SM8550/patches/linux/1005-input-qcom-haptics-defer-rsinput-playback.patch",
+  "patch_sha256": "702455f2a53df26a9841702fa81c06f1d5d93f8e5bfa49dbebc211b8ab230c9c",
+  "produced_at": "2026-11-02T17:17:02.714609+00:00",
+  "input_tree_sha256": "cc0e92ecf47db39d644782b27dda77c3f3cce6e349ef8a8fdf0005e422e31247",
+  "candidate": "/workspace/tmp/m6-t41/src/corrected-20261102T171658Z/SM8550/candidates/062",
+  "dry": {
+    "argv": [
+      "patch",
+      "-p1",
+      "-N",
+      "--batch",
+      "--directory",
+      "/workspace/tmp/m6-t41/src/corrected-20261102T171658Z/SM8550/candidates/062",
+      "--dry-run"
+    ],
+    "start": "2026-11-02T17:17:02.727977+00:00",
+    "elapsed_seconds": 0.003,
+    "rc": 0,
+    "timed_out": false,
+    "output": "logs/SM8550-062.dry.out",
+    "output_sha256": "75076c7f0b86c53c20a9f62475afc448c269c9770435aa6efac39af007b111e6"
+  },
+  "dry_rc": 0,
+  "after_dry_tree_sha256": "cc0e92ecf47db39d644782b27dda77c3f3cce6e349ef8a8fdf0005e422e31247",
+  "attempted": true,
+  "apply": {
+    "argv": [
+      "patch",
+      "-p1",
+      "-N",
+      "--batch",
+      "--directory",
+      "/workspace/tmp/m6-t41/src/corrected-20261102T171658Z/SM8550/candidates/062"
+    ],
+    "start": "2026-11-02T17:17:02.735716+00:00",
+    "elapsed_seconds": 0.002,
+    "rc": 0,
+    "timed_out": false,
+    "output": "logs/SM8550-062.apply.out",
+    "output_sha256": "243dc48ff54e684df864b9c401f32972a0ac7d71069706170782dc174a7df203"
+  },
+  "apply_rc": 0,
+  "offset": 0,
+  "fuzz": 0,
+  "FAILED": 0,
+  "output_tree_sha256": "128909ec37bc6661dcd1a1e64b9366175439dd1f5a8de8c520dce93343fef255",
+  "promoted": true,
+  "status": "applies"
+}

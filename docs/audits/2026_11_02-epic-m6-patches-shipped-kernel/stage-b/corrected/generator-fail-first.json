@@ -1,0 +1,44 @@
+[
+  {
+    "name": "drop",
+    "argv": [
+      "python3",
+      "docs/audits/2026_11_02-epic-m6-patches-shipped-kernel/stage-b/corrected/t41-tables.py",
+      "stats",
+      "--rows-from",
+      "/workspace/tmp/m6-t41/table-fixtures/drop.json"
+    ],
+    "start": "2026-11-02T17:26:49.432363+00:00",
+    "elapsed_seconds": 0.062,
+    "rc": 1,
+    "last_line": "AssertionError: membership: expected 107 rows"
+  },
+  {
+    "name": "reach",
+    "argv": [
+      "python3",
+      "docs/audits/2026_11_02-epic-m6-patches-shipped-kernel/stage-b/corrected/t41-tables.py",
+      "stats",
+      "--rows-from",
+      "/workspace/tmp/m6-t41/table-fixtures/reach.json"
+    ],
+    "start": "2026-11-02T17:26:49.494499+00:00",
+    "elapsed_seconds": 0.061,
+    "rc": 1,
+    "last_line": "AssertionError: reach: expected shipped 103/test 4"
+  },
+  {
+    "name": "header",
+    "argv": [
+      "python3",
+      "docs/audits/2026_11_02-epic-m6-patches-shipped-kernel/stage-b/corrected/t41-tables.py",
+      "stats",
+      "--bytes-from",
+      "/workspace/tmp/m6-t41/table-fixtures/bytes"
+    ],
+    "start": "2026-11-02T17:26:49.555867+00:00",
+    "elapsed_seconds": 0.209,
+    "rc": 1,
+    "last_line": "AssertionError: From header census: expected 87"
+  }
+]

@@ -1,0 +1,35 @@
+{
+  "argv": [
+    "tar",
+    "--extract",
+    "--file",
+    "/workspace/cache/rocknix-sources/kernel-firmware/kernel-firmware-20260309.tar.gz",
+    "--directory",
+    "/workspace/tmp/m6-t41/src/corrected-20261102T171658Z/FIRMWARE/initial",
+    "--no-same-owner",
+    "--no-same-permissions",
+    "--verbatim-files-from",
+    "--files-from",
+    "/workspace/tmp/m6-t41/src/corrected-20261102T171658Z/FIRMWARE/targets.txt"
+  ],
+  "start": "2026-11-02T17:17:03.904413+00:00",
+  "elapsed_seconds": 4.706,
+  "rc": 2,
+  "timed_out": false,
+  "output": "tar-FIRMWARE.out",
+  "output_sha256": "e1279f93c097212e54ace40c6b3c31e6a62e1f5b09930c745c159892ce8bfb10",
+  "plan": "FIRMWARE",
+  "targets": 2,
+  "not_in_archive": 2,
+  "missing_members": [
+    "linux-firmware-20260309/brcm/brcmfmac43430-sdio.txt",
+    "linux-firmware-20260309/brcm/brcmfmac43455-sdio.txt"
+  ],
+  "created_paths": [
+    "brcm/brcmfmac43430-sdio.txt",
+    "brcm/brcmfmac43455-sdio.txt"
+  ],
+  "all_missing_accounted": true,
+  "initial_tree_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "initial_tree": "/workspace/tmp/m6-t41/src/corrected-20261102T171658Z/FIRMWARE/initial/linux-firmware-20260309"
+}

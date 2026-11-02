@@ -1,0 +1,52 @@
+{
+  "plan": "H700",
+  "index": 14,
+  "path": "projects/ROCKNIX/devices/H700/patches/linux/0008-v8_20260804_james_hilliard1_introduce_allwinner_h616_pwm_controller.patch",
+  "patch_sha256": "04851821e2a351f6845807db3685e5e3e458133f4e56ac57225e26704f18ba54",
+  "produced_at": "2026-11-02T17:16:59.960995+00:00",
+  "input_tree_sha256": "f046176c6c69b91384e8d4f7a06ec907960591576eb9df05eed48e545028279b",
+  "candidate": "/workspace/tmp/m6-t41/src/corrected-20261102T171658Z/H700/candidates/014",
+  "dry": {
+    "argv": [
+      "patch",
+      "-p1",
+      "-N",
+      "--batch",
+      "--directory",
+      "/workspace/tmp/m6-t41/src/corrected-20261102T171658Z/H700/candidates/014",
+      "--dry-run"
+    ],
+    "start": "2026-11-02T17:16:59.969132+00:00",
+    "elapsed_seconds": 0.006,
+    "rc": 0,
+    "timed_out": false,
+    "output": "logs/H700-014.dry.out",
+    "output_sha256": "fa1e036298021dc3fc3f604d103b006b1253933c84088284e17ce09d7dd7fe64"
+  },
+  "dry_rc": 0,
+  "after_dry_tree_sha256": "f046176c6c69b91384e8d4f7a06ec907960591576eb9df05eed48e545028279b",
+  "attempted": true,
+  "apply": {
+    "argv": [
+      "patch",
+      "-p1",
+      "-N",
+      "--batch",
+      "--directory",
+      "/workspace/tmp/m6-t41/src/corrected-20261102T171658Z/H700/candidates/014"
+    ],
+    "start": "2026-11-02T17:16:59.977611+00:00",
+    "elapsed_seconds": 0.003,
+    "rc": 0,
+    "timed_out": false,
+    "output": "logs/H700-014.apply.out",
+    "output_sha256": "c6919afd583e996f03b330d92c775a07780152ee8e3e7a0375c8287c35b30602"
+  },
+  "apply_rc": 0,
+  "offset": 2,
+  "fuzz": 0,
+  "FAILED": 0,
+  "output_tree_sha256": "1ad6d9cd5e9dd47c4494b175a9061e22209b2e0adf33d8a37fee107e5c0bcee9",
+  "promoted": true,
+  "status": "applies with offset"
+}

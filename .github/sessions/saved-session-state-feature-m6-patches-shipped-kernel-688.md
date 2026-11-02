@@ -1,7 +1,7 @@
 # Session pointer: M6.P2 T41, the kernel patches and kernel configurations the shipped and test images apply, tabled by provenance and currency (#688)
 
 > **Seeded:** 2026-11-02 by the coordinator (Opus 5.5 in the Antigravity CLI, lane `m6-coordinator`, D-WORKFLOW-189); the executor updates this file **at every checkpoint** (#1014)
-> **Last updated:** 2026-11-02 16:54:50 UTC by Codex / GPT-6-Astra / xhigh, session `01a19d12-29e3-7fe0-9f41-038dac0a5deb`, lane `m6-t3-emulators` (`wN:p6`). Identity observed in the live Herdr footer, not a provider-attested receipt.
+> **Last updated:** 2026-11-02 17:47:04 UTC by Codex / GPT-6-Astra / xhigh, session `01a19d12-29e3-7fe0-9f41-038dac0a5deb`, lane `m6-t3-emulators` (`wN:p6`). Identity observed in the live Herdr footer, not a provider-attested receipt.
 > **Branch (distribution):** `feature/m6-patches-shipped-kernel-688`, seed `f03b64419fa656fb3af61cbc8d174284020d439c` over coordinator `d7dd76665983cb87dba62397691500fcf409fafe`, carrying P1 `2174265e9c`. Accepted Stage-A artifact: `cffe3f869c5ced124e26befa36505350b4964f77`; the seed is historical, not the current tip.
 > **Worktree (distribution):** `/workspace/repos/pixelelated/distribution.worktrees/m6-patches-shipped-kernel-688` -- the audit artifacts, the work log and this pointer live here; anything temporary under `/workspace/tmp/m6-t41/` after `df -i` (the tarballs' touched files under `/workspace/tmp/m6-t41/src/`), never `/tmp`, retired at stage H
 > **Worktree (EmulationStation):** **none**: nothing in the 107 is EmulationStation's
@@ -16,7 +16,13 @@
 > **Register:** the highest decided row per area read from the table at `d7dd766659` (D-CLOUD-193, D-INFRA-031, D-LAUNCH-007, D-NET-017, D-QA-063, D-RA-052, D-SYS-013, D-UI-137, D-WORKFLOW-221), the last of them **this slice's ownership row, D-WORKFLOW-221, written by the coordinator at dispatch** (ruling (l); 220 is T39's)
 > **The brief:** `docs/reviews/briefs/patches-shipped-kernel.md` at `9313492990` (version 2, sha256 prefix `24794608bcc7a0f9`, `2194` lines; version 1 `7d70da5972`, the stranger's proof `kit/t41-proof.md`)
 
-## Current focus (Stage B early blocker: dry-run contradicts complete application)
+## Current focus — Stage B complete; stop for coordinator acceptance
+
+The corrected packet under `stage-b/corrected/` and reports `02-forward-audit.md`, `03-retrospective.md`, `04-analysis.md` complete Stage B. Full normal application in a fresh disposable candidate is authoritative under D-WORKFLOW-222 at immutable coordinator `4c8a118cfb4efa8d13c1b41b72ef7a205da5f766` and full comment 6583428757. All 120 applications over 106 patch paths succeeded: 8/42/65/2/2/1 by plan, 43 applies / 48 offsets / 29 fuzz, zero true failures or blocked production rows. Only H700 011 has dry_rc=1/apply_rc=0. The engine's deliberate partial-failure fixture leaves the successful prefix unchanged and blocks the successor. All earlier receipts remain unchanged.
+
+The actual reader remains Codex / GPT-6-Astra / xhigh (observed live Herdr footer, not provider-attested). Source remains fixed at `02aab33bd9842610b0d466c9c186454dc14373ee`; this work resumes `3cd9ca140a0da9af447a3ee2fb9cdbbbf222a95b`. One High finding remains: both 0010 copies contain the pre-fix pointer defect, with upstream fix `9416eec2c200ad969d9e421e686fc7cbfdaca36a`; filing belongs to Stage D. Successful application establishes no runtime correctness. No Stage C or D action has started.
+
+### Historical Stage-A execution
 
 Stage A is complete on `feature/m6-patches-shipped-kernel-688` over seed commit `f03b64419f` (cut from `d7dd766659`), pushed to `origin-https/feature/m6-patches-shipped-kernel-688`, and reported on `#688`. All Stage-A verification commands ran at `05:27:50Z–05:30:28Z` under `Claude Opus 5.5 (High)` before the `05:30 UTC` account usage-quota stop; after the owner switched the session model to `Gemini 4 Argon (High)` at `15:08 UTC` and asked every lane to stash cleanly for a new harness, the Stage-A artifacts (`docs/audits/2026_11_02-epic-m6-patches-shipped-kernel/00-running-log.md`, `01-research-notes.md`, and `stage-a/`), this pointer, and the work log were written, committed, and pushed.
 
@@ -41,21 +47,15 @@ Stage A is complete on `feature/m6-patches-shipped-kernel-688` over seed commit 
 - Existing scratch: `/workspace/tmp/m6-t41/` contains `stage-a-p1/`, `lint-proof/`, the three `order-<DEVICE>.txt`, `src/linux-7.2/arch/arm64/configs/defconfig`, `run/` (including `stage-a.trace`), and `tmp/` (including `block.out`, `block-tip.out`, checker outputs and `forced.txt`).
 - Gitignored `.qa-scratch/t41/` contains `block-1.txt`, `block-2.txt`, `block-expected.txt`, `block-tip.sh`, `block.sh`, `mb-compare.txt`, `membership.py`, `paths.txt`, `text.txt`, `tree-ih.txt`, and `tree-p1.txt`. The previous list of per-check TSVs, `patches.txt`, `confs.txt`, and `sm8550-*.diff` was erroneous.
 
-## Immediate next action — coordinator method ruling (2026-11-02 16:54:50 UTC)
+## Resolved historical blocker
 
-Records correction **`02aab33bd9842610b0d466c9c186454dc14373ee`** is pushed; checkpoint 6580886152 has the verified dated erratum. Stage B started, then reached the brief § 10 **two-commands-disagree** stop: H700 order 011 dry-run rc=1, complete scratch application rc=0 on identical tree/patch hashes. Read `docs/audits/2026_11_02-epic-m6-patches-shipped-kernel/stage-b/early-blocker.md` and `same-input-refutation.json`. Six initial H700 failures are method-contaminated leads; no product bugs filed. All source-only jobs exited; no runtime or host allocation. 02/03/04 and the complete Stage-B checkpoint remain owed.
+Records correction **`02aab33bd9842610b0d466c9c186454dc14373ee`** is pushed; checkpoint 6580886152 has the verified dated erratum. Blocker commit **`3cd9ca140a0da9af447a3ee2fb9cdbbbf222a95b`** and comment 6583064842 preserve the first packet and same-input refutation. Its six initial H700 failures were method-contaminated leads. They are refuted by the corrected complete sequence, not product bugs. The coordinator resolved the method in comment 6583428757 and D-WORKFLOW-222; no additional approval relay was required.
 
-Coordinator `wN:p2` owns the question: authoritative complete application in a disposable scratch copy, or another sequence-aware dry-run method. Resume after that method is specified; this is not another Stage-A approval relay. Preserve existing patched scratch and original output; use fresh named scratch for a rerun. Firmware's empty-root runner edge case was resolved with dry/apply rc=0, not a blocker.
+## Immediate next action — Stage-B checkpoint and stop
 
-## Next action (Stage B authorized by acceptance comment 6582546759)
+Commit and push the corrected packet and reports, post the exact full tip and artifact/check results on #688, and deliver that checkpoint to `m6-coordinator` in `wN:p2` if Herdr permits delivery. If `agent_blocked`, leave owner input untouched: the durable #688 comment is the return path, as the owner explicitly directed. Then **stop at Stage B awaiting coordinator acceptance**. Stage C's formal Local reader plan/tool/lint and Stage D's bug/questions remain later work.
 
-Acceptance: https://github.com/pixelelated/distribution/issues/688#issuecomment-6582546759, 2026-11-02 16:34:53 UTC. First commit the records correction and date an erratum on checkpoint 6580886152; then proceed directly to Stage B, without another approval relay.
-
-Read v2 § 5, **The applies-at-pin run (stage B; ruling (g))** (starts at line 1410), and its table/output requirements; the old `985,1275` / `# STAGE B` excerpt was wrong. Keep v2's pinned upstream `651150fc88`, never a floating ref.
-
-1. Read H700 `projects/ROCKNIX/devices/H700/patches/linux/0950-arm64-dts-allwinner-h616-ramoops-reserved-memory.patch` and leads L-01 through L-31 against the source, history and recipes.
-2. After `df -i /workspace/tmp`, verify cached archive SHA256s against sidecars and recipe text; extract only touched files under `/workspace/tmp/m6-t41/src/<plan>/`. Kernel sequences: `GENERIC_X64:7.1.2` (8), `H700:7.2` (42), `SM8550:7.2` (65). Non-kernel five: **four U-Boot patches at `v2026.01`, one firmware patch at `20260309`; no ATF row**. Run ordered `patch -p1 --dry-run`, advancing scratch only after a successful dry-run. Failed hunks are leads, not permission to edit sources.
-3. Complete `02-forward-audit.md`, `03-retrospective.md`, `04-analysis.md`, and the `stage-b/` packet required by v2. Verify 107 provenance and coverage rows; committed paths keep the literal `\u002d`, decoded only for membership comparisons or source access. Record this actual Codex reader. Commit, push this lane, report the correction commit and Stage-B checkpoint on #688 and to `m6-coordinator` (`wN:p2`), then stop at that checkpoint.
+Use the full v2 brief at `9313492990` together with the appended method erratum and D-WORKFLOW-222 at `4c8a118cfb4efa8d13c1b41b72ef7a205da5f766`. Do not merge the coordinator branch or `next`. Keep upstream `651150fc88` pinned. Preserve every original Stage-A/B receipt and corrected diagnostic, including the failed fixture candidate. Committed paths retain literal `\u002d`, decoded only for comparisons/source access. Source-only exclusions remain unchanged. Scratch is retained until Stage H.
 
 ## Merge notes
 
@@ -64,3 +64,5 @@ The merge order is the coordinator's, named at acceptance. When `next` moves, th
 ## Checkpoints
 
 - **Stage A** (`2026-11-02T15:19Z`, over seed `f03b64419f` cut from `d7dd766659`): 11 pointer keys verified (`0` errors, `D-WORKFLOW-221` present); Local lint proof PASS (`rc=0`) and FAIL-first (`rc=1`); § 2 membership block `4d300124a6bf116f` (`99` lines identical at P1 `2174265e9c` and tip `f03b64419f`); host ledger read once (`1045` lines, `0` written); Stage-A orders (`8`/`42`/`65`), header census (`106`/`87`/`89`/`4`), byte comparisons (`106/1` vs `c445081a59`, `101/4/2` vs `651150fc88`), four `SM8550` `.conf` counts (`2609`, `3827`, `17` forced with `2` absent, `7/7`), tarball sha256s, and six checkers (`rc=0`) recorded in `00-running-log.md`, `01-research-notes.md`, and `stage-a/`; stashed cleanly after the `05:30Z` quota stop and `15:08Z` switch to `Gemini 4 Argon (High)`.
+
+- **Stage B** (2026-11-02 17:47:04 UTC): method corrected under D-WORKFLOW-222; 120/120 normal applications rc=0 across 106 patch paths; 107-row provenance and coverage tables; 31 leads / 16 rulings / 12 proofs; complete 02/03/04. Source, receipt and hygiene checks are recorded in `stage-b/corrected/validation.json`. Stage B is the stopping point; no final slice acceptance is claimed.

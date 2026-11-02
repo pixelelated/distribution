@@ -1,0 +1,52 @@
+{
+  "plan": "GENERIC_X64",
+  "index": 8,
+  "path": "projects/ROCKNIX/packages/linux/patches/7.0/9999-fix-rust-build-error.patch",
+  "patch_sha256": "cda5a402465aac67adf6f8d9afc935cd1adf7bc9e52392b0075a56644a9176c5",
+  "produced_at": "2026-11-02T17:16:59.061409+00:00",
+  "input_tree_sha256": "0950acb69c09cd57059ce81377225fc159782e3619fc1ec4231cbbc0ab980ee0",
+  "candidate": "/workspace/tmp/m6-t41/src/corrected-20261102T171658Z/GENERIC_X64/candidates/008",
+  "dry": {
+    "argv": [
+      "patch",
+      "-p1",
+      "-N",
+      "--batch",
+      "--directory",
+      "/workspace/tmp/m6-t41/src/corrected-20261102T171658Z/GENERIC_X64/candidates/008",
+      "--dry-run"
+    ],
+    "start": "2026-11-02T17:16:59.064435+00:00",
+    "elapsed_seconds": 0.002,
+    "rc": 0,
+    "timed_out": false,
+    "output": "logs/GENERIC_X64-008.dry.out",
+    "output_sha256": "d4de35bfa5ed28900f5bc356acf2754a21c4df4cc6eaec15780c47f0156831e2"
+  },
+  "dry_rc": 0,
+  "after_dry_tree_sha256": "0950acb69c09cd57059ce81377225fc159782e3619fc1ec4231cbbc0ab980ee0",
+  "attempted": true,
+  "apply": {
+    "argv": [
+      "patch",
+      "-p1",
+      "-N",
+      "--batch",
+      "--directory",
+      "/workspace/tmp/m6-t41/src/corrected-20261102T171658Z/GENERIC_X64/candidates/008"
+    ],
+    "start": "2026-11-02T17:16:59.067149+00:00",
+    "elapsed_seconds": 0.001,
+    "rc": 0,
+    "timed_out": false,
+    "output": "logs/GENERIC_X64-008.apply.out",
+    "output_sha256": "ef2b84cb477e18cc02cc13fa30f3e71206212b2cdd17e8e335dfa1113bea5c9d"
+  },
+  "apply_rc": 0,
+  "offset": 1,
+  "fuzz": 0,
+  "FAILED": 0,
+  "output_tree_sha256": "d3feba62d5f5f72780ab85a061d8ecae4da305f65f5b2e70468d3bd3ff06714a",
+  "promoted": true,
+  "status": "applies with offset"
+}

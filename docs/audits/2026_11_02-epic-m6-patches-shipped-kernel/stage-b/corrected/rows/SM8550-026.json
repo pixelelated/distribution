@@ -1,0 +1,52 @@
+{
+  "plan": "SM8550",
+  "index": 26,
+  "path": "projects/ROCKNIX/devices/SM8550/patches/linux/0054-input-goodix-override-resolution-from-dt.patch",
+  "patch_sha256": "6ad0b6392c1e5c9a45e385feb235adbac380d317b536be6b28c9ce5a844ca04c",
+  "produced_at": "2026-11-02T17:17:01.774177+00:00",
+  "input_tree_sha256": "4d8985fcc977dcb1a2d01e202701f883a37b7890d909b9d02ccd5b7a6d8484d0",
+  "candidate": "/workspace/tmp/m6-t41/src/corrected-20261102T171658Z/SM8550/candidates/026",
+  "dry": {
+    "argv": [
+      "patch",
+      "-p1",
+      "-N",
+      "--batch",
+      "--directory",
+      "/workspace/tmp/m6-t41/src/corrected-20261102T171658Z/SM8550/candidates/026",
+      "--dry-run"
+    ],
+    "start": "2026-11-02T17:17:01.783410+00:00",
+    "elapsed_seconds": 0.002,
+    "rc": 0,
+    "timed_out": false,
+    "output": "logs/SM8550-026.dry.out",
+    "output_sha256": "8eac662746e31efddb4e2b6a3c7defee4bd0ca11cb8a6d1abf83ec175f72e95c"
+  },
+  "dry_rc": 0,
+  "after_dry_tree_sha256": "4d8985fcc977dcb1a2d01e202701f883a37b7890d909b9d02ccd5b7a6d8484d0",
+  "attempted": true,
+  "apply": {
+    "argv": [
+      "patch",
+      "-p1",
+      "-N",
+      "--batch",
+      "--directory",
+      "/workspace/tmp/m6-t41/src/corrected-20261102T171658Z/SM8550/candidates/026"
+    ],
+    "start": "2026-11-02T17:17:01.788900+00:00",
+    "elapsed_seconds": 0.002,
+    "rc": 0,
+    "timed_out": false,
+    "output": "logs/SM8550-026.apply.out",
+    "output_sha256": "7f61ab7f4cc9a39caf82833cbf3d4e13ea04a1002b5ecaff670cf2f89620ed65"
+  },
+  "apply_rc": 0,
+  "offset": 2,
+  "fuzz": 3,
+  "FAILED": 0,
+  "output_tree_sha256": "a6692e2621989fe2e81857b96b0c5ed4866d84e47f21b21b20c0542cc2ad2c9a",
+  "promoted": true,
+  "status": "fuzz"
+}

@@ -1,0 +1,52 @@
+{
+  "plan": "SM8550",
+  "index": 60,
+  "path": "projects/ROCKNIX/devices/SM8550/patches/linux/1002-haptics-driver-support-periodic-sine-and-fixes.patch",
+  "patch_sha256": "8ec8d28ce846dee416bc21b248bc16443479d4c2741390af280ca5f6727abda0",
+  "produced_at": "2026-11-02T17:17:02.651498+00:00",
+  "input_tree_sha256": "151cd801ef639b760226f8c706473b549fdb8366af40b6c53edb72cfb185f4d3",
+  "candidate": "/workspace/tmp/m6-t41/src/corrected-20261102T171658Z/SM8550/candidates/060",
+  "dry": {
+    "argv": [
+      "patch",
+      "-p1",
+      "-N",
+      "--batch",
+      "--directory",
+      "/workspace/tmp/m6-t41/src/corrected-20261102T171658Z/SM8550/candidates/060",
+      "--dry-run"
+    ],
+    "start": "2026-11-02T17:17:02.664322+00:00",
+    "elapsed_seconds": 0.003,
+    "rc": 0,
+    "timed_out": false,
+    "output": "logs/SM8550-060.dry.out",
+    "output_sha256": "bc30a02b9e04537f75fd4890cfcea2e83387e92c4b88048a46292f3b8509d0f2"
+  },
+  "dry_rc": 0,
+  "after_dry_tree_sha256": "151cd801ef639b760226f8c706473b549fdb8366af40b6c53edb72cfb185f4d3",
+  "attempted": true,
+  "apply": {
+    "argv": [
+      "patch",
+      "-p1",
+      "-N",
+      "--batch",
+      "--directory",
+      "/workspace/tmp/m6-t41/src/corrected-20261102T171658Z/SM8550/candidates/060"
+    ],
+    "start": "2026-11-02T17:17:02.671578+00:00",
+    "elapsed_seconds": 0.003,
+    "rc": 0,
+    "timed_out": false,
+    "output": "logs/SM8550-060.apply.out",
+    "output_sha256": "2afc8b68987d72f7c3d251c59bf90c12cdcbafca4f5da2a68d3ee65804c5eada"
+  },
+  "apply_rc": 0,
+  "offset": 1,
+  "fuzz": 0,
+  "FAILED": 0,
+  "output_tree_sha256": "2f9faccd12d06b859ca6963dc1f08f56e539f6f177272da482680c0ebd435180",
+  "promoted": true,
+  "status": "applies with offset"
+}

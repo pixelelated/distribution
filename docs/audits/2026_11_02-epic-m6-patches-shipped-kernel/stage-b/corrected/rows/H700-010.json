@@ -1,0 +1,52 @@
+{
+  "plan": "H700",
+  "index": 10,
+  "path": "projects/ROCKNIX/packages/linux/patches/7.2/9999-fix-rust-build-error.patch",
+  "patch_sha256": "cda5a402465aac67adf6f8d9afc935cd1adf7bc9e52392b0075a56644a9176c5",
+  "produced_at": "2026-11-02T17:16:59.876484+00:00",
+  "input_tree_sha256": "efc0267ca654d6798afc177b36c4dcec1b9e2e63265569ca9661c6cc119c36b4",
+  "candidate": "/workspace/tmp/m6-t41/src/corrected-20261102T171658Z/H700/candidates/010",
+  "dry": {
+    "argv": [
+      "patch",
+      "-p1",
+      "-N",
+      "--batch",
+      "--directory",
+      "/workspace/tmp/m6-t41/src/corrected-20261102T171658Z/H700/candidates/010",
+      "--dry-run"
+    ],
+    "start": "2026-11-02T17:16:59.884516+00:00",
+    "elapsed_seconds": 0.002,
+    "rc": 0,
+    "timed_out": false,
+    "output": "logs/H700-010.dry.out",
+    "output_sha256": "1e8c54a4d0ed0206aaa2f712e5790500bdec0ff439e062218f803e736fdcf921"
+  },
+  "dry_rc": 0,
+  "after_dry_tree_sha256": "efc0267ca654d6798afc177b36c4dcec1b9e2e63265569ca9661c6cc119c36b4",
+  "attempted": true,
+  "apply": {
+    "argv": [
+      "patch",
+      "-p1",
+      "-N",
+      "--batch",
+      "--directory",
+      "/workspace/tmp/m6-t41/src/corrected-20261102T171658Z/H700/candidates/010"
+    ],
+    "start": "2026-11-02T17:16:59.890327+00:00",
+    "elapsed_seconds": 0.002,
+    "rc": 0,
+    "timed_out": false,
+    "output": "logs/H700-010.apply.out",
+    "output_sha256": "58fb6ab011ab487dc39421996fd31228fc5dc3e69f56d086f515883f8cc12065"
+  },
+  "apply_rc": 0,
+  "offset": 1,
+  "fuzz": 0,
+  "FAILED": 0,
+  "output_tree_sha256": "2c8679d35a8d5a9ec5e55b72c87869104581c76fd2a2a650ad7105589420abc1",
+  "promoted": true,
+  "status": "applies with offset"
+}

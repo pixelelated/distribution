@@ -1,0 +1,45 @@
+{
+  "argv": [
+    "tar",
+    "--extract",
+    "--file",
+    "/workspace/cache/rocknix-sources/linux/linux-7.2.tar.xz",
+    "--directory",
+    "/workspace/tmp/m6-t41/src/corrected-20261102T171658Z/H700/initial",
+    "--no-same-owner",
+    "--no-same-permissions",
+    "--verbatim-files-from",
+    "--files-from",
+    "/workspace/tmp/m6-t41/src/corrected-20261102T171658Z/H700/targets.txt"
+  ],
+  "start": "2026-11-02T17:16:59.174561+00:00",
+  "elapsed_seconds": 0.5,
+  "rc": 2,
+  "timed_out": false,
+  "output": "tar-H700.out",
+  "output_sha256": "2893fc3f4c9f13c72a17e3981b3efcbaa8df604d66f5ce49b4851aefbc0a4414",
+  "plan": "H700",
+  "targets": 71,
+  "not_in_archive": 7,
+  "missing_members": [
+    "linux-7.2/Documentation/devicetree/bindings/display/panel/panel-mipi.yaml",
+    "linux-7.2/drivers/gpu/drm/panel/panel-mipi.c",
+    "linux-7.2/drivers/gpu/drm/sun4i/sun50i_planes.c",
+    "linux-7.2/drivers/gpu/drm/sun4i/sun50i_planes.h",
+    "linux-7.2/drivers/input/input-polldev.c",
+    "linux-7.2/drivers/pwm/pwm-sun8i.c",
+    "linux-7.2/include/linux/input-polldev.h"
+  ],
+  "created_paths": [
+    "Documentation/devicetree/bindings/display/panel/panel-mipi.yaml",
+    "drivers/gpu/drm/panel/panel-mipi.c",
+    "drivers/gpu/drm/sun4i/sun50i_planes.c",
+    "drivers/gpu/drm/sun4i/sun50i_planes.h",
+    "drivers/input/input-polldev.c",
+    "drivers/pwm/pwm-sun8i.c",
+    "include/linux/input-polldev.h"
+  ],
+  "all_missing_accounted": true,
+  "initial_tree_sha256": "955828f8517ff6078354701e61eec228e36bb74abd6231dc19249f5c7f54f853",
+  "initial_tree": "/workspace/tmp/m6-t41/src/corrected-20261102T171658Z/H700/initial/linux-7.2"
+}

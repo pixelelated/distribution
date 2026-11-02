@@ -1,0 +1,52 @@
+{
+  "plan": "H700",
+  "index": 23,
+  "path": "projects/ROCKNIX/devices/H700/patches/linux/0144-Update-sun50i-h700-anbernic-rg35xx-h.dts.patch",
+  "patch_sha256": "ea4059b93a907fe1afe2c5ff73f7f794baef4d51075db7aa4fefa252df3f5863",
+  "produced_at": "2026-11-02T17:17:00.165686+00:00",
+  "input_tree_sha256": "965e76438b0df774f7020c7cdd0fc3b7942b7be0ad749faa3fc632357c132e7b",
+  "candidate": "/workspace/tmp/m6-t41/src/corrected-20261102T171658Z/H700/candidates/023",
+  "dry": {
+    "argv": [
+      "patch",
+      "-p1",
+      "-N",
+      "--batch",
+      "--directory",
+      "/workspace/tmp/m6-t41/src/corrected-20261102T171658Z/H700/candidates/023",
+      "--dry-run"
+    ],
+    "start": "2026-11-02T17:17:00.174364+00:00",
+    "elapsed_seconds": 0.002,
+    "rc": 0,
+    "timed_out": false,
+    "output": "logs/H700-023.dry.out",
+    "output_sha256": "deea07115296eaf6e6642946cc838553a95da03a0c1d187e8648bc47927bf1b4"
+  },
+  "dry_rc": 0,
+  "after_dry_tree_sha256": "965e76438b0df774f7020c7cdd0fc3b7942b7be0ad749faa3fc632357c132e7b",
+  "attempted": true,
+  "apply": {
+    "argv": [
+      "patch",
+      "-p1",
+      "-N",
+      "--batch",
+      "--directory",
+      "/workspace/tmp/m6-t41/src/corrected-20261102T171658Z/H700/candidates/023"
+    ],
+    "start": "2026-11-02T17:17:00.179913+00:00",
+    "elapsed_seconds": 0.002,
+    "rc": 0,
+    "timed_out": false,
+    "output": "logs/H700-023.apply.out",
+    "output_sha256": "af8cb680c30cdc52e9dde00cce1c686d292fa44eeaaa6439d1c5f9cffef4032d"
+  },
+  "apply_rc": 0,
+  "offset": 1,
+  "fuzz": 0,
+  "FAILED": 0,
+  "output_tree_sha256": "68e9258cf14613275a448901162a52e97830f6808b3474df26bb515d0dbc8efa",
+  "promoted": true,
+  "status": "applies with offset"
+}

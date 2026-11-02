@@ -1,0 +1,52 @@
+{
+  "plan": "H700",
+  "index": 33,
+  "path": "projects/ROCKNIX/devices/H700/patches/linux/0159-arm64-dts-rg35xx-2024-keep-the-second-sd-card-powered.patch",
+  "patch_sha256": "16d40fccc7d0df5ab4b24832d5caacae31419bd2e0ef491bfe980e082fa675b9",
+  "produced_at": "2026-11-02T17:17:00.389951+00:00",
+  "input_tree_sha256": "d417d029190cf3260f45c8e417e88d0c1022e7ecbbc3d9c308e4bdad1874bd2e",
+  "candidate": "/workspace/tmp/m6-t41/src/corrected-20261102T171658Z/H700/candidates/033",
+  "dry": {
+    "argv": [
+      "patch",
+      "-p1",
+      "-N",
+      "--batch",
+      "--directory",
+      "/workspace/tmp/m6-t41/src/corrected-20261102T171658Z/H700/candidates/033",
+      "--dry-run"
+    ],
+    "start": "2026-11-02T17:17:00.398916+00:00",
+    "elapsed_seconds": 0.002,
+    "rc": 0,
+    "timed_out": false,
+    "output": "logs/H700-033.dry.out",
+    "output_sha256": "42658f6e464b08989497b28106fb11bd3336aa30aa968e2d3cbb89164295d55d"
+  },
+  "dry_rc": 0,
+  "after_dry_tree_sha256": "d417d029190cf3260f45c8e417e88d0c1022e7ecbbc3d9c308e4bdad1874bd2e",
+  "attempted": true,
+  "apply": {
+    "argv": [
+      "patch",
+      "-p1",
+      "-N",
+      "--batch",
+      "--directory",
+      "/workspace/tmp/m6-t41/src/corrected-20261102T171658Z/H700/candidates/033"
+    ],
+    "start": "2026-11-02T17:17:00.404527+00:00",
+    "elapsed_seconds": 0.003,
+    "rc": 0,
+    "timed_out": false,
+    "output": "logs/H700-033.apply.out",
+    "output_sha256": "04acc2e83f939eae147e1303dffad3803f0bbeee2dc596bde0b97f1039a84dcb"
+  },
+  "apply_rc": 0,
+  "offset": 0,
+  "fuzz": 0,
+  "FAILED": 0,
+  "output_tree_sha256": "12956cbfd9ee76f6f317ccad3cefc8303e669a87c62ba07b7a670afdd1920d8d",
+  "promoted": true,
+  "status": "applies"
+}

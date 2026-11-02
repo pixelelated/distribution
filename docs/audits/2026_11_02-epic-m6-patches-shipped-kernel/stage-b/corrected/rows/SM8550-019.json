@@ -1,0 +1,52 @@
+{
+  "plan": "SM8550",
+  "index": 19,
+  "path": "projects/ROCKNIX/devices/SM8550/patches/linux/0033_leds--Add-driver-for-HEROIC-HTR3212.patch",
+  "patch_sha256": "c5e8455f15130e742dd7b9117b148210b2f2e4163212afedab083f608ed56201",
+  "produced_at": "2026-11-02T17:17:01.613692+00:00",
+  "input_tree_sha256": "c77e332e462ccc67dfe2b84b853c841bbe0bd7f16efb070263594177c8fdb8e6",
+  "candidate": "/workspace/tmp/m6-t41/src/corrected-20261102T171658Z/SM8550/candidates/019",
+  "dry": {
+    "argv": [
+      "patch",
+      "-p1",
+      "-N",
+      "--batch",
+      "--directory",
+      "/workspace/tmp/m6-t41/src/corrected-20261102T171658Z/SM8550/candidates/019",
+      "--dry-run"
+    ],
+    "start": "2026-11-02T17:17:01.622690+00:00",
+    "elapsed_seconds": 0.003,
+    "rc": 0,
+    "timed_out": false,
+    "output": "logs/SM8550-019.dry.out",
+    "output_sha256": "619b7d399a654a20483fbccc607dd8ecabfc3ccf78e4c2f1b514c49459670600"
+  },
+  "dry_rc": 0,
+  "after_dry_tree_sha256": "c77e332e462ccc67dfe2b84b853c841bbe0bd7f16efb070263594177c8fdb8e6",
+  "attempted": true,
+  "apply": {
+    "argv": [
+      "patch",
+      "-p1",
+      "-N",
+      "--batch",
+      "--directory",
+      "/workspace/tmp/m6-t41/src/corrected-20261102T171658Z/SM8550/candidates/019"
+    ],
+    "start": "2026-11-02T17:17:01.628125+00:00",
+    "elapsed_seconds": 0.003,
+    "rc": 0,
+    "timed_out": false,
+    "output": "logs/SM8550-019.apply.out",
+    "output_sha256": "5665b4ad6f91452335d195e085cbbe6ef0bf3b86d4e5f22b865abfd9e21eba9b"
+  },
+  "apply_rc": 0,
+  "offset": 2,
+  "fuzz": 1,
+  "FAILED": 0,
+  "output_tree_sha256": "b737f9e13b9adee1134a27ca192bd5fdcddea8ad84fe5e6f0687e186ff24bfb5",
+  "promoted": true,
+  "status": "fuzz"
+}

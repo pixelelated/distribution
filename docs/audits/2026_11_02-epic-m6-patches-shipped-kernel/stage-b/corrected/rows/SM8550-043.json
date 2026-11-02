@@ -1,0 +1,52 @@
+{
+  "plan": "SM8550",
+  "index": 43,
+  "path": "projects/ROCKNIX/devices/SM8550/patches/linux/0071-HACK-fix-usb-boot-hang.patch",
+  "patch_sha256": "1680e6389c6fabacd7770e487d01ebc90026d5d43caf95cf7dde16828f0c9972",
+  "produced_at": "2026-11-02T17:17:02.187869+00:00",
+  "input_tree_sha256": "0f054afc2a360add6e6405416054faa40a6a99813357a54620668a71e77346d8",
+  "candidate": "/workspace/tmp/m6-t41/src/corrected-20261102T171658Z/SM8550/candidates/043",
+  "dry": {
+    "argv": [
+      "patch",
+      "-p1",
+      "-N",
+      "--batch",
+      "--directory",
+      "/workspace/tmp/m6-t41/src/corrected-20261102T171658Z/SM8550/candidates/043",
+      "--dry-run"
+    ],
+    "start": "2026-11-02T17:17:02.198649+00:00",
+    "elapsed_seconds": 0.003,
+    "rc": 0,
+    "timed_out": false,
+    "output": "logs/SM8550-043.dry.out",
+    "output_sha256": "e4ef5b2f7e0f789e67a018b06b94e5441f911c5482306321dfc7b9b6ff967b60"
+  },
+  "dry_rc": 0,
+  "after_dry_tree_sha256": "0f054afc2a360add6e6405416054faa40a6a99813357a54620668a71e77346d8",
+  "attempted": true,
+  "apply": {
+    "argv": [
+      "patch",
+      "-p1",
+      "-N",
+      "--batch",
+      "--directory",
+      "/workspace/tmp/m6-t41/src/corrected-20261102T171658Z/SM8550/candidates/043"
+    ],
+    "start": "2026-11-02T17:17:02.204592+00:00",
+    "elapsed_seconds": 0.002,
+    "rc": 0,
+    "timed_out": false,
+    "output": "logs/SM8550-043.apply.out",
+    "output_sha256": "0734aa704760a88cf1623248ce40124f9556641e7343171f0814df764b9124f3"
+  },
+  "apply_rc": 0,
+  "offset": 0,
+  "fuzz": 0,
+  "FAILED": 0,
+  "output_tree_sha256": "d693b3bdaca49d1818e24df0f15483d9642338ab72e65e01f8003a837268765e",
+  "promoted": true,
+  "status": "applies"
+}

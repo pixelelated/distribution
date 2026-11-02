@@ -1,0 +1,33 @@
+{
+  "argv": [
+    "tar",
+    "--extract",
+    "--file",
+    "/workspace/cache/rocknix-sources/u-boot-DDR3/u-boot-DDR3-v2026.01.tar.gz",
+    "--directory",
+    "/workspace/tmp/m6-t41/src/corrected-20261102T171658Z/UBOOT-DDR3/initial",
+    "--no-same-owner",
+    "--no-same-permissions",
+    "--verbatim-files-from",
+    "--files-from",
+    "/workspace/tmp/m6-t41/src/corrected-20261102T171658Z/UBOOT-DDR3/targets.txt"
+  ],
+  "start": "2026-11-02T17:17:02.863787+00:00",
+  "elapsed_seconds": 0.377,
+  "rc": 2,
+  "timed_out": false,
+  "output": "tar-UBOOT-DDR3.out",
+  "output_sha256": "3f358dd4ce077c0e2c530c3aaf4217205d117f86c6c12bea3d6a56683833b45e",
+  "plan": "UBOOT-DDR3",
+  "targets": 5,
+  "not_in_archive": 1,
+  "missing_members": [
+    "u-boot-2026.01/include/axp717.h"
+  ],
+  "created_paths": [
+    "include/axp717.h"
+  ],
+  "all_missing_accounted": true,
+  "initial_tree_sha256": "82e93363aed5f83d9f9c337454e42f942e4c41a56f1661c86332d71b7849c29d",
+  "initial_tree": "/workspace/tmp/m6-t41/src/corrected-20261102T171658Z/UBOOT-DDR3/initial/u-boot-2026.01"
+}

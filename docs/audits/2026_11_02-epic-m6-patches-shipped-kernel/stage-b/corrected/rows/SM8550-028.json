@@ -1,0 +1,52 @@
+{
+  "plan": "SM8550",
+  "index": 28,
+  "path": "projects/ROCKNIX/devices/SM8550/patches/linux/0055_Synaptics-TD4328-LCD-panel.patch",
+  "patch_sha256": "73f0946e297471bbffb0c49b14a8759394e43656528882b93cdfb7b10d9e951c",
+  "produced_at": "2026-11-02T17:17:01.820491+00:00",
+  "input_tree_sha256": "f9cd4ee8c328141170a3ad7428781e470b616703a4505b93472decff15aee9f7",
+  "candidate": "/workspace/tmp/m6-t41/src/corrected-20261102T171658Z/SM8550/candidates/028",
+  "dry": {
+    "argv": [
+      "patch",
+      "-p1",
+      "-N",
+      "--batch",
+      "--directory",
+      "/workspace/tmp/m6-t41/src/corrected-20261102T171658Z/SM8550/candidates/028",
+      "--dry-run"
+    ],
+    "start": "2026-11-02T17:17:01.830026+00:00",
+    "elapsed_seconds": 0.002,
+    "rc": 0,
+    "timed_out": false,
+    "output": "logs/SM8550-028.dry.out",
+    "output_sha256": "851fa5166b6ef14f16e3d7d7b62c707bc20f2df4aa8936238886a38f7836df77"
+  },
+  "dry_rc": 0,
+  "after_dry_tree_sha256": "f9cd4ee8c328141170a3ad7428781e470b616703a4505b93472decff15aee9f7",
+  "attempted": true,
+  "apply": {
+    "argv": [
+      "patch",
+      "-p1",
+      "-N",
+      "--batch",
+      "--directory",
+      "/workspace/tmp/m6-t41/src/corrected-20261102T171658Z/SM8550/candidates/028"
+    ],
+    "start": "2026-11-02T17:17:01.835084+00:00",
+    "elapsed_seconds": 0.002,
+    "rc": 0,
+    "timed_out": false,
+    "output": "logs/SM8550-028.apply.out",
+    "output_sha256": "732bb072d111f0b8629d1d23e764e651f6d29f64bc4cae5e618c3d6501f406fa"
+  },
+  "apply_rc": 0,
+  "offset": 3,
+  "fuzz": 1,
+  "FAILED": 0,
+  "output_tree_sha256": "77d401d324a8c8e2e1e1794e58ea34150a25a3e06af49d483bc7a7aa8e9f6ed8",
+  "promoted": true,
+  "status": "fuzz"
+}

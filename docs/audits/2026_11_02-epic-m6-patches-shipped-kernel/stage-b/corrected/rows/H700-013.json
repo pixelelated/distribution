@@ -1,0 +1,52 @@
+{
+  "plan": "H700",
+  "index": 13,
+  "path": "projects/ROCKNIX/devices/H700/patches/linux/0007-rg35xx-add-GPU-opp.patch",
+  "patch_sha256": "a1d22a410c1efb12dfedf59b34d2496a721039a4ae70a1861e3f0fbd89b4b59a",
+  "produced_at": "2026-11-02T17:16:59.941074+00:00",
+  "input_tree_sha256": "cabf8439b13d09220d1508b737736955629c8bf622f3ff760c5fff934fc3f9a5",
+  "candidate": "/workspace/tmp/m6-t41/src/corrected-20261102T171658Z/H700/candidates/013",
+  "dry": {
+    "argv": [
+      "patch",
+      "-p1",
+      "-N",
+      "--batch",
+      "--directory",
+      "/workspace/tmp/m6-t41/src/corrected-20261102T171658Z/H700/candidates/013",
+      "--dry-run"
+    ],
+    "start": "2026-11-02T17:16:59.949209+00:00",
+    "elapsed_seconds": 0.001,
+    "rc": 0,
+    "timed_out": false,
+    "output": "logs/H700-013.dry.out",
+    "output_sha256": "67dd2f3a5e76263753b9b1bad6b3e6d4a65f43192ef97621ce37357a4056ad8c"
+  },
+  "dry_rc": 0,
+  "after_dry_tree_sha256": "cabf8439b13d09220d1508b737736955629c8bf622f3ff760c5fff934fc3f9a5",
+  "attempted": true,
+  "apply": {
+    "argv": [
+      "patch",
+      "-p1",
+      "-N",
+      "--batch",
+      "--directory",
+      "/workspace/tmp/m6-t41/src/corrected-20261102T171658Z/H700/candidates/013"
+    ],
+    "start": "2026-11-02T17:16:59.953307+00:00",
+    "elapsed_seconds": 0.002,
+    "rc": 0,
+    "timed_out": false,
+    "output": "logs/H700-013.apply.out",
+    "output_sha256": "e2b03ca459ef3109128e6c4130866da06480a6703e1b0bdbd4c857421b28109f"
+  },
+  "apply_rc": 0,
+  "offset": 3,
+  "fuzz": 0,
+  "FAILED": 0,
+  "output_tree_sha256": "f046176c6c69b91384e8d4f7a06ec907960591576eb9df05eed48e545028279b",
+  "promoted": true,
+  "status": "applies with offset"
+}

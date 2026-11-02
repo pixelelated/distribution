@@ -1,0 +1,52 @@
+{
+  "plan": "SM8550",
+  "index": 41,
+  "path": "projects/ROCKNIX/devices/SM8550/patches/linux/0066-drm-msm-dpu-enable-sm8550-inline-rotation.patch",
+  "patch_sha256": "43e4a36800b7d3ffc2d381513a2583fc881255bf4d5f46e6caf27b76c6dbe3eb",
+  "produced_at": "2026-11-02T17:17:02.138559+00:00",
+  "input_tree_sha256": "d839c5568f3673b48f54fe3fdd6fde20b2c3872d19ec7bbfe143efabce643cc9",
+  "candidate": "/workspace/tmp/m6-t41/src/corrected-20261102T171658Z/SM8550/candidates/041",
+  "dry": {
+    "argv": [
+      "patch",
+      "-p1",
+      "-N",
+      "--batch",
+      "--directory",
+      "/workspace/tmp/m6-t41/src/corrected-20261102T171658Z/SM8550/candidates/041",
+      "--dry-run"
+    ],
+    "start": "2026-11-02T17:17:02.149444+00:00",
+    "elapsed_seconds": 0.002,
+    "rc": 0,
+    "timed_out": false,
+    "output": "logs/SM8550-041.dry.out",
+    "output_sha256": "57eae2610cf6e997fa9bf768c0246a992fed6c2c8b08ca59dc01b19c6e872195"
+  },
+  "dry_rc": 0,
+  "after_dry_tree_sha256": "d839c5568f3673b48f54fe3fdd6fde20b2c3872d19ec7bbfe143efabce643cc9",
+  "attempted": true,
+  "apply": {
+    "argv": [
+      "patch",
+      "-p1",
+      "-N",
+      "--batch",
+      "--directory",
+      "/workspace/tmp/m6-t41/src/corrected-20261102T171658Z/SM8550/candidates/041"
+    ],
+    "start": "2026-11-02T17:17:02.155270+00:00",
+    "elapsed_seconds": 0.003,
+    "rc": 0,
+    "timed_out": false,
+    "output": "logs/SM8550-041.apply.out",
+    "output_sha256": "385dbc1901599493813187a7d9742ccde7fcc167b7a58b66389fa2245ab3ab81"
+  },
+  "apply_rc": 0,
+  "offset": 0,
+  "fuzz": 0,
+  "FAILED": 0,
+  "output_tree_sha256": "88aaeff7fe8545de14fd4e640cab64c2c1d9b85b15c008d331342fc0635bba15",
+  "promoted": true,
+  "status": "applies"
+}

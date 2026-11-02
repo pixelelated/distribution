@@ -1,0 +1,73 @@
+{
+  "result": "PASS",
+  "prefix_before": "0a82bca6d9a6afd0d18ea1460e8c2cbdac947d16563ada1a3aef122bd5c60343",
+  "prefix_after": "0a82bca6d9a6afd0d18ea1460e8c2cbdac947d16563ada1a3aef122bd5c60343",
+  "failure": {
+    "plan": "FIXTURE",
+    "index": 1,
+    "path": "deliberately-failing-input",
+    "patch_sha256": "abc53ed450a8dcce6edb5ac628cd229f7a58ed573c2ea1da2402ab8ddf62e5a3",
+    "produced_at": "2026-11-02T17:16:58.454605+00:00",
+    "input_tree_sha256": "0a82bca6d9a6afd0d18ea1460e8c2cbdac947d16563ada1a3aef122bd5c60343",
+    "candidate": "/workspace/tmp/m6-t41/src/corrected-20261102T171658Z/failure-fixture/candidates/001",
+    "dry": {
+      "argv": [
+        "patch",
+        "-p1",
+        "-N",
+        "--batch",
+        "--directory",
+        "/workspace/tmp/m6-t41/src/corrected-20261102T171658Z/failure-fixture/candidates/001",
+        "--dry-run"
+      ],
+      "start": "2026-11-02T17:16:58.454919+00:00",
+      "elapsed_seconds": 0.002,
+      "rc": 1,
+      "timed_out": false,
+      "output": "logs/FIXTURE-001.dry.out",
+      "output_sha256": "6417b61fcd0730902fcfc78e4cd47e938e1a48529623a68d422015f1c57eea86"
+    },
+    "dry_rc": 1,
+    "after_dry_tree_sha256": "0a82bca6d9a6afd0d18ea1460e8c2cbdac947d16563ada1a3aef122bd5c60343",
+    "attempted": true,
+    "apply": {
+      "argv": [
+        "patch",
+        "-p1",
+        "-N",
+        "--batch",
+        "--directory",
+        "/workspace/tmp/m6-t41/src/corrected-20261102T171658Z/failure-fixture/candidates/001"
+      ],
+      "start": "2026-11-02T17:16:58.456813+00:00",
+      "elapsed_seconds": 0.002,
+      "rc": 1,
+      "timed_out": false,
+      "output": "logs/FIXTURE-001.apply.out",
+      "output_sha256": "0f26f2fafde0fc010f2e2d4e7ca0d9e07df869e22952ad11bbbe11df266f0247"
+    },
+    "apply_rc": 1,
+    "offset": 0,
+    "fuzz": 0,
+    "FAILED": 2,
+    "output_tree_sha256": "6593d93031a4aec87d0d4d842761e7788ec6cf8c65c298b3d06b34b2ab2d225f",
+    "promoted": false,
+    "status": "fails"
+  },
+  "successor": {
+    "plan": "FIXTURE",
+    "index": 2,
+    "path": "blocked-successor",
+    "patch_sha256": "abc53ed450a8dcce6edb5ac628cd229f7a58ed573c2ea1da2402ab8ddf62e5a3",
+    "produced_at": "2026-11-02T17:16:58.458995+00:00",
+    "input_tree_sha256": "0a82bca6d9a6afd0d18ea1460e8c2cbdac947d16563ada1a3aef122bd5c60343",
+    "status": "open item",
+    "blocked_by": 1,
+    "reason": "blocked by failed predecessor 1",
+    "dry_rc": null,
+    "apply_rc": null,
+    "attempted": false,
+    "output_tree_sha256": null,
+    "promoted": false
+  }
+}

@@ -1,0 +1,52 @@
+{
+  "plan": "H700",
+  "index": 19,
+  "path": "projects/ROCKNIX/devices/H700/patches/linux/0124-battery-name.patch",
+  "patch_sha256": "52baeb041d292e32b8836be69f52fbbd18cff104617fdffc6090428c44dfec3b",
+  "produced_at": "2026-11-02T17:17:00.075790+00:00",
+  "input_tree_sha256": "5e36042234a4f95bf0cd3c50e7aaec691793f959f7039111cf4b159659881901",
+  "candidate": "/workspace/tmp/m6-t41/src/corrected-20261102T171658Z/H700/candidates/019",
+  "dry": {
+    "argv": [
+      "patch",
+      "-p1",
+      "-N",
+      "--batch",
+      "--directory",
+      "/workspace/tmp/m6-t41/src/corrected-20261102T171658Z/H700/candidates/019",
+      "--dry-run"
+    ],
+    "start": "2026-11-02T17:17:00.084258+00:00",
+    "elapsed_seconds": 0.002,
+    "rc": 0,
+    "timed_out": false,
+    "output": "logs/H700-019.dry.out",
+    "output_sha256": "0b5b07e7d54d9ba8febafb7ef4f4223d76d66d191f987f046a765be8c05652d5"
+  },
+  "dry_rc": 0,
+  "after_dry_tree_sha256": "5e36042234a4f95bf0cd3c50e7aaec691793f959f7039111cf4b159659881901",
+  "attempted": true,
+  "apply": {
+    "argv": [
+      "patch",
+      "-p1",
+      "-N",
+      "--batch",
+      "--directory",
+      "/workspace/tmp/m6-t41/src/corrected-20261102T171658Z/H700/candidates/019"
+    ],
+    "start": "2026-11-02T17:17:00.089888+00:00",
+    "elapsed_seconds": 0.003,
+    "rc": 0,
+    "timed_out": false,
+    "output": "logs/H700-019.apply.out",
+    "output_sha256": "9f029fc83ce6e23a1eb033fec2e7535d7fbd045bc8b6b60090e0e3768b98c57f"
+  },
+  "apply_rc": 0,
+  "offset": 2,
+  "fuzz": 0,
+  "FAILED": 0,
+  "output_tree_sha256": "ca636b2dd2836ebda943a4e6553139a7657d9242740b20ace712e2452ea6cf22",
+  "promoted": true,
+  "status": "applies with offset"
+}

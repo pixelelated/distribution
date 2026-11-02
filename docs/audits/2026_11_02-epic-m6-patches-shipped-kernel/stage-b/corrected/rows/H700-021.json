@@ -1,0 +1,52 @@
+{
+  "plan": "H700",
+  "index": 21,
+  "path": "projects/ROCKNIX/devices/H700/patches/linux/0127-enable-mmc1-for-RG35XX-2024.patch",
+  "patch_sha256": "46fbac702ffcc312502f3009d3a6deb8822f910a6b97d9c3dc90129d3d9bd9ab",
+  "produced_at": "2026-11-02T17:17:00.120994+00:00",
+  "input_tree_sha256": "0df3a756cf853fd48184a7f14f97219b99964a75f7688bc3a2329457ce978ecb",
+  "candidate": "/workspace/tmp/m6-t41/src/corrected-20261102T171658Z/H700/candidates/021",
+  "dry": {
+    "argv": [
+      "patch",
+      "-p1",
+      "-N",
+      "--batch",
+      "--directory",
+      "/workspace/tmp/m6-t41/src/corrected-20261102T171658Z/H700/candidates/021",
+      "--dry-run"
+    ],
+    "start": "2026-11-02T17:17:00.129626+00:00",
+    "elapsed_seconds": 0.002,
+    "rc": 0,
+    "timed_out": false,
+    "output": "logs/H700-021.dry.out",
+    "output_sha256": "c2afd71c20cf14aea8ea39160a3552cdf4be8bf89a1b6e9ddf42a791869d1c57"
+  },
+  "dry_rc": 0,
+  "after_dry_tree_sha256": "0df3a756cf853fd48184a7f14f97219b99964a75f7688bc3a2329457ce978ecb",
+  "attempted": true,
+  "apply": {
+    "argv": [
+      "patch",
+      "-p1",
+      "-N",
+      "--batch",
+      "--directory",
+      "/workspace/tmp/m6-t41/src/corrected-20261102T171658Z/H700/candidates/021"
+    ],
+    "start": "2026-11-02T17:17:00.134952+00:00",
+    "elapsed_seconds": 0.001,
+    "rc": 0,
+    "timed_out": false,
+    "output": "logs/H700-021.apply.out",
+    "output_sha256": "d7556499d9e816b9bff0f75a17cca406e2cafe14ca7ea22e163c7e334d0c1833"
+  },
+  "apply_rc": 0,
+  "offset": 2,
+  "fuzz": 1,
+  "FAILED": 0,
+  "output_tree_sha256": "f19ced858abf4a0bbaf10605bb18bee8aa9fccb90665c87566a299615a6c0570",
+  "promoted": true,
+  "status": "fuzz"
+}

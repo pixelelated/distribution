@@ -1,0 +1,52 @@
+{
+  "plan": "H700",
+  "index": 39,
+  "path": "projects/ROCKNIX/devices/H700/patches/linux/0204-dts-Enable-hdmi-sound.patch",
+  "patch_sha256": "cbc3b96a8b07063dcb341ce6b4dbc6f2bc3c1134f3a66ce9fd9e463270576283",
+  "produced_at": "2026-11-02T17:17:00.529525+00:00",
+  "input_tree_sha256": "b9d0af91da9b68b36d27c0a8ceb6f9782a5f8ac8d1291c8cfd8cec7888c3ccd5",
+  "candidate": "/workspace/tmp/m6-t41/src/corrected-20261102T171658Z/H700/candidates/039",
+  "dry": {
+    "argv": [
+      "patch",
+      "-p1",
+      "-N",
+      "--batch",
+      "--directory",
+      "/workspace/tmp/m6-t41/src/corrected-20261102T171658Z/H700/candidates/039",
+      "--dry-run"
+    ],
+    "start": "2026-11-02T17:17:00.538252+00:00",
+    "elapsed_seconds": 0.002,
+    "rc": 0,
+    "timed_out": false,
+    "output": "logs/H700-039.dry.out",
+    "output_sha256": "24bb1bd2585b86f28461fe64819f65ec5e928507427d84f454a2b9c4cf31eebb"
+  },
+  "dry_rc": 0,
+  "after_dry_tree_sha256": "b9d0af91da9b68b36d27c0a8ceb6f9782a5f8ac8d1291c8cfd8cec7888c3ccd5",
+  "attempted": true,
+  "apply": {
+    "argv": [
+      "patch",
+      "-p1",
+      "-N",
+      "--batch",
+      "--directory",
+      "/workspace/tmp/m6-t41/src/corrected-20261102T171658Z/H700/candidates/039"
+    ],
+    "start": "2026-11-02T17:17:00.543915+00:00",
+    "elapsed_seconds": 0.003,
+    "rc": 0,
+    "timed_out": false,
+    "output": "logs/H700-039.apply.out",
+    "output_sha256": "f7a1f3db70c59455f13725fea93c62bec5a6decf60d52e6e5f2494aed3d6eff0"
+  },
+  "apply_rc": 0,
+  "offset": 2,
+  "fuzz": 0,
+  "FAILED": 0,
+  "output_tree_sha256": "9d7c76110d2c03875ab076961f2911a34f9f83706e0b935992c79bff2fed5de4",
+  "promoted": true,
+  "status": "applies with offset"
+}

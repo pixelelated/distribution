@@ -1,0 +1,52 @@
+{
+  "plan": "H700",
+  "index": 26,
+  "path": "projects/ROCKNIX/devices/H700/patches/linux/0152-rg35xx-2024-enable-usb-otg.patch",
+  "patch_sha256": "ecfe8291e86eb5882c5298a3dfcae99cd2497e61e9770ea0b0b4b5f463b2a76b",
+  "produced_at": "2026-11-02T17:17:00.232167+00:00",
+  "input_tree_sha256": "b3d115a6560bbca4eaace90df95bd5b4d12683f3b919518bdee43a888f227634",
+  "candidate": "/workspace/tmp/m6-t41/src/corrected-20261102T171658Z/H700/candidates/026",
+  "dry": {
+    "argv": [
+      "patch",
+      "-p1",
+      "-N",
+      "--batch",
+      "--directory",
+      "/workspace/tmp/m6-t41/src/corrected-20261102T171658Z/H700/candidates/026",
+      "--dry-run"
+    ],
+    "start": "2026-11-02T17:17:00.240902+00:00",
+    "elapsed_seconds": 0.002,
+    "rc": 0,
+    "timed_out": false,
+    "output": "logs/H700-026.dry.out",
+    "output_sha256": "b9937bae44a813c944b87ed7153ddc189f14852502f0c7fefc56292e9df0d750"
+  },
+  "dry_rc": 0,
+  "after_dry_tree_sha256": "b3d115a6560bbca4eaace90df95bd5b4d12683f3b919518bdee43a888f227634",
+  "attempted": true,
+  "apply": {
+    "argv": [
+      "patch",
+      "-p1",
+      "-N",
+      "--batch",
+      "--directory",
+      "/workspace/tmp/m6-t41/src/corrected-20261102T171658Z/H700/candidates/026"
+    ],
+    "start": "2026-11-02T17:17:00.246477+00:00",
+    "elapsed_seconds": 0.002,
+    "rc": 0,
+    "timed_out": false,
+    "output": "logs/H700-026.apply.out",
+    "output_sha256": "e9e21a41477b45515dcaf2cfc69b9fa179615cad1326a257976bf4b506ebbdd1"
+  },
+  "apply_rc": 0,
+  "offset": 2,
+  "fuzz": 0,
+  "FAILED": 0,
+  "output_tree_sha256": "f63a8b61757c19427fc178d4cc2426faa640190d9ad162a61fcc71560b0205dc",
+  "promoted": true,
+  "status": "applies with offset"
+}

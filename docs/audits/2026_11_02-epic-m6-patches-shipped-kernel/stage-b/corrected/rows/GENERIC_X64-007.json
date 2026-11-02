@@ -1,0 +1,52 @@
+{
+  "plan": "GENERIC_X64",
+  "index": 7,
+  "path": "projects/ROCKNIX/packages/linux/patches/7.0/9998-silence-initramfs-unpack-warn.patch",
+  "patch_sha256": "52a542dd3845eb3ee27b79c0347ee399dad7a6c77c7e5b6445e16ef6d4693b88",
+  "produced_at": "2026-11-02T17:16:59.052945+00:00",
+  "input_tree_sha256": "b660ad84e10fc102cd9db45e9c2775226bd56e51280bf63f45903be51510e9e1",
+  "candidate": "/workspace/tmp/m6-t41/src/corrected-20261102T171658Z/GENERIC_X64/candidates/007",
+  "dry": {
+    "argv": [
+      "patch",
+      "-p1",
+      "-N",
+      "--batch",
+      "--directory",
+      "/workspace/tmp/m6-t41/src/corrected-20261102T171658Z/GENERIC_X64/candidates/007",
+      "--dry-run"
+    ],
+    "start": "2026-11-02T17:16:59.055983+00:00",
+    "elapsed_seconds": 0.002,
+    "rc": 0,
+    "timed_out": false,
+    "output": "logs/GENERIC_X64-007.dry.out",
+    "output_sha256": "f8206bbc2143235b5aeb6edce3ecd2c29a876dd23545c3610e75ccffbd507fea"
+  },
+  "dry_rc": 0,
+  "after_dry_tree_sha256": "b660ad84e10fc102cd9db45e9c2775226bd56e51280bf63f45903be51510e9e1",
+  "attempted": true,
+  "apply": {
+    "argv": [
+      "patch",
+      "-p1",
+      "-N",
+      "--batch",
+      "--directory",
+      "/workspace/tmp/m6-t41/src/corrected-20261102T171658Z/GENERIC_X64/candidates/007"
+    ],
+    "start": "2026-11-02T17:16:59.058668+00:00",
+    "elapsed_seconds": 0.001,
+    "rc": 0,
+    "timed_out": false,
+    "output": "logs/GENERIC_X64-007.apply.out",
+    "output_sha256": "fe3ef4e71db6bf87d9c8a683e2f2ce6f765bff4b34e8a3654ea57cc413e8fa3a"
+  },
+  "apply_rc": 0,
+  "offset": 0,
+  "fuzz": 0,
+  "FAILED": 0,
+  "output_tree_sha256": "0950acb69c09cd57059ce81377225fc159782e3619fc1ec4231cbbc0ab980ee0",
+  "promoted": true,
+  "status": "applies"
+}

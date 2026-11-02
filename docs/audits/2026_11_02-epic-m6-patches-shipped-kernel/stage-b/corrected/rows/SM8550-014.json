@@ -1,0 +1,52 @@
+{
+  "plan": "SM8550",
+  "index": 14,
+  "path": "projects/ROCKNIX/devices/SM8550/patches/linux/0006-add-hw_params-callback-function-to-drm_connector_hdmi_audio_ops.patch",
+  "patch_sha256": "66f036c0eb139e651783fb0f799cd46b211bd8f896b0c61663828375c094b877",
+  "produced_at": "2026-11-02T17:17:01.506787+00:00",
+  "input_tree_sha256": "c6ae184aaa68b0b068f8455f3033d1c964a1e7fa769403d5bf50b7a6a361b56e",
+  "candidate": "/workspace/tmp/m6-t41/src/corrected-20261102T171658Z/SM8550/candidates/014",
+  "dry": {
+    "argv": [
+      "patch",
+      "-p1",
+      "-N",
+      "--batch",
+      "--directory",
+      "/workspace/tmp/m6-t41/src/corrected-20261102T171658Z/SM8550/candidates/014",
+      "--dry-run"
+    ],
+    "start": "2026-11-02T17:17:01.515420+00:00",
+    "elapsed_seconds": 0.002,
+    "rc": 0,
+    "timed_out": false,
+    "output": "logs/SM8550-014.dry.out",
+    "output_sha256": "c0bf0acd86e57bb619b09f758fb04db60052c42bfd4cd6f5bb2d87ff57bffa8a"
+  },
+  "dry_rc": 0,
+  "after_dry_tree_sha256": "c6ae184aaa68b0b068f8455f3033d1c964a1e7fa769403d5bf50b7a6a361b56e",
+  "attempted": true,
+  "apply": {
+    "argv": [
+      "patch",
+      "-p1",
+      "-N",
+      "--batch",
+      "--directory",
+      "/workspace/tmp/m6-t41/src/corrected-20261102T171658Z/SM8550/candidates/014"
+    ],
+    "start": "2026-11-02T17:17:01.520481+00:00",
+    "elapsed_seconds": 0.002,
+    "rc": 0,
+    "timed_out": false,
+    "output": "logs/SM8550-014.apply.out",
+    "output_sha256": "ea53388e25548a4415b209acd88aebe3731ecf7cd008f251f2a3d224f6f409f0"
+  },
+  "apply_rc": 0,
+  "offset": 0,
+  "fuzz": 0,
+  "FAILED": 0,
+  "output_tree_sha256": "7c53b3465b2f496ff3f87d738d220bd2602c03f393a3cc039b7e917ba9200ecf",
+  "promoted": true,
+  "status": "applies"
+}

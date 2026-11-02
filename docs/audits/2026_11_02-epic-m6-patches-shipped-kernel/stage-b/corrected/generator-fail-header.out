@@ -1,0 +1,5 @@
+Traceback (most recent call last):
+  File "/workspace/repos/pixelelated/distribution.worktrees/m6-patches-shipped-kernel-688/docs/audits/2026_11_02-epic-m6-patches-shipped-kernel/stage-b/corrected/t41-tables.py", line 50, in <module>
+    assert sum(bool(h.get('from')) for h in headers.values())==87,'From header census: expected 87'
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: From header census: expected 87

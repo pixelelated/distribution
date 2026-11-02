@@ -1,0 +1,52 @@
+{
+  "plan": "SM8550",
+  "index": 51,
+  "path": "projects/ROCKNIX/devices/SM8550/patches/linux/0501-ROCKNIX-fix-wifi-and-bt-mac.patch",
+  "patch_sha256": "3592ca8abc4da024d89427cfa08abe95b79ea3d87c50c21351ae20503fbc80d1",
+  "produced_at": "2026-11-02T17:17:02.394201+00:00",
+  "input_tree_sha256": "f1ae5aaf4256c35a12349654f558eb9fa77fd17123661e82f8824ee502f29d22",
+  "candidate": "/workspace/tmp/m6-t41/src/corrected-20261102T171658Z/SM8550/candidates/051",
+  "dry": {
+    "argv": [
+      "patch",
+      "-p1",
+      "-N",
+      "--batch",
+      "--directory",
+      "/workspace/tmp/m6-t41/src/corrected-20261102T171658Z/SM8550/candidates/051",
+      "--dry-run"
+    ],
+    "start": "2026-11-02T17:17:02.405333+00:00",
+    "elapsed_seconds": 0.005,
+    "rc": 0,
+    "timed_out": false,
+    "output": "logs/SM8550-051.dry.out",
+    "output_sha256": "aaae8d284ebd6e9b402b5f7caaaf98dd41bbffb17439a45b1e954db69eee69f8"
+  },
+  "dry_rc": 0,
+  "after_dry_tree_sha256": "f1ae5aaf4256c35a12349654f558eb9fa77fd17123661e82f8824ee502f29d22",
+  "attempted": true,
+  "apply": {
+    "argv": [
+      "patch",
+      "-p1",
+      "-N",
+      "--batch",
+      "--directory",
+      "/workspace/tmp/m6-t41/src/corrected-20261102T171658Z/SM8550/candidates/051"
+    ],
+    "start": "2026-11-02T17:17:02.413748+00:00",
+    "elapsed_seconds": 0.004,
+    "rc": 0,
+    "timed_out": false,
+    "output": "logs/SM8550-051.apply.out",
+    "output_sha256": "237574f70883e389446580dce3e000a3ad75c6a24bbee59b2dbe54d1b3939b3d"
+  },
+  "apply_rc": 0,
+  "offset": 9,
+  "fuzz": 1,
+  "FAILED": 0,
+  "output_tree_sha256": "79a8a2d1c9206ac991ed2303f244bb9f364f47cadb186c52c48e09ad822b31fd",
+  "promoted": true,
+  "status": "fuzz"
+}

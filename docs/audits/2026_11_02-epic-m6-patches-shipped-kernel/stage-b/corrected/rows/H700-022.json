@@ -1,0 +1,52 @@
+{
+  "plan": "H700",
+  "index": 22,
+  "path": "projects/ROCKNIX/devices/H700/patches/linux/0140-rg35xx-2024-use-rocknix-joypad-driver.patch",
+  "patch_sha256": "8c65d9aa15b36d64146fe9af35983bfac2b020635fc491619acee92b48a2df33",
+  "produced_at": "2026-11-02T17:17:00.142335+00:00",
+  "input_tree_sha256": "f19ced858abf4a0bbaf10605bb18bee8aa9fccb90665c87566a299615a6c0570",
+  "candidate": "/workspace/tmp/m6-t41/src/corrected-20261102T171658Z/H700/candidates/022",
+  "dry": {
+    "argv": [
+      "patch",
+      "-p1",
+      "-N",
+      "--batch",
+      "--directory",
+      "/workspace/tmp/m6-t41/src/corrected-20261102T171658Z/H700/candidates/022",
+      "--dry-run"
+    ],
+    "start": "2026-11-02T17:17:00.151549+00:00",
+    "elapsed_seconds": 0.002,
+    "rc": 0,
+    "timed_out": false,
+    "output": "logs/H700-022.dry.out",
+    "output_sha256": "f60c9d237bcdf749ec252b920c41e21e9be04d3f2d16cb433b8ed147e09bee79"
+  },
+  "dry_rc": 0,
+  "after_dry_tree_sha256": "f19ced858abf4a0bbaf10605bb18bee8aa9fccb90665c87566a299615a6c0570",
+  "attempted": true,
+  "apply": {
+    "argv": [
+      "patch",
+      "-p1",
+      "-N",
+      "--batch",
+      "--directory",
+      "/workspace/tmp/m6-t41/src/corrected-20261102T171658Z/H700/candidates/022"
+    ],
+    "start": "2026-11-02T17:17:00.157168+00:00",
+    "elapsed_seconds": 0.002,
+    "rc": 0,
+    "timed_out": false,
+    "output": "logs/H700-022.apply.out",
+    "output_sha256": "2cd0626b3cd7c462a6909f8bf6c81be91676932ccddaf4fa4ad4f47cbaa31d66"
+  },
+  "apply_rc": 0,
+  "offset": 4,
+  "fuzz": 1,
+  "FAILED": 0,
+  "output_tree_sha256": "965e76438b0df774f7020c7cdd0fc3b7942b7be0ad749faa3fc632357c132e7b",
+  "promoted": true,
+  "status": "fuzz"
+}

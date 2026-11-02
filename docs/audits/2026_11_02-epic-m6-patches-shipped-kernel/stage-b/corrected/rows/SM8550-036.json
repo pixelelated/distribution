@@ -1,0 +1,52 @@
+{
+  "plan": "SM8550",
+  "index": 36,
+  "path": "projects/ROCKNIX/devices/SM8550/patches/linux/0060-input-touchscreen-add-synaptics-dsx-kconfig.patch",
+  "patch_sha256": "cfaeedcdacbdb2e65b7cec855e3444ea8d01a074b262a5bc3493858a26014a77",
+  "produced_at": "2026-11-02T17:17:02.012863+00:00",
+  "input_tree_sha256": "791ea47edfeff01d28c0b907ae430477f604ac1d8adbc0e5b029bb06841ae1d9",
+  "candidate": "/workspace/tmp/m6-t41/src/corrected-20261102T171658Z/SM8550/candidates/036",
+  "dry": {
+    "argv": [
+      "patch",
+      "-p1",
+      "-N",
+      "--batch",
+      "--directory",
+      "/workspace/tmp/m6-t41/src/corrected-20261102T171658Z/SM8550/candidates/036",
+      "--dry-run"
+    ],
+    "start": "2026-11-02T17:17:02.023340+00:00",
+    "elapsed_seconds": 0.002,
+    "rc": 0,
+    "timed_out": false,
+    "output": "logs/SM8550-036.dry.out",
+    "output_sha256": "4dc29efafeebf72c18eb82627b51692f66ed91deb85e424508cbb1ef37d6b44c"
+  },
+  "dry_rc": 0,
+  "after_dry_tree_sha256": "791ea47edfeff01d28c0b907ae430477f604ac1d8adbc0e5b029bb06841ae1d9",
+  "attempted": true,
+  "apply": {
+    "argv": [
+      "patch",
+      "-p1",
+      "-N",
+      "--batch",
+      "--directory",
+      "/workspace/tmp/m6-t41/src/corrected-20261102T171658Z/SM8550/candidates/036"
+    ],
+    "start": "2026-11-02T17:17:02.028367+00:00",
+    "elapsed_seconds": 0.003,
+    "rc": 0,
+    "timed_out": false,
+    "output": "logs/SM8550-036.apply.out",
+    "output_sha256": "a27dcea5f68ea65a802a49d72c9b88b84bb3c1aec8b8b8dab68d34a90eb4349f"
+  },
+  "apply_rc": 0,
+  "offset": 0,
+  "fuzz": 0,
+  "FAILED": 0,
+  "output_tree_sha256": "570192f6cdd94793034c3571ae7b5e9691ea4d4a70f0e15021ea26bbb14a5da3",
+  "promoted": true,
+  "status": "applies"
+}

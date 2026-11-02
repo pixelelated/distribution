@@ -1,0 +1,52 @@
+{
+  "plan": "SM8550",
+  "index": 55,
+  "path": "projects/ROCKNIX/devices/SM8550/patches/linux/0505-msm_gem-lock-before-put_iova_spaces.patch",
+  "patch_sha256": "a47f5c70e708fbaa0ed59900a7848fc8b8a1504d2a1e32bdd6f36ac770a6b6f2",
+  "produced_at": "2026-11-02T17:17:02.506345+00:00",
+  "input_tree_sha256": "73f4f6c80615fa57e480e7735fc7e9c344e17e4154f884f48cd954ffbcafdafe",
+  "candidate": "/workspace/tmp/m6-t41/src/corrected-20261102T171658Z/SM8550/candidates/055",
+  "dry": {
+    "argv": [
+      "patch",
+      "-p1",
+      "-N",
+      "--batch",
+      "--directory",
+      "/workspace/tmp/m6-t41/src/corrected-20261102T171658Z/SM8550/candidates/055",
+      "--dry-run"
+    ],
+    "start": "2026-11-02T17:17:02.518405+00:00",
+    "elapsed_seconds": 0.002,
+    "rc": 0,
+    "timed_out": false,
+    "output": "logs/SM8550-055.dry.out",
+    "output_sha256": "1d1326b272f36cefe8d263c761776e3748ca2d8d6c15081a8c5e1b998fd13511"
+  },
+  "dry_rc": 0,
+  "after_dry_tree_sha256": "73f4f6c80615fa57e480e7735fc7e9c344e17e4154f884f48cd954ffbcafdafe",
+  "attempted": true,
+  "apply": {
+    "argv": [
+      "patch",
+      "-p1",
+      "-N",
+      "--batch",
+      "--directory",
+      "/workspace/tmp/m6-t41/src/corrected-20261102T171658Z/SM8550/candidates/055"
+    ],
+    "start": "2026-11-02T17:17:02.524759+00:00",
+    "elapsed_seconds": 0.002,
+    "rc": 0,
+    "timed_out": false,
+    "output": "logs/SM8550-055.apply.out",
+    "output_sha256": "55a6164b584ef495cad51ea81f84e2a3fa3500148d64f0c424936d78f0647d5d"
+  },
+  "apply_rc": 0,
+  "offset": 4,
+  "fuzz": 0,
+  "FAILED": 0,
+  "output_tree_sha256": "868f33f8561ac85de2128086a6c641edfbd455e5452e4a72e71a045e39addc6c",
+  "promoted": true,
+  "status": "applies with offset"
+}

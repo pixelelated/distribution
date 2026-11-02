@@ -1,0 +1,52 @@
+{
+  "plan": "H700",
+  "index": 17,
+  "path": "projects/ROCKNIX/devices/H700/patches/linux/0110-v2_20250226_kikuchan98_drm_panel_add_generic_mipi_panel_driver.patch",
+  "patch_sha256": "0ead7c3b9ba5d316b33af6a1d05f67a16c3d636040df34275fdb6ddc4945cfa6",
+  "produced_at": "2026-11-02T17:17:00.029102+00:00",
+  "input_tree_sha256": "063aceea9d0006e6f5f4b2ef98d1393d5a3ce14c0c4ab67afa8cbd7701f83ac5",
+  "candidate": "/workspace/tmp/m6-t41/src/corrected-20261102T171658Z/H700/candidates/017",
+  "dry": {
+    "argv": [
+      "patch",
+      "-p1",
+      "-N",
+      "--batch",
+      "--directory",
+      "/workspace/tmp/m6-t41/src/corrected-20261102T171658Z/H700/candidates/017",
+      "--dry-run"
+    ],
+    "start": "2026-11-02T17:17:00.037284+00:00",
+    "elapsed_seconds": 0.003,
+    "rc": 0,
+    "timed_out": false,
+    "output": "logs/H700-017.dry.out",
+    "output_sha256": "e9448c414a64f678b4e6ae6ed0c28b4f73a8da13167d7e6ec4edf927ac8b47b6"
+  },
+  "dry_rc": 0,
+  "after_dry_tree_sha256": "063aceea9d0006e6f5f4b2ef98d1393d5a3ce14c0c4ab67afa8cbd7701f83ac5",
+  "attempted": true,
+  "apply": {
+    "argv": [
+      "patch",
+      "-p1",
+      "-N",
+      "--batch",
+      "--directory",
+      "/workspace/tmp/m6-t41/src/corrected-20261102T171658Z/H700/candidates/017"
+    ],
+    "start": "2026-11-02T17:17:00.043483+00:00",
+    "elapsed_seconds": 0.003,
+    "rc": 0,
+    "timed_out": false,
+    "output": "logs/H700-017.apply.out",
+    "output_sha256": "581c3427dc0b337151ef06714fdcb742a225e56bed15a4fafdd178ba14426f8c"
+  },
+  "apply_rc": 0,
+  "offset": 3,
+  "fuzz": 1,
+  "FAILED": 0,
+  "output_tree_sha256": "76210c5cf437d3bf8bcb5e087490752c7825026f5d881451231b20754bdafa23",
+  "promoted": true,
+  "status": "fuzz"
+}

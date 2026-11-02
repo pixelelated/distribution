@@ -1,0 +1,52 @@
+{
+  "plan": "H700",
+  "index": 3,
+  "path": "projects/ROCKNIX/packages/linux/patches/mainline/0004-input-adc-keys-redirect-keycode-316-to-rocknix-joypa.patch",
+  "patch_sha256": "05f4739d632eaa375d9cab2f94cf554c1e8ad04f4a0700e9b510e031da70e29b",
+  "produced_at": "2026-11-02T17:16:59.726388+00:00",
+  "input_tree_sha256": "5b7a3c0464ae9e8686e262cacdebcc4cba6309be35d5c703314ea3bae74859d0",
+  "candidate": "/workspace/tmp/m6-t41/src/corrected-20261102T171658Z/H700/candidates/003",
+  "dry": {
+    "argv": [
+      "patch",
+      "-p1",
+      "-N",
+      "--batch",
+      "--directory",
+      "/workspace/tmp/m6-t41/src/corrected-20261102T171658Z/H700/candidates/003",
+      "--dry-run"
+    ],
+    "start": "2026-11-02T17:16:59.736195+00:00",
+    "elapsed_seconds": 0.002,
+    "rc": 0,
+    "timed_out": false,
+    "output": "logs/H700-003.dry.out",
+    "output_sha256": "775766078a973b2e6bdcc72221e521dbd4f2ab10fd936f4136bcfcde39cd045d"
+  },
+  "dry_rc": 0,
+  "after_dry_tree_sha256": "5b7a3c0464ae9e8686e262cacdebcc4cba6309be35d5c703314ea3bae74859d0",
+  "attempted": true,
+  "apply": {
+    "argv": [
+      "patch",
+      "-p1",
+      "-N",
+      "--batch",
+      "--directory",
+      "/workspace/tmp/m6-t41/src/corrected-20261102T171658Z/H700/candidates/003"
+    ],
+    "start": "2026-11-02T17:16:59.741325+00:00",
+    "elapsed_seconds": 0.002,
+    "rc": 0,
+    "timed_out": false,
+    "output": "logs/H700-003.apply.out",
+    "output_sha256": "78ba29cf47ea1ae45f335ec5aa1b240de53976c1cc148006be32ffe82cc4abfe"
+  },
+  "apply_rc": 0,
+  "offset": 0,
+  "fuzz": 0,
+  "FAILED": 0,
+  "output_tree_sha256": "63b457bd715fb2edbf1af9096d3282b80cf9fc9f7cab99387c721d5d8300bfb3",
+  "promoted": true,
+  "status": "applies"
+}

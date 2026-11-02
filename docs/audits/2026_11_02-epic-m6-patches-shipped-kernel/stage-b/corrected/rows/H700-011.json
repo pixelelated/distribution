@@ -1,0 +1,52 @@
+{
+  "plan": "H700",
+  "index": 11,
+  "path": "projects/ROCKNIX/devices/H700/patches/linux/0002-rg35xx-enable-HDMI-LCD.patch",
+  "patch_sha256": "3c368ef17a3632532da37c8a126fb82cdd6b21b83333abf2094914cce37a83db",
+  "produced_at": "2026-11-02T17:16:59.897865+00:00",
+  "input_tree_sha256": "2c8679d35a8d5a9ec5e55b72c87869104581c76fd2a2a650ad7105589420abc1",
+  "candidate": "/workspace/tmp/m6-t41/src/corrected-20261102T171658Z/H700/candidates/011",
+  "dry": {
+    "argv": [
+      "patch",
+      "-p1",
+      "-N",
+      "--batch",
+      "--directory",
+      "/workspace/tmp/m6-t41/src/corrected-20261102T171658Z/H700/candidates/011",
+      "--dry-run"
+    ],
+    "start": "2026-11-02T17:16:59.905938+00:00",
+    "elapsed_seconds": 0.003,
+    "rc": 1,
+    "timed_out": false,
+    "output": "logs/H700-011.dry.out",
+    "output_sha256": "94691dbda6f72ae9b92910c032cbd702e48e045b9a77924e69af8f3966fdca0d"
+  },
+  "dry_rc": 1,
+  "after_dry_tree_sha256": "2c8679d35a8d5a9ec5e55b72c87869104581c76fd2a2a650ad7105589420abc1",
+  "attempted": true,
+  "apply": {
+    "argv": [
+      "patch",
+      "-p1",
+      "-N",
+      "--batch",
+      "--directory",
+      "/workspace/tmp/m6-t41/src/corrected-20261102T171658Z/H700/candidates/011"
+    ],
+    "start": "2026-11-02T17:16:59.911813+00:00",
+    "elapsed_seconds": 0.004,
+    "rc": 0,
+    "timed_out": false,
+    "output": "logs/H700-011.apply.out",
+    "output_sha256": "d0ecfc89fe4ca66d6fca7572644bee94193763b103c5bad4b1e82b9357a6fd56"
+  },
+  "apply_rc": 0,
+  "offset": 28,
+  "fuzz": 2,
+  "FAILED": 0,
+  "output_tree_sha256": "60a5cae32e6ad9f0ed0dfd52101e8ff9b61d4a54c33143877db1c7de7b7e07d2",
+  "promoted": true,
+  "status": "fuzz"
+}

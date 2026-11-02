@@ -1,0 +1,35 @@
+{
+  "argv": [
+    "tar",
+    "--extract",
+    "--file",
+    "/workspace/cache/rocknix-sources/linux/linux-7.1.2.tar.xz",
+    "--directory",
+    "/workspace/tmp/m6-t41/src/corrected-20261102T171658Z/GENERIC_X64/initial",
+    "--no-same-owner",
+    "--no-same-permissions",
+    "--verbatim-files-from",
+    "--files-from",
+    "/workspace/tmp/m6-t41/src/corrected-20261102T171658Z/GENERIC_X64/targets.txt"
+  ],
+  "start": "2026-11-02T17:16:58.521237+00:00",
+  "elapsed_seconds": 0.474,
+  "rc": 2,
+  "timed_out": false,
+  "output": "tar-GENERIC_X64.out",
+  "output_sha256": "3f0bc36cea2335469aa7bd0f4dd48a216ffd66951c36fd9f20d3f02e8ca2fd84",
+  "plan": "GENERIC_X64",
+  "targets": 16,
+  "not_in_archive": 2,
+  "missing_members": [
+    "linux-7.1.2/drivers/input/input-polldev.c",
+    "linux-7.1.2/include/linux/input-polldev.h"
+  ],
+  "created_paths": [
+    "drivers/input/input-polldev.c",
+    "include/linux/input-polldev.h"
+  ],
+  "all_missing_accounted": true,
+  "initial_tree_sha256": "4d011d6e31284fd021bb47cc009f09be5109256e3b7d17a010f5a2749c451619",
+  "initial_tree": "/workspace/tmp/m6-t41/src/corrected-20261102T171658Z/GENERIC_X64/initial/linux-7.1.2"
+}

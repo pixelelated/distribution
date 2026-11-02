@@ -1,0 +1,52 @@
+{
+  "plan": "SM8550",
+  "index": 39,
+  "path": "projects/ROCKNIX/devices/SM8550/patches/linux/0064-gpu-drm-panel-add-ar16-4inch-panel.patch",
+  "patch_sha256": "15708f68201a201d21bda97c916b88dfda37e0cac49862eae327db97be50de3e",
+  "produced_at": "2026-11-02T17:17:02.087705+00:00",
+  "input_tree_sha256": "f1f8d6e651afef0f28d00fbf527d4280bffc0a4c4da2f6223cfc34fee3b464a9",
+  "candidate": "/workspace/tmp/m6-t41/src/corrected-20261102T171658Z/SM8550/candidates/039",
+  "dry": {
+    "argv": [
+      "patch",
+      "-p1",
+      "-N",
+      "--batch",
+      "--directory",
+      "/workspace/tmp/m6-t41/src/corrected-20261102T171658Z/SM8550/candidates/039",
+      "--dry-run"
+    ],
+    "start": "2026-11-02T17:17:02.098383+00:00",
+    "elapsed_seconds": 0.002,
+    "rc": 0,
+    "timed_out": false,
+    "output": "logs/SM8550-039.dry.out",
+    "output_sha256": "98175b4f182a6cd1399d03d77217888230754dfed9ed039ed3f26e4a2914231e"
+  },
+  "dry_rc": 0,
+  "after_dry_tree_sha256": "f1f8d6e651afef0f28d00fbf527d4280bffc0a4c4da2f6223cfc34fee3b464a9",
+  "attempted": true,
+  "apply": {
+    "argv": [
+      "patch",
+      "-p1",
+      "-N",
+      "--batch",
+      "--directory",
+      "/workspace/tmp/m6-t41/src/corrected-20261102T171658Z/SM8550/candidates/039"
+    ],
+    "start": "2026-11-02T17:17:02.103795+00:00",
+    "elapsed_seconds": 0.003,
+    "rc": 0,
+    "timed_out": false,
+    "output": "logs/SM8550-039.apply.out",
+    "output_sha256": "4d2b6e09ca76bc2a1d65ee52eb9e91f5dc617bea0ca98798ad6083466c477891"
+  },
+  "apply_rc": 0,
+  "offset": 2,
+  "fuzz": 0,
+  "FAILED": 0,
+  "output_tree_sha256": "53fe90428a6d73ffe17d9c10167c5589bc314039c4731b2c49b840b509e964f6",
+  "promoted": true,
+  "status": "applies with offset"
+}

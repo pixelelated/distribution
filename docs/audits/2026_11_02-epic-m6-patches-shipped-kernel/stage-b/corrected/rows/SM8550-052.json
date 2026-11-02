@@ -1,0 +1,52 @@
+{
+  "plan": "SM8550",
+  "index": 52,
+  "path": "projects/ROCKNIX/devices/SM8550/patches/linux/0502-wakeup-qcom-ipcc-remove-IRQF-NO-SUSPEND.patch",
+  "patch_sha256": "f6ec69b38016a7fc35e5e762f11a5d886a39ee031cfd1b0e9a66650c426b599e",
+  "produced_at": "2026-11-02T17:17:02.424741+00:00",
+  "input_tree_sha256": "79a8a2d1c9206ac991ed2303f244bb9f364f47cadb186c52c48e09ad822b31fd",
+  "candidate": "/workspace/tmp/m6-t41/src/corrected-20261102T171658Z/SM8550/candidates/052",
+  "dry": {
+    "argv": [
+      "patch",
+      "-p1",
+      "-N",
+      "--batch",
+      "--directory",
+      "/workspace/tmp/m6-t41/src/corrected-20261102T171658Z/SM8550/candidates/052",
+      "--dry-run"
+    ],
+    "start": "2026-11-02T17:17:02.436388+00:00",
+    "elapsed_seconds": 0.001,
+    "rc": 0,
+    "timed_out": false,
+    "output": "logs/SM8550-052.dry.out",
+    "output_sha256": "a6055b1df7abf8380554c373f65d153817952148c60bbe282534b2ced3ff83e1"
+  },
+  "dry_rc": 0,
+  "after_dry_tree_sha256": "79a8a2d1c9206ac991ed2303f244bb9f364f47cadb186c52c48e09ad822b31fd",
+  "attempted": true,
+  "apply": {
+    "argv": [
+      "patch",
+      "-p1",
+      "-N",
+      "--batch",
+      "--directory",
+      "/workspace/tmp/m6-t41/src/corrected-20261102T171658Z/SM8550/candidates/052"
+    ],
+    "start": "2026-11-02T17:17:02.441346+00:00",
+    "elapsed_seconds": 0.001,
+    "rc": 0,
+    "timed_out": false,
+    "output": "logs/SM8550-052.apply.out",
+    "output_sha256": "7b150ff73fbfcb18bc06af469530bdce930e75c49b118acb5bb2aebcd5db8ffe"
+  },
+  "apply_rc": 0,
+  "offset": 0,
+  "fuzz": 0,
+  "FAILED": 0,
+  "output_tree_sha256": "c154c9dc56265a177af62df9a16049ae3328a4bd1838942d6eba8d6fd7673652",
+  "promoted": true,
+  "status": "applies"
+}

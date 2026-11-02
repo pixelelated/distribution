@@ -1,0 +1,52 @@
+{
+  "plan": "H700",
+  "index": 15,
+  "path": "projects/ROCKNIX/devices/H700/patches/linux/0010-rg35xx-enable-pwm-backlight.patch",
+  "patch_sha256": "68a4556c4963059adc54b0d2ae7aff66daab22a03aa8e8cb19ece36fd293d44a",
+  "produced_at": "2026-11-02T17:16:59.986104+00:00",
+  "input_tree_sha256": "1ad6d9cd5e9dd47c4494b175a9061e22209b2e0adf33d8a37fee107e5c0bcee9",
+  "candidate": "/workspace/tmp/m6-t41/src/corrected-20261102T171658Z/H700/candidates/015",
+  "dry": {
+    "argv": [
+      "patch",
+      "-p1",
+      "-N",
+      "--batch",
+      "--directory",
+      "/workspace/tmp/m6-t41/src/corrected-20261102T171658Z/H700/candidates/015",
+      "--dry-run"
+    ],
+    "start": "2026-11-02T17:16:59.994293+00:00",
+    "elapsed_seconds": 0.002,
+    "rc": 0,
+    "timed_out": false,
+    "output": "logs/H700-015.dry.out",
+    "output_sha256": "b802488ecc173de3d11684359ac11a8baf6692ae6083b85813c11c8905f26a1c"
+  },
+  "dry_rc": 0,
+  "after_dry_tree_sha256": "1ad6d9cd5e9dd47c4494b175a9061e22209b2e0adf33d8a37fee107e5c0bcee9",
+  "attempted": true,
+  "apply": {
+    "argv": [
+      "patch",
+      "-p1",
+      "-N",
+      "--batch",
+      "--directory",
+      "/workspace/tmp/m6-t41/src/corrected-20261102T171658Z/H700/candidates/015"
+    ],
+    "start": "2026-11-02T17:16:59.999155+00:00",
+    "elapsed_seconds": 0.001,
+    "rc": 0,
+    "timed_out": false,
+    "output": "logs/H700-015.apply.out",
+    "output_sha256": "36d99a5e9a3eca1be4b906412d865b2576fc644a24c7f17803b2b859fd65b558"
+  },
+  "apply_rc": 0,
+  "offset": 2,
+  "fuzz": 1,
+  "FAILED": 0,
+  "output_tree_sha256": "d3d4b8f7e4eb1af9f20a9cd0c5911954ff89d12c5d3ad7973c7fc3ffc6949e62",
+  "promoted": true,
+  "status": "fuzz"
+}

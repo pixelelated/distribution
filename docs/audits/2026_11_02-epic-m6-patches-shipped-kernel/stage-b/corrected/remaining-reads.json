@@ -1,0 +1,889 @@
+{
+  "conf_h700": {
+    "command": [
+      "diff",
+      "/workspace/tmp/m6-t41/tmp/conf-h700-a.txt",
+      "/workspace/tmp/m6-t41/tmp/conf-h700-b.txt"
+    ],
+    "rc": 1,
+    "changed_lines": 2609,
+    "elapsed_seconds": 0.002
+  },
+  "conf_defconfig": {
+    "command": [
+      "diff",
+      "/workspace/tmp/m6-t41/tmp/conf-defconfig-a.txt",
+      "/workspace/tmp/m6-t41/tmp/conf-defconfig-b.txt"
+    ],
+    "rc": 1,
+    "changed_lines": 3827,
+    "elapsed_seconds": 0.001
+  },
+  "forced_symbols": {
+    "CONFIG_CFG80211": 1,
+    "CONFIG_CFG80211_REQUIRE_SIGNED_REGDB": 1,
+    "CONFIG_CIFS": 1,
+    "CONFIG_DEFAULT_HOSTNAME": 1,
+    "CONFIG_DRM_LIMA": 1,
+    "CONFIG_DRM_PANFROST": 1,
+    "CONFIG_EXTRA_FIRMWARE": 1,
+    "CONFIG_EXTRA_FIRMWARE_DIR": 0,
+    "CONFIG_INITRAMFS_SOURCE": 1,
+    "CONFIG_ISCSI_BOOT_SYSFS": 1,
+    "CONFIG_ISCSI_IBFT": 1,
+    "CONFIG_ISCSI_IBFT_FIND": 0,
+    "CONFIG_ISCSI_TCP": 1,
+    "CONFIG_NFS_FS": 1,
+    "CONFIG_SCSI_ISCSI_ATTRS": 1,
+    "CONFIG_SWAP": 1,
+    "CONFIG_WIREGUARD": 1
+  },
+  "conf_upstream_numstat": "7\t7\tprojects/ROCKNIX/devices/SM8550/linux/linux.aarch64.conf\n",
+  "conf_fork_numstat": "",
+  "conf_current_path_addition": "9f1fab30f6 2025-07-13 ROCKNIX Team projects: add modifications for ROCKNIX\n",
+  "fork_commits": "f370dc8787 2026-10-12 blitterbot distribution: merge ROCKNIX 20261001 for M7 qualification\n049765fba0 2026-09-29 Max Engel Merge remote-tracking branch 'upstream/next' into next\n4497f291bd 2026-09-25 Max Engel Merge remote-tracking branch 'upstream/next' into next\n7bd7f31312 2026-09-19 Max Engel Merge remote-tracking branch 'upstream/next' into next\ncbf75c0b06 2026-09-10 Max Engel Handhelds keep their evidence across a power cycle: persistent logs, a watchdog, a crash store\n7650de7dd6 2026-09-04 Max Engel Merge upstream/next (133 commits, base 2026-08-18)\n",
+  "fork_nonmerge": "cbf75c0b06 2026-09-10 Max Engel Handhelds keep their evidence across a power cycle: persistent logs, a watchdog, a crash store\n",
+  "recipe_fork_commits": "3d7c075f63 2026-10-02 identity: prepare Rasteratops 0.0.1 source inputs (#337, #383)\ndc948f59aa 2026-08-21 GENERIC_X64 - give the VM device a kernel version\n",
+  "recipe_diff_stat": " 2 files changed, 5 insertions(+), 5 deletions(-)\n",
+  "churn": 61,
+  "absent_dirs": [
+    "H700",
+    "SM8550",
+    "GENERIC_X64",
+    "default",
+    "aarch64",
+    "x86",
+    "7.1.2"
+  ],
+  "LINUX_assignments": "",
+  "number_collisions": {
+    "0053": 2,
+    "0054": 2,
+    "0057": 2,
+    "0060": 3
+  },
+  "duplicates": [
+    {
+      "a": "projects/ROCKNIX/packages/linux/patches/7.0/0010-msm-resource-cleanup.patch",
+      "b": "projects/ROCKNIX/packages/linux/patches/7.2/0010-msm-resource-cleanup.patch",
+      "byte_equal": true,
+      "sha256": "56cad9f7929bd322c8a513607d4850e53ffc75c04b02237b0ffb5a5b7cdd6d2d"
+    },
+    {
+      "a": "projects/ROCKNIX/packages/linux/patches/7.0/9998-silence-initramfs-unpack-warn.patch",
+      "b": "projects/ROCKNIX/packages/linux/patches/7.2/9998-silence-initramfs-unpack-warn.patch",
+      "byte_equal": true,
+      "sha256": "52a542dd3845eb3ee27b79c0347ee399dad7a6c77c7e5b6445e16ef6d4693b88"
+    },
+    {
+      "a": "projects/ROCKNIX/packages/linux/patches/7.0/9999-fix-rust-build-error.patch",
+      "b": "projects/ROCKNIX/packages/linux/patches/7.2/9999-fix-rust-build-error.patch",
+      "byte_equal": true,
+      "sha256": "cda5a402465aac67adf6f8d9afc935cd1adf7bc9e52392b0075a56644a9176c5"
+    },
+    {
+      "a": "projects/ROCKNIX/devices/H700/packages/u-boot-DDR3/patches/0001-Update-dram_sun50i_h616.c.patch",
+      "b": "projects/ROCKNIX/devices/H700/packages/u-boot-DDR4/patches/0001-Update-dram_sun50i_h616.c.patch",
+      "byte_equal": true,
+      "sha256": "596674be315fbb74f670cf04639f10ea2b5629fd9eb72d944084a04cd0e5fab5"
+    },
+    {
+      "a": "projects/ROCKNIX/devices/H700/packages/u-boot-DDR3/patches/0002-sunxi-axp717-charge-only-boot.patch",
+      "b": "projects/ROCKNIX/devices/H700/packages/u-boot-DDR4/patches/0002-sunxi-axp717-charge-only-boot.patch",
+      "byte_equal": true,
+      "sha256": "34846545c9777039d8d5d9635f7646f5130972a1a190ebd41c46e7eb2810a58e"
+    }
+  ],
+  "quoted_regex": {
+    "command": [
+      "bash",
+      "-c",
+      "for n in RK3326 RK3399 S922X H700 SM8550; do [[ \"$n\" =~ \"RK3326|RK3399|S922X|H700\" ]] && echo \"$n quoted-match\" || echo \"$n no-match\"; done"
+    ],
+    "rc": 0,
+    "output": "RK3326 no-match\nRK3399 no-match\nS922X no-match\nH700 no-match\nSM8550 no-match\n"
+  },
+  "L06_contexts": [
+    {
+      "source": "/workspace/tmp/m6-t41/src/corrected-20261102T171658Z/SM8550/initial/linux-7.2/arch/arm64/boot/dts/qcom/sm8550.dtsi",
+      "anchor": "gpucc: clock-controller@3d90000",
+      "lines": "2986: \t\t\t};\n2987: \t\t};\n2988: \n2989: \t\tgpucc: clock-controller@3d90000 {\n2990: \t\t\tcompatible = \"qcom,sm8550-gpucc\";\n2991: \t\t\treg = <0 0x03d90000 0 0xa000>;\n2992: \t\t\tclocks = <&bi_tcxo_div2>,\n2993: \t\t\t\t <&gcc GCC_GPU_GPLL0_CLK_SRC>,\n2994: \t\t\t\t <&gcc GCC_GPU_GPLL0_DIV_CLK_SRC>;\n2995: \t\t\t#clock-cells = <1>;\n2996: \t\t\t#reset-cells = <1>;\n2997: \t\t\t#power-domain-cells = <1>;\n2998: \t\t};\n2999: \n3000: \t\tadreno_smmu: iommu@3da0000 {\n3001: \t\t\tcompatible = \"qcom,sm8550-smmu-500\", \"qcom,adreno-smmu\",\n3002: \t\t\t\t     \"qcom,smmu-500\", \"arm,mmu-500\";"
+    },
+    {
+      "source": "/workspace/tmp/m6-t41/src/corrected-20261102T171658Z/H700/initial/linux-7.2/drivers/thermal/qcom/qcom-spmi-adc-tm5.c",
+      "anchor": "if (ret != IIO_VAL_INT)",
+      "lines": "369: \tif (ret < 0)\n370: \t\treturn ret;\n371: \n372: \tif (ret != IIO_VAL_INT)\n373: \t\treturn -EINVAL;\n374: \n375: \treturn 0;\n376: }\n377: \n378: static int adc_tm5_disable_channel(struct adc_tm5_channel *channel)\n379: {\n380: \tstruct adc_tm5_chip *chip = channel->chip;\n381: \tunsigned int reg = ADC_TM5_M_EN(channel->channel);\n382: \n383: \treturn adc_tm5_reg_update(chip, reg,\n384: \t\t\t\t  ADC_TM5_M_MEAS_EN |\n385: \t\t\t\t  ADC_TM5_M_HIGH_THR_INT_EN |"
+    },
+    {
+      "source": "/workspace/tmp/m6-t41/src/corrected-20261102T171658Z/H700/initial/linux-7.2/drivers/gpu/drm/msm/dp/dp_audio.c",
+      "anchor": "if (!msm_dp_display->power_on)",
+      "lines": "284: \t * such cases check for connection status and bail out if not\n285: \t * connected.\n286: \t */\n287: \tif (!msm_dp_display->power_on) {\n288: \t\trc = -EINVAL;\n289: \t\tgoto end;\n290: \t}\n291: \n292: \taudio = msm_dp_audio_get_data(msm_dp_display);\n293: \tif (IS_ERR(audio)) {\n294: \t\trc = PTR_ERR(audio);\n295: \t\tgoto end;\n296: \t}\n297: \n298: \taudio->channels = params->channels;\n299: \n300: \tmsm_dp_audio_setup_sdp(audio);"
+    }
+  ],
+  "L06_probes": [
+    {
+      "path": "projects/ROCKNIX/devices/H700/patches/linux/0002-rg35xx-enable-HDMI-LCD.patch",
+      "source": "/workspace/tmp/m6-t41/src/corrected-20261102T171658Z/H700/initial/linux-7.2/drivers/gpu/drm/sun4i/sun8i_vi_layer.c",
+      "source_exists": true,
+      "first_target": "drivers/gpu/drm/sun4i/sun8i_vi_layer.c",
+      "probe": "static const u32 sun8i_vi_layer_de33_formats[] = {",
+      "count": 0,
+      "interpretation": "Single added-line overlap probe only; does not establish complete patch supersession. Complete corrected application succeeds."
+    },
+    {
+      "path": "projects/ROCKNIX/devices/H700/patches/linux/0008-v8_20260804_james_hilliard1_introduce_allwinner_h616_pwm_controller.patch",
+      "source": "/workspace/tmp/m6-t41/src/corrected-20261102T171658Z/H700/initial/linux-7.2/Documentation/devicetree/bindings/pwm/allwinner,sun4i-a10-pwm.yaml",
+      "source_exists": true,
+      "first_target": "Documentation/devicetree/bindings/pwm/allwinner,sun4i-a10-pwm.yaml",
+      "probe": "      The cell selects the PWM channel whose hardware bypass path is exported",
+      "count": 0,
+      "interpretation": "Single added-line overlap probe only; does not establish complete patch supersession. Complete corrected application succeeds."
+    },
+    {
+      "path": "projects/ROCKNIX/devices/H700/patches/linux/0110-v2_20250226_kikuchan98_drm_panel_add_generic_mipi_panel_driver.patch",
+      "source": "/workspace/tmp/m6-t41/src/corrected-20261102T171658Z/H700/initial/linux-7.2/Documentation/devicetree/bindings/vendor-prefixes.yaml",
+      "source_exists": true,
+      "first_target": "Documentation/devicetree/bindings/vendor-prefixes.yaml",
+      "probe": "    description: Hotdisplay Technology Co.Ltd",
+      "count": 0,
+      "interpretation": "Single added-line overlap probe only; does not establish complete patch supersession. Complete corrected application succeeds."
+    },
+    {
+      "path": "projects/ROCKNIX/devices/H700/patches/linux/0126-20241018_macroalpha82_rg35xx_add_additional_hardware_support.patch",
+      "source": "/workspace/tmp/m6-t41/src/corrected-20261102T171658Z/H700/initial/linux-7.2/arch/arm64/boot/dts/allwinner/sun50i-h700-anbernic-rg35xx-2024.dts",
+      "source_exists": true,
+      "first_target": "arch/arm64/boot/dts/allwinner/sun50i-h700-anbernic-rg35xx-2024.dts",
+      "probe": "\treg_vcc3v3_mmc2: regulator-vcc3v3-mmc2 {",
+      "count": 0,
+      "interpretation": "Single added-line overlap probe only; does not establish complete patch supersession. Complete corrected application succeeds."
+    },
+    {
+      "path": "projects/ROCKNIX/devices/H700/patches/linux/0160-phy-sun4i-usb-disable-the-clock-that-was-enabled.patch",
+      "source": "/workspace/tmp/m6-t41/src/corrected-20261102T171658Z/H700/initial/linux-7.2/drivers/phy/allwinner/phy-sun4i-usb.c",
+      "source_exists": true,
+      "first_target": "drivers/phy/allwinner/phy-sun4i-usb.c",
+      "probe": "\t\tclk_disable_unprepare(phy2->clk2);",
+      "count": 0,
+      "interpretation": "Single added-line overlap probe only; does not establish complete patch supersession. Complete corrected application succeeds."
+    },
+    {
+      "path": "projects/ROCKNIX/devices/SM8550/patches/linux/0006-add-hw_params-callback-function-to-drm_connector_hdmi_audio_ops.patch",
+      "source": "/workspace/tmp/m6-t41/src/corrected-20261102T171658Z/SM8550/initial/linux-7.2/drivers/gpu/drm/display/drm_hdmi_audio_helper.c",
+      "source_exists": true,
+      "first_target": "drivers/gpu/drm/display/drm_hdmi_audio_helper.c",
+      "probe": "\t.hw_params = drm_connector_hdmi_audio_prepare,",
+      "count": 0,
+      "interpretation": "Single added-line overlap probe only; does not establish complete patch supersession. Complete corrected application succeeds."
+    },
+    {
+      "path": "projects/ROCKNIX/devices/SM8550/patches/linux/0120-20250728_konradybcio_gpu_cc_power_requirements_reality_check.patch",
+      "source": "/workspace/tmp/m6-t41/src/corrected-20261102T171658Z/SM8550/initial/linux-7.2/arch/arm64/boot/dts/qcom/sm8550.dtsi",
+      "source_exists": true,
+      "first_target": "arch/arm64/boot/dts/qcom/sm8550.dtsi",
+      "probe": "\t\t\tpower-domains = <&rpmhpd RPMHPD_CX>,",
+      "count": 2,
+      "interpretation": "Single added-line overlap probe only; does not establish complete patch supersession. Complete corrected application succeeds."
+    },
+    {
+      "path": "projects/ROCKNIX/devices/SM8550/patches/linux/20260424_neil_armstrong_arm64_dts_qcom_sm8_456_50_add_missing_cx_power_domain_to_gcc.patch",
+      "source": "/workspace/tmp/m6-t41/src/corrected-20261102T171658Z/SM8550/initial/linux-7.2/Documentation/devicetree/bindings/clock/qcom,gcc-sm8450.yaml",
+      "source_exists": true,
+      "first_target": "Documentation/devicetree/bindings/clock/qcom,gcc-sm8450.yaml",
+      "probe": "      - description: CX domain",
+      "count": 0,
+      "interpretation": "Single added-line overlap probe only; does not establish complete patch supersession. Complete corrected application succeeds."
+    },
+    {
+      "path": "projects/ROCKNIX/devices/SM8550/patches/linux/v6_20260210_quic_utiwari_crypto_qce_add_runtime_pm_and_interconnect_bandwidth_scaling_support.patch",
+      "source": "/workspace/tmp/m6-t41/src/corrected-20261102T171658Z/SM8550/initial/linux-7.2/drivers/crypto/qce/core.c",
+      "source_exists": true,
+      "first_target": "drivers/crypto/qce/core.c",
+      "probe": "\tACQUIRE(pm_runtime_active_try, pm)(qce->dev);",
+      "count": 0,
+      "interpretation": "Single added-line overlap probe only; does not establish complete patch supersession. Complete corrected application succeeds."
+    },
+    {
+      "path": "projects/ROCKNIX/packages/linux/patches/7.2/0011-thermal-adc-tm5-drop-iio-val-int-check.patch",
+      "source": "/workspace/tmp/m6-t41/src/corrected-20261102T171658Z/H700/initial/linux-7.2/drivers/thermal/qcom/qcom-spmi-adc-tm5.c",
+      "source_exists": true,
+      "first_target": "drivers/thermal/qcom/qcom-spmi-adc-tm5.c",
+      "probe": null,
+      "count": null,
+      "interpretation": "Single added-line overlap probe only; does not establish complete patch supersession. Complete corrected application succeeds."
+    },
+    {
+      "path": "projects/ROCKNIX/packages/linux/patches/7.2/0016-drm-msm-dp-return-0-from-audio_prepare-when-cable-is-disconnected.patch",
+      "source": "/workspace/tmp/m6-t41/src/corrected-20261102T171658Z/H700/initial/linux-7.2/drivers/gpu/drm/msm/dp/dp_audio.c",
+      "source_exists": true,
+      "first_target": "drivers/gpu/drm/msm/dp/dp_audio.c",
+      "probe": "\tif (!msm_dp_display->power_on)",
+      "count": 1,
+      "interpretation": "Single added-line overlap probe only; does not establish complete patch supersession. Complete corrected application succeeds."
+    }
+  ],
+  "L06_interpretation": "Two positive substring probes are context false positives: GPUCC lacks the full power-domain block at 2989-2998; DP audio still sets -EINVAL at 287-290. The deletion-only thermal patch still has the removed condition at 372-373. No whole-patch supersession established; explicit Backport claim retained for 0016 only.",
+  "commands": [
+    {
+      "argv": [
+        "git",
+        "show",
+        "02aab33bd9842610b0d466c9c186454dc14373ee:projects/ROCKNIX/devices/SM8550/linux/linux.aarch64.conf"
+      ],
+      "start": "2026-11-02T17:28:41.064947+00:00",
+      "elapsed_seconds": 0.003,
+      "rc": 0
+    },
+    {
+      "argv": [
+        "git",
+        "show",
+        "02aab33bd9842610b0d466c9c186454dc14373ee:projects/ROCKNIX/devices/H700/linux/linux.aarch64.conf"
+      ],
+      "start": "2026-11-02T17:28:41.068081+00:00",
+      "elapsed_seconds": 0.003,
+      "rc": 0
+    },
+    {
+      "argv": [
+        "git",
+        "show",
+        "02aab33bd9842610b0d466c9c186454dc14373ee:projects/ROCKNIX/packages/linux/package.mk"
+      ],
+      "start": "2026-11-02T17:28:41.078726+00:00",
+      "elapsed_seconds": 0.001,
+      "rc": 0
+    },
+    {
+      "argv": [
+        "git",
+        "diff",
+        "--numstat",
+        "2174265e9c",
+        "651150fc88",
+        "--",
+        "projects/ROCKNIX/devices/SM8550/linux/linux.aarch64.conf"
+      ],
+      "start": "2026-11-02T17:28:41.119515+00:00",
+      "elapsed_seconds": 0.005,
+      "rc": 0
+    },
+    {
+      "argv": [
+        "git",
+        "diff",
+        "--numstat",
+        "c445081a59",
+        "02aab33bd9842610b0d466c9c186454dc14373ee",
+        "--",
+        "projects/ROCKNIX/devices/SM8550/linux/linux.aarch64.conf"
+      ],
+      "start": "2026-11-02T17:28:41.124543+00:00",
+      "elapsed_seconds": 0.002,
+      "rc": 0
+    },
+    {
+      "argv": [
+        "git",
+        "log",
+        "--diff-filter=A",
+        "--format=%h %cs %an %s",
+        "02aab33bd9842610b0d466c9c186454dc14373ee",
+        "--",
+        "projects/ROCKNIX/devices/SM8550/linux/linux.aarch64.conf"
+      ],
+      "start": "2026-11-02T17:28:41.126666+00:00",
+      "elapsed_seconds": 0.088,
+      "rc": 0
+    },
+    {
+      "argv": [
+        "git",
+        "log",
+        "--format=%h %cs %an %s",
+        "c445081a59..02aab33bd9842610b0d466c9c186454dc14373ee",
+        "--",
+        "projects/ROCKNIX/devices/H700/packages/u-boot-DDR3/patches/0001-Update-dram_sun50i_h616.c.patch",
+        "projects/ROCKNIX/devices/H700/packages/u-boot-DDR3/patches/0002-sunxi-axp717-charge-only-boot.patch",
+        "projects/ROCKNIX/devices/H700/packages/u-boot-DDR4/patches/0001-Update-dram_sun50i_h616.c.patch",
+        "projects/ROCKNIX/devices/H700/packages/u-boot-DDR4/patches/0002-sunxi-axp717-charge-only-boot.patch",
+        "projects/ROCKNIX/devices/H700/patches/linux/0002-rg35xx-enable-HDMI-LCD.patch",
+        "projects/ROCKNIX/devices/H700/patches/linux/0003-Update-sun8i_tcon_top.c.patch",
+        "projects/ROCKNIX/devices/H700/patches/linux/0007-rg35xx-add-GPU-opp.patch",
+        "projects/ROCKNIX/devices/H700/patches/linux/0008-v8_20260804_james_hilliard1_introduce_allwinner_h616_pwm_controller.patch",
+        "projects/ROCKNIX/devices/H700/patches/linux/0010-rg35xx-enable-pwm-backlight.patch",
+        "projects/ROCKNIX/devices/H700/patches/linux/0040-Revert-usb-musb-Fix-hardware-lockup-on-first-Rx-endp.patch",
+        "projects/ROCKNIX/devices/H700/patches/linux/0110-v2_20250226_kikuchan98_drm_panel_add_generic_mipi_panel_driver.patch",
+        "projects/ROCKNIX/devices/H700/patches/linux/0111-rg35xx-2024-use-panel-mipi-dpi-spi-driver.patch",
+        "projects/ROCKNIX/devices/H700/patches/linux/0124-battery-name.patch",
+        "projects/ROCKNIX/devices/H700/patches/linux/0126-20241018_macroalpha82_rg35xx_add_additional_hardware_support.patch",
+        "projects/ROCKNIX/devices/H700/patches/linux/0127-enable-mmc1-for-RG35XX-2024.patch",
+        "projects/ROCKNIX/devices/H700/patches/linux/0140-rg35xx-2024-use-rocknix-joypad-driver.patch",
+        "projects/ROCKNIX/devices/H700/patches/linux/0144-Update-sun50i-h700-anbernic-rg35xx-h.dts.patch",
+        "projects/ROCKNIX/devices/H700/patches/linux/0150-add-forcefeedback.patch",
+        "projects/ROCKNIX/devices/H700/patches/linux/0151-phy-fix-OTG-host-mode.patch",
+        "projects/ROCKNIX/devices/H700/patches/linux/0152-rg35xx-2024-enable-usb-otg.patch",
+        "projects/ROCKNIX/devices/H700/patches/linux/0153-enable-rgb-leds.patch",
+        "projects/ROCKNIX/devices/H700/patches/linux/0154-rocknix-dt-id.patch",
+        "projects/ROCKNIX/devices/H700/patches/linux/0155-sun4i-set-rgb-connector-as-DSI.patch",
+        "projects/ROCKNIX/devices/H700/patches/linux/0156-rg35xx-plus-add-pcf8563-rtc.patch",
+        "projects/ROCKNIX/devices/H700/patches/linux/0157-input-axp20x-pek-do-not-report-the-key-press-that-woke-the-system.patch",
+        "projects/ROCKNIX/devices/H700/patches/linux/0158-mmc-sunxi-mmc-mask\u002ddata0-when-updating-the-clock-on-h616-emmc.patch",
+        "projects/ROCKNIX/devices/H700/patches/linux/0159-arm64-dts-rg35xx-2024-keep-the-second-sd-card-powered.patch",
+        "projects/ROCKNIX/devices/H700/patches/linux/0160-phy-sun4i-usb-disable-the-clock-that-was-enabled.patch",
+        "projects/ROCKNIX/devices/H700/patches/linux/0161-drm-sun4i-gate-the-display-pipeline-across-system-suspend.patch",
+        "projects/ROCKNIX/devices/H700/patches/linux/0162-pinctrl-sunxi-release-the-lcd0-pads-while-the-panel-is-off.patch",
+        "projects/ROCKNIX/devices/H700/patches/linux/0163-asoc-sun4i-codec-suspend-the-codec-and-switch-the-amplifier-supply.patch",
+        "projects/ROCKNIX/devices/H700/patches/linux/0200-h700-update-opps.patch",
+        "projects/ROCKNIX/devices/H700/patches/linux/0204-dts-Enable-hdmi-sound.patch",
+        "projects/ROCKNIX/devices/H700/patches/linux/0210-h616-cpu-opp-mark-480MHz-as-suspend-opp.patch",
+        "projects/ROCKNIX/devices/H700/patches/linux/0901-dts-rg35xx-2024-fix-led-1-color.patch",
+        "projects/ROCKNIX/devices/H700/patches/linux/0950-arm64-dts-allwinner-h616-ramoops-reserved-memory.patch",
+        "projects/ROCKNIX/devices/SM8550/linux/linux.aarch64.conf",
+        "projects/ROCKNIX/devices/SM8550/patches/linux/0001-pcie-update-sm8550-dtsi.patch",
+        "projects/ROCKNIX/devices/SM8550/patches/linux/0002-qcom-dispcc-sm8550-Fix-disp_cc_mdss_mdp_clk_src.patch",
+        "projects/ROCKNIX/devices/SM8550/patches/linux/0004-drm-msm-a6xx-Enable-IFPC-on-Adreno-740.patch",
+        "projects/ROCKNIX/devices/SM8550/patches/linux/0006-add-hw_params-callback-function-to-drm_connector_hdmi_audio_ops.patch",
+        "projects/ROCKNIX/devices/SM8550/patches/linux/0015-touchscreen-edt-ft5x06-allow-to-override-input-name.patch",
+        "projects/ROCKNIX/devices/SM8550/patches/linux/0030-input-rmi4-add-reset-gpio.patch",
+        "projects/ROCKNIX/devices/SM8550/patches/linux/0031_input--Add-driver-for-RSInput-Gamepad.patch",
+        "projects/ROCKNIX/devices/SM8550/patches/linux/0032-rmi4-silence-spam-irq-errors.patch",
+        "projects/ROCKNIX/devices/SM8550/patches/linux/0033_leds--Add-driver-for-HEROIC-HTR3212.patch",
+        "projects/ROCKNIX/devices/SM8550/patches/linux/0036_ASoC--qcom--sc8280xp-Add-support-for-Primary-I2S.patch",
+        "projects/ROCKNIX/devices/SM8550/patches/linux/0047_ASoC--codecs--aw88166--AYN-Odin2-Specific-modifica.patch",
+        "projects/ROCKNIX/devices/SM8550/patches/linux/0051-gpu-panel-add-Pocket-ACE-panel-driver.patch",
+        "projects/ROCKNIX/devices/SM8550/patches/linux/0052-gpu-panel-add-Pocket-DMG-panel-driver.patch",
+        "projects/ROCKNIX/devices/SM8550/patches/linux/0053-edt-ft5x06-add-no_regmap_bulk_read-option.patch",
+        "projects/ROCKNIX/devices/SM8550/patches/linux/0053-gpu-panel-st7703-add-Pocket-DS-lower-panel.patch",
+        "projects/ROCKNIX/devices/SM8550/patches/linux/0054-input-goodix-override-resolution-from-dt.patch",
+        "projects/ROCKNIX/devices/SM8550/patches/linux/0054_sn3112-pwm-driver.patch",
+        "projects/ROCKNIX/devices/SM8550/patches/linux/0055_Synaptics-TD4328-LCD-panel.patch",
+        "projects/ROCKNIX/devices/SM8550/patches/linux/0056_Xm-Plus-XM91080G-panel.patch",
+        "projects/ROCKNIX/devices/SM8550/patches/linux/0057_Chipone-ICNA35XX-panel.patch",
+        "projects/ROCKNIX/devices/SM8550/patches/linux/0057_DDIC-CH13726A-panel.patch",
+        "projects/ROCKNIX/devices/SM8550/patches/linux/0058_AYN-Odin2-Mini--backlight.patch",
+        "projects/ROCKNIX/devices/SM8550/patches/linux/0059_AYN-Odin2-Mini--hynitron--cstxxx.patch",
+        "projects/ROCKNIX/devices/SM8550/patches/linux/0060-Add-Silergy-SY7758-backlight-driver.patch",
+        "projects/ROCKNIX/devices/SM8550/patches/linux/0060-input-touchscreen-add-synaptics-dsx-driver.patch",
+        "projects/ROCKNIX/devices/SM8550/patches/linux/0060-input-touchscreen-add-synaptics-dsx-kconfig.patch",
+        "projects/ROCKNIX/devices/SM8550/patches/linux/0062-gpu-drm-panel-add-wt0630-panel.patch",
+        "projects/ROCKNIX/devices/SM8550/patches/linux/0063-gpu-drm-panel-add-wt0600-1k-panel.patch",
+        "projects/ROCKNIX/devices/SM8550/patches/linux/0064-gpu-drm-panel-add-ar16-4inch-panel.patch",
+        "projects/ROCKNIX/devices/SM8550/patches/linux/0065-input-touchscreen-add-hynitron-cst66xx.patch",
+        "projects/ROCKNIX/devices/SM8550/patches/linux/0066-drm-msm-dpu-enable-sm8550-inline-rotation.patch",
+        "projects/ROCKNIX/devices/SM8550/patches/linux/0067-drm-msm-dpu-enable-qseed-detail-enhancer.patch",
+        "projects/ROCKNIX/devices/SM8550/patches/linux/0071-HACK-fix-usb-boot-hang.patch",
+        "projects/ROCKNIX/devices/SM8550/patches/linux/0104-drm-panel-Add-Retroid-Pocket-6-panel.patch",
+        "projects/ROCKNIX/devices/SM8550/patches/linux/0105-drm-panel-Add-Retroid-Pocket-Nova-panel.patch",
+        "projects/ROCKNIX/devices/SM8550/patches/linux/0120-20250728_konradybcio_gpu_cc_power_requirements_reality_check.patch",
+        "projects/ROCKNIX/devices/SM8550/patches/linux/0121-pmdomain-qcom-rpmhpd-presync-floor-gmu-rails.patch",
+        "projects/ROCKNIX/devices/SM8550/patches/linux/0122-interconnect__qcom__sm8550__Enable_QoS_configuration.patch",
+        "projects/ROCKNIX/devices/SM8550/patches/linux/0200-ASoC-wcd938x-add-DMIC-DAPM-inputs.patch",
+        "projects/ROCKNIX/devices/SM8550/patches/linux/0500-ROCKNIX-set-boot-fanspeed.patch",
+        "projects/ROCKNIX/devices/SM8550/patches/linux/0501-ROCKNIX-fix-wifi-and-bt-mac.patch",
+        "projects/ROCKNIX/devices/SM8550/patches/linux/0502-wakeup-qcom-ipcc-remove-IRQF-NO-SUSPEND.patch",
+        "projects/ROCKNIX/devices/SM8550/patches/linux/0503-ROCKNIX-battery-name.patch",
+        "projects/ROCKNIX/devices/SM8550/patches/linux/0504-Enable-64-bit-processes-to-use-compat-input-syscalls.patch",
+        "projects/ROCKNIX/devices/SM8550/patches/linux/0505-msm_gem-lock-before-put_iova_spaces.patch",
+        "projects/ROCKNIX/devices/SM8550/patches/linux/0506-usbcore-add-interrupt-interval-override.patch",
+        "projects/ROCKNIX/devices/SM8550/patches/linux/0507-wifi-ath12k-skip-11d-scan-on-ayaneo-pocket-s-mini.patch",
+        "projects/ROCKNIX/devices/SM8550/patches/linux/0612-ROCKNIX-odin3-q6apm-start-mi2s-port-at-prepare.patch",
+        "projects/ROCKNIX/devices/SM8550/patches/linux/1000-add-qcom-haptics-driver.patch",
+        "projects/ROCKNIX/devices/SM8550/patches/linux/1002-haptics-driver-support-periodic-sine-and-fixes.patch",
+        "projects/ROCKNIX/devices/SM8550/patches/linux/1003-rsinput-add-ff.patch",
+        "projects/ROCKNIX/devices/SM8550/patches/linux/1005-input-qcom-haptics-defer-rsinput-playback.patch",
+        "projects/ROCKNIX/devices/SM8550/patches/linux/1020-wifi-ath12k-send-the-computed-scan-priority-to-the-f.patch",
+        "projects/ROCKNIX/devices/SM8550/patches/linux/20260424_neil_armstrong_arm64_dts_qcom_sm8_456_50_add_missing_cx_power_domain_to_gcc.patch",
+        "projects/ROCKNIX/devices/SM8550/patches/linux/v6_20260210_quic_utiwari_crypto_qce_add_runtime_pm_and_interconnect_bandwidth_scaling_support.patch",
+        "projects/ROCKNIX/packages/linux-firmware/kernel-firmware/patches/kernel-firmware-02-add-brcmfmac-43xxx-configs.patch",
+        "projects/ROCKNIX/packages/linux/patches/7.0/0006-hid-playstation-expose-DualSense-Edge-Fn-and-back-paddles.patch",
+        "projects/ROCKNIX/packages/linux/patches/7.0/0010-msm-resource-cleanup.patch",
+        "projects/ROCKNIX/packages/linux/patches/7.0/9998-silence-initramfs-unpack-warn.patch",
+        "projects/ROCKNIX/packages/linux/patches/7.0/9999-fix-rust-build-error.patch",
+        "projects/ROCKNIX/packages/linux/patches/7.2/0010-msm-resource-cleanup.patch",
+        "projects/ROCKNIX/packages/linux/patches/7.2/0011-thermal-adc-tm5-drop-iio-val-int-check.patch",
+        "projects/ROCKNIX/packages/linux/patches/7.2/0013-drm-msm-dpu-fix-inline-rotation.patch",
+        "projects/ROCKNIX/packages/linux/patches/7.2/0016-drm-msm-dp-return-0-from-audio_prepare-when-cable-is-disconnected.patch",
+        "projects/ROCKNIX/packages/linux/patches/7.2/9998-silence-initramfs-unpack-warn.patch",
+        "projects/ROCKNIX/packages/linux/patches/7.2/9999-fix-rust-build-error.patch",
+        "projects/ROCKNIX/packages/linux/patches/mainline/0002-input-add-input-polldev-driver.patch",
+        "projects/ROCKNIX/packages/linux/patches/mainline/0003-pwm-add-pwm_set_period.patch",
+        "projects/ROCKNIX/packages/linux/patches/mainline/0004-input-adc-keys-redirect-keycode-316-to-rocknix-joypa.patch",
+        "projects/ROCKNIX/packages/linux/patches/mainline/0005-Bluetooth-btrtl-Add-the-support-for-RTL8733BU.patch"
+      ],
+      "start": "2026-11-02T17:28:41.214643+00:00",
+      "elapsed_seconds": 0.057,
+      "rc": 0
+    },
+    {
+      "argv": [
+        "git",
+        "log",
+        "--no-merges",
+        "--format=%h %cs %an %s",
+        "c445081a59..02aab33bd9842610b0d466c9c186454dc14373ee",
+        "--",
+        "projects/ROCKNIX/devices/H700/packages/u-boot-DDR3/patches/0001-Update-dram_sun50i_h616.c.patch",
+        "projects/ROCKNIX/devices/H700/packages/u-boot-DDR3/patches/0002-sunxi-axp717-charge-only-boot.patch",
+        "projects/ROCKNIX/devices/H700/packages/u-boot-DDR4/patches/0001-Update-dram_sun50i_h616.c.patch",
+        "projects/ROCKNIX/devices/H700/packages/u-boot-DDR4/patches/0002-sunxi-axp717-charge-only-boot.patch",
+        "projects/ROCKNIX/devices/H700/patches/linux/0002-rg35xx-enable-HDMI-LCD.patch",
+        "projects/ROCKNIX/devices/H700/patches/linux/0003-Update-sun8i_tcon_top.c.patch",
+        "projects/ROCKNIX/devices/H700/patches/linux/0007-rg35xx-add-GPU-opp.patch",
+        "projects/ROCKNIX/devices/H700/patches/linux/0008-v8_20260804_james_hilliard1_introduce_allwinner_h616_pwm_controller.patch",
+        "projects/ROCKNIX/devices/H700/patches/linux/0010-rg35xx-enable-pwm-backlight.patch",
+        "projects/ROCKNIX/devices/H700/patches/linux/0040-Revert-usb-musb-Fix-hardware-lockup-on-first-Rx-endp.patch",
+        "projects/ROCKNIX/devices/H700/patches/linux/0110-v2_20250226_kikuchan98_drm_panel_add_generic_mipi_panel_driver.patch",
+        "projects/ROCKNIX/devices/H700/patches/linux/0111-rg35xx-2024-use-panel-mipi-dpi-spi-driver.patch",
+        "projects/ROCKNIX/devices/H700/patches/linux/0124-battery-name.patch",
+        "projects/ROCKNIX/devices/H700/patches/linux/0126-20241018_macroalpha82_rg35xx_add_additional_hardware_support.patch",
+        "projects/ROCKNIX/devices/H700/patches/linux/0127-enable-mmc1-for-RG35XX-2024.patch",
+        "projects/ROCKNIX/devices/H700/patches/linux/0140-rg35xx-2024-use-rocknix-joypad-driver.patch",
+        "projects/ROCKNIX/devices/H700/patches/linux/0144-Update-sun50i-h700-anbernic-rg35xx-h.dts.patch",
+        "projects/ROCKNIX/devices/H700/patches/linux/0150-add-forcefeedback.patch",
+        "projects/ROCKNIX/devices/H700/patches/linux/0151-phy-fix-OTG-host-mode.patch",
+        "projects/ROCKNIX/devices/H700/patches/linux/0152-rg35xx-2024-enable-usb-otg.patch",
+        "projects/ROCKNIX/devices/H700/patches/linux/0153-enable-rgb-leds.patch",
+        "projects/ROCKNIX/devices/H700/patches/linux/0154-rocknix-dt-id.patch",
+        "projects/ROCKNIX/devices/H700/patches/linux/0155-sun4i-set-rgb-connector-as-DSI.patch",
+        "projects/ROCKNIX/devices/H700/patches/linux/0156-rg35xx-plus-add-pcf8563-rtc.patch",
+        "projects/ROCKNIX/devices/H700/patches/linux/0157-input-axp20x-pek-do-not-report-the-key-press-that-woke-the-system.patch",
+        "projects/ROCKNIX/devices/H700/patches/linux/0158-mmc-sunxi-mmc-mask\u002ddata0-when-updating-the-clock-on-h616-emmc.patch",
+        "projects/ROCKNIX/devices/H700/patches/linux/0159-arm64-dts-rg35xx-2024-keep-the-second-sd-card-powered.patch",
+        "projects/ROCKNIX/devices/H700/patches/linux/0160-phy-sun4i-usb-disable-the-clock-that-was-enabled.patch",
+        "projects/ROCKNIX/devices/H700/patches/linux/0161-drm-sun4i-gate-the-display-pipeline-across-system-suspend.patch",
+        "projects/ROCKNIX/devices/H700/patches/linux/0162-pinctrl-sunxi-release-the-lcd0-pads-while-the-panel-is-off.patch",
+        "projects/ROCKNIX/devices/H700/patches/linux/0163-asoc-sun4i-codec-suspend-the-codec-and-switch-the-amplifier-supply.patch",
+        "projects/ROCKNIX/devices/H700/patches/linux/0200-h700-update-opps.patch",
+        "projects/ROCKNIX/devices/H700/patches/linux/0204-dts-Enable-hdmi-sound.patch",
+        "projects/ROCKNIX/devices/H700/patches/linux/0210-h616-cpu-opp-mark-480MHz-as-suspend-opp.patch",
+        "projects/ROCKNIX/devices/H700/patches/linux/0901-dts-rg35xx-2024-fix-led-1-color.patch",
+        "projects/ROCKNIX/devices/H700/patches/linux/0950-arm64-dts-allwinner-h616-ramoops-reserved-memory.patch",
+        "projects/ROCKNIX/devices/SM8550/linux/linux.aarch64.conf",
+        "projects/ROCKNIX/devices/SM8550/patches/linux/0001-pcie-update-sm8550-dtsi.patch",
+        "projects/ROCKNIX/devices/SM8550/patches/linux/0002-qcom-dispcc-sm8550-Fix-disp_cc_mdss_mdp_clk_src.patch",
+        "projects/ROCKNIX/devices/SM8550/patches/linux/0004-drm-msm-a6xx-Enable-IFPC-on-Adreno-740.patch",
+        "projects/ROCKNIX/devices/SM8550/patches/linux/0006-add-hw_params-callback-function-to-drm_connector_hdmi_audio_ops.patch",
+        "projects/ROCKNIX/devices/SM8550/patches/linux/0015-touchscreen-edt-ft5x06-allow-to-override-input-name.patch",
+        "projects/ROCKNIX/devices/SM8550/patches/linux/0030-input-rmi4-add-reset-gpio.patch",
+        "projects/ROCKNIX/devices/SM8550/patches/linux/0031_input--Add-driver-for-RSInput-Gamepad.patch",
+        "projects/ROCKNIX/devices/SM8550/patches/linux/0032-rmi4-silence-spam-irq-errors.patch",
+        "projects/ROCKNIX/devices/SM8550/patches/linux/0033_leds--Add-driver-for-HEROIC-HTR3212.patch",
+        "projects/ROCKNIX/devices/SM8550/patches/linux/0036_ASoC--qcom--sc8280xp-Add-support-for-Primary-I2S.patch",
+        "projects/ROCKNIX/devices/SM8550/patches/linux/0047_ASoC--codecs--aw88166--AYN-Odin2-Specific-modifica.patch",
+        "projects/ROCKNIX/devices/SM8550/patches/linux/0051-gpu-panel-add-Pocket-ACE-panel-driver.patch",
+        "projects/ROCKNIX/devices/SM8550/patches/linux/0052-gpu-panel-add-Pocket-DMG-panel-driver.patch",
+        "projects/ROCKNIX/devices/SM8550/patches/linux/0053-edt-ft5x06-add-no_regmap_bulk_read-option.patch",
+        "projects/ROCKNIX/devices/SM8550/patches/linux/0053-gpu-panel-st7703-add-Pocket-DS-lower-panel.patch",
+        "projects/ROCKNIX/devices/SM8550/patches/linux/0054-input-goodix-override-resolution-from-dt.patch",
+        "projects/ROCKNIX/devices/SM8550/patches/linux/0054_sn3112-pwm-driver.patch",
+        "projects/ROCKNIX/devices/SM8550/patches/linux/0055_Synaptics-TD4328-LCD-panel.patch",
+        "projects/ROCKNIX/devices/SM8550/patches/linux/0056_Xm-Plus-XM91080G-panel.patch",
+        "projects/ROCKNIX/devices/SM8550/patches/linux/0057_Chipone-ICNA35XX-panel.patch",
+        "projects/ROCKNIX/devices/SM8550/patches/linux/0057_DDIC-CH13726A-panel.patch",
+        "projects/ROCKNIX/devices/SM8550/patches/linux/0058_AYN-Odin2-Mini--backlight.patch",
+        "projects/ROCKNIX/devices/SM8550/patches/linux/0059_AYN-Odin2-Mini--hynitron--cstxxx.patch",
+        "projects/ROCKNIX/devices/SM8550/patches/linux/0060-Add-Silergy-SY7758-backlight-driver.patch",
+        "projects/ROCKNIX/devices/SM8550/patches/linux/0060-input-touchscreen-add-synaptics-dsx-driver.patch",
+        "projects/ROCKNIX/devices/SM8550/patches/linux/0060-input-touchscreen-add-synaptics-dsx-kconfig.patch",
+        "projects/ROCKNIX/devices/SM8550/patches/linux/0062-gpu-drm-panel-add-wt0630-panel.patch",
+        "projects/ROCKNIX/devices/SM8550/patches/linux/0063-gpu-drm-panel-add-wt0600-1k-panel.patch",
+        "projects/ROCKNIX/devices/SM8550/patches/linux/0064-gpu-drm-panel-add-ar16-4inch-panel.patch",
+        "projects/ROCKNIX/devices/SM8550/patches/linux/0065-input-touchscreen-add-hynitron-cst66xx.patch",
+        "projects/ROCKNIX/devices/SM8550/patches/linux/0066-drm-msm-dpu-enable-sm8550-inline-rotation.patch",
+        "projects/ROCKNIX/devices/SM8550/patches/linux/0067-drm-msm-dpu-enable-qseed-detail-enhancer.patch",
+        "projects/ROCKNIX/devices/SM8550/patches/linux/0071-HACK-fix-usb-boot-hang.patch",
+        "projects/ROCKNIX/devices/SM8550/patches/linux/0104-drm-panel-Add-Retroid-Pocket-6-panel.patch",
+        "projects/ROCKNIX/devices/SM8550/patches/linux/0105-drm-panel-Add-Retroid-Pocket-Nova-panel.patch",
+        "projects/ROCKNIX/devices/SM8550/patches/linux/0120-20250728_konradybcio_gpu_cc_power_requirements_reality_check.patch",
+        "projects/ROCKNIX/devices/SM8550/patches/linux/0121-pmdomain-qcom-rpmhpd-presync-floor-gmu-rails.patch",
+        "projects/ROCKNIX/devices/SM8550/patches/linux/0122-interconnect__qcom__sm8550__Enable_QoS_configuration.patch",
+        "projects/ROCKNIX/devices/SM8550/patches/linux/0200-ASoC-wcd938x-add-DMIC-DAPM-inputs.patch",
+        "projects/ROCKNIX/devices/SM8550/patches/linux/0500-ROCKNIX-set-boot-fanspeed.patch",
+        "projects/ROCKNIX/devices/SM8550/patches/linux/0501-ROCKNIX-fix-wifi-and-bt-mac.patch",
+        "projects/ROCKNIX/devices/SM8550/patches/linux/0502-wakeup-qcom-ipcc-remove-IRQF-NO-SUSPEND.patch",
+        "projects/ROCKNIX/devices/SM8550/patches/linux/0503-ROCKNIX-battery-name.patch",
+        "projects/ROCKNIX/devices/SM8550/patches/linux/0504-Enable-64-bit-processes-to-use-compat-input-syscalls.patch",
+        "projects/ROCKNIX/devices/SM8550/patches/linux/0505-msm_gem-lock-before-put_iova_spaces.patch",
+        "projects/ROCKNIX/devices/SM8550/patches/linux/0506-usbcore-add-interrupt-interval-override.patch",
+        "projects/ROCKNIX/devices/SM8550/patches/linux/0507-wifi-ath12k-skip-11d-scan-on-ayaneo-pocket-s-mini.patch",
+        "projects/ROCKNIX/devices/SM8550/patches/linux/0612-ROCKNIX-odin3-q6apm-start-mi2s-port-at-prepare.patch",
+        "projects/ROCKNIX/devices/SM8550/patches/linux/1000-add-qcom-haptics-driver.patch",
+        "projects/ROCKNIX/devices/SM8550/patches/linux/1002-haptics-driver-support-periodic-sine-and-fixes.patch",
+        "projects/ROCKNIX/devices/SM8550/patches/linux/1003-rsinput-add-ff.patch",
+        "projects/ROCKNIX/devices/SM8550/patches/linux/1005-input-qcom-haptics-defer-rsinput-playback.patch",
+        "projects/ROCKNIX/devices/SM8550/patches/linux/1020-wifi-ath12k-send-the-computed-scan-priority-to-the-f.patch",
+        "projects/ROCKNIX/devices/SM8550/patches/linux/20260424_neil_armstrong_arm64_dts_qcom_sm8_456_50_add_missing_cx_power_domain_to_gcc.patch",
+        "projects/ROCKNIX/devices/SM8550/patches/linux/v6_20260210_quic_utiwari_crypto_qce_add_runtime_pm_and_interconnect_bandwidth_scaling_support.patch",
+        "projects/ROCKNIX/packages/linux-firmware/kernel-firmware/patches/kernel-firmware-02-add-brcmfmac-43xxx-configs.patch",
+        "projects/ROCKNIX/packages/linux/patches/7.0/0006-hid-playstation-expose-DualSense-Edge-Fn-and-back-paddles.patch",
+        "projects/ROCKNIX/packages/linux/patches/7.0/0010-msm-resource-cleanup.patch",
+        "projects/ROCKNIX/packages/linux/patches/7.0/9998-silence-initramfs-unpack-warn.patch",
+        "projects/ROCKNIX/packages/linux/patches/7.0/9999-fix-rust-build-error.patch",
+        "projects/ROCKNIX/packages/linux/patches/7.2/0010-msm-resource-cleanup.patch",
+        "projects/ROCKNIX/packages/linux/patches/7.2/0011-thermal-adc-tm5-drop-iio-val-int-check.patch",
+        "projects/ROCKNIX/packages/linux/patches/7.2/0013-drm-msm-dpu-fix-inline-rotation.patch",
+        "projects/ROCKNIX/packages/linux/patches/7.2/0016-drm-msm-dp-return-0-from-audio_prepare-when-cable-is-disconnected.patch",
+        "projects/ROCKNIX/packages/linux/patches/7.2/9998-silence-initramfs-unpack-warn.patch",
+        "projects/ROCKNIX/packages/linux/patches/7.2/9999-fix-rust-build-error.patch",
+        "projects/ROCKNIX/packages/linux/patches/mainline/0002-input-add-input-polldev-driver.patch",
+        "projects/ROCKNIX/packages/linux/patches/mainline/0003-pwm-add-pwm_set_period.patch",
+        "projects/ROCKNIX/packages/linux/patches/mainline/0004-input-adc-keys-redirect-keycode-316-to-rocknix-joypa.patch",
+        "projects/ROCKNIX/packages/linux/patches/mainline/0005-Bluetooth-btrtl-Add-the-support-for-RTL8733BU.patch"
+      ],
+      "start": "2026-11-02T17:28:41.271224+00:00",
+      "elapsed_seconds": 0.057,
+      "rc": 0
+    },
+    {
+      "argv": [
+        "git",
+        "log",
+        "--no-merges",
+        "--format=%h %cs %s",
+        "c445081a59..02aab33bd9842610b0d466c9c186454dc14373ee",
+        "--",
+        "projects/ROCKNIX/packages/linux/package.mk",
+        "packages/linux/package.mk"
+      ],
+      "start": "2026-11-02T17:28:41.327862+00:00",
+      "elapsed_seconds": 0.015,
+      "rc": 0
+    },
+    {
+      "argv": [
+        "git",
+        "diff",
+        "--shortstat",
+        "c445081a59",
+        "02aab33bd9842610b0d466c9c186454dc14373ee",
+        "--",
+        "projects/ROCKNIX/packages/linux/package.mk",
+        "packages/linux/package.mk"
+      ],
+      "start": "2026-11-02T17:28:41.342551+00:00",
+      "elapsed_seconds": 0.002,
+      "rc": 0
+    },
+    {
+      "argv": [
+        "git",
+        "log",
+        "--oneline",
+        "--since=2026-06-01",
+        "02aab33bd9842610b0d466c9c186454dc14373ee",
+        "--",
+        "projects/ROCKNIX/devices/H700/packages/u-boot-DDR3/patches/0001-Update-dram_sun50i_h616.c.patch",
+        "projects/ROCKNIX/devices/H700/packages/u-boot-DDR3/patches/0002-sunxi-axp717-charge-only-boot.patch",
+        "projects/ROCKNIX/devices/H700/packages/u-boot-DDR4/patches/0001-Update-dram_sun50i_h616.c.patch",
+        "projects/ROCKNIX/devices/H700/packages/u-boot-DDR4/patches/0002-sunxi-axp717-charge-only-boot.patch",
+        "projects/ROCKNIX/devices/H700/patches/linux/0002-rg35xx-enable-HDMI-LCD.patch",
+        "projects/ROCKNIX/devices/H700/patches/linux/0003-Update-sun8i_tcon_top.c.patch",
+        "projects/ROCKNIX/devices/H700/patches/linux/0007-rg35xx-add-GPU-opp.patch",
+        "projects/ROCKNIX/devices/H700/patches/linux/0008-v8_20260804_james_hilliard1_introduce_allwinner_h616_pwm_controller.patch",
+        "projects/ROCKNIX/devices/H700/patches/linux/0010-rg35xx-enable-pwm-backlight.patch",
+        "projects/ROCKNIX/devices/H700/patches/linux/0040-Revert-usb-musb-Fix-hardware-lockup-on-first-Rx-endp.patch",
+        "projects/ROCKNIX/devices/H700/patches/linux/0110-v2_20250226_kikuchan98_drm_panel_add_generic_mipi_panel_driver.patch",
+        "projects/ROCKNIX/devices/H700/patches/linux/0111-rg35xx-2024-use-panel-mipi-dpi-spi-driver.patch",
+        "projects/ROCKNIX/devices/H700/patches/linux/0124-battery-name.patch",
+        "projects/ROCKNIX/devices/H700/patches/linux/0126-20241018_macroalpha82_rg35xx_add_additional_hardware_support.patch",
+        "projects/ROCKNIX/devices/H700/patches/linux/0127-enable-mmc1-for-RG35XX-2024.patch",
+        "projects/ROCKNIX/devices/H700/patches/linux/0140-rg35xx-2024-use-rocknix-joypad-driver.patch",
+        "projects/ROCKNIX/devices/H700/patches/linux/0144-Update-sun50i-h700-anbernic-rg35xx-h.dts.patch",
+        "projects/ROCKNIX/devices/H700/patches/linux/0150-add-forcefeedback.patch",
+        "projects/ROCKNIX/devices/H700/patches/linux/0151-phy-fix-OTG-host-mode.patch",
+        "projects/ROCKNIX/devices/H700/patches/linux/0152-rg35xx-2024-enable-usb-otg.patch",
+        "projects/ROCKNIX/devices/H700/patches/linux/0153-enable-rgb-leds.patch",
+        "projects/ROCKNIX/devices/H700/patches/linux/0154-rocknix-dt-id.patch",
+        "projects/ROCKNIX/devices/H700/patches/linux/0155-sun4i-set-rgb-connector-as-DSI.patch",
+        "projects/ROCKNIX/devices/H700/patches/linux/0156-rg35xx-plus-add-pcf8563-rtc.patch",
+        "projects/ROCKNIX/devices/H700/patches/linux/0157-input-axp20x-pek-do-not-report-the-key-press-that-woke-the-system.patch",
+        "projects/ROCKNIX/devices/H700/patches/linux/0158-mmc-sunxi-mmc-mask\u002ddata0-when-updating-the-clock-on-h616-emmc.patch",
+        "projects/ROCKNIX/devices/H700/patches/linux/0159-arm64-dts-rg35xx-2024-keep-the-second-sd-card-powered.patch",
+        "projects/ROCKNIX/devices/H700/patches/linux/0160-phy-sun4i-usb-disable-the-clock-that-was-enabled.patch",
+        "projects/ROCKNIX/devices/H700/patches/linux/0161-drm-sun4i-gate-the-display-pipeline-across-system-suspend.patch",
+        "projects/ROCKNIX/devices/H700/patches/linux/0162-pinctrl-sunxi-release-the-lcd0-pads-while-the-panel-is-off.patch",
+        "projects/ROCKNIX/devices/H700/patches/linux/0163-asoc-sun4i-codec-suspend-the-codec-and-switch-the-amplifier-supply.patch",
+        "projects/ROCKNIX/devices/H700/patches/linux/0200-h700-update-opps.patch",
+        "projects/ROCKNIX/devices/H700/patches/linux/0204-dts-Enable-hdmi-sound.patch",
+        "projects/ROCKNIX/devices/H700/patches/linux/0210-h616-cpu-opp-mark-480MHz-as-suspend-opp.patch",
+        "projects/ROCKNIX/devices/H700/patches/linux/0901-dts-rg35xx-2024-fix-led-1-color.patch",
+        "projects/ROCKNIX/devices/H700/patches/linux/0950-arm64-dts-allwinner-h616-ramoops-reserved-memory.patch",
+        "projects/ROCKNIX/devices/SM8550/linux/linux.aarch64.conf",
+        "projects/ROCKNIX/devices/SM8550/patches/linux/0001-pcie-update-sm8550-dtsi.patch",
+        "projects/ROCKNIX/devices/SM8550/patches/linux/0002-qcom-dispcc-sm8550-Fix-disp_cc_mdss_mdp_clk_src.patch",
+        "projects/ROCKNIX/devices/SM8550/patches/linux/0004-drm-msm-a6xx-Enable-IFPC-on-Adreno-740.patch",
+        "projects/ROCKNIX/devices/SM8550/patches/linux/0006-add-hw_params-callback-function-to-drm_connector_hdmi_audio_ops.patch",
+        "projects/ROCKNIX/devices/SM8550/patches/linux/0015-touchscreen-edt-ft5x06-allow-to-override-input-name.patch",
+        "projects/ROCKNIX/devices/SM8550/patches/linux/0030-input-rmi4-add-reset-gpio.patch",
+        "projects/ROCKNIX/devices/SM8550/patches/linux/0031_input--Add-driver-for-RSInput-Gamepad.patch",
+        "projects/ROCKNIX/devices/SM8550/patches/linux/0032-rmi4-silence-spam-irq-errors.patch",
+        "projects/ROCKNIX/devices/SM8550/patches/linux/0033_leds--Add-driver-for-HEROIC-HTR3212.patch",
+        "projects/ROCKNIX/devices/SM8550/patches/linux/0036_ASoC--qcom--sc8280xp-Add-support-for-Primary-I2S.patch",
+        "projects/ROCKNIX/devices/SM8550/patches/linux/0047_ASoC--codecs--aw88166--AYN-Odin2-Specific-modifica.patch",
+        "projects/ROCKNIX/devices/SM8550/patches/linux/0051-gpu-panel-add-Pocket-ACE-panel-driver.patch",
+        "projects/ROCKNIX/devices/SM8550/patches/linux/0052-gpu-panel-add-Pocket-DMG-panel-driver.patch",
+        "projects/ROCKNIX/devices/SM8550/patches/linux/0053-edt-ft5x06-add-no_regmap_bulk_read-option.patch",
+        "projects/ROCKNIX/devices/SM8550/patches/linux/0053-gpu-panel-st7703-add-Pocket-DS-lower-panel.patch",
+        "projects/ROCKNIX/devices/SM8550/patches/linux/0054-input-goodix-override-resolution-from-dt.patch",
+        "projects/ROCKNIX/devices/SM8550/patches/linux/0054_sn3112-pwm-driver.patch",
+        "projects/ROCKNIX/devices/SM8550/patches/linux/0055_Synaptics-TD4328-LCD-panel.patch",
+        "projects/ROCKNIX/devices/SM8550/patches/linux/0056_Xm-Plus-XM91080G-panel.patch",
+        "projects/ROCKNIX/devices/SM8550/patches/linux/0057_Chipone-ICNA35XX-panel.patch",
+        "projects/ROCKNIX/devices/SM8550/patches/linux/0057_DDIC-CH13726A-panel.patch",
+        "projects/ROCKNIX/devices/SM8550/patches/linux/0058_AYN-Odin2-Mini--backlight.patch",
+        "projects/ROCKNIX/devices/SM8550/patches/linux/0059_AYN-Odin2-Mini--hynitron--cstxxx.patch",
+        "projects/ROCKNIX/devices/SM8550/patches/linux/0060-Add-Silergy-SY7758-backlight-driver.patch",
+        "projects/ROCKNIX/devices/SM8550/patches/linux/0060-input-touchscreen-add-synaptics-dsx-driver.patch",
+        "projects/ROCKNIX/devices/SM8550/patches/linux/0060-input-touchscreen-add-synaptics-dsx-kconfig.patch",
+        "projects/ROCKNIX/devices/SM8550/patches/linux/0062-gpu-drm-panel-add-wt0630-panel.patch",
+        "projects/ROCKNIX/devices/SM8550/patches/linux/0063-gpu-drm-panel-add-wt0600-1k-panel.patch",
+        "projects/ROCKNIX/devices/SM8550/patches/linux/0064-gpu-drm-panel-add-ar16-4inch-panel.patch",
+        "projects/ROCKNIX/devices/SM8550/patches/linux/0065-input-touchscreen-add-hynitron-cst66xx.patch",
+        "projects/ROCKNIX/devices/SM8550/patches/linux/0066-drm-msm-dpu-enable-sm8550-inline-rotation.patch",
+        "projects/ROCKNIX/devices/SM8550/patches/linux/0067-drm-msm-dpu-enable-qseed-detail-enhancer.patch",
+        "projects/ROCKNIX/devices/SM8550/patches/linux/0071-HACK-fix-usb-boot-hang.patch",
+        "projects/ROCKNIX/devices/SM8550/patches/linux/0104-drm-panel-Add-Retroid-Pocket-6-panel.patch",
+        "projects/ROCKNIX/devices/SM8550/patches/linux/0105-drm-panel-Add-Retroid-Pocket-Nova-panel.patch",
+        "projects/ROCKNIX/devices/SM8550/patches/linux/0120-20250728_konradybcio_gpu_cc_power_requirements_reality_check.patch",
+        "projects/ROCKNIX/devices/SM8550/patches/linux/0121-pmdomain-qcom-rpmhpd-presync-floor-gmu-rails.patch",
+        "projects/ROCKNIX/devices/SM8550/patches/linux/0122-interconnect__qcom__sm8550__Enable_QoS_configuration.patch",
+        "projects/ROCKNIX/devices/SM8550/patches/linux/0200-ASoC-wcd938x-add-DMIC-DAPM-inputs.patch",
+        "projects/ROCKNIX/devices/SM8550/patches/linux/0500-ROCKNIX-set-boot-fanspeed.patch",
+        "projects/ROCKNIX/devices/SM8550/patches/linux/0501-ROCKNIX-fix-wifi-and-bt-mac.patch",
+        "projects/ROCKNIX/devices/SM8550/patches/linux/0502-wakeup-qcom-ipcc-remove-IRQF-NO-SUSPEND.patch",
+        "projects/ROCKNIX/devices/SM8550/patches/linux/0503-ROCKNIX-battery-name.patch",
+        "projects/ROCKNIX/devices/SM8550/patches/linux/0504-Enable-64-bit-processes-to-use-compat-input-syscalls.patch",
+        "projects/ROCKNIX/devices/SM8550/patches/linux/0505-msm_gem-lock-before-put_iova_spaces.patch",
+        "projects/ROCKNIX/devices/SM8550/patches/linux/0506-usbcore-add-interrupt-interval-override.patch",
+        "projects/ROCKNIX/devices/SM8550/patches/linux/0507-wifi-ath12k-skip-11d-scan-on-ayaneo-pocket-s-mini.patch",
+        "projects/ROCKNIX/devices/SM8550/patches/linux/0612-ROCKNIX-odin3-q6apm-start-mi2s-port-at-prepare.patch",
+        "projects/ROCKNIX/devices/SM8550/patches/linux/1000-add-qcom-haptics-driver.patch",
+        "projects/ROCKNIX/devices/SM8550/patches/linux/1002-haptics-driver-support-periodic-sine-and-fixes.patch",
+        "projects/ROCKNIX/devices/SM8550/patches/linux/1003-rsinput-add-ff.patch",
+        "projects/ROCKNIX/devices/SM8550/patches/linux/1005-input-qcom-haptics-defer-rsinput-playback.patch",
+        "projects/ROCKNIX/devices/SM8550/patches/linux/1020-wifi-ath12k-send-the-computed-scan-priority-to-the-f.patch",
+        "projects/ROCKNIX/devices/SM8550/patches/linux/20260424_neil_armstrong_arm64_dts_qcom_sm8_456_50_add_missing_cx_power_domain_to_gcc.patch",
+        "projects/ROCKNIX/devices/SM8550/patches/linux/v6_20260210_quic_utiwari_crypto_qce_add_runtime_pm_and_interconnect_bandwidth_scaling_support.patch",
+        "projects/ROCKNIX/packages/linux-firmware/kernel-firmware/patches/kernel-firmware-02-add-brcmfmac-43xxx-configs.patch",
+        "projects/ROCKNIX/packages/linux/patches/7.0/0006-hid-playstation-expose-DualSense-Edge-Fn-and-back-paddles.patch",
+        "projects/ROCKNIX/packages/linux/patches/7.0/0010-msm-resource-cleanup.patch",
+        "projects/ROCKNIX/packages/linux/patches/7.0/9998-silence-initramfs-unpack-warn.patch",
+        "projects/ROCKNIX/packages/linux/patches/7.0/9999-fix-rust-build-error.patch",
+        "projects/ROCKNIX/packages/linux/patches/7.2/0010-msm-resource-cleanup.patch",
+        "projects/ROCKNIX/packages/linux/patches/7.2/0011-thermal-adc-tm5-drop-iio-val-int-check.patch",
+        "projects/ROCKNIX/packages/linux/patches/7.2/0013-drm-msm-dpu-fix-inline-rotation.patch",
+        "projects/ROCKNIX/packages/linux/patches/7.2/0016-drm-msm-dp-return-0-from-audio_prepare-when-cable-is-disconnected.patch",
+        "projects/ROCKNIX/packages/linux/patches/7.2/9998-silence-initramfs-unpack-warn.patch",
+        "projects/ROCKNIX/packages/linux/patches/7.2/9999-fix-rust-build-error.patch",
+        "projects/ROCKNIX/packages/linux/patches/mainline/0002-input-add-input-polldev-driver.patch",
+        "projects/ROCKNIX/packages/linux/patches/mainline/0003-pwm-add-pwm_set_period.patch",
+        "projects/ROCKNIX/packages/linux/patches/mainline/0004-input-adc-keys-redirect-keycode-316-to-rocknix-joypa.patch",
+        "projects/ROCKNIX/packages/linux/patches/mainline/0005-Bluetooth-btrtl-Add-the-support-for-RTL8733BU.patch"
+      ],
+      "start": "2026-11-02T17:28:41.344803+00:00",
+      "elapsed_seconds": 0.068,
+      "rc": 0
+    },
+    {
+      "argv": [
+        "git",
+        "ls-tree",
+        "02aab33bd9842610b0d466c9c186454dc14373ee",
+        "--",
+        "projects/ROCKNIX/packages/linux/patches/H700"
+      ],
+      "start": "2026-11-02T17:28:41.413308+00:00",
+      "elapsed_seconds": 0.002,
+      "rc": 0
+    },
+    {
+      "argv": [
+        "git",
+        "ls-tree",
+        "02aab33bd9842610b0d466c9c186454dc14373ee",
+        "--",
+        "projects/ROCKNIX/packages/linux/patches/SM8550"
+      ],
+      "start": "2026-11-02T17:28:41.414913+00:00",
+      "elapsed_seconds": 0.001,
+      "rc": 0
+    },
+    {
+      "argv": [
+        "git",
+        "ls-tree",
+        "02aab33bd9842610b0d466c9c186454dc14373ee",
+        "--",
+        "projects/ROCKNIX/packages/linux/patches/GENERIC_X64"
+      ],
+      "start": "2026-11-02T17:28:41.416110+00:00",
+      "elapsed_seconds": 0.001,
+      "rc": 0
+    },
+    {
+      "argv": [
+        "git",
+        "ls-tree",
+        "02aab33bd9842610b0d466c9c186454dc14373ee",
+        "--",
+        "projects/ROCKNIX/packages/linux/patches/default"
+      ],
+      "start": "2026-11-02T17:28:41.417287+00:00",
+      "elapsed_seconds": 0.001,
+      "rc": 0
+    },
+    {
+      "argv": [
+        "git",
+        "ls-tree",
+        "02aab33bd9842610b0d466c9c186454dc14373ee",
+        "--",
+        "projects/ROCKNIX/packages/linux/patches/aarch64"
+      ],
+      "start": "2026-11-02T17:28:41.418385+00:00",
+      "elapsed_seconds": 0.001,
+      "rc": 0
+    },
+    {
+      "argv": [
+        "git",
+        "ls-tree",
+        "02aab33bd9842610b0d466c9c186454dc14373ee",
+        "--",
+        "projects/ROCKNIX/packages/linux/patches/x86"
+      ],
+      "start": "2026-11-02T17:28:41.419541+00:00",
+      "elapsed_seconds": 0.001,
+      "rc": 0
+    },
+    {
+      "argv": [
+        "git",
+        "ls-tree",
+        "02aab33bd9842610b0d466c9c186454dc14373ee",
+        "--",
+        "projects/ROCKNIX/packages/linux/patches/7.1.2"
+      ],
+      "start": "2026-11-02T17:28:41.420641+00:00",
+      "elapsed_seconds": 0.001,
+      "rc": 0
+    },
+    {
+      "argv": [
+        "git",
+        "grep",
+        "-n",
+        "-E",
+        "^\\s*LINUX=",
+        "02aab33bd9842610b0d466c9c186454dc14373ee",
+        "--",
+        "projects/ROCKNIX/options",
+        "distributions/ROCKNIX/options",
+        "config/options"
+      ],
+      "start": "2026-11-02T17:28:41.421778+00:00",
+      "elapsed_seconds": 0.004,
+      "rc": 1
+    },
+    {
+      "argv": [
+        "git",
+        "show",
+        "02aab33bd9842610b0d466c9c186454dc14373ee:projects/ROCKNIX/packages/linux/patches/7.0/0010-msm-resource-cleanup.patch"
+      ],
+      "start": "2026-11-02T17:28:41.426236+00:00",
+      "elapsed_seconds": 0.001,
+      "rc": 0
+    },
+    {
+      "argv": [
+        "git",
+        "show",
+        "02aab33bd9842610b0d466c9c186454dc14373ee:projects/ROCKNIX/packages/linux/patches/7.2/0010-msm-resource-cleanup.patch"
+      ],
+      "start": "2026-11-02T17:28:41.427557+00:00",
+      "elapsed_seconds": 0.001,
+      "rc": 0
+    },
+    {
+      "argv": [
+        "git",
+        "show",
+        "02aab33bd9842610b0d466c9c186454dc14373ee:projects/ROCKNIX/packages/linux/patches/7.0/9998-silence-initramfs-unpack-warn.patch"
+      ],
+      "start": "2026-11-02T17:28:41.428936+00:00",
+      "elapsed_seconds": 0.002,
+      "rc": 0
+    },
+    {
+      "argv": [
+        "git",
+        "show",
+        "02aab33bd9842610b0d466c9c186454dc14373ee:projects/ROCKNIX/packages/linux/patches/7.2/9998-silence-initramfs-unpack-warn.patch"
+      ],
+      "start": "2026-11-02T17:28:41.430802+00:00",
+      "elapsed_seconds": 0.001,
+      "rc": 0
+    },
+    {
+      "argv": [
+        "git",
+        "show",
+        "02aab33bd9842610b0d466c9c186454dc14373ee:projects/ROCKNIX/packages/linux/patches/7.0/9999-fix-rust-build-error.patch"
+      ],
+      "start": "2026-11-02T17:28:41.431976+00:00",
+      "elapsed_seconds": 0.001,
+      "rc": 0
+    },
+    {
+      "argv": [
+        "git",
+        "show",
+        "02aab33bd9842610b0d466c9c186454dc14373ee:projects/ROCKNIX/packages/linux/patches/7.2/9999-fix-rust-build-error.patch"
+      ],
+      "start": "2026-11-02T17:28:41.433280+00:00",
+      "elapsed_seconds": 0.001,
+      "rc": 0
+    },
+    {
+      "argv": [
+        "git",
+        "show",
+        "02aab33bd9842610b0d466c9c186454dc14373ee:projects/ROCKNIX/devices/H700/packages/u-boot-DDR3/patches/0001-Update-dram_sun50i_h616.c.patch"
+      ],
+      "start": "2026-11-02T17:28:41.434673+00:00",
+      "elapsed_seconds": 0.001,
+      "rc": 0
+    },
+    {
+      "argv": [
+        "git",
+        "show",
+        "02aab33bd9842610b0d466c9c186454dc14373ee:projects/ROCKNIX/devices/H700/packages/u-boot-DDR4/patches/0001-Update-dram_sun50i_h616.c.patch"
+      ],
+      "start": "2026-11-02T17:28:41.435785+00:00",
+      "elapsed_seconds": 0.001,
+      "rc": 0
+    },
+    {
+      "argv": [
+        "git",
+        "show",
+        "02aab33bd9842610b0d466c9c186454dc14373ee:projects/ROCKNIX/devices/H700/packages/u-boot-DDR3/patches/0002-sunxi-axp717-charge-only-boot.patch"
+      ],
+      "start": "2026-11-02T17:28:41.436981+00:00",
+      "elapsed_seconds": 0.001,
+      "rc": 0
+    },
+    {
+      "argv": [
+        "git",
+        "show",
+        "02aab33bd9842610b0d466c9c186454dc14373ee:projects/ROCKNIX/devices/H700/packages/u-boot-DDR4/patches/0002-sunxi-axp717-charge-only-boot.patch"
+      ],
+      "start": "2026-11-02T17:28:41.438375+00:00",
+      "elapsed_seconds": 0.001,
+      "rc": 0
+    }
+  ]
+}

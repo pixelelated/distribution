@@ -1,0 +1,52 @@
+{
+  "plan": "SM8550",
+  "index": 6,
+  "path": "projects/ROCKNIX/packages/linux/patches/7.2/0011-thermal-adc-tm5-drop-iio-val-int-check.patch",
+  "patch_sha256": "3a145e30d3004aa29e40d13fda0f2c9305add4bd8953916981b9b3045ea9bdc2",
+  "produced_at": "2026-11-02T17:17:01.340578+00:00",
+  "input_tree_sha256": "b9631a5827bcbc5c833016652b97d3847d23b56685fda4744cb094c4666bf294",
+  "candidate": "/workspace/tmp/m6-t41/src/corrected-20261102T171658Z/SM8550/candidates/006",
+  "dry": {
+    "argv": [
+      "patch",
+      "-p1",
+      "-N",
+      "--batch",
+      "--directory",
+      "/workspace/tmp/m6-t41/src/corrected-20261102T171658Z/SM8550/candidates/006",
+      "--dry-run"
+    ],
+    "start": "2026-11-02T17:17:01.348905+00:00",
+    "elapsed_seconds": 0.002,
+    "rc": 0,
+    "timed_out": false,
+    "output": "logs/SM8550-006.dry.out",
+    "output_sha256": "b5de968a9230ffbd85aa056b06509f0126e71ce7d61a84e10103131d55c0cd0c"
+  },
+  "dry_rc": 0,
+  "after_dry_tree_sha256": "b9631a5827bcbc5c833016652b97d3847d23b56685fda4744cb094c4666bf294",
+  "attempted": true,
+  "apply": {
+    "argv": [
+      "patch",
+      "-p1",
+      "-N",
+      "--batch",
+      "--directory",
+      "/workspace/tmp/m6-t41/src/corrected-20261102T171658Z/SM8550/candidates/006"
+    ],
+    "start": "2026-11-02T17:17:01.353271+00:00",
+    "elapsed_seconds": 0.002,
+    "rc": 0,
+    "timed_out": false,
+    "output": "logs/SM8550-006.apply.out",
+    "output_sha256": "31898e7a09a9c706cac2cfd13b8d40c54c9426869b13ad46edca28f12f12689d"
+  },
+  "apply_rc": 0,
+  "offset": 0,
+  "fuzz": 0,
+  "FAILED": 0,
+  "output_tree_sha256": "d071293904358cdaedbf3d0f3648b50741109f71b1f5cc6d3548a8c5b9d499aa",
+  "promoted": true,
+  "status": "applies"
+}

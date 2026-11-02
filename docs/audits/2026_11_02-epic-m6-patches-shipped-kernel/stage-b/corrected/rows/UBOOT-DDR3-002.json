@@ -1,0 +1,52 @@
+{
+  "plan": "UBOOT-DDR3",
+  "index": 2,
+  "path": "projects/ROCKNIX/devices/H700/packages/u-boot-DDR3/patches/0002-sunxi-axp717-charge-only-boot.patch",
+  "patch_sha256": "34846545c9777039d8d5d9635f7646f5130972a1a190ebd41c46e7eb2810a58e",
+  "produced_at": "2026-11-02T17:17:03.248614+00:00",
+  "input_tree_sha256": "27171b5a68445be23eebe86aa351705a9f39a8f748491b63287ddb7494486402",
+  "candidate": "/workspace/tmp/m6-t41/src/corrected-20261102T171658Z/UBOOT-DDR3/candidates/002",
+  "dry": {
+    "argv": [
+      "patch",
+      "-p1",
+      "-N",
+      "--batch",
+      "--directory",
+      "/workspace/tmp/m6-t41/src/corrected-20261102T171658Z/UBOOT-DDR3/candidates/002",
+      "--dry-run"
+    ],
+    "start": "2026-11-02T17:17:03.250329+00:00",
+    "elapsed_seconds": 0.003,
+    "rc": 0,
+    "timed_out": false,
+    "output": "logs/UBOOT-DDR3-002.dry.out",
+    "output_sha256": "e336fed4606d15b7ab771b7cc1c8fc20e0d9a8976f006eddbc6f959fb1f7de04"
+  },
+  "dry_rc": 0,
+  "after_dry_tree_sha256": "27171b5a68445be23eebe86aa351705a9f39a8f748491b63287ddb7494486402",
+  "attempted": true,
+  "apply": {
+    "argv": [
+      "patch",
+      "-p1",
+      "-N",
+      "--batch",
+      "--directory",
+      "/workspace/tmp/m6-t41/src/corrected-20261102T171658Z/UBOOT-DDR3/candidates/002"
+    ],
+    "start": "2026-11-02T17:17:03.253794+00:00",
+    "elapsed_seconds": 0.002,
+    "rc": 0,
+    "timed_out": false,
+    "output": "logs/UBOOT-DDR3-002.apply.out",
+    "output_sha256": "c88f643f36de3327e5bfdfb87dab5c11dfdea234cfb7514df27bc27ca1dcea7f"
+  },
+  "apply_rc": 0,
+  "offset": 0,
+  "fuzz": 0,
+  "FAILED": 0,
+  "output_tree_sha256": "b4e53d8424301f64e5b62cb225ecbbf67b7ead1625bfdfbfe2644450e19c6224",
+  "promoted": true,
+  "status": "applies"
+}

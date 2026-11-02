@@ -1,0 +1,52 @@
+{
+  "plan": "SM8550",
+  "index": 45,
+  "path": "projects/ROCKNIX/devices/SM8550/patches/linux/0105-drm-panel-Add-Retroid-Pocket-Nova-panel.patch",
+  "patch_sha256": "092c22b6467ed9be09f454eca866ec3f387c09c528fb96ef456f428353031d98",
+  "produced_at": "2026-11-02T17:17:02.239459+00:00",
+  "input_tree_sha256": "991e9315adc2fffddbbbffdcf7925db69c070b64e3aab78a2b2c74d0bc8d0dea",
+  "candidate": "/workspace/tmp/m6-t41/src/corrected-20261102T171658Z/SM8550/candidates/045",
+  "dry": {
+    "argv": [
+      "patch",
+      "-p1",
+      "-N",
+      "--batch",
+      "--directory",
+      "/workspace/tmp/m6-t41/src/corrected-20261102T171658Z/SM8550/candidates/045",
+      "--dry-run"
+    ],
+    "start": "2026-11-02T17:17:02.250265+00:00",
+    "elapsed_seconds": 0.003,
+    "rc": 0,
+    "timed_out": false,
+    "output": "logs/SM8550-045.dry.out",
+    "output_sha256": "a83192d364bbc1e8da588e72b19a1f73e1fd0d60fd930dfed26e25fa87f65dd1"
+  },
+  "dry_rc": 0,
+  "after_dry_tree_sha256": "991e9315adc2fffddbbbffdcf7925db69c070b64e3aab78a2b2c74d0bc8d0dea",
+  "attempted": true,
+  "apply": {
+    "argv": [
+      "patch",
+      "-p1",
+      "-N",
+      "--batch",
+      "--directory",
+      "/workspace/tmp/m6-t41/src/corrected-20261102T171658Z/SM8550/candidates/045"
+    ],
+    "start": "2026-11-02T17:17:02.256256+00:00",
+    "elapsed_seconds": 0.003,
+    "rc": 0,
+    "timed_out": false,
+    "output": "logs/SM8550-045.apply.out",
+    "output_sha256": "d5d0d6cef7db6f8af06f4c5847f2f8bd43f05ad08ae32698f186c0699b4b2880"
+  },
+  "apply_rc": 0,
+  "offset": 2,
+  "fuzz": 1,
+  "FAILED": 0,
+  "output_tree_sha256": "88ac94065a82a61a462db844ef1a2b9eff488596bcb6619ba87b9e1816dac249",
+  "promoted": true,
+  "status": "fuzz"
+}

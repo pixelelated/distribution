@@ -1,0 +1,52 @@
+{
+  "plan": "H700",
+  "index": 8,
+  "path": "projects/ROCKNIX/packages/linux/patches/7.2/0016-drm-msm-dp-return-0-from-audio_prepare-when-cable-is-disconnected.patch",
+  "patch_sha256": "81665288adedb443e7c555e11ecf40cd05d819b10c6a5761e7326a64576d3815",
+  "produced_at": "2026-11-02T17:16:59.836930+00:00",
+  "input_tree_sha256": "99f0ddf69c3c6770e19bd1c95ce29b7ce21e37e29731571af3ea0a969aa6a8cc",
+  "candidate": "/workspace/tmp/m6-t41/src/corrected-20261102T171658Z/H700/candidates/008",
+  "dry": {
+    "argv": [
+      "patch",
+      "-p1",
+      "-N",
+      "--batch",
+      "--directory",
+      "/workspace/tmp/m6-t41/src/corrected-20261102T171658Z/H700/candidates/008",
+      "--dry-run"
+    ],
+    "start": "2026-11-02T17:16:59.844571+00:00",
+    "elapsed_seconds": 0.002,
+    "rc": 0,
+    "timed_out": false,
+    "output": "logs/H700-008.dry.out",
+    "output_sha256": "2530503b6c4505f6b694393dff0adddc5b2259e833016b237e6c5e84c60b2719"
+  },
+  "dry_rc": 0,
+  "after_dry_tree_sha256": "99f0ddf69c3c6770e19bd1c95ce29b7ce21e37e29731571af3ea0a969aa6a8cc",
+  "attempted": true,
+  "apply": {
+    "argv": [
+      "patch",
+      "-p1",
+      "-N",
+      "--batch",
+      "--directory",
+      "/workspace/tmp/m6-t41/src/corrected-20261102T171658Z/H700/candidates/008"
+    ],
+    "start": "2026-11-02T17:16:59.849518+00:00",
+    "elapsed_seconds": 0.002,
+    "rc": 0,
+    "timed_out": false,
+    "output": "logs/H700-008.apply.out",
+    "output_sha256": "5c4b7b4e0d9f0956e2aea0163fba4812145236808d6e97d8abb84d67893dfcce"
+  },
+  "apply_rc": 0,
+  "offset": 0,
+  "fuzz": 0,
+  "FAILED": 0,
+  "output_tree_sha256": "23c223df68ab598b0a957147058aa276fdff926b325543caa05b214ec057777e",
+  "promoted": true,
+  "status": "applies"
+}

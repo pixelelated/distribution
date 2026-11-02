@@ -1,0 +1,52 @@
+{
+  "plan": "H700",
+  "index": 16,
+  "path": "projects/ROCKNIX/devices/H700/patches/linux/0040-Revert-usb-musb-Fix-hardware-lockup-on-first-Rx-endp.patch",
+  "patch_sha256": "177c5ad853763d70e8fc07984493624c7ff97f6a71ec22ab461eb28980e6bedb",
+  "produced_at": "2026-11-02T17:17:00.006184+00:00",
+  "input_tree_sha256": "d3d4b8f7e4eb1af9f20a9cd0c5911954ff89d12c5d3ad7973c7fc3ffc6949e62",
+  "candidate": "/workspace/tmp/m6-t41/src/corrected-20261102T171658Z/H700/candidates/016",
+  "dry": {
+    "argv": [
+      "patch",
+      "-p1",
+      "-N",
+      "--batch",
+      "--directory",
+      "/workspace/tmp/m6-t41/src/corrected-20261102T171658Z/H700/candidates/016",
+      "--dry-run"
+    ],
+    "start": "2026-11-02T17:17:00.014400+00:00",
+    "elapsed_seconds": 0.003,
+    "rc": 0,
+    "timed_out": false,
+    "output": "logs/H700-016.dry.out",
+    "output_sha256": "2bc72053f9b09d345f6d23530bb386f4067993ab1802cce6579c61596bf2c78b"
+  },
+  "dry_rc": 0,
+  "after_dry_tree_sha256": "d3d4b8f7e4eb1af9f20a9cd0c5911954ff89d12c5d3ad7973c7fc3ffc6949e62",
+  "attempted": true,
+  "apply": {
+    "argv": [
+      "patch",
+      "-p1",
+      "-N",
+      "--batch",
+      "--directory",
+      "/workspace/tmp/m6-t41/src/corrected-20261102T171658Z/H700/candidates/016"
+    ],
+    "start": "2026-11-02T17:17:00.020313+00:00",
+    "elapsed_seconds": 0.003,
+    "rc": 0,
+    "timed_out": false,
+    "output": "logs/H700-016.apply.out",
+    "output_sha256": "5077883c02055770fc5985813cd5a82fd8707ab26d44fa7977f5cf56f7f266ca"
+  },
+  "apply_rc": 0,
+  "offset": 0,
+  "fuzz": 0,
+  "FAILED": 0,
+  "output_tree_sha256": "063aceea9d0006e6f5f4b2ef98d1393d5a3ce14c0c4ab67afa8cbd7701f83ac5",
+  "promoted": true,
+  "status": "applies"
+}

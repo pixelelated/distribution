@@ -1,0 +1,52 @@
+{
+  "plan": "SM8550",
+  "index": 20,
+  "path": "projects/ROCKNIX/devices/SM8550/patches/linux/0036_ASoC--qcom--sc8280xp-Add-support-for-Primary-I2S.patch",
+  "patch_sha256": "faec2827d9ea69d69d8ce76de4bfc95c55cf70232a6a4f5245d0aae272450d2c",
+  "produced_at": "2026-11-02T17:17:01.636830+00:00",
+  "input_tree_sha256": "b737f9e13b9adee1134a27ca192bd5fdcddea8ad84fe5e6f0687e186ff24bfb5",
+  "candidate": "/workspace/tmp/m6-t41/src/corrected-20261102T171658Z/SM8550/candidates/020",
+  "dry": {
+    "argv": [
+      "patch",
+      "-p1",
+      "-N",
+      "--batch",
+      "--directory",
+      "/workspace/tmp/m6-t41/src/corrected-20261102T171658Z/SM8550/candidates/020",
+      "--dry-run"
+    ],
+    "start": "2026-11-02T17:17:01.646148+00:00",
+    "elapsed_seconds": 0.002,
+    "rc": 0,
+    "timed_out": false,
+    "output": "logs/SM8550-020.dry.out",
+    "output_sha256": "cb8939eaf6f092445c425301fa3ef596ef54fb53e182a0ae906387b01995a47a"
+  },
+  "dry_rc": 0,
+  "after_dry_tree_sha256": "b737f9e13b9adee1134a27ca192bd5fdcddea8ad84fe5e6f0687e186ff24bfb5",
+  "attempted": true,
+  "apply": {
+    "argv": [
+      "patch",
+      "-p1",
+      "-N",
+      "--batch",
+      "--directory",
+      "/workspace/tmp/m6-t41/src/corrected-20261102T171658Z/SM8550/candidates/020"
+    ],
+    "start": "2026-11-02T17:17:01.651448+00:00",
+    "elapsed_seconds": 0.002,
+    "rc": 0,
+    "timed_out": false,
+    "output": "logs/SM8550-020.apply.out",
+    "output_sha256": "6d3d26698c42f05adc8bf001ffc307a842f239f74acc4ec54d20ac7ed1f1d2bf"
+  },
+  "apply_rc": 0,
+  "offset": 0,
+  "fuzz": 0,
+  "FAILED": 0,
+  "output_tree_sha256": "87471c80e784fc9a6041cc27a680ef4dfde45b08ba7bd0fec856ccb7b8a7d795",
+  "promoted": true,
+  "status": "applies"
+}

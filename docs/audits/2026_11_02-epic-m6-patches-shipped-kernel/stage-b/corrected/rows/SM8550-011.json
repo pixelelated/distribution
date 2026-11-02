@@ -1,0 +1,52 @@
+{
+  "plan": "SM8550",
+  "index": 11,
+  "path": "projects/ROCKNIX/devices/SM8550/patches/linux/0001-pcie-update-sm8550-dtsi.patch",
+  "patch_sha256": "5467c43ea3bfbb4721807298f4bd5e4b349479344375b8721ceb68a38445484a",
+  "produced_at": "2026-11-02T17:17:01.442862+00:00",
+  "input_tree_sha256": "2e7d91b2e60d296b9b5793cf389b2bd31edab2dfd7dd98f27b4365769bdd9818",
+  "candidate": "/workspace/tmp/m6-t41/src/corrected-20261102T171658Z/SM8550/candidates/011",
+  "dry": {
+    "argv": [
+      "patch",
+      "-p1",
+      "-N",
+      "--batch",
+      "--directory",
+      "/workspace/tmp/m6-t41/src/corrected-20261102T171658Z/SM8550/candidates/011",
+      "--dry-run"
+    ],
+    "start": "2026-11-02T17:17:01.451199+00:00",
+    "elapsed_seconds": 0.002,
+    "rc": 0,
+    "timed_out": false,
+    "output": "logs/SM8550-011.dry.out",
+    "output_sha256": "73e83f79547157d1b438ca477067210a365a4dfc4025850f2a3743f6a791c69c"
+  },
+  "dry_rc": 0,
+  "after_dry_tree_sha256": "2e7d91b2e60d296b9b5793cf389b2bd31edab2dfd7dd98f27b4365769bdd9818",
+  "attempted": true,
+  "apply": {
+    "argv": [
+      "patch",
+      "-p1",
+      "-N",
+      "--batch",
+      "--directory",
+      "/workspace/tmp/m6-t41/src/corrected-20261102T171658Z/SM8550/candidates/011"
+    ],
+    "start": "2026-11-02T17:17:01.456026+00:00",
+    "elapsed_seconds": 0.003,
+    "rc": 0,
+    "timed_out": false,
+    "output": "logs/SM8550-011.apply.out",
+    "output_sha256": "05235143e59434bdee2b3022bc7cc7fb37c7eb1f143ea3b7be99d0e79fb82226"
+  },
+  "apply_rc": 0,
+  "offset": 5,
+  "fuzz": 0,
+  "FAILED": 0,
+  "output_tree_sha256": "686e10f34a07a9c80946b82e02520925e11e991c52a80054bb003b88d8caab41",
+  "promoted": true,
+  "status": "applies with offset"
+}

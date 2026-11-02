@@ -1,0 +1,52 @@
+{
+  "plan": "H700",
+  "index": 34,
+  "path": "projects/ROCKNIX/devices/H700/patches/linux/0160-phy-sun4i-usb-disable-the-clock-that-was-enabled.patch",
+  "patch_sha256": "35856ea76ef68ea25c49103fcf96279f88daf3ee18fce0ccf29ab8c2111f9f47",
+  "produced_at": "2026-11-02T17:17:00.413091+00:00",
+  "input_tree_sha256": "12956cbfd9ee76f6f317ccad3cefc8303e669a87c62ba07b7a670afdd1920d8d",
+  "candidate": "/workspace/tmp/m6-t41/src/corrected-20261102T171658Z/H700/candidates/034",
+  "dry": {
+    "argv": [
+      "patch",
+      "-p1",
+      "-N",
+      "--batch",
+      "--directory",
+      "/workspace/tmp/m6-t41/src/corrected-20261102T171658Z/H700/candidates/034",
+      "--dry-run"
+    ],
+    "start": "2026-11-02T17:17:00.421923+00:00",
+    "elapsed_seconds": 0.001,
+    "rc": 0,
+    "timed_out": false,
+    "output": "logs/H700-034.dry.out",
+    "output_sha256": "ff7256321b5419297a723fd48686df41d04dc6ebf72c5515d7c1b65c4928ccb3"
+  },
+  "dry_rc": 0,
+  "after_dry_tree_sha256": "12956cbfd9ee76f6f317ccad3cefc8303e669a87c62ba07b7a670afdd1920d8d",
+  "attempted": true,
+  "apply": {
+    "argv": [
+      "patch",
+      "-p1",
+      "-N",
+      "--batch",
+      "--directory",
+      "/workspace/tmp/m6-t41/src/corrected-20261102T171658Z/H700/candidates/034"
+    ],
+    "start": "2026-11-02T17:17:00.426554+00:00",
+    "elapsed_seconds": 0.003,
+    "rc": 0,
+    "timed_out": false,
+    "output": "logs/H700-034.apply.out",
+    "output_sha256": "85217eb3d223c30c313ffe1d94f73de2d286ee83fe4eba135eb62ef793f49e43"
+  },
+  "apply_rc": 0,
+  "offset": 0,
+  "fuzz": 0,
+  "FAILED": 0,
+  "output_tree_sha256": "76e09f3367b41a52fdc48b622d7c819f00931fd20beb484657be7f666c7266ec",
+  "promoted": true,
+  "status": "applies"
+}

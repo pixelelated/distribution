@@ -1,0 +1,52 @@
+{
+  "plan": "SM8550",
+  "index": 13,
+  "path": "projects/ROCKNIX/devices/SM8550/patches/linux/0004-drm-msm-a6xx-Enable-IFPC-on-Adreno-740.patch",
+  "patch_sha256": "cd5a9038a0f0987a7ac1bcfb7c29e24393e1cc342f8cc06bd7277a9047f42eed",
+  "produced_at": "2026-11-02T17:17:01.485479+00:00",
+  "input_tree_sha256": "d1bd7be0c6baa2ebf2302b6dec5bcad30740415a0cfc94801b300d8e6d4e4224",
+  "candidate": "/workspace/tmp/m6-t41/src/corrected-20261102T171658Z/SM8550/candidates/013",
+  "dry": {
+    "argv": [
+      "patch",
+      "-p1",
+      "-N",
+      "--batch",
+      "--directory",
+      "/workspace/tmp/m6-t41/src/corrected-20261102T171658Z/SM8550/candidates/013",
+      "--dry-run"
+    ],
+    "start": "2026-11-02T17:17:01.494056+00:00",
+    "elapsed_seconds": 0.002,
+    "rc": 0,
+    "timed_out": false,
+    "output": "logs/SM8550-013.dry.out",
+    "output_sha256": "efba30d8e5be34ccb2534e924dec946af4903a4b801e9ef71488debc41ec22de"
+  },
+  "dry_rc": 0,
+  "after_dry_tree_sha256": "d1bd7be0c6baa2ebf2302b6dec5bcad30740415a0cfc94801b300d8e6d4e4224",
+  "attempted": true,
+  "apply": {
+    "argv": [
+      "patch",
+      "-p1",
+      "-N",
+      "--batch",
+      "--directory",
+      "/workspace/tmp/m6-t41/src/corrected-20261102T171658Z/SM8550/candidates/013"
+    ],
+    "start": "2026-11-02T17:17:01.499115+00:00",
+    "elapsed_seconds": 0.002,
+    "rc": 0,
+    "timed_out": false,
+    "output": "logs/SM8550-013.apply.out",
+    "output_sha256": "5132401294eb83800494cfbac6e8747715fd28802386c7365496d866ac689b19"
+  },
+  "apply_rc": 0,
+  "offset": 0,
+  "fuzz": 0,
+  "FAILED": 0,
+  "output_tree_sha256": "c6ae184aaa68b0b068f8455f3033d1c964a1e7fa769403d5bf50b7a6a361b56e",
+  "promoted": true,
+  "status": "applies"
+}

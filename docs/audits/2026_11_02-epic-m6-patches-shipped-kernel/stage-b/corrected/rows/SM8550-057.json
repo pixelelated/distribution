@@ -1,0 +1,52 @@
+{
+  "plan": "SM8550",
+  "index": 57,
+  "path": "projects/ROCKNIX/devices/SM8550/patches/linux/0507-wifi-ath12k-skip-11d-scan-on-ayaneo-pocket-s-mini.patch",
+  "patch_sha256": "87132329db7da71371d2cd74acc4722c04578f6cceb5cafa6a4f58b1a16a78f7",
+  "produced_at": "2026-11-02T17:17:02.564977+00:00",
+  "input_tree_sha256": "16ab410368ef75a2c65fbbf0087126be24975262591d57ac4b69e00e80a86d35",
+  "candidate": "/workspace/tmp/m6-t41/src/corrected-20261102T171658Z/SM8550/candidates/057",
+  "dry": {
+    "argv": [
+      "patch",
+      "-p1",
+      "-N",
+      "--batch",
+      "--directory",
+      "/workspace/tmp/m6-t41/src/corrected-20261102T171658Z/SM8550/candidates/057",
+      "--dry-run"
+    ],
+    "start": "2026-11-02T17:17:02.577205+00:00",
+    "elapsed_seconds": 0.003,
+    "rc": 0,
+    "timed_out": false,
+    "output": "logs/SM8550-057.dry.out",
+    "output_sha256": "88909561eeb70b2bb869d6cc0717badefd81f3b8592018266f5a19e4247db4ec"
+  },
+  "dry_rc": 0,
+  "after_dry_tree_sha256": "16ab410368ef75a2c65fbbf0087126be24975262591d57ac4b69e00e80a86d35",
+  "attempted": true,
+  "apply": {
+    "argv": [
+      "patch",
+      "-p1",
+      "-N",
+      "--batch",
+      "--directory",
+      "/workspace/tmp/m6-t41/src/corrected-20261102T171658Z/SM8550/candidates/057"
+    ],
+    "start": "2026-11-02T17:17:02.584453+00:00",
+    "elapsed_seconds": 0.003,
+    "rc": 0,
+    "timed_out": false,
+    "output": "logs/SM8550-057.apply.out",
+    "output_sha256": "b07a7637dce97ccec6ffde1661a53d5a86e74b1e7de967f24912a4fb9aeb5cf6"
+  },
+  "apply_rc": 0,
+  "offset": 2,
+  "fuzz": 0,
+  "FAILED": 0,
+  "output_tree_sha256": "a56f4d3077a502e1768165e69d8e1b8bb4cf6e93ea9d746e540785d30b65f785",
+  "promoted": true,
+  "status": "applies with offset"
+}

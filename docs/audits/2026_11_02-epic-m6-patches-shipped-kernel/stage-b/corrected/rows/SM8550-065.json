@@ -1,0 +1,52 @@
+{
+  "plan": "SM8550",
+  "index": 65,
+  "path": "projects/ROCKNIX/devices/SM8550/patches/linux/v6_20260210_quic_utiwari_crypto_qce_add_runtime_pm_and_interconnect_bandwidth_scaling_support.patch",
+  "patch_sha256": "a3e2c87e8acb4f855c59e78ecd085f3575426c0c2f8f98afe024723e96c321e1",
+  "produced_at": "2026-11-02T17:17:02.813662+00:00",
+  "input_tree_sha256": "48a26c9fc3040233e426a78378ffb7d2522018cd05a858e305ee29ab4e282587",
+  "candidate": "/workspace/tmp/m6-t41/src/corrected-20261102T171658Z/SM8550/candidates/065",
+  "dry": {
+    "argv": [
+      "patch",
+      "-p1",
+      "-N",
+      "--batch",
+      "--directory",
+      "/workspace/tmp/m6-t41/src/corrected-20261102T171658Z/SM8550/candidates/065",
+      "--dry-run"
+    ],
+    "start": "2026-11-02T17:17:02.827065+00:00",
+    "elapsed_seconds": 0.003,
+    "rc": 0,
+    "timed_out": false,
+    "output": "logs/SM8550-065.dry.out",
+    "output_sha256": "d32816abd6085769dcb876ecdfbee27b343616b66950468b7f9603a4cfd755b0"
+  },
+  "dry_rc": 0,
+  "after_dry_tree_sha256": "48a26c9fc3040233e426a78378ffb7d2522018cd05a858e305ee29ab4e282587",
+  "attempted": true,
+  "apply": {
+    "argv": [
+      "patch",
+      "-p1",
+      "-N",
+      "--batch",
+      "--directory",
+      "/workspace/tmp/m6-t41/src/corrected-20261102T171658Z/SM8550/candidates/065"
+    ],
+    "start": "2026-11-02T17:17:02.834038+00:00",
+    "elapsed_seconds": 0.001,
+    "rc": 0,
+    "timed_out": false,
+    "output": "logs/SM8550-065.apply.out",
+    "output_sha256": "59e82cf6bb71803f66ce534a9ed98efd5d0dc639a31e986571272b0c30e8c986"
+  },
+  "apply_rc": 0,
+  "offset": 5,
+  "fuzz": 1,
+  "FAILED": 0,
+  "output_tree_sha256": "90b1a10aef8e52e239cbb87afb9029c80b9f80ce8604673180e47a0c62064526",
+  "promoted": true,
+  "status": "fuzz"
+}

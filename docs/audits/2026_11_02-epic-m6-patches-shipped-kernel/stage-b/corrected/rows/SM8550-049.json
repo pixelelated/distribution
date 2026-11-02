@@ -1,0 +1,52 @@
+{
+  "plan": "SM8550",
+  "index": 49,
+  "path": "projects/ROCKNIX/devices/SM8550/patches/linux/0200-ASoC-wcd938x-add-DMIC-DAPM-inputs.patch",
+  "patch_sha256": "181656cf853c8449786e1f601982640ba396be35cf22a24eb4cd0ab2ab6814b7",
+  "produced_at": "2026-11-02T17:17:02.341817+00:00",
+  "input_tree_sha256": "c0659971688dc2e8702a15b808eba2fa6a8f06079a113c5df7b02c59e3863f42",
+  "candidate": "/workspace/tmp/m6-t41/src/corrected-20261102T171658Z/SM8550/candidates/049",
+  "dry": {
+    "argv": [
+      "patch",
+      "-p1",
+      "-N",
+      "--batch",
+      "--directory",
+      "/workspace/tmp/m6-t41/src/corrected-20261102T171658Z/SM8550/candidates/049",
+      "--dry-run"
+    ],
+    "start": "2026-11-02T17:17:02.352747+00:00",
+    "elapsed_seconds": 0.003,
+    "rc": 0,
+    "timed_out": false,
+    "output": "logs/SM8550-049.dry.out",
+    "output_sha256": "afdcc65108cf59bc0e0590474dfc55b5d3a00c1a1b85c23c23dd8e77a0c65f72"
+  },
+  "dry_rc": 0,
+  "after_dry_tree_sha256": "c0659971688dc2e8702a15b808eba2fa6a8f06079a113c5df7b02c59e3863f42",
+  "attempted": true,
+  "apply": {
+    "argv": [
+      "patch",
+      "-p1",
+      "-N",
+      "--batch",
+      "--directory",
+      "/workspace/tmp/m6-t41/src/corrected-20261102T171658Z/SM8550/candidates/049"
+    ],
+    "start": "2026-11-02T17:17:02.358914+00:00",
+    "elapsed_seconds": 0.003,
+    "rc": 0,
+    "timed_out": false,
+    "output": "logs/SM8550-049.apply.out",
+    "output_sha256": "8db4cd5c9cc3097d8b72fb446bfe58a76ec12612f30b48033864ae2f5e156b69"
+  },
+  "apply_rc": 0,
+  "offset": 2,
+  "fuzz": 0,
+  "FAILED": 0,
+  "output_tree_sha256": "d7074597fa1befe59fc09ccb65b8f8c355e6ee0dfa48ed64d1680dc1862f566a",
+  "promoted": true,
+  "status": "applies with offset"
+}

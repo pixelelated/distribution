@@ -1,0 +1,52 @@
+{
+  "plan": "H700",
+  "index": 41,
+  "path": "projects/ROCKNIX/devices/H700/patches/linux/0901-dts-rg35xx-2024-fix-led-1-color.patch",
+  "patch_sha256": "ea36a3fe08ee3e65f895cad85e3cd478a63312a85414549289b0cbc19ed8b8f9",
+  "produced_at": "2026-11-02T17:17:00.575231+00:00",
+  "input_tree_sha256": "b88a6f6601afee6fbc9c64bce36d3671773960f56fd1fc613da7e100b1237af1",
+  "candidate": "/workspace/tmp/m6-t41/src/corrected-20261102T171658Z/H700/candidates/041",
+  "dry": {
+    "argv": [
+      "patch",
+      "-p1",
+      "-N",
+      "--batch",
+      "--directory",
+      "/workspace/tmp/m6-t41/src/corrected-20261102T171658Z/H700/candidates/041",
+      "--dry-run"
+    ],
+    "start": "2026-11-02T17:17:00.583958+00:00",
+    "elapsed_seconds": 0.001,
+    "rc": 0,
+    "timed_out": false,
+    "output": "logs/H700-041.dry.out",
+    "output_sha256": "546e34ed3c93401f0afb28a77ac22d2ca7c749ebcc4067ddbffd2f075236d854"
+  },
+  "dry_rc": 0,
+  "after_dry_tree_sha256": "b88a6f6601afee6fbc9c64bce36d3671773960f56fd1fc613da7e100b1237af1",
+  "attempted": true,
+  "apply": {
+    "argv": [
+      "patch",
+      "-p1",
+      "-N",
+      "--batch",
+      "--directory",
+      "/workspace/tmp/m6-t41/src/corrected-20261102T171658Z/H700/candidates/041"
+    ],
+    "start": "2026-11-02T17:17:00.588529+00:00",
+    "elapsed_seconds": 0.002,
+    "rc": 0,
+    "timed_out": false,
+    "output": "logs/H700-041.apply.out",
+    "output_sha256": "763077e47ed9aa6a098cf883f28f15bdcede091094c9b190618b1a6795f948c9"
+  },
+  "apply_rc": 0,
+  "offset": 1,
+  "fuzz": 0,
+  "FAILED": 0,
+  "output_tree_sha256": "ee02ad6b2913fc89edde4921e98f15615c46ef1c2f64cc341b53f216a91cd4ac",
+  "promoted": true,
+  "status": "applies with offset"
+}

@@ -1,0 +1,52 @@
+{
+  "plan": "SM8550",
+  "index": 64,
+  "path": "projects/ROCKNIX/devices/SM8550/patches/linux/20260424_neil_armstrong_arm64_dts_qcom_sm8_456_50_add_missing_cx_power_domain_to_gcc.patch",
+  "patch_sha256": "0ee9bae28ed1b0f23ab43e9fec747d40ff4104cfd8c68f8115e102ab7819ec54",
+  "produced_at": "2026-11-02T17:17:02.779534+00:00",
+  "input_tree_sha256": "b4fd520510ea8245b3c80086d44e165a75f62d3c2ccd8693d17d4950566b686f",
+  "candidate": "/workspace/tmp/m6-t41/src/corrected-20261102T171658Z/SM8550/candidates/064",
+  "dry": {
+    "argv": [
+      "patch",
+      "-p1",
+      "-N",
+      "--batch",
+      "--directory",
+      "/workspace/tmp/m6-t41/src/corrected-20261102T171658Z/SM8550/candidates/064",
+      "--dry-run"
+    ],
+    "start": "2026-11-02T17:17:02.792993+00:00",
+    "elapsed_seconds": 0.004,
+    "rc": 0,
+    "timed_out": false,
+    "output": "logs/SM8550-064.dry.out",
+    "output_sha256": "063b5a0125207555d04b99e104660621f49176384044db27ee10e1a0ce8c5499"
+  },
+  "dry_rc": 0,
+  "after_dry_tree_sha256": "b4fd520510ea8245b3c80086d44e165a75f62d3c2ccd8693d17d4950566b686f",
+  "attempted": true,
+  "apply": {
+    "argv": [
+      "patch",
+      "-p1",
+      "-N",
+      "--batch",
+      "--directory",
+      "/workspace/tmp/m6-t41/src/corrected-20261102T171658Z/SM8550/candidates/064"
+    ],
+    "start": "2026-11-02T17:17:02.801030+00:00",
+    "elapsed_seconds": 0.004,
+    "rc": 0,
+    "timed_out": false,
+    "output": "logs/SM8550-064.apply.out",
+    "output_sha256": "a1afd465e7189ec4048c8dbb7b85f9b17b89132291951a55ce000a5a7d57fdef"
+  },
+  "apply_rc": 0,
+  "offset": 1,
+  "fuzz": 0,
+  "FAILED": 0,
+  "output_tree_sha256": "48a26c9fc3040233e426a78378ffb7d2522018cd05a858e305ee29ab4e282587",
+  "promoted": true,
+  "status": "applies with offset"
+}

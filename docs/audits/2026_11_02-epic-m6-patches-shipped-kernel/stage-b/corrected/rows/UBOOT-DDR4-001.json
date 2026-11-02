@@ -1,0 +1,52 @@
+{
+  "plan": "UBOOT-DDR4",
+  "index": 1,
+  "path": "projects/ROCKNIX/devices/H700/packages/u-boot-DDR4/patches/0001-Update-dram_sun50i_h616.c.patch",
+  "patch_sha256": "596674be315fbb74f670cf04639f10ea2b5629fd9eb72d944084a04cd0e5fab5",
+  "produced_at": "2026-11-02T17:17:03.647745+00:00",
+  "input_tree_sha256": "82e93363aed5f83d9f9c337454e42f942e4c41a56f1661c86332d71b7849c29d",
+  "candidate": "/workspace/tmp/m6-t41/src/corrected-20261102T171658Z/UBOOT-DDR4/candidates/001",
+  "dry": {
+    "argv": [
+      "patch",
+      "-p1",
+      "-N",
+      "--batch",
+      "--directory",
+      "/workspace/tmp/m6-t41/src/corrected-20261102T171658Z/UBOOT-DDR4/candidates/001",
+      "--dry-run"
+    ],
+    "start": "2026-11-02T17:17:03.648316+00:00",
+    "elapsed_seconds": 0.002,
+    "rc": 0,
+    "timed_out": false,
+    "output": "logs/UBOOT-DDR4-001.dry.out",
+    "output_sha256": "fa888aeb4db61c6040d476a3f3301c5ff29bbfe896b6c43f7f603077cb0a02d4"
+  },
+  "dry_rc": 0,
+  "after_dry_tree_sha256": "82e93363aed5f83d9f9c337454e42f942e4c41a56f1661c86332d71b7849c29d",
+  "attempted": true,
+  "apply": {
+    "argv": [
+      "patch",
+      "-p1",
+      "-N",
+      "--batch",
+      "--directory",
+      "/workspace/tmp/m6-t41/src/corrected-20261102T171658Z/UBOOT-DDR4/candidates/001"
+    ],
+    "start": "2026-11-02T17:17:03.650619+00:00",
+    "elapsed_seconds": 0.003,
+    "rc": 0,
+    "timed_out": false,
+    "output": "logs/UBOOT-DDR4-001.apply.out",
+    "output_sha256": "aa7af151dd6d8a32011eb1b4ba020ec625e0cc4b6b06e0b33bdb4ed5fc06e34d"
+  },
+  "apply_rc": 0,
+  "offset": 0,
+  "fuzz": 0,
+  "FAILED": 0,
+  "output_tree_sha256": "27171b5a68445be23eebe86aa351705a9f39a8f748491b63287ddb7494486402",
+  "promoted": true,
+  "status": "applies"
+}

@@ -1,0 +1,77 @@
+## Stage-B method erratum — 2026-11-02T17:10:18Z (D-WORKFLOW-222)
+
+This dated addendum supersedes ruling (g), § 5's applies-at-pin loop and
+§ 7's applicability criterion **only where they treat dry-run status as the
+applicability verdict or skip an entire patch after that diagnostic fails**.
+The original v2 text and its execution receipts remain historical evidence.
+Ownership, membership, pins, cached archives, Local depth and all source-only
+limits remain as dispatched. This is a coordinator ruling under D-WORKFLOW-189.
+
+The immutable early-blocker packet at `3cd9ca140a0da9af447a3ee2fb9cdbbbf222a95b`
+(`#688` comment 6583064842) proves H700 order 011's complete patch applies to
+exactly the input on which its dry run fails. `stage-b/same-input-refutation.json`
+and its two named outputs record dry-run rc=1, normal application rc=0, identical
+patch SHA256 and identical pre-application tree digests. The later hunk in the
+concatenated input needs earlier edits to the same file. The six original H700
+failure rows are method-contaminated leads, not six proved product bugs.
+
+### Corrected execution and evidence
+
+1. Preserve every original Stage-A/B receipt and the failed runner exactly as
+   committed. Create a separately named corrected runner and packet under
+   `stage-b/corrected/`; record its source hash and actual tool version. No live
+   script is edited. Retain raw diagnostic text using the already accepted
+   H700 0158 escape in committed records.
+2. Use the same immutable source ref `02aab33bd9842610b0d466c9c186454dc14373ee`,
+   the same checked archive hashes, touched-file extraction and exact C-locale
+   order. Reconstruct the six plan sequences in fresh lane scratch under
+   `/workspace/tmp/m6-t41/src/`, with counts **8 / 42 / 65 / 2 / 2 / 1**
+   (120 plan applications over 106 patch paths). Stage B is incomplete and its
+   method changed, so these runs replace the contaminated applicability
+   evidence; this does not reopen accepted Stage A. Missing archive members
+   must be accounted for by patch-created paths; create an empty scratch root
+   when all targets are new, as the firmware refutation already established.
+3. For each row, copy the current successful prefix into a fresh disposable
+   candidate. Record the plan/index/path, patch SHA256, input tree digest,
+   command argv and produced timestamp. Retain the same-input dry-run output
+   as a diagnostic, assert that it did not change the candidate, then run the
+   **complete normal application** with the same patch bytes:
+   `patch -p1 -N --batch --directory <candidate>` with the patch on stdin.
+   A nonzero dry run does not suppress this complete application. Both writes
+   stay in the disposable touched-file copy, never the repository or cache.
+4. Persist both return codes and outputs immediately. The normal application
+   is authoritative: rc=0 promotes the candidate to the next prefix;
+   classify `fuzz` before `applies with offset` before `applies`, using the
+   **normal-application output**, not the dry-run output. Persist input/output
+   tree digests. Do not promote a nonzero or timed-out candidate, even when it
+   partly applied. Retain that failed candidate for inspection; keep the last
+   successful prefix unchanged. Its row is `fails` with the hunk/error evidence;
+   later rows in that plan are `open item: blocked by failed predecessor N`,
+   not tested against a silently skipped or partially applied predecessor.
+5. Before trusting the corrected summary, prove the failure path on a separate
+   deliberately failing patch fixture: the successful-prefix digest stays
+   unchanged, the failed candidate is not promoted, and a later row is marked
+   blocked. Also retain the H700 011 positive that completes despite its
+   nonzero diagnostic; the existing refutation is the before evidence, and
+   the corrected run supplies the after receipt. No finding is predetermined.
+6. Every authoritative row names `apply_rc`, `dry_rc`, normal offset/fuzz/FAILED
+   counts, input/output digests and its receipt paths. A blocked row names the
+   failed predecessor and has no invented command result. `02` § The runs
+   reports the six populations separately and all nonzero application results
+   and dry/apply disagreements. The provenance generator consumes the corrected
+   authoritative status, covers all 120 applications and all 106 patch paths,
+   and counts blocked rows explicitly. A real application failure remains a
+   bug candidate or source lead under the existing evidence floor; a dry-run
+   disagreement alone is not a product defect.
+
+Complete the remaining Stage-B reads and `02-forward-audit.md`,
+`03-retrospective.md`, `04-analysis.md` plus the corrected packet, then commit,
+push and checkpoint on #688. Stop at the previously agreed Stage-B boundary.
+No build, guest, fetch, configuration sourcing, product edit, runtime allocation
+or host-ledger write is introduced. The coordinator's future `t41-accept.sh`
+derivation must check this erratum and the current reader identity.
+
+The live issue's applicability criterion and the area's futro addendum receive
+this correction in the same session. D-WORKFLOW-221's original wording is kept
+as history and refined by D-WORKFLOW-222. These are bounded source checks, not a
+claim that any kernel or firmware boots or behaves correctly.

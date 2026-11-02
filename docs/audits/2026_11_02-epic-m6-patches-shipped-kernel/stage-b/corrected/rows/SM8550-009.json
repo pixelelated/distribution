@@ -1,0 +1,52 @@
+{
+  "plan": "SM8550",
+  "index": 9,
+  "path": "projects/ROCKNIX/packages/linux/patches/7.2/9998-silence-initramfs-unpack-warn.patch",
+  "patch_sha256": "52a542dd3845eb3ee27b79c0347ee399dad7a6c77c7e5b6445e16ef6d4693b88",
+  "produced_at": "2026-11-02T17:17:01.401826+00:00",
+  "input_tree_sha256": "19c98f452cd9c0b3337eeaea2da78a3c1dee56d8070a2ecb9f1382f69fa69147",
+  "candidate": "/workspace/tmp/m6-t41/src/corrected-20261102T171658Z/SM8550/candidates/009",
+  "dry": {
+    "argv": [
+      "patch",
+      "-p1",
+      "-N",
+      "--batch",
+      "--directory",
+      "/workspace/tmp/m6-t41/src/corrected-20261102T171658Z/SM8550/candidates/009",
+      "--dry-run"
+    ],
+    "start": "2026-11-02T17:17:01.410007+00:00",
+    "elapsed_seconds": 0.002,
+    "rc": 0,
+    "timed_out": false,
+    "output": "logs/SM8550-009.dry.out",
+    "output_sha256": "a246f43683ba66f181f3480ca99584afcc97f7ad3fb8d336773d617574c05a47"
+  },
+  "dry_rc": 0,
+  "after_dry_tree_sha256": "19c98f452cd9c0b3337eeaea2da78a3c1dee56d8070a2ecb9f1382f69fa69147",
+  "attempted": true,
+  "apply": {
+    "argv": [
+      "patch",
+      "-p1",
+      "-N",
+      "--batch",
+      "--directory",
+      "/workspace/tmp/m6-t41/src/corrected-20261102T171658Z/SM8550/candidates/009"
+    ],
+    "start": "2026-11-02T17:17:01.415152+00:00",
+    "elapsed_seconds": 0.002,
+    "rc": 0,
+    "timed_out": false,
+    "output": "logs/SM8550-009.apply.out",
+    "output_sha256": "9a6d8384c346d41c519b5ff7a01277881c1dc20bc82682378eff4b2646ebfc95"
+  },
+  "apply_rc": 0,
+  "offset": 1,
+  "fuzz": 0,
+  "FAILED": 0,
+  "output_tree_sha256": "1fac43517b2e0d928f3103b4c76c461968871c2a61645247d381ee7033914221",
+  "promoted": true,
+  "status": "applies with offset"
+}

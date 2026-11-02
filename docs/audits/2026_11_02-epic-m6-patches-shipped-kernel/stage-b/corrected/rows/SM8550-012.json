@@ -1,0 +1,52 @@
+{
+  "plan": "SM8550",
+  "index": 12,
+  "path": "projects/ROCKNIX/devices/SM8550/patches/linux/0002-qcom-dispcc-sm8550-Fix-disp_cc_mdss_mdp_clk_src.patch",
+  "patch_sha256": "ea99076424067acf50727da1f914f7bdba91698841ff616e94cf41bb9cca5002",
+  "produced_at": "2026-11-02T17:17:01.464150+00:00",
+  "input_tree_sha256": "686e10f34a07a9c80946b82e02520925e11e991c52a80054bb003b88d8caab41",
+  "candidate": "/workspace/tmp/m6-t41/src/corrected-20261102T171658Z/SM8550/candidates/012",
+  "dry": {
+    "argv": [
+      "patch",
+      "-p1",
+      "-N",
+      "--batch",
+      "--directory",
+      "/workspace/tmp/m6-t41/src/corrected-20261102T171658Z/SM8550/candidates/012",
+      "--dry-run"
+    ],
+    "start": "2026-11-02T17:17:01.472613+00:00",
+    "elapsed_seconds": 0.002,
+    "rc": 0,
+    "timed_out": false,
+    "output": "logs/SM8550-012.dry.out",
+    "output_sha256": "4df4d7c21c5ecf67a3f079cb2a267a4f25b44576c56f7403d18153979d03d34d"
+  },
+  "dry_rc": 0,
+  "after_dry_tree_sha256": "686e10f34a07a9c80946b82e02520925e11e991c52a80054bb003b88d8caab41",
+  "attempted": true,
+  "apply": {
+    "argv": [
+      "patch",
+      "-p1",
+      "-N",
+      "--batch",
+      "--directory",
+      "/workspace/tmp/m6-t41/src/corrected-20261102T171658Z/SM8550/candidates/012"
+    ],
+    "start": "2026-11-02T17:17:01.477787+00:00",
+    "elapsed_seconds": 0.002,
+    "rc": 0,
+    "timed_out": false,
+    "output": "logs/SM8550-012.apply.out",
+    "output_sha256": "cd8fa784d0d8b7baf0abd82bf00d685e36ddf985bce48ca41ce0d4113e44ebb1"
+  },
+  "apply_rc": 0,
+  "offset": 1,
+  "fuzz": 0,
+  "FAILED": 0,
+  "output_tree_sha256": "d1bd7be0c6baa2ebf2302b6dec5bcad30740415a0cfc94801b300d8e6d4e4224",
+  "promoted": true,
+  "status": "applies with offset"
+}

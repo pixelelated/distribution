@@ -1,0 +1,52 @@
+{
+  "plan": "SM8550",
+  "index": 34,
+  "path": "projects/ROCKNIX/devices/SM8550/patches/linux/0060-Add-Silergy-SY7758-backlight-driver.patch",
+  "patch_sha256": "a9b2bf64d1fb8bf418e88645577f0aae3b502204bf0ed024fd0d708843762ad0",
+  "produced_at": "2026-11-02T17:17:01.962135+00:00",
+  "input_tree_sha256": "5f8ebc92c5def0f2f12b8b0810c2536eabbe2f0ad5343015940f036598c040e2",
+  "candidate": "/workspace/tmp/m6-t41/src/corrected-20261102T171658Z/SM8550/candidates/034",
+  "dry": {
+    "argv": [
+      "patch",
+      "-p1",
+      "-N",
+      "--batch",
+      "--directory",
+      "/workspace/tmp/m6-t41/src/corrected-20261102T171658Z/SM8550/candidates/034",
+      "--dry-run"
+    ],
+    "start": "2026-11-02T17:17:01.972319+00:00",
+    "elapsed_seconds": 0.002,
+    "rc": 0,
+    "timed_out": false,
+    "output": "logs/SM8550-034.dry.out",
+    "output_sha256": "17d627c83d69f4593ab5f284030f764eba725ba335fa4f40a5b102b35698c67b"
+  },
+  "dry_rc": 0,
+  "after_dry_tree_sha256": "5f8ebc92c5def0f2f12b8b0810c2536eabbe2f0ad5343015940f036598c040e2",
+  "attempted": true,
+  "apply": {
+    "argv": [
+      "patch",
+      "-p1",
+      "-N",
+      "--batch",
+      "--directory",
+      "/workspace/tmp/m6-t41/src/corrected-20261102T171658Z/SM8550/candidates/034"
+    ],
+    "start": "2026-11-02T17:17:01.977950+00:00",
+    "elapsed_seconds": 0.003,
+    "rc": 0,
+    "timed_out": false,
+    "output": "logs/SM8550-034.apply.out",
+    "output_sha256": "d4b4c40cef3b10d76d3b549b35d15e3098ca5766de52042d57aaff1b81617da3"
+  },
+  "apply_rc": 0,
+  "offset": 2,
+  "fuzz": 0,
+  "FAILED": 0,
+  "output_tree_sha256": "393fe6ff8f7861c46de46a15f24ac59ad4581f86d758171aafdc50f1311fd91f",
+  "promoted": true,
+  "status": "applies with offset"
+}

@@ -1,0 +1,52 @@
+{
+  "plan": "FIRMWARE",
+  "index": 1,
+  "path": "projects/ROCKNIX/packages/linux-firmware/kernel-firmware/patches/kernel-firmware-02-add-brcmfmac-43xxx-configs.patch",
+  "patch_sha256": "6fb45689022995a98719af586817c8a7d9422bdeae18d0e8a85f0f7b40a9052b",
+  "produced_at": "2026-11-02T17:17:08.610911+00:00",
+  "input_tree_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "candidate": "/workspace/tmp/m6-t41/src/corrected-20261102T171658Z/FIRMWARE/candidates/001",
+  "dry": {
+    "argv": [
+      "patch",
+      "-p1",
+      "-N",
+      "--batch",
+      "--directory",
+      "/workspace/tmp/m6-t41/src/corrected-20261102T171658Z/FIRMWARE/candidates/001",
+      "--dry-run"
+    ],
+    "start": "2026-11-02T17:17:08.611012+00:00",
+    "elapsed_seconds": 0.001,
+    "rc": 0,
+    "timed_out": false,
+    "output": "logs/FIRMWARE-001.dry.out",
+    "output_sha256": "bc11b1fb2807f8deea81163c745ba4d03d99d10f128ebd8fae8d5f5d3cc0c289"
+  },
+  "dry_rc": 0,
+  "after_dry_tree_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "attempted": true,
+  "apply": {
+    "argv": [
+      "patch",
+      "-p1",
+      "-N",
+      "--batch",
+      "--directory",
+      "/workspace/tmp/m6-t41/src/corrected-20261102T171658Z/FIRMWARE/candidates/001"
+    ],
+    "start": "2026-11-02T17:17:08.612472+00:00",
+    "elapsed_seconds": 0.002,
+    "rc": 0,
+    "timed_out": false,
+    "output": "logs/FIRMWARE-001.apply.out",
+    "output_sha256": "120cb205ca9d2bef6d4680385dc3a6c8aeb88f9a9e0517622feeb8b9b2dae7c5"
+  },
+  "apply_rc": 0,
+  "offset": 0,
+  "fuzz": 0,
+  "FAILED": 0,
+  "output_tree_sha256": "ca98a8271db056915e6f808c6b465d8c3a5dcb954a2c92524d187eccb646e202",
+  "promoted": true,
+  "status": "applies"
+}

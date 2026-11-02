@@ -1,0 +1,16 @@
+{
+  "time": "2026-11-02T17:52:20.241971+00:00",
+  "initial_full_checkpoint_diff_rc": 2,
+  "diagnostics_by_path": {
+    "docs/audits/2026_11_02-epic-m6-patches-shipped-kernel/02-forward-audit.md": 1,
+    "docs/audits/2026_11_02-epic-m6-patches-shipped-kernel/stage-b/corrected/0010-final-function.txt": 10,
+    "docs/audits/2026_11_02-epic-m6-patches-shipped-kernel/stage-b/corrected/source-readings.md": 125
+  },
+  "cause": "Initial git diff --check omitted new untracked files; staged check included them. The first local commit was made before the nonzero check stopped the shell; it was not pushed.",
+  "correction": "Normalize three numbered read displays only; use full checkpoint diff in verifier, preserve initial validation and all raw apply/old receipt bytes. Amend unpublished commit after corrected checks.",
+  "first_corrected_validation": {
+    "start": "2026-11-02T17:52:20.264151+00:00",
+    "rc": 1,
+    "cause": "Whole-checkpoint diff still found one final blank line in source-readings.md; removed before rerunning."
+  }
+}

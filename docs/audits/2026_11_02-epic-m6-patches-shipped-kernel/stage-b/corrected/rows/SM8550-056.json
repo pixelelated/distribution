@@ -1,0 +1,52 @@
+{
+  "plan": "SM8550",
+  "index": 56,
+  "path": "projects/ROCKNIX/devices/SM8550/patches/linux/0506-usbcore-add-interrupt-interval-override.patch",
+  "patch_sha256": "700d58bdd4c5d783e034562ef4f3dd413e0ded9265942d0b66758006efd0cc9a",
+  "produced_at": "2026-11-02T17:17:02.534707+00:00",
+  "input_tree_sha256": "868f33f8561ac85de2128086a6c641edfbd455e5452e4a72e71a045e39addc6c",
+  "candidate": "/workspace/tmp/m6-t41/src/corrected-20261102T171658Z/SM8550/candidates/056",
+  "dry": {
+    "argv": [
+      "patch",
+      "-p1",
+      "-N",
+      "--batch",
+      "--directory",
+      "/workspace/tmp/m6-t41/src/corrected-20261102T171658Z/SM8550/candidates/056",
+      "--dry-run"
+    ],
+    "start": "2026-11-02T17:17:02.546640+00:00",
+    "elapsed_seconds": 0.004,
+    "rc": 0,
+    "timed_out": false,
+    "output": "logs/SM8550-056.dry.out",
+    "output_sha256": "8fe8d9b0bee297fd00a4d88df40264c1ab6bf11fa66276233e3e9c5713717a3a"
+  },
+  "dry_rc": 0,
+  "after_dry_tree_sha256": "868f33f8561ac85de2128086a6c641edfbd455e5452e4a72e71a045e39addc6c",
+  "attempted": true,
+  "apply": {
+    "argv": [
+      "patch",
+      "-p1",
+      "-N",
+      "--batch",
+      "--directory",
+      "/workspace/tmp/m6-t41/src/corrected-20261102T171658Z/SM8550/candidates/056"
+    ],
+    "start": "2026-11-02T17:17:02.554399+00:00",
+    "elapsed_seconds": 0.003,
+    "rc": 0,
+    "timed_out": false,
+    "output": "logs/SM8550-056.apply.out",
+    "output_sha256": "5148ce0048ce0479418d0932d11dd1607f88504d5cbe47745eceafb7fed11530"
+  },
+  "apply_rc": 0,
+  "offset": 4,
+  "fuzz": 0,
+  "FAILED": 0,
+  "output_tree_sha256": "16ab410368ef75a2c65fbbf0087126be24975262591d57ac4b69e00e80a86d35",
+  "promoted": true,
+  "status": "applies with offset"
+}

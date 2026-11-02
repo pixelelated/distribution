@@ -1,0 +1,52 @@
+{
+  "plan": "H700",
+  "index": 24,
+  "path": "projects/ROCKNIX/devices/H700/patches/linux/0150-add-forcefeedback.patch",
+  "patch_sha256": "06610169231e9b4e683550035b689fce59756a5b0ba73418a580212f01776112",
+  "produced_at": "2026-11-02T17:17:00.187479+00:00",
+  "input_tree_sha256": "68e9258cf14613275a448901162a52e97830f6808b3474df26bb515d0dbc8efa",
+  "candidate": "/workspace/tmp/m6-t41/src/corrected-20261102T171658Z/H700/candidates/024",
+  "dry": {
+    "argv": [
+      "patch",
+      "-p1",
+      "-N",
+      "--batch",
+      "--directory",
+      "/workspace/tmp/m6-t41/src/corrected-20261102T171658Z/H700/candidates/024",
+      "--dry-run"
+    ],
+    "start": "2026-11-02T17:17:00.196287+00:00",
+    "elapsed_seconds": 0.002,
+    "rc": 0,
+    "timed_out": false,
+    "output": "logs/H700-024.dry.out",
+    "output_sha256": "bcc39714e10e4edbf6aecd29e3bdb16d5fde886187ea05d4b6ec13e39e517a88"
+  },
+  "dry_rc": 0,
+  "after_dry_tree_sha256": "68e9258cf14613275a448901162a52e97830f6808b3474df26bb515d0dbc8efa",
+  "attempted": true,
+  "apply": {
+    "argv": [
+      "patch",
+      "-p1",
+      "-N",
+      "--batch",
+      "--directory",
+      "/workspace/tmp/m6-t41/src/corrected-20261102T171658Z/H700/candidates/024"
+    ],
+    "start": "2026-11-02T17:17:00.201571+00:00",
+    "elapsed_seconds": 0.002,
+    "rc": 0,
+    "timed_out": false,
+    "output": "logs/H700-024.apply.out",
+    "output_sha256": "7eb681c2e86d429445854a9cb5237f29fb89263120d8121cfb700d7b742ed590"
+  },
+  "apply_rc": 0,
+  "offset": 2,
+  "fuzz": 0,
+  "FAILED": 0,
+  "output_tree_sha256": "999cd6dc238914dd2763d69a7e1ce37013452744be0dddfc03f569c931d9391a",
+  "promoted": true,
+  "status": "applies with offset"
+}

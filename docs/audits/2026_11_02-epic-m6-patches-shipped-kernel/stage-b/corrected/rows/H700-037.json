@@ -1,0 +1,52 @@
+{
+  "plan": "H700",
+  "index": 37,
+  "path": "projects/ROCKNIX/devices/H700/patches/linux/0163-asoc-sun4i-codec-suspend-the-codec-and-switch-the-amplifier-supply.patch",
+  "patch_sha256": "2e502cf3cdd78a5d7e3a87a9a433d5f46168c6cebef70d9a69bd492385c8dab5",
+  "produced_at": "2026-11-02T17:17:00.483623+00:00",
+  "input_tree_sha256": "3c98d77aa5cbbb42f95408fcdb7ad00d74905fd645ac5c53c789a9e7e67cba72",
+  "candidate": "/workspace/tmp/m6-t41/src/corrected-20261102T171658Z/H700/candidates/037",
+  "dry": {
+    "argv": [
+      "patch",
+      "-p1",
+      "-N",
+      "--batch",
+      "--directory",
+      "/workspace/tmp/m6-t41/src/corrected-20261102T171658Z/H700/candidates/037",
+      "--dry-run"
+    ],
+    "start": "2026-11-02T17:17:00.492411+00:00",
+    "elapsed_seconds": 0.003,
+    "rc": 0,
+    "timed_out": false,
+    "output": "logs/H700-037.dry.out",
+    "output_sha256": "04aebd9812248758c735e186227336cabbd9b0949433c41a58378e59cb882f20"
+  },
+  "dry_rc": 0,
+  "after_dry_tree_sha256": "3c98d77aa5cbbb42f95408fcdb7ad00d74905fd645ac5c53c789a9e7e67cba72",
+  "attempted": true,
+  "apply": {
+    "argv": [
+      "patch",
+      "-p1",
+      "-N",
+      "--batch",
+      "--directory",
+      "/workspace/tmp/m6-t41/src/corrected-20261102T171658Z/H700/candidates/037"
+    ],
+    "start": "2026-11-02T17:17:00.498332+00:00",
+    "elapsed_seconds": 0.002,
+    "rc": 0,
+    "timed_out": false,
+    "output": "logs/H700-037.apply.out",
+    "output_sha256": "33301a9824befb4b0b678ed0d02d89f5ccd0b084ac6e0860272c9af0a11a5533"
+  },
+  "apply_rc": 0,
+  "offset": 0,
+  "fuzz": 0,
+  "FAILED": 0,
+  "output_tree_sha256": "e222a966a59b094987fd73e185212130636d706321ce5e8fb212febf0551badc",
+  "promoted": true,
+  "status": "applies"
+}
