@@ -42,3 +42,9 @@ T42's [dispatch](t42-dispatch.md) names the clean published seed; [the seed summ
 ## Current lane result — 2026-11-02T19:10:30Z
 
 T41 D at `c9fe606e8d` is accepted after the [coordinator reconciliation](t41-stage-d-coordinator.json), live readbacks and separate [P1 report](t41-stage-d-support/report.md). The [E–H disposition](t41-stage-d-disposition.md) is posted as [6585897242](https://github.com/pixelelated/distribution/issues/688#issuecomment-6585897242), D-WORKFLOW-227. Bug #1408 remains High/open; audit deferral is not a fix. P1’s report preserves the stale milestone it observed and its older pinned context; the current milestone was corrected at 19:07 and D226 is published at `329011b9ea`. T2 continues the acceptance-tool candidate; T39 continues its fixes with exact H merge tip `329011b9ea`; T42 has published A and continues B–D. P1’s bounded work is complete.
+
+## T39 acceptance and T41 final packet — 2026-11-02 19:49 UTC
+
+T39 final `4eb5dfab8e` accepted in [6586835789](https://github.com/pixelelated/distribution/issues/686#issuecomment-6586835789), 27/27 criteria; audit #1406 closed on 15 Resolved/22 Deferred/9 Withdrawn. [Exact contract](t39-final-acceptance-contract.md), [criteria map](t39-final-acceptance-map.json), [independent support](t39-final-support/report.md), [actual final receipts](t39-final-producer-receipts/retained-manifest.json), [new integration checks](t39-simulated-integration/checks.json) and [live readbacks](t39-final-tracker/) preserve the distinct evidence. Completion marker is delegated to T1; area merge and deferred owners remain open.
+
+T41 final `61a1a674c1` is returned, not accepted yet. The [D228 candidate](t41-acceptance-candidate-d228/return-d228.txt) has 164 synthetic checks; T2 is correcting measured actual-packet/integration seams in its isolated candidate. Root retains final execution and acceptance. T42 is finishing D under its continuous dispatch; P1 is available.

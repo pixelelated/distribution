@@ -2339,3 +2339,29 @@ three new negative inputs and one positive with exact identities; T2 checks
 the sealed packet without invoking the producer. Historical receipts remain
 unchanged and explicitly incomplete for input identity. This is the narrow
 failed-predicate check allowed by D226, not replay of applications or stages.
+
+### Final fixture-path clarification — 2026-11-02
+
+D-WORKFLOW-228 expressly requires a retained header mutation and permits a
+recorded implementation correction. At final `61a1a674c10d520f9d93748c5a73deaadb08b158`,
+the suffix-only predicate in criterion 5 therefore finds two authorized audit
+fixtures. The original unqualified command is nonempty, not PASS. Replace
+its suffix-only test with a protected-product test plus this exact exception:
+under the T41 audit, only `stage-f/generator-input-proof/fixtures/bytes/`
+and its preserved `stage-f/generator-input-proof-attempt-1/fixtures/bytes/`
+may contain the one deterministic D228 header path, each mode 100644 and
+byte-equal to the independently reconstructed mutation. Validate the failed
+attempt's recorded identity/lossless storage before accepting that copy.
+No other audit `.patch`/`.conf` path is exempt. The complete `packages/`,
+`projects/`, root `tools/` and `scripts/` trees, all 107 selected source
+mode/blobs and zero removed register lines remain protected.
+
+Integration whitespace checks preserve full diagnostics. The four accepted
+records `01-research-notes.md`, `stage-a/order.out`,
+`stage-a/run/stage-a-extra.out` and `stage-a/run/stage-a.out` may retain only
+their exact accepted-D mode/blobs; the two fixtures retain exactly their
+proved input bytes. Every other path must pass the normal whitespace check.
+An altered old receipt, extra fixture or nonfixture whitespace remains FAIL.
+No product edit, historical receipt normalization or blanket suffix/whitespace
+exemption is authorized. Final integration and acceptance still execute under
+D-WORKFLOW-226; this clarification alone accepts no result.
