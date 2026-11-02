@@ -1,0 +1,2 @@
+# Preserve the original csv.DictWriter receipt byte-for-byte, including CRLF.
+t42-inherited/leads.tsv -text whitespace=cr-at-eol

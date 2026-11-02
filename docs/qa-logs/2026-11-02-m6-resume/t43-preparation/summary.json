@@ -1,0 +1,33 @@
+{
+  "Linux-source patches": {
+    "paths": 346,
+    "logical_lines": 222494
+  },
+  "kernel configurations": {
+    "paths": 12,
+    "logical_lines": 101229
+  },
+  "other-source patches": {
+    "paths": 74,
+    "logical_lines": 4793
+  },
+  "executable_patch_paths": [
+    "projects/ROCKNIX/devices/RK3588/patches/linux/007-add-ion-allocator.patch",
+    "projects/ROCKNIX/packages/audio/alsa-ucm-conf/patches/SM8250/0002_Add-Retroid-Pocket-SM8250-configuration.patch"
+  ],
+  "recipe_owners": {
+    "devices-unshipped": 12,
+    "image-packages": 10,
+    "emulators-standalone": 3,
+    "packages-dead-ends": 5,
+    "device-generic-x64-and-kernel": 1
+  },
+  "line_semantics": {
+    "literal_git_blob_lines": 328516,
+    "literal_newlines": 328512,
+    "regular_member_blob_lines": 328514,
+    "dereferenced_per_path_lines": 328585,
+    "dereferenced_per_path_newlines": 328583
+  },
+  "captured_at": "2026-11-02T18:46:06Z"
+}

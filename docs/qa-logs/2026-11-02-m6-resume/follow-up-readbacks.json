@@ -1,0 +1,26 @@
+{
+  "checked_at": "2026-11-02T16:55:10Z",
+  "t42_membership_main_output_byte_equal": true,
+  "t42_membership_supplement": "independently reproduced by verify-supplement.py; combined output byte-equal to result.txt",
+  "t42_membership_output_sha256": "e14b364f95d299592d44c8b4648103779d53762567a41a5eb68843e72ec5abae",
+  "t42_inherited_reproduced_byte_equal": [
+    "leads.tsv",
+    "counts.json",
+    "ownership-table.md"
+  ],
+  "t41_records_correction": {
+    "base": "cffe3f869c5ced124e26befa36505350b4964f77",
+    "tip": "02aab33bd9842610b0d466c9c186454dc14373ee",
+    "changed_paths": [
+      ".github/sessions/saved-session-state-feature-m6-patches-shipped-kernel-688.md",
+      "docs/audits/2026_11_02-epic-m6-patches-shipped-kernel/00-running-log.md",
+      "docs/audits/2026_11_02-epic-m6-patches-shipped-kernel/01-research-notes.md",
+      "docs/audits/2026_11_02-epic-m6-patches-shipped-kernel/stage-a/README.md",
+      "docs/work-logs/2026_11-work_logs/2026_11_02-work_log.md",
+      "docs/work-logs/INDEX.md"
+    ],
+    "unchanged_stage_a_receipts": 34,
+    "product_paths_changed": false
+  },
+  "milestone_description_readback_equal": true
+}

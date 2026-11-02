@@ -1,0 +1,1283 @@
+{
+  "actual_content": {
+    "2174265e9cc1b248c0fbe27fa101875984d46d6b": {
+      "bytes": 10690267,
+      "inventory_mismatches": [],
+      "logical_lines": 328516,
+      "newlines": 328512,
+      "unterminated": [
+        "projects/ROCKNIX/devices/SM8250/patches/linux/0100-revert-force-16bit-audio.patch",
+        "projects/ROCKNIX/packages/apps/mangohud/patches/SM8650/0001-SM8650-GPU.patch",
+        "projects/ROCKNIX/packages/apps/mangohud/patches/SM8650/0002-SM8750-Battery.patch",
+        "projects/ROCKNIX/packages/audio/alsa-ucm-conf/patches/SM8750/0001_SM8750-AYN-Odin3.patch"
+      ]
+    },
+    "7f25f9f78b3da3a6b2c893397b58a3ce5a04be75": {
+      "bytes": 10690267,
+      "inventory_mismatches": [],
+      "logical_lines": 328516,
+      "newlines": 328512,
+      "unterminated": [
+        "projects/ROCKNIX/devices/SM8250/patches/linux/0100-revert-force-16bit-audio.patch",
+        "projects/ROCKNIX/packages/apps/mangohud/patches/SM8650/0001-SM8650-GPU.patch",
+        "projects/ROCKNIX/packages/apps/mangohud/patches/SM8650/0002-SM8750-Battery.patch",
+        "projects/ROCKNIX/packages/audio/alsa-ucm-conf/patches/SM8750/0001_SM8750-AYN-Odin3.patch"
+      ]
+    }
+  },
+  "buildable_combinations": {
+    "AMD64-x86_64": {
+      "inventory_lines": 12529,
+      "paths": 4
+    },
+    "RK3326-aarch64": {
+      "inventory_lines": 472,
+      "paths": 9
+    },
+    "RK3326-aarch64,RK3326-arm": {
+      "inventory_lines": 27535,
+      "paths": 20
+    },
+    "RK3326-aarch64,RK3326-arm,RK3399-aarch64,RK3399-arm,RK3566-aarch64,RK3566-arm,RK3576-aarch64,RK3576-arm": {
+      "inventory_lines": 1845,
+      "paths": 7
+    },
+    "RK3326-aarch64,RK3326-arm,RK3399-aarch64,RK3399-arm,RK3566-aarch64,RK3566-arm,RK3576-aarch64,RK3576-arm,RK3588-aarch64,RK3588-arm": {
+      "inventory_lines": 113,
+      "paths": 1
+    },
+    "RK3326-aarch64,RK3326-arm,RK3566-aarch64,RK3566-arm,RK3576-aarch64,RK3576-arm": {
+      "inventory_lines": 197,
+      "paths": 2
+    },
+    "RK3326-aarch64,RK3326-arm,RK3566-aarch64,RK3566-arm,RK3576-aarch64,RK3576-arm,RK3588-aarch64,S922X-aarch64": {
+      "inventory_lines": 201,
+      "paths": 2
+    },
+    "RK3326-aarch64,RK3326-arm,RK3566-aarch64,RK3566-arm,RK3576-aarch64,RK3576-arm,S922X-aarch64,S922X-arm": {
+      "inventory_lines": 12,
+      "paths": 1
+    },
+    "RK3399-aarch64": {
+      "inventory_lines": 39,
+      "paths": 3
+    },
+    "RK3399-aarch64,RK3399-arm": {
+      "inventory_lines": 7592,
+      "paths": 9
+    },
+    "RK3399-aarch64,RK3588-aarch64,SM4450-aarch64,SM6115-aarch64": {
+      "inventory_lines": 118,
+      "paths": 1
+    },
+    "RK3566-aarch64": {
+      "inventory_lines": 177,
+      "paths": 7
+    },
+    "RK3566-aarch64,RK3566-arm": {
+      "inventory_lines": 10987,
+      "paths": 34
+    },
+    "RK3566-aarch64,RK3576-aarch64,RK3588-aarch64,S922X-aarch64": {
+      "inventory_lines": 25,
+      "paths": 1
+    },
+    "RK3576-aarch64": {
+      "inventory_lines": 751,
+      "paths": 4
+    },
+    "RK3576-aarch64,RK3576-arm": {
+      "inventory_lines": 14381,
+      "paths": 20
+    },
+    "RK3588-aarch64": {
+      "inventory_lines": 158,
+      "paths": 4
+    },
+    "RK3588-aarch64,RK3588-arm": {
+      "inventory_lines": 143259,
+      "paths": 20
+    },
+    "S922X-aarch64": {
+      "inventory_lines": 246,
+      "paths": 5
+    },
+    "S922X-aarch64,S922X-arm": {
+      "inventory_lines": 16825,
+      "paths": 43
+    },
+    "SM4450-aarch64": {
+      "inventory_lines": 66,
+      "paths": 2
+    },
+    "SM4450-aarch64,SM4450-arm": {
+      "inventory_lines": 16993,
+      "paths": 45
+    },
+    "SM6115-aarch64": {
+      "inventory_lines": 34,
+      "paths": 1
+    },
+    "SM6115-aarch64,SM6115-arm": {
+      "inventory_lines": 15460,
+      "paths": 49
+    },
+    "SM8250-aarch64": {
+      "inventory_lines": 75,
+      "paths": 3
+    },
+    "SM8250-aarch64,SM8250-arm": {
+      "inventory_lines": 19348,
+      "paths": 42
+    },
+    "SM8650-aarch64": {
+      "inventory_lines": 12595,
+      "paths": 27
+    },
+    "SM8750-aarch64": {
+      "inventory_lines": 26483,
+      "paths": 66
+    }
+  },
+  "columns": {
+    "language": {
+      "kernel-config": 12,
+      "patch": 420
+    },
+    "overlap": {
+      "False": 432
+    },
+    "reach": {
+      "unshipped": 432
+    },
+    "shadowed_by": {
+      "None": 432
+    },
+    "tier": {
+      "vendor-carried": 432
+    },
+    "tier_note": {
+      "None": 432
+    },
+    "tree": {
+      "distribution": 432
+    }
+  },
+  "configs": [
+    {
+      "buildable_by": [
+        "AMD64-x86_64"
+      ],
+      "header": [
+        "#",
+        "# Automatically generated file; DO NOT EDIT.",
+        "# Linux/x86 7.1.2 Kernel Configuration",
+        "#",
+        "CONFIG_CC_VERSION_TEXT=\"x86_64-rocknix-linux-gnu-gcc-15.2.0 (GCC) 15.2.0\"",
+        "CONFIG_CC_IS_GCC=y",
+        "CONFIG_GCC_VERSION=150200",
+        "CONFIG_CLANG_VERSION=0"
+      ],
+      "lines": 12445,
+      "path": "projects/ROCKNIX/devices/AMD64/linux/linux.x86_64.conf"
+    },
+    {
+      "buildable_by": [
+        "RK3326-aarch64",
+        "RK3326-arm"
+      ],
+      "header": [
+        "#",
+        "# Automatically generated file; DO NOT EDIT.",
+        "# Linux/arm64 7.1.2 Kernel Configuration",
+        "#",
+        "CONFIG_CC_VERSION_TEXT=\"aarch64-rocknix-linux-gnu-gcc-15.2.0 (GCC) 15.2.0\"",
+        "CONFIG_CC_IS_GCC=y",
+        "CONFIG_GCC_VERSION=150200",
+        "CONFIG_CLANG_VERSION=0"
+      ],
+      "lines": 7218,
+      "path": "projects/ROCKNIX/devices/RK3326/linux/linux.aarch64.conf"
+    },
+    {
+      "buildable_by": [
+        "RK3399-aarch64",
+        "RK3399-arm"
+      ],
+      "header": [
+        "#",
+        "# Automatically generated file; DO NOT EDIT.",
+        "# Linux/arm64 6.18.49 Kernel Configuration",
+        "#",
+        "CONFIG_CC_VERSION_TEXT=\"aarch64-rocknix-linux-gnu-gcc-15.2.0 (GCC) 15.2.0\"",
+        "CONFIG_CC_IS_GCC=y",
+        "CONFIG_GCC_VERSION=150200",
+        "CONFIG_CLANG_VERSION=0"
+      ],
+      "lines": 6908,
+      "path": "projects/ROCKNIX/devices/RK3399/linux/linux.aarch64.conf"
+    },
+    {
+      "buildable_by": [
+        "RK3566-aarch64",
+        "RK3566-arm"
+      ],
+      "header": [
+        "#",
+        "# Automatically generated file; DO NOT EDIT.",
+        "# Linux/arm64 7.0.2 Kernel Configuration",
+        "#",
+        "CONFIG_CC_VERSION_TEXT=\"aarch64-rocknix-linux-gnu-gcc-15.2.0 (GCC) 15.2.0\"",
+        "CONFIG_CC_IS_GCC=y",
+        "CONFIG_GCC_VERSION=150200",
+        "CONFIG_CLANG_VERSION=0"
+      ],
+      "lines": 7739,
+      "path": "projects/ROCKNIX/devices/RK3566/linux/linux.aarch64.conf"
+    },
+    {
+      "buildable_by": [
+        "RK3576-aarch64",
+        "RK3576-arm"
+      ],
+      "header": [
+        "#",
+        "# Automatically generated file; DO NOT EDIT.",
+        "# Linux/arm64 7.0.2 Kernel Configuration",
+        "#",
+        "CONFIG_CC_VERSION_TEXT=\"aarch64-rocknix-linux-gnu-gcc-15.2.0 (GCC) 15.2.0\"",
+        "CONFIG_CC_IS_GCC=y",
+        "CONFIG_GCC_VERSION=150200",
+        "CONFIG_CLANG_VERSION=0"
+      ],
+      "lines": 8292,
+      "path": "projects/ROCKNIX/devices/RK3576/linux/linux.aarch64.conf"
+    },
+    {
+      "buildable_by": [
+        "RK3588-aarch64",
+        "RK3588-arm"
+      ],
+      "header": [
+        "#",
+        "# Automatically generated file; DO NOT EDIT.",
+        "# Linux/arm64 6.1.75 Kernel Configuration",
+        "#",
+        "CONFIG_CC_VERSION_TEXT=\"aarch64-rocknix-linux-gnu-gcc-15.2.0 (GCC) 15.2.0\"",
+        "CONFIG_CC_IS_GCC=y",
+        "CONFIG_GCC_VERSION=150200",
+        "CONFIG_CLANG_VERSION=0"
+      ],
+      "lines": 8894,
+      "path": "projects/ROCKNIX/devices/RK3588/linux/linux.aarch64.conf"
+    },
+    {
+      "buildable_by": [
+        "S922X-aarch64",
+        "S922X-arm"
+      ],
+      "header": [
+        "#",
+        "# Automatically generated file; DO NOT EDIT.",
+        "# Linux/arm64 6.18.49 Kernel Configuration",
+        "#",
+        "CONFIG_CC_VERSION_TEXT=\"aarch64-rocknix-linux-gnu-gcc-15.2.0 (GCC) 15.2.0\"",
+        "CONFIG_CC_IS_GCC=y",
+        "CONFIG_GCC_VERSION=150200",
+        "CONFIG_CLANG_VERSION=0"
+      ],
+      "lines": 6976,
+      "path": "projects/ROCKNIX/devices/S922X/linux/linux.aarch64.conf"
+    },
+    {
+      "buildable_by": [
+        "SM4450-aarch64",
+        "SM4450-arm"
+      ],
+      "header": [
+        "#",
+        "# Automatically generated file; DO NOT EDIT.",
+        "# Linux/arm64 7.2.0 Kernel Configuration",
+        "#",
+        "CONFIG_CC_VERSION_TEXT=\"aarch64-rocknix-linux-gnu-gcc-15.2.0 (GCC) 15.2.0\"",
+        "CONFIG_CC_IS_GCC=y",
+        "CONFIG_GCC_VERSION=150200",
+        "CONFIG_CLANG_VERSION=0"
+      ],
+      "lines": 8568,
+      "path": "projects/ROCKNIX/devices/SM4450/linux/linux.aarch64.conf"
+    },
+    {
+      "buildable_by": [
+        "SM6115-aarch64",
+        "SM6115-arm"
+      ],
+      "header": [
+        "#",
+        "# Automatically generated file; DO NOT EDIT.",
+        "# Linux/arm64 7.2.0 Kernel Configuration",
+        "#",
+        "CONFIG_CC_VERSION_TEXT=\"aarch64-rocknix-linux-gnu-gcc-15.2.0 (GCC) 15.2.0\"",
+        "CONFIG_CC_IS_GCC=y",
+        "CONFIG_GCC_VERSION=150200",
+        "CONFIG_CLANG_VERSION=0"
+      ],
+      "lines": 8513,
+      "path": "projects/ROCKNIX/devices/SM6115/linux/linux.aarch64.conf"
+    },
+    {
+      "buildable_by": [
+        "SM8250-aarch64",
+        "SM8250-arm"
+      ],
+      "header": [
+        "#",
+        "# Automatically generated file; DO NOT EDIT.",
+        "# Linux/arm64 7.2.0 Kernel Configuration",
+        "#",
+        "CONFIG_CC_VERSION_TEXT=\"aarch64-rocknix-linux-gnu-gcc-15.2.0 (GCC) 15.2.0\"",
+        "CONFIG_CC_IS_GCC=y",
+        "CONFIG_GCC_VERSION=150200",
+        "CONFIG_CLANG_VERSION=0"
+      ],
+      "lines": 8441,
+      "path": "projects/ROCKNIX/devices/SM8250/linux/linux.aarch64.conf"
+    },
+    {
+      "buildable_by": [
+        "SM8650-aarch64"
+      ],
+      "header": [
+        "#",
+        "# Automatically generated file; DO NOT EDIT.",
+        "# Linux/arm64 7.2.0 Kernel Configuration",
+        "#",
+        "CONFIG_CC_VERSION_TEXT=\"aarch64-rocknix-linux-gnu-gcc-15.2.0 (GCC) 15.2.0\"",
+        "CONFIG_CC_IS_GCC=y",
+        "CONFIG_GCC_VERSION=150200",
+        "CONFIG_CLANG_VERSION=0"
+      ],
+      "lines": 8603,
+      "path": "projects/ROCKNIX/devices/SM8650/linux/linux.aarch64.conf"
+    },
+    {
+      "buildable_by": [
+        "SM8750-aarch64"
+      ],
+      "header": [
+        "#",
+        "# Automatically generated file; DO NOT EDIT.",
+        "# Linux/arm64 7.2.0 Kernel Configuration",
+        "#",
+        "CONFIG_CC_VERSION_TEXT=\"aarch64-rocknix-linux-gnu-gcc-15.2.0 (GCC) 15.2.0\"",
+        "CONFIG_CC_IS_GCC=y",
+        "CONFIG_GCC_VERSION=150200",
+        "CONFIG_CLANG_VERSION=0"
+      ],
+      "lines": 8632,
+      "path": "projects/ROCKNIX/devices/SM8750/linux/linux.aarch64.conf"
+    }
+  ],
+  "cross_slice_inbound_symlinks": [
+    {
+      "link_modes_blobs": {
+        "2174265e9cc1b248c0fbe27fa101875984d46d6b": {
+          "kind": "blob",
+          "mode": "120000",
+          "oid": "77f00f11a744931e14787c8d7f033a8cab866229"
+        },
+        "7f25f9f78b3da3a6b2c893397b58a3ce5a04be75": {
+          "kind": "blob",
+          "mode": "120000",
+          "oid": "77f00f11a744931e14787c8d7f033a8cab866229"
+        }
+      },
+      "path": "projects/ROCKNIX/packages/apps/mangohud/patches/SM8550/0002-SM8750-Battery.patch",
+      "resolved": "projects/ROCKNIX/packages/apps/mangohud/patches/SM8750/0002-SM8750-Battery.patch",
+      "slice": "patches-shipped",
+      "target": "../SM8750/0002-SM8750-Battery.patch"
+    }
+  ],
+  "directory_groups": {
+    "projects/ROCKNIX/devices/AMD64/linux": {
+      "inventory_lines": 12445,
+      "paths": 1
+    },
+    "projects/ROCKNIX/devices/AMD64/packages/ayn-platform/patches": {
+      "inventory_lines": 13,
+      "paths": 1
+    },
+    "projects/ROCKNIX/devices/AMD64/packages/dmidecode/patches": {
+      "inventory_lines": 12,
+      "paths": 1
+    },
+    "projects/ROCKNIX/devices/AMD64/packages/ectool/patches": {
+      "inventory_lines": 59,
+      "paths": 1
+    },
+    "projects/ROCKNIX/devices/RK3326/linux": {
+      "inventory_lines": 7218,
+      "paths": 1
+    },
+    "projects/ROCKNIX/devices/RK3326/packages/u-boot-legacy/patches": {
+      "inventory_lines": 93,
+      "paths": 1
+    },
+    "projects/ROCKNIX/devices/RK3326/packages/u-boot/patches": {
+      "inventory_lines": 62,
+      "paths": 1
+    },
+    "projects/ROCKNIX/devices/RK3326/patches/linux": {
+      "inventory_lines": 20304,
+      "paths": 18
+    },
+    "projects/ROCKNIX/devices/RK3326/patches/mali-bifrost": {
+      "inventory_lines": 218,
+      "paths": 4
+    },
+    "projects/ROCKNIX/devices/RK3399/linux": {
+      "inventory_lines": 6908,
+      "paths": 1
+    },
+    "projects/ROCKNIX/devices/RK3399/packages/u-boot/patches": {
+      "inventory_lines": 12,
+      "paths": 1
+    },
+    "projects/ROCKNIX/devices/RK3399/patches/linux": {
+      "inventory_lines": 684,
+      "paths": 8
+    },
+    "projects/ROCKNIX/devices/RK3566/linux": {
+      "inventory_lines": 7739,
+      "paths": 1
+    },
+    "projects/ROCKNIX/devices/RK3566/packages/u-boot-Generic/patches": {
+      "inventory_lines": 91,
+      "paths": 3
+    },
+    "projects/ROCKNIX/devices/RK3566/packages/u-boot-Specific/patches": {
+      "inventory_lines": 29,
+      "paths": 2
+    },
+    "projects/ROCKNIX/devices/RK3566/patches/linux": {
+      "inventory_lines": 3248,
+      "paths": 33
+    },
+    "projects/ROCKNIX/devices/RK3566/patches/mali-bifrost": {
+      "inventory_lines": 57,
+      "paths": 2
+    },
+    "projects/ROCKNIX/devices/RK3576/linux": {
+      "inventory_lines": 8292,
+      "paths": 1
+    },
+    "projects/ROCKNIX/devices/RK3576/packages/u-boot/patches": {
+      "inventory_lines": 576,
+      "paths": 1
+    },
+    "projects/ROCKNIX/devices/RK3576/patches/linux": {
+      "inventory_lines": 6089,
+      "paths": 19
+    },
+    "projects/ROCKNIX/devices/RK3576/patches/mali-bifrost": {
+      "inventory_lines": 175,
+      "paths": 3
+    },
+    "projects/ROCKNIX/devices/RK3588/linux": {
+      "inventory_lines": 8894,
+      "paths": 1
+    },
+    "projects/ROCKNIX/devices/RK3588/packages/u-boot/patches": {
+      "inventory_lines": 83,
+      "paths": 1
+    },
+    "projects/ROCKNIX/devices/RK3588/patches/linux": {
+      "inventory_lines": 134179,
+      "paths": 16
+    },
+    "projects/ROCKNIX/devices/S922X/linux": {
+      "inventory_lines": 6976,
+      "paths": 1
+    },
+    "projects/ROCKNIX/devices/S922X/packages/u-boot/patches": {
+      "inventory_lines": 179,
+      "paths": 3
+    },
+    "projects/ROCKNIX/devices/S922X/patches/linux/S922X": {
+      "inventory_lines": 9849,
+      "paths": 42
+    },
+    "projects/ROCKNIX/devices/SM4450/linux": {
+      "inventory_lines": 8568,
+      "paths": 1
+    },
+    "projects/ROCKNIX/devices/SM4450/patches/linux": {
+      "inventory_lines": 8425,
+      "paths": 44
+    },
+    "projects/ROCKNIX/devices/SM6115/linux": {
+      "inventory_lines": 8513,
+      "paths": 1
+    },
+    "projects/ROCKNIX/devices/SM6115/patches/linux": {
+      "inventory_lines": 6914,
+      "paths": 46
+    },
+    "projects/ROCKNIX/devices/SM8250/linux": {
+      "inventory_lines": 8441,
+      "paths": 1
+    },
+    "projects/ROCKNIX/devices/SM8250/patches/linux": {
+      "inventory_lines": 10593,
+      "paths": 36
+    },
+    "projects/ROCKNIX/devices/SM8650/linux": {
+      "inventory_lines": 8603,
+      "paths": 1
+    },
+    "projects/ROCKNIX/devices/SM8650/patches/linux": {
+      "inventory_lines": 3804,
+      "paths": 20
+    },
+    "projects/ROCKNIX/devices/SM8750/linux": {
+      "inventory_lines": 8632,
+      "paths": 1
+    },
+    "projects/ROCKNIX/devices/SM8750/patches/linux": {
+      "inventory_lines": 17614,
+      "paths": 58
+    },
+    "projects/ROCKNIX/packages/apps/gamepadtester/patches/RK3399": {
+      "inventory_lines": 14,
+      "paths": 1
+    },
+    "projects/ROCKNIX/packages/apps/gamepadtester/patches/RK3588": {
+      "inventory_lines": 14,
+      "paths": 1
+    },
+    "projects/ROCKNIX/packages/apps/gamepadtester/patches/legacy": {
+      "inventory_lines": 118,
+      "paths": 1
+    },
+    "projects/ROCKNIX/packages/apps/mangohud/patches/RK3326": {
+      "inventory_lines": 66,
+      "paths": 2
+    },
+    "projects/ROCKNIX/packages/apps/mangohud/patches/SM4450": {
+      "inventory_lines": 66,
+      "paths": 2
+    },
+    "projects/ROCKNIX/packages/apps/mangohud/patches/SM6115": {
+      "inventory_lines": 34,
+      "paths": 1
+    },
+    "projects/ROCKNIX/packages/apps/mangohud/patches/SM8250": {
+      "inventory_lines": 34,
+      "paths": 1
+    },
+    "projects/ROCKNIX/packages/apps/mangohud/patches/SM8650": {
+      "inventory_lines": 2,
+      "paths": 2
+    },
+    "projects/ROCKNIX/packages/apps/mangohud/patches/SM8750": {
+      "inventory_lines": 71,
+      "paths": 2
+    },
+    "projects/ROCKNIX/packages/apps/mangohud/patches/batteryplus": {
+      "inventory_lines": 25,
+      "paths": 1
+    },
+    "projects/ROCKNIX/packages/apps/oga_controls/patches/RK3326": {
+      "inventory_lines": 33,
+      "paths": 1
+    },
+    "projects/ROCKNIX/packages/apps/oga_controls/patches/S922X": {
+      "inventory_lines": 42,
+      "paths": 1
+    },
+    "projects/ROCKNIX/packages/audio/alsa-lib/patches/SM8250": {
+      "inventory_lines": 27,
+      "paths": 1
+    },
+    "projects/ROCKNIX/packages/audio/alsa-ucm-conf/patches/RK3326": {
+      "inventory_lines": 13,
+      "paths": 1
+    },
+    "projects/ROCKNIX/packages/audio/alsa-ucm-conf/patches/SM8250": {
+      "inventory_lines": 259,
+      "paths": 3
+    },
+    "projects/ROCKNIX/packages/audio/alsa-ucm-conf/patches/SM8650": {
+      "inventory_lines": 153,
+      "paths": 2
+    },
+    "projects/ROCKNIX/packages/audio/alsa-ucm-conf/patches/SM8750": {
+      "inventory_lines": 120,
+      "paths": 2
+    },
+    "projects/ROCKNIX/packages/audio/pipewire/patches/SM6115": {
+      "inventory_lines": 33,
+      "paths": 2
+    },
+    "projects/ROCKNIX/packages/audio/pipewire/patches/SM8250": {
+      "inventory_lines": 28,
+      "paths": 1
+    },
+    "projects/ROCKNIX/packages/audio/pipewire/patches/SM8650": {
+      "inventory_lines": 33,
+      "paths": 2
+    },
+    "projects/ROCKNIX/packages/audio/pipewire/patches/SM8750": {
+      "inventory_lines": 33,
+      "paths": 2
+    },
+    "projects/ROCKNIX/packages/emulators/standalone/azahar-sa/patches/prefer_gles": {
+      "inventory_lines": 25,
+      "paths": 1
+    },
+    "projects/ROCKNIX/packages/emulators/standalone/ppsspp-sa/patches/SM8250": {
+      "inventory_lines": 22,
+      "paths": 1
+    },
+    "projects/ROCKNIX/packages/emulators/standalone/xemu-sa/patches/SM8250": {
+      "inventory_lines": 19,
+      "paths": 1
+    },
+    "projects/ROCKNIX/packages/graphics/libmali/patches/RK3588": {
+      "inventory_lines": 18,
+      "paths": 1
+    },
+    "projects/ROCKNIX/packages/graphics/libmali/patches/next": {
+      "inventory_lines": 197,
+      "paths": 2
+    },
+    "projects/ROCKNIX/packages/graphics/mesa/patches/SM8750": {
+      "inventory_lines": 13,
+      "paths": 1
+    },
+    "projects/ROCKNIX/packages/graphics/vulkan-wsi-layer/patches": {
+      "inventory_lines": 201,
+      "paths": 2
+    },
+    "projects/ROCKNIX/packages/linux/patches/mainline-rockchip": {
+      "inventory_lines": 791,
+      "paths": 6
+    },
+    "projects/ROCKNIX/packages/multimedia/ffmpeg/patches/vf-deinterlace-v4l2m2m": {
+      "inventory_lines": 1054,
+      "paths": 1
+    },
+    "projects/ROCKNIX/packages/multimedia/rkmpp/patches": {
+      "inventory_lines": 113,
+      "paths": 1
+    },
+    "projects/ROCKNIX/packages/tools/atf/patches/RK3399": {
+      "inventory_lines": 13,
+      "paths": 1
+    },
+    "projects/ROCKNIX/packages/wayland/lib/wlroots/patches/libmali": {
+      "inventory_lines": 12,
+      "paths": 1
+    },
+    "projects/ROCKNIX/packages/wayland/weston-kiosk-shell-dpms/patches": {
+      "inventory_lines": 43,
+      "paths": 1
+    },
+    "projects/ROCKNIX/packages/wayland/weston/patches": {
+      "inventory_lines": 186,
+      "paths": 3
+    }
+  },
+  "fork_base_delta": {
+    "2174265e9cc1b248c0fbe27fa101875984d46d6b": {
+      "base": "c445081a59518f37d9776e5412dd7b14910696f7",
+      "matches_tier_note": true,
+      "paths": []
+    },
+    "7f25f9f78b3da3a6b2c893397b58a3ce5a04be75": {
+      "base": "c445081a59518f37d9776e5412dd7b14910696f7",
+      "matches_tier_note": true,
+      "paths": []
+    }
+  },
+  "fork_written": {
+    "rows": [],
+    "total": {
+      "inventory_lines": 0,
+      "paths": 0
+    }
+  },
+  "inputs": {
+    "2174265e9cc1b248c0fbe27fa101875984d46d6b": {
+      "docs/reviews/areas.json": {
+        "kind": "blob",
+        "mode": "100644",
+        "oid": "ed033ea67c1ed0d147afbfcf1ab691aa46a5d8aa",
+        "sha256": "985f742cfd4a2138339f1ed41bd5f5f9e3755fe69b309ff3ddb10d1466fced90"
+      },
+      "docs/reviews/inventory.json": {
+        "kind": "blob",
+        "mode": "100644",
+        "oid": "9133125cd2d28180aafdfda79668241943bf9e3d",
+        "sha256": "d17b9cac4b2c2245b7d924036a9402b2cfd066811a7ea3fc7502a380418cb2fc"
+      },
+      "docs/reviews/order.md": {
+        "kind": "blob",
+        "mode": "100644",
+        "oid": "07a9ae945c6d486e3bcf1460b63dfba702b50856",
+        "sha256": "d5b76af6f0865d1ce5b6f8ab36fe1e5fa33478d16033833c048fae0abfde4c18"
+      },
+      "docs/reviews/slices.json": {
+        "kind": "blob",
+        "mode": "100644",
+        "oid": "e64965a5493ebd1da3829069e98a845a96de5b26",
+        "sha256": "49bc2745664e52f4abb9037746d003fab54e21fde74f6308a81bf20ed00f12c6"
+      },
+      "tools/renovation-inventory": {
+        "kind": "blob",
+        "mode": "100755",
+        "oid": "af18e40cf8cb75496e7bb00b4059daed4792c94a",
+        "sha256": "e3d2cbc8743e328e20a2b9ca10b8bf2264efd5d25bdecb8e0bd3bb306117bf0b"
+      }
+    },
+    "7f25f9f78b3da3a6b2c893397b58a3ce5a04be75": {
+      "docs/reviews/areas.json": {
+        "kind": "blob",
+        "mode": "100644",
+        "oid": "ed033ea67c1ed0d147afbfcf1ab691aa46a5d8aa",
+        "sha256": "985f742cfd4a2138339f1ed41bd5f5f9e3755fe69b309ff3ddb10d1466fced90"
+      },
+      "docs/reviews/inventory.json": {
+        "kind": "blob",
+        "mode": "100644",
+        "oid": "9133125cd2d28180aafdfda79668241943bf9e3d",
+        "sha256": "d17b9cac4b2c2245b7d924036a9402b2cfd066811a7ea3fc7502a380418cb2fc"
+      },
+      "docs/reviews/order.md": {
+        "kind": "blob",
+        "mode": "100644",
+        "oid": "07a9ae945c6d486e3bcf1460b63dfba702b50856",
+        "sha256": "d5b76af6f0865d1ce5b6f8ab36fe1e5fa33478d16033833c048fae0abfde4c18"
+      },
+      "docs/reviews/slices.json": {
+        "kind": "blob",
+        "mode": "100644",
+        "oid": "e64965a5493ebd1da3829069e98a845a96de5b26",
+        "sha256": "49bc2745664e52f4abb9037746d003fab54e21fde74f6308a81bf20ed00f12c6"
+      },
+      "tools/renovation-inventory": {
+        "kind": "blob",
+        "mode": "100755",
+        "oid": "af18e40cf8cb75496e7bb00b4059daed4792c94a",
+        "sha256": "e3d2cbc8743e328e20a2b9ca10b8bf2264efd5d25bdecb8e0bd3bb306117bf0b"
+      }
+    }
+  },
+  "inventory_header": {
+    "distribution": {
+      "head": "eb4763e3cc9bcd729830cd85f1719bbd4f28db10",
+      "merge_base": "c445081a59518f37d9776e5412dd7b14910696f7",
+      "upstream": "upstream/next",
+      "upstream_head": "c1f1746828ca47dfc751ffe44bb47b6b259883d7"
+    },
+    "es": {
+      "batocera_master": "b2ceb55a7e3d205a11f055b7d93c8be50cd6f9c9",
+      "head": "16dbac5211eea7e70db7394372033be2be7df829",
+      "merge_base": "cada856d86e3115fbbf0bce09dd761b0ee8fa9fd",
+      "upstream": "rocknix/master",
+      "upstream_head": "e282b05627c0d2193c19d7cc526176e047530c3d"
+    },
+    "generated": "2026-10-23T02:20:48Z",
+    "generator": "tools/renovation-inventory",
+    "plan_runner": {
+      "image": "sha256:988c0ba586263caeba4be4c03bd16eee055c9d066657951e320087bb8226ee39",
+      "mode": "container"
+    },
+    "seconds": {
+      "git": 3.8,
+      "plans": 14.6
+    },
+    "shipped_devices": [
+      "H700",
+      "SM8550"
+    ],
+    "test_devices": [
+      "GENERIC_X64"
+    ]
+  },
+  "membership": {
+    "changed_modes_or_blobs": [],
+    "coordinator_rows_identical": true,
+    "inventory_lines": 328516,
+    "manifest_sha256": "ccbbe1543349e51f56545afc3e96aadc3fc3e965e19b1fdb18731ee809cc083e",
+    "missing": {
+      "2174265e9cc1b248c0fbe27fa101875984d46d6b": [],
+      "7f25f9f78b3da3a6b2c893397b58a3ce5a04be75": []
+    },
+    "path_list_sha256": "8ec78172f80d28d28117eaf1efefe2c769ea58d07a57c3a16616b595fb429912",
+    "paths": 432
+  },
+  "modes": {
+    "2174265e9cc1b248c0fbe27fa101875984d46d6b": {
+      "100644": 428,
+      "100755": 2,
+      "120000": 2
+    },
+    "7f25f9f78b3da3a6b2c893397b58a3ce5a04be75": {
+      "100644": 428,
+      "100755": 2,
+      "120000": 2
+    }
+  },
+  "neighbor_intersections": {
+    "patches-dead": [],
+    "patches-shipped": [],
+    "patches-shipped-kernel": []
+  },
+  "path_kinds": {
+    "kernel-config": 12,
+    "patch": 420
+  },
+  "per_target_nonadditive": {
+    "AMD64-x86_64": {
+      "inventory_lines": 12529,
+      "paths": 4
+    },
+    "RK3326-aarch64": {
+      "inventory_lines": 30375,
+      "paths": 42
+    },
+    "RK3326-arm": {
+      "inventory_lines": 29903,
+      "paths": 33
+    },
+    "RK3399-aarch64": {
+      "inventory_lines": 9707,
+      "paths": 21
+    },
+    "RK3399-arm": {
+      "inventory_lines": 9550,
+      "paths": 17
+    },
+    "RK3566-aarch64": {
+      "inventory_lines": 13557,
+      "paths": 55
+    },
+    "RK3566-arm": {
+      "inventory_lines": 13355,
+      "paths": 47
+    },
+    "RK3576-aarch64": {
+      "inventory_lines": 17525,
+      "paths": 38
+    },
+    "RK3576-arm": {
+      "inventory_lines": 16749,
+      "paths": 33
+    },
+    "RK3588-aarch64": {
+      "inventory_lines": 143874,
+      "paths": 29
+    },
+    "RK3588-arm": {
+      "inventory_lines": 143372,
+      "paths": 21
+    },
+    "S922X-aarch64": {
+      "inventory_lines": 17309,
+      "paths": 52
+    },
+    "S922X-arm": {
+      "inventory_lines": 16837,
+      "paths": 44
+    },
+    "SM4450-aarch64": {
+      "inventory_lines": 17177,
+      "paths": 48
+    },
+    "SM4450-arm": {
+      "inventory_lines": 16993,
+      "paths": 45
+    },
+    "SM6115-aarch64": {
+      "inventory_lines": 15612,
+      "paths": 51
+    },
+    "SM6115-arm": {
+      "inventory_lines": 15460,
+      "paths": 49
+    },
+    "SM8250-aarch64": {
+      "inventory_lines": 19423,
+      "paths": 45
+    },
+    "SM8250-arm": {
+      "inventory_lines": 19348,
+      "paths": 42
+    },
+    "SM8650-aarch64": {
+      "inventory_lines": 12595,
+      "paths": 27
+    },
+    "SM8750-aarch64": {
+      "inventory_lines": 26483,
+      "paths": 66
+    }
+  },
+  "populations": {
+    "2174265e9cc1b248c0fbe27fa101875984d46d6b": {
+      "device-generic-x64-and-kernel": {
+        "inventory_lines": 7754,
+        "paths": 1
+      },
+      "device-h700": {
+        "inventory_lines": 8129,
+        "paths": 1
+      },
+      "emulators-libretro": {
+        "inventory_lines": 1670,
+        "paths": 21
+      },
+      "offline-achievements": {
+        "inventory_lines": 1703,
+        "paths": 18
+      },
+      "patches-dead": {
+        "inventory_lines": 317908,
+        "paths": 778
+      },
+      "patches-shipped": {
+        "inventory_lines": 71387,
+        "paths": 384
+      },
+      "patches-shipped-kernel": {
+        "inventory_lines": 40474,
+        "paths": 107
+      },
+      "patches-unshipped": {
+        "inventory_lines": 328516,
+        "paths": 432
+      }
+    },
+    "7f25f9f78b3da3a6b2c893397b58a3ce5a04be75": {
+      "device-generic-x64-and-kernel": {
+        "inventory_lines": 7754,
+        "paths": 1
+      },
+      "device-h700": {
+        "inventory_lines": 8129,
+        "paths": 1
+      },
+      "emulators-libretro": {
+        "inventory_lines": 1670,
+        "paths": 21
+      },
+      "offline-achievements": {
+        "inventory_lines": 1703,
+        "paths": 18
+      },
+      "patches-dead": {
+        "inventory_lines": 317908,
+        "paths": 778
+      },
+      "patches-shipped": {
+        "inventory_lines": 71387,
+        "paths": 384
+      },
+      "patches-shipped-kernel": {
+        "inventory_lines": 40474,
+        "paths": 107
+      },
+      "patches-unshipped": {
+        "inventory_lines": 328516,
+        "paths": 432
+      }
+    }
+  },
+  "refs": {
+    "P1": "2174265e9cc1b248c0fbe27fa101875984d46d6b",
+    "coordinator": "7f25f9f78b3da3a6b2c893397b58a3ce5a04be75"
+  },
+  "scope_groups": {
+    "projects/ROCKNIX/devices/AMD64": {
+      "inventory_lines": 12529,
+      "paths": 4
+    },
+    "projects/ROCKNIX/devices/RK3326": {
+      "inventory_lines": 27895,
+      "paths": 25
+    },
+    "projects/ROCKNIX/devices/RK3399": {
+      "inventory_lines": 7604,
+      "paths": 10
+    },
+    "projects/ROCKNIX/devices/RK3566": {
+      "inventory_lines": 11164,
+      "paths": 41
+    },
+    "projects/ROCKNIX/devices/RK3576": {
+      "inventory_lines": 15132,
+      "paths": 24
+    },
+    "projects/ROCKNIX/devices/RK3588": {
+      "inventory_lines": 143156,
+      "paths": 18
+    },
+    "projects/ROCKNIX/devices/S922X": {
+      "inventory_lines": 17004,
+      "paths": 46
+    },
+    "projects/ROCKNIX/devices/SM4450": {
+      "inventory_lines": 16993,
+      "paths": 45
+    },
+    "projects/ROCKNIX/devices/SM6115": {
+      "inventory_lines": 15427,
+      "paths": 47
+    },
+    "projects/ROCKNIX/devices/SM8250": {
+      "inventory_lines": 19034,
+      "paths": 37
+    },
+    "projects/ROCKNIX/devices/SM8650": {
+      "inventory_lines": 12407,
+      "paths": 21
+    },
+    "projects/ROCKNIX/devices/SM8750": {
+      "inventory_lines": 26246,
+      "paths": 59
+    },
+    "projects/ROCKNIX/packages/apps/gamepadtester": {
+      "inventory_lines": 146,
+      "paths": 3
+    },
+    "projects/ROCKNIX/packages/apps/mangohud": {
+      "inventory_lines": 298,
+      "paths": 11
+    },
+    "projects/ROCKNIX/packages/apps/oga_controls": {
+      "inventory_lines": 75,
+      "paths": 2
+    },
+    "projects/ROCKNIX/packages/audio/alsa-lib": {
+      "inventory_lines": 27,
+      "paths": 1
+    },
+    "projects/ROCKNIX/packages/audio/alsa-ucm-conf": {
+      "inventory_lines": 545,
+      "paths": 8
+    },
+    "projects/ROCKNIX/packages/audio/pipewire": {
+      "inventory_lines": 127,
+      "paths": 7
+    },
+    "projects/ROCKNIX/packages/emulators/standalone/azahar-sa": {
+      "inventory_lines": 25,
+      "paths": 1
+    },
+    "projects/ROCKNIX/packages/emulators/standalone/ppsspp-sa": {
+      "inventory_lines": 22,
+      "paths": 1
+    },
+    "projects/ROCKNIX/packages/emulators/standalone/xemu-sa": {
+      "inventory_lines": 19,
+      "paths": 1
+    },
+    "projects/ROCKNIX/packages/graphics/libmali": {
+      "inventory_lines": 215,
+      "paths": 3
+    },
+    "projects/ROCKNIX/packages/graphics/mesa": {
+      "inventory_lines": 13,
+      "paths": 1
+    },
+    "projects/ROCKNIX/packages/graphics/vulkan-wsi-layer": {
+      "inventory_lines": 201,
+      "paths": 2
+    },
+    "projects/ROCKNIX/packages/linux": {
+      "inventory_lines": 791,
+      "paths": 6
+    },
+    "projects/ROCKNIX/packages/multimedia/ffmpeg": {
+      "inventory_lines": 1054,
+      "paths": 1
+    },
+    "projects/ROCKNIX/packages/multimedia/rkmpp": {
+      "inventory_lines": 113,
+      "paths": 1
+    },
+    "projects/ROCKNIX/packages/tools/atf": {
+      "inventory_lines": 13,
+      "paths": 1
+    },
+    "projects/ROCKNIX/packages/wayland/lib/wlroots": {
+      "inventory_lines": 12,
+      "paths": 1
+    },
+    "projects/ROCKNIX/packages/wayland/weston": {
+      "inventory_lines": 186,
+      "paths": 3
+    },
+    "projects/ROCKNIX/packages/wayland/weston-kiosk-shell-dpms": {
+      "inventory_lines": 43,
+      "paths": 1
+    }
+  },
+  "selector_functions": {
+    "2174265e9cc1b248c0fbe27fa101875984d46d6b": {
+      "assign": {
+        "ast_sha256": "cd44cc654d1a37856427957f52a80b132deb876312717f3951a60a7d2098ce10",
+        "lines": [
+          176,
+          180
+        ]
+      },
+      "glob_body": {
+        "ast_sha256": "caf072249f55826b1c38f0634003fc538b84245077eaf921eddaa1e5b52f128e",
+        "lines": [
+          134,
+          156
+        ]
+      },
+      "glob_re": {
+        "ast_sha256": "3035bc75db9acf081f98f56ecec2650b530f5bf4b84ff95d983b402144e08791",
+        "lines": [
+          130,
+          131
+        ]
+      },
+      "load_areas": {
+        "ast_sha256": "71d33de7a7ed1332ce4cef75d2e78bf0870eed76fb41b3d421aa1bba82a45117",
+        "lines": [
+          159,
+          173
+        ]
+      },
+      "slice_of": {
+        "ast_sha256": "bbf85647771b5a70d436b4e14bfbde0ccfd6edd0b995741d8d0451f118ec3392",
+        "lines": [
+          1237,
+          1246
+        ]
+      }
+    },
+    "7f25f9f78b3da3a6b2c893397b58a3ce5a04be75": {
+      "assign": {
+        "ast_sha256": "cd44cc654d1a37856427957f52a80b132deb876312717f3951a60a7d2098ce10",
+        "lines": [
+          176,
+          180
+        ]
+      },
+      "glob_body": {
+        "ast_sha256": "caf072249f55826b1c38f0634003fc538b84245077eaf921eddaa1e5b52f128e",
+        "lines": [
+          134,
+          156
+        ]
+      },
+      "glob_re": {
+        "ast_sha256": "3035bc75db9acf081f98f56ecec2650b530f5bf4b84ff95d983b402144e08791",
+        "lines": [
+          130,
+          131
+        ]
+      },
+      "load_areas": {
+        "ast_sha256": "71d33de7a7ed1332ce4cef75d2e78bf0870eed76fb41b3d421aa1bba82a45117",
+        "lines": [
+          159,
+          173
+        ]
+      },
+      "slice_of": {
+        "ast_sha256": "bbf85647771b5a70d436b4e14bfbde0ccfd6edd0b995741d8d0451f118ec3392",
+        "lines": [
+          1237,
+          1246
+        ]
+      }
+    }
+  },
+  "symlinks": [
+    {
+      "path": "projects/ROCKNIX/packages/apps/mangohud/patches/SM8650/0001-SM8650-GPU.patch",
+      "resolved": "projects/ROCKNIX/packages/apps/mangohud/patches/SM8750/0001-SM8750-GPU.patch",
+      "target": "../SM8750/0001-SM8750-GPU.patch",
+      "target_modes_blobs": {
+        "2174265e9cc1b248c0fbe27fa101875984d46d6b": {
+          "kind": "blob",
+          "mode": "100644",
+          "oid": "d8c3456058663ff5100380282c2a3e74a133af06"
+        },
+        "7f25f9f78b3da3a6b2c893397b58a3ce5a04be75": {
+          "kind": "blob",
+          "mode": "100644",
+          "oid": "d8c3456058663ff5100380282c2a3e74a133af06"
+        }
+      },
+      "target_owner": [
+        "patches-unshipped"
+      ],
+      "target_row": {
+        "area": "patches-and-configs",
+        "buildable_by": [
+          "SM8750-aarch64"
+        ],
+        "language": "patch",
+        "last_fork_commit": null,
+        "last_upstream_commit": "688884af23 2026-05-12",
+        "lines": 34,
+        "overlap": false,
+        "patches": null,
+        "path": "projects/ROCKNIX/packages/apps/mangohud/patches/SM8750/0001-SM8750-GPU.patch",
+        "reach": "unshipped",
+        "reachable_by": [],
+        "shadowed_by": null,
+        "tier": "vendor-carried",
+        "tier_note": null,
+        "tree": "distribution"
+      }
+    },
+    {
+      "path": "projects/ROCKNIX/packages/apps/mangohud/patches/SM8650/0002-SM8750-Battery.patch",
+      "resolved": "projects/ROCKNIX/packages/apps/mangohud/patches/SM8750/0002-SM8750-Battery.patch",
+      "target": "../SM8750/0002-SM8750-Battery.patch",
+      "target_modes_blobs": {
+        "2174265e9cc1b248c0fbe27fa101875984d46d6b": {
+          "kind": "blob",
+          "mode": "100644",
+          "oid": "84176a1dad503fe03ff3535a552b454c60cf859f"
+        },
+        "7f25f9f78b3da3a6b2c893397b58a3ce5a04be75": {
+          "kind": "blob",
+          "mode": "100644",
+          "oid": "84176a1dad503fe03ff3535a552b454c60cf859f"
+        }
+      },
+      "target_owner": [
+        "patches-unshipped"
+      ],
+      "target_row": {
+        "area": "patches-and-configs",
+        "buildable_by": [
+          "SM8750-aarch64"
+        ],
+        "language": "patch",
+        "last_fork_commit": null,
+        "last_upstream_commit": "7e83d3c918 2026-05-12",
+        "lines": 37,
+        "overlap": false,
+        "patches": null,
+        "path": "projects/ROCKNIX/packages/apps/mangohud/patches/SM8750/0002-SM8750-Battery.patch",
+        "reach": "unshipped",
+        "reachable_by": [],
+        "shadowed_by": null,
+        "tier": "vendor-carried",
+        "tier_note": null,
+        "tree": "distribution"
+      }
+    }
+  ]
+}
