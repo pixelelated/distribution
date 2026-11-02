@@ -1,0 +1,28 @@
+{
+  "commands": [
+    {
+      "argv": [
+        "python3",
+        "/tmp/m6-lane-progress/t43-independent/reconcile.py"
+      ],
+      "start": "2026-11-02T22:38:39.363078+00:00",
+      "end": "2026-11-02T22:38:40.368068+00:00",
+      "rc": 0,
+      "stdout_sha256": "364aaedc9bbdd5a9c7fef7216fa763a81b0d0fb0b53b2efae012dccf97d02e6a",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "python3",
+        "/tmp/m6-lane-progress/t43-independent/supplement.py"
+      ],
+      "start": "2026-11-02T22:38:40.368105+00:00",
+      "end": "2026-11-02T22:38:40.557078+00:00",
+      "rc": 0,
+      "stdout_sha256": "1369b0f0943f7233a2d7386f9e54f518f9df487fe9b221ad73ed70ed2918b8f4",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ],
+  "all_results_byte_equal": true,
+  "kind": "immutable record comparison only; no producer/checker/test/source replay"
+}

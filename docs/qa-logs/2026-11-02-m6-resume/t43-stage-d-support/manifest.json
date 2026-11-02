@@ -1,0 +1,124 @@
+{
+  "format": "Lossless UTF-8 payloads in JSONL; decode JSON then verify original length/SHA. No source/cache/projection export.",
+  "stored_sha256": "5ff0ec5d06e99101e0a417f3fe140d629ff5d86bcedb4d0b82f1b80c84268ce2",
+  "stored_bytes": 2787788,
+  "records": [
+    {
+      "path": "p1/commands.jsonl",
+      "bytes": 515738,
+      "sha256": "f5fa05eff642e47d435958506476e6b03142077212b28407eb9cf15bca176e59"
+    },
+    {
+      "path": "p1/live-issues.json",
+      "bytes": 27890,
+      "sha256": "f6acbb2039af301c924d17c307a61269b9691eefa704df5cf4e49bf644a23e2e"
+    },
+    {
+      "path": "p1/live-milestone.json",
+      "bytes": 71733,
+      "sha256": "e3c4e2075dcc2b5a08136f04a5a864d21bbc2b540d69666dd0bb4be09aa254ad"
+    },
+    {
+      "path": "p1/live-parents.json",
+      "bytes": 660,
+      "sha256": "82602e4b36bc68cab571f8dae5b06551fbfa0e9ef06fd6803ef02203b673cf95"
+    },
+    {
+      "path": "p1/observed-hashes.json",
+      "bytes": 709182,
+      "sha256": "bb3b5d3d61d8af062a4a24a84aa854bedd11f2366c960d0cf82ac362784c20ef"
+    },
+    {
+      "path": "p1/packet-manifest.json",
+      "bytes": 1295,
+      "sha256": "3f2db8d2ba7030cd4d6d5cbb480ec570c25e7f63e3ffb4cf975d5876ecc0f635"
+    },
+    {
+      "path": "p1/reconcile.py",
+      "bytes": 23027,
+      "sha256": "57a226acc6e4a0652f3222c750e0e7571338fc58d9c48adce6f0ac829f2b8e53"
+    },
+    {
+      "path": "p1/report.md",
+      "bytes": 7165,
+      "sha256": "340e89f5817bd5e9be8316c40c745f9520acf883317abd0976653029df63c349"
+    },
+    {
+      "path": "p1/results.json",
+      "bytes": 21686,
+      "sha256": "d0a7b2fa8b715e90bba15f8d2fb68366067376223611f643f000b13d1fff846a"
+    },
+    {
+      "path": "p1/supplement-results.json",
+      "bytes": 3161,
+      "sha256": "74e18216d8b2104b1cd5850fb23651ecbe61a3e565abfb81028f44eb0a3ce7fc"
+    },
+    {
+      "path": "p1/supplement.py",
+      "bytes": 2736,
+      "sha256": "723b199864e6bc56ffd38de1c0f50aa4fa385e6314a9715e9e7adf66c062db57"
+    },
+    {
+      "path": "coordinator/commands.jsonl",
+      "bytes": 504338,
+      "sha256": "12f123f38841644caab01a735e30de6a0f7ae2738c6ed2c21a0d352c5b4c1699"
+    },
+    {
+      "path": "coordinator/coordinator-run.json",
+      "bytes": 972,
+      "sha256": "6f8c48c5f06950457264a01e1e3195ebdcbc4b1aa70e8ed39b5c565762b502c4"
+    },
+    {
+      "path": "coordinator/live-issues.json",
+      "bytes": 27890,
+      "sha256": "f6acbb2039af301c924d17c307a61269b9691eefa704df5cf4e49bf644a23e2e"
+    },
+    {
+      "path": "coordinator/observed-hashes.json",
+      "bytes": 708780,
+      "sha256": "533ab0dbad223254003c9fc45a61604c1e861db381c08699619a61b6328eb29a"
+    },
+    {
+      "path": "coordinator/reconcile.py",
+      "bytes": 23027,
+      "sha256": "57a226acc6e4a0652f3222c750e0e7571338fc58d9c48adce6f0ac829f2b8e53"
+    },
+    {
+      "path": "coordinator/reconcile.py.err",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "coordinator/reconcile.py.out",
+      "bytes": 4108,
+      "sha256": "364aaedc9bbdd5a9c7fef7216fa763a81b0d0fb0b53b2efae012dccf97d02e6a"
+    },
+    {
+      "path": "coordinator/results.json",
+      "bytes": 21686,
+      "sha256": "d0a7b2fa8b715e90bba15f8d2fb68366067376223611f643f000b13d1fff846a"
+    },
+    {
+      "path": "coordinator/supplement-results.json",
+      "bytes": 3161,
+      "sha256": "74e18216d8b2104b1cd5850fb23651ecbe61a3e565abfb81028f44eb0a3ce7fc"
+    },
+    {
+      "path": "coordinator/supplement.py",
+      "bytes": 2736,
+      "sha256": "723b199864e6bc56ffd38de1c0f50aa4fa385e6314a9715e9e7adf66c062db57"
+    },
+    {
+      "path": "coordinator/supplement.py.err",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "coordinator/supplement.py.out",
+      "bytes": 1079,
+      "sha256": "1369b0f0943f7233a2d7386f9e54f518f9df487fe9b221ad73ed70ed2918b8f4"
+    }
+  ],
+  "known_component_outer_json_escape_occurrences": 10,
+  "limits": "Exact known public filename serialization only; original decoded bytes retained. Root runs only immutable record comparisons; no producer replay. Original report qualifications remain."
+}

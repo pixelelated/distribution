@@ -1,0 +1,25 @@
+{
+  "argv": [
+    "python3",
+    "/workspace/repos/pixelelated/distribution.worktrees/m6-es-vendored-and-data-691/docs/qa-logs/2026-11-02-m6-resume/t44-brief-inputs.py",
+    "--repo",
+    "/workspace/repos/pixelelated/distribution.worktrees/m6-es-vendored-and-data-691",
+    "--ref",
+    "HEAD",
+    "--es-repo",
+    "/home/max/Development/emulationstation-next.worktrees/m6-es-vendored-and-data-691",
+    "--es-ref",
+    "HEAD",
+    "--out",
+    "/tmp/m6-lane-progress/t44-dispatch-seed-inputs"
+  ],
+  "start": "2026-11-02T22:41:32.703774+00:00",
+  "end": "2026-11-02T22:41:34.079877+00:00",
+  "rc": 0,
+  "stdout_sha256": "e454858048c8b6a16bbd7a372df431153cf5b5bae151ffe80a2d7bd8f5edb240",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "distribution_seed": "48a335700d05a733703e1b58536877b91b921259",
+  "es_seed": "55158d2a64c69fe295fb4e67fd174424a71b1b4d",
+  "actual_es_tree": "64b90eb8cb07bdfcd690c74ff6bc980ae490657c",
+  "three_manifests_byte_equal_to_proved_inputs": true
+}

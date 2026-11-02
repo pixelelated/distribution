@@ -1,0 +1,17 @@
+{
+  "argv": [
+    "git",
+    "-C",
+    "/home/max/Development/emulationstation-next.worktrees/m6-es-vendored-and-data-691",
+    "push",
+    "-q",
+    "origin",
+    "feature/m6-es-vendored-and-data-691:feature/m6-es-vendored-and-data-691"
+  ],
+  "start": "2026-11-02T22:46:36.079776+00:00",
+  "end": "2026-11-02T22:46:37.836114+00:00",
+  "rc": 0,
+  "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "stderr_sha256": "9841745408f5ef2283c4ac300fd0f8e7e9ed61b284e6ef86a3b47e0aeda8d668",
+  "reason": "Use configured destination origin so the unchanged hook identifies commits already held by that same destination. Bare-URL refusal remains retained; no hook/config/source change."
+}

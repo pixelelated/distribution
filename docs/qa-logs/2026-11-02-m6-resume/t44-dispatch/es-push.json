@@ -1,0 +1,21 @@
+{
+  "argv": [
+    "git",
+    "-C",
+    "/home/max/Development/emulationstation-next.worktrees/m6-es-vendored-and-data-691",
+    "-c",
+    "credential.helper=",
+    "-c",
+    "credential.helper=!gh auth git-credential",
+    "push",
+    "-q",
+    "https://github.com/pixelelated/emulationstation.git",
+    "feature/m6-es-vendored-and-data-691:feature/m6-es-vendored-and-data-691"
+  ],
+  "start": "2026-11-02T22:45:50.537377+00:00",
+  "end": "2026-11-02T22:46:06.175951+00:00",
+  "rc": 1,
+  "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "stderr_sha256": "261997032d32d322ce5b42206ee524c3bfcfb5c083ac6a74fbdf2a7c7c413b6b",
+  "preflight_correction": "Configured origin uses github-blitterbot SSH alias; exact owner/repository confirmed before HTTPS publication."
+}

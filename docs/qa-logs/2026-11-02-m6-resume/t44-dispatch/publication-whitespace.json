@@ -1,0 +1,28 @@
+{
+  "raw_diff_check_rc": 2,
+  "raw_diff_check_stdout": "docs/qa-logs/2026-11-02-m6-resume/t44-dispatch/distribution-push.err:1: trailing whitespace.\n+remote: \ndocs/qa-logs/2026-11-02-m6-resume/t44-dispatch/distribution-push.err:2: trailing whitespace.\n+remote: Create a pull request for 'feature/m6-es-vendored-and-data-691' on GitHub by visiting:        \ndocs/qa-logs/2026-11-02-m6-resume/t44-dispatch/distribution-push.err:3: trailing whitespace.\n+remote:      https://github.com/pixelelated/distribution/pull/new/feature/m6-es-vendored-and-data-691        \ndocs/qa-logs/2026-11-02-m6-resume/t44-dispatch/distribution-push.err:4: trailing whitespace.\n+remote: \ndocs/qa-logs/2026-11-02-m6-resume/t44-dispatch/es-origin-push.err:2: trailing whitespace.\n+remote: \ndocs/qa-logs/2026-11-02-m6-resume/t44-dispatch/es-origin-push.err:3: trailing whitespace.\n+remote: Create a pull request for 'feature/m6-es-vendored-and-data-691' on GitHub by visiting:        \ndocs/qa-logs/2026-11-02-m6-resume/t44-dispatch/es-origin-push.err:4: trailing whitespace.\n+remote:      https://github.com/pixelelated/emulationstation/pull/new/feature/m6-es-vendored-and-data-691        \ndocs/qa-logs/2026-11-02-m6-resume/t44-dispatch/es-origin-push.err:5: trailing whitespace.\n+remote: \n",
+  "scope": "Only the two exact raw remote-push stderr receipts carry trailing spaces emitted by GitHub. Preserve exact producer bytes; no hook or guard is changed. Every other staged path passes.",
+  "raw_receipts": [
+    {
+      "path": "distribution-push.err",
+      "bytes": 231,
+      "sha256": "3fdf878fecffee3de8cc22103f3904c69e2803744317b98f0116536ec2825814"
+    },
+    {
+      "path": "es-origin-push.err",
+      "bytes": 373,
+      "sha256": "9841745408f5ef2283c4ac300fd0f8e7e9ed61b284e6ef86a3b47e0aeda8d668"
+    }
+  ],
+  "other_paths_argv": [
+    "git",
+    "diff",
+    "--cached",
+    "--check",
+    "--",
+    ".",
+    ":(exclude)docs/qa-logs/2026-11-02-m6-resume/t44-dispatch/distribution-push.err",
+    ":(exclude)docs/qa-logs/2026-11-02-m6-resume/t44-dispatch/es-origin-push.err"
+  ],
+  "other_paths_rc": 0
+}

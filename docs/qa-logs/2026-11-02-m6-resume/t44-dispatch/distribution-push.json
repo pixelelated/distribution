@@ -1,0 +1,20 @@
+{
+  "argv": [
+    "git",
+    "-C",
+    "/workspace/repos/pixelelated/distribution.worktrees/m6-es-vendored-and-data-691",
+    "-c",
+    "credential.helper=",
+    "-c",
+    "credential.helper=!gh auth git-credential",
+    "push",
+    "-q",
+    "origin-https",
+    "feature/m6-es-vendored-and-data-691:feature/m6-es-vendored-and-data-691"
+  ],
+  "start": "2026-11-02T22:45:01.092274+00:00",
+  "end": "2026-11-02T22:45:03.391096+00:00",
+  "rc": 0,
+  "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "stderr_sha256": "3fdf878fecffee3de8cc22103f3904c69e2803744317b98f0116536ec2825814"
+}

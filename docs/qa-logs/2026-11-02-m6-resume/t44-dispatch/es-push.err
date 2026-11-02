@@ -1,0 +1,8 @@
+pre-push: feature/m6-es-vendored-and-data-691 -> feature/m6-es-vendored-and-data-691: reading the 8226 commit(s) https://github.com/pixelelated/emulationstation.git is not known to hold
+✖ pre-push: feature/m6-es-vendored-and-data-691 -> feature/m6-es-vendored-and-data-691: a commit in this push adds a credential-shaped line:
+    165fa334e:.githooks/pre-push-test:21: +FAKE="[REDACTED]"   # credential-shaped, means nothing
+    f412119ad:.githooks/pre-push-test:21: +FAKE="[REDACTED]"   # credential-shaped, means nothing
+    2dae87308:es-app/tests/unit/MaskSecretsTests.cpp:112: +	CHECK(maskSecrets("https://retroachievements.org/API/API_GetUserSummary.php?z=bob[REDACTED]")
+    80f52e500:es-app/tests/unit/MaskSecretsTests.cpp:112: +	CHECK(maskSecrets("https://retroachievements.org/API/API_GetUserSummary.php?z=bob[REDACTED]")
+pre-push: refused. Build pr/* by content from test/qa-integration, naming source paths only.
+error: failed to push some refs to 'https://github.com/pixelelated/emulationstation.git'
