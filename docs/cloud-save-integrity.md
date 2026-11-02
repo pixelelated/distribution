@@ -1,8 +1,10 @@
 # Scoped save integrity verification
 
 Refs #517; D-CLOUD-181. This is a host QA/operations procedure, not a new
-player flow or a replacement for CHECK CLOUD FOLDERS. M7 order remains
-#515 -> #508 -> #507 -> assembled firmware/adoption/release qualification.
+player flow or a replacement for CHECK CLOUD FOLDERS. Historical order as
+recorded on 2026-10-08: #515 -> #508 -> #507 -> assembled firmware/adoption/release
+qualification. The [live M7 milestone](https://github.com/pixelelated/distribution/milestone/7)
+owns the current execution order; this sequence records that earlier plan.
 
 ## What each check means
 

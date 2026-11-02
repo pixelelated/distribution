@@ -708,6 +708,13 @@ here.** The reason column is the point; a line with no reason is not a decision.
 - ANALOG STICKS LEDS -- upstream LED page for controllers our devices do not have
 - PAIR A BLUETOOTH DEVICE -- upstream pairing flow, unchanged here
 
+## Historical journal
+
+The entries below preserve the candidate and qualification record of their
+dates. Their source IDs, frames and limits remain historical evidence; they
+do not select today's baseline or reopen completed work. The journal stays
+here for this correction pass; #1407 owns later citation-preserving indexing.
+
 ## pixelelated identity (0.0.1)
 
 The screenshot toggle in System Settings reads **ENABLE pixelelated SCREENSHOT**;
@@ -755,7 +762,8 @@ taps and typing use one ordered input stream; supported sign-in popups preserve
 their opener and return to it. User-initiated cross-host navigation keeps the provider/auth-host guard; this is
 not a claim of complete redirect or subframe confinement.
 
-### Pending nonvisual allocator candidate (#570)
+<a id="pending-nonvisual-allocator-candidate-570"></a>
+### Historical nonvisual allocator candidate (#570, closed)
 
 The cloud sign-in flow and copy remain unchanged. Candidate ESf7b71db0a adds
 heap reclamation after frontend teardown. [Actual-source component evidence](qa-logs/2026-10-13-es-trim-product/README.md)
@@ -803,7 +811,8 @@ has [eight reviewed clean-install and retained-upgrade frames](qa-logs/2026-10-1
 actual installed-script identity, quiet successful execution and positive startup
 records. Real19→20 retained-storage qualification also passes under #344.
 
-## Pending allocator candidate: constrained handoff proof (#570)
+<a id="pending-allocator-candidate-constrained-handoff-proof-570"></a>
+## Historical allocator candidate: constrained handoff proof (#570, closed)
 
 The nonvisual ES candidatef7b71db0a additionally has a
 [constrained-memory comparison and repeated handoff packet](qa-logs/2026-10-13-es-trim-comparison/README.md)
@@ -814,7 +823,8 @@ frames are the accepted proof. This is640×480 English software-profile
 evidence; standard-profile broader frames and remaining sign-in branches
 still precede pin promotion. No new canonical full-image baseline is selected.
 
-### M7 setup candidate under qualification — October 13
+<a id="m7-setup-candidate-under-qualification--october-13"></a>
+### Historical M7 setup candidate — October 13, 2026
 
 The accepted flow/frame baseline above remains historical. The composed source
 adds browser-window failure retry/cancel on both keyboard routes, conditional

@@ -1,0 +1,59 @@
+--- 424eea28ec/docs/cloud-save-integrity.md
++++ S3/docs/cloud-save-integrity.md
+@@ -4,2 +4,4 @@
+-player flow or a replacement for CHECK CLOUD FOLDERS. M7 order remains
+-#515 -> #508 -> #507 -> assembled firmware/adoption/release qualification.
++player flow or a replacement for CHECK CLOUD FOLDERS. Historical order as
++recorded on 2026-10-08: #515 -> #508 -> #507 -> assembled firmware/adoption/release
++qualification. The [live M7 milestone](https://github.com/pixelelated/distribution/milestone/7)
++owns the current execution order; this sequence records that earlier plan.
+--- 424eea28ec/docs/es-menu-map.md
++++ S3/docs/es-menu-map.md
+@@ -710,0 +711,7 @@
++## Historical journal
++
++The entries below preserve the candidate and qualification record of their
++dates. Their source IDs, frames and limits remain historical evidence; they
++do not select today's baseline or reopen completed work. The journal stays
++here for this correction pass; #1407 owns later citation-preserving indexing.
++
+@@ -758 +765,2 @@
+-### Pending nonvisual allocator candidate (#570)
++<a id="pending-nonvisual-allocator-candidate-570"></a>
++### Historical nonvisual allocator candidate (#570, closed)
+@@ -806 +814,2 @@
+-## Pending allocator candidate: constrained handoff proof (#570)
++<a id="pending-allocator-candidate-constrained-handoff-proof-570"></a>
++## Historical allocator candidate: constrained handoff proof (#570, closed)
+@@ -817 +826,2 @@
+-### M7 setup candidate under qualification — October 13
++<a id="m7-setup-candidate-under-qualification--october-13"></a>
++### Historical M7 setup candidate — October 13, 2026
+--- 424eea28ec/docs/releases/next-candidate-work.md
++++ S3/docs/releases/next-candidate-work.md
+@@ -3,2 +3,2 @@
+-Reconciled October14 under #585 against live issues, their latest comments and
+-source-bound component evidence. The baseline is the last tested device build,
++Historical reconciliation of October 14, 2026, under #585, against the issues,
++comments and source-bound evidence then available. That reconciliation used
+@@ -7 +7 @@
+-owns execution order; this table is a dated readiness reference.
++owns current execution order and status; this table is a dated readiness reference.
+--- 424eea28ec/docs/council-mistral-counter.md
++++ S3/docs/council-mistral-counter.md
+@@ -1 +1,7 @@
+-# Offline Mistral request measurement
++# Historical Mistral request-measurement note — 2026-09-30
++
++**Status reviewed 2026-11-02:** the Mistral seat is retired; Muse Spark 1.3
++replaced it on 2026-09-27 (scaffold#915; seat history in
++`.claude/rules/adversarial-council.md`). The tool description, installation
++commands and measured/unverified limits below are retained as the 2026-09-30
++record, not an active seat or a request to install or run anything.
+--- 424eea28ec/docs/releases/device-facts.md
++++ S3/docs/releases/device-facts.md
+@@ -6,2 +6,2 @@
+-a row is edited the day the fact is observed, with the evidence named. The cuts
+-themselves are [catalog.md](catalog.md), generated from the artifacts' RECORD.txt.
++a row is edited the day the fact is observed, with the evidence named. [catalog.md](catalog.md) covers retained artifact folders with a RECORD.txt under `/workspace/artifacts/rocknix-images/`.
++For cuts absent from that generated catalog, follow the fact row's exact Evidence link; catalog completion and cross-checking remain #964/#270.

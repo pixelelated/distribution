@@ -1,4 +1,10 @@
-# Offline Mistral request measurement
+# Historical Mistral request-measurement note — 2026-09-30
+
+**Status reviewed 2026-11-02:** the Mistral seat is retired; Muse Spark 1.3
+replaced it on 2026-09-27 (scaffold#915; seat history in
+`.claude/rules/adversarial-council.md`). The tool description, installation
+commands and measured/unverified limits below are retained as the 2026-09-30
+record, not an active seat or a request to install or run anything.
 
 `scripts/council-count-mistral.mjs` measures the publisher's local chat encoding
 of an exact Mistral request. Every successful result remains `verified: false`,

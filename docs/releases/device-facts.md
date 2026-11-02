@@ -3,8 +3,8 @@
 The things only a handheld can show (`vm-first.md`, D-QA-007/033), one row each,
 with when each was last seen and on which cut -- so "have we checked this?" is a
 lookup here, not a search of five records (D-WORKFLOW-044, #267). Kept by hand:
-a row is edited the day the fact is observed, with the evidence named. The cuts
-themselves are [catalog.md](catalog.md), generated from the artifacts' RECORD.txt.
+a row is edited the day the fact is observed, with the evidence named. [catalog.md](catalog.md) covers retained artifact folders with a RECORD.txt under `/workspace/artifacts/rocknix-images/`.
+For cuts absent from that generated catalog, follow the fact row's exact Evidence link; catalog completion and cross-checking remain #964/#270.
 An open checkbox on an issue that asks for a device observation points at a row
 here (`tools/box-check`, the checkbox checker, #268); a fact with no row is a fact
 nobody is tracking.

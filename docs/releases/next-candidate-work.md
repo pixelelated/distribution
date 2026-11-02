@@ -1,10 +1,10 @@
 # Next pixelelated candidate — working list
 
-Reconciled October14 under #585 against live issues, their latest comments and
-source-bound component evidence. The baseline is the last tested device build,
+Historical reconciliation of October 14, 2026, under #585, against the issues,
+comments and source-bound evidence then available. That reconciliation used
 `0.0.1-dev+20261011T222153Z.gbc9dfe8141d9` (#555–#557). This does not relabel it as
 a publicly designated RC. The [M7 milestone body](https://github.com/pixelelated/distribution/milestone/7)
-owns execution order; this table is a dated readiness reference.
+owns current execution order and status; this table is a dated readiness reference.
 
 Open does not mean untouched: several fixes have compiled/installed component
 proof and remain open for the final composition. An engineering image must exist
