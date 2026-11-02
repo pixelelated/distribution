@@ -32,3 +32,9 @@ The original `t42-inherited/leads.tsv` uses Python CSV writer CRLF endings.
 The adjacent `.gitattributes` preserves those exact bytes and recognizes its
 carriage returns as line endings. The staged whitespace check then includes
 all new evidence files; the original research hash remains unchanged.
+
+## Lane continuation — 2026-11-02T18:55:24Z
+
+T39 E–H is dispatched in [6585180759](https://github.com/pixelelated/distribution/issues/686#issuecomment-6585180759); its first three streams are reported committed. T41 Stage B is accepted in [6585065737](https://github.com/pixelelated/distribution/issues/688#issuecomment-6585065737); C is published and D continues. The incomplete [acceptance-tool candidate return](t41-acceptance-candidate/return.txt) identifies a historical replay conflict resolved prospectively by D-WORKFLOW-226. The retained 63-check result is the producer's synthetic fixture evidence, not final slice acceptance. Its executable final gates still need implementation.
+
+T42's [dispatch](t42-dispatch.md) names the clean published seed; [the seed summary](t42-seed-summary.json) matches the proved baseline apart from its ref. T5 acknowledged the exact worktree/seed and is working A–D. P1's [T43 preparation](t43-preparation/report.md) is retained byte-for-byte with its manifest; all ten supplied hashes were checked. P1 is ready for a future brief proof. The current handoff and live milestone supersede the older waiting-state paragraphs above.

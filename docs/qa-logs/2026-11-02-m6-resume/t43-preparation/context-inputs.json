@@ -1,0 +1,86 @@
+[
+  {
+    "label": "T25",
+    "ref": "9b9be6a9481e4e9ee5b9d97f6c7bb72eda3ca3b4",
+    "path": "docs/audits/2026_10_25-epic-m6-devices-unshipped/02-forward-audit.md",
+    "blob": "5dbf9686c01487707e5011c744d930cd9fb79951",
+    "sha256": "a5be57129e0b7a131b7a14fe639d8cc458978bbf41f3691575c3a52986c2d203"
+  },
+  {
+    "label": "T11",
+    "ref": "47672fe4a04fc3b69dee9f0381fbc9f076b891e5",
+    "path": "docs/audits/2026_10_25-epic-m6-device-generic-x64-and-kernel/02-forward-audit.md",
+    "blob": "1a8478d0b0f4f3d4f7c2b9d8d477180076fd254d",
+    "sha256": "63755e7334974307e387f021bfc964ab933b6acab6e0fc7deed46509edf4e502"
+  },
+  {
+    "label": "T27",
+    "ref": "0ac98afe434c0429bace5f239482e5de0e0bc394",
+    "path": "docs/audits/2026_10_25-epic-m6-device-h700/02-forward-audit.md",
+    "blob": "5080a5beaea283bccb57408b9823ca6c67b6fe11",
+    "sha256": "be5844dbc57770b0df248836ecc75e0aca198d4de6ae3a7e68f678b7c932077a"
+  },
+  {
+    "label": "T41",
+    "ref": "7e5d1546712df2eb79c585fce663186770d1ceb9",
+    "path": "docs/audits/2026_11_02-epic-m6-patches-shipped-kernel/02-forward-audit.md",
+    "blob": "d7acd2c9e867cd32e04446b54909ea7a4a55f1a6",
+    "sha256": "e7a547a9f6f058311b6b8ef09cebe7945228a6b55f0b0a0ad23109062318ee6c"
+  },
+  {
+    "label": "T41 acceptance",
+    "ref": "7f25f9f78b3da3a6b2c893397b58a3ce5a04be75",
+    "path": "docs/qa-logs/2026-11-02-m6-resume/t41-stage-b-acceptance/results.json",
+    "blob": "2f459a836d5550d60f5c3aa4788a7b6b01e468b5",
+    "sha256": "b3c6d1b7e7b9cd5e04b8ed6b1fc0e671a93ca064d9b3fa3ed5d41f6731bcc706"
+  },
+  {
+    "label": "T42",
+    "ref": "7f25f9f78b3da3a6b2c893397b58a3ce5a04be75",
+    "path": "docs/qa-logs/2026-11-02-m6-resume/t42-membership/report.md",
+    "blob": "e39651c38c009350decb09e1211132cc88bfb3d4",
+    "sha256": "4b073b88e6d3033414da1d0334bc8622d85a1fe1f82346056a1a5ebf965bea10"
+  },
+  {
+    "label": "T41 brief erratum",
+    "ref": "7f25f9f78b3da3a6b2c893397b58a3ce5a04be75",
+    "path": "docs/reviews/briefs/patches-shipped-kernel.md",
+    "blob": "a5191945cddb5d2fc282a0d89eeaeac569b4ab4b",
+    "sha256": "ff2b2ac8b06aac814a0b6b69bb5cb3d50165a30afc4a8c0a40d9d1093283b87b"
+  },
+  {
+    "label": "decisions",
+    "ref": "7f25f9f78b3da3a6b2c893397b58a3ce5a04be75",
+    "path": "docs/decision-register.md",
+    "blob": "1a2f55d6dcf2fa7a06be04959078bd81a3ba4faf",
+    "sha256": "fb203894691ca98dcdba7ce0014941a31c0d52694c192746998bcb1d627f0127"
+  },
+  {
+    "label": "unpack interface",
+    "ref": "7f25f9f78b3da3a6b2c893397b58a3ce5a04be75",
+    "path": "scripts/unpack",
+    "blob": "c45c98e9f9adee87a96c2d789cc0c96134deb2d4",
+    "sha256": "fd8f2e501cbf39df1024d61fd82621c8c662bcdaee2c674c4daad2c3d0b8fa41"
+  },
+  {
+    "label": "package resolution",
+    "ref": "7f25f9f78b3da3a6b2c893397b58a3ce5a04be75",
+    "path": "config/functions",
+    "blob": "f56b8e7057fc5ae33eda5381f612793badb61396",
+    "sha256": "8424e64733fe6bc84839853d8dbf99c40cf5e9f60bcfb8e0eed882637bb633a3"
+  },
+  {
+    "label": "RK3566 wrapper",
+    "ref": "7f25f9f78b3da3a6b2c893397b58a3ce5a04be75",
+    "path": "projects/ROCKNIX/devices/RK3566/packages/u-boot/package.mk",
+    "blob": "5ffeb802c352b5ba34ff517ea8ee8a3e30f7a4b0",
+    "sha256": "7d2314315adbc84c955465e04ea8e6a5c42af5babded1d687f94d7b8541743a3"
+  },
+  {
+    "label": "inherited upstream kernel context",
+    "ref": "651150fc88a8ee40e3f8e69c6d36feb6b005bde5",
+    "path": "projects/ROCKNIX/packages/linux/package.mk",
+    "blob": "d1ca714c289f7a15f2b3462377ba6155f2f103ff",
+    "sha256": "ff12f792508e3f99241731aab8765b53f66462d7182cf969296d14c333b34c04"
+  }
+]

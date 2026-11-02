@@ -1,0 +1,117 @@
+T41 #688 acceptance derivation candidate — bounded implementation return
+Recorded: 2026-11-02T18:51:50.358497+00:00
+Author: Codex (GPT-6), harness /root, m6-t2-es-launch wN:p5,
+session 01a19d12-1c5f-7022-8053-102f6a94b7fe. Return to m6-coordinator wN:p2.
+
+Status: UNRESOLVED CANDIDATE, not installed and not ready for final acceptance.
+The receipt predicates and fixture validation are implemented. The executable
+replay/acceptance phases remain gated, as detailed below; this is not a claim
+that the entire section-10 final runner is implemented or accepted.
+
+Owned directory:
+/workspace/tmp/m6-coordinator/kit/selftest/accept-t41-candidate-01a19d12/
+
+Inputs read: full current #688 body and comments through Stage-B acceptance
+6585065737; b6332dbc13 section 10 and D-WORKFLOW-222 appended erratum; supplied
+t36-accept.sh plus T39 deriver/positives/refusals/driver reference patterns.
+Shared t36 SHA verified before derivation and after tests:
+e32e28e0145570008d08493594795a878c442e88ed9fb3aac70f95e10d6b5b1b.
+Reference/shared files were never edited. Historical T2 worktree remains clean.
+
+Files and behavior:
+- derive-t41.py: refuses any shared-source SHA drift; independently counts
+  replacement shapes; refuses duplicate section names, unsafe destinations and
+  embedding collisions. Writes only beneath this owned directory. Derivation
+  is deterministic. The shared verdict/counter/mask/summary code is extracted
+  from the pinned T36 source; section predicates are authored for T41.
+- t41_checks.py: source for the embedded receipt predicates. 54 named sections
+  from section 10 are represented. Immutable git show/ls-tree reads; no producer
+  import, patch application, generator execution or archive extraction.
+- t41-accept.sh: self-contained generated candidate; existing two-tip/env usage,
+  VERDICT/SUMMARY/ACCEPT-RC contract retained. The whole ordinary output passes
+  through the shared credential mask. Runtime output and fixtures are confined
+  to this owned directory, with symlink/hardlink/non-file refusals before writes.
+- positives-t41.sh, refusals-t41.sh, run-selftest-t41.sh, test_candidate.py:
+  synthetic fixtures and a tiny synthetic Git repository only; no real source
+  tree export and no accepted-stage tests. The source files/receipts/model plans
+  inside fixtures are explicitly synthetic, never proposed live audit artifacts.
+- checks-all.json / selftest.out / driver.out: 63 checks passed, 0 failed.
+  SHA256SUMS enumerates exact candidate and evidence hashes.
+
+Validated seams:
+All ten added section families have a negative fixture followed by a passing
+control: protected patch commit, invalid pin, empty origin, yes applicability,
+unsupported mainline claim, wrong archive hash, wrong reach group, missing
+ramoops contribution, mislabeled non-kernel row and present retired scratch.
+Additional fixtures cover primary Codex/Astra identity, escaped path membership,
+normal-application authority despite H700-011 dry rc=1, altered normal logs,
+misclassified fuzz, broken prefix chains, failed candidate promotion/contamination,
+invented blocked commands, stale dry-run-based summary counts, three generator
+negative receipts and unchanged 329 historical receipt bytes. Table/source
+checks include 107 membership, both line totals, 120/106 applications with
+8/42/65/2/2/1, exact row/source/log hashes and recorded digest links. Future
+05/reader-plan/questions absence returns ABSENT, not an invented artifact.
+
+Summary/exit checks accompany every fixture invocation: PASS => rc0;
+FAIL => rc1; CANNOT/ABSENT without FAIL => rc2. Unknown sections fail closed.
+Output symlink/hardlink/outside-root/directory and non-directory ACCEPT_DIR
+refusals leave sentinels unchanged. Modified shared source and unmatched
+replacement shape are refused before an output file is created. Valid inputs
+regenerate t41-accept.sh byte-for-byte. Bash syntax and Python in-memory parsing
+pass. This is fixture evidence, not a final acceptance run or proof of every
+future issue/tool integration.
+
+Concrete integration blocker, for coordinator ruling (no policy selected):
+At b6332dbc13, docs/reviews/briefs/patches-shipped-kernel.md:1772-1775 says:
+  "re-running on a clone ... § 2's block at P1 and at the tip, every
+   § 5 run, the applies-at-pin run per plan, and tools/t41-tables.py with its
+   three mutations"
+The resumed instruction prohibits accepted-stage replay; 6585065737 accepts
+those Stage-B receipts, explicitly says no application/accepted-stage test was
+replayed, and requires quoting existing AC17 outputs without rerunning them.
+D222 changes the application method but does not withdraw section 10's replay
+obligation. Thus receipt checks cannot silently replace those required reruns.
+
+Accordingly membership, runs and checker-run explicitly emit CANNOT with that
+mismatch. lint-proof also remains CANNOT rather than replaying its accepted
+positive/negative pair. No override grants replay authority. Final execution
+cannot return a clean ACCEPT-RC 0 while these obligations are unresolved.
+
+Other executable integration is deliberately incomplete, not presented as PASS:
+lint, forbidden, secret, checkers, merge and generators are gated CANNOT (or
+ABSENT first where a future artifact is missing); audit-boxes, bug-boxes and
+lane-boxes inspect their issue inputs but remain CANNOT pending actual box-check.
+The candidate does not create the section-10 full clone, execute repository
+checkers or a simulated merge. These phases need completion/fixture validation
+once the coordinator resolves the execution boundary. Some remaining report
+predicates are structural/evidence floors and still rely on the coordinator's
+specified reading; do not treat this candidate's passing subset as whole-slice
+acceptance. No shared file should be replaced by this unresolved candidate.
+
+No repository/tracker/host/ledger edits, provider calls, runtime allocations,
+physical/cloud actions, permission answers, fetch, config sourcing, held reads,
+archive extraction, accepted producer/test reruns or final acceptance occurred.
+Only the new owned candidate directory was written (~1.2 MB including synthetic
+Git fixtures and negative source copy). No T2 historical tree changed.
+
+Reproduce bounded fixture checks only:
+  bash /workspace/tmp/m6-coordinator/kit/selftest/accept-t41-candidate-01a19d12/run-selftest-t41.sh
+Read the unresolved contract without running it:
+  git show b6332dbc13:docs/reviews/briefs/patches-shipped-kernel.md | sed -n '1763,1810p'
+  cat /workspace/tmp/m6-coordinator/kit/selftest/accept-t41-candidate-01a19d12/checks-all.json
+Do not run the candidate against the real final lane tip as part of this task.
+
+Candidate hashes:
+derive-t41.py 05a2e9d6786260516b26624071c775b5be916d09ed6cc304ceeff7f252ae362a
+t41_checks.py 654048885ecbbaf3f23cd5a2da7aa4aa0a22d26f40373ac4692f1eec0852d75a
+t41-accept.sh 54709055b676833b4deefd5cfdf05b3031960cea64cffbece50dee9198441760
+test_candidate.py c4b33560b6adc7d84750f9cc78779461785784447a5626c2b09f2ca87a50f44a
+positives-t41.sh 1a14b235531390dbee821883ec661055b1a432bfcf12f47e362ab4ea39aae78e
+refusals-t41.sh b3e7d0c275fb0987b082a7cca26835ed33f4c1c37a29307cba71184d19a64a47
+run-selftest-t41.sh 4aa5da0a66bb2f008c0434e3129ab1adf58fe9f9d50a6604ab06f059c048f4c5
+checks-all.json 423bb8eff931b09b2ab85b62716a30ba549cfe46fe8826f775d62d5200ecb9a5
+selftest.out c65307171f347077736430b07bbaea65a0e420be78470f907edf5dc4bac034b1
+driver.out 13df2dcef7259b550087c653cf6cf4dfa8c72a07c76a3f3f3afc6bd77b979510
+
+Planning, the replay ruling, installation and final acceptance remain with wN:p2.
+This turn stops at this bounded implementation return.
