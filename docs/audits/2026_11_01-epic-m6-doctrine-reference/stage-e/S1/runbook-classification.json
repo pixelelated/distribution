@@ -1,0 +1,128 @@
+[
+  {
+    "line": 3,
+    "before": "Use this for every fresh ROCKNIX card written for the maintainer's devices. It",
+    "after": "Use this for every fresh pixelelated card written for the maintainer's devices. It",
+    "classification": "current fork OS prose"
+  },
+  {
+    "line": 5,
+    "before": "enough evidence to repeat the result. For devices already running ROCKNIX, use",
+    "after": "enough evidence to repeat the result. For devices already running ROCKNIX, use",
+    "classification": "installed ROCKNIX adoption"
+  },
+  {
+    "line": 15,
+    "before": "through ROCKNIX. The ROCKNIX system or update package supplies the kernel,",
+    "after": "through pixelelated. The pixelelated system or update package supplies the kernel,",
+    "classification": "current fork OS prose"
+  },
+  {
+    "line": 29,
+    "before": "not a second firmware layer that must be installed beneath ROCKNIX. The",
+    "after": "not a second firmware layer that must be installed beneath pixelelated. The",
+    "classification": "current fork OS prose"
+  },
+  {
+    "line": 34,
+    "before": "about the physical unit. Do not apply an Anbernic stock update to a ROCKNIX",
+    "after": "about the physical unit. Do not apply an Anbernic stock update to a pixelelated",
+    "classification": "current fork OS prose"
+  },
+  {
+    "line": 36,
+    "before": "ROCKNIX.",
+    "after": "pixelelated.",
+    "classification": "current fork OS prose"
+  },
+  {
+    "line": 39,
+    "before": "its `projects/ROCKNIX/devices/<target>/bootloader/update.sh` and record:",
+    "after": "its `projects/ROCKNIX/devices/<target>/bootloader/update.sh` and record:",
+    "classification": "stored project path"
+  },
+  {
+    "line": 41,
+    "before": "- where its bootloader lives and what the ROCKNIX updater writes;",
+    "after": "- where its bootloader lives and what the pixelelated updater writes;",
+    "classification": "current fork OS prose"
+  },
+  {
+    "line": 43,
+    "before": "- whether firmware files are loaded by the ROCKNIX kernel or flashed into a",
+    "after": "- whether firmware files are loaded by the pixelelated kernel or flashed into a",
+    "classification": "current fork OS prose"
+  },
+  {
+    "line": 45,
+    "before": "- whether the vendor documents a hardware-level updater ROCKNIX does not carry.",
+    "after": "- whether the vendor documents a hardware-level updater pixelelated does not carry.",
+    "classification": "current fork OS prose"
+  },
+  {
+    "line": 54,
+    "before": "## Updating devices already running ROCKNIX",
+    "after": "## Updating devices already running ROCKNIX",
+    "classification": "installed ROCKNIX adoption heading"
+  },
+  {
+    "line": 125,
+    "before": "IMAGE=/absolute/path/ROCKNIX-TARGET.aarch64-YYYYMMDD-VARIANT.img.gz",
+    "after": "IMAGE=/absolute/path/ROCKNIX-TARGET.aarch64-YYYYMMDD-VARIANT.img.gz",
+    "classification": "historical artifact/example filename in command block"
+  },
+  {
+    "line": 150,
+    "before": "For an H700 device already running ROCKNIX, the updater's regulator check is:",
+    "after": "For an H700 device already running ROCKNIX, the updater's regulator check is:",
+    "classification": "installed ROCKNIX adoption"
+  },
+  {
+    "line": 333,
+    "before": "uses a FAT partition labelled `ROCKNIX`.",
+    "after": "uses a FAT partition labelled `ROCKNIX`.",
+    "classification": "stored partition label"
+  },
+  {
+    "line": 341,
+    "before": "  `projects/ROCKNIX/bootloader/mkimage` copies `device_trees/` into the boot",
+    "after": "  `projects/ROCKNIX/bootloader/mkimage` copies `device_trees/` into the boot",
+    "classification": "stored project path"
+  },
+  {
+    "line": 354,
+    "before": "BOOT_PART=/dev/OBSERVED_ROCKNIX_BOOT_PARTITION",
+    "after": "BOOT_PART=/dev/OBSERVED_ROCKNIX_BOOT_PARTITION",
+    "classification": "stored partition label in command placeholder"
+  },
+  {
+    "line": 408,
+    "before": "TF2 is independent media. ROCKNIX does not resize or initialize it during the",
+    "after": "TF2 is independent media. pixelelated does not resize or initialize it during the",
+    "classification": "current fork OS prose"
+  },
+  {
+    "line": 424,
+    "before": "Ext4 and btrfs support ROCKNIX's optional merged-storage overlay; FAT, exFAT and",
+    "after": "Ext4 and btrfs support pixelelated's optional merged-storage overlay; FAT, exFAT and",
+    "classification": "current fork OS prose"
+  },
+  {
+    "line": 429,
+    "before": "such as `GAMES`. Do not reuse `ROCKNIX` or `STORAGE`, which identify TF1's boot",
+    "after": "such as `GAMES`. Do not reuse `ROCKNIX` or `STORAGE`, which identify TF1's boot",
+    "classification": "stored partition label"
+  },
+  {
+    "line": 476,
+    "before": "With the default `system.merged.storage=0`, TF1 remains the ROCKNIX and base",
+    "after": "With the default `system.merged.storage=0`, TF1 remains the `ROCKNIX` boot and base",
+    "classification": "stored partition label, clarified"
+  },
+  {
+    "line": 499,
+    "before": "The first power-on is a dedicated resize boot, not a normal ROCKNIX session.",
+    "after": "The first power-on is a dedicated resize boot, not a normal pixelelated session.",
+    "classification": "current fork OS prose"
+  }
+]

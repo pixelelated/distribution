@@ -1,6 +1,6 @@
 # Physical-device image flashing runbook
 
-Use this for every fresh ROCKNIX card written for the maintainer's devices. It
+Use this for every fresh pixelelated card written for the maintainer's devices. It
 turns a built or downloaded image into a booted, identified device and records
 enough evidence to repeat the result. For devices already running ROCKNIX, use
 the in-place update procedure below and `.claude/rules/device-builds.md`.
@@ -12,7 +12,7 @@ should verify the bytes and the running device.
 ## Know who owns each update
 
 For the RG SP and other H700 devices, routine firmware and OS maintenance comes
-through ROCKNIX. The ROCKNIX system or update package supplies the kernel,
+through pixelelated. The pixelelated system or update package supplies the kernel,
 kernel-loaded hardware firmware, device trees, overlays, and bootloader files.
 The H700 update script selects the running model's DTB, detects the DDR voltage,
 and writes the matching U-Boot/SPL to the same SD boot disk. The current H700
@@ -26,23 +26,23 @@ is listed as `RGSP-V1.0.1-EN16GB-260624` on Anbernic's own
 2026-09-05); the `16GB` in that name is the stock system-storage size, and the
 unit itself carries two TF/microSD slots (TF1 boot + TF2 games, as this bench
 uses). That package is therefore the replacement image for the stock boot card,
-not a second firmware layer that must be installed beneath ROCKNIX. The
+not a second firmware layer that must be installed beneath pixelelated. The
 maintainer's unit shipped with and booted that same stock system before its
 LPDDR3 boot media was inspected.
 
 Keep the supplied Anbernic card unchanged as recovery media and as evidence
-about the physical unit. Do not apply an Anbernic stock update to a ROCKNIX
+about the physical unit. Do not apply an Anbernic stock update to a pixelelated
 card: it is a different OS and boot layout, not a prerequisite layer beneath
-ROCKNIX.
+pixelelated.
 
 This conclusion is device-family specific. When adding a new device, inspect
 its `projects/ROCKNIX/devices/<target>/bootloader/update.sh` and record:
 
-- where its bootloader lives and what the ROCKNIX updater writes;
+- where its bootloader lives and what the pixelelated updater writes;
 - how its active device tree and overlays are selected;
-- whether firmware files are loaded by the ROCKNIX kernel or flashed into a
+- whether firmware files are loaded by the pixelelated kernel or flashed into a
   persistent controller; and
-- whether the vendor documents a hardware-level updater ROCKNIX does not carry.
+- whether the vendor documents a hardware-level updater pixelelated does not carry.
 
 Only the last case creates a possible vendor-firmware prerequisite. Record the
 exact component and vendor procedure rather than saying the whole handheld
@@ -405,7 +405,7 @@ completion evidence.
 
 ## 6. Prepare an optional TF2 games card
 
-TF2 is independent media. ROCKNIX does not resize or initialize it during the
+TF2 is independent media. pixelelated does not resize or initialize it during the
 TF1 first-boot expansion. A blank, unformatted card is not enough: create a
 partition and filesystem before expecting the automounter to use it.
 
@@ -421,7 +421,7 @@ parent disk. A large Android-formatted card can therefore expose a tiny ext4
 The current automounter recognizes ext4, btrfs, FAT/exFAT, and NTFS — its match
 on `fat` also catches an exFAT card, and it loads the `exfat` module for it. Use
 ext4 unless the card must also be writable on a system without ext4 support.
-Ext4 and btrfs support ROCKNIX's optional merged-storage overlay; FAT, exFAT and
+Ext4 and btrfs support pixelelated's optional merged-storage overlay; FAT, exFAT and
 NTFS cause the automounter to disable that overlay. F2FS is not discovered as a
 games filesystem by the current script.
 
@@ -473,7 +473,7 @@ docker run --rm --device "$OBSERVED_PARTITION:/dev/target:rw" \
   '
 ```
 
-With the default `system.merged.storage=0`, TF1 remains the ROCKNIX and base
+With the default `system.merged.storage=0`, TF1 remains the `ROCKNIX` boot and base
 `/storage` card while `/storage/roms` uses TF2 when it is present. Enable merged
 storage only when ROM directories from both cards should appear together.
 That overlay requires ext4 or btrfs on TF2. System-directory creation follows
@@ -496,7 +496,7 @@ removed.
 6. Power off, add the `ext` card, boot again, and confirm it is the active game
    storage before copying content.
 
-The first power-on is a dedicated resize boot, not a normal ROCKNIX session.
+The first power-on is a dedicated resize boot, not a normal pixelelated session.
 While `/storage/.please_resize_me` exists, init selects `fs-resize.target`;
 that target expands TF1 and forces a reboot without starting
 `rocknix-automount.service`. ROM-system directories are first populated during

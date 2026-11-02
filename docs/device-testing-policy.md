@@ -2,7 +2,9 @@
 
 **Decided:** D-QA-008 (never reboot without asking, 2026-09-06), D-QA-011 (ask before
 staging each build), D-QA-015 (every action on a device or in its cloud is asked for by
-name, 2026-09-11). **Open:** D-QA-016 (a dedicated QA handheld and accounts, #131).
+name, 2026-09-11). D-QA-016 was **decided on 2026-09-13**: no new QA device
+purchase; the RG35XX SP was designated to become testing-only after the H700
+round. #131 preserves that decision's history; per-action permission still applies.
 The practice text lives in `.claude/rules/engineering-practices.md` under "Never reboot,
 update, or power-cycle a device without asking" and "Nothing runs on a person's device
 without their yes"; blindspots 26 and 38 record how each rule was learnt.
@@ -103,8 +105,22 @@ a filter, and the filter is wider than the word *password*: rclone writes
 grep -v -i -E 'key|pass|token|user|psk'
 ```
 
-Use this filter for displayed configuration and log text. For authoritative
-structured manifests or payload verification, preserve the complete input in
+Use this conservative filter for displayed configuration and `get_setting`
+output. For log verdicts or action records whose lines must remain visible,
+use the value mask below; it covers assignments and command-line flags.
+
+<!-- device-output-log-mask:begin -->
+```bash
+sed -E 's/((token|key|pass(w[a-z]*)?|psk|user) *[=:] *)[^ ]*/\1***/Ig; s/(--(token|key|pass(w[a-z]*)?|psk|user)[= ]+)[^ ]+/\1***/Ig'
+```
+<!-- device-output-log-mask:end -->
+
+This is the canonical log mask from `.claude/rules/engineering-practices.md`;
+keep both substitutions. The second protects space-separated flag values,
+including bare pass flags; the first covers assignments and equals flags.
+Neither form grants permission to run a command on a device.
+
+For authoritative structured manifests or payload verification, preserve the complete input in
 the protected evidence packet and derive a sanitized display separately
 (D-CLOUD-181, `docs/cloud-save-integrity.md`). Benign filenames can contain
 these substrings; dropping their rows invalidates inventory counts and byte

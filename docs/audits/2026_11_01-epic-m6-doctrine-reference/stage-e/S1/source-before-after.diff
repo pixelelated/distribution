@@ -1,0 +1,72 @@
+--- 96ef183aae/README.md
++++ S1/README.md
+@@ -9,2 +9,3 @@
+-Updates for this release are manual; use the instructions attached to the
+-[release](https://github.com/pixelelated/distribution/releases).
++Updates for this release will be manual. Instructions will accompany a
++published, qualified release; the release issue above is the current status
++authority.
+--- 96ef183aae/docs/device-testing-policy.md
++++ S1/docs/device-testing-policy.md
+@@ -5 +5,3 @@
+-name, 2026-09-11). **Open:** D-QA-016 (a dedicated QA handheld and accounts, #131).
++name, 2026-09-11). D-QA-016 was **decided on 2026-09-13**: no new QA device
++purchase; the RG35XX SP was designated to become testing-only after the H700
++round. #131 preserves that decision's history; per-action permission still applies.
+@@ -106,2 +108,16 @@
+-Use this filter for displayed configuration and log text. For authoritative
+-structured manifests or payload verification, preserve the complete input in
++Use this conservative filter for displayed configuration and `get_setting`
++output. For log verdicts or action records whose lines must remain visible,
++use the value mask below; it covers assignments and command-line flags.
++
++<!-- device-output-log-mask:begin -->
++```bash
++sed -E 's/((token|key|pass(w[a-z]*)?|psk|user) *[=:] *)[^ ]*/\1***/Ig; s/(--(token|key|pass(w[a-z]*)?|psk|user)[= ]+)[^ ]+/\1***/Ig'
++```
++<!-- device-output-log-mask:end -->
++
++This is the canonical log mask from `.claude/rules/engineering-practices.md`;
++keep both substitutions. The second protects space-separated flag values,
++including bare pass flags; the first covers assignments and equals flags.
++Neither form grants permission to run a command on a device.
++
++For authoritative structured manifests or payload verification, preserve the complete input in
+--- 96ef183aae/docs/device-flashing-runbook.md
++++ S1/docs/device-flashing-runbook.md
+@@ -3 +3 @@
+-Use this for every fresh ROCKNIX card written for the maintainer's devices. It
++Use this for every fresh pixelelated card written for the maintainer's devices. It
+@@ -15 +15 @@
+-through ROCKNIX. The ROCKNIX system or update package supplies the kernel,
++through pixelelated. The pixelelated system or update package supplies the kernel,
+@@ -29 +29 @@
+-not a second firmware layer that must be installed beneath ROCKNIX. The
++not a second firmware layer that must be installed beneath pixelelated. The
+@@ -34 +34 @@
+-about the physical unit. Do not apply an Anbernic stock update to a ROCKNIX
++about the physical unit. Do not apply an Anbernic stock update to a pixelelated
+@@ -36 +36 @@
+-ROCKNIX.
++pixelelated.
+@@ -41 +41 @@
+-- where its bootloader lives and what the ROCKNIX updater writes;
++- where its bootloader lives and what the pixelelated updater writes;
+@@ -43 +43 @@
+-- whether firmware files are loaded by the ROCKNIX kernel or flashed into a
++- whether firmware files are loaded by the pixelelated kernel or flashed into a
+@@ -45 +45 @@
+-- whether the vendor documents a hardware-level updater ROCKNIX does not carry.
++- whether the vendor documents a hardware-level updater pixelelated does not carry.
+@@ -408 +408 @@
+-TF2 is independent media. ROCKNIX does not resize or initialize it during the
++TF2 is independent media. pixelelated does not resize or initialize it during the
+@@ -424 +424 @@
+-Ext4 and btrfs support ROCKNIX's optional merged-storage overlay; FAT, exFAT and
++Ext4 and btrfs support pixelelated's optional merged-storage overlay; FAT, exFAT and
+@@ -476 +476 @@
+-With the default `system.merged.storage=0`, TF1 remains the ROCKNIX and base
++With the default `system.merged.storage=0`, TF1 remains the `ROCKNIX` boot and base
+@@ -499 +499 @@
+-The first power-on is a dedicated resize boot, not a normal ROCKNIX session.
++The first power-on is a dedicated resize boot, not a normal pixelelated session.

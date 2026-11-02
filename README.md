@@ -6,8 +6,9 @@ maintainer wants and makes qualified builds available to others.
 
 The 0.0.1 identity release is in preparation. Current work and its verification
 are tracked in the [release issue](https://github.com/pixelelated/distribution/issues/344).
-Updates for this release are manual; use the instructions attached to the
-[release](https://github.com/pixelelated/distribution/releases).
+Updates for this release will be manual. Instructions will accompany a
+published, qualified release; the release issue above is the current status
+authority.
 
 The project does not accept sponsorships and has no Discord or community
 channel. Public contributions are not solicited. Existing upstream credits,
