@@ -214,3 +214,8 @@ lane's tree.
 **Adjustments before execution:** all in version 2 of the brief (`docs/reviews/briefs/patches-shipped-kernel.md`, `## Version 2: corrections from the proof`): the proof's seven corrections (`kit/t41-proof.md`; its tally `checks 112; PASS 93; MISMATCH 7; SETTLED 8; NOTE 4; corrections 7`), the heavy ones the pinned upstream commit (X01), the seven `reachable_by` groups (X02) and L-22's fourth directory (X03); and the coordinator's two rulings -- the firmware recipe T11's, the non-kernel five's applies-at-pin by the same method against the cached U-Boot and firmware tarballs. From this addendum, for the coordinator at dispatch: D-WORKFLOW-221 written, #688's body rewritten from § 7's 28, the branch cut from the coordinator's tip with the pointer seeded as its first commit.
 
 Written for version 2 of the brief; the corrections from the stranger's proof of version 1 are the brief's `## Version 2: corrections from the proof`.
+
+
+### 2026-11-02T17:10:18Z — T41 Stage-B method erratum
+
+D-WORKFLOW-222 refines the kickoff's dry-run assumption after #688 comment 6583064842: H700 order 011 applies normally to the identical input on which its dry run fails. Keep the original receipts; the appended brief erratum specifies fresh disposable candidates, complete application as the verdict, promotion only on rc=0, and explicit blocked successors after a real failure. Re-establish all 120 plan applications in the incomplete Stage-B packet; use actual-application offset/fuzz counts. Prove the failed-candidate guard and preserve the existing same-input refutation. This adds no product edits or runtime allocation.
