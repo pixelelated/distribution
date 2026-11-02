@@ -56,3 +56,7 @@ A pending owner input in the coordinator pane can make Herdr reject worker notif
 ### Latest T42 D return
 
 `d37670de318eb428604e4442f95defe10eade173`, checkpoint6586884409. One Medium PPSSPP nested-patch finding, audit1411 M6/child689, reactive1410 open/no parent/milestone. 384 native151/38/22/173 and separate inherited50 with21/7/22 dispositions are reported, not coordinator-accepted yet. P1 has a bounded immutable D reconciliation; no source/application replay. Read06/07 and exact live issues before stream disposition. The intended GUIDE mapping remains for a separate owning fix brief; do not infer product behavior from the upstream replacement.
+
+### T41 final-reader correction in flight
+
+At61a1a674c1 the real reader passes requested product/source/D228 predicates, but pins-read FAILs a genuine quotation omission and incorrect brief count. Base brief now states5version assignments23/30/37/43/49,4anchored dirs16/27/40/46,conditional18; all10 literal numbered lines pluscase labels owed in02. T3 is explicitly dispatched records-only correction/newtip; T2 updates strict predicate. No final acceptance yet. Exact two-fixture clarification published at3099d69fcc, #688comment6587020176.
