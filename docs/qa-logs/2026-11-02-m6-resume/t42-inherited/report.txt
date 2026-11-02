@@ -1,0 +1,77 @@
+T42 #689 inherited-lead research — bounded return to m6-coordinator
+
+Author: Codex (GPT-6), m6-t2-es-launch, wN:p5; harness session 01a19d12-1c5f-7022-8053-102f6a94b7fe.
+Observed: 2026-11-02T16:44:30+00:00. Authority: https://github.com/pixelelated/distribution/issues/689#issuecomment-6582593675.
+
+Result
+
+The T40 section at 88a648da0dc8f944425f03e6ca33a211b73dcf0c reproduces 50 no-counterpart lead rows in 26 overrides. All 50 remain inherited T42 questions under comment 6394064946 and PL-03; this research makes no new applicability or adoption verdict. The recipe owners at coordinator 2c6885a54f0756bb32dafc48deef535d8b02c6bd are T8 #655 (43 leads / 22 overrides), T22 #669 (6 / 3), and T27 #674 (1 / 1). T42 owns the inherited comparison/table; owning a comparison does not transfer those recipes into its edit scope.
+
+A byte comparison of git-show output found 0 changed shadowed patch files (50 compared, T40 frozen tip versus coordinator) and 0 changed override recipes (26 compared, each accepted owner tip versus coordinator). This is continuity evidence only: it does not establish that a missing patch is needed, compatible, already merged into the pinned component, or safe to adopt.
+
+The other 24 of T40's shadowed 74 stay excluded from the lead list: 2 strict duplicates, 4 applied through symlinks, and 18 carried another way (12 re-offset / 6 changed-context). Do not copy the section's early wording “68 leads” into the brief; its final PL-03 and the live pointing comment settle 50.
+
+The full one-row-per-lead mapping is leads.tsv: exact shadowed path, subject, original T40 line, override, recipe owner, accepted evidence and prior disposition. These are inherited source rows, not 50 new findings. The table below groups them without changing membership. T8 line numbers refer to q4-table.md at f50a031158; version strings are that accepted read's historical pins, not newly researched release claims.
+
+| Override (relative to projects/ROCKNIX/) | Leads | Recipe owner | Accepted pin / prior disposition evidence |
+| --- | ---: | --- | --- |
+| `devices/H700/packages/u-boot` | 1 | T27 #674 | wrapper 1.0; DDR3/DDR4 v2026.01; T27 PL-01 recorded |
+| `packages/audio/alsa-lib` | 1 | T8 #655 | 1.2.14; T8 q4 row 37, follows base merge |
+| `packages/audio/fluidsynth` | 1 | T8 #655 | 2.5.7; T8 q4 row 41, follows base merge |
+| `packages/audio/libsndfile` | 1 | T8 #655 | e486f20; T8 q4 row 46, follows base merge |
+| `packages/audio/pulseaudio` | 1 | T8 #655 | 17.0; T8 q4 row 51, follows base merge |
+| `packages/devel/glibc` | 7 | T8 #655 | 2.41; T8 q4 row 79, follows base merge |
+| `packages/devel/make` | 1 | T8 #655 | 4.4.1; T8 q4 row 89, follows base merge |
+| `packages/devel/readline` | 1 | T8 #655 | 8.3; T8 q4 row 93, follows base merge |
+| `packages/graphics/mesa` | 1 | T8 #655 | 26.2.2; T8 q4 row 124, follows base merge |
+| `packages/graphics/vulkan/vulkan-tools` | 1 | T8 #655 | 1.4.347; T8 q4 row 135, follows base merge |
+| `packages/lang/go` | 1 | T8 #655 | 1.21.4; T8 q4 row 139, follows base merge |
+| `packages/lang/llvm` | 1 | T8 #655 | 22.1.8; T8 q4 row 140, follows base merge |
+| `packages/multimedia/ffmpeg` | 7 | T8 #655 | 7.1.1; T8 q4 row 145, follows base merge |
+| `packages/network/avahi` | 1 | T8 #655 | 0.8; T8 q4 row 159, follows base merge |
+| `packages/network/bluez` | 7 | T8 #655 | 5.83; T8 q4 row 160, follows base merge |
+| `packages/network/libpcap` | 1 | T8 #655 | 1.10.4; T8 q4 row 165, follows base merge |
+| `packages/network/openssh` | 2 | T8 #655 | 9.8p1; T8 q4 row 169, follows base merge |
+| `packages/network/samba` | 2 | T8 #655 | 4.21.0; T8 q4 row 170, follows base merge |
+| `packages/rust/rust` | 1 | T8 #655 | 1.94.1; T8 q4 row 180, follows base merge |
+| `packages/sysutils/busybox` | 1 | T22 #669 | 1.36.1; T22 PL-15 recorded, next base merge |
+| `packages/sysutils/systemd` | 3 | T22 #669 | 255.8; T22 PL-15 recorded, next base merge |
+| `packages/sysutils/util-linux` | 2 | T22 #669 | 2.39.2; T22 PL-15 recorded, next base merge |
+| `packages/textproc/icu` | 1 | T8 #655 | 74.1; T8 q4 row 186, follows base merge |
+| `packages/tools/mkbootimg` | 1 | T8 #655 | d2bb0af5ba6d; T8 q4 row 206, follows base merge |
+| `packages/wayland/compositor/sway` | 2 | T8 #655 | 1.11; T8 q4 row 229, follows base merge |
+| `packages/wayland/lib/seatd` | 1 | T8 #655 | 0.9.0; T8 q4 row 232, follows base merge |
+
+
+Existing accepted evidence
+
+- T40: 88a648da0d:docs/audits/2026_10_25-epic-m6-patches-dead/02-forward-audit.md:102-186 (the 74); :188-979 (provenance); :1765-1798 (recorded runs/proofs), and 05-punch-list.md PL-03 / Phase 7. Acceptance is #687 comment 6394143511 at e863379cec; close-out bf3409ea18 and audit-completion.json are comment 6394151111. The accepted run reproduced the provenance table from independently seeded inputs; do not rerun it for this brief. #687 remains open for integration, not a fresh audit.
+- T8: f50a031158:docs/audits/2026_10_24-epic-m6-image-packages/q4-table.md and audit-completion.json (#895). Acceptance #655 comment 6385590450; close-out 6385640565. All 22 relevant recipe currency rows say follows the base merge. T8's brief at coordinator lines 149-158 excludes patches and OS-service recipes: that acceptance is recipe context, not acceptance of the 43 missing-patch questions. Relevant earlier dispositions: short libsndfile hash is PL-07 -> #585; merge conflicts are PL-09/integration; do not duplicate them.
+- T22: cbab6483dc:docs/audits/2026_10_25-epic-m6-os-system-services/02-forward-audit.md:520-522, :560, :574, :584, :622-627, :654; 05 PL-15/16/17; audit-completion.json (#1103). Acceptance #669 comment 6396709489; verified close-out 6396732959. PL-15 records pins changing with the next base merge (busybox 1.36.1 -> 1.38.0, systemd 255.8 -> 261.2, util-linux 2.39.2 -> 2.42.4 at its local upstream comparison). T22 already recorded an upstream-added busybox 0002-silence-crond-startup-logging.patch and util-linux 0001-fix-pkgconf.patch. They are precise comparison leads, not proof that every hunk is identical. PL-16/17's integration collisions belong to live #1104.
+- T27: 0ac98afe43:docs/audits/2026_10_25-epic-m6-device-h700/02-forward-audit.md:58-73 and 05 PL-01/10; audit-completion.json (#1096). Verified close-out #674 comment 6395653966. The u-boot wrapper is 1.0 with no source URL; DDR3/DDR4 actually compile v2026.01, with only name/defconfig differences. Those existing facts identify the target of the SWIG question.
+- The four audit folders above are absent from coordinator 2c6885a54f; read their named immutable accepted tips. docs/reviews/status.md at the coordinator still says unreviewed for these slices, so it is not the acceptance source. No completion marker or accepted artifact was edited or checked by rerunning its acceptance suite.
+
+Concrete inputs the brief must settle
+
+1. State the inherited denominator separately from T42's own patch membership (P1 supplies that membership). Require 50 comparison dispositions, keyed by the exact shadowed file and override, with the prior owner/pin, feature/architecture relevance, counterpart/absorbed-upstream evidence, and a named owner for any remaining change. Preserve the 24 exclusions. “No counterpart in the override patch directory” is not “missing from the component source” or a bug verdict.
+2. Resolve H700's two overlapping descriptions explicitly: T40 sends its one generic U-Boot SWIG lead to T42; D-WORKFLOW-221 and the current T41 brief lines 246-262 own the FOUR already-applied H700 U-Boot patches as non-kernel rows in T41, with T27 owning the recipes. Keep T42's SWIG question against both DDR3/DDR4 v2026.01 source consumers; do not evaluate it against wrapper version 1.0, or duplicate T41's four provenance rows. T41's “inherits none” remains true for the 50, despite this neighbouring scope.
+3. Pin/version and build-feature questions: glibc's five build-order/race patches and two widevine-arm patches need separate decisions against the actual glibc pin and selected features; ffmpeg's seven detlev/libreelec/postproc/rpi/v4l2-family changes need relevance/version decisions, not blanket adoption because their generic copies exist. Bluez's seven include OBEX policy/storage/fix paths and device-specific input/HCI changes: separate enabled-feature and relevant-device questions before requiring a fix. The pre-existing re-contextualized sixaxis change is one of the excluded 18.
+4. Carry the accepted base-merge disposition into the comparison. In particular, first compare T22's two named upstream additions for busybox and util-linux against their inherited leads, then answer the remaining util-linux gettext lead separately. For the systemd storage-unit, hwdb and persistent-timer leads, name state locations and T22/#1104 ownership so a table does not silently choose the fork's crash/sysctl integration design. The live #997 is a busybox-test identity/shimming bug, NOT a busybox version-bump issue; T22's shorthand “the pin #997's” must not be copied as bump ownership.
+5. For the remaining overrides, the table already provides concrete prompts: runtime path/policy compatibility (alsa-lib /run/asound.conf; pulseaudio UID; avahi D-Bus install path; openssh key directory and suppressed error; go CA path; seatd executable path; sway IPC socket/version); build/link/feature compatibility (fluidsynth static libsndfile; libsndfile CMake 4; make long commands; readline null prompt; mesa libgcc; vulkan-tools cube/vulkaninfo options; llvm forced CMake options; libpcap manpages; samba Heimdal/4.16 documentation build; util-linux pkgconf/gettext; ICU flags; Rust LibreELEC target specifications); and target selection (mkbootimg's generic patch lives under Qualcomm/Dragonboard while its live ROCKNIX override is planned for SM8550). These are questions grounded in T40's subjects, not new source diagnoses.
+6. Preserve existing adjacent dispositions: #1056 (open, no comments) already owns the four symlink reach errors in T10 #657; #1071 (open) owns vitaquake2's four x86_64-directory patches in emulators #798; #1072 (open) owns ES cpugov reach/GPU-call defects in #700, with T37 evidence at comment 6552262614. They are not additions to the inherited 50. Class removals stay #1048/#346 under D-WORKFLOW-209, not T42 adoptions or deletions. No fix/removal authority follows from this research.
+7. The brief must distinguish recorded source comparison from whatever future applies-at-pin evidence it authorizes. This preparation has no config sourcing, source extraction, patch dry-run, build, guest or provider budget. No missing applicability evidence was filled by inference.
+
+Reproduction and live reads
+
+Run from any worktree of the same distribution repository:
+  git show 88a648da0d:docs/audits/2026_10_25-epic-m6-patches-dead/02-forward-audit.md
+  git show 88a648da0d:docs/audits/2026_10_25-epic-m6-patches-dead/05-punch-list.md
+  git show 2c6885a54f:docs/reviews/inventory.json
+  git show 2c6885a54f:docs/reviews/slices.json
+  python3 /tmp/m6-t42-t2-inherited-01a19d12/reproduce.py
+
+The small reproducer only reads named immutable git blobs and writes this private scratch's derived TSV/counts/table. It does not source or execute repository code. counts.json records the computed totals and the T40 02 SHA256 c40880958f2b6d563c04cd9df5830e70e32703717e84bb184e581c5cee86a1a9.
+
+Live GitHub reads used the connected github_fetch_issue and github_fetch_issue_comments tools, repository pixelelated/distribution, issues 689 (full body and both comments), 655, 669, 674, 687, 1056, 1071, 1072, 997, 1104 and 1048. Selected acceptance/disposition comments were read in full. Equivalent read: gh issue view 689 --repo pixelelated/distribution --comments (and replace the number). All cited comments use https://github.com/pixelelated/distribution/issues/NUMBER#issuecomment-ID.
+
+Stop state: bounded research complete. No repository, ledger or tracker edits; no runtime allocation, build, guest, fetch, config sourcing, tar extraction, private/held material, external reviewer/provider call, or other-agent approval. Only this small private scratch was written. Coordinator retains planning, criteria and dispatch; T2 returns available.

@@ -1,0 +1,260 @@
+SELECTOR_FUNCTIONS {"assign": [176, 180], "glob_body": [134, 156], "glob_re": [130, 131], "load_areas": [159, 173], "slice_of": [1237, 1246]}
+PINS {"2174265e9c": "2174265e9cc1b248c0fbe27fa101875984d46d6b", "2c6885a54f": "2c6885a54f0756bb32dafc48deef535d8b02c6bd"}
+INVENTORY_HEADER {"distribution": {"head": "eb4763e3cc9bcd729830cd85f1719bbd4f28db10", "merge_base": "c445081a59518f37d9776e5412dd7b14910696f7", "upstream": "upstream/next", "upstream_head": "c1f1746828ca47dfc751ffe44bb47b6b259883d7"}, "es": {"batocera_master": "b2ceb55a7e3d205a11f055b7d93c8be50cd6f9c9", "head": "16dbac5211eea7e70db7394372033be2be7df829", "merge_base": "cada856d86e3115fbbf0bce09dd761b0ee8fa9fd", "upstream": "rocknix/master", "upstream_head": "e282b05627c0d2193c19d7cc526176e047530c3d"}, "generated": "2026-10-23T02:20:48Z", "generator": "tools/renovation-inventory", "plan_runner": {"image": "sha256:988c0ba586263caeba4be4c03bd16eee055c9d066657951e320087bb8226ee39", "mode": "container"}, "seconds": {"git": 3.8, "plans": 14.6}, "shipped_devices": ["H700", "SM8550"], "test_devices": ["GENERIC_X64"]}
+LEDGER_IDENTITY {"equal": true, "path": "docs/reviews/inventory.json", "sha256": "d17b9cac4b2c2245b7d924036a9402b2cfd066811a7ea3fc7502a380418cb2fc"}
+LEDGER_IDENTITY {"equal": true, "path": "docs/reviews/inventory.md", "sha256": "05f32dce9bb943ce31075ca5eea8e2b355baec2ef3157d84a780af2524c343e6"}
+LEDGER_IDENTITY {"equal": true, "path": "docs/reviews/areas.json", "sha256": "985f742cfd4a2138339f1ed41bd5f5f9e3755fe69b309ff3ddb10d1466fced90"}
+LEDGER_IDENTITY {"equal": true, "path": "docs/reviews/slices.json", "sha256": "49bc2745664e52f4abb9037746d003fab54e21fde74f6308a81bf20ed00f12c6"}
+LEDGER_IDENTITY {"equal": true, "path": "docs/reviews/order.md", "sha256": "d5b76af6f0865d1ce5b6f8ab36fe1e5fa33478d16033833c048fae0abfde4c18"}
+PATCH_AREA_OWNERS {"device-generic-x64-and-kernel": {"lines": 7754, "paths": 1, "reach": {"test": 1}}, "device-h700": {"lines": 8129, "paths": 1, "reach": {"shipped": 1}}, "emulators-libretro": {"lines": 1670, "paths": 21, "reach": {"shipped": 21}}, "offline-achievements": {"lines": 1703, "paths": 18, "reach": {"shipped": 18}}, "patches-dead": {"lines": 317908, "paths": 778, "reach": {"unreached": 778}}, "patches-shipped": {"lines": 71387, "paths": 384, "reach": {"shipped": 379, "test": 5}}, "patches-shipped-kernel": {"lines": 40474, "paths": 107, "reach": {"shipped": 103, "test": 4}}, "patches-unshipped": {"lines": 328516, "paths": 432, "reach": {"unshipped": 432}}}
+MEMBERSHIP {"coordinator_equal": true, "lines": 71387, "path_list_sha256": "91e980f455611fa81bc84c8ff5548abd05437452d02038cc5595f5c1521e5f07", "paths": 384}
+KINDS_tree {"distribution": 384}
+KINDS_tier {"vendor-carried": 384}
+KINDS_tier_note {"None": 372, "fork-written": 12}
+KINDS_language {"patch": 384}
+KINDS_reach {"shipped": 379, "test": 5}
+KINDS_shadowed_by {"None": 384}
+KINDS_overlap {"False": 384}
+EXTENSIONS {"patch": 384}
+REACH_GROUP {"configs": ["GENERIC_X64-x86_64"], "lines": 135, "paths": 5}
+REACH_GROUP {"configs": ["GENERIC_X64-x86_64", "H700-aarch64", "H700-arm", "SM8550-aarch64"], "lines": 61, "paths": 2}
+REACH_GROUP {"configs": ["GENERIC_X64-x86_64", "H700-aarch64", "H700-arm", "SM8550-aarch64", "SM8550-arm"], "lines": 12353, "paths": 109}
+REACH_GROUP {"configs": ["GENERIC_X64-x86_64", "H700-aarch64", "SM8550-aarch64"], "lines": 7238, "paths": 132}
+REACH_GROUP {"configs": ["GENERIC_X64-x86_64", "H700-aarch64", "SM8550-aarch64", "SM8550-arm"], "lines": 12, "paths": 1}
+REACH_GROUP {"configs": ["GENERIC_X64-x86_64", "SM8550-aarch64"], "lines": 2164, "paths": 22}
+REACH_GROUP {"configs": ["H700-aarch64"], "lines": 625, "paths": 5}
+REACH_GROUP {"configs": ["H700-aarch64", "H700-arm"], "lines": 110, "paths": 2}
+REACH_GROUP {"configs": ["H700-aarch64", "H700-arm", "SM8550-aarch64", "SM8550-arm"], "lines": 102, "paths": 2}
+REACH_GROUP {"configs": ["H700-aarch64", "SM8550-aarch64"], "lines": 903, "paths": 30}
+REACH_GROUP {"configs": ["H700-arm", "SM8550-arm"], "lines": 33, "paths": 2}
+REACH_GROUP {"configs": ["SM8550-aarch64"], "lines": 46932, "paths": 60}
+REACH_GROUP {"configs": ["SM8550-aarch64", "SM8550-arm"], "lines": 719, "paths": 12}
+GROUP_COUNT 172
+DIRECT_PATCH_DIRECTORY_COUNT 188
+ROOT_GROUP {"lines": 4936, "paths": 79, "root": "packages/"}
+ROOT_GROUP {"lines": 66306, "paths": 302, "root": "projects/ROCKNIX/packages/"}
+ROOT_GROUP {"lines": 145, "paths": 3, "root": "projects/ROCKNIX/patches/"}
+PACKAGE_GROUP {"fork_written": 0, "group": "packages/addons/addon-depends/system-tools-depends/lm_sensors", "lines": 25, "paths": 1}
+PACKAGE_GROUP {"fork_written": 0, "group": "packages/audio/soxr", "lines": 17, "paths": 1}
+PACKAGE_GROUP {"fork_written": 0, "group": "packages/compress/7-zip", "lines": 71, "paths": 1}
+PACKAGE_GROUP {"fork_written": 0, "group": "packages/compress/lzo", "lines": 17, "paths": 1}
+PACKAGE_GROUP {"fork_written": 0, "group": "packages/databases/sqlite", "lines": 37, "paths": 1}
+PACKAGE_GROUP {"fork_written": 0, "group": "packages/debug/gdb", "lines": 66, "paths": 2}
+PACKAGE_GROUP {"fork_written": 0, "group": "packages/debug/libunwind", "lines": 42, "paths": 2}
+PACKAGE_GROUP {"fork_written": 0, "group": "packages/debug/memtester", "lines": 36, "paths": 1}
+PACKAGE_GROUP {"fork_written": 0, "group": "packages/devel/autoconf", "lines": 16, "paths": 1}
+PACKAGE_GROUP {"fork_written": 0, "group": "packages/devel/automake", "lines": 25, "paths": 1}
+PACKAGE_GROUP {"fork_written": 0, "group": "packages/devel/binutils", "lines": 70, "paths": 3}
+PACKAGE_GROUP {"fork_written": 0, "group": "packages/devel/crossguid", "lines": 27, "paths": 1}
+PACKAGE_GROUP {"fork_written": 0, "group": "packages/devel/elfutils", "lines": 41, "paths": 1}
+PACKAGE_GROUP {"fork_written": 0, "group": "packages/devel/flex", "lines": 86, "paths": 4}
+PACKAGE_GROUP {"fork_written": 0, "group": "packages/devel/gcem", "lines": 22, "paths": 1}
+PACKAGE_GROUP {"fork_written": 0, "group": "packages/devel/gettext", "lines": 70, "paths": 2}
+PACKAGE_GROUP {"fork_written": 0, "group": "packages/devel/gmp", "lines": 73, "paths": 1}
+PACKAGE_GROUP {"fork_written": 0, "group": "packages/devel/heimdal", "lines": 23, "paths": 1}
+PACKAGE_GROUP {"fork_written": 0, "group": "packages/devel/intltool", "lines": 51, "paths": 1}
+PACKAGE_GROUP {"fork_written": 0, "group": "packages/devel/libevent", "lines": 167, "paths": 4}
+PACKAGE_GROUP {"fork_written": 0, "group": "packages/devel/libffi", "lines": 73, "paths": 2}
+PACKAGE_GROUP {"fork_written": 0, "group": "packages/devel/libtool", "lines": 32, "paths": 1}
+PACKAGE_GROUP {"fork_written": 0, "group": "packages/devel/pkg-config", "lines": 292, "paths": 2}
+PACKAGE_GROUP {"fork_written": 0, "group": "packages/graphics/vulkan/vkmark", "lines": 17, "paths": 1}
+PACKAGE_GROUP {"fork_written": 1, "group": "packages/graphics/woff2", "lines": 108, "paths": 1}
+PACKAGE_GROUP {"fork_written": 0, "group": "packages/lang/Python3", "lines": 707, "paths": 12}
+PACKAGE_GROUP {"fork_written": 0, "group": "packages/print/freetype", "lines": 27, "paths": 1}
+PACKAGE_GROUP {"fork_written": 0, "group": "packages/security/libgcrypt", "lines": 79, "paths": 2}
+PACKAGE_GROUP {"fork_written": 0, "group": "packages/security/libxcrypt", "lines": 41, "paths": 1}
+PACKAGE_GROUP {"fork_written": 0, "group": "packages/security/nss", "lines": 313, "paths": 4}
+PACKAGE_GROUP {"fork_written": 0, "group": "packages/sysutils/dosfstools", "lines": 30, "paths": 1}
+PACKAGE_GROUP {"fork_written": 0, "group": "packages/sysutils/fuse", "lines": 74, "paths": 3}
+PACKAGE_GROUP {"fork_written": 0, "group": "packages/sysutils/keyutils", "lines": 25, "paths": 1}
+PACKAGE_GROUP {"fork_written": 0, "group": "packages/sysutils/pciutils", "lines": 27, "paths": 1}
+PACKAGE_GROUP {"fork_written": 0, "group": "packages/textproc/itstool", "lines": 1696, "paths": 2}
+PACKAGE_GROUP {"fork_written": 0, "group": "packages/textproc/xmlstarlet", "lines": 128, "paths": 3}
+PACKAGE_GROUP {"fork_written": 0, "group": "packages/tools/mtools", "lines": 23, "paths": 1}
+PACKAGE_GROUP {"fork_written": 0, "group": "packages/tools/syslinux", "lines": 64, "paths": 2}
+PACKAGE_GROUP {"fork_written": 0, "group": "packages/wayland/wayland-protocols", "lines": 48, "paths": 1}
+PACKAGE_GROUP {"fork_written": 2, "group": "packages/web/webkitgtk", "lines": 43, "paths": 2}
+PACKAGE_GROUP {"fork_written": 0, "group": "packages/x11/lib/libX11", "lines": 31, "paths": 1}
+PACKAGE_GROUP {"fork_written": 0, "group": "packages/x11/util/xorg-launch-helper", "lines": 76, "paths": 3}
+PACKAGE_GROUP {"fork_written": 0, "group": "projects/ROCKNIX/packages/apps/gamepadtester", "lines": 102, "paths": 1}
+PACKAGE_GROUP {"fork_written": 0, "group": "projects/ROCKNIX/packages/apps/gamescope", "lines": 1037, "paths": 6}
+PACKAGE_GROUP {"fork_written": 0, "group": "projects/ROCKNIX/packages/apps/jstest-sdl", "lines": 24, "paths": 1}
+PACKAGE_GROUP {"fork_written": 0, "group": "projects/ROCKNIX/packages/apps/m8c", "lines": 74, "paths": 2}
+PACKAGE_GROUP {"fork_written": 0, "group": "projects/ROCKNIX/packages/apps/mako-osd", "lines": 22, "paths": 1}
+PACKAGE_GROUP {"fork_written": 0, "group": "projects/ROCKNIX/packages/apps/mangohud", "lines": 323, "paths": 7}
+PACKAGE_GROUP {"fork_written": 0, "group": "projects/ROCKNIX/packages/apps/moonlight", "lines": 58, "paths": 1}
+PACKAGE_GROUP {"fork_written": 0, "group": "projects/ROCKNIX/packages/apps/oga_controls", "lines": 15, "paths": 1}
+PACKAGE_GROUP {"fork_written": 0, "group": "projects/ROCKNIX/packages/apps/qterminal", "lines": 66, "paths": 3}
+PACKAGE_GROUP {"fork_written": 0, "group": "projects/ROCKNIX/packages/apps/qterminal/lxqt-build-tools", "lines": 13, "paths": 1}
+PACKAGE_GROUP {"fork_written": 0, "group": "projects/ROCKNIX/packages/apps/qterminal/qtermwidget", "lines": 13, "paths": 1}
+PACKAGE_GROUP {"fork_written": 0, "group": "projects/ROCKNIX/packages/apps/rocknix-touchscreen-keyboard", "lines": 1631, "paths": 5}
+PACKAGE_GROUP {"fork_written": 0, "group": "projects/ROCKNIX/packages/apps/sdltouchtest", "lines": 264, "paths": 1}
+PACKAGE_GROUP {"fork_written": 0, "group": "projects/ROCKNIX/packages/audio/alsa-lib", "lines": 55, "paths": 3}
+PACKAGE_GROUP {"fork_written": 0, "group": "projects/ROCKNIX/packages/audio/alsa-ucm-conf", "lines": 892, "paths": 10}
+PACKAGE_GROUP {"fork_written": 0, "group": "projects/ROCKNIX/packages/audio/espeak", "lines": 58, "paths": 3}
+PACKAGE_GROUP {"fork_written": 0, "group": "projects/ROCKNIX/packages/audio/libsndfile", "lines": 10, "paths": 1}
+PACKAGE_GROUP {"fork_written": 0, "group": "projects/ROCKNIX/packages/audio/pipewire", "lines": 99, "paths": 3}
+PACKAGE_GROUP {"fork_written": 0, "group": "projects/ROCKNIX/packages/audio/pulseaudio", "lines": 37, "paths": 2}
+PACKAGE_GROUP {"fork_written": 0, "group": "projects/ROCKNIX/packages/audio/wireplumber", "lines": 29, "paths": 1}
+PACKAGE_GROUP {"fork_written": 1, "group": "projects/ROCKNIX/packages/compat/fex-emu", "lines": 303, "paths": 6}
+PACKAGE_GROUP {"fork_written": 0, "group": "projects/ROCKNIX/packages/compress/p7zip", "lines": 630, "paths": 6}
+PACKAGE_GROUP {"fork_written": 0, "group": "projects/ROCKNIX/packages/compress/xz", "lines": 27, "paths": 1}
+PACKAGE_GROUP {"fork_written": 0, "group": "projects/ROCKNIX/packages/compress/zip", "lines": 121, "paths": 1}
+PACKAGE_GROUP {"fork_written": 0, "group": "projects/ROCKNIX/packages/devel/glib", "lines": 23, "paths": 1}
+PACKAGE_GROUP {"fork_written": 0, "group": "projects/ROCKNIX/packages/devel/glibc", "lines": 244, "paths": 3}
+PACKAGE_GROUP {"fork_written": 0, "group": "projects/ROCKNIX/packages/devel/make", "lines": 170, "paths": 1}
+PACKAGE_GROUP {"fork_written": 0, "group": "projects/ROCKNIX/packages/devel/ncurses", "lines": 62, "paths": 4}
+PACKAGE_GROUP {"fork_written": 0, "group": "projects/ROCKNIX/packages/devel/rapidjson", "lines": 105, "paths": 4}
+PACKAGE_GROUP {"fork_written": 0, "group": "projects/ROCKNIX/packages/devel/readline", "lines": 15, "paths": 1}
+PACKAGE_GROUP {"fork_written": 0, "group": "projects/ROCKNIX/packages/emulators/libretro/bsnes-hd-lr", "lines": 12, "paths": 1}
+PACKAGE_GROUP {"fork_written": 0, "group": "projects/ROCKNIX/packages/emulators/libretro/crocods-lr", "lines": 22, "paths": 1}
+PACKAGE_GROUP {"fork_written": 0, "group": "projects/ROCKNIX/packages/emulators/libretro/desmume-lr", "lines": 25, "paths": 1}
+PACKAGE_GROUP {"fork_written": 0, "group": "projects/ROCKNIX/packages/emulators/libretro/dosbox-core-lr", "lines": 23, "paths": 2}
+PACKAGE_GROUP {"fork_written": 0, "group": "projects/ROCKNIX/packages/emulators/libretro/duckstation-lr", "lines": 82, "paths": 2}
+PACKAGE_GROUP {"fork_written": 0, "group": "projects/ROCKNIX/packages/emulators/libretro/emuscv-lr", "lines": 16, "paths": 1}
+PACKAGE_GROUP {"fork_written": 0, "group": "projects/ROCKNIX/packages/emulators/libretro/flycast-lr", "lines": 10, "paths": 1}
+PACKAGE_GROUP {"fork_written": 0, "group": "projects/ROCKNIX/packages/emulators/libretro/flycast2021-lr", "lines": 82, "paths": 2}
+PACKAGE_GROUP {"fork_written": 0, "group": "projects/ROCKNIX/packages/emulators/libretro/geolith-lr", "lines": 19, "paths": 1}
+PACKAGE_GROUP {"fork_written": 0, "group": "projects/ROCKNIX/packages/emulators/libretro/gpsp-lr", "lines": 29, "paths": 1}
+PACKAGE_GROUP {"fork_written": 0, "group": "projects/ROCKNIX/packages/emulators/libretro/handy-lr", "lines": 24, "paths": 1}
+PACKAGE_GROUP {"fork_written": 0, "group": "projects/ROCKNIX/packages/emulators/libretro/kronos-lr", "lines": 23, "paths": 1}
+PACKAGE_GROUP {"fork_written": 0, "group": "projects/ROCKNIX/packages/emulators/libretro/mame-lr", "lines": 54, "paths": 1}
+PACKAGE_GROUP {"fork_written": 0, "group": "projects/ROCKNIX/packages/emulators/libretro/mame2010-lr", "lines": 10, "paths": 1}
+PACKAGE_GROUP {"fork_written": 0, "group": "projects/ROCKNIX/packages/emulators/libretro/mupen64plus-lr", "lines": 62, "paths": 4}
+PACKAGE_GROUP {"fork_written": 0, "group": "projects/ROCKNIX/packages/emulators/libretro/mupen64plus-nx-lr", "lines": 63, "paths": 2}
+PACKAGE_GROUP {"fork_written": 0, "group": "projects/ROCKNIX/packages/emulators/libretro/parallel-n64-lr", "lines": 122, "paths": 3}
+PACKAGE_GROUP {"fork_written": 0, "group": "projects/ROCKNIX/packages/emulators/libretro/pcsx_rearmed-lr", "lines": 65, "paths": 4}
+PACKAGE_GROUP {"fork_written": 0, "group": "projects/ROCKNIX/packages/emulators/libretro/ppsspp-lr", "lines": 138, "paths": 7}
+PACKAGE_GROUP {"fork_written": 0, "group": "projects/ROCKNIX/packages/emulators/libretro/same_cdi-lr", "lines": 88, "paths": 3}
+PACKAGE_GROUP {"fork_written": 0, "group": "projects/ROCKNIX/packages/emulators/libretro/scummvm-lr", "lines": 14, "paths": 1}
+PACKAGE_GROUP {"fork_written": 0, "group": "projects/ROCKNIX/packages/emulators/libretro/snes9x2005_plus-lr", "lines": 26, "paths": 1}
+PACKAGE_GROUP {"fork_written": 0, "group": "projects/ROCKNIX/packages/emulators/libretro/snes9x2010-lr", "lines": 32, "paths": 1}
+PACKAGE_GROUP {"fork_written": 0, "group": "projects/ROCKNIX/packages/emulators/libretro/stella-lr", "lines": 20, "paths": 1}
+PACKAGE_GROUP {"fork_written": 0, "group": "projects/ROCKNIX/packages/emulators/libretro/vice-lr", "lines": 31, "paths": 1}
+PACKAGE_GROUP {"fork_written": 0, "group": "projects/ROCKNIX/packages/emulators/libretro/vircon32-lr", "lines": 22, "paths": 1}
+PACKAGE_GROUP {"fork_written": 0, "group": "projects/ROCKNIX/packages/emulators/libretro/vitaquake2-lr", "lines": 19, "paths": 1}
+PACKAGE_GROUP {"fork_written": 0, "group": "projects/ROCKNIX/packages/emulators/libretro/vitaquake2-lr/vitaquake2-rogue-lr", "lines": 1, "paths": 1}
+PACKAGE_GROUP {"fork_written": 0, "group": "projects/ROCKNIX/packages/emulators/libretro/vitaquake2-lr/vitaquake2-xatrix-lr", "lines": 1, "paths": 1}
+PACKAGE_GROUP {"fork_written": 0, "group": "projects/ROCKNIX/packages/emulators/libretro/vitaquake2-lr/vitaquake2-zaero-lr", "lines": 1, "paths": 1}
+PACKAGE_GROUP {"fork_written": 0, "group": "projects/ROCKNIX/packages/emulators/libretro/yabasanshiro-lr", "lines": 17, "paths": 1}
+PACKAGE_GROUP {"fork_written": 0, "group": "projects/ROCKNIX/packages/emulators/standalone/amiberry", "lines": 83, "paths": 3}
+PACKAGE_GROUP {"fork_written": 0, "group": "projects/ROCKNIX/packages/emulators/standalone/ares-sa", "lines": 29, "paths": 2}
+PACKAGE_GROUP {"fork_written": 0, "group": "projects/ROCKNIX/packages/emulators/standalone/armsx2-sa", "lines": 33, "paths": 1}
+PACKAGE_GROUP {"fork_written": 0, "group": "projects/ROCKNIX/packages/emulators/standalone/azahar-sa", "lines": 383, "paths": 2}
+PACKAGE_GROUP {"fork_written": 0, "group": "projects/ROCKNIX/packages/emulators/standalone/cemu-sa", "lines": 151, "paths": 3}
+PACKAGE_GROUP {"fork_written": 0, "group": "projects/ROCKNIX/packages/emulators/standalone/daedalusx64-sa", "lines": 151, "paths": 1}
+PACKAGE_GROUP {"fork_written": 1, "group": "projects/ROCKNIX/packages/emulators/standalone/dolphin-sa", "lines": 2013, "paths": 17}
+PACKAGE_GROUP {"fork_written": 0, "group": "projects/ROCKNIX/packages/emulators/standalone/flycast-sa", "lines": 109, "paths": 3}
+PACKAGE_GROUP {"fork_written": 0, "group": "projects/ROCKNIX/packages/emulators/standalone/gopher64-sa", "lines": 247, "paths": 4}
+PACKAGE_GROUP {"fork_written": 0, "group": "projects/ROCKNIX/packages/emulators/standalone/gzdoom-sa", "lines": 140, "paths": 1}
+PACKAGE_GROUP {"fork_written": 0, "group": "projects/ROCKNIX/packages/emulators/standalone/hypseus-singe", "lines": 102, "paths": 2}
+PACKAGE_GROUP {"fork_written": 0, "group": "projects/ROCKNIX/packages/emulators/standalone/mednafen", "lines": 41, "paths": 2}
+PACKAGE_GROUP {"fork_written": 0, "group": "projects/ROCKNIX/packages/emulators/standalone/melonds-sa", "lines": 43135, "paths": 4}
+PACKAGE_GROUP {"fork_written": 0, "group": "projects/ROCKNIX/packages/emulators/standalone/mupen64plus-sa/mupen64plus-sa-simplecore", "lines": 39, "paths": 2}
+PACKAGE_GROUP {"fork_written": 0, "group": "projects/ROCKNIX/packages/emulators/standalone/mupen64plus-sa/mupen64plus-sa-video-gliden64", "lines": 71, "paths": 2}
+PACKAGE_GROUP {"fork_written": 0, "group": "projects/ROCKNIX/packages/emulators/standalone/mupen64plus-sa/mupen64plus-sa-video-rice", "lines": 76, "paths": 1}
+PACKAGE_GROUP {"fork_written": 0, "group": "projects/ROCKNIX/packages/emulators/standalone/nanoboyadvance-sa", "lines": 344, "paths": 2}
+PACKAGE_GROUP {"fork_written": 0, "group": "projects/ROCKNIX/packages/emulators/standalone/openbor", "lines": 75, "paths": 1}
+PACKAGE_GROUP {"fork_written": 0, "group": "projects/ROCKNIX/packages/emulators/standalone/ppsspp-sa", "lines": 381, "paths": 6}
+PACKAGE_GROUP {"fork_written": 0, "group": "projects/ROCKNIX/packages/emulators/standalone/rpcs3-sa", "lines": 40, "paths": 2}
+PACKAGE_GROUP {"fork_written": 0, "group": "projects/ROCKNIX/packages/emulators/standalone/supermodel-sa", "lines": 110, "paths": 5}
+PACKAGE_GROUP {"fork_written": 0, "group": "projects/ROCKNIX/packages/emulators/standalone/touchhle-sa", "lines": 79, "paths": 2}
+PACKAGE_GROUP {"fork_written": 0, "group": "projects/ROCKNIX/packages/emulators/standalone/vita3k-sa", "lines": 97, "paths": 3}
+PACKAGE_GROUP {"fork_written": 0, "group": "projects/ROCKNIX/packages/emulators/standalone/xemu-sa", "lines": 405, "paths": 3}
+PACKAGE_GROUP {"fork_written": 0, "group": "projects/ROCKNIX/packages/emulators/standalone/yabasanshiro-sa", "lines": 153, "paths": 3}
+PACKAGE_GROUP {"fork_written": 0, "group": "projects/ROCKNIX/packages/fonts/spleen-font", "lines": 59, "paths": 1}
+PACKAGE_GROUP {"fork_written": 1, "group": "projects/ROCKNIX/packages/graphics/SDL2", "lines": 172, "paths": 5}
+PACKAGE_GROUP {"fork_written": 0, "group": "projects/ROCKNIX/packages/graphics/SDL3", "lines": 96, "paths": 2}
+PACKAGE_GROUP {"fork_written": 0, "group": "projects/ROCKNIX/packages/graphics/glew", "lines": 11, "paths": 1}
+PACKAGE_GROUP {"fork_written": 0, "group": "projects/ROCKNIX/packages/graphics/glslang", "lines": 12, "paths": 1}
+PACKAGE_GROUP {"fork_written": 0, "group": "projects/ROCKNIX/packages/graphics/grim", "lines": 14, "paths": 1}
+PACKAGE_GROUP {"fork_written": 0, "group": "projects/ROCKNIX/packages/graphics/gtk2", "lines": 213, "paths": 3}
+PACKAGE_GROUP {"fork_written": 2, "group": "projects/ROCKNIX/packages/graphics/mesa", "lines": 115, "paths": 2}
+PACKAGE_GROUP {"fork_written": 0, "group": "projects/ROCKNIX/packages/graphics/mesa-demos", "lines": 69, "paths": 1}
+PACKAGE_GROUP {"fork_written": 1, "group": "projects/ROCKNIX/packages/graphics/shaderc", "lines": 26, "paths": 1}
+PACKAGE_GROUP {"fork_written": 0, "group": "projects/ROCKNIX/packages/lang/go", "lines": 10, "paths": 1}
+PACKAGE_GROUP {"fork_written": 0, "group": "projects/ROCKNIX/packages/lang/llvm", "lines": 61, "paths": 2}
+PACKAGE_GROUP {"fork_written": 0, "group": "projects/ROCKNIX/packages/lang/luajit", "lines": 15, "paths": 1}
+PACKAGE_GROUP {"fork_written": 0, "group": "projects/ROCKNIX/packages/lang/nasm", "lines": 231, "paths": 1}
+PACKAGE_GROUP {"fork_written": 0, "group": "projects/ROCKNIX/packages/multimedia/ffmpeg", "lines": 6373, "paths": 3}
+PACKAGE_GROUP {"fork_written": 0, "group": "projects/ROCKNIX/packages/multimedia/gmu", "lines": 77, "paths": 4}
+PACKAGE_GROUP {"fork_written": 0, "group": "projects/ROCKNIX/packages/multimedia/vlc", "lines": 66, "paths": 2}
+PACKAGE_GROUP {"fork_written": 0, "group": "projects/ROCKNIX/packages/network/bluez", "lines": 148, "paths": 4}
+PACKAGE_GROUP {"fork_written": 0, "group": "projects/ROCKNIX/packages/network/libpcap", "lines": 73, "paths": 1}
+PACKAGE_GROUP {"fork_written": 0, "group": "projects/ROCKNIX/packages/network/networkmanager", "lines": 13, "paths": 1}
+PACKAGE_GROUP {"fork_written": 0, "group": "projects/ROCKNIX/packages/network/openssh", "lines": 166, "paths": 3}
+PACKAGE_GROUP {"fork_written": 0, "group": "projects/ROCKNIX/packages/network/samba", "lines": 134, "paths": 3}
+PACKAGE_GROUP {"fork_written": 0, "group": "projects/ROCKNIX/packages/network/syncthing", "lines": 124, "paths": 2}
+PACKAGE_GROUP {"fork_written": 1, "group": "projects/ROCKNIX/packages/network/zerotier-one", "lines": 81, "paths": 1}
+PACKAGE_GROUP {"fork_written": 0, "group": "projects/ROCKNIX/packages/sysutils/avfs", "lines": 11, "paths": 1}
+PACKAGE_GROUP {"fork_written": 0, "group": "projects/ROCKNIX/packages/sysutils/busybox", "lines": 202, "paths": 7}
+PACKAGE_GROUP {"fork_written": 0, "group": "projects/ROCKNIX/packages/sysutils/drm_tool", "lines": 20, "paths": 1}
+PACKAGE_GROUP {"fork_written": 0, "group": "projects/ROCKNIX/packages/sysutils/file", "lines": 25, "paths": 1}
+PACKAGE_GROUP {"fork_written": 0, "group": "projects/ROCKNIX/packages/sysutils/fuse2", "lines": 118, "paths": 4}
+PACKAGE_GROUP {"fork_written": 0, "group": "projects/ROCKNIX/packages/sysutils/i2c-tools", "lines": 12, "paths": 1}
+PACKAGE_GROUP {"fork_written": 0, "group": "projects/ROCKNIX/packages/sysutils/kmod", "lines": 27, "paths": 1}
+PACKAGE_GROUP {"fork_written": 0, "group": "projects/ROCKNIX/packages/sysutils/libiio", "lines": 40, "paths": 1}
+PACKAGE_GROUP {"fork_written": 0, "group": "projects/ROCKNIX/packages/sysutils/systemd", "lines": 432, "paths": 14}
+PACKAGE_GROUP {"fork_written": 0, "group": "projects/ROCKNIX/packages/sysutils/usb-modeswitch", "lines": 71, "paths": 1}
+PACKAGE_GROUP {"fork_written": 0, "group": "projects/ROCKNIX/packages/sysutils/util-linux", "lines": 103, "paths": 2}
+PACKAGE_GROUP {"fork_written": 0, "group": "projects/ROCKNIX/packages/tools/atf", "lines": 455, "paths": 2}
+PACKAGE_GROUP {"fork_written": 0, "group": "projects/ROCKNIX/packages/tools/batteryplus", "lines": 170, "paths": 3}
+PACKAGE_GROUP {"fork_written": 0, "group": "projects/ROCKNIX/packages/tools/freeimage", "lines": 15, "paths": 1}
+PACKAGE_GROUP {"fork_written": 2, "group": "projects/ROCKNIX/packages/ui/themes/es-theme-art-book-next", "lines": 62, "paths": 3}
+PACKAGE_GROUP {"fork_written": 0, "group": "projects/ROCKNIX/packages/wayland/compositor/sway", "lines": 11, "paths": 1}
+PACKAGE_GROUP {"fork_written": 0, "group": "projects/ROCKNIX/packages/x11/xserver/xwayland", "lines": 11, "paths": 1}
+PACKAGE_GROUP {"fork_written": 0, "group": "projects/ROCKNIX/patches/gcc", "lines": 60, "paths": 1}
+PACKAGE_GROUP {"fork_written": 0, "group": "projects/ROCKNIX/patches/pugixml", "lines": 12, "paths": 1}
+PACKAGE_GROUP {"fork_written": 0, "group": "projects/ROCKNIX/patches/vkmark", "lines": 73, "paths": 1}
+FORK_WRITTEN_TOTAL {"lines": 498, "paths": 12}
+FORK_WRITTEN_ROW {"last_fork_commit": "83193215fd 2026-08-30", "lines": 108, "path": "packages/graphics/woff2/patches/woff2-0001-include-cstdint.patch", "reach": "shipped", "reachable_by": ["GENERIC_X64-x86_64", "H700-aarch64", "SM8550-aarch64"]}
+FORK_WRITTEN_ROW {"last_fork_commit": "8215d9f67c 2026-09-28", "lines": 23, "path": "packages/web/webkitgtk/patches/webkitgtk-0001-DocumentLoader-include-EventLoop.patch", "reach": "shipped", "reachable_by": ["GENERIC_X64-x86_64", "H700-aarch64", "SM8550-aarch64"]}
+FORK_WRITTEN_ROW {"last_fork_commit": "7d275bdc0e 2026-09-25", "lines": 20, "path": "packages/web/webkitgtk/patches/webkitgtk-0002-WebKit-includes-WebCore-platform-graphics-for-GStreamer-GL.patch", "reach": "shipped", "reachable_by": ["GENERIC_X64-x86_64", "H700-aarch64", "SM8550-aarch64"]}
+FORK_WRITTEN_ROW {"last_fork_commit": "6b627a38ae 2026-10-07", "lines": 23, "path": "projects/ROCKNIX/packages/compat/fex-emu/patches/0006-guest-thunks-exclude-rebased-system-headers.patch", "reach": "shipped", "reachable_by": ["SM8550-aarch64"]}
+FORK_WRITTEN_ROW {"last_fork_commit": "9aaaaa0f64 2026-10-15", "lines": 35, "path": "projects/ROCKNIX/packages/emulators/standalone/dolphin-sa/patches/018-nogui-achievements-lifecycle.patch", "reach": "shipped", "reachable_by": ["GENERIC_X64-x86_64", "SM8550-aarch64"]}
+FORK_WRITTEN_ROW {"last_fork_commit": "939e73a1d4 2026-10-03", "lines": 25, "path": "projects/ROCKNIX/packages/graphics/SDL2/patches/0010-release-display-modes-on-display-removal.patch", "reach": "shipped", "reachable_by": ["GENERIC_X64-x86_64", "H700-aarch64", "H700-arm", "SM8550-aarch64", "SM8550-arm"]}
+FORK_WRITTEN_ROW {"last_fork_commit": "939e73a1d4 2026-10-03", "lines": 69, "path": "projects/ROCKNIX/packages/graphics/mesa/patches/001-rtasm-release-executable-heap-on-unload.patch", "reach": "shipped", "reachable_by": ["GENERIC_X64-x86_64", "H700-aarch64", "H700-arm", "SM8550-aarch64", "SM8550-arm"]}
+FORK_WRITTEN_ROW {"last_fork_commit": "939e73a1d4 2026-10-03", "lines": 46, "path": "projects/ROCKNIX/packages/graphics/mesa/patches/002-virgl-release-empty-screen-cache.patch", "reach": "shipped", "reachable_by": ["GENERIC_X64-x86_64", "H700-aarch64", "H700-arm", "SM8550-aarch64", "SM8550-arm"]}
+FORK_WRITTEN_ROW {"last_fork_commit": "b4fc2a28cf 2026-10-03", "lines": 26, "path": "projects/ROCKNIX/packages/graphics/shaderc/patches/001-fix-overwriting-dependencies.patch", "reach": "shipped", "reachable_by": ["SM8550-aarch64"]}
+FORK_WRITTEN_ROW {"last_fork_commit": "077197e6cd 2026-10-15", "lines": 81, "path": "projects/ROCKNIX/packages/network/zerotier-one/patches/001-client-without-nonfree-headers.patch", "reach": "shipped", "reachable_by": ["GENERIC_X64-x86_64", "H700-aarch64", "SM8550-aarch64"]}
+FORK_WRITTEN_ROW {"last_fork_commit": "b137d8c373 2026-10-04", "lines": 31, "path": "projects/ROCKNIX/packages/ui/themes/es-theme-art-book-next/patches/001-pixelelated-splash.patch", "reach": "shipped", "reachable_by": ["GENERIC_X64-x86_64", "H700-aarch64", "SM8550-aarch64"]}
+FORK_WRITTEN_ROW {"last_fork_commit": "638eedc5b3 2026-09-05", "lines": 11, "path": "projects/ROCKNIX/packages/ui/themes/es-theme-art-book-next/patches/001-tools-always-show-image.patch", "reach": "shipped", "reachable_by": ["GENERIC_X64-x86_64", "H700-aarch64", "SM8550-aarch64"]}
+EXISTENCE {"missing": [], "modes": {"100644": 380, "120000": 4}, "present": 384, "rev": "2174265e9c"}
+EXISTENCE {"missing": [], "modes": {"100644": 380, "120000": 4}, "present": 384, "rev": "2c6885a54f"}
+CHANGED_SELECTED_PATHS []
+SYMLINK {"coordinator_target_equal": true, "path": "projects/ROCKNIX/packages/apps/mangohud/patches/SM8550/0002-SM8750-Battery.patch", "resolved": "projects/ROCKNIX/packages/apps/mangohud/patches/SM8750/0002-SM8750-Battery.patch", "target": "../SM8750/0002-SM8750-Battery.patch", "target_inventory_lines": 37, "target_slice": ["patches-unshipped"]}
+SYMLINK {"coordinator_target_equal": true, "path": "projects/ROCKNIX/packages/emulators/libretro/vitaquake2-lr/vitaquake2-rogue-lr/patches/aarch64/001-set-platform.patch", "resolved": "projects/ROCKNIX/packages/emulators/libretro/vitaquake2-lr/patches/aarch64/001-set-platform.patch", "target": "../../../patches/aarch64/001-set-platform.patch", "target_inventory_lines": 19, "target_slice": ["patches-shipped"]}
+SYMLINK {"coordinator_target_equal": true, "path": "projects/ROCKNIX/packages/emulators/libretro/vitaquake2-lr/vitaquake2-xatrix-lr/patches/aarch64/001-set-platform.patch", "resolved": "projects/ROCKNIX/packages/emulators/libretro/vitaquake2-lr/patches/aarch64/001-set-platform.patch", "target": "../../../patches/aarch64/001-set-platform.patch", "target_inventory_lines": 19, "target_slice": ["patches-shipped"]}
+SYMLINK {"coordinator_target_equal": true, "path": "projects/ROCKNIX/packages/emulators/libretro/vitaquake2-lr/vitaquake2-zaero-lr/patches/aarch64/001-set-platform.patch", "resolved": "projects/ROCKNIX/packages/emulators/libretro/vitaquake2-lr/patches/aarch64/001-set-platform.patch", "target": "../../../patches/aarch64/001-set-platform.patch", "target_inventory_lines": 19, "target_slice": ["patches-shipped"]}
+FORK_BASE_DELTA {"base": "c445081a59518f37d9776e5412dd7b14910696f7", "equal_tier_note": true, "paths": 12, "rev": "2174265e9c"}
+FORK_BASE_DELTA {"base": "c445081a59518f37d9776e5412dd7b14910696f7", "equal_tier_note": true, "paths": 12, "rev": "2c6885a54f"}
+UNTERMINATED {"lines": 1, "mode": "120000", "path": "projects/ROCKNIX/packages/apps/mangohud/patches/SM8550/0002-SM8750-Battery.patch"}
+UNTERMINATED {"lines": 25, "mode": "100644", "path": "projects/ROCKNIX/packages/emulators/libretro/desmume-lr/patches/gles/000-enable-gles.patch"}
+UNTERMINATED {"lines": 1, "mode": "120000", "path": "projects/ROCKNIX/packages/emulators/libretro/vitaquake2-lr/vitaquake2-rogue-lr/patches/aarch64/001-set-platform.patch"}
+UNTERMINATED {"lines": 1, "mode": "120000", "path": "projects/ROCKNIX/packages/emulators/libretro/vitaquake2-lr/vitaquake2-xatrix-lr/patches/aarch64/001-set-platform.patch"}
+UNTERMINATED {"lines": 1, "mode": "120000", "path": "projects/ROCKNIX/packages/emulators/libretro/vitaquake2-lr/vitaquake2-zaero-lr/patches/aarch64/001-set-platform.patch"}
+UNTERMINATED {"lines": 13, "mode": "100644", "path": "projects/ROCKNIX/packages/graphics/SDL2/patches/0009-fix-snd-pcm-build.patch"}
+UNTERMINATED {"lines": 69, "mode": "100644", "path": "projects/ROCKNIX/packages/graphics/SDL3/patches/0006-drm-resolution.patch"}
+UNTERMINATED {"lines": 27, "mode": "100644", "path": "projects/ROCKNIX/packages/graphics/SDL3/patches/0007-Support-building-without-hacky-libmali-headers.patch"}
+UNTERMINATED {"lines": 22, "mode": "100644", "path": "projects/ROCKNIX/packages/tools/atf/patches/H700/000-use-gcc-for-asm.patch"}
+ACTUAL_CONTENT_TOTAL {"bytes": 3809748, "inventory_mismatches": [], "logical_lines": 71387, "newline_count": 71378, "rev": "2174265e9c"}
+ACTUAL_CONTENT_TOTAL {"bytes": 3809748, "inventory_mismatches": [], "logical_lines": 71387, "newline_count": 71378, "rev": "2c6885a54f"}
+TEST_ONLY_ROW {"lines": 25, "path": "packages/addons/addon-depends/system-tools-depends/lm_sensors/patches/0001-link-static.patch", "reachable_by": ["GENERIC_X64-x86_64"]}
+TEST_ONLY_ROW {"lines": 27, "path": "packages/sysutils/pciutils/patches/0001-fix-pkgconf.patch", "reachable_by": ["GENERIC_X64-x86_64"]}
+TEST_ONLY_ROW {"lines": 33, "path": "packages/tools/syslinux/patches/0001-fix-build-with-glibc-2.28.patch", "reachable_by": ["GENERIC_X64-x86_64"]}
+TEST_ONLY_ROW {"lines": 31, "path": "packages/tools/syslinux/patches/0002-fix-build-with-glibc-2.36.patch", "reachable_by": ["GENERIC_X64-x86_64"]}
+TEST_ONLY_ROW {"lines": 19, "path": "projects/ROCKNIX/packages/emulators/libretro/mupen64plus-lr/patches/AMD64/001-optimizations.patch", "reachable_by": ["GENERIC_X64-x86_64"]}
+DISJOINT {"intersection": [], "slice": "patches-shipped-kernel"}
+T41_NON_LINUX_PATH {"lines": 25, "path": "projects/ROCKNIX/devices/H700/packages/u-boot-DDR3/patches/0001-Update-dram_sun50i_h616.c.patch", "reach": "shipped"}
+T41_NON_LINUX_PATH {"lines": 114, "path": "projects/ROCKNIX/devices/H700/packages/u-boot-DDR3/patches/0002-sunxi-axp717-charge-only-boot.patch", "reach": "shipped"}
+T41_NON_LINUX_PATH {"lines": 25, "path": "projects/ROCKNIX/devices/H700/packages/u-boot-DDR4/patches/0001-Update-dram_sun50i_h616.c.patch", "reach": "shipped"}
+T41_NON_LINUX_PATH {"lines": 114, "path": "projects/ROCKNIX/devices/H700/packages/u-boot-DDR4/patches/0002-sunxi-axp717-charge-only-boot.patch", "reach": "shipped"}
+T41_NON_LINUX_PATH {"lines": 188, "path": "projects/ROCKNIX/packages/linux-firmware/kernel-firmware/patches/kernel-firmware-02-add-brcmfmac-43xxx-configs.patch", "reach": "shipped"}
+DISJOINT {"intersection": [], "slice": "patches-unshipped"}
+NEIGHBOR_ROW {"area": "patches-and-configs", "lines": 7754, "path": "projects/ROCKNIX/devices/GENERIC_X64/linux/linux.x86_64.conf", "reach": "test", "slice": ["device-generic-x64-and-kernel"], "tier": "vendor-carried"}
+NEIGHBOR_ROW {"area": "patches-and-configs", "lines": 8129, "path": "projects/ROCKNIX/devices/H700/linux/linux.aarch64.conf", "reach": "shipped", "slice": ["device-h700"], "tier": "vendor-carried"}
+NEIGHBOR_ROW {"area": "devices", "lines": 93, "path": "projects/ROCKNIX/packages/linux-firmware/kernel-firmware/package.mk", "reach": "shipped", "slice": ["device-generic-x64-and-kernel"], "tier": "upstream-carried"}
+PATCH_AREA_TOTAL {"lines": 777541, "paths": 1742}
+OTHER_PATCH_OWNER {"directories": {"projects/ROCKNIX/packages/emulators/libretro/retroarch": 21}, "slice": "emulators-libretro"}
+OTHER_PATCH_OWNER {"directories": {"projects/ROCKNIX/packages/network/raofflineproxy": 18}, "slice": "offline-achievements"}
+LINE_SEMANTICS {"dereferenced_per_path_lines": 71477, "dereferenced_per_path_newlines": 71472, "literal_git_blob_lines": 71387, "regular_member_blob_lines": 71383, "symlink_entries": 4}
