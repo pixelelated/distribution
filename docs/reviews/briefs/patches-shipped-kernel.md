@@ -7,8 +7,9 @@ area: patches-and-configs
 kind: table
 lens: package currency
 depth: Local
-version: 1
+version: 2
 written: 2026-11-01
+version_2: 2026-11-02 (the stranger's proof of version 1, kit/t41-proof.md)
 author: the M6 coordinator lane (D-WORKFLOW-189)
 read_refs:
   distribution: 8ebaf8daad
@@ -22,7 +23,14 @@ read_refs:
 
 # Review brief: M6.P2 T41, the kernel patches and kernel configurations the shipped and test images apply, tabled by provenance and currency (#688)
 
-**Version 1, 2026-11-01, written from five read-only research files** -- R1
+**Version 2, 2026-11-02, applies the stranger's proof of version 1**
+(`/workspace/tmp/m6-coordinator/kit/t41-proof.md`, in no tree, 331 lines; its
+totals `checks 112; PASS 93; MISMATCH 7; SETTLED 8; NOTE 4; corrections 7`,
+read at `7d70da5972`), cited `proof K<nn>` / `proof X<nn>` / `proof C<n>`: each
+correction is made in the body at its line and listed, with the open items
+the proof settled and the coordinator's two rulings, in
+`## Version 2: corrections from the proof`. **Version 1, 2026-11-01, was
+written from five read-only research files** -- R1
 membership and provenance, R2 the patches read, R3 the tests, tools and
 harness, R4 the inherited items, R5 the model and the ceremony
 (`/workspace/tmp/m6-coordinator/kit/t41-research/`, in no tree) -- and the
@@ -77,7 +85,10 @@ at **`6a12ce2d73`** (R4's and R5's header; R1, R2 and R3 read the P1 tip
   read`: `gh --repo pixelelated/distribution issue view 688 --json
   title,state,milestone,comments` prints the title, `OPEN`, `M6: Codebase
   renovation`, `1`). The pre-dispatch body is 27 lines with 5 generated
-  checkboxes (sha256 prefix `2a5a2d8d6ea5be43`, R5 C14). **Its sentences are
+  checkboxes (`gh --repo pixelelated/distribution issue view 688 --json
+  title,body,state`, the body hashed with or without a final newline: sha256
+  prefix `5f82f7ac42f4345d`, proof K23 -- version 1's `2a5a2d8d6ea5be43` named
+  no command). **Its sentences are
   cited here by content, never by line number**, because the kit rewrites the
   body from § 7 at dispatch (R5 § A, T39's ruling (i) carried): the paths
   sentence *"107 paths, 40,474 lines; 0 lines read, 0 of them fork-own
@@ -170,8 +181,9 @@ at **`6a12ce2d73`** (R4's and R5's header; R1, R2 and R3 read the P1 tip
   (`abfdcfb57f`, one line) and **both `0010-msm-resource-cleanup.patch`
   copies** (`7.0/` and `7.2/`; `9416eec2c2` 2026-10-06 *"kernel: msm dp
   resource cleanup patch fix uninit pointer"*); gone --
-  `mainline/0002-input-add-input-polldev-driver.patch` (moved by `fe5216ff69`
-  2026-09-16 to `projects/ROCKNIX/devices/RK3326/patches/linux/003-input-add-input-polldev-driver.patch`,
+  `mainline/0002-input-add-input-polldev-driver.patch` (moved by `fe5216ff69`,
+  authored 2026-09-16 and committed 2026-10-09, *"rocknix-joypad: update
+  version"*, proof K69, to `projects/ROCKNIX/devices/RK3326/patches/linux/003-input-add-input-polldev-driver.patch`,
   a rename with 0 changed lines, R1 C16) and the fork's own 0950. Upstream
   **added 12 files under the shipped kernel directories** since the base (R1
   C11: `12 A`): six under `7.2/` (`0011-drm-msm-signal-hw_done...`,
@@ -240,9 +252,12 @@ at **`6a12ce2d73`** (R4's and R5's header; R1, R2 and R3 read the P1 tip
   188 lines) -- **are tabled here, labelled `non-kernel`**, their
   subsystem's owner named: T27 for U-Boot (`u-boot-DDR3`'s and
   `u-boot-DDR4`'s recipes, `device-h700.md:321` *"the two identical u-boot
-  patch pairs (T41's)"*, R4 item 10), T42 for the firmware recipe (R1 § 8
-  delta 4 names the recipes T27's and T11's; the coordinator's ruling puts
-  the recipe's currency with T42, `patches-shipped`, the area's `rest`). The
+  patch pairs (T41's)"*, R4 item 10), T11 for the firmware recipe (R1 § 8
+  delta 4 names the recipes T27's and T11's, and the inventory agrees:
+  `kernel-firmware/package.mk` is area `devices`, reach `shipped`, which
+  T11's `projects/ROCKNIX/packages/**` select takes first; T42's `rest` holds
+  only `patches-and-configs` paths -- version 1's T42 was the coordinator's
+  error, corrected in version 2). The
   title says kernel, the globs say `devices/**`, and **the table follows the
   globs** (`KIND TOTAL K5 other 5 paths 466 lines`, R1 C07) -- a delta the
   brief records (§ 2).
@@ -288,9 +303,12 @@ at **`6a12ce2d73`** (R4's and R5's header; R1, R2 and R3 read the P1 tip
   `docs/releases/device-facts.md`: never observed on a board) waits on a
   deliberate crash with a yes by name (D-QA-008) and is **not** this
   slice's to run.
-  (f) **Currency against `upstream/next` `651150fc88`** is read in the
-  coordinator's object store (`git -C /workspace/repos/pixelelated/distribution
-  show upstream/next:<path>`, the lane's worktree sharing it; **no fetch**):
+  (f) **Currency against upstream at `651150fc88`** -- the commit the local
+  ref `upstream/next` named when this brief was read; **the ref moves** (it
+  read `50433c03cc`, 59 commits on, by 2026-11-02, proof K94), so every command
+  names the commit, never the ref -- is read in the coordinator's object store
+  (`git -C /workspace/repos/pixelelated/distribution show 651150fc88:<path>`,
+  the lane's worktree sharing it; **no fetch**):
   the files upstream changed on the globs since the base `c445081a59` (R1
   C11: `101 SAME / 4 CHANGED / 2 GONE`; the 12 added under the shipped kernel
   directories), the moved polldev patch (`mainline/0002` to RK3326's
@@ -324,7 +342,16 @@ at **`6a12ce2d73`** (R4's and R5's header; R1, R2 and R3 read the P1 tip
   a fix.** No build, no `scripts/unpack`, no `make kconfig-*`, no
   `tools/adjust_kernel_config` or `tools/check_kernel_config` run (both
   unpack and **write the tree's conf**, R3 § 1.3), no tarball extracted
-  anywhere but that scratch, retired at stage H (D-INFRA-022).
+  anywhere but that scratch, retired at stage H (D-INFRA-022). **Version 2
+  extends the method to the five `non-kernel` rows** (the coordinator's ruling
+  on version 1's open item 7): the four U-Boot patches by the same dry-run
+  against `/workspace/cache/rocknix-sources/u-boot-DDR3/u-boot-DDR3-v2026.01.tar.gz`
+  and `.../u-boot-DDR4/u-boot-DDR4-v2026.01.tar.gz` (top directory
+  `u-boot-2026.01/`), the firmware patch against
+  `.../kernel-firmware/kernel-firmware-20260309.tar.gz` (top directory
+  `linux-firmware-20260309/`), each `.sha256` read against its recipe's
+  `PKG_SHA256` first, only the touched files extracted into the same scratch;
+  each row's cell names its own `applies-<recipe>.txt` line.
   (h) **No guest window.** D-WORKFLOW-187's line: *Can this be done on the
   VM? No -- the tree, the history and the cached tarballs show it; nothing a
   guest shows is a provenance fact.* T40 ran none (`03 § 3.6`: *"nothing here
@@ -421,7 +448,7 @@ at **`6a12ce2d73`** (R4's and R5's header; R1, R2 and R3 read the P1 tip
   finding in a rule, `CLAUDE.md`, `AGENTS.md` or a register is the
   coordinator's (T4's read, #651; ruling (k)); a finding in a kernel recipe
   is T11's; in a device's conf, `options`, device tree or U-Boot recipe T27's
-  or T28's; in the firmware recipe T42's; in an unshipped device's patches
+  or T28's; in the firmware recipe T11's; in an unshipped device's patches
   T43's (§ 8).
 - **One worktree, one session, and three hash placeholders.** The
   distribution's **`feature/m6-patches-shipped-kernel-688`** at
@@ -1065,8 +1092,8 @@ a check line is the lane's worktree at the stage named; `W` is § 2's clone; a
 
 | Lead | Lines at the tip | Shape | proved | Check | Q | Disposition |
 | --- | --- | --- | --- | --- | --- | --- |
-| **L-01** | `projects/ROCKNIX/packages/linux/patches/7.0/0010-msm-resource-cleanup.patch`, `.../7.2/0010-msm-resource-cleanup.patch` (478 lines each, byte-identical; R2 L-01; R1 § 9) | **the shipped kernels and the test image carry the unfixed `0010`**: upstream rewrote both copies on 2026-10-06 (`9416eec2c2`, *"Previous version writes to field pointed by an uninitialized pointer"*); the base is 2026-10-01; the tip's `7.2/0010:12` hunk `@@ -1442,6` sets `cstate->num_mixers = 0` before `cstate` is assigned, upstream's moves the assignment first (R2 command 13) | history, tree | `git -C /workspace/repos/pixelelated/distribution diff --stat 2174265e9c upstream/next -- projects/ROCKNIX/packages/linux/patches/7.2/0010-msm-resource-cleanup.patch \| tail -n 1` prints ` 1 file changed, 14 insertions(+), 11 deletions(-)` (`v1 read`); `git log --format='%h %cs %s' c445081a59..upstream/next -- <the two>` prints `9416eec2c2 2026-10-06 ...` | Q3, Q4 | **bug** (ruling (c): a currency row -- `upstream-changed`, the integration carries -- and a `bug` naming upstream's fix; whether the defect is reachable is the row's question: SM8550 builds the DPU, H700 and the x86 test image do not, L-31) |
-| **L-02** | `upstream/next:projects/ROCKNIX/packages/linux/package.mk:18` (R2 L-02) | **upstream's quoted `=~` never matches**: `[[ "${DEVICE}" =~ "RK3326\|RK3399\|S922X\|H700" ]] && PKG_PATCH_DIRS+=" rocknix-joypad"` is false for all five device names, true unquoted (R2 command 14); no `patches/rocknix-joypad` directory exists anywhere at `651150fc88` (R2 command 14; R1 § 10), so today it changes nothing | tool-run | the same `[[ ]]` test over the five names, recorded; `git -C /workspace/repos/pixelelated/distribution grep -n -F 'rocknix-joypad' upstream/next -- projects/ROCKNIX/packages/linux/package.mk` prints `:18` | Q3, Q4 | **#585** (a D-WORKFLOW-164 one-liner for ROCKNIX, written in `02` § The #585 lines owed, never sent; ruling (f)) |
+| **L-01** | `projects/ROCKNIX/packages/linux/patches/7.0/0010-msm-resource-cleanup.patch`, `.../7.2/0010-msm-resource-cleanup.patch` (478 lines each, byte-identical; R2 L-01; R1 § 9) | **the shipped kernels and the test image carry the unfixed `0010`**: upstream rewrote both copies on 2026-10-06 (`9416eec2c2`, *"Previous version writes to field pointed by an uninitialized pointer"*); the base is 2026-10-01; the tip's `7.2/0010:15` hunk `@@ -1442,6` sets `cstate->num_mixers = 0` before `cstate` is assigned, upstream's moves the assignment first (R2 command 13) | history, tree | `git -C /workspace/repos/pixelelated/distribution diff --stat 2174265e9c 651150fc88 -- projects/ROCKNIX/packages/linux/patches/7.2/0010-msm-resource-cleanup.patch \| tail -n 1` prints ` 1 file changed, 14 insertions(+), 11 deletions(-)` (`v1 read`); `git log --format='%h %cs %s' c445081a59..651150fc88 -- <the two>` prints `9416eec2c2 2026-10-06 ...` | Q3, Q4 | **bug** (ruling (c): a currency row -- `upstream-changed`, the integration carries -- and a `bug` naming upstream's fix; whether the defect is reachable is the row's question: SM8550 builds the DPU, H700 and the x86 test image do not, L-31) |
+| **L-02** | `651150fc88:projects/ROCKNIX/packages/linux/package.mk:18` (R2 L-02) | **upstream's quoted `=~` never matches**: `[[ "${DEVICE}" =~ "RK3326\|RK3399\|S922X\|H700" ]] && PKG_PATCH_DIRS+=" rocknix-joypad"` is false for all five device names, true unquoted (R2 command 14); no `patches/rocknix-joypad` directory exists anywhere at `651150fc88` (R2 command 14; R1 § 10), so today it changes nothing | tool-run | the same `[[ ]]` test over the five names, recorded; `git -C /workspace/repos/pixelelated/distribution grep -n -F 'rocknix-joypad' 651150fc88 -- projects/ROCKNIX/packages/linux/package.mk` prints `:18` | Q3, Q4 | **#585** (a D-WORKFLOW-164 one-liner for ROCKNIX, written in `02` § The #585 lines owed, never sent; ruling (f)) |
 | **L-03** | `7.0/{0010,9998,9999}` against `7.2/`'s (R2 L-03) | **three byte-identical pairs**: one change made to one copy leaves the other behind; upstream's own `7.2.6/` answers it with symlinks (3 of 4, mode `120000`, R2 command 13) | tree | `for f in 0010-msm-resource-cleanup.patch 9998-silence-initramfs-unpack-warn.patch 9999-fix-rust-build-error.patch; do cmp <(git show HEAD:projects/ROCKNIX/packages/linux/patches/7.0/$f) <(git show HEAD:projects/ROCKNIX/packages/linux/patches/7.2/$f) && echo identical $f; done` prints three `identical` lines | Q7 | **inherited:T11** (the recipe's owner; a symlink is a recipe-tree change after the base merge, the maintainer's word -- § 4 question 1; never here, D-WORKFLOW-209) |
 | **L-04** | `projects/ROCKNIX/devices/SM8550/patches/linux/` (R2 L-04) | **numbering collisions and mixed names**: `0053` x2, `0054` x2, `0057` x2, `0060` x3; `0031_` to `0059_` with underscores; two files without a number (`20260424_neil_armstrong...`, `v6_20260210_...`); upstream's `7.2/` now has two `0011-`; application order is the shell's sort of each glob (`unpack:150-159`), deterministic but no longer what the numbers say | tree | `git ls-tree -r --name-only HEAD -- projects/ROCKNIX/devices/SM8550/patches/linux \| /usr/bin/grep -E '\.patch$' \| sort \| sed -E 's#.*/##; s#^([0-9]+).*#\1#' \| uniq -d` prints `0053`, `0054`, `0057`, `0060` (`LC_ALL=C`; `v1 read` of the sorted names shows the order) | Q2 | **row** (the application index column, § 5; a Q2 note; no rename) |
 | **L-05** | the 17 hand-made diffs and the 2 stripped exports (R2 L-05; R1 C13) | **origin unrecoverable from the file**: `diff -rupN`, `diff -ur`, `diff -Naur`, `diff --git` or a bare `---` openers | tree | the header census line `patches 106 with From: 87 with Subject: 89` (§ 5's runs); per row `git log --follow --diff-filter=A --format='%h %an %cs %s' HEAD -- <path>` for the adding commit at ROCKNIX | Q2 | **row** (origin `hand-made`; provenance from content and the adding commit; `unknown` where neither says, ruling (k)) |
@@ -1080,13 +1107,13 @@ a check line is the lane's worktree at the stage named; `W` is § 2's clone; a
 | **L-13** | `0002`, `0008`, `0010`, `0110`, `0126`, `20260424_neil_armstrong` (R2 L-13) | **a `Subject:` that describes 1/21, 0/4, 1/7, 1/3, 1/4, 1/6 of the content** (a squashed series keeps its cover or first header) | tree | the generator's Files/hunks cell (`+++ ` lines / `@@` lines) per row | Q2, Q7 | **row** |
 | **L-14** | `projects/ROCKNIX/packages/linux/patches/mainline/0002-input-add-input-polldev-driver.patch` (485 lines); upstream's `fe5216ff69` (R2 L-14; R1 § 9) | **after the base merge H700, SM8550 and GENERIC_X64 lose `input-polldev`**: upstream moved it to RK3326's directory (*"now that's the only device that needs it"*) and the SM8550 conf drops `# CONFIG_INPUT_POLLDEV is not set` in the same window; H700's `0140-rg35xx-2024-use-rocknix-joypad-driver.patch` and the `rocknix-joypad` driver package are the consumers to read | history | `git -C /workspace/repos/pixelelated/distribution show --stat --format='%h %cs %s' fe5216ff69 \| head -n 12` prints the rename with 0 changed lines; `git grep -c -i polldev HEAD -- projects/ROCKNIX/devices/H700/patches/linux projects/ROCKNIX/packages/linux-drivers` prints the consumers (`[unverified]`: R2 command 14 read RK3326's `004` only) | Q4, Q6 | **row** (`upstream-moved`, the integration carries) and **inherited:T27** (whether the H700 joypad driver still needs it is the device slice's and the integration's question) |
 | **L-15** | `projects/ROCKNIX/packages/linux/package.mk:16`; `unpack:143` (R2 L-15; R1 § 3) | **`PKG_PATCH_DIRS` names `${DEVICE}` and `default` directories the override does not have, and `${LINUX}` is empty**; each skipped by `unpack:143`'s `-d` test with no message -- a `patches/H700/` created under the override by a future hand would silently start applying | tree | `for d in H700 SM8550 GENERIC_X64 default; do git cat-file -e "HEAD:projects/ROCKNIX/packages/linux/patches/$d" 2>/dev/null \|\| echo "absent $d"; done` prints four `absent`; `git grep -n -E '^\s*LINUX=' HEAD -- projects/ROCKNIX/options distributions/ROCKNIX/options config/options \| /usr/bin/grep -c ''` prints `0` | Q7 | **none** (ruling (o): a recorded fact beside the recipe line; T11's) |
-| **L-16** | `projects/ROCKNIX/devices/H700/patches/linux/0950-arm64-dts-allwinner-h616-ramoops-reserved-memory.patch` (38 lines; `cbf75c0b06`; R2 § 2; R4 items 5, 15) | **the one fork-written row, read line by line**: `:1-2` the hand-written `From: ROCKNIX fork` and `Subject:`; `:4-7` the body (fork #104); `:10-12` one file `arch/arm64/boot/dts/allwinner/sun50i-h616.dtsi`, one hunk `@@ -117,6 +117,26 @@` on the reserved-memory child `reg = <0x0 0x40000000 0x0 0x40000>; no-map;`; `:17-28` the address argument (kernel at `0x40080000`, U-Boot at `0x4A000000`, FDT at `0x4FA00000`, SPL stack at `0x4FE00000`, ramdisk at `0x4FF00000`); `:29-35` the node (1 MiB at `0x4f000000`, `record-size = <0x20000>`, `console-size = <0x80000>`, `max-reason = <2>`) -- D-SYS-004's numbers; the config half in H700's conf (T27's); not at `upstream/next`; parked in #369 | tree, history | `git show HEAD:<path> \| sed -n '29,35p'` prints the node; `git merge-base --is-ancestor cbf75c0b06 upstream/next \|\| echo not-in-upstream`; `tar -xJOf "$S/linux/linux-7.2.tar.xz" linux-7.2/arch/arm64/boot/dts/allwinner/sun50i-h616.dtsi \| /usr/bin/grep -n -A2 '0x40000000 0x0 0x40000'` prints the hunk's context at or near `:117` and no `ramoops` node (R2 § 2's check) | Q1, Q3, Q4 | **#585** (ruling (e): the `#585` line in `02`, never sent; the layer -- ROCKNIX's distribution first, a mainline SoC dtsi unlikely to take a distribution's reservation (D-SYS-004) -- stated as a question, § 4 question 2) |
+| **L-16** | `projects/ROCKNIX/devices/H700/patches/linux/0950-arm64-dts-allwinner-h616-ramoops-reserved-memory.patch` (38 lines; `cbf75c0b06`; R2 § 2; R4 items 5, 15) | **the one fork-written row, read line by line**: `:1-2` the hand-written `From: ROCKNIX fork` and `Subject:`; `:4-7` the body (fork #104); `:10-12` one file `arch/arm64/boot/dts/allwinner/sun50i-h616.dtsi`, one hunk `@@ -117,6 +117,26 @@` on the reserved-memory child `reg = <0x0 0x40000000 0x0 0x40000>; no-map;`; `:17-28` the address argument (kernel at `0x40080000`, U-Boot at `0x4A000000`, FDT at `0x4FA00000`, SPL stack at `0x4FE00000`, ramdisk at `0x4FF00000`); `:29-35` the node (1 MiB at `0x4f000000`, `record-size = <0x20000>`, `console-size = <0x80000>`, `max-reason = <2>`) -- D-SYS-004's numbers; the config half in H700's conf (T27's); not at `upstream/next`; parked in #369 | tree, history | `git show HEAD:<path> \| sed -n '29,35p'` prints the node; `git merge-base --is-ancestor cbf75c0b06 651150fc88 \|\| echo not-in-upstream`; `tar -xJOf "$S/linux/linux-7.2.tar.xz" linux-7.2/arch/arm64/boot/dts/allwinner/sun50i-h616.dtsi \| /usr/bin/grep -n -A2 '0x40000000 0x0 0x40000'` prints the hunk's context at or near `:117` and no `ramoops` node (R2 § 2's check) | Q1, Q3, Q4 | **#585** (ruling (e): the `#585` line in `02`, never sent; the layer -- ROCKNIX's distribution first, a mainline SoC dtsi unlikely to take a distribution's reservation (D-SYS-004) -- stated as a question, § 4 question 2) |
 | **L-17** | the inventory's `tier` / `tier_note` columns over the 107 (R1 § 8 delta 3; R4 item 6) | **`0 fork-own` by the tool, one fork-written row by `tier_note`**: the rule tiers every patch `vendor-carried`; #688's body says *"0 of them fork-own"*; T27 ruled *cite it, do not re-tier it* | tool-run | the block's `tier: {'vendor-carried': 107}` and `fork-own rows: []` beside C13's `tier_note values over the 107: 1 fork-written; 106 None;` (the lane's awk over `block-2.txt`'s TSV: `awk -F'\t' ... $ix["tier_note"]=="fork-written"` prints `1`) | Q6 | **inherited:coordinator** (whether the tier rule or `last_fork_commit` is a tooling defect to file beside #1049, #1056, #1086) |
 | **L-18** | #1049, #1056, #1086, #1101, #879, #1053 (R4 item 3) | **the inventory's six reach gaps**, none a kernel-patch gap: `PKG_DEPENDS_UNPACK`; symlinked `patches`; overlay sources; the kernel recipe's own unpack and copy edges (`intel-ucode`, `generic-dsi`); `PKG_ARCH` ignored; a host plan's `xmlstarlet` | record | one sentence per gap in `02` saying which row of the 107 it could move (expected none), each with its issue's state read by `gh` | Q6 | **none** (each bug's owner is the tooling area; stated as a check) |
-| **L-19** | `projects/ROCKNIX/devices/SM8550/linux/linux.aarch64.conf` (8,608 lines; R4 item 4; R2 § 4) | **the one configuration, never fork-changed, changed upstream four times since the base**: `+0 -0` against `c445081a59`; `7 7` against `651150fc88` -- gcc 15.2.0 -> 16.2.0, rustc 1.98 -> 1.99 / LLVM 22 -> 23, `+CONFIG_CC_HAS_COUNTED_BY_PTR=y`, `-# CONFIG_INPUT_POLLDEV is not set`, `RAID6_PQ_BENCHMARK` y -> n (`5f56cd5150`); header `# Linux/arm64 7.2.0 Kernel Configuration` level with the pin; the build copies it to `.config`, forces the hostname and `INITRAMFS_SOURCE`, disables `SWAP`/`NFS_FS`/`CIFS`/ISCSI/`WIREGUARD` by option, then `oldconfig` (R3 § 1.1); a `devices/SM8550/linux/7.2/linux.aarch64.conf`, if one appeared, would silently take precedence (`kernel_config_path`'s first candidate) | tree, history | `git diff --numstat c445081a59 HEAD -- <conf>` prints nothing; `git -C /workspace/repos/pixelelated/distribution diff --numstat 2174265e9c upstream/next -- <conf>` prints `7 7 ...`; the four conf-diff counts of § 5 (each naming its side) | Q4 | **row** (`upstream-changed`, the integration carries; the four counts in the row; ruling (d), (j)) |
-| **L-20** | `projects/ROCKNIX/devices/SM8550/patches/linux/0002-qcom-dispcc-sm8550-Fix-disp_cc_mdss_mdp_clk_src.patch`; #328 (R4 item 9) | **#328's once-per-boot dispcc warning is upstream's kernel's**, the fork's patch set the same as stock 20260901; upstream's `0017-clk-qcom-blank-dsi-panels-before-dispcc-park.patch` (215 lines, in the qcom-bls merge) is the lead the merge brings | record | `gh --repo pixelelated/distribution issue view 328 --json state,title --jq '.state'` read at stage A; `git -C /workspace/repos/pixelelated/distribution show upstream/next:projects/ROCKNIX/packages/linux/patches/7.2/0017-clk-qcom-blank-dsi-panels-before-dispcc-park.patch \| sed -n '1,12p'` for its subject | Q4 | **row** (the `0002` row cites #328 and names `0017`; nothing diagnosed; the integration's) |
+| **L-19** | `projects/ROCKNIX/devices/SM8550/linux/linux.aarch64.conf` (8,608 lines; R4 item 4; R2 § 4) | **the one configuration, never fork-changed, changed upstream four times since the base**: `+0 -0` against `c445081a59`; `7 7` against `651150fc88` -- gcc 15.2.0 -> 16.2.0, rustc 1.98 -> 1.99 / LLVM 22 -> 23, `+CONFIG_CC_HAS_COUNTED_BY_PTR=y`, `-# CONFIG_INPUT_POLLDEV is not set`, `RAID6_PQ_BENCHMARK` y -> n (`5f56cd5150`); header `# Linux/arm64 7.2.0 Kernel Configuration` level with the pin; the build copies it to `.config`, forces the hostname and `INITRAMFS_SOURCE`, disables `SWAP`/`NFS_FS`/`CIFS`/ISCSI/`WIREGUARD` by option, then `oldconfig` (R3 § 1.1); a `devices/SM8550/linux/7.2/linux.aarch64.conf`, if one appeared, would silently take precedence (`kernel_config_path`'s first candidate) | tree, history | `git diff --numstat c445081a59 HEAD -- <conf>` prints nothing; `git -C /workspace/repos/pixelelated/distribution diff --numstat 2174265e9c 651150fc88 -- <conf>` prints `7 7 ...`; the four conf-diff counts of § 5 (each naming its side) | Q4 | **row** (`upstream-changed`, the integration carries; the four counts in the row; ruling (d), (j)) |
+| **L-20** | `projects/ROCKNIX/devices/SM8550/patches/linux/0002-qcom-dispcc-sm8550-Fix-disp_cc_mdss_mdp_clk_src.patch`; #328 (R4 item 9) | **#328's once-per-boot dispcc warning is upstream's kernel's**, the fork's patch set the same as stock 20260901; upstream's `0017-clk-qcom-blank-dsi-panels-before-dispcc-park.patch` (215 lines, in the qcom-bls merge) is the lead the merge brings | record | `gh --repo pixelelated/distribution issue view 328 --json state,title --jq '.state'` read at stage A; `git -C /workspace/repos/pixelelated/distribution show 651150fc88:projects/ROCKNIX/packages/linux/patches/7.2/0017-clk-qcom-blank-dsi-panels-before-dispcc-park.patch \| sed -n '1,12p'` for its subject | Q4 | **row** (the `0002` row cites #328 and names `0017`; nothing diagnosed; the integration's) |
 | **L-21** | the five `non-kernel` rows (R1 § 8 delta 4; ruling (b)) | **the title says kernel, the globs say `devices/**`**: four U-Boot patches and one firmware patch among the 107 | tree | `GROUPS`'s `KIND TOTAL K5 other 5 466` line | Q7 | **row** (labelled `non-kernel`; **inherited:coordinator** for the order's wording, a delta recorded) |
-| **L-22** | the 12 files upstream added under the shipped kernel directories since the base (R1 § 5; R2 § 4; R4 § 6 item 2) | **six `7.2/` patches, two SM8550 patches the shipped kernels would take at the merge; four `7.2.6/` for T43's targets**; after the merge `7.2/` holds 12, `mainline/` 3, H700 32, SM8550 57 (R2 § 4) | history | `git -C /workspace/repos/pixelelated/distribution diff --name-status c445081a59 upstream/next -- projects/ROCKNIX/packages/linux/patches projects/ROCKNIX/devices/H700/patches/linux projects/ROCKNIX/devices/SM8550/patches/linux \| awk '{print $1}' \| sort \| uniq -c` prints `12 A`, `1 D`, `4 M` (R1 C11) | Q4 | **row** (one line per addition in `02` § Upstream since the base, *the integration carries*; not rows of the 107) |
+| **L-22** | the 12 files upstream added under the shipped kernel directories since the base (R1 § 5; R2 § 4; R4 § 6 item 2) | **six `7.2/` patches, two SM8550 patches the shipped kernels would take at the merge; four `7.2.6/` for T43's targets**; after the merge `7.2/` holds 12, `mainline/` 3, H700 32, SM8550 57 (R2 § 4) | history | `git -C /workspace/repos/pixelelated/distribution diff --name-status c445081a59 651150fc88 -- projects/ROCKNIX/packages/linux/patches projects/ROCKNIX/devices/H700/patches/linux projects/ROCKNIX/devices/SM8550/patches/linux projects/ROCKNIX/devices/SM8550/linux \| awk '{print $1}' \| sort \| uniq -c` prints `12 A`, `1 D`, `4 M` (R1 C11) | Q4 | **row** (one line per addition in `02` § Upstream since the base, *the integration carries*; not rows of the 107) |
 | **L-23** | the `120000` entries under the member roofs (R3 § 1.5; R5 § G (e); #1056) | **no symlinked `patches` directory among the nine** -- #1056's gap moves no row here; 3 symlink entries exist under the roofs at P1 (`v1 read`; named in `## Version 1` item 6) | tree | `git ls-tree -r HEAD \| awk '$1=="120000"{print $4}' \| /usr/bin/grep -E '^(projects/ROCKNIX/(devices\|packages/linux)\|packages/linux)'` with each target by `git show HEAD:<entry>`; none ends in `/patches` of a member directory | Q6 | **none** (stated as a check in `02`) |
 | **L-24** | `0004-drm-msm-a6xx-Enable-IFPC-on-Adreno-740.patch` (R1 C09; R4 item 14) | **the one file without a trailing newline**: `wc -l 32 grep -c 33` | tool-run | `git show HEAD:<path> \| wc -l` and `\| /usr/bin/grep -c ''` print `32` and `33` | Q7 | **row** (named beside both totals; a delta, not a finding) |
 | **L-25** | `projects/ROCKNIX/devices/H700/patches/linux/0154-rocknix-dt-id.patch` (44 lines, hand-made, 4 dts files; R4 item 11) | **read by three slices**: the dt-id the RG35XX SP's tree boots with; `bootloader/update.sh` reads `rocknix-dt-id`; device-facts L15 does not say which of the SP's two trees the LPDDR4 unit boots | tree, record | `git show HEAD:<path> \| /usr/bin/grep -c 'rocknix-dt-id'`; `git grep -n 'rocknix-dt-id' HEAD -- projects/ROCKNIX/devices/H700/bootloader` | Q2 | **row** (its readers and L15 named; **inherited:T27** for the open item) |
@@ -1174,7 +1201,7 @@ Evidence floor lists them, restated for a table as T40's § 5 did (R5 § A):
    history and the cached tarballs show it; nothing a guest shows is a
    provenance fact** (ruling (h); D-WORKFLOW-187). The inventory, the
    headers, the recipe's `case` and the devices' `options` read at the hash,
-   `scripts/unpack` read, `git log` and `git show`, `upstream/next` at
+   `scripts/unpack` read, `git log` and `git show`, `651150fc88` at
    `651150fc88` as a local ref, and the pinned tarballs already in
    `/workspace/cache/rocknix-sources/` extracted file by file into the lane's
    scratch (ruling (g)). A patch's run-time effect -- a DTS node, a driver, a
@@ -1195,7 +1222,7 @@ Evidence floor lists them, restated for a table as T40's § 5 did (R5 § A):
 - **The reads at the tip.** The 107 are read at the lane's tip's bytes
   (ruling (a)) -- `git show HEAD:<path>` -- which are the P1 tip's (106 of
   them the merge base's); upstream's copies by `git -C
-  /workspace/repos/pixelelated/distribution show upstream/next:<path>`;
+  /workspace/repos/pixelelated/distribution show 651150fc88:<path>`;
   T40's and the device slices' records by `git -C <their worktree> show
   <hash>:<path>`. Nothing is exported whole: a kernel tree is 1.5 GB per
   version, and the scratch holds only the files the patches touch.
@@ -1231,7 +1258,7 @@ git status --short | $G -c ''                                                # 0
 git rev-parse --short=10 HEAD                                                # __COHASH__ at stage A: the branch is cut from the coordinator's tip, no merge commit (ruling (a))
 git merge-base --is-ancestor 2174265e9c HEAD && echo carries-p1              # carries-p1 (ruling (a); v1 read: true at 6a12ce2d73)
 git merge-base --is-ancestor 8ebaf8daad HEAD && echo next-is-here            # next-is-here
-git -C /workspace/repos/pixelelated/distribution rev-parse --short=10 upstream/next   # 651150fc88, a local ref in the shared store, never fetched (ruling (f); v1 read)
+git -C /workspace/repos/pixelelated/distribution rev-parse --short=10 upstream/next   # information only: the local ref MOVES (651150fc88 at v1; 50433c03cc on 2026-11-02, 59 commits on, proof K94); every command below pins 651150fc88, the commit the expectations were read at (ruling (f), proof X01)
 sha256sum docs/reviews/slices.json docs/reviews/inventory.json docs/reviews/areas.json | cut -c1-16   # 49bc2745664e52f4, d17b9cac4b2c2245, 985f742cfd4a2138 (R1 C02): the block's inputs, present because the tip carries P1
 test -d "$W" && echo clone-here                                              # clone-here: the block's W, read by git -C only (R1 C18 re-ran the block against it)
 # the lint's PASS on a Local plan, before anything else (ruling (i)): T4's finished Local folder, exported from T4's tip and linted by this tip's lint; then a copy with its tier_exception removed, which must FAIL
@@ -1309,18 +1336,18 @@ for d in H700 SM8550 GENERIC_X64 default aarch64 x86 7.1.2; do git cat-file -e "
 n=0; f=0; s=0; while IFS= read -r p; do case "$p" in *.patch) n=$((n+1)); h=$(git show "HEAD:$p" | head -n 60); printf '%s\n' "$h" | $G -q -E '^From: ' && f=$((f+1)); printf '%s\n' "$h" | $G -q -E '^Subject: ' && s=$((s+1));; esac; done < "$P"; echo "patches $n with From: $f with Subject: $s"
 while IFS= read -r p; do case "$p" in *.patch) git show "HEAD:$p" | $G -n -m1 -E '^(Link:|Upstream-Status:)' | sed "s#^#$p:#";; esac; done < "$P" | cut -c1-160   # 4 lines: H700 0160, SM8550 0006, 7.2/0011, 7.2/0016 (R2 § 1; v1 read)
 # byte identity against the merge base and upstream (R1 C07: SAME 106, ADDED 1; R1 C11: SAME 101, CHANGED 4, GONE 2)
-for B in c445081a59 upstream/next; do while IFS= read -r p; do if git -C "$U" cat-file -e "$B:$p" 2>/dev/null; then [ "$(git -C "$U" rev-parse "$B:$p")" = "$(git rev-parse "HEAD:$p")" ] && echo "vs $B SAME" || echo "vs $B CHANGED"; else echo "vs $B ABSENT"; fi; done < "$P" | sort | uniq -c; done
+for B in c445081a59 651150fc88; do while IFS= read -r p; do if git -C "$U" cat-file -e "$B:$p" 2>/dev/null; then [ "$(git -C "$U" rev-parse "$B:$p")" = "$(git rev-parse "HEAD:$p")" ] && echo "vs $B SAME" || echo "vs $B CHANGED"; else echo "vs $B ABSENT"; fi; done < "$P" | sort | uniq -c; done
 # upstream's changes under the shipped kernel directories since the base (R1 C11: 12 A, 1 D, 4 M) and the five files of the 107 it touched (R1 C11's name-status)
 KD="projects/ROCKNIX/packages/linux/patches projects/ROCKNIX/devices/H700/patches/linux projects/ROCKNIX/devices/SM8550/patches/linux projects/ROCKNIX/devices/SM8550/linux"
-git -C "$U" diff --name-status c445081a59 upstream/next -- $KD | awk '{print $1}' | sort | uniq -c
-git -C "$U" diff --name-status c445081a59 upstream/next -- $KD | $G -E '^[DM]' | cut -c1-140
-git -C "$U" diff --name-status c445081a59 upstream/next -- $KD | $G -E '^A' | cut -c1-140
-tr '\n' '\0' < "$P" | xargs -0 git -C "$U" diff --shortstat c445081a59 upstream/next --   # ` 5 files changed, 36 insertions(+), 515 deletions(-)` (R1 C11)
-tr '\n' '\0' < "$P" | xargs -0 git -C "$U" log --format='%h %cs %s' c445081a59..upstream/next -- | cut -c1-120   # 8 lines, 7 non-merge (R1 C11)
-git -C "$U" diff --stat 2174265e9c upstream/next -- projects/ROCKNIX/packages/linux/patches/7.2/0010-msm-resource-cleanup.patch projects/ROCKNIX/packages/linux/patches/7.0/0010-msm-resource-cleanup.patch | tail -n 1   # ` 2 files changed, 28 insertions(+), 22 deletions(-)` [unverified]: v1 read of the 7.2 copy alone printed ` 1 file changed, 14 insertions(+), 11 deletions(-)`
-git -C "$U" show upstream/next:projects/ROCKNIX/packages/linux/package.mk | sed -n '16,20p;26,53p' | cut -c1-120   # upstream's :18 rocknix-joypad line with its quoted =~ (R2 L-02); the pins: 7.2 unchanged for the H700 group, 7.1.2 for RK3326|AMD64 (GENERIC_X64 absent), 7.2.11 with 7.2.6 for RK3566|RK3576|S922X, 6.18.54 for RK3399 (R1 C16; R2 § 4)
+git -C "$U" diff --name-status c445081a59 651150fc88 -- $KD | awk '{print $1}' | sort | uniq -c
+git -C "$U" diff --name-status c445081a59 651150fc88 -- $KD | $G -E '^[DM]' | cut -c1-140
+git -C "$U" diff --name-status c445081a59 651150fc88 -- $KD | $G -E '^A' | cut -c1-140
+tr '\n' '\0' < "$P" | xargs -0 git -C "$U" diff --shortstat c445081a59 651150fc88 --   # ` 5 files changed, 36 insertions(+), 515 deletions(-)` (R1 C11)
+tr '\n' '\0' < "$P" | xargs -0 git -C "$U" log --format='%h %cs %s' c445081a59..651150fc88 -- | cut -c1-120   # 8 lines, 7 non-merge (R1 C11)
+git -C "$U" diff --stat 2174265e9c 651150fc88 -- projects/ROCKNIX/packages/linux/patches/7.2/0010-msm-resource-cleanup.patch projects/ROCKNIX/packages/linux/patches/7.0/0010-msm-resource-cleanup.patch | tail -n 1   # ` 2 files changed, 28 insertions(+), 22 deletions(-)` [unverified]: v1 read of the 7.2 copy alone printed ` 1 file changed, 14 insertions(+), 11 deletions(-)`
+git -C "$U" show 651150fc88:projects/ROCKNIX/packages/linux/package.mk | sed -n '16,20p;26,53p' | cut -c1-120   # upstream's :18 rocknix-joypad line with its quoted =~ (R2 L-02); the pins: 7.2 unchanged for the H700 group, 7.1.2 for RK3326|AMD64 (GENERIC_X64 absent), 7.2.11 with 7.2.6 for RK3566|RK3576|S922X, 6.18.54 for RK3399 (R1 C16; R2 § 4)
 for n in RK3326 RK3399 S922X H700 SM8550; do [[ "$n" =~ "RK3326|RK3399|S922X|H700" ]] && echo "$n quoted-match" || echo "$n no-match"; done   # five `no-match` (R2 command 14): L-02
-git -C "$U" ls-tree -r --name-only upstream/next | $G -c -F 'rocknix-joypad/'   # the group's directory anywhere at 651150fc88: 0 under the override's patches (R1 § 10); the whole-tree count [unverified]
+git -C "$U" ls-tree -r --name-only 651150fc88 | $G -c -F 'rocknix-joypad/'   # the group's directory anywhere at 651150fc88: 0 under the override's patches (R1 § 10); the whole-tree count [unverified]
 # the fork's side: its commits on the 107 and on the recipes (R1 C10: 6, one non-merge; the two recipe hunks)
 tr '\n' '\0' < "$P" | xargs -0 git log --format='%h %cs %an %s' c445081a59..HEAD -- | cut -c1-120   # 6 lines at 2174265e9c; the coordinator's branch may add merges [unverified]
 tr '\n' '\0' < "$P" | xargs -0 git log --no-merges --format='%h %cs %an %s' c445081a59..HEAD -- | cut -c1-120   # 1 line: cbf75c0b06 2026-09-10
@@ -1336,23 +1363,23 @@ git ls-tree -r HEAD | awk '$1=="120000"{print $4}' | $G -E '^(projects/ROCKNIX/(
 R=projects/ROCKNIX/devices/H700/patches/linux/0950-arm64-dts-allwinner-h616-ramoops-reserved-memory.patch
 git log --format='%h %cs %an %s' HEAD -- "$R" | cut -c1-120                 # cbf75c0b06 2026-09-10 Max Engel Handhelds keep their evidence ...
 git show "HEAD:$R" | $G -c ''; git show "HEAD:$R" | sed -n '1,2p;29,35p'   # 38; the From:/Subject: and the node
-git -C "$U" merge-base --is-ancestor cbf75c0b06 upstream/next && echo in-upstream || echo not-in-upstream   # not-in-upstream
-git -C "$U" ls-tree -r --name-only upstream/next projects/ROCKNIX/devices/H700/patches/linux | $G -c -i ramoops   # 0 (R1 C11)
-git -C "$U" show upstream/next:projects/ROCKNIX/devices/H700/linux/linux.aarch64.conf | $G -n -E 'CONFIG_PSTORE_RAM'   # `# CONFIG_PSTORE_RAM is not set` (R2 command 8)
+git -C "$U" merge-base --is-ancestor cbf75c0b06 651150fc88 && echo in-upstream || echo not-in-upstream   # not-in-upstream
+git -C "$U" ls-tree -r --name-only 651150fc88 projects/ROCKNIX/devices/H700/patches/linux | $G -c -i ramoops   # 0 (R1 C11)
+git -C "$U" show 651150fc88:projects/ROCKNIX/devices/H700/linux/linux.aarch64.conf | $G -n -E 'CONFIG_PSTORE_RAM'   # `# CONFIG_PSTORE_RAM is not set` (R2 command 8)
 git show HEAD:projects/ROCKNIX/devices/H700/linux/linux.aarch64.conf | $G -n -E '^CONFIG_(PSTORE_RAM|PSTORE_CONSOLE|WATCHDOG_SYSFS|SOFTLOCKUP_DETECTOR|DETECT_HUNG_TASK|DEFAULT_HUNG_TASK_TIMEOUT)='   # the six lines of cbf75c0b06 in T27's conf (R2 command 8: :7290, :7292 among them)
 # the SM8550 configuration (rulings (d), (j)): the four conf-diff counts, each naming its side
 C=projects/ROCKNIX/devices/SM8550/linux/linux.aarch64.conf
 git show "HEAD:$C" | sed -n 3p                                                # `# Linux/arm64 7.2.0 Kernel Configuration` (R2 § 0)
 git diff --numstat c445081a59 HEAD -- "$C" | $G -c ''                        # 0: the fork never changed it (R2 command 9)
-git -C "$U" diff --numstat 2174265e9c upstream/next -- "$C"                  # `7	7	...` (R2 command 9; T28 02:78-90)
-git -C "$U" diff 2174265e9c upstream/next -- "$C" | $G -E '^[-+]CONFIG|^[-+]# CONFIG' | cut -c1-100   # the 14 lines (R2 command 11)
+git -C "$U" diff --numstat 2174265e9c 651150fc88 -- "$C"                  # `7	7	...` (R2 command 9; T28 02:78-90)
+git -C "$U" diff 2174265e9c 651150fc88 -- "$C" | $G -E '^[-+]CONFIG|^[-+]# CONFIG' | cut -c1-100   # the 14 lines (R2 command 11)
 diff <(git show "HEAD:$C" | sort) <(git show HEAD:projects/ROCKNIX/devices/H700/linux/linux.aarch64.conf | sort) | $G -c '^[<>]'   # (a) against H700's conf, same 7.2 and arch [unverified]
 tar -xJf "$S/linux/linux-7.2.tar.xz" -C "$T/src" linux-7.2/arch/arm64/configs/defconfig; rc=$?
 echo "defconfig extract rc=$rc"
 diff <(git show "HEAD:$C" | $G -v '^#' | sort) <($G -v '^#' "$T/src/linux-7.2/arch/arm64/configs/defconfig" | sort) | $G -c '^[<>]'   # (b) against the kernel's own arm64 defconfig [unverified]
 git show HEAD:projects/ROCKNIX/packages/linux/package.mk | sed -n '146,335p' | $G -o -E 'CONFIG_[A-Z0-9_]+' | sort -u > "$T/tmp/forced.txt"; $G -c '' "$T/tmp/forced.txt"   # (c) the symbols pre_make_target sets or disables (R3 § 1.1) [unverified count]
 while IFS= read -r k; do printf '%s %s\n' "$k" "$(git show "HEAD:$C" | $G -c -E "^(# )?$k[= ]")"; done < "$T/tmp/forced.txt"   # whether the conf already names each
-git -C "$U" show upstream/next:$C | sed -n 3p                                # (d) upstream's header line, the same 7.2.0 [unverified]
+git -C "$U" show 651150fc88:$C | sed -n 3p                                # (d) upstream's header line, the same 7.2.0 [unverified]
 # the tarballs (ruling (g)): each hash against its .sha256 and the recipe's PKG_SHA256 as text
 for v in 7.2 7.1.2; do a=$(cut -c1-64 "$S/linux/linux-$v.tar.xz.sha256"); b=$(sha256sum "$S/linux/linux-$v.tar.xz" | cut -c1-64); [ "$a" = "$b" ] && echo "linux-$v.tar.xz = its .sha256 ($(printf '%.16s' "$a"))" || echo "linux-$v.tar.xz MISMATCH"; done   # f9fef3d14c0df538 and 37198c93727be247, the recipe's PKG_SHA256 prefixes (v1 read)
 git show HEAD:projects/ROCKNIX/packages/linux/package.mk | $G -n -E '^\s*PKG_SHA256=' | cut -c1-60   # :31 f9fef3d1..., :38 37198c93... among the five
@@ -1421,8 +1448,8 @@ inventory column) and under `$T/` (`order-<DEVICE>.txt`, `applies-<DEVICE>.txt`,
 `targets-<DEVICE>.txt`), and every patch's bytes by `git show HEAD:<path>`;
 it changes nothing in the tree. **Its asserts are the FAIL-first positive**:
 `107` rows and `40,474` lines, `106` `.patch` and `1` `.conf`, `103` shipped
-and `4` test, the nine directories' counts (`4 6 4 32 55 1 2 2 1`), the four
-`reachable_by` groups' sizes summing to `107`, the header census (`From:` 87,
+and `4` test, the nine directories' counts (`4 6 4 32 55 1 2 2 1`), the seven
+`reachable_by` groups' sizes (4, 32, 56, 1, 4, 6, 4) summing to `107`, the header census (`From:` 87,
 `Subject:` 89), the application order's three totals (`8`, `42`, `65`), and
 the dispositions' sum equal to the row count -- *so a missing row fails there
 instead of printing an empty cell* (T40's `:8-9`). Before the tip run, the
@@ -1444,7 +1471,7 @@ rulings):
 | **target version** | the header's `From <sha> Mon Sep 17 ...` line and `[PATCH vN i/M]` position; the kernel tag named in the body or the series' cover; the file name's date (`v8_20260804_...`, `20260424_...`, `v6_20260210_...`) | a tag, a sha, a date, `hand-made`, `unknown` |
 | **current pin** | per `reachable_by` device, the recipe's `case` branch read as text at the tip: `7.2` for H700 and SM8550, `7.1.2` for GENERIC_X64, with the `PKG_SHA256` prefix beside it; `v2026.01` and `20260309` for the non-kernel five | the pin string |
 | **applies-at-pin** | the `applies-<DEVICE>.txt` line for the row, per plan (ruling (g)) | `applies`, `applies with offset`, `fuzz`, `fails`, `open item` |
-| **upstream status** | the blob at `upstream/next` (`SAME` / `CHANGED` / `ABSENT`) and the header's own claim (`Link:`, `Upstream-Status:`, a cherry-pick line), **recorded as the patch's claim, never verified against kernel.org (no network)** | `carried`, `changed upstream`, `moved upstream`, `claims mainline <tag or link>`, `fork-written`, `unknown` |
+| **upstream status** | the blob at `651150fc88` (`SAME` / `CHANGED` / `ABSENT`) and the header's own claim (`Link:`, `Upstream-Status:`, a cherry-pick line), **recorded as the patch's claim, never verified against kernel.org (no network)** | `carried`, `changed upstream`, `moved upstream`, `claims mainline <tag or link>`, `fork-written`, `unknown` |
 | **backport status** | from the two above and the tarball grep (L-06): a claimed mainline change present in the pinned source is `superseded at this pin` (a lead to T11, never a removal); above the pin `a backport`; no claim `unknown` | `superseded at this pin`, `a backport`, `unknown` |
 | **the fork's reason** | the header's own sentence plus the adding commit at ROCKNIX, `git log --follow --diff-filter=A --format='%h %an %cs %s' HEAD -- <path>` (`cbf75c0b06` for the one fork-written; `unknown` where the history and the content say nothing, ruling (k)) | the commit and one sentence, or `unknown` |
 | **disposition** | one of § 6's set | `keep`, `superseded at this pin`, `upstream-changed`, `upstream-moved`, `#585`, `bug`, `open item` |
@@ -1453,7 +1480,7 @@ For the one `.conf` row the generator prints the **four conf-diff counts, each
 naming its side** (ruling (j); § 5's runs (a) to (d)): against H700's
 `linux.aarch64.conf`, against `linux-7.2/arch/arm64/configs/defconfig`
 extracted alone from the tarball, against the symbols the recipe's
-`pre_make_target` forces or disables, and against `upstream/next`'s copy
+`pre_make_target` forces or disables, and against `651150fc88`'s copy
 (`7 7`). **Secret-pattern hygiene**: `02` quotes 107 patch names and the
 inventory's own note (`:633-635`, R3 § 4.7) says a name shaped like
 `ma-sk-...` once read as an API key to the guard, so before committing the
@@ -1479,7 +1506,7 @@ integration`.
 | Output | Path | Shape | Stage |
 | --- | --- | --- | --- |
 | Running log | `.../00-running-log.md` | opened first: the model and effort that ran, the session, `reviewed-at` (the dispatch tip `__COHASH__`) with `2174265e9c` and `651150fc88` beside it, every command with its exit status and time; **every check that stands as a proof announced on a line that begins `PROOF:`**; the lint's Local proof (ruling (i)) before anything else; the generator's FAIL-first exits; its closing census says no build, no `scripts/unpack`, no `kconfig-*`, no `adjust_kernel_config`, no compiler, no guest, no fetch, no council or keyed call, no held directory, and names the scratch's path (`/workspace/tmp/m6-t41/`) and its retirement at stage H (D-INFRA-022) | A onward |
-| Research notes | `.../01-research-notes.md` | § Scope: § 2's block with its sha256 prefix checked and its 99 lines at P1 and at the tip, both line figures with the unterminated file named, the tool's row, the nine directories' counts, the three plans' orders and totals, the header census, the byte-identity lines against `c445081a59` and `upstream/next`, the `.patch.disabled` and symlink sentences; § The rules read; § The take-up table of § 2 with each row's state | A, B |
+| Research notes | `.../01-research-notes.md` | § Scope: § 2's block with its sha256 prefix checked and its 99 lines at P1 and at the tip, both line figures with the unterminated file named, the tool's row, the nine directories' counts, the three plans' orders and totals, the header census, the byte-identity lines against `c445081a59` and `651150fc88`, the `.patch.disabled` and symlink sentences; § The rules read; § The take-up table of § 2 with each row's state | A, B |
 | Forward audit | `.../02-forward-audit.md` | Phase 2 over #688's checklist, in this order: **§ Provenance** (107 rows, the path in backticks as the first cell, § 5's columns; generated, asserted); **§ Coverage** (107 rows: path, lines, kind, reach, disposition; generated, asserted); **§ The ramoops patch** (the one line-by-line read, L-16, with its `#585` line's text); **§ The conf** (the four counts and the method column, L-19, L-29); **§ Upstream since the base** (the 12 additions, the 1 move, the 4 changes, the `rocknix-joypad` line, each *the integration carries*; generated by the `currency` mode); **§ The non-kernel five** (ruling (b)); **§ The #585 lines owed** (the ramoops patch's; the `=~` one-liner's; never sent); **§ The runs** (every § 5 run with exit, wall time, its figure and *a FAIL would mean ...*); **§ Proofs** with `proved:` cells; **§ What the coordinator, the integration and the next slices inherit** | B |
 | Retrospective | `.../03-retrospective.md` | Phase 3 with § 3.5's interaction audit for the seams: `unpack` x the inventory x the recipe's `case` x the device directories x upstream's merges x the two excluded confs; § 3.6 time to play: *nothing* | B |
 | Analysis | `.../04-analysis.md` | Phase 4, then § Finding Verification (4.5, in full), then **§ Renovation face** Q1 to Q7 (Q4 the currency table's dispositions summing to 107; Q3 the bug(s); Q5 struck in one sentence; Q7 the two rule lines named); § Second opinion reads *not applicable at Local depth (plan § 6c)* | B, C |
@@ -1523,11 +1550,11 @@ brief.
 - [ ] `02` carries a coverage table with exactly one row per path under its own `## Coverage` heading: ``awk '/^## Coverage/{p=1;next} /^## /{p=0} p' 02-forward-audit.md | /usr/bin/grep -c -E '^\| `'`` prints `107`, and the paths equal `.qa-scratch/t41/paths.txt`'s (`diff` of the sorted first cells against it is empty).
 - [ ] The applies-at-pin column is filled for every `.patch` row with its command's line: `02` § The runs quotes, per plan, the `tar` line (its `rc` and `not-in-archive` count), the `applies-<DEVICE>.txt` summary (`uniq -c` of the `rc=` values over `8`, `42` and `65` lines for GENERIC_X64, H700 and SM8550), and every non-`rc=0` line in full; a `fails` row is a `bug` or a `02` lead with its hunk quoted; the four U-Boot rows and the firmware row read their result by the same method or `open item` with the reason (ruling (g); `## Version 1` item 7).
 - [ ] `00` records the generator's FAIL-first before its tip run: the three mutated-copy runs each exiting non-zero with the assert's message quoted (one row dropped; one `reach` changed; one `From:` stripped), then the tip run's `stats` line (`rows 107 lines 40474`, `patch 106 conf 1`, the nine directory counts, `From: 87 Subject: 89`, the three order totals `8 42 65`, the dispositions summing to `107`) with *a FAIL would mean ...* beside each.
-- [ ] `02` § The ramoops patch quotes the patch's `:29-35` node and names D-SYS-004's three numbers against it (`0x4f000000` / `0x100000`, `0x80000`, `0x20000`), the six `CONFIG_` lines of `cbf75c0b06` in H700's `linux.aarch64.conf` with their line numbers, `not-in-upstream` and `0` ramoops-named files at `upstream/next`, the tarball grep's context lines at or near `:117` of `sun50i-h616.dtsi` with no `ramoops` node, and its `#585` line under `## The #585 lines owed` with the layer stated as § 4 question 2 (ruling (e); `/usr/bin/grep -c '#585' 02-forward-audit.md` is at least `2`: this line and the `=~` one-liner's).
-- [ ] `02` § The #585 lines owed carries the `=~` one-liner for `upstream/next:projects/ROCKNIX/packages/linux/package.mk:18` with the five-name test's `no-match` lines quoted (L-02), and the sentence *never sent* beside both lines (D-WORKFLOW-164, -165).
-- [ ] The unfixed `0010-msm-resource-cleanup.patch` is a § Provenance row disposed `upstream-changed` in both `7.0/` and `7.2/` and a `bug` filed with its trace (`9416eec2c2`'s message, the `--stat` of the two copies against `upstream/next`), its `Already written:` line, its VM line (ruling (h)) and a criterion naming the base merge (`git diff --stat <fixed-at> upstream/next -- <the two>` empty once it lands); the bug passes `tools/box-check --issue N` with 0 fail (ruling (c)).
-- [ ] `02` § The conf carries the four conf-diff counts each naming its side -- against H700's `linux.aarch64.conf`, against `linux-7.2/arch/arm64/configs/defconfig` (the `tar` extract line's `rc=0` quoted), against the recipe's forced or disabled symbols (the count of `forced.txt` and the per-symbol lines), against `upstream/next` (`7 7`) -- the header line `# Linux/arm64 7.2.0 Kernel Configuration`, `0` numstat lines against `c445081a59`, and the method column naming `kernel_config_path`'s candidates, the `oldconfig` step and the two writers never run (rulings (d), (j)).
-- [ ] `02` § Upstream since the base lists the 12 additions, the 1 move and the 4 changes under the shipped kernel directories as `git -C /workspace/repos/pixelelated/distribution diff --name-status c445081a59 upstream/next -- <the four directories>` prints them (`12 A`, `1 D`, `4 M`), each line disposed *the integration carries* (#563/#559 named, nothing applied), and the byte-identity summary against `upstream/next` reading `101 SAME`, `4 CHANGED`, `2 ABSENT` (or the lines that printed, as deltas).
+- [ ] `02` § The ramoops patch quotes the patch's `:29-35` node and names D-SYS-004's three numbers against it (`0x4f000000` / `0x100000`, `0x80000`, `0x20000`), the six `CONFIG_` lines of `cbf75c0b06` in H700's `linux.aarch64.conf` with their line numbers, `not-in-upstream` and `0` ramoops-named files at `651150fc88`, the tarball grep's context lines at or near `:117` of `sun50i-h616.dtsi` with no `ramoops` node, and its `#585` line under `## The #585 lines owed` with the layer stated as § 4 question 2 (ruling (e); `/usr/bin/grep -c '#585' 02-forward-audit.md` is at least `2`: this line and the `=~` one-liner's).
+- [ ] `02` § The #585 lines owed carries the `=~` one-liner for `651150fc88:projects/ROCKNIX/packages/linux/package.mk:18` with the five-name test's `no-match` lines quoted (L-02), and the sentence *never sent* beside both lines (D-WORKFLOW-164, -165).
+- [ ] The unfixed `0010-msm-resource-cleanup.patch` is a § Provenance row disposed `upstream-changed` in both `7.0/` and `7.2/` and a `bug` filed with its trace (`9416eec2c2`'s message, the `--stat` of the two copies against `651150fc88`), its `Already written:` line, its VM line (ruling (h)) and a criterion naming the base merge (`git diff --stat <fixed-at> upstream/next -- <the two>` empty once it lands); the bug passes `tools/box-check --issue N` with 0 fail (ruling (c)).
+- [ ] `02` § The conf carries the four conf-diff counts each naming its side -- against H700's `linux.aarch64.conf`, against `linux-7.2/arch/arm64/configs/defconfig` (the `tar` extract line's `rc=0` quoted), against the recipe's forced or disabled symbols (the count of `forced.txt` and the per-symbol lines), against `651150fc88` (`7 7`) -- the header line `# Linux/arm64 7.2.0 Kernel Configuration`, `0` numstat lines against `c445081a59`, and the method column naming `kernel_config_path`'s candidates, the `oldconfig` step and the two writers never run (rulings (d), (j)).
+- [ ] `02` § Upstream since the base lists the 12 additions, the 1 move and the 4 changes under the shipped kernel directories as `git -C /workspace/repos/pixelelated/distribution diff --name-status c445081a59 651150fc88 -- <the four directories>` prints them (`12 A`, `1 D`, `4 M`), each line disposed *the integration carries* (#563/#559 named, nothing applied), and the byte-identity summary against `651150fc88` reading `101 SAME`, `4 CHANGED`, `2 ABSENT` (or the lines that printed, as deltas).
 - [ ] `02` § The runs records, each as a command's own output line with its exit: the tool's `--order` row with `git status --short --ignored` counts before and after; the recipe's pin and patch-directory lines by number; the three devices' `options` lines; `unpack:127-159`; the nine directories' counts and the seven `absent` directories; the header census; the two byte-identity summaries; the fork's commit lines (`cbf75c0b06` the one non-merge on the 107; `dc948f59aa` and `3d7c075f63` on the recipes; ` 2 files changed, 5 insertions(+), 5 deletions(-)`); the churn count; the five `identical` lines; the symlink entries and their targets; the two tarball hash lines (`= its .sha256`) with the recipe's `PKG_SHA256` lines beside them; the checkers' lines (`rules-check`, `register-check`, `work-log-index --check`, `ceremony-check`, `box-check`, `.githooks/hooks-test`); the secret scan in the hooks' form (compile rc at most 1, the runtime-built positive `1`, then `0` files) and `tools/forbidden-terms-check --stdin` over `02` (`rc=0`) beside the planted positive through `FORBIDDEN_PATTERNS` (`rc=1`, its line quoted) -- a check without its positive is recorded as such.
 - [ ] Every lead of § 3 appears in `02` as a row, a `#585` line, a bug or an inherited item with its owner: ``/usr/bin/grep -o -w -E 'L-[0-9]{2}' 02-forward-audit.md | sort -u | /usr/bin/grep -c ''`` prints `31`; the § 1 rulings (a) to (p) each have their `02` row.
 - [ ] `04-analysis.md` § Renovation face Q4 carries the currency columns' counts by value (the generator's lines: target versions by kind, pins by plan, applies-at-pin by vocabulary, upstream status by value, backport status by value, dispositions summing to `107`); Q3 the bug(s) by number; Q5 the struck sentence; Q7 the two rule lines (`packaging-and-patches.md:91`, `CLAUDE.md:148-149`) named as the coordinator's erratum; and the two time-to-play numbers named as untouched.
@@ -1636,7 +1663,7 @@ fill and the pointer's `Register:` line are filled from the same `awk` at
 draft with the coordinator's rulings applied** (the five `non-kernel` rows,
 the two line figures, the branch cut from the tip, the applies-at-pin method):
 
-> | D-WORKFLOW-22x | `__DATE__` | **T41 (#688) owns the provenance table of `patches-shipped-kernel` -- the 107 paths of area `patches-and-configs` under `projects/ROCKNIX/devices/**`, `projects/ROCKNIX/packages/linux*/**` and `packages/linux*/**` with reach `shipped` or `test`, less the H700 and GENERIC_X64 `linux/*.conf` (40,474 lines by the inventory's column and by `grep -c ''` at `2174265e9c`, 40,473 by `wc -l`; 106 `.patch` and one `.conf`; 103 shipped, 4 test; all vendor-carried, one fork-written by `tier_note`; five of them not the kernel's: the four H700 U-Boot patches and the one `kernel-firmware` patch, tabled as `non-kernel` with T27's and T42's recipes named) -- and edits none of them.** The table carries, per row, the patch's target version, the kernel pin of each device that applies it (the recipe's `case` branch at the read hash: `7.2` for H700 and SM8550, `7.1.2` for GENERIC_X64), whether it applies at that pin by `patch --dry-run` against the files it touches extracted from the cached pinned tarball into the lane's scratch, in `scripts/unpack`'s order, or `open item`, its upstream status as the header claims it and as `upstream/next` `651150fc88` shows it, its backport status and the fork's reason; a row superseded at its pin is a lead to the kernel's owner (`device-generic-x64-and-kernel`), never a removal (D-WORKFLOW-209); a carried patch found wrong at the pin (the unfixed `0010-msm-resource-cleanup.patch`, fixed upstream by `9416eec2c2`) is a currency row and a `bug` naming upstream's fix, which reaches the fork with the next base merge, never as a fork edit; the fork-written H700 ramoops patch (`cbf75c0b06`, D-SYS-004) is read line by line and gets a `#585` line, not sent (D-WORKFLOW-164/165), its config half being T27's conf; the two excluded configurations are T27's and T11's. Local depth, `tier_exception` D-WORKFLOW-184, no reviewer, no guest, no build, no `scripts/unpack`, no `kconfig-*`, no network. The branch is cut from the coordinator's tip, which carries P1 (`2174265e9c`) since `6a12ce2d73`; no dispatch merge. | #688; #1054; #687; #1056; #585; #369; D-SYS-004; D-WORKFLOW-184; D-WORKFLOW-187; D-WORKFLOW-188; D-WORKFLOW-189; D-WORKFLOW-209 |
+> | D-WORKFLOW-22x | `__DATE__` | **T41 (#688) owns the provenance table of `patches-shipped-kernel` -- the 107 paths of area `patches-and-configs` under `projects/ROCKNIX/devices/**`, `projects/ROCKNIX/packages/linux*/**` and `packages/linux*/**` with reach `shipped` or `test`, less the H700 and GENERIC_X64 `linux/*.conf` (40,474 lines by the inventory's column and by `grep -c ''` at `2174265e9c`, 40,473 by `wc -l`; 106 `.patch` and one `.conf`; 103 shipped, 4 test; all vendor-carried, one fork-written by `tier_note`; five of them not the kernel's: the four H700 U-Boot patches and the one `kernel-firmware` patch, tabled as `non-kernel` with T27's and T42's recipes named) -- and edits none of them.** The table carries, per row, the patch's target version, the kernel pin of each device that applies it (the recipe's `case` branch at the read hash: `7.2` for H700 and SM8550, `7.1.2` for GENERIC_X64), whether it applies at that pin by `patch --dry-run` against the files it touches extracted from the cached pinned tarball into the lane's scratch, in `scripts/unpack`'s order, or `open item`, its upstream status as the header claims it and as `651150fc88` `651150fc88` shows it, its backport status and the fork's reason; a row superseded at its pin is a lead to the kernel's owner (`device-generic-x64-and-kernel`), never a removal (D-WORKFLOW-209); a carried patch found wrong at the pin (the unfixed `0010-msm-resource-cleanup.patch`, fixed upstream by `9416eec2c2`) is a currency row and a `bug` naming upstream's fix, which reaches the fork with the next base merge, never as a fork edit; the fork-written H700 ramoops patch (`cbf75c0b06`, D-SYS-004) is read line by line and gets a `#585` line, not sent (D-WORKFLOW-164/165), its config half being T27's conf; the two excluded configurations are T27's and T11's. Local depth, `tier_exception` D-WORKFLOW-184, no reviewer, no guest, no build, no `scripts/unpack`, no `kconfig-*`, no network. The branch is cut from the coordinator's tip, which carries P1 (`2174265e9c`) since `6a12ce2d73`; no dispatch merge. | #688; #1054; #687; #1056; #585; #369; D-SYS-004; D-WORKFLOW-184; D-WORKFLOW-187; D-WORKFLOW-188; D-WORKFLOW-189; D-WORKFLOW-209 |
 
 The pointer's `Register:` line is filled from the same `awk` at `__COHASH__`,
 never from here (§ 10).
@@ -1670,7 +1697,7 @@ brief: edits a `.conf` to "fix" a config the pin dropped; fetches a kernel
 tarball to test applies-at-pin; runs `git apply` against the generic
 `packages/linux` source, the wrong kernel; runs `tools/adjust_kernel_config`
 to read a config and rewrites the tree's conf; extracts a tarball into the
-worktree or `/tmp`; copies the fixed `0010` from `upstream/next` into `7.0/`;
+worktree or `/tmp`; copies the fixed `0010` from `651150fc88` into `7.0/`;
 types `0 fork-authored` from T40's brief; sorts the table under the host
 locale; writes one pin for all 107; counts fork-own by `tier`; calls the four
 U-Boot rows kernel patches; sends the ramoops patch upstream (R5 § C);
@@ -1765,7 +1792,7 @@ pointer and its log entries; **a FAIL on any `*.patch`, `*.conf`,
 commits**), `membership` (107 by § 2's block, its inputs at `2174265e9c`; the
 block's sha256 prefix `4d300124a6bf116f` as `brief_block 2` extracts it),
 `tree-counts` (107 / 40,474 / 40,473; 106 + 1; 103 / 4; the nine directories;
-the four `reachable_by` groups), `issue-body` (`reviewed-at:`/`fixed-at:`, the
+the seven `reachable_by` groups (4, 32, 56, 1, 4, 6, 4)), `issue-body` (`reviewed-at:`/`fixed-at:`, the
 `-es` pair absent), `bug-bodies`, `lint`, `review-plan-local`, `lint-proof`,
 `punch-list`, `ladder`, `audit-boxes`, `bug-boxes`, `scope-record`,
 `read-order` (the three plans' orders), `tables` (provenance `107`, coverage
@@ -1788,11 +1815,11 @@ before the section is trusted (R5 § E):
 | `pins-read` | `02` quotes the five `PKG_VERSION` lines of `projects/ROCKNIX/packages/linux/package.mk` at the tip and the two `PKG_PATCH_DIRS` lines, and every provenance row's *current pin* is one of `7.2`, `7.1.2`, `v2026.01`, `20260309` | a provenance copy with a pin not among the four |
 | `headers` | the header census line (`patches 106 with From: 87 with Subject: 89`) matches the generator's and every row without `Subject:` reads `hand-made` | a row with an empty origin cell |
 | `applies-record` | every row's *applies-at-pin* is one of the closed vocabulary, and each non-`open item` cell names its `applies-<DEVICE>.txt` line; the three plans' line counts are `8`, `42`, `65`; the count of `open item` is the record's own line | a cell reading `yes` |
-| `upstream-status` | the byte-identity loop's count at `upstream/next` equals the rows marked `upstream-changed` plus `upstream-moved` plus the fork-written one; every `claims mainline` cell quotes the header line it came from | a `claims mainline` row with no quoted line |
+| `upstream-status` | the byte-identity loop's count at `651150fc88` equals the rows marked `upstream-changed` plus `upstream-moved` plus the fork-written one; every `claims mainline` cell quotes the header line it came from | a `claims mainline` row with no quoted line |
 | `tarball-hashes` | the two `= its .sha256` lines quoted in `02` with the recipe's `PKG_SHA256` prefixes beside them | a hash line with a mismatching prefix |
-| `device-groups` | the four `reachable_by` groups' sizes in `01` § Scope sum to `107` and equal the block's | one size changed |
+| `device-groups` | the seven `reachable_by` groups (4, 32, 56, 1, 4, 6, 4)' sizes in `01` § Scope sum to `107` and equal the block's | one size changed |
 | `fork-written` | `02` has one `#585` line for the ramoops patch (`0950-arm64-dts-allwinner-h616-ramoops-reserved-memory.patch`) with its adding commit `cbf75c0b06`, one for the `=~` one-liner, and `04` § Q4 names both | a line removed |
-| `non-kernel` | the five rows of `KIND TOTAL K5` carry `non-kernel` in the kind column and T27's or T42's recipe in the disposition | one labelled `patch` |
+| `non-kernel` | the five rows of `KIND TOTAL K5` carry `non-kernel` in the kind column and T27's or T11's recipe in the disposition | one labelled `patch` |
 | `scratch-retired` | `00`'s census names `/workspace/tmp/m6-t41/src` retired at stage H and the hand-back's `ls -d /workspace/tmp/m6-t41/src` prints `No such file` | the directory present |
 
 Then `register-check` on a simulated merge with the coordinator's tip; the
@@ -1941,7 +1968,7 @@ with where the body carries the fact and its command, or **Open**).
    L-02, L-14): R1 C16 found none under the override's `patches/`; the
    whole-tree count is the runs block's `grep -c -F 'rocknix-joypad/'` line.
    Settles: that line, and `git -C <store> ls-tree -r --name-only
-   upstream/next | /usr/bin/grep -F 'rocknix-joypad'`.
+   651150fc88 | /usr/bin/grep -F 'rocknix-joypad'`.
 6. **The three symlink entries under the member roofs** (§ 2, L-23).
    **Settled** by `v1 read`: `git ls-tree -r 2174265e9c | awk
    '$1=="120000"{print $4}'` under the roofs prints
@@ -2033,7 +2060,7 @@ with where the body carries the fact and its command, or **Open**).
 **Where the research files disagree, and how this brief takes each:**
 
 1. **R4 item 8's diff direction.** R4's first sentence read `git diff
-   --name-status upstream/next 2174265e9c` as *"upstream deleted six of the
+   --name-status 651150fc88 2174265e9c` as *"upstream deleted six of the
    fork tip's `patches/7.2/`"*; R4 § 6 item 2 corrects it: the six `7.2/`
    patches and the `7.2.6/` four **exist at `upstream/next` and not at P1**
    (upstream added them), and the polldev patch exists at P1 and not upstream.
@@ -2091,7 +2118,7 @@ command's own line, `LC_ALL=C`, counts by `/usr/bin/grep`):
 - The leads (`/usr/bin/grep -o -w -E 'L-[0-9]{2}' | sort -u | /usr/bin/grep -c ''`): `31` distinct IDs, L-01 to L-31; § 3's table carries `31` rows in its shape (`/usr/bin/grep -c -E '^\| \*\*L-[0-9]+\*\* \|'`).
 - § 7's checkboxes (`awk '/^## 7\. /{p=1;next} /^## /{p=0} p' | /usr/bin/grep -c '^- \[ \]'`): `28`; `tools/box-check`'s own predicate -- its `PERSON`, `DEVICE` and `FACT` patterns read from its source at the tip and applied as its `:92-93` apply them over § 7's lines (the tracker not read): `boxes 28 fail 0`.
 - The open marks (`/usr/bin/grep -c -i unverified`): `23` lines, the two sentences that define the mark among them.
-- Unfilled-placeholder shapes (`/usr/bin/grep -o -E '__[A-Z0-9_]+__' | sort | uniq -c`): the six dispatch placeholders only, on `42` lines -- the coordinator's tip `31`, the date `2`, the host file's line count `5`, the register IDs `1`, the lane's tip `2`, the brief's version-2 hash `7`; no merge-hash form (ruling (a)); the time placeholder unused.
+- Unfilled-placeholder shapes (`/usr/bin/grep -o -E '__[A-Z0-9_]+__' | sort | uniq -c`): the six dispatch placeholders only, `48` occurrences on `42` lines -- the coordinator's tip `31` (on `29` lines, proof K109), the date `2`, the host file's line count `5`, the register IDs `1`, the lane's tip `2`, the brief's version-2 hash `7`; no merge-hash form (ruling (a)); the time placeholder unused.
 - § 2's block, extracted by `brief_block 2` (`kit/t36-accept.sh`'s awk: the first bash block of `## 2.`) and by its markers alike: `148` lines, `11779` bytes, sha256 prefix `4d300124a6bf116f`, `cmp` equal to R1's `block.sh`; the expected segment between its markers `99` lines, `cmp` equal to R1 C07's output as R1 § 6 carries it (the marked segment's sha256 prefix `731a6ae863318656`); `bash -n` over the file's `4` bash blocks: rc `0` each.
 - The hooks' credential regex, built as `.githooks/guard-lib` builds it (`SECRET_PATTERNS=''`, `.githooks/secret-patterns` sourced from `git show HEAD:` into a scratch file, `grep -E -e`, never `-f`, never `guard_load`): compile rc `1`, the runtime-built private-key header matched `1`, the file matched `0`. The coordinator's probe `/usr/bin/grep -c -i -E '(token|key|pass|psk)[= ]+[^ ]'` prints `21`: every hit is R1's deliberately spaced `key = lambda` (the block's own convention) or the English word *pass* / `PASS`; none carries a value.
 - `tools/forbidden-terms-check --stdin < <this file>` from the coordinator's worktree: `forbidden-terms-check: 0 hits on stdin`, rc `0`; the planted positive through `FORBIDDEN_PATTERNS`: `forbidden-terms-check: 1 line(s) on stdin carry a listed word`, rc `1` (the list itself never read).
@@ -2100,3 +2127,67 @@ command's own line, `LC_ALL=C`, counts by `/usr/bin/grep`):
 - Research citations: `R1 C<nn>` `15` distinct, `R2 L-<nn>` `15` distinct (R2's numbering, never this brief's), `v1 read` on `58` lines.
 
 Version 1, 2026-11-01T06:36:12Z, written from the five research files and the coordinator's rulings for the coordinator's dispatch; the stranger's proof of it makes version 2
+
+## Version 2: corrections from the proof
+
+The stranger's proof of version 1 (`/workspace/tmp/m6-coordinator/kit/t41-proof.md`,
+in no tree, 331 lines, 17 of its 18 commands) read the brief at `7d70da5972`
+by hash and closed on its own totals line `checks 112; PASS 93; MISMATCH 7;
+SETTLED 8; NOTE 4; corrections 7` (its C15). Each correction is applied in
+the body at the line the proof names, under the coordinator's rulings
+(D-WORKFLOW-189); the line is version 1's at `7d70da5972`.
+
+| X | Version 1 line(s) | Old words | New words | The proof's command |
+| --- | --- | --- | --- | --- |
+| **X01** | `:1234`, ruling (f) `:291-293`, the runs `:1312`, `:1315-1323`, `:1339-1341`, `:1347-1348`, `:1355`; the leads L-01, L-02, L-14, L-19, L-20, L-22; § 7 `:1527-1530`; § 10 `:1791`; open items 5, 11 and disagreement 1 | `upstream/next` in every command and expectation | `651150fc88` -- the commit the expectations were read at; the local ref moves (`50433c03cc` on 2026-11-02, 59 commits on) and stage A records its value as information only; ruling (f) says so. The two forward-looking criteria (the `0010` bug's *"empty once the base merge lands"*, `:1492`, `:1528`) keep the ref, which is what they mean | C7, C12: `upstream/next now: 50433c03cc 2026-11-01 Merge pull request #3580 ...`; `commits between: 59`; pinned at `651150fc88` every expected line reproduces (K94, K95) |
+| **X02** | `:1425`, `:1767-1768`, `:1793` | *"the four `reachable_by` groups"* | *"the seven `reachable_by` groups (4, 32, 56, 1, 4, 6, 4)"* | C2: the block's own `reachable_by:` line, seven keys, sum 107 (K15) |
+| **X03** | `:1089` (L-22) | the `--name-status` over three directories expecting `12 A, 1 D, 4 M` | the fourth directory `projects/ROCKNIX/devices/SM8550/linux` added, as § 5's `KD` (`:1314`) has it | C7: `KD3 (L-22): 12 A; 1 D; 3 M;`; the fourth `M` is SM8550's `linux.aarch64.conf` (K76) |
+| **X04** | `:79-80` | #688's body *"sha256 prefix `2a5a2d8d6ea5be43`"* | the command named and its print, `5f82f7ac42f4345d` | C10: `gh --repo pixelelated/distribution issue view 688 --json title,body,state`, the body hashed with and without a final newline: `5f82f7ac42f4345d` both times (K23) |
+| **X05** | `:1068` (L-01) | `7.2/0010:12` hunk | `7.2/0010:15` hunk | C8, C12: `:12` is the `index` line; `15:@@ -1442,6 +1442,7 @@` (K60) |
+| **X06** | `:173-174` | *"moved by `fe5216ff69` 2026-09-16"* | authored 2026-09-16, committed 2026-10-09, its subject quoted | C7, C10: `fe5216ff69 author 2026-09-16 commit 2026-10-09 rocknix-joypad: update version` (K69) |
+| **X07** | `:2094` | *"on `42` lines -- the coordinator's tip `31`"* | `48` occurrences on `42` lines, the coordinator's tip `31` on `29` lines | C11: `placeholder lines 42 occ 48`; `COHASH lines 29` (K109) |
+
+**The coordinator's two rulings version 1 left open:**
+
+- **The firmware recipe's owner is T11, not T42** (ruling (b), the
+  responsibility sentence of § 1, `non-kernel`'s acceptance section;
+  version 1's disagreement 4). The inventory row for
+  `projects/ROCKNIX/packages/linux-firmware/kernel-firmware/package.mk` reads
+  area `devices`, reach `shipped`; the first `devices` slice whose select
+  takes it is T11's (`projects/ROCKNIX/packages/**`, reach shipped/test/n/a);
+  T42's `rest` holds only `patches-and-configs` paths. R1 § 8 delta 4 and R4
+  were right; version 1's T42 was the coordinator's error. The U-Boot
+  recipes are T27's, as version 1 said (`device-h700`, by its
+  `projects/ROCKNIX/devices/H700/**`).
+- **The non-kernel five's applies-at-pin is by the same method** (open item
+  7): ruling (g) now names the cached U-Boot and firmware tarballs and their
+  top directories; the five cells carry their own `applies-<recipe>.txt`
+  lines, never `open item` for want of a method.
+
+**The open items the proof settled** (each its K-id; the body is unchanged
+where version 1 already carried the fact): **1** -- at `7d70da5972` the 107
+and the three JSONs equal P1's, so the tip re-run meets the P1 lines (K20);
+**4** -- the lint's Local proof on T4's folder printed `PASS` (rc 0) and its
+`tier_exception`-removed copy FAILed (rc 1) (K93); **5** and **22** -- the
+whole-tree `rocknix-joypad` count is `1` at both upstream refs, and
+`fe5216ff69` names the driver's recipe, not a patches directory (K97); **8**
+in part -- (a) `2609`, (c) `17` forced symbols, (d) upstream's header line
+`# Linux/arm64 7.2.0 Kernel Configuration`; (b) needs the tarball's
+defconfig and stays the lane's (K98); **9** and **23** -- `CONFIG_DRM_MSM=y`
+in SM8550's conf only, `0` in H700's and GENERIC_X64's (K80); **10** -- no
+polldev consumer under H700's patches or the joypad driver at P1 (K70);
+**11**'s `--stat` half -- both `0010` copies ` 2 files changed, 28
+insertions(+), 22 deletions(-)` against `651150fc88` and today's ref (K96);
+**16** -- D-WORKFLOW-221 is still free at the coordinator's tip (K91), and
+is written at dispatch unless another row lands first. **Open**, as version 1
+left them: 2, 3, 6's re-statement, 7's results (now by method), 8 (b), 11's
+dry-runs, 12 to 15, 17 to 21, 24 and 25 -- each the lane's at its stage or
+the dispatch's fill.
+
+**What the proof could not check** (its own section) stays the lane's to
+read at its stage: the research files' attributions, the issues outside
+#688/#1054/#687, the other slices' tips, everything inside the tarballs (the
+applies-at-pin dry-runs, L-06's and L-16's greps, the defconfig count), and
+the checkers it was not allowed to run.
+
+Version 2, 2026-11-02, the coordinator's, from the stranger's proof of version 1 and two rulings; the dispatch comment names its hash
