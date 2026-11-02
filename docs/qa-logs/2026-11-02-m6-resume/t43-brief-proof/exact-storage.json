@@ -1,0 +1,10 @@
+{
+  "reason": "Known public SM6115 patch path triggers normal lexical guard. The same single-hyphen JSON escaping as the historical manifest preserves exact decoded receipt bytes. No source/producer change or hook bypass.",
+  "jsonl_original_sha256": "278c3d94a5dabd09728160811d16bc449cf4ff705265d9207156c2fa1ab7796d",
+  "jsonl_stored_sha256": "c154da08e80b6e09bd8c719c16d25cf69f7016eb8f852d8e85977c4e60262146",
+  "jsonl_occurrences_encoded": 9,
+  "coordinator_commands_original_sha256": "0c495112d357a28d45dca68948201e93459a7cfd8ab91a19bd22ac822ee7e85d",
+  "coordinator_commands_stored": "coordinator-read-commands.exact.json",
+  "coordinator_commands_occurrences_encoded": 2,
+  "restore_jsonl": "Parse each stored line and serialize with json.dumps(ensure_ascii=True), default separators, then newline; every nested utf8 hash also verifies."
+}

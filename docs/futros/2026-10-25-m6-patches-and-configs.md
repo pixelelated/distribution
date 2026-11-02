@@ -258,3 +258,36 @@ fixtures before the positive source run. The proof is retained under
 `docs/qa-logs/2026-11-02-m6-resume/t42-brief-proof/`; it is handoff feasibility,
 not audit/application acceptance. The area criterion is corrected in #1054
 without recutting membership.
+
+
+## T43 kickoff addendum — 2026-11-02
+
+Refs #690, #1054, D-WORKFLOW-231. T43 finishes this area's four source
+tables:432 vendor-carried paths/328,516 logical lines,346 Linux patches,
+12 configs and74 other patches; zero fork-written members. T1 owns the
+source-only Local audit in its newly dispatched tree, A–D continuously,
+then root disposition. The31 direct recipes retain their existing owners.
+
+**Assumptions exposed:** unshipped is a path classification, not non-use;
+T42's shipped MangoHud link shares a T43 referent. Two link blobs differ
+from referent content;28 consumer combinations overlap; config headers and
+static writers do not establish built configuration. No whole-body review
+of328,516 vendor lines is claimed. No class removal or shipping expansion.
+
+**Known unknowns:** exact cached inputs, feature/architecture selection,
+pre-patch transformations, absorbed hunks and runtime effects. A missing
+input remains a specific owner action; neither fetching nor recipe execution
+is granted. Application success alone cannot settle intended behavior.
+
+**Failure simulation and controls:** a source wrapper pin is mistaken for
+its real loader, a module patch is assigned to the kernel source, RK3588's
+reset selector is ignored, or shared bytes migrate ownership. The helper
+binds selectors, members, links and31recipes; the stranger proof's49negative
+controls reject drift, including every recipe. The execution generator's
+four exact-input controls and any new source runner remain lane obligations.
+
+**Erratum from v1 proof:** stored members.tsv is83,282bytes/SHA256d89d6fe6;
+decoding exactly one literal path escape gives83,277bytes/SHA256ccbbe154.
+The brief now names both identities and comparison normalization. Historical
+manifest/source bytes remain unchanged. Root's independent immutable reader
+matches the proof. No audit or source-application producer was replayed.

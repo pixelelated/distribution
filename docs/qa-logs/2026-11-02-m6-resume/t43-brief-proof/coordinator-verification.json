@@ -1,0 +1,14 @@
+{
+  "observed_at": "2026-11-02T21:32:17.806664+00:00",
+  "result": "PASS independent immutable metadata reproduction; exact stored/decoded manifest correction verified",
+  "files": 196,
+  "packet_sha256": "278c3d94a5dabd09728160811d16bc449cf4ff705265d9207156c2fa1ab7796d",
+  "packet_bytes": 1861095,
+  "source_manifest_sha256": "d8c64f693583a19a48041feca6861bc4cbdc73f0fc5e7e051f0b6ffa5c5f8299",
+  "reconciliation_sha256": "f42d6e4d43949d207b48adf559817ad04cfc48ce53081ef2b40d879d04e29790",
+  "stdout_sha256": "48d0e008a07c10b3a68bfde62307bec16c0fd623226de5d19dff50bdc24cf9c6",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "rc": 0,
+  "no_refusal_replay": true,
+  "initial_retention_refusal": "Strict relative-only path guard stopped on ten explicitly named external text/JSON helper outputs; no data hash failure. Narrow absolute-path allowlist added for those ten outputs."
+}

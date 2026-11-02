@@ -1,0 +1,5 @@
+Observed first reconciliation attempt, before any manifest decoding:
+reconcile.py line 15 asserted the brief's claimed hash against immutable committed members.tsv bytes; AssertionError, process rc=1.
+Observed second attempt, after binding the actual committed hash:
+reconcile.py line 20 compared raw TSV path keys to helper keys; AssertionError, process rc=1.
+The retained JSON discrepancy records derive the cause independently: exactly one literal backslash-u002d path escape. No line-ending difference. The final reader binds both hashes and exactly one escape before decoding it, then reconciles all 432 rows and fields. These are harness observations of failed reader assertions, not fabricated producer receipts or claims of a source failure.
