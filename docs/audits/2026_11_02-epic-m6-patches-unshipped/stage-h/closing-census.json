@@ -1,0 +1,72 @@
+{
+  "at": "2026-11-02T23:25:22.735364+00:00",
+  "committed_plan_at": "fb97dd53bd8e936ff7402888c70fb6bc25f7180d",
+  "plan_sha256": "9f006406f7e3ab4668418ddc31a72cd0d808161cf1a15748e419b254b5871590",
+  "retired": 881,
+  "retained": 8,
+  "partial": 0,
+  "retired_absence_confirmed": true,
+  "retained_roots": {
+    "/workspace/tmp/m6-t43/G029-002-candidate-fgmacmf7": {
+      "status": "retained",
+      "reason": "symlink or special-file substitution",
+      "evidence": "stage-b/application-overlay/G029.json",
+      "producer": "stage-b/application-overlay-run.json"
+    },
+    "/workspace/tmp/m6-t43/G029-003-candidate-b53jjc_q": {
+      "status": "retained",
+      "reason": "symlink or special-file substitution",
+      "evidence": "stage-b/application-overlay/G029.json",
+      "producer": "stage-b/application-overlay-run.json"
+    },
+    "/workspace/tmp/m6-t43/G030-002-candidate-u5a65a8u": {
+      "status": "retained",
+      "reason": "symlink or special-file substitution",
+      "evidence": "stage-b/application-overlay/G030.json",
+      "producer": "stage-b/application-overlay-run.json"
+    },
+    "/workspace/tmp/m6-t43/G030-003-candidate-hjfx_ay_": {
+      "status": "retained",
+      "reason": "symlink or special-file substitution",
+      "evidence": "stage-b/application-overlay/G030.json",
+      "producer": "stage-b/application-overlay-run.json"
+    },
+    "/workspace/tmp/m6-t43/G031-003-candidate-r8btd6bw": {
+      "status": "retained",
+      "reason": "symlink or special-file substitution",
+      "evidence": "stage-b/application-overlay/G031.json",
+      "producer": "stage-b/application-overlay-run.json"
+    },
+    "/workspace/tmp/m6-t43/G031-002-candidate-4qkix3ox": {
+      "status": "retained",
+      "reason": "symlink or special-file substitution",
+      "evidence": "stage-b/application-overlay/G031.json",
+      "producer": "stage-b/application-overlay-run.json"
+    },
+    "/workspace/tmp/m6-t43/G032-003-candidate-vv3mfixq": {
+      "status": "retained",
+      "reason": "symlink or special-file substitution",
+      "evidence": "stage-b/application-overlay/G032.json",
+      "producer": "stage-b/application-overlay-run.json"
+    },
+    "/workspace/tmp/m6-t43/G032-002-candidate-lac0z4sq": {
+      "status": "retained",
+      "reason": "symlink or special-file substitution",
+      "evidence": "stage-b/application-overlay/G032.json",
+      "producer": "stage-b/application-overlay-run.json"
+    }
+  },
+  "four_empty_prefixes_nonrecursive_removed": [
+    "/workspace/tmp/m6-t43/G029-prefix-42enpova",
+    "/workspace/tmp/m6-t43/G030-prefix-2ggn9ugi",
+    "/workspace/tmp/m6-t43/G031-prefix-hwtjss09",
+    "/workspace/tmp/m6-t43/G032-prefix-tcxi8jlr"
+  ],
+  "cache_metadata_equal": true,
+  "cache_content_evidence": "D retains21 original before/after content-hash pairs; H made fresh metadata comparisons only, no new archive content hash.",
+  "durable_publication_roots_preserved": true,
+  "execution_scope": "Lane record tools, finite new metadata controls and guarded own scratch retirement only. No accepted producer/source application, extraction, fetch, recipe/config, compiler/VM/runtime allocation, host-ledger/provider/device/cloud action, held read or permission answer. CPUs8\u201323.",
+  "process_limit": "Original all-same-UID attempt could not read /proc/2389/cwd. Its owner/references remain unknown; this module does not inspect it or claim it unrelated. No all-same-UID/global no-reference assertion is available.",
+  "global_no_reference_assertion": false,
+  "remaining_action": "Root final integration/acceptance; any later handling of the8 retained symlink-bearing roots needs its own qualified scope."
+}
