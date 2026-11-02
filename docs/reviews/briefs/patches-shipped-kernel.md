@@ -2316,3 +2316,14 @@ and synthetic-fixture verification only in that candidate; no real final
 acceptance run before the lane's completed hand-back. The coordinator alone
 installs, runs, reads and accepts the final runner. Its verdict/summary/exit
 contract and fail-closed behavior from § 10 remain unchanged.
+
+
+## Stage-D disposition — 2026-11-02T19:04:29Z (D-WORKFLOW-227)
+
+The coordinator’s exact records-only E–H disposition is retained in
+`docs/qa-logs/2026-11-02-m6-resume/t41-stage-d-disposition.md`. It defers
+PL-001 to open integration bug #1408, preserves the T11 duplicate-storage
+question for integration, and applies settled D-SYS-004 to the unsent ramoops
+draft. The live #688 disposition comment releases execution; this document
+does not claim final acceptance or a source fix. D-WORKFLOW-226 remains the
+final-check contract.
