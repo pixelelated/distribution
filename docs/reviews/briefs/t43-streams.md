@@ -55,3 +55,11 @@ No coordinator merge into this lane; root will simulate exact-tip integration se
 ## Continuous execution and limits
 
 On the explicit live dispatch, proceed S1/E through H continuously. Report a substantive result or a concrete blocker; successful intermediate stages are not approval gates. Use actual observed identity and preserve historical provenance. All commands/children CPUs8–23. No source edits, fetch, archive extraction, config sourcing, source/application replay, compiler/VM/runtime, host-ledger write, physical/cloud/provider/reviewer action or another agent's permission response. The original proved v2 and fresh independent D readback supply the unchanged source/membership boundary; this addendum adds only the specified record outcome and new reader controls. Independent T44 source reading may proceed alongside under D-WORKFLOW-190.
+
+## Erratum — 02 placement, 2026-11-02
+
+T43 stream placement clarification to6590563116: your preservation-compatible placement is correct. Keep 02-forward-audit.md byte-identical to D676115 (stored SHA2567500dde4d45de7cac02a0359b0f6171c4c6fea8b1d1045559971d024ea418869), together with all19 transport artifacts. Put its new outcome/streams addendum at stage-e/02-outcome-addendum.md and link it from README and the editable04/05/06 summaries. That addendum plus the preserved02 is the final forward-audit record; no requirement to append inside02 remains.
+
+This corrects the stream brief's conflicting narrative-update list, without changing a source, outcome, criterion or historical receipt. All other S1/F/G/H instructions continue. Root will append this erratum to t43-streams.md and assess the addendum with the unchanged02. Continue without waiting for another approval; record this comment as authority, since the lane does not merge the coordinator register.
+
+Authority: #690 comment6590591845, exact readback retained.
