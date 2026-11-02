@@ -1,0 +1,229 @@
+{
+  "result": "PASS",
+  "start": "2026-11-02T19:22:29.735223+00:00",
+  "end": "2026-11-02T19:22:45.220894+00:00",
+  "script_sha256": "4dbb85335f0cab2dec68266eb2c608ea72c96b5ad00170256a5196744c8d0865",
+  "scope": "New final records and live issue checks; immutable accepted-byte reconciliation only, no accepted producer replay",
+  "structural": {
+    "accepted_files_unchanged": 812,
+    "source_paths_unchanged": 107,
+    "lead_rows": 31,
+    "rulings": 16,
+    "proofs": 12,
+    "punch_outcome": "Deferred",
+    "audit_checked": 1,
+    "audit_state": "open",
+    "bug_unchecked": 2,
+    "bug_state": "open",
+    "source_diff": "empty"
+  },
+  "checks": [
+    {
+      "name": "audit-api",
+      "argv": [
+        "gh",
+        "api",
+        "repos/pixelelated/distribution/issues/1409"
+      ],
+      "start": "2026-11-02T19:22:29.735239+00:00",
+      "elapsed_seconds": 0.554,
+      "rc": 0,
+      "output": "checkers/audit-api.out",
+      "sha256": "842b523baf935190dcb5a748cd3b545de9bfd8fd7dd14c02f245c33ff8a863cc"
+    },
+    {
+      "name": "bug-api",
+      "argv": [
+        "gh",
+        "api",
+        "repos/pixelelated/distribution/issues/1408"
+      ],
+      "start": "2026-11-02T19:22:30.289743+00:00",
+      "elapsed_seconds": 0.437,
+      "rc": 0,
+      "output": "checkers/bug-api.out",
+      "sha256": "520a644e6e3ac809b72ff1f107c42aa424de1aff5e9d3cafca1bdabdf3c021d0"
+    },
+    {
+      "name": "audit-parent",
+      "argv": [
+        "gh",
+        "api",
+        "repos/pixelelated/distribution/issues/1409/parent"
+      ],
+      "start": "2026-11-02T19:22:30.727192+00:00",
+      "elapsed_seconds": 0.58,
+      "rc": 0,
+      "output": "checkers/audit-parent.out",
+      "sha256": "fb3cc0d6f65fe3989b5888e9aa49e1a0882d426eb909c9170b688ba4439d2094"
+    },
+    {
+      "name": "lint-resolution",
+      "argv": [
+        "tools/lint-audit-artifacts",
+        "docs/audits/2026_11_02-epic-m6-patches-shipped-kernel"
+      ],
+      "start": "2026-11-02T19:22:32.794306+00:00",
+      "elapsed_seconds": 0.042,
+      "rc": 0,
+      "output": "checkers/lint-resolution.out",
+      "sha256": "23577f4c5fc220793ff515b3d239d2cb0e964524771636add58909194f6acfbd"
+    },
+    {
+      "name": "lint-resolution-issue",
+      "argv": [
+        "tools/lint-audit-artifacts",
+        "docs/audits/2026_11_02-epic-m6-patches-shipped-kernel",
+        "--issue",
+        "1409"
+      ],
+      "start": "2026-11-02T19:22:32.836526+00:00",
+      "elapsed_seconds": 0.462,
+      "rc": 0,
+      "output": "checkers/lint-resolution-issue.out",
+      "sha256": "7e7959b1b40b809c95ed856293f2437a016b42914c90c6704c78541938355f58"
+    },
+    {
+      "name": "audit-box",
+      "argv": [
+        "tools/box-check",
+        "--issue",
+        "1409"
+      ],
+      "start": "2026-11-02T19:22:33.299096+00:00",
+      "elapsed_seconds": 0.486,
+      "rc": 0,
+      "output": "checkers/audit-box.out",
+      "sha256": "7ae8534fd7d26020a8b0e7221cf3313b595e275a0fea6a8adb4568b7e135a317"
+    },
+    {
+      "name": "bug-box",
+      "argv": [
+        "tools/box-check",
+        "--issue",
+        "1408"
+      ],
+      "start": "2026-11-02T19:22:33.784775+00:00",
+      "elapsed_seconds": 0.527,
+      "rc": 0,
+      "output": "checkers/bug-box.out",
+      "sha256": "d797c6ed72f8bc4c25092fa98f307b7cd8905d604927ff4659c05ad01d874bce"
+    },
+    {
+      "name": "lane-box",
+      "argv": [
+        "tools/box-check",
+        "--issue",
+        "688"
+      ],
+      "start": "2026-11-02T19:22:34.311530+00:00",
+      "elapsed_seconds": 0.457,
+      "rc": 0,
+      "output": "checkers/lane-box.out",
+      "sha256": "d1242aa24e224101f417e56ea2aa23b23cc0860d69421d520295a7903754e355"
+    },
+    {
+      "name": "rules",
+      "argv": [
+        "tools/rules-check",
+        "--quiet"
+      ],
+      "start": "2026-11-02T19:22:34.769187+00:00",
+      "elapsed_seconds": 0.024,
+      "rc": 0,
+      "output": "checkers/rules.out",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "register",
+      "argv": [
+        "tools/register-check"
+      ],
+      "start": "2026-11-02T19:22:34.793063+00:00",
+      "elapsed_seconds": 1.236,
+      "rc": 0,
+      "output": "checkers/register.out",
+      "sha256": "28031585dc3847e47fe4fb4e7257532763929f76143fb5451ebb4087efb759e6"
+    },
+    {
+      "name": "index",
+      "argv": [
+        "tools/work-log-index",
+        "--check"
+      ],
+      "start": "2026-11-02T19:22:36.033079+00:00",
+      "elapsed_seconds": 0.021,
+      "rc": 0,
+      "output": "checkers/index.out",
+      "sha256": "232b345c76ad64a47de4d43e62d9aeb4f2850472cde78ddd1b1e56d72103d927"
+    },
+    {
+      "name": "ceremony",
+      "argv": [
+        "tools/ceremony-check",
+        "--gate"
+      ],
+      "start": "2026-11-02T19:22:36.054469+00:00",
+      "elapsed_seconds": 8.98,
+      "rc": 0,
+      "output": "checkers/ceremony.out",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "generator-syntax",
+      "argv": [
+        "python3",
+        "-I",
+        "-X",
+        "pycache_prefix=/workspace/tmp/m6-t41/tmp/pycache-final",
+        "-m",
+        "py_compile",
+        "docs/audits/2026_11_02-epic-m6-patches-shipped-kernel/tools/t41-tables.py"
+      ],
+      "start": "2026-11-02T19:22:45.034294+00:00",
+      "elapsed_seconds": 0.136,
+      "rc": 0,
+      "output": "checkers/generator-syntax.out",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "whitespace",
+      "argv": [
+        "git",
+        "diff",
+        "--check",
+        "c9fe606e8d7e7e0f6c70cc686764d1503029d278"
+      ],
+      "start": "2026-11-02T19:22:45.170516+00:00",
+      "elapsed_seconds": 0.04,
+      "rc": 0,
+      "output": "checkers/whitespace.out",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "forbidden-new-records",
+      "argv": [
+        "tools/forbidden-terms-check",
+        "--stdin"
+      ],
+      "start": "2026-11-02T19:22:45.211133+00:00",
+      "elapsed_seconds": 0.006,
+      "rc": 0,
+      "output": "checkers/forbidden-new-records.out",
+      "sha256": "ae7d101f07c8c55bfd82db597d8d383d0f9c1102459a98a228136f4248a15379"
+    },
+    {
+      "name": "secret-new-records",
+      "argv": [
+        "bash",
+        "-c",
+        ". .githooks/secret-patterns; grep -a -c -E -e \"${SECRET_PATTERNS}\""
+      ],
+      "start": "2026-11-02T19:22:45.217060+00:00",
+      "elapsed_seconds": 0.004,
+      "rc": 1,
+      "output": "checkers/secret-new-records.out",
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+    }
+  ]
+}

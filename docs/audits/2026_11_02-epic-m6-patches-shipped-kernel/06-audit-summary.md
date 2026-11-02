@@ -1,4 +1,18 @@
-# Audit summary — T41 Stage D (#688)
+# Audit summary — T41 records-only E–H (#688)
+
+## E disposition — 2026-11-02 19:20:06 UTC
+
+Authority: [comment 6585897242](https://github.com/pixelelated/distribution/issues/688#issuecomment-6585897242), D-WORKFLOW-227 at 82cb787674b6132669efa6bd7d38168797e7c1f7.
+
+- PL-001: Deferred to open High bug #1408, owner base integration #563/#559, by https://github.com/pixelelated/distribution/issues/688#issuecomment-6585897242. Upstream 9416eec2c200ad969d9e421e686fc7cbfdaca36a corrects both copies; D-WORKFLOW-209 prohibits a product edit here. The bug is unfixed and not waived; both source-fix criteria remain unchecked. Integration chooses and records its exact intake and evidence under its own scope.
+- Question 1 (6585346506): leave the three equal pairs unchanged in T41. The future choice between two files and one file plus symlink remains T11/#658's at the next integration review, with #1408/#563 as the concrete handoff. Prefer the selected upstream layout unless the series require divergent content; any departure needs a carrying reason and equality/divergence guard. This is no global storage-policy selection.
+- Question 2 (6585347732): D-SYS-004 confirms ROCKNIX's distribution layer for the ramoops draft. No reversal, mainline submission or new physical-retention claim. Both #585 contribution lines remain drafts, never sent.
+
+All 31 lead owners remain in 02, including firmware T11 and separate T42/T43 populations. No source edit, runtime, external review, permission answer or other-owner change. Continue E–H without another stage relay. D226 preserves accepted executions; only new final records and gates are checked. The coordinator alone performs final simulated integration, acceptance and audit closure.
+
+## Historical accepted Stage-D summary
+
+The following D assessment is history; its Open outcome and stop were superseded above. New final checks are recorded separately under stage-f and stage-h.
 
 **Stage-D filing complete; no resolution acceptance.** Audit [#1409](https://github.com/pixelelated/distribution/issues/1409), an M6: Codebase renovation sub-issue of #688, carries one unchecked High item, PL-001. Reactive bug [#1408](https://github.com/pixelelated/distribution/issues/1408) has only the bug label, no milestone and no parent. Both remain open. The coordinator owns stream disposition and final closure; no Stage E is authorized by this packet.
 
@@ -46,3 +60,7 @@ Recorded 2026-11-02 18:50:01 UTC.
 ## Completed filing checks — 2026-11-02 18:54:45 UTC
 
 Final validation ran 2026-11-02T18:53:26.653095+00:00 through 2026-11-02T18:53:40.680589+00:00, result PASS. All 775 accepted receipt/tool/plan files and 107 source paths are unchanged. Current audit box-check, pre-issue lint with --issue1409, rules/register/index/ceremony and full-checkpoint whitespace checks all returned0; new-record forbidden scan0hits, secret grep rc1/0matches. Accepted positive controls remain quoted from B without replay. The script hash, commands, output hashes and producer times are in stage-d/validation.json. PL-001 remains Open; no resolution gate or later stage is certified.
+
+## Stage F 2026-11-02 19:23:25 UTC — final outcome and current-record gates
+
+New checks ran 2026-11-02T19:22:29.735223+00:00 through 2026-11-02T19:22:45.220894+00:00. stage-f/validation.json retains argv, literal output hashes, exits and actual times. Default resolution lint and --issue 1409 PASS/rc0; audit/bug/lane box-check each rc0; rules/register/index/ceremony/syntax/whitespace each rc0; forbidden scan rc0, secret grep rc1 with 0 matches. 812 accepted A–D receipt/tool/plan files and 107 source paths unchanged; 31 lead rows, 16 rulings, 12 proofs. Only the audit deferral criterion is ticked after exact unchecked readback and box-check rc0; #1409 remains open and #1408 retains two unchecked fix criteria. Original D issue bodies and 37 D receipt files remain immutable. No accepted producer, generator positive/negative, application, hygiene control or hooks-test replay. The syntax-only check writes bytecode under owned scratch. G retro and H closing records remain; coordinator alone simulates integration and accepts.
