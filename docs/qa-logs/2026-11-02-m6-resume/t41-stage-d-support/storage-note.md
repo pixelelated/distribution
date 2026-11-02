@@ -1,0 +1,3 @@
+# Storage encoding
+
+The report and returned artifacts were first copied and hashed exactly. `retained-sha256.json` records those original bytes. The pre-commit credential guard matched the already-known harmless H700 0158 patch filename in `commands.json`. That filename uses a JSON Unicode escape for one hyphen in each occurrence; parsing the original and retained JSON yields identical argument arrays. `storage-note.json` binds both hashes and the occurrence count. This is storage encoding, not a changed command, source path, guard exemption or evidence result. The other files retain their original bytes.

@@ -1,0 +1,306 @@
+{
+  "identity": "Codex / OpenAI; harness session 01a19d11-dda5-72e3-86f9-416f36341c24; m6-p1-survey wN:p3",
+  "refs": {
+    "packet": "c9fe606e8d7e7e0f6c70cc686764d1503029d278",
+    "accepted_c": "94b5b1c0b983313325dba101217761c6e5c9bca0",
+    "original_blocker": "3cd9ca140a0da9af447a3ee2fb9cdbbbf222a95b",
+    "p1": "2174265e9cc1b248c0fbe27fa101875984d46d6b",
+    "source": "02aab33bd9842610b0d466c9c186454dc14373ee",
+    "coordinator": "07d01c898fba867e042342017fd8d5257508a28c",
+    "dispatch": "d7dd76665983cb87dba62397691500fcf409fafe"
+  },
+  "preservation": {
+    "accepted_c": {
+      "count": 775,
+      "different_or_missing": [],
+      "added_since": 0
+    },
+    "original_blocker": {
+      "count": 329,
+      "different_or_missing": [],
+      "added_since": 446
+    }
+  },
+  "source": {
+    "membership": 107,
+    "unique": 107,
+    "tree_entries": 107,
+    "modes": {
+      "100644": 107
+    },
+    "differences": {
+      "p1": [],
+      "source": [],
+      "accepted_c": []
+    }
+  },
+  "protected_code_changed": [],
+  "rules_register_briefs_changed": [],
+  "scope": {
+    "changed_paths": 46,
+    "outside_allowed": []
+  },
+  "stage_d_files": 37,
+  "validation": {
+    "recorded_result": "PASS",
+    "start": "2026-11-02T18:53:26.653095+00:00",
+    "end": "2026-11-02T18:53:40.680589+00:00",
+    "script_hash_matches": true,
+    "checks": [
+      {
+        "name": "audit-final-api",
+        "recorded_rc": 0,
+        "sha256": "4a2f779ce5d2d7e211ea97be57fb1f15e676c7f2233433859fef942447d0e961",
+        "hash_matches": true,
+        "output": "checkers/audit-final-api.out",
+        "start": "2026-11-02T18:53:26.653113+00:00",
+        "elapsed_seconds": 0.499
+      },
+      {
+        "name": "audit-box-final",
+        "recorded_rc": 0,
+        "sha256": "71f21b5f65b777c3c18799c08624626e7530b84922db3c7b7c3256eab7f277aa",
+        "hash_matches": true,
+        "output": "checkers/audit-box-final.out",
+        "start": "2026-11-02T18:53:29.112651+00:00",
+        "elapsed_seconds": 0.489
+      },
+      {
+        "name": "pre-issue-lint-final",
+        "recorded_rc": 0,
+        "sha256": "5ccc79ea18e02860e742a2693f9f7a843abfdf187d9925b49a5f9323fcb01a2d",
+        "hash_matches": true,
+        "output": "checkers/pre-issue-lint-final.out",
+        "start": "2026-11-02T18:53:29.601713+00:00",
+        "elapsed_seconds": 0.58
+      },
+      {
+        "name": "rules",
+        "recorded_rc": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "hash_matches": true,
+        "output": "checkers/rules.out",
+        "start": "2026-11-02T18:53:30.181992+00:00",
+        "elapsed_seconds": 0.025
+      },
+      {
+        "name": "register",
+        "recorded_rc": 0,
+        "sha256": "28031585dc3847e47fe4fb4e7257532763929f76143fb5451ebb4087efb759e6",
+        "hash_matches": true,
+        "output": "checkers/register.out",
+        "start": "2026-11-02T18:53:30.207496+00:00",
+        "elapsed_seconds": 1.224
+      },
+      {
+        "name": "index",
+        "recorded_rc": 0,
+        "sha256": "232b345c76ad64a47de4d43e62d9aeb4f2850472cde78ddd1b1e56d72103d927",
+        "hash_matches": true,
+        "output": "checkers/index.out",
+        "start": "2026-11-02T18:53:31.432107+00:00",
+        "elapsed_seconds": 0.021
+      },
+      {
+        "name": "ceremony",
+        "recorded_rc": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "hash_matches": true,
+        "output": "checkers/ceremony.out",
+        "start": "2026-11-02T18:53:31.453511+00:00",
+        "elapsed_seconds": 9.175
+      },
+      {
+        "name": "whitespace",
+        "recorded_rc": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "hash_matches": true,
+        "output": "checkers/whitespace.out",
+        "start": "2026-11-02T18:53:40.628896+00:00",
+        "elapsed_seconds": 0.041
+      },
+      {
+        "name": "forbidden-new-records",
+        "recorded_rc": 0,
+        "sha256": "ae7d101f07c8c55bfd82db597d8d383d0f9c1102459a98a228136f4248a15379",
+        "hash_matches": true,
+        "output": "checkers/forbidden-new-records.out",
+        "start": "2026-11-02T18:53:40.671043+00:00",
+        "elapsed_seconds": 0.006
+      },
+      {
+        "name": "secret-new-records",
+        "recorded_rc": 1,
+        "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+        "hash_matches": true,
+        "output": "checkers/secret-new-records.out",
+        "start": "2026-11-02T18:53:40.677468+00:00",
+        "elapsed_seconds": 0.003
+      }
+    ]
+  },
+  "bodies": {
+    "1408": {
+      "live_equals_submitted": true,
+      "retained_equals_submitted": true,
+      "live_body_sha256": "105b4dde77e54436189e7dd1cfa1b9fea9303f4add4938413585bdb92d0f4016",
+      "state": "open",
+      "labels": [
+        "bug"
+      ],
+      "milestone": null,
+      "open_checkboxes": 2,
+      "checked_checkboxes": 0,
+      "updated_at": "2026-11-02T18:41:07Z"
+    },
+    "1409": {
+      "live_equals_submitted": true,
+      "retained_equals_submitted": true,
+      "live_body_sha256": "ed87afa15e1117ad76a2d09890e513535d31f4c1c12776583da5d7df4808429e",
+      "state": "open",
+      "labels": [
+        "audit",
+        "punch-list"
+      ],
+      "milestone": 6,
+      "open_checkboxes": 1,
+      "checked_checkboxes": 0,
+      "updated_at": "2026-11-02T18:50:51Z"
+    }
+  },
+  "parents": {
+    "audit_live": 688,
+    "audit_retained": 688,
+    "bug_live": {
+      "message": "No parent issue found",
+      "documentation_url": "https://docs.github.com/rest/issues/sub-issues#get-parent-issue",
+      "status": "404"
+    },
+    "bug_retained": {
+      "message": "No parent issue found",
+      "documentation_url": "https://docs.github.com/rest/issues/sub-issues#get-parent-issue",
+      "status": "404"
+    }
+  },
+  "questions": {
+    "6585346506": {
+      "live_equals_submitted": true,
+      "retained_equals_submitted": true,
+      "body_sha256": "ad15f7046da1f1b7033be2ffbfeef6a60c5960fe6444ddb3132a47a4b39205bd",
+      "id_matches": true,
+      "url": "https://github.com/pixelelated/distribution/issues/688#issuecomment-6585346506"
+    },
+    "6585347732": {
+      "live_equals_submitted": true,
+      "retained_equals_submitted": true,
+      "body_sha256": "b7285cceef45031d9a22469344da464344771837d007c76cbd68133f041d2d2e",
+      "id_matches": true,
+      "url": "https://github.com/pixelelated/distribution/issues/688#issuecomment-6585347732"
+    }
+  },
+  "scorecard": {
+    "rows": 28,
+    "counts": {
+      "PASS": 20,
+      "PARTIAL": 8
+    },
+    "partial": [
+      2,
+      4,
+      5,
+      24,
+      25,
+      26,
+      27,
+      28
+    ],
+    "exact_rows_in_02_04_live_audit": true
+  },
+  "record_facts": {
+    "proved_cells": 12,
+    "proof_log_lines": 12,
+    "leads": [
+      "L-01",
+      "L-02",
+      "L-03",
+      "L-04",
+      "L-05",
+      "L-06",
+      "L-07",
+      "L-08",
+      "L-09",
+      "L-10",
+      "L-11",
+      "L-12",
+      "L-13",
+      "L-14",
+      "L-15",
+      "L-16",
+      "L-17",
+      "L-18",
+      "L-19",
+      "L-20",
+      "L-21",
+      "L-22",
+      "L-23",
+      "L-24",
+      "L-25",
+      "L-26",
+      "L-27",
+      "L-28",
+      "L-29",
+      "L-30",
+      "L-31"
+    ],
+    "rulings": [
+      "a",
+      "b",
+      "c",
+      "d",
+      "e",
+      "f",
+      "g",
+      "h",
+      "i",
+      "j",
+      "k",
+      "l",
+      "m",
+      "n",
+      "o",
+      "p"
+    ],
+    "punch_headings": [
+      "PL-001"
+    ],
+    "open_outcome": true,
+    "original_hygiene_quoted": true,
+    "accepted_tables_quoted": {
+      "provenance": true,
+      "coverage": true
+    },
+    "parent_open_checkboxes": 28,
+    "parent_checked_checkboxes": 0
+  },
+  "brief": {
+    "current_sha256": "ff2b2ac8b06aac814a0b6b69bb5cb3d50165a30afc4a8c0a40d9d1093283b87b",
+    "packet_sha256": "24794608bcc7a0f9dc523b95e70e74e102c0aa1ba0fde41e6a353306f6ec6b87",
+    "diff": "diff --git a/docs/reviews/briefs/patches-shipped-kernel.md b/docs/reviews/briefs/patches-shipped-kernel.md\nindex 99cf126c03..a5191945cd 100644\n--- a/docs/reviews/briefs/patches-shipped-kernel.md\n+++ b/docs/reviews/briefs/patches-shipped-kernel.md\n@@ -2192,3 +2192,82 @@ applies-at-pin dry-runs, L-06's and L-16's greps, the defconfig count), and\n the checkers it was not allowed to run.\n \n Version 2, 2026-11-02, the coordinator's, from the stranger's proof of version 1 and two rulings; the dispatch comment names its hash\n+\n+\n+## Stage-B method erratum \u2014 2026-11-02T17:10:18Z (D-WORKFLOW-222)\n+\n+This dated addendum supersedes ruling (g), \u00a7 5's applies-at-pin loop and\n+\u00a7 7's applicability criterion **only where they treat dry-run status as the\n+applicability verdict or skip an entire patch after that diagnostic fails**.\n+The original v2 text and its execution receipts remain historical evidence.\n+Ownership, membership, pins, cached archives, Local depth and all source-only\n+limits remain as dispatched. This is a coordinator ruling under D-WORKFLOW-189.\n+\n+The immutable early-blocker packet at `3cd9ca140a0da9af447a3ee2fb9cdbbbf222a95b`\n+(`#688` comment 6583064842) proves H700 order 011's complete patch applies to\n+exactly the input on which its dry run fails. `stage-b/same-input-refutation.json`\n+and its two named outputs record dry-run rc=1, normal application rc=0, identical\n+patch SHA256 and identical pre-application tree digests. The later hunk in the\n+concatenated input needs earlier edits to the same file. The six original H700\n+failure rows are method-contaminated leads, not six proved product bugs.\n+\n+### Corrected execution and evidence\n+\n+1. Preserve every original Stage-A/B receipt and the failed runner exactly as\n+   committed. Create a separately named corrected runner and packet under\n+   `stage-b/corrected/`; record its source hash and actual tool version. No live\n+   script is edited. Retain raw diagnostic text using the already accepted\n+   H700 0158 escape in committed records.\n+2. Use the same immutable source ref `02aab33bd9842610b0d466c9c186454dc14373ee`,\n+   the same checked archive hashes, touched-file extraction and exact C-locale\n+   order. Reconstruct the six plan sequences in fresh lane scratch under\n+   `/workspace/tmp/m6-t41/src/`, with counts **8 / 42 / 65 / 2 / 2 / 1**\n+   (120 plan applications over 106 patch paths). Stage B is incomplete and its\n+   method changed, so these runs replace the contaminated applicability\n+   evidence; this does not reopen accepted Stage A. Missing archive members\n+   must be accounted for by patch-created paths; create an empty scratch root\n+   when all targets are new, as the firmware refutation already established.\n+3. For each row, copy the current successful prefix into a fresh disposable\n+   candidate. Record the plan/index/path, patch SHA256, input tree digest,\n+   command argv and produced timestamp. Retain the same-input dry-run output\n+   as a diagnostic, assert that it did not change the candidate, then run the\n+   **complete normal application** with the same patch bytes:\n+   `patch -p1 -N --batch --directory <candidate>` with the patch on stdin.\n+   A nonzero dry run does not suppress this complete application. Both writes\n+   stay in the disposable touched-file copy, never the repository or cache.\n+4. Persist both return codes and outputs immediately. The normal application\n+   is authoritative: rc=0 promotes the candidate to the next prefix;\n+   classify `fuzz` before `applies with offset` before `applies`, using the\n+   **normal-application output**, not the dry-run output. Persist input/output\n+   tree digests. Do not promote a nonzero or timed-out candidate, even when it\n+   partly applied. Retain that failed candidate for inspection; keep the last\n+   successful prefix unchanged. Its row is `fails` with the hunk/error evidence;\n+   later rows in that plan are `open item: blocked by failed predecessor N`,\n+   not tested against a silently skipped or partially applied predecessor.\n+5. Before trusting the corrected summary, prove the failure path on a separate\n+   deliberately failing patch fixture: the successful-prefix digest stays\n+   unchanged, the failed candidate is not promoted, and a later row is marked\n+   blocked. Also retain the H700 011 positive that completes despite its\n+   nonzero diagnostic; the existing refutation is the before evidence, and\n+   the corrected run supplies the after receipt. No finding is predetermined.\n+6. Every authoritative row names `apply_rc`, `dry_rc`, normal offset/fuzz/FAILED\n+   counts, input/output digests and its receipt paths. A blocked row names the\n+   failed predecessor and has no invented command result. `02` \u00a7 The runs\n+   reports the six populations separately and all nonzero application results\n+   and dry/apply disagreements. The provenance generator consumes the corrected\n+   authoritative status, covers all 120 applications and all 106 patch paths,\n+   and counts blocked rows explicitly. A real application failure remains a\n+   bug candidate or source lead under the existing evidence floor; a dry-run\n+   disagreement alone is not a product defect.\n+\n+Complete the remaining Stage-B reads and `02-forward-audit.md`,\n+`03-retrospective.md`, `04-analysis.md` plus the corrected packet, then commit,\n+push and checkpoint on #688. Stop at the previously agreed Stage-B boundary.\n+No build, guest, fetch, configuration sourcing, product edit, runtime allocation\n+or host-ledger write is introduced. The coordinator's future `t41-accept.sh`\n+derivation must check this erratum and the current reader identity.\n+\n+The live issue's applicability criterion and the area's futro addendum receive\n+this correction in the same session. D-WORKFLOW-221's original wording is kept\n+as history and refined by D-WORKFLOW-222. These are bounded source checks, not a\n+claim that any kernel or firmware boots or behaves correctly.\n"
+  },
+  "milestone": {
+    "number": 6,
+    "title": "M6: Codebase renovation",
+    "updated_at": "2026-11-02T18:42:55Z",
+    "current_recovery_paragraph": "**Current recovery state (supersedes historical next-step paragraphs below):** all six tabs in Herdr workspace `wN` resumed under Codex. T39 #686 Stage C accepted at `c61bcdcb5f` ([6582545265](https://github.com/pixelelated/distribution/issues/686#issuecomment-6582545265)); T39 Stage D at `96ef183aae` is also accepted ([6583071671](https://github.com/pixelelated/distribution/issues/686#issuecomment-6583071671)); audit #1406 and bugs #1400\u2013#1405 remain open. T1 awaits the coordinator's stream brief; the owner settled both documentation preferences (D-WORKFLOW-223/-224): keep the journal in place with historical status and retain documents with dates/status. Later indexing and individual retirement review are in milestone-backed Backlog #1407. T41 #688 Stage A accepted ([6582546759](https://github.com/pixelelated/distribution/issues/688#issuecomment-6582546759)); its records correction is published at `02aab33bd9`, and T3 hit and preserved a Stage-B method disagreement at `3cd9ca140a`; D-WORKFLOW-222 and the committed brief erratum at `4c8a118cfb` resolve it. T3 returned the corrected Stage-B packet at `7e5d154671` ([6584307783](https://github.com/pixelelated/distribution/issues/688#issuecomment-6584307783)); coordinator acceptance is next, and Stage C has not started. P1 and T2 completed bounded T42 #689 research: 384 native patch paths plus 50 inherited comparisons across 26 overrides, separate populations. The coordinator is preparing the canonical `patches-shipped` brief; T5 remains ready until the brief is proved and explicitly dispatched. P1 #641, T2 #649 and T38 #685 remain accepted; their old wait/21-of-22 pointers are superseded. No new runtime allocation or device/cloud action. Resume scope and topology: [#346 comment 6582593029](https://github.com/pixelelated/distribution/issues/346#issuecomment-6582593029); current handoff `.github/sessions/saved-session-state-feature-m6-renovation-plan-346.md`."
+  },
+  "parent_note": {
+    "recorded": "2026-11-02T18:47:25.298604+00:00",
+    "original_action": "gh api -X POST repos/pixelelated/distribution/issues/688/sub_issues -F sub_issue_id=6168762846",
+    "action_result": "Succeeded; parent-write.json is the parent #688 with total=1.",
+    "local_validator_failures": [
+      "First wrapper expected POST number=child 1409; API returned parent 688. Wrapper exited 1 after successful mutation; original per-call timing array was not saved.",
+      "Recovery GETs succeeded: audit parent=688 and bug parent absent. The second wrapper expected the absence message Not Found; actual message was No parent issue found with HTTP 404, so wrapper exited 1. These GET timings were saved."
+    ],
+    "recovery": "Read retained payloads directly and verified the documented relationship and absence semantics. No POST was retried; no timing was reconstructed."
+  }
+}
