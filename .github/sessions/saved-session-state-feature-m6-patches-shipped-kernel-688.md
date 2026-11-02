@@ -1,7 +1,7 @@
 # Session pointer: M6.P2 T41, the kernel patches and kernel configurations the shipped and test images apply, tabled by provenance and currency (#688)
 
 > **Seeded:** 2026-11-02 by the coordinator (Opus 5.5 in the Antigravity CLI, lane `m6-coordinator`, D-WORKFLOW-189); the executor updates this file **at every checkpoint** (#1014)
-> **Last updated:** 2026-11-02 17:47:04 UTC by Codex / GPT-6-Astra / xhigh, session `01a19d12-29e3-7fe0-9f41-038dac0a5deb`, lane `m6-t3-emulators` (`wN:p6`). Identity observed in the live Herdr footer, not a provider-attested receipt.
+> **Last updated:** 2026-11-02 18:33:12 UTC by Codex / GPT-6-Astra / xhigh, session `01a19d12-29e3-7fe0-9f41-038dac0a5deb`, lane `m6-t3-emulators` (`wN:p6`). Identity observed in the live Herdr footer, not a provider-attested receipt.
 > **Branch (distribution):** `feature/m6-patches-shipped-kernel-688`, seed `f03b64419fa656fb3af61cbc8d174284020d439c` over coordinator `d7dd76665983cb87dba62397691500fcf409fafe`, carrying P1 `2174265e9c`. Accepted Stage-A artifact: `cffe3f869c5ced124e26befa36505350b4964f77`; the seed is historical, not the current tip.
 > **Worktree (distribution):** `/workspace/repos/pixelelated/distribution.worktrees/m6-patches-shipped-kernel-688` -- the audit artifacts, the work log and this pointer live here; anything temporary under `/workspace/tmp/m6-t41/` after `df -i` (the tarballs' touched files under `/workspace/tmp/m6-t41/src/`), never `/tmp`, retired at stage H
 > **Worktree (EmulationStation):** **none**: nothing in the 107 is EmulationStation's
@@ -16,7 +16,7 @@
 > **Register:** the highest decided row per area read from the table at `d7dd766659` (D-CLOUD-193, D-INFRA-031, D-LAUNCH-007, D-NET-017, D-QA-063, D-RA-052, D-SYS-013, D-UI-137, D-WORKFLOW-221), the last of them **this slice's ownership row, D-WORKFLOW-221, written by the coordinator at dispatch** (ruling (l); 220 is T39's)
 > **The brief:** `docs/reviews/briefs/patches-shipped-kernel.md` at `9313492990` (version 2, sha256 prefix `24794608bcc7a0f9`, `2194` lines; version 1 `7d70da5972`, the stranger's proof `kit/t41-proof.md`)
 
-## Current focus — Stage B complete; stop for coordinator acceptance
+## Current focus — Stage B accepted; C and D authorized
 
 The corrected packet under `stage-b/corrected/` and reports `02-forward-audit.md`, `03-retrospective.md`, `04-analysis.md` complete Stage B. Full normal application in a fresh disposable candidate is authoritative under D-WORKFLOW-222 at immutable coordinator `4c8a118cfb4efa8d13c1b41b72ef7a205da5f766` and full comment 6583428757. All 120 applications over 106 patch paths succeeded: 8/42/65/2/2/1 by plan, 43 applies / 48 offsets / 29 fuzz, zero true failures or blocked production rows. Only H700 011 has dry_rc=1/apply_rc=0. The engine's deliberate partial-failure fixture leaves the successful prefix unchanged and blocks the successor. All earlier receipts remain unchanged.
 
@@ -51,11 +51,11 @@ Stage A is complete on `feature/m6-patches-shipped-kernel-688` over seed commit 
 
 Records correction **`02aab33bd9842610b0d466c9c186454dc14373ee`** is pushed; checkpoint 6580886152 has the verified dated erratum. Blocker commit **`3cd9ca140a0da9af447a3ee2fb9cdbbbf222a95b`** and comment 6583064842 preserve the first packet and same-input refutation. Its six initial H700 failures were method-contaminated leads. They are refuted by the corrected complete sequence, not product bugs. The coordinator resolved the method in comment 6583428757 and D-WORKFLOW-222; no additional approval relay was required.
 
-## Immediate next action — Stage-B checkpoint and stop
+## Immediate next action — Stage C then Stage D authorized
 
-Commit and push the corrected packet and reports, post the exact full tip and artifact/check results on #688, and deliver that checkpoint to `m6-coordinator` in `wN:p2` if Herdr permits delivery. If `agent_blocked`, leave owner input untouched: the durable #688 comment is the return path, as the owner explicitly directed. Then **stop at Stage B awaiting coordinator acceptance**. Stage C's formal Local reader plan/tool/lint and Stage D's bug/questions remain later work.
+Substantive Stage B at `7e5d1546712df2eb79c585fce663186770d1ceb9` is accepted by FULL #688 comment 6585065737. First commit the records-only AC17 quotation correction from retained `stage-b/corrected/hygiene.out`; no replay. Then C supplies formal audit-local `tools/t41-tables.py`, the actual Local reader plan (OpenAI/Codex; empty reviewers; observed footer versus provider-attested distinction and historical identities), and pre-issue lint. Send a substantive C update without an approval relay. D supplies the punch issue, traced 0010 bug routed to integration, 06/07, the two documented questions and exact issue readbacks. Commit/push the complete clean D packet and **stop for the coordinator's stream disposition**. No final slice acceptance or later-stage criteria ticks.
 
-Use the full v2 brief at `9313492990` together with the appended method erratum and D-WORKFLOW-222 at `4c8a118cfb4efa8d13c1b41b72ef7a205da5f766`. Do not merge the coordinator branch or `next`. Keep upstream `651150fc88` pinned. Preserve every original Stage-A/B receipt and corrected diagnostic, including the failed fixture candidate. Committed paths retain literal `\u002d`, decoded only for comparisons/source access. Source-only exclusions remain unchanged. Scratch is retained until Stage H.
+Use v2 at `9313492990` plus the method erratum/D-WORKFLOW-222 at immutable coordinator `4c8a118cfb4efa8d13c1b41b72ef7a205da5f766`. No merge/fetch or replay of accepted application/extraction evidence. Preserve original receipt/source files and literal `\u002d` in committed paths. Only wN is in scope. Return to `m6-coordinator` in `wN:p2`; never answer owner input or another agent's permission prompt. No source fix, build/guest/runtime/host-ledger/device/cloud action. Scratch remains until H.
 
 ## Merge notes
 

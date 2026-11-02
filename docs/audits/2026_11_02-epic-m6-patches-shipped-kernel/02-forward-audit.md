@@ -469,6 +469,86 @@ projects/ROCKNIX/devices/SM8750/filesystem/usr/share/alsa/ucm2/conf.d/sm8750/SM8
 
 Historical baseline checkers at the seed: rules rc=0 (30 files), register rc=0 (717 IDs), index rc=0 (current), ceremony rc=0, box-check rc=0 (300 issues / 626 open checkboxes / 0 fail), hooks rc=0 (PASS), retained under `stage-a/`. They do not establish patch behavior. Stage-B hygiene/records checks, with actual timestamps and positive controls, are in `stage-b/corrected/validation.json`; the branch still owes Stage-C pre-issue lint and later resolution checks.
 
+### AC17 records correction — 2026-11-02 18:33:12 UTC
+
+Acceptance comment 6585065737 requires the existing command/output/exit lines here, not only a link. The following is a byte-equal quotation of `stage-b/corrected/hygiene.out` at accepted Stage-B tip `7e5d1546712df2eb79c585fce663186770d1ceb9`, including the positive controls. These are retained producer results from 17:53 UTC, **not a replay**. The secret scan rc=1 is grep's no-match result (0 lines); its positive returns rc=0 with 1 match.
+
+```text
+2026-11-02T17:53:00.638789+00:00 ./tools/rules-check --quiet rc=0
+
+2026-11-02T17:53:00.657270+00:00 ./tools/register-check rc=0
+register-check: 717 IDs, each once; every citation in the live documents names a row
+
+2026-11-02T17:53:01.860702+00:00 ./tools/work-log-index --check rc=0
+work-log index: current
+
+2026-11-02T17:53:01.882119+00:00 git diff --check 3cd9ca140a0da9af447a3ee2fb9cdbbbf222a95b rc=0
+
+2026-11-02T17:53:01.925757+00:00 .githooks/hooks-test rc=0
+--- pre-commit
+  ok    a clean file: allowed
+  ok    a leftover conflict marker: refused
+  ok    the marker's file and line are named: says "m.txt:2"
+  ok    a setext underline alone is not a marker (#696's control): allowed
+  ok    a credential-shaped line: refused
+  ok    the value is redacted: says "[REDACTED]"
+  ok    the refusal: never prints the word
+  ok    the same line under an audit packet (no path is exempt): refused
+  ok    a listed word: refused
+  ok    the refusal names the file and line: says "c.txt:1"
+  ok    the refusal: never prints the word
+  ok    a listed word in another case, on line 2: refused
+  ok    line 2 is named: says "d.txt:2"
+  ok    a credential-shaped line with diff.noprefix set (the scan forces its prefixes): refused
+  ok    a content line beginning ++ does not end the file's scan: refused
+  ok    line 2 is named: says "h.txt:2"
+  ok    a file name git prints in quotes is still scanned: refused
+  ok    a file NAMED like a key, clean inside (the label is not scanned): allowed
+  ok    a credential list that does not compile: refused
+  ok    it says so: says "does not compile"
+  ok    no wordlist at all: refused
+  ok    the wordlist from the environment instead (CI): allowed
+  ok    an index that cannot be read: refused
+--- commit-msg
+  ok    a listed word in the message: refused
+  ok    the refusal: never prints the word
+  ok    a clean message (git drops the # comment): allowed
+  ok    a credential-shaped line in the message: refused
+  ok    a message file that cannot be read (claude G3-E-02 / gpt G3-E-05): refused
+  ok    a message with no wordlist to judge it by: refused
+--- pre-push
+  ok    a listed word in a middle commit, gone at the tip: refused
+  ok    the refusal: never prints the word
+  ok    a listed word in a commit message: refused
+  ok    the message is named: says ":message:1"
+  ok    a credential in a middle commit, gone at the tip: refused
+  ok    the value is redacted: says "[REDACTED]"
+  ok    an older line in a file the range only touches beside (the tip scan): refused
+  ok    a credential in a file git prints in quotes, pushed from a clone with diff.noprefix: refused
+  ok    a clean commit, touching the file named like a key: allowed
+  ok    a credential list that does not compile: refused
+  ok    no wordlist at all: refused
+  ok    a tip this clone does not have: refused
+PASS
+
+2026-11-02T17:53:02.623812+00:00 ./tools/ceremony-check --gate rc=0
+
+2026-11-02T17:53:10.989586+00:00 forbidden-terms actual packet rc=0
+forbidden-terms-check: 0 hits on stdin
+
+2026-11-02T17:53:10.997678+00:00 forbidden-terms runtime positive rc=1
+forbidden-terms-check: 1 line(s) on stdin carry a listed word
+
+2026-11-02T17:53:10.999913+00:00 secret regex compiles / empty input rc=1
+0
+
+2026-11-02T17:53:11.001169+00:00 secret runtime positive rc=0
+1
+
+2026-11-02T17:53:11.003892+00:00 secret actual packet rc=1
+0
+```
+
 ## Leads and dispositions
 
 | Lead | Disposition | Evidence, limit and next owner |
