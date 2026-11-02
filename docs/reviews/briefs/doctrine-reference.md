@@ -2387,3 +2387,35 @@ the coordinator's worktree on the file as written (`LC_ALL=C`, counts by
 - `tools/register-check` from the coordinator's worktree: rc `0`, its line `register-check: 714 IDs, each once; every citation in the live documents names a row`.
 
 Version 2, 2026-11-01 04:48:47 UTC, after the stranger's proof of version 1
+
+
+## Owner dispositions after Stage D — 2026-11-02T17:57:33Z
+
+The maintainer answered both § 4 questions in the coordinator chat:
+
+> 1. I agree. We can also move to an index-oriented file where we create nested directories and store by month (or week/day if needed) to not let the files stack up.
+>
+> 2. Let's go with your recommendation, but make sure we have an issue homed in a milestone in the backlog to work through this.
+
+D-WORKFLOW-223 and D-WORKFLOW-224 are now decided. For the current T39
+correction pass, keep the menu-map journal in place, mark its narrative
+historical and correct the headings that still call closed work pending.
+Keep reference documents, dating and labelling records that could otherwise
+be read as current. Use the accepted Q5 **33-file / 2,770-line** population,
+not the preliminary 17-file subset; 32 are in the edit scope and
+`plans/conflict-resolution/vita-style-conflict-resolution.md` is still a
+ledger-plan row, not an edit authorization. Existing ownership and all
+historical source/provenance boundaries remain.
+
+[Backlog #1407](https://github.com/pixelelated/distribution/issues/1407),
+assigned to **M6: Codebase renovation** at the maintainer's explicit request,
+owns the later compact index and nested monthly storage, with week/day
+subdivision if needed, and the individual purpose/replacement review before
+any retirement. It preserves incoming links and citations through a migration
+manifest. No bulk retirement is inferred from low repository-link counts.
+
+The two questions are answered; the coordinator's stream brief still supplies
+the exact Stage-E changes and verification. The lane records these answers
+and #1407 in its next authorized audit update without rewriting the original
+Stage-C/D question evidence. This addendum is a disposition, not acceptance of
+an unperformed source correction or an expansion into archive restructuring.
