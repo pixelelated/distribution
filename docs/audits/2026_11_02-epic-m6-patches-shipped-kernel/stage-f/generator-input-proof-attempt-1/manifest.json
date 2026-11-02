@@ -1,0 +1,123 @@
+{
+  "schema": "t41-final-generator-controls-v1",
+  "authority": "D-WORKFLOW-228",
+  "historical_input_identity": "unavailable; new controls only",
+  "source_ref": "02aab33bd9842610b0d466c9c186454dc14373ee",
+  "stage_c_ref": "94b5b1c0b983313325dba101217761c6e5c9bca0",
+  "run_head": "9ae1b29fecc28e73f7bd3da444cbf993eb08a17f",
+  "program": {
+    "path": "tools/t41-tables.py",
+    "sha256": "ac6fe1ea48775d0c4c3b285b9b6811c1d12a83ed4ca2414d466ab6490989e558"
+  },
+  "baseline_rows": {
+    "path": "stage-b/corrected/inventory-rows.json",
+    "sha256": "a6a35d6f9fe74fb49bf7203881976b764b2a8098ca3e29e7a32be593a9b5a9d9"
+  },
+  "inputs": [
+    {
+      "path": "fixtures/drop.json",
+      "mode": "100644",
+      "size_bytes": 61810,
+      "sha256": "8c954a8c9b746285edad5eff4fc97232db07d62e4481a42cf5c894dcbcb46bab",
+      "kind": "drop"
+    },
+    {
+      "path": "fixtures/reach.json",
+      "mode": "100644",
+      "size_bytes": 62749,
+      "sha256": "a274923d537fef27af5705ccfea3ef9d37ba42422528af89120c93695a8d8163",
+      "kind": "reach"
+    },
+    {
+      "path": "fixtures/bytes/projects/ROCKNIX/devices/H700/packages/u-boot-DDR3/patches/0001-Update-dram_sun50i_h616.c.patch",
+      "mode": "100644",
+      "size_bytes": 829,
+      "sha256": "9ca4e15a583105223ba8737e08fcf0fa70bf655e0763cd58848836eefc33e555",
+      "kind": "header",
+      "source_path": "projects/ROCKNIX/devices/H700/packages/u-boot-DDR3/patches/0001-Update-dram_sun50i_h616.c.patch",
+      "baseline_blob_id": "4647d9f7ceeef776ce94583facb3614947e3cd69",
+      "baseline_sha256": "596674be315fbb74f670cf04639f10ea2b5629fd9eb72d944084a04cd0e5fab5"
+    }
+  ],
+  "checks": [
+    {
+      "kind": "drop",
+      "argv": [
+        "python3",
+        "-I",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-patches-shipped-kernel-688/docs/audits/2026_11_02-epic-m6-patches-shipped-kernel/tools/t41-tables.py",
+        "stats",
+        "--rows-from",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-patches-shipped-kernel-688/docs/audits/2026_11_02-epic-m6-patches-shipped-kernel/stage-f/generator-input-proof/fixtures/drop.json"
+      ],
+      "cwd": "/workspace/repos/pixelelated/distribution.worktrees/m6-patches-shipped-kernel-688",
+      "start": "2026-11-02T19:27:02.904132+00:00",
+      "end": "2026-11-02T19:27:02.971644+00:00",
+      "elapsed_seconds": 0.067511,
+      "rc": 1,
+      "stdout": "outputs/drop.stdout",
+      "stderr": "outputs/drop.stderr",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "251721152b3ca7b6f63f8a6383dd6a50fd3aa0167ee048d5e5d5cc1e1e173bdf"
+    },
+    {
+      "kind": "reach",
+      "argv": [
+        "python3",
+        "-I",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-patches-shipped-kernel-688/docs/audits/2026_11_02-epic-m6-patches-shipped-kernel/tools/t41-tables.py",
+        "stats",
+        "--rows-from",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-patches-shipped-kernel-688/docs/audits/2026_11_02-epic-m6-patches-shipped-kernel/stage-f/generator-input-proof/fixtures/reach.json"
+      ],
+      "cwd": "/workspace/repos/pixelelated/distribution.worktrees/m6-patches-shipped-kernel-688",
+      "start": "2026-11-02T19:27:02.971947+00:00",
+      "end": "2026-11-02T19:27:03.037169+00:00",
+      "elapsed_seconds": 0.065233,
+      "rc": 1,
+      "stdout": "outputs/reach.stdout",
+      "stderr": "outputs/reach.stderr",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "800b61d48c65196c256ec80a2885f86c4cbaa7c704c8638a783a3ddd7f829521"
+    },
+    {
+      "kind": "header",
+      "argv": [
+        "python3",
+        "-I",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-patches-shipped-kernel-688/docs/audits/2026_11_02-epic-m6-patches-shipped-kernel/tools/t41-tables.py",
+        "stats",
+        "--bytes-from",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-patches-shipped-kernel-688/docs/audits/2026_11_02-epic-m6-patches-shipped-kernel/stage-f/generator-input-proof/fixtures/bytes"
+      ],
+      "cwd": "/workspace/repos/pixelelated/distribution.worktrees/m6-patches-shipped-kernel-688",
+      "start": "2026-11-02T19:27:03.037458+00:00",
+      "end": "2026-11-02T19:27:03.382495+00:00",
+      "elapsed_seconds": 0.345047,
+      "rc": 1,
+      "stdout": "outputs/header.stdout",
+      "stderr": "outputs/header.stderr",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "1f8ad89705cc4d9a270d005c3a29cce7805ac881c015733daaead7fee030e995"
+    },
+    {
+      "kind": "stats",
+      "argv": [
+        "python3",
+        "-I",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-patches-shipped-kernel-688/docs/audits/2026_11_02-epic-m6-patches-shipped-kernel/tools/t41-tables.py",
+        "stats"
+      ],
+      "cwd": "/workspace/repos/pixelelated/distribution.worktrees/m6-patches-shipped-kernel-688",
+      "start": "2026-11-02T19:27:03.382862+00:00",
+      "end": "2026-11-02T19:27:03.698353+00:00",
+      "elapsed_seconds": 0.315499,
+      "rc": 0,
+      "stdout": "outputs/stats.stdout",
+      "stderr": "outputs/stats.stderr",
+      "stdout_sha256": "9fbe71de9887088c99b28fe77111c57a8167223bf034cfac5185e8a37c817974",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ],
+  "result": "PASS"
+}

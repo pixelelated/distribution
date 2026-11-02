@@ -1,0 +1,41 @@
+[
+  {
+    "name": "audit-api",
+    "argv": [
+      "gh",
+      "api",
+      "repos/pixelelated/distribution/issues/1409"
+    ],
+    "start": "2026-11-02T19:29:56.979782+00:00",
+    "elapsed_seconds": 0.522,
+    "rc": 0,
+    "output": "checkers/audit-api.out",
+    "sha256": "842b523baf935190dcb5a748cd3b545de9bfd8fd7dd14c02f245c33ff8a863cc"
+  },
+  {
+    "name": "bug-api",
+    "argv": [
+      "gh",
+      "api",
+      "repos/pixelelated/distribution/issues/1408"
+    ],
+    "start": "2026-11-02T19:29:57.502117+00:00",
+    "elapsed_seconds": 0.446,
+    "rc": 0,
+    "output": "checkers/bug-api.out",
+    "sha256": "520a644e6e3ac809b72ff1f107c42aa424de1aff5e9d3cafca1bdabdf3c021d0"
+  },
+  {
+    "name": "audit-parent",
+    "argv": [
+      "gh",
+      "api",
+      "repos/pixelelated/distribution/issues/1409/parent"
+    ],
+    "start": "2026-11-02T19:29:57.948824+00:00",
+    "elapsed_seconds": 0.613,
+    "rc": 0,
+    "output": "checkers/audit-parent.out",
+    "sha256": "40649d40df123233d805d6808230682ed2dae5f9d115baa32e84140f8fe1e9bb"
+  }
+]

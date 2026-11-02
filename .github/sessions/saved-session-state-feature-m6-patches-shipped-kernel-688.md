@@ -1,7 +1,7 @@
 # Session pointer: M6.P2 T41, the kernel patches and kernel configurations the shipped and test images apply, tabled by provenance and currency (#688)
 
 > **Seeded:** 2026-11-02 by the coordinator (Opus 5.5 in the Antigravity CLI, lane `m6-coordinator`, D-WORKFLOW-189); the executor updates this file **at every checkpoint** (#1014)
-> **Last updated:** 2026-11-02 19:20:06 UTC by Codex / GPT-6-Astra / xhigh, session `01a19d12-29e3-7fe0-9f41-038dac0a5deb`, lane `m6-t3-emulators` (`wN:p6`). Identity observed in the live Herdr footer, not a provider-attested receipt.
+> **Last updated:** 2026-11-02 19:29:56 UTC by Codex / GPT-6-Astra / xhigh, session 01a19d12-29e3-7fe0-9f41-038dac0a5deb, T3 wN:p6; observed footer, not provider-attested.
 > **Branch (distribution):** `feature/m6-patches-shipped-kernel-688`, seed `f03b64419fa656fb3af61cbc8d174284020d439c` over coordinator `d7dd76665983cb87dba62397691500fcf409fafe`, carrying P1 `2174265e9c`. Accepted Stage-A artifact: `cffe3f869c5ced124e26befa36505350b4964f77`; the seed is historical, not the current tip.
 > **Worktree (distribution):** `/workspace/repos/pixelelated/distribution.worktrees/m6-patches-shipped-kernel-688` -- the audit artifacts, the work log and this pointer live here; anything temporary under `/workspace/tmp/m6-t41/` after `df -i` (the tarballs' touched files under `/workspace/tmp/m6-t41/src/`), never `/tmp`, retired at stage H
 > **Worktree (EmulationStation):** **none**: nothing in the 107 is EmulationStation's
@@ -16,7 +16,7 @@
 > **Register:** the highest decided row per area read from the table at `d7dd766659` (D-CLOUD-193, D-INFRA-031, D-LAUNCH-007, D-NET-017, D-QA-063, D-RA-052, D-SYS-013, D-UI-137, D-WORKFLOW-221), the last of them **this slice's ownership row, D-WORKFLOW-221, written by the coordinator at dispatch** (ruling (l); 220 is T39's)
 > **The brief:** `docs/reviews/briefs/patches-shipped-kernel.md` at `9313492990` (version 2, sha256 prefix `24794608bcc7a0f9`, `2194` lines; version 1 `7d70da5972`, the stranger's proof `kit/t41-proof.md`)
 
-## Current focus — records-only E–H released; final hand-back in progress
+## Current focus — records-only E–H complete; final publication and coordinator acceptance
 
 The corrected packet under `stage-b/corrected/` and reports `02-forward-audit.md`, `03-retrospective.md`, `04-analysis.md` complete Stage B. Full normal application in a fresh disposable candidate is authoritative under D-WORKFLOW-222 at immutable coordinator `4c8a118cfb4efa8d13c1b41b72ef7a205da5f766` and full comment 6583428757. All 120 applications over 106 patch paths succeeded: 8/42/65/2/2/1 by plan, 43 applies / 48 offsets / 29 fuzz, zero true failures or blocked production rows. Only H700 011 has dry_rc=1/apply_rc=0. The engine's deliberate partial-failure fixture leaves the successful prefix unchanged and blocks the successor. All earlier receipts remain unchanged.
 
@@ -51,13 +51,15 @@ Stage A is complete on `feature/m6-patches-shipped-kernel-688` over seed commit 
 
 Records correction **`02aab33bd9842610b0d466c9c186454dc14373ee`** is pushed; checkpoint 6580886152 has the verified dated erratum. Blocker commit **`3cd9ca140a0da9af447a3ee2fb9cdbbbf222a95b`** and comment 6583064842 preserve the first packet and same-input refutation. Its six initial H700 failures were method-contaminated leads. They are refuted by the corrected complete sequence, not product bugs. The coordinator resolved the method in comment 6583428757 and D-WORKFLOW-222; no additional approval relay was required.
 
-## Immediate next action — complete records-only E–H
+## Immediate next action — final clean publication, then idle for coordinator
 
-D accepted at c9fe606e8d7e7e0f6c70cc686764d1503029d278 by full comment 6585897242. E–H explicitly released under D-WORKFLOW-227 at 82cb787674b6132669efa6bd7d38168797e7c1f7, with D226 at 329011b9eae20922b4d0727e13bf1626b2e1c04f. No new coordinator merge or approval relay is required.
+E/F completed at 9ae1b29fecc28e73f7bd3da444cbf993eb08a17f. PL-001 is Deferred to open High #1408/integration #563/#559; audit #1409's permitted deferral criterion is checked after exact readback and box-check, but the audit remains open. Bug #1408 is unchanged with two unchecked source-fix criteria. G retro is posted as #688 comment 6586365365, including the candid D228 addendum.
 
-Finish the Deferred outcome records and audit #1409 readback, new default/issue resolution lint and final record checks, G retro, then H census, retire owned extracted-source and lint-proof scratch, and return one clean published tip to wN:p2. Preserve A–D receipts and all source. Leave #1408 open/unfixed with two unchecked criteria. T11/#658 retains duplicate-storage choice; D-SYS-004 keeps the never-sent ramoops draft at ROCKNIX distribution layer. Coordinator owns simulated integration, final acceptance, audit closure and #688 ticks/closure.
+D228 at 10e055e3043b7bd41f9dcca3e04abce9d979817e / comment 6586375296 authorizes exactly four NEW generator input controls. stage-f/generator-input-proof/manifest.json records PASS, negatives1/1/1 and stats0; positive stdout equals retained C stats. Historical negative input identities remain unavailable and are not retroactively certified. No application/extraction/whole-stage replay. Accepted formal program and all A–D bytes stay unchanged.
 
-Only wN is in scope. Actual Codex / GPT-6-Astra / xhigh identity remains observed, not provider-attested. No source/build/guest/runtime/fetch/configuration/helper/host-ledger/device/cloud action, reviewer call or permission answer. If Herdr delivery is blocked, keep the result on #688 and leave owner input untouched.
+Stage H retired only /workspace/tmp/m6-t41/src and /workspace/tmp/m6-t41/lint-proof after receipt preservation; literal ls diagnostics and closing ledger/churn census are under stage-h/. Other owned tmp/records/fixtures remain. Final check output is stage-h/validation.json. The single published H tip and exact reviewed-at/fixed-at are in #688's final header/hand-back, avoiding a self-referential commit hash in this pointer.
+
+Publish the final H packet, update only #688 commit headers, post one clean hand-back and deliver it to m6-coordinator wN:p2; then idle for coordinator simulated integration/final acceptance. Do not close the audit, tick/close #688, create audit-completion.json or change source. After acceptance the coordinator prompts any completion receipt owed. T11/#658 retains duplicate storage choice, D-SYS-004 the never-sent distribution-layer ramoops draft. No runtime/host/private/provider/device/cloud action or permission answer. If Herdr is blocked, retain result on #688 and leave owner input untouched.
 
 ## Merge notes
 
@@ -72,3 +74,5 @@ The merge order is the coordinator's, named at acceptance. When `next` moves, th
 - **Stage C** (2026-11-02 18:38:30 UTC): formal audit-local generator and actual Local reader plan; three negatives rc=1, five modes rc=0 matching accepted output; pre-issue lint rc=0/PASS with one open High punch item. AC17 correction `721d6e7049` precedes C. Next: substantive C update, D issue/06/07/questions packet and clean published stop for stream disposition.
 
 - **Stage D** (2026-11-02 18:52:12 UTC): audit #1409 (M6 child of #688), bug #1408 (no milestone/parent), 06/07 and both questions/readbacks complete. One High remains Open for integration/coordinator disposition. No original receipt/source change. Final filing checks and publication are recorded by the checkpoint; stop at D.
+
+- **Stages E–H** (2026-11-02 19:29:56 UTC): records-only D227 deferral, both resolution lints PASS, G retro 6586365365, D228 four new controls PASS, closing census and two owned scratch roots retired. Final tip/header/hand-back published on #688; coordinator acceptance remains owed.

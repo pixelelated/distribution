@@ -1,0 +1,11 @@
+{
+  "timestamp": "2026-11-02 19:32:47 UTC",
+  "result": "PASS",
+  "manifest_sha256": "c3ffd3c6f9fc71f0b29ae0d57e3d0ad092af550f5e1df9e8c61a81a6730f08d2",
+  "program_sha256": "ac6fe1ea48775d0c4c3b285b9b6811c1d12a83ed4ca2414d466ab6490989e558",
+  "builder_sha256": "c0a3559eb5d1f2b0149664b6f7462f114f0ec88ab6e4f9574e25ef6907436363",
+  "checks": "exact schema/input mutations/modes/single overlay/argv/times/rc/assertions/output hashes/stats equality/escaped serialized filenames",
+  "accepted_execution_replayed": false,
+  "attempts": 2,
+  "correction": "first generator outputs passed, publication filename-serialization check failed; lossless first attempt retained, then four corrected controls under D228 exception"
+}

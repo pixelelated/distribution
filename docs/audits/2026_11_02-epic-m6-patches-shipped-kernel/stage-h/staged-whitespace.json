@@ -1,0 +1,24 @@
+{
+  "timestamp": "2026-11-02T19:34:46.973066+00:00",
+  "full_argv": [
+    "git",
+    "diff",
+    "--cached",
+    "--check"
+  ],
+  "full_rc": 2,
+  "full_output": "staged-whitespace-all.json",
+  "record_argv": [
+    "git",
+    "diff",
+    "--cached",
+    "--check",
+    "--",
+    ".",
+    ":!docs/audits/2026_11_02-epic-m6-patches-shipped-kernel/stage-f/generator-input-proof/fixtures/bytes/projects/ROCKNIX/devices/H700/packages/u-boot-DDR3/patches/0001-Update-dram_sun50i_h616.c.patch",
+    ":!docs/audits/2026_11_02-epic-m6-patches-shipped-kernel/stage-f/generator-input-proof-attempt-1/fixtures/bytes/projects/ROCKNIX/devices/H700/packages/u-boot-DDR3/patches/0001-Update-dram_sun50i_h616.c.patch"
+  ],
+  "record_rc": 0,
+  "record_output": "staged-whitespace-records.out",
+  "reason": "Only D228 exact-byte patch overlay and its preserved first attempt contain inherited patch-context/mail-trailer whitespace. Do not rewrite sealed inputs. All other staged records pass. These audit fixtures are the sole new patch paths; actual product-source trees and all 107 selected files remain unchanged."
+}

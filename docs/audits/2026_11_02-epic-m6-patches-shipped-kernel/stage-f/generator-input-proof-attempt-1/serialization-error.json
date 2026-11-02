@@ -1,0 +1,23 @@
+{
+  "timestamp": "2026-11-02T19:31:42.638602+00:00",
+  "result": "generator controls passed; publication hygiene failed",
+  "reason": "JSON serialization decoded the known filename Unicode escape into a literal hyphen. New final-record check caught it before publication.",
+  "encoded_original_files": [
+    {
+      "original_path": "fixtures/drop.json",
+      "stored_path": "fixtures/drop.json.base64",
+      "sha256": "8c954a8c9b746285edad5eff4fc97232db07d62e4481a42cf5c894dcbcb46bab",
+      "size_bytes": 61810,
+      "encoding": "base64; exact original bytes, not a rewritten input"
+    },
+    {
+      "original_path": "fixtures/reach.json",
+      "stored_path": "fixtures/reach.json.base64",
+      "sha256": "a274923d537fef27af5705ccfea3ef9d37ba42422528af89120c93695a8d8163",
+      "size_bytes": 62749,
+      "encoding": "base64; exact original bytes, not a rewritten input"
+    }
+  ],
+  "original_packet_preserved_at": "/workspace/tmp/m6-t41/generator-input-proof-attempt-1",
+  "correction": "Use the same known-escape serializer for both row fixtures; preserve semantic rows. D228 explicitly permits a recorded concrete implementation correction. Run only four new corrected controls, with new exact bytes/hashes/times."
+}

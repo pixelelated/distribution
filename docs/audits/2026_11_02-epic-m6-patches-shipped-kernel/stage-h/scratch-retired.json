@@ -1,0 +1,22 @@
+{
+  "timestamp": "2026-11-02 19:29:56 UTC",
+  "retirement_argv": [
+    "rm",
+    "-rf",
+    "/workspace/tmp/m6-t41/src",
+    "/workspace/tmp/m6-t41/lint-proof"
+  ],
+  "retirement_rc": 0,
+  "verification_argv": [
+    "ls",
+    "-d",
+    "/workspace/tmp/m6-t41/src",
+    "/workspace/tmp/m6-t41/lint-proof"
+  ],
+  "verification_rc": 2,
+  "output": "scratch-retired.out",
+  "source_retired": true,
+  "lint_proof_retired": true,
+  "other_owner_paths_touched": false,
+  "retained_scratch": "Remaining /workspace/tmp/m6-t41 records, tmp and fixtures are lane-owned; no extraction/source or lint-proof remains. They are not claimed retired."
+}
