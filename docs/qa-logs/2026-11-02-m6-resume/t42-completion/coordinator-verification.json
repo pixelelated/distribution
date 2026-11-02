@@ -1,0 +1,160 @@
+{
+  "result": "PASS new completion record; no accepted producer replay",
+  "observed_at": "2026-11-02T21:45:56.655887+00:00",
+  "accepted_source": "4cf8c8820791624dbddad3eb3664101a03953a82",
+  "completion": "0eeaa4c9a6d384f57e0017c0be75673eb872f2db",
+  "marker_sha256": "02c67e76fd0b667bcd34e39044976ad3b876e69bc41e83bc3a4d9b8b1ac2fee6",
+  "marker_evidence_hashes": 15,
+  "prior_audit_files_unchanged": 4056,
+  "all_other_prior_files_unchanged_except_pointer_log_index": true,
+  "changed_paths": [
+    ".github/sessions/saved-session-state-feature-m6-patches-shipped-689.md",
+    "docs/audits/2026_11_02-epic-m6-patches-shipped/audit-completion.json",
+    "docs/audits/2026_11_02-epic-m6-patches-shipped/completion/1410-body.md",
+    "docs/audits/2026_11_02-epic-m6-patches-shipped/completion/1410-expected-body.md",
+    "docs/audits/2026_11_02-epic-m6-patches-shipped/completion/1410-readback.json",
+    "docs/audits/2026_11_02-epic-m6-patches-shipped/completion/1411-body.md",
+    "docs/audits/2026_11_02-epic-m6-patches-shipped/completion/1411-expected-body.md",
+    "docs/audits/2026_11_02-epic-m6-patches-shipped/completion/1411-readback.json",
+    "docs/audits/2026_11_02-epic-m6-patches-shipped/completion/689-body.md",
+    "docs/audits/2026_11_02-epic-m6-patches-shipped/completion/689-expected-body.md",
+    "docs/audits/2026_11_02-epic-m6-patches-shipped/completion/689-readback.json",
+    "docs/audits/2026_11_02-epic-m6-patches-shipped/completion/README.md",
+    "docs/audits/2026_11_02-epic-m6-patches-shipped/completion/acceptance-dispatch.stderr",
+    "docs/audits/2026_11_02-epic-m6-patches-shipped/completion/acceptance-dispatch.stdout",
+    "docs/audits/2026_11_02-epic-m6-patches-shipped/completion/accepted-content-unchanged.stderr",
+    "docs/audits/2026_11_02-epic-m6-patches-shipped/completion/accepted-content-unchanged.stdout",
+    "docs/audits/2026_11_02-epic-m6-patches-shipped/completion/allowed-record-paths.json",
+    "docs/audits/2026_11_02-epic-m6-patches-shipped/completion/bug-parent.stderr",
+    "docs/audits/2026_11_02-epic-m6-patches-shipped/completion/bug-parent.stdout",
+    "docs/audits/2026_11_02-epic-m6-patches-shipped/completion/ceremony-full.stderr",
+    "docs/audits/2026_11_02-epic-m6-patches-shipped/completion/ceremony-full.stdout",
+    "docs/audits/2026_11_02-epic-m6-patches-shipped/completion/ceremony-gate.stderr",
+    "docs/audits/2026_11_02-epic-m6-patches-shipped/completion/ceremony-gate.stdout",
+    "docs/audits/2026_11_02-epic-m6-patches-shipped/completion/check-summary.md",
+    "docs/audits/2026_11_02-epic-m6-patches-shipped/completion/checkbox-1410.stderr",
+    "docs/audits/2026_11_02-epic-m6-patches-shipped/completion/checkbox-1410.stdout",
+    "docs/audits/2026_11_02-epic-m6-patches-shipped/completion/checkbox-1411.stderr",
+    "docs/audits/2026_11_02-epic-m6-patches-shipped/completion/checkbox-1411.stdout",
+    "docs/audits/2026_11_02-epic-m6-patches-shipped/completion/checkbox-689.stderr",
+    "docs/audits/2026_11_02-epic-m6-patches-shipped/completion/checkbox-689.stdout",
+    "docs/audits/2026_11_02-epic-m6-patches-shipped/completion/checks.json",
+    "docs/audits/2026_11_02-epic-m6-patches-shipped/completion/coordinator-acceptance.stderr",
+    "docs/audits/2026_11_02-epic-m6-patches-shipped/completion/coordinator-acceptance.stdout",
+    "docs/audits/2026_11_02-epic-m6-patches-shipped/completion/hooks.stderr",
+    "docs/audits/2026_11_02-epic-m6-patches-shipped/completion/hooks.stdout",
+    "docs/audits/2026_11_02-epic-m6-patches-shipped/completion/index.stderr",
+    "docs/audits/2026_11_02-epic-m6-patches-shipped/completion/index.stdout",
+    "docs/audits/2026_11_02-epic-m6-patches-shipped/completion/issue-1410.stderr",
+    "docs/audits/2026_11_02-epic-m6-patches-shipped/completion/issue-1410.stdout",
+    "docs/audits/2026_11_02-epic-m6-patches-shipped/completion/issue-1411.stderr",
+    "docs/audits/2026_11_02-epic-m6-patches-shipped/completion/issue-1411.stdout",
+    "docs/audits/2026_11_02-epic-m6-patches-shipped/completion/issue-689.stderr",
+    "docs/audits/2026_11_02-epic-m6-patches-shipped/completion/issue-689.stdout",
+    "docs/audits/2026_11_02-epic-m6-patches-shipped/completion/marker-contract.json",
+    "docs/audits/2026_11_02-epic-m6-patches-shipped/completion/new-record-whitespace.stderr",
+    "docs/audits/2026_11_02-epic-m6-patches-shipped/completion/new-record-whitespace.stdout",
+    "docs/audits/2026_11_02-epic-m6-patches-shipped/completion/register.stderr",
+    "docs/audits/2026_11_02-epic-m6-patches-shipped/completion/register.stdout",
+    "docs/audits/2026_11_02-epic-m6-patches-shipped/completion/resolution-with-issue.stderr",
+    "docs/audits/2026_11_02-epic-m6-patches-shipped/completion/resolution-with-issue.stdout",
+    "docs/audits/2026_11_02-epic-m6-patches-shipped/completion/resolution.stderr",
+    "docs/audits/2026_11_02-epic-m6-patches-shipped/completion/resolution.stdout",
+    "docs/audits/2026_11_02-epic-m6-patches-shipped/completion/rules.stderr",
+    "docs/audits/2026_11_02-epic-m6-patches-shipped/completion/rules.stdout",
+    "docs/audits/2026_11_02-epic-m6-patches-shipped/completion/source-commit-path-guard.stderr",
+    "docs/audits/2026_11_02-epic-m6-patches-shipped/completion/source-commit-path-guard.stdout",
+    "docs/audits/2026_11_02-epic-m6-patches-shipped/completion/tracker-commands.json",
+    "docs/audits/2026_11_02-epic-m6-patches-shipped/completion/tracker-completion.json",
+    "docs/work-logs/2026_11-work_logs/2026_11_02-work_log.md",
+    "docs/work-logs/INDEX.md"
+  ],
+  "new_command_bindings": [
+    {
+      "name": "acceptance-dispatch",
+      "rc": 0
+    },
+    {
+      "name": "coordinator-acceptance",
+      "rc": 0
+    },
+    {
+      "name": "issue-1411",
+      "rc": 0
+    },
+    {
+      "name": "issue-689",
+      "rc": 0
+    },
+    {
+      "name": "issue-1410",
+      "rc": 0
+    },
+    {
+      "name": "bug-parent",
+      "rc": 1
+    },
+    {
+      "name": "accepted-content-unchanged",
+      "rc": 0
+    },
+    {
+      "name": "source-commit-path-guard",
+      "rc": 0
+    },
+    {
+      "name": "resolution",
+      "rc": 0
+    },
+    {
+      "name": "resolution-with-issue",
+      "rc": 0
+    },
+    {
+      "name": "rules",
+      "rc": 0
+    },
+    {
+      "name": "register",
+      "rc": 0
+    },
+    {
+      "name": "index",
+      "rc": 0
+    },
+    {
+      "name": "ceremony-full",
+      "rc": 0
+    },
+    {
+      "name": "ceremony-gate",
+      "rc": 0
+    },
+    {
+      "name": "hooks",
+      "rc": 0
+    },
+    {
+      "name": "checkbox-689",
+      "rc": 0
+    },
+    {
+      "name": "checkbox-1411",
+      "rc": 0
+    },
+    {
+      "name": "checkbox-1410",
+      "rc": 0
+    },
+    {
+      "name": "new-record-whitespace",
+      "rc": 0
+    }
+  ],
+  "external_publication_files": 39,
+  "external_all_commands_rc0": true,
+  "external_packet_sha256": "477724bd032c9df52e73324cbbbaf7c146d886a6e732319839604f026dfe363e",
+  "live_closed_body_exact": true,
+  "completed_at": "2026-11-02T21:35:35.218205+00:00",
+  "closed_at": "2026-11-02T21:30:23Z"
+}

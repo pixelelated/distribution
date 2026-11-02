@@ -1,6 +1,6 @@
 # M6 coordinator current handoff
 
-Updated 2026-11-02T21:28:15.700557+00:00 by Codex / GPT-6-Astra / xhigh (own observed footer, not provider-attested), session01a19d11-f5c8-7bb0-80f3-49ad28732af2, wN:p2.
+Updated 2026-11-02T21:49:00.973509+00:00 by Codex / GPT-6-Astra / xhigh (own observed footer, not provider-attested), session01a19d11-f5c8-7bb0-80f3-49ad28732af2, wN:p2.
 
 ## Resume here
 
@@ -10,19 +10,20 @@ Worktree `/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan
 
 | Lane | Current outcome | Next useful action |
 | --- | --- | --- |
-| P1 wN:p3, m6-p1-survey | Bounded T42 final reconciliation complete; historical P1 tree2174265e9c untouched | Available for bounded factual work; no planning authority |
-| T1 wN:p4, m6-t1-os-launch | T39 accepted source4eb5dfab8e74, completion7994f760fe1f independently verified; audit1406 closed | Intended T43 executor after final proved brief and exact dispatch |
-| T2 wN:p5, m6-t2-es-launch | T43 stranger proof returned: one manifest citation correction, membership and49refusal controls pass | Available; root corrects brief before dispatch |
-| T3 wN:p6, m6-t3-emulators | T41 accepted sourcee481e4a4a5c, completion83304388db49 independently verified; audit1409 closed | Available; historical launch/T2 tree untouched |
-| T5 wN:p7, m6-t5-build-engine | T42 final4cf8c8820791; root final gates and reconciliation complete, acceptance transaction next | Records-only completion marker after explicit root acceptance |
+| P1 wN:p3 | Working T44 immutable membership/tier/group/boundary prep, #691comment6589185959 | Bounded factual report; root chooses baseline/brief |
+| T1 wN:p4 | T43 executing, reports A matched432rows/Local controls, continuing B | Continuous A–D, clean published D then root disposition |
+| T2 wN:p5 | Working T44 accepted catalogue/import/history context, #691comment6589185959 | Bounded report separate from P1; no execution-pin choice |
+| T3 wN:p6 | Working T46 frozen metadata cost/entrypoint prep, #693comment6589213896 | Bounded planning report only; T46 remains last |
+| T5 wN:p7 | T42 accepted4cf8; completion0eeaa4c9a6d384f57e0017c0be75673eb872f2db verified | Available after completed assignment; no new source slice |
 
-All worktrees are the exact assigned slice trees. Herdr installed skill applies; verify HERDR_ENV=1, address only wN, preserve user focus and never answer another agent's approval. Actual acknowledgments/work prove progress; successful prompt submission alone proves delivery.
+Use only existing wN lanes; verify HERDR_ENV=1. Actual work/acknowledgments observed for these assignments; no other pane's permission prompt may be answered. Historical launch, T39/T41/T38 trees stay untouched. Completed lane availability is truthful, not a reason to invent duplicate work.
 
 ## Immediate next actions
 
-1. Publish `docs/qa-logs/2026-11-02-m6-resume/t42-final-acceptance.md` and its retained integration/support/publication receipts. Then accept #689, check its20criteria, check audit1411criterion3 and close that audit completed. Leave Medium1410 open with3unchecked criteria, no parent/milestone and no GUIDE/UNKNOWN choice. Dispatch only T5's normal schema1 completion marker, closed-audit readback, pointer/log and new record checks. #689 stays open until ordered actual area integration.
-2. T43 candidate `docs/reviews/briefs/patches-unshipped.md` v1 SHA9cbdc0a2ceae4678bab380d880ae7826c472b00424ec4f61a08d7498de465d38 and helperSHA5e8f14567bf8cb6e0916b7a7d3cc67f9dfd899b38c9d38ff6a2d37a3ff88191f passed bounded proof except one citation. `/tmp/m6-t43-stranger-xb328xv5/RETURN.md` SHA2c93d6e85d1b3608b0d657695ce566cef3ecc42ed4470d3a31b2e20e76fe3809: retained manifest bytes are d89d6fe612587635c2bb6d1101362242f03b9f0c3c391015f5344c2357eb1c49; one literal path escape decoded produces ccbbe1543349e51f56545afc3e96aadc3fc3e965e19b1fdb18731ee809cc083e. Name both without changing historical manifest. Retain proof, finalize brief/ruling/futro/live criteria, create and prove exact seed/worktree, then dispatch T1 A–D continuously. No T43 execution currently authorized.
-3. Next ordered slices are T43#690, T44#691, T46#693. No duplicate audit or invented work merely to occupy a lane. #1407 remains milestone-homed docs index/retirement backlog under D223/D224. User choices already settled.
+1. Receive T43's complete D packet under #690comment6589165585. Exact worktree `/workspace/repos/pixelelated/distribution.worktrees/m6-patches-unshipped-690`, branch `feature/m6-patches-unshipped-690`, published seed601e4694f9726b2228d3571efdb5cfc061c6d442, parent92e8d07b6163ec5ddd3e9b67f1c42a472b2911d1. Brief v2 SHAa73aef709a5902a7cbbb7ba0409d1128f855a3fe7e70430c010ef0fa9047dcbf; helperSHA5e8f14567bf8cb6e0916b7a7d3cc67f9dfd899b38c9d38ff6a2d37a3ff88191f. D231/20criteria/kickoff6589101024 and seed proof are complete. A–D has no new stage gates; root disposition follows D. The report of A is not a root re-audit or acceptance.
+2. Consume P1/T2's bounded T44 reports and author the next brief. Distribution frozen92e8/P12174265; ES store `/home/max/Development/emulationstation-next`, survey16dbac5211eea7e70db7394372033be2be7df829 and accepted T2 ES55158d2a64c69fe295fb4e67fd174424a71b1b4d exist. Read full691/shared-catalogue comment6375264017 and700; later accepted catalogue/ES changes must inform the source baseline. The coordinator recipe's historical16dbac pin is not proof that accepted later edits are included. No T44 execution or pin choice has been dispatched.
+3. Consume T3's bounded T46 snapshot, not a final membership recut. Frozen source-only inventory/path/mode/blob/size metadata and named entrypoints; no raw audit-log body sweep, cleanup or deletion choice. T46 remains after T44. User-selected monthly indexes/individual33document retirement review stay in milestone Backlog1407/D223/D224, not an invented new choice.
+4. T42 acceptance6588933395 and completion6589236996 are complete. Source4cf8 headers unchanged; marker0eeaa4c9 verified15hashes,4056accepted audit files unchanged,20newcommand bindings,39externalpublicationfiles. Audit1411closed,689open20checked, Medium1410open3unchecked/no parent/milestone. Actual area integration and slice closure remain future root obligations.
 
 ## Evidence and limits
 
@@ -34,7 +35,7 @@ T42 D230 and final packet preserve native384151/38/22/173, separate inherited50/
 
 ## Resources, continuity and publishing
 
-M6 holds no VM/compiler/runtime and queues none ahead of M7. Existing user-authorized conditional sequential M7 grants and actual START/RETURN are in `/workspace/tmp/m7-m6-host-coordination.txt`; re-read masked ledger before any allocation. Keep M6 source/record subprocesses on CPUs8–23. Detailed host receipts stay local, not in this publication. Existing compile-ack.sh PID1230737 and tailPID1230738 remain owned/live: never edit or stop them. Automatic acknowledgment is not a new grant or proof of future resource state. Off-session result delivery is not armed.
+M6 holds no VM/compiler/runtime. Both requested M7 target builds and standing readers have recorded consumed RETURNs; this is ledger evidence, not a fresh host process census. No further runtime grant follows automatically. Existing user-authorized conditional sequential M7 grants and actual START/RETURN are in `/workspace/tmp/m7-m6-host-coordination.txt`; re-read masked ledger before any allocation. Keep M6 source/record subprocesses on CPUs8–23. Detailed host receipts stay local, not in this publication. Existing compile-ack.sh PID1230737 and tailPID1230738 remain owned/live: never edit or stop them. Automatic acknowledgment is not a new grant or proof of future resource state. Off-session result delivery is not armed.
 
 No physical/cloud action, accepted-stage replay or provider/reviewer call. Never read held directories `/workspace/tmp/m6-t34/held/`, `/workspace/tmp/m6-t36/held/`, credential stores or forbidden-word list. Permitted process/log output uses `sed -E -f /workspace/tmp/m6-coordinator/kit/mask.sed`. Producer receipts belong to producers; observations remain separate.
 

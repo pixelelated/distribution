@@ -1,0 +1,20 @@
+{
+  "request": {
+    "comment": "## Bounded T46 planning inputs — 2026-11-02\n\nThe owner asked that existing M6 lanes continue useful milestone work. T43 is executing; T44 remains next and T46 remains last because earlier slices produce records. This is an immutable planning snapshot, not early T46 execution or a final membership recut.\n\nExisting **T3 wN:p6**, now available after accepted T41 completion, may derive a small cost/boundary report from P1 `2174265e9cc1b248c0fbe27fa101875984d46d6b` and frozen coordinator `92e8d07b6163ec5ddd3e9b67f1c42a472b2911d1`:\n\n1. Reconcile the recorded `records` selectors, 126,149 rows /22,984,582 inventory lines and the meaning of the generated read counts. Group by folder/type using existing inventory and Git mode/blob/size metadata; do not read millions of record lines to recreate a false code-review denominator.\n2. Quantify frozen new/deleted/changed record-path metadata since P1, with concise group totals and exact commands. Distinguish the immutable survey population from later additions, source links and generated indexes. No live working-tree scan.\n3. Read only the specific plan/order sections, documentation/index conventions, D-WORKFLOW-223/224 and #1407, plus current coordinator/T39 handoff references necessary to identify candidate entrypoints a stranger actually follows. Map ownership, historical-evidence retention, monthly-index backlog and the boundary with T39's completed reference corrections. Do not perform another audit or decide deletion/consolidation.\n4. Return factual options for a bounded future T46 brief: which compact source inputs can bind membership, how to avoid recursive self-counting, and which costs can be measured from metadata versus require later proof. Root chooses scope, baseline, criteria and any action.\n\nUse small private text/JSON scratch and CPUs8–23. No full tree/export, audit-log body sweep, held/private directory or credential-store read, host/cache/process inspection, repository/tracker/kit write, cleanup, build/guest/runtime, fetch/provider/device/cloud action, accepted producer replay or permission answers. Historical T41 and launch trees remain untouched. Report exact pins/commands/hashes, limitations and useful next inputs to wN:p2, then stop.\n\nCan this be done on the VM? This is immutable Git/inventory planning metadata; no runtime behavior or new runtime allocation.",
+    "pr_number": 693,
+    "repo_full_name": "pixelelated/distribution",
+    "link_id": "link_6ac2961edf2081918a8d75b020eff02b"
+  },
+  "response": {
+    "content": [
+      {
+        "type": "text",
+        "text": "Action completed."
+      }
+    ],
+    "structuredContent": {
+      "id": 6589213896
+    },
+    "isError": false
+  }
+}
