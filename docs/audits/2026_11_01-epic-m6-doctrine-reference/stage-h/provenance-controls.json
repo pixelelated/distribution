@@ -1,0 +1,50 @@
+{
+  "observed_at": "2026-11-02T19:13:31Z",
+  "cases": [
+    {
+      "case": "refuse-wrong-integration-tip",
+      "commit": "24a5e0e294607bc6fc99025873cb063d26c9a4da",
+      "coordinator": "24a5e0e294607bc6fc99025873cb063d26c9a4da",
+      "expected": 2,
+      "actual": 2,
+      "export": "/workspace/tmp/m6-t39/export-24a5e0e29460-refuse-wrong-integration-tip",
+      "total": "refused before checks"
+    },
+    {
+      "case": "refuse-unmerged-integration-tip",
+      "commit": "ad5516f6603509954d241e62585b22d32402b03c",
+      "coordinator": "329011b9eae20922b4d0727e13bf1626b2e1c04f",
+      "expected": 2,
+      "actual": 2,
+      "export": "/workspace/tmp/m6-t39/export-ad5516f66035-refuse-unmerged-integration-tip",
+      "total": "refused before checks"
+    },
+    {
+      "case": "reject-owned-postmerge-edit",
+      "commit": "3e3f0bc1a14c98dca327575321bb50d30e37b9a2",
+      "coordinator": "329011b9eae20922b4d0727e13bf1626b2e1c04f",
+      "expected": 1,
+      "actual": 1,
+      "export": "/workspace/tmp/m6-t39/export-3e3f0bc1a14c-reject-owned-postmerge-edit",
+      "total": "TOTAL: 12 of 13 steps"
+    },
+    {
+      "case": "reject-merge-resolution-edit",
+      "commit": "412c22027c7470af6d9139a6911bf2663cda2e54",
+      "coordinator": "329011b9eae20922b4d0727e13bf1626b2e1c04f",
+      "expected": 1,
+      "actual": 1,
+      "export": "/workspace/tmp/m6-t39/export-412c22027c74-reject-merge-resolution-edit",
+      "total": "TOTAL: 12 of 13 steps"
+    },
+    {
+      "case": "integrated-withheld-findings",
+      "commit": "24a5e0e294607bc6fc99025873cb063d26c9a4da",
+      "coordinator": "329011b9eae20922b4d0727e13bf1626b2e1c04f",
+      "expected": 0,
+      "actual": 0,
+      "export": "/workspace/tmp/m6-t39/export-24a5e0e29460-integrated-withheld-findings",
+      "total": "TOTAL: 13 of 13 steps"
+    }
+  ]
+}

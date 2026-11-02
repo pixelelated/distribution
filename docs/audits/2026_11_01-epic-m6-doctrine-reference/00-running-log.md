@@ -208,3 +208,7 @@ PROOF: 2026-11-02T19:06:35Z F05: Resolution lint default/--issue 1406; rules/reg
 PROOF: 2026-11-02T19:06:35Z F06: New-record guard rejects five in-memory missing/drift controls before accepting the records; evidence stage-f/record-check.py; stage-f/checks/record-check.out; proved: fixture
 
 PROOF: 2026-11-02T19:08:55Z G01: Stage-G four-answer retro, ten scoped checks and complete 46-item instruction coverage map; evidence docs/retros/2026-11-02-m6-doctrine-reference.md; 04 Instruction File Recommendations; proved: tree
+PROOF: 2026-11-02T19:15:01Z H01: Exact authorized coordinator merge preserves complete log entries and all 48 corrected source hashes; evidence stage-h/merge-log-reconciliation.json; stage-h/source-after-merge.json; proved: tree
+PROOF: 2026-11-02T19:15:01Z H02: New exact-tip provenance mode rejects wrong/unmerged tips and both post-merge and merge-resolution ownership violations; real merged withheld-findings run 13/13; evidence stage-h/provenance-controls.json; stage-h/integrated-withheld-findings/harness.out; proved: fixture
+
+PROOF: 2026-11-02T19:16:25Z H03: Merged resolution/rules/register/index/ceremony/hooks/menu-map/new-record checks all rc=0; current counts generated; validated source exports retired; evidence stage-h/checks/results.json; stage-h/term-counts.json; stage-h/export-retirement.json; proved: tool-run

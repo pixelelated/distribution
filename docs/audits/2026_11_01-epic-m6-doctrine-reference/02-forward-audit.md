@@ -874,3 +874,37 @@ The complete 31 binary and 18 art rows, each with size and original/current SHA2
 | F06 | New-record guard rejects five in-memory missing/drift controls before accepting the records | `stage-f/record-check.py; stage-f/checks/record-check.out` | `proved: fixture` |
 
 | G01 | Stage-G four-answer retro, ten scoped checks and complete 46-item instruction coverage map | docs/retros/2026-11-02-m6-doctrine-reference.md; 04 Instruction File Recommendations | `proved: tree` |
+| H01 | Exact authorized coordinator merge preserves complete log entries and all 48 corrected source hashes | `stage-h/merge-log-reconciliation.json; stage-h/source-after-merge.json` | `proved: tree` |
+| H02 | New exact-tip provenance mode rejects wrong/unmerged tips and both post-merge and merge-resolution ownership violations; real merged withheld-findings run 13/13 | `stage-h/provenance-controls.json; stage-h/integrated-withheld-findings/harness.out` | `proved: fixture` |
+
+### Counts after the authorized coordinator merge
+
+The corrected-source counts above describe the pre-merge T39 source. The current 223-row counts below also include the authorized coordinator documentation changes; stage-h/source-after-merge.json confirms the 48 T39 source hashes did not change.
+
+| Class | Term | Current lines | Current files |
+| --- | --- | ---: | ---: |
+| identity | `Rasteratops` | 27 | 11 |
+| identity | `rasteratops` | 31 | 20 |
+| identity | `RASTERATOPS` | 4 | 4 |
+| identity | `ROCKNIX` | 3264 | 57 |
+| identity | `rocknix` | 947 | 43 |
+| identity | `maxengel` | 28 | 6 |
+| identity | `JELOS` | 7 | 7 |
+| identity | `pixelelated` | 255 | 54 |
+| identity | `Pixelelated` | 0 | 0 |
+| identity | `PIXELELATED` | 0 | 0 |
+| retired | `cloud_migrate_layout` | 21 | 7 |
+| retired | `migrate.?layout` | 21 | 7 |
+| retired | `rebase --onto` | 2 | 1 |
+| retired | `rclonectl` | 0 | 0 |
+| retired | `\.github/instructions` | 0 | 0 |
+| retired | `copilot` | 0 | 0 |
+| retired | `rubber[- ]duck` | 1 | 1 |
+| retired | `\brclone config\b` | 2 | 1 |
+| retired | `rocknix\.worktrees` | 4 | 3 |
+
+### Stage-H final record evidence
+
+| ID | Claim / command | Evidence | Proof |
+| --- | --- | --- | --- |
+| H03 | Merged resolution/rules/register/index/ceremony/hooks/menu-map/new-record checks all rc=0; current counts generated; validated source exports retired | `stage-h/checks/results.json; stage-h/term-counts.json; stage-h/export-retirement.json` | `proved: tool-run` |

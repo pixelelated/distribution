@@ -50,6 +50,15 @@ n=check(data)
 for sub in ['stage-a','stage-b','stage-c','stage-d']:
  p=str(A/sub)
  assert not subprocess.check_output(['git','diff','96ef183aae','--',p]), 'accepted receipt edited: '+sub
-for rel in ['tools/t39-checks.sh','tools/t39-checks.py','tools/t39-tables.py','tools/t39-tables-drift.sh']:
+for rel in ['tools/t39-tables.py','tools/t39-tables-drift.sh']:
  assert not subprocess.check_output(['git','diff','96ef183aae','--',str(A/rel)]), 'accepted checker implementation edited'
+if (A/'stage-h/checker-changes.json').exists():
+ import hashlib
+ changes=json.loads((A/'stage-h/checker-changes.json').read_text())
+ assert changes['authorized_tip']=='329011b9eae20922b4d0727e13bf1626b2e1c04f'
+ for rel,record in changes['files'].items():
+  assert hashlib.sha256((A/rel).read_bytes()).hexdigest()==record['current_sha256'], 'unrecorded checker change'
+else:
+ for rel in ['tools/t39-checks.sh','tools/t39-checks.py']:
+  assert not subprocess.check_output(['git','diff','96ef183aae','--',str(A/rel)])
 print(f'PASS new records: 33 Q5 rows / 2770 lines, 46 outcomes, {n} proof pairs, 49 protected rows; historical identity and accepted receipts retained')

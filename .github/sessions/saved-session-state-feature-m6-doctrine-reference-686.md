@@ -163,3 +163,8 @@ or the pins.
 ## Stage F completed — 2026-11-02T19:06:35Z
 
 Current executor Codex / GPT-6-Astra / xhigh, session 01a19d12-0c07-7ba3-88b8-ab9d609f4d67, wN:p4. Source tip de11515859d231a82a511c3867e12211190041a2; stream commits and all exits in stage-e/S1..S5/result.json and stage-f/. 48 source paths corrected. Outcomes 15 Resolved / 22 Deferred / 9 Withdrawn, source-only scope, no integration acceptance asserted. 31 binary + 18 art rows unchanged; Q5 33/2770 and plan table-only. Complete Stage G, then merge exact coordinator 329011b9eae20922b4d0727e13bf1626b2e1c04f as expressly authorized; final records/push/checkpoint remain. No accepted-stage replay, runtime, physical/cloud action or host-ledger write. Completion marker remains coordinator-gated.
+
+
+## Stage H integration ready for publication — 2026-11-02T19:16:25Z
+
+E/F/G complete; retro #686 comment 6585986613 read back exactly. Exact coordinator 329011b9eae20922b4d0727e13bf1626b2e1c04f merged at 24a5e0e294607bc6fc99025873cb063d26c9a4da, with both logs retained and INDEX regenerated. Current executor remains Codex / GPT-6-Astra / xhigh, session 01a19d12-0c07-7ba3-88b8-ab9d609f4d67. Stage-H integration harness requires --coordinator-tip 329011b9eae20922b4d0727e13bf1626b2e1c04f with the original --since 86ebb6dffc; the new mode and its negative controls are documented in stage-h/integration-provenance.md. Final checkpoint names the published tip; wait for coordinator acceptance before audit-completion.json. All 48 source hashes remain Stage F values. No source archive move, ledger-plan edit, runtime, physical/cloud or host write.

@@ -17,7 +17,7 @@ def run(cmd, receipt):
     print(receipt.name, "rc="+str(r.returncode), flush=True)
     if r.returncode: print(r.stdout + r.stderr, flush=True)
     return r.returncode
-def harness(ref, dest, withheld=False):
+def harness(ref, dest, withheld=False, coordinator=None):
     # Required inode check precedes each export. A fresh exact-membership tar only.
     assert run(["df", "-i", str(SCRATCH)], dest / "inodes.out") == 0
     export = SCRATCH / ("export-" + ref[:12] + "-" + dest.name)
@@ -33,6 +33,7 @@ def harness(ref, dest, withheld=False):
            "--commit", ref, "--since", "86ebb6dffc", "--paths", str(A / "stage-a/paths.txt"),
            "--allow", str(A / "tools"), "--out", str(dest / "steps")]
     if withheld: cmd += ["--withhold", "findings"]
+    if coordinator: cmd += ["--coordinator-tip", coordinator]
     return run(cmd, dest / "harness.out"), str(export)
 if __name__ == "__main__":
     p=argparse.ArgumentParser()

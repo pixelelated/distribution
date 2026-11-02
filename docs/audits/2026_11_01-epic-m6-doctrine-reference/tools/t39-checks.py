@@ -26,6 +26,7 @@ excuses it. Counts are the script's own; the last line is `TOTAL: <passed> of <c
 import collections, hashlib, json, pathlib, posixpath, re, subprocess, sys, urllib.parse
 
 TREE, REPO, COMMIT, SINCE, PATHS, ALLOW, OUT, WITHHOLD = sys.argv[1:9]
+COORDINATOR = sys.argv[9] if len(sys.argv) > 9 else ""
 tree = pathlib.Path(TREE)
 out = pathlib.Path(OUT)
 
@@ -313,16 +314,30 @@ cites_line = f"register IDs {len(ids)}, citations {ncites}"
 
 # 9. untouched: no non-merge commit in --since..--commit touches a path outside the edit scope, the audit
 #    folder, the retro, the pointer, the work logs, or (append-only) the three registers.
-log = (git("log", "--no-merges", "--format=%x00%h", "--name-only", f"{SINCE}..{COMMIT}") or b"").decode()
+log_args = ["log", "--no-merges", "--format=%x00%h", "--name-only", f"{SINCE}..{COMMIT}"]
+if COORDINATOR:
+    log_args += ["--not", COORDINATOR]
+log = (git(*log_args) or b"").decode()
+def lane_path(f):
+    return (f in EDIT or f.startswith(AUDIT) or f == POINTER
+            or f.startswith(".github/sessions/archived/saved-session-state-feature-m6-doctrine-reference-686-")
+            or f.startswith("docs/work-logs/")
+            or re.fullmatch(r"docs/retros/\d{4}-\d\d-\d\d-m6-doctrine-reference\.md", f)
+            or f in APPEND_ONLY)
+# Excluding authorized imported commits is insufficient: a merge resolution
+# can introduce bytes without a non-merge commit. Every non-owned path must
+# therefore match the exact coordinator tree, including additions/deletions.
+if COORDINATOR:
+    for f in (git("diff", "--name-only", COORDINATOR, COMMIT) or b"").decode().splitlines():
+        record("untouched", bool(lane_path(f)), f"{f}:0",
+               f"merged bytes differ from authorized coordinator {COORDINATOR}")
+
 ncommits = 0
 for chunk in log.split("\0")[1:]:
     h, *files = [x for x in chunk.split("\n") if x.strip()]
     ncommits += 1
     for f in files:
-        okp = (f in EDIT or f.startswith(AUDIT) or f == POINTER
-               or f.startswith(".github/sessions/archived/saved-session-state-feature-m6-doctrine-reference-686-")
-               or f.startswith("docs/work-logs/")
-               or re.fullmatch(r"docs/retros/\d{4}-\d\d-\d\d-m6-doctrine-reference\.md", f) or f in APPEND_ONLY)
+        okp = lane_path(f)
         record("untouched", okp, f"{f}:0", f"{h} touches {f} ({CLASS.get(f, 'outside the 254')})")
 for f in APPEND_ONLY:
     d = (git("diff", SINCE, COMMIT, "--", f) or b"").decode()

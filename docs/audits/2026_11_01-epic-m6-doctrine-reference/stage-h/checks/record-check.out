@@ -1,0 +1,10 @@
+$ python3 docs/audits/2026_11_01-epic-m6-doctrine-reference/stage-f/record-check.py
+started_at=2026-11-02T19:15:01Z
+CONTROL REJECTED: missing Q5 row
+CONTROL REJECTED: historical model rewritten
+CONTROL REJECTED: missing outcome
+CONTROL REJECTED: missing proof line
+CONTROL REJECTED: changed protected hash
+PASS new records: 33 Q5 rows / 2770 lines, 46 outcomes, 27 proof pairs, 49 protected rows; historical identity and accepted receipts retained
+
+rc=0

@@ -1,0 +1,70 @@
+[
+  {
+    "name": "lint",
+    "rc": 0,
+    "receipt": "docs/audits/2026_11_01-epic-m6-doctrine-reference/stage-h/checks/lint.out",
+    "tail": [
+      "PASS"
+    ]
+  },
+  {
+    "name": "lint-issue",
+    "rc": 0,
+    "receipt": "docs/audits/2026_11_01-epic-m6-doctrine-reference/stage-h/checks/lint-issue.out",
+    "tail": [
+      "PASS"
+    ]
+  },
+  {
+    "name": "record-check",
+    "rc": 0,
+    "receipt": "docs/audits/2026_11_01-epic-m6-doctrine-reference/stage-h/checks/record-check.out",
+    "tail": [
+      "PASS new records: 33 Q5 rows / 2770 lines, 46 outcomes, 27 proof pairs, 49 protected rows; historical identity and accepted receipts retained"
+    ]
+  },
+  {
+    "name": "rules",
+    "rc": 0,
+    "receipt": "docs/audits/2026_11_01-epic-m6-doctrine-reference/stage-h/checks/rules.out",
+    "tail": []
+  },
+  {
+    "name": "register",
+    "rc": 0,
+    "receipt": "docs/audits/2026_11_01-epic-m6-doctrine-reference/stage-h/checks/register.out",
+    "tail": [
+      "register-check: 722 IDs, each once; every citation in the live documents names a row"
+    ]
+  },
+  {
+    "name": "index",
+    "rc": 0,
+    "receipt": "docs/audits/2026_11_01-epic-m6-doctrine-reference/stage-h/checks/index.out",
+    "tail": [
+      "work-log index: current"
+    ]
+  },
+  {
+    "name": "ceremony",
+    "rc": 0,
+    "receipt": "docs/audits/2026_11_01-epic-m6-doctrine-reference/stage-h/checks/ceremony.out",
+    "tail": []
+  },
+  {
+    "name": "hooks",
+    "rc": 0,
+    "receipt": "docs/audits/2026_11_01-epic-m6-doctrine-reference/stage-h/checks/hooks.out",
+    "tail": [
+      "PASS"
+    ]
+  },
+  {
+    "name": "menu-map",
+    "rc": 0,
+    "receipt": "docs/audits/2026_11_01-epic-m6-doctrine-reference/stage-h/checks/menu-map.out",
+    "tail": [
+      "55 screen(s) at 16dbac521, 31 in the map, 24 declared unmapped, 0 missing"
+    ]
+  }
+]

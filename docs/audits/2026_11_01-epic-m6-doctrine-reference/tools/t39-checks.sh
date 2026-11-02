@@ -4,7 +4,7 @@
 # repository's tools/ (its promotion to a fork tool is a Backlog the hand-back names).
 #
 #   bash t39-checks.sh --tree <export> --repo <worktree> --commit <ref> --since <ref> \
-#        --paths <paths.txt> --allow <dir> --out <dir> [--withhold findings]
+#        --paths <paths.txt> --allow <dir> --out <dir> [--withhold findings] [--coordinator-tip <exact authorized tip>]
 #
 # --tree   the read tree: the 254 exported by `git archive <ref> -- <the 254> | tar -x`, never a checkout
 # --repo   the repository the register, the inventory, the history and the blobs are read from, by
@@ -21,7 +21,10 @@
 # excused nothing is a failure). Exit 0 when every step
 # passes, 1 when one fails, 2 when nothing could be checked (a refusal). The last line is
 # `TOTAL: <passed> of <checks> steps`, printed by the script.
-TREE= REPO= COMMIT= SINCE= PATHS= ALLOW= OUT= WITHHOLD=
+# Stage-H-only provenance input. Default invocation retains the accepted semantics.
+# Only the owner's immutable 2026-11-02 hand-back tip is recognized; arbitrary
+# ancestry exclusions are refused. Production tools and historical receipts stay unchanged.
+TREE= REPO= COMMIT= SINCE= PATHS= ALLOW= OUT= WITHHOLD= COORDINATOR=
 while [ $# -gt 0 ]; do
   case "$1" in
     --tree) TREE=$2; shift 2 ;;
@@ -32,6 +35,7 @@ while [ $# -gt 0 ]; do
     --allow) ALLOW=$2; shift 2 ;;
     --out) OUT=$2; shift 2 ;;
     --withhold) WITHHOLD=$2; shift 2 ;;
+    --coordinator-tip) COORDINATOR=$2; shift 2 ;;
     *) echo "t39-checks: refused: unknown argument $1; nothing checked"; exit 2 ;;
   esac
 done
@@ -49,5 +53,11 @@ case "$WITHHOLD" in ""|findings) ;; *) refuse "--withhold takes only findings" ;
 git -C "$REPO" show "$COMMIT:docs/decision-register.md" > /dev/null 2>&1 || refuse "the register is unreadable at $COMMIT"
 git -C "$REPO" show "$COMMIT:docs/reviews/inventory.json" > /dev/null 2>&1 || refuse "the inventory is unreadable at $COMMIT"
 git -C "$REPO" rev-parse --verify --quiet "$SINCE^{commit}" > /dev/null || refuse "--since $SINCE is not a commit in $REPO"
+if [ -n "$COORDINATOR" ]; then
+  [ "$COORDINATOR" = 329011b9eae20922b4d0727e13bf1626b2e1c04f ] \
+    || refuse "--coordinator-tip is not the exact owner-authorized Stage-H tip"
+  git -C "$REPO" merge-base --is-ancestor "$COORDINATOR" "$COMMIT" \
+    || refuse "the authorized coordinator tip is not an ancestor of --commit"
+fi
 mkdir -p "$OUT" || refuse "cannot write --out $OUT"
-exec python3 -I "$(cd "$(dirname "$0")" && pwd)/t39-checks.py" "$TREE" "$REPO" "$COMMIT" "$SINCE" "$PATHS" "$ALLOW" "$OUT" "$WITHHOLD"
+exec python3 -I "$(cd "$(dirname "$0")" && pwd)/t39-checks.py" "$TREE" "$REPO" "$COMMIT" "$SINCE" "$PATHS" "$ALLOW" "$OUT" "$WITHHOLD" "$COORDINATOR"
