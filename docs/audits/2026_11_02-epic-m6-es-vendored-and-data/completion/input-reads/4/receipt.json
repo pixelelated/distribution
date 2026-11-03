@@ -1,0 +1,47 @@
+{
+  "argv": [
+    "git",
+    "show",
+    "e7b5f22eeca9b5f3347cf5b83fdeedcfd97f459c:docs/qa-logs/2026-11-02-m6-resume/t44-final/integration/commands.json"
+  ],
+  "cwd": "/workspace/repos/pixelelated/distribution.worktrees/m6-es-vendored-and-data-691",
+  "start": "2026-11-03T00:40:52.669775+00:00",
+  "head": "f01abd480f4e0b337a9fcdde2cec9bc1746b525d",
+  "index_entries_sha256": "d7c48ad5849cde53ebe7abe3e59ad1b413388b980631b11e969f2d39906449c4",
+  "inputs": {},
+  "scope_sha256": "405fd9202d4c69324d821c1ced9d26cef1cea36d93d1ae37da935d05843b38b8",
+  "scope_limit": "current completion records before command; this output directory excluded; accepted baseline bound by immutable HEAD",
+  "runner_sha256": "8f8391a392ac3aec5c3f85cd290caca63c36ba3da8aa27eee6bacc5d49f64a85",
+  "cpus": [
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21,
+    22,
+    23
+  ],
+  "timeout_seconds": 120,
+  "executor": {
+    "harness": "Codex",
+    "model": "openai/gpt-6-astra",
+    "effort": "xhigh",
+    "identity_source": "own observed Herdr footer; UI observation, not provider attestation",
+    "session": "01a19d12-1c5f-7022-8053-102f6a94b7fe",
+    "pane": "wN:p5"
+  },
+  "stdout_sha256": "46d02e9d9b52cea4db6fbd7e67488f4141ba78ccd58c77d6ffa1748b2f2eb301",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "end": "2026-11-03T00:40:52.708552+00:00",
+  "elapsed_seconds": 0.0018463009619154036,
+  "rc": 0
+}

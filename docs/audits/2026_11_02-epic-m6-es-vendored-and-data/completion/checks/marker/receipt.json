@@ -1,0 +1,66 @@
+{
+  "argv": [
+    "python3",
+    "-I",
+    "-B",
+    "-c",
+    "import runpy,datetime,pathlib; n=runpy.run_path('tools/ceremony-check'); print('PASS schema1',n['completed_audit_marker'](pathlib.Path('/workspace/repos/pixelelated/distribution.worktrees/m6-es-vendored-and-data-691/docs/audits/2026_11_02-epic-m6-es-vendored-and-data/audit-completion.json'),pathlib.Path('.'),datetime.datetime.now(datetime.timezone.utc)))"
+  ],
+  "cwd": "/workspace/repos/pixelelated/distribution.worktrees/m6-es-vendored-and-data-691",
+  "start": "2026-11-03T00:41:26.766838+00:00",
+  "head": "f01abd480f4e0b337a9fcdde2cec9bc1746b525d",
+  "index_entries_sha256": "2d20bad424b5cdb67f10aca9c2b911cf894e3d1163f62957aaca7d38f0c4120c",
+  "inputs": {
+    "/workspace/repos/pixelelated/distribution.worktrees/m6-es-vendored-and-data-691/tools/ceremony-check": {
+      "sha256": "30d997190473a9b75447673dffd2ac5a9133555944e6b443b9163345b78303c0",
+      "bytes": 25409
+    },
+    "/workspace/repos/pixelelated/distribution.worktrees/m6-es-vendored-and-data-691/docs/audits/2026_11_02-epic-m6-es-vendored-and-data/audit-completion.json": {
+      "sha256": "e5de3cc09413bbb35d9bd32897eaaefd8ec56f113dfb0f468fe044a661a8638b",
+      "bytes": 2616
+    },
+    "/workspace/repos/pixelelated/distribution.worktrees/m6-es-vendored-and-data-691/docs/audits/2026_11_02-epic-m6-es-vendored-and-data/tracker-completion.json": {
+      "sha256": "8eb2ae08cafe8f7a78ee0590bf780942294dfd7cfc37cc85b9776f8641c9f393",
+      "bytes": 800
+    },
+    "/workspace/repos/pixelelated/distribution.worktrees/m6-es-vendored-and-data-691/docs/audits/2026_11_02-epic-m6-es-vendored-and-data/tracker-final-readback.json": {
+      "sha256": "c8f8237089b729001020920083c01bb1579a13a3ec5ad086d9076708bbc50b93",
+      "bytes": 7533
+    }
+  },
+  "scope_sha256": "546e3f4e1935191164bf9656d4542374b035deeb49ced248dce0a5cb9e8bd22a",
+  "scope_limit": "current completion records before command; this output directory excluded; accepted baseline bound by immutable HEAD",
+  "runner_sha256": "8f8391a392ac3aec5c3f85cd290caca63c36ba3da8aa27eee6bacc5d49f64a85",
+  "cpus": [
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21,
+    22,
+    23
+  ],
+  "timeout_seconds": 300,
+  "executor": {
+    "harness": "Codex",
+    "model": "openai/gpt-6-astra",
+    "effort": "xhigh",
+    "identity_source": "own observed Herdr footer; UI observation, not provider attestation",
+    "session": "01a19d12-1c5f-7022-8053-102f6a94b7fe",
+    "pane": "wN:p5"
+  },
+  "stdout_sha256": "d9a6d656059dc4b000fed8aa252dbe0f16ba1d12c902aa34753fc4669de52a93",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "end": "2026-11-03T00:41:26.831353+00:00",
+  "elapsed_seconds": 0.025496377027593553,
+  "rc": 0
+}

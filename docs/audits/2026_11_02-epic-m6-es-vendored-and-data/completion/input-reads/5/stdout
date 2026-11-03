@@ -1,0 +1,102 @@
+{
+  "base": "817bb999f27a22c1ef33485b886663eb8b07a074",
+  "coordinator": "93b2479595e6d96f009ed1e7b4d8a49b24cbd390",
+  "lane": "f01abd480f4e0b337a9fcdde2cec9bc1746b525d",
+  "resolutions": [
+    {
+      "path": "docs/work-logs/2026_11-work_logs/2026_11_02-work_log.md",
+      "input_sha256": [
+        "a58bbcb108daac37393ea4c4a0bd73825bfef82b669baa8d2e4410f03b8ba19a",
+        "062af45ec04760b15dd7a5d1cd4a87887277865eb8426afaa3c814060253522b",
+        "6609cac8df86f3246a3b5d8ef6f954397f54bca68692e2365b5da8ee19a16760"
+      ],
+      "input_bytes": [
+        45159,
+        51458,
+        47041
+      ],
+      "entry_sequences": [
+        [
+          "## 22:51:15 UTC \u2014 #690 / #691: release the next bounded work in both lanes",
+          "## 22:57:42 UTC \u2014 #690 / #691: observed work and current queue",
+          "## 23:15:28 UTC \u2014 #690: clarify owned cleanup evidence after a real refusal",
+          "## 23:46:39 UTC \u2014 M6 T44 D reconciliation and vendor follow-up; T43 final support",
+          "## 23:54:37 UTC \u2014 T44 stream v2 follows the bounded handoff proof",
+          "## 23:59:46 UTC \u2014 T43 final acceptance evidence; T44 continuous E\u2013H dispatched"
+        ],
+        [
+          "## 23:22 UTC \u2014 T44 vendored/data A\u2013D source table and new controls (#691)",
+          "## 23:30 UTC \u2014 T44 publication manifest reader caught ignored bytecode (#691)"
+        ]
+      ],
+      "merged_sha256": "10507a5a9c231ff2a89c9c52061d34b8f5fc5ab1203e372a1e31e95e584aad82",
+      "merged_bytes": 53340,
+      "new_day_title_normalization": false
+    },
+    {
+      "path": "docs/work-logs/2026_11-work_logs/2026_11_03-work_log.md",
+      "input_sha256": [
+        "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "238a523528c916f31c5761165bf1462903476e637add8e4e05af78616e27116c",
+        "0edc0c2a5b89744a9913692736a5b5f630eb7f817c6164dedbb3a4c0295d4116"
+      ],
+      "input_bytes": [
+        0,
+        2138,
+        1371
+      ],
+      "entry_sequences": [
+        [
+          "## 00:03:52 UTC \u2014 M6 T43 accepted; completion active beside T44 E\u2013H",
+          "## 00:14:50 UTC \u2014 T43 completion verified; T44 remains active"
+        ],
+        [
+          "## 2026-11-03T00:01:32.097430+00:00 \u2014 T44 carrying-decision documentation",
+          "## 2026-11-03T00:07:45.264211+00:00 \u2014 T44 evidence custody and record learning"
+        ]
+      ],
+      "merged_sha256": "787270992976e84a5ae1347bb29eb48e880e6c94f22ac16d411d635c93c29405",
+      "merged_bytes": 3483,
+      "new_day_title_normalization": true
+    }
+  ],
+  "controls": [
+    {
+      "case": "base-edited",
+      "refused": true,
+      "reason": "existing log bytes changed"
+    },
+    {
+      "case": "newline-missing",
+      "refused": true,
+      "reason": "not whole append entries"
+    },
+    {
+      "case": "time-range",
+      "refused": true,
+      "reason": "time data '00:99:50 UTC' does not match format '%H:%M:%S UTC'"
+    },
+    {
+      "case": "same-heading-body-conflict",
+      "refused": true,
+      "reason": "same heading has conflicting bytes"
+    },
+    {
+      "case": "duplicate-heading",
+      "refused": true,
+      "reason": "duplicate heading"
+    },
+    {
+      "case": "nonappend-tail",
+      "refused": true,
+      "reason": "not whole append entries"
+    },
+    {
+      "case": "different-day-title",
+      "refused": true,
+      "reason": "new-day title/date differs"
+    }
+  ],
+  "positive_sha256": "5a3de456e09016247afae4c6e9689da8b00ca747a172d5028339cdd7ad65f384",
+  "new_day_policy": "Only exact matching date titles comma/em dash accepted; use coordinator comma title and preserve every appended entry byte and branch order. Original title bytes remain in raw git-show receipts."
+}

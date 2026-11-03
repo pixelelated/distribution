@@ -1,0 +1,85 @@
+{
+  "recorded_at": "2026-11-03T00:43:04.984002+00:00",
+  "result": "PASS",
+  "checks": {
+    "marker": {
+      "rc": 0,
+      "receipt_sha256": "b99cea3ec1018dfd7d8a04c90d77565382d580c642c77b4a0a7e3417e373d818",
+      "stdout_sha256": "d9a6d656059dc4b000fed8aa252dbe0f16ba1d12c902aa34753fc4669de52a93",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "normal-lint": {
+      "rc": 0,
+      "receipt_sha256": "375283b5c1ad63d15928fc5cede82db8df261d97fbe44d888ad52f83e7358ea8",
+      "stdout_sha256": "02120d5f59a5231dc9647c20a0d1c07e6ea93ad2500512509f798e00e1257403",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "issue-lint": {
+      "rc": 0,
+      "receipt_sha256": "d9dc04f8874fbf02c09e91fe9a40bd1c810fd394b780e80c5a1a162596257eee",
+      "stdout_sha256": "d9cbac168216e5fb2405c65558daecceb1d5c50b78b60625587a32f5b372cd6a",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "rules": {
+      "rc": 0,
+      "receipt_sha256": "c78d56c24f31fd5b02624ee8db05ecf232c61f357c4652e8e138fef352dc44a2",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "register": {
+      "rc": 0,
+      "receipt_sha256": "c07b6eb7026a1ca55e15102531e1ba6ceb67e137c63e7a971a2c9e4ddc9505e3",
+      "stdout_sha256": "a663cbd892b0646df3ab8ca7417fe230f414e09711f264cda79ea904d4bbc2fa",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "index": {
+      "rc": 0,
+      "receipt_sha256": "b5d48ab27418ba6bf278f3555313c29a4d1411c228a138e41df4a77d6e886298",
+      "stdout_sha256": "232b345c76ad64a47de4d43e62d9aeb4f2850472cde78ddd1b1e56d72103d927",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "ceremony-full": {
+      "rc": 0,
+      "receipt_sha256": "a30ee606e6445b8074cfbc91a732eac47535f7a2eead5758893749eff37786c5",
+      "stdout_sha256": "561b12c243ba283b1fd2be49d5a4b0671264ff0689f16ada8d1e37f167a03575",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "hooks": {
+      "rc": 0,
+      "receipt_sha256": "25925be04c5ad1053199da222fc3cef91214c6388ce883392bbb289ca1b88a15",
+      "stdout_sha256": "3402d5f59e65118cf905eb74dd1cda7660eeffd181ad248e23a56f68395e0a5c",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "issue-691": {
+      "rc": 0,
+      "receipt_sha256": "59ec29304ddbf949232a511b209782f160a52270108a61e007cffba2a9d94331",
+      "stdout_sha256": "7ae8534fd7d26020a8b0e7221cf3313b595e275a0fea6a8adb4568b7e135a317",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "issue-1413": {
+      "rc": 0,
+      "receipt_sha256": "a1d76875b5c61e5c61aac53a9804ad5a43b6830c02e0ce2d0190b4e84bcf850e",
+      "stdout_sha256": "7ae8534fd7d26020a8b0e7221cf3313b595e275a0fea6a8adb4568b7e135a317",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "issue-1414": {
+      "rc": 0,
+      "receipt_sha256": "6b6d93e0b6cb5180345b869e8c5e101134ca636fb9850d1edd240e5a63b9fa92",
+      "stdout_sha256": "d1dcf8ca1df7944ccb5f51aae3afd80e2565e5bec1ad179a09607a932ce078cb",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "completion-read-scan": {
+      "rc": 0,
+      "receipt_sha256": "89c796e0ce9c6cc9662c14d264976ddabb5f394ffff76f54c7281597cd1f6149",
+      "stdout_sha256": "afa68b30cbafd093a191bd10e35f2025361cbe478b92f8d28f5d3b753dac13e7",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "diff": {
+      "rc": 0,
+      "receipt_sha256": "ed2ffa62a21153f6d235388c66e6c5deebc3284f798a40472220bd3d20a510e6",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  },
+  "scope": "New completion bookkeeping only; no accepted A-H program/guard invoked. Exact final added/modified records are rescanned after commit into external receipts. Original accepted440 files are protected."
+}

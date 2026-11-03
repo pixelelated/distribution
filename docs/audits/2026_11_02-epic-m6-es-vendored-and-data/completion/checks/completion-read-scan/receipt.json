@@ -1,0 +1,58 @@
+{
+  "argv": [
+    "python3",
+    "-I",
+    "-B",
+    "/workspace/repos/pixelelated/distribution.worktrees/m6-es-vendored-and-data-691/docs/audits/2026_11_02-epic-m6-es-vendored-and-data/completion/completion-read.py",
+    "--scan"
+  ],
+  "cwd": "/workspace/repos/pixelelated/distribution.worktrees/m6-es-vendored-and-data-691",
+  "start": "2026-11-03T00:41:28.561809+00:00",
+  "head": "f01abd480f4e0b337a9fcdde2cec9bc1746b525d",
+  "index_entries_sha256": "2d20bad424b5cdb67f10aca9c2b911cf894e3d1163f62957aaca7d38f0c4120c",
+  "inputs": {
+    "/workspace/repos/pixelelated/distribution.worktrees/m6-es-vendored-and-data-691/docs/audits/2026_11_02-epic-m6-es-vendored-and-data/completion/completion-read.py": {
+      "sha256": "b874bbb11a6ace5992f41d2d7dbcb95b2dae574da4f2c1c2bae1be61440b72bf",
+      "bytes": 4252
+    },
+    "/workspace/repos/pixelelated/distribution.worktrees/m6-es-vendored-and-data-691/tools/forbidden-terms-check": {
+      "sha256": "6907bed8857ce27f38b31ef18c09abc2d9dd9345b28afd483e8a44e3253c0e63",
+      "bytes": 2761
+    }
+  },
+  "scope_sha256": "a56dbad0f713663581633a68c7b715d1ccc6599392d380247a091eb060c9e2c4",
+  "scope_limit": "current completion records before command; this output directory excluded; accepted baseline bound by immutable HEAD",
+  "runner_sha256": "8f8391a392ac3aec5c3f85cd290caca63c36ba3da8aa27eee6bacc5d49f64a85",
+  "cpus": [
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21,
+    22,
+    23
+  ],
+  "timeout_seconds": 300,
+  "executor": {
+    "harness": "Codex",
+    "model": "openai/gpt-6-astra",
+    "effort": "xhigh",
+    "identity_source": "own observed Herdr footer; UI observation, not provider attestation",
+    "session": "01a19d12-1c5f-7022-8053-102f6a94b7fe",
+    "pane": "wN:p5"
+  },
+  "stdout_sha256": "afa68b30cbafd093a191bd10e35f2025361cbe478b92f8d28f5d3b753dac13e7",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "end": "2026-11-03T00:41:29.379349+00:00",
+  "elapsed_seconds": 0.7785882179741748,
+  "rc": 0
+}
