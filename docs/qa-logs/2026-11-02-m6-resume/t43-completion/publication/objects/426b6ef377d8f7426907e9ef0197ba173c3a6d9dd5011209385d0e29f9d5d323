@@ -1,0 +1,5 @@
+Traceback (most recent call last):
+  File "/workspace/repos/pixelelated/distribution.worktrees/m6-patches-unshipped-690/docs/audits/2026_11_02-epic-m6-patches-unshipped/tools/final-record-scan.py", line 26, in <module>
+    mode=sys.argv[1];out=pathlib.Path(sys.argv[2]);assert out.is_relative_to('/workspace/tmp/m6-t43/eh-publication'),'external ordinary-file scan packet required'
+                                                          ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: external ordinary-file scan packet required

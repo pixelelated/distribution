@@ -1,0 +1,202 @@
+{
+  "result": "PASS new completion publication/scan/command bindings; no producer replay",
+  "observed_at": "2026-11-03T00:13:44.772284+00:00",
+  "tip": "fd1238800b61431a8febeebe8cf44f41d2384bbb",
+  "core_files": 94,
+  "core_bytes": 291940,
+  "checkpoint_appendices": 3,
+  "new_command_receipts": [
+    {
+      "receipt": "acceptance-fetch.json",
+      "exit": 0,
+      "stdout_sha256": "dbc5c08bb56b0a4fc080e9ef200db4540fd2cb6ec95689897a2af6c358933d74",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "receipt": "ceremony-gate.json",
+      "exit": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "receipt": "ceremony.json",
+      "exit": 0,
+      "stdout_sha256": "faa4c717a30435ff8bfa857ad5f7c1afbc7ca314c6e8bbe08c37136d1d6a8d04",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "receipt": "commit.json",
+      "exit": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "receipt": "completion-exact-scan-result.json",
+      "exit": 0,
+      "stdout_sha256": "ae7d101f07c8c55bfd82db597d8d383d0f9c1102459a98a228136f4248a15379",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "receipt": "completion-scope.json",
+      "exit": 0,
+      "stdout_sha256": "30ec5f4b9ae1fb27408c9e5c13e95c70eaf935100f49e948f3e3be6d21ccdb6c",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "receipt": "create-records.json",
+      "exit": 0,
+      "stdout_sha256": "d5c5a891f784f03e79b8418feb71056ac06ba94de6a4862cf5092a2c323501e0",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "receipt": "forbidden.json",
+      "exit": 0,
+      "stdout_sha256": "960a1a62c3f1caee637ac8a064de358a4e65354fa81ecc620d6dc25ba8298408",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "receipt": "hooks.json",
+      "exit": 0,
+      "stdout_sha256": "3402d5f59e65118cf905eb74dd1cda7660eeffd181ad248e23a56f68395e0a5c",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "receipt": "identity.json",
+      "exit": 0,
+      "stdout_sha256": "96e0a02945bf8b5d098f0fa4eb2a111c88679241e089125c5a798e71df621b61",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "receipt": "index-write.json",
+      "exit": 0,
+      "stdout_sha256": "6ea738e7a41d903ff5a812379fa3788950b82af6944a59ac2bfd0c71b88d0bf0",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "receipt": "index.json",
+      "exit": 0,
+      "stdout_sha256": "232b345c76ad64a47de4d43e62d9aeb4f2850472cde78ddd1b1e56d72103d927",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "receipt": "issue-audit.json",
+      "exit": 0,
+      "stdout_sha256": "7ae8534fd7d26020a8b0e7221cf3313b595e275a0fea6a8adb4568b7e135a317",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "receipt": "issue-slice.json",
+      "exit": 0,
+      "stdout_sha256": "7ae8534fd7d26020a8b0e7221cf3313b595e275a0fea6a8adb4568b7e135a317",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "receipt": "lint-issue.json",
+      "exit": 0,
+      "stdout_sha256": "496923f7d06379dfa148e78404ecf8c5a7b752a83ec640cf792f11bd9309e88c",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "receipt": "lint.json",
+      "exit": 0,
+      "stdout_sha256": "9badb58862f6a2e7093816d63f1d6ad26018c6fe9319179180cf501720b8240e",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "receipt": "marker.json",
+      "exit": 0,
+      "stdout_sha256": "51c983f91f236eefb45a54b79c4034b2a1556c17685326e9354b185d7527b746",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "receipt": "postcommit-scan-v2.json",
+      "exit": 0,
+      "stdout_sha256": "e152022f67294a67f699a0bf8de417e895353d84b5fe24a4d39bbc24de81ead0",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "receipt": "postcommit-scan.json",
+      "exit": 1,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "426b6ef377d8f7426907e9ef0197ba173c3a6d9dd5011209385d0e29f9d5d323"
+    },
+    {
+      "receipt": "postcommit-scope.json",
+      "exit": 0,
+      "stdout_sha256": "f59ba28f2f1ab6f9f2ee33e0ad5950a54758755f9a738c72cce3c397c84d79c1",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "receipt": "postcommit-status.json",
+      "exit": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "receipt": "push.json",
+      "exit": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "receipt": "register.json",
+      "exit": 0,
+      "stdout_sha256": "939f15cb88dd7faeecd6b0679625bdd823d073a9b745d40111df28037f42b306",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "receipt": "remote.json",
+      "exit": 0,
+      "stdout_sha256": "db89ac3c5f01e5c4a83c1354b33ed3d290ec9e4001b33658add24fea7bfd289c",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "receipt": "rules.json",
+      "exit": 0,
+      "stdout_sha256": "5ecec1bf185709d166b0c35447dd7ef65107be90632d41665f1d26e3bd0afbb1",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "receipt": "source-fetch.json",
+      "exit": 0,
+      "stdout_sha256": "7820431da5735d598b99dafe9644cef089896062e5cd8ce98ceced84083fa68b",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "receipt": "staged-whitespace.json",
+      "exit": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "receipt": "status.json",
+      "exit": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "receipt": "tracker-fetch.json",
+      "exit": 0,
+      "stdout_sha256": "b305dadb21502b826ced9d0a18accace8c87c70001c39265ce18d0c6c81f2920",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "receipt": "whitespace.json",
+      "exit": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ],
+  "exits": {
+    "0": 29,
+    "1": 1
+  },
+  "scan_paths": 61,
+  "scan_repository_bytes": 399862,
+  "scan_input_sha256": "67fd728aa0fdbfeda4ec982f0872cebe7c7b5cbc58cbe8d20428efbdb4b5694e",
+  "original_scan_refusal_preserved": true,
+  "supported_normal_stdin_scan_pass": true,
+  "remote_tip_exact": true,
+  "status_empty": true,
+  "checkpoint_exact_live": true
+}

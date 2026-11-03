@@ -1,0 +1,16 @@
+{
+  "argv": [
+    "tools/forbidden-terms-check",
+    "--stdin"
+  ],
+  "started": "2026-11-03T00:10:32.521069+00:00",
+  "finished": "2026-11-03T00:10:32.524620+00:00",
+  "exit": 0,
+  "stdin_sha256": "67fd728aa0fdbfeda4ec982f0872cebe7c7b5cbc58cbe8d20428efbdb4b5694e",
+  "stdin_bytes": 399922,
+  "manifest_sha256": "bba2767807462e086f24ebb9a9ec6218d0f820eb3f05c095cb910b8a2a3a2793",
+  "stdout_sha256": "ae7d101f07c8c55bfd82db597d8d383d0f9c1102459a98a228136f4248a15379",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "tool_sha256": "6907bed8857ce27f38b31ef18c09abc2d9dd9345b28afd483e8a44e3253c0e63",
+  "note": "Original accepted final-record-scan.py refused a completion packet outside its fixed E-H directory; postcommit-scan rc1 is preserved. This is a separate normal stdin scan of exact completion diff bytes; accepted helper is unchanged."
+}

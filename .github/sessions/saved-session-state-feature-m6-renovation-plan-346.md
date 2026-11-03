@@ -1,6 +1,6 @@
 # M6 coordinator current handoff
 
-Updated 2026-11-03T00:03:52.574555+00:00 by Codex / GPT-6-Astra / xhigh (own observed footer, not provider-attested), session01a19d11-f5c8-7bb0-80f3-49ad28732af2, wN:p2.
+Updated 2026-11-03T00:14:50.365592+00:00 by Codex / GPT-6-Astra / xhigh (own observed footer, not provider-attested), session01a19d11-f5c8-7bb0-80f3-49ad28732af2, wN:p2.
 
 ## Resume here
 
@@ -13,7 +13,7 @@ Updated 2026-11-02T23:46:39.152621+00:00. T39/T41/T42 accepted/completion verifi
 | Lane | Current outcome | Next useful action |
 | --- | --- | --- |
 | P1 wN:p3 | T44 D support returned; both root comparisons byte-equal, zero errors | Available |
-| T1 wN:p4 | T43 final8282 accepted; root new integration gates PASS | Acceptance6591649449;1412closedcompleted; T1 completion active |
+| T1 wN:p4 | T43 final8282 accepted; root new integration gates PASS | Completionfd123880 verified6591865102; available |
 | T2 wN:p5 | T44 E–H dispatched691comment6591582676; proved v2 at821de9d | Continuous documentary stream, stop published H |
 | T3 wN:p6 | T44 stream proof returned; exact guard/date correction in v2 | Available; T46 remains last |
 | T5 wN:p7 | T43 final support returned; root reproduced five outputs byte-equal | Available; no producer replay |
@@ -24,7 +24,7 @@ Use only existing wN lanes, verify HERDR_ENV=1 and use exact absolute workdirs. 
 
 Updated 2026-11-02T23:59:46.035392+00:00.
 
-1. T43 final8282 is accepted within the explicit evidence limits. Root independently reproduced T5's five record comparisons byte-equal and ran new disposable integration against749e5c7f2df2c8444b07f8521493d12b7f7a962b:26 continuation commands PASS, whitespace0, integrated137217-file forbidden scan0hits, both resolution lints/current gates/issue checks0. Exact20-criterion acceptance map, original parser/control failures, corrected body-conflict controls, source-version qualification, and ordinary publication retention under t43-final/. Shared helpers unchanged; no actual merge. Evidence published8f514c72fc979ef5d6c47fae459d1e47ab98e576; acceptance6591649449 posted/readback,690all20checked and1412closedcompleted verified. T1 normal schema1 completion dispatched and work observed. Next verify its returned marker/evidence/actual remote/clean state; no accepted replay. Preserve reviewed-at seed601e and fixed-at8282 through that later records-only tip;690 stays open until actual ordered area integration.
+1. T43 final8282 accepted6591649449; completionfd1238800b61431a8febeebe8cf44f41d2384bbb verified by root6591865102. Audit1412closedcompleted,690open20checked andseed601e/final8282headers unchanged. Marker21evidence hashes,16newcommittedcommand bindings,12normalchecks andall3078accepted audit files unchanged verify. Publication94core+3checkpoint files hash-bound,30command receipts29rc0/one retained helperrefusal; supportedstdin scan binds61paths/399862bytes, remote/cleanexact. Root verification/losslessretention under t43-completion/. One coordinator-reader normalized-field KeyError is retained and corrected (issue_number versus rawnumber); no lane evidence failure. T1 available, no new action. Root actual ordered area integration and690closure remain future; no further source/cleanup/replay. Original final integration against749e passed26newcontinuationcommands and preserved all literal earlier failures, under t43-final/.
 2. T43 PL001 resolves custody only;93 source-input gaps and224consumers188open/36positive remain. H881retired/eightretained/zero partial and unknownPID2389 visibility remain scoped recorded outcomes. No further cleanup. Four old controls bind45612b79, currentguardb7ee4e57; exact reconstructed old bytes are labelled derived, not a recovered historical file. Source/program/A–D receipts are unchanged; old tests/applications/cleanup were not replayed. Retain /workspace/tmp/m6-t43/eh-publication/ and its135 ordinary-file identities, losslessly indexed in t43-final/publication/.
 3. T44 D923dd accepted after P1/root exact comparisons; stream v2 published821de9d39378b091c9d55a2f68734d8a36d65613, explicit691comment6591582676 delivered to T2wN:p5. Observed T2 reading full dispatch and writing new E–H record tools; T1 read closure/20checked and began normal completion. T3 proof found oldguard excludesretro/laterdaylog; v2 expressly requires separately named newguard/controls while freezingD. Fullstream/carrydecision/backlog1414/limits are immutable. Start distributionseed48a335/currentD923dd; wholeES55158/tree64b90 unchanged in dedicatedpair. Native594/additions3/companions4 separate. T2 proceeds continuouslyS1/E–H then stops publishedH for root; audit1413open, no marker/closure. Backlog1414actualparent700/M6openfivecriteria; temporarydoctest2.4.12 retention does not establish updatecompatibility. Missingmappings/inheritedT20R13 remainopen. Root owns finalintegration/acceptance.
 4. T46 frozenprep remains under t46-preparation/ and lastafterT44. No finalrecut/audit-body sweep/deletionproposal/execution. Documentationindex/33reference review remains Backlog1407/D223/D224.

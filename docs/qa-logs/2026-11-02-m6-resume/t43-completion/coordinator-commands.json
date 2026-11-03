@@ -1,0 +1,698 @@
+[
+  {
+    "argv": [
+      "git",
+      "ls-tree",
+      "-r",
+      "-z",
+      "8282cbcade3be32b437f7391be7e216d9a6b1074"
+    ],
+    "rc": 0,
+    "stdout_sha256": "61951e42aaff4c298ee8ce55d262aea836f05fd0ce2c1443428b936f853b50a3",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "ls-tree",
+      "-r",
+      "-z",
+      "fd1238800b61431a8febeebe8cf44f41d2384bbb"
+    ],
+    "rc": 0,
+    "stdout_sha256": "05c8d45b98ba834a4f842b4cb97ff2b56a9a661d5c776965acc20657f2397e5e",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "show",
+      "-s",
+      "--format=%P",
+      "fd1238800b61431a8febeebe8cf44f41d2384bbb"
+    ],
+    "rc": 0,
+    "stdout_sha256": "20477c4e9ec06610ab9ddfb619053c1f8adbb41082af38811036b0784607026a",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "show",
+      "fd1238800b61431a8febeebe8cf44f41d2384bbb:docs/audits/2026_11_02-epic-m6-patches-unshipped/audit-completion.json"
+    ],
+    "rc": 0,
+    "stdout_sha256": "d2e25d864705c2df0bdd371b89380262b810397d3691f9ce54410799e0752635",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "show",
+      "fd1238800b61431a8febeebe8cf44f41d2384bbb:docs/audits/2026_11_02-epic-m6-patches-unshipped/completion/checks/lint.json"
+    ],
+    "rc": 0,
+    "stdout_sha256": "7e5185aff84702b3f88e93157a5e43ce47524a3a1ce659ad9adec26cc9b0eebc",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "show",
+      "fd1238800b61431a8febeebe8cf44f41d2384bbb:docs/audits/2026_11_02-epic-m6-patches-unshipped/completion/checks/ceremony.stderr"
+    ],
+    "rc": 0,
+    "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "show",
+      "fd1238800b61431a8febeebe8cf44f41d2384bbb:docs/audits/2026_11_02-epic-m6-patches-unshipped/completion/README.md"
+    ],
+    "rc": 0,
+    "stdout_sha256": "e1fe883e1409e9dd4bb5ff2703bc1a23b93003acf66be6f2bccff4a51b8c1cb8",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "show",
+      "fd1238800b61431a8febeebe8cf44f41d2384bbb:docs/audits/2026_11_02-epic-m6-patches-unshipped/completion/checks/lint.stderr"
+    ],
+    "rc": 0,
+    "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "show",
+      "fd1238800b61431a8febeebe8cf44f41d2384bbb:docs/audits/2026_11_02-epic-m6-patches-unshipped/completion/checks/lint-issue.json"
+    ],
+    "rc": 0,
+    "stdout_sha256": "0157fe1b9166d6aa6c85b84360ae4494e61123d2eba44aa57bafc833d506fe20",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "show",
+      "fd1238800b61431a8febeebe8cf44f41d2384bbb:docs/audits/2026_11_02-epic-m6-patches-unshipped/completion/checks/whitespace.json"
+    ],
+    "rc": 0,
+    "stdout_sha256": "439068e852712dd231f88f755736b68eb049ceebc1ebfd719ca75756eff7c7c8",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "show",
+      "fd1238800b61431a8febeebe8cf44f41d2384bbb:docs/audits/2026_11_02-epic-m6-patches-unshipped/completion/checks/ceremony-gate.stdout"
+    ],
+    "rc": 0,
+    "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "show",
+      "fd1238800b61431a8febeebe8cf44f41d2384bbb:docs/audits/2026_11_02-epic-m6-patches-unshipped/completion/tracker-fetch.stderr"
+    ],
+    "rc": 0,
+    "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "show",
+      "fd1238800b61431a8febeebe8cf44f41d2384bbb:docs/audits/2026_11_02-epic-m6-patches-unshipped/completion/checks/issue-slice.stdout"
+    ],
+    "rc": 0,
+    "stdout_sha256": "7ae8534fd7d26020a8b0e7221cf3313b595e275a0fea6a8adb4568b7e135a317",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "show",
+      "fd1238800b61431a8febeebe8cf44f41d2384bbb:docs/audits/2026_11_02-epic-m6-patches-unshipped/completion/source-issue-readback.json"
+    ],
+    "rc": 0,
+    "stdout_sha256": "7820431da5735d598b99dafe9644cef089896062e5cd8ce98ceced84083fa68b",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "show",
+      "fd1238800b61431a8febeebe8cf44f41d2384bbb:docs/audits/2026_11_02-epic-m6-patches-unshipped/completion/identity.stderr"
+    ],
+    "rc": 0,
+    "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "show",
+      "fd1238800b61431a8febeebe8cf44f41d2384bbb:docs/audits/2026_11_02-epic-m6-patches-unshipped/completion/checks/ceremony.stdout"
+    ],
+    "rc": 0,
+    "stdout_sha256": "faa4c717a30435ff8bfa857ad5f7c1afbc7ca314c6e8bbe08c37136d1d6a8d04",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "show",
+      "fd1238800b61431a8febeebe8cf44f41d2384bbb:docs/audits/2026_11_02-epic-m6-patches-unshipped/completion/acceptance-fetch.stderr"
+    ],
+    "rc": 0,
+    "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "show",
+      "fd1238800b61431a8febeebe8cf44f41d2384bbb:docs/audits/2026_11_02-epic-m6-patches-unshipped/completion/identity.stdout"
+    ],
+    "rc": 0,
+    "stdout_sha256": "96e0a02945bf8b5d098f0fa4eb2a111c88679241e089125c5a798e71df621b61",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "show",
+      "fd1238800b61431a8febeebe8cf44f41d2384bbb:docs/audits/2026_11_02-epic-m6-patches-unshipped/completion/checks/rules.json"
+    ],
+    "rc": 0,
+    "stdout_sha256": "4f9ea819a801dceb4df3693d9c33051c07d86ea39fdd0caaf2e318d9202d0b62",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "show",
+      "fd1238800b61431a8febeebe8cf44f41d2384bbb:docs/audits/2026_11_02-epic-m6-patches-unshipped/completion/checks/issue-slice.stderr"
+    ],
+    "rc": 0,
+    "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "show",
+      "fd1238800b61431a8febeebe8cf44f41d2384bbb:docs/audits/2026_11_02-epic-m6-patches-unshipped/completion/checks/marker.stderr"
+    ],
+    "rc": 0,
+    "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "show",
+      "fd1238800b61431a8febeebe8cf44f41d2384bbb:docs/audits/2026_11_02-epic-m6-patches-unshipped/audit-completion.json"
+    ],
+    "rc": 0,
+    "stdout_sha256": "d2e25d864705c2df0bdd371b89380262b810397d3691f9ce54410799e0752635",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "show",
+      "fd1238800b61431a8febeebe8cf44f41d2384bbb:docs/audits/2026_11_02-epic-m6-patches-unshipped/completion/coordinator-integration-result.json"
+    ],
+    "rc": 0,
+    "stdout_sha256": "7e3ef4b440905f34e62022d9ca8decf7b52e876836eda94075b6b0d13120de67",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "show",
+      "fd1238800b61431a8febeebe8cf44f41d2384bbb:docs/audits/2026_11_02-epic-m6-patches-unshipped/completion/source-fetch.stderr"
+    ],
+    "rc": 0,
+    "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "show",
+      "fd1238800b61431a8febeebe8cf44f41d2384bbb:docs/audits/2026_11_02-epic-m6-patches-unshipped/completion/checks/results.json"
+    ],
+    "rc": 0,
+    "stdout_sha256": "e6f2ed0a52c5ea43051e68348f11a69046ad7e848e00ac264183af59ba22bba4",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "show",
+      "fd1238800b61431a8febeebe8cf44f41d2384bbb:docs/audits/2026_11_02-epic-m6-patches-unshipped/completion/record-readbacks.json"
+    ],
+    "rc": 0,
+    "stdout_sha256": "f55a58cb43335285619ae75bfa162fa293e550d3aaa3be61c132234d3e385302",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "show",
+      "fd1238800b61431a8febeebe8cf44f41d2384bbb:docs/audits/2026_11_02-epic-m6-patches-unshipped/completion/checks/hooks.stderr"
+    ],
+    "rc": 0,
+    "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "show",
+      "fd1238800b61431a8febeebe8cf44f41d2384bbb:docs/audits/2026_11_02-epic-m6-patches-unshipped/completion/source-fetch.json"
+    ],
+    "rc": 0,
+    "stdout_sha256": "d7744166c9695ffbc779fbac91544e5919a203f6ec55b2a8c4b31aa7af12ab36",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "show",
+      "fd1238800b61431a8febeebe8cf44f41d2384bbb:docs/audits/2026_11_02-epic-m6-patches-unshipped/completion/checks/register.stdout"
+    ],
+    "rc": 0,
+    "stdout_sha256": "939f15cb88dd7faeecd6b0679625bdd823d073a9b745d40111df28037f42b306",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "show",
+      "fd1238800b61431a8febeebe8cf44f41d2384bbb:docs/audits/2026_11_02-epic-m6-patches-unshipped/completion/checks/register.json"
+    ],
+    "rc": 0,
+    "stdout_sha256": "1583d275e56fe93d45816ad1f1a499be768a782fa8e1ff7aca34b2cc0f9de1d6",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "show",
+      "fd1238800b61431a8febeebe8cf44f41d2384bbb:docs/audits/2026_11_02-epic-m6-patches-unshipped/tracker-final-readback.json"
+    ],
+    "rc": 0,
+    "stdout_sha256": "b305dadb21502b826ced9d0a18accace8c87c70001c39265ce18d0c6c81f2920",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "show",
+      "fd1238800b61431a8febeebe8cf44f41d2384bbb:docs/audits/2026_11_02-epic-m6-patches-unshipped/completion/coordinator-source-version-reconciliation.json"
+    ],
+    "rc": 0,
+    "stdout_sha256": "764c0f9f40898657fb86acd44bdfc491690d01a978d50e89f54f047ca3ad92cb",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "show",
+      "fd1238800b61431a8febeebe8cf44f41d2384bbb:docs/audits/2026_11_02-epic-m6-patches-unshipped/completion/checks/rules.stdout"
+    ],
+    "rc": 0,
+    "stdout_sha256": "5ecec1bf185709d166b0c35447dd7ef65107be90632d41665f1d26e3bd0afbb1",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "show",
+      "fd1238800b61431a8febeebe8cf44f41d2384bbb:docs/audits/2026_11_02-epic-m6-patches-unshipped/completion/tracker-fetch.json"
+    ],
+    "rc": 0,
+    "stdout_sha256": "741279646d6c1dcc51ec4553fa33a24fbed12ebf31a334c4c2cfecfa0d6a649b",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "show",
+      "fd1238800b61431a8febeebe8cf44f41d2384bbb:docs/audits/2026_11_02-epic-m6-patches-unshipped/completion/checks/lint-issue.stdout"
+    ],
+    "rc": 0,
+    "stdout_sha256": "496923f7d06379dfa148e78404ecf8c5a7b752a83ec640cf792f11bd9309e88c",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "show",
+      "fd1238800b61431a8febeebe8cf44f41d2384bbb:docs/audits/2026_11_02-epic-m6-patches-unshipped/completion/coordinator-evidence.json"
+    ],
+    "rc": 0,
+    "stdout_sha256": "d76b7f168f3f4056bc08a21f2825d7494677a56b58fd5927edf5df0ed77d77d4",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "show",
+      "fd1238800b61431a8febeebe8cf44f41d2384bbb:docs/audits/2026_11_02-epic-m6-patches-unshipped/completion/checks/marker.json"
+    ],
+    "rc": 0,
+    "stdout_sha256": "716bf4913a58caa2de38e22f8b50ce608193231ae3ee436dcce0daac24aa3656",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "show",
+      "fd1238800b61431a8febeebe8cf44f41d2384bbb:docs/audits/2026_11_02-epic-m6-patches-unshipped/completion/checks/rules.stderr"
+    ],
+    "rc": 0,
+    "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "show",
+      "fd1238800b61431a8febeebe8cf44f41d2384bbb:docs/audits/2026_11_02-epic-m6-patches-unshipped/completion/checks/marker.stdout"
+    ],
+    "rc": 0,
+    "stdout_sha256": "51c983f91f236eefb45a54b79c4034b2a1556c17685326e9354b185d7527b746",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "show",
+      "fd1238800b61431a8febeebe8cf44f41d2384bbb:docs/audits/2026_11_02-epic-m6-patches-unshipped/completion/checks/hooks.stdout"
+    ],
+    "rc": 0,
+    "stdout_sha256": "3402d5f59e65118cf905eb74dd1cda7660eeffd181ad248e23a56f68395e0a5c",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "show",
+      "fd1238800b61431a8febeebe8cf44f41d2384bbb:docs/audits/2026_11_02-epic-m6-patches-unshipped/completion/checks/issue-slice.json"
+    ],
+    "rc": 0,
+    "stdout_sha256": "dc4ed99d3a8b4df76a23f2c0815c0c80c8baa93b5afa0341df8d7f1a6442bc45",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "show",
+      "fd1238800b61431a8febeebe8cf44f41d2384bbb:docs/audits/2026_11_02-epic-m6-patches-unshipped/completion/checks/register.stderr"
+    ],
+    "rc": 0,
+    "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "show",
+      "fd1238800b61431a8febeebe8cf44f41d2384bbb:docs/audits/2026_11_02-epic-m6-patches-unshipped/completion/checks/issue-audit.json"
+    ],
+    "rc": 0,
+    "stdout_sha256": "5c9f4a31c6260dd7cba614d9da92e37a88e75dac0f3d95763eeffa273e9f6e63",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "show",
+      "fd1238800b61431a8febeebe8cf44f41d2384bbb:docs/audits/2026_11_02-epic-m6-patches-unshipped/completion/checks/hooks.json"
+    ],
+    "rc": 0,
+    "stdout_sha256": "e9b5f4879a91389ca0b694fae3eb7aad85558cdf9fd0f4207fad6d02c925e5a2",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "show",
+      "fd1238800b61431a8febeebe8cf44f41d2384bbb:docs/audits/2026_11_02-epic-m6-patches-unshipped/completion/identity.json"
+    ],
+    "rc": 0,
+    "stdout_sha256": "846bb890c614784b47f0f3ec0288d61996db26258dea14e258d4893d2293ef24",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "show",
+      "fd1238800b61431a8febeebe8cf44f41d2384bbb:docs/audits/2026_11_02-epic-m6-patches-unshipped/completion/checks/whitespace.stderr"
+    ],
+    "rc": 0,
+    "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "show",
+      "fd1238800b61431a8febeebe8cf44f41d2384bbb:docs/audits/2026_11_02-epic-m6-patches-unshipped/completion/checks/ceremony-gate.json"
+    ],
+    "rc": 0,
+    "stdout_sha256": "f2db7f079cfd69c9c55725eff19c3982a0b74fdcb65b8526ec775504e44e4563",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "show",
+      "fd1238800b61431a8febeebe8cf44f41d2384bbb:docs/audits/2026_11_02-epic-m6-patches-unshipped/completion/checks/whitespace.stdout"
+    ],
+    "rc": 0,
+    "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "show",
+      "fd1238800b61431a8febeebe8cf44f41d2384bbb:docs/audits/2026_11_02-epic-m6-patches-unshipped/tracker-completion.json"
+    ],
+    "rc": 0,
+    "stdout_sha256": "9766410e2fbf8467e23aa8290682fb843afeec505b0464adef772a47288b3e9d",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "show",
+      "fd1238800b61431a8febeebe8cf44f41d2384bbb:docs/audits/2026_11_02-epic-m6-patches-unshipped/completion/checks/issue-audit.stderr"
+    ],
+    "rc": 0,
+    "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "show",
+      "fd1238800b61431a8febeebe8cf44f41d2384bbb:docs/audits/2026_11_02-epic-m6-patches-unshipped/completion/checks/lint.stdout"
+    ],
+    "rc": 0,
+    "stdout_sha256": "9badb58862f6a2e7093816d63f1d6ad26018c6fe9319179180cf501720b8240e",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "show",
+      "fd1238800b61431a8febeebe8cf44f41d2384bbb:docs/audits/2026_11_02-epic-m6-patches-unshipped/completion/checks/index.stdout"
+    ],
+    "rc": 0,
+    "stdout_sha256": "232b345c76ad64a47de4d43e62d9aeb4f2850472cde78ddd1b1e56d72103d927",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "show",
+      "fd1238800b61431a8febeebe8cf44f41d2384bbb:docs/audits/2026_11_02-epic-m6-patches-unshipped/completion/coordinator-support-return.md"
+    ],
+    "rc": 0,
+    "stdout_sha256": "c8e6fcd1141b1125dee4cd2272b5901cb43c9b9a44e20fc41b212771cb2ba88f",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "show",
+      "fd1238800b61431a8febeebe8cf44f41d2384bbb:docs/audits/2026_11_02-epic-m6-patches-unshipped/completion/checks/issue-audit.stdout"
+    ],
+    "rc": 0,
+    "stdout_sha256": "7ae8534fd7d26020a8b0e7221cf3313b595e275a0fea6a8adb4568b7e135a317",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "show",
+      "fd1238800b61431a8febeebe8cf44f41d2384bbb:docs/audits/2026_11_02-epic-m6-patches-unshipped/completion/checks/ceremony-gate.stderr"
+    ],
+    "rc": 0,
+    "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "show",
+      "fd1238800b61431a8febeebe8cf44f41d2384bbb:docs/audits/2026_11_02-epic-m6-patches-unshipped/completion/checks/index.json"
+    ],
+    "rc": 0,
+    "stdout_sha256": "bb285b70be9d4597a736e9b86ec6eeb4a3cbbfd05d292a5ca117aa5b63ce74ba",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "show",
+      "fd1238800b61431a8febeebe8cf44f41d2384bbb:docs/audits/2026_11_02-epic-m6-patches-unshipped/completion/acceptance-comment.json"
+    ],
+    "rc": 0,
+    "stdout_sha256": "dbc5c08bb56b0a4fc080e9ef200db4540fd2cb6ec95689897a2af6c358933d74",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "show",
+      "fd1238800b61431a8febeebe8cf44f41d2384bbb:docs/audits/2026_11_02-epic-m6-patches-unshipped/completion/coordinator-acceptance-record.json"
+    ],
+    "rc": 0,
+    "stdout_sha256": "4aafce02a25d68770e8a3239c7ddbf8bce9f96c618522e3116039c0d4fcc587c",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "show",
+      "fd1238800b61431a8febeebe8cf44f41d2384bbb:docs/audits/2026_11_02-epic-m6-patches-unshipped/completion/checks/ceremony.json"
+    ],
+    "rc": 0,
+    "stdout_sha256": "0cd49eb3619ea84abef79d3eab28f71a47564309d06f420c9441382c547422d9",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "show",
+      "fd1238800b61431a8febeebe8cf44f41d2384bbb:docs/audits/2026_11_02-epic-m6-patches-unshipped/completion/acceptance-fetch.json"
+    ],
+    "rc": 0,
+    "stdout_sha256": "fcf1970b5c877ec3a1b4c1b14a5b2d30250012d688fcc18e12c9c6ee8264a7e8",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "show",
+      "fd1238800b61431a8febeebe8cf44f41d2384bbb:docs/audits/2026_11_02-epic-m6-patches-unshipped/completion/checks/index.stderr"
+    ],
+    "rc": 0,
+    "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "show",
+      "fd1238800b61431a8febeebe8cf44f41d2384bbb:docs/audits/2026_11_02-epic-m6-patches-unshipped/completion/checks/lint-issue.stderr"
+    ],
+    "rc": 0,
+    "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "show",
+      "fd1238800b61431a8febeebe8cf44f41d2384bbb:docs/audits/2026_11_02-epic-m6-patches-unshipped/04-analysis.md"
+    ],
+    "rc": 0,
+    "stdout_sha256": "9a4c887026d260659ccec5fa08d55d1bf37b45f69ad194771a85e416801178aa",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "show",
+      "fd1238800b61431a8febeebe8cf44f41d2384bbb:docs/audits/2026_11_02-epic-m6-patches-unshipped/05-punch-list.md"
+    ],
+    "rc": 0,
+    "stdout_sha256": "456a20ce2b38996438b0514679c7d704fa09775275264bed572c4ceade6de940",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "show",
+      "8f514c72fc979ef5d6c47fae459d1e47ab98e576:docs/qa-logs/2026-11-02-m6-resume/t43-final/acceptance-record.json"
+    ],
+    "rc": 0,
+    "stdout_sha256": "4aafce02a25d68770e8a3239c7ddbf8bce9f96c618522e3116039c0d4fcc587c",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "show",
+      "8f514c72fc979ef5d6c47fae459d1e47ab98e576:docs/qa-logs/2026-11-02-m6-resume/t43-final/source-version-reconciliation.json"
+    ],
+    "rc": 0,
+    "stdout_sha256": "764c0f9f40898657fb86acd44bdfc491690d01a978d50e89f54f047ca3ad92cb",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "show",
+      "8f514c72fc979ef5d6c47fae459d1e47ab98e576:docs/qa-logs/2026-11-02-m6-resume/t43-final/support/RETURN.md"
+    ],
+    "rc": 0,
+    "stdout_sha256": "c8e6fcd1141b1125dee4cd2272b5901cb43c9b9a44e20fc41b212771cb2ba88f",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "show",
+      "8f514c72fc979ef5d6c47fae459d1e47ab98e576:docs/qa-logs/2026-11-02-m6-resume/t43-final/integration/continuation/result.json"
+    ],
+    "rc": 0,
+    "stdout_sha256": "7e3ef4b440905f34e62022d9ca8decf7b52e876836eda94075b6b0d13120de67",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "show",
+      "fd1238800b61431a8febeebe8cf44f41d2384bbb:docs/audits/2026_11_02-epic-m6-patches-unshipped/tools/record.py"
+    ],
+    "rc": 0,
+    "stdout_sha256": "9f7aa2b1f299e6b3ba03cbaba9312240b3a750f51014fbd53e7a959b654553fb",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  }
+]
