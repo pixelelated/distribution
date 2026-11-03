@@ -1,0 +1,57 @@
+{
+  "verified_utc": "2026-11-03T15:38:29.804107+00:00",
+  "result": "PASS",
+  "packets": [
+    {
+      "lane": "p1",
+      "manifest_sha256": "a4a329347f123db2e1ff3496bff49db50e471a12ffd0a4fd1d7b1ee1092f2180",
+      "files_including_manifest": 117,
+      "logical_bytes": 2063685,
+      "stored_sha256": "f107cef4299f77b88385bc300fd325c4ad3b3c970209b767afba2e5929556adb",
+      "round_trip": "PASS"
+    },
+    {
+      "lane": "t1",
+      "manifest_sha256": "d77e2ef859b0a1876c5f2fa9d46dc674337cc73f1ba8e3075158ac9e1cf3cc4b",
+      "files_including_manifest": 7,
+      "logical_bytes": 434539,
+      "stored_sha256": "8f8905b84b9d67fc9b92b11c3a66f38334e65334e4f63de44ede0c690787d7d9",
+      "round_trip": "PASS"
+    },
+    {
+      "lane": "t2",
+      "manifest_sha256": "60016e3b16328473f04c8b9d29d45cd930518879dc3f654eb60a5b50bdafabec",
+      "files_including_manifest": 382,
+      "logical_bytes": 1117899,
+      "stored_sha256": "7f1eb89f023d33c9922522d9bb53d6693c985b940db24d2317b9f927977abd7b",
+      "round_trip": "PASS"
+    },
+    {
+      "lane": "t3",
+      "manifest_sha256": "f9176e19dd33f9f3dc7bbea3391569e407ebf6aa68830e142df553e0d3021281",
+      "files_including_manifest": 64,
+      "logical_bytes": 1819514,
+      "stored_sha256": "954a2ccc9fd8bf421f7e0f227444961413d8d12fac6b1749ebb3cc66dce13025",
+      "round_trip": "PASS"
+    },
+    {
+      "lane": "t5",
+      "manifest_sha256": "61c6a20e1751d8fa969d82a1ac48635d0fc3ce12a3a37799d2d4597abaa62008",
+      "files_including_manifest": 55,
+      "logical_bytes": 1640742,
+      "stored_sha256": "d43797bfc3955839c3b0d2110e948b08529daa9999b820101b2a9a98e3c00f8a",
+      "round_trip": "PASS"
+    }
+  ],
+  "scope": "Original manifest membership/length/hash/ordinary-file custody and reported table populations; no producer execution or new semantic verdict.",
+  "counts": {
+    "delivery_rows": 46,
+    "doctrine_source_rows": 86,
+    "es_remediation_pairs": 55,
+    "es_pair_paths": 89,
+    "unchecked_criteria": 28,
+    "condition_contexts": 81,
+    "distribution_pairs_before_T22": 406
+  },
+  "program_sha256": "bfa9b4dab90e0a8fe53de1cf9f3b849c25964eaf5b6d62325966bf38279c0819"
+}

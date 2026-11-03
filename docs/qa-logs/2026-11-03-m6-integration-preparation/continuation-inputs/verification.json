@@ -1,0 +1,48 @@
+{
+  "verified_utc": "2026-11-03T15:52:00.007676+00:00",
+  "result": "PASS",
+  "packets": [
+    {
+      "lane": "p1",
+      "manifest_sha256": "237e7a72ed5fc3b8fc08d1e9a8ada6603f3fadd57686720b39495d18d9a611b6",
+      "files_including_manifest": 12,
+      "logical_bytes": 179109,
+      "stored_sha256": "14dd1e8188a9aa9eb2adb29bf5fd17e67e4afb9281221491789f158fa3f8e33e",
+      "round_trip": "PASS"
+    },
+    {
+      "lane": "t1",
+      "manifest_sha256": "2af0c87a15a142e1c6ffc7016853e7b4875771be48681653ca2146ca1c0e8cc7",
+      "files_including_manifest": 7,
+      "logical_bytes": 335752,
+      "stored_sha256": "29f822604b5a37fa19f5f53c01f346f2a732a893823119faa967c12e757bdb93",
+      "round_trip": "PASS"
+    },
+    {
+      "lane": "t2",
+      "manifest_sha256": "f21a8a3fce0b7e6548fa1cfd728ecbe82742de29ff32a8e90a96f9c36bae7e25",
+      "files_including_manifest": 17,
+      "logical_bytes": 844053,
+      "stored_sha256": "1aef5cf66c1cb3d7e83ba1b55a0a3e2a66e4e198046f8da4c04befc9590fb384",
+      "round_trip": "PASS"
+    },
+    {
+      "lane": "t3",
+      "manifest_sha256": "00eb4aa2a6fe31863cf34cf4581aa5631d70f6e33a964f1cc952b4450bae7b15",
+      "files_including_manifest": 13,
+      "logical_bytes": 964755,
+      "stored_sha256": "c60d3dc95e4165dacc73be803cea470f6d4501faaf17c01f44715cb5c32a1e34",
+      "round_trip": "PASS"
+    },
+    {
+      "lane": "t5",
+      "manifest_sha256": "1b888e607e2ac567db632c60d64f53a0f2c9cf13e3dd6b8f407603d1b1169671",
+      "files_including_manifest": 20,
+      "logical_bytes": 482659,
+      "stored_sha256": "6c7fc74b9d3e5b91e474a2907271389f6f04d37517ce617105946260bcd2d550",
+      "round_trip": "PASS"
+    }
+  ],
+  "scope": "Named continuation packet hashes, lengths, regular files and lossless storage round trip only; no source, producer or semantic re-review.",
+  "program_sha256": "4c6c7ad958ad836a1c2ee0fe130e4beff27e3df13dcf5242e2bce9bcbb5a3e0c"
+}

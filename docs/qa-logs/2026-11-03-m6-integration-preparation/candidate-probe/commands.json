@@ -1,0 +1,290 @@
+[
+  {
+    "argv": [
+      "df",
+      "-B1",
+      "/workspace/tmp/m6-coordinator"
+    ],
+    "started_utc": "2026-11-03T15:47:16.291552+00:00",
+    "ended_utc": "2026-11-03T15:47:16.292630+00:00",
+    "exit": 0,
+    "stdout_sha256": "f8e940af1bc8543ab7a793740974c5eaca6d11dfff2483588265cfcd33e220f6",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stdout_bytes": 146,
+    "stderr_bytes": 0,
+    "stdout_utf8": "Filesystem         1B-blocks          Used     Available Use% Mounted on\n/dev/nvme1n1   3936820731904 2553593794560 1183170809856  69% /workspace\n",
+    "stderr_utf8": ""
+  },
+  {
+    "argv": [
+      "df",
+      "-i",
+      "/workspace/tmp/m6-coordinator"
+    ],
+    "started_utc": "2026-11-03T15:47:16.292739+00:00",
+    "ended_utc": "2026-11-03T15:47:16.293601+00:00",
+    "exit": 0,
+    "stdout_sha256": "bfde6c31257f71ce1d2298a6d8baccd5bce7cd6f3a5db7a770c1350a4131b7f9",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stdout_bytes": 122,
+    "stderr_bytes": 0,
+    "stdout_utf8": "Filesystem        Inodes    IUsed     IFree IUse% Mounted on\n/dev/nvme1n1   244195328 69374343 174820985   29% /workspace\n",
+    "stderr_utf8": ""
+  },
+  {
+    "argv": [
+      "git",
+      "init",
+      "--bare",
+      "--template=",
+      "/workspace/tmp/m6-coordinator/integration-probe-20261103-s3s4gxnq/distribution.git"
+    ],
+    "started_utc": "2026-11-03T15:47:16.293883+00:00",
+    "ended_utc": "2026-11-03T15:47:16.305661+00:00",
+    "exit": 0,
+    "stdout_sha256": "2fff92077d52f2b2ea5d9e31e0b9cf4a3bafd4bc755205d154e9ce9bf4233bdf",
+    "stderr_sha256": "3e70934f1909b0f5a846d62237fcc1509d733b9fb0321187024723dfc67176d3",
+    "stdout_bytes": 120,
+    "stderr_bytes": 586,
+    "stdout_utf8": "Initialized empty Git repository in /workspace/tmp/m6-coordinator/integration-probe-20261103-s3s4gxnq/distribution.git/\n",
+    "stderr_utf8": "hint: Using 'master' as the name for the initial branch. This default branch name\nhint: will change to \"main\" in Git 3.0. To configure the initial branch name\nhint: to use in all of your new repositories, which will suppress this warning,\nhint: call:\nhint:\nhint: \tgit config --global init.defaultBranch <name>\nhint:\nhint: Names commonly chosen instead of 'master' are 'main', 'trunk' and\nhint: 'development'. The just-created branch can be renamed via this command:\nhint:\nhint: \tgit branch -m <name>\nhint:\nhint: Disable this message with \"git config set advice.defaultBranchName false\"\n"
+  },
+  {
+    "argv": [
+      "git",
+      "--no-replace-objects",
+      "--git-dir=/workspace/tmp/m6-coordinator/integration-probe-20261103-s3s4gxnq/distribution.git",
+      "rev-parse",
+      "--verify",
+      "71bee11968b8a2f3b0165004f21c5498a47a6054^{commit}"
+    ],
+    "started_utc": "2026-11-03T15:47:16.305809+00:00",
+    "ended_utc": "2026-11-03T15:47:16.306832+00:00",
+    "exit": 0,
+    "stdout_sha256": "f42b45625ed760c0456fd7057c1176e84e53d67d45891b1b1af8a55a80def51d",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stdout_bytes": 41,
+    "stderr_bytes": 0,
+    "stdout_utf8": "71bee11968b8a2f3b0165004f21c5498a47a6054\n",
+    "stderr_utf8": ""
+  },
+  {
+    "argv": [
+      "git",
+      "--no-replace-objects",
+      "--git-dir=/workspace/tmp/m6-coordinator/integration-probe-20261103-s3s4gxnq/distribution.git",
+      "rev-parse",
+      "--verify",
+      "8ebaf8daad8eaac6331dff6fc048fb4411d7decb^{commit}"
+    ],
+    "started_utc": "2026-11-03T15:47:16.306950+00:00",
+    "ended_utc": "2026-11-03T15:47:16.308053+00:00",
+    "exit": 0,
+    "stdout_sha256": "3cf289d8246b5ed6201608bfbd15fb283565b76add1f3774bd86d8b920c37ebf",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stdout_bytes": 41,
+    "stderr_bytes": 0,
+    "stdout_utf8": "8ebaf8daad8eaac6331dff6fc048fb4411d7decb\n",
+    "stderr_utf8": ""
+  },
+  {
+    "argv": [
+      "git",
+      "--no-replace-objects",
+      "--git-dir=/workspace/tmp/m6-coordinator/integration-probe-20261103-s3s4gxnq/distribution.git",
+      "rev-parse",
+      "--verify",
+      "41b5287311476efd076bf6f9efca0cc94099fbec^{commit}"
+    ],
+    "started_utc": "2026-11-03T15:47:16.308255+00:00",
+    "ended_utc": "2026-11-03T15:47:16.309801+00:00",
+    "exit": 0,
+    "stdout_sha256": "7c3108063fbdbcf88a8a075c8d4795634518fa268d896182c89215605728f612",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stdout_bytes": 41,
+    "stderr_bytes": 0,
+    "stdout_utf8": "41b5287311476efd076bf6f9efca0cc94099fbec\n",
+    "stderr_utf8": ""
+  },
+  {
+    "argv": [
+      "git",
+      "--no-replace-objects",
+      "--git-dir=/workspace/tmp/m6-coordinator/integration-probe-20261103-s3s4gxnq/distribution.git",
+      "rev-parse",
+      "--verify",
+      "1850362563dc02720f1910faa415ed96580fa7d2^{commit}"
+    ],
+    "started_utc": "2026-11-03T15:47:16.309923+00:00",
+    "ended_utc": "2026-11-03T15:47:16.311316+00:00",
+    "exit": 0,
+    "stdout_sha256": "d68ba38d7cd8a21dc1431f5373fac617750bfce641ad5f9ac45fa162c5667392",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stdout_bytes": 41,
+    "stderr_bytes": 0,
+    "stdout_utf8": "1850362563dc02720f1910faa415ed96580fa7d2\n",
+    "stderr_utf8": ""
+  },
+  {
+    "argv": [
+      "git",
+      "--no-replace-objects",
+      "--git-dir=/workspace/tmp/m6-coordinator/integration-probe-20261103-s3s4gxnq/distribution.git",
+      "merge-base",
+      "--is-ancestor",
+      "8ebaf8daad8eaac6331dff6fc048fb4411d7decb",
+      "71bee11968b8a2f3b0165004f21c5498a47a6054"
+    ],
+    "started_utc": "2026-11-03T15:47:16.311439+00:00",
+    "ended_utc": "2026-11-03T15:47:16.313549+00:00",
+    "exit": 0,
+    "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stdout_bytes": 0,
+    "stderr_bytes": 0,
+    "stdout_utf8": "",
+    "stderr_utf8": ""
+  },
+  {
+    "argv": [
+      "git",
+      "--no-replace-objects",
+      "--git-dir=/workspace/tmp/m6-coordinator/integration-probe-20261103-s3s4gxnq/distribution.git",
+      "merge-base",
+      "--is-ancestor",
+      "8ebaf8daad8eaac6331dff6fc048fb4411d7decb",
+      "41b5287311476efd076bf6f9efca0cc94099fbec"
+    ],
+    "started_utc": "2026-11-03T15:47:16.313644+00:00",
+    "ended_utc": "2026-11-03T15:47:16.318159+00:00",
+    "exit": 0,
+    "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stdout_bytes": 0,
+    "stderr_bytes": 0,
+    "stdout_utf8": "",
+    "stderr_utf8": ""
+  },
+  {
+    "argv": [
+      "git",
+      "--no-replace-objects",
+      "--git-dir=/workspace/tmp/m6-coordinator/integration-probe-20261103-s3s4gxnq/distribution.git",
+      "diff",
+      "--exit-code",
+      "--quiet",
+      "1850362563dc02720f1910faa415ed96580fa7d2",
+      "41b5287311476efd076bf6f9efca0cc94099fbec",
+      "--",
+      "projects",
+      "packages",
+      "scripts",
+      "distributions",
+      "config"
+    ],
+    "started_utc": "2026-11-03T15:47:16.318252+00:00",
+    "ended_utc": "2026-11-03T15:47:16.319565+00:00",
+    "exit": 0,
+    "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stdout_bytes": 0,
+    "stderr_bytes": 0,
+    "stdout_utf8": "",
+    "stderr_utf8": ""
+  },
+  {
+    "argv": [
+      "git",
+      "--no-replace-objects",
+      "--git-dir=/workspace/tmp/m6-coordinator/integration-probe-20261103-s3s4gxnq/distribution.git",
+      "rev-parse",
+      "1850362563dc02720f1910faa415ed96580fa7d2:projects/ROCKNIX/packages/ui/emulationstation"
+    ],
+    "started_utc": "2026-11-03T15:47:16.319650+00:00",
+    "ended_utc": "2026-11-03T15:47:16.320937+00:00",
+    "exit": 0,
+    "stdout_sha256": "3766d9fc2b5b4f713f81eaab2e21c39aff1265a8007c3b3fdb8f539138c9bbd5",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stdout_bytes": 41,
+    "stderr_bytes": 0,
+    "stdout_utf8": "adb10ce0720d571e913bc0a1c45a344518639fcd\n",
+    "stderr_utf8": ""
+  },
+  {
+    "argv": [
+      "git",
+      "--no-replace-objects",
+      "--git-dir=/workspace/tmp/m6-coordinator/integration-probe-20261103-s3s4gxnq/distribution.git",
+      "rev-parse",
+      "41b5287311476efd076bf6f9efca0cc94099fbec:projects/ROCKNIX/packages/ui/emulationstation"
+    ],
+    "started_utc": "2026-11-03T15:47:16.321060+00:00",
+    "ended_utc": "2026-11-03T15:47:16.323283+00:00",
+    "exit": 0,
+    "stdout_sha256": "3766d9fc2b5b4f713f81eaab2e21c39aff1265a8007c3b3fdb8f539138c9bbd5",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stdout_bytes": 41,
+    "stderr_bytes": 0,
+    "stdout_utf8": "adb10ce0720d571e913bc0a1c45a344518639fcd\n",
+    "stderr_utf8": ""
+  },
+  {
+    "argv": [
+      "git",
+      "--no-replace-objects",
+      "--git-dir=/workspace/tmp/m6-coordinator/integration-probe-20261103-s3s4gxnq/distribution.git",
+      "rev-parse",
+      "8ebaf8daad8eaac6331dff6fc048fb4411d7decb:projects/ROCKNIX/packages/ui/emulationstation"
+    ],
+    "started_utc": "2026-11-03T15:47:16.323370+00:00",
+    "ended_utc": "2026-11-03T15:47:16.324248+00:00",
+    "exit": 0,
+    "stdout_sha256": "b5fc7e4059ab1b854e361965fa4a4396d8856e72a3127aac0f93804cb9fa51cc",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stdout_bytes": 41,
+    "stderr_bytes": 0,
+    "stdout_utf8": "39bf0103384cd7e15af55d7f230dd85f0a6cb9db\n",
+    "stderr_utf8": ""
+  },
+  {
+    "argv": [
+      "git",
+      "--no-replace-objects",
+      "--git-dir=/workspace/tmp/m6-coordinator/integration-probe-20261103-s3s4gxnq/distribution.git",
+      "merge-base",
+      "41b5287311476efd076bf6f9efca0cc94099fbec",
+      "71bee11968b8a2f3b0165004f21c5498a47a6054"
+    ],
+    "started_utc": "2026-11-03T15:47:16.324373+00:00",
+    "ended_utc": "2026-11-03T15:47:16.328580+00:00",
+    "exit": 0,
+    "stdout_sha256": "3cf289d8246b5ed6201608bfbd15fb283565b76add1f3774bd86d8b920c37ebf",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stdout_bytes": 41,
+    "stderr_bytes": 0,
+    "stdout_utf8": "8ebaf8daad8eaac6331dff6fc048fb4411d7decb\n",
+    "stderr_utf8": ""
+  },
+  {
+    "argv": [
+      "git",
+      "--no-replace-objects",
+      "--git-dir=/workspace/tmp/m6-coordinator/integration-probe-20261103-s3s4gxnq/distribution.git",
+      "merge-tree",
+      "--write-tree",
+      "-z",
+      "--messages",
+      "41b5287311476efd076bf6f9efca0cc94099fbec",
+      "71bee11968b8a2f3b0165004f21c5498a47a6054"
+    ],
+    "started_utc": "2026-11-03T15:47:16.328711+00:00",
+    "ended_utc": "2026-11-03T15:47:16.383530+00:00",
+    "exit": 1,
+    "stdout_sha256": "3690ba9757934699a5f08e5c900a4ab5f40ef819d57959075039df91f0de79c9",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stdout_bytes": 6988,
+    "stderr_bytes": 0,
+    "stdout_utf8": "e1049c23aa6bfaebd41f110146868b106ed1a280\u0000100644 235ceab34d973f67504e9ae4c72809e30271f757 1\t.claude/rules/fork-workflow.md\u0000100644 97c9b9bb8f96d8d0edc2b10957f5c1ce8888ad3d 2\t.claude/rules/fork-workflow.md\u0000100644 ce9c4034114a9179df0aad8a8623651c7c9f46a5 3\t.claude/rules/fork-workflow.md\u0000100644 c186d0706c54f04ff768453d3a5b238ab92fba4b 1\tdocs/decision-register.md\u0000100644 12769543922e60641e32e2ca222ab175f592615e 2\tdocs/decision-register.md\u0000100644 5cd34ea19c503301bfe31dbc83e7765dd5471765 3\tdocs/decision-register.md\u0000100644 dc982db9188a67835d2228367daf943b1b418307 1\tdocs/friction-log.md\u0000100644 4c5ce7a21022a61a61136489d9eca1ad9fb24b45 2\tdocs/friction-log.md\u0000100644 3cddf0de312fbc374d2de9e80af10ddb24e65d93 3\tdocs/friction-log.md\u0000100644 18b8c907bc3d1738bdbe58e43346aa8604d1834d 2\tdocs/work-logs/2026_10-work_logs/2026_10_25-work_log.md\u0000100644 5e206f31d0b59b8c734e82995bbd38703bb03eaa 3\tdocs/work-logs/2026_10-work_logs/2026_10_25-work_log.md\u0000100644 086c2fe2129c32f74b9c6bb456acc2c03abbbe2c 2\tdocs/work-logs/2026_10-work_logs/2026_10_26-work_log.md\u0000100644 06fd4eb7b65d2ec2e38dfffb57e7000f8c478ed4 3\tdocs/work-logs/2026_10-work_logs/2026_10_26-work_log.md\u0000100644 81cbf6cd056d91415b208e2713ed617f5cc308e0 2\tdocs/work-logs/2026_10-work_logs/2026_10_27-work_log.md\u0000100644 7d9501973c649f787b85558b6684a820753d5f3a 3\tdocs/work-logs/2026_10-work_logs/2026_10_27-work_log.md\u0000100644 737a48d7027d8196d8605abe74f68a651b106c98 2\tdocs/work-logs/2026_10-work_logs/2026_10_29-work_log.md\u0000100644 82af753ae67f66a781c84f38d0c5d203475b00ef 3\tdocs/work-logs/2026_10-work_logs/2026_10_29-work_log.md\u0000100644 0dca4560aa99b756547aae3bb926014f178d856e 2\tdocs/work-logs/2026_10-work_logs/2026_10_30-work_log.md\u0000100644 bc9df5a9b96deb0dd6c661de75288888e1504c1c 3\tdocs/work-logs/2026_10-work_logs/2026_10_30-work_log.md\u0000100644 a5baa6d027d418f8fbfc40b954b3b7ac629c3d37 2\tdocs/work-logs/2026_10-work_logs/2026_10_31-work_log.md\u0000100644 6fe5ef3280900c83af13e4c4642bc3a16dc698d8 3\tdocs/work-logs/2026_10-work_logs/2026_10_31-work_log.md\u0000100644 623eed5da908e1524f6fd2a80e706e76c181c94c 2\tdocs/work-logs/2026_11-work_logs/2026_11_01-work_log.md\u0000100644 3ef8950fc4f13a782bc03d3eaba1c1ea473eff42 3\tdocs/work-logs/2026_11-work_logs/2026_11_01-work_log.md\u0000100644 9417615582ac691f72b3e45bdc55a320989c66d6 2\tdocs/work-logs/2026_11-work_logs/2026_11_02-work_log.md\u0000100644 0806244008e8ba63b54fa56125585470e118c8cf 3\tdocs/work-logs/2026_11-work_logs/2026_11_02-work_log.md\u0000100644 6ef75dd73b34a1d3b1d9423531b74d92b01c43e6 2\tdocs/work-logs/2026_11-work_logs/2026_11_03-work_log.md\u0000100644 0b085237695c814ba1e0fd145a7977abd5e1c098 3\tdocs/work-logs/2026_11-work_logs/2026_11_03-work_log.md\u0000100644 bf731f3bfb49c580b84791463150552c245165af 1\tdocs/work-logs/INDEX.md\u0000100644 ee27816a48fe55c708fcf20db3f59b0aa238e340 2\tdocs/work-logs/INDEX.md\u0000100644 8e3ac7ae286e35571b6107dd1d7b8e05516e3282 3\tdocs/work-logs/INDEX.md\u0000\u00001\u0000.claude/rules/engineering-practices.md\u0000Auto-merging\u0000Auto-merging .claude/rules/engineering-practices.md\n\u00001\u0000.claude/rules/fork-workflow.md\u0000Auto-merging\u0000Auto-merging .claude/rules/fork-workflow.md\n\u00001\u0000.claude/rules/fork-workflow.md\u0000CONFLICT (contents)\u0000CONFLICT (content): Merge conflict in .claude/rules/fork-workflow.md\n\u00001\u0000.claude/rules/generic-x64-vm-testing.md\u0000Auto-merging\u0000Auto-merging .claude/rules/generic-x64-vm-testing.md\n\u00001\u0000.claude/rules/instruction-files.md\u0000Auto-merging\u0000Auto-merging .claude/rules/instruction-files.md\n\u00001\u0000.claude/rules/packaging-and-patches.md\u0000Auto-merging\u0000Auto-merging .claude/rules/packaging-and-patches.md\n\u00001\u0000.githooks/pre-push\u0000Auto-merging\u0000Auto-merging .githooks/pre-push\n\u00001\u0000AGENTS.md\u0000Auto-merging\u0000Auto-merging AGENTS.md\n\u00001\u0000docs/decision-register.md\u0000Auto-merging\u0000Auto-merging docs/decision-register.md\n\u00001\u0000docs/decision-register.md\u0000CONFLICT (contents)\u0000CONFLICT (content): Merge conflict in docs/decision-register.md\n\u00001\u0000docs/friction-log.md\u0000Auto-merging\u0000Auto-merging docs/friction-log.md\n\u00001\u0000docs/friction-log.md\u0000CONFLICT (contents)\u0000CONFLICT (content): Merge conflict in docs/friction-log.md\n\u00001\u0000docs/work-logs/2026_10-work_logs/2026_10_25-work_log.md\u0000Auto-merging\u0000Auto-merging docs/work-logs/2026_10-work_logs/2026_10_25-work_log.md\n\u00001\u0000docs/work-logs/2026_10-work_logs/2026_10_25-work_log.md\u0000CONFLICT (contents)\u0000CONFLICT (add/add): Merge conflict in docs/work-logs/2026_10-work_logs/2026_10_25-work_log.md\n\u00001\u0000docs/work-logs/2026_10-work_logs/2026_10_26-work_log.md\u0000Auto-merging\u0000Auto-merging docs/work-logs/2026_10-work_logs/2026_10_26-work_log.md\n\u00001\u0000docs/work-logs/2026_10-work_logs/2026_10_26-work_log.md\u0000CONFLICT (contents)\u0000CONFLICT (add/add): Merge conflict in docs/work-logs/2026_10-work_logs/2026_10_26-work_log.md\n\u00001\u0000docs/work-logs/2026_10-work_logs/2026_10_27-work_log.md\u0000Auto-merging\u0000Auto-merging docs/work-logs/2026_10-work_logs/2026_10_27-work_log.md\n\u00001\u0000docs/work-logs/2026_10-work_logs/2026_10_27-work_log.md\u0000CONFLICT (contents)\u0000CONFLICT (add/add): Merge conflict in docs/work-logs/2026_10-work_logs/2026_10_27-work_log.md\n\u00001\u0000docs/work-logs/2026_10-work_logs/2026_10_29-work_log.md\u0000Auto-merging\u0000Auto-merging docs/work-logs/2026_10-work_logs/2026_10_29-work_log.md\n\u00001\u0000docs/work-logs/2026_10-work_logs/2026_10_29-work_log.md\u0000CONFLICT (contents)\u0000CONFLICT (add/add): Merge conflict in docs/work-logs/2026_10-work_logs/2026_10_29-work_log.md\n\u00001\u0000docs/work-logs/2026_10-work_logs/2026_10_30-work_log.md\u0000Auto-merging\u0000Auto-merging docs/work-logs/2026_10-work_logs/2026_10_30-work_log.md\n\u00001\u0000docs/work-logs/2026_10-work_logs/2026_10_30-work_log.md\u0000CONFLICT (contents)\u0000CONFLICT (add/add): Merge conflict in docs/work-logs/2026_10-work_logs/2026_10_30-work_log.md\n\u00001\u0000docs/work-logs/2026_10-work_logs/2026_10_31-work_log.md\u0000Auto-merging\u0000Auto-merging docs/work-logs/2026_10-work_logs/2026_10_31-work_log.md\n\u00001\u0000docs/work-logs/2026_10-work_logs/2026_10_31-work_log.md\u0000CONFLICT (contents)\u0000CONFLICT (add/add): Merge conflict in docs/work-logs/2026_10-work_logs/2026_10_31-work_log.md\n\u00001\u0000docs/work-logs/2026_11-work_logs/2026_11_01-work_log.md\u0000Auto-merging\u0000Auto-merging docs/work-logs/2026_11-work_logs/2026_11_01-work_log.md\n\u00001\u0000docs/work-logs/2026_11-work_logs/2026_11_01-work_log.md\u0000CONFLICT (contents)\u0000CONFLICT (add/add): Merge conflict in docs/work-logs/2026_11-work_logs/2026_11_01-work_log.md\n\u00001\u0000docs/work-logs/2026_11-work_logs/2026_11_02-work_log.md\u0000Auto-merging\u0000Auto-merging docs/work-logs/2026_11-work_logs/2026_11_02-work_log.md\n\u00001\u0000docs/work-logs/2026_11-work_logs/2026_11_02-work_log.md\u0000CONFLICT (contents)\u0000CONFLICT (add/add): Merge conflict in docs/work-logs/2026_11-work_logs/2026_11_02-work_log.md\n\u00001\u0000docs/work-logs/2026_11-work_logs/2026_11_03-work_log.md\u0000Auto-merging\u0000Auto-merging docs/work-logs/2026_11-work_logs/2026_11_03-work_log.md\n\u00001\u0000docs/work-logs/2026_11-work_logs/2026_11_03-work_log.md\u0000CONFLICT (contents)\u0000CONFLICT (add/add): Merge conflict in docs/work-logs/2026_11-work_logs/2026_11_03-work_log.md\n\u00001\u0000docs/work-logs/INDEX.md\u0000Auto-merging\u0000Auto-merging docs/work-logs/INDEX.md\n\u00001\u0000docs/work-logs/INDEX.md\u0000CONFLICT (contents)\u0000CONFLICT (content): Merge conflict in docs/work-logs/INDEX.md\n\u0000",
+    "stderr_utf8": ""
+  }
+]

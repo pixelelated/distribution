@@ -1,0 +1,219 @@
+{
+  "schema": 1,
+  "observed_utc": "2026-11-03T15:47:16.383745+00:00",
+  "owner": "M6 coordinator wN:p2",
+  "inputs": {
+    "m7": "41b5287311476efd076bf6f9efca0cc94099fbec",
+    "m7_product": "1850362563dc02720f1910faa415ed96580fa7d2",
+    "coordinator": "71bee11968b8a2f3b0165004f21c5498a47a6054",
+    "next": "8ebaf8daad8eaac6331dff6fc048fb4411d7decb"
+  },
+  "repository": "/workspace/tmp/m6-coordinator/integration-probe-20261103-s3s4gxnq/distribution.git",
+  "merge_base": "8ebaf8daad8eaac6331dff6fc048fb4411d7decb",
+  "package_trees": {
+    "1850362563dc02720f1910faa415ed96580fa7d2": "adb10ce0720d571e913bc0a1c45a344518639fcd",
+    "41b5287311476efd076bf6f9efca0cc94099fbec": "adb10ce0720d571e913bc0a1c45a344518639fcd",
+    "8ebaf8daad8eaac6331dff6fc048fb4411d7decb": "39bf0103384cd7e15af55d7f230dd85f0a6cb9db"
+  },
+  "exit": 1,
+  "probe_tree": "e1049c23aa6bfaebd41f110146868b106ed1a280",
+  "conflict_stages": [
+    {
+      "path": ".claude/rules/fork-workflow.md",
+      "mode": "100644",
+      "oid": "235ceab34d973f67504e9ae4c72809e30271f757",
+      "stage": 1
+    },
+    {
+      "path": ".claude/rules/fork-workflow.md",
+      "mode": "100644",
+      "oid": "97c9b9bb8f96d8d0edc2b10957f5c1ce8888ad3d",
+      "stage": 2
+    },
+    {
+      "path": ".claude/rules/fork-workflow.md",
+      "mode": "100644",
+      "oid": "ce9c4034114a9179df0aad8a8623651c7c9f46a5",
+      "stage": 3
+    },
+    {
+      "path": "docs/decision-register.md",
+      "mode": "100644",
+      "oid": "c186d0706c54f04ff768453d3a5b238ab92fba4b",
+      "stage": 1
+    },
+    {
+      "path": "docs/decision-register.md",
+      "mode": "100644",
+      "oid": "12769543922e60641e32e2ca222ab175f592615e",
+      "stage": 2
+    },
+    {
+      "path": "docs/decision-register.md",
+      "mode": "100644",
+      "oid": "5cd34ea19c503301bfe31dbc83e7765dd5471765",
+      "stage": 3
+    },
+    {
+      "path": "docs/friction-log.md",
+      "mode": "100644",
+      "oid": "dc982db9188a67835d2228367daf943b1b418307",
+      "stage": 1
+    },
+    {
+      "path": "docs/friction-log.md",
+      "mode": "100644",
+      "oid": "4c5ce7a21022a61a61136489d9eca1ad9fb24b45",
+      "stage": 2
+    },
+    {
+      "path": "docs/friction-log.md",
+      "mode": "100644",
+      "oid": "3cddf0de312fbc374d2de9e80af10ddb24e65d93",
+      "stage": 3
+    },
+    {
+      "path": "docs/work-logs/2026_10-work_logs/2026_10_25-work_log.md",
+      "mode": "100644",
+      "oid": "18b8c907bc3d1738bdbe58e43346aa8604d1834d",
+      "stage": 2
+    },
+    {
+      "path": "docs/work-logs/2026_10-work_logs/2026_10_25-work_log.md",
+      "mode": "100644",
+      "oid": "5e206f31d0b59b8c734e82995bbd38703bb03eaa",
+      "stage": 3
+    },
+    {
+      "path": "docs/work-logs/2026_10-work_logs/2026_10_26-work_log.md",
+      "mode": "100644",
+      "oid": "086c2fe2129c32f74b9c6bb456acc2c03abbbe2c",
+      "stage": 2
+    },
+    {
+      "path": "docs/work-logs/2026_10-work_logs/2026_10_26-work_log.md",
+      "mode": "100644",
+      "oid": "06fd4eb7b65d2ec2e38dfffb57e7000f8c478ed4",
+      "stage": 3
+    },
+    {
+      "path": "docs/work-logs/2026_10-work_logs/2026_10_27-work_log.md",
+      "mode": "100644",
+      "oid": "81cbf6cd056d91415b208e2713ed617f5cc308e0",
+      "stage": 2
+    },
+    {
+      "path": "docs/work-logs/2026_10-work_logs/2026_10_27-work_log.md",
+      "mode": "100644",
+      "oid": "7d9501973c649f787b85558b6684a820753d5f3a",
+      "stage": 3
+    },
+    {
+      "path": "docs/work-logs/2026_10-work_logs/2026_10_29-work_log.md",
+      "mode": "100644",
+      "oid": "737a48d7027d8196d8605abe74f68a651b106c98",
+      "stage": 2
+    },
+    {
+      "path": "docs/work-logs/2026_10-work_logs/2026_10_29-work_log.md",
+      "mode": "100644",
+      "oid": "82af753ae67f66a781c84f38d0c5d203475b00ef",
+      "stage": 3
+    },
+    {
+      "path": "docs/work-logs/2026_10-work_logs/2026_10_30-work_log.md",
+      "mode": "100644",
+      "oid": "0dca4560aa99b756547aae3bb926014f178d856e",
+      "stage": 2
+    },
+    {
+      "path": "docs/work-logs/2026_10-work_logs/2026_10_30-work_log.md",
+      "mode": "100644",
+      "oid": "bc9df5a9b96deb0dd6c661de75288888e1504c1c",
+      "stage": 3
+    },
+    {
+      "path": "docs/work-logs/2026_10-work_logs/2026_10_31-work_log.md",
+      "mode": "100644",
+      "oid": "a5baa6d027d418f8fbfc40b954b3b7ac629c3d37",
+      "stage": 2
+    },
+    {
+      "path": "docs/work-logs/2026_10-work_logs/2026_10_31-work_log.md",
+      "mode": "100644",
+      "oid": "6fe5ef3280900c83af13e4c4642bc3a16dc698d8",
+      "stage": 3
+    },
+    {
+      "path": "docs/work-logs/2026_11-work_logs/2026_11_01-work_log.md",
+      "mode": "100644",
+      "oid": "623eed5da908e1524f6fd2a80e706e76c181c94c",
+      "stage": 2
+    },
+    {
+      "path": "docs/work-logs/2026_11-work_logs/2026_11_01-work_log.md",
+      "mode": "100644",
+      "oid": "3ef8950fc4f13a782bc03d3eaba1c1ea473eff42",
+      "stage": 3
+    },
+    {
+      "path": "docs/work-logs/2026_11-work_logs/2026_11_02-work_log.md",
+      "mode": "100644",
+      "oid": "9417615582ac691f72b3e45bdc55a320989c66d6",
+      "stage": 2
+    },
+    {
+      "path": "docs/work-logs/2026_11-work_logs/2026_11_02-work_log.md",
+      "mode": "100644",
+      "oid": "0806244008e8ba63b54fa56125585470e118c8cf",
+      "stage": 3
+    },
+    {
+      "path": "docs/work-logs/2026_11-work_logs/2026_11_03-work_log.md",
+      "mode": "100644",
+      "oid": "6ef75dd73b34a1d3b1d9423531b74d92b01c43e6",
+      "stage": 2
+    },
+    {
+      "path": "docs/work-logs/2026_11-work_logs/2026_11_03-work_log.md",
+      "mode": "100644",
+      "oid": "0b085237695c814ba1e0fd145a7977abd5e1c098",
+      "stage": 3
+    },
+    {
+      "path": "docs/work-logs/INDEX.md",
+      "mode": "100644",
+      "oid": "bf731f3bfb49c580b84791463150552c245165af",
+      "stage": 1
+    },
+    {
+      "path": "docs/work-logs/INDEX.md",
+      "mode": "100644",
+      "oid": "ee27816a48fe55c708fcf20db3f59b0aa238e340",
+      "stage": 2
+    },
+    {
+      "path": "docs/work-logs/INDEX.md",
+      "mode": "100644",
+      "oid": "8e3ac7ae286e35571b6107dd1d7b8e05516e3282",
+      "stage": 3
+    }
+  ],
+  "conflict_paths": [
+    ".claude/rules/fork-workflow.md",
+    "docs/decision-register.md",
+    "docs/friction-log.md",
+    "docs/work-logs/2026_10-work_logs/2026_10_25-work_log.md",
+    "docs/work-logs/2026_10-work_logs/2026_10_26-work_log.md",
+    "docs/work-logs/2026_10-work_logs/2026_10_27-work_log.md",
+    "docs/work-logs/2026_10-work_logs/2026_10_29-work_log.md",
+    "docs/work-logs/2026_10-work_logs/2026_10_30-work_log.md",
+    "docs/work-logs/2026_10-work_logs/2026_10_31-work_log.md",
+    "docs/work-logs/2026_11-work_logs/2026_11_01-work_log.md",
+    "docs/work-logs/2026_11-work_logs/2026_11_02-work_log.md",
+    "docs/work-logs/2026_11-work_logs/2026_11_03-work_log.md",
+    "docs/work-logs/INDEX.md"
+  ],
+  "scope": "Private merge-tree probe only; no shared ref, checkout, integration, acceptance, runtime or publication.",
+  "program_sha256": "2acb58f815fdf12e9ce3599f5d1dd08e742eea95ba764fecb904fabf1cf80e00"
+}

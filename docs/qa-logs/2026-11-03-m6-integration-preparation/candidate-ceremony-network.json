@@ -1,0 +1,14 @@
+{
+  "argv": [
+    "tools/ceremony-check",
+    "--gate"
+  ],
+  "started_utc": "2026-11-03T15:57:10.677319+00:00",
+  "ended_utc": "2026-11-03T15:57:20.385915+00:00",
+  "exit": 0,
+  "stdout": "ceremony-check: overdue (CI is red, the push goes through) audit: 13 issues closed and 1 days since 2026-11-02 (cadence 12 issues or 14 days) -- run the code-auditor skill\n",
+  "stderr": "",
+  "stdout_sha256": "74928135dc28d882d959c869aa085162caf7e43810621b617649eedd9fb106b6",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "reason": "Fresh network-capable current-record check; earlier sandboxed rc0 retained tracker-unavailable warnings, not a successful tracker read."
+}

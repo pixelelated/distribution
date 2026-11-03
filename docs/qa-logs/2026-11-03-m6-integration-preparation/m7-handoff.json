@@ -1,0 +1,23 @@
+{
+  "source": "Read-only M7 coordinator handoff received in this conversation on 2026-11-03; not new authority or independently observed runtime state.",
+  "owner": "M7 coordinator w4:p2",
+  "checkout": "/workspace/repos/rocknix.worktrees/m7-owner-feedback-20261025",
+  "branch": "feature/m7-owner-feedback-20261025",
+  "head": "41b5287311476efd076bf6f9efca0cc94099fbec",
+  "next": "8ebaf8daad8eaac6331dff6fc048fb4411d7decb",
+  "product_anchor": "1850362563dc02720f1910faa415ed96580fa7d2",
+  "package_tree": "adb10ce0720d571e913bc0a1c45a344518639fcd",
+  "es_base": "16dbac5211eea7e70db7394372033be2be7df829",
+  "patch_tree": "b17587b4d1eaf7e1083f7e37af44f8e262969d35",
+  "next_patch_tree": "f9d7c7e963c7c6c09bad27ca5ac5ae69c10d2167",
+  "late_chain": [
+    "f5be74075ca950aec1be2f2401708a1e907fef7c",
+    "c7e3e33a7d445921e5c1d2952354f0e1b4941c15",
+    "1850362563dc02720f1910faa415ed96580fa7d2"
+  ],
+  "reported_state": "Nova028 staged/verified, reboot permission pending; no build/VM/transfer active. Private development images, not public RC or M7 completion.",
+  "boundary": "M7 retains canonical next checkpoint/integration ownership. No live roll-up sequence or ownership release is supplied. This does not require public release/device testing to finish before source candidate preparation.",
+  "preserve": "Full ES recipe/hooks and 001–028 overlay plus separate x86_64/cpugov.patch; do not replace overlay with an M6 ES tip or replay carried repairs twice.",
+  "root_verification": "New isolated probe verifies exact commits/next ancestry, empty product-directory diff from185036 to41b528 and identical full ES package trees. Runtime/device state remains attributed to the M7 handoff.",
+  "runtime_selection": "D-WORKFLOW-191 remains unresolved; no build or guest admission follows from this handoff."
+}

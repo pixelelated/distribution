@@ -1,0 +1,795 @@
+{
+  "schema": 1,
+  "selected_utc": "2026-11-03T15:53:05.639981+00:00",
+  "owner": "M6 coordinator wN:p2",
+  "scope": "Prospective isolated candidate order; no actual integration, closure or runtime. Four marker absences stay explicit.",
+  "input_manifest_sha256": "75896a5618180cfbe3910cbe58fcd01912628952e9c77931dba0f9cc701774d9",
+  "initial_m7": "41b5287311476efd076bf6f9efca0cc94099fbec",
+  "coordinator": "71bee11968b8a2f3b0165004f21c5498a47a6054",
+  "rows": [
+    {
+      "k": 1,
+      "issue": 648,
+      "canonical_id": "os-launch-control-state",
+      "accepted_source_commit": "0f7558cff7da61114a79cef6376888039028f848",
+      "selected_endpoint": "d3aa6a19c5ebd6ba322017ca549f356ab129030a",
+      "selection": "explicit accepted endpoint; marker absent, no completion claim",
+      "source": {
+        "url": "https://github.com/pixelelated/distribution/issues/648#issuecomment-6378158314",
+        "retained_file": "prior-648-55.json",
+        "body_sha256": "4c6666759237b69a1059ab0a791d8f57e9dd5fac674656ffeabae9bd08b17991",
+        "body_line": 1,
+        "updated_at": "2026-10-24T01:27:25Z",
+        "retained_file_sha256": "d7839e9b7220cc0da28b7fee87c1178789ff06fdd616786f388c6a1a96fb0360"
+      }
+    },
+    {
+      "k": 2,
+      "issue": 649,
+      "canonical_id": "es-launch-path",
+      "accepted_source_commit": "7041b0d710363ddac7ae1b047ebae3e182548631",
+      "selected_endpoint": "7041b0d710363ddac7ae1b047ebae3e182548631",
+      "selection": "explicit accepted endpoint; marker absent, no completion claim",
+      "source": {
+        "url": "https://github.com/pixelelated/distribution/issues/649#issuecomment-6377527237",
+        "retained_file": "prior-649-38.json",
+        "body_sha256": "a825a1e4dc8bc910070e1d0fc0493c854e3c3876750724fcdd9154eeb431a710",
+        "body_line": 1,
+        "updated_at": "2026-10-24T00:28:58Z",
+        "retained_file_sha256": "dfd7f7698a43c393180b1a9a692e7cb71428e7edba6b09f1f975407d778f306f"
+      }
+    },
+    {
+      "k": 3,
+      "issue": 650,
+      "canonical_id": "emulators-libretro",
+      "accepted_source_commit": "3c47325fb2ac62e798d9a24472a81a6794248e70",
+      "selected_endpoint": "b3cb4ec8c5a0c4e4a24cb1bc6c16fc3b48a2664e",
+      "selection": "separately cited completion/final-record endpoint",
+      "source": {
+        "url": "https://github.com/pixelelated/distribution/issues/650#issuecomment-6381318854",
+        "retained_file": "latest-650.json",
+        "body_sha256": "eb339723f0541ee6810c277321fd8bb174aca63f096a473e99d8fef33c878e0e",
+        "body_line": 1,
+        "updated_at": "2026-10-24T07:13:44Z",
+        "retained_file_sha256": "2b168c82b7e16637f17ae5d0ae7ecf1cfb737305725f8e3a91299b9bc523ffab"
+      }
+    },
+    {
+      "k": 4,
+      "issue": 651,
+      "canonical_id": "doctrine-rules",
+      "accepted_source_commit": "b3c1d0d7c3ec5f3aa6bfa52bfb269ef8a57c2c6f",
+      "selected_endpoint": "6ec78bbf8cc2dc07a3a46dd30c63132fbc7bbfc8",
+      "selection": "separately cited completion/final-record endpoint",
+      "source": {
+        "url": "https://github.com/pixelelated/distribution/issues/651#issuecomment-6386238429",
+        "retained_file": "latest-651.json",
+        "body_sha256": "cf2aae5c445f69b6e36353153106294503dfb21886ac4b5ded2b70236643fe10",
+        "body_line": 1,
+        "updated_at": "2026-10-24T15:49:20Z",
+        "retained_file_sha256": "e6d424fbebf61e445e787277921487c49278a1cc522f552f713500f6ee310a88"
+      }
+    },
+    {
+      "k": 5,
+      "issue": 652,
+      "canonical_id": "build-engine",
+      "accepted_source_commit": "877775e61e0fdf3a9652501c9fd1558fa6b0d518",
+      "selected_endpoint": "52e6794ba7ec3e8816be662a218353c4ee439df9",
+      "selection": "separately cited completion/final-record endpoint",
+      "source": {
+        "url": "https://github.com/pixelelated/distribution/issues/652#issuecomment-6381404150",
+        "retained_file": "latest-652.json",
+        "body_sha256": "bac70b41a14dd1e56b8268708e03a1472f50918500ddd2ebf10bcd16eeaae71a",
+        "body_line": 1,
+        "updated_at": "2026-10-24T07:23:05Z",
+        "retained_file_sha256": "9293454e8305e0e3e3f001ad2455b7a45fe559b8772635b47840c70f73c591e6"
+      }
+    },
+    {
+      "k": 6,
+      "issue": 653,
+      "canonical_id": "build-engine-upstream-tools",
+      "accepted_source_commit": "820e413179345643156aa2ad8ac86db9ceb9215d",
+      "selected_endpoint": "37d1d98aedf18d029b9f6a12c46f87d4d2c9c7a6",
+      "selection": "separately cited completion/final-record endpoint",
+      "source": {
+        "url": "https://github.com/pixelelated/distribution/issues/653#issuecomment-6382283413",
+        "retained_file": "prior-653-10.json",
+        "body_sha256": "834653be5d553ee552dd2fee5fe1e056a8ce5c192a76a531d3a15aba78fee073",
+        "body_line": 1,
+        "updated_at": "2026-10-24T09:00:23Z",
+        "retained_file_sha256": "e8025467d85526f434acfb3609e81d845cbea9bcff67b89eff87a03dbe25114a"
+      }
+    },
+    {
+      "k": 7,
+      "issue": 654,
+      "canonical_id": "generic-packages-reached",
+      "accepted_source_commit": "063f10154a90ff6abd8750564f0e71a2db0c0296",
+      "selected_endpoint": "db6597356b31bb64d598bd9751b74d15a10c1e68",
+      "selection": "separately cited completion/final-record endpoint",
+      "source": {
+        "url": "https://github.com/pixelelated/distribution/issues/654#issuecomment-6383564379",
+        "retained_file": "prior-654-15.json",
+        "body_sha256": "d28ebac03433b7b8bc5f7d805411d1bd224ca918acb7f20bad6c5a7ab9c9fa66",
+        "body_line": 1,
+        "updated_at": "2026-10-24T11:18:36Z",
+        "retained_file_sha256": "dd7138da8bc8dd6fd756b2bf1353cde3d011929fbe8ef8aa46fb66a06039069b"
+      }
+    },
+    {
+      "k": 8,
+      "issue": 655,
+      "canonical_id": "image-packages",
+      "accepted_source_commit": "b58489297c5ccf34df61b667fac4abd8135aa7af",
+      "selected_endpoint": "f50a031158156c2c43cc8e18752e70cee6d72895",
+      "selection": "separately cited completion/final-record endpoint",
+      "source": {
+        "url": "https://github.com/pixelelated/distribution/issues/655#issuecomment-6385640565",
+        "retained_file": "latest-655.json",
+        "body_sha256": "3fb4f7e12e4effe045b544077660ec08d86d97f9c283329cc25250dcf68f7e9f",
+        "body_line": 1,
+        "updated_at": "2026-10-24T14:51:55Z",
+        "retained_file_sha256": "aa5cf73aa4eed03529d5a3b77833a7225b9633b5d49bba11f4c0e043a5a12410"
+      }
+    },
+    {
+      "k": 9,
+      "issue": 656,
+      "canonical_id": "tooling-build-supervision",
+      "accepted_source_commit": "00e571b8a806ce6e60ca198a49907a977b6e96bb",
+      "selected_endpoint": "995e7f869f17e0e7d56d91e0485ec098197dd789",
+      "selection": "separately cited completion/final-record endpoint",
+      "source": {
+        "url": "https://github.com/pixelelated/distribution/issues/656#issuecomment-6387987831",
+        "retained_file": "latest-656.json",
+        "body_sha256": "22afcb0666694f8e6400a0ccaf60d19edeae6e132584dee4327e97dc3fd481b9",
+        "body_line": 1,
+        "updated_at": "2026-10-24T18:33:48Z",
+        "retained_file_sha256": "fc6a3fbbf8a0a33f799285815b8b7782ea68e8eb56aa0e7d385753fadd569cdb"
+      }
+    },
+    {
+      "k": 10,
+      "issue": 657,
+      "canonical_id": "tooling-guards",
+      "accepted_source_commit": "ca42b3415243fb2db84d6e60d151043d810c4eda",
+      "selected_endpoint": "7182f743ea011aa119aa03eee7d8c1cd804a7ed8",
+      "selection": "separately cited completion/final-record endpoint",
+      "source": {
+        "url": "https://github.com/pixelelated/distribution/issues/657#issuecomment-6388771662",
+        "retained_file": "latest-657.json",
+        "body_sha256": "937bf4f40dafa648c2310ccbb8694baa8e4d432aa22a3d3735fb645379448c51",
+        "body_line": 1,
+        "updated_at": "2026-10-24T19:49:53Z",
+        "retained_file_sha256": "df92d0fd3b174dbd78fae518cbdf011850fc37f09e895b18407a4fb3ef378d16"
+      }
+    },
+    {
+      "k": 11,
+      "issue": 658,
+      "canonical_id": "device-generic-x64-and-kernel",
+      "accepted_source_commit": "0c32b2bac68a15702bb81da4f0514e12601d3cbc",
+      "selected_endpoint": "ed8c48f3cd122465f7a8c3c40677a949760c8960",
+      "selection": "separately cited completion/final-record endpoint",
+      "source": {
+        "url": "https://github.com/pixelelated/distribution/issues/658#issuecomment-6395228307",
+        "retained_file": "latest-658.json",
+        "body_sha256": "8b15f51a037358cad99ee0588cd0760a7a148813a2ec071a3f0af1b35a1967bb",
+        "body_line": 1,
+        "updated_at": "2026-10-25T08:08:44Z",
+        "retained_file_sha256": "0ccfb48b8e0f84d0060a64b8d0b0a9dab0398df36b0973f82e5e64b06a3a557a"
+      }
+    },
+    {
+      "k": 12,
+      "issue": 659,
+      "canonical_id": "tooling-vm-harness",
+      "accepted_source_commit": "159ed33562443549f2d86427449eca3abf9427f0",
+      "selected_endpoint": "a1bdd18355b82eee58897b7bd9ee52338a7efada",
+      "selection": "explicit accepted endpoint; marker absent, no completion claim",
+      "source": {
+        "url": "https://github.com/pixelelated/distribution/issues/659#issuecomment-6390977771",
+        "retained_file": "latest-659.json",
+        "body_sha256": "c9da20fb8ce8d10fb7b5b3f002fe692b7dc066f9234b1bdae08c7f8a00d88b97",
+        "body_line": 1,
+        "updated_at": "2026-10-24T23:39:31Z",
+        "retained_file_sha256": "07fdd1fa38148724fa72462723d0383ea4ad0dc387c86ab5e4c68aa3d114955b"
+      }
+    },
+    {
+      "k": 13,
+      "issue": 660,
+      "canonical_id": "cloud-harness",
+      "accepted_source_commit": "3a653eaec40f72b1b3409051634150f393d725c1",
+      "selected_endpoint": "0b7290462190df954c2d0a886e1a3eb042ae03a6",
+      "selection": "separately cited completion/final-record endpoint",
+      "source": {
+        "url": "https://github.com/pixelelated/distribution/issues/660#issuecomment-6395728684",
+        "retained_file": "latest-660.json",
+        "body_sha256": "c680eac4c6102b50c74aed2b9d2f6dedb40492c7aea595334ea84e29eb3b97c8",
+        "body_line": 1,
+        "updated_at": "2026-10-25T09:04:46Z",
+        "retained_file_sha256": "b1aef172e1d044a7741cf4801a16d866ea08bae8ee3968b458ee7461e9ba4afb"
+      }
+    },
+    {
+      "k": 14,
+      "issue": 661,
+      "canonical_id": "tooling-state-tests",
+      "accepted_source_commit": "7c1d729b5749cd82867944c4e0a7ccd8f19c609a",
+      "selected_endpoint": "e8d866507d12988a2ab40d803ad89368581459b2",
+      "selection": "explicit accepted endpoint; marker absent, no completion claim",
+      "source": {
+        "url": "https://github.com/pixelelated/distribution/issues/661#issuecomment-6390923630",
+        "retained_file": "latest-661.json",
+        "body_sha256": "b37cf45694067f382aa0ce675299b472fe2fa70a20e76c5bb881f4485fd13f9c",
+        "body_line": 1,
+        "updated_at": "2026-10-24T23:33:20Z",
+        "retained_file_sha256": "cfdf17a21d0265cd77e1ff74ad5e459945393a774c8c4ec6ce5baadf6249d0b2"
+      }
+    },
+    {
+      "k": 15,
+      "issue": 662,
+      "canonical_id": "tooling-last-good-test",
+      "accepted_source_commit": "e8d8fd7dc6d3bd160eebfdf8c9375859e7d97d2c",
+      "selected_endpoint": "42321db7c9e2323e4ca67e7f2ad0e96c52fe2577",
+      "selection": "separately cited completion/final-record endpoint",
+      "source": {
+        "url": "https://github.com/pixelelated/distribution/issues/662#issuecomment-6519774153",
+        "retained_file": "prior-662-54.json",
+        "body_sha256": "8b3db1de8ff980fc56c7ff397cc70bcc908abc2cbbbc261290c924571945e68f",
+        "body_line": 1,
+        "updated_at": "2026-10-30T09:45:44Z",
+        "retained_file_sha256": "df4fd5c7be0d3703ca65c00f2cf8305c6b32cf9541324fd41149fac8f361fb31"
+      }
+    },
+    {
+      "k": 16,
+      "issue": 663,
+      "canonical_id": "cloud-sync-core",
+      "accepted_source_commit": "23dfd53c0ee68932df5d24cf979520937111a157",
+      "selected_endpoint": "abc3181e449d46d636281e7706a9a08e075e1875",
+      "selection": "separately cited completion/final-record endpoint",
+      "source": {
+        "url": "https://github.com/pixelelated/distribution/issues/663#issuecomment-6542595560",
+        "retained_file": "latest-663.json",
+        "body_sha256": "30dddaddae2eca85c58edb99cbeb2e8752d05ff72d78eb145b26701ee73d3573",
+        "body_line": 1,
+        "updated_at": "2026-10-31T11:07:41Z",
+        "retained_file_sha256": "38e0340ce2c3b11a98467ecf6ce22d1af9041cfe94189751a32b5359b4b58786"
+      }
+    },
+    {
+      "k": 17,
+      "issue": 664,
+      "canonical_id": "cloud-setup-content",
+      "accepted_source_commit": "479cd96c2460ecc4791ae6ddba65df10b7d7f6c6",
+      "selected_endpoint": "86672299596dd609278277c5d25d87643b355c81",
+      "selection": "separately cited completion/final-record endpoint",
+      "source": {
+        "url": "https://github.com/pixelelated/distribution/issues/664#issuecomment-6412703143",
+        "retained_file": "latest-664.json",
+        "body_sha256": "63808ba3038980c26f55aa157d5a95331bb770d0711393b5bcc87d13d2a7b9c2",
+        "body_line": 1,
+        "updated_at": "2026-10-26T09:31:01Z",
+        "retained_file_sha256": "fff49c54db73ec6191a262e1b6d12d75862d014a3dc4b24592c02feba0af2f1c"
+      }
+    },
+    {
+      "k": 18,
+      "issue": 665,
+      "canonical_id": "es-cloud-pages",
+      "accepted_source_commit": "33ad2e3cee951deb17bc52233f8492510292967f",
+      "selected_endpoint": "6a560b9fbd1245de9f0f59d840a0c659933f98b1",
+      "selection": "separately cited completion/final-record endpoint",
+      "source": {
+        "url": "https://github.com/pixelelated/distribution/issues/665#issuecomment-6415637379",
+        "retained_file": "latest-665.json",
+        "body_sha256": "78e37b1f08ddc523559837ed4528303ddf673886ab909813788dc2f826a616e1",
+        "body_line": 1,
+        "updated_at": "2026-10-26T12:09:21Z",
+        "retained_file_sha256": "be19cc371a3fa809b7ba2a9d3d474043a6a4dbc83e28430a7e672d411a8a7bb1"
+      }
+    },
+    {
+      "k": 19,
+      "issue": 666,
+      "canonical_id": "offline-achievements",
+      "accepted_source_commit": "383a047b895b561497b2557bc2ef657dc6231f04",
+      "selected_endpoint": "d8c02be1c9ca670efc816d9107382b05203067e0",
+      "selection": "separately cited completion/final-record endpoint",
+      "source": {
+        "url": "https://github.com/pixelelated/distribution/issues/666#issuecomment-6422388235",
+        "retained_file": "latest-666.json",
+        "body_sha256": "f58803dbcdb221ee5f8eab13c20604c627abe87456c6a894f17726176e8884cb",
+        "body_line": 1,
+        "updated_at": "2026-10-26T17:07:35Z",
+        "retained_file_sha256": "120c5e9c2927d2bf526ffff2cb21ec413e9485d0f98de398d41e07c721455ecd"
+      }
+    },
+    {
+      "k": 20,
+      "issue": 667,
+      "canonical_id": "es-achievements-pages",
+      "accepted_source_commit": "780827c5ba40fc78a741f2f9e0655872c8d8d0c7",
+      "selected_endpoint": "ffb6b686cbd4d1c1f18bf2d0ac4cd04428ea6b12",
+      "selection": "separately cited completion/final-record endpoint",
+      "source": {
+        "url": "https://github.com/pixelelated/distribution/issues/667#issuecomment-6426815368",
+        "retained_file": "latest-667.json",
+        "body_sha256": "79521995676d73cb221d0974a4ee26fe6a6a1c7ff773ad2f5443b13a78cc0dc5",
+        "body_line": 1,
+        "updated_at": "2026-10-26T20:40:41Z",
+        "retained_file_sha256": "5010c8afacd63241f95780ac04849be7372bd830cdd7902e9d0160dd5f1b8261"
+      }
+    },
+    {
+      "k": 21,
+      "issue": 668,
+      "canonical_id": "es-state-and-bridge",
+      "accepted_source_commit": "cfd7b2d89c0712aa7a7f767336a6c998e7964c5e",
+      "selected_endpoint": "82c67e99c5726e6980605790642e798c196e421c",
+      "selection": "separately cited completion/final-record endpoint",
+      "source": {
+        "url": "https://github.com/pixelelated/distribution/issues/668#issuecomment-6432320024",
+        "retained_file": "latest-668.json",
+        "body_sha256": "0428e8c4c23b67dd7f2d2ce1e8a4952336c4b6079085bffef49a72967a9bcb21",
+        "body_line": 1,
+        "updated_at": "2026-10-27T02:34:22Z",
+        "retained_file_sha256": "a103625917e90fb926efc7e30b0cfc88a6c5e6d096adf4aee20a9264c3b80f9e"
+      }
+    },
+    {
+      "k": 22,
+      "issue": 669,
+      "canonical_id": "os-system-services",
+      "accepted_source_commit": "6cfe1fdba14098de83c964db35135a37e6c3dd98",
+      "selected_endpoint": "cbab6483dcf36004dfce44499a1f51bd5d7ca515",
+      "selection": "separately cited completion/final-record endpoint",
+      "source": {
+        "url": "https://github.com/pixelelated/distribution/issues/669#issuecomment-6396732959",
+        "retained_file": "prior-669-21.json",
+        "body_sha256": "f0ba9ed9f95b7ee678feabc9aadef6e110d6a9a699d78a0370353b16965a991d",
+        "body_line": 1,
+        "updated_at": "2026-10-25T10:53:11Z",
+        "retained_file_sha256": "efc74ae8051a1a37a217f315b47e8217b68e864f2ea6595c6ee9ef1bab7c34c9"
+      }
+    },
+    {
+      "k": 23,
+      "issue": 670,
+      "canonical_id": "packages-dead-ends",
+      "accepted_source_commit": "ea19c27dee9ba040fd20ceeed7a0619aafadd33e",
+      "selected_endpoint": "f1561559aa538a462a3b7d4351c5864f2b7f6c0b",
+      "selection": "separately cited completion/final-record endpoint",
+      "source": {
+        "url": "https://github.com/pixelelated/distribution/issues/670#issuecomment-6393554499",
+        "retained_file": "latest-670.json",
+        "body_sha256": "f169665dc74eb40306299bee57116f6f15a0c2cfb7978ed5964e297b8ca60e86",
+        "body_line": 1,
+        "updated_at": "2026-10-25T04:43:53Z",
+        "retained_file_sha256": "44db4334735aeef3623749670b96f7e6f564cda5d26cd2e120404838259a891c"
+      }
+    },
+    {
+      "k": 24,
+      "issue": 671,
+      "canonical_id": "emulators-dead-ends",
+      "accepted_source_commit": "81331b499e73717b4713544c934796c088e1a7f5",
+      "selected_endpoint": "26e4a34edf9a45ca83f769cb14072ebc8e8ba9b5",
+      "selection": "separately cited completion/final-record endpoint",
+      "source": {
+        "url": "https://github.com/pixelelated/distribution/issues/671#issuecomment-6385385860",
+        "retained_file": "latest-671.json",
+        "body_sha256": "b2e327258d791eac8fdac60172b8af33f90f338eeca9ab3fb9e4e749de0efa98",
+        "body_line": 1,
+        "updated_at": "2026-10-24T14:27:09Z",
+        "retained_file_sha256": "e3aa46a63a8a38a7c105b86256ab29604017f9befe1ae4b48149156891f82b24"
+      }
+    },
+    {
+      "k": 25,
+      "issue": 672,
+      "canonical_id": "devices-unshipped",
+      "accepted_source_commit": "2fae567a8925d57b0f4daf223f2a6def68e8bd8d",
+      "selected_endpoint": "9b9be6a9481e4e9ee5b9d97f6c7bb72eda3ca3b4",
+      "selection": "separately cited completion/final-record endpoint",
+      "source": {
+        "url": "https://github.com/pixelelated/distribution/issues/672#issuecomment-6396455801",
+        "retained_file": "latest-672.json",
+        "body_sha256": "91a65df6f1b94928ebe06d1045830a0c8d0a1f2a7d607e60f3d239ce04050f0f",
+        "body_line": 1,
+        "updated_at": "2026-10-25T10:22:52Z",
+        "retained_file_sha256": "df332f82972367b38dca3b8b57b6f1b73d6f3f29dabd8d847702179662f00578"
+      }
+    },
+    {
+      "k": 26,
+      "issue": 673,
+      "canonical_id": "es-guimenu",
+      "accepted_source_commit": "c12e8d244364778b8f6e60164f2b37b94ecaae37",
+      "selected_endpoint": "bcfad2144bc89cee761dcda6c4d43521941d6ebe",
+      "selection": "separately cited completion/final-record endpoint",
+      "source": {
+        "url": "https://github.com/pixelelated/distribution/issues/673#issuecomment-6441228498",
+        "retained_file": "latest-673.json",
+        "body_sha256": "7fff2e1f2fa62cbb3ebd5856cb31dfc29df6c918e8ed767b2a907e2c5bee818f",
+        "body_line": 1,
+        "updated_at": "2026-10-27T11:53:57Z",
+        "retained_file_sha256": "f744708827405197468a34ffe9b6ec408355fb589f5e83849a2a16aef983f2e4"
+      }
+    },
+    {
+      "k": 27,
+      "issue": 674,
+      "canonical_id": "device-h700",
+      "accepted_source_commit": "22c4838f240b3d4e083a5bc3c077661c6d17b044",
+      "selected_endpoint": "0ac98afe434c0429bace5f239482e5de0e0bc394",
+      "selection": "separately cited completion/final-record endpoint",
+      "source": {
+        "url": "https://github.com/pixelelated/distribution/issues/674#issuecomment-6395653966",
+        "retained_file": "latest-674.json",
+        "body_sha256": "cba4bba7ed3d8dfde715ab038295c22d1b6606bd07063ee8ba71424596113b79",
+        "body_line": 1,
+        "updated_at": "2026-10-25T08:56:36Z",
+        "retained_file_sha256": "5f2a21616f1b820461c7dec765abe87c54d8d0bf241c619616568da35628ed88"
+      }
+    },
+    {
+      "k": 28,
+      "issue": 675,
+      "canonical_id": "device-sm8550",
+      "accepted_source_commit": "237f2bc438a5aac204879a93074689a860d19ec2",
+      "selected_endpoint": "5a60d1c82593045325c1ccc5e426401394021154",
+      "selection": "separately cited completion/final-record endpoint",
+      "source": {
+        "url": "https://github.com/pixelelated/distribution/issues/675#issuecomment-6397037212",
+        "retained_file": "latest-675.json",
+        "body_sha256": "01f3ef9e182103fd5a06c53773ebd43a308719720baa55bfef9dd76b054c46fb",
+        "body_line": 1,
+        "updated_at": "2026-10-25T11:26:11Z",
+        "retained_file_sha256": "8a2400e865572587df2d13bae83ff642a87bf0e4c869c908594960c1482a00d9"
+      }
+    },
+    {
+      "k": 29,
+      "issue": 676,
+      "canonical_id": "os-device-quirks",
+      "accepted_source_commit": "7d097e34aaa9381bbf15d4206f216d19d621f6c4",
+      "selected_endpoint": "ec56f4813f15e46c13a854319c5a5691b2db0cda",
+      "selection": "separately cited completion/final-record endpoint",
+      "source": {
+        "url": "https://github.com/pixelelated/distribution/issues/676#issuecomment-6409494548",
+        "retained_file": "latest-676.json",
+        "body_sha256": "c7dec94616c41ac477b0c65a8d0fffb4f99d4d599a6052c6123191e474783127",
+        "body_line": 1,
+        "updated_at": "2026-10-26T06:12:08Z",
+        "retained_file_sha256": "818125c4ab4e85bd3577968774c3a2209acafdda88a62a642f78c229eb7db72f"
+      }
+    },
+    {
+      "k": 30,
+      "issue": 677,
+      "canonical_id": "emulators-standalone",
+      "accepted_source_commit": "f8a0f3593109b6864c8116edfa281c38b20a4edc",
+      "selected_endpoint": "a020b3d3753c15983c6e697f2bd0df0f612ecff8",
+      "selection": "separately cited completion/final-record endpoint",
+      "source": {
+        "url": "https://github.com/pixelelated/distribution/issues/677#issuecomment-6384264112",
+        "retained_file": "latest-677.json",
+        "body_sha256": "a15755cf93b23b6a8441f89da5fcf2969afb990f5a13d0661b054d231045caf2",
+        "body_line": 1,
+        "updated_at": "2026-10-24T12:33:50Z",
+        "retained_file_sha256": "1f23fdc3a57c9bc9b0635f94cb3622b58a8aa517ec3cdaa6aa3a30be614a3d4c"
+      }
+    },
+    {
+      "k": 31,
+      "issue": 678,
+      "canonical_id": "es-pages",
+      "accepted_source_commit": "ada47cfe4619d31ce1d8020965e128c950404fd8",
+      "selected_endpoint": "6ec4dda2035dbd4a514272b7df05c9916b8dc8e0",
+      "selection": "separately cited completion/final-record endpoint",
+      "source": {
+        "url": "https://github.com/pixelelated/distribution/issues/678#issuecomment-6446498724",
+        "retained_file": "latest-678.json",
+        "body_sha256": "f342ecec540cae8350ff0d0aa21a25274665da7eef7b6200b6bfb474ba5b7c54",
+        "body_line": 1,
+        "updated_at": "2026-10-27T15:45:31Z",
+        "retained_file_sha256": "bb3627ccff05e165d43cdd54c12bb0a5924d34477dfa74b0991a06ea2d747143"
+      }
+    },
+    {
+      "k": 32,
+      "issue": 679,
+      "canonical_id": "es-app-views-scrapers",
+      "accepted_source_commit": "a0ac8e7831f4a1cc2b6a1fe44696c94c463ebd59",
+      "selected_endpoint": "1dd3093853d4161d009d14fd67ac25b6a8e6c4f4",
+      "selection": "separately cited completion/final-record endpoint",
+      "source": {
+        "url": "https://github.com/pixelelated/distribution/issues/679#issuecomment-6450521148",
+        "retained_file": "latest-679.json",
+        "body_sha256": "1e07e0543c0a5ea977e4c9485246b9b7f17d50d66c5a5935d1a47de6eb8a1ee8",
+        "body_line": 1,
+        "updated_at": "2026-10-27T18:37:59Z",
+        "retained_file_sha256": "4673a615e159b1ca1e387c7d05e30c7856b86b6b3864d5b39f5b920a1dc2b5a2"
+      }
+    },
+    {
+      "k": 33,
+      "issue": 680,
+      "canonical_id": "es-app-system",
+      "accepted_source_commit": "947ace196675627edb69818148adc7d250780468",
+      "selected_endpoint": "5e3cf605df37567de8db74c5425b7e19c0411801",
+      "selection": "separately cited completion/final-record endpoint",
+      "source": {
+        "url": "https://github.com/pixelelated/distribution/issues/680#issuecomment-6532612742",
+        "retained_file": "latest-680.json",
+        "body_sha256": "03dc6faa94dadca56aa3f9f29d2dbe9379b6fc67006f11c286748ad236bd33e7",
+        "body_line": 1,
+        "updated_at": "2026-10-30T20:17:23Z",
+        "retained_file_sha256": "f0517a8a2e334135eb1382bd9eba4274d25e4f586126e3225b5253388d73c2ff"
+      }
+    },
+    {
+      "k": 34,
+      "issue": 681,
+      "canonical_id": "es-core-components",
+      "accepted_source_commit": "8adf428981722ff064062cb2c24a7962ef47ef2a",
+      "selected_endpoint": "49c6b43f2708f46c9d2f147c609d7d9f702c2557",
+      "selection": "separately cited completion/final-record endpoint",
+      "source": {
+        "url": "https://github.com/pixelelated/distribution/issues/681#issuecomment-6545778877",
+        "retained_file": "latest-681.json",
+        "body_sha256": "5ed812866745a45acfb0342f36a4bf71b0b7f8bcfc98c4a78ad3abc8e8ff05b8",
+        "body_line": 1,
+        "updated_at": "2026-10-31T16:01:59Z",
+        "retained_file_sha256": "d196bdf15c18d74777abeb39844ff56d3b5d88466b19203bb854c5e2491502e8"
+      }
+    },
+    {
+      "k": 35,
+      "issue": 682,
+      "canonical_id": "es-core-window-input",
+      "accepted_source_commit": "64f36e0bab2ab9c01e8462a45f294fc778595b97",
+      "selected_endpoint": "d828355e0ac3b9c639c394adbcf9aeb65c0db22c",
+      "selection": "separately cited completion/final-record endpoint",
+      "source": {
+        "url": "https://github.com/pixelelated/distribution/issues/682#issuecomment-6551219075",
+        "retained_file": "latest-682.json",
+        "body_sha256": "ce7d463cabd8bd232768034c545f3f13f2d65d1c012b443b99704d9cfeea7afd",
+        "body_line": 1,
+        "updated_at": "2026-11-01T00:33:03Z",
+        "retained_file_sha256": "c942b8d900ced3083bfaed93859eaad893726bbe48953372cad6d36a8fe7e149"
+      }
+    },
+    {
+      "k": 36,
+      "issue": 683,
+      "canonical_id": "es-core-utils-resources",
+      "accepted_source_commit": "fd0c1c43371018aed1aa32142d7c80ea9561b229",
+      "selected_endpoint": "4127382d34db90298a9fd1e0c2ef185ad03b84ea",
+      "selection": "separately cited completion/final-record endpoint",
+      "source": {
+        "url": "https://github.com/pixelelated/distribution/issues/683#issuecomment-6553929240",
+        "retained_file": "latest-683.json",
+        "body_sha256": "d95240e143ced213959112214262bfc4a4323116a4211b9654027ce1acee6eb0",
+        "body_line": 1,
+        "updated_at": "2026-11-01T05:29:01Z",
+        "retained_file_sha256": "27ce289d93c937a06e2075d9ebe2653101764aae99847e9dcec517f7fd808daa"
+      }
+    },
+    {
+      "k": 37,
+      "issue": 684,
+      "canonical_id": "es-recipe",
+      "accepted_source_commit": "d6dde340f9b1268cff157580cf748bed1cbec814",
+      "selected_endpoint": "8dd02a4da1f1e914560d3775dd012ddd9c535449",
+      "selection": "separately cited completion/final-record endpoint",
+      "source": {
+        "url": "https://github.com/pixelelated/distribution/issues/684#issuecomment-6553929368",
+        "retained_file": "latest-684.json",
+        "body_sha256": "d00bee2374c52a0088b6ea593f271abd51bac0188ed92991ba942885a8691b5e",
+        "body_line": 1,
+        "updated_at": "2026-11-01T05:29:02Z",
+        "retained_file_sha256": "b0cdb86820f917d93b4b75afacda8b4ad1bfb64eed42dafa279ceef91c892ca0"
+      }
+    },
+    {
+      "k": 38,
+      "issue": 685,
+      "canonical_id": "doctrine-skills",
+      "accepted_source_commit": "420b845656b22fd358d046d5e33716d2584e3487",
+      "selected_endpoint": "0de44dcbfbcec76b74114898fe6584dec1d149da",
+      "selection": "separately cited completion/final-record endpoint",
+      "source": {
+        "url": "https://github.com/pixelelated/distribution/issues/685#issuecomment-6569819317",
+        "retained_file": "latest-685.json",
+        "body_sha256": "81d0e283bf975cc9b7027fc7d64c1ed31979bfbfbc1556ac57fb09dec895624c",
+        "body_line": 4,
+        "updated_at": "2026-11-02T05:28:11Z",
+        "retained_file_sha256": "7164422a2deec048bd0496460c40337356ddc1610a40ccbc38dc2c066dd94c0f"
+      }
+    },
+    {
+      "k": 39,
+      "issue": 686,
+      "canonical_id": "doctrine-reference",
+      "accepted_source_commit": "4eb5dfab8e745914a55e7de3e5a43c5b91ebc608",
+      "selected_endpoint": "7994f760fe1f4df6744844e80433bc49295cb94e",
+      "selection": "separately cited completion/final-record endpoint",
+      "source": {
+        "url": "https://github.com/pixelelated/distribution/issues/686#issuecomment-6586954533",
+        "retained_file": "latest-686.json",
+        "body_sha256": "70515a120db2a8cead31a95f4a292817c413d564c2081117c63ce1ef15f59270",
+        "body_line": 3,
+        "updated_at": "2026-11-02T19:53:25Z",
+        "retained_file_sha256": "73c0cb8b94244920013bd0cc5ac1497767fba8a709f77a8ba22ad4d952070bcb"
+      }
+    },
+    {
+      "k": 40,
+      "issue": 687,
+      "canonical_id": "patches-dead",
+      "accepted_source_commit": "9c3fa25cfb90fecee9f8019827af79b43e6b7313",
+      "selected_endpoint": "bf3409ea18a4168293fb855a11166d72f74944b3",
+      "selection": "separately cited completion/final-record endpoint",
+      "source": {
+        "url": "https://github.com/pixelelated/distribution/issues/687#issuecomment-6394151111",
+        "retained_file": "latest-687.json",
+        "body_sha256": "835c30f4c092cbfca5e5b5de00be16f8a310c767df05e9d34839538c8f757d9e",
+        "body_line": 1,
+        "updated_at": "2026-10-25T05:57:55Z",
+        "retained_file_sha256": "9edea53cb53e00f61861e834a95ceb1218907d8aa68f31fa7d5d0213eb9382b3"
+      }
+    },
+    {
+      "k": 41,
+      "issue": 688,
+      "canonical_id": "patches-shipped-kernel",
+      "accepted_source_commit": "e481e4a4a5c296c8f12e9654b6a45c4fb27bd3b0",
+      "selected_endpoint": "83304388db49e24231158380910067c47ead3f12",
+      "selection": "separately cited completion/final-record endpoint",
+      "source": {
+        "url": "https://github.com/pixelelated/distribution/issues/688#issuecomment-6588465063",
+        "retained_file": "latest-688.json",
+        "body_sha256": "52dfb780ea80f693240e87d37575e5dffe981234c9dec604664157ed0dc2550f",
+        "body_line": 3,
+        "updated_at": "2026-11-02T21:06:37Z",
+        "retained_file_sha256": "b50f9ebda307b88a6ee1bd1ec2983e0b54a185bb3a035b9e1102fee2c27b80d1"
+      }
+    },
+    {
+      "k": 42,
+      "issue": 689,
+      "canonical_id": "patches-shipped",
+      "accepted_source_commit": "4cf8c8820791624dbddad3eb3664101a03953a82",
+      "selected_endpoint": "0eeaa4c9a6d384f57e0017c0be75673eb872f2db",
+      "selection": "separately cited completion/final-record endpoint",
+      "source": {
+        "url": "https://github.com/pixelelated/distribution/issues/689#issuecomment-6589236996",
+        "retained_file": "latest-689.json",
+        "body_sha256": "e70a8aafcbfdef15b37c916115523289253d9ab51f4c33375aaa24d923dfb893",
+        "body_line": 3,
+        "updated_at": "2026-11-02T21:44:34Z",
+        "retained_file_sha256": "b8280a38d7cef8d10ad980250378b8b4e463ad453d213007b8687b9f1ef5f391"
+      }
+    },
+    {
+      "k": 43,
+      "issue": 690,
+      "canonical_id": "patches-unshipped",
+      "accepted_source_commit": "8282cbcade3be32b437f7391be7e216d9a6b1074",
+      "selected_endpoint": "fd1238800b61431a8febeebe8cf44f41d2384bbb",
+      "selection": "separately cited completion/final-record endpoint",
+      "source": {
+        "url": "https://github.com/pixelelated/distribution/issues/690#issuecomment-6591865102",
+        "retained_file": "latest-690.json",
+        "body_sha256": "6cdbf6bcfacc035ef172cd0663b6f048bd8d835641e8c66d9a10aa2b28db4670",
+        "body_line": 3,
+        "updated_at": "2026-11-03T00:14:25Z",
+        "retained_file_sha256": "ee16c9e2741fc2847dc45253e266658a2ac69b9de3907e07f2c6cb2a1eaf2ee4"
+      }
+    },
+    {
+      "k": 44,
+      "issue": 691,
+      "canonical_id": "es-vendored-and-data",
+      "accepted_source_commit": "f01abd480f4e0b337a9fcdde2cec9bc1746b525d",
+      "selected_endpoint": "ad0df587128577212337aa76d171b0b9cfaae4a4",
+      "selection": "separately cited completion/final-record endpoint",
+      "source": {
+        "url": "https://github.com/pixelelated/distribution/issues/691#issuecomment-6592382782",
+        "retained_file": "latest-691.json",
+        "body_sha256": "4d6fa73d5a39731078ea72f3833e889bf73b6755e2829730cd8df322dbef5654",
+        "body_line": 1,
+        "updated_at": "2026-11-03T00:48:32Z",
+        "retained_file_sha256": "3372b67cfa9bd6e7e20ebbe8ce6e9c1d7a04cf63eb376e6b66bff5a4911ba8bd"
+      }
+    },
+    {
+      "k": 45,
+      "issue": 692,
+      "canonical_id": "tooling-council",
+      "accepted_source_commit": "e1fa041488b29e3c27dbf7b11185153b78bcb740",
+      "selected_endpoint": "ae08d48392f4d9b3f1649a43c436c8c569d7d585",
+      "selection": "separately cited completion/final-record endpoint",
+      "source": {
+        "url": "https://github.com/pixelelated/distribution/issues/692#issuecomment-6393029511",
+        "retained_file": "prior-692-15.json",
+        "body_sha256": "b652d346a8b830989849bb41deff905aac9370370ed3d072c9e7391861240b09",
+        "body_line": 1,
+        "updated_at": "2026-10-25T03:37:18Z",
+        "retained_file_sha256": "f149b610e172768bc6575b41dd6257575bf5458b1e8c489149fbb40862a99cea"
+      }
+    },
+    {
+      "k": 46,
+      "issue": 693,
+      "canonical_id": "records",
+      "accepted_source_commit": "17a064e6110306dd2b692cfd1b13d4f518d8def5",
+      "selected_endpoint": "df8058e4353c54b73d4eea4d356ce18df901aabf",
+      "selection": "separately cited completion/final-record endpoint",
+      "source": {
+        "url": "https://github.com/pixelelated/distribution/issues/693#issuecomment-6606790544",
+        "retained_file": "latest-693.json",
+        "body_sha256": "e58f06bd16b923e34a47fa96167a4feb216e1d5957e907799808333ef159f1bd",
+        "body_line": 1,
+        "updated_at": "2026-11-03T14:43:15Z",
+        "retained_file_sha256": "a225154e12a143af8e051462241fb3c48b018969bd1f44036a7f3b601a73feca"
+      }
+    }
+  ],
+  "driver_endpoints": [
+    "d3aa6a19c5ebd6ba322017ca549f356ab129030a",
+    "7041b0d710363ddac7ae1b047ebae3e182548631",
+    "b3cb4ec8c5a0c4e4a24cb1bc6c16fc3b48a2664e",
+    "6ec78bbf8cc2dc07a3a46dd30c63132fbc7bbfc8",
+    "52e6794ba7ec3e8816be662a218353c4ee439df9",
+    "37d1d98aedf18d029b9f6a12c46f87d4d2c9c7a6",
+    "db6597356b31bb64d598bd9751b74d15a10c1e68",
+    "f50a031158156c2c43cc8e18752e70cee6d72895",
+    "995e7f869f17e0e7d56d91e0485ec098197dd789",
+    "7182f743ea011aa119aa03eee7d8c1cd804a7ed8",
+    "ed8c48f3cd122465f7a8c3c40677a949760c8960",
+    "a1bdd18355b82eee58897b7bd9ee52338a7efada",
+    "0b7290462190df954c2d0a886e1a3eb042ae03a6",
+    "e8d866507d12988a2ab40d803ad89368581459b2",
+    "42321db7c9e2323e4ca67e7f2ad0e96c52fe2577",
+    "abc3181e449d46d636281e7706a9a08e075e1875",
+    "86672299596dd609278277c5d25d87643b355c81",
+    "6a560b9fbd1245de9f0f59d840a0c659933f98b1",
+    "d8c02be1c9ca670efc816d9107382b05203067e0",
+    "ffb6b686cbd4d1c1f18bf2d0ac4cd04428ea6b12",
+    "82c67e99c5726e6980605790642e798c196e421c",
+    "cbab6483dcf36004dfce44499a1f51bd5d7ca515",
+    "f1561559aa538a462a3b7d4351c5864f2b7f6c0b",
+    "26e4a34edf9a45ca83f769cb14072ebc8e8ba9b5",
+    "9b9be6a9481e4e9ee5b9d97f6c7bb72eda3ca3b4",
+    "bcfad2144bc89cee761dcda6c4d43521941d6ebe",
+    "0ac98afe434c0429bace5f239482e5de0e0bc394",
+    "5a60d1c82593045325c1ccc5e426401394021154",
+    "ec56f4813f15e46c13a854319c5a5691b2db0cda",
+    "a020b3d3753c15983c6e697f2bd0df0f612ecff8",
+    "6ec4dda2035dbd4a514272b7df05c9916b8dc8e0",
+    "1dd3093853d4161d009d14fd67ac25b6a8e6c4f4",
+    "5e3cf605df37567de8db74c5425b7e19c0411801",
+    "49c6b43f2708f46c9d2f147c609d7d9f702c2557",
+    "d828355e0ac3b9c639c394adbcf9aeb65c0db22c",
+    "4127382d34db90298a9fd1e0c2ef185ad03b84ea",
+    "8dd02a4da1f1e914560d3775dd012ddd9c535449",
+    "0de44dcbfbcec76b74114898fe6584dec1d149da",
+    "7994f760fe1f4df6744844e80433bc49295cb94e",
+    "bf3409ea18a4168293fb855a11166d72f74944b3",
+    "83304388db49e24231158380910067c47ead3f12",
+    "0eeaa4c9a6d384f57e0017c0be75673eb872f2db",
+    "fd1238800b61431a8febeebe8cf44f41d2384bbb",
+    "ad0df587128577212337aa76d171b0b9cfaae4a4",
+    "ae08d48392f4d9b3f1649a43c436c8c569d7d585",
+    "df8058e4353c54b73d4eea4d356ce18df901aabf"
+  ]
+}
