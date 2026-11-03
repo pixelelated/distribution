@@ -1,6 +1,6 @@
 # M6 coordinator current handoff
 
-Updated 2026-11-03 16:50 UTC by Codex / GPT-6-Astra / xhigh (own observed footer, not provider-attested), session01a19d11-f5c8-7bb0-80f3-49ad28732af2, wN:p2.
+Updated 2026-11-03 17:24 UTC by Codex / GPT-6-Astra / xhigh (own observed footer, not provider-attested), session01a19d11-f5c8-7bb0-80f3-49ad28732af2, wN:p2.
 
 ## Resume here
 
@@ -8,25 +8,23 @@ Worktree `/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan
 
 ## Current lanes and acceptance boundaries
 
-Updated 2026-11-03T16:50:24.072974+00:00. Read `docs/qa-logs/2026-11-03-m6-integration-preparation/implementation-progress.md` first. The original implementation round returned; root has consumed those results into actual private candidate construction.
+Updated 2026-11-03T17:24:17.800332+00:00. Read `docs/qa-logs/2026-11-03-m6-integration-preparation/implementation-progress.md` first.
 
 | Lane | Current task/state | Boundary |
 | --- | --- | --- |
-| P1 wN:p3 | T1 and T5 independent readbacks returned; available | No old controls replayed |
-| T1 wN:p4 | Day-record stranger proof returned ready under6609913311 | No blocking contradiction; two index qualifications retained |
-| T2 wN:p5 | Working: four register collisions' namespace/current-citation inputs under6609913311 | Root chooses clerical mapping |
-| T3 wN:p6 | Partial record helper returned; ready for proved day-record continuation | Original helper/34controls/inputs frozen |
-| T5 wN:p7 | ES baseline readback and minimal driver correction returned; available | Root executes actual candidate |
+| P1 wN:p3 | Register-policy stranger proof returned ready | Nineteen categories and section/order constraints reconciled |
+| T1 wN:p4 | Available for proved register implementation | Explicit dispatch follows this checkpoint |
+| T2 wN:p5 | T20 implementation conflict proposals returned | Root owns combined source and test scope |
+| T3 wN:p6 | Eight-day implementation returned; root independently installed it | 315 complete entries preserved; old helper frozen |
+| T5 wN:p7 | T20 test conflict proposals returned | Root preserves both tests and explicit brace boundary |
 
-Root privately resolved three of13 initial distribution conflicts; partial tree96869a5b7ee18c24b9146f2e6c1df8335245d26c. Register/eight dayfiles/INDEX remain. Exact root programs and raw receipts are retained privately in `root-continuation-20261103` beside the probe repository named by `candidate-probe/result.json`; its MANIFEST binds64selectedfiles. No source candidate is installed in a shared worktree/ref. The day brief `docs/reviews/briefs/m6-integration-day-records.md` is proved v2 with two index qualifications; publish it and dispatch T3 explicitly.
+Distribution partial tree3e679e54e86054df00d8cc7df26106334abe0fad resolves12of13 initial conflicts. Only decision-register remains. Eight day candidates were independently reconciled and installed; unchanged normal INDEX generator consumed87dayfiles in a private candidate context. Full M7 ES package unchanged. Private current route is `/tmp/m6-distribution-partial-current.json`; authoritative result/commands live under the persistent probe owner. Earlier root-continuation-20261103 packet remains frozen; newer results have separate owner packets. Proved register v2 and private binding `/tmp/m6-register-policy-proof-inputs.json` are ready for explicit T1 dispatch. P1 report lives in `/tmp/m6-p1-register-policy-proof-0adckg73`; no source candidate exists for the register yet.
 
-Root independently consumed the ES baseline28b3f7e and corrected ordered driver, then actually started the11canonical accepted ES endpoints from an explicitly synthetic wrapper of the already-constructed common baseline. First T2 merge stopped with FileData.cpp/French-catalogue conflicts, no later attempt. Failed treec8d6a92dc1c5d555e6f92c7a1f8d4769bc4a7983; state/commands remain under the exclusive root-owned ES candidate packet `es-candidate-20261103-420yq9_k`, alongside the private distribution probe owner. Resolve the exact failed pair before resume; approval must genuinely name the root decision. No source pin/runtime acceptance follows. This local route is convenience only; the private owner records and actual receipts remain authoritative.
+ES private owner is `/workspace/tmp/m6-coordinator/es-candidate-20261103-420yq9_k`. Actual run-02 incorporated T2/T18 and stopped at T20 with four conflicts. StateSHA02b8343d1d08878ee7845c2602a37367eae90b7179c8a869aa9b14b533c55113; currentdf65a5d464ec0995fcba3360e6e430054bf7c401; conflict75dd9c5ad98fcc69ea09dfe2db570eb9a8c569cd. The first failed merge was not replayed. T2/T5 full proposals are in `/tmp/m6-t2-t20-conflict-clituy6l/REPORT.md` and `/tmp/m6-t5-t20-test-conflict-inputs-20261103/report.md`, dispatched6610433813; root must consume both and inspect the adjacent HARDCORE lock/callback interaction before resolution. No compile/runtime equivalence is established.
 
-The46distribution endpoint order is already retained in candidate-order.json; do not run another inventory round. Four historical marker absences remain qualified for later closure-contract disposition. The original v2 integration contract remains b44594962a0996a3ce7f58ecd64f0b9079843af4. Original producer failures and P1 evidence limitations remain preserved.
+The46distribution endpoint order is retained in candidate-order.json; do not inventory again. Four historical marker absences remain qualified. The original integration contract remains b44594962a0996a3ce7f58ecd64f0b9079843af4; day continuation fe1a1c2b16a070be21f76bf006ad17740286067a. No accepted producer replay, next promotion or new runtime authority. M7 still owns next; comparison41b528 remains pinned despite later owner checkpoints. Its latest VM window has an owner-recorded RETURN. Detailed bindings stay private; do not repost previously rejected private public-comment payloads.
 
-M7 still owns next and its checkpoint. Owner reports new source lanes in separate branches, Nova reboot completed, and its short source-collection window returned. M6's comparison baseline41b528 and full carried ES package remain pinned; no moving M7 head is substituted. Shared detailed host/implementation bindings stay local. Public scope comments6609839167/6609913311 were approved after one detailed payload was rejected; do not repost the rejected private payload.
-
-Root next: finish exact record dispositions and regenerate INDEX only after installation; resolve the first two ES conflicts against carried M7 behavior; then continue the private ordered driver. No live next roll-up or build choice is granted here. All accepted audits remain closed to replay.
+Root next: dispatch and independently reconcile register candidate, complete initial distribution tree and begin ordered46endpoint driver; in parallel resolve T20 exactly and continue the11endpoint ES driver. Integrated checks and eventual source/runtime qualification remain future obligations.
 
 ## Current T46 acceptance and completion boundary
 

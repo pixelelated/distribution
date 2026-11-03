@@ -1,6 +1,6 @@
 # M6 integration construction progress
 
-Root observation at 2026-11-03T16:50:24.072974+00:00. All results below are private candidates or bounded
+Root observation at 2026-11-03T17:24:17.800332+00:00. All results below are private candidates or bounded
 readbacks; they do not promote a source pin, integrate next or close slice issues.
 
 ## Distribution candidate
@@ -18,16 +18,25 @@ reconciled and installed three in its private object store:
   parser's changed-entry report was a trailing separator at the append boundary.
   This resolution interprets no historical timestamp and changes no entry text.
 
-Current partial tree: `96869a5b7ee18c24b9146f2e6c1df8335245d26c`.
-Ten conflicts remain: the register, eight day files and generated INDEX. Every
-other path remains unchanged at each installation; the complete M7 ES package
-remains preserved. No synthetic distribution merge commit or shared ref exists.
+Root subsequently reconciled and installed eight further day files: 315 complete
+entries (130 M7, 185 coordinator), unchanged within each entry and in each side's
+order. The exact coordinator prologues were selected prospectively; alternate
+prologues remain in normalization receipts. Two pinned heading exceptions stay
+bounded to their exact inputs. T3's new policy passed 27 fresh controls; the old
+helper and its controls were not replayed.
 
-The proposed day-record continuation specifies exact prologue normalization and
-only two named heading exceptions. Its stranger proof returned ready; v2 records two
-index-interface qualifications before T3 implementation. Four register IDs carry different M7/M6 meanings; bounded
-namespace and current-citation inputs precede root's clerical disposition under
-the existing miskeyed-ID rule. Neither meaning has been discarded or renamed.
+The normal unchanged work-log-index program then regenerated INDEX from the
+private candidate's 87 day files. Every input byte and every other tree path stayed
+unchanged. Current partial tree: `3e679e54e86054df00d8cc7df26106334abe0fad`.
+Twelve of the thirteen initial conflicts are resolved; only the register remains.
+The full M7 ES package is preserved. No distribution merge commit or shared ref exists.
+
+The register policy preserves both meanings of four colliding IDs. M7 reserved
+the four replacement IDs; P1 reconciled all nineteen collision categories and
+53 spans, and proved the key-order graph acyclic. Proved v2 is
+`docs/reviews/briefs/m6-integration-register.md`; implementation requires its
+explicit dispatch. The dirty-file custody of a separate M7 declaration remains
+qualified, and historical citations stay version-bound.
 
 ## ES candidate
 
@@ -40,10 +49,20 @@ or runtime equivalence. The separate architecture overlay remains separate.
 
 Root wrapped that existing tree in an explicitly synthetic comparison commit
 and started the eleven accepted ES endpoints in canonical slice order, excluding
-T44's reference-only duplicate. No patch was reapplied. The first merge stopped
-at T2 with two conflicts: FileData.cpp and the French catalogue. No later
-endpoint was attempted. Conflict tree: `c8d6a92dc1c5d555e6f92c7a1f8d4769bc4a7983`.
-No resolution has been approved for these two source files yet.
+T44's reference-only duplicate. No patch was reapplied. The first T2 stop was
+resolved by retaining the captured launch reference and both French catalogue
+appends. The first catalogue reader incorrectly treated equal words in distinct
+contexts as duplicate keys; it stopped before a resolution tree or resume. The
+corrected context-aware reader and three new tiny cases are retained separately.
+
+Root's genuine disposition resumed the exact stopped pair without replaying the
+failed merge. T2 and T18 are now incorporated into the private candidate. T20
+stopped at four files, tree `75dd9c5ad98fcc69ea09dfe2db570eb9a8c569cd`, current
+`df65a5d464ec0995fcba3360e6e430054bf7c401`. T2 and T5 returned bounded
+implementation/test proposals under #346 comment 6610433813. They identify a
+HARDCORE lock interaction beyond the marker spans and a test-case closing-brace
+boundary; root retains combination and verification. No compilation or runtime
+claim follows from these source constructions.
 
 ## Independent findings and corrections
 
@@ -87,3 +106,7 @@ is recorded custody, not a fresh process census. M6 holds no runtime allocation.
 
 Required current record checks pass. The ceremony gate retains its nonblocking
 audit-cadence warning; this checkpoint does not waive it or replay accepted audits.
+
+M7 subsequently reported its separately admitted installed-profile VM RETURN.
+The coordinator read the masked shared-ledger return; this is owner-recorded
+completion, not a new process census. M7 retains next; no M6 runtime is allocated.
