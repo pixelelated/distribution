@@ -305,3 +305,28 @@ P1 report SHA256e1bbfbb357b53924ec3c1443c8dc14d5ca2b22f41fb1e44e344505db3745355e
 and root-final-custody.json retain the two literal errata and the four
 earlier-prefix qualifications in §2. New F input bindings supplement them;
 they do not reconstruct historical inputs or relabel old snapshots.
+
+## Acceptance errata — 2026-11-03T14:02:54.969967+00:00
+
+Root accepts final17a064e6110306dd2b692cfd1b13d4f518d8def5, source S1
+45d455adccb0b2fc418f6442c4ca16a983430617. Exact README813 bytes and all305
+frozen D artifacts/17 tools/29 transports reconcile. P1's bounded final
+return records204 matches and3 differences: original blank693 fixed-at
+(root separately corrected), plus F04/05 earlier prefixes before the795-byte
+G/H append. H binds final11902/5977-byte inputs. The checkpoint ID read is
+separate from the later full-body inner command/exit/streams; an outer
+Python invocation receipt is unavailable. No historical metadata is repaired.
+
+New root simulation against2ab42922be8d0b693e41a9fcfa9e8c666beae462 passes all
+final record gates and both resolution forms, full forbidden scan0/135959,
+exact merged owner identities and whole4+4 log entries. Original clone
+identity refusal128 and expected ledger-conflict1 are retained; continuation
+passes after command-local configured identity and complete-entry resolution.
+No actual merge or accepted producer replay. Evidence and18-criterion mapping:
+`docs/qa-logs/2026-11-03-m6-records-final/`.
+
+Audit1417 may close on this Phase7 acceptance, followed by the normal
+completion record. Slice693, bug1416 and epic1415 remain open for actual
+ordered integration; root verifies the marker separately. H retains all
+scratch. All original D limits, author identities, ceremony warning and
+T39/1407/1414 owners remain unchanged. No runtime or additional source work.

@@ -1,0 +1,58 @@
+{
+  "observations": [
+    {
+      "argv": [
+        "git",
+        "-c",
+        "credential.helper=",
+        "-c",
+        "credential.helper=!gh auth git-credential",
+        "ls-remote",
+        "origin-https",
+        "refs/heads/feature/m6-records-693"
+      ],
+      "cwd": "/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan-346",
+      "start": "2026-11-03T13:56:03.796740+00:00",
+      "end": "2026-11-03T13:56:04.054118+00:00",
+      "rc": 0,
+      "stdout": "17a064e6110306dd2b692cfd1b13d4f518d8def5\trefs/heads/feature/m6-records-693\n",
+      "stderr": "",
+      "stdout_sha256": "83b988bed496ab9102bf06308b25dd3cfacb750204226187a2c0c9fe0b33bc6a",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "--no-optional-locks",
+        "rev-parse",
+        "HEAD"
+      ],
+      "cwd": "/workspace/repos/pixelelated/distribution.worktrees/m6-records-693",
+      "start": "2026-11-03T13:56:04.054192+00:00",
+      "end": "2026-11-03T13:56:04.056598+00:00",
+      "rc": 0,
+      "stdout": "17a064e6110306dd2b692cfd1b13d4f518d8def5\n",
+      "stderr": "",
+      "stdout_sha256": "116b47929a7fa954a123508e910b998dc13c1946a0fcd97e28c1e43d0093f8cc",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "--no-optional-locks",
+        "status",
+        "--porcelain=v1"
+      ],
+      "cwd": "/workspace/repos/pixelelated/distribution.worktrees/m6-records-693",
+      "start": "2026-11-03T13:56:04.056611+00:00",
+      "end": "2026-11-03T13:56:04.345931+00:00",
+      "rc": 0,
+      "stdout": "",
+      "stderr": "",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ],
+  "exact_remote_head_clean": true,
+  "producer_receipts_rewritten": false
+}
