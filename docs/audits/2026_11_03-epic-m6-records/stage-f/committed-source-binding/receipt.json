@@ -1,0 +1,48 @@
+{
+  "argv": [
+    "python3",
+    "-B",
+    "docs/audits/2026_11_03-epic-m6-records/stage-f/bind-s1.py"
+  ],
+  "cwd": "/workspace/repos/pixelelated/distribution.worktrees/m6-records-693",
+  "start": "2026-11-03T13:28:56.285254+00:00",
+  "end": "2026-11-03T13:28:56.310175+00:00",
+  "rc": 0,
+  "inputs": [
+    {
+      "path": "/workspace/repos/pixelelated/distribution.worktrees/m6-records-693/docs/audits/2026_11_03-epic-m6-records/stage-f/bind-s1.py",
+      "bytes": 768,
+      "sha256": "3ad01a0e489beceac5ab561bd9d373742cef4f29a63fec9eba0dd38f2b8d201d",
+      "mode": "0o664"
+    },
+    {
+      "path": "/workspace/repos/pixelelated/distribution.worktrees/m6-records-693/docs/audits/README.md",
+      "bytes": 813,
+      "sha256": "410e4432c01a38cda578a68fdaa730129c15a8e3e60c7305001bb40bd5a71b6c",
+      "mode": "0o664"
+    }
+  ],
+  "stdout_sha256": "2add1201849aa8e5f1f9cb94d3ab761a300724874a44c29237acc55a077a4238",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "recorder_sha256": "35c4629f5663957a870af3059015e86fac15ae5cc098820bb6ee7bf64776b4a8",
+  "cpu_affinity": [
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21,
+    22,
+    23
+  ],
+  "python": "3.14.4 (main, Aug 20 2026, 10:41:58) [GCC 15.2.0]",
+  "stream_transport": "base64 of exact original bytes; no raw-stream rewrite"
+}

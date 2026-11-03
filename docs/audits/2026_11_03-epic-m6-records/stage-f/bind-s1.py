@@ -1,0 +1,3 @@
+import json,pathlib,subprocess,hashlib
+A=pathlib.Path(__file__).resolve().parents[1];ref="45d455adccb0b2fc418f6442c4ca16a983430617";b=subprocess.check_output(['git','show',ref+':docs/audits/README.md']);assert hashlib.sha256(b).hexdigest()=='410e4432c01a38cda578a68fdaa730129c15a8e3e60c7305001bb40bd5a71b6c';assert len(b)==813
+x={'s1_commit':ref,'parent':subprocess.check_output(['git','show','-s','--format=%P',ref]).decode().strip(),'readme_sha256':hashlib.sha256(b).hexdigest(),'readme_bytes':len(b),'readme_ls_tree':subprocess.check_output(['git','ls-tree',ref,'--','docs/audits/README.md']).decode().strip()};assert x['parent']=='a0d4c4fda7a0c16c04d57edf921ffeb741eff19b';(A/'stage-f/s1-binding.json').write_text(json.dumps(x,indent=2)+'\n');print(json.dumps(x))

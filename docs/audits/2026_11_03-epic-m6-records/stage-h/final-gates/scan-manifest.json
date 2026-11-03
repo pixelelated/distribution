@@ -1,0 +1,3367 @@
+{
+  "argv": [
+    "tools/forbidden-terms-check",
+    "--stdin"
+  ],
+  "cwd": "/workspace/repos/pixelelated/distribution.worktrees/m6-records-693",
+  "start": "2026-11-03T13:39:38.939660+00:00",
+  "end": "2026-11-03T13:39:38.953074+00:00",
+  "rc": 0,
+  "program_sha256": "6907bed8857ce27f38b31ef18c09abc2d9dd9345b28afd483e8a44e3253c0e63",
+  "stdin_sha256": "4115f4e35bf52b87cab74b95ed3a3771ca9e6f0ba5de563118ed4ee8f5ece9a8",
+  "files": [
+    {
+      "path": ".github/sessions/saved-session-state-feature-m6-records-693.md",
+      "bytes": 6825,
+      "sha256": "069ac432d08d8ed4814440d3ed2f3083221886c1ec5d2cd31358928aa7b00e13"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/00-running-log.md",
+      "bytes": 7966,
+      "sha256": "0893c816d53982b6b21ca7d3d16d23ea4c860b758d7f93aa15fb3f76056738b7"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/02-forward-audit.md",
+      "bytes": 83448,
+      "sha256": "a145a545138f2617d97a3aecab6f8824f8bafa9e78c45f4ce658fa98823f2bd9"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/04-analysis.md",
+      "bytes": 11902,
+      "sha256": "67b871805eba46f60245ecdaa969862a7e021a83e2d7cebcc9418fc160ee42dc"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/05-punch-list.md",
+      "bytes": 5977,
+      "sha256": "58c305fa7aa0ea9148d4af8e88d622dbc1c70193223981b71a24bb02792ec215"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/06-audit-summary.md",
+      "bytes": 8066,
+      "sha256": "41ee8cd635a24de2d9762fa3caf64af0b94b619df6ed65675a581b55dcf8f1bb"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/07-questions-for-the-maintainer.md",
+      "bytes": 3882,
+      "sha256": "7c6d76b49cf221ad011dd835855caef9d8e953eef24e23b605863154b9bb3cf0"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-e/authority.json",
+      "bytes": 69420,
+      "sha256": "87e7aee45496d48140effcbb14f4b30842835a5f85578d322d776eff815a0169"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-e/control-results-v2.json",
+      "bytes": 1941,
+      "sha256": "53c588806a02b1ae2a16d400850f1443bd575103f92db1331f6f3bbbe6d7a282"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-e/control-results.json",
+      "bytes": 1899,
+      "sha256": "f6b684468cf05d49ff9b05466f18581c9b022bc04a361ba9c9b45b1e8a20ef68"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-e/disposition.md",
+      "bytes": 1856,
+      "sha256": "aae31f9e55e36f122b8deaf5c6d089e52eec5ddbc496cde33a9b856a37800580"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-e/fixture-creation-progress.json",
+      "bytes": 115113,
+      "sha256": "6d1e5cfb0127682de66940fbadb5e7a5388df168d729bbf8a1cd5c269b64fb15"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-e/fixture-generation/input-0.json",
+      "bytes": 7451,
+      "sha256": "5caec574bf4a36b35925570ec40795e0de7cdf787da906cf20b2cae71bbeafcb"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-e/fixture-generation/input-1.json",
+      "bytes": 82421,
+      "sha256": "fd834ac9d4c537a2406d363b45938fe62e72037d950df169ab32854f064a44d5"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-e/fixture-generation/input-2.json",
+      "bytes": 1166,
+      "sha256": "15511ff03ac1239c9e632df4ae90dbefef45b66b09b324cb380bfb193b7459a4"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-e/fixture-generation/input-3.json",
+      "bytes": 1365,
+      "sha256": "4337f4705edfdf1a0975a30450cc9d4bf8a1afdbdf84d12aaf41d8002e96a6c7"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-e/fixture-generation/receipt.json",
+      "bytes": 2019,
+      "sha256": "e58fae6eb3bb8522838530a239f604b65fca16617630ee92ecb6fb4bbb5be197"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-e/fixture-generation/stderr.json",
+      "bytes": 113,
+      "sha256": "47052b8093ac951a93b2a5fdd9cb1930d3173c55a232e6c65063b02b93a91c5d"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-e/fixture-generation/stdout.json",
+      "bytes": 315,
+      "sha256": "309fd6ef01f20f8d362df37af9c8334e7758ea6b598e3913aa97afc27b70e8e0"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-e/fixtures-manifest.json",
+      "bytes": 115337,
+      "sha256": "6fe11f9e6c860eb507690b76a24af98403f5ec512a44fa9660e8420703871f78"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-e/gate-driver-s1/input-0.json",
+      "bytes": 5400,
+      "sha256": "3d7f8c45770d869b6d14ef0f7d42bea5bb4b1122908e69ae155238a559ec5de3"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-e/gate-driver-s1/input-1.json",
+      "bytes": 3265,
+      "sha256": "eae205dc7ad7fe8e16bb08db0932e9a111366d1208ccac416c78db881445f187"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-e/gate-driver-s1/receipt.json",
+      "bytes": 1492,
+      "sha256": "6a886afaa1858d43e5d9f3fb47997a6303453ec971e0cae91953dbd76aa3feb2"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-e/gate-driver-s1/stderr.json",
+      "bytes": 113,
+      "sha256": "47052b8093ac951a93b2a5fdd9cb1930d3173c55a232e6c65063b02b93a91c5d"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-e/gate-driver-s1/stdout.json",
+      "bytes": 9488,
+      "sha256": "0266d6c4c4536f4dd40a041dfac3469d1f4273c34b91a498f215f64ae2927304"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-e/gates-s1/audit-checkboxes/input-0.json",
+      "bytes": 14222,
+      "sha256": "1d95e4140b724cdcae03d00f765ecd1dcc417cd5dc1c2da86afbe34f420d1a01"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-e/gates-s1/audit-checkboxes/input-1.json",
+      "bytes": 4015,
+      "sha256": "5bc8a6a1058c69a5d18dc19f6abaacdeb4ce00097c729c4b8eb423198b96ff63"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-e/gates-s1/audit-checkboxes/input-2.json",
+      "bytes": 974,
+      "sha256": "a06a7271d60f6dbd0925e41c1de070821e00f2761fe6e0f6c09bb8221e29d7d7"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-e/gates-s1/audit-checkboxes/input-3.json",
+      "bytes": 1320,
+      "sha256": "af5ff1b3cc9dcfd0fecc0827d26b7073a082d2305753e8655cf3f78cf0483e9b"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-e/gates-s1/audit-checkboxes/input-4.json",
+      "bytes": 82421,
+      "sha256": "fd834ac9d4c537a2406d363b45938fe62e72037d950df169ab32854f064a44d5"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-e/gates-s1/audit-checkboxes/input-5.json",
+      "bytes": 6684,
+      "sha256": "e96e2b4d5dd48e5d46cc781b1651630200fb44d8dae359af8ad040dfdac4064a"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-e/gates-s1/audit-checkboxes/input-6.json",
+      "bytes": 7483,
+      "sha256": "608726f5c4602d889af445f5577be40b97140ea1ac4a171425a63305d96be500"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-e/gates-s1/audit-checkboxes/receipt.json",
+      "bytes": 2736,
+      "sha256": "94df150de28b13a8ed8534a9710c8db28db8186ee000ffe3194c990213af10b8"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-e/gates-s1/audit-checkboxes/stderr.json",
+      "bytes": 113,
+      "sha256": "47052b8093ac951a93b2a5fdd9cb1930d3173c55a232e6c65063b02b93a91c5d"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-e/gates-s1/audit-checkboxes/stdout.json",
+      "bytes": 242,
+      "sha256": "b0b9cf3c92fbd9b5438840fde5d39596792b757f0abe2bf02b4aaf0accae33a4"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-e/gates-s1/audit-issue-lint/input-0.json",
+      "bytes": 14222,
+      "sha256": "1d95e4140b724cdcae03d00f765ecd1dcc417cd5dc1c2da86afbe34f420d1a01"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-e/gates-s1/audit-issue-lint/input-1.json",
+      "bytes": 4015,
+      "sha256": "5bc8a6a1058c69a5d18dc19f6abaacdeb4ce00097c729c4b8eb423198b96ff63"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-e/gates-s1/audit-issue-lint/input-2.json",
+      "bytes": 974,
+      "sha256": "a06a7271d60f6dbd0925e41c1de070821e00f2761fe6e0f6c09bb8221e29d7d7"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-e/gates-s1/audit-issue-lint/input-3.json",
+      "bytes": 1320,
+      "sha256": "af5ff1b3cc9dcfd0fecc0827d26b7073a082d2305753e8655cf3f78cf0483e9b"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-e/gates-s1/audit-issue-lint/input-4.json",
+      "bytes": 82421,
+      "sha256": "fd834ac9d4c537a2406d363b45938fe62e72037d950df169ab32854f064a44d5"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-e/gates-s1/audit-issue-lint/input-5.json",
+      "bytes": 6684,
+      "sha256": "e96e2b4d5dd48e5d46cc781b1651630200fb44d8dae359af8ad040dfdac4064a"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-e/gates-s1/audit-issue-lint/input-6.json",
+      "bytes": 39235,
+      "sha256": "a36c7509d78ba4f61628e6985b3c897115fb1269586f2f5a114421674732a992"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-e/gates-s1/audit-issue-lint/receipt.json",
+      "bytes": 2837,
+      "sha256": "3d2b4864daadf8fc7c2c9576a54edb737f8929aa0b388c714bc8767b57d53363"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-e/gates-s1/audit-issue-lint/stderr.json",
+      "bytes": 113,
+      "sha256": "47052b8093ac951a93b2a5fdd9cb1930d3173c55a232e6c65063b02b93a91c5d"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-e/gates-s1/audit-issue-lint/stdout.json",
+      "bytes": 1331,
+      "sha256": "8d4cdd7db47d830dc3241cee31e49fb052a80cbbbbd852cda6c11094451d433a"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-e/gates-s1/audit-lint/input-0.json",
+      "bytes": 14222,
+      "sha256": "1d95e4140b724cdcae03d00f765ecd1dcc417cd5dc1c2da86afbe34f420d1a01"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-e/gates-s1/audit-lint/input-1.json",
+      "bytes": 4015,
+      "sha256": "5bc8a6a1058c69a5d18dc19f6abaacdeb4ce00097c729c4b8eb423198b96ff63"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-e/gates-s1/audit-lint/input-2.json",
+      "bytes": 974,
+      "sha256": "a06a7271d60f6dbd0925e41c1de070821e00f2761fe6e0f6c09bb8221e29d7d7"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-e/gates-s1/audit-lint/input-3.json",
+      "bytes": 1320,
+      "sha256": "af5ff1b3cc9dcfd0fecc0827d26b7073a082d2305753e8655cf3f78cf0483e9b"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-e/gates-s1/audit-lint/input-4.json",
+      "bytes": 82421,
+      "sha256": "fd834ac9d4c537a2406d363b45938fe62e72037d950df169ab32854f064a44d5"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-e/gates-s1/audit-lint/input-5.json",
+      "bytes": 6684,
+      "sha256": "e96e2b4d5dd48e5d46cc781b1651630200fb44d8dae359af8ad040dfdac4064a"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-e/gates-s1/audit-lint/input-6.json",
+      "bytes": 39235,
+      "sha256": "a36c7509d78ba4f61628e6985b3c897115fb1269586f2f5a114421674732a992"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-e/gates-s1/audit-lint/receipt.json",
+      "bytes": 2810,
+      "sha256": "89a7b2437b54972bb93b4bd4e0a85e1dda1eb12912bdc73a3dcd90ee1187b546"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-e/gates-s1/audit-lint/stderr.json",
+      "bytes": 113,
+      "sha256": "47052b8093ac951a93b2a5fdd9cb1930d3173c55a232e6c65063b02b93a91c5d"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-e/gates-s1/audit-lint/stdout.json",
+      "bytes": 1215,
+      "sha256": "17ba2168a69f5b129f27b26dda61f2db6ac8c800477c0f9808c825bd27ae466e"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-e/gates-s1/bug-checkboxes/input-0.json",
+      "bytes": 14222,
+      "sha256": "1d95e4140b724cdcae03d00f765ecd1dcc417cd5dc1c2da86afbe34f420d1a01"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-e/gates-s1/bug-checkboxes/input-1.json",
+      "bytes": 4015,
+      "sha256": "5bc8a6a1058c69a5d18dc19f6abaacdeb4ce00097c729c4b8eb423198b96ff63"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-e/gates-s1/bug-checkboxes/input-2.json",
+      "bytes": 974,
+      "sha256": "a06a7271d60f6dbd0925e41c1de070821e00f2761fe6e0f6c09bb8221e29d7d7"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-e/gates-s1/bug-checkboxes/input-3.json",
+      "bytes": 1320,
+      "sha256": "af5ff1b3cc9dcfd0fecc0827d26b7073a082d2305753e8655cf3f78cf0483e9b"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-e/gates-s1/bug-checkboxes/input-4.json",
+      "bytes": 82421,
+      "sha256": "fd834ac9d4c537a2406d363b45938fe62e72037d950df169ab32854f064a44d5"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-e/gates-s1/bug-checkboxes/input-5.json",
+      "bytes": 6684,
+      "sha256": "e96e2b4d5dd48e5d46cc781b1651630200fb44d8dae359af8ad040dfdac4064a"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-e/gates-s1/bug-checkboxes/input-6.json",
+      "bytes": 7483,
+      "sha256": "608726f5c4602d889af445f5577be40b97140ea1ac4a171425a63305d96be500"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-e/gates-s1/bug-checkboxes/receipt.json",
+      "bytes": 2736,
+      "sha256": "cf2779729ad7ae7ec138109290e273ac9855c68da2e9fdc39698bd1ebf702bb2"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-e/gates-s1/bug-checkboxes/stderr.json",
+      "bytes": 113,
+      "sha256": "47052b8093ac951a93b2a5fdd9cb1930d3173c55a232e6c65063b02b93a91c5d"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-e/gates-s1/bug-checkboxes/stdout.json",
+      "bytes": 242,
+      "sha256": "85be174e885ba772f76a8e68185e22617b431633a10dad753d6b82e183c975f0"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-e/gates-s1/ceremony/input-0.json",
+      "bytes": 14222,
+      "sha256": "1d95e4140b724cdcae03d00f765ecd1dcc417cd5dc1c2da86afbe34f420d1a01"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-e/gates-s1/ceremony/input-1.json",
+      "bytes": 4015,
+      "sha256": "5bc8a6a1058c69a5d18dc19f6abaacdeb4ce00097c729c4b8eb423198b96ff63"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-e/gates-s1/ceremony/input-2.json",
+      "bytes": 974,
+      "sha256": "a06a7271d60f6dbd0925e41c1de070821e00f2761fe6e0f6c09bb8221e29d7d7"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-e/gates-s1/ceremony/input-3.json",
+      "bytes": 1320,
+      "sha256": "af5ff1b3cc9dcfd0fecc0827d26b7073a082d2305753e8655cf3f78cf0483e9b"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-e/gates-s1/ceremony/input-4.json",
+      "bytes": 82421,
+      "sha256": "fd834ac9d4c537a2406d363b45938fe62e72037d950df169ab32854f064a44d5"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-e/gates-s1/ceremony/input-5.json",
+      "bytes": 6684,
+      "sha256": "e96e2b4d5dd48e5d46cc781b1651630200fb44d8dae359af8ad040dfdac4064a"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-e/gates-s1/ceremony/input-6.json",
+      "bytes": 34117,
+      "sha256": "18c832051e6b8abe397bc1e22b0eab2aaddf55190aceee7833aee9ec8b8fb736"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-e/gates-s1/ceremony/receipt.json",
+      "bytes": 2734,
+      "sha256": "53a1e100068fee1eb7c543a7b99311332fb5e6eed5510070f9e70dfb2b1060f8"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-e/gates-s1/ceremony/stderr.json",
+      "bytes": 113,
+      "sha256": "47052b8093ac951a93b2a5fdd9cb1930d3173c55a232e6c65063b02b93a91c5d"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-e/gates-s1/ceremony/stdout.json",
+      "bytes": 347,
+      "sha256": "00802752fa17c74de5fa71dbdf29510dcbf4d9f5757caae20293c1b5d3b5106d"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-e/gates-s1/index-write/input-0.json",
+      "bytes": 14222,
+      "sha256": "1d95e4140b724cdcae03d00f765ecd1dcc417cd5dc1c2da86afbe34f420d1a01"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-e/gates-s1/index-write/input-1.json",
+      "bytes": 4015,
+      "sha256": "5bc8a6a1058c69a5d18dc19f6abaacdeb4ce00097c729c4b8eb423198b96ff63"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-e/gates-s1/index-write/input-2.json",
+      "bytes": 974,
+      "sha256": "a06a7271d60f6dbd0925e41c1de070821e00f2761fe6e0f6c09bb8221e29d7d7"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-e/gates-s1/index-write/input-3.json",
+      "bytes": 1320,
+      "sha256": "af5ff1b3cc9dcfd0fecc0827d26b7073a082d2305753e8655cf3f78cf0483e9b"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-e/gates-s1/index-write/input-4.json",
+      "bytes": 82421,
+      "sha256": "fd834ac9d4c537a2406d363b45938fe62e72037d950df169ab32854f064a44d5"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-e/gates-s1/index-write/input-5.json",
+      "bytes": 6684,
+      "sha256": "e96e2b4d5dd48e5d46cc781b1651630200fb44d8dae359af8ad040dfdac4064a"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-e/gates-s1/index-write/input-6.json",
+      "bytes": 6088,
+      "sha256": "10cb865f2777b8181a7f816e3376bb27e7111eaa362141f298a7a89c8fd3c669"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-e/gates-s1/index-write/receipt.json",
+      "bytes": 2734,
+      "sha256": "6f31470fe8e41409666f5e4e34f34f83a1d2c34dcc9babe8f474a6c6dd9700b1"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-e/gates-s1/index-write/stderr.json",
+      "bytes": 113,
+      "sha256": "47052b8093ac951a93b2a5fdd9cb1930d3173c55a232e6c65063b02b93a91c5d"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-e/gates-s1/index-write/stdout.json",
+      "bytes": 174,
+      "sha256": "57fdcb1c34c7e5fee0ef16b01ff2b7cb71a937456fc990e944d3c925101afd98"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-e/gates-s1/index/input-0.json",
+      "bytes": 14222,
+      "sha256": "1d95e4140b724cdcae03d00f765ecd1dcc417cd5dc1c2da86afbe34f420d1a01"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-e/gates-s1/index/input-1.json",
+      "bytes": 4015,
+      "sha256": "5bc8a6a1058c69a5d18dc19f6abaacdeb4ce00097c729c4b8eb423198b96ff63"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-e/gates-s1/index/input-2.json",
+      "bytes": 974,
+      "sha256": "a06a7271d60f6dbd0925e41c1de070821e00f2761fe6e0f6c09bb8221e29d7d7"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-e/gates-s1/index/input-3.json",
+      "bytes": 1320,
+      "sha256": "af5ff1b3cc9dcfd0fecc0827d26b7073a082d2305753e8655cf3f78cf0483e9b"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-e/gates-s1/index/input-4.json",
+      "bytes": 82421,
+      "sha256": "fd834ac9d4c537a2406d363b45938fe62e72037d950df169ab32854f064a44d5"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-e/gates-s1/index/input-5.json",
+      "bytes": 6684,
+      "sha256": "e96e2b4d5dd48e5d46cc781b1651630200fb44d8dae359af8ad040dfdac4064a"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-e/gates-s1/index/input-6.json",
+      "bytes": 6088,
+      "sha256": "10cb865f2777b8181a7f816e3376bb27e7111eaa362141f298a7a89c8fd3c669"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-e/gates-s1/index/receipt.json",
+      "bytes": 2734,
+      "sha256": "69f7c1a85ac38c1bf162ce1185fdac43ddf92012fba8165c0e7169527151e1b8"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-e/gates-s1/index/stderr.json",
+      "bytes": 113,
+      "sha256": "47052b8093ac951a93b2a5fdd9cb1930d3173c55a232e6c65063b02b93a91c5d"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-e/gates-s1/index/stdout.json",
+      "bytes": 146,
+      "sha256": "f4efc51b5f206b6c91f62ca72ca3ac2db01c25de454896b4ff2fdf941f35d770"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-e/gates-s1/register/input-0.json",
+      "bytes": 14222,
+      "sha256": "1d95e4140b724cdcae03d00f765ecd1dcc417cd5dc1c2da86afbe34f420d1a01"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-e/gates-s1/register/input-1.json",
+      "bytes": 4015,
+      "sha256": "5bc8a6a1058c69a5d18dc19f6abaacdeb4ce00097c729c4b8eb423198b96ff63"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-e/gates-s1/register/input-2.json",
+      "bytes": 974,
+      "sha256": "a06a7271d60f6dbd0925e41c1de070821e00f2761fe6e0f6c09bb8221e29d7d7"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-e/gates-s1/register/input-3.json",
+      "bytes": 1320,
+      "sha256": "af5ff1b3cc9dcfd0fecc0827d26b7073a082d2305753e8655cf3f78cf0483e9b"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-e/gates-s1/register/input-4.json",
+      "bytes": 82421,
+      "sha256": "fd834ac9d4c537a2406d363b45938fe62e72037d950df169ab32854f064a44d5"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-e/gates-s1/register/input-5.json",
+      "bytes": 6684,
+      "sha256": "e96e2b4d5dd48e5d46cc781b1651630200fb44d8dae359af8ad040dfdac4064a"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-e/gates-s1/register/input-6.json",
+      "bytes": 8216,
+      "sha256": "d1917009a23fe8a4557494d4383d526d69ac1f32733e942e8ca6ccd53084c0d1"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-e/gates-s1/register/receipt.json",
+      "bytes": 2719,
+      "sha256": "da460825394679cd2c0a1d2282ee84c13dfa751c68597f05c9c8d5e6de9ba840"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-e/gates-s1/register/stderr.json",
+      "bytes": 113,
+      "sha256": "47052b8093ac951a93b2a5fdd9cb1930d3173c55a232e6c65063b02b93a91c5d"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-e/gates-s1/register/stdout.json",
+      "bytes": 230,
+      "sha256": "99eb1086039bef2245c8ddd4bada196ca6c3080b6f88124ac7eb9c23c7e08fad"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-e/gates-s1/results.json",
+      "bytes": 1301,
+      "sha256": "9abb6ee9828f6411364671ebad33a2a6dbc48e8e5e86229c7a449311c26bc6f0"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-e/gates-s1/rules/input-0.json",
+      "bytes": 14222,
+      "sha256": "1d95e4140b724cdcae03d00f765ecd1dcc417cd5dc1c2da86afbe34f420d1a01"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-e/gates-s1/rules/input-1.json",
+      "bytes": 4015,
+      "sha256": "5bc8a6a1058c69a5d18dc19f6abaacdeb4ce00097c729c4b8eb423198b96ff63"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-e/gates-s1/rules/input-2.json",
+      "bytes": 974,
+      "sha256": "a06a7271d60f6dbd0925e41c1de070821e00f2761fe6e0f6c09bb8221e29d7d7"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-e/gates-s1/rules/input-3.json",
+      "bytes": 1320,
+      "sha256": "af5ff1b3cc9dcfd0fecc0827d26b7073a082d2305753e8655cf3f78cf0483e9b"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-e/gates-s1/rules/input-4.json",
+      "bytes": 82421,
+      "sha256": "fd834ac9d4c537a2406d363b45938fe62e72037d950df169ab32854f064a44d5"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-e/gates-s1/rules/input-5.json",
+      "bytes": 6684,
+      "sha256": "e96e2b4d5dd48e5d46cc781b1651630200fb44d8dae359af8ad040dfdac4064a"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-e/gates-s1/rules/input-6.json",
+      "bytes": 14390,
+      "sha256": "6b427cefc4c44ff8600123a91575ba8f48fb624f51be04d7acd09b5c4e6d43bf"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-e/gates-s1/rules/receipt.json",
+      "bytes": 2714,
+      "sha256": "9f70c03745a9fa9a9d66d6c9f97616013038bf6632a06d0fad0d56960149b1f7"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-e/gates-s1/rules/stderr.json",
+      "bytes": 113,
+      "sha256": "47052b8093ac951a93b2a5fdd9cb1930d3173c55a232e6c65063b02b93a91c5d"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-e/gates-s1/rules/stdout.json",
+      "bytes": 2620,
+      "sha256": "d4b7e480c18ec861d35c5f5fc5b8de6b01583fb818cc7fedc88d507251efa8cc"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-e/gates-s1/scan-manifest.json",
+      "bytes": 79150,
+      "sha256": "406d020820518e0a159a97dce344685d383dbbc0421d6449078be5cb824207c8"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-e/gates-s1/scan-stderr.json",
+      "bytes": 113,
+      "sha256": "47052b8093ac951a93b2a5fdd9cb1930d3173c55a232e6c65063b02b93a91c5d"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-e/gates-s1/scan-stdout.json",
+      "bytes": 166,
+      "sha256": "b3706c131519fb87ab2e8d017be1e9c4715be9c3d7e7fe15a55df34dfa22e10d"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-e/gates-s1/scope/input-0.json",
+      "bytes": 14222,
+      "sha256": "1d95e4140b724cdcae03d00f765ecd1dcc417cd5dc1c2da86afbe34f420d1a01"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-e/gates-s1/scope/input-1.json",
+      "bytes": 4015,
+      "sha256": "5bc8a6a1058c69a5d18dc19f6abaacdeb4ce00097c729c4b8eb423198b96ff63"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-e/gates-s1/scope/input-2.json",
+      "bytes": 974,
+      "sha256": "a06a7271d60f6dbd0925e41c1de070821e00f2761fe6e0f6c09bb8221e29d7d7"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-e/gates-s1/scope/input-3.json",
+      "bytes": 1320,
+      "sha256": "af5ff1b3cc9dcfd0fecc0827d26b7073a082d2305753e8655cf3f78cf0483e9b"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-e/gates-s1/scope/input-4.json",
+      "bytes": 82421,
+      "sha256": "fd834ac9d4c537a2406d363b45938fe62e72037d950df169ab32854f064a44d5"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-e/gates-s1/scope/input-5.json",
+      "bytes": 6684,
+      "sha256": "e96e2b4d5dd48e5d46cc781b1651630200fb44d8dae359af8ad040dfdac4064a"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-e/gates-s1/scope/receipt.json",
+      "bytes": 2845,
+      "sha256": "fa837ac0e69b1198843dbdc552dce769e26c4100d882d703c7e1160b7e3e9406"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-e/gates-s1/scope/stderr.json",
+      "bytes": 113,
+      "sha256": "47052b8093ac951a93b2a5fdd9cb1930d3173c55a232e6c65063b02b93a91c5d"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-e/gates-s1/scope/stdout.json",
+      "bytes": 1195,
+      "sha256": "9255872713ec91625d96205926a0fbdef69493f94c02f7afdfe07fcfbba669f2"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-e/gates-s1/staged-whitespace/input-0.json",
+      "bytes": 14222,
+      "sha256": "1d95e4140b724cdcae03d00f765ecd1dcc417cd5dc1c2da86afbe34f420d1a01"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-e/gates-s1/staged-whitespace/input-1.json",
+      "bytes": 4015,
+      "sha256": "5bc8a6a1058c69a5d18dc19f6abaacdeb4ce00097c729c4b8eb423198b96ff63"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-e/gates-s1/staged-whitespace/input-2.json",
+      "bytes": 974,
+      "sha256": "a06a7271d60f6dbd0925e41c1de070821e00f2761fe6e0f6c09bb8221e29d7d7"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-e/gates-s1/staged-whitespace/input-3.json",
+      "bytes": 1320,
+      "sha256": "af5ff1b3cc9dcfd0fecc0827d26b7073a082d2305753e8655cf3f78cf0483e9b"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-e/gates-s1/staged-whitespace/input-4.json",
+      "bytes": 82421,
+      "sha256": "fd834ac9d4c537a2406d363b45938fe62e72037d950df169ab32854f064a44d5"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-e/gates-s1/staged-whitespace/input-5.json",
+      "bytes": 6684,
+      "sha256": "e96e2b4d5dd48e5d46cc781b1651630200fb44d8dae359af8ad040dfdac4064a"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-e/gates-s1/staged-whitespace/receipt.json",
+      "bytes": 2500,
+      "sha256": "53c345f815c79e0f0170f08bf456d95a2ab35bc48961a31b52ccced850715af1"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-e/gates-s1/staged-whitespace/stderr.json",
+      "bytes": 113,
+      "sha256": "47052b8093ac951a93b2a5fdd9cb1930d3173c55a232e6c65063b02b93a91c5d"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-e/gates-s1/staged-whitespace/stdout.json",
+      "bytes": 113,
+      "sha256": "47052b8093ac951a93b2a5fdd9cb1930d3173c55a232e6c65063b02b93a91c5d"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-e/gates-s1/working-whitespace/input-0.json",
+      "bytes": 14222,
+      "sha256": "1d95e4140b724cdcae03d00f765ecd1dcc417cd5dc1c2da86afbe34f420d1a01"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-e/gates-s1/working-whitespace/input-1.json",
+      "bytes": 4015,
+      "sha256": "5bc8a6a1058c69a5d18dc19f6abaacdeb4ce00097c729c4b8eb423198b96ff63"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-e/gates-s1/working-whitespace/input-2.json",
+      "bytes": 974,
+      "sha256": "a06a7271d60f6dbd0925e41c1de070821e00f2761fe6e0f6c09bb8221e29d7d7"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-e/gates-s1/working-whitespace/input-3.json",
+      "bytes": 1320,
+      "sha256": "af5ff1b3cc9dcfd0fecc0827d26b7073a082d2305753e8655cf3f78cf0483e9b"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-e/gates-s1/working-whitespace/input-4.json",
+      "bytes": 82421,
+      "sha256": "fd834ac9d4c537a2406d363b45938fe62e72037d950df169ab32854f064a44d5"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-e/gates-s1/working-whitespace/input-5.json",
+      "bytes": 6684,
+      "sha256": "e96e2b4d5dd48e5d46cc781b1651630200fb44d8dae359af8ad040dfdac4064a"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-e/gates-s1/working-whitespace/receipt.json",
+      "bytes": 2484,
+      "sha256": "dbbf6b221946239fe687a7a7c757eb58a652dfbccee130ba76aed79da5f8afdd"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-e/gates-s1/working-whitespace/stderr.json",
+      "bytes": 113,
+      "sha256": "47052b8093ac951a93b2a5fdd9cb1930d3173c55a232e6c65063b02b93a91c5d"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-e/gates-s1/working-whitespace/stdout.json",
+      "bytes": 113,
+      "sha256": "47052b8093ac951a93b2a5fdd9cb1930d3173c55a232e6c65063b02b93a91c5d"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-e/guard-mode-erratum.md",
+      "bytes": 778,
+      "sha256": "22d3679ab0effed0a9691adca22124a1f6815bb72e582007c624309f77b6f881"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-e/scope-control-driver-v2/input-0.json",
+      "bytes": 1699,
+      "sha256": "732c8af1a40bfd0cb9bdeb0a0b2486566283c8a41a358b7f27d1c90fe027692d"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-e/scope-control-driver-v2/input-1.json",
+      "bytes": 6684,
+      "sha256": "e96e2b4d5dd48e5d46cc781b1651630200fb44d8dae359af8ad040dfdac4064a"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-e/scope-control-driver-v2/input-2.json",
+      "bytes": 154071,
+      "sha256": "c7db96b08c93caa28e2470508c2e2cd684b4edd2d802ea5435fe761d30f17a1e"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-e/scope-control-driver-v2/receipt.json",
+      "bytes": 1729,
+      "sha256": "897aa5f6c292895ed7ca15f73f67da51881a76d5ba5175331fe0a3097c128d12"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-e/scope-control-driver-v2/stderr.json",
+      "bytes": 113,
+      "sha256": "47052b8093ac951a93b2a5fdd9cb1930d3173c55a232e6c65063b02b93a91c5d"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-e/scope-control-driver-v2/stdout.json",
+      "bytes": 29745,
+      "sha256": "476ab12ea362b98d295e3883a66e6898467bc26531f3a7e9751db2b4c7e54fb1"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-e/scope-control-driver/input-0.json",
+      "bytes": 1687,
+      "sha256": "07bae176637e9e673ed986817de35899ff6b4643ae21b4fb84e85fea51f26005"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-e/scope-control-driver/input-1.json",
+      "bytes": 6776,
+      "sha256": "fb4d1e9f183177b5e5d1e34fd365669f8d9c5f234a3c8d8645004a9002fa1eb6"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-e/scope-control-driver/input-2.json",
+      "bytes": 154071,
+      "sha256": "c7db96b08c93caa28e2470508c2e2cd684b4edd2d802ea5435fe761d30f17a1e"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-e/scope-control-driver/receipt.json",
+      "bytes": 1729,
+      "sha256": "4ffce57de4310291a11e9a206b4e97b474106773acd8c30ac1cadc0cb0e4f025"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-e/scope-control-driver/stderr.json",
+      "bytes": 162,
+      "sha256": "8776f35fd2da495b7f70a51c3c209924d199ab80fc71ba7280a55122e646bb77"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-e/scope-control-driver/stdout.json",
+      "bytes": 34285,
+      "sha256": "387e82a45c5c178c15d0d4c8f6d6963610bb587b4a20528d6b242a743a8161d3"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-e/scope-controls-v2/deletion/input-0.json",
+      "bytes": 6684,
+      "sha256": "e96e2b4d5dd48e5d46cc781b1651630200fb44d8dae359af8ad040dfdac4064a"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-e/scope-controls-v2/deletion/input-1.json",
+      "bytes": 2938,
+      "sha256": "cb99f9b0eb801c1bab4ed829d5934ab04fd6f5769b47a8d042bedc77c09b04d8"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-e/scope-controls-v2/deletion/input-2.json",
+      "bytes": 154071,
+      "sha256": "c7db96b08c93caa28e2470508c2e2cd684b4edd2d802ea5435fe761d30f17a1e"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-e/scope-controls-v2/deletion/receipt.json",
+      "bytes": 1921,
+      "sha256": "80bcdc580d167d04db464cc9a95470a3720f7832f5fc9a282baaae14db4d3fbe"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-e/scope-controls-v2/deletion/stderr.json",
+      "bytes": 113,
+      "sha256": "47052b8093ac951a93b2a5fdd9cb1930d3173c55a232e6c65063b02b93a91c5d"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-e/scope-controls-v2/deletion/stdout.json",
+      "bytes": 1860,
+      "sha256": "65ffd458778c3ba7808c44cb6025d1e365a7424413d3d9a65c05654d3e3c2a34"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-e/scope-controls-v2/executable/input-0.json",
+      "bytes": 6684,
+      "sha256": "e96e2b4d5dd48e5d46cc781b1651630200fb44d8dae359af8ad040dfdac4064a"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-e/scope-controls-v2/executable/input-1.json",
+      "bytes": 2940,
+      "sha256": "3fed69afb6582bc90b1ba90ecce1015c9aeb5125c12bbe6c86955d3cf5e50738"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-e/scope-controls-v2/executable/input-2.json",
+      "bytes": 154071,
+      "sha256": "c7db96b08c93caa28e2470508c2e2cd684b4edd2d802ea5435fe761d30f17a1e"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-e/scope-controls-v2/executable/receipt.json",
+      "bytes": 1927,
+      "sha256": "5dd5a518f157cac91741e4e15363dfb87880bd72586f080231eb00b587ad5cb9"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-e/scope-controls-v2/executable/stderr.json",
+      "bytes": 113,
+      "sha256": "47052b8093ac951a93b2a5fdd9cb1930d3173c55a232e6c65063b02b93a91c5d"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-e/scope-controls-v2/executable/stdout.json",
+      "bytes": 1784,
+      "sha256": "7e2cfc443ba9a05801204329693ef65dd67fcf432354eaf1d0e601707bdfa16f"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-e/scope-controls-v2/history-frozen/input-0.json",
+      "bytes": 6684,
+      "sha256": "e96e2b4d5dd48e5d46cc781b1651630200fb44d8dae359af8ad040dfdac4064a"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-e/scope-controls-v2/history-frozen/input-1.json",
+      "bytes": 2944,
+      "sha256": "82f8b32d8399ff95a968913a8b46fac7165b52a83beee2c404f35cd756400baa"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-e/scope-controls-v2/history-frozen/input-2.json",
+      "bytes": 154071,
+      "sha256": "c7db96b08c93caa28e2470508c2e2cd684b4edd2d802ea5435fe761d30f17a1e"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-e/scope-controls-v2/history-frozen/receipt.json",
+      "bytes": 1939,
+      "sha256": "d32ade4ce48cc6cd9263cd13e934076bbc84fea7cb1fae5c16d9f02904a6a75b"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-e/scope-controls-v2/history-frozen/stderr.json",
+      "bytes": 113,
+      "sha256": "47052b8093ac951a93b2a5fdd9cb1930d3173c55a232e6c65063b02b93a91c5d"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-e/scope-controls-v2/history-frozen/stdout.json",
+      "bytes": 3384,
+      "sha256": "2b7871ec8126bc61f049dcfc071d3542d8e6374939e56203b5cd92d196863133"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-e/scope-controls-v2/history-revert/input-0.json",
+      "bytes": 6684,
+      "sha256": "e96e2b4d5dd48e5d46cc781b1651630200fb44d8dae359af8ad040dfdac4064a"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-e/scope-controls-v2/history-revert/input-1.json",
+      "bytes": 2944,
+      "sha256": "1f43a93f7034117b52509e3c8bbf9a6fb1b3dfdf948c8d87b20b6735d4e73411"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-e/scope-controls-v2/history-revert/input-2.json",
+      "bytes": 154071,
+      "sha256": "c7db96b08c93caa28e2470508c2e2cd684b4edd2d802ea5435fe761d30f17a1e"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-e/scope-controls-v2/history-revert/receipt.json",
+      "bytes": 1939,
+      "sha256": "9d587c514ae5920be8cb16fd459bce105be9e33d09ca336dcf5b4dd98c2a0256"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-e/scope-controls-v2/history-revert/stderr.json",
+      "bytes": 113,
+      "sha256": "47052b8093ac951a93b2a5fdd9cb1930d3173c55a232e6c65063b02b93a91c5d"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-e/scope-controls-v2/history-revert/stdout.json",
+      "bytes": 2196,
+      "sha256": "90f6ee79d63f1b2eb385f38a7915647002d5f6fb6d67700a60d9785154eb2979"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-e/scope-controls-v2/history-source/input-0.json",
+      "bytes": 6684,
+      "sha256": "e96e2b4d5dd48e5d46cc781b1651630200fb44d8dae359af8ad040dfdac4064a"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-e/scope-controls-v2/history-source/input-1.json",
+      "bytes": 2944,
+      "sha256": "d64ed684fe328e4efbc89d3d7c4c93daeba5ed0fd3af3f554c7328f32717eb3e"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-e/scope-controls-v2/history-source/input-2.json",
+      "bytes": 154071,
+      "sha256": "c7db96b08c93caa28e2470508c2e2cd684b4edd2d802ea5435fe761d30f17a1e"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-e/scope-controls-v2/history-source/receipt.json",
+      "bytes": 1939,
+      "sha256": "7a4d0ec097b8dd88d5b66aaea189265039b42cb903487301693cbd9c0f4a4da2"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-e/scope-controls-v2/history-source/stderr.json",
+      "bytes": 113,
+      "sha256": "47052b8093ac951a93b2a5fdd9cb1930d3173c55a232e6c65063b02b93a91c5d"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-e/scope-controls-v2/history-source/stdout.json",
+      "bytes": 2088,
+      "sha256": "dad427289cc753e0ddeb2b8614823978f20f0b55909e455e588f16e1edc73b98"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-e/scope-controls-v2/history-wrong-readme-repair/input-0.json",
+      "bytes": 6684,
+      "sha256": "e96e2b4d5dd48e5d46cc781b1651630200fb44d8dae359af8ad040dfdac4064a"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-e/scope-controls-v2/history-wrong-readme-repair/input-1.json",
+      "bytes": 2957,
+      "sha256": "4d917e41972c6d28bcc266f0529226251e14792e2a69704e83e94cd0c820f884"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-e/scope-controls-v2/history-wrong-readme-repair/input-2.json",
+      "bytes": 154071,
+      "sha256": "c7db96b08c93caa28e2470508c2e2cd684b4edd2d802ea5435fe761d30f17a1e"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-e/scope-controls-v2/history-wrong-readme-repair/receipt.json",
+      "bytes": 1978,
+      "sha256": "c29b39e328abeb2bb424ae034949b80dfca3c1065061d17dcd915a1cb94e621f"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-e/scope-controls-v2/history-wrong-readme-repair/stderr.json",
+      "bytes": 113,
+      "sha256": "47052b8093ac951a93b2a5fdd9cb1930d3173c55a232e6c65063b02b93a91c5d"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-e/scope-controls-v2/history-wrong-readme-repair/stdout.json",
+      "bytes": 2052,
+      "sha256": "736f7cc58f8de3ebd9bd2df6b169c642a527d9c0b876acaa6b4e68c4d1d757aa"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-e/scope-controls-v2/index-frozen/input-0.json",
+      "bytes": 6684,
+      "sha256": "e96e2b4d5dd48e5d46cc781b1651630200fb44d8dae359af8ad040dfdac4064a"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-e/scope-controls-v2/index-frozen/input-1.json",
+      "bytes": 2942,
+      "sha256": "53d125924b6e96d2ed5b28a426aebc9e65f9152066d0c6bc416ebf14c651f5b2"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-e/scope-controls-v2/index-frozen/input-2.json",
+      "bytes": 154071,
+      "sha256": "c7db96b08c93caa28e2470508c2e2cd684b4edd2d802ea5435fe761d30f17a1e"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-e/scope-controls-v2/index-frozen/receipt.json",
+      "bytes": 1933,
+      "sha256": "18489d25dbd45c287b483066892e62e6af8be8723ed954f99ea189383ed4499f"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-e/scope-controls-v2/index-frozen/stderr.json",
+      "bytes": 113,
+      "sha256": "47052b8093ac951a93b2a5fdd9cb1930d3173c55a232e6c65063b02b93a91c5d"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-e/scope-controls-v2/index-frozen/stdout.json",
+      "bytes": 2524,
+      "sha256": "0d8405e6870848300923853ff43bcf08432fd8e536d1cf07cc3bc4fcb84652bc"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-e/scope-controls-v2/index-readme/input-0.json",
+      "bytes": 6684,
+      "sha256": "e96e2b4d5dd48e5d46cc781b1651630200fb44d8dae359af8ad040dfdac4064a"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-e/scope-controls-v2/index-readme/input-1.json",
+      "bytes": 2942,
+      "sha256": "efbe259f9f2a1f67b853970a9fe52bdcfc90117fb2e98faf6fab97b8931c749a"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-e/scope-controls-v2/index-readme/input-2.json",
+      "bytes": 154071,
+      "sha256": "c7db96b08c93caa28e2470508c2e2cd684b4edd2d802ea5435fe761d30f17a1e"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-e/scope-controls-v2/index-readme/receipt.json",
+      "bytes": 1933,
+      "sha256": "08101bdfad905ab5b187e5cdc82bf23818b7b389058b5551744b03d5dbdc7ed9"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-e/scope-controls-v2/index-readme/stderr.json",
+      "bytes": 113,
+      "sha256": "47052b8093ac951a93b2a5fdd9cb1930d3173c55a232e6c65063b02b93a91c5d"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-e/scope-controls-v2/index-readme/stdout.json",
+      "bytes": 1872,
+      "sha256": "b9b213305c97d9ac63f6a7173818fcbbd9f86cbb1ad5d7e27b4270b1e6390fc2"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-e/scope-controls-v2/index-source/input-0.json",
+      "bytes": 6684,
+      "sha256": "e96e2b4d5dd48e5d46cc781b1651630200fb44d8dae359af8ad040dfdac4064a"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-e/scope-controls-v2/index-source/input-1.json",
+      "bytes": 2942,
+      "sha256": "cbf569ea2fd397576c2b57a80c439c6d501d8f485a29c4dba5785b18bb4a8ce7"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-e/scope-controls-v2/index-source/input-2.json",
+      "bytes": 154071,
+      "sha256": "c7db96b08c93caa28e2470508c2e2cd684b4edd2d802ea5435fe761d30f17a1e"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-e/scope-controls-v2/index-source/receipt.json",
+      "bytes": 1933,
+      "sha256": "099d430e816e774df80dd525487a468e6e92780366ea37f3f9809f82ccc20374"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-e/scope-controls-v2/index-source/stderr.json",
+      "bytes": 113,
+      "sha256": "47052b8093ac951a93b2a5fdd9cb1930d3173c55a232e6c65063b02b93a91c5d"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-e/scope-controls-v2/index-source/stdout.json",
+      "bytes": 1800,
+      "sha256": "1152f06430397bf788ca731e9fb0018cce4a0cd60de6822acc52c63e37caf10d"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-e/scope-controls-v2/merge/input-0.json",
+      "bytes": 6684,
+      "sha256": "e96e2b4d5dd48e5d46cc781b1651630200fb44d8dae359af8ad040dfdac4064a"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-e/scope-controls-v2/merge/input-1.json",
+      "bytes": 2935,
+      "sha256": "31d10d497d9c2627995bac372e4224943c715c65c23ff77aacd6c88f34954f51"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-e/scope-controls-v2/merge/input-2.json",
+      "bytes": 154071,
+      "sha256": "c7db96b08c93caa28e2470508c2e2cd684b4edd2d802ea5435fe761d30f17a1e"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-e/scope-controls-v2/merge/receipt.json",
+      "bytes": 1912,
+      "sha256": "75e05ecc57bad07532c1645cbb8add589101659e1046c29a87f6b02cd632e309"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-e/scope-controls-v2/merge/stderr.json",
+      "bytes": 113,
+      "sha256": "47052b8093ac951a93b2a5fdd9cb1930d3173c55a232e6c65063b02b93a91c5d"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-e/scope-controls-v2/merge/stdout.json",
+      "bytes": 2000,
+      "sha256": "19a45bdeae3441e184a8626731b0f6e63dba5218aa6f0166cbc54cb772210ba2"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-e/scope-controls-v2/positive/input-0.json",
+      "bytes": 6684,
+      "sha256": "e96e2b4d5dd48e5d46cc781b1651630200fb44d8dae359af8ad040dfdac4064a"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-e/scope-controls-v2/positive/input-1.json",
+      "bytes": 2938,
+      "sha256": "bc98a24d62e42128cf1f28162a39feea62dd39153a2030a0929ba6d745e6c6ab"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-e/scope-controls-v2/positive/input-2.json",
+      "bytes": 154071,
+      "sha256": "c7db96b08c93caa28e2470508c2e2cd684b4edd2d802ea5435fe761d30f17a1e"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-e/scope-controls-v2/positive/receipt.json",
+      "bytes": 1921,
+      "sha256": "e7f964330063dc0f8d81e4dcdb9819a2f8711ca75bcb5fe6665ef327a9a8b337"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-e/scope-controls-v2/positive/stderr.json",
+      "bytes": 113,
+      "sha256": "47052b8093ac951a93b2a5fdd9cb1930d3173c55a232e6c65063b02b93a91c5d"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-e/scope-controls-v2/positive/stdout.json",
+      "bytes": 1411,
+      "sha256": "1fd9ce417bf246de9270e2e5bc917ec1689d2f12b5da333c07df54bc98dd52fb"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-e/scope-controls-v2/symlink/input-0.json",
+      "bytes": 6684,
+      "sha256": "e96e2b4d5dd48e5d46cc781b1651630200fb44d8dae359af8ad040dfdac4064a"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-e/scope-controls-v2/symlink/input-1.json",
+      "bytes": 2937,
+      "sha256": "8727c4ff8ec3560f8a41239cc20b2bbc8c217f1ba2e572cc5b258821b9aabcc5"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-e/scope-controls-v2/symlink/input-2.json",
+      "bytes": 154071,
+      "sha256": "c7db96b08c93caa28e2470508c2e2cd684b4edd2d802ea5435fe761d30f17a1e"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-e/scope-controls-v2/symlink/receipt.json",
+      "bytes": 1918,
+      "sha256": "8ddb25001fb225611090c73e9893758a2ecc8b6684c2643df699f24204b6e9ab"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-e/scope-controls-v2/symlink/stderr.json",
+      "bytes": 113,
+      "sha256": "47052b8093ac951a93b2a5fdd9cb1930d3173c55a232e6c65063b02b93a91c5d"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-e/scope-controls-v2/symlink/stdout.json",
+      "bytes": 1768,
+      "sha256": "2c9f46b73629130bb11cf25ceea739996954c0156c9c9077b9cce14157e6eb70"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-e/scope-controls-v2/unrelated-day/input-0.json",
+      "bytes": 6684,
+      "sha256": "e96e2b4d5dd48e5d46cc781b1651630200fb44d8dae359af8ad040dfdac4064a"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-e/scope-controls-v2/unrelated-day/input-1.json",
+      "bytes": 2943,
+      "sha256": "01864b5c2db441a26062c7c65173ba6c37aa233e0e262fabaa3fe0f265b4abee"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-e/scope-controls-v2/unrelated-day/input-2.json",
+      "bytes": 154071,
+      "sha256": "c7db96b08c93caa28e2470508c2e2cd684b4edd2d802ea5435fe761d30f17a1e"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-e/scope-controls-v2/unrelated-day/receipt.json",
+      "bytes": 1936,
+      "sha256": "3d4baaf6381fe51d0b6466f541b7486066032423816eb29f1d46939f6afd20ac"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-e/scope-controls-v2/unrelated-day/stderr.json",
+      "bytes": 113,
+      "sha256": "47052b8093ac951a93b2a5fdd9cb1930d3173c55a232e6c65063b02b93a91c5d"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-e/scope-controls-v2/unrelated-day/stdout.json",
+      "bytes": 1588,
+      "sha256": "f3b24b2bde9980721f7284eeab8c29eb422e79864d71024d59b0b9b01713f9d2"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-e/scope-controls-v2/unrelated-retro/input-0.json",
+      "bytes": 6684,
+      "sha256": "e96e2b4d5dd48e5d46cc781b1651630200fb44d8dae359af8ad040dfdac4064a"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-e/scope-controls-v2/unrelated-retro/input-1.json",
+      "bytes": 2945,
+      "sha256": "88a10f640221ff1bb00d707451e83e7500df267a5020b132af09d45d0946e7c4"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-e/scope-controls-v2/unrelated-retro/input-2.json",
+      "bytes": 154071,
+      "sha256": "c7db96b08c93caa28e2470508c2e2cd684b4edd2d802ea5435fe761d30f17a1e"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-e/scope-controls-v2/unrelated-retro/receipt.json",
+      "bytes": 1942,
+      "sha256": "67f1a54933130993c85962e1f85e8f8c49cd57cb7fef90335612c327cb71cbec"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-e/scope-controls-v2/unrelated-retro/stderr.json",
+      "bytes": 113,
+      "sha256": "47052b8093ac951a93b2a5fdd9cb1930d3173c55a232e6c65063b02b93a91c5d"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-e/scope-controls-v2/unrelated-retro/stdout.json",
+      "bytes": 1560,
+      "sha256": "b2a39c6db95a81e8f5a8a083eeee36bd07bf394197708722cb5cd77dc53c4e05"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-e/scope-controls/deletion/input-0.json",
+      "bytes": 6776,
+      "sha256": "fb4d1e9f183177b5e5d1e34fd365669f8d9c5f234a3c8d8645004a9002fa1eb6"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-e/scope-controls/deletion/input-1.json",
+      "bytes": 2938,
+      "sha256": "cb99f9b0eb801c1bab4ed829d5934ab04fd6f5769b47a8d042bedc77c09b04d8"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-e/scope-controls/deletion/input-2.json",
+      "bytes": 154071,
+      "sha256": "c7db96b08c93caa28e2470508c2e2cd684b4edd2d802ea5435fe761d30f17a1e"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-e/scope-controls/deletion/receipt.json",
+      "bytes": 1921,
+      "sha256": "c50e87c0a2ff175ac005865aeeb1bef2b1299f7403321c81d1979ca960a2f895"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-e/scope-controls/deletion/stderr.json",
+      "bytes": 113,
+      "sha256": "47052b8093ac951a93b2a5fdd9cb1930d3173c55a232e6c65063b02b93a91c5d"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-e/scope-controls/deletion/stdout.json",
+      "bytes": 2352,
+      "sha256": "0627ceff01ec1cd8f9ee7192a099a2b060ac445b5b5d8dbf07fe8c1fb48802f1"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-e/scope-controls/executable/input-0.json",
+      "bytes": 6776,
+      "sha256": "fb4d1e9f183177b5e5d1e34fd365669f8d9c5f234a3c8d8645004a9002fa1eb6"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-e/scope-controls/executable/input-1.json",
+      "bytes": 2940,
+      "sha256": "3fed69afb6582bc90b1ba90ecce1015c9aeb5125c12bbe6c86955d3cf5e50738"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-e/scope-controls/executable/input-2.json",
+      "bytes": 154071,
+      "sha256": "c7db96b08c93caa28e2470508c2e2cd684b4edd2d802ea5435fe761d30f17a1e"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-e/scope-controls/executable/receipt.json",
+      "bytes": 1927,
+      "sha256": "267b62f75ab54fee3a349cede229e8f60145a1c4a9512ec57baffe1168066317"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-e/scope-controls/executable/stderr.json",
+      "bytes": 113,
+      "sha256": "47052b8093ac951a93b2a5fdd9cb1930d3173c55a232e6c65063b02b93a91c5d"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-e/scope-controls/executable/stdout.json",
+      "bytes": 2104,
+      "sha256": "fc8bc51094d39bf600b84ac123c645b3c02d652b8d04c03c62425a65ec449a4c"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-e/scope-controls/history-frozen/input-0.json",
+      "bytes": 6776,
+      "sha256": "fb4d1e9f183177b5e5d1e34fd365669f8d9c5f234a3c8d8645004a9002fa1eb6"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-e/scope-controls/history-frozen/input-1.json",
+      "bytes": 2944,
+      "sha256": "82f8b32d8399ff95a968913a8b46fac7165b52a83beee2c404f35cd756400baa"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-e/scope-controls/history-frozen/input-2.json",
+      "bytes": 154071,
+      "sha256": "c7db96b08c93caa28e2470508c2e2cd684b4edd2d802ea5435fe761d30f17a1e"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-e/scope-controls/history-frozen/receipt.json",
+      "bytes": 1939,
+      "sha256": "6d017de07eed83b8e684cd056518de755840644cfc3be1b23f537d85036287b2"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-e/scope-controls/history-frozen/stderr.json",
+      "bytes": 113,
+      "sha256": "47052b8093ac951a93b2a5fdd9cb1930d3173c55a232e6c65063b02b93a91c5d"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-e/scope-controls/history-frozen/stdout.json",
+      "bytes": 3532,
+      "sha256": "e1be7cd0d6320b714c181552cae023f85d4fe03cb7d79137d12418ccce33426c"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-e/scope-controls/history-revert/input-0.json",
+      "bytes": 6776,
+      "sha256": "fb4d1e9f183177b5e5d1e34fd365669f8d9c5f234a3c8d8645004a9002fa1eb6"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-e/scope-controls/history-revert/input-1.json",
+      "bytes": 2944,
+      "sha256": "1f43a93f7034117b52509e3c8bbf9a6fb1b3dfdf948c8d87b20b6735d4e73411"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-e/scope-controls/history-revert/input-2.json",
+      "bytes": 154071,
+      "sha256": "c7db96b08c93caa28e2470508c2e2cd684b4edd2d802ea5435fe761d30f17a1e"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-e/scope-controls/history-revert/receipt.json",
+      "bytes": 1939,
+      "sha256": "9acbdd62a5d724967cddc6574377cad9acb92eb9a06b26de286d25768fc5c98f"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-e/scope-controls/history-revert/stderr.json",
+      "bytes": 113,
+      "sha256": "47052b8093ac951a93b2a5fdd9cb1930d3173c55a232e6c65063b02b93a91c5d"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-e/scope-controls/history-revert/stdout.json",
+      "bytes": 2516,
+      "sha256": "767e45379bf6bb7dc5f49ba75fc0596754224fbf44fa446bc0c4f85eff6aa95d"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-e/scope-controls/history-source/input-0.json",
+      "bytes": 6776,
+      "sha256": "fb4d1e9f183177b5e5d1e34fd365669f8d9c5f234a3c8d8645004a9002fa1eb6"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-e/scope-controls/history-source/input-1.json",
+      "bytes": 2944,
+      "sha256": "d64ed684fe328e4efbc89d3d7c4c93daeba5ed0fd3af3f554c7328f32717eb3e"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-e/scope-controls/history-source/input-2.json",
+      "bytes": 154071,
+      "sha256": "c7db96b08c93caa28e2470508c2e2cd684b4edd2d802ea5435fe761d30f17a1e"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-e/scope-controls/history-source/receipt.json",
+      "bytes": 1939,
+      "sha256": "562d4e0046b61b652eac6e783d14d1f9985cf21a57c2f5361b652b8184f98459"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-e/scope-controls/history-source/stderr.json",
+      "bytes": 113,
+      "sha256": "47052b8093ac951a93b2a5fdd9cb1930d3173c55a232e6c65063b02b93a91c5d"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-e/scope-controls/history-source/stdout.json",
+      "bytes": 2404,
+      "sha256": "9e9d396fe759ff69114c26ba8f1dc4c66fed4a2d77f590c5385e35673cca413a"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-e/scope-controls/history-wrong-readme-repair/input-0.json",
+      "bytes": 6776,
+      "sha256": "fb4d1e9f183177b5e5d1e34fd365669f8d9c5f234a3c8d8645004a9002fa1eb6"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-e/scope-controls/history-wrong-readme-repair/input-1.json",
+      "bytes": 2957,
+      "sha256": "4d917e41972c6d28bcc266f0529226251e14792e2a69704e83e94cd0c820f884"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-e/scope-controls/history-wrong-readme-repair/input-2.json",
+      "bytes": 154071,
+      "sha256": "c7db96b08c93caa28e2470508c2e2cd684b4edd2d802ea5435fe761d30f17a1e"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-e/scope-controls/history-wrong-readme-repair/receipt.json",
+      "bytes": 1978,
+      "sha256": "acb6c87da3fc9da79196f0bde56af2214c285bfc1e2e73d155b96dedcbee5cff"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-e/scope-controls/history-wrong-readme-repair/stderr.json",
+      "bytes": 113,
+      "sha256": "47052b8093ac951a93b2a5fdd9cb1930d3173c55a232e6c65063b02b93a91c5d"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-e/scope-controls/history-wrong-readme-repair/stdout.json",
+      "bytes": 2368,
+      "sha256": "d89c4c964ed1325ef59136de7e3d577f535bc4d315990f6c4e94b6556b2651f7"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-e/scope-controls/index-frozen/input-0.json",
+      "bytes": 6776,
+      "sha256": "fb4d1e9f183177b5e5d1e34fd365669f8d9c5f234a3c8d8645004a9002fa1eb6"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-e/scope-controls/index-frozen/input-1.json",
+      "bytes": 2942,
+      "sha256": "53d125924b6e96d2ed5b28a426aebc9e65f9152066d0c6bc416ebf14c651f5b2"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-e/scope-controls/index-frozen/input-2.json",
+      "bytes": 154071,
+      "sha256": "c7db96b08c93caa28e2470508c2e2cd684b4edd2d802ea5435fe761d30f17a1e"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-e/scope-controls/index-frozen/receipt.json",
+      "bytes": 1933,
+      "sha256": "689cdb4a8e46c93d16675c8e384310580bbd018a082003ca6a5d13aea1e810be"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-e/scope-controls/index-frozen/stderr.json",
+      "bytes": 113,
+      "sha256": "47052b8093ac951a93b2a5fdd9cb1930d3173c55a232e6c65063b02b93a91c5d"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-e/scope-controls/index-frozen/stdout.json",
+      "bytes": 2840,
+      "sha256": "6e87a0ca0b3f17da8cacc6a07989dddd2b05c87ef3ee248e8b7f89f58ba237e4"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-e/scope-controls/index-readme/input-0.json",
+      "bytes": 6776,
+      "sha256": "fb4d1e9f183177b5e5d1e34fd365669f8d9c5f234a3c8d8645004a9002fa1eb6"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-e/scope-controls/index-readme/input-1.json",
+      "bytes": 2942,
+      "sha256": "efbe259f9f2a1f67b853970a9fe52bdcfc90117fb2e98faf6fab97b8931c749a"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-e/scope-controls/index-readme/input-2.json",
+      "bytes": 154071,
+      "sha256": "c7db96b08c93caa28e2470508c2e2cd684b4edd2d802ea5435fe761d30f17a1e"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-e/scope-controls/index-readme/receipt.json",
+      "bytes": 1933,
+      "sha256": "3ab65c1cd9de785ca8a1a90404bdd832b56a8a7f0d434980239a340474e8a50d"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-e/scope-controls/index-readme/stderr.json",
+      "bytes": 113,
+      "sha256": "47052b8093ac951a93b2a5fdd9cb1930d3173c55a232e6c65063b02b93a91c5d"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-e/scope-controls/index-readme/stdout.json",
+      "bytes": 2464,
+      "sha256": "af92f35ac51f990070d68d3bcb0deff5c1ab16f5c1ff132a0388341434bc0db6"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-e/scope-controls/index-source/input-0.json",
+      "bytes": 6776,
+      "sha256": "fb4d1e9f183177b5e5d1e34fd365669f8d9c5f234a3c8d8645004a9002fa1eb6"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-e/scope-controls/index-source/input-1.json",
+      "bytes": 2942,
+      "sha256": "cbf569ea2fd397576c2b57a80c439c6d501d8f485a29c4dba5785b18bb4a8ce7"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-e/scope-controls/index-source/input-2.json",
+      "bytes": 154071,
+      "sha256": "c7db96b08c93caa28e2470508c2e2cd684b4edd2d802ea5435fe761d30f17a1e"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-e/scope-controls/index-source/receipt.json",
+      "bytes": 1933,
+      "sha256": "b47096417e28705572d8cb028f2ed91f53c045441992bc78bee91a3583181e5b"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-e/scope-controls/index-source/stderr.json",
+      "bytes": 113,
+      "sha256": "47052b8093ac951a93b2a5fdd9cb1930d3173c55a232e6c65063b02b93a91c5d"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-e/scope-controls/index-source/stdout.json",
+      "bytes": 2116,
+      "sha256": "9101e7b965c921f0da14c9d599d225b3c1862f0479198d2465b2723794c407b9"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-e/scope-controls/merge/input-0.json",
+      "bytes": 6776,
+      "sha256": "fb4d1e9f183177b5e5d1e34fd365669f8d9c5f234a3c8d8645004a9002fa1eb6"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-e/scope-controls/merge/input-1.json",
+      "bytes": 2935,
+      "sha256": "31d10d497d9c2627995bac372e4224943c715c65c23ff77aacd6c88f34954f51"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-e/scope-controls/merge/input-2.json",
+      "bytes": 154071,
+      "sha256": "c7db96b08c93caa28e2470508c2e2cd684b4edd2d802ea5435fe761d30f17a1e"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-e/scope-controls/merge/receipt.json",
+      "bytes": 1912,
+      "sha256": "921ca623c8a3297150a6793eb0230e3607e4a92cea319e37ab63d53ca101ec0f"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-e/scope-controls/merge/stderr.json",
+      "bytes": 113,
+      "sha256": "47052b8093ac951a93b2a5fdd9cb1930d3173c55a232e6c65063b02b93a91c5d"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-e/scope-controls/merge/stdout.json",
+      "bytes": 2320,
+      "sha256": "7ec65b5289096e4b58afc63721f9dd9ad1d036cb703df0dae47eed70da6becf9"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-e/scope-controls/positive/input-0.json",
+      "bytes": 6776,
+      "sha256": "fb4d1e9f183177b5e5d1e34fd365669f8d9c5f234a3c8d8645004a9002fa1eb6"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-e/scope-controls/positive/input-1.json",
+      "bytes": 2938,
+      "sha256": "bc98a24d62e42128cf1f28162a39feea62dd39153a2030a0929ba6d745e6c6ab"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-e/scope-controls/positive/input-2.json",
+      "bytes": 154071,
+      "sha256": "c7db96b08c93caa28e2470508c2e2cd684b4edd2d802ea5435fe761d30f17a1e"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-e/scope-controls/positive/receipt.json",
+      "bytes": 1921,
+      "sha256": "1e824a2cc4a70a3af8b9aba2c6a25d0e1b3a4a30dc7b5610c57a6795ba5e86ce"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-e/scope-controls/positive/stderr.json",
+      "bytes": 113,
+      "sha256": "47052b8093ac951a93b2a5fdd9cb1930d3173c55a232e6c65063b02b93a91c5d"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-e/scope-controls/positive/stdout.json",
+      "bytes": 1728,
+      "sha256": "ebfbaab4e8b1721e0a57dafc114626c8d78e9017d23b2c47e5e4cb2f535990c7"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-e/scope-controls/symlink/input-0.json",
+      "bytes": 6776,
+      "sha256": "fb4d1e9f183177b5e5d1e34fd365669f8d9c5f234a3c8d8645004a9002fa1eb6"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-e/scope-controls/symlink/input-1.json",
+      "bytes": 2937,
+      "sha256": "8727c4ff8ec3560f8a41239cc20b2bbc8c217f1ba2e572cc5b258821b9aabcc5"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-e/scope-controls/symlink/input-2.json",
+      "bytes": 154071,
+      "sha256": "c7db96b08c93caa28e2470508c2e2cd684b4edd2d802ea5435fe761d30f17a1e"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-e/scope-controls/symlink/receipt.json",
+      "bytes": 1918,
+      "sha256": "9d3a3af58d06773ee42fa394408c4f8e3dbfbb2883c8ea4d34deae7bf7fb1509"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-e/scope-controls/symlink/stderr.json",
+      "bytes": 113,
+      "sha256": "47052b8093ac951a93b2a5fdd9cb1930d3173c55a232e6c65063b02b93a91c5d"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-e/scope-controls/symlink/stdout.json",
+      "bytes": 2084,
+      "sha256": "47b35fcec7b4b57bbedd74d836f4787badc41a66e9a947a21b83db6cd6debb05"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-e/scope-controls/unrelated-day/input-0.json",
+      "bytes": 6776,
+      "sha256": "fb4d1e9f183177b5e5d1e34fd365669f8d9c5f234a3c8d8645004a9002fa1eb6"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-e/scope-controls/unrelated-day/input-1.json",
+      "bytes": 2943,
+      "sha256": "01864b5c2db441a26062c7c65173ba6c37aa233e0e262fabaa3fe0f265b4abee"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-e/scope-controls/unrelated-day/input-2.json",
+      "bytes": 154071,
+      "sha256": "c7db96b08c93caa28e2470508c2e2cd684b4edd2d802ea5435fe761d30f17a1e"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-e/scope-controls/unrelated-day/receipt.json",
+      "bytes": 1936,
+      "sha256": "8437d7ac3d785fe98f50c82f5cf34fb4a1bd2062fc526bb87bfd58bcbabcb505"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-e/scope-controls/unrelated-day/stderr.json",
+      "bytes": 113,
+      "sha256": "47052b8093ac951a93b2a5fdd9cb1930d3173c55a232e6c65063b02b93a91c5d"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-e/scope-controls/unrelated-day/stdout.json",
+      "bytes": 1904,
+      "sha256": "d68627fa9e8ebb1155ae1c88cadafbfef537d1a6a2561a33980bf95b0fe2effc"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-e/scope-controls/unrelated-retro/input-0.json",
+      "bytes": 6776,
+      "sha256": "fb4d1e9f183177b5e5d1e34fd365669f8d9c5f234a3c8d8645004a9002fa1eb6"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-e/scope-controls/unrelated-retro/input-1.json",
+      "bytes": 2945,
+      "sha256": "88a10f640221ff1bb00d707451e83e7500df267a5020b132af09d45d0946e7c4"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-e/scope-controls/unrelated-retro/input-2.json",
+      "bytes": 154071,
+      "sha256": "c7db96b08c93caa28e2470508c2e2cd684b4edd2d802ea5435fe761d30f17a1e"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-e/scope-controls/unrelated-retro/receipt.json",
+      "bytes": 1942,
+      "sha256": "963853a550be0e4e1f63badf18e0a798b40d3a36c447021031617d8736e7a3aa"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-e/scope-controls/unrelated-retro/stderr.json",
+      "bytes": 113,
+      "sha256": "47052b8093ac951a93b2a5fdd9cb1930d3173c55a232e6c65063b02b93a91c5d"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-e/scope-controls/unrelated-retro/stdout.json",
+      "bytes": 1880,
+      "sha256": "8102fada6573219ba8a366e2534f065341ddc8dbbdc1327c570e526372a89735"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-e/scope-policy.json",
+      "bytes": 61603,
+      "sha256": "c9e2474804ba209c6aa767866de9df5768e9805d11a69f9dbfce2c7172041b00"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-e/scope-proof-summary.json",
+      "bytes": 9666,
+      "sha256": "6e5768a56dbc0719d615802d5a9f6452bd542276d206bb75d54ffbef55761728"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-e/source-before-refusal/input-0.json",
+      "bytes": 2073,
+      "sha256": "e9ac224f485f9409796cf01210142dbe42ab929343f0f5ecd048eeacf8b6b794"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-e/source-before-refusal/input-1.json",
+      "bytes": 5691,
+      "sha256": "9f5d08d174b7188b7652e04655dca6164ca9302675fcb4c187ac406ffeb046d1"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-e/source-before-refusal/input-2.json",
+      "bytes": 1166,
+      "sha256": "15511ff03ac1239c9e632df4ae90dbefef45b66b09b324cb380bfb193b7459a4"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-e/source-before-refusal/input-3.json",
+      "bytes": 31111,
+      "sha256": "da2d1ade17d5595737a58fc0dcab610ecc688bff06ad153de5f54c1481c92a02"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-e/source-before-refusal/receipt.json",
+      "bytes": 2073,
+      "sha256": "f292c8da186999b52e601b044e4735ee00a4ca2c4bc614b3f0e71b91e1d3349b"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-e/source-before-refusal/stderr.json",
+      "bytes": 113,
+      "sha256": "47052b8093ac951a93b2a5fdd9cb1930d3173c55a232e6c65063b02b93a91c5d"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-e/source-before-refusal/stdout.json",
+      "bytes": 807,
+      "sha256": "9793e19a612ca1cd6788358355df7ceed26c59067328ac7a1b8a6e095284f6ca"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-e/source-candidate-pass/input-0.json",
+      "bytes": 2073,
+      "sha256": "e9ac224f485f9409796cf01210142dbe42ab929343f0f5ecd048eeacf8b6b794"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-e/source-candidate-pass/input-1.json",
+      "bytes": 5691,
+      "sha256": "9f5d08d174b7188b7652e04655dca6164ca9302675fcb4c187ac406ffeb046d1"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-e/source-candidate-pass/input-2.json",
+      "bytes": 1166,
+      "sha256": "15511ff03ac1239c9e632df4ae90dbefef45b66b09b324cb380bfb193b7459a4"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-e/source-candidate-pass/input-3.json",
+      "bytes": 1365,
+      "sha256": "4337f4705edfdf1a0975a30450cc9d4bf8a1afdbdf84d12aaf41d8002e96a6c7"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-e/source-candidate-pass/input-4.json",
+      "bytes": 31111,
+      "sha256": "da2d1ade17d5595737a58fc0dcab610ecc688bff06ad153de5f54c1481c92a02"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-e/source-candidate-pass/receipt.json",
+      "bytes": 2366,
+      "sha256": "e47c2a9c9615439e5e651154bfb394fc518dcf48978c9dc2e0c7565786fd57f9"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-e/source-candidate-pass/stderr.json",
+      "bytes": 113,
+      "sha256": "47052b8093ac951a93b2a5fdd9cb1930d3173c55a232e6c65063b02b93a91c5d"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-e/source-candidate-pass/stdout.json",
+      "bytes": 803,
+      "sha256": "f52542842e8d257579f44f585a3ade9cee18410e6aa8d2fefdc82c5ae8b67720"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-e/source-contract.json",
+      "bytes": 4055,
+      "sha256": "50a0a1629f960538ad49c73902f79eeb48431f8a0f14d94fbaf24c0f2fee1c21"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-e/source/before.md",
+      "bytes": 666,
+      "sha256": "17269ce0820878e809890a9f737cd665c77d32ff07a20e779aed4fac1b745d79"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-e/source/candidate.md",
+      "bytes": 813,
+      "sha256": "410e4432c01a38cda578a68fdaa730129c15a8e3e60c7305001bb40bd5a71b6c"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-e/staging-s1/receipt.json",
+      "bytes": 1046,
+      "sha256": "da5ba04eaa7cfdcc46388da0798b243823963ce2d0f783eb5eeeb073eadbe832"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-e/staging-s1/stderr.json",
+      "bytes": 113,
+      "sha256": "47052b8093ac951a93b2a5fdd9cb1930d3173c55a232e6c65063b02b93a91c5d"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-e/staging-s1/stdout.json",
+      "bytes": 113,
+      "sha256": "47052b8093ac951a93b2a5fdd9cb1930d3173c55a232e6c65063b02b93a91c5d"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-e/start.json",
+      "bytes": 711,
+      "sha256": "f18957076024617770ddb730ce994089816bf0e45477ed679babef9691de0505"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-e/stream-binding.sh",
+      "bytes": 903,
+      "sha256": "0009ccde4696ca39c810d1a93924a59e2aca73b57ed9615cae4af4a7e42a03c7"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-e/stream-binding/input-0.json",
+      "bytes": 1483,
+      "sha256": "3859191173f71ffe4fd8d351bc578c07308845ab512edfc489aac1d2584257ae"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-e/stream-binding/input-1.json",
+      "bytes": 23790,
+      "sha256": "c54f98464dd3f2186c052e272817a99b2d76418616288d47aef702b78d73b008"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-e/stream-binding/receipt.json",
+      "bytes": 1439,
+      "sha256": "e715d9f8654a24e8c58f5c85d9fcd5c9152e9b95e0cf8d5690a203f3ca339192"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-e/stream-binding/stderr.json",
+      "bytes": 113,
+      "sha256": "47052b8093ac951a93b2a5fdd9cb1930d3173c55a232e6c65063b02b93a91c5d"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-e/stream-binding/stdout.json",
+      "bytes": 230,
+      "sha256": "e13de6aa98c9868d30cf99eae0dd2e8ac23f00c8744048827c694188b17e0d51"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-e/stream-brief-v2.md",
+      "bytes": 17629,
+      "sha256": "97d82c4f522e0c9a8f02366114bc74655346546cc3a8f1367ee33599b7aa343f"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-e/tool-versions/eh-controls-v1.py",
+      "bytes": 1057,
+      "sha256": "6601d4de2c424628f1a7094fdbe61afa641c085d7304bd88ddc124e9fad2486e"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-e/tool-versions/eh-scope-v1.py",
+      "bytes": 4876,
+      "sha256": "686aa4de6eb2231319c3b928861feee298032f3abf12b0d7bb49a183e14602b1"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-f/bind-s1.py",
+      "bytes": 768,
+      "sha256": "3ad01a0e489beceac5ab561bd9d373742cef4f29a63fec9eba0dd38f2b8d201d"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-f/committed-scope/input-0.json",
+      "bytes": 6684,
+      "sha256": "e96e2b4d5dd48e5d46cc781b1651630200fb44d8dae359af8ad040dfdac4064a"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-f/committed-scope/input-1.json",
+      "bytes": 82421,
+      "sha256": "fd834ac9d4c537a2406d363b45938fe62e72037d950df169ab32854f064a44d5"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-f/committed-scope/receipt.json",
+      "bytes": 1612,
+      "sha256": "f236293df0aab63ea2340638d9803626e3ec2ac93876f9d661d285abd82aec41"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-f/committed-scope/stderr.json",
+      "bytes": 113,
+      "sha256": "47052b8093ac951a93b2a5fdd9cb1930d3173c55a232e6c65063b02b93a91c5d"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-f/committed-scope/stdout.json",
+      "bytes": 1423,
+      "sha256": "5c50efea8c2d9963f5a938edfc1a632107378f056c3ce1186d59a9e12f9037dc"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-f/committed-source-binding/input-0.json",
+      "bytes": 1296,
+      "sha256": "9811530bf1142829638fdd5fc6aa25d15082e9b2178791ae917a79edc16b3da8"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-f/committed-source-binding/input-1.json",
+      "bytes": 1320,
+      "sha256": "af5ff1b3cc9dcfd0fecc0827d26b7073a082d2305753e8655cf3f78cf0483e9b"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-f/committed-source-binding/receipt.json",
+      "bytes": 1392,
+      "sha256": "a5d4f8f323103b6ab320328d730a0b8b6fb90ef8b7c3f11e9b6ad9872b2ee900"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-f/committed-source-binding/stderr.json",
+      "bytes": 113,
+      "sha256": "47052b8093ac951a93b2a5fdd9cb1930d3173c55a232e6c65063b02b93a91c5d"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-f/committed-source-binding/stdout.json",
+      "bytes": 535,
+      "sha256": "611257967e4f39000613bf2fca481ced00ff93d5513af67d5582fa864f29811a"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-f/expected-issues.json",
+      "bytes": 12347,
+      "sha256": "9484c3e2bb37f6d88e17bf5c337683d41a23c46e4e7caa92c85c55139b05d063"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-f/live-readback/commands.json",
+      "bytes": 351783,
+      "sha256": "a59157ac48fb25c4bcaabf85a98a4cf6336561e397651761d9cdf90338830420"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-f/live-readback/issues.json",
+      "bytes": 12855,
+      "sha256": "e084607c8f0cd057c237bcc509f423e0dbd172e3d973da7f06e8d64e8d4a91df"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-f/live-readback/summary.json",
+      "bytes": 635,
+      "sha256": "dfb708b3e83993c2d2a4735b83eb77f76d62f704a4835b9d3e9db8bb5c9929af"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-f/read-trackers.py",
+      "bytes": 2289,
+      "sha256": "3b4252fbd68468d3035fba8f3391bf74b6731323fb423cf71204c4e02a9f0de4"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-f/resolution-gate-driver/input-0.json",
+      "bytes": 5400,
+      "sha256": "3d7f8c45770d869b6d14ef0f7d42bea5bb4b1122908e69ae155238a559ec5de3"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-f/resolution-gate-driver/input-1.json",
+      "bytes": 3265,
+      "sha256": "eae205dc7ad7fe8e16bb08db0932e9a111366d1208ccac416c78db881445f187"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-f/resolution-gate-driver/input-2.json",
+      "bytes": 1136,
+      "sha256": "d676be954e9366f03b8f6d5e32d9089af48d3b036f8cdec0b1948b7949706d43"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-f/resolution-gate-driver/receipt.json",
+      "bytes": 1804,
+      "sha256": "7176496d22090e60f93fbb8929097fb7d0b21ae0797756e2e7da6971bddd6ce1"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-f/resolution-gate-driver/stderr.json",
+      "bytes": 113,
+      "sha256": "47052b8093ac951a93b2a5fdd9cb1930d3173c55a232e6c65063b02b93a91c5d"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-f/resolution-gate-driver/stdout.json",
+      "bytes": 9692,
+      "sha256": "c1a39fc3489fc217d5e4e34000c9a172d1e42b426f2389f5c18a58b72ad714c8"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-f/resolution-gates/audit-checkboxes/input-0.json",
+      "bytes": 15082,
+      "sha256": "a3103298b487bed6c8bb8a6402eb65088460efef0c4c037136c1f3a14f8a7b3a"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-f/resolution-gates/audit-checkboxes/input-1.json",
+      "bytes": 7183,
+      "sha256": "02d9ea297ed4540840fc0a1c31a64a73990c3977b780661e906a8430b52a3472"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-f/resolution-gates/audit-checkboxes/input-2.json",
+      "bytes": 974,
+      "sha256": "a06a7271d60f6dbd0925e41c1de070821e00f2761fe6e0f6c09bb8221e29d7d7"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-f/resolution-gates/audit-checkboxes/input-3.json",
+      "bytes": 1320,
+      "sha256": "af5ff1b3cc9dcfd0fecc0827d26b7073a082d2305753e8655cf3f78cf0483e9b"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-f/resolution-gates/audit-checkboxes/input-4.json",
+      "bytes": 82421,
+      "sha256": "fd834ac9d4c537a2406d363b45938fe62e72037d950df169ab32854f064a44d5"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-f/resolution-gates/audit-checkboxes/input-5.json",
+      "bytes": 6684,
+      "sha256": "e96e2b4d5dd48e5d46cc781b1651630200fb44d8dae359af8ad040dfdac4064a"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-f/resolution-gates/audit-checkboxes/input-6.json",
+      "bytes": 7483,
+      "sha256": "608726f5c4602d889af445f5577be40b97140ea1ac4a171425a63305d96be500"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-f/resolution-gates/audit-checkboxes/receipt.json",
+      "bytes": 2736,
+      "sha256": "0c7c69736e19c48f9182dca0761c13cd9fe2927905c6556066eb4f41c8e7d339"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-f/resolution-gates/audit-checkboxes/stderr.json",
+      "bytes": 113,
+      "sha256": "47052b8093ac951a93b2a5fdd9cb1930d3173c55a232e6c65063b02b93a91c5d"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-f/resolution-gates/audit-checkboxes/stdout.json",
+      "bytes": 242,
+      "sha256": "4a8a620c6bf48ff45a06d2c01d19a2d149072cc4ceb7b5be18f0e7dfe80e79ac"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-f/resolution-gates/audit-issue-lint/input-0.json",
+      "bytes": 15082,
+      "sha256": "a3103298b487bed6c8bb8a6402eb65088460efef0c4c037136c1f3a14f8a7b3a"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-f/resolution-gates/audit-issue-lint/input-1.json",
+      "bytes": 7183,
+      "sha256": "02d9ea297ed4540840fc0a1c31a64a73990c3977b780661e906a8430b52a3472"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-f/resolution-gates/audit-issue-lint/input-2.json",
+      "bytes": 974,
+      "sha256": "a06a7271d60f6dbd0925e41c1de070821e00f2761fe6e0f6c09bb8221e29d7d7"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-f/resolution-gates/audit-issue-lint/input-3.json",
+      "bytes": 1320,
+      "sha256": "af5ff1b3cc9dcfd0fecc0827d26b7073a082d2305753e8655cf3f78cf0483e9b"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-f/resolution-gates/audit-issue-lint/input-4.json",
+      "bytes": 82421,
+      "sha256": "fd834ac9d4c537a2406d363b45938fe62e72037d950df169ab32854f064a44d5"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-f/resolution-gates/audit-issue-lint/input-5.json",
+      "bytes": 6684,
+      "sha256": "e96e2b4d5dd48e5d46cc781b1651630200fb44d8dae359af8ad040dfdac4064a"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-f/resolution-gates/audit-issue-lint/input-6.json",
+      "bytes": 39235,
+      "sha256": "a36c7509d78ba4f61628e6985b3c897115fb1269586f2f5a114421674732a992"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-f/resolution-gates/audit-issue-lint/receipt.json",
+      "bytes": 2805,
+      "sha256": "b162007d784950cdd06ebe475c1a72ef760d6ed658f1d7efa848e46f38299818"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-f/resolution-gates/audit-issue-lint/stderr.json",
+      "bytes": 113,
+      "sha256": "47052b8093ac951a93b2a5fdd9cb1930d3173c55a232e6c65063b02b93a91c5d"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-f/resolution-gates/audit-issue-lint/stdout.json",
+      "bytes": 1251,
+      "sha256": "790b14cd68ce0416ca226f79edaca473916f9b22444d8bcc816ca8e27c2b30b7"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-f/resolution-gates/audit-lint/input-0.json",
+      "bytes": 15082,
+      "sha256": "a3103298b487bed6c8bb8a6402eb65088460efef0c4c037136c1f3a14f8a7b3a"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-f/resolution-gates/audit-lint/input-1.json",
+      "bytes": 7183,
+      "sha256": "02d9ea297ed4540840fc0a1c31a64a73990c3977b780661e906a8430b52a3472"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-f/resolution-gates/audit-lint/input-2.json",
+      "bytes": 974,
+      "sha256": "a06a7271d60f6dbd0925e41c1de070821e00f2761fe6e0f6c09bb8221e29d7d7"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-f/resolution-gates/audit-lint/input-3.json",
+      "bytes": 1320,
+      "sha256": "af5ff1b3cc9dcfd0fecc0827d26b7073a082d2305753e8655cf3f78cf0483e9b"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-f/resolution-gates/audit-lint/input-4.json",
+      "bytes": 82421,
+      "sha256": "fd834ac9d4c537a2406d363b45938fe62e72037d950df169ab32854f064a44d5"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-f/resolution-gates/audit-lint/input-5.json",
+      "bytes": 6684,
+      "sha256": "e96e2b4d5dd48e5d46cc781b1651630200fb44d8dae359af8ad040dfdac4064a"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-f/resolution-gates/audit-lint/input-6.json",
+      "bytes": 39235,
+      "sha256": "a36c7509d78ba4f61628e6985b3c897115fb1269586f2f5a114421674732a992"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-f/resolution-gates/audit-lint/receipt.json",
+      "bytes": 2778,
+      "sha256": "a5985aa0cb35170e226b9650f0b7e8190c4d36cdf6929639b59917edc7ef0f7e"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-f/resolution-gates/audit-lint/stderr.json",
+      "bytes": 113,
+      "sha256": "47052b8093ac951a93b2a5fdd9cb1930d3173c55a232e6c65063b02b93a91c5d"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-f/resolution-gates/audit-lint/stdout.json",
+      "bytes": 1135,
+      "sha256": "faee1c77196386f9383bcaffd3f640991f315ac72910d615af9b3ac77ef0f337"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-f/resolution-gates/bug-checkboxes/input-0.json",
+      "bytes": 15082,
+      "sha256": "a3103298b487bed6c8bb8a6402eb65088460efef0c4c037136c1f3a14f8a7b3a"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-f/resolution-gates/bug-checkboxes/input-1.json",
+      "bytes": 7183,
+      "sha256": "02d9ea297ed4540840fc0a1c31a64a73990c3977b780661e906a8430b52a3472"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-f/resolution-gates/bug-checkboxes/input-2.json",
+      "bytes": 974,
+      "sha256": "a06a7271d60f6dbd0925e41c1de070821e00f2761fe6e0f6c09bb8221e29d7d7"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-f/resolution-gates/bug-checkboxes/input-3.json",
+      "bytes": 1320,
+      "sha256": "af5ff1b3cc9dcfd0fecc0827d26b7073a082d2305753e8655cf3f78cf0483e9b"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-f/resolution-gates/bug-checkboxes/input-4.json",
+      "bytes": 82421,
+      "sha256": "fd834ac9d4c537a2406d363b45938fe62e72037d950df169ab32854f064a44d5"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-f/resolution-gates/bug-checkboxes/input-5.json",
+      "bytes": 6684,
+      "sha256": "e96e2b4d5dd48e5d46cc781b1651630200fb44d8dae359af8ad040dfdac4064a"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-f/resolution-gates/bug-checkboxes/input-6.json",
+      "bytes": 7483,
+      "sha256": "608726f5c4602d889af445f5577be40b97140ea1ac4a171425a63305d96be500"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-f/resolution-gates/bug-checkboxes/receipt.json",
+      "bytes": 2736,
+      "sha256": "7b4bb96847b1a6849c8a264be656a91ef2e8b06a81f0e1a09009813d765644c3"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-f/resolution-gates/bug-checkboxes/stderr.json",
+      "bytes": 113,
+      "sha256": "47052b8093ac951a93b2a5fdd9cb1930d3173c55a232e6c65063b02b93a91c5d"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-f/resolution-gates/bug-checkboxes/stdout.json",
+      "bytes": 242,
+      "sha256": "4a8a620c6bf48ff45a06d2c01d19a2d149072cc4ceb7b5be18f0e7dfe80e79ac"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-f/resolution-gates/ceremony/input-0.json",
+      "bytes": 15082,
+      "sha256": "a3103298b487bed6c8bb8a6402eb65088460efef0c4c037136c1f3a14f8a7b3a"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-f/resolution-gates/ceremony/input-1.json",
+      "bytes": 7183,
+      "sha256": "02d9ea297ed4540840fc0a1c31a64a73990c3977b780661e906a8430b52a3472"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-f/resolution-gates/ceremony/input-2.json",
+      "bytes": 974,
+      "sha256": "a06a7271d60f6dbd0925e41c1de070821e00f2761fe6e0f6c09bb8221e29d7d7"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-f/resolution-gates/ceremony/input-3.json",
+      "bytes": 1320,
+      "sha256": "af5ff1b3cc9dcfd0fecc0827d26b7073a082d2305753e8655cf3f78cf0483e9b"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-f/resolution-gates/ceremony/input-4.json",
+      "bytes": 82421,
+      "sha256": "fd834ac9d4c537a2406d363b45938fe62e72037d950df169ab32854f064a44d5"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-f/resolution-gates/ceremony/input-5.json",
+      "bytes": 6684,
+      "sha256": "e96e2b4d5dd48e5d46cc781b1651630200fb44d8dae359af8ad040dfdac4064a"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-f/resolution-gates/ceremony/input-6.json",
+      "bytes": 34117,
+      "sha256": "18c832051e6b8abe397bc1e22b0eab2aaddf55190aceee7833aee9ec8b8fb736"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-f/resolution-gates/ceremony/receipt.json",
+      "bytes": 2734,
+      "sha256": "bb27939fdc676b28a2c35b29cd64dcfc29a73dbc95dd775a2ffa8d1e254b3b84"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-f/resolution-gates/ceremony/stderr.json",
+      "bytes": 113,
+      "sha256": "47052b8093ac951a93b2a5fdd9cb1930d3173c55a232e6c65063b02b93a91c5d"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-f/resolution-gates/ceremony/stdout.json",
+      "bytes": 347,
+      "sha256": "00802752fa17c74de5fa71dbdf29510dcbf4d9f5757caae20293c1b5d3b5106d"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-f/resolution-gates/index-write/input-0.json",
+      "bytes": 15082,
+      "sha256": "a3103298b487bed6c8bb8a6402eb65088460efef0c4c037136c1f3a14f8a7b3a"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-f/resolution-gates/index-write/input-1.json",
+      "bytes": 7183,
+      "sha256": "02d9ea297ed4540840fc0a1c31a64a73990c3977b780661e906a8430b52a3472"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-f/resolution-gates/index-write/input-2.json",
+      "bytes": 974,
+      "sha256": "a06a7271d60f6dbd0925e41c1de070821e00f2761fe6e0f6c09bb8221e29d7d7"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-f/resolution-gates/index-write/input-3.json",
+      "bytes": 1320,
+      "sha256": "af5ff1b3cc9dcfd0fecc0827d26b7073a082d2305753e8655cf3f78cf0483e9b"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-f/resolution-gates/index-write/input-4.json",
+      "bytes": 82421,
+      "sha256": "fd834ac9d4c537a2406d363b45938fe62e72037d950df169ab32854f064a44d5"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-f/resolution-gates/index-write/input-5.json",
+      "bytes": 6684,
+      "sha256": "e96e2b4d5dd48e5d46cc781b1651630200fb44d8dae359af8ad040dfdac4064a"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-f/resolution-gates/index-write/input-6.json",
+      "bytes": 6088,
+      "sha256": "10cb865f2777b8181a7f816e3376bb27e7111eaa362141f298a7a89c8fd3c669"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-f/resolution-gates/index-write/receipt.json",
+      "bytes": 2734,
+      "sha256": "5c27e757d8810b7127c3e34917d44d4c1f53012c7e1de791ce3d00ad92ca609b"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-f/resolution-gates/index-write/stderr.json",
+      "bytes": 113,
+      "sha256": "47052b8093ac951a93b2a5fdd9cb1930d3173c55a232e6c65063b02b93a91c5d"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-f/resolution-gates/index-write/stdout.json",
+      "bytes": 174,
+      "sha256": "57fdcb1c34c7e5fee0ef16b01ff2b7cb71a937456fc990e944d3c925101afd98"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-f/resolution-gates/index/input-0.json",
+      "bytes": 15082,
+      "sha256": "a3103298b487bed6c8bb8a6402eb65088460efef0c4c037136c1f3a14f8a7b3a"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-f/resolution-gates/index/input-1.json",
+      "bytes": 7183,
+      "sha256": "02d9ea297ed4540840fc0a1c31a64a73990c3977b780661e906a8430b52a3472"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-f/resolution-gates/index/input-2.json",
+      "bytes": 974,
+      "sha256": "a06a7271d60f6dbd0925e41c1de070821e00f2761fe6e0f6c09bb8221e29d7d7"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-f/resolution-gates/index/input-3.json",
+      "bytes": 1320,
+      "sha256": "af5ff1b3cc9dcfd0fecc0827d26b7073a082d2305753e8655cf3f78cf0483e9b"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-f/resolution-gates/index/input-4.json",
+      "bytes": 82421,
+      "sha256": "fd834ac9d4c537a2406d363b45938fe62e72037d950df169ab32854f064a44d5"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-f/resolution-gates/index/input-5.json",
+      "bytes": 6684,
+      "sha256": "e96e2b4d5dd48e5d46cc781b1651630200fb44d8dae359af8ad040dfdac4064a"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-f/resolution-gates/index/input-6.json",
+      "bytes": 6088,
+      "sha256": "10cb865f2777b8181a7f816e3376bb27e7111eaa362141f298a7a89c8fd3c669"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-f/resolution-gates/index/receipt.json",
+      "bytes": 2734,
+      "sha256": "23e8717e30d3d0d6880d36988fe6c9f5bd3c52ae238c4b975ef7c4b9f129ef4a"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-f/resolution-gates/index/stderr.json",
+      "bytes": 113,
+      "sha256": "47052b8093ac951a93b2a5fdd9cb1930d3173c55a232e6c65063b02b93a91c5d"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-f/resolution-gates/index/stdout.json",
+      "bytes": 146,
+      "sha256": "f4efc51b5f206b6c91f62ca72ca3ac2db01c25de454896b4ff2fdf941f35d770"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-f/resolution-gates/register/input-0.json",
+      "bytes": 15082,
+      "sha256": "a3103298b487bed6c8bb8a6402eb65088460efef0c4c037136c1f3a14f8a7b3a"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-f/resolution-gates/register/input-1.json",
+      "bytes": 7183,
+      "sha256": "02d9ea297ed4540840fc0a1c31a64a73990c3977b780661e906a8430b52a3472"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-f/resolution-gates/register/input-2.json",
+      "bytes": 974,
+      "sha256": "a06a7271d60f6dbd0925e41c1de070821e00f2761fe6e0f6c09bb8221e29d7d7"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-f/resolution-gates/register/input-3.json",
+      "bytes": 1320,
+      "sha256": "af5ff1b3cc9dcfd0fecc0827d26b7073a082d2305753e8655cf3f78cf0483e9b"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-f/resolution-gates/register/input-4.json",
+      "bytes": 82421,
+      "sha256": "fd834ac9d4c537a2406d363b45938fe62e72037d950df169ab32854f064a44d5"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-f/resolution-gates/register/input-5.json",
+      "bytes": 6684,
+      "sha256": "e96e2b4d5dd48e5d46cc781b1651630200fb44d8dae359af8ad040dfdac4064a"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-f/resolution-gates/register/input-6.json",
+      "bytes": 8216,
+      "sha256": "d1917009a23fe8a4557494d4383d526d69ac1f32733e942e8ca6ccd53084c0d1"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-f/resolution-gates/register/receipt.json",
+      "bytes": 2719,
+      "sha256": "7a19e2f698f543fe94f831916d8598c2f8041c892a30520a1b893c1450f6e184"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-f/resolution-gates/register/stderr.json",
+      "bytes": 113,
+      "sha256": "47052b8093ac951a93b2a5fdd9cb1930d3173c55a232e6c65063b02b93a91c5d"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-f/resolution-gates/register/stdout.json",
+      "bytes": 230,
+      "sha256": "99eb1086039bef2245c8ddd4bada196ca6c3080b6f88124ac7eb9c23c7e08fad"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-f/resolution-gates/results.json",
+      "bytes": 1397,
+      "sha256": "ef3d620fa3f321e6ef01cb904fd8a13e1d26225ba60d4a3f77195eaed4342ad0"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-f/resolution-gates/rules/input-0.json",
+      "bytes": 15082,
+      "sha256": "a3103298b487bed6c8bb8a6402eb65088460efef0c4c037136c1f3a14f8a7b3a"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-f/resolution-gates/rules/input-1.json",
+      "bytes": 7183,
+      "sha256": "02d9ea297ed4540840fc0a1c31a64a73990c3977b780661e906a8430b52a3472"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-f/resolution-gates/rules/input-2.json",
+      "bytes": 974,
+      "sha256": "a06a7271d60f6dbd0925e41c1de070821e00f2761fe6e0f6c09bb8221e29d7d7"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-f/resolution-gates/rules/input-3.json",
+      "bytes": 1320,
+      "sha256": "af5ff1b3cc9dcfd0fecc0827d26b7073a082d2305753e8655cf3f78cf0483e9b"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-f/resolution-gates/rules/input-4.json",
+      "bytes": 82421,
+      "sha256": "fd834ac9d4c537a2406d363b45938fe62e72037d950df169ab32854f064a44d5"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-f/resolution-gates/rules/input-5.json",
+      "bytes": 6684,
+      "sha256": "e96e2b4d5dd48e5d46cc781b1651630200fb44d8dae359af8ad040dfdac4064a"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-f/resolution-gates/rules/input-6.json",
+      "bytes": 14390,
+      "sha256": "6b427cefc4c44ff8600123a91575ba8f48fb624f51be04d7acd09b5c4e6d43bf"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-f/resolution-gates/rules/receipt.json",
+      "bytes": 2714,
+      "sha256": "69ae42e2df544ecc641dc8642d8d803bddc34391659b4eef0563e784068b1a99"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-f/resolution-gates/rules/stderr.json",
+      "bytes": 113,
+      "sha256": "47052b8093ac951a93b2a5fdd9cb1930d3173c55a232e6c65063b02b93a91c5d"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-f/resolution-gates/rules/stdout.json",
+      "bytes": 2620,
+      "sha256": "d4b7e480c18ec861d35c5f5fc5b8de6b01583fb818cc7fedc88d507251efa8cc"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-f/resolution-gates/scan-manifest.json",
+      "bytes": 113161,
+      "sha256": "39740166e49901d6e55efc3961718328e9a59421bd97e072e2765b32a1e39171"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-f/resolution-gates/scan-stderr.json",
+      "bytes": 113,
+      "sha256": "47052b8093ac951a93b2a5fdd9cb1930d3173c55a232e6c65063b02b93a91c5d"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-f/resolution-gates/scan-stdout.json",
+      "bytes": 166,
+      "sha256": "b3706c131519fb87ab2e8d017be1e9c4715be9c3d7e7fe15a55df34dfa22e10d"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-f/resolution-gates/scope/input-0.json",
+      "bytes": 15082,
+      "sha256": "a3103298b487bed6c8bb8a6402eb65088460efef0c4c037136c1f3a14f8a7b3a"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-f/resolution-gates/scope/input-1.json",
+      "bytes": 7183,
+      "sha256": "02d9ea297ed4540840fc0a1c31a64a73990c3977b780661e906a8430b52a3472"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-f/resolution-gates/scope/input-2.json",
+      "bytes": 974,
+      "sha256": "a06a7271d60f6dbd0925e41c1de070821e00f2761fe6e0f6c09bb8221e29d7d7"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-f/resolution-gates/scope/input-3.json",
+      "bytes": 1320,
+      "sha256": "af5ff1b3cc9dcfd0fecc0827d26b7073a082d2305753e8655cf3f78cf0483e9b"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-f/resolution-gates/scope/input-4.json",
+      "bytes": 82421,
+      "sha256": "fd834ac9d4c537a2406d363b45938fe62e72037d950df169ab32854f064a44d5"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-f/resolution-gates/scope/input-5.json",
+      "bytes": 6684,
+      "sha256": "e96e2b4d5dd48e5d46cc781b1651630200fb44d8dae359af8ad040dfdac4064a"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-f/resolution-gates/scope/receipt.json",
+      "bytes": 2845,
+      "sha256": "0365222bba65f25af7d8a785b9ba906a807755c1fe9a9ebb75e814320dc80e83"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-f/resolution-gates/scope/stderr.json",
+      "bytes": 113,
+      "sha256": "47052b8093ac951a93b2a5fdd9cb1930d3173c55a232e6c65063b02b93a91c5d"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-f/resolution-gates/scope/stdout.json",
+      "bytes": 1423,
+      "sha256": "2be29b8fa50eaabb80980393aeb01b0078f4a627f1870a801cd3b8cb32bec74c"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-f/resolution-gates/staged-whitespace/input-0.json",
+      "bytes": 15082,
+      "sha256": "a3103298b487bed6c8bb8a6402eb65088460efef0c4c037136c1f3a14f8a7b3a"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-f/resolution-gates/staged-whitespace/input-1.json",
+      "bytes": 7183,
+      "sha256": "02d9ea297ed4540840fc0a1c31a64a73990c3977b780661e906a8430b52a3472"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-f/resolution-gates/staged-whitespace/input-2.json",
+      "bytes": 974,
+      "sha256": "a06a7271d60f6dbd0925e41c1de070821e00f2761fe6e0f6c09bb8221e29d7d7"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-f/resolution-gates/staged-whitespace/input-3.json",
+      "bytes": 1320,
+      "sha256": "af5ff1b3cc9dcfd0fecc0827d26b7073a082d2305753e8655cf3f78cf0483e9b"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-f/resolution-gates/staged-whitespace/input-4.json",
+      "bytes": 82421,
+      "sha256": "fd834ac9d4c537a2406d363b45938fe62e72037d950df169ab32854f064a44d5"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-f/resolution-gates/staged-whitespace/input-5.json",
+      "bytes": 6684,
+      "sha256": "e96e2b4d5dd48e5d46cc781b1651630200fb44d8dae359af8ad040dfdac4064a"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-f/resolution-gates/staged-whitespace/receipt.json",
+      "bytes": 2500,
+      "sha256": "349a467001e1c93e9590964dbf119423933fa722110c7cbc3aa5900a5935b6f7"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-f/resolution-gates/staged-whitespace/stderr.json",
+      "bytes": 113,
+      "sha256": "47052b8093ac951a93b2a5fdd9cb1930d3173c55a232e6c65063b02b93a91c5d"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-f/resolution-gates/staged-whitespace/stdout.json",
+      "bytes": 113,
+      "sha256": "47052b8093ac951a93b2a5fdd9cb1930d3173c55a232e6c65063b02b93a91c5d"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-f/resolution-gates/working-whitespace/input-0.json",
+      "bytes": 15082,
+      "sha256": "a3103298b487bed6c8bb8a6402eb65088460efef0c4c037136c1f3a14f8a7b3a"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-f/resolution-gates/working-whitespace/input-1.json",
+      "bytes": 7183,
+      "sha256": "02d9ea297ed4540840fc0a1c31a64a73990c3977b780661e906a8430b52a3472"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-f/resolution-gates/working-whitespace/input-2.json",
+      "bytes": 974,
+      "sha256": "a06a7271d60f6dbd0925e41c1de070821e00f2761fe6e0f6c09bb8221e29d7d7"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-f/resolution-gates/working-whitespace/input-3.json",
+      "bytes": 1320,
+      "sha256": "af5ff1b3cc9dcfd0fecc0827d26b7073a082d2305753e8655cf3f78cf0483e9b"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-f/resolution-gates/working-whitespace/input-4.json",
+      "bytes": 82421,
+      "sha256": "fd834ac9d4c537a2406d363b45938fe62e72037d950df169ab32854f064a44d5"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-f/resolution-gates/working-whitespace/input-5.json",
+      "bytes": 6684,
+      "sha256": "e96e2b4d5dd48e5d46cc781b1651630200fb44d8dae359af8ad040dfdac4064a"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-f/resolution-gates/working-whitespace/receipt.json",
+      "bytes": 2484,
+      "sha256": "8408607a58db19b68d0098198a48e3bc99bdbb67c92e5ae9b2ea2d7c4aa72851"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-f/resolution-gates/working-whitespace/stderr.json",
+      "bytes": 113,
+      "sha256": "47052b8093ac951a93b2a5fdd9cb1930d3173c55a232e6c65063b02b93a91c5d"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-f/resolution-gates/working-whitespace/stdout.json",
+      "bytes": 113,
+      "sha256": "47052b8093ac951a93b2a5fdd9cb1930d3173c55a232e6c65063b02b93a91c5d"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-f/s1-binding.json",
+      "bytes": 327,
+      "sha256": "65cd57a413e79c5e888a4591431f99ca972e5b230db856a4bffe6d7dba285529"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-f/s1-commit-receipt/input-0.json",
+      "bytes": 1320,
+      "sha256": "af5ff1b3cc9dcfd0fecc0827d26b7073a082d2305753e8655cf3f78cf0483e9b"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-f/s1-commit-receipt/receipt.json",
+      "bytes": 1283,
+      "sha256": "b382ccfea6e2c6fd8d3de40123e11680da1a3c03a0cc862af6cc85095d400c71"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-f/s1-commit-receipt/stderr.json",
+      "bytes": 113,
+      "sha256": "47052b8093ac951a93b2a5fdd9cb1930d3173c55a232e6c65063b02b93a91c5d"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-f/s1-commit-receipt/stdout.json",
+      "bytes": 49757,
+      "sha256": "61032e81931a48f50c48a858a93c18230310a38f85e3a13717923f7a5714541b"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-f/tracker-readback/input-0.json",
+      "bytes": 3331,
+      "sha256": "b31babc0c8870b74bd54c6573e384a44558b78b55908caf062387a6cac653e96"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-f/tracker-readback/input-1.json",
+      "bytes": 16748,
+      "sha256": "6dd516fffa94d87431c2ba1c8a2481bcd84690b2ca4aee53015095a46f62f0c9"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-f/tracker-readback/receipt.json",
+      "bytes": 1453,
+      "sha256": "50dd339bd02e800d9594ba2fbfcbeded5cc9ba8733fa96636189a8946c5776cb"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-f/tracker-readback/stderr.json",
+      "bytes": 113,
+      "sha256": "47052b8093ac951a93b2a5fdd9cb1930d3173c55a232e6c65063b02b93a91c5d"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-f/tracker-readback/stdout.json",
+      "bytes": 291,
+      "sha256": "3be72bbe9b7eb9d45f052e4a65d95b3cb219e38f403272e367217f0bbc56e67a"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-g/pre-h-scan-command/input-0.json",
+      "bytes": 4248,
+      "sha256": "47316e78b10f583ccab0f93e6bb9c47a285fd4308650b6ce3968f8a9748ab173"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-g/pre-h-scan-command/input-1.json",
+      "bytes": 82421,
+      "sha256": "fd834ac9d4c537a2406d363b45938fe62e72037d950df169ab32854f064a44d5"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-g/pre-h-scan-command/input-2.json",
+      "bytes": 3927,
+      "sha256": "a046d689c048278015f018fb7eb0a9746d7c3c9e4277c1da0b162228158bc9c3"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-g/pre-h-scan-command/receipt.json",
+      "bytes": 1727,
+      "sha256": "947c0d4c64599cb0b2df665d6a8ef11807a2a93c7d4c1328479a81388e380f84"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-g/pre-h-scan-command/stderr.json",
+      "bytes": 113,
+      "sha256": "47052b8093ac951a93b2a5fdd9cb1930d3173c55a232e6c65063b02b93a91c5d"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-g/pre-h-scan-command/stdout.json",
+      "bytes": 1604,
+      "sha256": "1b2aa71a60b3d77751aaff263b9fb9b595bdb96b5e2d1d9691be978f9b56f409"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-g/pre-h-scan/manifest.json",
+      "bytes": 161620,
+      "sha256": "00b992eb3039a4aab3fa2078a8430ec2d3ed4e9fec0da39b7bc1f85587bc6cc8"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-g/pre-h-scan/stderr.json",
+      "bytes": 113,
+      "sha256": "47052b8093ac951a93b2a5fdd9cb1930d3173c55a232e6c65063b02b93a91c5d"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-g/pre-h-scan/stdout.json",
+      "bytes": 166,
+      "sha256": "b3706c131519fb87ab2e8d017be1e9c4715be9c3d7e7fe15a55df34dfa22e10d"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-g/read-retro.py",
+      "bytes": 1028,
+      "sha256": "325d238fa81fecbc9725a623124757cf2bf0adca85e9ce5df753c96672c7acdc"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-g/retro-post-body.md",
+      "bytes": 5553,
+      "sha256": "25105181b4ee0944212bd32d68800d10747ad0d72ff07e0c8ecfd682d05cafef"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-g/retro-readback-command/input-0.json",
+      "bytes": 1648,
+      "sha256": "842ac1f5e5e55bda11abc94d9d4d104eba9a33d7f3c8a968ea01324a91102fe0"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-g/retro-readback-command/input-1.json",
+      "bytes": 7656,
+      "sha256": "f0fa43b85a04465d176e2a9b0b92a425769869646a8e0e70db943defbc50ecbe"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-g/retro-readback-command/receipt.json",
+      "bytes": 1415,
+      "sha256": "ba41b8f421fa294a7ba0275529ea3f2c9d798571ce139428967aced8eead784b"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-g/retro-readback-command/stderr.json",
+      "bytes": 113,
+      "sha256": "47052b8093ac951a93b2a5fdd9cb1930d3173c55a232e6c65063b02b93a91c5d"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-g/retro-readback-command/stdout.json",
+      "bytes": 975,
+      "sha256": "90e4e1e9646bfa443dfe1ca86fb1818e6bf2703e7356b30b54a756d81a562ed2"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-g/retro-readback.json",
+      "bytes": 12685,
+      "sha256": "dadf201639ae13a91bd85d60d2465833232e0bee805f6dfb354308d317ed464e"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-h/census-command/input-0.json",
+      "bytes": 4522,
+      "sha256": "f4b6bdd55b5469dc54ccdca1b06ec61164f885ed9f5ad35f106995975749ec5c"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-h/census-command/input-1.json",
+      "bytes": 154071,
+      "sha256": "c7db96b08c93caa28e2470508c2e2cd684b4edd2d802ea5435fe761d30f17a1e"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-h/census-command/receipt.json",
+      "bytes": 1446,
+      "sha256": "a1d9e1482f87e6464127d3969f9a2219b8bf13f27992c0e05f297973ada33b34"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-h/census-command/stderr.json",
+      "bytes": 113,
+      "sha256": "47052b8093ac951a93b2a5fdd9cb1930d3173c55a232e6c65063b02b93a91c5d"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-h/census-command/stdout.json",
+      "bytes": 1403,
+      "sha256": "05c7ff8aeeba394544af1ba05c5107a58af4e6bc708168d697a102947405729e"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-h/final-gate-driver/input-0.json",
+      "bytes": 5400,
+      "sha256": "3d7f8c45770d869b6d14ef0f7d42bea5bb4b1122908e69ae155238a559ec5de3"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-h/final-gate-driver/input-1.json",
+      "bytes": 3265,
+      "sha256": "eae205dc7ad7fe8e16bb08db0932e9a111366d1208ccac416c78db881445f187"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-h/final-gate-driver/input-2.json",
+      "bytes": 1136,
+      "sha256": "d676be954e9366f03b8f6d5e32d9089af48d3b036f8cdec0b1948b7949706d43"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-h/final-gates/audit-checkboxes/input-0.json",
+      "bytes": 16142,
+      "sha256": "adb8f0181c6fcd78f1c11c336fa3df203a4b2faa00355b7337d4c19db19487ba"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-h/final-gates/audit-checkboxes/input-1.json",
+      "bytes": 8243,
+      "sha256": "7f4ecf67f0cd780463b969fb09b5c8dd69842c287584eb1df6815f2a675e98eb"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-h/final-gates/audit-checkboxes/input-2.json",
+      "bytes": 974,
+      "sha256": "a06a7271d60f6dbd0925e41c1de070821e00f2761fe6e0f6c09bb8221e29d7d7"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-h/final-gates/audit-checkboxes/input-3.json",
+      "bytes": 1320,
+      "sha256": "af5ff1b3cc9dcfd0fecc0827d26b7073a082d2305753e8655cf3f78cf0483e9b"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-h/final-gates/audit-checkboxes/input-4.json",
+      "bytes": 82421,
+      "sha256": "fd834ac9d4c537a2406d363b45938fe62e72037d950df169ab32854f064a44d5"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-h/final-gates/audit-checkboxes/input-5.json",
+      "bytes": 6684,
+      "sha256": "e96e2b4d5dd48e5d46cc781b1651630200fb44d8dae359af8ad040dfdac4064a"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-h/final-gates/audit-checkboxes/input-6.json",
+      "bytes": 7483,
+      "sha256": "608726f5c4602d889af445f5577be40b97140ea1ac4a171425a63305d96be500"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-h/final-gates/audit-checkboxes/receipt.json",
+      "bytes": 2736,
+      "sha256": "5a4583a510b7571cb46c6948581b66547cf3221cd70fec73f2b51643baadd06c"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-h/final-gates/audit-checkboxes/stderr.json",
+      "bytes": 113,
+      "sha256": "47052b8093ac951a93b2a5fdd9cb1930d3173c55a232e6c65063b02b93a91c5d"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-h/final-gates/audit-checkboxes/stdout.json",
+      "bytes": 242,
+      "sha256": "4a8a620c6bf48ff45a06d2c01d19a2d149072cc4ceb7b5be18f0e7dfe80e79ac"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-h/final-gates/audit-issue-lint/input-0.json",
+      "bytes": 16142,
+      "sha256": "adb8f0181c6fcd78f1c11c336fa3df203a4b2faa00355b7337d4c19db19487ba"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-h/final-gates/audit-issue-lint/input-1.json",
+      "bytes": 8243,
+      "sha256": "7f4ecf67f0cd780463b969fb09b5c8dd69842c287584eb1df6815f2a675e98eb"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-h/final-gates/audit-issue-lint/input-2.json",
+      "bytes": 974,
+      "sha256": "a06a7271d60f6dbd0925e41c1de070821e00f2761fe6e0f6c09bb8221e29d7d7"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-h/final-gates/audit-issue-lint/input-3.json",
+      "bytes": 1320,
+      "sha256": "af5ff1b3cc9dcfd0fecc0827d26b7073a082d2305753e8655cf3f78cf0483e9b"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-h/final-gates/audit-issue-lint/input-4.json",
+      "bytes": 82421,
+      "sha256": "fd834ac9d4c537a2406d363b45938fe62e72037d950df169ab32854f064a44d5"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-h/final-gates/audit-issue-lint/input-5.json",
+      "bytes": 6684,
+      "sha256": "e96e2b4d5dd48e5d46cc781b1651630200fb44d8dae359af8ad040dfdac4064a"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-h/final-gates/audit-issue-lint/input-6.json",
+      "bytes": 39235,
+      "sha256": "a36c7509d78ba4f61628e6985b3c897115fb1269586f2f5a114421674732a992"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-h/final-gates/audit-issue-lint/receipt.json",
+      "bytes": 2805,
+      "sha256": "3f2fe2b95e609f0f306dadba9d8c8258a509e68bbfc497dcb53094743fa5f577"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-h/final-gates/audit-issue-lint/stderr.json",
+      "bytes": 113,
+      "sha256": "47052b8093ac951a93b2a5fdd9cb1930d3173c55a232e6c65063b02b93a91c5d"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-h/final-gates/audit-issue-lint/stdout.json",
+      "bytes": 1251,
+      "sha256": "790b14cd68ce0416ca226f79edaca473916f9b22444d8bcc816ca8e27c2b30b7"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-h/final-gates/audit-lint/input-0.json",
+      "bytes": 16142,
+      "sha256": "adb8f0181c6fcd78f1c11c336fa3df203a4b2faa00355b7337d4c19db19487ba"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-h/final-gates/audit-lint/input-1.json",
+      "bytes": 8243,
+      "sha256": "7f4ecf67f0cd780463b969fb09b5c8dd69842c287584eb1df6815f2a675e98eb"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-h/final-gates/audit-lint/input-2.json",
+      "bytes": 974,
+      "sha256": "a06a7271d60f6dbd0925e41c1de070821e00f2761fe6e0f6c09bb8221e29d7d7"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-h/final-gates/audit-lint/input-3.json",
+      "bytes": 1320,
+      "sha256": "af5ff1b3cc9dcfd0fecc0827d26b7073a082d2305753e8655cf3f78cf0483e9b"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-h/final-gates/audit-lint/input-4.json",
+      "bytes": 82421,
+      "sha256": "fd834ac9d4c537a2406d363b45938fe62e72037d950df169ab32854f064a44d5"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-h/final-gates/audit-lint/input-5.json",
+      "bytes": 6684,
+      "sha256": "e96e2b4d5dd48e5d46cc781b1651630200fb44d8dae359af8ad040dfdac4064a"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-h/final-gates/audit-lint/input-6.json",
+      "bytes": 39235,
+      "sha256": "a36c7509d78ba4f61628e6985b3c897115fb1269586f2f5a114421674732a992"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-h/final-gates/audit-lint/receipt.json",
+      "bytes": 2778,
+      "sha256": "f0d57771f76690bd835d68374c18cc3bc22b87cc2b93beeac8e77a8a0ac604e0"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-h/final-gates/audit-lint/stderr.json",
+      "bytes": 113,
+      "sha256": "47052b8093ac951a93b2a5fdd9cb1930d3173c55a232e6c65063b02b93a91c5d"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-h/final-gates/audit-lint/stdout.json",
+      "bytes": 1135,
+      "sha256": "faee1c77196386f9383bcaffd3f640991f315ac72910d615af9b3ac77ef0f337"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-h/final-gates/bug-checkboxes/input-0.json",
+      "bytes": 16142,
+      "sha256": "adb8f0181c6fcd78f1c11c336fa3df203a4b2faa00355b7337d4c19db19487ba"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-h/final-gates/bug-checkboxes/input-1.json",
+      "bytes": 8243,
+      "sha256": "7f4ecf67f0cd780463b969fb09b5c8dd69842c287584eb1df6815f2a675e98eb"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-h/final-gates/bug-checkboxes/input-2.json",
+      "bytes": 974,
+      "sha256": "a06a7271d60f6dbd0925e41c1de070821e00f2761fe6e0f6c09bb8221e29d7d7"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-h/final-gates/bug-checkboxes/input-3.json",
+      "bytes": 1320,
+      "sha256": "af5ff1b3cc9dcfd0fecc0827d26b7073a082d2305753e8655cf3f78cf0483e9b"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-h/final-gates/bug-checkboxes/input-4.json",
+      "bytes": 82421,
+      "sha256": "fd834ac9d4c537a2406d363b45938fe62e72037d950df169ab32854f064a44d5"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-h/final-gates/bug-checkboxes/input-5.json",
+      "bytes": 6684,
+      "sha256": "e96e2b4d5dd48e5d46cc781b1651630200fb44d8dae359af8ad040dfdac4064a"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-h/final-gates/bug-checkboxes/input-6.json",
+      "bytes": 7483,
+      "sha256": "608726f5c4602d889af445f5577be40b97140ea1ac4a171425a63305d96be500"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-h/final-gates/bug-checkboxes/receipt.json",
+      "bytes": 2736,
+      "sha256": "8365b9384db305c3d08b95862167d331484874575a87b67b0248e6ed0c82587e"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-h/final-gates/bug-checkboxes/stderr.json",
+      "bytes": 113,
+      "sha256": "47052b8093ac951a93b2a5fdd9cb1930d3173c55a232e6c65063b02b93a91c5d"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-h/final-gates/bug-checkboxes/stdout.json",
+      "bytes": 242,
+      "sha256": "4a8a620c6bf48ff45a06d2c01d19a2d149072cc4ceb7b5be18f0e7dfe80e79ac"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-h/final-gates/ceremony/input-0.json",
+      "bytes": 16142,
+      "sha256": "adb8f0181c6fcd78f1c11c336fa3df203a4b2faa00355b7337d4c19db19487ba"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-h/final-gates/ceremony/input-1.json",
+      "bytes": 8243,
+      "sha256": "7f4ecf67f0cd780463b969fb09b5c8dd69842c287584eb1df6815f2a675e98eb"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-h/final-gates/ceremony/input-2.json",
+      "bytes": 974,
+      "sha256": "a06a7271d60f6dbd0925e41c1de070821e00f2761fe6e0f6c09bb8221e29d7d7"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-h/final-gates/ceremony/input-3.json",
+      "bytes": 1320,
+      "sha256": "af5ff1b3cc9dcfd0fecc0827d26b7073a082d2305753e8655cf3f78cf0483e9b"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-h/final-gates/ceremony/input-4.json",
+      "bytes": 82421,
+      "sha256": "fd834ac9d4c537a2406d363b45938fe62e72037d950df169ab32854f064a44d5"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-h/final-gates/ceremony/input-5.json",
+      "bytes": 6684,
+      "sha256": "e96e2b4d5dd48e5d46cc781b1651630200fb44d8dae359af8ad040dfdac4064a"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-h/final-gates/ceremony/input-6.json",
+      "bytes": 34117,
+      "sha256": "18c832051e6b8abe397bc1e22b0eab2aaddf55190aceee7833aee9ec8b8fb736"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-h/final-gates/ceremony/receipt.json",
+      "bytes": 2734,
+      "sha256": "30e80dd329aad343bf23d35e546e0d23ee3d9744d2b1a3b5489414c8176c1528"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-h/final-gates/ceremony/stderr.json",
+      "bytes": 113,
+      "sha256": "47052b8093ac951a93b2a5fdd9cb1930d3173c55a232e6c65063b02b93a91c5d"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-h/final-gates/ceremony/stdout.json",
+      "bytes": 347,
+      "sha256": "00802752fa17c74de5fa71dbdf29510dcbf4d9f5757caae20293c1b5d3b5106d"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-h/final-gates/index-write/input-0.json",
+      "bytes": 16142,
+      "sha256": "adb8f0181c6fcd78f1c11c336fa3df203a4b2faa00355b7337d4c19db19487ba"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-h/final-gates/index-write/input-1.json",
+      "bytes": 8243,
+      "sha256": "7f4ecf67f0cd780463b969fb09b5c8dd69842c287584eb1df6815f2a675e98eb"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-h/final-gates/index-write/input-2.json",
+      "bytes": 974,
+      "sha256": "a06a7271d60f6dbd0925e41c1de070821e00f2761fe6e0f6c09bb8221e29d7d7"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-h/final-gates/index-write/input-3.json",
+      "bytes": 1320,
+      "sha256": "af5ff1b3cc9dcfd0fecc0827d26b7073a082d2305753e8655cf3f78cf0483e9b"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-h/final-gates/index-write/input-4.json",
+      "bytes": 82421,
+      "sha256": "fd834ac9d4c537a2406d363b45938fe62e72037d950df169ab32854f064a44d5"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-h/final-gates/index-write/input-5.json",
+      "bytes": 6684,
+      "sha256": "e96e2b4d5dd48e5d46cc781b1651630200fb44d8dae359af8ad040dfdac4064a"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-h/final-gates/index-write/input-6.json",
+      "bytes": 6088,
+      "sha256": "10cb865f2777b8181a7f816e3376bb27e7111eaa362141f298a7a89c8fd3c669"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-h/final-gates/index-write/receipt.json",
+      "bytes": 2734,
+      "sha256": "1322a0d42c3771686883df4e083dc43ed2f3e0b6f5ccec0b4504cf33c9625aa6"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-h/final-gates/index-write/stderr.json",
+      "bytes": 113,
+      "sha256": "47052b8093ac951a93b2a5fdd9cb1930d3173c55a232e6c65063b02b93a91c5d"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-h/final-gates/index-write/stdout.json",
+      "bytes": 174,
+      "sha256": "8f7401ff6653b1f5ce0b49883a77fdf44ea7b84228f33c74e4720208cbd09c73"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-h/final-gates/index/input-0.json",
+      "bytes": 16142,
+      "sha256": "adb8f0181c6fcd78f1c11c336fa3df203a4b2faa00355b7337d4c19db19487ba"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-h/final-gates/index/input-1.json",
+      "bytes": 8243,
+      "sha256": "7f4ecf67f0cd780463b969fb09b5c8dd69842c287584eb1df6815f2a675e98eb"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-h/final-gates/index/input-2.json",
+      "bytes": 974,
+      "sha256": "a06a7271d60f6dbd0925e41c1de070821e00f2761fe6e0f6c09bb8221e29d7d7"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-h/final-gates/index/input-3.json",
+      "bytes": 1320,
+      "sha256": "af5ff1b3cc9dcfd0fecc0827d26b7073a082d2305753e8655cf3f78cf0483e9b"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-h/final-gates/index/input-4.json",
+      "bytes": 82421,
+      "sha256": "fd834ac9d4c537a2406d363b45938fe62e72037d950df169ab32854f064a44d5"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-h/final-gates/index/input-5.json",
+      "bytes": 6684,
+      "sha256": "e96e2b4d5dd48e5d46cc781b1651630200fb44d8dae359af8ad040dfdac4064a"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-h/final-gates/index/input-6.json",
+      "bytes": 6088,
+      "sha256": "10cb865f2777b8181a7f816e3376bb27e7111eaa362141f298a7a89c8fd3c669"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-h/final-gates/index/receipt.json",
+      "bytes": 2734,
+      "sha256": "d28da7cff72fbe227e3fa2f3fd34e362a35d56beedc76f32b5fd59c0bca19483"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-h/final-gates/index/stderr.json",
+      "bytes": 113,
+      "sha256": "47052b8093ac951a93b2a5fdd9cb1930d3173c55a232e6c65063b02b93a91c5d"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-h/final-gates/index/stdout.json",
+      "bytes": 146,
+      "sha256": "f4efc51b5f206b6c91f62ca72ca3ac2db01c25de454896b4ff2fdf941f35d770"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-h/final-gates/register/input-0.json",
+      "bytes": 16142,
+      "sha256": "adb8f0181c6fcd78f1c11c336fa3df203a4b2faa00355b7337d4c19db19487ba"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-h/final-gates/register/input-1.json",
+      "bytes": 8243,
+      "sha256": "7f4ecf67f0cd780463b969fb09b5c8dd69842c287584eb1df6815f2a675e98eb"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-h/final-gates/register/input-2.json",
+      "bytes": 974,
+      "sha256": "a06a7271d60f6dbd0925e41c1de070821e00f2761fe6e0f6c09bb8221e29d7d7"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-h/final-gates/register/input-3.json",
+      "bytes": 1320,
+      "sha256": "af5ff1b3cc9dcfd0fecc0827d26b7073a082d2305753e8655cf3f78cf0483e9b"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-h/final-gates/register/input-4.json",
+      "bytes": 82421,
+      "sha256": "fd834ac9d4c537a2406d363b45938fe62e72037d950df169ab32854f064a44d5"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-h/final-gates/register/input-5.json",
+      "bytes": 6684,
+      "sha256": "e96e2b4d5dd48e5d46cc781b1651630200fb44d8dae359af8ad040dfdac4064a"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-h/final-gates/register/input-6.json",
+      "bytes": 8216,
+      "sha256": "d1917009a23fe8a4557494d4383d526d69ac1f32733e942e8ca6ccd53084c0d1"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-h/final-gates/register/receipt.json",
+      "bytes": 2719,
+      "sha256": "8a34f041ff97875e52acb5f60fe6c2ac9d87235785b0b5ecbdda07917c7b63ff"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-h/final-gates/register/stderr.json",
+      "bytes": 113,
+      "sha256": "47052b8093ac951a93b2a5fdd9cb1930d3173c55a232e6c65063b02b93a91c5d"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-h/final-gates/register/stdout.json",
+      "bytes": 230,
+      "sha256": "99eb1086039bef2245c8ddd4bada196ca6c3080b6f88124ac7eb9c23c7e08fad"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-h/final-gates/results.json",
+      "bytes": 1337,
+      "sha256": "190bb1af1e09db1d24fddb47041a7dc1a2c3692a7490b3f7aeb2f7557269bcf9"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-h/final-gates/rules/input-0.json",
+      "bytes": 16142,
+      "sha256": "adb8f0181c6fcd78f1c11c336fa3df203a4b2faa00355b7337d4c19db19487ba"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-h/final-gates/rules/input-1.json",
+      "bytes": 8243,
+      "sha256": "7f4ecf67f0cd780463b969fb09b5c8dd69842c287584eb1df6815f2a675e98eb"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-h/final-gates/rules/input-2.json",
+      "bytes": 974,
+      "sha256": "a06a7271d60f6dbd0925e41c1de070821e00f2761fe6e0f6c09bb8221e29d7d7"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-h/final-gates/rules/input-3.json",
+      "bytes": 1320,
+      "sha256": "af5ff1b3cc9dcfd0fecc0827d26b7073a082d2305753e8655cf3f78cf0483e9b"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-h/final-gates/rules/input-4.json",
+      "bytes": 82421,
+      "sha256": "fd834ac9d4c537a2406d363b45938fe62e72037d950df169ab32854f064a44d5"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-h/final-gates/rules/input-5.json",
+      "bytes": 6684,
+      "sha256": "e96e2b4d5dd48e5d46cc781b1651630200fb44d8dae359af8ad040dfdac4064a"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-h/final-gates/rules/input-6.json",
+      "bytes": 14390,
+      "sha256": "6b427cefc4c44ff8600123a91575ba8f48fb624f51be04d7acd09b5c4e6d43bf"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-h/final-gates/rules/receipt.json",
+      "bytes": 2714,
+      "sha256": "8d5e5dae6461a97721502194fba875ad76dc468c102a46fb8ad4de6e9b2220b6"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-h/final-gates/rules/stderr.json",
+      "bytes": 113,
+      "sha256": "47052b8093ac951a93b2a5fdd9cb1930d3173c55a232e6c65063b02b93a91c5d"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-h/final-gates/rules/stdout.json",
+      "bytes": 2620,
+      "sha256": "d4b7e480c18ec861d35c5f5fc5b8de6b01583fb818cc7fedc88d507251efa8cc"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-h/final-gates/scope/input-0.json",
+      "bytes": 16142,
+      "sha256": "adb8f0181c6fcd78f1c11c336fa3df203a4b2faa00355b7337d4c19db19487ba"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-h/final-gates/scope/input-1.json",
+      "bytes": 8243,
+      "sha256": "7f4ecf67f0cd780463b969fb09b5c8dd69842c287584eb1df6815f2a675e98eb"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-h/final-gates/scope/input-2.json",
+      "bytes": 974,
+      "sha256": "a06a7271d60f6dbd0925e41c1de070821e00f2761fe6e0f6c09bb8221e29d7d7"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-h/final-gates/scope/input-3.json",
+      "bytes": 1320,
+      "sha256": "af5ff1b3cc9dcfd0fecc0827d26b7073a082d2305753e8655cf3f78cf0483e9b"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-h/final-gates/scope/input-4.json",
+      "bytes": 82421,
+      "sha256": "fd834ac9d4c537a2406d363b45938fe62e72037d950df169ab32854f064a44d5"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-h/final-gates/scope/input-5.json",
+      "bytes": 6684,
+      "sha256": "e96e2b4d5dd48e5d46cc781b1651630200fb44d8dae359af8ad040dfdac4064a"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-h/final-gates/scope/receipt.json",
+      "bytes": 2845,
+      "sha256": "8943e16d5468ac179a55174ffa9af3110ced35abc8b8fa8a0b57b8b094299840"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-h/final-gates/scope/stderr.json",
+      "bytes": 113,
+      "sha256": "47052b8093ac951a93b2a5fdd9cb1930d3173c55a232e6c65063b02b93a91c5d"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-h/final-gates/scope/stdout.json",
+      "bytes": 1423,
+      "sha256": "0d99d81aa61cc85fa2ed217b64e3fdbe28bd71cbcb2db16e9a7b5b548e5017f6"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-h/final-gates/staged-whitespace/input-0.json",
+      "bytes": 16142,
+      "sha256": "adb8f0181c6fcd78f1c11c336fa3df203a4b2faa00355b7337d4c19db19487ba"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-h/final-gates/staged-whitespace/input-1.json",
+      "bytes": 8243,
+      "sha256": "7f4ecf67f0cd780463b969fb09b5c8dd69842c287584eb1df6815f2a675e98eb"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-h/final-gates/staged-whitespace/input-2.json",
+      "bytes": 974,
+      "sha256": "a06a7271d60f6dbd0925e41c1de070821e00f2761fe6e0f6c09bb8221e29d7d7"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-h/final-gates/staged-whitespace/input-3.json",
+      "bytes": 1320,
+      "sha256": "af5ff1b3cc9dcfd0fecc0827d26b7073a082d2305753e8655cf3f78cf0483e9b"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-h/final-gates/staged-whitespace/input-4.json",
+      "bytes": 82421,
+      "sha256": "fd834ac9d4c537a2406d363b45938fe62e72037d950df169ab32854f064a44d5"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-h/final-gates/staged-whitespace/input-5.json",
+      "bytes": 6684,
+      "sha256": "e96e2b4d5dd48e5d46cc781b1651630200fb44d8dae359af8ad040dfdac4064a"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-h/final-gates/staged-whitespace/receipt.json",
+      "bytes": 2500,
+      "sha256": "6a8f3e551cc9761cf08997527a3122b85d1a32f2497edb79d4f95299b3d0db34"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-h/final-gates/staged-whitespace/stderr.json",
+      "bytes": 113,
+      "sha256": "47052b8093ac951a93b2a5fdd9cb1930d3173c55a232e6c65063b02b93a91c5d"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-h/final-gates/staged-whitespace/stdout.json",
+      "bytes": 113,
+      "sha256": "47052b8093ac951a93b2a5fdd9cb1930d3173c55a232e6c65063b02b93a91c5d"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-h/final-gates/working-whitespace/input-0.json",
+      "bytes": 16142,
+      "sha256": "adb8f0181c6fcd78f1c11c336fa3df203a4b2faa00355b7337d4c19db19487ba"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-h/final-gates/working-whitespace/input-1.json",
+      "bytes": 8243,
+      "sha256": "7f4ecf67f0cd780463b969fb09b5c8dd69842c287584eb1df6815f2a675e98eb"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-h/final-gates/working-whitespace/input-2.json",
+      "bytes": 974,
+      "sha256": "a06a7271d60f6dbd0925e41c1de070821e00f2761fe6e0f6c09bb8221e29d7d7"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-h/final-gates/working-whitespace/input-3.json",
+      "bytes": 1320,
+      "sha256": "af5ff1b3cc9dcfd0fecc0827d26b7073a082d2305753e8655cf3f78cf0483e9b"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-h/final-gates/working-whitespace/input-4.json",
+      "bytes": 82421,
+      "sha256": "fd834ac9d4c537a2406d363b45938fe62e72037d950df169ab32854f064a44d5"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-h/final-gates/working-whitespace/input-5.json",
+      "bytes": 6684,
+      "sha256": "e96e2b4d5dd48e5d46cc781b1651630200fb44d8dae359af8ad040dfdac4064a"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-h/final-gates/working-whitespace/receipt.json",
+      "bytes": 2484,
+      "sha256": "5e312683a93a0388ae2e4d313934048852ab3706e816c0e52540f4025c44a4ed"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-h/final-gates/working-whitespace/stderr.json",
+      "bytes": 113,
+      "sha256": "47052b8093ac951a93b2a5fdd9cb1930d3173c55a232e6c65063b02b93a91c5d"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-h/final-gates/working-whitespace/stdout.json",
+      "bytes": 113,
+      "sha256": "47052b8093ac951a93b2a5fdd9cb1930d3173c55a232e6c65063b02b93a91c5d"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-h/handback.md",
+      "bytes": 4281,
+      "sha256": "faab49391be6f65beab56c999930abecb5e5fa37c37193fd223717570af86801"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/stage-h/retained-census.json",
+      "bytes": 381178,
+      "sha256": "4b47fce17bed7482ef9b1ac858f57f3b3fb28c368ae81de43cf89f9c34d33e7e"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/tools/eh-controls.py",
+      "bytes": 1066,
+      "sha256": "a6957c088e9a08207fe384f0b0e1188fcdd2f02c6983b8d9d084f60a1519cfbb"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/tools/eh-custody.py",
+      "bytes": 3186,
+      "sha256": "6a09222f2b5ff142002d2b07a8f5b64d014b7d771ded9983e7791f670b63889a"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/tools/eh-final.py",
+      "bytes": 3615,
+      "sha256": "bbfeb44870467d60d799640a2b362aa2ec85e5d472f21aff132324ccc28d37cb"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/tools/eh-fixtures.py",
+      "bytes": 5381,
+      "sha256": "1c53575ceddbd14c10b89d2ab57a9a5a803f7d420dc208b3e1f9461da34b6233"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/tools/eh-gates.py",
+      "bytes": 3844,
+      "sha256": "1a6b7ec3529ec3ff68c2d88ec473b22a74a5d7205170baaf467d5ad6fa7dcc28"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/tools/eh-record.py",
+      "bytes": 2243,
+      "sha256": "35c4629f5663957a870af3059015e86fac15ae5cc098820bb6ee7bf64776b4a8"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/tools/eh-scope.py",
+      "bytes": 4808,
+      "sha256": "7e48e422ff6f25092a01f9a032c63291ce1c87a6ccbf1839333b54a216550628"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/tools/eh-source.py",
+      "bytes": 1349,
+      "sha256": "8450cd6a0589df0b91edfd7d567595146598cca0f53c9f6263597d1cded00c49"
+    },
+    {
+      "path": "docs/audits/README.md",
+      "bytes": 813,
+      "sha256": "410e4432c01a38cda578a68fdaa730129c15a8e3e60c7305001bb40bd5a71b6c"
+    },
+    {
+      "path": "docs/retros/2026-11-03-m6-records.md",
+      "bytes": 5553,
+      "sha256": "25105181b4ee0944212bd32d68800d10747ad0d72ff07e0c8ecfd682d05cafef"
+    },
+    {
+      "path": "docs/work-logs/2026_11-work_logs/2026_11_03-work_log.md",
+      "bytes": 12551,
+      "sha256": "0e1522c25e28dee96533729ab772ba9ded4ce75dd7081506796242dabfdcfbd3"
+    },
+    {
+      "path": "docs/work-logs/INDEX.md",
+      "bytes": 165792,
+      "sha256": "477f0da820ff2bf81e22d503397391dcce382a0c9ff1229ee85ae009688883d4"
+    }
+  ],
+  "stdout_sha256": "ae7d101f07c8c55bfd82db597d8d383d0f9c1102459a98a228136f4248a15379",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "self_exclusions": "This scan manifest/output files and the active outer receipt are produced afterward. Exact final committed set is verified externally after final commit."
+}

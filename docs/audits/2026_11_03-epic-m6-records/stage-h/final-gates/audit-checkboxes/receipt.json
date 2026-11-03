@@ -1,0 +1,78 @@
+{
+  "argv": [
+    "tools/box-check",
+    "--issue",
+    "1417"
+  ],
+  "cwd": "/workspace/repos/pixelelated/distribution.worktrees/m6-records-693",
+  "start": "2026-11-03T13:39:35.734909+00:00",
+  "end": "2026-11-03T13:39:36.170288+00:00",
+  "rc": 0,
+  "inputs": [
+    {
+      "path": "/workspace/repos/pixelelated/distribution.worktrees/m6-records-693/docs/audits/2026_11_03-epic-m6-records/04-analysis.md",
+      "bytes": 11902,
+      "sha256": "67b871805eba46f60245ecdaa969862a7e021a83e2d7cebcc9418fc160ee42dc",
+      "mode": "0o664"
+    },
+    {
+      "path": "/workspace/repos/pixelelated/distribution.worktrees/m6-records-693/docs/audits/2026_11_03-epic-m6-records/05-punch-list.md",
+      "bytes": 5977,
+      "sha256": "58c305fa7aa0ea9148d4af8e88d622dbc1c70193223981b71a24bb02792ec215",
+      "mode": "0o664"
+    },
+    {
+      "path": "/workspace/repos/pixelelated/distribution.worktrees/m6-records-693/docs/audits/2026_11_03-epic-m6-records/second-opinions/review-plan.json",
+      "bytes": 515,
+      "sha256": "313657fba5a42bcd971d20edc26b0142d7c621e5d42ca3ca55e2dd55eed68ba9",
+      "mode": "0o664"
+    },
+    {
+      "path": "/workspace/repos/pixelelated/distribution.worktrees/m6-records-693/docs/audits/README.md",
+      "bytes": 813,
+      "sha256": "410e4432c01a38cda578a68fdaa730129c15a8e3e60c7305001bb40bd5a71b6c",
+      "mode": "0o664"
+    },
+    {
+      "path": "/workspace/repos/pixelelated/distribution.worktrees/m6-records-693/docs/audits/2026_11_03-epic-m6-records/stage-e/scope-policy.json",
+      "bytes": 61603,
+      "sha256": "c9e2474804ba209c6aa767866de9df5768e9805d11a69f9dbfce2c7172041b00",
+      "mode": "0o664"
+    },
+    {
+      "path": "/workspace/repos/pixelelated/distribution.worktrees/m6-records-693/docs/audits/2026_11_03-epic-m6-records/tools/eh-scope.py",
+      "bytes": 4808,
+      "sha256": "7e48e422ff6f25092a01f9a032c63291ce1c87a6ccbf1839333b54a216550628",
+      "mode": "0o664"
+    },
+    {
+      "path": "/workspace/repos/pixelelated/distribution.worktrees/m6-records-693/tools/box-check",
+      "bytes": 5437,
+      "sha256": "3563b26951fccd737fa904e99620f66727fdc7ad6526eabcd16a7e8e2f41c314",
+      "mode": "0o775"
+    }
+  ],
+  "stdout_sha256": "7ae8534fd7d26020a8b0e7221cf3313b595e275a0fea6a8adb4568b7e135a317",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "recorder_sha256": "35c4629f5663957a870af3059015e86fac15ae5cc098820bb6ee7bf64776b4a8",
+  "cpu_affinity": [
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21,
+    22,
+    23
+  ],
+  "python": "3.14.4 (main, Aug 20 2026, 10:41:58) [GCC 15.2.0]",
+  "stream_transport": "base64 of exact original bytes; no raw-stream rewrite"
+}

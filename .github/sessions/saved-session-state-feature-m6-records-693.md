@@ -1,3 +1,15 @@
+# T46 — E–H handback prepared; stop after publication
+
+Updated 2026-11-03T13:36:37.199371+00:00 by actual Codex/GPT-6-Astra/xhigh, Local T3 wN:p6/session01a19d12-29e3-7fe0-9f41-038dac0a5deb. Exact m6-records-693 / feature/m6-records-693.
+
+Source reviewed-at d707c82ab8c48b674acc1f95a9571f0cb24d226a; execution-seed8710a6210a40de0110244d03a886161ee06faf29; accepted D a0d4c4fda7a0c16c04d57edf921ffeb741eff19b. S1 actual45d455adccb0b2fc418f6442c4ca16a983430617 fixes only the exact README paragraph,813-byte SHA410e4432c01a38cda578a68fdaa730129c15a8e3e60c7305001bb40bd5a71b6c. fixed-at is supplied as the actual final40-hex tip by the external final checkpoint after commit; no self-hash loop.
+
+Read docs/audits/2026_11_03-epic-m6-records/stage-h/handback.md and final #693 checkpoint. PL-001 Resolved documentary correction;1417/1416 criteria checked with both issues OPEN and exact parent/milestone readbacks. G retro6605203841 exact-readback; H retains everything, named roots only.305 D files/17 old tools/29 transports frozen and original limits/failures preserved. New staged-index/working/untracked/every-commit guard13 refusals/positive and current resolution bindings are separate from D evidence.
+
+Final current gates, normal commit/push/live remote equality/empty status and exact committed-path scan are retained outside the observed final tip at /tmp/m6-t46-eh-publication-kmr8zpxj; published checkpoint identifies them. Stop for root exact-tip simulation/final acceptance. Do not write marker, close audit/bug/slice or merge coordinator/next. All original CPU8–23/source-only/runtime/provider/host/device/cloud/permission boundaries remain.
+
+## Preserved preceding handoffs
+
 # T46 — S1/E–H active
 
 Actual Codex/GPT-6-Astra/xhigh, T3 wN:p6. Clean start a0d4c4fda7a0c16c04d57edf921ffeb741eff19b verified; explicit #693 comment6604790499 and immutable2aea545afb746ab002e755cf301f4aa89930e1e9 stream v2 govern. New stage-e proof and guard controls are complete; exact README paragraph candidate applied, S1 commit/checks next. Preserve305 D files/17 tools/29 transports and the qualifications in stage-e/stream-brief-v2.md. Continue F/G/H after actual S1, retain all scratch, leave1417/1416 open and693 criteria untouched, then one clean published handback and stop. No marker or merge/runtime/permission action.

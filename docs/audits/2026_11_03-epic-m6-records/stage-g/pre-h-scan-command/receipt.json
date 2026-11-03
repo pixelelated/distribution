@@ -1,0 +1,56 @@
+{
+  "argv": [
+    "python3",
+    "-B",
+    "docs/audits/2026_11_03-epic-m6-records/tools/eh-final.py",
+    "--out",
+    "stage-g/pre-h-scan"
+  ],
+  "cwd": "/workspace/repos/pixelelated/distribution.worktrees/m6-records-693",
+  "start": "2026-11-03T13:34:31.760490+00:00",
+  "end": "2026-11-03T13:34:32.164229+00:00",
+  "rc": 0,
+  "inputs": [
+    {
+      "path": "/workspace/repos/pixelelated/distribution.worktrees/m6-records-693/docs/audits/2026_11_03-epic-m6-records/tools/eh-final.py",
+      "bytes": 2980,
+      "sha256": "676a55d40152bda7ad06fee5ec681c8d4af4f16c6f973a68acd22c4567e38b8a",
+      "mode": "0o664"
+    },
+    {
+      "path": "/workspace/repos/pixelelated/distribution.worktrees/m6-records-693/docs/audits/2026_11_03-epic-m6-records/stage-e/scope-policy.json",
+      "bytes": 61603,
+      "sha256": "c9e2474804ba209c6aa767866de9df5768e9805d11a69f9dbfce2c7172041b00",
+      "mode": "0o664"
+    },
+    {
+      "path": "/workspace/repos/pixelelated/distribution.worktrees/m6-records-693/tools/forbidden-terms-check",
+      "bytes": 2761,
+      "sha256": "6907bed8857ce27f38b31ef18c09abc2d9dd9345b28afd483e8a44e3253c0e63",
+      "mode": "0o775"
+    }
+  ],
+  "stdout_sha256": "f35dab6fd4a0fe491674fc57497c7b7d96488050e52694ac09d827233fbd0ddb",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "recorder_sha256": "35c4629f5663957a870af3059015e86fac15ae5cc098820bb6ee7bf64776b4a8",
+  "cpu_affinity": [
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21,
+    22,
+    23
+  ],
+  "python": "3.14.4 (main, Aug 20 2026, 10:41:58) [GCC 15.2.0]",
+  "stream_transport": "base64 of exact original bytes; no raw-stream rewrite"
+}
