@@ -1,0 +1,26 @@
+{
+  "observed_at": "2026-11-03T11:47:14.264398+00:00",
+  "purpose": "Fresh authorized source worktree filesystem capacity only; no runtime admission or host-process inspection.",
+  "commands": [
+    {
+      "argv": [
+        "df",
+        "-Pk",
+        "/workspace/repos/pixelelated/distribution.worktrees"
+      ],
+      "exit": 0,
+      "stdout": "Filesystem     1024-blocks       Used  Available Capacity Mounted on\n/dev/nvme1n1    3844551496 2487920188 1161263996      69% /workspace\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "df",
+        "-Pi",
+        "/workspace/repos/pixelelated/distribution.worktrees"
+      ],
+      "exit": 0,
+      "stdout": "Filesystem        Inodes    IUsed     IFree IUse% Mounted on\n/dev/nvme1n1   244195328 69026417 175168911   29% /workspace\n",
+      "stderr": ""
+    }
+  ]
+}
