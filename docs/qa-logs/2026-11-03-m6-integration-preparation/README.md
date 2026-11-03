@@ -60,3 +60,23 @@ four workers remain ready until root's proved final dispatch. The first Herdr
 status-wrapper assertion failed before any prompt; corrected delivery is retained.
 Root will review returned implementations and execute serial candidate integration.
 No existing accepted-stage harness is scheduled for replay.
+
+
+## Implementation dispatch — 2026-11-03 16:02 UTC
+
+P1's proof returned three finite route/name omissions; root supplied all three,
+including pinned scripts/unpack's inline patch route and the exact four tool-list
+additions. V2 is published at b44594962a0996a3ce7f58ecd64f0b9079843af4 with
+SHA2563a3c65660b0730ca2f45539b8a2d27a8bdfbcc1e69843bc19c72f88ef8d426a5.
+Original proof and v1 bytes recovered against their original hash are retained;
+no original file timestamps or separate historical copy are invented.
+
+Full dispatch6608793796 was read back exactly and delivered once to T1/T2/T3/T5
+from their done states. All four are separately observed working; P1 is available.
+`implementation-dispatch.json`, `implementation-herdr.json` and
+`implementation-observed.json` separate authority, delivery and actual activity.
+Root next consumes these implementations for the existing candidate; no additional
+inventory round is queued. Live next remains M7-owned and no runtime is allocated.
+The initial normal record checks passed, with the sandboxed tracker-unavailable
+warning preserved; a new network-capable ceremony gate returned0 with the existing
+nonblocking audit-cadence warning. This is not an all-ceremonies-clear claim.
