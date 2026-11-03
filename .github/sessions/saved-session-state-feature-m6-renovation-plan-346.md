@@ -8,7 +8,7 @@ Worktree `/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan
 
 ## Current lanes and acceptance boundaries
 
-Updated 2026-11-03 14:41 UTC. T39/T41/T42/T43/T44/T46 accepted with verified completion markers. T46 completiondf8058 is verified under docs/qa-logs/2026-11-03-m6-records-completion/. All five worker lanes returned/available.693 stays17checked/1integration criterion open. Actual ordered integration remains pending.
+Updated 2026-11-03 14:41 UTC. T39/T41/T42/T43/T44/T46 accepted with verified completion markers. T46 completiondf8058 is verified in6606790544, evidence2e6dd4c5648ea0bd0e85951702a2aa94e22d350e under docs/qa-logs/2026-11-03-m6-records-completion/. All five worker lanes returned/available.693 stays17checked/1integration criterion open. Actual ordered integration remains pending.
 
 | Lane | Current outcome | Next useful action |
 | --- | --- | --- |
@@ -30,7 +30,7 @@ Root new simulation against2ab42922be8d0b693e41a9fcfa9e8c666beae462 passed: all 
 
 Acceptance evidence published e4dacd1812213da2c09e67e3a277121f3af8dd43; decision6605921275. Audit1417 closed/completed2026-11-03T14:07:02Z. Completion-only6605965227 returned atdf8058e4353c54b73d4eea4d356ce18df901aabf, checkpoint6606526044. Root verified marker03bed591,14evidence hashes,7immutable coordinator inputs,976frozen auditfiles,813-byteREADME,32command receipts/141inputs and exact226path scan. Existing schema validator passes; all15 current gates are retained PASS, no producer replay. Fresh remote/HEAD/clean agree. Original review-capacity interruption recovered normally; original failures and root reader correction are preserved.
 
-Evidence/lossless publication packet: docs/qa-logs/2026-11-03-m6-records-completion/.693 remains17checked/1unchecked,1416 open/two checked,1415 open with only actual-integration criterion remaining after marker verification. Source d707,seed8710,S1 45d455,fixed-at17a064 and completiondf8058 stay distinct. No accepted replay or actual merge. H retains everything. All worker lanes are available. Next root work is preparing the actual ordered integration under the plan and existing owners; do not reopen completed audits or dispatch duplicate reviews to fill lanes.
+Evidence/lossless publication packet: docs/qa-logs/2026-11-03-m6-records-completion/.693 remains17checked/1unchecked,1416 open/two checked,1415 open2checked/1actual-integration criterion remaining after marker verification6606790544. Source d707,seed8710,S1 45d455,fixed-at17a064 and completiondf8058 stay distinct. No accepted replay or actual merge. H retains everything. All worker lanes are available. Next root work is preparing the actual ordered integration under the plan and existing owners; do not reopen completed audits or dispatch duplicate reviews to fill lanes.
 
 ## Accepted work and pending integration
 
@@ -49,7 +49,7 @@ T41 acceptance6588269141/completion6588465063; #688 open28checked until area int
 
 T42 D230 and final packet preserve native384151/38/22/173, separate inherited50/26with21/7/22,12fork-written498lines,3931accepted artifacts/391source identities. G202/G203/G383 holes remain. New root simulation pins lane4cf8 to coordinator8b83; original strict log refusal remains FAIL, exact continuation and4controls preserve the10,620byte coordinator continuation and2+6whole entries. All remaining new integrated checks pass. Full whitespace remainsrc2 on six unchanged accepted D raw receipts; allotherpaths0. No actual merge. Root records retained under `t42-final-integration/`; external publication manifest62ef887c2fd2cc67c7b88ebd9c1bdb80091423596c60a1cf0e6e1cdc01dc8781 retained under `t42-final-publication/`. H's126/129scan claim and cachemetadata-only custody remain qualified; new exact-final lane scan supplements the former.
 
-Milestone6 current prefix is being reconciled to T46 completion verified and ordered integration next; all five worker lanes are available. Completion verification and latest current tracker/milestone readbacks are under docs/qa-logs/2026-11-03-m6-records-completion/. Preserve the entire existing backlog/history suffix. Prior final/milestone-readback.json and earlier dispatch/disposition snapshots remain historical. Do not invent duplicate work to occupy available lanes.
+Milestone6 current prefix is reconciled to T46 completion verified and ordered integration next; all five worker lanes are available. Completion verification and latest current tracker/milestone readbacks are under docs/qa-logs/2026-11-03-m6-records-completion/. Preserve the entire existing backlog/history suffix. Prior final/milestone-readback.json and earlier dispatch/disposition snapshots remain historical. Do not invent duplicate work to occupy available lanes.
 
 ## Resources, continuity and publishing
 

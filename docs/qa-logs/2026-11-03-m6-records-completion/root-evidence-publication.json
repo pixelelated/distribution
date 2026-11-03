@@ -1,0 +1,125 @@
+[
+  {
+    "argv": [
+      "git",
+      "add",
+      "\u002d\u002d",
+      "docs/qa\u002dlogs/2026\u002d11\u002d03\u002dm6\u002drecords\u002dcompletion",
+      ".github/sessions/saved\u002dsession\u002dstate\u002dfeature\u002dm6\u002drenovation\u002dplan\u002d346.md",
+      "docs/work\u002dlogs/2026_11\u002dwork_logs/2026_11_03\u002dwork_log.md",
+      "docs/work\u002dlogs/INDEX.md"
+    ],
+    "cwd": "/workspace/repos/pixelelated/distribution.worktrees/m6\u002drenovation\u002dplan\u002d346",
+    "start": "2026\u002d11\u002d03T14:42:27.648908+00:00",
+    "end": "2026\u002d11\u002d03T14:42:27.791352+00:00",
+    "rc": 0,
+    "stdout": "",
+    "stderr": "",
+    "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "diff",
+      "\u002d\u002dcached",
+      "\u002d\u002dcheck"
+    ],
+    "cwd": "/workspace/repos/pixelelated/distribution.worktrees/m6\u002drenovation\u002dplan\u002d346",
+    "start": "2026\u002d11\u002d03T14:42:27.791540+00:00",
+    "end": "2026\u002d11\u002d03T14:42:27.812229+00:00",
+    "rc": 0,
+    "stdout": "",
+    "stderr": "",
+    "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "commit",
+      "\u002dq",
+      "\u002dm",
+      "m6: verify T46 completion records (#693)"
+    ],
+    "cwd": "/workspace/repos/pixelelated/distribution.worktrees/m6\u002drenovation\u002dplan\u002d346",
+    "start": "2026\u002d11\u002d03T14:42:27.812390+00:00",
+    "end": "2026\u002d11\u002d03T14:42:28.024773+00:00",
+    "rc": 0,
+    "stdout": "",
+    "stderr": "",
+    "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "rev\u002dparse",
+      "HEAD"
+    ],
+    "cwd": "/workspace/repos/pixelelated/distribution.worktrees/m6\u002drenovation\u002dplan\u002d346",
+    "start": "2026\u002d11\u002d03T14:42:28.024918+00:00",
+    "end": "2026\u002d11\u002d03T14:42:28.026031+00:00",
+    "rc": 0,
+    "stdout": "2e6dd4c5648ea0bd0e85951702a2aa94e22d350e\n",
+    "stderr": "",
+    "stdout_sha256": "78dafea4a24d2bb3aad1322f51b42d0984b704a3c52d531476dbfb5ff52f4a1d",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "\u002dc",
+      "credential.helper=",
+      "\u002dc",
+      "credential.helper=!gh auth git\u002dcredential",
+      "push",
+      "\u002dq",
+      "origin\u002dhttps",
+      "feature/m6\u002drenovation\u002dplan\u002d346:feature/m6\u002drenovation\u002dplan\u002d346"
+    ],
+    "cwd": "/workspace/repos/pixelelated/distribution.worktrees/m6\u002drenovation\u002dplan\u002d346",
+    "start": "2026\u002d11\u002d03T14:42:28.026128+00:00",
+    "end": "2026\u002d11\u002d03T14:42:32.253521+00:00",
+    "rc": 0,
+    "stdout": "",
+    "stderr": "",
+    "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "\u002dc",
+      "credential.helper=",
+      "\u002dc",
+      "credential.helper=!gh auth git\u002dcredential",
+      "ls\u002dremote",
+      "origin\u002dhttps",
+      "refs/heads/feature/m6\u002drenovation\u002dplan\u002d346"
+    ],
+    "cwd": "/workspace/repos/pixelelated/distribution.worktrees/m6\u002drenovation\u002dplan\u002d346",
+    "start": "2026\u002d11\u002d03T14:42:32.253888+00:00",
+    "end": "2026\u002d11\u002d03T14:42:32.693548+00:00",
+    "rc": 0,
+    "stdout": "2e6dd4c5648ea0bd0e85951702a2aa94e22d350e\trefs/heads/feature/m6\u002drenovation\u002dplan\u002d346\n",
+    "stderr": "",
+    "stdout_sha256": "5c6d0dad99568872b44e7cb637307c5a3b6bf64326c516c96de7b3aa041e79d6",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "status",
+      "\u002d\u002dporcelain=v1"
+    ],
+    "cwd": "/workspace/repos/pixelelated/distribution.worktrees/m6\u002drenovation\u002dplan\u002d346",
+    "start": "2026\u002d11\u002d03T14:42:32.693836+00:00",
+    "end": "2026\u002d11\u002d03T14:42:32.989128+00:00",
+    "rc": 0,
+    "stdout": "",
+    "stderr": "",
+    "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  }
+]
