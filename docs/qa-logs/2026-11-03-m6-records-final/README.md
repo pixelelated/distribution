@@ -40,3 +40,9 @@ P1 support, the final acceptance decision and18-criterion mapping are retained
 here. Completion marker, closure and actual integration remain separate steps. T39 integration, #1407 indexing and #1414 vendor work stay with
 their existing owners. H retains all scratch; no cleanup was repeated.
 Original D limits and failures stay as recorded in the disposition packet.
+
+Published acceptance6605921275 closes audit1417 completed at14:07:02Z.
+Completion-only6605965227 is active in T3. Slice693 is17checked/1unchecked;
+criterion18 retains actual integration/closure/status as a future gate.
+`accepted-tracker-readbacks.json` and `milestone-readback.json` bind these
+updates. No source bug or slice/epic integration closure occurred.
