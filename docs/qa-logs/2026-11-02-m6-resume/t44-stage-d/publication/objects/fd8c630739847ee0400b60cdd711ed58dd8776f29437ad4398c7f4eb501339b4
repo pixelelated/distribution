@@ -1,0 +1,37 @@
+# T44 Stage D return to wN:p2
+
+Complete clean published D; stopped for root disposition. No E–H or final acceptance claim.
+
+- Distribution: `923dd5371ded83fa965449a83f7a16d15a174772`, branch `feature/m6-es-vendored-and-data-691`, seed `48a335700d05a733703e1b58536877b91b921259`. Remote matches; tracked/untracked status clean.
+- ES unchanged/clean: `55158d2a64c69fe295fb4e67fd174424a71b1b4d`, root tree `64b90eb8cb07bdfcd690c74ff6bc980ae490657c`. Historical T2 launch trees untouched.
+- Audit child https://github.com/pixelelated/distribution/issues/1413 ; M6, exact parent691, labels audit/punch-list, one Low Open PL001. D handback https://github.com/pixelelated/distribution/issues/691#issuecomment-6591199715 ; exact body readback verified.
+- Audit root `docs/audits/2026_11_02-epic-m6-es-vendored-and-data/`, 00–07, A–D receipts/tools, Local plan and new lane pointer.
+
+## Evidence
+
+Native Provenance/Coverage each594 unique keys; supplemental3/450 and companion4 remain separate. Survey374547inventory/374546text versus primary374720text reconciled. Modes583/10/1, kinds543/50/1, zero symlinks; gitlink zero source credit. Full native fork-code40files5017lines plus3/450 read; five fork-modified deltas read; doctest7134-line unchanged import has zero authored-code credit.
+
+PL02435PO/37files/38replacements verified; French3/6/1/1/0 exact msgid/msgstr/source calls retained. Seven vendor groups,36 catalogue rows and77 XML structure parses qualified by limits. T18/T20/T21/T34/T35/T36/T37 ownership explicit, no merged source or installed claim.
+
+New table positive +7 distinct refusals, PO positive +4 malformed refusals, confinement positive +4 refusals all PASS. Tiny Git proves source edit and revert each refuse despite clean cumulative source. Pre-issue/issue lint PASS; box-check1open/0fail; rules/register/index/ceremony/hooks/syntax/whitespace pass. Full forbidden scan0hits/134259files at its recorded gate. Normal commit/push hooks ran. Final immutable payload reader verifies274 committed files/273 manifest entries; source/mode/hash identities unchanged outside allowed records.
+
+Payload manifest SHA256: `67b7001b027e7ffbaa9afa840b0554bb391de2c07459d33808119bc1c5d08509`.
+Final external readback SHA256: `0c67162d42e04884f7b4addbef71bd5ae31b95afbfead4bfadbe5b580fedf13c` (`final-readback.json`).
+
+Literal new-consumer failures retained: PO escaping/filter/adjacent literals, nullable binary totals, lint heading, parent-response assumption and new-fixture EOF whitespace. Initial published d6d08bf19c included one ignored bytecode cache in its payload manifest: immutable readback failed; original tip/failure preserved. Corrected Git-keyed manifest passes; ignored bytecode is separately receipt-bound owned scratch. No accepted producer replay or source change was used.
+
+## Root inputs and remaining obligations
+
+PL001: date a doctest2.4.12 carry rationale/revisit trigger or scope a later evaluation against observed2.5.3. No upgrade, compatibility or security outcome chosen. T20 R13 dual rcheevos12.2.1/10.7.0 remains inherited context; observed12.5.0 does not prove linked-subset applicability. libretro-common/NanoSVG/id3v2lib current import mappings remain specific open inputs. Root owns disposition, source acquisition authority and any later brief.
+
+D has no unresolved implementation blocker. E–H resolution/outcomes, retro, receipt-bound scratch retirement, final integration/acceptance, marker and closure remain future/root-owned. Both time-to-play quantities unmeasured. No runtime/compiler/build/guest/provider/host/device/cloud action, fetch/config sourcing, source export, permission answer or source fix. All source/record children CPUs8–23. Actual Codex/openai/gpt-6-astra/openai/xhigh, own UI-observed footer (not provider attestation), session01a19d12-1c5f-7022-8053-102f6a94b7fe/wN:p5, Local reviewers[].
+
+## Reproducible immutable reads
+
+```bash
+taskset -c 8-23 git -C /workspace/repos/pixelelated/distribution.worktrees/m6-es-vendored-and-data-691 show 923dd5371ded83fa965449a83f7a16d15a174772:docs/audits/2026_11_02-epic-m6-es-vendored-and-data/06-audit-summary.md
+taskset -c 8-23 git -C /workspace/repos/pixelelated/distribution.worktrees/m6-es-vendored-and-data-691 show 923dd5371ded83fa965449a83f7a16d15a174772:docs/audits/2026_11_02-epic-m6-es-vendored-and-data/stage-d/payload-manifest.json
+taskset -c 8-23 git -C /workspace/repos/pixelelated/distribution.worktrees/m6-es-vendored-and-data-691 show 923dd5371ded83fa965449a83f7a16d15a174772:docs/audits/2026_11_02-epic-m6-es-vendored-and-data/07-questions-for-the-maintainer.md
+```
+
+`corrected-payload-readback.receipt.json` names the exact pure reader command, program result and output hash. It reads immutable Git records, never executes a producer. `corrected-confinement.receipt.json` binds both distribution commits and whole ES. Original and corrected commit/push receipts stay here; no receipt-only commit loop.

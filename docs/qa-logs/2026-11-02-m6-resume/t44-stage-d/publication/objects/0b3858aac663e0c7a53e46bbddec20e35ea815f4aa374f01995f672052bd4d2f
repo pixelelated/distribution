@@ -1,0 +1,7 @@
+es-vendored-and-data: bind D manifest to published Git records
+
+Refs #691
+
+The first immutable readback caught one ignored Python cache in the manifest.
+Preserve the original tip/failure, census the cache as owned scratch, and use
+Git-tracked keys plus an exact immutable reader. No source or producer change.
