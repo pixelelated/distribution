@@ -1,0 +1,31 @@
+{
+  "coordinator_commit": "8f514c72fc979ef5d6c47fae459d1e47ab98e576",
+  "accepted_final": "8282cbcade3be32b437f7391be7e216d9a6b1074",
+  "scope": "Read immutable acceptance/evidence only; no comparison producer, control, integration or cleanup replay. Historical support wait states are superseded by the complete acceptance comment.",
+  "bindings": {
+    "docs/qa-logs/2026-11-02-m6-resume/t43-final/acceptance-record.json": {
+      "retained_path": "docs/audits/2026_11_02-epic-m6-patches-unshipped/completion/coordinator-acceptance-record.json",
+      "sha256": "4aafce02a25d68770e8a3239c7ddbf8bce9f96c618522e3116039c0d4fcc587c",
+      "bytes": 6623,
+      "git_blob": "c12a3a5fe41dab66ddeba025eafe38f874ee8c37"
+    },
+    "docs/qa-logs/2026-11-02-m6-resume/t43-final/source-version-reconciliation.json": {
+      "retained_path": "docs/audits/2026_11_02-epic-m6-patches-unshipped/completion/coordinator-source-version-reconciliation.json",
+      "sha256": "764c0f9f40898657fb86acd44bdfc491690d01a978d50e89f54f047ca3ad92cb",
+      "bytes": 755,
+      "git_blob": "1c5c80c57c70e3860dd77aa0efd254d858800482"
+    },
+    "docs/qa-logs/2026-11-02-m6-resume/t43-final/support/RETURN.md": {
+      "retained_path": "docs/audits/2026_11_02-epic-m6-patches-unshipped/completion/coordinator-support-return.md",
+      "sha256": "c8e6fcd1141b1125dee4cd2272b5901cb43c9b9a44e20fc41b212771cb2ba88f",
+      "bytes": 7110,
+      "git_blob": "af897fb54faf85a3d38e5fd75cd5e2638c6edb8d"
+    },
+    "docs/qa-logs/2026-11-02-m6-resume/t43-final/integration/continuation/result.json": {
+      "retained_path": "docs/audits/2026_11_02-epic-m6-patches-unshipped/completion/coordinator-integration-result.json",
+      "sha256": "7e3ef4b440905f34e62022d9ca8decf7b52e876836eda94075b6b0d13120de67",
+      "bytes": 545,
+      "git_blob": "ddbfd88311e33dd154718edd5e36d5c3ebbde9fc"
+    }
+  }
+}
