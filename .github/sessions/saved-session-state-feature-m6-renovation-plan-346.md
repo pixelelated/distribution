@@ -1,6 +1,6 @@
 # M6 coordinator current handoff
 
-Updated 2026-11-03T00:49:06.287070+00:00 by Codex / GPT-6-Astra / xhigh (own observed footer, not provider-attested), session01a19d11-f5c8-7bb0-80f3-49ad28732af2, wN:p2.
+Updated 2026-11-03T11:34:10.619230+00:00 by Codex / GPT-6-Astra / xhigh (own observed footer, not provider-attested), session01a19d11-f5c8-7bb0-80f3-49ad28732af2, wN:p2.
 
 ## Resume here
 
@@ -8,17 +8,21 @@ Worktree `/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan
 
 ## Current lanes and acceptance boundaries
 
-Updated 2026-11-02T23:46:39.152621+00:00. T39/T41/T42 accepted/completion verified; actual ordered area integration remains pending.
+Updated 2026-11-03T11:34:10.619230+00:00. T39/T41/T42/T43/T44 accepted with verified completion markers; actual ordered integration remains pending. T46 is now next and last.
 
 | Lane | Current outcome | Next useful action |
 | --- | --- | --- |
-| P1 wN:p3 | T44 final support returned;331 comparisons/zero mismatches; root three outputs byte-equal | Available |
-| T1 wN:p4 | T43 final8282 accepted; root new integration gates PASS | Completionfd123880 verified6591865102; available |
-| T2 wN:p5 | T44 acceptedf01abd/completionad0df587 verified6592382782 | Available; root owns ordered integration and691closure |
-| T3 wN:p6 | T44 stream proof returned; exact guard/date correction in v2 | Available; T46 remains last |
-| T5 wN:p7 | T43 final support returned; root reproduced five outputs byte-equal | Available; no producer replay |
+| P1 wN:p3 | T46 ten-entrypoint routes returned; root five outputs byte-equal and canonical selector join95 occurrences/89 targets | Available; no body sweep |
+| T1 wN:p4 | T46 accepted T39 bridge returned; root192 identity comparisons agree, all48 corrections integration-pending | Available; accepted work stays accepted |
+| T2 wN:p5 | T44 acceptedf01/completionad0df verified6592382782 | Available for bounded support |
+| T3 wN:p6 | New T46 metadata returned; root comparison agrees127469 paths and799/0/4 transition | Intended T46 executor after proved brief/exact seed; no A–D yet |
+| T5 wN:p7 | Available for T46 unfamiliar-executor proof | Root publishing candidate first |
 
-Use only existing wN lanes, verify HERDR_ENV=1 and use exact absolute workdirs. Never answer another pane's permission prompt. No new runtime, source replay or historical-tree edits.
+Use existing wN lanes and absolute workdirs; verify HERDR_ENV=1 before controls. Do not answer permission prompts. P1's factual selector question was inspected and answered with the exact excerpt it requested; no approval or runtime authority was supplied. CPU8–23, no runtime allocation.
+
+## Active T46 preparation
+
+#693 comment6602308433 assigned three bounded factual reads; all were observed working and returned. Root retains their unchanged reports and new metadata comparisons under docs/qa-logs/2026-11-03-m6-records-preparation/. Source cutoff d707c82ab8c48b674acc1f95a9571f0cb24d226a/treeb3ce6c6e; future seed/output separate. D236, records.md v1 and new records-area futro are candidate handoff. #1415 created in M6 and actual693 parent verified. Next: publish candidate, T5 proof, correct final brief/criteria, create new m6-records-693 and explicit T3 dispatch. No audit has started; no branch union or source removal.
 
 ## Immediate next actions
 
@@ -27,7 +31,7 @@ Updated 2026-11-02T23:59:46.035392+00:00.
 1. T43 final8282 accepted6591649449; completionfd1238800b61431a8febeebe8cf44f41d2384bbb verified by root6591865102. Audit1412closedcompleted,690open20checked andseed601e/final8282headers unchanged. Marker21evidence hashes,16newcommittedcommand bindings,12normalchecks andall3078accepted audit files unchanged verify. Publication94core+3checkpoint files hash-bound,30command receipts29rc0/one retained helperrefusal; supportedstdin scan binds61paths/399862bytes, remote/cleanexact. Root verification/losslessretention under t43-completion/. One coordinator-reader normalized-field KeyError is retained and corrected (issue_number versus rawnumber); no lane evidence failure. T1 available, no new action. Root actual ordered area integration and690closure remain future; no further source/cleanup/replay. Original final integration against749e passed26newcontinuationcommands and preserved all literal earlier failures, under t43-final/.
 2. T43 PL001 resolves custody only;93 source-input gaps and224consumers188open/36positive remain. H881retired/eightretained/zero partial and unknownPID2389 visibility remain scoped recorded outcomes. No further cleanup. Four old controls bind45612b79, currentguardb7ee4e57; exact reconstructed old bytes are labelled derived, not a recovered historical file. Source/program/A–D receipts are unchanged; old tests/applications/cleanup were not replayed. Retain /workspace/tmp/m6-t43/eh-publication/ and its135 ordinary-file identities, losslessly indexed in t43-final/publication/.
 3. T44 acceptedf01abd480f4e0b337a9fcdde2cec9bc1746b525d at691comment6592210088; normalcompletionad0df587128577212337aa76d171b0b9cfaae4a4 verified6592382782. Marker14evidence hashes,7immutablecoordinatorinputs,21newcommittedcommandbindings,13checks andall440acceptedfiles unchanged verified. Exact106-path finalscan710595rawbytes+106separatorLF=710701bytes matches; all11externalpublicationcommands rc0, exactremote/clean/checkpointreadbacks. Ordinarypacket53files/396499bytes retained losslessly under t44-completion/publication/. Root initial wrongobjecttype and scalar-versus-tuple validator assumptions were refused and corrected; initialreaders/errorqualification retained, no lane failure or producer replay.691open20checked/seed48a335/finalf01/ES55158headers;1413closedcompleted;1414openM6parent700fiveunchecked. T2available, no new assignment. Acceptance evidence published e7b5f22e, dispatch continuity07cc1946. Earlier root37-command simulation against93b247 and P1rootthreebyteequal outputs remain under t44-final/. Four D limits and laterpartialreceipt/old-currentrunner qualifications remain; H49old+102newfiles retained,none deleted. WholeES55158/tree64b90 unchanged. Root owns actualintegration/691closure; no source/runtime/replay/cleanup.
-4. T46 frozenprep remains under t46-preparation/ and lastafterT44. No finalrecut/audit-body sweep/deletionproposal/execution. Documentationindex/33reference review remains Backlog1407/D223/D224.
+4. T46 preparation is active as detailed above; source cutoff and finite reader ranges are explicit. Documentationindex/33reference review remains Backlog1407/D223/D224. Historical T44 completion and all accepted lane outcomes remain unchanged.
 
 ## Evidence and limits
 

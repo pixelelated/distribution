@@ -1,0 +1,17 @@
+Bounded literal extraction, never an accepted producer/checker replay:
+taskset -c 8-23 python3 -B /tmp/m6-t46-reader-routes-gg28muia/extract.py
+
+All subprocesses inherit CPUs8–23. commands.json contains exact Git argv and metadata-only stdin. The script fixes the absolute read-only repository to /workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan-346 and the only ref to d707c82ab8c48b674acc1f95a9571f0cb24d226a. GIT_LITERAL_PATHSPECS=1 and GIT_OPTIONAL_LOCKS=0 are supplied to Git. No shell/config, repository program or dynamic path expression is evaluated.
+
+Body reads are exactly git show REF:PATH for the ten allowlisted entrypoints. No additional selector, audit, QA or work-log body is opened. The work-log INDEX is reduced to its headers and link destinations, without following the linked days.
+
+Direct target metadata uses nonrecursive git ls-tree -z -l REF -- EXACT_PATH..., then individually queries any exact keys suppressed by an ancestor tree in a batch. Directory targets are not enumerated. Tree serialization size comes from git cat-file --batch-check=%(objectname) %(objecttype) %(objectsize), supplied only the named direct tree OIDs. No target blob contents are retrieved, and missing/symlink targets are not followed. Entry hashes are SHA256 over the ten permitted Git blobs; target identities are Git OIDs and Git blob/object sizes only.
+
+The full #693 issue and both comments were fetched through the connected GitHub read-only tool:
+github_fetch_issue(link_id="link_6ac2961edf2081918a8d75b020eff02b", repository_full_name="pixelelated/distribution", issue_number=693)
+github_fetch_issue_comments(link_id="link_6ac2961edf2081918a8d75b020eff02b", repo_full_name="pixelelated/distribution", issue_number=693)
+The complete support comment6602308433 was read before entrypoint work. owning-issue.json retains the issue body and complete comments without redundant HTML. No external URLs in the entrypoints were fetched.
+
+routes.json is the finite occurrence table. target-metadata.json joins on resolved_path. entrypoints.json binds source file identities, modes, blob OIDs, byte lengths, line counts and SHA256. index-headers.json contains only structural index headers. structural-findings.json retains independent index counts, unresolved handoff shorthand and context-qualified missing targets. syntax-limits.md describes normalization, ambiguity and redaction. Root classification, if supplied, is a separate records-roots.json input; it never expands this read boundary or authorizes opening target bodies.
+
+No slice recut, source audit, runtime, cleanup, historical producer replay, source export, repository/tracker/kit/shared-ref write, host/device/cloud action, provider call or permission answer. Root owns baseline, brief and reading floor.

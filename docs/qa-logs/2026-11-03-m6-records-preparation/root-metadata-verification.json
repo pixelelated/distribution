@@ -1,0 +1,878 @@
+{
+  "argv": [
+    "taskset",
+    "-c",
+    "8-23",
+    "python3",
+    "-B",
+    "/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan-346/docs/qa-logs/2026-11-03-m6-records-preparation/t3-compare-metadata.py",
+    "--out",
+    "/tmp/m6-t46-root-metadata-uikvn798/result"
+  ],
+  "started_at": "2026-11-03T11:19:04.922337+00:00",
+  "finished_at": "2026-11-03T11:19:06.309958+00:00",
+  "exit": 0,
+  "stdout_sha256": "bfa9a0cb90ae9669ffca0e3f3a22a38f63090f201cc75f7e1758d0eff6ff5285",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "comparisons": {
+    "current_metadata": true,
+    "delta": true,
+    "by_records_root": true,
+    "canonical_input_bindings": true,
+    "inventory_self": true,
+    "checks": true
+  },
+  "report": {
+    "authority": "https://github.com/pixelelated/distribution/issues/693#issuecomment-6602308433",
+    "by_records_root": {
+      ".github/sessions": {
+        "added": 0,
+        "changed": 1,
+        "current": {
+          "git_types": {
+            "blob": 356
+          },
+          "logical_bytes": 6072333,
+          "modes": {
+            "100644": 356
+          },
+          "nonblob_paths": 0,
+          "paths": 356,
+          "unique_blob_logical_bytes": 6032335,
+          "unique_blobs": 351
+        },
+        "deleted": 0,
+        "logical_byte_delta": 1907,
+        "old": {
+          "git_types": {
+            "blob": 356
+          },
+          "logical_bytes": 6070426,
+          "modes": {
+            "100644": 356
+          },
+          "nonblob_paths": 0,
+          "paths": 356,
+          "unique_blob_logical_bytes": 6030428,
+          "unique_blobs": 351
+        }
+      },
+      "docs/audits": {
+        "added": 0,
+        "changed": 0,
+        "current": {
+          "git_types": {
+            "blob": 59693
+          },
+          "logical_bytes": 865462622,
+          "modes": {
+            "100644": 31405,
+            "100755": 28288
+          },
+          "nonblob_paths": 0,
+          "paths": 59693,
+          "unique_blob_logical_bytes": 111845152,
+          "unique_blobs": 6458
+        },
+        "deleted": 0,
+        "logical_byte_delta": 0,
+        "old": {
+          "git_types": {
+            "blob": 59693
+          },
+          "logical_bytes": 865462622,
+          "modes": {
+            "100644": 31405,
+            "100755": 28288
+          },
+          "nonblob_paths": 0,
+          "paths": 59693,
+          "unique_blob_logical_bytes": 111845152,
+          "unique_blobs": 6458
+        }
+      },
+      "docs/futros": {
+        "added": 0,
+        "changed": 1,
+        "current": {
+          "git_types": {
+            "blob": 17
+          },
+          "logical_bytes": 543002,
+          "modes": {
+            "100644": 17
+          },
+          "nonblob_paths": 0,
+          "paths": 17,
+          "unique_blob_logical_bytes": 543002,
+          "unique_blobs": 17
+        },
+        "deleted": 0,
+        "logical_byte_delta": 3488,
+        "old": {
+          "git_types": {
+            "blob": 17
+          },
+          "logical_bytes": 539514,
+          "modes": {
+            "100644": 17
+          },
+          "nonblob_paths": 0,
+          "paths": 17,
+          "unique_blob_logical_bytes": 539514,
+          "unique_blobs": 17
+        }
+      },
+      "docs/qa-frames": {
+        "added": 0,
+        "changed": 0,
+        "current": {
+          "git_types": {
+            "blob": 970
+          },
+          "logical_bytes": 45454208,
+          "modes": {
+            "100644": 970
+          },
+          "nonblob_paths": 0,
+          "paths": 970,
+          "unique_blob_logical_bytes": 43631110,
+          "unique_blobs": 921
+        },
+        "deleted": 0,
+        "logical_byte_delta": 0,
+        "old": {
+          "git_types": {
+            "blob": 970
+          },
+          "logical_bytes": 45454208,
+          "modes": {
+            "100644": 970
+          },
+          "nonblob_paths": 0,
+          "paths": 970,
+          "unique_blob_logical_bytes": 43631110,
+          "unique_blobs": 921
+        }
+      },
+      "docs/qa-logs": {
+        "added": 798,
+        "changed": 0,
+        "current": {
+          "git_types": {
+            "blob": 65613
+          },
+          "logical_bytes": 1212994199,
+          "modes": {
+            "100644": 64461,
+            "100755": 1152
+          },
+          "nonblob_paths": 0,
+          "paths": 65613,
+          "unique_blob_logical_bytes": 871028917,
+          "unique_blobs": 30657
+        },
+        "deleted": 0,
+        "logical_byte_delta": 17152553,
+        "old": {
+          "git_types": {
+            "blob": 64815
+          },
+          "logical_bytes": 1195841646,
+          "modes": {
+            "100644": 63663,
+            "100755": 1152
+          },
+          "nonblob_paths": 0,
+          "paths": 64815,
+          "unique_blob_logical_bytes": 855297275,
+          "unique_blobs": 30063
+        }
+      },
+      "docs/retros": {
+        "added": 0,
+        "changed": 0,
+        "current": {
+          "git_types": {
+            "blob": 8
+          },
+          "logical_bytes": 75531,
+          "modes": {
+            "100644": 8
+          },
+          "nonblob_paths": 0,
+          "paths": 8,
+          "unique_blob_logical_bytes": 75531,
+          "unique_blobs": 8
+        },
+        "deleted": 0,
+        "logical_byte_delta": 0,
+        "old": {
+          "git_types": {
+            "blob": 8
+          },
+          "logical_bytes": 75531,
+          "modes": {
+            "100644": 8
+          },
+          "nonblob_paths": 0,
+          "paths": 8,
+          "unique_blob_logical_bytes": 75531,
+          "unique_blobs": 8
+        }
+      },
+      "docs/retrospective": {
+        "added": 0,
+        "changed": 0,
+        "current": {
+          "git_types": {
+            "blob": 1
+          },
+          "logical_bytes": 992,
+          "modes": {
+            "100644": 1
+          },
+          "nonblob_paths": 0,
+          "paths": 1,
+          "unique_blob_logical_bytes": 992,
+          "unique_blobs": 1
+        },
+        "deleted": 0,
+        "logical_byte_delta": 0,
+        "old": {
+          "git_types": {
+            "blob": 1
+          },
+          "logical_bytes": 992,
+          "modes": {
+            "100644": 1
+          },
+          "nonblob_paths": 0,
+          "paths": 1,
+          "unique_blob_logical_bytes": 992,
+          "unique_blobs": 1
+        }
+      },
+      "docs/reviews/inventory.json": {
+        "added": 0,
+        "changed": 0,
+        "current": {
+          "git_types": {
+            "blob": 1
+          },
+          "logical_bytes": 33229468,
+          "modes": {
+            "100644": 1
+          },
+          "nonblob_paths": 0,
+          "paths": 1,
+          "unique_blob_logical_bytes": 33229468,
+          "unique_blobs": 1
+        },
+        "deleted": 0,
+        "logical_byte_delta": 0,
+        "old": {
+          "git_types": {
+            "blob": 1
+          },
+          "logical_bytes": 33229468,
+          "modes": {
+            "100644": 1
+          },
+          "nonblob_paths": 0,
+          "paths": 1,
+          "unique_blob_logical_bytes": 33229468,
+          "unique_blobs": 1
+        }
+      },
+      "docs/work-logs": {
+        "added": 1,
+        "changed": 2,
+        "current": {
+          "git_types": {
+            "blob": 95
+          },
+          "logical_bytes": 3124144,
+          "modes": {
+            "100644": 95
+          },
+          "nonblob_paths": 0,
+          "paths": 95,
+          "unique_blob_logical_bytes": 3124144,
+          "unique_blobs": 95
+        },
+        "deleted": 0,
+        "logical_byte_delta": 19626,
+        "old": {
+          "git_types": {
+            "blob": 94
+          },
+          "logical_bytes": 3104518,
+          "modes": {
+            "100644": 94
+          },
+          "nonblob_paths": 0,
+          "paths": 94,
+          "unique_blob_logical_bytes": 3104518,
+          "unique_blobs": 94
+        }
+      },
+      "research": {
+        "added": 0,
+        "changed": 0,
+        "current": {
+          "git_types": {
+            "blob": 715
+          },
+          "logical_bytes": 23886688,
+          "modes": {
+            "100644": 710,
+            "100755": 5
+          },
+          "nonblob_paths": 0,
+          "paths": 715,
+          "unique_blob_logical_bytes": 23756652,
+          "unique_blobs": 683
+        },
+        "deleted": 0,
+        "logical_byte_delta": 0,
+        "old": {
+          "git_types": {
+            "blob": 715
+          },
+          "logical_bytes": 23886688,
+          "modes": {
+            "100644": 710,
+            "100755": 5
+          },
+          "nonblob_paths": 0,
+          "paths": 715,
+          "unique_blob_logical_bytes": 23756652,
+          "unique_blobs": 683
+        }
+      }
+    },
+    "canonical_input_bindings": {
+      "92e8d07b6163ec5ddd3e9b67f1c42a472b2911d1": {
+        "docs/reviews/areas.json": {
+          "blob": "ed033ea67c1ed0d147afbfcf1ab691aa46a5d8aa",
+          "bytes": 4975,
+          "mode": "100644",
+          "type": "blob"
+        },
+        "docs/reviews/inventory.json": {
+          "blob": "9133125cd2d28180aafdfda79668241943bf9e3d",
+          "bytes": 33229468,
+          "mode": "100644",
+          "type": "blob"
+        },
+        "docs/reviews/slices.json": {
+          "blob": "e64965a5493ebd1da3829069e98a845a96de5b26",
+          "bytes": 52223,
+          "mode": "100644",
+          "type": "blob"
+        },
+        "tools/renovation-inventory": {
+          "blob": "af18e40cf8cb75496e7bb00b4059daed4792c94a",
+          "bytes": 85435,
+          "mode": "100755",
+          "type": "blob"
+        }
+      },
+      "d707c82ab8c48b674acc1f95a9571f0cb24d226a": {
+        "docs/reviews/areas.json": {
+          "blob": "ed033ea67c1ed0d147afbfcf1ab691aa46a5d8aa",
+          "bytes": 4975,
+          "mode": "100644",
+          "type": "blob"
+        },
+        "docs/reviews/inventory.json": {
+          "blob": "9133125cd2d28180aafdfda79668241943bf9e3d",
+          "bytes": 33229468,
+          "mode": "100644",
+          "type": "blob"
+        },
+        "docs/reviews/slices.json": {
+          "blob": "e64965a5493ebd1da3829069e98a845a96de5b26",
+          "bytes": 52223,
+          "mode": "100644",
+          "type": "blob"
+        },
+        "tools/renovation-inventory": {
+          "blob": "af18e40cf8cb75496e7bb00b4059daed4792c94a",
+          "bytes": 85435,
+          "mode": "100755",
+          "type": "blob"
+        }
+      }
+    },
+    "checks": {
+      "canonical_inputs_identical_to_prior": true,
+      "logical_byte_delta_reconciles": true,
+      "old_metadata_matches_retained_prior_counts_and_digests": true,
+      "raw_diff_matches_two_tree_keys_and_mode_object_pairs": true,
+      "root_groups_sum_exactly": true
+    },
+    "commands": {
+      "argv": [
+        {
+          "argv": [
+            "git",
+            "-C",
+            "/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan-346",
+            "show",
+            "d707c82ab8c48b674acc1f95a9571f0cb24d226a:docs/qa-logs/2026-11-02-m6-resume/t46-preparation/report.json"
+          ],
+          "exit": 0,
+          "stdout_bytes": 39013,
+          "stdout_sha256": "713f999d552cdacce9e59bd062ac7b410b11ce26bf427860412b09de185a0b98"
+        },
+        {
+          "argv": [
+            "git",
+            "-C",
+            "/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan-346",
+            "ls-tree",
+            "-l",
+            "-z",
+            "92e8d07b6163ec5ddd3e9b67f1c42a472b2911d1",
+            "--",
+            "docs/reviews/inventory.json",
+            "docs/reviews/areas.json",
+            "docs/reviews/slices.json",
+            "tools/renovation-inventory"
+          ],
+          "exit": 0,
+          "stdout_bytes": 349,
+          "stdout_sha256": "be9a55cda4100a94eecd9009db599f7e064622f05d0bed16e6eb33df1cd95a63"
+        },
+        {
+          "argv": [
+            "git",
+            "-C",
+            "/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan-346",
+            "ls-tree",
+            "-l",
+            "-z",
+            "d707c82ab8c48b674acc1f95a9571f0cb24d226a",
+            "--",
+            "docs/reviews/inventory.json",
+            "docs/reviews/areas.json",
+            "docs/reviews/slices.json",
+            "tools/renovation-inventory"
+          ],
+          "exit": 0,
+          "stdout_bytes": 349,
+          "stdout_sha256": "be9a55cda4100a94eecd9009db599f7e064622f05d0bed16e6eb33df1cd95a63"
+        },
+        {
+          "argv": [
+            "git",
+            "-C",
+            "/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan-346",
+            "rev-parse",
+            "92e8d07b6163ec5ddd3e9b67f1c42a472b2911d1^{commit}"
+          ],
+          "exit": 0,
+          "stdout_bytes": 41,
+          "stdout_sha256": "71901d93ffa962b595125f3eeb52d20ec236d806ae33f6cc14c1196a24e3d5e1"
+        },
+        {
+          "argv": [
+            "git",
+            "-C",
+            "/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan-346",
+            "rev-parse",
+            "92e8d07b6163ec5ddd3e9b67f1c42a472b2911d1^{tree}"
+          ],
+          "exit": 0,
+          "stdout_bytes": 41,
+          "stdout_sha256": "6bb1e4fd9ebd05bbf9a695aa58eff7285b00d5a2be5ee4bf5bca4ef49fbd5d92"
+        },
+        {
+          "argv": [
+            "git",
+            "-C",
+            "/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan-346",
+            "rev-parse",
+            "d707c82ab8c48b674acc1f95a9571f0cb24d226a^{commit}"
+          ],
+          "exit": 0,
+          "stdout_bytes": 41,
+          "stdout_sha256": "74db1cd94546dd6d269b93aff9a1058569be8955bbda49e6ab50c666328dcc30"
+        },
+        {
+          "argv": [
+            "git",
+            "-C",
+            "/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan-346",
+            "rev-parse",
+            "d707c82ab8c48b674acc1f95a9571f0cb24d226a^{tree}"
+          ],
+          "exit": 0,
+          "stdout_bytes": 41,
+          "stdout_sha256": "e7864ef3cd83f14c4924e805b030fd35eb7b94f2f5e0e3df594e642be6127c23"
+        },
+        {
+          "argv": [
+            "git",
+            "-C",
+            "/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan-346",
+            "ls-tree",
+            "-r",
+            "-l",
+            "-z",
+            "92e8d07b6163ec5ddd3e9b67f1c42a472b2911d1",
+            "--",
+            "docs/qa-logs",
+            "docs/qa-frames",
+            "docs/audits",
+            "docs/work-logs",
+            "docs/retros",
+            "docs/retrospective",
+            "docs/futros",
+            "research",
+            ".github/sessions",
+            "docs/reviews/inventory.json"
+          ],
+          "exit": 0,
+          "stdout_bytes": 23899526,
+          "stdout_sha256": "a5080d8cf9218a60e7885e5f2f3abd55c417f647350f9ad78a76bc0f11b4c0d3"
+        },
+        {
+          "argv": [
+            "git",
+            "-C",
+            "/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan-346",
+            "ls-tree",
+            "-r",
+            "-l",
+            "-z",
+            "d707c82ab8c48b674acc1f95a9571f0cb24d226a",
+            "--",
+            "docs/qa-logs",
+            "docs/qa-frames",
+            "docs/audits",
+            "docs/work-logs",
+            "docs/retros",
+            "docs/retrospective",
+            "docs/futros",
+            "research",
+            ".github/sessions",
+            "docs/reviews/inventory.json"
+          ],
+          "exit": 0,
+          "stdout_bytes": 24025252,
+          "stdout_sha256": "b3f1be7ba504ab292928c1b9e5a15f3c24e587a0faa1cc3733cd9afef5481157"
+        },
+        {
+          "argv": [
+            "git",
+            "-C",
+            "/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan-346",
+            "diff-tree",
+            "--no-commit-id",
+            "-r",
+            "--raw",
+            "--no-abbrev",
+            "-z",
+            "--no-renames",
+            "92e8d07b6163ec5ddd3e9b67f1c42a472b2911d1",
+            "d707c82ab8c48b674acc1f95a9571f0cb24d226a",
+            "--",
+            "docs/qa-logs",
+            "docs/qa-frames",
+            "docs/audits",
+            "docs/work-logs",
+            "docs/retros",
+            "docs/retrospective",
+            "docs/futros",
+            "research",
+            ".github/sessions",
+            "docs/reviews/inventory.json"
+          ],
+          "exit": 0,
+          "stdout_bytes": 156674,
+          "stdout_sha256": "54e5167d19f12fbf66047560dcc4e05bb8d293f481bfc14607764fc27ecda969"
+        }
+      ],
+      "cwd": "/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan-346",
+      "git_root": "/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan-346",
+      "invocation": [
+        "taskset",
+        "-c",
+        "8-23",
+        "python3",
+        "-B",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan-346/docs/qa-logs/2026-11-03-m6-records-preparation/t3-compare-metadata.py",
+        "--out",
+        "/tmp/m6-t46-root-metadata-uikvn798/result"
+      ]
+    },
+    "comparator_sha256": "d31413619e63fc1fe22cc30bf5996df8040aab77fa6509688f6cd58b1abae061",
+    "cpu_affinity": "8-23 for shell and child commands",
+    "created_at": "2026-11-03T11:19:06.043150+00:00",
+    "current_metadata": {
+      "canonical_metadata_sha256": "83198fe7208e0e4e6b70b13b0ebc78a02f54b67d18a16bd0ecfc6193ab4c6eb0",
+      "git_types": {
+        "blob": 127469
+      },
+      "logical_bytes": 2190843187,
+      "modes": {
+        "100644": 98024,
+        "100755": 29445
+      },
+      "nonblob_paths": 0,
+      "path_set_sha256": "8fdb11cc06194fb1937f27d5eb7fefb70cbd5a0da0a1c6839eb1dd9fea6bf99f",
+      "paths": 127469,
+      "raw_ls_tree_sha256": "b3f1be7ba504ab292928c1b9e5a15f3c24e587a0faa1cc3733cd9afef5481157",
+      "unique_blob_logical_bytes": 1084128032,
+      "unique_blobs": 38355
+    },
+    "delta": {
+      "added": 799,
+      "added_logical_bytes": 17158827,
+      "added_metadata_sha256": "dcecdaa559442c979105c1da3e0948299630a189ebb6d52f387e23a963c6c4ce",
+      "changed": 4,
+      "changed_after_logical_bytes": 393102,
+      "changed_before_logical_bytes": 374355,
+      "changed_new_metadata_sha256": "b1380b401d7fd86fc3603d6da849838021de9a8044a0429ba6af0babea819eec",
+      "changed_old_metadata_sha256": "459e68476e0238308d23f32d10b6b47a8f27111215c27ddda5535fe9ec13eefd",
+      "deleted": 0,
+      "deleted_logical_bytes": 0,
+      "deleted_metadata_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "logical_byte_delta": 17177574,
+      "mode_changed": 0,
+      "object_changed": 4,
+      "path_set_digests": {
+        "added": "29bb77baebd4374dc2ea8086c0f60fa8390500ec5ad3cd2e7023e556abeb5760",
+        "changed": "ac8fb8210ab78abb46a335ad894cb8cd2e249f822afd21e4240837a72199c6a1",
+        "deleted": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "unchanged": "01f0a033ab5e12b5ed47b334eb89facb06460fd47282ca31d3363ec79f3682ca"
+      },
+      "raw_diff_equals_two_tree_metadata": true,
+      "raw_diff_sha256": "54e5167d19f12fbf66047560dcc4e05bb8d293f481bfc14607764fc27ecda969",
+      "raw_status_counts": {
+        "A": 799,
+        "D": 0,
+        "M": 4,
+        "T": 0
+      },
+      "rename_detection": false,
+      "type_changed": 0,
+      "unchanged": 126666,
+      "unique_blob_ref_bytes_new_to_selection": 16040242,
+      "unique_blob_ref_bytes_no_longer_in_selection": 335037,
+      "unique_blob_refs_new_to_selection": 597,
+      "unique_blob_refs_no_longer_in_selection": 3
+    },
+    "digest_encoding": "Sorted raw path bytes. Path-set: path + NUL per key. Canonical metadata: path NUL mode NUL type NUL full object OID NUL decimal size (or dash for unknown) NUL per key. Raw digests bind exact NUL-delimited Git output. No path normalization/decoding.",
+    "identity": {
+      "effort_label": "xhigh",
+      "harness": "Codex",
+      "identity_source": "actual harness identity recovered in session; not provider attestation",
+      "lane": "m6-t3-emulators",
+      "model_label": "GPT-6-Astra",
+      "pane": "wN:p6",
+      "recipient": "m6-coordinator wN:p2",
+      "session": "01a19d12-29e3-7fe0-9f41-038dac0a5deb"
+    },
+    "inventory_self": {
+      "current_metadata": {
+        "blob": "9133125cd2d28180aafdfda79668241943bf9e3d",
+        "bytes": 33229468,
+        "mode": "100644",
+        "type": "blob"
+      },
+      "old_metadata": {
+        "blob": "9133125cd2d28180aafdfda79668241943bf9e3d",
+        "bytes": 33229468,
+        "mode": "100644",
+        "type": "blob"
+      },
+      "qualification": "134637 is the stored historical self-row line measure at the survey source; not a new measurement of current inventory content. No current source/log body lines counted.",
+      "stored_row_reused": {
+        "area": "records",
+        "buildable_by": [],
+        "language": "json",
+        "last_fork_commit": "a2cfa82233 2026-10-23",
+        "last_upstream_commit": null,
+        "lines": 134637,
+        "overlap": false,
+        "patches": null,
+        "path": "docs/reviews/inventory.json",
+        "reach": "n/a",
+        "reachable_by": [],
+        "shadowed_by": null,
+        "tier": "fork-own",
+        "tier_note": null,
+        "tree": "distribution"
+      }
+    },
+    "limits": [
+      "Only OLD to CURRENT was newly compared; P1/survey quantities and self-row reused from exact retained prior report. Prior accepted producer was read, never invoked. No inventory/generator/checker/test replay.",
+      "Complete path sets and raw listings stay in memory; report persists only public canonical roots, named input identities, group counts and digests. No credential-labelled individual paths or contents printed/exported.",
+      "Only immutable Git reads via absolute coordinator root; no T41 or other historical worktree read/edit, live tree scan, repository/ledger/tracker/kit/shared-ref write, source/tree export or branch union.",
+      "No record/source body sweep, private/held/cache/process/host inspection, cleanup, builds/guests/runtime/fetch/provider/device/cloud action or permission answer.",
+      "Logical blob sizes are not pack/disk use or reclaimable savings. Unique blob references mean identity deduplication in this selected snapshot, not object-store deletion.",
+      "Current candidate is not claimed integrated next. Root determines final reading set, cutoff, accepted-branch context, baseline/brief/criteria/epic/proof/acceptance/dispatch. Preparation does not start T46 A-D.",
+      "P1 direct routes and T1 accepted T39 bridge remain their separately assigned inputs. No ownership decision or new currency/content verdict."
+    ],
+    "old_metadata": {
+      "canonical_metadata_sha256": "682fd3e788257e60f8cfb50ba4b0132a52db6fa7bdfdc6a5e8f3ae4fa570c1b8",
+      "git_types": {
+        "blob": 126670
+      },
+      "logical_bytes": 2173665613,
+      "modes": {
+        "100644": 97225,
+        "100755": 29445
+      },
+      "nonblob_paths": 0,
+      "path_set_sha256": "a06e97d5d5b4653fdb330621dbc7b52d608e1799c68734f054919056fdee6696",
+      "paths": 126670,
+      "raw_ls_tree_sha256": "a5080d8cf9218a60e7885e5f2f3abd55c417f647350f9ad78a76bc0f11b4c0d3",
+      "unique_blob_logical_bytes": 1068422827,
+      "unique_blobs": 37761
+    },
+    "pins": {
+      "current_candidate": "d707c82ab8c48b674acc1f95a9571f0cb24d226a",
+      "old": "92e8d07b6163ec5ddd3e9b67f1c42a472b2911d1",
+      "prior_report_ref": "d707c82ab8c48b674acc1f95a9571f0cb24d226a",
+      "root_trees": {
+        "92e8d07b6163ec5ddd3e9b67f1c42a472b2911d1": "2868d1db6e0a8171a9cd988d98ad2f8de382f67d",
+        "d707c82ab8c48b674acc1f95a9571f0cb24d226a": "b3ce6c6ea70d9d40ff2b74fff691a0a11f70e437"
+      }
+    },
+    "prior_preparation_already_in_current_input": {
+      "metadata_sha256": "3658983e8c0cb0b6e846d081374c240e5659301a9ca70ae7114cbcc4b995a583",
+      "prefix": "docs/qa-logs/2026-11-02-m6-resume/t46-preparation/",
+      "qualification": "The previously committed report files are ordinary frozen-input records. This new comparator/report is outside the pinned source tree and is not recursively counted.",
+      "stats": {
+        "git_types": {
+          "blob": 7
+        },
+        "logical_bytes": 68543,
+        "modes": {
+          "100644": 7
+        },
+        "nonblob_paths": 0,
+        "paths": 7,
+        "unique_blob_logical_bytes": 68543,
+        "unique_blobs": 7
+      }
+    },
+    "purpose": "Bounded T3 T46 new metadata transition only; factual input, not audit/baseline/recut/dispatch",
+    "retained_input_sha256_reused_by_identical_blob": {
+      "docs/reviews/areas.json": "985f742cfd4a2138339f1ed41bd5f5f9e3755fe69b309ff3ddb10d1466fced90",
+      "docs/reviews/inventory.json": "d17b9cac4b2c2245b7d924036a9402b2cfd066811a7ea3fc7502a380418cb2fc",
+      "docs/reviews/slices.json": "49bc2745664e52f4abb9037746d003fab54e21fde74f6308a81bf20ed00f12c6",
+      "tools/renovation-inventory": "e3d2cbc8743e328e20a2b9ca10b8bf2264efd5d25bdecb8e0bd3bb306117bf0b"
+    },
+    "retained_report": {
+      "bytes": 39013,
+      "old_deriver_read_not_run_sha256": "1eea99da03a27a158fc987677618b4b0de0ee55e27356cca233792b6b0583d94",
+      "path": "docs/qa-logs/2026-11-02-m6-resume/t46-preparation/report.json",
+      "sha256": "713f999d552cdacce9e59bd062ac7b410b11ce26bf427860412b09de185a0b98"
+    },
+    "reused_P1_metadata": {
+      "canonical_metadata_sha256": "2d1f67803b5bdc0409b0d4d6693fdb76abda8558d161ffd7c6d2eba5762b2313",
+      "git_types": {
+        "blob": 126150
+      },
+      "logical_bytes": 2137588288,
+      "modes": {
+        "100644": 96707,
+        "100755": 29443
+      },
+      "paths": 126150,
+      "raw_ls_tree_sha256": "e9116491df36a939e0cc1c50127c031ebeace88e362c0070deff9ca99600b6f2",
+      "unique_blob_logical_bytes": 1032903648,
+      "unique_blobs": 37343
+    },
+    "reused_prior_reconciliation": {
+      "P1_outside_survey": 1,
+      "P1_outside_survey_paths": [
+        "docs/retros/2026-10-23-m6-p1-survey.md"
+      ],
+      "coordinator_outside_survey": 523,
+      "equation": "126149 survey +1 later P1 retro =126150 P1; +522 adds -2 deletions =126670 coordinator. 3 changes do not change path count. Coordinator retained survey=126147, outside survey=523.",
+      "survey_absent_P1": 0,
+      "survey_absent_coordinator": 2
+    },
+    "reused_source_pins": {
+      "P1": "2174265e9cc1b248c0fbe27fa101875984d46d6b",
+      "inventory_distribution_source": "eb4763e3cc9bcd729830cd85f1719bbd4f28db10",
+      "inventory_generation_fields": {
+        "generated": "2026-10-23T02:20:48Z"
+      }
+    },
+    "reused_survey": {
+      "generated_read_lines": 15392661,
+      "inventory_lines": 22984582,
+      "inventory_self_row": {
+        "area": "records",
+        "buildable_by": [],
+        "language": "json",
+        "last_fork_commit": "a2cfa82233 2026-10-23",
+        "last_upstream_commit": null,
+        "lines": 134637,
+        "overlap": false,
+        "patches": null,
+        "path": "docs/reviews/inventory.json",
+        "reach": "n/a",
+        "reachable_by": [],
+        "shadowed_by": null,
+        "tier": "fork-own",
+        "tier_note": null,
+        "tree": "distribution"
+      },
+      "line_origin": "Stored inventory column: generator line_counts uses git diff-tree --numstat EMPTY_TREE HEAD; binary - becomes null. Not re-counted here.",
+      "path_set_sha256": "7a730b9a5ddfd2d5614696ed7a0435c49c785e465a9215f4fe9277c1c6f89744",
+      "selected_rows": 126149,
+      "table_budget": "table kind has no code-read line bound; order displays -- (126149 rows)",
+      "unique_selected_paths": 126149
+    },
+    "schema": 1,
+    "selector_reused": {
+      "area": {
+        "area": "records",
+        "epic": null,
+        "globs": [
+          "docs/{qa-logs,qa-frames,audits,work-logs,retros,retrospective,futros}/**",
+          "research/**",
+          ".github/sessions/**",
+          "docs/reviews/inventory.json"
+        ]
+      },
+      "interpretation": "inventory area == records; empty slice selector adds no reach/tier/glob filter. Expanded roots implement the unchanged records area globs as an observational frozen metadata boundary, not a final population decision.",
+      "metadata_root_arguments": [
+        "docs/qa-logs",
+        "docs/qa-frames",
+        "docs/audits",
+        "docs/work-logs",
+        "docs/retros",
+        "docs/retrospective",
+        "docs/futros",
+        "research",
+        ".github/sessions",
+        "docs/reviews/inventory.json"
+      ],
+      "slice": {
+        "area": "records",
+        "closing": "one row per misleading record found, with its correction; audit folder, lint PASS",
+        "depth": "Local",
+        "depth_reason": "a table",
+        "id": "records",
+        "interacting": "--",
+        "k": 46,
+        "kind": "table",
+        "lens": "cost against value",
+        "read_before": null,
+        "select": {},
+        "title": "the records",
+        "why": "reviewed only where a record misleads a reader today (plan \u00a7 5): the records the doctrine, the READMEs and the indexes link to are read; the rest are tabled by folder. Last, because the slices before it write records. Its read count is an artefact (QA logs and dumps classify as code) and is not a session size"
+      }
+    }
+  }
+}

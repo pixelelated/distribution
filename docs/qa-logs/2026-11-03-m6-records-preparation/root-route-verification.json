@@ -1,0 +1,22 @@
+{
+  "argv": [
+    "taskset",
+    "-c",
+    "8-23",
+    "python3",
+    "-B",
+    "/tmp/m6-t46-root-routes-hxxsee_a/extract.py"
+  ],
+  "started_at": "2026-11-03T11:30:13.004988+00:00",
+  "finished_at": "2026-11-03T11:30:13.095446+00:00",
+  "exit": 0,
+  "stdout_sha256": "73bda949db14de0bf1719b4f766103d54bdb745d84702e8beafdd357b71af9c3",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "equal": {
+    "routes.json": true,
+    "target-metadata.json": true,
+    "entrypoints.json": true,
+    "index-headers.json": true,
+    "summary.json": true
+  }
+}

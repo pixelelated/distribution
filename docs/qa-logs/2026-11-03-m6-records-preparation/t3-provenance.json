@@ -1,0 +1,28 @@
+{
+  "api_sources": {
+    "authority": {
+      "body_utf8_sha256": "dc326911a891abd55baaad1f18d8b3435a349090966d6c6278d04d3e0f1b747a",
+      "id": 6602308433,
+      "updated_at": null,
+      "url": "https://github.com/pixelelated/distribution/issues/693#issuecomment-6602308433"
+    },
+    "issue": {
+      "body_utf8_sha256": "f2366fe65ebd8e432ec117986f105e27608dcf6abbe65b4e44f443c11e61f821",
+      "id": 693,
+      "updated_at": "2026-11-03T11:12:42Z",
+      "url": "https://github.com/pixelelated/distribution/issues/693"
+    }
+  },
+  "comparator_sha256": "d31413619e63fc1fe22cc30bf5996df8040aab77fa6509688f6cd58b1abae061",
+  "created_at": "2026-11-03T11:17:49.756744+00:00",
+  "git_root": "/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan-346",
+  "invocation": "taskset -c 8-23 python3 -B /tmp/m6-t46-current-metadata-t3-20261103/compare-metadata.py --old 92e8d07b6163ec5ddd3e9b67f1c42a472b2911d1 --new d707c82ab8c48b674acc1f95a9571f0cb24d226a --prior-ref d707c82ab8c48b674acc1f95a9571f0cb24d226a --out /tmp/m6-t46-current-metadata-t3-20261103/result",
+  "read_commands": {
+    "discovery": "taskset -c 8-23 python3 - <<'PY'\nimport subprocess,re\nR='/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan-346';N='d707c82ab8c48b674acc1f95a9571f0cb24d226a';O='92e8d07b6163ec5ddd3e9b67f1c42a472b2911d1'\ndef git(*args):return subprocess.check_output(['git','-C',R,*args])\nfor ref in [O,N]:\n print('PIN',git('rev-parse',ref+'^{commit}').decode().strip(),'TREE',git('rev-parse',ref+'^{tree}').decode().strip())\n print(git('ls-tree','-l',ref,'--','docs/reviews/inventory.json','docs/reviews/areas.json','docs/reviews/slices.json','tools/renovation-inventory').decode())\nprint('RETAINED_PREPARATION_METADATA')\nfor row in git('ls-tree','-r','-l','-z',N,'--','docs/qa-logs/2026-11-02-m6-resume/t46-preparation/').split(b'\\0'):\n if not row:continue\n p=row.split(b'\\t',1)[1].decode()\n if re.search(r'(?i)credential|secret|password|token|seal[-_]key|\\.pem$',p):continue\n print(row.decode())\nPY",
+    "prior_read": "taskset -c 8-23 python3 - <<'PY'\nimport subprocess,json,hashlib\nR='/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan-346';N='d707c82ab8c48b674acc1f95a9571f0cb24d226a';P='docs/qa-logs/2026-11-02-m6-resume/t46-preparation/'\ndef read(name):\n b=subprocess.check_output(['git','-C',R,'show',N+':'+P+name]);print('RETAINED_INPUT',name,'bytes',len(b),'sha256',hashlib.sha256(b).hexdigest());return b\nprint(read('report.md').decode())\nprint('DERIVER_READ_ONLY_NOT_EXECUTED\\n'+read('derive-metadata.py').decode())\nr=json.loads(read('report.json'));print('REUSED_PRIOR_INPUTS',json.dumps({k:r[k] for k in ['pins','immutable_input_files','selector','reconciliation']}))\nprint('REUSED_PRIOR_COUNTS',json.dumps({'survey':{k:r['survey'][k] for k in ['selected_rows','unique_selected_paths','inventory_lines','generated_read_lines','inventory_self_row','path_set_sha256']},'frozen_metadata':{k:r['frozen_metadata'][k] for k in ['P1','coordinator']},'delta':{k:r['delta'][k] for k in ['added','deleted','changed','unchanged','logical_byte_delta']}}))\nprint('PRIOR_ROOT_VERIFICATION\\n'+read('coordinator-verification.json').decode())\nPY"
+  },
+  "report_sha256": "dec206e032e9ff00ac715bbc88410a66fe3e43be3bc6e779c30aa6d39a59f7be",
+  "tool_combined_output_sha256": "5b3aafb62fa438aadbfbb93b62600f8a8c9847b1f50eead7147121fa6b5268ed",
+  "tool_exit_code": 0,
+  "tool_wall_time_seconds": 1.274743697
+}

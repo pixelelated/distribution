@@ -1,0 +1,89 @@
+[
+  {
+    "argv": [
+      "git",
+      "-C",
+      "/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan-346",
+      "rev-parse",
+      "--verify",
+      "d707c82ab8c48b674acc1f95a9571f0cb24d226a^{commit}"
+    ],
+    "exit": 0,
+    "finished_at": "2026-11-03T11:21:57.067171+00:00",
+    "started_at": "2026-11-03T11:21:57.065659+00:00",
+    "stderr_bytes": 0,
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stdout_bytes": 41,
+    "stdout_sha256": "74db1cd94546dd6d269b93aff9a1058569be8955bbda49e6ab50c666328dcc30"
+  },
+  {
+    "argv": [
+      "git",
+      "-C",
+      "/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan-346",
+      "rev-parse",
+      "--verify",
+      "d707c82ab8c48b674acc1f95a9571f0cb24d226a^{tree}"
+    ],
+    "exit": 0,
+    "finished_at": "2026-11-03T11:21:57.068601+00:00",
+    "started_at": "2026-11-03T11:21:57.067224+00:00",
+    "stderr_bytes": 0,
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stdout_bytes": 41,
+    "stdout_sha256": "e7864ef3cd83f14c4924e805b030fd35eb7b94f2f5e0e3df594e642be6127c23"
+  },
+  {
+    "argv": [
+      "git",
+      "-C",
+      "/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan-346",
+      "ls-tree",
+      "-l",
+      "-z",
+      "d707c82ab8c48b674acc1f95a9571f0cb24d226a",
+      "--",
+      "docs/reviews/inventory.json",
+      "docs/reviews/areas.json",
+      "docs/reviews/slices.json",
+      "tools/renovation-inventory"
+    ],
+    "exit": 0,
+    "finished_at": "2026-11-03T11:21:57.070090+00:00",
+    "started_at": "2026-11-03T11:21:57.068643+00:00",
+    "stderr_bytes": 0,
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stdout_bytes": 349,
+    "stdout_sha256": "be9a55cda4100a94eecd9009db599f7e064622f05d0bed16e6eb33df1cd95a63"
+  },
+  {
+    "argv": [
+      "git",
+      "-C",
+      "/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan-346",
+      "ls-tree",
+      "-r",
+      "-l",
+      "-z",
+      "d707c82ab8c48b674acc1f95a9571f0cb24d226a",
+      "--",
+      "docs/qa-logs",
+      "docs/qa-frames",
+      "docs/audits",
+      "docs/work-logs",
+      "docs/retros",
+      "docs/retrospective",
+      "docs/futros",
+      "research",
+      ".github/sessions",
+      "docs/reviews/inventory.json"
+    ],
+    "exit": 0,
+    "finished_at": "2026-11-03T11:21:57.192690+00:00",
+    "started_at": "2026-11-03T11:21:57.070139+00:00",
+    "stderr_bytes": 0,
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stdout_bytes": 24025252,
+    "stdout_sha256": "b3f1be7ba504ab292928c1b9e5a15f3c24e587a0faa1cc3733cd9afef5481157"
+  }
+]

@@ -1,0 +1,2505 @@
+{
+  "checked_at": "2026-11-03T11:21:36.199466+00:00",
+  "paths": 48,
+  "comparisons": 192,
+  "pre_correction_exact": 48,
+  "accepted_source_equal_completion": true,
+  "commands": [
+    {
+      "argv": [
+        "git",
+        "ls-tree",
+        "-l",
+        "-z",
+        "4eb5dfab8e745914a55e7de3e5a43c5b91ebc608",
+        "--",
+        "README.md"
+      ],
+      "exit": 0,
+      "stdout_sha256": "3934820fb5030bbd5c1b01c456f7957e0fbb52c94e3497ff488d454f83e0b7eb"
+    },
+    {
+      "argv": [
+        "git",
+        "ls-tree",
+        "-l",
+        "-z",
+        "7994f760fe1f4df6744844e80433bc49295cb94e",
+        "--",
+        "README.md"
+      ],
+      "exit": 0,
+      "stdout_sha256": "3934820fb5030bbd5c1b01c456f7957e0fbb52c94e3497ff488d454f83e0b7eb"
+    },
+    {
+      "argv": [
+        "git",
+        "ls-tree",
+        "-l",
+        "-z",
+        "d707c82ab8c48b674acc1f95a9571f0cb24d226a",
+        "--",
+        "README.md"
+      ],
+      "exit": 0,
+      "stdout_sha256": "cc6bb93d9f6b2feec306754a41d7c1de9739e4aa184410ba10ba93c582fa0e91"
+    },
+    {
+      "argv": [
+        "git",
+        "ls-tree",
+        "-l",
+        "-z",
+        "de40e931a469f6aa6889f08ec9d4d31266f4c6d4^",
+        "--",
+        "README.md"
+      ],
+      "exit": 0,
+      "stdout_sha256": "cc6bb93d9f6b2feec306754a41d7c1de9739e4aa184410ba10ba93c582fa0e91"
+    },
+    {
+      "argv": [
+        "git",
+        "ls-tree",
+        "-l",
+        "-z",
+        "4eb5dfab8e745914a55e7de3e5a43c5b91ebc608",
+        "--",
+        "docs/backup-contents.md"
+      ],
+      "exit": 0,
+      "stdout_sha256": "6d7fba02d2d97de6a8c80c5825f3937245890ae34df0d33d5353251d7a49098b"
+    },
+    {
+      "argv": [
+        "git",
+        "ls-tree",
+        "-l",
+        "-z",
+        "7994f760fe1f4df6744844e80433bc49295cb94e",
+        "--",
+        "docs/backup-contents.md"
+      ],
+      "exit": 0,
+      "stdout_sha256": "6d7fba02d2d97de6a8c80c5825f3937245890ae34df0d33d5353251d7a49098b"
+    },
+    {
+      "argv": [
+        "git",
+        "ls-tree",
+        "-l",
+        "-z",
+        "d707c82ab8c48b674acc1f95a9571f0cb24d226a",
+        "--",
+        "docs/backup-contents.md"
+      ],
+      "exit": 0,
+      "stdout_sha256": "7024f568af978baa345027e424ce7cbde5f39051a681cf16f9c110e7b68198fa"
+    },
+    {
+      "argv": [
+        "git",
+        "ls-tree",
+        "-l",
+        "-z",
+        "424eea28ecbfaa8fbbe49cdee6c99750becd13cf^",
+        "--",
+        "docs/backup-contents.md"
+      ],
+      "exit": 0,
+      "stdout_sha256": "7024f568af978baa345027e424ce7cbde5f39051a681cf16f9c110e7b68198fa"
+    },
+    {
+      "argv": [
+        "git",
+        "ls-tree",
+        "-l",
+        "-z",
+        "4eb5dfab8e745914a55e7de3e5a43c5b91ebc608",
+        "--",
+        "docs/cloud-save-integrity.md"
+      ],
+      "exit": 0,
+      "stdout_sha256": "f317f14f868eb6ada59326a8b75f92f90481ec7954fa1d5d06ac226849a93632"
+    },
+    {
+      "argv": [
+        "git",
+        "ls-tree",
+        "-l",
+        "-z",
+        "7994f760fe1f4df6744844e80433bc49295cb94e",
+        "--",
+        "docs/cloud-save-integrity.md"
+      ],
+      "exit": 0,
+      "stdout_sha256": "f317f14f868eb6ada59326a8b75f92f90481ec7954fa1d5d06ac226849a93632"
+    },
+    {
+      "argv": [
+        "git",
+        "ls-tree",
+        "-l",
+        "-z",
+        "d707c82ab8c48b674acc1f95a9571f0cb24d226a",
+        "--",
+        "docs/cloud-save-integrity.md"
+      ],
+      "exit": 0,
+      "stdout_sha256": "c0be15d5d65c4561b49f3de6be3e7de7859a0505c99ca55f18e508ebaffbec58"
+    },
+    {
+      "argv": [
+        "git",
+        "ls-tree",
+        "-l",
+        "-z",
+        "895b90abcf44e62d3aa7339eba043cfe01e9b98e^",
+        "--",
+        "docs/cloud-save-integrity.md"
+      ],
+      "exit": 0,
+      "stdout_sha256": "c0be15d5d65c4561b49f3de6be3e7de7859a0505c99ca55f18e508ebaffbec58"
+    },
+    {
+      "argv": [
+        "git",
+        "ls-tree",
+        "-l",
+        "-z",
+        "4eb5dfab8e745914a55e7de3e5a43c5b91ebc608",
+        "--",
+        "docs/cloud-vocabulary-audit.md"
+      ],
+      "exit": 0,
+      "stdout_sha256": "8f86f4546849e21ffacc96cd9a0ac9b304b436e532c2e081a8160a252bf0db21"
+    },
+    {
+      "argv": [
+        "git",
+        "ls-tree",
+        "-l",
+        "-z",
+        "7994f760fe1f4df6744844e80433bc49295cb94e",
+        "--",
+        "docs/cloud-vocabulary-audit.md"
+      ],
+      "exit": 0,
+      "stdout_sha256": "8f86f4546849e21ffacc96cd9a0ac9b304b436e532c2e081a8160a252bf0db21"
+    },
+    {
+      "argv": [
+        "git",
+        "ls-tree",
+        "-l",
+        "-z",
+        "d707c82ab8c48b674acc1f95a9571f0cb24d226a",
+        "--",
+        "docs/cloud-vocabulary-audit.md"
+      ],
+      "exit": 0,
+      "stdout_sha256": "8272ab66cd756f860b559e41d15fd6306735184dd8b3bb93495604ca34f5492b"
+    },
+    {
+      "argv": [
+        "git",
+        "ls-tree",
+        "-l",
+        "-z",
+        "de11515859d231a82a511c3867e12211190041a2^",
+        "--",
+        "docs/cloud-vocabulary-audit.md"
+      ],
+      "exit": 0,
+      "stdout_sha256": "8272ab66cd756f860b559e41d15fd6306735184dd8b3bb93495604ca34f5492b"
+    },
+    {
+      "argv": [
+        "git",
+        "ls-tree",
+        "-l",
+        "-z",
+        "4eb5dfab8e745914a55e7de3e5a43c5b91ebc608",
+        "--",
+        "docs/council-limits.md"
+      ],
+      "exit": 0,
+      "stdout_sha256": "ce8b37deb4dad674ffdc63738757c2de243eb80879c06a6fa96293114d824ff3"
+    },
+    {
+      "argv": [
+        "git",
+        "ls-tree",
+        "-l",
+        "-z",
+        "7994f760fe1f4df6744844e80433bc49295cb94e",
+        "--",
+        "docs/council-limits.md"
+      ],
+      "exit": 0,
+      "stdout_sha256": "ce8b37deb4dad674ffdc63738757c2de243eb80879c06a6fa96293114d824ff3"
+    },
+    {
+      "argv": [
+        "git",
+        "ls-tree",
+        "-l",
+        "-z",
+        "d707c82ab8c48b674acc1f95a9571f0cb24d226a",
+        "--",
+        "docs/council-limits.md"
+      ],
+      "exit": 0,
+      "stdout_sha256": "4e7d9ad9b905a5a9d25377b524905dd7412f4c8590f08e6c0f1fa23f1204b2e5"
+    },
+    {
+      "argv": [
+        "git",
+        "ls-tree",
+        "-l",
+        "-z",
+        "de11515859d231a82a511c3867e12211190041a2^",
+        "--",
+        "docs/council-limits.md"
+      ],
+      "exit": 0,
+      "stdout_sha256": "4e7d9ad9b905a5a9d25377b524905dd7412f4c8590f08e6c0f1fa23f1204b2e5"
+    },
+    {
+      "argv": [
+        "git",
+        "ls-tree",
+        "-l",
+        "-z",
+        "4eb5dfab8e745914a55e7de3e5a43c5b91ebc608",
+        "--",
+        "docs/council-mistral-counter.md"
+      ],
+      "exit": 0,
+      "stdout_sha256": "a62fd0fe7bfb62dacf58fba6152d31871a8168e32413bea3f1d2b3c932ac42bc"
+    },
+    {
+      "argv": [
+        "git",
+        "ls-tree",
+        "-l",
+        "-z",
+        "7994f760fe1f4df6744844e80433bc49295cb94e",
+        "--",
+        "docs/council-mistral-counter.md"
+      ],
+      "exit": 0,
+      "stdout_sha256": "a62fd0fe7bfb62dacf58fba6152d31871a8168e32413bea3f1d2b3c932ac42bc"
+    },
+    {
+      "argv": [
+        "git",
+        "ls-tree",
+        "-l",
+        "-z",
+        "d707c82ab8c48b674acc1f95a9571f0cb24d226a",
+        "--",
+        "docs/council-mistral-counter.md"
+      ],
+      "exit": 0,
+      "stdout_sha256": "1c1f833c03903cddb3ea8d09e4c01c61ae08bdf44bf3bce1e16b4daef1cf926d"
+    },
+    {
+      "argv": [
+        "git",
+        "ls-tree",
+        "-l",
+        "-z",
+        "895b90abcf44e62d3aa7339eba043cfe01e9b98e^",
+        "--",
+        "docs/council-mistral-counter.md"
+      ],
+      "exit": 0,
+      "stdout_sha256": "1c1f833c03903cddb3ea8d09e4c01c61ae08bdf44bf3bce1e16b4daef1cf926d"
+    },
+    {
+      "argv": [
+        "git",
+        "ls-tree",
+        "-l",
+        "-z",
+        "4eb5dfab8e745914a55e7de3e5a43c5b91ebc608",
+        "--",
+        "docs/device-flashing-runbook.md"
+      ],
+      "exit": 0,
+      "stdout_sha256": "9cf14317d1c92dbf630f053926ea6a5289d1aa0c95947ad3f77dd0dc4b25df73"
+    },
+    {
+      "argv": [
+        "git",
+        "ls-tree",
+        "-l",
+        "-z",
+        "7994f760fe1f4df6744844e80433bc49295cb94e",
+        "--",
+        "docs/device-flashing-runbook.md"
+      ],
+      "exit": 0,
+      "stdout_sha256": "9cf14317d1c92dbf630f053926ea6a5289d1aa0c95947ad3f77dd0dc4b25df73"
+    },
+    {
+      "argv": [
+        "git",
+        "ls-tree",
+        "-l",
+        "-z",
+        "d707c82ab8c48b674acc1f95a9571f0cb24d226a",
+        "--",
+        "docs/device-flashing-runbook.md"
+      ],
+      "exit": 0,
+      "stdout_sha256": "3c213fb2b937de5e1d1ae4b57c79eb61034fe94e989ea48c198a901ad65c56f2"
+    },
+    {
+      "argv": [
+        "git",
+        "ls-tree",
+        "-l",
+        "-z",
+        "de40e931a469f6aa6889f08ec9d4d31266f4c6d4^",
+        "--",
+        "docs/device-flashing-runbook.md"
+      ],
+      "exit": 0,
+      "stdout_sha256": "3c213fb2b937de5e1d1ae4b57c79eb61034fe94e989ea48c198a901ad65c56f2"
+    },
+    {
+      "argv": [
+        "git",
+        "ls-tree",
+        "-l",
+        "-z",
+        "4eb5dfab8e745914a55e7de3e5a43c5b91ebc608",
+        "--",
+        "docs/device-testing-policy.md"
+      ],
+      "exit": 0,
+      "stdout_sha256": "aebb59246941a0e426dd5e378457fdf1160e75220c45a69eb9f56c784266173e"
+    },
+    {
+      "argv": [
+        "git",
+        "ls-tree",
+        "-l",
+        "-z",
+        "7994f760fe1f4df6744844e80433bc49295cb94e",
+        "--",
+        "docs/device-testing-policy.md"
+      ],
+      "exit": 0,
+      "stdout_sha256": "aebb59246941a0e426dd5e378457fdf1160e75220c45a69eb9f56c784266173e"
+    },
+    {
+      "argv": [
+        "git",
+        "ls-tree",
+        "-l",
+        "-z",
+        "d707c82ab8c48b674acc1f95a9571f0cb24d226a",
+        "--",
+        "docs/device-testing-policy.md"
+      ],
+      "exit": 0,
+      "stdout_sha256": "52e3a410fa0d8af9c7006b8db239430193251b3693bbe82e32c9fb33e035c971"
+    },
+    {
+      "argv": [
+        "git",
+        "ls-tree",
+        "-l",
+        "-z",
+        "de40e931a469f6aa6889f08ec9d4d31266f4c6d4^",
+        "--",
+        "docs/device-testing-policy.md"
+      ],
+      "exit": 0,
+      "stdout_sha256": "52e3a410fa0d8af9c7006b8db239430193251b3693bbe82e32c9fb33e035c971"
+    },
+    {
+      "argv": [
+        "git",
+        "ls-tree",
+        "-l",
+        "-z",
+        "4eb5dfab8e745914a55e7de3e5a43c5b91ebc608",
+        "--",
+        "docs/es-menu-map.md"
+      ],
+      "exit": 0,
+      "stdout_sha256": "f91da74988eef6ce8b261996ad4ebbd0dd4be408e72f2168d013d6fa3b2bebbb"
+    },
+    {
+      "argv": [
+        "git",
+        "ls-tree",
+        "-l",
+        "-z",
+        "7994f760fe1f4df6744844e80433bc49295cb94e",
+        "--",
+        "docs/es-menu-map.md"
+      ],
+      "exit": 0,
+      "stdout_sha256": "f91da74988eef6ce8b261996ad4ebbd0dd4be408e72f2168d013d6fa3b2bebbb"
+    },
+    {
+      "argv": [
+        "git",
+        "ls-tree",
+        "-l",
+        "-z",
+        "d707c82ab8c48b674acc1f95a9571f0cb24d226a",
+        "--",
+        "docs/es-menu-map.md"
+      ],
+      "exit": 0,
+      "stdout_sha256": "2088b9b1310bace3a909a2561eeaf0ed940c0e9a46fd7b3aab6aa3ce9dc2b5ac"
+    },
+    {
+      "argv": [
+        "git",
+        "ls-tree",
+        "-l",
+        "-z",
+        "895b90abcf44e62d3aa7339eba043cfe01e9b98e^",
+        "--",
+        "docs/es-menu-map.md"
+      ],
+      "exit": 0,
+      "stdout_sha256": "2088b9b1310bace3a909a2561eeaf0ed940c0e9a46fd7b3aab6aa3ce9dc2b5ac"
+    },
+    {
+      "argv": [
+        "git",
+        "ls-tree",
+        "-l",
+        "-z",
+        "4eb5dfab8e745914a55e7de3e5a43c5b91ebc608",
+        "--",
+        "docs/pixelelated/cloud-folder-flow-review.md"
+      ],
+      "exit": 0,
+      "stdout_sha256": "1a81c676b8fd3c4b8112880004b279fb99c06003c0382c022832c324cee39aca"
+    },
+    {
+      "argv": [
+        "git",
+        "ls-tree",
+        "-l",
+        "-z",
+        "7994f760fe1f4df6744844e80433bc49295cb94e",
+        "--",
+        "docs/pixelelated/cloud-folder-flow-review.md"
+      ],
+      "exit": 0,
+      "stdout_sha256": "1a81c676b8fd3c4b8112880004b279fb99c06003c0382c022832c324cee39aca"
+    },
+    {
+      "argv": [
+        "git",
+        "ls-tree",
+        "-l",
+        "-z",
+        "d707c82ab8c48b674acc1f95a9571f0cb24d226a",
+        "--",
+        "docs/pixelelated/cloud-folder-flow-review.md"
+      ],
+      "exit": 0,
+      "stdout_sha256": "c16a2751f1795c716b5528b6834da79166b409dc02a488a7b383207e7ad4710c"
+    },
+    {
+      "argv": [
+        "git",
+        "ls-tree",
+        "-l",
+        "-z",
+        "a2d4a33d4aa310d78c1b5c23b5bcdcd93f8ffe89^",
+        "--",
+        "docs/pixelelated/cloud-folder-flow-review.md"
+      ],
+      "exit": 0,
+      "stdout_sha256": "c16a2751f1795c716b5528b6834da79166b409dc02a488a7b383207e7ad4710c"
+    },
+    {
+      "argv": [
+        "git",
+        "ls-tree",
+        "-l",
+        "-z",
+        "4eb5dfab8e745914a55e7de3e5a43c5b91ebc608",
+        "--",
+        "docs/pixelelated/cloud-folders.md"
+      ],
+      "exit": 0,
+      "stdout_sha256": "76542d5bf237fba91e5f1d295cc20bc5341e57b7d4946554bfad8c6ddf58f47a"
+    },
+    {
+      "argv": [
+        "git",
+        "ls-tree",
+        "-l",
+        "-z",
+        "7994f760fe1f4df6744844e80433bc49295cb94e",
+        "--",
+        "docs/pixelelated/cloud-folders.md"
+      ],
+      "exit": 0,
+      "stdout_sha256": "76542d5bf237fba91e5f1d295cc20bc5341e57b7d4946554bfad8c6ddf58f47a"
+    },
+    {
+      "argv": [
+        "git",
+        "ls-tree",
+        "-l",
+        "-z",
+        "d707c82ab8c48b674acc1f95a9571f0cb24d226a",
+        "--",
+        "docs/pixelelated/cloud-folders.md"
+      ],
+      "exit": 0,
+      "stdout_sha256": "3601f00ffcfad55a9a0617fb38967d8603ae2960241f607c56c3adef14f1497c"
+    },
+    {
+      "argv": [
+        "git",
+        "ls-tree",
+        "-l",
+        "-z",
+        "424eea28ecbfaa8fbbe49cdee6c99750becd13cf^",
+        "--",
+        "docs/pixelelated/cloud-folders.md"
+      ],
+      "exit": 0,
+      "stdout_sha256": "3601f00ffcfad55a9a0617fb38967d8603ae2960241f607c56c3adef14f1497c"
+    },
+    {
+      "argv": [
+        "git",
+        "ls-tree",
+        "-l",
+        "-z",
+        "4eb5dfab8e745914a55e7de3e5a43c5b91ebc608",
+        "--",
+        "docs/pixelelated/site-plan.md"
+      ],
+      "exit": 0,
+      "stdout_sha256": "c4dccff418f04a33bb64bd08b44dde66436e77eb9cb2033eb592a30219d45f63"
+    },
+    {
+      "argv": [
+        "git",
+        "ls-tree",
+        "-l",
+        "-z",
+        "7994f760fe1f4df6744844e80433bc49295cb94e",
+        "--",
+        "docs/pixelelated/site-plan.md"
+      ],
+      "exit": 0,
+      "stdout_sha256": "c4dccff418f04a33bb64bd08b44dde66436e77eb9cb2033eb592a30219d45f63"
+    },
+    {
+      "argv": [
+        "git",
+        "ls-tree",
+        "-l",
+        "-z",
+        "d707c82ab8c48b674acc1f95a9571f0cb24d226a",
+        "--",
+        "docs/pixelelated/site-plan.md"
+      ],
+      "exit": 0,
+      "stdout_sha256": "72d07a76996c8223e9ceec81d835c507456dfe8d2a6512975e1357c9bcb42f5e"
+    },
+    {
+      "argv": [
+        "git",
+        "ls-tree",
+        "-l",
+        "-z",
+        "a2d4a33d4aa310d78c1b5c23b5bcdcd93f8ffe89^",
+        "--",
+        "docs/pixelelated/site-plan.md"
+      ],
+      "exit": 0,
+      "stdout_sha256": "72d07a76996c8223e9ceec81d835c507456dfe8d2a6512975e1357c9bcb42f5e"
+    },
+    {
+      "argv": [
+        "git",
+        "ls-tree",
+        "-l",
+        "-z",
+        "4eb5dfab8e745914a55e7de3e5a43c5b91ebc608",
+        "--",
+        "docs/pr-series/es-review-guide.md"
+      ],
+      "exit": 0,
+      "stdout_sha256": "6bdba3a04641a952e291c32693b85ccf78ef0d985ba2a20dbe65eb8e6b2012ce"
+    },
+    {
+      "argv": [
+        "git",
+        "ls-tree",
+        "-l",
+        "-z",
+        "7994f760fe1f4df6744844e80433bc49295cb94e",
+        "--",
+        "docs/pr-series/es-review-guide.md"
+      ],
+      "exit": 0,
+      "stdout_sha256": "6bdba3a04641a952e291c32693b85ccf78ef0d985ba2a20dbe65eb8e6b2012ce"
+    },
+    {
+      "argv": [
+        "git",
+        "ls-tree",
+        "-l",
+        "-z",
+        "d707c82ab8c48b674acc1f95a9571f0cb24d226a",
+        "--",
+        "docs/pr-series/es-review-guide.md"
+      ],
+      "exit": 0,
+      "stdout_sha256": "9776a49f26c600c84a715292a64a9e52b848eb1a77dcae9b11bfde1df62bf624"
+    },
+    {
+      "argv": [
+        "git",
+        "ls-tree",
+        "-l",
+        "-z",
+        "de11515859d231a82a511c3867e12211190041a2^",
+        "--",
+        "docs/pr-series/es-review-guide.md"
+      ],
+      "exit": 0,
+      "stdout_sha256": "9776a49f26c600c84a715292a64a9e52b848eb1a77dcae9b11bfde1df62bf624"
+    },
+    {
+      "argv": [
+        "git",
+        "ls-tree",
+        "-l",
+        "-z",
+        "4eb5dfab8e745914a55e7de3e5a43c5b91ebc608",
+        "--",
+        "docs/ra-offline/2026_09_13-phase-1-design-note.md"
+      ],
+      "exit": 0,
+      "stdout_sha256": "53ea5844bb6c73bed9ae733ef50e393378b0878c30a7cf247a8883b3a77dc39f"
+    },
+    {
+      "argv": [
+        "git",
+        "ls-tree",
+        "-l",
+        "-z",
+        "7994f760fe1f4df6744844e80433bc49295cb94e",
+        "--",
+        "docs/ra-offline/2026_09_13-phase-1-design-note.md"
+      ],
+      "exit": 0,
+      "stdout_sha256": "53ea5844bb6c73bed9ae733ef50e393378b0878c30a7cf247a8883b3a77dc39f"
+    },
+    {
+      "argv": [
+        "git",
+        "ls-tree",
+        "-l",
+        "-z",
+        "d707c82ab8c48b674acc1f95a9571f0cb24d226a",
+        "--",
+        "docs/ra-offline/2026_09_13-phase-1-design-note.md"
+      ],
+      "exit": 0,
+      "stdout_sha256": "9e03554dc6f46960bf38ba7a2c641022a2c1b7964ec99c3d308cba3623db3eed"
+    },
+    {
+      "argv": [
+        "git",
+        "ls-tree",
+        "-l",
+        "-z",
+        "de11515859d231a82a511c3867e12211190041a2^",
+        "--",
+        "docs/ra-offline/2026_09_13-phase-1-design-note.md"
+      ],
+      "exit": 0,
+      "stdout_sha256": "9e03554dc6f46960bf38ba7a2c641022a2c1b7964ec99c3d308cba3623db3eed"
+    },
+    {
+      "argv": [
+        "git",
+        "ls-tree",
+        "-l",
+        "-z",
+        "4eb5dfab8e745914a55e7de3e5a43c5b91ebc608",
+        "--",
+        "docs/ra-offline/rocknix-org-offline-achievements.md"
+      ],
+      "exit": 0,
+      "stdout_sha256": "dbb433732ccb9a12bb45c72b32e792aed9a61282a8557af72b16e99568d812c8"
+    },
+    {
+      "argv": [
+        "git",
+        "ls-tree",
+        "-l",
+        "-z",
+        "7994f760fe1f4df6744844e80433bc49295cb94e",
+        "--",
+        "docs/ra-offline/rocknix-org-offline-achievements.md"
+      ],
+      "exit": 0,
+      "stdout_sha256": "dbb433732ccb9a12bb45c72b32e792aed9a61282a8557af72b16e99568d812c8"
+    },
+    {
+      "argv": [
+        "git",
+        "ls-tree",
+        "-l",
+        "-z",
+        "d707c82ab8c48b674acc1f95a9571f0cb24d226a",
+        "--",
+        "docs/ra-offline/rocknix-org-offline-achievements.md"
+      ],
+      "exit": 0,
+      "stdout_sha256": "d80e07e0e7ca9c0745606eadcb2d5262701e313cb5cf2fde422576ebba334982"
+    },
+    {
+      "argv": [
+        "git",
+        "ls-tree",
+        "-l",
+        "-z",
+        "de11515859d231a82a511c3867e12211190041a2^",
+        "--",
+        "docs/ra-offline/rocknix-org-offline-achievements.md"
+      ],
+      "exit": 0,
+      "stdout_sha256": "d80e07e0e7ca9c0745606eadcb2d5262701e313cb5cf2fde422576ebba334982"
+    },
+    {
+      "argv": [
+        "git",
+        "ls-tree",
+        "-l",
+        "-z",
+        "4eb5dfab8e745914a55e7de3e5a43c5b91ebc608",
+        "--",
+        "docs/rasteratops/candidate-source-plan.md"
+      ],
+      "exit": 0,
+      "stdout_sha256": "6d4efc63631bbf2379b7f8c11f9d88815f71f6cdb44b8ecfac7e975e0c66f2d9"
+    },
+    {
+      "argv": [
+        "git",
+        "ls-tree",
+        "-l",
+        "-z",
+        "7994f760fe1f4df6744844e80433bc49295cb94e",
+        "--",
+        "docs/rasteratops/candidate-source-plan.md"
+      ],
+      "exit": 0,
+      "stdout_sha256": "6d4efc63631bbf2379b7f8c11f9d88815f71f6cdb44b8ecfac7e975e0c66f2d9"
+    },
+    {
+      "argv": [
+        "git",
+        "ls-tree",
+        "-l",
+        "-z",
+        "d707c82ab8c48b674acc1f95a9571f0cb24d226a",
+        "--",
+        "docs/rasteratops/candidate-source-plan.md"
+      ],
+      "exit": 0,
+      "stdout_sha256": "2ed18f726d7c0a46639ea635c36de3ad37b2539217954cc2e627aa28c3597b51"
+    },
+    {
+      "argv": [
+        "git",
+        "ls-tree",
+        "-l",
+        "-z",
+        "de11515859d231a82a511c3867e12211190041a2^",
+        "--",
+        "docs/rasteratops/candidate-source-plan.md"
+      ],
+      "exit": 0,
+      "stdout_sha256": "2ed18f726d7c0a46639ea635c36de3ad37b2539217954cc2e627aa28c3597b51"
+    },
+    {
+      "argv": [
+        "git",
+        "ls-tree",
+        "-l",
+        "-z",
+        "4eb5dfab8e745914a55e7de3e5a43c5b91ebc608",
+        "--",
+        "docs/rasteratops/cloud-layout.md"
+      ],
+      "exit": 0,
+      "stdout_sha256": "7ccd2137978bfcf45770ec17f7c315561e5efa24ea09649ef374ba15bc106668"
+    },
+    {
+      "argv": [
+        "git",
+        "ls-tree",
+        "-l",
+        "-z",
+        "7994f760fe1f4df6744844e80433bc49295cb94e",
+        "--",
+        "docs/rasteratops/cloud-layout.md"
+      ],
+      "exit": 0,
+      "stdout_sha256": "7ccd2137978bfcf45770ec17f7c315561e5efa24ea09649ef374ba15bc106668"
+    },
+    {
+      "argv": [
+        "git",
+        "ls-tree",
+        "-l",
+        "-z",
+        "d707c82ab8c48b674acc1f95a9571f0cb24d226a",
+        "--",
+        "docs/rasteratops/cloud-layout.md"
+      ],
+      "exit": 0,
+      "stdout_sha256": "0ad2c650f3e7536c55c5a9223ff0f6b694290b6a02caa0535ba8d35429e3e46d"
+    },
+    {
+      "argv": [
+        "git",
+        "ls-tree",
+        "-l",
+        "-z",
+        "424eea28ecbfaa8fbbe49cdee6c99750becd13cf^",
+        "--",
+        "docs/rasteratops/cloud-layout.md"
+      ],
+      "exit": 0,
+      "stdout_sha256": "0ad2c650f3e7536c55c5a9223ff0f6b694290b6a02caa0535ba8d35429e3e46d"
+    },
+    {
+      "argv": [
+        "git",
+        "ls-tree",
+        "-l",
+        "-z",
+        "4eb5dfab8e745914a55e7de3e5a43c5b91ebc608",
+        "--",
+        "docs/rasteratops/cloud-provider-2026-09-30.md"
+      ],
+      "exit": 0,
+      "stdout_sha256": "651de7f8af61b17be5de435e1716f9b4049f63c17f38ae4bde77086f6963d927"
+    },
+    {
+      "argv": [
+        "git",
+        "ls-tree",
+        "-l",
+        "-z",
+        "7994f760fe1f4df6744844e80433bc49295cb94e",
+        "--",
+        "docs/rasteratops/cloud-provider-2026-09-30.md"
+      ],
+      "exit": 0,
+      "stdout_sha256": "651de7f8af61b17be5de435e1716f9b4049f63c17f38ae4bde77086f6963d927"
+    },
+    {
+      "argv": [
+        "git",
+        "ls-tree",
+        "-l",
+        "-z",
+        "d707c82ab8c48b674acc1f95a9571f0cb24d226a",
+        "--",
+        "docs/rasteratops/cloud-provider-2026-09-30.md"
+      ],
+      "exit": 0,
+      "stdout_sha256": "a9b3aaec4aad0a5b32e7409497454893f6397fca9bc8b8cfbc5759cc36843a70"
+    },
+    {
+      "argv": [
+        "git",
+        "ls-tree",
+        "-l",
+        "-z",
+        "de11515859d231a82a511c3867e12211190041a2^",
+        "--",
+        "docs/rasteratops/cloud-provider-2026-09-30.md"
+      ],
+      "exit": 0,
+      "stdout_sha256": "a9b3aaec4aad0a5b32e7409497454893f6397fca9bc8b8cfbc5759cc36843a70"
+    },
+    {
+      "argv": [
+        "git",
+        "ls-tree",
+        "-l",
+        "-z",
+        "4eb5dfab8e745914a55e7de3e5a43c5b91ebc608",
+        "--",
+        "docs/rasteratops/p0-read.md"
+      ],
+      "exit": 0,
+      "stdout_sha256": "6e0cf2f32e8a01f446c2afd47ff4f4ca051eb416596e6085e2c528d91c055978"
+    },
+    {
+      "argv": [
+        "git",
+        "ls-tree",
+        "-l",
+        "-z",
+        "7994f760fe1f4df6744844e80433bc49295cb94e",
+        "--",
+        "docs/rasteratops/p0-read.md"
+      ],
+      "exit": 0,
+      "stdout_sha256": "6e0cf2f32e8a01f446c2afd47ff4f4ca051eb416596e6085e2c528d91c055978"
+    },
+    {
+      "argv": [
+        "git",
+        "ls-tree",
+        "-l",
+        "-z",
+        "d707c82ab8c48b674acc1f95a9571f0cb24d226a",
+        "--",
+        "docs/rasteratops/p0-read.md"
+      ],
+      "exit": 0,
+      "stdout_sha256": "a83bd628fb104b354e5c8ee97a7ec582170094f4be11937e1440f770e2c48289"
+    },
+    {
+      "argv": [
+        "git",
+        "ls-tree",
+        "-l",
+        "-z",
+        "de11515859d231a82a511c3867e12211190041a2^",
+        "--",
+        "docs/rasteratops/p0-read.md"
+      ],
+      "exit": 0,
+      "stdout_sha256": "a83bd628fb104b354e5c8ee97a7ec582170094f4be11937e1440f770e2c48289"
+    },
+    {
+      "argv": [
+        "git",
+        "ls-tree",
+        "-l",
+        "-z",
+        "4eb5dfab8e745914a55e7de3e5a43c5b91ebc608",
+        "--",
+        "docs/rasteratops/p0-sweep.md"
+      ],
+      "exit": 0,
+      "stdout_sha256": "bf135670c6edd31702a32aeba1f7726c113230a8cb84143b44186e4dbd6f88fd"
+    },
+    {
+      "argv": [
+        "git",
+        "ls-tree",
+        "-l",
+        "-z",
+        "7994f760fe1f4df6744844e80433bc49295cb94e",
+        "--",
+        "docs/rasteratops/p0-sweep.md"
+      ],
+      "exit": 0,
+      "stdout_sha256": "bf135670c6edd31702a32aeba1f7726c113230a8cb84143b44186e4dbd6f88fd"
+    },
+    {
+      "argv": [
+        "git",
+        "ls-tree",
+        "-l",
+        "-z",
+        "d707c82ab8c48b674acc1f95a9571f0cb24d226a",
+        "--",
+        "docs/rasteratops/p0-sweep.md"
+      ],
+      "exit": 0,
+      "stdout_sha256": "29c76e1fb62686bb5eec669f02355df8ebc063636844fb702ea318c1d5d4a2e3"
+    },
+    {
+      "argv": [
+        "git",
+        "ls-tree",
+        "-l",
+        "-z",
+        "de11515859d231a82a511c3867e12211190041a2^",
+        "--",
+        "docs/rasteratops/p0-sweep.md"
+      ],
+      "exit": 0,
+      "stdout_sha256": "29c76e1fb62686bb5eec669f02355df8ebc063636844fb702ea318c1d5d4a2e3"
+    },
+    {
+      "argv": [
+        "git",
+        "ls-tree",
+        "-l",
+        "-z",
+        "4eb5dfab8e745914a55e7de3e5a43c5b91ebc608",
+        "--",
+        "docs/rasteratops/release-readiness.md"
+      ],
+      "exit": 0,
+      "stdout_sha256": "4855e8cc6f91a8f42d7bd086df715e05118366daece04912e1ac5ee437557870"
+    },
+    {
+      "argv": [
+        "git",
+        "ls-tree",
+        "-l",
+        "-z",
+        "7994f760fe1f4df6744844e80433bc49295cb94e",
+        "--",
+        "docs/rasteratops/release-readiness.md"
+      ],
+      "exit": 0,
+      "stdout_sha256": "4855e8cc6f91a8f42d7bd086df715e05118366daece04912e1ac5ee437557870"
+    },
+    {
+      "argv": [
+        "git",
+        "ls-tree",
+        "-l",
+        "-z",
+        "d707c82ab8c48b674acc1f95a9571f0cb24d226a",
+        "--",
+        "docs/rasteratops/release-readiness.md"
+      ],
+      "exit": 0,
+      "stdout_sha256": "875d3231742b7c02178edcc84306631334e0c31d3634f23bfc47de21515156c2"
+    },
+    {
+      "argv": [
+        "git",
+        "ls-tree",
+        "-l",
+        "-z",
+        "a2d4a33d4aa310d78c1b5c23b5bcdcd93f8ffe89^",
+        "--",
+        "docs/rasteratops/release-readiness.md"
+      ],
+      "exit": 0,
+      "stdout_sha256": "875d3231742b7c02178edcc84306631334e0c31d3634f23bfc47de21515156c2"
+    },
+    {
+      "argv": [
+        "git",
+        "ls-tree",
+        "-l",
+        "-z",
+        "4eb5dfab8e745914a55e7de3e5a43c5b91ebc608",
+        "--",
+        "docs/rasteratops/support-matrix.md"
+      ],
+      "exit": 0,
+      "stdout_sha256": "2e25972481eaaf6aacf9a267a1f28812582574f83177dcc21da5b664970882da"
+    },
+    {
+      "argv": [
+        "git",
+        "ls-tree",
+        "-l",
+        "-z",
+        "7994f760fe1f4df6744844e80433bc49295cb94e",
+        "--",
+        "docs/rasteratops/support-matrix.md"
+      ],
+      "exit": 0,
+      "stdout_sha256": "2e25972481eaaf6aacf9a267a1f28812582574f83177dcc21da5b664970882da"
+    },
+    {
+      "argv": [
+        "git",
+        "ls-tree",
+        "-l",
+        "-z",
+        "d707c82ab8c48b674acc1f95a9571f0cb24d226a",
+        "--",
+        "docs/rasteratops/support-matrix.md"
+      ],
+      "exit": 0,
+      "stdout_sha256": "59908d601e0386e3c07f57cc7d1c4783782582fc15025102c7525be5b0e738b7"
+    },
+    {
+      "argv": [
+        "git",
+        "ls-tree",
+        "-l",
+        "-z",
+        "a2d4a33d4aa310d78c1b5c23b5bcdcd93f8ffe89^",
+        "--",
+        "docs/rasteratops/support-matrix.md"
+      ],
+      "exit": 0,
+      "stdout_sha256": "59908d601e0386e3c07f57cc7d1c4783782582fc15025102c7525be5b0e738b7"
+    },
+    {
+      "argv": [
+        "git",
+        "ls-tree",
+        "-l",
+        "-z",
+        "4eb5dfab8e745914a55e7de3e5a43c5b91ebc608",
+        "--",
+        "docs/releases/0.0.1-release-preparation.md"
+      ],
+      "exit": 0,
+      "stdout_sha256": "75feb7821bc3788d86ee08620482f3335db83a1db3499ed9d7d41442758b014a"
+    },
+    {
+      "argv": [
+        "git",
+        "ls-tree",
+        "-l",
+        "-z",
+        "7994f760fe1f4df6744844e80433bc49295cb94e",
+        "--",
+        "docs/releases/0.0.1-release-preparation.md"
+      ],
+      "exit": 0,
+      "stdout_sha256": "75feb7821bc3788d86ee08620482f3335db83a1db3499ed9d7d41442758b014a"
+    },
+    {
+      "argv": [
+        "git",
+        "ls-tree",
+        "-l",
+        "-z",
+        "d707c82ab8c48b674acc1f95a9571f0cb24d226a",
+        "--",
+        "docs/releases/0.0.1-release-preparation.md"
+      ],
+      "exit": 0,
+      "stdout_sha256": "2d3f314177900a035e5a978b84f205fce7c5be143b14fd7c6631737e052a6433"
+    },
+    {
+      "argv": [
+        "git",
+        "ls-tree",
+        "-l",
+        "-z",
+        "a2d4a33d4aa310d78c1b5c23b5bcdcd93f8ffe89^",
+        "--",
+        "docs/releases/0.0.1-release-preparation.md"
+      ],
+      "exit": 0,
+      "stdout_sha256": "2d3f314177900a035e5a978b84f205fce7c5be143b14fd7c6631737e052a6433"
+    },
+    {
+      "argv": [
+        "git",
+        "ls-tree",
+        "-l",
+        "-z",
+        "4eb5dfab8e745914a55e7de3e5a43c5b91ebc608",
+        "--",
+        "docs/releases/device-facts.md"
+      ],
+      "exit": 0,
+      "stdout_sha256": "600a3b487ce2ca654ade4495c6c6cf93974e3e40c53429dec1b29d90c0895398"
+    },
+    {
+      "argv": [
+        "git",
+        "ls-tree",
+        "-l",
+        "-z",
+        "7994f760fe1f4df6744844e80433bc49295cb94e",
+        "--",
+        "docs/releases/device-facts.md"
+      ],
+      "exit": 0,
+      "stdout_sha256": "600a3b487ce2ca654ade4495c6c6cf93974e3e40c53429dec1b29d90c0895398"
+    },
+    {
+      "argv": [
+        "git",
+        "ls-tree",
+        "-l",
+        "-z",
+        "d707c82ab8c48b674acc1f95a9571f0cb24d226a",
+        "--",
+        "docs/releases/device-facts.md"
+      ],
+      "exit": 0,
+      "stdout_sha256": "c54ebc1ffaedc0a82f1cc9e394d96c5efebce292d454543df428c497ff21e054"
+    },
+    {
+      "argv": [
+        "git",
+        "ls-tree",
+        "-l",
+        "-z",
+        "895b90abcf44e62d3aa7339eba043cfe01e9b98e^",
+        "--",
+        "docs/releases/device-facts.md"
+      ],
+      "exit": 0,
+      "stdout_sha256": "c54ebc1ffaedc0a82f1cc9e394d96c5efebce292d454543df428c497ff21e054"
+    },
+    {
+      "argv": [
+        "git",
+        "ls-tree",
+        "-l",
+        "-z",
+        "4eb5dfab8e745914a55e7de3e5a43c5b91ebc608",
+        "--",
+        "docs/releases/next-candidate-scope.md"
+      ],
+      "exit": 0,
+      "stdout_sha256": "6533d24ec807185f40fab3896eae5da78b7144a981d609e98ba85628ad476b79"
+    },
+    {
+      "argv": [
+        "git",
+        "ls-tree",
+        "-l",
+        "-z",
+        "7994f760fe1f4df6744844e80433bc49295cb94e",
+        "--",
+        "docs/releases/next-candidate-scope.md"
+      ],
+      "exit": 0,
+      "stdout_sha256": "6533d24ec807185f40fab3896eae5da78b7144a981d609e98ba85628ad476b79"
+    },
+    {
+      "argv": [
+        "git",
+        "ls-tree",
+        "-l",
+        "-z",
+        "d707c82ab8c48b674acc1f95a9571f0cb24d226a",
+        "--",
+        "docs/releases/next-candidate-scope.md"
+      ],
+      "exit": 0,
+      "stdout_sha256": "9103e6e62ee7a6d23a1ccc10125cbc42d065943d04300eefefcada8a4fa213e2"
+    },
+    {
+      "argv": [
+        "git",
+        "ls-tree",
+        "-l",
+        "-z",
+        "a2d4a33d4aa310d78c1b5c23b5bcdcd93f8ffe89^",
+        "--",
+        "docs/releases/next-candidate-scope.md"
+      ],
+      "exit": 0,
+      "stdout_sha256": "9103e6e62ee7a6d23a1ccc10125cbc42d065943d04300eefefcada8a4fa213e2"
+    },
+    {
+      "argv": [
+        "git",
+        "ls-tree",
+        "-l",
+        "-z",
+        "4eb5dfab8e745914a55e7de3e5a43c5b91ebc608",
+        "--",
+        "docs/releases/next-candidate-work.md"
+      ],
+      "exit": 0,
+      "stdout_sha256": "64df5bd43203d85413f5f674e39111ac9fefee026f7c6d32863a5066ba579b0e"
+    },
+    {
+      "argv": [
+        "git",
+        "ls-tree",
+        "-l",
+        "-z",
+        "7994f760fe1f4df6744844e80433bc49295cb94e",
+        "--",
+        "docs/releases/next-candidate-work.md"
+      ],
+      "exit": 0,
+      "stdout_sha256": "64df5bd43203d85413f5f674e39111ac9fefee026f7c6d32863a5066ba579b0e"
+    },
+    {
+      "argv": [
+        "git",
+        "ls-tree",
+        "-l",
+        "-z",
+        "d707c82ab8c48b674acc1f95a9571f0cb24d226a",
+        "--",
+        "docs/releases/next-candidate-work.md"
+      ],
+      "exit": 0,
+      "stdout_sha256": "10a058e416bdad689a518ebdd824a37239dce45bfe54efc857347370d28b66d9"
+    },
+    {
+      "argv": [
+        "git",
+        "ls-tree",
+        "-l",
+        "-z",
+        "895b90abcf44e62d3aa7339eba043cfe01e9b98e^",
+        "--",
+        "docs/releases/next-candidate-work.md"
+      ],
+      "exit": 0,
+      "stdout_sha256": "10a058e416bdad689a518ebdd824a37239dce45bfe54efc857347370d28b66d9"
+    },
+    {
+      "argv": [
+        "git",
+        "ls-tree",
+        "-l",
+        "-z",
+        "4eb5dfab8e745914a55e7de3e5a43c5b91ebc608",
+        "--",
+        "docs/releases/pr/01-build.md"
+      ],
+      "exit": 0,
+      "stdout_sha256": "8c164a3dfd60134321d7a72acf69ff80dc40100298939a1075af4045705cf742"
+    },
+    {
+      "argv": [
+        "git",
+        "ls-tree",
+        "-l",
+        "-z",
+        "7994f760fe1f4df6744844e80433bc49295cb94e",
+        "--",
+        "docs/releases/pr/01-build.md"
+      ],
+      "exit": 0,
+      "stdout_sha256": "8c164a3dfd60134321d7a72acf69ff80dc40100298939a1075af4045705cf742"
+    },
+    {
+      "argv": [
+        "git",
+        "ls-tree",
+        "-l",
+        "-z",
+        "d707c82ab8c48b674acc1f95a9571f0cb24d226a",
+        "--",
+        "docs/releases/pr/01-build.md"
+      ],
+      "exit": 0,
+      "stdout_sha256": "09a05ed9d9299dc752586441a0a71bcee320d251c87651aa0c2b259f69a27c44"
+    },
+    {
+      "argv": [
+        "git",
+        "ls-tree",
+        "-l",
+        "-z",
+        "de11515859d231a82a511c3867e12211190041a2^",
+        "--",
+        "docs/releases/pr/01-build.md"
+      ],
+      "exit": 0,
+      "stdout_sha256": "09a05ed9d9299dc752586441a0a71bcee320d251c87651aa0c2b259f69a27c44"
+    },
+    {
+      "argv": [
+        "git",
+        "ls-tree",
+        "-l",
+        "-z",
+        "4eb5dfab8e745914a55e7de3e5a43c5b91ebc608",
+        "--",
+        "docs/releases/pr/02-generic-x64.md"
+      ],
+      "exit": 0,
+      "stdout_sha256": "8b8a30cd0a401afa606ea6e9301265ad956ec71ca8d3614c2b286e72d4b1d8b3"
+    },
+    {
+      "argv": [
+        "git",
+        "ls-tree",
+        "-l",
+        "-z",
+        "7994f760fe1f4df6744844e80433bc49295cb94e",
+        "--",
+        "docs/releases/pr/02-generic-x64.md"
+      ],
+      "exit": 0,
+      "stdout_sha256": "8b8a30cd0a401afa606ea6e9301265ad956ec71ca8d3614c2b286e72d4b1d8b3"
+    },
+    {
+      "argv": [
+        "git",
+        "ls-tree",
+        "-l",
+        "-z",
+        "d707c82ab8c48b674acc1f95a9571f0cb24d226a",
+        "--",
+        "docs/releases/pr/02-generic-x64.md"
+      ],
+      "exit": 0,
+      "stdout_sha256": "fff40e52fa68633aa9f80ae65373312ee0404102ebbfe0b06d8c7cb3873fbb4c"
+    },
+    {
+      "argv": [
+        "git",
+        "ls-tree",
+        "-l",
+        "-z",
+        "de11515859d231a82a511c3867e12211190041a2^",
+        "--",
+        "docs/releases/pr/02-generic-x64.md"
+      ],
+      "exit": 0,
+      "stdout_sha256": "fff40e52fa68633aa9f80ae65373312ee0404102ebbfe0b06d8c7cb3873fbb4c"
+    },
+    {
+      "argv": [
+        "git",
+        "ls-tree",
+        "-l",
+        "-z",
+        "4eb5dfab8e745914a55e7de3e5a43c5b91ebc608",
+        "--",
+        "docs/releases/pr/03-evidence.md"
+      ],
+      "exit": 0,
+      "stdout_sha256": "907071489c107149b79aeb2f3c7368e5b201626a1dfcbc97d77451848b01c10d"
+    },
+    {
+      "argv": [
+        "git",
+        "ls-tree",
+        "-l",
+        "-z",
+        "7994f760fe1f4df6744844e80433bc49295cb94e",
+        "--",
+        "docs/releases/pr/03-evidence.md"
+      ],
+      "exit": 0,
+      "stdout_sha256": "907071489c107149b79aeb2f3c7368e5b201626a1dfcbc97d77451848b01c10d"
+    },
+    {
+      "argv": [
+        "git",
+        "ls-tree",
+        "-l",
+        "-z",
+        "d707c82ab8c48b674acc1f95a9571f0cb24d226a",
+        "--",
+        "docs/releases/pr/03-evidence.md"
+      ],
+      "exit": 0,
+      "stdout_sha256": "9a15deccf89a77fa96936fc96a7430d3387a90604bca9b37c2511104661883d0"
+    },
+    {
+      "argv": [
+        "git",
+        "ls-tree",
+        "-l",
+        "-z",
+        "de11515859d231a82a511c3867e12211190041a2^",
+        "--",
+        "docs/releases/pr/03-evidence.md"
+      ],
+      "exit": 0,
+      "stdout_sha256": "9a15deccf89a77fa96936fc96a7430d3387a90604bca9b37c2511104661883d0"
+    },
+    {
+      "argv": [
+        "git",
+        "ls-tree",
+        "-l",
+        "-z",
+        "4eb5dfab8e745914a55e7de3e5a43c5b91ebc608",
+        "--",
+        "docs/releases/pr/04-settings.md"
+      ],
+      "exit": 0,
+      "stdout_sha256": "6717f7a7e5eba921c994dcbfacd1b8c2b5c5ab32939446f04f33f507baccff80"
+    },
+    {
+      "argv": [
+        "git",
+        "ls-tree",
+        "-l",
+        "-z",
+        "7994f760fe1f4df6744844e80433bc49295cb94e",
+        "--",
+        "docs/releases/pr/04-settings.md"
+      ],
+      "exit": 0,
+      "stdout_sha256": "6717f7a7e5eba921c994dcbfacd1b8c2b5c5ab32939446f04f33f507baccff80"
+    },
+    {
+      "argv": [
+        "git",
+        "ls-tree",
+        "-l",
+        "-z",
+        "d707c82ab8c48b674acc1f95a9571f0cb24d226a",
+        "--",
+        "docs/releases/pr/04-settings.md"
+      ],
+      "exit": 0,
+      "stdout_sha256": "e4ddecc6e7ead21fa2d985d9a00d03daaf1f070566cf53c290b43bf033541fbf"
+    },
+    {
+      "argv": [
+        "git",
+        "ls-tree",
+        "-l",
+        "-z",
+        "de11515859d231a82a511c3867e12211190041a2^",
+        "--",
+        "docs/releases/pr/04-settings.md"
+      ],
+      "exit": 0,
+      "stdout_sha256": "e4ddecc6e7ead21fa2d985d9a00d03daaf1f070566cf53c290b43bf033541fbf"
+    },
+    {
+      "argv": [
+        "git",
+        "ls-tree",
+        "-l",
+        "-z",
+        "4eb5dfab8e745914a55e7de3e5a43c5b91ebc608",
+        "--",
+        "docs/releases/pr/05-network.md"
+      ],
+      "exit": 0,
+      "stdout_sha256": "5055a87b69accea024b2cf7a958bb9590d1d17260b73f5d0b6cb4d9967b976cc"
+    },
+    {
+      "argv": [
+        "git",
+        "ls-tree",
+        "-l",
+        "-z",
+        "7994f760fe1f4df6744844e80433bc49295cb94e",
+        "--",
+        "docs/releases/pr/05-network.md"
+      ],
+      "exit": 0,
+      "stdout_sha256": "5055a87b69accea024b2cf7a958bb9590d1d17260b73f5d0b6cb4d9967b976cc"
+    },
+    {
+      "argv": [
+        "git",
+        "ls-tree",
+        "-l",
+        "-z",
+        "d707c82ab8c48b674acc1f95a9571f0cb24d226a",
+        "--",
+        "docs/releases/pr/05-network.md"
+      ],
+      "exit": 0,
+      "stdout_sha256": "19bad9d62b8e62a83421711788167e835158e12f33972282789a4186a0f53dad"
+    },
+    {
+      "argv": [
+        "git",
+        "ls-tree",
+        "-l",
+        "-z",
+        "de11515859d231a82a511c3867e12211190041a2^",
+        "--",
+        "docs/releases/pr/05-network.md"
+      ],
+      "exit": 0,
+      "stdout_sha256": "19bad9d62b8e62a83421711788167e835158e12f33972282789a4186a0f53dad"
+    },
+    {
+      "argv": [
+        "git",
+        "ls-tree",
+        "-l",
+        "-z",
+        "4eb5dfab8e745914a55e7de3e5a43c5b91ebc608",
+        "--",
+        "docs/releases/pr/06-retroachievements.md"
+      ],
+      "exit": 0,
+      "stdout_sha256": "16ecad0bf1a7a9b245240921e6f60cceaf21bfcef08e974cf880a78951ca4174"
+    },
+    {
+      "argv": [
+        "git",
+        "ls-tree",
+        "-l",
+        "-z",
+        "7994f760fe1f4df6744844e80433bc49295cb94e",
+        "--",
+        "docs/releases/pr/06-retroachievements.md"
+      ],
+      "exit": 0,
+      "stdout_sha256": "16ecad0bf1a7a9b245240921e6f60cceaf21bfcef08e974cf880a78951ca4174"
+    },
+    {
+      "argv": [
+        "git",
+        "ls-tree",
+        "-l",
+        "-z",
+        "d707c82ab8c48b674acc1f95a9571f0cb24d226a",
+        "--",
+        "docs/releases/pr/06-retroachievements.md"
+      ],
+      "exit": 0,
+      "stdout_sha256": "f411b0cf9164b0acc3b1b58881c3be4c34d22ec085c1b2ab1fed1432d308eef3"
+    },
+    {
+      "argv": [
+        "git",
+        "ls-tree",
+        "-l",
+        "-z",
+        "de11515859d231a82a511c3867e12211190041a2^",
+        "--",
+        "docs/releases/pr/06-retroachievements.md"
+      ],
+      "exit": 0,
+      "stdout_sha256": "f411b0cf9164b0acc3b1b58881c3be4c34d22ec085c1b2ab1fed1432d308eef3"
+    },
+    {
+      "argv": [
+        "git",
+        "ls-tree",
+        "-l",
+        "-z",
+        "4eb5dfab8e745914a55e7de3e5a43c5b91ebc608",
+        "--",
+        "docs/releases/pr/07-cloud-setup.md"
+      ],
+      "exit": 0,
+      "stdout_sha256": "ba0c1b970e3e3f39ad597a10d4b6e8b98d324581bf379e94afd1b23fb27c55e8"
+    },
+    {
+      "argv": [
+        "git",
+        "ls-tree",
+        "-l",
+        "-z",
+        "7994f760fe1f4df6744844e80433bc49295cb94e",
+        "--",
+        "docs/releases/pr/07-cloud-setup.md"
+      ],
+      "exit": 0,
+      "stdout_sha256": "ba0c1b970e3e3f39ad597a10d4b6e8b98d324581bf379e94afd1b23fb27c55e8"
+    },
+    {
+      "argv": [
+        "git",
+        "ls-tree",
+        "-l",
+        "-z",
+        "d707c82ab8c48b674acc1f95a9571f0cb24d226a",
+        "--",
+        "docs/releases/pr/07-cloud-setup.md"
+      ],
+      "exit": 0,
+      "stdout_sha256": "b0ce1d0b6ca6767b8ee40140e35a2cb00968456598ecd3ce24198bb6302b0157"
+    },
+    {
+      "argv": [
+        "git",
+        "ls-tree",
+        "-l",
+        "-z",
+        "de11515859d231a82a511c3867e12211190041a2^",
+        "--",
+        "docs/releases/pr/07-cloud-setup.md"
+      ],
+      "exit": 0,
+      "stdout_sha256": "b0ce1d0b6ca6767b8ee40140e35a2cb00968456598ecd3ce24198bb6302b0157"
+    },
+    {
+      "argv": [
+        "git",
+        "ls-tree",
+        "-l",
+        "-z",
+        "4eb5dfab8e745914a55e7de3e5a43c5b91ebc608",
+        "--",
+        "docs/releases/pr/08-saves.md"
+      ],
+      "exit": 0,
+      "stdout_sha256": "34e9e0482445fdb877ea3f5a430c5e0a50fc7fd68fe4427930f344af99da51bd"
+    },
+    {
+      "argv": [
+        "git",
+        "ls-tree",
+        "-l",
+        "-z",
+        "7994f760fe1f4df6744844e80433bc49295cb94e",
+        "--",
+        "docs/releases/pr/08-saves.md"
+      ],
+      "exit": 0,
+      "stdout_sha256": "34e9e0482445fdb877ea3f5a430c5e0a50fc7fd68fe4427930f344af99da51bd"
+    },
+    {
+      "argv": [
+        "git",
+        "ls-tree",
+        "-l",
+        "-z",
+        "d707c82ab8c48b674acc1f95a9571f0cb24d226a",
+        "--",
+        "docs/releases/pr/08-saves.md"
+      ],
+      "exit": 0,
+      "stdout_sha256": "59d6cfcf773749a59b27f81996fc75d7a0e69a26347f202862346dfe108d0170"
+    },
+    {
+      "argv": [
+        "git",
+        "ls-tree",
+        "-l",
+        "-z",
+        "424eea28ecbfaa8fbbe49cdee6c99750becd13cf^",
+        "--",
+        "docs/releases/pr/08-saves.md"
+      ],
+      "exit": 0,
+      "stdout_sha256": "59d6cfcf773749a59b27f81996fc75d7a0e69a26347f202862346dfe108d0170"
+    },
+    {
+      "argv": [
+        "git",
+        "ls-tree",
+        "-l",
+        "-z",
+        "4eb5dfab8e745914a55e7de3e5a43c5b91ebc608",
+        "--",
+        "docs/releases/pr/09-retroarch.md"
+      ],
+      "exit": 0,
+      "stdout_sha256": "2a254cb49a51e6faa646a91f349e70247ebcaa1bf33ca3501e882326835d9912"
+    },
+    {
+      "argv": [
+        "git",
+        "ls-tree",
+        "-l",
+        "-z",
+        "7994f760fe1f4df6744844e80433bc49295cb94e",
+        "--",
+        "docs/releases/pr/09-retroarch.md"
+      ],
+      "exit": 0,
+      "stdout_sha256": "2a254cb49a51e6faa646a91f349e70247ebcaa1bf33ca3501e882326835d9912"
+    },
+    {
+      "argv": [
+        "git",
+        "ls-tree",
+        "-l",
+        "-z",
+        "d707c82ab8c48b674acc1f95a9571f0cb24d226a",
+        "--",
+        "docs/releases/pr/09-retroarch.md"
+      ],
+      "exit": 0,
+      "stdout_sha256": "e569534c7a9c5e38077d50b2289345b9ba11aefdaf02b2b65fbb826f23a34583"
+    },
+    {
+      "argv": [
+        "git",
+        "ls-tree",
+        "-l",
+        "-z",
+        "de11515859d231a82a511c3867e12211190041a2^",
+        "--",
+        "docs/releases/pr/09-retroarch.md"
+      ],
+      "exit": 0,
+      "stdout_sha256": "e569534c7a9c5e38077d50b2289345b9ba11aefdaf02b2b65fbb826f23a34583"
+    },
+    {
+      "argv": [
+        "git",
+        "ls-tree",
+        "-l",
+        "-z",
+        "4eb5dfab8e745914a55e7de3e5a43c5b91ebc608",
+        "--",
+        "docs/releases/pr/10-es-pin.md"
+      ],
+      "exit": 0,
+      "stdout_sha256": "fd0a1f1282ec60b599e0ab34164286d36c58bd6282240ba5764d53214325b71e"
+    },
+    {
+      "argv": [
+        "git",
+        "ls-tree",
+        "-l",
+        "-z",
+        "7994f760fe1f4df6744844e80433bc49295cb94e",
+        "--",
+        "docs/releases/pr/10-es-pin.md"
+      ],
+      "exit": 0,
+      "stdout_sha256": "fd0a1f1282ec60b599e0ab34164286d36c58bd6282240ba5764d53214325b71e"
+    },
+    {
+      "argv": [
+        "git",
+        "ls-tree",
+        "-l",
+        "-z",
+        "d707c82ab8c48b674acc1f95a9571f0cb24d226a",
+        "--",
+        "docs/releases/pr/10-es-pin.md"
+      ],
+      "exit": 0,
+      "stdout_sha256": "9a87e0ed73f9aa7c916adf97fccd618b2bea87c8590457f1b2f0052d3934c1db"
+    },
+    {
+      "argv": [
+        "git",
+        "ls-tree",
+        "-l",
+        "-z",
+        "de11515859d231a82a511c3867e12211190041a2^",
+        "--",
+        "docs/releases/pr/10-es-pin.md"
+      ],
+      "exit": 0,
+      "stdout_sha256": "9a87e0ed73f9aa7c916adf97fccd618b2bea87c8590457f1b2f0052d3934c1db"
+    },
+    {
+      "argv": [
+        "git",
+        "ls-tree",
+        "-l",
+        "-z",
+        "4eb5dfab8e745914a55e7de3e5a43c5b91ebc608",
+        "--",
+        "docs/releases/pr/11-interface.md"
+      ],
+      "exit": 0,
+      "stdout_sha256": "c97dac11b8e4504c254cecb356d93b86afd6ee146240025e600f7d0550d103bd"
+    },
+    {
+      "argv": [
+        "git",
+        "ls-tree",
+        "-l",
+        "-z",
+        "7994f760fe1f4df6744844e80433bc49295cb94e",
+        "--",
+        "docs/releases/pr/11-interface.md"
+      ],
+      "exit": 0,
+      "stdout_sha256": "c97dac11b8e4504c254cecb356d93b86afd6ee146240025e600f7d0550d103bd"
+    },
+    {
+      "argv": [
+        "git",
+        "ls-tree",
+        "-l",
+        "-z",
+        "d707c82ab8c48b674acc1f95a9571f0cb24d226a",
+        "--",
+        "docs/releases/pr/11-interface.md"
+      ],
+      "exit": 0,
+      "stdout_sha256": "163f3a48c193b19e2c72d3da0f55895797feac782ac569b75095ff569bdb4440"
+    },
+    {
+      "argv": [
+        "git",
+        "ls-tree",
+        "-l",
+        "-z",
+        "de11515859d231a82a511c3867e12211190041a2^",
+        "--",
+        "docs/releases/pr/11-interface.md"
+      ],
+      "exit": 0,
+      "stdout_sha256": "163f3a48c193b19e2c72d3da0f55895797feac782ac569b75095ff569bdb4440"
+    },
+    {
+      "argv": [
+        "git",
+        "ls-tree",
+        "-l",
+        "-z",
+        "4eb5dfab8e745914a55e7de3e5a43c5b91ebc608",
+        "--",
+        "docs/releases/rc1-20260929-release-note.md"
+      ],
+      "exit": 0,
+      "stdout_sha256": "e5407ebe6d423e746ad9531446591e7b87233546a47df329fba179e17d9b3a4f"
+    },
+    {
+      "argv": [
+        "git",
+        "ls-tree",
+        "-l",
+        "-z",
+        "7994f760fe1f4df6744844e80433bc49295cb94e",
+        "--",
+        "docs/releases/rc1-20260929-release-note.md"
+      ],
+      "exit": 0,
+      "stdout_sha256": "e5407ebe6d423e746ad9531446591e7b87233546a47df329fba179e17d9b3a4f"
+    },
+    {
+      "argv": [
+        "git",
+        "ls-tree",
+        "-l",
+        "-z",
+        "d707c82ab8c48b674acc1f95a9571f0cb24d226a",
+        "--",
+        "docs/releases/rc1-20260929-release-note.md"
+      ],
+      "exit": 0,
+      "stdout_sha256": "b1690b2c7a61257e8382f496744b019c774951bf40a06a09351f4e13002e77be"
+    },
+    {
+      "argv": [
+        "git",
+        "ls-tree",
+        "-l",
+        "-z",
+        "de11515859d231a82a511c3867e12211190041a2^",
+        "--",
+        "docs/releases/rc1-20260929-release-note.md"
+      ],
+      "exit": 0,
+      "stdout_sha256": "b1690b2c7a61257e8382f496744b019c774951bf40a06a09351f4e13002e77be"
+    },
+    {
+      "argv": [
+        "git",
+        "ls-tree",
+        "-l",
+        "-z",
+        "4eb5dfab8e745914a55e7de3e5a43c5b91ebc608",
+        "--",
+        "docs/releases/rc2-20260929-release-note.md"
+      ],
+      "exit": 0,
+      "stdout_sha256": "4c8fdce97b49784a5859eb1781e000efb587129d3a98deddd11cc37c628052ed"
+    },
+    {
+      "argv": [
+        "git",
+        "ls-tree",
+        "-l",
+        "-z",
+        "7994f760fe1f4df6744844e80433bc49295cb94e",
+        "--",
+        "docs/releases/rc2-20260929-release-note.md"
+      ],
+      "exit": 0,
+      "stdout_sha256": "4c8fdce97b49784a5859eb1781e000efb587129d3a98deddd11cc37c628052ed"
+    },
+    {
+      "argv": [
+        "git",
+        "ls-tree",
+        "-l",
+        "-z",
+        "d707c82ab8c48b674acc1f95a9571f0cb24d226a",
+        "--",
+        "docs/releases/rc2-20260929-release-note.md"
+      ],
+      "exit": 0,
+      "stdout_sha256": "f16975f8755c575fea02d0df36ec01b4f9e153aeb9cc62dd7ad74ff28ad3a560"
+    },
+    {
+      "argv": [
+        "git",
+        "ls-tree",
+        "-l",
+        "-z",
+        "de11515859d231a82a511c3867e12211190041a2^",
+        "--",
+        "docs/releases/rc2-20260929-release-note.md"
+      ],
+      "exit": 0,
+      "stdout_sha256": "f16975f8755c575fea02d0df36ec01b4f9e153aeb9cc62dd7ad74ff28ad3a560"
+    },
+    {
+      "argv": [
+        "git",
+        "ls-tree",
+        "-l",
+        "-z",
+        "4eb5dfab8e745914a55e7de3e5a43c5b91ebc608",
+        "--",
+        "docs/releases/rocknix-org-pr-cloud-sync-wifi-achievements.md"
+      ],
+      "exit": 0,
+      "stdout_sha256": "3c26d295ae2a110d3aaa85b4b138c13fc99ee0659e884da947380b891d3b836c"
+    },
+    {
+      "argv": [
+        "git",
+        "ls-tree",
+        "-l",
+        "-z",
+        "7994f760fe1f4df6744844e80433bc49295cb94e",
+        "--",
+        "docs/releases/rocknix-org-pr-cloud-sync-wifi-achievements.md"
+      ],
+      "exit": 0,
+      "stdout_sha256": "3c26d295ae2a110d3aaa85b4b138c13fc99ee0659e884da947380b891d3b836c"
+    },
+    {
+      "argv": [
+        "git",
+        "ls-tree",
+        "-l",
+        "-z",
+        "d707c82ab8c48b674acc1f95a9571f0cb24d226a",
+        "--",
+        "docs/releases/rocknix-org-pr-cloud-sync-wifi-achievements.md"
+      ],
+      "exit": 0,
+      "stdout_sha256": "21e71743f169470e3df3833c13be94bab259d5e2a6419ea8392609fbe3e98a23"
+    },
+    {
+      "argv": [
+        "git",
+        "ls-tree",
+        "-l",
+        "-z",
+        "a2d4a33d4aa310d78c1b5c23b5bcdcd93f8ffe89^",
+        "--",
+        "docs/releases/rocknix-org-pr-cloud-sync-wifi-achievements.md"
+      ],
+      "exit": 0,
+      "stdout_sha256": "21e71743f169470e3df3833c13be94bab259d5e2a6419ea8392609fbe3e98a23"
+    },
+    {
+      "argv": [
+        "git",
+        "ls-tree",
+        "-l",
+        "-z",
+        "4eb5dfab8e745914a55e7de3e5a43c5b91ebc608",
+        "--",
+        "docs/releases/versioning.md"
+      ],
+      "exit": 0,
+      "stdout_sha256": "5071c85129d97a74f40996cc7a186615186471e74b1d8c76e03cfcae6a55e4ab"
+    },
+    {
+      "argv": [
+        "git",
+        "ls-tree",
+        "-l",
+        "-z",
+        "7994f760fe1f4df6744844e80433bc49295cb94e",
+        "--",
+        "docs/releases/versioning.md"
+      ],
+      "exit": 0,
+      "stdout_sha256": "5071c85129d97a74f40996cc7a186615186471e74b1d8c76e03cfcae6a55e4ab"
+    },
+    {
+      "argv": [
+        "git",
+        "ls-tree",
+        "-l",
+        "-z",
+        "d707c82ab8c48b674acc1f95a9571f0cb24d226a",
+        "--",
+        "docs/releases/versioning.md"
+      ],
+      "exit": 0,
+      "stdout_sha256": "878906d1109ccab8407ce964653950ab8b65453487e60faa6b299bc2f2725a81"
+    },
+    {
+      "argv": [
+        "git",
+        "ls-tree",
+        "-l",
+        "-z",
+        "a2d4a33d4aa310d78c1b5c23b5bcdcd93f8ffe89^",
+        "--",
+        "docs/releases/versioning.md"
+      ],
+      "exit": 0,
+      "stdout_sha256": "878906d1109ccab8407ce964653950ab8b65453487e60faa6b299bc2f2725a81"
+    },
+    {
+      "argv": [
+        "git",
+        "ls-tree",
+        "-l",
+        "-z",
+        "4eb5dfab8e745914a55e7de3e5a43c5b91ebc608",
+        "--",
+        "docs/rules-sweep-2026-09-12.md"
+      ],
+      "exit": 0,
+      "stdout_sha256": "fbadd34b570a60200edded3a046de759d90b2167035e49b7fa8bbad329a1480a"
+    },
+    {
+      "argv": [
+        "git",
+        "ls-tree",
+        "-l",
+        "-z",
+        "7994f760fe1f4df6744844e80433bc49295cb94e",
+        "--",
+        "docs/rules-sweep-2026-09-12.md"
+      ],
+      "exit": 0,
+      "stdout_sha256": "fbadd34b570a60200edded3a046de759d90b2167035e49b7fa8bbad329a1480a"
+    },
+    {
+      "argv": [
+        "git",
+        "ls-tree",
+        "-l",
+        "-z",
+        "d707c82ab8c48b674acc1f95a9571f0cb24d226a",
+        "--",
+        "docs/rules-sweep-2026-09-12.md"
+      ],
+      "exit": 0,
+      "stdout_sha256": "d630d08f9eba5c7239dde5e7e7c532440ad84d79386480de8b1d3b5c7e36dfa4"
+    },
+    {
+      "argv": [
+        "git",
+        "ls-tree",
+        "-l",
+        "-z",
+        "de11515859d231a82a511c3867e12211190041a2^",
+        "--",
+        "docs/rules-sweep-2026-09-12.md"
+      ],
+      "exit": 0,
+      "stdout_sha256": "d630d08f9eba5c7239dde5e7e7c532440ad84d79386480de8b1d3b5c7e36dfa4"
+    },
+    {
+      "argv": [
+        "git",
+        "ls-tree",
+        "-l",
+        "-z",
+        "4eb5dfab8e745914a55e7de3e5a43c5b91ebc608",
+        "--",
+        "docs/save-history-gap-analysis.md"
+      ],
+      "exit": 0,
+      "stdout_sha256": "4c2c953af177425b47ed0c3e091086905370da2995bb012c536f6c94e39a85a2"
+    },
+    {
+      "argv": [
+        "git",
+        "ls-tree",
+        "-l",
+        "-z",
+        "7994f760fe1f4df6744844e80433bc49295cb94e",
+        "--",
+        "docs/save-history-gap-analysis.md"
+      ],
+      "exit": 0,
+      "stdout_sha256": "4c2c953af177425b47ed0c3e091086905370da2995bb012c536f6c94e39a85a2"
+    },
+    {
+      "argv": [
+        "git",
+        "ls-tree",
+        "-l",
+        "-z",
+        "d707c82ab8c48b674acc1f95a9571f0cb24d226a",
+        "--",
+        "docs/save-history-gap-analysis.md"
+      ],
+      "exit": 0,
+      "stdout_sha256": "53da115995a7c624c7079765048921a16f222b49058b0de1dbc477b44c5d7b0f"
+    },
+    {
+      "argv": [
+        "git",
+        "ls-tree",
+        "-l",
+        "-z",
+        "de11515859d231a82a511c3867e12211190041a2^",
+        "--",
+        "docs/save-history-gap-analysis.md"
+      ],
+      "exit": 0,
+      "stdout_sha256": "53da115995a7c624c7079765048921a16f222b49058b0de1dbc477b44c5d7b0f"
+    },
+    {
+      "argv": [
+        "git",
+        "ls-tree",
+        "-l",
+        "-z",
+        "4eb5dfab8e745914a55e7de3e5a43c5b91ebc608",
+        "--",
+        "docs/save-history-plan-delta.md"
+      ],
+      "exit": 0,
+      "stdout_sha256": "faf78ea71633c97ce0da8aa80fb71937ac1fccbd200ba9152833a38e7dafcd6d"
+    },
+    {
+      "argv": [
+        "git",
+        "ls-tree",
+        "-l",
+        "-z",
+        "7994f760fe1f4df6744844e80433bc49295cb94e",
+        "--",
+        "docs/save-history-plan-delta.md"
+      ],
+      "exit": 0,
+      "stdout_sha256": "faf78ea71633c97ce0da8aa80fb71937ac1fccbd200ba9152833a38e7dafcd6d"
+    },
+    {
+      "argv": [
+        "git",
+        "ls-tree",
+        "-l",
+        "-z",
+        "d707c82ab8c48b674acc1f95a9571f0cb24d226a",
+        "--",
+        "docs/save-history-plan-delta.md"
+      ],
+      "exit": 0,
+      "stdout_sha256": "b3fae1299038e2ee372f4f3f3d8fa4be95fb225c775913f643dee1d043377cde"
+    },
+    {
+      "argv": [
+        "git",
+        "ls-tree",
+        "-l",
+        "-z",
+        "de11515859d231a82a511c3867e12211190041a2^",
+        "--",
+        "docs/save-history-plan-delta.md"
+      ],
+      "exit": 0,
+      "stdout_sha256": "b3fae1299038e2ee372f4f3f3d8fa4be95fb225c775913f643dee1d043377cde"
+    },
+    {
+      "argv": [
+        "git",
+        "ls-tree",
+        "-l",
+        "-z",
+        "4eb5dfab8e745914a55e7de3e5a43c5b91ebc608",
+        "--",
+        "docs/save-history-serial-model-addendum.md"
+      ],
+      "exit": 0,
+      "stdout_sha256": "db74647d4cda1eecbd28813b26e23d0b85ea3ded28ebbdac50ab8638d6eda1ee"
+    },
+    {
+      "argv": [
+        "git",
+        "ls-tree",
+        "-l",
+        "-z",
+        "7994f760fe1f4df6744844e80433bc49295cb94e",
+        "--",
+        "docs/save-history-serial-model-addendum.md"
+      ],
+      "exit": 0,
+      "stdout_sha256": "db74647d4cda1eecbd28813b26e23d0b85ea3ded28ebbdac50ab8638d6eda1ee"
+    },
+    {
+      "argv": [
+        "git",
+        "ls-tree",
+        "-l",
+        "-z",
+        "d707c82ab8c48b674acc1f95a9571f0cb24d226a",
+        "--",
+        "docs/save-history-serial-model-addendum.md"
+      ],
+      "exit": 0,
+      "stdout_sha256": "8cd0e83fd09eb745bf0545bdd827cb723c170a8f005174574437a45ccaffcf81"
+    },
+    {
+      "argv": [
+        "git",
+        "ls-tree",
+        "-l",
+        "-z",
+        "de11515859d231a82a511c3867e12211190041a2^",
+        "--",
+        "docs/save-history-serial-model-addendum.md"
+      ],
+      "exit": 0,
+      "stdout_sha256": "8cd0e83fd09eb745bf0545bdd827cb723c170a8f005174574437a45ccaffcf81"
+    },
+    {
+      "argv": [
+        "git",
+        "ls-tree",
+        "-l",
+        "-z",
+        "4eb5dfab8e745914a55e7de3e5a43c5b91ebc608",
+        "--",
+        "docs/save-manifest-alignment-review.md"
+      ],
+      "exit": 0,
+      "stdout_sha256": "560fe75789ce43469ccb0bd32df54773f1ed849be1be185ffcb085141f4ba20f"
+    },
+    {
+      "argv": [
+        "git",
+        "ls-tree",
+        "-l",
+        "-z",
+        "7994f760fe1f4df6744844e80433bc49295cb94e",
+        "--",
+        "docs/save-manifest-alignment-review.md"
+      ],
+      "exit": 0,
+      "stdout_sha256": "560fe75789ce43469ccb0bd32df54773f1ed849be1be185ffcb085141f4ba20f"
+    },
+    {
+      "argv": [
+        "git",
+        "ls-tree",
+        "-l",
+        "-z",
+        "d707c82ab8c48b674acc1f95a9571f0cb24d226a",
+        "--",
+        "docs/save-manifest-alignment-review.md"
+      ],
+      "exit": 0,
+      "stdout_sha256": "57d92bd026904c9a8e32e8d6268ee1a9a393c416f3f231541c2a7e9751470547"
+    },
+    {
+      "argv": [
+        "git",
+        "ls-tree",
+        "-l",
+        "-z",
+        "de11515859d231a82a511c3867e12211190041a2^",
+        "--",
+        "docs/save-manifest-alignment-review.md"
+      ],
+      "exit": 0,
+      "stdout_sha256": "57d92bd026904c9a8e32e8d6268ee1a9a393c416f3f231541c2a7e9751470547"
+    },
+    {
+      "argv": [
+        "git",
+        "ls-tree",
+        "-l",
+        "-z",
+        "4eb5dfab8e745914a55e7de3e5a43c5b91ebc608",
+        "--",
+        "docs/savestate-compat-test.md"
+      ],
+      "exit": 0,
+      "stdout_sha256": "315060bdc1a24269ca7298f0eafd18bcf887cf5e88a52f397b3c5948b87fb3d4"
+    },
+    {
+      "argv": [
+        "git",
+        "ls-tree",
+        "-l",
+        "-z",
+        "7994f760fe1f4df6744844e80433bc49295cb94e",
+        "--",
+        "docs/savestate-compat-test.md"
+      ],
+      "exit": 0,
+      "stdout_sha256": "315060bdc1a24269ca7298f0eafd18bcf887cf5e88a52f397b3c5948b87fb3d4"
+    },
+    {
+      "argv": [
+        "git",
+        "ls-tree",
+        "-l",
+        "-z",
+        "d707c82ab8c48b674acc1f95a9571f0cb24d226a",
+        "--",
+        "docs/savestate-compat-test.md"
+      ],
+      "exit": 0,
+      "stdout_sha256": "5229f1979cfa99ad7b1c6df8d5f157b343a692f8268adcb7aebd912f2abf472d"
+    },
+    {
+      "argv": [
+        "git",
+        "ls-tree",
+        "-l",
+        "-z",
+        "de11515859d231a82a511c3867e12211190041a2^",
+        "--",
+        "docs/savestate-compat-test.md"
+      ],
+      "exit": 0,
+      "stdout_sha256": "5229f1979cfa99ad7b1c6df8d5f157b343a692f8268adcb7aebd912f2abf472d"
+    },
+    {
+      "argv": [
+        "git",
+        "ls-tree",
+        "-l",
+        "-z",
+        "4eb5dfab8e745914a55e7de3e5a43c5b91ebc608",
+        "--",
+        "docs/technical-appendix-cloud-sync-and-offline-achievements.md"
+      ],
+      "exit": 0,
+      "stdout_sha256": "29a46bcde1299bb9360ce7914fdcf0b5c1778b02a3dc9c7aeb718db650ebab15"
+    },
+    {
+      "argv": [
+        "git",
+        "ls-tree",
+        "-l",
+        "-z",
+        "7994f760fe1f4df6744844e80433bc49295cb94e",
+        "--",
+        "docs/technical-appendix-cloud-sync-and-offline-achievements.md"
+      ],
+      "exit": 0,
+      "stdout_sha256": "29a46bcde1299bb9360ce7914fdcf0b5c1778b02a3dc9c7aeb718db650ebab15"
+    },
+    {
+      "argv": [
+        "git",
+        "ls-tree",
+        "-l",
+        "-z",
+        "d707c82ab8c48b674acc1f95a9571f0cb24d226a",
+        "--",
+        "docs/technical-appendix-cloud-sync-and-offline-achievements.md"
+      ],
+      "exit": 0,
+      "stdout_sha256": "cdd8f3564447409fac73c075ce0982894903306e4b321eb0cff3eebc19d10b74"
+    },
+    {
+      "argv": [
+        "git",
+        "ls-tree",
+        "-l",
+        "-z",
+        "a2d4a33d4aa310d78c1b5c23b5bcdcd93f8ffe89^",
+        "--",
+        "docs/technical-appendix-cloud-sync-and-offline-achievements.md"
+      ],
+      "exit": 0,
+      "stdout_sha256": "cdd8f3564447409fac73c075ce0982894903306e4b321eb0cff3eebc19d10b74"
+    }
+  ]
+}

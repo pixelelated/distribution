@@ -1,0 +1,4085 @@
+{
+  "generated_utc": "2026-11-03T11:17:25.126850+00:00",
+  "executor": {
+    "harness": "Codex",
+    "model": "GPT-6-Astra",
+    "effort": "xhigh",
+    "lab": "OpenAI",
+    "session": "01a19d12-0c07-7ba3-88b8-ab9d609f4d67",
+    "pane": "wN:p4",
+    "identity_source": "own observed harness footer retained in earlier completion records; same active harness"
+  },
+  "authority": {
+    "issue": 693,
+    "comment": 6602308433,
+    "url": "https://github.com/pixelelated/distribution/issues/693#issuecomment-6602308433",
+    "issue_body_sha256": "f2366fe65ebd8e432ec117986f105e27608dcf6abbe65b4e44f443c11e61f821",
+    "dispatch_body_sha256": "dc326911a891abd55baaad1f18d8b3435a349090966d6c6278d04d3e0f1b747a"
+  },
+  "pins": {
+    "accepted_source": "4eb5dfab8e745914a55e7de3e5a43c5b91ebc608",
+    "completion": "7994f760fe1f4df6744844e80433bc49295cb94e",
+    "candidate": "d707c82ab8c48b674acc1f95a9571f0cb24d226a",
+    "accepted_source_manifest_checked_commit": "de11515859d231a82a511c3867e12211190041a2"
+  },
+  "scope": "Bounded accepted-T39 ownership bridge only. Reuse accepted outcomes; compare 48 named source/document identities and separately the named table-only Q5 plan. No body re-review, producer/generator/checker/test replay, branch union, source export or final T46 reading-set choice.",
+  "counts": {
+    "pre_correction_exact": 48
+  },
+  "stream_groups_overlap": {
+    "S1": {
+      "paths": 3,
+      "comparison_counts": {
+        "pre_correction_exact": 3
+      },
+      "retained_resolved_items": [
+        "PL-02",
+        "PL-03",
+        "PL-05",
+        "PL-16"
+      ]
+    },
+    "S2": {
+      "paths": 4,
+      "comparison_counts": {
+        "pre_correction_exact": 4
+      },
+      "retained_resolved_items": [
+        "PL-04",
+        "PL-07",
+        "PL-10"
+      ]
+    },
+    "S3": {
+      "paths": 5,
+      "comparison_counts": {
+        "pre_correction_exact": 5
+      },
+      "retained_resolved_items": [
+        "PL-06",
+        "PL-08",
+        "PL-09",
+        "PL-12",
+        "PL-15"
+      ]
+    },
+    "S4": {
+      "paths": 12,
+      "comparison_counts": {
+        "pre_correction_exact": 12
+      },
+      "retained_resolved_items": [
+        "PL-11",
+        "PL-13"
+      ]
+    },
+    "S5": {
+      "paths": 29,
+      "comparison_counts": {
+        "pre_correction_exact": 29
+      },
+      "retained_resolved_items": [
+        "PL-18"
+      ]
+    }
+  },
+  "completion_all_48_equal_accepted": true,
+  "canonical_bridge_metadata_sha256": "0183c29c4aad2489aa1b07b7f3550d8270b23de3931359627b4f8b9c0745ac05",
+  "outcome_counts_retained": {
+    "Withdrawn": 9,
+    "Resolved": 15,
+    "Deferred": 22
+  },
+  "path_bridge": [
+    {
+      "path": "README.md",
+      "accepted_streams": [
+        "S1"
+      ],
+      "accepted_stream_commits": [
+        "de40e931a469f6aa6889f08ec9d4d31266f4c6d4"
+      ],
+      "accepted_source": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "24a191e233d8534f27fbd6b53d78f986ca9841f7",
+        "bytes": 1263
+      },
+      "completion_source": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "24a191e233d8534f27fbd6b53d78f986ca9841f7",
+        "bytes": 1263
+      },
+      "candidate": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "8a3e1336095b037f77c1e4c2696a1bd022f86493",
+        "bytes": 1244
+      },
+      "pre_correction_ref": "de40e931a469f6aa6889f08ec9d4d31266f4c6d4^",
+      "pre_correction": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "8a3e1336095b037f77c1e4c2696a1bd022f86493",
+        "bytes": 1244
+      },
+      "comparison": "pre_correction_exact",
+      "retained_before_sha256": "06ed2316165b956ce1691e17c2b4cdcdd62d3279548307036e65553a9b10dc00",
+      "retained_after_sha256": "bd499dac943f954acaf9b89815d5bd743ff6105744f1e08e78b9cf98d272907f",
+      "sha256_class": "Retained accepted manifest values, not new source-body hashing. New observation is Git mode/type/blob/size identity only.",
+      "integration_owner": [
+        "T39 #686",
+        "doctrine #807",
+        "coordinator #346"
+      ],
+      "source_outcome_items_by_literal_path": [
+        "PL-01",
+        "PL-02",
+        "PL-14",
+        "PL-19"
+      ],
+      "q5_disposition": null,
+      "later_existing_owners": []
+    },
+    {
+      "path": "docs/backup-contents.md",
+      "accepted_streams": [
+        "S2"
+      ],
+      "accepted_stream_commits": [
+        "424eea28ecbfaa8fbbe49cdee6c99750becd13cf"
+      ],
+      "accepted_source": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "c1e633fcd6c74e9f290fe0f25459064169a186c5",
+        "bytes": 5635
+      },
+      "completion_source": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "c1e633fcd6c74e9f290fe0f25459064169a186c5",
+        "bytes": 5635
+      },
+      "candidate": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "e6506f490977ed80e71c50630c1e30d22e1c9b28",
+        "bytes": 5180
+      },
+      "pre_correction_ref": "424eea28ecbfaa8fbbe49cdee6c99750becd13cf^",
+      "pre_correction": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "e6506f490977ed80e71c50630c1e30d22e1c9b28",
+        "bytes": 5180
+      },
+      "comparison": "pre_correction_exact",
+      "retained_before_sha256": "9f277aff3393d6173b775477d338d4ae66965b2000b078bf0947b0b368e01895",
+      "retained_after_sha256": "bf166471f7d17b4c085713cf2a056649052e305f3efc4045f26507859832daa1",
+      "sha256_class": "Retained accepted manifest values, not new source-body hashing. New observation is Git mode/type/blob/size identity only.",
+      "integration_owner": [
+        "T39 #686",
+        "doctrine #807",
+        "coordinator #346"
+      ],
+      "source_outcome_items_by_literal_path": [
+        "PL-07"
+      ],
+      "q5_disposition": {
+        "path": "docs/backup-contents.md",
+        "accepted_date_or_review": "reference review 2026-11-02",
+        "accepted_disposition": "reuse S2 status without duplicate notice",
+        "later_owner": "#1407"
+      },
+      "later_existing_owners": [
+        {
+          "owner": "#1407",
+          "scope": "Later compact monthly index / individual purpose-replacement review; current accepted T39 correction stays accepted."
+        }
+      ]
+    },
+    {
+      "path": "docs/cloud-save-integrity.md",
+      "accepted_streams": [
+        "S3"
+      ],
+      "accepted_stream_commits": [
+        "895b90abcf44e62d3aa7339eba043cfe01e9b98e"
+      ],
+      "accepted_source": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "f1fac3b19ca8c365bc22718695399f4ac8722138",
+        "bytes": 6609
+      },
+      "completion_source": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "f1fac3b19ca8c365bc22718695399f4ac8722138",
+        "bytes": 6609
+      },
+      "candidate": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "112d2425eca36004eaf43e51e597617588cf7583",
+        "bytes": 6426
+      },
+      "pre_correction_ref": "895b90abcf44e62d3aa7339eba043cfe01e9b98e^",
+      "pre_correction": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "112d2425eca36004eaf43e51e597617588cf7583",
+        "bytes": 6426
+      },
+      "comparison": "pre_correction_exact",
+      "retained_before_sha256": "4aa2b69721ce5f591775798b91b5fd22c2c5a518d9088213befe395336ac4680",
+      "retained_after_sha256": "64b03486acc65d3f41c858736c3a3e60b568886ea414d8b4faf04a9392f28f46",
+      "sha256_class": "Retained accepted manifest values, not new source-body hashing. New observation is Git mode/type/blob/size identity only.",
+      "integration_owner": [
+        "T39 #686",
+        "doctrine #807",
+        "coordinator #346"
+      ],
+      "source_outcome_items_by_literal_path": [
+        "PL-06"
+      ],
+      "q5_disposition": null,
+      "later_existing_owners": []
+    },
+    {
+      "path": "docs/cloud-vocabulary-audit.md",
+      "accepted_streams": [
+        "S5"
+      ],
+      "accepted_stream_commits": [
+        "de11515859d231a82a511c3867e12211190041a2"
+      ],
+      "accepted_source": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "8ce64466efb625b906866c79ffa66310837b4c84",
+        "bytes": 13441
+      },
+      "completion_source": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "8ce64466efb625b906866c79ffa66310837b4c84",
+        "bytes": 13441
+      },
+      "candidate": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "e4f9aa70297ca5d6b14325890078f99858559595",
+        "bytes": 13122
+      },
+      "pre_correction_ref": "de11515859d231a82a511c3867e12211190041a2^",
+      "pre_correction": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "e4f9aa70297ca5d6b14325890078f99858559595",
+        "bytes": 13122
+      },
+      "comparison": "pre_correction_exact",
+      "retained_before_sha256": "a80cbcd5e76e17760abab8db9f7fd04bb34f447a6f9da77bc22e50a81269155f",
+      "retained_after_sha256": "1b3cbab3a8e4d8be4b7b658849d574c9a1ba1bfd89444001eafbaa64286d203b",
+      "sha256_class": "Retained accepted manifest values, not new source-body hashing. New observation is Git mode/type/blob/size identity only.",
+      "integration_owner": [
+        "T39 #686",
+        "doctrine #807",
+        "coordinator #346"
+      ],
+      "source_outcome_items_by_literal_path": [],
+      "q5_disposition": {
+        "path": "docs/cloud-vocabulary-audit.md",
+        "accepted_date_or_review": "2026-09-06",
+        "accepted_disposition": "add separate status; original content unchanged",
+        "later_owner": "#1407"
+      },
+      "later_existing_owners": [
+        {
+          "owner": "#1407",
+          "scope": "Later compact monthly index / individual purpose-replacement review; current accepted T39 correction stays accepted."
+        }
+      ]
+    },
+    {
+      "path": "docs/council-limits.md",
+      "accepted_streams": [
+        "S5"
+      ],
+      "accepted_stream_commits": [
+        "de11515859d231a82a511c3867e12211190041a2"
+      ],
+      "accepted_source": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "e475865b44355687de34217e3313a959c347508d",
+        "bytes": 4770
+      },
+      "completion_source": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "e475865b44355687de34217e3313a959c347508d",
+        "bytes": 4770
+      },
+      "candidate": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "82777e666cd0afe0b04f1990795b9581f3b1717a",
+        "bytes": 4442
+      },
+      "pre_correction_ref": "de11515859d231a82a511c3867e12211190041a2^",
+      "pre_correction": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "82777e666cd0afe0b04f1990795b9581f3b1717a",
+        "bytes": 4442
+      },
+      "comparison": "pre_correction_exact",
+      "retained_before_sha256": "bb0db7ec5c8aa3f9611b3c083932f85efac2043d3f90ab330cc7f382e802483a",
+      "retained_after_sha256": "f020cfeb052a0e841e9e03e69be5c39fa4af0035bef0c1ed915d44108b7a584e",
+      "sha256_class": "Retained accepted manifest values, not new source-body hashing. New observation is Git mode/type/blob/size identity only.",
+      "integration_owner": [
+        "T39 #686",
+        "doctrine #807",
+        "coordinator #346"
+      ],
+      "source_outcome_items_by_literal_path": [],
+      "q5_disposition": {
+        "path": "docs/council-limits.md",
+        "accepted_date_or_review": "2026-09-03",
+        "accepted_disposition": "add separate status; original content unchanged",
+        "later_owner": "#1407"
+      },
+      "later_existing_owners": [
+        {
+          "owner": "#1407",
+          "scope": "Later compact monthly index / individual purpose-replacement review; current accepted T39 correction stays accepted."
+        }
+      ]
+    },
+    {
+      "path": "docs/council-mistral-counter.md",
+      "accepted_streams": [
+        "S3"
+      ],
+      "accepted_stream_commits": [
+        "895b90abcf44e62d3aa7339eba043cfe01e9b98e"
+      ],
+      "accepted_source": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "1dd2ffff062966b16becd9ebbd3af1c33e4ec2ad",
+        "bytes": 7466
+      },
+      "completion_source": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "1dd2ffff062966b16becd9ebbd3af1c33e4ec2ad",
+        "bytes": 7466
+      },
+      "candidate": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "687af4f501776a8ddfb6d5448d4e062388d2e426",
+        "bytes": 7088
+      },
+      "pre_correction_ref": "895b90abcf44e62d3aa7339eba043cfe01e9b98e^",
+      "pre_correction": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "687af4f501776a8ddfb6d5448d4e062388d2e426",
+        "bytes": 7088
+      },
+      "comparison": "pre_correction_exact",
+      "retained_before_sha256": "c609c327f0f7adbaecb7d5783c06ba07a8a4a01c921a3f8c8c8b517c26085556",
+      "retained_after_sha256": "c3e1e2c080a089b744e09f815765bcea12a1a4746adaf4c86707b42bb17b40e1",
+      "sha256_class": "Retained accepted manifest values, not new source-body hashing. New observation is Git mode/type/blob/size identity only.",
+      "integration_owner": [
+        "T39 #686",
+        "doctrine #807",
+        "coordinator #346"
+      ],
+      "source_outcome_items_by_literal_path": [
+        "PL-12"
+      ],
+      "q5_disposition": null,
+      "later_existing_owners": []
+    },
+    {
+      "path": "docs/device-flashing-runbook.md",
+      "accepted_streams": [
+        "S1"
+      ],
+      "accepted_stream_commits": [
+        "de40e931a469f6aa6889f08ec9d4d31266f4c6d4"
+      ],
+      "accepted_source": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "40a2512bfe2984580c165b60e13739930ee431bf",
+        "bytes": 24143
+      },
+      "completion_source": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "40a2512bfe2984580c165b60e13739930ee431bf",
+        "bytes": 24143
+      },
+      "candidate": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "318a0865419fcc903f5dfff1a8c4822f91849808",
+        "bytes": 24088
+      },
+      "pre_correction_ref": "de40e931a469f6aa6889f08ec9d4d31266f4c6d4^",
+      "pre_correction": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "318a0865419fcc903f5dfff1a8c4822f91849808",
+        "bytes": 24088
+      },
+      "comparison": "pre_correction_exact",
+      "retained_before_sha256": "30cf02f9768e9035aec4f18751afebb19700abe376de040f00b554401ef309bf",
+      "retained_after_sha256": "9824e0713d7e6632a166d59d9edbf998487f6144e6b57039dfcbf3b78d2e0b91",
+      "sha256_class": "Retained accepted manifest values, not new source-body hashing. New observation is Git mode/type/blob/size identity only.",
+      "integration_owner": [
+        "T39 #686",
+        "doctrine #807",
+        "coordinator #346"
+      ],
+      "source_outcome_items_by_literal_path": [
+        "PL-05"
+      ],
+      "q5_disposition": null,
+      "later_existing_owners": []
+    },
+    {
+      "path": "docs/device-testing-policy.md",
+      "accepted_streams": [
+        "S1"
+      ],
+      "accepted_stream_commits": [
+        "de40e931a469f6aa6889f08ec9d4d31266f4c6d4"
+      ],
+      "accepted_source": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "17c36ef52bcdf8aa40e050a3a225c675d6a0ae12",
+        "bytes": 7592
+      },
+      "completion_source": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "17c36ef52bcdf8aa40e050a3a225c675d6a0ae12",
+        "bytes": 7592
+      },
+      "candidate": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "ed2fd0811f12efe5c3df4c0bbd3a3724cb2c8e22",
+        "bytes": 6765
+      },
+      "pre_correction_ref": "de40e931a469f6aa6889f08ec9d4d31266f4c6d4^",
+      "pre_correction": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "ed2fd0811f12efe5c3df4c0bbd3a3724cb2c8e22",
+        "bytes": 6765
+      },
+      "comparison": "pre_correction_exact",
+      "retained_before_sha256": "c464c7b1e6589952ec0449d0240a5e55018639d5acb3c196f9ba36bc94447108",
+      "retained_after_sha256": "3833872fba1e274bb811af46bd555a1b5a3ee2d3ee467dc60bf6fce7b21a24b9",
+      "sha256_class": "Retained accepted manifest values, not new source-body hashing. New observation is Git mode/type/blob/size identity only.",
+      "integration_owner": [
+        "T39 #686",
+        "doctrine #807",
+        "coordinator #346"
+      ],
+      "source_outcome_items_by_literal_path": [
+        "PL-03",
+        "PL-16"
+      ],
+      "q5_disposition": null,
+      "later_existing_owners": [
+        {
+          "item": "PL-03",
+          "accepted_outcome": "Resolved",
+          "remaining_action": "Deferred rule counterpart: coordinator #346 must reconcile vm-first.md."
+        }
+      ]
+    },
+    {
+      "path": "docs/es-menu-map.md",
+      "accepted_streams": [
+        "S3",
+        "S4"
+      ],
+      "accepted_stream_commits": [
+        "895b90abcf44e62d3aa7339eba043cfe01e9b98e",
+        "a2d4a33d4aa310d78c1b5c23b5bcdcd93f8ffe89"
+      ],
+      "accepted_source": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "69b7bac2130cb7dadc7f59db7aa88849f9d93814",
+        "bytes": 68736
+      },
+      "completion_source": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "69b7bac2130cb7dadc7f59db7aa88849f9d93814",
+        "bytes": 68736
+      },
+      "candidate": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "c69ce1ab7bafd5716b17e6908d0bc6843e695d2b",
+        "bytes": 68187
+      },
+      "pre_correction_ref": "895b90abcf44e62d3aa7339eba043cfe01e9b98e^",
+      "pre_correction": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "c69ce1ab7bafd5716b17e6908d0bc6843e695d2b",
+        "bytes": 68187
+      },
+      "comparison": "pre_correction_exact",
+      "retained_before_sha256": "fecba8eb2e62d1871a36a7ac77bf308f2013ed45991ee401a5d0d1f415eef656",
+      "retained_after_sha256": "6c9dbe0ba416e6bcdbb86bdda34c0d694ac988a3fe2fd2cd9ab183ef1132a341",
+      "sha256_class": "Retained accepted manifest values, not new source-body hashing. New observation is Git mode/type/blob/size identity only.",
+      "integration_owner": [
+        "T39 #686",
+        "doctrine #807",
+        "coordinator #346"
+      ],
+      "source_outcome_items_by_literal_path": [
+        "PL-08",
+        "PL-32"
+      ],
+      "q5_disposition": null,
+      "later_existing_owners": [
+        {
+          "owner": "#1407",
+          "scope": "Later compact monthly index / individual purpose-replacement review; current accepted T39 correction stays accepted."
+        },
+        {
+          "item": "PL-32",
+          "accepted_outcome": "Deferred",
+          "remaining_action": "#1216 interface owners; return line mapping"
+        }
+      ]
+    },
+    {
+      "path": "docs/pixelelated/cloud-folder-flow-review.md",
+      "accepted_streams": [
+        "S4"
+      ],
+      "accepted_stream_commits": [
+        "a2d4a33d4aa310d78c1b5c23b5bcdcd93f8ffe89"
+      ],
+      "accepted_source": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "02117433cfcda4f3d0bdc8538bedc1cf41f23f11",
+        "bytes": 49862
+      },
+      "completion_source": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "02117433cfcda4f3d0bdc8538bedc1cf41f23f11",
+        "bytes": 49862
+      },
+      "candidate": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "0d207736ffd3b6f23570f234387b3f13ef839e68",
+        "bytes": 49860
+      },
+      "pre_correction_ref": "a2d4a33d4aa310d78c1b5c23b5bcdcd93f8ffe89^",
+      "pre_correction": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "0d207736ffd3b6f23570f234387b3f13ef839e68",
+        "bytes": 49860
+      },
+      "comparison": "pre_correction_exact",
+      "retained_before_sha256": "7fd8d719e723ea1f0aa09b7b46a18561d5ee989eca31f2d64a775d83e5c5608c",
+      "retained_after_sha256": "2a0605c739ad6a17baa134b15c3547176030d6cb80d35200e5b45ee8f063af73",
+      "sha256_class": "Retained accepted manifest values, not new source-body hashing. New observation is Git mode/type/blob/size identity only.",
+      "integration_owner": [
+        "T39 #686",
+        "doctrine #807",
+        "coordinator #346"
+      ],
+      "source_outcome_items_by_literal_path": [],
+      "q5_disposition": null,
+      "later_existing_owners": []
+    },
+    {
+      "path": "docs/pixelelated/cloud-folders.md",
+      "accepted_streams": [
+        "S2"
+      ],
+      "accepted_stream_commits": [
+        "424eea28ecbfaa8fbbe49cdee6c99750becd13cf"
+      ],
+      "accepted_source": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "e65fd191f75c99f902ac0c8a0094bbbd1320f8c4",
+        "bytes": 1752
+      },
+      "completion_source": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "e65fd191f75c99f902ac0c8a0094bbbd1320f8c4",
+        "bytes": 1752
+      },
+      "candidate": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "266f16d22c82ec26932a053e68af469f17c0e885",
+        "bytes": 1920
+      },
+      "pre_correction_ref": "424eea28ecbfaa8fbbe49cdee6c99750becd13cf^",
+      "pre_correction": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "266f16d22c82ec26932a053e68af469f17c0e885",
+        "bytes": 1920
+      },
+      "comparison": "pre_correction_exact",
+      "retained_before_sha256": "0ec22d56cff95f868029a69d2271c2c3defa0a03510e129c31a0dbbf590ce80d",
+      "retained_after_sha256": "e8706c83eb8f81e0efa4c00818f15aefb4ccae792196ab69ae601abda38b7298",
+      "sha256_class": "Retained accepted manifest values, not new source-body hashing. New observation is Git mode/type/blob/size identity only.",
+      "integration_owner": [
+        "T39 #686",
+        "doctrine #807",
+        "coordinator #346"
+      ],
+      "source_outcome_items_by_literal_path": [
+        "PL-10"
+      ],
+      "q5_disposition": null,
+      "later_existing_owners": []
+    },
+    {
+      "path": "docs/pixelelated/site-plan.md",
+      "accepted_streams": [
+        "S4"
+      ],
+      "accepted_stream_commits": [
+        "a2d4a33d4aa310d78c1b5c23b5bcdcd93f8ffe89"
+      ],
+      "accepted_source": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "b3d5ece8e948869720c738cd091863aee4f21255",
+        "bytes": 9267
+      },
+      "completion_source": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "b3d5ece8e948869720c738cd091863aee4f21255",
+        "bytes": 9267
+      },
+      "candidate": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "70eaa907665ed6929e89ff0a054b04689a0728ad",
+        "bytes": 9245
+      },
+      "pre_correction_ref": "a2d4a33d4aa310d78c1b5c23b5bcdcd93f8ffe89^",
+      "pre_correction": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "70eaa907665ed6929e89ff0a054b04689a0728ad",
+        "bytes": 9245
+      },
+      "comparison": "pre_correction_exact",
+      "retained_before_sha256": "52b3cb9ce61b9865c257e09b03751426875ef6e1e13f4c1c9e8560059ea2bdb9",
+      "retained_after_sha256": "c466a50e3fe3075c3423752b19b1d486637a5c6afd371d00dd520db7488ae039",
+      "sha256_class": "Retained accepted manifest values, not new source-body hashing. New observation is Git mode/type/blob/size identity only.",
+      "integration_owner": [
+        "T39 #686",
+        "doctrine #807",
+        "coordinator #346"
+      ],
+      "source_outcome_items_by_literal_path": [
+        "PL-22"
+      ],
+      "q5_disposition": null,
+      "later_existing_owners": [
+        {
+          "item": "PL-22",
+          "accepted_outcome": "Deferred",
+          "remaining_action": "#511 current remote/checkout fact remains unestablished"
+        }
+      ]
+    },
+    {
+      "path": "docs/pr-series/es-review-guide.md",
+      "accepted_streams": [
+        "S5"
+      ],
+      "accepted_stream_commits": [
+        "de11515859d231a82a511c3867e12211190041a2"
+      ],
+      "accepted_source": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "eeb4d2adb28a8591b1168d6be963a98b2dd4d55c",
+        "bytes": 7971
+      },
+      "completion_source": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "eeb4d2adb28a8591b1168d6be963a98b2dd4d55c",
+        "bytes": 7971
+      },
+      "candidate": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "40bedbb59225880187d901f83fd088fa716d3d5d",
+        "bytes": 7640
+      },
+      "pre_correction_ref": "de11515859d231a82a511c3867e12211190041a2^",
+      "pre_correction": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "40bedbb59225880187d901f83fd088fa716d3d5d",
+        "bytes": 7640
+      },
+      "comparison": "pre_correction_exact",
+      "retained_before_sha256": "df41b524109847fbc66ed40219c7c639314d4934c9dfabf0b18286a79e3f3c78",
+      "retained_after_sha256": "6ccdb145491372bd224df59b58fa0a129946c9b8838370fc4c5ec4cc3efe1792",
+      "sha256_class": "Retained accepted manifest values, not new source-body hashing. New observation is Git mode/type/blob/size identity only.",
+      "integration_owner": [
+        "T39 #686",
+        "doctrine #807",
+        "coordinator #346"
+      ],
+      "source_outcome_items_by_literal_path": [],
+      "q5_disposition": {
+        "path": "docs/pr-series/es-review-guide.md",
+        "accepted_date_or_review": "2026-09-29",
+        "accepted_disposition": "add separate status; original content unchanged",
+        "later_owner": "#1407"
+      },
+      "later_existing_owners": [
+        {
+          "owner": "#1407",
+          "scope": "Later compact monthly index / individual purpose-replacement review; current accepted T39 correction stays accepted."
+        }
+      ]
+    },
+    {
+      "path": "docs/ra-offline/2026_09_13-phase-1-design-note.md",
+      "accepted_streams": [
+        "S5"
+      ],
+      "accepted_stream_commits": [
+        "de11515859d231a82a511c3867e12211190041a2"
+      ],
+      "accepted_source": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "5c2a989e566f6dcb56a45984f61dbb8043bef563",
+        "bytes": 43905
+      },
+      "completion_source": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "5c2a989e566f6dcb56a45984f61dbb8043bef563",
+        "bytes": 43905
+      },
+      "candidate": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "0c52b97a39f18e2273de705915073170d24eced0",
+        "bytes": 43558
+      },
+      "pre_correction_ref": "de11515859d231a82a511c3867e12211190041a2^",
+      "pre_correction": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "0c52b97a39f18e2273de705915073170d24eced0",
+        "bytes": 43558
+      },
+      "comparison": "pre_correction_exact",
+      "retained_before_sha256": "a96b7bd0494695bb574782e394eb1c4e0d000653cd88a89f45aced1afb81299a",
+      "retained_after_sha256": "895e199ff68d4386b156b6a0c5fe51dd824ee02ac17aa45df5f83f7d7b20b835",
+      "sha256_class": "Retained accepted manifest values, not new source-body hashing. New observation is Git mode/type/blob/size identity only.",
+      "integration_owner": [
+        "T39 #686",
+        "doctrine #807",
+        "coordinator #346"
+      ],
+      "source_outcome_items_by_literal_path": [],
+      "q5_disposition": {
+        "path": "docs/ra-offline/2026_09_13-phase-1-design-note.md",
+        "accepted_date_or_review": "2026-09-13",
+        "accepted_disposition": "add separate status; original content unchanged",
+        "later_owner": "#1407"
+      },
+      "later_existing_owners": [
+        {
+          "owner": "#1407",
+          "scope": "Later compact monthly index / individual purpose-replacement review; current accepted T39 correction stays accepted."
+        }
+      ]
+    },
+    {
+      "path": "docs/ra-offline/rocknix-org-offline-achievements.md",
+      "accepted_streams": [
+        "S5"
+      ],
+      "accepted_stream_commits": [
+        "de11515859d231a82a511c3867e12211190041a2"
+      ],
+      "accepted_source": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "9d4bc14246c79729cfb623f95d5db0da308c8b5e",
+        "bytes": 5563
+      },
+      "completion_source": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "9d4bc14246c79729cfb623f95d5db0da308c8b5e",
+        "bytes": 5563
+      },
+      "candidate": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "c5c36a409b1abb940d82b91c7562274c32b5ac6d",
+        "bytes": 5244
+      },
+      "pre_correction_ref": "de11515859d231a82a511c3867e12211190041a2^",
+      "pre_correction": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "c5c36a409b1abb940d82b91c7562274c32b5ac6d",
+        "bytes": 5244
+      },
+      "comparison": "pre_correction_exact",
+      "retained_before_sha256": "1cde684a6ad2e52631323a36437096d68a3799693f0ae29a5fb0510f0b242209",
+      "retained_after_sha256": "f92506a4743e0e14e50dd34d38dff32001d4d8b01c9dc36c06a9483a51770f80",
+      "sha256_class": "Retained accepted manifest values, not new source-body hashing. New observation is Git mode/type/blob/size identity only.",
+      "integration_owner": [
+        "T39 #686",
+        "doctrine #807",
+        "coordinator #346"
+      ],
+      "source_outcome_items_by_literal_path": [],
+      "q5_disposition": {
+        "path": "docs/ra-offline/rocknix-org-offline-achievements.md",
+        "accepted_date_or_review": "2026-09-24",
+        "accepted_disposition": "add separate status; original content unchanged",
+        "later_owner": "#1407"
+      },
+      "later_existing_owners": [
+        {
+          "owner": "#1407",
+          "scope": "Later compact monthly index / individual purpose-replacement review; current accepted T39 correction stays accepted."
+        }
+      ]
+    },
+    {
+      "path": "docs/rasteratops/candidate-source-plan.md",
+      "accepted_streams": [
+        "S5"
+      ],
+      "accepted_stream_commits": [
+        "de11515859d231a82a511c3867e12211190041a2"
+      ],
+      "accepted_source": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "ee3ab9d014df9fb2a0508cb665cd26cced496577",
+        "bytes": 6679
+      },
+      "completion_source": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "ee3ab9d014df9fb2a0508cb665cd26cced496577",
+        "bytes": 6679
+      },
+      "candidate": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "45b9f5ff47ccd37ba41b531744e5f34bf98b9324",
+        "bytes": 6309
+      },
+      "pre_correction_ref": "de11515859d231a82a511c3867e12211190041a2^",
+      "pre_correction": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "45b9f5ff47ccd37ba41b531744e5f34bf98b9324",
+        "bytes": 6309
+      },
+      "comparison": "pre_correction_exact",
+      "retained_before_sha256": "4a8c22bd837d03c879fcfb27c1aec7bdcfa596054d2cbdddd4901a79a590f9ad",
+      "retained_after_sha256": "47058f493d3d3e488dec137f7a077d3a53ba2adce0ac729315f07cac9f31e7d3",
+      "sha256_class": "Retained accepted manifest values, not new source-body hashing. New observation is Git mode/type/blob/size identity only.",
+      "integration_owner": [
+        "T39 #686",
+        "doctrine #807",
+        "coordinator #346"
+      ],
+      "source_outcome_items_by_literal_path": [],
+      "q5_disposition": {
+        "path": "docs/rasteratops/candidate-source-plan.md",
+        "accepted_date_or_review": "2026-10-12",
+        "accepted_disposition": "add separate status; original content unchanged",
+        "later_owner": "#1407"
+      },
+      "later_existing_owners": [
+        {
+          "owner": "#1407",
+          "scope": "Later compact monthly index / individual purpose-replacement review; current accepted T39 correction stays accepted."
+        }
+      ]
+    },
+    {
+      "path": "docs/rasteratops/cloud-layout.md",
+      "accepted_streams": [
+        "S2"
+      ],
+      "accepted_stream_commits": [
+        "424eea28ecbfaa8fbbe49cdee6c99750becd13cf"
+      ],
+      "accepted_source": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "494748415c328f08d28b4f7f30e0b3f41d71de0a",
+        "bytes": 8589
+      },
+      "completion_source": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "494748415c328f08d28b4f7f30e0b3f41d71de0a",
+        "bytes": 8589
+      },
+      "candidate": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "91afeb47aa9ce40458e7f85cab6070d36f6efd6a",
+        "bytes": 7411
+      },
+      "pre_correction_ref": "424eea28ecbfaa8fbbe49cdee6c99750becd13cf^",
+      "pre_correction": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "91afeb47aa9ce40458e7f85cab6070d36f6efd6a",
+        "bytes": 7411
+      },
+      "comparison": "pre_correction_exact",
+      "retained_before_sha256": "a4708b431fd2ebc0ca1d8c1d9437da652b7601ab3fbe7541b637ea78cfb81c53",
+      "retained_after_sha256": "4141274fd182eb5072ae8b83f7252016c010d6b7d8dc76e7ed5f0347fe6519cd",
+      "sha256_class": "Retained accepted manifest values, not new source-body hashing. New observation is Git mode/type/blob/size identity only.",
+      "integration_owner": [
+        "T39 #686",
+        "doctrine #807",
+        "coordinator #346"
+      ],
+      "source_outcome_items_by_literal_path": [
+        "PL-04"
+      ],
+      "q5_disposition": {
+        "path": "docs/rasteratops/cloud-layout.md",
+        "accepted_date_or_review": "2026-10-05",
+        "accepted_disposition": "reuse S2 status without duplicate notice",
+        "later_owner": "#1407"
+      },
+      "later_existing_owners": [
+        {
+          "owner": "#1407",
+          "scope": "Later compact monthly index / individual purpose-replacement review; current accepted T39 correction stays accepted."
+        }
+      ]
+    },
+    {
+      "path": "docs/rasteratops/cloud-provider-2026-09-30.md",
+      "accepted_streams": [
+        "S5"
+      ],
+      "accepted_stream_commits": [
+        "de11515859d231a82a511c3867e12211190041a2"
+      ],
+      "accepted_source": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "b1bdc276baa9de570f07905a9a7e8ca80323e55b",
+        "bytes": 13094
+      },
+      "completion_source": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "b1bdc276baa9de570f07905a9a7e8ca80323e55b",
+        "bytes": 13094
+      },
+      "candidate": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "966a2b21e0fb68a7093319941013311862c07380",
+        "bytes": 12722
+      },
+      "pre_correction_ref": "de11515859d231a82a511c3867e12211190041a2^",
+      "pre_correction": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "966a2b21e0fb68a7093319941013311862c07380",
+        "bytes": 12722
+      },
+      "comparison": "pre_correction_exact",
+      "retained_before_sha256": "e670074d7076e9c54cf7489142dcf29f96467650cf132f1fa404ca6ba05c61c1",
+      "retained_after_sha256": "4f19fc1f2f928dbb10aeb6d40375adcbbc1639dc60ef28cf1128b7c4712454f0",
+      "sha256_class": "Retained accepted manifest values, not new source-body hashing. New observation is Git mode/type/blob/size identity only.",
+      "integration_owner": [
+        "T39 #686",
+        "doctrine #807",
+        "coordinator #346"
+      ],
+      "source_outcome_items_by_literal_path": [],
+      "q5_disposition": {
+        "path": "docs/rasteratops/cloud-provider-2026-09-30.md",
+        "accepted_date_or_review": "2026-09-30",
+        "accepted_disposition": "add separate status; original content unchanged",
+        "later_owner": "#1407"
+      },
+      "later_existing_owners": [
+        {
+          "owner": "#1407",
+          "scope": "Later compact monthly index / individual purpose-replacement review; current accepted T39 correction stays accepted."
+        }
+      ]
+    },
+    {
+      "path": "docs/rasteratops/p0-read.md",
+      "accepted_streams": [
+        "S5"
+      ],
+      "accepted_stream_commits": [
+        "de11515859d231a82a511c3867e12211190041a2"
+      ],
+      "accepted_source": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "31efe0d3d29472e15b5746f42075e289465a47aa",
+        "bytes": 15942
+      },
+      "completion_source": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "31efe0d3d29472e15b5746f42075e289465a47aa",
+        "bytes": 15942
+      },
+      "candidate": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "2d2e05c22716e3f6a4ebc061c36111c4bd1a81df",
+        "bytes": 15624
+      },
+      "pre_correction_ref": "de11515859d231a82a511c3867e12211190041a2^",
+      "pre_correction": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "2d2e05c22716e3f6a4ebc061c36111c4bd1a81df",
+        "bytes": 15624
+      },
+      "comparison": "pre_correction_exact",
+      "retained_before_sha256": "19fc11e693d36c080220d65928a335f504593880759e6cde41ae14175edbd2d7",
+      "retained_after_sha256": "6b456b7f750bbdc7024ba1dd448cd5b75f4f73b4016d9a218eb5cb659a9fd64b",
+      "sha256_class": "Retained accepted manifest values, not new source-body hashing. New observation is Git mode/type/blob/size identity only.",
+      "integration_owner": [
+        "T39 #686",
+        "doctrine #807",
+        "coordinator #346"
+      ],
+      "source_outcome_items_by_literal_path": [
+        "PL-20"
+      ],
+      "q5_disposition": {
+        "path": "docs/rasteratops/p0-read.md",
+        "accepted_date_or_review": "2026-09-30",
+        "accepted_disposition": "add separate status; original content unchanged",
+        "later_owner": "#1407"
+      },
+      "later_existing_owners": [
+        {
+          "owner": "#1407",
+          "scope": "Later compact monthly index / individual purpose-replacement review; current accepted T39 correction stays accepted."
+        }
+      ]
+    },
+    {
+      "path": "docs/rasteratops/p0-sweep.md",
+      "accepted_streams": [
+        "S5"
+      ],
+      "accepted_stream_commits": [
+        "de11515859d231a82a511c3867e12211190041a2"
+      ],
+      "accepted_source": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "4b08b522edc3e285e74f130b91cc7bca48115e33",
+        "bytes": 21694
+      },
+      "completion_source": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "4b08b522edc3e285e74f130b91cc7bca48115e33",
+        "bytes": 21694
+      },
+      "candidate": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "c29d44836fbd94d6dfa519f76a7e6348d65b692a",
+        "bytes": 21361
+      },
+      "pre_correction_ref": "de11515859d231a82a511c3867e12211190041a2^",
+      "pre_correction": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "c29d44836fbd94d6dfa519f76a7e6348d65b692a",
+        "bytes": 21361
+      },
+      "comparison": "pre_correction_exact",
+      "retained_before_sha256": "e1060da573643f829f1528662ccf2813e9d464cc5b1675928c16a64861d85bb9",
+      "retained_after_sha256": "632ff772f7b8c17753d4dffd0e1356879dad50366a06b3f67649c593e49971e2",
+      "sha256_class": "Retained accepted manifest values, not new source-body hashing. New observation is Git mode/type/blob/size identity only.",
+      "integration_owner": [
+        "T39 #686",
+        "doctrine #807",
+        "coordinator #346"
+      ],
+      "source_outcome_items_by_literal_path": [],
+      "q5_disposition": {
+        "path": "docs/rasteratops/p0-sweep.md",
+        "accepted_date_or_review": "2026-09-30",
+        "accepted_disposition": "add separate status; original content unchanged",
+        "later_owner": "#1407"
+      },
+      "later_existing_owners": [
+        {
+          "owner": "#1407",
+          "scope": "Later compact monthly index / individual purpose-replacement review; current accepted T39 correction stays accepted."
+        }
+      ]
+    },
+    {
+      "path": "docs/rasteratops/release-readiness.md",
+      "accepted_streams": [
+        "S4"
+      ],
+      "accepted_stream_commits": [
+        "a2d4a33d4aa310d78c1b5c23b5bcdcd93f8ffe89"
+      ],
+      "accepted_source": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "ba1c00e56596a3a9ad34afc690b50bb5956268a0",
+        "bytes": 85241
+      },
+      "completion_source": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "ba1c00e56596a3a9ad34afc690b50bb5956268a0",
+        "bytes": 85241
+      },
+      "candidate": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "16cf6da39b6017bb19f73d3a42823ec4b4b1f7d3",
+        "bytes": 85084
+      },
+      "pre_correction_ref": "a2d4a33d4aa310d78c1b5c23b5bcdcd93f8ffe89^",
+      "pre_correction": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "16cf6da39b6017bb19f73d3a42823ec4b4b1f7d3",
+        "bytes": 85084
+      },
+      "comparison": "pre_correction_exact",
+      "retained_before_sha256": "d0d51554947c45e7b75e8f682f02892ce96449aca7d53c9b0b760f56562ff426",
+      "retained_after_sha256": "6a94c344f6baca190cf4fd6c9dab8e825a66e08ff05a7a4d3dbd60882bbe1451",
+      "sha256_class": "Retained accepted manifest values, not new source-body hashing. New observation is Git mode/type/blob/size identity only.",
+      "integration_owner": [
+        "T39 #686",
+        "doctrine #807",
+        "coordinator #346"
+      ],
+      "source_outcome_items_by_literal_path": [
+        "PL-30"
+      ],
+      "q5_disposition": null,
+      "later_existing_owners": [
+        {
+          "item": "PL-30",
+          "accepted_outcome": "Deferred",
+          "remaining_action": "#509 reviewed rename batch"
+        }
+      ]
+    },
+    {
+      "path": "docs/rasteratops/support-matrix.md",
+      "accepted_streams": [
+        "S4"
+      ],
+      "accepted_stream_commits": [
+        "a2d4a33d4aa310d78c1b5c23b5bcdcd93f8ffe89"
+      ],
+      "accepted_source": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "e8e1664c3dc91b3433e4385855f3e7c24d912355",
+        "bytes": 19577
+      },
+      "completion_source": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "e8e1664c3dc91b3433e4385855f3e7c24d912355",
+        "bytes": 19577
+      },
+      "candidate": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "e6f977c886c0b7cca906b65fd652f8001c740fe7",
+        "bytes": 19567
+      },
+      "pre_correction_ref": "a2d4a33d4aa310d78c1b5c23b5bcdcd93f8ffe89^",
+      "pre_correction": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "e6f977c886c0b7cca906b65fd652f8001c740fe7",
+        "bytes": 19567
+      },
+      "comparison": "pre_correction_exact",
+      "retained_before_sha256": "609ce40318f2bee0962d2a09d4d6a48c923304ff7e258ddfef3f161d6aecbca7",
+      "retained_after_sha256": "9b85edbd751996eda3b04deb9ab5d6957c2cb4505e2ac046dcb5c1c743a08d27",
+      "sha256_class": "Retained accepted manifest values, not new source-body hashing. New observation is Git mode/type/blob/size identity only.",
+      "integration_owner": [
+        "T39 #686",
+        "doctrine #807",
+        "coordinator #346"
+      ],
+      "source_outcome_items_by_literal_path": [],
+      "q5_disposition": null,
+      "later_existing_owners": []
+    },
+    {
+      "path": "docs/releases/0.0.1-release-preparation.md",
+      "accepted_streams": [
+        "S4"
+      ],
+      "accepted_stream_commits": [
+        "a2d4a33d4aa310d78c1b5c23b5bcdcd93f8ffe89"
+      ],
+      "accepted_source": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "78500ca543d8f8d1dad9f2669c14dae9b2e0999e",
+        "bytes": 10820
+      },
+      "completion_source": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "78500ca543d8f8d1dad9f2669c14dae9b2e0999e",
+        "bytes": 10820
+      },
+      "candidate": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "c4d385d7d20be3037808f25e0ff8842c33bec37a",
+        "bytes": 10819
+      },
+      "pre_correction_ref": "a2d4a33d4aa310d78c1b5c23b5bcdcd93f8ffe89^",
+      "pre_correction": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "c4d385d7d20be3037808f25e0ff8842c33bec37a",
+        "bytes": 10819
+      },
+      "comparison": "pre_correction_exact",
+      "retained_before_sha256": "d127643b968bb76ed9c7b8b0308356530e7730b207be9f3bd87927ecca13c138",
+      "retained_after_sha256": "2e1f4767b1a6e0b87e7105b4f2a6c9c769b8f5146b4277105d6a37e77dc54d08",
+      "sha256_class": "Retained accepted manifest values, not new source-body hashing. New observation is Git mode/type/blob/size identity only.",
+      "integration_owner": [
+        "T39 #686",
+        "doctrine #807",
+        "coordinator #346"
+      ],
+      "source_outcome_items_by_literal_path": [],
+      "q5_disposition": null,
+      "later_existing_owners": []
+    },
+    {
+      "path": "docs/releases/device-facts.md",
+      "accepted_streams": [
+        "S3",
+        "S4"
+      ],
+      "accepted_stream_commits": [
+        "895b90abcf44e62d3aa7339eba043cfe01e9b98e",
+        "a2d4a33d4aa310d78c1b5c23b5bcdcd93f8ffe89"
+      ],
+      "accepted_source": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "af3481f5371bcc6daac1e64ee1d1a709c31cb27d",
+        "bytes": 8771
+      },
+      "completion_source": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "af3481f5371bcc6daac1e64ee1d1a709c31cb27d",
+        "bytes": 8771
+      },
+      "candidate": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "be27a8ce36a9337119a4d3e7a3cd61e79887e025",
+        "bytes": 8595
+      },
+      "pre_correction_ref": "895b90abcf44e62d3aa7339eba043cfe01e9b98e^",
+      "pre_correction": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "be27a8ce36a9337119a4d3e7a3cd61e79887e025",
+        "bytes": 8595
+      },
+      "comparison": "pre_correction_exact",
+      "retained_before_sha256": "17e02c39466ee30ac2b7375224dfa902750c958aa856e9bdc7dc2ea849c48efa",
+      "retained_after_sha256": "80f916cbbaa5f009d0e930877d8583fb75b602b2342c9ef9f03c23eda14bdd02",
+      "sha256_class": "Retained accepted manifest values, not new source-body hashing. New observation is Git mode/type/blob/size identity only.",
+      "integration_owner": [
+        "T39 #686",
+        "doctrine #807",
+        "coordinator #346"
+      ],
+      "source_outcome_items_by_literal_path": [
+        "PL-15"
+      ],
+      "q5_disposition": null,
+      "later_existing_owners": [
+        {
+          "item": "PL-15",
+          "accepted_outcome": "Resolved",
+          "remaining_action": "Deferred catalog/tool work: #964/#270; no catalog regeneration here."
+        }
+      ]
+    },
+    {
+      "path": "docs/releases/next-candidate-scope.md",
+      "accepted_streams": [
+        "S4"
+      ],
+      "accepted_stream_commits": [
+        "a2d4a33d4aa310d78c1b5c23b5bcdcd93f8ffe89"
+      ],
+      "accepted_source": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "86244db447e746cafb2b4bcfea01c07f0a355891",
+        "bytes": 23168
+      },
+      "completion_source": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "86244db447e746cafb2b4bcfea01c07f0a355891",
+        "bytes": 23168
+      },
+      "candidate": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "b5bd33d4bf5b81ed6fd2b477dc09377bd78115b4",
+        "bytes": 23147
+      },
+      "pre_correction_ref": "a2d4a33d4aa310d78c1b5c23b5bcdcd93f8ffe89^",
+      "pre_correction": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "b5bd33d4bf5b81ed6fd2b477dc09377bd78115b4",
+        "bytes": 23147
+      },
+      "comparison": "pre_correction_exact",
+      "retained_before_sha256": "a8255d21a4c0bf2f3ae243e4fcc06916fc2fee522e917b019f13b4a7ce3edc40",
+      "retained_after_sha256": "78c353c436b98051e9a8b466a97713dadc0c8443168db7eda7ad9da524189f58",
+      "sha256_class": "Retained accepted manifest values, not new source-body hashing. New observation is Git mode/type/blob/size identity only.",
+      "integration_owner": [
+        "T39 #686",
+        "doctrine #807",
+        "coordinator #346"
+      ],
+      "source_outcome_items_by_literal_path": [],
+      "q5_disposition": null,
+      "later_existing_owners": []
+    },
+    {
+      "path": "docs/releases/next-candidate-work.md",
+      "accepted_streams": [
+        "S3",
+        "S4"
+      ],
+      "accepted_stream_commits": [
+        "895b90abcf44e62d3aa7339eba043cfe01e9b98e",
+        "a2d4a33d4aa310d78c1b5c23b5bcdcd93f8ffe89"
+      ],
+      "accepted_source": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "ce16001c14c7e0c637959a5d446c87fcb750f472",
+        "bytes": 71937
+      },
+      "completion_source": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "ce16001c14c7e0c637959a5d446c87fcb750f472",
+        "bytes": 71937
+      },
+      "candidate": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "c257644eb84766ec7bf5653d75c523078d86e33c",
+        "bytes": 71407
+      },
+      "pre_correction_ref": "895b90abcf44e62d3aa7339eba043cfe01e9b98e^",
+      "pre_correction": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "c257644eb84766ec7bf5653d75c523078d86e33c",
+        "bytes": 71407
+      },
+      "comparison": "pre_correction_exact",
+      "retained_before_sha256": "67a8393e793a232edfbd7dfa69a5b7fe2975c282e02187e237362bf5493f97d1",
+      "retained_after_sha256": "861c6c0b04698e67bface7a49e1291c39a6f63f44dea78848d61d0721035dd89",
+      "sha256_class": "Retained accepted manifest values, not new source-body hashing. New observation is Git mode/type/blob/size identity only.",
+      "integration_owner": [
+        "T39 #686",
+        "doctrine #807",
+        "coordinator #346"
+      ],
+      "source_outcome_items_by_literal_path": [
+        "PL-09"
+      ],
+      "q5_disposition": null,
+      "later_existing_owners": []
+    },
+    {
+      "path": "docs/releases/pr/01-build.md",
+      "accepted_streams": [
+        "S5"
+      ],
+      "accepted_stream_commits": [
+        "de11515859d231a82a511c3867e12211190041a2"
+      ],
+      "accepted_source": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "812d450d01f2ae82e32e6a64f2fa0aa10bffc3c0",
+        "bytes": 2096
+      },
+      "completion_source": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "812d450d01f2ae82e32e6a64f2fa0aa10bffc3c0",
+        "bytes": 2096
+      },
+      "candidate": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "ff0bc81049ee0803ad1cd99278fca482f036342f",
+        "bytes": 1752
+      },
+      "pre_correction_ref": "de11515859d231a82a511c3867e12211190041a2^",
+      "pre_correction": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "ff0bc81049ee0803ad1cd99278fca482f036342f",
+        "bytes": 1752
+      },
+      "comparison": "pre_correction_exact",
+      "retained_before_sha256": "68a2828ac6d3148e49db345e4a68114c87fd4df91b0caf6b9eec5f7d854cb7c8",
+      "retained_after_sha256": "b4d7c3d68a2c3202936dd0942f6dd6ce405db0c1bb8419970e8503114e9e848a",
+      "sha256_class": "Retained accepted manifest values, not new source-body hashing. New observation is Git mode/type/blob/size identity only.",
+      "integration_owner": [
+        "T39 #686",
+        "doctrine #807",
+        "coordinator #346"
+      ],
+      "source_outcome_items_by_literal_path": [],
+      "q5_disposition": {
+        "path": "docs/releases/pr/01-build.md",
+        "accepted_date_or_review": "2026-09-29",
+        "accepted_disposition": "add separate status; original content unchanged",
+        "later_owner": "#1407"
+      },
+      "later_existing_owners": [
+        {
+          "owner": "#1407",
+          "scope": "Later compact monthly index / individual purpose-replacement review; current accepted T39 correction stays accepted."
+        }
+      ]
+    },
+    {
+      "path": "docs/releases/pr/02-generic-x64.md",
+      "accepted_streams": [
+        "S5"
+      ],
+      "accepted_stream_commits": [
+        "de11515859d231a82a511c3867e12211190041a2"
+      ],
+      "accepted_source": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "6e0063972bc33ca6e836ba7c3416ca3248443f62",
+        "bytes": 2075
+      },
+      "completion_source": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "6e0063972bc33ca6e836ba7c3416ca3248443f62",
+        "bytes": 2075
+      },
+      "candidate": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "433778db9cda4d93aee0d6f32224966bc94e27a0",
+        "bytes": 1731
+      },
+      "pre_correction_ref": "de11515859d231a82a511c3867e12211190041a2^",
+      "pre_correction": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "433778db9cda4d93aee0d6f32224966bc94e27a0",
+        "bytes": 1731
+      },
+      "comparison": "pre_correction_exact",
+      "retained_before_sha256": "a40a971a6b7f2a5788206b7dc22dc755d7cf28536e9cf8eade22a41c7ea31896",
+      "retained_after_sha256": "57bd62373a0cbb400ec891920773a3c178f0aac67ae866e64645010bd5a81ae4",
+      "sha256_class": "Retained accepted manifest values, not new source-body hashing. New observation is Git mode/type/blob/size identity only.",
+      "integration_owner": [
+        "T39 #686",
+        "doctrine #807",
+        "coordinator #346"
+      ],
+      "source_outcome_items_by_literal_path": [],
+      "q5_disposition": {
+        "path": "docs/releases/pr/02-generic-x64.md",
+        "accepted_date_or_review": "2026-09-29",
+        "accepted_disposition": "add separate status; original content unchanged",
+        "later_owner": "#1407"
+      },
+      "later_existing_owners": [
+        {
+          "owner": "#1407",
+          "scope": "Later compact monthly index / individual purpose-replacement review; current accepted T39 correction stays accepted."
+        }
+      ]
+    },
+    {
+      "path": "docs/releases/pr/03-evidence.md",
+      "accepted_streams": [
+        "S5"
+      ],
+      "accepted_stream_commits": [
+        "de11515859d231a82a511c3867e12211190041a2"
+      ],
+      "accepted_source": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "c00f8b58874d6a99a382645e9d513bd6c20cba24",
+        "bytes": 2010
+      },
+      "completion_source": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "c00f8b58874d6a99a382645e9d513bd6c20cba24",
+        "bytes": 2010
+      },
+      "candidate": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "dddbc2e553d4220a1577e0d94e369fc211b08340",
+        "bytes": 1666
+      },
+      "pre_correction_ref": "de11515859d231a82a511c3867e12211190041a2^",
+      "pre_correction": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "dddbc2e553d4220a1577e0d94e369fc211b08340",
+        "bytes": 1666
+      },
+      "comparison": "pre_correction_exact",
+      "retained_before_sha256": "769ae5ff13dee30b5bab009882eeb3a9e855d93ec7234c2c27be98ba213c88e5",
+      "retained_after_sha256": "56453e683afc4f97cd52168ff76f253576b55181dbdfbdac6313d026d98106a2",
+      "sha256_class": "Retained accepted manifest values, not new source-body hashing. New observation is Git mode/type/blob/size identity only.",
+      "integration_owner": [
+        "T39 #686",
+        "doctrine #807",
+        "coordinator #346"
+      ],
+      "source_outcome_items_by_literal_path": [],
+      "q5_disposition": {
+        "path": "docs/releases/pr/03-evidence.md",
+        "accepted_date_or_review": "2026-09-29",
+        "accepted_disposition": "add separate status; original content unchanged",
+        "later_owner": "#1407"
+      },
+      "later_existing_owners": [
+        {
+          "owner": "#1407",
+          "scope": "Later compact monthly index / individual purpose-replacement review; current accepted T39 correction stays accepted."
+        }
+      ]
+    },
+    {
+      "path": "docs/releases/pr/04-settings.md",
+      "accepted_streams": [
+        "S5"
+      ],
+      "accepted_stream_commits": [
+        "de11515859d231a82a511c3867e12211190041a2"
+      ],
+      "accepted_source": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "5486ce5d1e52c4b2067988ff556f966903e4a1a1",
+        "bytes": 2287
+      },
+      "completion_source": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "5486ce5d1e52c4b2067988ff556f966903e4a1a1",
+        "bytes": 2287
+      },
+      "candidate": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "73e4dbfb9d72b05f83f0e7602d473f1eefd990df",
+        "bytes": 1943
+      },
+      "pre_correction_ref": "de11515859d231a82a511c3867e12211190041a2^",
+      "pre_correction": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "73e4dbfb9d72b05f83f0e7602d473f1eefd990df",
+        "bytes": 1943
+      },
+      "comparison": "pre_correction_exact",
+      "retained_before_sha256": "552269770c078bee6323af9bc11dc43957b75f6401fbf1a79648206a5a2c92e6",
+      "retained_after_sha256": "944b570e756227c7a350a841940d3edd57946141084d675217b47bfa14accc1a",
+      "sha256_class": "Retained accepted manifest values, not new source-body hashing. New observation is Git mode/type/blob/size identity only.",
+      "integration_owner": [
+        "T39 #686",
+        "doctrine #807",
+        "coordinator #346"
+      ],
+      "source_outcome_items_by_literal_path": [],
+      "q5_disposition": {
+        "path": "docs/releases/pr/04-settings.md",
+        "accepted_date_or_review": "2026-09-29",
+        "accepted_disposition": "add separate status; original content unchanged",
+        "later_owner": "#1407"
+      },
+      "later_existing_owners": [
+        {
+          "owner": "#1407",
+          "scope": "Later compact monthly index / individual purpose-replacement review; current accepted T39 correction stays accepted."
+        }
+      ]
+    },
+    {
+      "path": "docs/releases/pr/05-network.md",
+      "accepted_streams": [
+        "S5"
+      ],
+      "accepted_stream_commits": [
+        "de11515859d231a82a511c3867e12211190041a2"
+      ],
+      "accepted_source": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "870b70126c5563c478184dbaff33c794017d0a01",
+        "bytes": 1936
+      },
+      "completion_source": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "870b70126c5563c478184dbaff33c794017d0a01",
+        "bytes": 1936
+      },
+      "candidate": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "3f6e0ed68ce5e84d507dea8dc2c24907f016e29a",
+        "bytes": 1592
+      },
+      "pre_correction_ref": "de11515859d231a82a511c3867e12211190041a2^",
+      "pre_correction": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "3f6e0ed68ce5e84d507dea8dc2c24907f016e29a",
+        "bytes": 1592
+      },
+      "comparison": "pre_correction_exact",
+      "retained_before_sha256": "9361cc280f0f425f2c752ff9f6d7356fc7b22051aeac421d642efff570acb689",
+      "retained_after_sha256": "bf6f7ed03f3c4146cc933e07d909b4ec2e583ef9c041ddf73985e7da31abffdd",
+      "sha256_class": "Retained accepted manifest values, not new source-body hashing. New observation is Git mode/type/blob/size identity only.",
+      "integration_owner": [
+        "T39 #686",
+        "doctrine #807",
+        "coordinator #346"
+      ],
+      "source_outcome_items_by_literal_path": [],
+      "q5_disposition": {
+        "path": "docs/releases/pr/05-network.md",
+        "accepted_date_or_review": "2026-09-29",
+        "accepted_disposition": "add separate status; original content unchanged",
+        "later_owner": "#1407"
+      },
+      "later_existing_owners": [
+        {
+          "owner": "#1407",
+          "scope": "Later compact monthly index / individual purpose-replacement review; current accepted T39 correction stays accepted."
+        }
+      ]
+    },
+    {
+      "path": "docs/releases/pr/06-retroachievements.md",
+      "accepted_streams": [
+        "S5"
+      ],
+      "accepted_stream_commits": [
+        "de11515859d231a82a511c3867e12211190041a2"
+      ],
+      "accepted_source": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "d047bbec1c7e18754ae9ec1f08252bf40b9a3965",
+        "bytes": 2731
+      },
+      "completion_source": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "d047bbec1c7e18754ae9ec1f08252bf40b9a3965",
+        "bytes": 2731
+      },
+      "candidate": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "f3223a49b2532100a9672c379ff5bc2544c1bbb9",
+        "bytes": 2387
+      },
+      "pre_correction_ref": "de11515859d231a82a511c3867e12211190041a2^",
+      "pre_correction": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "f3223a49b2532100a9672c379ff5bc2544c1bbb9",
+        "bytes": 2387
+      },
+      "comparison": "pre_correction_exact",
+      "retained_before_sha256": "82485f3bccd3b6fd0fa9dd256fbefdc4a44e74040603f8ac0219999c8122636b",
+      "retained_after_sha256": "7a8a9af144ac0b0da6cbb14130490425af870e88092ab558ff22bfd6fe77a567",
+      "sha256_class": "Retained accepted manifest values, not new source-body hashing. New observation is Git mode/type/blob/size identity only.",
+      "integration_owner": [
+        "T39 #686",
+        "doctrine #807",
+        "coordinator #346"
+      ],
+      "source_outcome_items_by_literal_path": [],
+      "q5_disposition": {
+        "path": "docs/releases/pr/06-retroachievements.md",
+        "accepted_date_or_review": "2026-09-29",
+        "accepted_disposition": "add separate status; original content unchanged",
+        "later_owner": "#1407"
+      },
+      "later_existing_owners": [
+        {
+          "owner": "#1407",
+          "scope": "Later compact monthly index / individual purpose-replacement review; current accepted T39 correction stays accepted."
+        }
+      ]
+    },
+    {
+      "path": "docs/releases/pr/07-cloud-setup.md",
+      "accepted_streams": [
+        "S5"
+      ],
+      "accepted_stream_commits": [
+        "de11515859d231a82a511c3867e12211190041a2"
+      ],
+      "accepted_source": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "cf0eb2ae891d0524fb13ec764cab3e04120527b1",
+        "bytes": 2474
+      },
+      "completion_source": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "cf0eb2ae891d0524fb13ec764cab3e04120527b1",
+        "bytes": 2474
+      },
+      "candidate": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "5b9d20e4c14e819de4fbb241c7854509ff8d88cf",
+        "bytes": 2130
+      },
+      "pre_correction_ref": "de11515859d231a82a511c3867e12211190041a2^",
+      "pre_correction": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "5b9d20e4c14e819de4fbb241c7854509ff8d88cf",
+        "bytes": 2130
+      },
+      "comparison": "pre_correction_exact",
+      "retained_before_sha256": "fe9b4329a6570c12216c4fd824e0ed5fde207c9156347b03298b4e12c8686c13",
+      "retained_after_sha256": "31e602bdbef0ccbe192a9974ef51c54774bc79633b703975d1688855f40702f2",
+      "sha256_class": "Retained accepted manifest values, not new source-body hashing. New observation is Git mode/type/blob/size identity only.",
+      "integration_owner": [
+        "T39 #686",
+        "doctrine #807",
+        "coordinator #346"
+      ],
+      "source_outcome_items_by_literal_path": [],
+      "q5_disposition": {
+        "path": "docs/releases/pr/07-cloud-setup.md",
+        "accepted_date_or_review": "2026-09-29",
+        "accepted_disposition": "add separate status; original content unchanged",
+        "later_owner": "#1407"
+      },
+      "later_existing_owners": [
+        {
+          "owner": "#1407",
+          "scope": "Later compact monthly index / individual purpose-replacement review; current accepted T39 correction stays accepted."
+        }
+      ]
+    },
+    {
+      "path": "docs/releases/pr/08-saves.md",
+      "accepted_streams": [
+        "S2"
+      ],
+      "accepted_stream_commits": [
+        "424eea28ecbfaa8fbbe49cdee6c99750becd13cf"
+      ],
+      "accepted_source": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "46edb01670cff940848a360666da5c0687d1cbcf",
+        "bytes": 2855
+      },
+      "completion_source": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "46edb01670cff940848a360666da5c0687d1cbcf",
+        "bytes": 2855
+      },
+      "candidate": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "e6a3e61e7533e444403ba1ce4df6164c40fec631",
+        "bytes": 2355
+      },
+      "pre_correction_ref": "424eea28ecbfaa8fbbe49cdee6c99750becd13cf^",
+      "pre_correction": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "e6a3e61e7533e444403ba1ce4df6164c40fec631",
+        "bytes": 2355
+      },
+      "comparison": "pre_correction_exact",
+      "retained_before_sha256": "042710e56bccce151a06303521f6a268e10e53c1e3b601512946c1c0fc714206",
+      "retained_after_sha256": "3c937e6d1bca32ff3c14571b6f69c6285674d8bf8e5291efc064c21ce7644cbd",
+      "sha256_class": "Retained accepted manifest values, not new source-body hashing. New observation is Git mode/type/blob/size identity only.",
+      "integration_owner": [
+        "T39 #686",
+        "doctrine #807",
+        "coordinator #346"
+      ],
+      "source_outcome_items_by_literal_path": [
+        "PL-04"
+      ],
+      "q5_disposition": {
+        "path": "docs/releases/pr/08-saves.md",
+        "accepted_date_or_review": "2026-09-29",
+        "accepted_disposition": "reuse S2 status without duplicate notice",
+        "later_owner": "#1407"
+      },
+      "later_existing_owners": [
+        {
+          "owner": "#1407",
+          "scope": "Later compact monthly index / individual purpose-replacement review; current accepted T39 correction stays accepted."
+        }
+      ]
+    },
+    {
+      "path": "docs/releases/pr/09-retroarch.md",
+      "accepted_streams": [
+        "S5"
+      ],
+      "accepted_stream_commits": [
+        "de11515859d231a82a511c3867e12211190041a2"
+      ],
+      "accepted_source": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "4f68440003cbb7e5cf7a7e2fb4a460b3a60a9fa0",
+        "bytes": 1641
+      },
+      "completion_source": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "4f68440003cbb7e5cf7a7e2fb4a460b3a60a9fa0",
+        "bytes": 1641
+      },
+      "candidate": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "f20e67cc1325c8b6a82890e2da70e407126a1780",
+        "bytes": 1297
+      },
+      "pre_correction_ref": "de11515859d231a82a511c3867e12211190041a2^",
+      "pre_correction": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "f20e67cc1325c8b6a82890e2da70e407126a1780",
+        "bytes": 1297
+      },
+      "comparison": "pre_correction_exact",
+      "retained_before_sha256": "bf5cf51649f842a802b3a927113961cb861d082abd1980e66fdcc81548c2d68f",
+      "retained_after_sha256": "1340398ce0aea21755da2c44db74aa0a2e4389ba3224e9ccd5ba2d603b975b66",
+      "sha256_class": "Retained accepted manifest values, not new source-body hashing. New observation is Git mode/type/blob/size identity only.",
+      "integration_owner": [
+        "T39 #686",
+        "doctrine #807",
+        "coordinator #346"
+      ],
+      "source_outcome_items_by_literal_path": [],
+      "q5_disposition": {
+        "path": "docs/releases/pr/09-retroarch.md",
+        "accepted_date_or_review": "2026-09-29",
+        "accepted_disposition": "add separate status; original content unchanged",
+        "later_owner": "#1407"
+      },
+      "later_existing_owners": [
+        {
+          "owner": "#1407",
+          "scope": "Later compact monthly index / individual purpose-replacement review; current accepted T39 correction stays accepted."
+        }
+      ]
+    },
+    {
+      "path": "docs/releases/pr/10-es-pin.md",
+      "accepted_streams": [
+        "S5"
+      ],
+      "accepted_stream_commits": [
+        "de11515859d231a82a511c3867e12211190041a2"
+      ],
+      "accepted_source": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "ca130941115a11ca23ec3e69206a9780f4150f38",
+        "bytes": 1472
+      },
+      "completion_source": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "ca130941115a11ca23ec3e69206a9780f4150f38",
+        "bytes": 1472
+      },
+      "candidate": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "8c810c6b661cd93bae2c9a267a4c7d9ee85373f2",
+        "bytes": 1128
+      },
+      "pre_correction_ref": "de11515859d231a82a511c3867e12211190041a2^",
+      "pre_correction": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "8c810c6b661cd93bae2c9a267a4c7d9ee85373f2",
+        "bytes": 1128
+      },
+      "comparison": "pre_correction_exact",
+      "retained_before_sha256": "7a54806d1f69b8742d857c12971d414c191662cc4ec939286535310b6c54e962",
+      "retained_after_sha256": "a7e7cbdf3a152f9abb11aec9b040125eefc9f06dac805284a2bdd5124d27f817",
+      "sha256_class": "Retained accepted manifest values, not new source-body hashing. New observation is Git mode/type/blob/size identity only.",
+      "integration_owner": [
+        "T39 #686",
+        "doctrine #807",
+        "coordinator #346"
+      ],
+      "source_outcome_items_by_literal_path": [],
+      "q5_disposition": {
+        "path": "docs/releases/pr/10-es-pin.md",
+        "accepted_date_or_review": "2026-09-29",
+        "accepted_disposition": "add separate status; original content unchanged",
+        "later_owner": "#1407"
+      },
+      "later_existing_owners": [
+        {
+          "owner": "#1407",
+          "scope": "Later compact monthly index / individual purpose-replacement review; current accepted T39 correction stays accepted."
+        }
+      ]
+    },
+    {
+      "path": "docs/releases/pr/11-interface.md",
+      "accepted_streams": [
+        "S5"
+      ],
+      "accepted_stream_commits": [
+        "de11515859d231a82a511c3867e12211190041a2"
+      ],
+      "accepted_source": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "8d77357abda8011c7a0174b6735fc925060c04ac",
+        "bytes": 2541
+      },
+      "completion_source": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "8d77357abda8011c7a0174b6735fc925060c04ac",
+        "bytes": 2541
+      },
+      "candidate": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "113bfd94cfc17406d0e277ad82b60a4d74314a42",
+        "bytes": 2197
+      },
+      "pre_correction_ref": "de11515859d231a82a511c3867e12211190041a2^",
+      "pre_correction": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "113bfd94cfc17406d0e277ad82b60a4d74314a42",
+        "bytes": 2197
+      },
+      "comparison": "pre_correction_exact",
+      "retained_before_sha256": "3548e4ff526433fecc5cbe8002ec75454bddc14d5b7e6ba574bb55c230730011",
+      "retained_after_sha256": "29159a39944aa7708a0bf6022f68e066725a188266ae099a035e91cc4d46bd96",
+      "sha256_class": "Retained accepted manifest values, not new source-body hashing. New observation is Git mode/type/blob/size identity only.",
+      "integration_owner": [
+        "T39 #686",
+        "doctrine #807",
+        "coordinator #346"
+      ],
+      "source_outcome_items_by_literal_path": [],
+      "q5_disposition": {
+        "path": "docs/releases/pr/11-interface.md",
+        "accepted_date_or_review": "2026-09-29",
+        "accepted_disposition": "add separate status; original content unchanged",
+        "later_owner": "#1407"
+      },
+      "later_existing_owners": [
+        {
+          "owner": "#1407",
+          "scope": "Later compact monthly index / individual purpose-replacement review; current accepted T39 correction stays accepted."
+        }
+      ]
+    },
+    {
+      "path": "docs/releases/rc1-20260929-release-note.md",
+      "accepted_streams": [
+        "S5"
+      ],
+      "accepted_stream_commits": [
+        "de11515859d231a82a511c3867e12211190041a2"
+      ],
+      "accepted_source": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "1f96ddeeb497f89dee9f587f48d4c65b191c1771",
+        "bytes": 4690
+      },
+      "completion_source": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "1f96ddeeb497f89dee9f587f48d4c65b191c1771",
+        "bytes": 4690
+      },
+      "candidate": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "4a4c7fa02b8d7a60778b5c6318397de4a0f00c1b",
+        "bytes": 4357
+      },
+      "pre_correction_ref": "de11515859d231a82a511c3867e12211190041a2^",
+      "pre_correction": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "4a4c7fa02b8d7a60778b5c6318397de4a0f00c1b",
+        "bytes": 4357
+      },
+      "comparison": "pre_correction_exact",
+      "retained_before_sha256": "1d9d60f3d4dabc474b48b423c5c31fb309a688a11009b90b023375ddd4617a33",
+      "retained_after_sha256": "0331eed95d6650e08a504e2a1735513ff375ad5aa348bdc47e960d9d309e9b16",
+      "sha256_class": "Retained accepted manifest values, not new source-body hashing. New observation is Git mode/type/blob/size identity only.",
+      "integration_owner": [
+        "T39 #686",
+        "doctrine #807",
+        "coordinator #346"
+      ],
+      "source_outcome_items_by_literal_path": [],
+      "q5_disposition": {
+        "path": "docs/releases/rc1-20260929-release-note.md",
+        "accepted_date_or_review": "2026-09-29",
+        "accepted_disposition": "add separate status; original content unchanged",
+        "later_owner": "#1407"
+      },
+      "later_existing_owners": [
+        {
+          "owner": "#1407",
+          "scope": "Later compact monthly index / individual purpose-replacement review; current accepted T39 correction stays accepted."
+        }
+      ]
+    },
+    {
+      "path": "docs/releases/rc2-20260929-release-note.md",
+      "accepted_streams": [
+        "S5"
+      ],
+      "accepted_stream_commits": [
+        "de11515859d231a82a511c3867e12211190041a2"
+      ],
+      "accepted_source": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "1fa1829d061433e8d173dbc0aa2d37c2ab3a225b",
+        "bytes": 3860
+      },
+      "completion_source": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "1fa1829d061433e8d173dbc0aa2d37c2ab3a225b",
+        "bytes": 3860
+      },
+      "candidate": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "6cae2adc256892977670e1c11e1a5ab6b9493889",
+        "bytes": 3526
+      },
+      "pre_correction_ref": "de11515859d231a82a511c3867e12211190041a2^",
+      "pre_correction": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "6cae2adc256892977670e1c11e1a5ab6b9493889",
+        "bytes": 3526
+      },
+      "comparison": "pre_correction_exact",
+      "retained_before_sha256": "ede8e1132b43987650650e4063d5e79736013d8134a93040abcec3120d162d29",
+      "retained_after_sha256": "6cdc70cef8a55adfd7de5d281fc987dac3afd9f3a80097eb29b1a9dea3bcb322",
+      "sha256_class": "Retained accepted manifest values, not new source-body hashing. New observation is Git mode/type/blob/size identity only.",
+      "integration_owner": [
+        "T39 #686",
+        "doctrine #807",
+        "coordinator #346"
+      ],
+      "source_outcome_items_by_literal_path": [],
+      "q5_disposition": {
+        "path": "docs/releases/rc2-20260929-release-note.md",
+        "accepted_date_or_review": "2026-09-29",
+        "accepted_disposition": "add separate status; original content unchanged",
+        "later_owner": "#1407"
+      },
+      "later_existing_owners": [
+        {
+          "owner": "#1407",
+          "scope": "Later compact monthly index / individual purpose-replacement review; current accepted T39 correction stays accepted."
+        }
+      ]
+    },
+    {
+      "path": "docs/releases/rocknix-org-pr-cloud-sync-wifi-achievements.md",
+      "accepted_streams": [
+        "S4",
+        "S5"
+      ],
+      "accepted_stream_commits": [
+        "a2d4a33d4aa310d78c1b5c23b5bcdcd93f8ffe89",
+        "de11515859d231a82a511c3867e12211190041a2"
+      ],
+      "accepted_source": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "cd8e14f24fd42aea22ec9aa9beac7d7193470e9e",
+        "bytes": 2488
+      },
+      "completion_source": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "cd8e14f24fd42aea22ec9aa9beac7d7193470e9e",
+        "bytes": 2488
+      },
+      "candidate": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "1c926d004f0ba25066641622804abfd5e2311d5b",
+        "bytes": 2134
+      },
+      "pre_correction_ref": "a2d4a33d4aa310d78c1b5c23b5bcdcd93f8ffe89^",
+      "pre_correction": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "1c926d004f0ba25066641622804abfd5e2311d5b",
+        "bytes": 2134
+      },
+      "comparison": "pre_correction_exact",
+      "retained_before_sha256": "30cfffa3f815203c144f533517af3a580d143f45f8a2b230ee05cd1271465755",
+      "retained_after_sha256": "8c3299a9b469600209663f72f25fbd1c4a014bc57d179bd33d77fd574a242db2",
+      "sha256_class": "Retained accepted manifest values, not new source-body hashing. New observation is Git mode/type/blob/size identity only.",
+      "integration_owner": [
+        "T39 #686",
+        "doctrine #807",
+        "coordinator #346"
+      ],
+      "source_outcome_items_by_literal_path": [],
+      "q5_disposition": {
+        "path": "docs/releases/rocknix-org-pr-cloud-sync-wifi-achievements.md",
+        "accepted_date_or_review": "2026-09-29",
+        "accepted_disposition": "add separate status; original content unchanged",
+        "later_owner": "#1407"
+      },
+      "later_existing_owners": [
+        {
+          "owner": "#1407",
+          "scope": "Later compact monthly index / individual purpose-replacement review; current accepted T39 correction stays accepted."
+        }
+      ]
+    },
+    {
+      "path": "docs/releases/versioning.md",
+      "accepted_streams": [
+        "S4"
+      ],
+      "accepted_stream_commits": [
+        "a2d4a33d4aa310d78c1b5c23b5bcdcd93f8ffe89"
+      ],
+      "accepted_source": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "d34393fa1fd7caa7554d6c83c3db80f41cd1913a",
+        "bytes": 8192
+      },
+      "completion_source": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "d34393fa1fd7caa7554d6c83c3db80f41cd1913a",
+        "bytes": 8192
+      },
+      "candidate": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "ddccd34967e8c34d19a6dcf3832ebf67df92b152",
+        "bytes": 8191
+      },
+      "pre_correction_ref": "a2d4a33d4aa310d78c1b5c23b5bcdcd93f8ffe89^",
+      "pre_correction": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "ddccd34967e8c34d19a6dcf3832ebf67df92b152",
+        "bytes": 8191
+      },
+      "comparison": "pre_correction_exact",
+      "retained_before_sha256": "eefc33b5fc60ce66e93fcb31bb14b8e2aa44be656b0d62e216664767bdb5b203",
+      "retained_after_sha256": "1aff961d788e4c0fd301fbd8faf660392c51173c3fb9e5fcb4449d42b92bf40b",
+      "sha256_class": "Retained accepted manifest values, not new source-body hashing. New observation is Git mode/type/blob/size identity only.",
+      "integration_owner": [
+        "T39 #686",
+        "doctrine #807",
+        "coordinator #346"
+      ],
+      "source_outcome_items_by_literal_path": [
+        "PL-39"
+      ],
+      "q5_disposition": null,
+      "later_existing_owners": [
+        {
+          "item": "PL-39",
+          "accepted_outcome": "Deferred",
+          "remaining_action": "#1013 versioning criterion"
+        }
+      ]
+    },
+    {
+      "path": "docs/rules-sweep-2026-09-12.md",
+      "accepted_streams": [
+        "S5"
+      ],
+      "accepted_stream_commits": [
+        "de11515859d231a82a511c3867e12211190041a2"
+      ],
+      "accepted_source": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "df45f329ed506d1ec1cb2fe44703670962991632",
+        "bytes": 35887
+      },
+      "completion_source": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "df45f329ed506d1ec1cb2fe44703670962991632",
+        "bytes": 35887
+      },
+      "candidate": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "5fc601fb22eaa1d14b8cd8b1dcc7ea07b4281ff1",
+        "bytes": 35557
+      },
+      "pre_correction_ref": "de11515859d231a82a511c3867e12211190041a2^",
+      "pre_correction": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "5fc601fb22eaa1d14b8cd8b1dcc7ea07b4281ff1",
+        "bytes": 35557
+      },
+      "comparison": "pre_correction_exact",
+      "retained_before_sha256": "3178e5000967596e491a3b858ed05980dbe1c9b15e80ddf8b59a3351491d3549",
+      "retained_after_sha256": "26715121993cc1085f182d15f1aaea08461e3f31c226daa988a4ba84669b74ab",
+      "sha256_class": "Retained accepted manifest values, not new source-body hashing. New observation is Git mode/type/blob/size identity only.",
+      "integration_owner": [
+        "T39 #686",
+        "doctrine #807",
+        "coordinator #346"
+      ],
+      "source_outcome_items_by_literal_path": [],
+      "q5_disposition": {
+        "path": "docs/rules-sweep-2026-09-12.md",
+        "accepted_date_or_review": "2026-09-12",
+        "accepted_disposition": "add separate status; original content unchanged",
+        "later_owner": "#1407"
+      },
+      "later_existing_owners": [
+        {
+          "owner": "#1407",
+          "scope": "Later compact monthly index / individual purpose-replacement review; current accepted T39 correction stays accepted."
+        }
+      ]
+    },
+    {
+      "path": "docs/save-history-gap-analysis.md",
+      "accepted_streams": [
+        "S5"
+      ],
+      "accepted_stream_commits": [
+        "de11515859d231a82a511c3867e12211190041a2"
+      ],
+      "accepted_source": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "9b18d042a150c355e830f499f5a098b275cb4678",
+        "bytes": 7496
+      },
+      "completion_source": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "9b18d042a150c355e830f499f5a098b275cb4678",
+        "bytes": 7496
+      },
+      "candidate": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "519f8417d25e11a4a12856da876cf1b4750f4349",
+        "bytes": 7159
+      },
+      "pre_correction_ref": "de11515859d231a82a511c3867e12211190041a2^",
+      "pre_correction": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "519f8417d25e11a4a12856da876cf1b4750f4349",
+        "bytes": 7159
+      },
+      "comparison": "pre_correction_exact",
+      "retained_before_sha256": "731724cf346c6bb025031f12870c765ed1271e36ca3a02a7612a51832f73e691",
+      "retained_after_sha256": "c6a108ddc6ae77861812fedf5735a354394c1a5e781e0e8390b946dbfeb92401",
+      "sha256_class": "Retained accepted manifest values, not new source-body hashing. New observation is Git mode/type/blob/size identity only.",
+      "integration_owner": [
+        "T39 #686",
+        "doctrine #807",
+        "coordinator #346"
+      ],
+      "source_outcome_items_by_literal_path": [],
+      "q5_disposition": {
+        "path": "docs/save-history-gap-analysis.md",
+        "accepted_date_or_review": "2026-09-12",
+        "accepted_disposition": "add separate status; original content unchanged",
+        "later_owner": "#1407"
+      },
+      "later_existing_owners": [
+        {
+          "owner": "#1407",
+          "scope": "Later compact monthly index / individual purpose-replacement review; current accepted T39 correction stays accepted."
+        }
+      ]
+    },
+    {
+      "path": "docs/save-history-plan-delta.md",
+      "accepted_streams": [
+        "S5"
+      ],
+      "accepted_stream_commits": [
+        "de11515859d231a82a511c3867e12211190041a2"
+      ],
+      "accepted_source": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "0969b44ed8e78da00a534918eac48dd1ad7ad3a7",
+        "bytes": 4847
+      },
+      "completion_source": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "0969b44ed8e78da00a534918eac48dd1ad7ad3a7",
+        "bytes": 4847
+      },
+      "candidate": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "b9dfbae1b0e6eaf02e9a67dccf6d18b815f93e6f",
+        "bytes": 4512
+      },
+      "pre_correction_ref": "de11515859d231a82a511c3867e12211190041a2^",
+      "pre_correction": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "b9dfbae1b0e6eaf02e9a67dccf6d18b815f93e6f",
+        "bytes": 4512
+      },
+      "comparison": "pre_correction_exact",
+      "retained_before_sha256": "52074854f3b9967f4776dd0ed343a073ecb82e22db1c9af59f628cdf39b29152",
+      "retained_after_sha256": "38197bdc1cd5af30f416cd8c5c85bc58f81962fe42b36d11fb187555209d53ca",
+      "sha256_class": "Retained accepted manifest values, not new source-body hashing. New observation is Git mode/type/blob/size identity only.",
+      "integration_owner": [
+        "T39 #686",
+        "doctrine #807",
+        "coordinator #346"
+      ],
+      "source_outcome_items_by_literal_path": [],
+      "q5_disposition": {
+        "path": "docs/save-history-plan-delta.md",
+        "accepted_date_or_review": "2026-09-12",
+        "accepted_disposition": "add separate status; original content unchanged",
+        "later_owner": "#1407"
+      },
+      "later_existing_owners": [
+        {
+          "owner": "#1407",
+          "scope": "Later compact monthly index / individual purpose-replacement review; current accepted T39 correction stays accepted."
+        }
+      ]
+    },
+    {
+      "path": "docs/save-history-serial-model-addendum.md",
+      "accepted_streams": [
+        "S5"
+      ],
+      "accepted_stream_commits": [
+        "de11515859d231a82a511c3867e12211190041a2"
+      ],
+      "accepted_source": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "0cf67bc43b2e9febf68e2d16ab0e9752a6d75324",
+        "bytes": 8053
+      },
+      "completion_source": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "0cf67bc43b2e9febf68e2d16ab0e9752a6d75324",
+        "bytes": 8053
+      },
+      "candidate": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "6b61bd99be4431309db7aee10692e85cb1def85d",
+        "bytes": 7665
+      },
+      "pre_correction_ref": "de11515859d231a82a511c3867e12211190041a2^",
+      "pre_correction": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "6b61bd99be4431309db7aee10692e85cb1def85d",
+        "bytes": 7665
+      },
+      "comparison": "pre_correction_exact",
+      "retained_before_sha256": "d404ecfe5a774ab6cc41f3611ad5eb0685378b633a16370a5e49b4d9207318d7",
+      "retained_after_sha256": "98bebf733ebc32867234d6853848636a89c5c7e84b3f72dfe55e475ad58ac938",
+      "sha256_class": "Retained accepted manifest values, not new source-body hashing. New observation is Git mode/type/blob/size identity only.",
+      "integration_owner": [
+        "T39 #686",
+        "doctrine #807",
+        "coordinator #346"
+      ],
+      "source_outcome_items_by_literal_path": [],
+      "q5_disposition": {
+        "path": "docs/save-history-serial-model-addendum.md",
+        "accepted_date_or_review": "2026-09-12",
+        "accepted_disposition": "add separate status; original content unchanged",
+        "later_owner": "#1407"
+      },
+      "later_existing_owners": [
+        {
+          "owner": "#1407",
+          "scope": "Later compact monthly index / individual purpose-replacement review; current accepted T39 correction stays accepted."
+        }
+      ]
+    },
+    {
+      "path": "docs/save-manifest-alignment-review.md",
+      "accepted_streams": [
+        "S5"
+      ],
+      "accepted_stream_commits": [
+        "de11515859d231a82a511c3867e12211190041a2"
+      ],
+      "accepted_source": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "70621f831dd3cc9af7cec01f9a29d1932e28672b",
+        "bytes": 15539
+      },
+      "completion_source": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "70621f831dd3cc9af7cec01f9a29d1932e28672b",
+        "bytes": 15539
+      },
+      "candidate": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "47465763d6ceb7a08397e5c6c22ed95bd718799e",
+        "bytes": 15093
+      },
+      "pre_correction_ref": "de11515859d231a82a511c3867e12211190041a2^",
+      "pre_correction": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "47465763d6ceb7a08397e5c6c22ed95bd718799e",
+        "bytes": 15093
+      },
+      "comparison": "pre_correction_exact",
+      "retained_before_sha256": "ccd9d46b1027bdc81a26accd5704e31083960744c4065f14646f3ed3a683a0db",
+      "retained_after_sha256": "a41be3377c6fd2e3d5fb5df7c024f3805f33d6c861b4cd1fdd1d631e6dbd303f",
+      "sha256_class": "Retained accepted manifest values, not new source-body hashing. New observation is Git mode/type/blob/size identity only.",
+      "integration_owner": [
+        "T39 #686",
+        "doctrine #807",
+        "coordinator #346"
+      ],
+      "source_outcome_items_by_literal_path": [],
+      "q5_disposition": {
+        "path": "docs/save-manifest-alignment-review.md",
+        "accepted_date_or_review": "2026-09-05",
+        "accepted_disposition": "add separate status; original content unchanged",
+        "later_owner": "#1407"
+      },
+      "later_existing_owners": [
+        {
+          "owner": "#1407",
+          "scope": "Later compact monthly index / individual purpose-replacement review; current accepted T39 correction stays accepted."
+        }
+      ]
+    },
+    {
+      "path": "docs/savestate-compat-test.md",
+      "accepted_streams": [
+        "S5"
+      ],
+      "accepted_stream_commits": [
+        "de11515859d231a82a511c3867e12211190041a2"
+      ],
+      "accepted_source": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "f0679e98472d3bcca1313dbd2a1eaa1b1394e7bd",
+        "bytes": 5643
+      },
+      "completion_source": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "f0679e98472d3bcca1313dbd2a1eaa1b1394e7bd",
+        "bytes": 5643
+      },
+      "candidate": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "1fcc76f1a8280a06262efad3d5f545b17909c25f",
+        "bytes": 5325
+      },
+      "pre_correction_ref": "de11515859d231a82a511c3867e12211190041a2^",
+      "pre_correction": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "1fcc76f1a8280a06262efad3d5f545b17909c25f",
+        "bytes": 5325
+      },
+      "comparison": "pre_correction_exact",
+      "retained_before_sha256": "4d0b9d21ee5c9c26a25da5c169d9e99b83c18457732bd9471078c2d508b1d1bb",
+      "retained_after_sha256": "2c8e9c7250170faa84bc97bd5c3df72cde1ed5fd0ab3f060c178d339445e2a38",
+      "sha256_class": "Retained accepted manifest values, not new source-body hashing. New observation is Git mode/type/blob/size identity only.",
+      "integration_owner": [
+        "T39 #686",
+        "doctrine #807",
+        "coordinator #346"
+      ],
+      "source_outcome_items_by_literal_path": [],
+      "q5_disposition": {
+        "path": "docs/savestate-compat-test.md",
+        "accepted_date_or_review": "2026-08-24",
+        "accepted_disposition": "add separate status; original content unchanged",
+        "later_owner": "#1407"
+      },
+      "later_existing_owners": [
+        {
+          "owner": "#1407",
+          "scope": "Later compact monthly index / individual purpose-replacement review; current accepted T39 correction stays accepted."
+        }
+      ]
+    },
+    {
+      "path": "docs/technical-appendix-cloud-sync-and-offline-achievements.md",
+      "accepted_streams": [
+        "S4",
+        "S5"
+      ],
+      "accepted_stream_commits": [
+        "a2d4a33d4aa310d78c1b5c23b5bcdcd93f8ffe89",
+        "de11515859d231a82a511c3867e12211190041a2"
+      ],
+      "accepted_source": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "8684a3c5ae4da7c65b1849d6b4d3ab51ebbebf0c",
+        "bytes": 769
+      },
+      "completion_source": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "8684a3c5ae4da7c65b1849d6b4d3ab51ebbebf0c",
+        "bytes": 769
+      },
+      "candidate": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "61589238d4ff8eedbbee91ab6ff0c891283bb720",
+        "bytes": 441
+      },
+      "pre_correction_ref": "a2d4a33d4aa310d78c1b5c23b5bcdcd93f8ffe89^",
+      "pre_correction": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "61589238d4ff8eedbbee91ab6ff0c891283bb720",
+        "bytes": 441
+      },
+      "comparison": "pre_correction_exact",
+      "retained_before_sha256": "f15baa3434ce9613d4122b41845e892970ddf4ad2bc387c26d754fffd585d033",
+      "retained_after_sha256": "8d0c459a195cefb6341e3294b06deb2e7b83c88ad4be34e25b9f5dc3f362a77b",
+      "sha256_class": "Retained accepted manifest values, not new source-body hashing. New observation is Git mode/type/blob/size identity only.",
+      "integration_owner": [
+        "T39 #686",
+        "doctrine #807",
+        "coordinator #346"
+      ],
+      "source_outcome_items_by_literal_path": [],
+      "q5_disposition": {
+        "path": "docs/technical-appendix-cloud-sync-and-offline-achievements.md",
+        "accepted_date_or_review": "2026-09-29",
+        "accepted_disposition": "add separate status; original content unchanged",
+        "later_owner": "#1407"
+      },
+      "later_existing_owners": [
+        {
+          "owner": "#1407",
+          "scope": "Later compact monthly index / individual purpose-replacement review; current accepted T39 correction stays accepted."
+        }
+      ]
+    }
+  ],
+  "accepted_outcome_routes": [
+    {
+      "item": "PL-01",
+      "accepted_outcome": "Withdrawn",
+      "stream": "S0",
+      "fix_commit": "",
+      "source_reference": "`docs/reviews/README.md:10-12`, `plan-for-the-plan.md`, at the dispatch tip `86ebb6dffc` — the renovation's README and plan name P1's files and tools",
+      "remaining_action_or_accepted_correction": "recorded design; accepted 15-name dispatch evidence",
+      "mixed_inherited_half": "",
+      "proof_class_retained": "design"
+    },
+    {
+      "item": "PL-02",
+      "accepted_outcome": "Resolved",
+      "stream": "S1",
+      "fix_commit": "de40e931a469f6aa6889f08ec9d4d31266f4c6d4",
+      "source_reference": "`README.md:9`, at the dispatch tip `86ebb6dffc` — the front page sends a player to instructions attached to a release that does not exist",
+      "remaining_action_or_accepted_correction": "README no longer promises attached instructions for an existing release; #344 remains the release-status authority.",
+      "mixed_inherited_half": "",
+      "proof_class_retained": "tree"
+    },
+    {
+      "item": "PL-03",
+      "accepted_outcome": "Resolved",
+      "stream": "S1",
+      "fix_commit": "de40e931a469f6aa6889f08ec9d4d31266f4c6d4",
+      "source_reference": "`docs/device-testing-policy.md:5`, at the dispatch tip `86ebb6dffc` — the device-testing policy calls D-QA-016 open",
+      "remaining_action_or_accepted_correction": "D-QA-016 is described as decided on 2026-09-13. Existing per-action boundaries remain.",
+      "mixed_inherited_half": "Deferred rule counterpart: coordinator #346 must reconcile vm-first.md.",
+      "proof_class_retained": "tree"
+    },
+    {
+      "item": "PL-04",
+      "accepted_outcome": "Resolved",
+      "stream": "S2",
+      "fix_commit": "424eea28ecbfaa8fbbe49cdee6c99750becd13cf",
+      "source_reference": "`docs/rasteratops/cloud-layout.md:16`, `docs/releases/pr/08-saves.md:5`, at the dispatch tip `86ebb6dffc` — the retired cloud-folder migration script described as current",
+      "remaining_action_or_accepted_correction": "Both old migration documents carry historical/retired notices, D-CLOUD-175 and current selected-folder policy; original record text preserved.",
+      "mixed_inherited_half": "",
+      "proof_class_retained": "tree"
+    },
+    {
+      "item": "PL-05",
+      "accepted_outcome": "Resolved",
+      "stream": "S1",
+      "fix_commit": "de40e931a469f6aa6889f08ec9d4d31266f4c6d4",
+      "source_reference": "`docs/device-flashing-runbook.md` (21 lines), at the dispatch tip `86ebb6dffc` — the flashing runbook names the OS ROCKNIX throughout",
+      "remaining_action_or_accepted_correction": "All 21 original ROCKNIX lines classified; current OS prose corrected and all fenced command bytes unchanged.",
+      "mixed_inherited_half": "",
+      "proof_class_retained": "tree"
+    },
+    {
+      "item": "PL-06",
+      "accepted_outcome": "Resolved",
+      "stream": "S3",
+      "fix_commit": "895b90abcf44e62d3aa7339eba043cfe01e9b98e",
+      "source_reference": "`docs/cloud-save-integrity.md:4`, at the dispatch tip `86ebb6dffc` — an M7 order of closed issues",
+      "remaining_action_or_accepted_correction": "The old order is dated 2026-10-08; the live M7 milestone supplies current order.",
+      "mixed_inherited_half": "",
+      "proof_class_retained": "tree"
+    },
+    {
+      "item": "PL-07",
+      "accepted_outcome": "Resolved",
+      "stream": "S2",
+      "fix_commit": "424eea28ecbfaa8fbbe49cdee6c99750becd13cf",
+      "source_reference": "`docs/backup-contents.md:3-4`, at the dispatch tip `86ebb6dffc` — labels the pin does not ship, in banned words, in the public docs' stated source",
+      "remaining_action_or_accepted_correction": "Four labels mapped to exact ES source at 16dbac5211eea7e70db7394372033be2be7df829; backup semantics/stored archive names retained.",
+      "mixed_inherited_half": "",
+      "proof_class_retained": "tree"
+    },
+    {
+      "item": "PL-08",
+      "accepted_outcome": "Resolved",
+      "stream": "S3",
+      "fix_commit": "895b90abcf44e62d3aa7339eba043cfe01e9b98e",
+      "source_reference": "`docs/es-menu-map.md:758`, `:806`, `:817`, at the dispatch tip `86ebb6dffc` — the map's journal calls closed #570 work pending",
+      "remaining_action_or_accepted_correction": "Journal remains in place, three status headings corrected, historical anchor aliases retained; canonical menu prefix unchanged.",
+      "mixed_inherited_half": "",
+      "proof_class_retained": "tree"
+    },
+    {
+      "item": "PL-09",
+      "accepted_outcome": "Resolved",
+      "stream": "S3",
+      "fix_commit": "895b90abcf44e62d3aa7339eba043cfe01e9b98e",
+      "source_reference": "`docs/releases/next-candidate-work.md:4`, at the dispatch tip `86ebb6dffc` — a superseded baseline build named as the baseline",
+      "remaining_action_or_accepted_correction": "The exact 20261011 build remains the baseline of the dated October reconciliation.",
+      "mixed_inherited_half": "",
+      "proof_class_retained": "tree"
+    },
+    {
+      "item": "PL-10",
+      "accepted_outcome": "Resolved",
+      "stream": "S2",
+      "fix_commit": "424eea28ecbfaa8fbbe49cdee6c99750becd13cf",
+      "source_reference": "`docs/pixelelated/cloud-folders.md:32-35`, at the dispatch tip `86ebb6dffc` — the player's cloud-folder guide ends in internal release status",
+      "remaining_action_or_accepted_correction": "Guide ends with player guidance; removed internal publication note retained in S2 audit evidence.",
+      "mixed_inherited_half": "",
+      "proof_class_retained": "tree"
+    },
+    {
+      "item": "PL-11",
+      "accepted_outcome": "Resolved",
+      "stream": "S4",
+      "fix_commit": "a2d4a33d4aa310d78c1b5c23b5bcdcd93f8ffe89",
+      "source_reference": "ten files (`02` § The table), at the dispatch tip `86ebb6dffc` — words and numbers run together",
+      "remaining_action_or_accepted_correction": "223 bounded hits classified, 189 ordinary prose hits corrected, identifiers retained; only whitespace plus old-heading aliases changed.",
+      "mixed_inherited_half": "Deferred upstream README prose: #585; rc-accept.txt remains a historical ledger.",
+      "proof_class_retained": "tree"
+    },
+    {
+      "item": "PL-12",
+      "accepted_outcome": "Resolved",
+      "stream": "S3",
+      "fix_commit": "895b90abcf44e62d3aa7339eba043cfe01e9b98e",
+      "source_reference": "`docs/council-mistral-counter.md:3`, at the dispatch tip `86ebb6dffc` — a counter note for a seat outside every run profile, no banner",
+      "remaining_action_or_accepted_correction": "Historical/retired-seat notice cites scaffold#915; original counter description and verified:false limits retained.",
+      "mixed_inherited_half": "",
+      "proof_class_retained": "tree"
+    },
+    {
+      "item": "PL-13",
+      "accepted_outcome": "Resolved",
+      "stream": "S4",
+      "fix_commit": "a2d4a33d4aa310d78c1b5c23b5bcdcd93f8ffe89",
+      "source_reference": "four files (`02` § The table), at the dispatch tip `86ebb6dffc` — rocknix.org drafts naming pages without their repository",
+      "remaining_action_or_accepted_correction": "External repository named in three paths; the fourth already names it and was unchanged in S4.",
+      "mixed_inherited_half": "",
+      "proof_class_retained": "tree"
+    },
+    {
+      "item": "PL-14",
+      "accepted_outcome": "Withdrawn",
+      "stream": "S0",
+      "fix_commit": "",
+      "source_reference": "`docs/pixelelated/art/README.md:20-21`, at the dispatch tip `86ebb6dffc` — the splash repository's wordmark tool, named with its repository",
+      "remaining_action_or_accepted_correction": "splash repository already named; accepted X02",
+      "mixed_inherited_half": "",
+      "proof_class_retained": "design"
+    },
+    {
+      "item": "PL-15",
+      "accepted_outcome": "Resolved",
+      "stream": "S3",
+      "fix_commit": "895b90abcf44e62d3aa7339eba043cfe01e9b98e",
+      "source_reference": "`docs/releases/device-facts.md:7`, at the dispatch tip `86ebb6dffc` — the device facts point to a catalog with none of their cuts",
+      "remaining_action_or_accepted_correction": "Catalog generated scope stated; exact row Evidence links remain; S3 fact-table bytes unchanged, S4 spacing separately recorded.",
+      "mixed_inherited_half": "Deferred catalog/tool work: #964/#270; no catalog regeneration here.",
+      "proof_class_retained": "tree"
+    },
+    {
+      "item": "PL-16",
+      "accepted_outcome": "Resolved",
+      "stream": "S1",
+      "fix_commit": "de40e931a469f6aa6889f08ec9d4d31266f4c6d4",
+      "source_reference": "`docs/device-testing-policy.md:94`, at the dispatch tip `86ebb6dffc` — the read mask's long form lacks the flag form",
+      "remaining_action_or_accepted_correction": "Canonical literal mask hides 24 synthetic values; assignment-only control leaks eight space-separated flags; benign text preserved.",
+      "mixed_inherited_half": "",
+      "proof_class_retained": "fixture"
+    },
+    {
+      "item": "PL-17",
+      "accepted_outcome": "Deferred",
+      "stream": "S0",
+      "fix_commit": "",
+      "source_reference": "`docs/conflict-wizard-ia.md`, at the dispatch tip `86ebb6dffc` — the wizard's IA against its decided rows",
+      "remaining_action_or_accepted_correction": "#23 interface owners: unverified/conditional IA claim",
+      "mixed_inherited_half": "",
+      "proof_class_retained": "tree"
+    },
+    {
+      "item": "PL-18",
+      "accepted_outcome": "Resolved",
+      "stream": "S5",
+      "fix_commit": "de11515859d231a82a511c3867e12211190041a2",
+      "source_reference": "the Q5 table's LOW-INBOUND set, at the dispatch tip `86ebb6dffc` — low-inbound reference documents presenting themselves as current",
+      "remaining_action_or_accepted_correction": "Exactly 33/2770 accepted rows tabled: 29 additive notices, three S2 notices reused, one ledger-plan unchanged. #1407 owns later review.",
+      "mixed_inherited_half": "Later compact index, nested monthly storage and individual purpose/replacement review: #1407.",
+      "proof_class_retained": "tree"
+    },
+    {
+      "item": "PL-19",
+      "accepted_outcome": "Withdrawn",
+      "stream": "S0",
+      "fix_commit": "",
+      "source_reference": "`docs/rasteratops/art/README.md:8`, at the dispatch tip `86ebb6dffc` — the splash repository's tool in a historical artifact's README",
+      "remaining_action_or_accepted_correction": "recorded design: dated historical evidence; no current instructions claim",
+      "mixed_inherited_half": "",
+      "proof_class_retained": "design"
+    },
+    {
+      "item": "PL-20",
+      "accepted_outcome": "Withdrawn",
+      "stream": "S0",
+      "fix_commit": "",
+      "source_reference": "`docs/rasteratops/p0-read.md:11`, `p0-sweep.md:39`, at the dispatch tip `86ebb6dffc` — `packages/rocknix` in dated P0 records",
+      "remaining_action_or_accepted_correction": "recorded design: dated historical evidence; no current instructions claim",
+      "mixed_inherited_half": "",
+      "proof_class_retained": "design"
+    },
+    {
+      "item": "PL-21",
+      "accepted_outcome": "Withdrawn",
+      "stream": "S0",
+      "fix_commit": "",
+      "source_reference": "`docs/rasteratops/raofflineproxy-refresh.md:180,188`, `cloud-folder-state-table.md:38`, at the dispatch tip `86ebb6dffc` — Rasteratops as the OS's identity in dated records",
+      "remaining_action_or_accepted_correction": "recorded design: dated historical evidence; no current instructions claim",
+      "mixed_inherited_half": "",
+      "proof_class_retained": "design"
+    },
+    {
+      "item": "PL-22",
+      "accepted_outcome": "Deferred",
+      "stream": "S0",
+      "fix_commit": "",
+      "source_reference": "`docs/pixelelated/site-plan.md:72`, at the dispatch tip `86ebb6dffc` — a current plan says the site remotes still name the retired owner",
+      "remaining_action_or_accepted_correction": "#511 current remote/checkout fact remains unestablished",
+      "mixed_inherited_half": "",
+      "proof_class_retained": "tree"
+    },
+    {
+      "item": "PL-23",
+      "accepted_outcome": "Withdrawn",
+      "stream": "S0",
+      "fix_commit": "",
+      "source_reference": "`docs/cloud-sync-changelog.md:706-735`, at the dispatch tip `86ebb6dffc` — `maxengel/rocknix` links resolving only by redirect",
+      "remaining_action_or_accepted_correction": "recorded design: dated historical evidence; no current instructions claim",
+      "mixed_inherited_half": "",
+      "proof_class_retained": "design"
+    },
+    {
+      "item": "PL-24",
+      "accepted_outcome": "Withdrawn",
+      "stream": "S0",
+      "fix_commit": "",
+      "source_reference": "`plans/conflict-resolution/vita-style-conflict-resolution.md:8-9`, at the dispatch tip `86ebb6dffc` — the one plan, superseded and unmarked",
+      "remaining_action_or_accepted_correction": "historical ledger-plan; table-only; later review #1407",
+      "mixed_inherited_half": "",
+      "proof_class_retained": "design"
+    },
+    {
+      "item": "PL-25",
+      "accepted_outcome": "Deferred",
+      "stream": "S0",
+      "fix_commit": "",
+      "source_reference": "`docs/releases/rc-accept.txt:13`, at the dispatch tip `86ebb6dffc` — 0.0.1 called the first Rasteratops release in the RC ledger",
+      "remaining_action_or_accepted_correction": "#346 coordinator: preserve exact inherited action in 02",
+      "mixed_inherited_half": "",
+      "proof_class_retained": "tree"
+    },
+    {
+      "item": "PL-26",
+      "accepted_outcome": "Withdrawn",
+      "stream": "S0",
+      "fix_commit": "",
+      "source_reference": "`docs/releases/rc-accept.txt`, at the dispatch tip `86ebb6dffc` — two stale acceptances kept as the record",
+      "remaining_action_or_accepted_correction": "recorded design: dated historical evidence; no current instructions claim",
+      "mixed_inherited_half": "",
+      "proof_class_retained": "design"
+    },
+    {
+      "item": "PL-27",
+      "accepted_outcome": "Deferred",
+      "stream": "S0",
+      "fix_commit": "",
+      "source_reference": "`docs/pr-series/map.txt:112`, `:174`, at the dispatch tip `86ebb6dffc` — the upstream-series map names two deleted paths",
+      "remaining_action_or_accepted_correction": "#346 coordinator: preserve exact inherited action in 02",
+      "mixed_inherited_half": "",
+      "proof_class_retained": "tree"
+    },
+    {
+      "item": "PL-28",
+      "accepted_outcome": "Deferred",
+      "stream": "S0",
+      "fix_commit": "",
+      "source_reference": "`docs/reviews/plan-for-the-plan.md`, at the dispatch tip `86ebb6dffc` — the plan says it exists on next; next has no docs/reviews/",
+      "remaining_action_or_accepted_correction": "#346 coordinator: preserve exact inherited action in 02",
+      "mixed_inherited_half": "",
+      "proof_class_retained": "tree"
+    },
+    {
+      "item": "PL-29",
+      "accepted_outcome": "Deferred",
+      "stream": "S0",
+      "fix_commit": "",
+      "source_reference": "`docs/reviews/order.md:792`, at the dispatch tip `86ebb6dffc` — a preliminary slice number in the order",
+      "remaining_action_or_accepted_correction": "#346 coordinator: preserve exact inherited action in 02",
+      "mixed_inherited_half": "",
+      "proof_class_retained": "tree"
+    },
+    {
+      "item": "PL-30",
+      "accepted_outcome": "Deferred",
+      "stream": "S0",
+      "fix_commit": "",
+      "source_reference": "`docs/rasteratops/release-readiness.md`, `support-matrix.md`, at the dispatch tip `86ebb6dffc` — current release records under the retired name's folder",
+      "remaining_action_or_accepted_correction": "#509 reviewed rename batch",
+      "mixed_inherited_half": "",
+      "proof_class_retained": "tree"
+    },
+    {
+      "item": "PL-31",
+      "accepted_outcome": "Deferred",
+      "stream": "S0",
+      "fix_commit": "",
+      "source_reference": "`documentation/PER_DEVICE_DOCUMENTATION/GENERIC_X64/SUPPORTED_EMULATORS_AND_CORES.md`, at the dispatch tip `86ebb6dffc` — the fork's GENERIC_X64 emulator table has drifted and has no generator",
+      "remaining_action_or_accepted_correction": "#346 coordinator: preserve exact inherited action in 02",
+      "mixed_inherited_half": "",
+      "proof_class_retained": "tree"
+    },
+    {
+      "item": "PL-32",
+      "accepted_outcome": "Deferred",
+      "stream": "S0",
+      "fix_commit": "",
+      "source_reference": "`docs/es-menu-map.md:134`, `:405`, `:595`, at the dispatch tip `86ebb6dffc` — the most-cited map, cited by line by open issues",
+      "remaining_action_or_accepted_correction": "#1216 interface owners; return line mapping",
+      "mixed_inherited_half": "",
+      "proof_class_retained": "tree"
+    },
+    {
+      "item": "PL-33",
+      "accepted_outcome": "Deferred",
+      "stream": "S0",
+      "fix_commit": "",
+      "source_reference": "#576 `:7`, #620 `:16`, at the dispatch tip `86ebb6dffc` — two open issues cite a document the tree lacks",
+      "remaining_action_or_accepted_correction": "#346 coordinator: preserve exact inherited action in 02",
+      "mixed_inherited_half": "",
+      "proof_class_retained": "tree"
+    },
+    {
+      "item": "PL-34",
+      "accepted_outcome": "Deferred",
+      "stream": "S0",
+      "fix_commit": "",
+      "source_reference": "`docs/decision-register.md` rows; `documentation-accuracy.md:48-52`, at the dispatch tip `86ebb6dffc` — register rows describe a series D-WORKFLOW-084 ended",
+      "remaining_action_or_accepted_correction": "#346 coordinator: preserve exact inherited action in 02",
+      "mixed_inherited_half": "",
+      "proof_class_retained": "tree"
+    },
+    {
+      "item": "PL-35",
+      "accepted_outcome": "Deferred",
+      "stream": "S0",
+      "fix_commit": "",
+      "source_reference": "`.claude/rules/handheld-evidence.md`, at the dispatch tip `86ebb6dffc` — a docs/** glob loads a device rule for any record",
+      "remaining_action_or_accepted_correction": "#346 coordinator: preserve exact inherited action in 02",
+      "mixed_inherited_half": "",
+      "proof_class_retained": "tree"
+    },
+    {
+      "item": "PL-36",
+      "accepted_outcome": "Deferred",
+      "stream": "S0",
+      "fix_commit": "",
+      "source_reference": "`CLAUDE.md:34`, `AGENTS.md:31`, `instruction-files.md:122`, at the dispatch tip `86ebb6dffc` — two documents or three that load nowhere",
+      "remaining_action_or_accepted_correction": "#346 coordinator: preserve exact inherited action in 02",
+      "mixed_inherited_half": "",
+      "proof_class_retained": "tree"
+    },
+    {
+      "item": "PL-37",
+      "accepted_outcome": "Withdrawn",
+      "stream": "S0",
+      "fix_commit": "",
+      "source_reference": "#807 `:15`, at the dispatch tip `86ebb6dffc` — an area sentence untrue of this slice",
+      "remaining_action_or_accepted_correction": "erratum already present at dispatch; accepted case-insensitive readback",
+      "mixed_inherited_half": "",
+      "proof_class_retained": "design"
+    },
+    {
+      "item": "PL-38",
+      "accepted_outcome": "Deferred",
+      "stream": "S0",
+      "fix_commit": "",
+      "source_reference": "the reference files outside `register-check`'s LIVE, at the dispatch tip `86ebb6dffc` — citations no tool checks",
+      "remaining_action_or_accepted_correction": "#947 citation-check coverage",
+      "mixed_inherited_half": "",
+      "proof_class_retained": "tree"
+    },
+    {
+      "item": "PL-39",
+      "accepted_outcome": "Deferred",
+      "stream": "S0",
+      "fix_commit": "",
+      "source_reference": "`docs/releases/versioning.md`, at the dispatch tip `86ebb6dffc` — an open criterion on the versioning document",
+      "remaining_action_or_accepted_correction": "#1013 versioning criterion",
+      "mixed_inherited_half": "",
+      "proof_class_retained": "tree"
+    },
+    {
+      "item": "PL-40",
+      "accepted_outcome": "Deferred",
+      "stream": "S0",
+      "fix_commit": "",
+      "source_reference": "`worktrees.md`, `CLAUDE.md`, at the dispatch tip `86ebb6dffc` — a path word the machine retired",
+      "remaining_action_or_accepted_correction": "#346 coordinator: preserve exact inherited action in 02",
+      "mixed_inherited_half": "",
+      "proof_class_retained": "tree"
+    },
+    {
+      "item": "PL-41",
+      "accepted_outcome": "Deferred",
+      "stream": "S0",
+      "fix_commit": "",
+      "source_reference": "13 of the 15 upstream-carried `documentation/` tables, at the dispatch tip `86ebb6dffc` — upstream's generated tables, behind upstream",
+      "remaining_action_or_accepted_correction": "#563/#559 next upstream base merge",
+      "mixed_inherited_half": "",
+      "proof_class_retained": "tree"
+    },
+    {
+      "item": "PL-42",
+      "accepted_outcome": "Deferred",
+      "stream": "S0",
+      "fix_commit": "",
+      "source_reference": "#335 `:19`, at the dispatch tip `86ebb6dffc` — an open checkbox against the licence file",
+      "remaining_action_or_accepted_correction": "#346 coordinator: preserve exact inherited action in 02",
+      "mixed_inherited_half": "",
+      "proof_class_retained": "tree"
+    },
+    {
+      "item": "PL-43",
+      "accepted_outcome": "Deferred",
+      "stream": "S0",
+      "fix_commit": "",
+      "source_reference": "`TRADEMARK.md:5-6`; `LICENSE.md:3,13,18`, at the dispatch tip `86ebb6dffc` — the licence statements disagree",
+      "remaining_action_or_accepted_correction": "#528 licensing/source publication; no legal interpretation or byte edit",
+      "mixed_inherited_half": "",
+      "proof_class_retained": "tree"
+    },
+    {
+      "item": "PL-44",
+      "accepted_outcome": "Deferred",
+      "stream": "S0",
+      "fix_commit": "",
+      "source_reference": "`licenses/AETHERSX2.pdf`, at the dispatch tip `86ebb6dffc` — a licence upstream dropped for a licensing concern",
+      "remaining_action_or_accepted_correction": "#528 licensing/source publication; no legal interpretation or byte edit",
+      "mixed_inherited_half": "",
+      "proof_class_retained": "tree"
+    },
+    {
+      "item": "PL-45",
+      "accepted_outcome": "Deferred",
+      "stream": "S0",
+      "fix_commit": "",
+      "source_reference": "#359 `:9`, `:13`, `:14`, at the dispatch tip `86ebb6dffc` — a qualified candidate's recorded licence bytes",
+      "remaining_action_or_accepted_correction": "#528 licensing/source publication; no legal interpretation or byte edit",
+      "mixed_inherited_half": "",
+      "proof_class_retained": "tree"
+    },
+    {
+      "item": "PL-46",
+      "accepted_outcome": "Deferred",
+      "stream": "S0",
+      "fix_commit": "",
+      "source_reference": "`docs/upstream/**`, at the dispatch tip `86ebb6dffc` — the contribution queue's drafts, read-only",
+      "remaining_action_or_accepted_correction": "#585 contribution queue; drafts never sent",
+      "mixed_inherited_half": "",
+      "proof_class_retained": "tree"
+    }
+  ],
+  "known_reactive_bug_routes": {
+    "PL-02": "#1400",
+    "PL-03": "#1401",
+    "PL-04": "#1402",
+    "PL-05": "#1403",
+    "PL-07": "#1404",
+    "PL-16": "#1405",
+    "qualification": "Accepted source corrections; root integration/closure remains the recorded boundary. No fresh bug-state query or new disposition."
+  },
+  "stream_followthrough": {
+    "S1": "#344 release-status authority; #346 vm-first rule counterpart; all source integration #686/#807/#346.",
+    "S2": "#585 public-doc/contribution follow-through; drafts unsent.",
+    "S3": "#1407 journal indexing; #964/#270 catalog/tool follow-through; current M7 milestone order is distinct from historical prose.",
+    "S4": "#585 upstream README share; #511 site configuration remains conditional; #1216 interface naming/citation ownership unchanged.",
+    "S5": "#1407 later 33-document purpose/replacement review and monthly index."
+  },
+  "boundaries": {
+    "decisions": {
+      "D-WORKFLOW-223": "| D-WORKFLOW-223 | 2026-11-02 | **T39 keeps the menu-map journal in place for the current correction pass, marks it historical and corrects headings that call completed work pending.** The maintainer accepted that recommendation and authorized a later index-oriented arrangement: a compact index into nested directories grouped by month, with week/day subdivisions only when needed to prevent accumulating files. M6 Backlog #1407 owns that restructuring, preservation of dated content and repair of path/anchor/line citations; it is separate from T39's immediate edits. | #686 comments 6582760931 and 6583071671; #1407; #346; maintainer chat 2026-11-02; D-WORKFLOW-220 |",
+      "D-WORKFLOW-224": "| D-WORKFLOW-224 | 2026-11-02 | **Retain the low-inbound documents now, with dates and explicit current/historical status where an undated record could mislead; review retirement individually under milestone-backed M6 Backlog #1407.** The maintainer accepted the recommendation and explicitly required an issue in a milestone's backlog. The accepted Q5 population is 33 files / 2,770 lines: 32 in T39's edit scope plus one historical plan that remains a ledger row under D-WORKFLOW-220. Low link counts do not establish non-use; consolidation or retirement needs replacement evidence or evidence that the document's purpose has ended, with citations preserved. | #686 comment 6582762282; #1407; #346; maintainer chat 2026-11-02; D-WORKFLOW-220 |",
+      "D-WORKFLOW-229": "| D-WORKFLOW-229 | 2026-11-02 | **T39 final acceptance distinguishes the exact authorized coordinator integration from lane ownership, without widening source scope.** Refine D-WORKFLOW-220 and criteria 5/12 with exact K ancestry exclusion plus independent final mode/blob equality and edit-refusal controls; criterion 24 counts lane actions with attributed coordinator mentions retained. Original unfiltered failures remain recorded. Reconcile accepted immutable receipts under the stream brief's no-replay instruction; execute new disposable integration/record gates. The dated final contract replaces the old blanket-replay procedure, not the evidence obligations; missing evidence blocks acceptance. | #686; #346; D-WORKFLOW-220; `docs/qa-logs/2026-11-02-m6-resume/t39-final-acceptance-contract.md`; hand-back 6586260088 |"
+    },
+    "q5_files": 33,
+    "q5_retained_lines": 2770,
+    "q5_edit_scope": 32,
+    "q5_ledger_plan": {
+      "path": "plans/conflict-resolution/vita-style-conflict-resolution.md",
+      "metadata": {
+        "4eb5dfab8e745914a55e7de3e5a43c5b91ebc608": {
+          "mode": "100644",
+          "type": "blob",
+          "blob": "4b99970a98f66b5fc73ae71fc183868832942884",
+          "bytes": 29253
+        },
+        "7994f760fe1f4df6744844e80433bc49295cb94e": {
+          "mode": "100644",
+          "type": "blob",
+          "blob": "4b99970a98f66b5fc73ae71fc183868832942884",
+          "bytes": 29253
+        },
+        "d707c82ab8c48b674acc1f95a9571f0cb24d226a": {
+          "mode": "100644",
+          "type": "blob",
+          "blob": "4b99970a98f66b5fc73ae71fc183868832942884",
+          "bytes": 29253
+        }
+      },
+      "all_equal": true,
+      "disposition": "Table-only unchanged ledger-plan; #1407 later individual review."
+    },
+    "q5_dispositions": [
+      {
+        "path": "docs/backup-contents.md",
+        "accepted_date_or_review": "reference review 2026-11-02",
+        "accepted_disposition": "reuse S2 status without duplicate notice",
+        "later_owner": "#1407"
+      },
+      {
+        "path": "docs/cloud-vocabulary-audit.md",
+        "accepted_date_or_review": "2026-09-06",
+        "accepted_disposition": "add separate status; original content unchanged",
+        "later_owner": "#1407"
+      },
+      {
+        "path": "docs/council-limits.md",
+        "accepted_date_or_review": "2026-09-03",
+        "accepted_disposition": "add separate status; original content unchanged",
+        "later_owner": "#1407"
+      },
+      {
+        "path": "docs/pr-series/es-review-guide.md",
+        "accepted_date_or_review": "2026-09-29",
+        "accepted_disposition": "add separate status; original content unchanged",
+        "later_owner": "#1407"
+      },
+      {
+        "path": "docs/ra-offline/2026_09_13-phase-1-design-note.md",
+        "accepted_date_or_review": "2026-09-13",
+        "accepted_disposition": "add separate status; original content unchanged",
+        "later_owner": "#1407"
+      },
+      {
+        "path": "docs/ra-offline/rocknix-org-offline-achievements.md",
+        "accepted_date_or_review": "2026-09-24",
+        "accepted_disposition": "add separate status; original content unchanged",
+        "later_owner": "#1407"
+      },
+      {
+        "path": "docs/rasteratops/candidate-source-plan.md",
+        "accepted_date_or_review": "2026-10-12",
+        "accepted_disposition": "add separate status; original content unchanged",
+        "later_owner": "#1407"
+      },
+      {
+        "path": "docs/rasteratops/cloud-layout.md",
+        "accepted_date_or_review": "2026-10-05",
+        "accepted_disposition": "reuse S2 status without duplicate notice",
+        "later_owner": "#1407"
+      },
+      {
+        "path": "docs/rasteratops/cloud-provider-2026-09-30.md",
+        "accepted_date_or_review": "2026-09-30",
+        "accepted_disposition": "add separate status; original content unchanged",
+        "later_owner": "#1407"
+      },
+      {
+        "path": "docs/rasteratops/p0-read.md",
+        "accepted_date_or_review": "2026-09-30",
+        "accepted_disposition": "add separate status; original content unchanged",
+        "later_owner": "#1407"
+      },
+      {
+        "path": "docs/rasteratops/p0-sweep.md",
+        "accepted_date_or_review": "2026-09-30",
+        "accepted_disposition": "add separate status; original content unchanged",
+        "later_owner": "#1407"
+      },
+      {
+        "path": "docs/releases/pr/01-build.md",
+        "accepted_date_or_review": "2026-09-29",
+        "accepted_disposition": "add separate status; original content unchanged",
+        "later_owner": "#1407"
+      },
+      {
+        "path": "docs/releases/pr/02-generic-x64.md",
+        "accepted_date_or_review": "2026-09-29",
+        "accepted_disposition": "add separate status; original content unchanged",
+        "later_owner": "#1407"
+      },
+      {
+        "path": "docs/releases/pr/03-evidence.md",
+        "accepted_date_or_review": "2026-09-29",
+        "accepted_disposition": "add separate status; original content unchanged",
+        "later_owner": "#1407"
+      },
+      {
+        "path": "docs/releases/pr/04-settings.md",
+        "accepted_date_or_review": "2026-09-29",
+        "accepted_disposition": "add separate status; original content unchanged",
+        "later_owner": "#1407"
+      },
+      {
+        "path": "docs/releases/pr/05-network.md",
+        "accepted_date_or_review": "2026-09-29",
+        "accepted_disposition": "add separate status; original content unchanged",
+        "later_owner": "#1407"
+      },
+      {
+        "path": "docs/releases/pr/06-retroachievements.md",
+        "accepted_date_or_review": "2026-09-29",
+        "accepted_disposition": "add separate status; original content unchanged",
+        "later_owner": "#1407"
+      },
+      {
+        "path": "docs/releases/pr/07-cloud-setup.md",
+        "accepted_date_or_review": "2026-09-29",
+        "accepted_disposition": "add separate status; original content unchanged",
+        "later_owner": "#1407"
+      },
+      {
+        "path": "docs/releases/pr/08-saves.md",
+        "accepted_date_or_review": "2026-09-29",
+        "accepted_disposition": "reuse S2 status without duplicate notice",
+        "later_owner": "#1407"
+      },
+      {
+        "path": "docs/releases/pr/09-retroarch.md",
+        "accepted_date_or_review": "2026-09-29",
+        "accepted_disposition": "add separate status; original content unchanged",
+        "later_owner": "#1407"
+      },
+      {
+        "path": "docs/releases/pr/10-es-pin.md",
+        "accepted_date_or_review": "2026-09-29",
+        "accepted_disposition": "add separate status; original content unchanged",
+        "later_owner": "#1407"
+      },
+      {
+        "path": "docs/releases/pr/11-interface.md",
+        "accepted_date_or_review": "2026-09-29",
+        "accepted_disposition": "add separate status; original content unchanged",
+        "later_owner": "#1407"
+      },
+      {
+        "path": "docs/releases/rc1-20260929-release-note.md",
+        "accepted_date_or_review": "2026-09-29",
+        "accepted_disposition": "add separate status; original content unchanged",
+        "later_owner": "#1407"
+      },
+      {
+        "path": "docs/releases/rc2-20260929-release-note.md",
+        "accepted_date_or_review": "2026-09-29",
+        "accepted_disposition": "add separate status; original content unchanged",
+        "later_owner": "#1407"
+      },
+      {
+        "path": "docs/releases/rocknix-org-pr-cloud-sync-wifi-achievements.md",
+        "accepted_date_or_review": "2026-09-29",
+        "accepted_disposition": "add separate status; original content unchanged",
+        "later_owner": "#1407"
+      },
+      {
+        "path": "docs/rules-sweep-2026-09-12.md",
+        "accepted_date_or_review": "2026-09-12",
+        "accepted_disposition": "add separate status; original content unchanged",
+        "later_owner": "#1407"
+      },
+      {
+        "path": "docs/save-history-gap-analysis.md",
+        "accepted_date_or_review": "2026-09-12",
+        "accepted_disposition": "add separate status; original content unchanged",
+        "later_owner": "#1407"
+      },
+      {
+        "path": "docs/save-history-plan-delta.md",
+        "accepted_date_or_review": "2026-09-12",
+        "accepted_disposition": "add separate status; original content unchanged",
+        "later_owner": "#1407"
+      },
+      {
+        "path": "docs/save-history-serial-model-addendum.md",
+        "accepted_date_or_review": "2026-09-12",
+        "accepted_disposition": "add separate status; original content unchanged",
+        "later_owner": "#1407"
+      },
+      {
+        "path": "docs/save-manifest-alignment-review.md",
+        "accepted_date_or_review": "2026-09-05",
+        "accepted_disposition": "add separate status; original content unchanged",
+        "later_owner": "#1407"
+      },
+      {
+        "path": "docs/savestate-compat-test.md",
+        "accepted_date_or_review": "2026-08-24",
+        "accepted_disposition": "add separate status; original content unchanged",
+        "later_owner": "#1407"
+      },
+      {
+        "path": "docs/technical-appendix-cloud-sync-and-offline-achievements.md",
+        "accepted_date_or_review": "2026-09-29",
+        "accepted_disposition": "add separate status; original content unchanged",
+        "later_owner": "#1407"
+      },
+      {
+        "path": "plans/conflict-resolution/vita-style-conflict-resolution.md",
+        "accepted_date_or_review": "2026-07-26 (captured date in text; last edit 2026-09-05)",
+        "accepted_disposition": "table-only; unchanged under D-WORKFLOW-220",
+        "later_owner": "#1407"
+      }
+    ],
+    "backlog_1407": {
+      "state_as_read": "open",
+      "milestone": 6,
+      "body_sha256": "8e6a54b905e2732dc771c29e0147aa02ee59eef86e080114dfd6d5940464515c",
+      "scope": "Compact index; nested year/month, week/day only when needed; individual purpose/replacement evidence; original dates/content/provenance and path/anchor/line citations preserved. No low-link-count deletion."
+    }
+  },
+  "prior_preparation": {
+    "ref": "d707c82ab8c48b674acc1f95a9571f0cb24d226a",
+    "path": "docs/qa-logs/2026-11-02-m6-resume/t46-preparation/report.md",
+    "sha256": "e56777b71e7a4b236bef318317e1d0e0e3e7a0f0e27d6896760fcd24728feb10",
+    "used": "Reuse accepted T39 boundary/owner conventions; no prior metadata producer or inventory recount."
+  },
+  "inputs": [
+    {
+      "ref": "7994f760fe1f4df6744844e80433bc49295cb94e",
+      "path": "docs/audits/2026_11_01-epic-m6-doctrine-reference/stage-f/source-diff-manifest.json",
+      "bytes": 17943,
+      "sha256": "08ce66418496f596a1b650e57ab970c8ee5afc79713eb480633e4d960f1ab326"
+    },
+    {
+      "ref": "4eb5dfab8e745914a55e7de3e5a43c5b91ebc608",
+      "path": "docs/audits/2026_11_01-epic-m6-doctrine-reference/stage-f/outcomes.json",
+      "bytes": 29261,
+      "sha256": "66c8401570d0d0e40725c1423c8a1470fcab47fdb976605f327c8d194fb5f591"
+    },
+    {
+      "ref": "4eb5dfab8e745914a55e7de3e5a43c5b91ebc608",
+      "path": "docs/audits/2026_11_01-epic-m6-doctrine-reference/stage-f/summary.json",
+      "bytes": 384,
+      "sha256": "a40abd3c62b002e0c8ac052f28a8f78b7e5864552a4dcd78a3f0f24c9f095c8b"
+    },
+    {
+      "ref": "7994f760fe1f4df6744844e80433bc49295cb94e",
+      "path": "docs/audits/2026_11_01-epic-m6-doctrine-reference/completion/acceptance-6586835789.md",
+      "bytes": 2697,
+      "sha256": "43a27209beb0d05b850bfed8e52ceb5a41ffde8ab9eeb426e254b85394e6fc41"
+    },
+    {
+      "ref": "7994f760fe1f4df6744844e80433bc49295cb94e",
+      "path": "docs/audits/2026_11_01-epic-m6-doctrine-reference/completion/d229-readback.json",
+      "bytes": 937,
+      "sha256": "b9bebc1c78bf10d3cf84ae10aa5cae554624b1768931e509a2d9bb4d81aa6981"
+    },
+    {
+      "ref": "4eb5dfab8e745914a55e7de3e5a43c5b91ebc608",
+      "path": "docs/audits/2026_11_01-epic-m6-doctrine-reference/stage-e/S1/README.md",
+      "bytes": 724,
+      "sha256": "1c7a024b320622578859c3691af50194c4282340fd3f54b0cb5be173053ad018"
+    },
+    {
+      "ref": "4eb5dfab8e745914a55e7de3e5a43c5b91ebc608",
+      "path": "docs/audits/2026_11_01-epic-m6-doctrine-reference/stage-e/S2/README.md",
+      "bytes": 922,
+      "sha256": "a47a0400abba655aaf00b8c9e5d605239daaf2b5b8bf5c1692519b7c4b4533f5"
+    },
+    {
+      "ref": "4eb5dfab8e745914a55e7de3e5a43c5b91ebc608",
+      "path": "docs/audits/2026_11_01-epic-m6-doctrine-reference/stage-e/S3/README.md",
+      "bytes": 765,
+      "sha256": "fbef2413176df75ae7a187245fa59144c27dcb887e030c969861579c7d74c6ba"
+    },
+    {
+      "ref": "4eb5dfab8e745914a55e7de3e5a43c5b91ebc608",
+      "path": "docs/audits/2026_11_01-epic-m6-doctrine-reference/stage-e/S4/README.md",
+      "bytes": 1361,
+      "sha256": "910457999d6ace621f3a1ba54111ee39d0b179c726f77ae7a84b49cad6f5bfa5"
+    },
+    {
+      "ref": "4eb5dfab8e745914a55e7de3e5a43c5b91ebc608",
+      "path": "docs/audits/2026_11_01-epic-m6-doctrine-reference/stage-e/S5/README.md",
+      "bytes": 4308,
+      "sha256": "7533360e7c863079c0c5f9e1b092a2b38ba83d073e5aa783bf33d5101f3d717c"
+    },
+    {
+      "ref": "d707c82ab8c48b674acc1f95a9571f0cb24d226a",
+      "path": "docs/qa-logs/2026-11-02-m6-resume/t46-preparation/report.md",
+      "bytes": 11671,
+      "sha256": "e56777b71e7a4b236bef318317e1d0e0e3e7a0f0e27d6896760fcd24728feb10"
+    },
+    {
+      "ref": "d707c82ab8c48b674acc1f95a9571f0cb24d226a",
+      "path": "docs/decision-register.md",
+      "bytes": 649908,
+      "sha256": "b0334b7376142a03c42872aa6483efce21a54c7fcd4f8da3d79c3529890a4411"
+    }
+  ],
+  "commands": [
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan-346",
+        "show",
+        "7994f760fe1f4df6744844e80433bc49295cb94e:docs/audits/2026_11_01-epic-m6-doctrine-reference/stage-f/source-diff-manifest.json"
+      ],
+      "exit": 0,
+      "stdout_sha256": "08ce66418496f596a1b650e57ab970c8ee5afc79713eb480633e4d960f1ab326",
+      "stdout_bytes": 17943,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan-346",
+        "show",
+        "4eb5dfab8e745914a55e7de3e5a43c5b91ebc608:docs/audits/2026_11_01-epic-m6-doctrine-reference/stage-f/outcomes.json"
+      ],
+      "exit": 0,
+      "stdout_sha256": "66c8401570d0d0e40725c1423c8a1470fcab47fdb976605f327c8d194fb5f591",
+      "stdout_bytes": 29261,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan-346",
+        "show",
+        "4eb5dfab8e745914a55e7de3e5a43c5b91ebc608:docs/audits/2026_11_01-epic-m6-doctrine-reference/stage-f/summary.json"
+      ],
+      "exit": 0,
+      "stdout_sha256": "a40abd3c62b002e0c8ac052f28a8f78b7e5864552a4dcd78a3f0f24c9f095c8b",
+      "stdout_bytes": 384,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan-346",
+        "show",
+        "7994f760fe1f4df6744844e80433bc49295cb94e:docs/audits/2026_11_01-epic-m6-doctrine-reference/completion/acceptance-6586835789.md"
+      ],
+      "exit": 0,
+      "stdout_sha256": "43a27209beb0d05b850bfed8e52ceb5a41ffde8ab9eeb426e254b85394e6fc41",
+      "stdout_bytes": 2697,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan-346",
+        "show",
+        "7994f760fe1f4df6744844e80433bc49295cb94e:docs/audits/2026_11_01-epic-m6-doctrine-reference/completion/d229-readback.json"
+      ],
+      "exit": 0,
+      "stdout_sha256": "b9bebc1c78bf10d3cf84ae10aa5cae554624b1768931e509a2d9bb4d81aa6981",
+      "stdout_bytes": 937,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan-346",
+        "show",
+        "4eb5dfab8e745914a55e7de3e5a43c5b91ebc608:docs/audits/2026_11_01-epic-m6-doctrine-reference/stage-e/S1/README.md"
+      ],
+      "exit": 0,
+      "stdout_sha256": "1c7a024b320622578859c3691af50194c4282340fd3f54b0cb5be173053ad018",
+      "stdout_bytes": 724,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan-346",
+        "show",
+        "4eb5dfab8e745914a55e7de3e5a43c5b91ebc608:docs/audits/2026_11_01-epic-m6-doctrine-reference/stage-e/S2/README.md"
+      ],
+      "exit": 0,
+      "stdout_sha256": "a47a0400abba655aaf00b8c9e5d605239daaf2b5b8bf5c1692519b7c4b4533f5",
+      "stdout_bytes": 922,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan-346",
+        "show",
+        "4eb5dfab8e745914a55e7de3e5a43c5b91ebc608:docs/audits/2026_11_01-epic-m6-doctrine-reference/stage-e/S3/README.md"
+      ],
+      "exit": 0,
+      "stdout_sha256": "fbef2413176df75ae7a187245fa59144c27dcb887e030c969861579c7d74c6ba",
+      "stdout_bytes": 765,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan-346",
+        "show",
+        "4eb5dfab8e745914a55e7de3e5a43c5b91ebc608:docs/audits/2026_11_01-epic-m6-doctrine-reference/stage-e/S4/README.md"
+      ],
+      "exit": 0,
+      "stdout_sha256": "910457999d6ace621f3a1ba54111ee39d0b179c726f77ae7a84b49cad6f5bfa5",
+      "stdout_bytes": 1361,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan-346",
+        "show",
+        "4eb5dfab8e745914a55e7de3e5a43c5b91ebc608:docs/audits/2026_11_01-epic-m6-doctrine-reference/stage-e/S5/README.md"
+      ],
+      "exit": 0,
+      "stdout_sha256": "7533360e7c863079c0c5f9e1b092a2b38ba83d073e5aa783bf33d5101f3d717c",
+      "stdout_bytes": 4308,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan-346",
+        "show",
+        "d707c82ab8c48b674acc1f95a9571f0cb24d226a:docs/qa-logs/2026-11-02-m6-resume/t46-preparation/report.md"
+      ],
+      "exit": 0,
+      "stdout_sha256": "e56777b71e7a4b236bef318317e1d0e0e3e7a0f0e27d6896760fcd24728feb10",
+      "stdout_bytes": 11671,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan-346",
+        "show",
+        "d707c82ab8c48b674acc1f95a9571f0cb24d226a:docs/decision-register.md"
+      ],
+      "exit": 0,
+      "stdout_sha256": "b0334b7376142a03c42872aa6483efce21a54c7fcd4f8da3d79c3529890a4411",
+      "stdout_bytes": 649908,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan-346",
+        "ls-tree",
+        "-r",
+        "-l",
+        "-z",
+        "--full-tree",
+        "4eb5dfab8e745914a55e7de3e5a43c5b91ebc608",
+        "--",
+        "README.md",
+        "docs/backup-contents.md",
+        "docs/cloud-save-integrity.md",
+        "docs/cloud-vocabulary-audit.md",
+        "docs/council-limits.md",
+        "docs/council-mistral-counter.md",
+        "docs/device-flashing-runbook.md",
+        "docs/device-testing-policy.md",
+        "docs/es-menu-map.md",
+        "docs/pixelelated/cloud-folder-flow-review.md",
+        "docs/pixelelated/cloud-folders.md",
+        "docs/pixelelated/site-plan.md",
+        "docs/pr-series/es-review-guide.md",
+        "docs/ra-offline/2026_09_13-phase-1-design-note.md",
+        "docs/ra-offline/rocknix-org-offline-achievements.md",
+        "docs/rasteratops/candidate-source-plan.md",
+        "docs/rasteratops/cloud-layout.md",
+        "docs/rasteratops/cloud-provider-2026-09-30.md",
+        "docs/rasteratops/p0-read.md",
+        "docs/rasteratops/p0-sweep.md",
+        "docs/rasteratops/release-readiness.md",
+        "docs/rasteratops/support-matrix.md",
+        "docs/releases/0.0.1-release-preparation.md",
+        "docs/releases/device-facts.md",
+        "docs/releases/next-candidate-scope.md",
+        "docs/releases/next-candidate-work.md",
+        "docs/releases/pr/01-build.md",
+        "docs/releases/pr/02-generic-x64.md",
+        "docs/releases/pr/03-evidence.md",
+        "docs/releases/pr/04-settings.md",
+        "docs/releases/pr/05-network.md",
+        "docs/releases/pr/06-retroachievements.md",
+        "docs/releases/pr/07-cloud-setup.md",
+        "docs/releases/pr/08-saves.md",
+        "docs/releases/pr/09-retroarch.md",
+        "docs/releases/pr/10-es-pin.md",
+        "docs/releases/pr/11-interface.md",
+        "docs/releases/rc1-20260929-release-note.md",
+        "docs/releases/rc2-20260929-release-note.md",
+        "docs/releases/rocknix-org-pr-cloud-sync-wifi-achievements.md",
+        "docs/releases/versioning.md",
+        "docs/rules-sweep-2026-09-12.md",
+        "docs/save-history-gap-analysis.md",
+        "docs/save-history-plan-delta.md",
+        "docs/save-history-serial-model-addendum.md",
+        "docs/save-manifest-alignment-review.md",
+        "docs/savestate-compat-test.md",
+        "docs/technical-appendix-cloud-sync-and-offline-achievements.md"
+      ],
+      "exit": 0,
+      "stdout_sha256": "fd31596023ef1f6675b027656cf85eb28e75d25bf9709f85ad83e7a8beac1296",
+      "stdout_bytes": 4610,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan-346",
+        "ls-tree",
+        "-r",
+        "-l",
+        "-z",
+        "--full-tree",
+        "7994f760fe1f4df6744844e80433bc49295cb94e",
+        "--",
+        "README.md",
+        "docs/backup-contents.md",
+        "docs/cloud-save-integrity.md",
+        "docs/cloud-vocabulary-audit.md",
+        "docs/council-limits.md",
+        "docs/council-mistral-counter.md",
+        "docs/device-flashing-runbook.md",
+        "docs/device-testing-policy.md",
+        "docs/es-menu-map.md",
+        "docs/pixelelated/cloud-folder-flow-review.md",
+        "docs/pixelelated/cloud-folders.md",
+        "docs/pixelelated/site-plan.md",
+        "docs/pr-series/es-review-guide.md",
+        "docs/ra-offline/2026_09_13-phase-1-design-note.md",
+        "docs/ra-offline/rocknix-org-offline-achievements.md",
+        "docs/rasteratops/candidate-source-plan.md",
+        "docs/rasteratops/cloud-layout.md",
+        "docs/rasteratops/cloud-provider-2026-09-30.md",
+        "docs/rasteratops/p0-read.md",
+        "docs/rasteratops/p0-sweep.md",
+        "docs/rasteratops/release-readiness.md",
+        "docs/rasteratops/support-matrix.md",
+        "docs/releases/0.0.1-release-preparation.md",
+        "docs/releases/device-facts.md",
+        "docs/releases/next-candidate-scope.md",
+        "docs/releases/next-candidate-work.md",
+        "docs/releases/pr/01-build.md",
+        "docs/releases/pr/02-generic-x64.md",
+        "docs/releases/pr/03-evidence.md",
+        "docs/releases/pr/04-settings.md",
+        "docs/releases/pr/05-network.md",
+        "docs/releases/pr/06-retroachievements.md",
+        "docs/releases/pr/07-cloud-setup.md",
+        "docs/releases/pr/08-saves.md",
+        "docs/releases/pr/09-retroarch.md",
+        "docs/releases/pr/10-es-pin.md",
+        "docs/releases/pr/11-interface.md",
+        "docs/releases/rc1-20260929-release-note.md",
+        "docs/releases/rc2-20260929-release-note.md",
+        "docs/releases/rocknix-org-pr-cloud-sync-wifi-achievements.md",
+        "docs/releases/versioning.md",
+        "docs/rules-sweep-2026-09-12.md",
+        "docs/save-history-gap-analysis.md",
+        "docs/save-history-plan-delta.md",
+        "docs/save-history-serial-model-addendum.md",
+        "docs/save-manifest-alignment-review.md",
+        "docs/savestate-compat-test.md",
+        "docs/technical-appendix-cloud-sync-and-offline-achievements.md"
+      ],
+      "exit": 0,
+      "stdout_sha256": "fd31596023ef1f6675b027656cf85eb28e75d25bf9709f85ad83e7a8beac1296",
+      "stdout_bytes": 4610,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan-346",
+        "ls-tree",
+        "-r",
+        "-l",
+        "-z",
+        "--full-tree",
+        "d707c82ab8c48b674acc1f95a9571f0cb24d226a",
+        "--",
+        "README.md",
+        "docs/backup-contents.md",
+        "docs/cloud-save-integrity.md",
+        "docs/cloud-vocabulary-audit.md",
+        "docs/council-limits.md",
+        "docs/council-mistral-counter.md",
+        "docs/device-flashing-runbook.md",
+        "docs/device-testing-policy.md",
+        "docs/es-menu-map.md",
+        "docs/pixelelated/cloud-folder-flow-review.md",
+        "docs/pixelelated/cloud-folders.md",
+        "docs/pixelelated/site-plan.md",
+        "docs/pr-series/es-review-guide.md",
+        "docs/ra-offline/2026_09_13-phase-1-design-note.md",
+        "docs/ra-offline/rocknix-org-offline-achievements.md",
+        "docs/rasteratops/candidate-source-plan.md",
+        "docs/rasteratops/cloud-layout.md",
+        "docs/rasteratops/cloud-provider-2026-09-30.md",
+        "docs/rasteratops/p0-read.md",
+        "docs/rasteratops/p0-sweep.md",
+        "docs/rasteratops/release-readiness.md",
+        "docs/rasteratops/support-matrix.md",
+        "docs/releases/0.0.1-release-preparation.md",
+        "docs/releases/device-facts.md",
+        "docs/releases/next-candidate-scope.md",
+        "docs/releases/next-candidate-work.md",
+        "docs/releases/pr/01-build.md",
+        "docs/releases/pr/02-generic-x64.md",
+        "docs/releases/pr/03-evidence.md",
+        "docs/releases/pr/04-settings.md",
+        "docs/releases/pr/05-network.md",
+        "docs/releases/pr/06-retroachievements.md",
+        "docs/releases/pr/07-cloud-setup.md",
+        "docs/releases/pr/08-saves.md",
+        "docs/releases/pr/09-retroarch.md",
+        "docs/releases/pr/10-es-pin.md",
+        "docs/releases/pr/11-interface.md",
+        "docs/releases/rc1-20260929-release-note.md",
+        "docs/releases/rc2-20260929-release-note.md",
+        "docs/releases/rocknix-org-pr-cloud-sync-wifi-achievements.md",
+        "docs/releases/versioning.md",
+        "docs/rules-sweep-2026-09-12.md",
+        "docs/save-history-gap-analysis.md",
+        "docs/save-history-plan-delta.md",
+        "docs/save-history-serial-model-addendum.md",
+        "docs/save-manifest-alignment-review.md",
+        "docs/savestate-compat-test.md",
+        "docs/technical-appendix-cloud-sync-and-offline-achievements.md"
+      ],
+      "exit": 0,
+      "stdout_sha256": "db410f550461de6858a468832f1eb7a724c1549e57fe075b9bdeca257eada062",
+      "stdout_bytes": 4610,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan-346",
+        "ls-tree",
+        "-r",
+        "-l",
+        "-z",
+        "--full-tree",
+        "de40e931a469f6aa6889f08ec9d4d31266f4c6d4^",
+        "--",
+        "README.md",
+        "docs/device-flashing-runbook.md",
+        "docs/device-testing-policy.md"
+      ],
+      "exit": 0,
+      "stdout_sha256": "d35a1b5cf2716ed0ea1b22d7c924a3a81a4279709fef61677fe0a98f9334b509",
+      "stdout_bytes": 255,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan-346",
+        "ls-tree",
+        "-r",
+        "-l",
+        "-z",
+        "--full-tree",
+        "424eea28ecbfaa8fbbe49cdee6c99750becd13cf^",
+        "--",
+        "docs/backup-contents.md",
+        "docs/pixelelated/cloud-folders.md",
+        "docs/rasteratops/cloud-layout.md",
+        "docs/releases/pr/08-saves.md"
+      ],
+      "exit": 0,
+      "stdout_sha256": "24b74545ee7de2f6c9ef32680acb0d5d23fc50585714c280f33c175d221ea09f",
+      "stdout_bytes": 364,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan-346",
+        "ls-tree",
+        "-r",
+        "-l",
+        "-z",
+        "--full-tree",
+        "895b90abcf44e62d3aa7339eba043cfe01e9b98e^",
+        "--",
+        "docs/cloud-save-integrity.md",
+        "docs/council-mistral-counter.md",
+        "docs/es-menu-map.md",
+        "docs/releases/device-facts.md",
+        "docs/releases/next-candidate-work.md"
+      ],
+      "exit": 0,
+      "stdout_sha256": "8be2c4586e06b915eb939e2f271d8c8a884aed3330bb8e71b27d0f32e55d426e",
+      "stdout_bytes": 453,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan-346",
+        "ls-tree",
+        "-r",
+        "-l",
+        "-z",
+        "--full-tree",
+        "de11515859d231a82a511c3867e12211190041a2^",
+        "--",
+        "docs/cloud-vocabulary-audit.md",
+        "docs/council-limits.md",
+        "docs/pr-series/es-review-guide.md",
+        "docs/ra-offline/2026_09_13-phase-1-design-note.md",
+        "docs/ra-offline/rocknix-org-offline-achievements.md",
+        "docs/rasteratops/candidate-source-plan.md",
+        "docs/rasteratops/cloud-provider-2026-09-30.md",
+        "docs/rasteratops/p0-read.md",
+        "docs/rasteratops/p0-sweep.md",
+        "docs/releases/pr/01-build.md",
+        "docs/releases/pr/02-generic-x64.md",
+        "docs/releases/pr/03-evidence.md",
+        "docs/releases/pr/04-settings.md",
+        "docs/releases/pr/05-network.md",
+        "docs/releases/pr/06-retroachievements.md",
+        "docs/releases/pr/07-cloud-setup.md",
+        "docs/releases/pr/09-retroarch.md",
+        "docs/releases/pr/10-es-pin.md",
+        "docs/releases/pr/11-interface.md",
+        "docs/releases/rc1-20260929-release-note.md",
+        "docs/releases/rc2-20260929-release-note.md",
+        "docs/rules-sweep-2026-09-12.md",
+        "docs/save-history-gap-analysis.md",
+        "docs/save-history-plan-delta.md",
+        "docs/save-history-serial-model-addendum.md",
+        "docs/save-manifest-alignment-review.md",
+        "docs/savestate-compat-test.md"
+      ],
+      "exit": 0,
+      "stdout_sha256": "811ba22bd09c25d0a2251cdc8737dc0f8c8c1be909f4a2442de288220ebb39f3",
+      "stdout_bytes": 2608,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan-346",
+        "ls-tree",
+        "-r",
+        "-l",
+        "-z",
+        "--full-tree",
+        "a2d4a33d4aa310d78c1b5c23b5bcdcd93f8ffe89^",
+        "--",
+        "docs/pixelelated/cloud-folder-flow-review.md",
+        "docs/pixelelated/site-plan.md",
+        "docs/rasteratops/release-readiness.md",
+        "docs/rasteratops/support-matrix.md",
+        "docs/releases/0.0.1-release-preparation.md",
+        "docs/releases/next-candidate-scope.md",
+        "docs/releases/rocknix-org-pr-cloud-sync-wifi-achievements.md",
+        "docs/releases/versioning.md",
+        "docs/technical-appendix-cloud-sync-and-offline-achievements.md"
+      ],
+      "exit": 0,
+      "stdout_sha256": "0ee5ee04fcf8bef73a247bc0330acad26a7bb8a24fdc2720ee44fbde3a13256e",
+      "stdout_bytes": 930,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan-346",
+        "ls-tree",
+        "-r",
+        "-l",
+        "-z",
+        "--full-tree",
+        "4eb5dfab8e745914a55e7de3e5a43c5b91ebc608",
+        "--",
+        "plans/conflict-resolution/vita-style-conflict-resolution.md"
+      ],
+      "exit": 0,
+      "stdout_sha256": "6c3b143096d329ee04698cce00c04b4800f4a1f1da9aaffeacad536e6ccfb1ba",
+      "stdout_bytes": 121,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan-346",
+        "ls-tree",
+        "-r",
+        "-l",
+        "-z",
+        "--full-tree",
+        "7994f760fe1f4df6744844e80433bc49295cb94e",
+        "--",
+        "plans/conflict-resolution/vita-style-conflict-resolution.md"
+      ],
+      "exit": 0,
+      "stdout_sha256": "6c3b143096d329ee04698cce00c04b4800f4a1f1da9aaffeacad536e6ccfb1ba",
+      "stdout_bytes": 121,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan-346",
+        "ls-tree",
+        "-r",
+        "-l",
+        "-z",
+        "--full-tree",
+        "d707c82ab8c48b674acc1f95a9571f0cb24d226a",
+        "--",
+        "plans/conflict-resolution/vita-style-conflict-resolution.md"
+      ],
+      "exit": 0,
+      "stdout_sha256": "6c3b143096d329ee04698cce00c04b4800f4a1f1da9aaffeacad536e6ccfb1ba",
+      "stdout_bytes": 121,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ],
+  "cpu_affinity": [
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21,
+    22,
+    23
+  ],
+  "limits": [
+    "Metadata equality establishes the precise accepted bytes present; a different identity alone does not show whether a particular line-level correction is present, superseded or absent.",
+    "A pre-correction exact match establishes original version identity for that named path; accepted branch work remains accepted and is not reopened.",
+    "No current-reader route extraction duplicated P1; source-reference/already-accepted outcome mapping is a join input for root, not final route selection.",
+    "No claim that coordinator candidate is integrated next. Ordered doctrine integration remains #807/#346; T39 accepted outcomes are distinct from candidate availability.",
+    "No source/tracker/repository/ledger/kit/shared-ref changes; no T43/historical tree edits, cleanup, runtime, host/cache/process/held/private inspection, external provider/device/cloud action or permission answer."
+  ]
+}
