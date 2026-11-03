@@ -1,6 +1,6 @@
 # M6 coordinator current handoff
 
-Updated 2026-11-03 13:00 UTC by Codex / GPT-6-Astra / xhigh (own observed footer, not provider-attested), session01a19d11-f5c8-7bb0-80f3-49ad28732af2, wN:p2.
+Updated 2026-11-03 13:17 UTC by Codex / GPT-6-Astra / xhigh (own observed footer, not provider-attested), session01a19d11-f5c8-7bb0-80f3-49ad28732af2, wN:p2.
 
 ## Resume here
 
@@ -8,14 +8,14 @@ Worktree `/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan
 
 ## Current lanes and acceptance boundaries
 
-Updated 2026-11-03 13:00 UTC. T39/T41/T42/T43/T44 accepted with verified completion markers; actual ordered integration remains pending. T46 D is reconciled and accepted within its exact-version qualifications; stream v2 is ready for explicit T3 E–H dispatch.
+Updated 2026-11-03 13:17 UTC. T39/T41/T42/T43/T44 accepted with verified completion markers; actual ordered integration remains pending. T46 E–H is active in T3 after bounded D acceptance and explicit proved-v2 dispatch6604790499.
 
 | Lane | Current outcome | Next useful action |
 | --- | --- | --- |
 | P1 wN:p3 | T46 D reconciliation returned:247 matching checks, earlier/final inputs qualified and two presentation errata | Available; no replay |
 | T1 wN:p4 | T46 accepted T39 bridge returned; root192 identity comparisons agree, all48 corrections integration-pending | Available; accepted work stays accepted |
 | T2 wN:p5 | T44 acceptedf01/completionad0df verified6592382782 | Available for bounded support |
-| T3 wN:p6 | Clean published T46 D a0d4c4fda7a0c16c04d57edf921ffeb741eff19b, checkpoint6604179796; one Low PL001/#1416, audit1417 | Stopped for root D disposition and proved E–H stream |
+| T3 wN:p6 | E–H6604790499 acknowledged; clean D start a0d4c4f, proved stream2aea545a; one exact README paragraph and current record checks | Continuous E–H; one clean published final handback, then root simulation/acceptance |
 | T5 wN:p7 | Stream proof returned; v2 adopts staged-index/working/untracked checks and three index-only refusals | Available; no execution assignment |
 
 Use existing wN lanes and absolute workdirs; verify HERDR_ENV=1 before controls. Do not answer permission prompts. P1's factual selector question was inspected and answered with the exact excerpt it requested; no approval or runtime authority was supplied. CPU8–23, no runtime allocation.
@@ -24,9 +24,9 @@ Use existing wN lanes and absolute workdirs; verify HERDR_ENV=1 before controls.
 
 #693 comment6602308433 assigned three bounded factual reads; all returned. Root retains their unchanged reports and new metadata comparisons under docs/qa-logs/2026-11-03-m6-records-preparation/. T5's required proof at candidate e9d512a230 found three corrections: exact commit identity, valid Local Epic JSON, and deterministic day-range boundaries. All are verified in published v2 at647a8831739ffa28995e1955e68225ca0226c926:docs/reviews/briefs/records.md (SHA256889d608784976501128c7c021cf2211ff42cf546095ee4efb7931e7f3a6bd4e0). D236 and the records futro govern; #1415 is actual parent of #693 in M6.
 
-Explicit dispatch693comment6603284080 was read back exactly and acknowledged by T3, session01a19d12-29e3-7fe0-9f41-038dac0a5deb, actual Codex/GPT-6-Astra/xhigh. Exact assigned worktree `/workspace/repos/pixelelated/distribution.worktrees/m6-records-693`, branch `feature/m6-records-693`, clean published seed8710a6210a40de0110244d03a886161ee06faf29, parent647a8831739ffa28995e1955e68225ca0226c926. Root seed publication and executor acknowledgement separately verify remote/clean. Source cutoff d707c82ab8c48b674acc1f95a9571f0cb24d226a/treeb3ce6c6ea70d9d40ff2b74fff691a0a11f70e437 remains distinct from seed/HEAD and new outputs. T3 has now returned clean published D a0d4c4fda7a0c16c04d57edf921ffeb741eff19b (checkpoint6604179796) and stopped. Its prior A/B/C updates are retained on #693. Root D reconciliation and T5 stream proof are complete. D237 accepts the bounded D result with two presentation errata and four earlier-prefix qualifications. Proved stream v2 authorizes only one exact README paragraph plus new E–H records after explicit dispatch; no final E–H acceptance yet.
+Explicit dispatch693comment6603284080 was read back exactly and acknowledged by T3, session01a19d12-29e3-7fe0-9f41-038dac0a5deb, actual Codex/GPT-6-Astra/xhigh. Exact assigned worktree `/workspace/repos/pixelelated/distribution.worktrees/m6-records-693`, branch `feature/m6-records-693`, clean published seed8710a6210a40de0110244d03a886161ee06faf29, parent647a8831739ffa28995e1955e68225ca0226c926. Root seed publication and executor acknowledgement separately verify remote/clean. Source cutoff d707c82ab8c48b674acc1f95a9571f0cb24d226a/treeb3ce6c6ea70d9d40ff2b74fff691a0a11f70e437 remains distinct from seed/HEAD and new outputs. T3 returned clean published D a0d4c4fda7a0c16c04d57edf921ffeb741eff19b (checkpoint6604179796); the prior D stop is superseded by the explicit E–H dispatch below. Its prior A/B/C updates are retained on #693. Root D reconciliation and T5 stream proof are complete. D237 accepts the bounded D result with two presentation errata and four earlier-prefix qualifications. Proved stream v2 authorizes only one exact README paragraph plus new E–H records after explicit dispatch; no final E–H acceptance yet.
 
-Next root action: publish final docs/reviews/briefs/t46-streams.md v2 and explicit E–H dispatch to existingT3 at clean D a0d4c4f. P1/T5 returns and root314-file custody verification are under docs/qa-logs/2026-11-03-m6-records-disposition/. The candidate owns only one current README paragraph plus new records and retained-only H. New audit-local table/link/confinement controls remain T3's duties; preparatory proof is not audit acceptance. Stop before E, outcomes, marker, closure or merge. Writes are the named audit root, exact lane pointer and actual-day log/INDEX. No source changes, branch union, historical producer replay or runtime allocation. Other lanes remain available without duplicate assignments.
+Next root action: consume T3 substantive progress or concrete blocker, then the clean published final E–H packet. Explicit dispatch693comment6604790499 was read back exactly; T3 acknowledged full v2 at2aea545afb746ab002e755cf301f4aa89930e1e9, actual clean D a0d4c4f and exact assigned worktree/branch. Observed Herdr work confirms reading and startup. Original305 D artifacts/17 tools/29 transports stay frozen. Source exception is only the exact README paragraph; two factual presentation errata and fresh resolution input bindings are required. New guard covers index/working/untracked separately and every commit. H retains all scratch, deletes nothing. All18 slice criteria stay root-owned; audit1417 and bug1416 remain open at lane handback. No marker or merge. P1/T5 reports, root314-file custody verification, publication and dispatch readbacks are under docs/qa-logs/2026-11-03-m6-records-disposition/. Other lanes are available; no duplicate assignments.
 
 ## Accepted work and pending integration
 
@@ -45,7 +45,7 @@ T41 acceptance6588269141/completion6588465063; #688 open28checked until area int
 
 T42 D230 and final packet preserve native384151/38/22/173, separate inherited50/26with21/7/22,12fork-written498lines,3931accepted artifacts/391source identities. G202/G203/G383 holes remain. New root simulation pins lane4cf8 to coordinator8b83; original strict log refusal remains FAIL, exact continuation and4controls preserve the10,620byte coordinator continuation and2+6whole entries. All remaining new integrated checks pass. Full whitespace remainsrc2 on six unchanged accepted D raw receipts; allotherpaths0. No actual merge. Root records retained under `t42-final-integration/`; external publication manifest62ef887c2fd2cc67c7b88ebd9c1bdb80091423596c60a1cf0e6e1cdc01dc8781 retained under `t42-final-publication/`. H's126/129scan claim and cachemetadata-only custody remain qualified; new exact-final lane scan supplements the former.
 
-Current milestone6 queue at last read reflects the D reconciliation/proof assignments; both now returned and its next update will record explicit E–H dispatch. P1/T1/T2/T5 available; historical/backlog suffix preserved. Latest dispatch/seed/acknowledgement/milestone receipts are under docs/qa-logs/2026-11-03-m6-records-preparation/dispatch/. Earlier t43-dispatch/, t44-dispatch/, lane-progress/milestone.json and t44-completion/milestone-readback.json remain historical. Do not invent duplicate work to occupy available lanes.
+Current milestone6 queue reflects acknowledged T46 E–H in T3, with P1/T1/T2/T5 available. Exact new readback is disposition/eh-milestone-readback.json; historical/backlog suffix preserved. Latest dispatch/seed/acknowledgement/milestone receipts are under docs/qa-logs/2026-11-03-m6-records-preparation/dispatch/. Earlier t43-dispatch/, t44-dispatch/, lane-progress/milestone.json and t44-completion/milestone-readback.json remain historical. Do not invent duplicate work to occupy available lanes.
 
 ## Resources, continuity and publishing
 
