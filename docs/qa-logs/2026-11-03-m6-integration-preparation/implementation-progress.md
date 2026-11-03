@@ -1,41 +1,38 @@
 # M6 integration construction progress
 
-Root observation at 2026-11-03T19:53:28.251438+00:00. These are private source candidates and
-bounded readbacks. Shared integration, image qualification and issue closure remain
-separate; M7 still owns next.
+Root observation at 2026-11-03T20:26:53.704295+00:00. These are private source candidates and
+bounded readbacks. Shared integration, image qualification and closure remain
+separate; M7 owns next.
 
 ## Distribution candidate
 
-Eleven canonical endpoints, T1 through T11, are now incorporated into private
-two-parent history. T10 passed thirteen new isolated controls with expected
-refusals retained; its workflow/caller conclusions remain source-only. T11 preserves
-four new whole records, the exact automatic launcher and explicit carried-order
-choices. Independent bytes and new INDEX checked before each exact-pair resume.
-The sequence is stopped at T12; root has read the owning body, with no new input
-dispatch yet. Full carried M7 ES package remains unchanged. No shared ref moved.
+Twelve of46 canonical endpoints are incorporated. T12 preserved five new records,
+combined source safeguards and a regenerated INDEX. P1’s record readback agrees;
+six NEW actual-tool synthetic routing controls passed with fake executables. No real
+compiler/buildroot. Independent root verification caught a packet-count mistake and
+a malformed token boundary before the driver ran. Both failures/original candidate
+remain; a separate one-row correction passed exact readback. The driver continued
+once and stopped at T13. P1/T5 are working on its finite record and automatic-source
+inputs under6614571972. Full carried M7 ES package remains unchanged.
 
 ## ES candidate
 
-T2, T18, T20, T21 and T26 are incorporated in the eleven-endpoint private sequence.
-Three T26 source readers returned; root selected two bounded followthroughs,
-verified their exact sealed outputs and combined them before private continuation.
-Original construction failure and a coordinate-label error are retained with a
-separate factual UTF8 erratum. The final four-file candidate and all79 test
-source declarations remain uncompiled/unexecuted. Detailed findings stay local.
-The later T32 arming obligation remains explicit and was not imported early.
-
-The sequence stopped at T31. P1/T1/T2/T5 were each observed working after new
-scope dispatch6613897571 on disjoint catalogue, BIOS/loading, bookkeeper and
-Moonlight/test conflict inputs. These are finite preservation proposals, not
-acceptance or a replay of accepted audits. Root retains combinations and validation.
+Five of11 endpoints remain incorporated. T31 now has a composed eight-path private
+candidate with1194 path/mode identities preserved. Both selected partial source
+outputs and independent cross-readbacks agree within scope; P1’s catalogue/caller
+readback also agrees. Added regression source and product tests remain unexecuted.
+The remaining guard readback is qualified by a refused full-source display; safer
+metadata comparisons do not claim a full logic review. T2 is preparing correction
+inputs for the existing persistence qualification under6614490353. No T31 resume,
+compiler/runtime acceptance or pin promotion. Future T32 arming remains outstanding.
 
 ## Current lane observations
 
-The four working observations above are dated, not continuous-activity claims.
-T3 remains parked after selected-model capacity stopped its earlier read, without
-a handback; no repeated prompt or model switch. Exact dependency custody and
-compiler/sysroot environment remain unbound through named routes, not globally
-absent. M6 holds no runtime/compiler allocation and continues on CPUs8–23.
+P1/T5 were observed working on T13; T2 on the remaining T31 proposal. T1 returned
+its bounded source readback and is available. T3 remains capacity-stopped without
+a handback or model switch. Observations are dated, not continuous-activity claims.
+Detailed bindings/findings remain local; approved public comments carry task scope.
+M6 holds no runtime/compiler allocation and stays CPUs8–23.
 
 ## Independent findings and corrections
 
@@ -138,3 +135,13 @@ remain frozen. New source objects remain in private owner stores; no off-host
 backup claim. M7's requested conditional window was granted and subsequently has
 an actual ledger RETURN19:51:45.069027; this is owner-recorded custody, not a fresh
 host process census or new integration authority.
+
+Selected retention increment16 binds129 files/1531817 bytes; original candidates
+and source objects remain in exclusive private stores. This is local persistent
+custody, not off-host backup. M7’s sequential wrapper window has owner-recorded
+RETURN20:11:33.392399 after the additive scheduling/reservation lifecycle note;
+root read the masked ledger, not a fresh host census.
+
+Retention increment17 binds337 files/717559 bytes, including original root
+preflight failures, corrected T12 resolution, private driver stop and new handoffs.
+Its predecessor16 remains frozen; no off-host backup or source acceptance claim.
