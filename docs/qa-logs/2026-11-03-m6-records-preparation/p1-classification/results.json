@@ -1,0 +1,160 @@
+{
+  "ref": "d707c82ab8c48b674acc1f95a9571f0cb24d226a",
+  "classification_authority": "Root factual user answer; root reports exact readback in #693 comment6602413967",
+  "original_manifest_sha256": "7471749cec9d4f3a6b9e3a3bb3e98d2a5041e1ec3a72ba262fa5575c96964f70",
+  "original_inputs": {
+    "routes.json": {
+      "sha256": "78d636e1527994244c27d13f12e709d3c3eba188472e36e5c28bbb7ff5f74666",
+      "bytes": 374035
+    },
+    "target-metadata.json": {
+      "sha256": "eb2e62b3a0784cc7e5c1fd5a3eb4ff0e6cbb5822da4e09d06658344d5eda63eb",
+      "bytes": 37264
+    },
+    "entrypoints.json": {
+      "sha256": "d8ffc17334b94bc3e352784b93dd8e4178a7f263d3f2874b84a51f1b2c277fed",
+      "bytes": 3102
+    },
+    "summary.json": {
+      "sha256": "73bda949db14de0bf1719b4f766103d54bdb745d84702e8beafdd357b71af9c3",
+      "bytes": 1345
+    },
+    "structural-findings.json": {
+      "sha256": "e2bc6764ed51a386538a5bcba7f1284df6f7f02f3aaa4fb7d23568ec8bc2350e",
+      "bytes": 3117
+    },
+    "syntax-limits.md": {
+      "sha256": "70976a7df8659a18be502eb4aec147f238e364467937602d422ca53f5403c63c",
+      "bytes": 4445
+    },
+    "extract.py": {
+      "sha256": "be6fd1ce1d3a901ba942cbcfaca90b1357c5af97f3c8a2b4261cd469a22fdbe4",
+      "bytes": 13904
+    }
+  },
+  "selector_input": {
+    "sha256": "82df2675740785a5ac8a68bba4c8285452bf5bfa9dae8989e1f67ba0e5fcb6b3",
+    "bytes": 869
+  },
+  "occurrence_count": 796,
+  "classified_literal_occurrences": 500,
+  "by_class": {
+    "external-url": 2,
+    "literal-context-outside-records": 405,
+    "slash-separated-context": 152,
+    "literal-records-route": 95,
+    "dynamic-or-glob-example": 67,
+    "ambiguous-relative-or-context": 61,
+    "absolute-nonrepository-context": 8,
+    "schematic-layout-example": 6
+  },
+  "records_occurrences": 95,
+  "records_unique_targets": 89,
+  "records_unique_ordinary_files": 88,
+  "records_unique_trees": 1,
+  "records_unique_missing": 0,
+  "records_unique_path_sha256": "3cd3534e60656b56d26aff34d03981cc72904df69826bf482ff272cc498b0003",
+  "records_unique_file_path_sha256": "197e19debf3ef7c9870feed94f519e30a7084adbbd1bac3aba1c2fb38b09aeb7",
+  "records_unique_blob_bytes": 36110784,
+  "records_groups": {
+    "docs/qa-logs/": {
+      "occurrences": 0,
+      "unique_targets": 0,
+      "ordinary_files": 0,
+      "trees": 0,
+      "missing": 0,
+      "unique_target_blob_bytes": 0
+    },
+    "docs/qa-frames/": {
+      "occurrences": 0,
+      "unique_targets": 0,
+      "ordinary_files": 0,
+      "trees": 0,
+      "missing": 0,
+      "unique_target_blob_bytes": 0
+    },
+    "docs/audits/": {
+      "occurrences": 0,
+      "unique_targets": 0,
+      "ordinary_files": 0,
+      "trees": 0,
+      "missing": 0,
+      "unique_target_blob_bytes": 0
+    },
+    "docs/work-logs/": {
+      "occurrences": 86,
+      "unique_targets": 86,
+      "ordinary_files": 86,
+      "trees": 0,
+      "missing": 0,
+      "unique_target_blob_bytes": 2857676
+    },
+    "docs/retros/": {
+      "occurrences": 1,
+      "unique_targets": 1,
+      "ordinary_files": 0,
+      "trees": 1,
+      "missing": 0,
+      "unique_target_blob_bytes": 0
+    },
+    "docs/retrospective/": {
+      "occurrences": 0,
+      "unique_targets": 0,
+      "ordinary_files": 0,
+      "trees": 0,
+      "missing": 0,
+      "unique_target_blob_bytes": 0
+    },
+    "docs/futros/": {
+      "occurrences": 0,
+      "unique_targets": 0,
+      "ordinary_files": 0,
+      "trees": 0,
+      "missing": 0,
+      "unique_target_blob_bytes": 0
+    },
+    "research/": {
+      "occurrences": 0,
+      "unique_targets": 0,
+      "ordinary_files": 0,
+      "trees": 0,
+      "missing": 0,
+      "unique_target_blob_bytes": 0
+    },
+    ".github/sessions/": {
+      "occurrences": 3,
+      "unique_targets": 1,
+      "ordinary_files": 1,
+      "trees": 0,
+      "missing": 0,
+      "unique_target_blob_bytes": 23640
+    },
+    "docs/reviews/inventory.json": {
+      "occurrences": 5,
+      "unique_targets": 1,
+      "ordinary_files": 1,
+      "trees": 0,
+      "missing": 0,
+      "unique_target_blob_bytes": 33229468
+    }
+  },
+  "entrypoints_in_records": [
+    "docs/audits/README.md",
+    "docs/retros/README.md",
+    "docs/futros/README.md",
+    "docs/work-logs/INDEX.md",
+    ".github/sessions/saved-session-state-feature-m6-renovation-plan-346.md"
+  ],
+  "preserved_limitations": "Ten bodies only; generated INDEX links/headers only. All target bytes/bodies unread; no anchor validation, recursive links, glob expansion, shell evaluation, fetch or lane producer execution. Counts describe this extractor syntax, not a final reading floor or slice recut.",
+  "suppressed_occurrences": 8,
+  "suppressed_metadata_sha256": "7a03f0d183554e4d369273adcf330ca05ff3db6c78d65b8d0e1a6c566cac7611",
+  "new_repository_or_target_body_reads": 0,
+  "checks": {
+    "source_manifest_and_input_hashes_match": true,
+    "same_796_occurrences": true,
+    "exactly_500_literal_labels_classified": true,
+    "all_original_route_evidence_unchanged": true,
+    "singleton_uses_equality_not_prefix": true,
+    "no_unresolved_shorthand_promoted": true
+  }
+}

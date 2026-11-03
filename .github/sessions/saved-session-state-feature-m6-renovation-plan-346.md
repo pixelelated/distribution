@@ -16,13 +16,13 @@ Updated 2026-11-03T11:34:10.619230+00:00. T39/T41/T42/T43/T44 accepted with veri
 | T1 wN:p4 | T46 accepted T39 bridge returned; root192 identity comparisons agree, all48 corrections integration-pending | Available; accepted work stays accepted |
 | T2 wN:p5 | T44 acceptedf01/completionad0df verified6592382782 | Available for bounded support |
 | T3 wN:p6 | New T46 metadata returned; root comparison agrees127469 paths and799/0/4 transition | Intended T46 executor after proved brief/exact seed; no A–D yet |
-| T5 wN:p7 | Available for T46 unfamiliar-executor proof | Root publishing candidate first |
+| T5 wN:p7 | T46 proof returned; three corrections verified in v2 | Available; root creates seed and dispatches T3 |
 
 Use existing wN lanes and absolute workdirs; verify HERDR_ENV=1 before controls. Do not answer permission prompts. P1's factual selector question was inspected and answered with the exact excerpt it requested; no approval or runtime authority was supplied. CPU8–23, no runtime allocation.
 
 ## Active T46 preparation
 
-#693 comment6602308433 assigned three bounded factual reads; all were observed working and returned. Root retains their unchanged reports and new metadata comparisons under docs/qa-logs/2026-11-03-m6-records-preparation/. Source cutoff d707c82ab8c48b674acc1f95a9571f0cb24d226a/treeb3ce6c6e; future seed/output separate. D236, records.md v1 and new records-area futro are candidate handoff. #1415 created in M6 and actual693 parent verified. Next: publish candidate, T5 proof, correct final brief/criteria, create new m6-records-693 and explicit T3 dispatch. No audit has started; no branch union or source removal.
+#693 comment6602308433 assigned three bounded factual reads; all were observed working and returned. Root retains their unchanged reports and new metadata comparisons under docs/qa-logs/2026-11-03-m6-records-preparation/. Source cutoff d707c82ab8c48b674acc1f95a9571f0cb24d226a/treeb3ce6c6e; future seed/output separate. D236, records.md v1 and new records-area futro are candidate handoff. #1415 created in M6 and actual693 parent verified. Candidate e9d512a230cf8dbd2cd985ae7984a6ef7eb9f9fc published clean; proof6602867918 active in T5 and observed. T5 proof returned and three corrections are verified in v2. Next: publish final brief/criteria, create new m6-records-693 and explicit T3 dispatch. No audit has started; no branch union or source removal.
 
 ## Immediate next actions
 
@@ -50,3 +50,5 @@ M6 holds no VM/compiler/runtime. Both requested M7 target builds and standing re
 No physical/cloud action, accepted-stage replay or provider/reviewer call. Never read held directories `/workspace/tmp/m6-t34/held/`, `/workspace/tmp/m6-t36/held/`, credential stores or forbidden-word list. Permitted process/log output uses `sed -E -f /workspace/tmp/m6-coordinator/kit/mask.sed`. Producer receipts belong to producers; observations remain separate.
 
 No root final-gate process remains active: T44 simulation returned PASS; completion/receipt readers are done. T43 original/continuation returned, original fixture failure preserved and continuationPASS; T42 original/continuation returned and T41 completed earlier. Scratch integration clones are disposable source-only records, not actual merges. Do not replay these gates after successful reconciliation without a new reason. Publish normal record checks/hooks; verify exact remote SHA. No force push, hook bypass, worker merge or next promotion is authorized merely by this handoff.
+
+T46 proof continuity 2026-11-03T11:45:33.577379+00:00: P1 supplied a separately retained classification supplement after the factual selector reply; root95 route IDs/89 target identities and796 original nonclassification fields agree. Original packet unchanged. Full candidate scan passed; original whitespace rc2 and lossless TSV representation/corrected47-path scan are retained separately.

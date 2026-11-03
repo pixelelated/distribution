@@ -1,0 +1,24 @@
+{
+  "authority": "Root factual user answer; root reports exact readback in #693 comment6602413967",
+  "issue_comment": "https://github.com/pixelelated/distribution/issues/693#issuecomment-6602413967",
+  "source_ref": "d707c82ab8c48b674acc1f95a9571f0cb24d226a",
+  "source_basis": "Root verified the records entry of areas.json; P1 has not opened that eleventh source file or independently refetched this comment",
+  "roots": [
+    "docs/qa-logs/",
+    "docs/qa-frames/",
+    "docs/audits/",
+    "docs/work-logs/",
+    "docs/retros/",
+    "docs/retrospective/",
+    "docs/futros/",
+    "research/",
+    ".github/sessions/"
+  ],
+  "singletons": ["docs/reviews/inventory.json"],
+  "canonical_expression": [
+    "docs/{qa-logs,qa-frames,audits,work-logs,retros,retrospective,futros}/**",
+    "research/**",
+    ".github/sessions/**",
+    "docs/reviews/inventory.json"
+  ]
+}

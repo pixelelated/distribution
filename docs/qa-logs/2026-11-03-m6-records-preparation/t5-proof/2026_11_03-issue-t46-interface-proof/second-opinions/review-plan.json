@@ -1,0 +1,16 @@
+{
+  "schema_version": 1,
+  "depth": "local",
+  "primary": {
+    "harness": "Codex",
+    "model": "openai/gpt-6-astra",
+    "lab": "openai",
+    "identity_source": "Actual harness model label GPT-6-Astra; normalized namespace for lint only; no provider call or attestation",
+    "effort": "xhigh"
+  },
+  "reviewers": [
+    {
+      "member": "gpt"
+    }
+  ]
+}

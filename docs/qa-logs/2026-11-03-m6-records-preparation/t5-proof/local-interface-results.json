@@ -1,0 +1,20 @@
+{
+  "namespaced-local": {
+    "bad": [],
+    "ok": [
+      "review plan: local, 1 model perspectives, 0 verified external calls"
+    ]
+  },
+  "display-label-local": {
+    "bad": [
+      "second-opinions/review-plan.json or its call evidence is invalid: primary model and lab disagree"
+    ],
+    "ok": []
+  },
+  "reviewer-count": {
+    "bad": [
+      "second-opinions/review-plan.json or its call evidence is invalid: reviewer count does not match selected depth"
+    ],
+    "ok": []
+  }
+}

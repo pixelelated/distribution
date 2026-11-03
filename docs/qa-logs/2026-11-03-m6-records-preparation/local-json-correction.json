@@ -1,0 +1,27 @@
+{
+  "checked_at": "2026-11-03T11:56:08.358232+00:00",
+  "tool_sha256": "47899b443ac4c40a74c1de8b40814ff6e6978497ae0875b8fd6a033fe8750613",
+  "example_sha256": "bafebe8da609c5fb4e143f21e4de9fb5873047230d5bde84e1a7e89aaced8963",
+  "results": {
+    "positive": {
+      "bad": [],
+      "ok": [
+        "review plan: local, 1 model perspectives, 0 verified external calls",
+        "review-plan: local at epic tier under D-WORKFLOW-184 (T46 records is a Local table under plan section6c; no external reviewer.)"
+      ]
+    },
+    "reviewer-count": {
+      "bad": [
+        "second-opinions/review-plan.json or its call evidence is invalid: reviewer count does not match selected depth"
+      ],
+      "ok": []
+    },
+    "bare-label": {
+      "bad": [
+        "second-opinions/review-plan.json or its call evidence is invalid: primary model and lab disagree"
+      ],
+      "ok": []
+    }
+  },
+  "scope": "Actual isolated check_review_plan interface on new tiny Epic JSON only; not full audit acceptance or producer replay."
+}

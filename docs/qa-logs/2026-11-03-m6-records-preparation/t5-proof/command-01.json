@@ -1,0 +1,60 @@
+[
+  {
+    "argv": [
+      "gh",
+      "issue",
+      "view",
+      "693",
+      "--repo",
+      "pixelelated/distribution",
+      "--json",
+      "number,title,body,comments,state"
+    ],
+    "started": "2026-11-03T11:42:22.659212+00:00",
+    "finished": "2026-11-03T11:42:23.163907+00:00",
+    "rc": 0,
+    "stdout_sha256": "4b5858137e10ea6da3070e68e3d58975eebeafcc508f6846ffb4390e21b95a35",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "gh",
+      "issue",
+      "view",
+      "1415",
+      "--repo",
+      "pixelelated/distribution",
+      "--json",
+      "number,title,body,comments,state"
+    ],
+    "started": "2026-11-03T11:42:23.164233+00:00",
+    "finished": "2026-11-03T11:42:23.806302+00:00",
+    "rc": 0,
+    "stdout_sha256": "1ce2bab986c9bb3b12b7d9336ef4acaf2b95611d929596801ccafa0647413a16",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "gh",
+      "api",
+      "repos/pixelelated/distribution/issues/comments/6602867918"
+    ],
+    "started": "2026-11-03T11:42:23.806492+00:00",
+    "finished": "2026-11-03T11:42:24.310231+00:00",
+    "rc": 0,
+    "stdout_sha256": "47f6e96e97e5130a62db21c5ca349a71b5c170fd1d1895b770dd44cadd44a8f7",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "show",
+      "e9d512a230cf8dbd2cd985ae7984a6ef7eb9f9fc:docs/reviews/briefs/records.md"
+    ],
+    "started": "2026-11-03T11:42:24.310411+00:00",
+    "finished": "2026-11-03T11:42:24.314786+00:00",
+    "rc": 0,
+    "stdout_sha256": "caa0c9f2afe657770093b4fb502512dcc331eb47dd17c66063229c9f99ef931f",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  }
+]

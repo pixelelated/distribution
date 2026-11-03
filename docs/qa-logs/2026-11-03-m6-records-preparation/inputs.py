@@ -91,6 +91,8 @@ def main():
         return p.stdout
 
     commit = git("rev-parse", "--verify", args.ref + "^{commit}").decode().strip()
+    if commit != SOURCE:
+        raise ValueError("source commit differs even if its tree is identical")
     tree = git("rev-parse", "--verify", args.ref + "^{tree}").decode().strip()
     inputs = parse(git("ls-tree", "-l", "-z", commit, "--", *INPUTS))
     input_oids = {p.decode(): v[2] for p, v in inputs.items()}

@@ -1,0 +1,309 @@
+[
+  {
+    "argv": [
+      "git",
+      "show",
+      "e9d512a230cf8dbd2cd985ae7984a6ef7eb9f9fc:docs/qa-logs/2026-11-03-m6-records-preparation/p1-routes/extract.py"
+    ],
+    "rc": 0,
+    "stdin_sha256": null,
+    "stdout_bytes": 13904,
+    "stdout_sha256": "be6fd1ce1d3a901ba942cbcfaca90b1357c5af97f3c8a2b4261cd469a22fdbe4",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "ls-tree",
+      "-r",
+      "-l",
+      "-z",
+      "d707c82ab8c48b674acc1f95a9571f0cb24d226a",
+      "--",
+      "docs/qa-logs",
+      "docs/qa-frames",
+      "docs/audits",
+      "docs/work-logs",
+      "docs/retros",
+      "docs/retrospective",
+      "docs/futros",
+      "research",
+      ".github/sessions",
+      "docs/reviews/inventory.json"
+    ],
+    "rc": 0,
+    "stdin_sha256": null,
+    "stdout_bytes": 24025252,
+    "stdout_sha256": "b3f1be7ba504ab292928c1b9e5a15f3c24e587a0faa1cc3733cd9afef5481157",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "mktree"
+    ],
+    "rc": 0,
+    "stdin_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stdout_bytes": 41,
+    "stdout_sha256": "e18e352499e45bbb96e2d3aae6b5069f73b1c8828f6f159571250d13443157ad",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "ls-tree",
+      "-z",
+      "d707c82ab8c48b674acc1f95a9571f0cb24d226a"
+    ],
+    "rc": 0,
+    "stdin_sha256": null,
+    "stdout_bytes": 1710,
+    "stdout_sha256": "9fe0a9bd225b5e297dc55c339fe1ec110ffab29640079c0d5f8582cda968413e",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "mktree",
+      "-z"
+    ],
+    "rc": 0,
+    "stdin_sha256": "810d88c8b9de855447ccb4b8dbe80608604eca325e85383d8d4b804622e0da30",
+    "stdout_bytes": 41,
+    "stdout_sha256": "f134a7e4fa282cbd19449d34f7e1d004c70aa9d866d8bad763a21f946ddf0e86",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "hash-object",
+      "-t",
+      "commit",
+      "-w",
+      "--stdin"
+    ],
+    "rc": 0,
+    "stdin_sha256": "dc23289693507d6de2afa1dd767f01ac7b69ca82c9221e0baaf0326c6d02d266",
+    "stdout_bytes": 41,
+    "stdout_sha256": "3a9c84ec2da13ac1d07a162eafd3ef55178861ad46ce995fb934b9f84a3fb9f6",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "hash-object",
+      "-t",
+      "commit",
+      "-w",
+      "--stdin"
+    ],
+    "rc": 0,
+    "stdin_sha256": "2828b4f13fb9be3d0db6c2bf363036117f539225a6bb8e2c25c7f577353d91d9",
+    "stdout_bytes": 41,
+    "stdout_sha256": "66b2d6ad14dd0997eed4b294c11ef14c636e09c93d1926a64069cc4080e634c0",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "ls-tree",
+      "-r",
+      "-l",
+      "-z",
+      "d70f40ce819972e558d73dab0547911a1f5d1287",
+      "--",
+      "docs/qa-logs",
+      "docs/qa-frames",
+      "docs/audits",
+      "docs/work-logs",
+      "docs/retros",
+      "docs/retrospective",
+      "docs/futros",
+      "research",
+      ".github/sessions",
+      "docs/reviews/inventory.json"
+    ],
+    "rc": 0,
+    "stdin_sha256": null,
+    "stdout_bytes": 24025252,
+    "stdout_sha256": "b3f1be7ba504ab292928c1b9e5a15f3c24e587a0faa1cc3733cd9afef5481157",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "python3",
+      "-B",
+      "/workspace/tmp/m6-t46-proof-t5-20261103/repo/docs/qa-logs/2026-11-03-m6-records-preparation/inputs.py",
+      "--repo",
+      "/workspace/tmp/m6-t46-proof-t5-20261103/repo",
+      "--ref",
+      "d70f40ce819972e558d73dab0547911a1f5d1287",
+      "--out",
+      "/tmp/m6-t46-records-proof-t5-20261103/fixture-empty-subtree"
+    ],
+    "rc": 1,
+    "stdin_sha256": null,
+    "stdout_bytes": 0,
+    "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stderr_sha256": "038229d43aaff8177d71c4fc00256279f45e3c540d6fd59662a9481f1f97baf4"
+  },
+  {
+    "argv": [
+      "python3",
+      "-B",
+      "/workspace/tmp/m6-t46-proof-t5-20261103/repo/docs/qa-logs/2026-11-03-m6-records-preparation/inputs.py",
+      "--repo",
+      "/workspace/tmp/m6-t46-proof-t5-20261103/repo",
+      "--ref",
+      "4518a3a09bbc234693879c465e4308e47fb92d99",
+      "--out",
+      "/tmp/m6-t46-records-proof-t5-20261103/fixture-same-tree-new-commit"
+    ],
+    "rc": 0,
+    "stdin_sha256": null,
+    "stdout_bytes": 76,
+    "stdout_sha256": "b5dde2f5ba4ce693f9d73f1308ffeb3fb2b0a25939b96a7d8f8b0b855198e030",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "ls-tree",
+      "-l",
+      "-z",
+      "d707c82ab8c48b674acc1f95a9571f0cb24d226a",
+      "--",
+      "README.md",
+      "docs/backup-contents.md",
+      "docs/cloud-save-integrity.md",
+      "docs/cloud-vocabulary-audit.md",
+      "docs/council-limits.md",
+      "docs/council-mistral-counter.md",
+      "docs/device-flashing-runbook.md",
+      "docs/device-testing-policy.md",
+      "docs/es-menu-map.md",
+      "docs/pixelelated/cloud-folder-flow-review.md",
+      "docs/pixelelated/cloud-folders.md",
+      "docs/pixelelated/site-plan.md",
+      "docs/pr-series/es-review-guide.md",
+      "docs/ra-offline/2026_09_13-phase-1-design-note.md",
+      "docs/ra-offline/rocknix-org-offline-achievements.md",
+      "docs/rasteratops/candidate-source-plan.md",
+      "docs/rasteratops/cloud-layout.md",
+      "docs/rasteratops/cloud-provider-2026-09-30.md",
+      "docs/rasteratops/p0-read.md",
+      "docs/rasteratops/p0-sweep.md",
+      "docs/rasteratops/release-readiness.md",
+      "docs/rasteratops/support-matrix.md",
+      "docs/releases/0.0.1-release-preparation.md",
+      "docs/releases/device-facts.md",
+      "docs/releases/next-candidate-scope.md",
+      "docs/releases/next-candidate-work.md",
+      "docs/releases/pr/01-build.md",
+      "docs/releases/pr/02-generic-x64.md",
+      "docs/releases/pr/03-evidence.md",
+      "docs/releases/pr/04-settings.md",
+      "docs/releases/pr/05-network.md",
+      "docs/releases/pr/06-retroachievements.md",
+      "docs/releases/pr/07-cloud-setup.md",
+      "docs/releases/pr/08-saves.md",
+      "docs/releases/pr/09-retroarch.md",
+      "docs/releases/pr/10-es-pin.md",
+      "docs/releases/pr/11-interface.md",
+      "docs/releases/rc1-20260929-release-note.md",
+      "docs/releases/rc2-20260929-release-note.md",
+      "docs/releases/rocknix-org-pr-cloud-sync-wifi-achievements.md",
+      "docs/releases/versioning.md",
+      "docs/rules-sweep-2026-09-12.md",
+      "docs/save-history-gap-analysis.md",
+      "docs/save-history-plan-delta.md",
+      "docs/save-history-serial-model-addendum.md",
+      "docs/save-manifest-alignment-review.md",
+      "docs/savestate-compat-test.md",
+      "docs/technical-appendix-cloud-sync-and-offline-achievements.md"
+    ],
+    "rc": 0,
+    "stdin_sha256": null,
+    "stdout_bytes": 4610,
+    "stdout_sha256": "db410f550461de6858a468832f1eb7a724c1549e57fe075b9bdeca257eada062",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "show",
+      "e9d512a230cf8dbd2cd985ae7984a6ef7eb9f9fc:tools/lint-audit-artifacts"
+    ],
+    "rc": 0,
+    "stdin_sha256": null,
+    "stdout_bytes": 29243,
+    "stdout_sha256": "47899b443ac4c40a74c1de8b40814ff6e6978497ae0875b8fd6a033fe8750613",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "show",
+      "e9d512a230cf8dbd2cd985ae7984a6ef7eb9f9fc:tools/box-check"
+    ],
+    "rc": 0,
+    "stdin_sha256": null,
+    "stdout_bytes": 5437,
+    "stdout_sha256": "3563b26951fccd737fa904e99620f66727fdc7ad6526eabcd16a7e8e2f41c314",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "show",
+      "e9d512a230cf8dbd2cd985ae7984a6ef7eb9f9fc:tools/work-log-index"
+    ],
+    "rc": 0,
+    "stdin_sha256": null,
+    "stdout_bytes": 4389,
+    "stdout_sha256": "6c7a82704454c159a5f677cb384d455a51d0c827acfad7904945acc5d5272a77",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "show",
+      "e9d512a230cf8dbd2cd985ae7984a6ef7eb9f9fc:tools/ceremony-check"
+    ],
+    "rc": 0,
+    "stdin_sha256": null,
+    "stdout_bytes": 25409,
+    "stdout_sha256": "30d997190473a9b75447673dffd2ac5a9133555944e6b443b9163345b78303c0",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "show",
+      "e9d512a230cf8dbd2cd985ae7984a6ef7eb9f9fc:tools/forbidden-terms-check"
+    ],
+    "rc": 0,
+    "stdin_sha256": null,
+    "stdout_bytes": 2761,
+    "stdout_sha256": "6907bed8857ce27f38b31ef18c09abc2d9dd9345b28afd483e8a44e3253c0e63",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "diff",
+      "--name-only",
+      "f1000e157c2f0248820e1b77055e81521b079a3f",
+      "e9d512a230cf8dbd2cd985ae7984a6ef7eb9f9fc",
+      "--",
+      ".claude/rules",
+      "AGENTS.md",
+      "CLAUDE.md"
+    ],
+    "rc": 0,
+    "stdin_sha256": null,
+    "stdout_bytes": 0,
+    "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  }
+]

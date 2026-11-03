@@ -1,0 +1,122 @@
+{
+  "p1_original_files_verified": [
+    "report.md",
+    "reproduce.txt",
+    "syntax-limits.md",
+    "extract.py",
+    "owning-issue.json",
+    "entrypoints.json",
+    "routes.json",
+    "target-metadata.json",
+    "summary.json",
+    "index-headers.json",
+    "commands.json",
+    "structural-findings.json",
+    "documentary-candidates.tsv",
+    "documentary-groups.json"
+  ],
+  "retained_five_output_readback": {
+    "routes.json": true,
+    "target-metadata.json": true,
+    "entrypoints.json": true,
+    "index-headers.json": true,
+    "summary.json": true
+  },
+  "route_join": {
+    "occurrences": 95,
+    "targets": 89,
+    "day_logs": 86,
+    "other_targets": [
+      ".github/sessions/saved-session-state-next.md",
+      "docs/retros",
+      "docs/reviews/inventory.json"
+    ],
+    "88_blobs_1_directory": true,
+    "path_sha256": "af058407086a80da6ac2e4d5c1d4d2bd77cf7d4a78b8ec422ecf61e17b6977da"
+  },
+  "p1_summary": {
+    "ref": "d707c82ab8c48b674acc1f95a9571f0cb24d226a",
+    "entrypoint_count": 10,
+    "entrypoint_bytes": 254894,
+    "occurrences": 796,
+    "by_class": {
+      "external-url": 2,
+      "literal-root-classification-pending": 500,
+      "slash-separated-context": 152,
+      "dynamic-or-glob-example": 67,
+      "ambiguous-relative-or-context": 61,
+      "absolute-nonrepository-context": 8,
+      "schematic-layout-example": 6
+    },
+    "by_entrypoint": {
+      "README.md": 6,
+      "AGENTS.md": 234,
+      "CLAUDE.md": 143,
+      ".claude/rules/instruction-files.md": 178,
+      "docs/reviews/README.md": 64,
+      "docs/audits/README.md": 10,
+      "docs/retros/README.md": 2,
+      "docs/futros/README.md": 2,
+      "docs/work-logs/INDEX.md": 86,
+      ".github/sessions/saved-session-state-feature-m6-renovation-plan-346.md": 71
+    },
+    "records_groups": null,
+    "records_unique_paths": null,
+    "records_unique_path_sha256": null,
+    "metadata_named_targets": 224,
+    "suppressed_occurrences": 8,
+    "suppressed_metadata_sha256": "7a03f0d183554e4d369273adcf330ca05ff3db6c78d65b8d0e1a6c566cac7611",
+    "limits": "Ten bodies only; generated INDEX links/headers only. All target bytes/bodies unread; no anchor validation, recursive links, glob expansion, shell evaluation, fetch or lane producer execution. Counts describe this extractor syntax, not a final reading floor or slice recut."
+  },
+  "shorthand_count": 13,
+  "metadata_positive": {
+    "paths": 127469,
+    "logical_bytes": 2190843187,
+    "unique_blobs": 38355,
+    "unique_blob_logical_bytes": 1084128032,
+    "modes": {
+      "100644": 98024,
+      "100755": 29445
+    },
+    "canonical_metadata_sha256": "83198fe7208e0e4e6b70b13b0ebc78a02f54b67d18a16bd0ecfc6193ab4c6eb0",
+    "path_set_sha256": "8fdb11cc06194fb1937f27d5eb7fefb70cbd5a0da0a1c6839eb1dd9fea6bf99f"
+  },
+  "own_binding_refusals": {
+    "missing": "records path/mode/type/blob/size binding differs",
+    "extra": "records path/mode/type/blob/size binding differs",
+    "mode": "records path/mode/type/blob/size binding differs",
+    "blob": "records path/mode/type/blob/size binding differs",
+    "size": "records path/mode/type/blob/size binding differs",
+    "canonical-input": "inventory/selector/generator identity differs",
+    "empty-subtree-root": "source root tree differs (including empty subtrees)"
+  },
+  "empty-subtree": {
+    "commit": "d70f40ce819972e558d73dab0547911a1f5d1287",
+    "root_tree": "e1a15a095096f31e8f951c07724099e16b5eaeb0",
+    "rc": 1,
+    "stdout": "",
+    "stderr_final_line": "ValueError: source root tree differs (including empty subtrees)"
+  },
+  "same-tree-new-commit": {
+    "commit": "4518a3a09bbc234693879c465e4308e47fb92d99",
+    "root_tree": "b3ce6c6ea70d9d40ff2b74fff691a0a11f70e437",
+    "rc": 0,
+    "stdout": "PASS T46 source binding: 127469 paths / 2190843187 logical bytes / 10 roots\n",
+    "stderr_final_line": ""
+  },
+  "bridge_retained": {
+    "paths": 48,
+    "counts": {
+      "pre_correction_exact": 48
+    },
+    "accepted_equals_completion": true,
+    "root_readback": {
+      "checked_at": "2026-11-03T11:21:36.199466+00:00",
+      "paths": 48,
+      "comparisons": 192,
+      "pre_correction_exact": 48,
+      "accepted_source_equal_completion": true
+    }
+  },
+  "t39_cutoff_readback": 48
+}

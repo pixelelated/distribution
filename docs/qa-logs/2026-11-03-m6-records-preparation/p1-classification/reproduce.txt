@@ -1,0 +1,12 @@
+Exact command used for this classification:
+taskset -c 8-23 python3 -B /tmp/m6-t46-reader-routes-gg28muia/classified/classify.py
+
+This command reads only the existing parent private packet and records-roots.json. It launches no subprocess and makes no Git, network or repository reads. It verifies the parent manifest SHA2567471749cec9d4f3a6b9e3a3bb3e98d2a5041e1ec3a72ba262fa5575c96964f70, then verifies all seven consumed files against that manifest. It also pins the earlier route table SHA25678d636e1527994244c27d13f12e709d3c3eba188472e36e5c28bbb7ff5f74666 and extractor SHA256be6fd1ce1d3a901ba942cbcfaca90b1357c5af97f3c8a2b4261cd469a22fdbe4.
+
+Inputs from parent packet: routes.json, target-metadata.json, entrypoints.json, summary.json, structural-findings.json, syntax-limits.md and extract.py. The extractor is read only to verify its identity; it is not imported or executed. Parent commands.json/reproduce.txt preserve the original ten-entrypoint extraction and exact direct-target metadata argv. Those original reads are not repeated by this continuation.
+
+Root selector documentary input: records-roots.json. Match directory roots at the root itself (navigation tree) or below the exact slash-delimited prefix; match docs/reviews/inventory.json by equality only. Never expand templates, resolve shorthand to an inferred base, read target bodies or count a tree route as a tracked-file member.
+
+Outputs: routes.json retains the full796-occurrence evidence with classifications; record-routes.tsv joins95 canonical occurrences to existing metadata; record-targets.json contains89 named target identities; entrypoints.json adds selector labels to the ten original entrypoint identities; results.json contains hashes, groups and preserved comparisons. Same classifications and counts must result from the retained input bytes.
+
+Root's factual answer cites #693 comment6602413967 and states that root verified areas.json at d707c82. P1 relies on that supplied documentary input, without an eleventh source read or an independent tracker readback in this continuation.

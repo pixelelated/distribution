@@ -1,0 +1,495 @@
+#!/usr/bin/env python3
+"""Check a code-auditor audit folder against the artifact contract.
+
+    tools/lint-audit-artifacts docs/audits/<folder> [--issue N]
+    tools/lint-audit-artifacts docs/audits/<folder> --phase pre-issue
+
+SKILL.md § Phase 6 says to run an artifact-contract lint before creating the
+punch-list issue, and to verify the contract by hand where none exists. The
+2026-08-24 run did it by hand and missed two things, so this exists instead:
+
+* a punch item recorded Resolved/Deferred with no commit or issue to point at
+  (PL-01 claimed a merge that had not happened - asserted from memory),
+* the audit issue created with prose headings and no tickable list, so the
+  Phase 7 gate lived in the file and not in the tracker.
+
+Both are mechanically checkable. Manual verification is not.
+The explicit pre-issue phase permits honestly open findings before Phase 6
+creates their tracker. The default resolution phase still requires outcomes;
+pre-issue success never certifies a completed audit or release gate (#470).
+
+A seat reply too sensitive for a public tree may be held off it (#1308, T34's
+PL-27): its receipt still binds the reply's sha256, and
+second-opinions/<reply>.held.json declares the hold. The lint then prints a
+HELD line and never opens the held path; it hashes only a copy put back.
+"""
+import argparse, hashlib, json, pathlib, re, subprocess, sys
+
+REQUIRED = ["01-research-notes.md", "02-forward-audit.md", "03-retrospective.md",
+            "04-analysis.md", "05-punch-list.md"]
+ANALYSIS_SECTIONS = ["Executive summary", "Acceptance-criteria scorecard",
+                     "Risk assessment", "Coverage boundary", "Quality self-check"]
+
+
+def check_review_plan(d, milestone, bad, ok):
+    """D-WORKFLOW-137: validate declared diversity against actual call receipts."""
+
+    def require(condition, detail):
+        if not condition:
+            raise ValueError(detail)
+
+    def held_declaration(name, receipt):
+        """#1308: the hold declared beside a receipt, or None when nothing is held.
+
+        The declaration lives in <reply>.held.json, never in the Facilitator's
+        receipt: a result file belongs to its producer (#597). path_at_hold is
+        a record, not an input -- nothing here opens it.
+        """
+        require('held' not in receipt, f'a hold belongs in {name}.held.json, not in the Facilitator receipt')
+        sidecar = root / (name + '.held.json')
+        require(sidecar.resolve().parent == root.resolve(), 'hold declaration escaped evidence folder')
+        if not sidecar.exists():
+            return None
+        held = json.loads(sidecar.read_text())
+        require(isinstance(held, dict) and held.get('schema_version') == 1, 'unsupported hold schema')
+        require(held.get('reply') == name, 'hold declaration names another reply')
+        sha = held.get('sha256')
+        require(isinstance(sha, str) and re.fullmatch(r'[0-9a-f]{64}', sha), 'hold declares no sha256 of 64 hex')
+        require(isinstance(held.get('reason'), str) and held['reason'].strip(), 'hold declares no reason')
+        where = pathlib.PurePosixPath(held.get('path_at_hold') or '')
+        require(where.is_absolute() and '..' not in where.parts
+                and not any(where.is_relative_to(x) for x in (d.absolute(), d.resolve())),
+                'hold declares no absolute path_at_hold outside the audit folder')
+        require(held.get('mode') is None or (isinstance(held['mode'], str)
+                                             and re.fullmatch(r'0?[0-7]{3}', held['mode'])),
+                'hold mode is not an octal string')
+        require(sha == receipt['final']['file_artifact_sha256']
+                and receipt.get('output_file_sha256', sha) == sha,
+                'held sha256 differs from the digest its receipt records')
+        recorded = held.get('recorded_in', [])
+        require(isinstance(recorded, list), 'hold recorded_in is not a list')
+        for rel in recorded:
+            require(isinstance(rel, str) and not pathlib.PurePosixPath(rel).is_absolute()
+                    and '..' not in pathlib.PurePosixPath(rel).parts
+                    and (d / rel).resolve().is_relative_to(d.resolve()), 'hold record escaped the audit folder')
+            require(sha in (d / rel).read_text(), f'hold record {rel} does not carry the held sha256')
+        return held
+
+    root = d / 'second-opinions'
+    try:
+        plan = json.loads((root / 'review-plan.json').read_text())
+        primary = plan['primary']
+        depth, reviewers = (plan['depth'], plan['reviewers'])
+        count = {'local': 0, 'independent': 1, 'extended': 2}[depth]
+        require(plan['schema_version'] == 1, 'unsupported review-plan schema')
+        require(isinstance(reviewers, list) and len(reviewers) == count, 'reviewer count does not match selected depth')
+        require(all(isinstance(primary[k], str) and primary[k].strip()
+                    for k in ('harness', 'model', 'lab', 'identity_source')),
+                'primary identity metadata is incomplete')
+        require(primary['lab'] not in ('unknown', ''), 'primary model lab is unknown')
+        if primary['model'] != 'unknown':
+            require(primary['model'].split('/', 1)[0] == primary['lab'], 'primary model and lab disagree')
+        # D-WORKFLOW-184 (#810): a renovation slice whose plan § 6c row says
+        # Local writes an epic-tier folder; it says so in the plan file.
+        tier_exception = bool(depth == 'local' and '-issue-' not in d.name
+                              and plan.get('tier_exception') == 'D-WORKFLOW-184'
+                              and isinstance(plan.get('reason'), str) and plan['reason'].strip())
+        if depth == 'local':
+            require('-issue-' in d.name or tier_exception, 'local-only cannot satisfy Epic/Milestone')
+        labs, members, outputs = ({primary['lab']}, set(), set())
+        held_off, held_copies = ([], [])
+        for reviewer in reviewers:
+            member, model, lab = (reviewer[k] for k in ('member', 'model', 'lab'))
+            require(member in ('claude', 'gpt', 'gemini', 'gemini-argon', 'kimi', 'muse'), 'reviewer is not an installed active member')
+            require(member not in members and lab not in labs, 'reviewers must be from distinct labs')
+            member_labs = {'claude': 'anthropic', 'gpt': 'openai', 'gemini': 'google', 'gemini-argon': 'google',
+                           'kimi': 'moonshotai', 'muse': 'meta'}
+            require(member_labs[member] == lab, 'reviewer member and lab disagree')
+            require(isinstance(model, str) and model.startswith(lab + '/'), 'reviewer model and lab disagree')
+            require(isinstance(reviewer['effort'], str) and reviewer['effort'], 'reviewer effort is missing')
+            labs.add(lab)
+            members.add(member)
+            calls = reviewer['calls']
+            required_phases = ['blind', 'refutation'] if milestone else ['refutation']
+            require([c['phase'] for c in calls] == required_phases,
+                    'missing or reordered review pass')
+            for call in calls:
+                name = call['output']
+                require(isinstance(name, str) and pathlib.Path(name).name == name
+                        and name.endswith('.md'), 'output must be one Markdown filename')
+                require(name not in outputs, 'review passes must have distinct output files')
+                outputs.add(name)
+                output = root / name
+                require(output.resolve().parent == root.resolve(), 'output escaped evidence folder')
+                pf = root / (name + '.provenance.json')
+                require(pf.resolve().parent == root.resolve(), 'receipt escaped evidence folder')
+                receipt = json.loads(pf.read_text())
+                final = receipt['final']
+                verification = final['verification']
+                require(receipt['facilitator_version'].startswith('council-facilitator@'), 'missing Facilitator version')
+                require(receipt['member'] == member, 'receipt belongs to another reviewer')
+                require(receipt['declared_model'].split(' ', 1)[0] == model, 'declared model differs from review plan')
+                require(final['outcome'] == 'success' and verification['result'] == 'PASS', 'review call did not succeed and verify')
+                require(verification['model_identity_source'] == 'provider_response', 'model identity is not provider-observed')
+                observed = verification['observed']
+                # Allow the dated alias only after the Facilitator's semantic PASS.
+                require(re.fullmatch(re.escape(model) + r'(?:-\d{8})?', observed),
+                        'served model differs from review plan')
+                effort = final['effort_verification']
+                require(effort['result'] == 'PASS' and effort['declared'] == reviewer['effort'], 'effort differs from plan or did not verify')
+                if member == 'gemini-argon':
+                    require(model == 'google/gemini-4-argon' and reviewer['effort'] == 'high',
+                            'Argon audit route differs from its installed model/effort')
+                if member in ('gpt', 'gemini-argon'):
+                    provider = final['provider_verification']
+                    require(provider['result'] == 'PASS', 'reviewer provider pin did not verify')
+                    expected_provider = 'OpenAI' if member == 'gpt' else 'Google'
+                    require(provider['observed_providers'] == [expected_provider],
+                            'reviewer served outside its installed provider pin')
+                held = held_declaration(name, receipt)
+                if held is not None and not output.exists() and not output.is_symlink():
+                    held_off.append((name, held['sha256']))
+                    continue
+                content = output.read_bytes()
+                require(content.strip(), 'empty reviewer output')
+                digest = hashlib.sha256(content).hexdigest()
+                if held is not None:
+                    require(digest == held['sha256'], 'the copy of a held reply differs from its held sha256')
+                    held_copies.append(name)
+                require(final['file_artifact_sha256'] == digest, 'review output digest differs')
+                if 'output_file_sha256' in receipt:
+                    require(receipt['output_file_sha256'] == digest, 'legacy output digest differs')
+        ok(f'review plan: {depth}, {1 + count} model perspectives, {len(outputs)} verified external calls')
+        for name, sha in held_off:
+            ok(f'HELD second-opinions/{name} (off-tree; sha256 bound): held off the tree, sha256 recorded, PASS'
+               f' -- its content is not checked here (receipt and hold agree on {sha})')
+        for name in held_copies:
+            ok(f'HELD second-opinions/{name}: the copy present matches its held sha256 (content checked here)')
+        if tier_exception:
+            ok(f"review-plan: local at epic tier under D-WORKFLOW-184 ({plan['reason'].strip()})")
+    except (OSError, ValueError, KeyError, TypeError, AttributeError, AssertionError) as e:
+        bad(f"second-opinions/review-plan.json or its call evidence is invalid: {e or 'contract mismatch'}")
+
+
+def main():
+    ap = argparse.ArgumentParser()
+    ap.add_argument("folder")
+    ap.add_argument("--issue", type=int, help="audit issue number to check the task list")
+    ap.add_argument("--repo", default="pixelelated/distribution")
+    ap.add_argument("--phase", choices=("pre-issue", "resolution"), default="resolution",
+                    help="pre-issue validates open review artifacts; default resolution requires every outcome")
+    args = ap.parse_args()
+    d = pathlib.Path(args.folder)
+    fails = []
+
+    def bad(msg):
+        fails.append(msg)
+        print(f"  FAIL  {msg}")
+
+    def ok(msg):
+        print(f"  ok    {msg}")
+
+    print(f"== {d}")
+    if not d.is_dir():
+        print("  FAIL  not a directory"); return 2
+
+    for f in REQUIRED:
+        (ok if (d / f).exists() else bad)(f)
+    milestone = "-milestone-" in d.name
+    if milestone:
+        (ok if (d / "00-running-log.md").exists() else bad)(
+            "00-running-log.md (mandatory at milestone tier)")
+
+    analysis = (d / "04-analysis.md").read_text() if (d / "04-analysis.md").exists() else ""
+    for sec in ANALYSIS_SECTIONS:
+        if sec.lower() in analysis.lower():
+            ok(f"04 § {sec}")
+        else:
+            bad(f"04-analysis.md missing section: {sec}")
+
+    # v1.12 (2026-10-02): cross-lab plans and all selected passes are verified.
+    # Completed older audits retain v1.11's historical GPT-only contract;
+    # their evidence is not rewritten to claim a different review occurred.
+    m = re.match(r"(\d{4})_(\d\d)_(\d\d)-(milestone|epic|issue)-", d.name)
+    current_contract = (d / "second-opinions/review-plan.json").exists() or (
+        m and m.group(4) in ("milestone", "epic")
+        and m.group(1, 2, 3) >= ("2026", "10", "02"))
+    if current_contract:
+        check_review_plan(d, milestone, bad, ok)
+        if not re.search(r"^##+ Second opinion", analysis, re.M):
+            bad("04-analysis.md has no Second opinion section recording the selected depth/outcome")
+    elif m and m.group(4) in ("milestone", "epic") and m.group(1, 2, 3) >= ("2026", "09", "24"):
+        if re.search(r"^##+ Second opinion", analysis, re.M):
+            ok("04 § Second opinion (Phase 4.6)")
+        else:
+            bad("04-analysis.md has no § Second opinion: Phase 4.6 (the GPT seat) was skipped or not recorded")
+        prov = list((d / "second-opinions").glob("*.provenance.json")) if (d / "second-opinions").is_dir() else []
+        if prov:
+            served = []
+            for pf in prov:
+                try:
+                    j = json.loads(pf.read_text())
+                    served.append(str(j.get("declared_model", "")) + " / " + str((j.get("final") or {}).get("verification", {}).get("observed", "")))
+                except Exception as e:  # noqa: BLE001
+                    served.append(f"unreadable ({e})")
+            if all("gpt-6-astra" in x for x in served):
+                ok(f"second-opinions/: {len(prov)} provenance file(s), the served model gpt-6-astra")
+            else:
+                bad(f"second-opinions/: a provenance file names another model or none: {served}")
+        else:
+            bad("second-opinions/ has no *.provenance.json: the seat's run left no record")
+
+    # Every Critical/High row of the findings index has a verification entry of
+    # its own, keyed by seat and number, not by number. On 2026-09-28 the GPT
+    # seat's F-CS-02 (Critical: a match could delete N64 .fla saves) shared its
+    # number with the Claude seat's F-CS-02 (High, a different defect); the
+    # pass listed ids, saw a mention, and moved on. Stream A found and fixed it
+    # because the file was its own (blindspot 66). An entry names its seat in
+    # the parenthesis after the id -- `F-CS-02 (gpt, ...)`, `(claude and gpt`,
+    # `(both seats` -- or sits under a seat heading such as `### 3-rclone-setup (gpt):`.
+    forward = (d / "02-forward-audit.md").read_text() if (d / "02-forward-audit.md").exists() else ""
+    fi, vi = forward.find("## Findings index"), forward.find("## Verification")
+    if fi >= 0 and vi > fi:
+        index, ver = forward[fi:vi], forward[vi:]
+        need = set()
+        for row in index.splitlines():
+            if row.startswith("| ") and not row.startswith("| bucket") and not re.match(r"^\|\s*-", row):
+                c = [x.strip() for x in row.strip("|").split("|")]
+                if len(c) > 3 and c[3] in ("Critical", "High") and re.match(r"G?[FG]2?-[A-Z][A-Z0-9-]*?-\d+$", c[2]) and c[1] in ("claude", "gpt"):
+                    need.add((c[1], c[2]))
+        have = set()
+        ctx = None
+        for line in ver.splitlines():
+            if line.startswith("### ") and not re.search(r"\bG?[FG]2?-[A-Z][A-Z0-9-]*?-\d+\b", line):
+                m = re.search(r"\((claude|gpt)\)", line)
+                ctx = m.group(1) if m else None
+                continue
+            if not (line.startswith("### ") or re.match(r"- \*\*G?[FG]2?-", line)):
+                continue
+            for m in re.finditer(r"\b(G?[FG]2?-[A-Z][A-Z0-9-]*?-\d+)\b\**\s*(?:\(([^)]*)\))?", line):
+                fid, par = m.group(1), (m.group(2) or "").lower()
+                seats = [x for x in ("claude", "gpt") if x in par]
+                if "both seats" in par:
+                    seats = ["claude", "gpt"]
+                if not seats and ctx:
+                    seats = [ctx]
+                for x in seats:
+                    have.add((x, fid))
+        short = sorted(need - have)
+        if need and not short:
+            ok(f"every Critical/High of the index has a verification entry for its seat ({len(need)} seat-and-number pairs)")
+        for seat, fid in short:
+            bad(f"02 § Verification has no entry for {fid} ({seat}) -- a number two seats used is two findings")
+
+    punch = (d / "05-punch-list.md").read_text() if (d / "05-punch-list.md").exists() else ""
+
+    # Every finding § Verification confirms is carried into 05 -- as an item's
+    # Source Finding or in the leads table -- or the confirmation was written
+    # and then lost. On 2026-09-28 G2-B-05 (gpt) was re-graded from High to
+    # "confirmed, Medium" with its fix stated, and reached neither the punch
+    # list nor a lead; the blind second opinion found it (S-06), this lint did
+    # not. A confirmed verdict is a `### <id> (<seat>...)` block whose
+    # `**Verdict:**` starts `**confirmed`, or a triage-table row whose grade
+    # cell does. 05's short forms are expanded: `G2-E-core-02, -03` names two
+    # ids, `G2-I-05..09` five.
+    if fi >= 0 and vi > fi:
+        confirmed = set()
+        for b in re.split(r"^(?=### )", ver, flags=re.M):
+            if b.startswith("### ") and re.search(r"^\*\*Verdict:\*\* \*\*confirmed", b, re.M):
+                for m in re.finditer(r"\b(G?[FG]2?-[A-Z][A-Za-z0-9-]*?-\d+|BS-\d+)\b", b.splitlines()[0]):
+                    confirmed.add(m.group(1))
+        for row in ver.splitlines():
+            if row.startswith("| ") and "**confirmed" in row:
+                c = [x.strip() for x in row.strip("|").split("|")]
+                if len(c) >= 2 and c[-1].startswith("**confirmed"):
+                    for m in re.finditer(r"\b(G?[FG]2?-[A-Z][A-Za-z0-9-]*?-\d+|BS-\d+)\b", c[0]):
+                        confirmed.add(m.group(1))
+        carried = set()
+        for m in re.finditer(r"\b(G?[FG]2?-[A-Z][A-Za-z0-9-]*?-)(\d+)(?:\.\.(\d+))?((?:,\s*-\d+(?:\.\.\d+)?)*)", punch):
+            pre, a, b, more = m.group(1), m.group(2), m.group(3), m.group(4) or ""
+            nums = [(a, b)] + [(x.group(1), x.group(2)) for x in re.finditer(r"-(\d+)(?:\.\.(\d+))?", more)]
+            for lo, hi in nums:
+                for n in range(int(lo), int(hi or lo) + 1):
+                    carried.add(f"{pre}{n:0{len(lo)}d}")
+        carried |= set(re.findall(r"\bBS-\d+\b", punch))
+        lost = sorted(confirmed - carried)
+        if confirmed and not lost:
+            ok(f"every confirmed verdict of 02 § Verification is carried in 05 ({len(confirmed)} ids)")
+        for fid in lost:
+            bad(f"02 § Verification confirms {fid} and 05 carries it nowhere -- neither an item's Source Finding nor a lead")
+    # A table whose last row is **Total** is the sum of the rows above it. The
+    # seat's G-11 under #258 (2026-09-24): the scorecard's printed total
+    # disagreed with its own rows by five boxes and eleven PASS verdicts, and
+    # the forward audit's per-section subtotals disagreed with both. Arithmetic
+    # is the one claim in an audit a tool can settle outright.
+    for tbl in re.findall(r"((?:^\|.*\n)+)", analysis + "\n", re.M):
+        rows = [r for r in tbl.strip().splitlines() if not re.match(r"^\|\s*:?-", r)]
+        tot = [r for r in rows if re.match(r"^\|\s*\*\*Total\*\*", r)]
+        if not tot:
+            continue
+
+        def nums(r):
+            return [int(c) if re.fullmatch(r"\d+", c) else None
+                    for c in [x.strip().strip("*").strip() for x in r.strip().strip("|").split("|")]]
+        body = [nums(r) for r in rows if r not in tot]
+        printed = nums(tot[-1])
+        off = []
+        for i, v in enumerate(printed):
+            if v is None:
+                continue
+            got = sum(r[i] for r in body if i < len(r) and r[i] is not None)
+            if got != v:
+                off.append(f"column {i}: printed {v}, the rows sum to {got}")
+        if off:
+            bad("04-analysis.md: a **Total** row is not the sum of its table -- " + "; ".join(off))
+        else:
+            ok(f"04-analysis.md: the **Total** row sums from its {len(body)} rows")
+
+    items = re.findall(r"^## (PL-\d+)\b.*$", punch, re.M)
+    if not items:
+        bad("05-punch-list.md declares no PL- items")
+    else:
+        ok(f"{len(items)} punch item(s): {', '.join(items)}")
+
+    # Every item needs a recorded outcome, and the outcome must cite something.
+    # Slice from the gate *heading*, not the first "Phase 7" mention: the
+    # instructions and the tracked-scope section may name it earlier, and a
+    # slice from there matches each item's own heading instead of its outcome.
+    # The gate's own heading, not the first heading that names Phase 7: #258's
+    # PL-015 item was titled "...its Phase 7 outcomes table..." and the slice
+    # began there, reading the item bodies as the gate (2026-09-24).
+    m = re.search(r"^#+ .*Phase 7 resolution gate.*$", punch, re.M) or re.search(r"^#+ .*Phase 7.*$", punch, re.M)
+    gate = punch[m.start():] if m else ""
+    if not gate:
+        bad("05-punch-list.md has no Phase 7 resolution gate")
+    # The outcome in force is the LAST cell that carries an outcome word: a
+    # table may grow a column per gate (2026-09-14's "Deferred -- fix stream",
+    # then 2026-09-24's "Resolved `abc`"), and the first word found would read
+    # the old one; the older tables put the word in a middle cell and the
+    # evidence after it (`| PL-01 | **Resolved** | 2b626195d8; ... |`), so the
+    # evidence is looked for from that cell to the row's end.
+    def outcome_cell(row):
+        cells = [c.strip() for c in row.strip().strip("|").split("|")]
+        idx = [i for i, c in enumerate(cells) if re.search(r"Resolved|Deferred|Withdrawn", c)]
+        return " | ".join(cells[idx[-1]:]) if idx else (cells[-1] if cells else row)
+
+    table_words = {}
+    for pl in items:
+        # A table row for the item first (`| PL-003 | ...`); a prose mention
+        # of the id -- the gate's lead may say which cut carried PL-003 --
+        # is not its outcome.
+        row = next((l for l in gate.splitlines() if re.match(r"^\|\s*" + re.escape(pl) + r"\s*\|", l)), None) \
+            or next((l for l in gate.splitlines() if re.search(r"\b" + re.escape(pl) + r"\b", l)), None)
+        if row is None:
+            bad(f"{pl} has no Phase 7 outcome"); continue
+        cell = outcome_cell(row)
+        if "Resolved" in cell and not re.search(r"`[0-9a-f]{7,40}`|#\d+", cell):
+            # A resolution can land as a commit or as a tracker edit; either is
+            # evidence, memory is not.
+            bad(f"{pl} marked Resolved but cites neither a commit nor an issue")
+        elif "Deferred" in cell and not re.search(r"#\d+|`[0-9a-f]{7,40}`", cell):
+            bad(f"{pl} marked Deferred but names no follow-up issue or commit")
+        elif not re.search(r"Resolved|Deferred|Withdrawn", cell):
+            # Only an explicit Open outcome cell is valid at this earlier
+            # gate. An absent/unknown outcome is never silently made open.
+            open_row = re.match(r"^\|\s*" + re.escape(pl) + r"\s*\|\s*Open\s*\|", row)
+            if args.phase == "pre-issue" and open_row:
+                table_words[pl] = "open"
+                ok(f"{pl} explicitly open; resolution remains required")
+            else:
+                bad(f"{pl} outcome is not one of Resolved/Deferred/Withdrawn")
+        else:
+            ok(f"{pl} outcome recorded with evidence")
+        for w in ("Resolved", "Deferred", "Withdrawn"):
+            if w in cell:
+                table_words[pl] = w.lower(); break
+
+    # The YAML index is what begin-delivery parses; the Phase 7 table is what
+    # a reader sees. #186's index said `open` for 32 items while its table
+    # said Deferred and the issue said done (audit #258 PL-015), and this
+    # lint read the table alone. Each id's index outcome must agree with the
+    # table's word: resolved/deferred/withdrawn against Resolved/Deferred/
+    # Withdrawn; `open` only where the table has no outcome yet.
+    idx = re.search(r"^punch_index:\s*$(.*?)^```", punch, re.M | re.S)
+    indexed = set()
+    if not idx:
+        # The YAML index arrived with the 2026-09-12 audit; the two folders
+        # before it have a table alone, which is what the checks above read.
+        ok("no punch_index YAML block (an audit from before the index; the table alone is checked)")
+    else:
+        for m in re.finditer(r"id:\s*(PL-\d+)\b(.*?)(?=\n-\s*(?:\{)?\s*id:|\Z)", idx.group(1), re.S):
+            pl, body = m.group(1), m.group(2)
+            indexed.add(pl)
+            # `outcome: deferred:#144`, `deferred (#N)`, `resolved (abc)`: the word is the first token
+            om = re.search(r"outcome:\s*['\"]?([A-Za-z]+)", body)
+            index_word = om.group(1).lower() if om else ""
+            table_word = table_words.get(pl, "")
+            if not index_word:
+                bad(f"{pl} has no outcome in the punch_index")
+            elif table_word and index_word != table_word:
+                bad(f"{pl} punch_index says {index_word!r} while the Phase 7 table says {table_word!r}")
+            elif not table_word and index_word != "open":
+                bad(f"{pl} punch_index says {index_word!r} while the Phase 7 table records no outcome")
+            else:
+                ok(f"{pl} index and table agree ({index_word})")
+
+    # The renovation face (M6, plan § 4 and § 6b; #641): a slice audit answers
+    # the seven renovation questions, and every punch item says which one it
+    # answers. Q1 modernize, Q2 standards, Q3 bugs, Q4 package currency, Q5
+    # efficiency, Q6 dead ends, Q7 clarity; `none` needs its reason.
+    if "-epic-m6-" in d.name:
+        face = re.search(r"^## Renovation face\s*$(.*?)(?=^## |\Z)", analysis, re.M | re.S)
+        if not face:
+            bad("04-analysis.md has no '## Renovation face' section (an M6 slice answers Q1 to Q7)")
+        else:
+            missing = [q for q in ("Q1", "Q2", "Q3", "Q4", "Q5", "Q6", "Q7")
+                       if not re.search(r"^### " + q + r"\b", face.group(1), re.M)]
+            if missing:
+                bad("04 § Renovation face has no subsection for " + ", ".join(missing))
+            else:
+                ok("04 § Renovation face answers Q1 to Q7")
+        if not idx:
+            bad("05-punch-list.md has no punch_index YAML block (an M6 slice's items carry their question there)")
+        else:
+            for m in re.finditer(r"id:\s*(PL-\d+)\b(.*?)(?=\n-\s*(?:\{)?\s*id:|\Z)", idx.group(1), re.S):
+                pl, body = m.group(1), m.group(2)
+                qm = re.search(r"question:\s*['\"]?(Q[1-7]|none)\b([^\n]*)", body)
+                if not qm:
+                    bad(f"{pl} carries no 'question: Q1..Q7' (or 'none' with a reason) in the punch_index")
+                elif qm.group(1) == "none" and not (
+                        re.search(r"[A-Za-z]{3}", qm.group(2)) or re.search(r"question_reason:\s*\S", body)):
+                    bad(f"{pl} says 'question: none' without a reason")
+                else:
+                    ok(f"{pl} answers {qm.group(1)}")
+            for pl in items:
+                if pl not in indexed:
+                    bad(f"{pl} is not in the punch_index, so its question is unrecorded")
+
+    if args.phase == "pre-issue":
+        for pl, word in table_words.items():
+            if word == "open" and pl not in indexed:
+                bad(f"{pl} is open but has no matching punch_index entry")
+
+    if args.issue:
+        try:
+            body = json.loads(subprocess.run(
+                ["gh", "issue", "view", str(args.issue), "--repo", args.repo, "--json", "body"],
+                capture_output=True, text=True, check=True).stdout)["body"]
+        except Exception as e:
+            bad(f"could not read issue #{args.issue}: {e}"); body = ""
+        boxes = re.findall(r"^- \[[ x]\]", body, re.M)
+        if len(boxes) < len(items):
+            bad(f"issue #{args.issue} has {len(boxes)} checkbox(es) for {len(items)} punch items")
+        else:
+            ok(f"issue #{args.issue} carries a task list ({len(boxes)} items)")
+        for pl in items:
+            (ok if pl in body else bad)(f"issue #{args.issue} references {pl}")
+
+    success = ("PASS pre-issue artifacts (does not certify resolution)"
+               if args.phase == "pre-issue" else "PASS")
+    print(f"\n{success if not fails else f'{len(fails)} CONTRACT FAILURE(S)'}")
+    return 1 if fails else 0
+
+
+if __name__ == "__main__":
+    sys.exit(main())

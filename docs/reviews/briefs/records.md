@@ -1,8 +1,9 @@
 # T46 — Records readers can rely on (#693)
 
-Version 1, coordinator, 2026-11-03. Candidate for the unfamiliar-executor
-proof; no audit starts until the explicit dispatch supplies the area epic,
-published brief and exact clean execution seed. D-WORKFLOW-236 governs this source contract. T44 completion is verified
+Version 2, coordinator, 2026-11-03. T5's unfamiliar-executor proof and
+three corrections are retained below. No audit starts until the explicit
+dispatch supplies the published brief and exact clean execution seed.
+D-WORKFLOW-236 governs this source contract. T44 completion is verified
 in #691 comment6592382782. This is the last source-reading slice, not a
 claim that all accepted M6 branches have already reached `next`.
 
@@ -18,7 +19,9 @@ model/effort and identity source; preserve historical authorship.
 Root creates `feature/m6-records-693` in
 `/workspace/repos/pixelelated/distribution.worktrees/m6-records-693` after
 proof. Do not execute in the historical emulator or accepted T41 trees.
-The dispatch names the exact seed. No second repository, source-tree
+The dispatch names the exact seed. The lane pointer is
+`.github/sessions/saved-session-state-feature-m6-records-693.md`.
+No second repository, source-tree
 export, compiler, guest or host allocation is needed. All subprocesses
 use CPUs8–23.
 
@@ -96,11 +99,28 @@ line or explicit named status section plus enough surrounding prose to
 identify its date, purpose, owner and historical/current claim. A whole-file
 link requires its title/front matter, status and navigation sections; do
 not semantically re-audit every historical transcript or code fence.
-For the86 work-log INDEX routes (which have no anchors), parse all entry
-headings for index alignment, then read the file title/date and its last
-timestamped entry through the next same-or-higher heading. Record exact
-line ranges and the amount actually read. Earlier entry bodies remain
-unread; no complete-day or complete-historical-behavior claim follows.
+For the86 anchorless day-log links, `day-range.py` in the preparation
+folder is the normative selector. It parses ATX headings at levels2–6
+outside backtick/tilde fences (up to three leading spaces). A supported
+heading begins with optional `[label] ` and optional `YYYY-MM-DD `,
+`YYYY_MM_DD ` or ISO date plus `T`, followed by24-hour HH:MM[:SS] and
+optional UTC/Z/+00:00. See its literal TIMESTAMP expression; this is
+syntax selection, not calendar validity or a claim of UTC for unlabelled
+historical times. Indented/setext/HTML headings are unsupported, not
+silently treated as a match.
+
+“Last” means the last supported timestamp heading in **file order**, not
+the greatest clock value. Start includes that heading. Stop excludes the
+next same-or-higher-level ATX heading outside fences, or is EOF. Read at
+most120 logical lines from that start; `truncated=true` means the rest
+was not read. A no-match result permits only the first40 logical lines
+for title/date/status, with `last_entry_claim=false`; retain the unknown
+format rather than guessing or expanding to a full-file read. Unclosed
+fences are explicit. Parse all heading metadata for index alignment,
+but never credit earlier entry bodies as read. `--stdin` returns only
+range metadata and does not print or execute source text. Its seven tiny
+synthetic cases are a new selection proof, not a historical-log audit.
+
 For inventory.json, inspect generation/source/schema metadata in memory,
 not its126149 row bodies as prose. The next pointer is historical at this
 cutoff, not this lane's live scheduling authority. Inspect the retros
@@ -229,6 +249,27 @@ or approved network execution for a distinct retry.
 ## 6. Outputs and continuous execution
 
 Fixed audit root: `docs/audits/2026_11_03-epic-m6-records/`.
+Use this exact Local JSON shape (also `local-plan-example.json` in the
+preparation folder), updating identity_source/session from your actual
+observation. The model namespace is lint normalization, not a provider call.
+
+```json
+{
+  "schema_version": 1,
+  "depth": "local",
+  "primary": {
+    "harness": "Codex",
+    "model": "openai/gpt-6-astra",
+    "lab": "openai",
+    "effort": "xhigh",
+    "identity_source": "Own observed Codex Herdr footer GPT-6-Astra xhigh; namespace normalized for lint, not provider-attested"
+  },
+  "reviewers": [],
+  "tier_exception": "D-WORKFLOW-184",
+  "reason": "T46 records is a Local table under plan section6c; no external reviewer."
+}
+```
+
 A:00-running-log.md,01-research-notes.md,stage-a/ source/seed binding,
 actual identity and first independent observations. Prove the existing
 lint accepts a tiny Local reviewers[] fixture and refuses a reviewer-count
@@ -261,12 +302,12 @@ Root installs the proved version in live693 before execution.
 3. Survey/current/source-cutoff denominators, historical self-row and799/0/4 delta reconcile without generator replay or recursive counting.
 4. Ten folder rows sum to127469 paths/2190843187 logical bytes; modes and unique-blob values agree with independently bound metadata.
 5. Ten entrypoints and every retained direct route are keyed, classified and bound to literal referrer/target identities, including unknown/template/dynamic cases.
-6. Every reading claim names actual ranges and purpose/date/status evidence; no body sweep, invented full reading or executed historical command.
+6. Every reading claim names actual ranges and purpose/date/status evidence; day-range.py selection/no-match/truncation is explicit, with no body sweep, invented full reading or executed historical command.
 7. Q1–Q7, conformance, interactions and self-refutation distinguish misleading current guidance from intentional history, templates and pending accepted integration.
 8. Accepted T39's48 paths/15Resolved/22Deferred/9Withdrawn and #1407's33/2770 boundary retain existing owners; no accepted work reopened or integrated source invented.
 9. Seven new table refusals and complete positive pass their expected exits; path/anchor fixtures and parser limits bind exact inputs/program/output.
 10. New per-commit confinement rejects source edit and edit-then-revert; original record/source/selector/program identities remain protected.
-11. Actual primary/lab/identity source and historical authorship remain truthful, Local reviewers[], no provider or independent-review claim.
+11. Actual primary/lab/identity source and historical authorship remain truthful; the namespaced Local plan, reviewers[], D-WORKFLOW-184 exception and reason pass the real interface, with no provider or independent-review claim.
 12. Pre-issue lint passes at D; after disposition both resolution forms pass and every punch item has a genuine evidenced Phase7 outcome.
 13. Audit/bug titles, parents/milestones, trace/Already written/VM rationale and checkbox predicates pass issue checks with exact readbacks.
 14. Current rules/register/index/ceremony/forbidden/hooks and exact final record scan retain actual exits and scope; unavailable checks are not PASS.
@@ -301,3 +342,28 @@ disposable exact-tip integration simulation preserves complete log entries
 and regenerates INDEX; it is separate from actual area/next integration.
 Literal failures and narrow reader corrections remain distinct. Completion
 marker follows acceptance; closure is separate from deferred owner work.
+
+## Version 2 corrections from the handoff proof
+
+T5 proof under693comment6602867918 read immutable candidate
+e9d512a230cf8dbd2cd985ae7984a6ef7eb9f9fc in ten top-level commands,
+including two honestly retained own read/display failures. Full return
+and lossless file map are in preparation/t5-proof/ (relative to §3's
+preparation directory). Literal membership, source/empty-subtree refusals,
+14 original P1 files,95/89 route join,48 T39 identities and18 criteria
+reconcile; the future audit controls remain future duties.
+
+1. Exact commit identity: v1 accepted a different commit with the same
+   root tree. v2 requires resolved commit==SOURCE before any output.
+   source-ref-correction.json binds a new actual identical-tree commit
+   refusal and exact-source positive in an owned no-checkout clone. The
+   original v1 acceptance remains in T5's proof, not relabelled.
+2. Local JSON: bare display model GPT-6-Astra fails model/lab agreement.
+   The supplied openai/gpt-6-astra example includes the actual observed
+   identity, reviewers[], tier_exception and nonempty reason. T5's real
+   isolated lint function proves the positive and reviewer-count negative;
+   root verifies the final example separately. No provider attestation.
+3. Day ranges: syntax/file-order/fence/boundary/EOF/no-match rules are now
+   explicit and executable, with a120-line cap and40-line fallback labelled
+   as limited reading. day-range-proof.json binds seven new synthetic
+   cases; no old log body or accepted producer was replayed.

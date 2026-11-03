@@ -1,0 +1,19 @@
+T46 proof command ledger — ten top-level shell invocations, all taskset -c 8-23 Python except literal #04.
+Absolute read-only root: /workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan-346.
+Private clone: /workspace/tmp/m6-t46-proof-t5-20261103/repo. No checkout/fetch.
+Every nested Git/gh argv is retained in command-01/02/03/06/07/08/09.json. #04 retains its exact command string and output. #05 failure is explicit.
+
+01 taskset -c 8-23 python3 -u - (gh issue view693 and1415 --repo pixelelated/distribution --json number,title,body,comments,state; gh api repos/pixelelated/distribution/issues/comments/6602867918; git show e9d512a230cf8dbd2cd985ae7984a6ef7eb9f9fc:docs/reviews/briefs/records.md; exact argv/hashes in command-01.json)
+02 taskset -c 8-23 python3 -u - (read retained full comments; git ls-tree -r candidate -- named preparation root; git show candidate:.../inputs.py; command-02.json)
+03 taskset -c 8-23 python3 -u - (git clone --shared --no-checkout --no-tags --no-hardlinks READONLY_ROOT PRIVATE_REPO; exact named preparation git-show reads; command-03.json)
+04 exact literal command in command-04.json, cwd PRIVATE_REPO.
+05 own schema display failed on a scalar before additional reads; command-05-failure.json.
+06 taskset -c 8-23 python3 -u - < proof-command-6.py (retained named packet/interface/rule reads; exact script retained).
+07 taskset -c 8-23 python3 -u - < proof-command-7.py (failed on missing local copy extract.py; no binding controls yet).
+08 taskset -c 8-23 python3 -u - < proof-command-8.py (reads missing named helper but never runs it; retention/selector/metadata/tiny-Git controls and T3948cutoff readbacks).
+09 taskset -c 8-23 python3 -u - < proof-command-9.py (actual isolated lint function/tiny range/selector/criteria/entrypoint metadata).
+10 taskset -c 8-23 python3 -u - (epic Local JSON fixture, package/hash handback, scoped Herdrget + prompt to m6-coordinator; delivery receipt excludes its own manifest to avoid self-reference).
+Scripts record actual paths and deliberately use new-directory refusal; reproduce in fresh private output paths, not over original receipts. Prior accepted parser/classifier/generator commands are provenance only and must not be invoked.
+
+Literal block result: exact PASS T46 source binding: 127469 paths / 2190843187 logical bytes / 10 roots.
+Reproducer source for binding controls is proof-command-8.py; range/model checks are proof-command-9.py. Those are new proof code, not accepted audit producers.

@@ -1,0 +1,110 @@
+{
+  "local_interface": {
+    "namespaced-local": {
+      "bad": [],
+      "ok": [
+        "review plan: local, 1 model perspectives, 0 verified external calls"
+      ]
+    },
+    "display-label-local": {
+      "bad": [
+        "second-opinions/review-plan.json or its call evidence is invalid: primary model and lab disagree"
+      ],
+      "ok": []
+    },
+    "reviewer-count": {
+      "bad": [
+        "second-opinions/review-plan.json or its call evidence is invalid: reviewer count does not match selected depth"
+      ],
+      "ok": []
+    }
+  },
+  "epic_local_exception_expression": [
+    "bool(depth == 'local' and '-issue-' not in d.name and (plan.get('tier_exception') == 'D-WORKFLOW-184') and isinstance(plan.get('reason'), str) and plan['reason'].strip())"
+  ],
+  "range_fixture": {
+    "only_synthetic": true,
+    "last_in_file_start": 5,
+    "exclusive_next_heading": 9,
+    "inclusive_selected_range": [
+      5,
+      8
+    ],
+    "chronological_latest_start": 3,
+    "ambiguities": [
+      "last means file order or timestamp maximum",
+      "through next heading includes boundary heading or stops before it",
+      "no timestamp / fenced pseudo-heading / same timestamp fallback must be explicit"
+    ]
+  },
+  "selector_tiny_cases": {
+    "docs/retros": true,
+    "docs/retros/a.md": true,
+    "docs/retrospective/a.md": true,
+    "docs/retrospective-other/a.md": false,
+    "docs/reviews/inventory.json": true,
+    "docs/reviews/inventory.json/extra": false,
+    "t43-final/": false
+  },
+  "criteria": {
+    "brief_count": 18,
+    "issue_count": 18,
+    "literal_equal": true,
+    "differences": []
+  },
+  "ten_roots": {
+    ".github/sessions": {
+      "paths": 356,
+      "logical_bytes": 6072333
+    },
+    "docs/audits": {
+      "paths": 59693,
+      "logical_bytes": 865462622
+    },
+    "docs/futros": {
+      "paths": 17,
+      "logical_bytes": 543002
+    },
+    "docs/qa-frames": {
+      "paths": 970,
+      "logical_bytes": 45454208
+    },
+    "docs/qa-logs": {
+      "paths": 65613,
+      "logical_bytes": 1212994199
+    },
+    "docs/retros": {
+      "paths": 8,
+      "logical_bytes": 75531
+    },
+    "docs/retrospective": {
+      "paths": 1,
+      "logical_bytes": 992
+    },
+    "docs/reviews/inventory.json": {
+      "paths": 1,
+      "logical_bytes": 33229468
+    },
+    "docs/work-logs": {
+      "paths": 95,
+      "logical_bytes": 3124144
+    },
+    "research": {
+      "paths": 715,
+      "logical_bytes": 23886688
+    }
+  },
+  "historical_denominators": {
+    "survey_rows": 126149,
+    "stored_lines": 22984582,
+    "generated_read_lines_not_budget": 15392661,
+    "inventory_self_stored_lines": 134637,
+    "delta": {
+      "added": 799,
+      "deleted": 0,
+      "changed": 4,
+      "unchanged": 126666
+    }
+  },
+  "entrypoint_metadata_readbacks": 10
+}

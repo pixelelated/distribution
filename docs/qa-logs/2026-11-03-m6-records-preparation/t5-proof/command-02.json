@@ -1,0 +1,25 @@
+[
+  {
+    "argv": [
+      "git",
+      "ls-tree",
+      "-r",
+      "e9d512a230cf8dbd2cd985ae7984a6ef7eb9f9fc",
+      "--",
+      "docs/qa-logs/2026-11-03-m6-records-preparation/"
+    ],
+    "rc": 0,
+    "stdout_sha256": "527a44bd096197506e95099a56baf65f83d797948c41259fa0fcf4d1f66e9607",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "show",
+      "e9d512a230cf8dbd2cd985ae7984a6ef7eb9f9fc:docs/qa-logs/2026-11-03-m6-records-preparation/inputs.py"
+    ],
+    "rc": 0,
+    "stdout_sha256": "c4fd76fb059d6b2a59efe51db1f4527f5e21f986b9fadd0be014ccf0028f000b",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  }
+]

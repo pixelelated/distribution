@@ -1,0 +1,89 @@
+[
+  {
+    "argv": [
+      "git",
+      "-C",
+      "/workspace/tmp/m6-t46-proof-t5-20261103/repo",
+      "rev-parse",
+      "--verify",
+      "4518a3a09bbc234693879c465e4308e47fb92d99^{commit}"
+    ],
+    "exit": 0,
+    "finished_at": "2026-11-03T11:47:51.405960+00:00",
+    "started_at": "2026-11-03T11:47:51.404458+00:00",
+    "stderr_bytes": 0,
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stdout_bytes": 41,
+    "stdout_sha256": "66b2d6ad14dd0997eed4b294c11ef14c636e09c93d1926a64069cc4080e634c0"
+  },
+  {
+    "argv": [
+      "git",
+      "-C",
+      "/workspace/tmp/m6-t46-proof-t5-20261103/repo",
+      "rev-parse",
+      "--verify",
+      "4518a3a09bbc234693879c465e4308e47fb92d99^{tree}"
+    ],
+    "exit": 0,
+    "finished_at": "2026-11-03T11:47:51.407448+00:00",
+    "started_at": "2026-11-03T11:47:51.406015+00:00",
+    "stderr_bytes": 0,
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stdout_bytes": 41,
+    "stdout_sha256": "e7864ef3cd83f14c4924e805b030fd35eb7b94f2f5e0e3df594e642be6127c23"
+  },
+  {
+    "argv": [
+      "git",
+      "-C",
+      "/workspace/tmp/m6-t46-proof-t5-20261103/repo",
+      "ls-tree",
+      "-l",
+      "-z",
+      "4518a3a09bbc234693879c465e4308e47fb92d99",
+      "--",
+      "docs/reviews/inventory.json",
+      "docs/reviews/areas.json",
+      "docs/reviews/slices.json",
+      "tools/renovation-inventory"
+    ],
+    "exit": 0,
+    "finished_at": "2026-11-03T11:47:51.408847+00:00",
+    "started_at": "2026-11-03T11:47:51.407492+00:00",
+    "stderr_bytes": 0,
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stdout_bytes": 349,
+    "stdout_sha256": "be9a55cda4100a94eecd9009db599f7e064622f05d0bed16e6eb33df1cd95a63"
+  },
+  {
+    "argv": [
+      "git",
+      "-C",
+      "/workspace/tmp/m6-t46-proof-t5-20261103/repo",
+      "ls-tree",
+      "-r",
+      "-l",
+      "-z",
+      "4518a3a09bbc234693879c465e4308e47fb92d99",
+      "--",
+      "docs/qa-logs",
+      "docs/qa-frames",
+      "docs/audits",
+      "docs/work-logs",
+      "docs/retros",
+      "docs/retrospective",
+      "docs/futros",
+      "research",
+      ".github/sessions",
+      "docs/reviews/inventory.json"
+    ],
+    "exit": 0,
+    "finished_at": "2026-11-03T11:47:51.590925+00:00",
+    "started_at": "2026-11-03T11:47:51.408895+00:00",
+    "stderr_bytes": 0,
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stdout_bytes": 24025252,
+    "stdout_sha256": "b3f1be7ba504ab292928c1b9e5a15f3c24e587a0faa1cc3733cd9afef5481157"
+  }
+]

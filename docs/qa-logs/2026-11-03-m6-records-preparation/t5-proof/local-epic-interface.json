@@ -1,0 +1,21 @@
+{
+  "input": {
+    "schema_version": 1,
+    "depth": "local",
+    "tier_exception": "D-WORKFLOW-184",
+    "reason": "T46 records is the Local table slice in plan section6c; this tiny fixture proves only the Local JSON interface.",
+    "primary": {
+      "harness": "Codex",
+      "model": "openai/gpt-6-astra",
+      "lab": "openai",
+      "effort": "xhigh",
+      "identity_source": "Actual harness label GPT-6-Astra, namespace normalized solely for the lint contract; no provider response or attestation"
+    },
+    "reviewers": []
+  },
+  "bad": [],
+  "ok": [
+    "review plan: local, 1 model perspectives, 0 verified external calls",
+    "review-plan: local at epic tier under D-WORKFLOW-184 (T46 records is the Local table slice in plan section6c; this tiny fixture proves only the Local JSON interface.)"
+  ]
+}

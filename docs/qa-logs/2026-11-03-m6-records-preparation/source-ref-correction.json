@@ -1,0 +1,106 @@
+{
+  "schema": 1,
+  "helper_sha256": "1ab10007bcaba531e6bea520ca51ca362baf7dd0c1686ddae56dfe2d8dd8c17f",
+  "proof_root": "/workspace/tmp/m6-t46-source-ref-proof-lskydvvr",
+  "wrong_commit": "62de0f9c261bda5bd34c06b21e98fe99eb788ac0",
+  "identical_root_tree": "b3ce6c6ea70d9d40ff2b74fff691a0a11f70e437",
+  "negative_refused_before_output": true,
+  "positive_passed": true,
+  "commands": [
+    {
+      "argv": [
+        "git",
+        "clone",
+        "--shared",
+        "--no-checkout",
+        "--quiet",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan-346",
+        "/workspace/tmp/m6-t46-source-ref-proof-lskydvvr/objects"
+      ],
+      "started_at": "2026-11-03T11:51:22.987808+00:00",
+      "finished_at": "2026-11-03T11:51:23.005551+00:00",
+      "exit": 0,
+      "stdout": "",
+      "stderr": "",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/tmp/m6-t46-source-ref-proof-lskydvvr/objects",
+        "-c",
+        "user.name=T46 proof",
+        "-c",
+        "user.email=t46-proof@example.invalid",
+        "commit-tree",
+        "b3ce6c6ea70d9d40ff2b74fff691a0a11f70e437"
+      ],
+      "started_at": "2026-11-03T11:51:23.005601+00:00",
+      "finished_at": "2026-11-03T11:51:23.006824+00:00",
+      "exit": 0,
+      "stdout": "62de0f9c261bda5bd34c06b21e98fe99eb788ac0\n",
+      "stderr": "",
+      "stdout_sha256": "5050e6e44e8fe00c17856fe6a0b3dab1851915af0ccd46ba2cd1eb99c9bb5d56",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/tmp/m6-t46-source-ref-proof-lskydvvr/objects",
+        "rev-parse",
+        "62de0f9c261bda5bd34c06b21e98fe99eb788ac0^{tree}"
+      ],
+      "started_at": "2026-11-03T11:51:23.006844+00:00",
+      "finished_at": "2026-11-03T11:51:23.007893+00:00",
+      "exit": 0,
+      "stdout": "b3ce6c6ea70d9d40ff2b74fff691a0a11f70e437\n",
+      "stderr": "",
+      "stdout_sha256": "e7864ef3cd83f14c4924e805b030fd35eb7b94f2f5e0e3df594e642be6127c23",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "python3",
+        "-B",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan-346/docs/qa-logs/2026-11-03-m6-records-preparation/inputs.py",
+        "--repo",
+        "/workspace/tmp/m6-t46-source-ref-proof-lskydvvr/objects",
+        "--ref",
+        "62de0f9c261bda5bd34c06b21e98fe99eb788ac0",
+        "--out",
+        "/workspace/tmp/m6-t46-source-ref-proof-lskydvvr/negative"
+      ],
+      "started_at": "2026-11-03T11:51:23.007925+00:00",
+      "finished_at": "2026-11-03T11:51:23.072761+00:00",
+      "exit": 1,
+      "stdout": "",
+      "stderr": "Traceback (most recent call last):\n  File \"/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan-346/docs/qa-logs/2026-11-03-m6-records-preparation/inputs.py\", line 121, in <module>\n    main()\n    ~~~~^^\n  File \"/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan-346/docs/qa-logs/2026-11-03-m6-records-preparation/inputs.py\", line 95, in main\n    raise ValueError(\"source commit differs even if its tree is identical\")\nValueError: source commit differs even if its tree is identical\n",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "ee470b3901a3e1fa50a619ab96a0644004bd3119e28967bf9669fe4e5bed4542"
+    },
+    {
+      "argv": [
+        "python3",
+        "-B",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan-346/docs/qa-logs/2026-11-03-m6-records-preparation/inputs.py",
+        "--repo",
+        "/workspace/tmp/m6-t46-source-ref-proof-lskydvvr/objects",
+        "--ref",
+        "d707c82ab8c48b674acc1f95a9571f0cb24d226a",
+        "--out",
+        "/workspace/tmp/m6-t46-source-ref-proof-lskydvvr/positive"
+      ],
+      "started_at": "2026-11-03T11:51:23.072824+00:00",
+      "finished_at": "2026-11-03T11:51:23.673306+00:00",
+      "exit": 0,
+      "stdout": "PASS T46 source binding: 127469 paths / 2190843187 logical bytes / 10 roots\n",
+      "stderr": "",
+      "stdout_sha256": "b5dde2f5ba4ce693f9d73f1308ffeb3fb2b0a25939b96a7d8f8b0b855198e030",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ],
+  "limit": "New input-helper correction only; private object clone without source checkout, no historical producer replay or shared-ref mutation."
+}
