@@ -12,17 +12,20 @@ their explicit preservation receipts. The register implementation passed sixteen
 new controls and root independently reconciled its exact output and side orders.
 The original helper failures and historical evidence remain unchanged.
 
-The canonical 46-endpoint sequence has now incorporated T1 and T2 into synthetic
+The canonical 46-endpoint sequence has now incorporated T1 through T5 into synthetic
 two-parent history. T1's resolution retained eighteen incoming record entries and
 both package dependency additions; the newly combined recipe passed pkgcheck and
-shell syntax. T2 retained five further incoming record entries. Each resolution
+shell syntax. T2 retained five further incoming record entries; T3 retained eleven more and T4
+five; T5 added thirteen and kept the combined brief unchanged. T4 also combined the doctrine updates and preserved the governing
+reading-prerequisite meaning; its new combined rules check passed. Each resolution
 preserved the complete carried record bytes, explicitly chose carried order where
 common entries had incompatible positions, and regenerated INDEX normally.
 No failed merge was replayed. The full carried ES package remains unchanged.
 
-The driver is stopped at T3 on five record paths. P1 and T1 are reading those exact
-new conflicts under #346 comment6611664772; root retains ordering, construction,
-INDEX regeneration and the next exact-pair disposition. No shared ref has moved.
+The driver is stopped at T6 on five record/brief paths. P1 and T3 received
+disjoint exact-pair inputs under #346 comment6612315278 and were observed working.
+Root retains source choices, construction, INDEX and serial continuation. No
+shared ref has moved.
 
 ## ES candidate
 
@@ -33,19 +36,21 @@ its original constructor and historical tests were not replayed.
 
 The driver is stopped at T21. Root constructed the seven-file combination and
 all three readers returned their bounded source results under6611433921. One new
-regression case is present as source only; it has not run. A concrete interface
-qualification is being checked against the already scheduled later endpoint by
-T3 under6611593758 before root chooses a correction or continuation. Detailed
-findings and exact bindings remain private. No compile/runtime acceptance is
-implied by source construction or lexical consistency.
+regression case is present as source only; it has not run. The later-endpoint
+followthrough returned, and root assigned a bounded correction under6611887591
+before continuation. The initial input-store omission was corrected with an exact
+read-only route; T3 resumed and returned a five-file private candidate with six unexecuted regression
+cases. Root verified all45 retained ordinary files and read the complete source
+diff. T1 and T5 are performing separate source readbacks under6612260823. Detailed
+findings and source bindings remain private; no compile/runtime acceptance is implied.
 
 ## Current lane observations
 
-P1 and T1 were observed working on the T3 distribution record conflicts. T3 was
-observed working on the bounded ES followthrough. T2 and T5 have completed their
-candidate readbacks and are available for the next useful dependency. Root is
-combining results and owns both serial drivers. These are dated observations,
-not a claim that every lane remains continuously busy.
+P1 and T3 were observed working on the next distribution inputs. T1 and T5 were
+observed working on the returned ES correction's production and helper/test sources.
+T2 completed its finite validation-route preparation and is available. Missing
+dependencies and execution boundaries remain explicit; no runtime was allocated.
+These are dated observations, not continuous-activity claims. Root owns both drivers.
 
 ## Independent findings and corrections
 
@@ -107,3 +112,22 @@ the substantive binding was delivered privately to the existing lanes.
 M7's latest finite container proof has an actual owner-recorded RETURN. Root
 read its masked ledger record; no new host census or runtime authority follows.
 M6 retains CPU8–23 for source/record work and no runtime allocation.
+
+Latest selected retention binds249 ordinary reports/receipts,797099 bytes in a
+separate fifth continuation packet. Its first retention refusal exposed a wrapper
+filename error: new run04 outer receipts had used the earlier run03 names. The
+new bytes are retained under unique names; original run03 bytes were restored
+exactly from their already sealed prior copies. Actual driver states/commands and
+source objects were untouched, and no producer reran. The correction record and
+failed attempt remain explicit. New wrappers must refuse existing destinations
+before execution. This packet remains local custody, not an off-host backup.
+
+A sixth selected retention packet binds248 new ordinary reports/receipts,715209
+bytes: T4 construction, authority, independent readback, private driver stop and
+next lane bindings. The guarded new wrapper did not overwrite earlier receipts.
+All original failures and prior candidate states remain available.
+
+Seventh selected retention binds264 files/594719 bytes: T5 resolution/run06 and
+returns, ES correction metadata, and next bounded bindings. Actual source objects
+remain in their exclusive stores. Neither private construction nor a source reader's
+consistency verdict is a compiled/tested or shared-integration result.
