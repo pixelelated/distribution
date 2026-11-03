@@ -175,3 +175,22 @@ M7's first owner returned before launch; a fresh owner02 grant was issued and
 actual START21:07:07.028070 recorded. M6 remains source-only through that
 window; M7 owns active supervision/cleanup and next. Later RETURN must be read
 before the runtime exclusion is released.
+
+## T32 private continuation and T14 returned partials
+
+T32's five-leaf composition received independent bounded catalogue, registration
+and production-source readbacks. The retained third retry arming is present in
+source. Root recorded a construction-only disposition and advanced the private
+driver once to7/11, stopping at T33's catalogue conflict. Compiler/runtime/UI
+evidence remains unexecuted; historical accepted audits were not replayed.
+
+T14's validator and wrapper each returned an isolated one-file partial with
+exact complements and other-leaf preservation. Independent readbacks are now
+assigned to T5/T1; P1/T2 are working on the finite new T33 inputs. Distribution
+remains13/46; T14 records/INDEX, composition and new validation remain root-owned.
+Original display refusal, producer preflight and receipt limitations are retained.
+
+Retention22/23 preserves326selectedmetadatafiles/1307767bytes locally; original
+Git objects remain in private owners, not an off-host backup. M7 owner02 and
+diagnostic01 have returned. Fresh diagnostic02 START21:42:29.496541 is active
+under its separate720s window; M6 stays source-only through actual RETURN.
