@@ -1,6 +1,6 @@
 # T44 punch list — D checkpoint
 
-One Low currency/documentation item; no Critical, High or Medium item and no new reactive bug. Root retains stream disposition and planning. Outcomes remain Open until that disposition.
+One Low currency/documentation item; no Critical, High or Medium item and no new reactive bug. Root retains stream disposition and planning. This opening description records the accepted D checkpoint. The current E/S1 documentary outcome follows below.
 
 ## PL-001: Record the doctest carry-or-update decision against the observed release
 
@@ -31,7 +31,7 @@ One Low currency/documentation item; no Critical, High or Medium item and no new
 
 | Item | Outcome | Evidence / next owner |
 | --- | --- | --- |
-| PL-001 | Open | D checkpoint; coordinator #700 disposition pending; no source action authorized |
+| PL-001 | Resolved | Carrying-decision documentation only; #691 comment6591582676, #1414 five-group follow-up, stage-e/disposition.md; source and compatibility work remain separately owned |
 
 ## Machine-readable index
 
@@ -47,5 +47,9 @@ punch_index:
   ladder: source/history and dated primary metadata; compatibility and installed proof absent
   next_mechanism: coordinator carry decision with revisit trigger or separately scoped update brief
   acceptance: exact dated decision or numbered follow-up binds versions, rationale, trigger and owners without accepted replay
-  outcome: open
+  outcome: resolved
 ```
+
+## E/S1 current outcome — 2026-11-03
+
+PL-001 is Resolved for the carrying-decision documentation only. [stage-e/disposition.md](stage-e/disposition.md) records the exact carry decision, rationale, trigger, owner links and preserved D qualifications. #1413 stays open for root acceptance. #1414 remains open, five criteria unchecked. The historical D finding above remains the reason this decision was required; it is not a source defect closure.

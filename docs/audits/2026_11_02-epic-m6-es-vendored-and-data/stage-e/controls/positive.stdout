@@ -1,0 +1,45 @@
+{
+  "result": "PASS",
+  "seed": "cdc032c8bf06a8f9bad6702449a4ce871f39a5a3",
+  "accepted_d": "9475bc5687940740b9a899464c767a64a3946b92",
+  "tip": "94b6c545d2fb6d7aa8ddb993c7068bb98a1faeac",
+  "tip_tree": "1183e48b5f1fcaf7342a29f530079ab0dc9b6862",
+  "commits": [
+    {
+      "commit": "9475bc5687940740b9a899464c767a64a3946b92",
+      "parent": "cdc032c8bf06a8f9bad6702449a4ce871f39a5a3",
+      "changed": [
+        "docs/audits/t44/00-running-log.md",
+        "docs/audits/t44/stage-a/frozen.json"
+      ],
+      "post_d": false
+    },
+    {
+      "commit": "94b6c545d2fb6d7aa8ddb993c7068bb98a1faeac",
+      "parent": "9475bc5687940740b9a899464c767a64a3946b92",
+      "changed": [
+        "docs/audits/t44/stage-e/decision.md",
+        "docs/retros/2026-11-03-m6-es-vendored-and-data.md",
+        "docs/work-logs/2026_11-work_logs/2026_11_03-work_log.md",
+        "docs/work-logs/INDEX.md"
+      ],
+      "post_d": true
+    }
+  ],
+  "seed_to_tip_changed": [
+    "docs/audits/t44/00-running-log.md",
+    "docs/audits/t44/stage-a/frozen.json",
+    "docs/audits/t44/stage-e/decision.md",
+    "docs/retros/2026-11-03-m6-es-vendored-and-data.md",
+    "docs/work-logs/2026_11-work_logs/2026_11_03-work_log.md",
+    "docs/work-logs/INDEX.md"
+  ],
+  "working_changes": [],
+  "preserved_D_artifacts": 1,
+  "D_mode_blob_manifest_sha256": "fa4e8357450054dfa79ba07d4530e1789ba391cc3390b4fe9392ff494cd2edd1",
+  "source_selector_rule_identity": "all non-allowlisted modes/blobs unchanged, including every commit",
+  "es_head": "2c7b21369e6cb3bdabd253bb3241cf9f40d24e5c",
+  "es_tree": "95486afa6594fe79a9fdb86dc7f0b15b7ee6c012",
+  "es_clean": true,
+  "allowlist_sha256": "84f823a5ba526d21f5323a6710d43767726a6c462010e4ce01737649d8980e28"
+}

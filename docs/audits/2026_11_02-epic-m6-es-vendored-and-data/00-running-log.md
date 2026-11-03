@@ -39,3 +39,9 @@ All required current D record gates rc0 (stage-d/gates-summary.json). Full-tree 
 ## 2026-11-02T23:30:12.456554+00:00 — Publication manifest correction before D return
 
 First commit d6d08bf19c was pushed clean, but immutable payload readback failed: manifest listed one ignored catalogue.cpython-314.pyc, absent from Git. Original commit/manifest/failure are preserved. Corrected manifest will enumerate tracked records only; ignored cache is receipt-bound owned scratch, not published evidence. Python -I ignores PYTHONDONTWRITEBYTECODE; -B is explicit on subsequent calls. No accepted producer rerun or source change. This is a substantive record correction before complete D handback, not a receipt-only commit loop.
+
+## E/S1 documentary outcome — 2026-11-03
+
+PL-001 is **Resolved for the carrying-decision documentation only** under [#691 dispatch6591582676](https://github.com/pixelelated/distribution/issues/691#issuecomment-6591582676). See [stage-e/disposition.md](stage-e/disposition.md) for the exact2.4.12 carry rationale, observed2.5.3 comparison, revisit trigger, all five #1414 routes and four preserved receipt qualifications. Questions1–3 are answered by that record. #1414 remains open with five unchecked future criteria; #1413 remains open for root acceptance. The preceding D text is dated history, not the current resolution status. No source upgrade, compatibility proof or combined tree is inferred. Both time-to-play quantities remain unmeasured.
+
+Actual new executor: Codex / openai/gpt-6-astra / openai / xhigh, own observed Herdr footer (UI observation, not provider attestation); session01a19d12-1c5f-7022-8053-102f6a94b7fe, wN:p5. Started reading2026-11-02; documentary writes2026-11-03 UTC. Original attribution and Local reviewers[] are unchanged.

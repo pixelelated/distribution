@@ -1,0 +1,18 @@
+{
+  "at": "2026-11-03T00:05:35.600534+00:00",
+  "reason": "New raw unified-diff context and its raw whitespace diagnostic themselves contain trailing spaces. Preserve them losslessly in JSON and external ordinary raw files before first commit; do not change accepted D records. diff-2 remains a real rc2 failure, original receipt unchanged.",
+  "files": [
+    {
+      "path": "stage-e/program-heading.diff",
+      "sha256": "fd31702886aad207a6b638c253068cc85b2754e955ff289bccfd81b3e0d698de",
+      "lossless_json": "stage-e/program-heading.diff.json",
+      "external_raw": "/tmp/m6-t44-eh-publication-qhf1l0l6/preserved-stage-e-program-heading.diff"
+    },
+    {
+      "path": "stage-e/diff-2/stdout",
+      "sha256": "9d285b5b3024d225a3818b4284256d100faa776deb488ae5d30acb65daae2547",
+      "lossless_json": "stage-e/diff-2/stdout.json",
+      "external_raw": "/tmp/m6-t44-eh-publication-qhf1l0l6/preserved-stage-e-diff-2-stdout"
+    }
+  ]
+}

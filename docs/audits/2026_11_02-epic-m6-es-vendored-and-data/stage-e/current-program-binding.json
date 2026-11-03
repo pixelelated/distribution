@@ -1,0 +1,18 @@
+{
+  "ref": "923dd5371ded83fa965449a83f7a16d15a174772",
+  "read_command": [
+    "git",
+    "show",
+    "REF:PATH"
+  ],
+  "old": {
+    "path": "docs/audits/2026_11_02-epic-m6-es-vendored-and-data/stage-d/pre-issue-1/records.py",
+    "sha256": "6858cf1cb719839b3d0e16c9976c847e0abbe3c07e2797abeab0931fdaeb2cee"
+  },
+  "current": {
+    "path": "docs/audits/2026_11_02-epic-m6-es-vendored-and-data/tools/records.py",
+    "sha256": "c6bf939816cb15c0b7bb0d7a5d241ab89e70c5dcda1ea1572682ba497294db5b"
+  },
+  "exact_diff": "--- docs/audits/2026_11_02-epic-m6-es-vendored-and-data/stage-d/pre-issue-1/records.py\n+++ docs/audits/2026_11_02-epic-m6-es-vendored-and-data/tools/records.py\n@@ -167,7 +167,7 @@\n \n The bounded table reconciles594 native keys, three450-line supplemental tests and four separate accepted companion branches. Full fork-code reading is5467 lines; vendored bodies are provenance coverage. One Low currency decision gap (doctest, PL-001) is ready for root disposition. The dual rcheevos marker is an inherited T20\u2192T44 lead. No new product bug, fix, dependency removal or integrated image is claimed.\n \n-## Acceptance criteria Scorecard\n+## Acceptance-criteria scorecard\n \n These are artifact-level D observations against live #691's20 criteria, not ticks or final acceptance. Future-stage obligations are left explicit.\n \n",
+  "assertion": "Only Scorecard -> Acceptance-criteria scorecard heading; original bindings unchanged"
+}

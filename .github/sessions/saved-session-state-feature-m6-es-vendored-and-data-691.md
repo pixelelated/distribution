@@ -1,3 +1,9 @@
+# Current T44 state — E/S1 documentary outcome
+
+Dispatch #691 comment6591582676 authorizes continuous records-only E–H. Accepted D923dd and whole ES55158/tree64b90 remain fixed. PL001 resolved for carrying-decision documentation only; stage-e/disposition.md and #1414 bind rationale, revisit trigger and five owners. F/G/H remain in progress; no audit closure/marker or root acceptance claimed. Actual Codex/openai/gpt-6-astra/xhigh, session01a19d12-1c5f-7022-8053-102f6a94b7fe/wN:p5. CPU8–23.
+
+## Preserved D pointer history
+
 # Current T44 state — D checkpoint
 
 Actual executor Codex/openai/gpt-6-astra/openai/xhigh, own visible Herdr footer (UI observation, not provider attestation); session01a19d12-1c5f-7022-8053-102f6a94b7fe/wN:p5. Dispatch #691 comment6590429015 is active; distribution seed48a335700d05a733703e1b58536877b91b921259 and whole ES55158d2a64c69fe295fb4e67fd174424a71b1b4d/tree64b90eb8cb07bdfcd690c74ff6bc980ae490657c verified.

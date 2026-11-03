@@ -76,3 +76,7 @@ Root/external/locale CMake, resource copy/lookup and standalone test interfaces 
 ### Q7 — Clarity
 
 Survey tier is not authorship, gitlink synthetic line is not source, companion branch is not integration. Failed consumers and corrected records remain separate. One new currency decision and inherited provenance inputs go to root with exact evidence, no execution pin or policy chosen here.
+
+## E/S1 documentary outcome — 2026-11-03
+
+PL-001 is **Resolved for the carrying-decision documentation only** under [#691 dispatch6591582676](https://github.com/pixelelated/distribution/issues/691#issuecomment-6591582676). See [stage-e/disposition.md](stage-e/disposition.md) for the exact2.4.12 carry rationale, observed2.5.3 comparison, revisit trigger, all five #1414 routes and four preserved receipt qualifications. Questions1–3 are answered by that record. #1414 remains open with five unchecked future criteria; #1413 remains open for root acceptance. The preceding D text is dated history, not the current resolution status. No source upgrade, compatibility proof or combined tree is inferred. Both time-to-play quantities remain unmeasured.

@@ -1,0 +1,13 @@
+{
+  "recorded_at": "2026-11-03T00:04:37.372109+00:00",
+  "program_sha256": "b762558858bdb7f1b5e2cdba8eb4d16c7df8d7758830e126bc44934f905cf3c4",
+  "observed": "Parallel receipt initialization ran git write-tree, causing index.lock contention. register/index/issue/diff wrappers exited1 before their intended checks ran; rules and ceremony completedrc0. No lock was removed. All jobs completed before editing the runner.",
+  "retained": [
+    "../register/input-scope.json",
+    "../index/input-scope.json",
+    "../issue/input-scope.json",
+    "../diff/input-scope.json"
+  ],
+  "limits": "Outer terminal diagnostics were observed but not saved as complete raw streams with hashes/times; no reconstruction is claimed. These incomplete attempts do not certify their gates.",
+  "correction": "Read-only git ls-files --stage -z SHA256 replaces write-tree; later gates receive distinct receipt directories."
+}
