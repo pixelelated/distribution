@@ -1,59 +1,48 @@
 # M6 integration construction progress
 
-Root observation at 2026-11-03T19:08:42.486968+00:00. These are private source candidates and
-bounded readbacks. Live integration, image qualification and issue closure remain
+Root observation at 2026-11-03T19:28:19.683871+00:00. These are private source candidates and
+bounded readbacks. Shared integration, image qualification and issue closure remain
 separate; M7 still owns next.
 
 ## Distribution candidate
 
-All thirteen initial M7/coordinator conflicts are resolved in the private store.
-The tool list, whole record entries, register decisions and generated index retain
-their explicit preservation receipts. The register implementation passed sixteen
-new controls and root independently reconciled its exact output and side orders.
-The original helper failures and historical evidence remain unchanged.
+The original thirteen M7/coordinator conflicts are resolved. Nine canonical
+endpoints, T1 through T9, are now incorporated into private two-parent history.
+Whole records, explicit order/separator choices and generated indexes retain their
+receipts. The full carried M7 ES package remains unchanged. No failed merge was
+replayed and no shared ref moved.
 
-The canonical 46-endpoint sequence has now incorporated T1 through T8 into synthetic
-two-parent history. T1's resolution retained eighteen incoming record entries and
-both package dependency additions; the newly combined recipe passed pkgcheck and
-shell syntax. T2 retained five further incoming entries; T3 retained eleven, T4
-five, T5 thirteen, T6 five, T7 four and T8 eight. T4 also combined the doctrine updates and
-preserved the governing reading-prerequisite meaning; its new combined rules
-check passed. Later resolutions kept that brief unchanged. Each resolution
-preserved the complete carried record bytes, explicitly chose carried order where
-common entries had incompatible positions, and regenerated INDEX normally.
-No failed merge was replayed. The full carried ES package remains unchanged.
-
-The driver is stopped at T9 on five rule/record paths. P1, T1 and T5 received
-disjoint exact-pair inputs under #346 comment6612961539 and were observed working.
-T8 preserved all carried QA rows and historical limitations, and its six-file
-resolution passed independent immutable readback before resume. Root retains
-source choices, construction, INDEX and serial continuation. No shared ref moved.
+The sequence is stopped at T10. All three bounded inputs returned under6613140117.
+Root constructed its eight-path candidate, preserving twelve new record entries
+already auto-combined in place. New rule/index checks passed. The combined host-tool
+selection and workflow condition now have a fresh, bounded validation assignment
+under6613406748. That assignment uses synthetic files, never old producer suites or
+production input directories. T10 has not resumed or been accepted.
 
 ## ES candidate
 
-The reconciled common M7 baseline entered the eleven-endpoint sequence without
-reapplying its patches. T2, T18 and T20 are incorporated in private synthetic
-history. T20's new combined source received two scoped independent readbacks;
-its original constructor and historical tests were not replayed.
+T2, T18, T20 and T21 are incorporated in the eleven-endpoint private sequence.
+The new T21 helper/caller correction and exact oracle amendment retain scoped
+source readbacks. Their tests remain unexecuted. The mandatory later T32 arming
+obligation remains explicit and has not been imported early.
 
-The T21 ten-file combination is now incorporated after scoped production/helper
-readbacks and one exact test-oracle amendment. Its new tests remain unexecuted.
-The driver stopped at T26 with four source/catalogue conflicts. The catalogue and unit-test input reviews
-returned under6612615661. T3 stopped during the production read on selected-model
-capacity, without a completed handback; T2 was observed working after the explicit
-transfer6612920645. No model switch or repeated prompt was used. The later T32 third-arming obligation remains explicit; it has
-not been imported early. No compilation, runtime or shared acceptance follows.
+The sequence is stopped at T26. Its transferred production input is complete.
+Root constructed the four-file candidate and dispatched independent production,
+catalogue and test-source readbacks under6613346843. The original constructor
+source-matcher refusal is preserved; a separately named narrow correction produced
+the candidate. New lifecycle/sample combinations require validation, not just
+successful source construction. No compiler, product tests or runtime ran; T26
+has not resumed or been accepted.
 
 ## Current lane observations
 
-P1, T1 and T5 were observed working after the T9 dispatch6612961539; T2 was
-observed working after the T26 transfer6612920645. T3 remains capacity-stopped.
-These are dated observations, not continuous-activity claims. Root owns source
-choices, exact construction and both serial drivers. T2's completed validation
-preparation identified the real han.h supplier; exact pugixml and rapidjson
-configure custody remains unbound. A subsequent root check of the conventional
-named pugixml module store also found it absent; this is not a global absence
-claim. No compiler/test/runtime admission exists.
+P1, T2 and T5 were observed working after6613346843; T1 was observed working
+after6613406748. T3 remains parked after selected-model capacity stopped its prior
+read, without a handback; no repeated prompt or model switch occurred. These are
+dated observations, not continuous-activity claims. Root owns both serial drivers
+and final choices. Exact dependency custody and the compiler/sysroot environment
+for later ES validation remain unbound; finite missing routes are not global
+absence. M6 holds no compiler, VM or product-runtime allocation.
 
 ## Independent findings and corrections
 
@@ -144,3 +133,8 @@ Tenth selected retention binds301 files/1102091 bytes: T8 resolution/run09,
 T8 and T26 bounded returns, the last publication/milestone receipts and new
 assignments. The capacity observation and explicit transfer are retained.
 The public checkpoint carries scope and custody, not the private finding payloads.
+
+Eleventh selected retention binds309files/1015148bytes; the twelfth binds66files/
+940768bytes. They retain new states, constructors, the original matcher failure,
+bounded returns and exact dispatch bindings. Original source objects remain in
+private owner stores; these local copies are not off-host backup.
