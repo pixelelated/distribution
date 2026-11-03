@@ -1,9 +1,10 @@
 # T46 — Correct current audit guidance, then finish E–H
 
-Version 1 candidate, coordinator, 2026-11-03. This is a proposed stream
-under plan §6b, D-WORKFLOW-189/225/236. It does not accept D or start E.
-Root must reconcile D, obtain the unfamiliar-executor proof, publish any
-corrections and explicitly dispatch this exact version on #693 first.
+Version 2, coordinator, 2026-11-03, D-WORKFLOW-237. Root reconciled D and
+completed the unfamiliar-executor proof with the corrections below.
+This is the stream specification under plan §6b and D-WORKFLOW-189/225/236.
+Execution starts only with the explicit #693 dispatch naming this published
+version. D acceptance within the qualifications below is not final resolution.
 
 ## 1. Owner, start and outcome boundary
 
@@ -47,7 +48,29 @@ fixtures, tracker message mismatch, staged whitespace refusal and normal
 pre-commit refusal stay failures with their actual evidence. Existing
 nonblocking ceremony warning remains a warning. Earlier snapshot gates
 are not newly attributed to final bytes or resolution. Root's D readback
-and any additional qualifications will be appended before dispatch.
+and the exact-version qualifications below delimit D acceptance.
+
+P1's bounded return reports247 matching checks and one explicit early-input
+versus final-input mismatch. Root independently matched all314 final blobs,
+their22391067-byte total and the exact scan framing digest, and verified four
+earlier hashes against preserved prefixes. The reports and exact commands
+are retained under docs/qa-logs/2026-11-03-m6-records-disposition/.
+
+- The first pre-issue lint binds04/05 prefixes of8278/2482 bytes, not final
+  8920/2807 bytes. The later issue lint exited0 but explicitly binds only
+  its program, not those final document inputs. Do not call either an
+  independently hash-bound final-document resolution run.
+- The pre-seal manifest's00/06 entries bind3846/3946-byte prefixes, not
+  final5007/5107 bytes after the transport erratum. Other retained manifest
+  entries reconcile. Final custody comes from the separate314-file manifest.
+- Forty outside-audit input occurrences were not independently reopened
+  by P1. Retained hashes and scope remain explicit. Current external scanner/
+  checkpoint-verifier script hashes are observations, not retroactively
+  added historical child-program bindings.
+- Correct two literal presentation errors during E: active04/#1417 wording
+  must say95 route occurrences/89 unique targets, and #1416's reviewed-source
+  context is lines17–20, not17–22. The finding at line19 remains valid.
+  Add a dated erratum; preserve original D receipts/readbacks and source bytes.
 
 ## 3. Literal stream binding
 
@@ -140,19 +163,31 @@ the exact T46 lane pointer; actual UTC execution-day worklog(s), INDEX;
 and `docs/retros/<actual-UTC-date>-m6-records.md`. Bind date paths explicitly
 from recorded execution dates, not a glob over all logs or retros. Existing
 source paths outside the README and original305 frozen audit files cannot
-change mode/type/blob. No deletions, renames, unsafe record modes or merges.
+change mode/type/blob. All new and mutable files are ordinary100644 blobs;
+invoke new Python tools with python3, without adding executable modes.
+No deletions, renames, symlinks/gitlinks, other modes or merges.
 
 The D confinement.py admits only the audit root, pointer, November3 log and
 INDEX; it intentionally cannot certify this source correction or G retro.
 Preserve it. Add a separately named E–H guard, with its own inputs and new
-tiny-Git controls. It inspects every commit from D to tip plus candidate
-working changes, rejects source edits and edit-then-revert outside the one
+tiny-Git controls. It inspects every commit from D to tip and, separately,
+the staged index, unstaged working-tree changes and untracked paths. Compare
+index mode/blob identities as well as working-file identities; a net
+D-to-working-tree diff cannot certify what the next commit will contain.
+It rejects source edits and edit-then-revert outside the one
 README, rejects changed frozen D artifacts, unrelated retro/day paths,
 unsafe modes/symlinks and merges. Any commit changing the README must leave
 the exact specified after blob, so a wrong edit followed by a repair still
 refuses. Its positive includes the exact README, authorized dated retro/log
 and allowed new records. Tiny synthetic metadata fixtures copy no product
 tree and execute no product behavior. Keep all original D tools unchanged.
+
+Three additional tiny fixtures must stage (a) an unauthorized source edit,
+(b) a frozen D artifact change and (c) wrong README bytes, then restore only
+each working file to its allowed bytes while leaving the index dirty.
+The new pre-commit guard must refuse each state; a clean net working diff
+is not an exemption. Apply exact README/frozen identities to the staged
+version too. No D control or old guard is replayed.
 
 No full-tree export or checkout is needed for E–H. If a tiny Git proof
 needs scratch, record its creation/content/owner and retain it through H.
@@ -164,10 +199,20 @@ After the actual S1 commit and its new proof, record PL-001 **Resolved for
 the current documentary correction** in new stage-e/disposition.md and
 05/YAML/Phase7 plus dated02/04/06/07 addenda. The finding's historical trace
 remains intact. Update audit #1417's one checkbox only when its committed
-source trace and required checks actually meet the predicate. Update bug
+source trace and required checks actually meet the predicate. Update the
+existing05 YAML outcome and first canonical Phase7 row; do not append a
+second resolution table below an unchanged Open row. The original D at
+its immutable tip and dated account remain historical. Update bug
 #1416 with exact source/proof evidence; its two criteria may then be checked.
 Both issues remain open for root acceptance/integration; no marker yet.
 Keep the18 #693 criteria unchanged for root.
+
+Before the actual S1 hash exists, pre-issue mode is appropriate for the
+new current-record snapshot; resolution follows the committed correction
+and genuine outcome update. The old current-gates.py and record-scan.py
+write stage-d and have the old allowlist: preserve them and use separately
+named new drivers with stage-e/f/g/h destinations. Do not invoke them as
+though they were the new harness.
 
 Run both existing resolution lints (normal and `--issue 1417`), current
 rules/register/index/ceremony/forbidden/hooks and owning issue checks,
@@ -175,6 +220,11 @@ new E–H per-commit confinement, exact305 frozen-artifact identity and
 protected source comparisons. Use original D producer receipts as evidence
 without invoking their producers. New final gates must bind current input
 and program versions; original incomplete metadata remains incomplete.
+
+In particular bind the current04/05, Local plan, source README and relevant
+checker versions as explicit inputs to the new resolution runs. The issue
+lint checks task presence, not checked state or closure; exact live readbacks
+must separately show the met1417/1416 criteria and both issues still open.
 
 Before each commit, the whole applicable new record/source harness must
 be green; expected old-source/refusal fixtures remain explicitly expected.
@@ -234,3 +284,24 @@ tool interfaces, dates/retro ownership and retained-only custody without
 running old producers or source-reading stages. At most ten top-level
 commands, private metadata/text and tiny Git only, no product checkout.
 Root records corrections and D reconciliation here before explicit dispatch.
+
+## Version 2 proof corrections and D qualifications
+
+T5 read immutable candidate a5693d4a2801e47d2464f53216013d855272cdea and
+returned report SHA2564ed45a7072054e505c9a7bd6d0d918673831fce9684364089703a29d0f5f622f.
+Eight shell commands plus one nonexecuting orchestration failure remain
+distinct. Literal membership,311/305/17 counts,29 transport boundaries,
+666→813-byte exact replacement, canonical link and retained-only H agree.
+No accepted producer was invoked. The full report/manifest are retained
+under the disposition directory's t5-proof/ with lossless original hashes.
+
+This version explicitly adds independent staged-index/worktree/untracked
+inspection and three index-only refusal cases, fixes new-file mode100644,
+and clarifies fresh drivers/outputs, pre-issue versus resolution timing,
+the existing first Phase7 row and exact checked/open tracker readbacks.
+Those new E–H controls remain executor duties, not T5-proved outcomes.
+
+P1 report SHA256e1bbfbb357b53924ec3c1443c8dc14d5ca2b22f41fb1e44e344505db3745355e
+and root-final-custody.json retain the two literal errata and the four
+earlier-prefix qualifications in §2. New F input bindings supplement them;
+they do not reconstruct historical inputs or relabel old snapshots.

@@ -1,0 +1,4472 @@
+{
+  "observed_at": "2026-11-03T13:07:53.931747+00:00",
+  "program_sha256": "6faf884c6b4a44198157ead3245f30e9fa15b12ae5cc4d62bc21a29329858e5a",
+  "scope": "Named D final-file custody and four preserved earlier prefixes only; no producer or scanner replay",
+  "tip": "a0d4c4fda7a0c16c04d57edf921ffeb741eff19b",
+  "seed": "8710a6210a40de0110244d03a886161ee06faf29",
+  "files": 314,
+  "logical_bytes": 22391067,
+  "stdin_sha256": "32b8eadf462755a5ab4072ba823b2018b30c5adf6fbdde8ed60ef6cb909de6a2",
+  "file_manifest_sha256": "100def4751866e27776650e269b7bf7f5bb5977943b5c2b2159702a6c6714b7b",
+  "earlier_input_qualifications": [
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/04-analysis.md",
+      "earlier_bytes": 8278,
+      "final_bytes": 8920,
+      "prefix_exact": true,
+      "earlier_equals_final": false
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/05-punch-list.md",
+      "earlier_bytes": 2482,
+      "final_bytes": 2807,
+      "prefix_exact": true,
+      "earlier_equals_final": false
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/00-running-log.md",
+      "earlier_bytes": 3846,
+      "final_bytes": 5007,
+      "prefix_exact": true,
+      "earlier_equals_final": false
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/06-audit-summary.md",
+      "earlier_bytes": 3946,
+      "final_bytes": 5107,
+      "prefix_exact": true,
+      "earlier_equals_final": false
+    }
+  ],
+  "commands": [
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan-346",
+        "show",
+        "-s",
+        "--format=%P",
+        "a0d4c4fda7a0c16c04d57edf921ffeb741eff19b"
+      ],
+      "start": "2026-11-03T13:07:53.414789+00:00",
+      "end": "2026-11-03T13:07:53.417953+00:00",
+      "rc": 0,
+      "stdout_sha256": "55fb06661d19de52fd47c473ae916a78fbccba8a75b69ed216db1846c3f2892d",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan-346",
+        "diff",
+        "--name-only",
+        "-z",
+        "8710a6210a40de0110244d03a886161ee06faf29",
+        "a0d4c4fda7a0c16c04d57edf921ffeb741eff19b"
+      ],
+      "start": "2026-11-03T13:07:53.417975+00:00",
+      "end": "2026-11-03T13:07:53.420908+00:00",
+      "rc": 0,
+      "stdout_sha256": "b5c5bf671f1336e43e5923251a68e619479dc17b74fc5120d8c3217ebb79f323",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan-346",
+        "show",
+        "a0d4c4fda7a0c16c04d57edf921ffeb741eff19b:.github/sessions/saved-session-state-feature-m6-records-693.md"
+      ],
+      "start": "2026-11-03T13:07:53.420996+00:00",
+      "end": "2026-11-03T13:07:53.422328+00:00",
+      "rc": 0,
+      "stdout_sha256": "0e8a80d878f3dbe2b894b0c696219ffc4d2cfb38817b2b74b155507bd98f64cb",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan-346",
+        "show",
+        "a0d4c4fda7a0c16c04d57edf921ffeb741eff19b:docs/audits/2026_11_03-epic-m6-records/00-running-log.md"
+      ],
+      "start": "2026-11-03T13:07:53.422343+00:00",
+      "end": "2026-11-03T13:07:53.423912+00:00",
+      "rc": 0,
+      "stdout_sha256": "b2781564c43d14c32025c45e1bf6788f443b8a90a39954d9245b1a822f5cc702",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan-346",
+        "show",
+        "a0d4c4fda7a0c16c04d57edf921ffeb741eff19b:docs/audits/2026_11_03-epic-m6-records/01-research-notes.md"
+      ],
+      "start": "2026-11-03T13:07:53.423935+00:00",
+      "end": "2026-11-03T13:07:53.425325+00:00",
+      "rc": 0,
+      "stdout_sha256": "99db14f93fb5ead40e1a49558cf902e287e770a6aedcd53e6f283cc132e4a844",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan-346",
+        "show",
+        "a0d4c4fda7a0c16c04d57edf921ffeb741eff19b:docs/audits/2026_11_03-epic-m6-records/02-forward-audit.md"
+      ],
+      "start": "2026-11-03T13:07:53.425342+00:00",
+      "end": "2026-11-03T13:07:53.427139+00:00",
+      "rc": 0,
+      "stdout_sha256": "48b738c0aac2a21422d7b93c82f6cb8af2abc3820d36909070024745bee7fe34",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan-346",
+        "show",
+        "a0d4c4fda7a0c16c04d57edf921ffeb741eff19b:docs/audits/2026_11_03-epic-m6-records/03-retrospective.md"
+      ],
+      "start": "2026-11-03T13:07:53.427258+00:00",
+      "end": "2026-11-03T13:07:53.428689+00:00",
+      "rc": 0,
+      "stdout_sha256": "30a9e57e737cd4568686fcccb51716710f5ae7ee389d76cd2989c599e027d1c9",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan-346",
+        "show",
+        "a0d4c4fda7a0c16c04d57edf921ffeb741eff19b:docs/audits/2026_11_03-epic-m6-records/04-analysis.md"
+      ],
+      "start": "2026-11-03T13:07:53.428708+00:00",
+      "end": "2026-11-03T13:07:53.430586+00:00",
+      "rc": 0,
+      "stdout_sha256": "758d0521f834dc2c384919d188ff1ae0f7a703b7a063fe916c5bc0ab607c53ff",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan-346",
+        "show",
+        "a0d4c4fda7a0c16c04d57edf921ffeb741eff19b:docs/audits/2026_11_03-epic-m6-records/05-punch-list.md"
+      ],
+      "start": "2026-11-03T13:07:53.430608+00:00",
+      "end": "2026-11-03T13:07:53.432019+00:00",
+      "rc": 0,
+      "stdout_sha256": "aa1fff61f90e8c755e1ab14e9c40eb7948d9e8c7b24fdb7985969015e52484d7",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan-346",
+        "show",
+        "a0d4c4fda7a0c16c04d57edf921ffeb741eff19b:docs/audits/2026_11_03-epic-m6-records/06-audit-summary.md"
+      ],
+      "start": "2026-11-03T13:07:53.432036+00:00",
+      "end": "2026-11-03T13:07:53.433536+00:00",
+      "rc": 0,
+      "stdout_sha256": "da3206bfbd5e7e9c20a15cf6439bbb132ea6f30f3b5e4376b14ac924edcb2a8d",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan-346",
+        "show",
+        "a0d4c4fda7a0c16c04d57edf921ffeb741eff19b:docs/audits/2026_11_03-epic-m6-records/07-questions-for-the-maintainer.md"
+      ],
+      "start": "2026-11-03T13:07:53.433555+00:00",
+      "end": "2026-11-03T13:07:53.434956+00:00",
+      "rc": 0,
+      "stdout_sha256": "5d5087c45c9e40d65f08f35ac9629a1d98ab43c3b0b9709edeb40978ccd3d5cf",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan-346",
+        "show",
+        "a0d4c4fda7a0c16c04d57edf921ffeb741eff19b:docs/audits/2026_11_03-epic-m6-records/second-opinions/review-plan.json"
+      ],
+      "start": "2026-11-03T13:07:53.434970+00:00",
+      "end": "2026-11-03T13:07:53.436335+00:00",
+      "rc": 0,
+      "stdout_sha256": "313657fba5a42bcd971d20edc26b0142d7c621e5d42ca3ca55e2dd55eed68ba9",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan-346",
+        "show",
+        "a0d4c4fda7a0c16c04d57edf921ffeb741eff19b:docs/audits/2026_11_03-epic-m6-records/stage-a/commands.json"
+      ],
+      "start": "2026-11-03T13:07:53.436351+00:00",
+      "end": "2026-11-03T13:07:53.437756+00:00",
+      "rc": 0,
+      "stdout_sha256": "e149fac929bd8b3295b61be3fa06167a4f9868625d26f5e7fdbaa2607dad0562",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan-346",
+        "show",
+        "a0d4c4fda7a0c16c04d57edf921ffeb741eff19b:docs/audits/2026_11_03-epic-m6-records/stage-a/dispatch-and-issues.json"
+      ],
+      "start": "2026-11-03T13:07:53.437775+00:00",
+      "end": "2026-11-03T13:07:53.439185+00:00",
+      "rc": 0,
+      "stdout_sha256": "1c999ae5e347671a92fcca0f6572373efddab4a89d5c199bcc0dcff004365b70",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan-346",
+        "show",
+        "a0d4c4fda7a0c16c04d57edf921ffeb741eff19b:docs/audits/2026_11_03-epic-m6-records/stage-a/first-independent-observations.json"
+      ],
+      "start": "2026-11-03T13:07:53.439215+00:00",
+      "end": "2026-11-03T13:07:53.440635+00:00",
+      "rc": 0,
+      "stdout_sha256": "c6fb730c71f1ccc3c9ac723c154ede29fe73dba267df6943494b1deb9e0429ad",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan-346",
+        "show",
+        "a0d4c4fda7a0c16c04d57edf921ffeb741eff19b:docs/audits/2026_11_03-epic-m6-records/stage-a/groups.json"
+      ],
+      "start": "2026-11-03T13:07:53.440649+00:00",
+      "end": "2026-11-03T13:07:53.442062+00:00",
+      "rc": 0,
+      "stdout_sha256": "e47509f11a57b580b19489095629201b76d18ef2c5a5eef7724c850b1a72e5bc",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan-346",
+        "show",
+        "a0d4c4fda7a0c16c04d57edf921ffeb741eff19b:docs/audits/2026_11_03-epic-m6-records/stage-a/local-fixtures/positive-v2/2026_11_03-epic-local-control/01-research-notes.md"
+      ],
+      "start": "2026-11-03T13:07:53.442079+00:00",
+      "end": "2026-11-03T13:07:53.443530+00:00",
+      "rc": 0,
+      "stdout_sha256": "4cecbda52e6102b33699897dbcb61fd157aef12ff84dcd42518c88ad98c9558f",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan-346",
+        "show",
+        "a0d4c4fda7a0c16c04d57edf921ffeb741eff19b:docs/audits/2026_11_03-epic-m6-records/stage-a/local-fixtures/positive-v2/2026_11_03-epic-local-control/02-forward-audit.md"
+      ],
+      "start": "2026-11-03T13:07:53.443544+00:00",
+      "end": "2026-11-03T13:07:53.444937+00:00",
+      "rc": 0,
+      "stdout_sha256": "4cecbda52e6102b33699897dbcb61fd157aef12ff84dcd42518c88ad98c9558f",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan-346",
+        "show",
+        "a0d4c4fda7a0c16c04d57edf921ffeb741eff19b:docs/audits/2026_11_03-epic-m6-records/stage-a/local-fixtures/positive-v2/2026_11_03-epic-local-control/03-retrospective.md"
+      ],
+      "start": "2026-11-03T13:07:53.444949+00:00",
+      "end": "2026-11-03T13:07:53.446449+00:00",
+      "rc": 0,
+      "stdout_sha256": "4cecbda52e6102b33699897dbcb61fd157aef12ff84dcd42518c88ad98c9558f",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan-346",
+        "show",
+        "a0d4c4fda7a0c16c04d57edf921ffeb741eff19b:docs/audits/2026_11_03-epic-m6-records/stage-a/local-fixtures/positive-v2/2026_11_03-epic-local-control/04-analysis.md"
+      ],
+      "start": "2026-11-03T13:07:53.446465+00:00",
+      "end": "2026-11-03T13:07:53.447966+00:00",
+      "rc": 0,
+      "stdout_sha256": "0870e2f38491aa96dfbe779835ad44ddbba8b11f330ab84908d40693817ecedc",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan-346",
+        "show",
+        "a0d4c4fda7a0c16c04d57edf921ffeb741eff19b:docs/audits/2026_11_03-epic-m6-records/stage-a/local-fixtures/positive-v2/2026_11_03-epic-local-control/05-punch-list.md"
+      ],
+      "start": "2026-11-03T13:07:53.448018+00:00",
+      "end": "2026-11-03T13:07:53.449579+00:00",
+      "rc": 0,
+      "stdout_sha256": "6fd73a2e2d89993c5d0edfabc65585609fed9f45af3f3b18eb654f9ea7b67a3b",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan-346",
+        "show",
+        "a0d4c4fda7a0c16c04d57edf921ffeb741eff19b:docs/audits/2026_11_03-epic-m6-records/stage-a/local-fixtures/positive-v2/2026_11_03-epic-local-control/second-opinions/review-plan.json"
+      ],
+      "start": "2026-11-03T13:07:53.449595+00:00",
+      "end": "2026-11-03T13:07:53.450961+00:00",
+      "rc": 0,
+      "stdout_sha256": "313657fba5a42bcd971d20edc26b0142d7c621e5d42ca3ca55e2dd55eed68ba9",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan-346",
+        "show",
+        "a0d4c4fda7a0c16c04d57edf921ffeb741eff19b:docs/audits/2026_11_03-epic-m6-records/stage-a/local-fixtures/positive/2026_11_03-epic-local-control/01-research-notes.md"
+      ],
+      "start": "2026-11-03T13:07:53.450975+00:00",
+      "end": "2026-11-03T13:07:53.452308+00:00",
+      "rc": 0,
+      "stdout_sha256": "4cecbda52e6102b33699897dbcb61fd157aef12ff84dcd42518c88ad98c9558f",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan-346",
+        "show",
+        "a0d4c4fda7a0c16c04d57edf921ffeb741eff19b:docs/audits/2026_11_03-epic-m6-records/stage-a/local-fixtures/positive/2026_11_03-epic-local-control/02-forward-audit.md"
+      ],
+      "start": "2026-11-03T13:07:53.452320+00:00",
+      "end": "2026-11-03T13:07:53.453653+00:00",
+      "rc": 0,
+      "stdout_sha256": "4cecbda52e6102b33699897dbcb61fd157aef12ff84dcd42518c88ad98c9558f",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan-346",
+        "show",
+        "a0d4c4fda7a0c16c04d57edf921ffeb741eff19b:docs/audits/2026_11_03-epic-m6-records/stage-a/local-fixtures/positive/2026_11_03-epic-local-control/03-retrospective.md"
+      ],
+      "start": "2026-11-03T13:07:53.453666+00:00",
+      "end": "2026-11-03T13:07:53.455138+00:00",
+      "rc": 0,
+      "stdout_sha256": "4cecbda52e6102b33699897dbcb61fd157aef12ff84dcd42518c88ad98c9558f",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan-346",
+        "show",
+        "a0d4c4fda7a0c16c04d57edf921ffeb741eff19b:docs/audits/2026_11_03-epic-m6-records/stage-a/local-fixtures/positive/2026_11_03-epic-local-control/04-analysis.md"
+      ],
+      "start": "2026-11-03T13:07:53.455153+00:00",
+      "end": "2026-11-03T13:07:53.456580+00:00",
+      "rc": 0,
+      "stdout_sha256": "0870e2f38491aa96dfbe779835ad44ddbba8b11f330ab84908d40693817ecedc",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan-346",
+        "show",
+        "a0d4c4fda7a0c16c04d57edf921ffeb741eff19b:docs/audits/2026_11_03-epic-m6-records/stage-a/local-fixtures/positive/2026_11_03-epic-local-control/05-punch-list.md"
+      ],
+      "start": "2026-11-03T13:07:53.456595+00:00",
+      "end": "2026-11-03T13:07:53.458011+00:00",
+      "rc": 0,
+      "stdout_sha256": "47e84435783a6afa83b11bc06215e2099eff97284938d84cb5f3b9243fa82ba6",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan-346",
+        "show",
+        "a0d4c4fda7a0c16c04d57edf921ffeb741eff19b:docs/audits/2026_11_03-epic-m6-records/stage-a/local-fixtures/positive/2026_11_03-epic-local-control/second-opinions/review-plan.json"
+      ],
+      "start": "2026-11-03T13:07:53.458025+00:00",
+      "end": "2026-11-03T13:07:53.459401+00:00",
+      "rc": 0,
+      "stdout_sha256": "313657fba5a42bcd971d20edc26b0142d7c621e5d42ca3ca55e2dd55eed68ba9",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan-346",
+        "show",
+        "a0d4c4fda7a0c16c04d57edf921ffeb741eff19b:docs/audits/2026_11_03-epic-m6-records/stage-a/local-fixtures/reviewer-count-negative-v2/2026_11_03-epic-local-control/01-research-notes.md"
+      ],
+      "start": "2026-11-03T13:07:53.459414+00:00",
+      "end": "2026-11-03T13:07:53.460984+00:00",
+      "rc": 0,
+      "stdout_sha256": "4cecbda52e6102b33699897dbcb61fd157aef12ff84dcd42518c88ad98c9558f",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan-346",
+        "show",
+        "a0d4c4fda7a0c16c04d57edf921ffeb741eff19b:docs/audits/2026_11_03-epic-m6-records/stage-a/local-fixtures/reviewer-count-negative-v2/2026_11_03-epic-local-control/02-forward-audit.md"
+      ],
+      "start": "2026-11-03T13:07:53.461000+00:00",
+      "end": "2026-11-03T13:07:53.462429+00:00",
+      "rc": 0,
+      "stdout_sha256": "4cecbda52e6102b33699897dbcb61fd157aef12ff84dcd42518c88ad98c9558f",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan-346",
+        "show",
+        "a0d4c4fda7a0c16c04d57edf921ffeb741eff19b:docs/audits/2026_11_03-epic-m6-records/stage-a/local-fixtures/reviewer-count-negative-v2/2026_11_03-epic-local-control/03-retrospective.md"
+      ],
+      "start": "2026-11-03T13:07:53.462445+00:00",
+      "end": "2026-11-03T13:07:53.463883+00:00",
+      "rc": 0,
+      "stdout_sha256": "4cecbda52e6102b33699897dbcb61fd157aef12ff84dcd42518c88ad98c9558f",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan-346",
+        "show",
+        "a0d4c4fda7a0c16c04d57edf921ffeb741eff19b:docs/audits/2026_11_03-epic-m6-records/stage-a/local-fixtures/reviewer-count-negative-v2/2026_11_03-epic-local-control/04-analysis.md"
+      ],
+      "start": "2026-11-03T13:07:53.463899+00:00",
+      "end": "2026-11-03T13:07:53.465292+00:00",
+      "rc": 0,
+      "stdout_sha256": "0870e2f38491aa96dfbe779835ad44ddbba8b11f330ab84908d40693817ecedc",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan-346",
+        "show",
+        "a0d4c4fda7a0c16c04d57edf921ffeb741eff19b:docs/audits/2026_11_03-epic-m6-records/stage-a/local-fixtures/reviewer-count-negative-v2/2026_11_03-epic-local-control/05-punch-list.md"
+      ],
+      "start": "2026-11-03T13:07:53.465308+00:00",
+      "end": "2026-11-03T13:07:53.466852+00:00",
+      "rc": 0,
+      "stdout_sha256": "6fd73a2e2d89993c5d0edfabc65585609fed9f45af3f3b18eb654f9ea7b67a3b",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan-346",
+        "show",
+        "a0d4c4fda7a0c16c04d57edf921ffeb741eff19b:docs/audits/2026_11_03-epic-m6-records/stage-a/local-fixtures/reviewer-count-negative-v2/2026_11_03-epic-local-control/second-opinions/review-plan.json"
+      ],
+      "start": "2026-11-03T13:07:53.466870+00:00",
+      "end": "2026-11-03T13:07:53.468246+00:00",
+      "rc": 0,
+      "stdout_sha256": "771d67355132b4a1414f1ec6acf1d3e2b54d737dd5129d02b652efbe7a96827c",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan-346",
+        "show",
+        "a0d4c4fda7a0c16c04d57edf921ffeb741eff19b:docs/audits/2026_11_03-epic-m6-records/stage-a/local-fixtures/reviewer-count-negative/2026_11_03-epic-local-control/01-research-notes.md"
+      ],
+      "start": "2026-11-03T13:07:53.468260+00:00",
+      "end": "2026-11-03T13:07:53.469664+00:00",
+      "rc": 0,
+      "stdout_sha256": "4cecbda52e6102b33699897dbcb61fd157aef12ff84dcd42518c88ad98c9558f",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan-346",
+        "show",
+        "a0d4c4fda7a0c16c04d57edf921ffeb741eff19b:docs/audits/2026_11_03-epic-m6-records/stage-a/local-fixtures/reviewer-count-negative/2026_11_03-epic-local-control/02-forward-audit.md"
+      ],
+      "start": "2026-11-03T13:07:53.469675+00:00",
+      "end": "2026-11-03T13:07:53.471168+00:00",
+      "rc": 0,
+      "stdout_sha256": "4cecbda52e6102b33699897dbcb61fd157aef12ff84dcd42518c88ad98c9558f",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan-346",
+        "show",
+        "a0d4c4fda7a0c16c04d57edf921ffeb741eff19b:docs/audits/2026_11_03-epic-m6-records/stage-a/local-fixtures/reviewer-count-negative/2026_11_03-epic-local-control/03-retrospective.md"
+      ],
+      "start": "2026-11-03T13:07:53.471211+00:00",
+      "end": "2026-11-03T13:07:53.472835+00:00",
+      "rc": 0,
+      "stdout_sha256": "4cecbda52e6102b33699897dbcb61fd157aef12ff84dcd42518c88ad98c9558f",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan-346",
+        "show",
+        "a0d4c4fda7a0c16c04d57edf921ffeb741eff19b:docs/audits/2026_11_03-epic-m6-records/stage-a/local-fixtures/reviewer-count-negative/2026_11_03-epic-local-control/04-analysis.md"
+      ],
+      "start": "2026-11-03T13:07:53.472850+00:00",
+      "end": "2026-11-03T13:07:53.474315+00:00",
+      "rc": 0,
+      "stdout_sha256": "0870e2f38491aa96dfbe779835ad44ddbba8b11f330ab84908d40693817ecedc",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan-346",
+        "show",
+        "a0d4c4fda7a0c16c04d57edf921ffeb741eff19b:docs/audits/2026_11_03-epic-m6-records/stage-a/local-fixtures/reviewer-count-negative/2026_11_03-epic-local-control/05-punch-list.md"
+      ],
+      "start": "2026-11-03T13:07:53.474330+00:00",
+      "end": "2026-11-03T13:07:53.475820+00:00",
+      "rc": 0,
+      "stdout_sha256": "47e84435783a6afa83b11bc06215e2099eff97284938d84cb5f3b9243fa82ba6",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan-346",
+        "show",
+        "a0d4c4fda7a0c16c04d57edf921ffeb741eff19b:docs/audits/2026_11_03-epic-m6-records/stage-a/local-fixtures/reviewer-count-negative/2026_11_03-epic-local-control/second-opinions/review-plan.json"
+      ],
+      "start": "2026-11-03T13:07:53.475836+00:00",
+      "end": "2026-11-03T13:07:53.477284+00:00",
+      "rc": 0,
+      "stdout_sha256": "771d67355132b4a1414f1ec6acf1d3e2b54d737dd5129d02b652efbe7a96827c",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan-346",
+        "show",
+        "a0d4c4fda7a0c16c04d57edf921ffeb741eff19b:docs/audits/2026_11_03-epic-m6-records/stage-a/local-positive-v2/receipt.json"
+      ],
+      "start": "2026-11-03T13:07:53.477299+00:00",
+      "end": "2026-11-03T13:07:53.478964+00:00",
+      "rc": 0,
+      "stdout_sha256": "bd1e1b7215cfd650b4c64bad4eab86e43d9ffc6dbcc6db7b7c28849f3cc46f65",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan-346",
+        "show",
+        "a0d4c4fda7a0c16c04d57edf921ffeb741eff19b:docs/audits/2026_11_03-epic-m6-records/stage-a/local-positive-v2/stderr"
+      ],
+      "start": "2026-11-03T13:07:53.478984+00:00",
+      "end": "2026-11-03T13:07:53.480612+00:00",
+      "rc": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan-346",
+        "show",
+        "a0d4c4fda7a0c16c04d57edf921ffeb741eff19b:docs/audits/2026_11_03-epic-m6-records/stage-a/local-positive-v2/stdout"
+      ],
+      "start": "2026-11-03T13:07:53.480633+00:00",
+      "end": "2026-11-03T13:07:53.482134+00:00",
+      "rc": 0,
+      "stdout_sha256": "be1e8c494249a36d6a16c9848be5d4a0088b2a1436572db4b34d8285f34ca7cc",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan-346",
+        "show",
+        "a0d4c4fda7a0c16c04d57edf921ffeb741eff19b:docs/audits/2026_11_03-epic-m6-records/stage-a/local-positive/receipt.json"
+      ],
+      "start": "2026-11-03T13:07:53.482147+00:00",
+      "end": "2026-11-03T13:07:53.483782+00:00",
+      "rc": 0,
+      "stdout_sha256": "b5263910e62d3d412ca65d012badf9d72ccf4d96e36db9698ce0f103b986190f",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan-346",
+        "show",
+        "a0d4c4fda7a0c16c04d57edf921ffeb741eff19b:docs/audits/2026_11_03-epic-m6-records/stage-a/local-positive/stderr"
+      ],
+      "start": "2026-11-03T13:07:53.483796+00:00",
+      "end": "2026-11-03T13:07:53.485216+00:00",
+      "rc": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan-346",
+        "show",
+        "a0d4c4fda7a0c16c04d57edf921ffeb741eff19b:docs/audits/2026_11_03-epic-m6-records/stage-a/local-positive/stdout"
+      ],
+      "start": "2026-11-03T13:07:53.485224+00:00",
+      "end": "2026-11-03T13:07:53.486607+00:00",
+      "rc": 0,
+      "stdout_sha256": "27d4986d3cf056734cbeffc4ba4578229189729284d2215b53d0a169a942a0ac",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan-346",
+        "show",
+        "a0d4c4fda7a0c16c04d57edf921ffeb741eff19b:docs/audits/2026_11_03-epic-m6-records/stage-a/local-reviewer-count-negative-v2/receipt.json"
+      ],
+      "start": "2026-11-03T13:07:53.486615+00:00",
+      "end": "2026-11-03T13:07:53.487995+00:00",
+      "rc": 0,
+      "stdout_sha256": "ce53476aeba93f9a0c21a259e2c887be5272e669b7462e269ca746f4045affc0",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan-346",
+        "show",
+        "a0d4c4fda7a0c16c04d57edf921ffeb741eff19b:docs/audits/2026_11_03-epic-m6-records/stage-a/local-reviewer-count-negative-v2/stderr"
+      ],
+      "start": "2026-11-03T13:07:53.488015+00:00",
+      "end": "2026-11-03T13:07:53.489405+00:00",
+      "rc": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan-346",
+        "show",
+        "a0d4c4fda7a0c16c04d57edf921ffeb741eff19b:docs/audits/2026_11_03-epic-m6-records/stage-a/local-reviewer-count-negative-v2/stdout"
+      ],
+      "start": "2026-11-03T13:07:53.489415+00:00",
+      "end": "2026-11-03T13:07:53.490773+00:00",
+      "rc": 0,
+      "stdout_sha256": "e8e2b395add376fa95ce276b7eeec290f8f2bf7029029e2ce68603c62209b109",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan-346",
+        "show",
+        "a0d4c4fda7a0c16c04d57edf921ffeb741eff19b:docs/audits/2026_11_03-epic-m6-records/stage-a/local-reviewer-count-negative/receipt.json"
+      ],
+      "start": "2026-11-03T13:07:53.490785+00:00",
+      "end": "2026-11-03T13:07:53.492149+00:00",
+      "rc": 0,
+      "stdout_sha256": "57df512fa367b7e196a3be746c75b8eb61359af1c259db535374f0728b33f32b",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan-346",
+        "show",
+        "a0d4c4fda7a0c16c04d57edf921ffeb741eff19b:docs/audits/2026_11_03-epic-m6-records/stage-a/local-reviewer-count-negative/stderr"
+      ],
+      "start": "2026-11-03T13:07:53.492169+00:00",
+      "end": "2026-11-03T13:07:53.493571+00:00",
+      "rc": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan-346",
+        "show",
+        "a0d4c4fda7a0c16c04d57edf921ffeb741eff19b:docs/audits/2026_11_03-epic-m6-records/stage-a/local-reviewer-count-negative/stdout"
+      ],
+      "start": "2026-11-03T13:07:53.493580+00:00",
+      "end": "2026-11-03T13:07:53.494932+00:00",
+      "rc": 0,
+      "stdout_sha256": "b4d641aa57df96d87c9dbeae2f0762dc48f13fba1af5af59fcb9531f718bd98a",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan-346",
+        "show",
+        "a0d4c4fda7a0c16c04d57edf921ffeb741eff19b:docs/audits/2026_11_03-epic-m6-records/stage-a/source-binding/receipt.json"
+      ],
+      "start": "2026-11-03T13:07:53.494948+00:00",
+      "end": "2026-11-03T13:07:53.496318+00:00",
+      "rc": 0,
+      "stdout_sha256": "b257dd88c3a969a408e9314ea8c7f7df213851e15dd604fd713f231e99620499",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan-346",
+        "show",
+        "a0d4c4fda7a0c16c04d57edf921ffeb741eff19b:docs/audits/2026_11_03-epic-m6-records/stage-a/source-binding/stderr"
+      ],
+      "start": "2026-11-03T13:07:53.496338+00:00",
+      "end": "2026-11-03T13:07:53.497802+00:00",
+      "rc": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan-346",
+        "show",
+        "a0d4c4fda7a0c16c04d57edf921ffeb741eff19b:docs/audits/2026_11_03-epic-m6-records/stage-a/source-binding/stdout"
+      ],
+      "start": "2026-11-03T13:07:53.497833+00:00",
+      "end": "2026-11-03T13:07:53.499217+00:00",
+      "rc": 0,
+      "stdout_sha256": "a50566a02c6395997cf9dc32bab20e1604513857676133ea1094e63b74fac1fc",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan-346",
+        "show",
+        "a0d4c4fda7a0c16c04d57edf921ffeb741eff19b:docs/audits/2026_11_03-epic-m6-records/stage-a/summary.json"
+      ],
+      "start": "2026-11-03T13:07:53.499232+00:00",
+      "end": "2026-11-03T13:07:53.500624+00:00",
+      "rc": 0,
+      "stdout_sha256": "cff4dbe1f8a3e4efa93f0b4a2668b9f3caf613290e556ef9e3c3fff75b0ca31e",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan-346",
+        "show",
+        "a0d4c4fda7a0c16c04d57edf921ffeb741eff19b:docs/audits/2026_11_03-epic-m6-records/stage-b/heading-metadata-proof/receipt.json"
+      ],
+      "start": "2026-11-03T13:07:53.500640+00:00",
+      "end": "2026-11-03T13:07:53.502035+00:00",
+      "rc": 0,
+      "stdout_sha256": "ee84e37f3cccd11ce5a7fdab70c9e0326c3d2599e10af153ebf54f63b6be8c8c",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan-346",
+        "show",
+        "a0d4c4fda7a0c16c04d57edf921ffeb741eff19b:docs/audits/2026_11_03-epic-m6-records/stage-b/heading-metadata-proof/stderr"
+      ],
+      "start": "2026-11-03T13:07:53.502052+00:00",
+      "end": "2026-11-03T13:07:53.503413+00:00",
+      "rc": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan-346",
+        "show",
+        "a0d4c4fda7a0c16c04d57edf921ffeb741eff19b:docs/audits/2026_11_03-epic-m6-records/stage-b/heading-metadata-proof/stdout"
+      ],
+      "start": "2026-11-03T13:07:53.503435+00:00",
+      "end": "2026-11-03T13:07:53.504804+00:00",
+      "rc": 0,
+      "stdout_sha256": "a169a8fac010fc3302365c0597643d90f947dd022fdcbb745fc55d8e4c043509",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan-346",
+        "show",
+        "a0d4c4fda7a0c16c04d57edf921ffeb741eff19b:docs/audits/2026_11_03-epic-m6-records/stage-b/heading-metadata.json"
+      ],
+      "start": "2026-11-03T13:07:53.504815+00:00",
+      "end": "2026-11-03T13:07:53.507164+00:00",
+      "rc": 0,
+      "stdout_sha256": "73744cb826da9cdd6edb2e7164bc598d5a2a9de5702e1f2f19fae9ce4545df20",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan-346",
+        "show",
+        "a0d4c4fda7a0c16c04d57edf921ffeb741eff19b:docs/audits/2026_11_03-epic-m6-records/stage-b/inherited-and-duplicates.json"
+      ],
+      "start": "2026-11-03T13:07:53.507855+00:00",
+      "end": "2026-11-03T13:07:53.509344+00:00",
+      "rc": 0,
+      "stdout_sha256": "bf008870a0816a0f9fae7dd449a2e8223d934b36b024e1563b5b84d10bc61cbe",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan-346",
+        "show",
+        "a0d4c4fda7a0c16c04d57edf921ffeb741eff19b:docs/audits/2026_11_03-epic-m6-records/stage-b/inventory-schema-proof/receipt.json"
+      ],
+      "start": "2026-11-03T13:07:53.509386+00:00",
+      "end": "2026-11-03T13:07:53.510751+00:00",
+      "rc": 0,
+      "stdout_sha256": "a2239700f7d9acf841e99a016cd66b0beee5b11373e06b3a9aa6724275534f38",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan-346",
+        "show",
+        "a0d4c4fda7a0c16c04d57edf921ffeb741eff19b:docs/audits/2026_11_03-epic-m6-records/stage-b/inventory-schema-proof/stderr"
+      ],
+      "start": "2026-11-03T13:07:53.510768+00:00",
+      "end": "2026-11-03T13:07:53.512165+00:00",
+      "rc": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan-346",
+        "show",
+        "a0d4c4fda7a0c16c04d57edf921ffeb741eff19b:docs/audits/2026_11_03-epic-m6-records/stage-b/inventory-schema-proof/stdout"
+      ],
+      "start": "2026-11-03T13:07:53.512197+00:00",
+      "end": "2026-11-03T13:07:53.513534+00:00",
+      "rc": 0,
+      "stdout_sha256": "724ec5576d93ddf30b666816f42e18bfdd0f5eca9a28085197668af97fd01db8",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan-346",
+        "show",
+        "a0d4c4fda7a0c16c04d57edf921ffeb741eff19b:docs/audits/2026_11_03-epic-m6-records/stage-b/inventory-schema.json"
+      ],
+      "start": "2026-11-03T13:07:53.513548+00:00",
+      "end": "2026-11-03T13:07:53.514880+00:00",
+      "rc": 0,
+      "stdout_sha256": "0b09be7853d34547e2ece76365d721fbb01b086f8e21ba4d69d5cdbaac7f9766",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan-346",
+        "show",
+        "a0d4c4fda7a0c16c04d57edf921ffeb741eff19b:docs/audits/2026_11_03-epic-m6-records/stage-b/observations.json"
+      ],
+      "start": "2026-11-03T13:07:53.514897+00:00",
+      "end": "2026-11-03T13:07:53.516340+00:00",
+      "rc": 0,
+      "stdout_sha256": "707cc6d550324fb65e9fad148c6ce9feecf6485ad2982a5340e5013598f377dd",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan-346",
+        "show",
+        "a0d4c4fda7a0c16c04d57edf921ffeb741eff19b:docs/audits/2026_11_03-epic-m6-records/stage-b/pointer-navigation/receipt.json"
+      ],
+      "start": "2026-11-03T13:07:53.516372+00:00",
+      "end": "2026-11-03T13:07:53.517725+00:00",
+      "rc": 0,
+      "stdout_sha256": "e07d588bf922a359d175849161aafa5baa892a952f9028acbce9bb40113ec40d",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan-346",
+        "show",
+        "a0d4c4fda7a0c16c04d57edf921ffeb741eff19b:docs/audits/2026_11_03-epic-m6-records/stage-b/pointer-navigation/stderr"
+      ],
+      "start": "2026-11-03T13:07:53.517741+00:00",
+      "end": "2026-11-03T13:07:53.519231+00:00",
+      "rc": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan-346",
+        "show",
+        "a0d4c4fda7a0c16c04d57edf921ffeb741eff19b:docs/audits/2026_11_03-epic-m6-records/stage-b/pointer-navigation/stdout"
+      ],
+      "start": "2026-11-03T13:07:53.519238+00:00",
+      "end": "2026-11-03T13:07:53.520560+00:00",
+      "rc": 0,
+      "stdout_sha256": "a6881234012f2181e5085c57744690a7cd662447ac5729ed4ea7e34bd7c9f356",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan-346",
+        "show",
+        "a0d4c4fda7a0c16c04d57edf921ffeb741eff19b:docs/audits/2026_11_03-epic-m6-records/stage-b/range-preparation/receipt.json"
+      ],
+      "start": "2026-11-03T13:07:53.520578+00:00",
+      "end": "2026-11-03T13:07:53.521974+00:00",
+      "rc": 0,
+      "stdout_sha256": "2e9e7fd988c24d31d4d4acedfe654026d4219fa8b42ac36871f462018f75f85d",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan-346",
+        "show",
+        "a0d4c4fda7a0c16c04d57edf921ffeb741eff19b:docs/audits/2026_11_03-epic-m6-records/stage-b/range-preparation/stderr"
+      ],
+      "start": "2026-11-03T13:07:53.521989+00:00",
+      "end": "2026-11-03T13:07:53.523357+00:00",
+      "rc": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan-346",
+        "show",
+        "a0d4c4fda7a0c16c04d57edf921ffeb741eff19b:docs/audits/2026_11_03-epic-m6-records/stage-b/range-preparation/stdout"
+      ],
+      "start": "2026-11-03T13:07:53.523386+00:00",
+      "end": "2026-11-03T13:07:53.524836+00:00",
+      "rc": 0,
+      "stdout_sha256": "feaa216ce96937bcd5ecdbabaf466582c6022a768ba8d5d68670447048734c41",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan-346",
+        "show",
+        "a0d4c4fda7a0c16c04d57edf921ffeb741eff19b:docs/audits/2026_11_03-epic-m6-records/stage-b/ranges.json"
+      ],
+      "start": "2026-11-03T13:07:53.524862+00:00",
+      "end": "2026-11-03T13:07:53.526456+00:00",
+      "rc": 0,
+      "stdout_sha256": "4949179c12efb2f9649178c7b40599071c42ec2ca911127ce8b120e79c87682a",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan-346",
+        "show",
+        "a0d4c4fda7a0c16c04d57edf921ffeb741eff19b:docs/audits/2026_11_03-epic-m6-records/stage-b/read-00/receipt.json"
+      ],
+      "start": "2026-11-03T13:07:53.526549+00:00",
+      "end": "2026-11-03T13:07:53.528044+00:00",
+      "rc": 0,
+      "stdout_sha256": "d6726b550315bdd8ae0ea03e30fc1e832bb485e5075ce4d3b8ad94076d3d39da",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan-346",
+        "show",
+        "a0d4c4fda7a0c16c04d57edf921ffeb741eff19b:docs/audits/2026_11_03-epic-m6-records/stage-b/read-00/stderr"
+      ],
+      "start": "2026-11-03T13:07:53.528061+00:00",
+      "end": "2026-11-03T13:07:53.529419+00:00",
+      "rc": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan-346",
+        "show",
+        "a0d4c4fda7a0c16c04d57edf921ffeb741eff19b:docs/audits/2026_11_03-epic-m6-records/stage-b/read-00/stdout"
+      ],
+      "start": "2026-11-03T13:07:53.529443+00:00",
+      "end": "2026-11-03T13:07:53.530900+00:00",
+      "rc": 0,
+      "stdout_sha256": "c65dcc0e355088e6293349618ab832b819f351ed55253f0d065fab17aaa41cd5",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan-346",
+        "show",
+        "a0d4c4fda7a0c16c04d57edf921ffeb741eff19b:docs/audits/2026_11_03-epic-m6-records/stage-b/read-01/receipt.json"
+      ],
+      "start": "2026-11-03T13:07:53.530954+00:00",
+      "end": "2026-11-03T13:07:53.532427+00:00",
+      "rc": 0,
+      "stdout_sha256": "66d0814d5fcc1f0b0aff6d57b37bafa79b3e5ecd8ddd117201bf0b78c9ded0dd",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan-346",
+        "show",
+        "a0d4c4fda7a0c16c04d57edf921ffeb741eff19b:docs/audits/2026_11_03-epic-m6-records/stage-b/read-01/stderr"
+      ],
+      "start": "2026-11-03T13:07:53.532445+00:00",
+      "end": "2026-11-03T13:07:53.533752+00:00",
+      "rc": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan-346",
+        "show",
+        "a0d4c4fda7a0c16c04d57edf921ffeb741eff19b:docs/audits/2026_11_03-epic-m6-records/stage-b/read-01/stdout"
+      ],
+      "start": "2026-11-03T13:07:53.533761+00:00",
+      "end": "2026-11-03T13:07:53.535165+00:00",
+      "rc": 0,
+      "stdout_sha256": "60632a2e05b76b69df0726dc01844d7e3589417d920b21adc0bb7fbb45d6fe5d",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan-346",
+        "show",
+        "a0d4c4fda7a0c16c04d57edf921ffeb741eff19b:docs/audits/2026_11_03-epic-m6-records/stage-b/read-02/receipt.json"
+      ],
+      "start": "2026-11-03T13:07:53.535183+00:00",
+      "end": "2026-11-03T13:07:53.536478+00:00",
+      "rc": 0,
+      "stdout_sha256": "f826bf9a719804f7cb82b76e7d982b9f95e9b805211c851e33a125894a13fb80",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan-346",
+        "show",
+        "a0d4c4fda7a0c16c04d57edf921ffeb741eff19b:docs/audits/2026_11_03-epic-m6-records/stage-b/read-02/stderr"
+      ],
+      "start": "2026-11-03T13:07:53.536494+00:00",
+      "end": "2026-11-03T13:07:53.537790+00:00",
+      "rc": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan-346",
+        "show",
+        "a0d4c4fda7a0c16c04d57edf921ffeb741eff19b:docs/audits/2026_11_03-epic-m6-records/stage-b/read-02/stdout"
+      ],
+      "start": "2026-11-03T13:07:53.537799+00:00",
+      "end": "2026-11-03T13:07:53.539215+00:00",
+      "rc": 0,
+      "stdout_sha256": "ffb4a18cc625425ae702538d919114ece07558b5b7c6404b62b88a5787c0f67d",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan-346",
+        "show",
+        "a0d4c4fda7a0c16c04d57edf921ffeb741eff19b:docs/audits/2026_11_03-epic-m6-records/stage-b/read-03/receipt.json"
+      ],
+      "start": "2026-11-03T13:07:53.539242+00:00",
+      "end": "2026-11-03T13:07:53.540552+00:00",
+      "rc": 0,
+      "stdout_sha256": "b44d25c954b242ffae912f92526f68f124dd0753af4ac94c03e07946c0e1974f",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan-346",
+        "show",
+        "a0d4c4fda7a0c16c04d57edf921ffeb741eff19b:docs/audits/2026_11_03-epic-m6-records/stage-b/read-03/stderr"
+      ],
+      "start": "2026-11-03T13:07:53.540561+00:00",
+      "end": "2026-11-03T13:07:53.541867+00:00",
+      "rc": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan-346",
+        "show",
+        "a0d4c4fda7a0c16c04d57edf921ffeb741eff19b:docs/audits/2026_11_03-epic-m6-records/stage-b/read-03/stdout"
+      ],
+      "start": "2026-11-03T13:07:53.541875+00:00",
+      "end": "2026-11-03T13:07:53.543258+00:00",
+      "rc": 0,
+      "stdout_sha256": "92c9ad2ec11ea6d61a63fb5c55e6779a3d9335f458311f7c0cc9ac1ddf7ba95a",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan-346",
+        "show",
+        "a0d4c4fda7a0c16c04d57edf921ffeb741eff19b:docs/audits/2026_11_03-epic-m6-records/stage-b/read-04/receipt.json"
+      ],
+      "start": "2026-11-03T13:07:53.543290+00:00",
+      "end": "2026-11-03T13:07:53.544699+00:00",
+      "rc": 0,
+      "stdout_sha256": "e65adb20d68a138a099a5593844bde3414a13e80dd033fd4d22b3e4b387fc616",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan-346",
+        "show",
+        "a0d4c4fda7a0c16c04d57edf921ffeb741eff19b:docs/audits/2026_11_03-epic-m6-records/stage-b/read-04/stderr"
+      ],
+      "start": "2026-11-03T13:07:53.544713+00:00",
+      "end": "2026-11-03T13:07:53.546050+00:00",
+      "rc": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan-346",
+        "show",
+        "a0d4c4fda7a0c16c04d57edf921ffeb741eff19b:docs/audits/2026_11_03-epic-m6-records/stage-b/read-04/stdout"
+      ],
+      "start": "2026-11-03T13:07:53.546057+00:00",
+      "end": "2026-11-03T13:07:53.547553+00:00",
+      "rc": 0,
+      "stdout_sha256": "661b73685bc7391f92180c263c5074b31746c94260b9cc4bb1d6de41a3436f92",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan-346",
+        "show",
+        "a0d4c4fda7a0c16c04d57edf921ffeb741eff19b:docs/audits/2026_11_03-epic-m6-records/stage-b/read-05/receipt.json"
+      ],
+      "start": "2026-11-03T13:07:53.547590+00:00",
+      "end": "2026-11-03T13:07:53.548931+00:00",
+      "rc": 0,
+      "stdout_sha256": "ef6f9e4626c0af86827b78bd5dd00692287b52a6ca32025e8c051ecb2469b2e8",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan-346",
+        "show",
+        "a0d4c4fda7a0c16c04d57edf921ffeb741eff19b:docs/audits/2026_11_03-epic-m6-records/stage-b/read-05/stderr"
+      ],
+      "start": "2026-11-03T13:07:53.548940+00:00",
+      "end": "2026-11-03T13:07:53.550214+00:00",
+      "rc": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan-346",
+        "show",
+        "a0d4c4fda7a0c16c04d57edf921ffeb741eff19b:docs/audits/2026_11_03-epic-m6-records/stage-b/read-05/stdout"
+      ],
+      "start": "2026-11-03T13:07:53.550221+00:00",
+      "end": "2026-11-03T13:07:53.551573+00:00",
+      "rc": 0,
+      "stdout_sha256": "4d66605f1711c2dc1bd70acf1ad603abd209a123bb7b2a297c9c5c17bbdcb777",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan-346",
+        "show",
+        "a0d4c4fda7a0c16c04d57edf921ffeb741eff19b:docs/audits/2026_11_03-epic-m6-records/stage-b/read-06/receipt.json"
+      ],
+      "start": "2026-11-03T13:07:53.551604+00:00",
+      "end": "2026-11-03T13:07:53.553041+00:00",
+      "rc": 0,
+      "stdout_sha256": "6c15a863c5f6a76df55f8b2871ed050cc2577b34ee458ea3df35947c732f5d88",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan-346",
+        "show",
+        "a0d4c4fda7a0c16c04d57edf921ffeb741eff19b:docs/audits/2026_11_03-epic-m6-records/stage-b/read-06/stderr"
+      ],
+      "start": "2026-11-03T13:07:53.553090+00:00",
+      "end": "2026-11-03T13:07:53.554386+00:00",
+      "rc": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan-346",
+        "show",
+        "a0d4c4fda7a0c16c04d57edf921ffeb741eff19b:docs/audits/2026_11_03-epic-m6-records/stage-b/read-06/stdout"
+      ],
+      "start": "2026-11-03T13:07:53.554426+00:00",
+      "end": "2026-11-03T13:07:53.555886+00:00",
+      "rc": 0,
+      "stdout_sha256": "2d9c00946c3c0e5f14f901611bfb6f7845080dd91c28983f377f4c0af548b340",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan-346",
+        "show",
+        "a0d4c4fda7a0c16c04d57edf921ffeb741eff19b:docs/audits/2026_11_03-epic-m6-records/stage-b/read-07/receipt.json"
+      ],
+      "start": "2026-11-03T13:07:53.555917+00:00",
+      "end": "2026-11-03T13:07:53.557400+00:00",
+      "rc": 0,
+      "stdout_sha256": "b26326575a72133f73fc6f04bf6ee37073252e25b9eaf445ac01641b345868ec",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan-346",
+        "show",
+        "a0d4c4fda7a0c16c04d57edf921ffeb741eff19b:docs/audits/2026_11_03-epic-m6-records/stage-b/read-07/stderr"
+      ],
+      "start": "2026-11-03T13:07:53.557417+00:00",
+      "end": "2026-11-03T13:07:53.558805+00:00",
+      "rc": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan-346",
+        "show",
+        "a0d4c4fda7a0c16c04d57edf921ffeb741eff19b:docs/audits/2026_11_03-epic-m6-records/stage-b/read-07/stdout"
+      ],
+      "start": "2026-11-03T13:07:53.558835+00:00",
+      "end": "2026-11-03T13:07:53.560437+00:00",
+      "rc": 0,
+      "stdout_sha256": "1cffca77366bba3c9b874bba6635176d78657e1761619990cb6173d601db029d",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan-346",
+        "show",
+        "a0d4c4fda7a0c16c04d57edf921ffeb741eff19b:docs/audits/2026_11_03-epic-m6-records/stage-b/read-08/receipt.json"
+      ],
+      "start": "2026-11-03T13:07:53.560465+00:00",
+      "end": "2026-11-03T13:07:53.561972+00:00",
+      "rc": 0,
+      "stdout_sha256": "d596222c2da552d0f68a29b9e25363a58458914c749aec371ec748b12fa0a1fa",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan-346",
+        "show",
+        "a0d4c4fda7a0c16c04d57edf921ffeb741eff19b:docs/audits/2026_11_03-epic-m6-records/stage-b/read-08/stderr"
+      ],
+      "start": "2026-11-03T13:07:53.561989+00:00",
+      "end": "2026-11-03T13:07:53.563528+00:00",
+      "rc": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan-346",
+        "show",
+        "a0d4c4fda7a0c16c04d57edf921ffeb741eff19b:docs/audits/2026_11_03-epic-m6-records/stage-b/read-08/stdout"
+      ],
+      "start": "2026-11-03T13:07:53.563558+00:00",
+      "end": "2026-11-03T13:07:53.565078+00:00",
+      "rc": 0,
+      "stdout_sha256": "3fb35c8531cd0f3505a12f76216e1ed8ff6ad71240b53b43b4bcc24ab21c9b21",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan-346",
+        "show",
+        "a0d4c4fda7a0c16c04d57edf921ffeb741eff19b:docs/audits/2026_11_03-epic-m6-records/stage-b/read-09/receipt.json"
+      ],
+      "start": "2026-11-03T13:07:53.565108+00:00",
+      "end": "2026-11-03T13:07:53.566540+00:00",
+      "rc": 0,
+      "stdout_sha256": "e6949221c3e9a6355d64bfb3519d7e445e8f384e194cd64cf8ee6e87f9d004d5",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan-346",
+        "show",
+        "a0d4c4fda7a0c16c04d57edf921ffeb741eff19b:docs/audits/2026_11_03-epic-m6-records/stage-b/read-09/stderr"
+      ],
+      "start": "2026-11-03T13:07:53.566554+00:00",
+      "end": "2026-11-03T13:07:53.567991+00:00",
+      "rc": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan-346",
+        "show",
+        "a0d4c4fda7a0c16c04d57edf921ffeb741eff19b:docs/audits/2026_11_03-epic-m6-records/stage-b/read-09/stdout"
+      ],
+      "start": "2026-11-03T13:07:53.567999+00:00",
+      "end": "2026-11-03T13:07:53.569503+00:00",
+      "rc": 0,
+      "stdout_sha256": "8957f88c0fb2e1c82b5cd3eb620a04e5159e784e22389dacee6f5b1ef30ea3f5",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan-346",
+        "show",
+        "a0d4c4fda7a0c16c04d57edf921ffeb741eff19b:docs/audits/2026_11_03-epic-m6-records/stage-b/read-10/receipt.json"
+      ],
+      "start": "2026-11-03T13:07:53.569533+00:00",
+      "end": "2026-11-03T13:07:53.570855+00:00",
+      "rc": 0,
+      "stdout_sha256": "fda2871f2b78cfe77779fea576180b676fc6551ed57cf5e53aa5e16297eb2b4b",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan-346",
+        "show",
+        "a0d4c4fda7a0c16c04d57edf921ffeb741eff19b:docs/audits/2026_11_03-epic-m6-records/stage-b/read-10/stderr"
+      ],
+      "start": "2026-11-03T13:07:53.570868+00:00",
+      "end": "2026-11-03T13:07:53.572201+00:00",
+      "rc": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan-346",
+        "show",
+        "a0d4c4fda7a0c16c04d57edf921ffeb741eff19b:docs/audits/2026_11_03-epic-m6-records/stage-b/read-10/stdout"
+      ],
+      "start": "2026-11-03T13:07:53.572210+00:00",
+      "end": "2026-11-03T13:07:53.573590+00:00",
+      "rc": 0,
+      "stdout_sha256": "a4e6798950fdc6a649a77ffd1b23e890de9bfb8f8d990ae773b03fe39ed09a26",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan-346",
+        "show",
+        "a0d4c4fda7a0c16c04d57edf921ffeb741eff19b:docs/audits/2026_11_03-epic-m6-records/stage-b/read-11/receipt.json"
+      ],
+      "start": "2026-11-03T13:07:53.573622+00:00",
+      "end": "2026-11-03T13:07:53.575045+00:00",
+      "rc": 0,
+      "stdout_sha256": "56eee5146b36d3b7f7a4fadff4344569eb56419a833fd2819e0bff88f09abbe1",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan-346",
+        "show",
+        "a0d4c4fda7a0c16c04d57edf921ffeb741eff19b:docs/audits/2026_11_03-epic-m6-records/stage-b/read-11/stderr"
+      ],
+      "start": "2026-11-03T13:07:53.575057+00:00",
+      "end": "2026-11-03T13:07:53.576338+00:00",
+      "rc": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan-346",
+        "show",
+        "a0d4c4fda7a0c16c04d57edf921ffeb741eff19b:docs/audits/2026_11_03-epic-m6-records/stage-b/read-11/stdout"
+      ],
+      "start": "2026-11-03T13:07:53.576361+00:00",
+      "end": "2026-11-03T13:07:53.578355+00:00",
+      "rc": 0,
+      "stdout_sha256": "8926d2167ee804087f285559e51fe766553907b0a1c8f0e51acdf07eb112035f",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan-346",
+        "show",
+        "a0d4c4fda7a0c16c04d57edf921ffeb741eff19b:docs/audits/2026_11_03-epic-m6-records/stage-b/read-12/receipt.json"
+      ],
+      "start": "2026-11-03T13:07:53.578385+00:00",
+      "end": "2026-11-03T13:07:53.579780+00:00",
+      "rc": 0,
+      "stdout_sha256": "39753cb134e1bfce6f255696fdb03f960487a4d6be3a621b2344050b396d882f",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan-346",
+        "show",
+        "a0d4c4fda7a0c16c04d57edf921ffeb741eff19b:docs/audits/2026_11_03-epic-m6-records/stage-b/read-12/stderr"
+      ],
+      "start": "2026-11-03T13:07:53.579797+00:00",
+      "end": "2026-11-03T13:07:53.581243+00:00",
+      "rc": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan-346",
+        "show",
+        "a0d4c4fda7a0c16c04d57edf921ffeb741eff19b:docs/audits/2026_11_03-epic-m6-records/stage-b/read-12/stdout"
+      ],
+      "start": "2026-11-03T13:07:53.581254+00:00",
+      "end": "2026-11-03T13:07:53.582668+00:00",
+      "rc": 0,
+      "stdout_sha256": "de19271ab41e192803ac3145e594900d306d1d20671b53ed84d6421d82274d30",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan-346",
+        "show",
+        "a0d4c4fda7a0c16c04d57edf921ffeb741eff19b:docs/audits/2026_11_03-epic-m6-records/stage-b/read-13/receipt.json"
+      ],
+      "start": "2026-11-03T13:07:53.582702+00:00",
+      "end": "2026-11-03T13:07:53.584086+00:00",
+      "rc": 0,
+      "stdout_sha256": "d6e4606a54bd00d59d22b7228c92072687ee0cc43d60575647a56552c216f732",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan-346",
+        "show",
+        "a0d4c4fda7a0c16c04d57edf921ffeb741eff19b:docs/audits/2026_11_03-epic-m6-records/stage-b/read-13/stderr"
+      ],
+      "start": "2026-11-03T13:07:53.584133+00:00",
+      "end": "2026-11-03T13:07:53.585551+00:00",
+      "rc": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan-346",
+        "show",
+        "a0d4c4fda7a0c16c04d57edf921ffeb741eff19b:docs/audits/2026_11_03-epic-m6-records/stage-b/read-13/stdout"
+      ],
+      "start": "2026-11-03T13:07:53.585580+00:00",
+      "end": "2026-11-03T13:07:53.587089+00:00",
+      "rc": 0,
+      "stdout_sha256": "0ca84360db5989c97e3c912548a224b4a11307191bc6f8f68237d53d600b713e",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan-346",
+        "show",
+        "a0d4c4fda7a0c16c04d57edf921ffeb741eff19b:docs/audits/2026_11_03-epic-m6-records/stage-b/read-14/receipt.json"
+      ],
+      "start": "2026-11-03T13:07:53.587121+00:00",
+      "end": "2026-11-03T13:07:53.588432+00:00",
+      "rc": 0,
+      "stdout_sha256": "24092c2c8b6a016e9fdecf4fafda953ee0a2ff509499a300634d2574f0398498",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan-346",
+        "show",
+        "a0d4c4fda7a0c16c04d57edf921ffeb741eff19b:docs/audits/2026_11_03-epic-m6-records/stage-b/read-14/stderr"
+      ],
+      "start": "2026-11-03T13:07:53.588448+00:00",
+      "end": "2026-11-03T13:07:53.589848+00:00",
+      "rc": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan-346",
+        "show",
+        "a0d4c4fda7a0c16c04d57edf921ffeb741eff19b:docs/audits/2026_11_03-epic-m6-records/stage-b/read-14/stdout"
+      ],
+      "start": "2026-11-03T13:07:53.589863+00:00",
+      "end": "2026-11-03T13:07:53.591313+00:00",
+      "rc": 0,
+      "stdout_sha256": "895edd616c33d96730dc889cb9512902331117dc63e9d72f6e6f65286b8dc37c",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan-346",
+        "show",
+        "a0d4c4fda7a0c16c04d57edf921ffeb741eff19b:docs/audits/2026_11_03-epic-m6-records/stage-b/read-15/receipt.json"
+      ],
+      "start": "2026-11-03T13:07:53.591343+00:00",
+      "end": "2026-11-03T13:07:53.592856+00:00",
+      "rc": 0,
+      "stdout_sha256": "a2bb78f03f659c9f6574a5f5e2b531724c716c5dac70791a3c15404001014851",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan-346",
+        "show",
+        "a0d4c4fda7a0c16c04d57edf921ffeb741eff19b:docs/audits/2026_11_03-epic-m6-records/stage-b/read-15/stderr"
+      ],
+      "start": "2026-11-03T13:07:53.592869+00:00",
+      "end": "2026-11-03T13:07:53.594166+00:00",
+      "rc": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan-346",
+        "show",
+        "a0d4c4fda7a0c16c04d57edf921ffeb741eff19b:docs/audits/2026_11_03-epic-m6-records/stage-b/read-15/stdout"
+      ],
+      "start": "2026-11-03T13:07:53.594174+00:00",
+      "end": "2026-11-03T13:07:53.595568+00:00",
+      "rc": 0,
+      "stdout_sha256": "50b8b0382d49749d47db066c974008e71f9f6e3c181f51fa86936414ad91f4cb",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan-346",
+        "show",
+        "a0d4c4fda7a0c16c04d57edf921ffeb741eff19b:docs/audits/2026_11_03-epic-m6-records/stage-b/read-16/receipt.json"
+      ],
+      "start": "2026-11-03T13:07:53.595596+00:00",
+      "end": "2026-11-03T13:07:53.597052+00:00",
+      "rc": 0,
+      "stdout_sha256": "14ba3a1a0f96922b385dec661a3f9083292e2c3970ad656ba71a10631b502efd",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan-346",
+        "show",
+        "a0d4c4fda7a0c16c04d57edf921ffeb741eff19b:docs/audits/2026_11_03-epic-m6-records/stage-b/read-16/stderr"
+      ],
+      "start": "2026-11-03T13:07:53.597069+00:00",
+      "end": "2026-11-03T13:07:53.598452+00:00",
+      "rc": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan-346",
+        "show",
+        "a0d4c4fda7a0c16c04d57edf921ffeb741eff19b:docs/audits/2026_11_03-epic-m6-records/stage-b/read-16/stdout"
+      ],
+      "start": "2026-11-03T13:07:53.598481+00:00",
+      "end": "2026-11-03T13:07:53.599988+00:00",
+      "rc": 0,
+      "stdout_sha256": "c7f307095dc9b70e106502706bb6bba78e70ecdbc39c1cfb69ea04dcc95a5092",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan-346",
+        "show",
+        "a0d4c4fda7a0c16c04d57edf921ffeb741eff19b:docs/audits/2026_11_03-epic-m6-records/stage-b/route-inputs.json"
+      ],
+      "start": "2026-11-03T13:07:53.600019+00:00",
+      "end": "2026-11-03T13:07:53.601509+00:00",
+      "rc": 0,
+      "stdout_sha256": "38654a79022594a0c2d6a3ce3fdaa0292c089516624b380737b6f8a807f65ecc",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan-346",
+        "show",
+        "a0d4c4fda7a0c16c04d57edf921ffeb741eff19b:docs/audits/2026_11_03-epic-m6-records/stage-b/table-assembly/receipt.json"
+      ],
+      "start": "2026-11-03T13:07:53.601583+00:00",
+      "end": "2026-11-03T13:07:53.602915+00:00",
+      "rc": 0,
+      "stdout_sha256": "c9e4684a9f99b45fdd6df8dd06c100d1fc2cf53d66d5a41547fc10940556138c",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan-346",
+        "show",
+        "a0d4c4fda7a0c16c04d57edf921ffeb741eff19b:docs/audits/2026_11_03-epic-m6-records/stage-b/table-assembly/stderr"
+      ],
+      "start": "2026-11-03T13:07:53.602936+00:00",
+      "end": "2026-11-03T13:07:53.604333+00:00",
+      "rc": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan-346",
+        "show",
+        "a0d4c4fda7a0c16c04d57edf921ffeb741eff19b:docs/audits/2026_11_03-epic-m6-records/stage-b/table-assembly/stdout"
+      ],
+      "start": "2026-11-03T13:07:53.604345+00:00",
+      "end": "2026-11-03T13:07:53.605633+00:00",
+      "rc": 0,
+      "stdout_sha256": "26c2fe5457aa57d8cfbb32e8202f2edf90db56b73ca2796d4229b4a6e4a964ad",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan-346",
+        "show",
+        "a0d4c4fda7a0c16c04d57edf921ffeb741eff19b:docs/audits/2026_11_03-epic-m6-records/stage-b/table.json"
+      ],
+      "start": "2026-11-03T13:07:53.605649+00:00",
+      "end": "2026-11-03T13:07:53.608505+00:00",
+      "rc": 0,
+      "stdout_sha256": "20c4b612470c12532433d4b1d97a3c87cc0c65f1f2eafbbaa569cb97d8151860",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan-346",
+        "show",
+        "a0d4c4fda7a0c16c04d57edf921ffeb741eff19b:docs/audits/2026_11_03-epic-m6-records/stage-c/confinement-edit_then_revert/receipt.json"
+      ],
+      "start": "2026-11-03T13:07:53.609693+00:00",
+      "end": "2026-11-03T13:07:53.611132+00:00",
+      "rc": 0,
+      "stdout_sha256": "ce155d57939ef152b4ba50a718997ad96277e1836d291fbf15d0f18ffd956bde",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan-346",
+        "show",
+        "a0d4c4fda7a0c16c04d57edf921ffeb741eff19b:docs/audits/2026_11_03-epic-m6-records/stage-c/confinement-edit_then_revert/stderr"
+      ],
+      "start": "2026-11-03T13:07:53.611148+00:00",
+      "end": "2026-11-03T13:07:53.612459+00:00",
+      "rc": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan-346",
+        "show",
+        "a0d4c4fda7a0c16c04d57edf921ffeb741eff19b:docs/audits/2026_11_03-epic-m6-records/stage-c/confinement-edit_then_revert/stdout"
+      ],
+      "start": "2026-11-03T13:07:53.612468+00:00",
+      "end": "2026-11-03T13:07:53.613792+00:00",
+      "rc": 0,
+      "stdout_sha256": "43b38fd505e9c67240553b44156cf64ee850771792fa0dca1abc08e896b8b47e",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan-346",
+        "show",
+        "a0d4c4fda7a0c16c04d57edf921ffeb741eff19b:docs/audits/2026_11_03-epic-m6-records/stage-c/confinement-fixtures.json"
+      ],
+      "start": "2026-11-03T13:07:53.613807+00:00",
+      "end": "2026-11-03T13:07:53.615225+00:00",
+      "rc": 0,
+      "stdout_sha256": "26e66625222885bc1dbd1d4e997175e10fa6a04e1b2a276ba9f01a4408a38159",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan-346",
+        "show",
+        "a0d4c4fda7a0c16c04d57edf921ffeb741eff19b:docs/audits/2026_11_03-epic-m6-records/stage-c/confinement-positive/receipt.json"
+      ],
+      "start": "2026-11-03T13:07:53.615243+00:00",
+      "end": "2026-11-03T13:07:53.616721+00:00",
+      "rc": 0,
+      "stdout_sha256": "19b78ec98b5773869405667aa5336fd81f8521ebe63e4ce2bb2df00db3c758e7",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan-346",
+        "show",
+        "a0d4c4fda7a0c16c04d57edf921ffeb741eff19b:docs/audits/2026_11_03-epic-m6-records/stage-c/confinement-positive/stderr"
+      ],
+      "start": "2026-11-03T13:07:53.616735+00:00",
+      "end": "2026-11-03T13:07:53.618030+00:00",
+      "rc": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan-346",
+        "show",
+        "a0d4c4fda7a0c16c04d57edf921ffeb741eff19b:docs/audits/2026_11_03-epic-m6-records/stage-c/confinement-positive/stdout"
+      ],
+      "start": "2026-11-03T13:07:53.618038+00:00",
+      "end": "2026-11-03T13:07:53.619380+00:00",
+      "rc": 0,
+      "stdout_sha256": "7d2676bbb137288697fc8c74604a09355e875f8cf5261031e01c2191d3b67ad7",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan-346",
+        "show",
+        "a0d4c4fda7a0c16c04d57edf921ffeb741eff19b:docs/audits/2026_11_03-epic-m6-records/stage-c/confinement-source_edit/receipt.json"
+      ],
+      "start": "2026-11-03T13:07:53.619392+00:00",
+      "end": "2026-11-03T13:07:53.620767+00:00",
+      "rc": 0,
+      "stdout_sha256": "8ef7fced32912e661394d349e022c58584334a0d435adee358c79ea9bd0f979e",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan-346",
+        "show",
+        "a0d4c4fda7a0c16c04d57edf921ffeb741eff19b:docs/audits/2026_11_03-epic-m6-records/stage-c/confinement-source_edit/stderr"
+      ],
+      "start": "2026-11-03T13:07:53.620779+00:00",
+      "end": "2026-11-03T13:07:53.622070+00:00",
+      "rc": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan-346",
+        "show",
+        "a0d4c4fda7a0c16c04d57edf921ffeb741eff19b:docs/audits/2026_11_03-epic-m6-records/stage-c/confinement-source_edit/stdout"
+      ],
+      "start": "2026-11-03T13:07:53.622077+00:00",
+      "end": "2026-11-03T13:07:53.623285+00:00",
+      "rc": 0,
+      "stdout_sha256": "2d4f7b58e355871370879ee7f070b3029592864cd01a84cbd4bcece70c4720cd",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan-346",
+        "show",
+        "a0d4c4fda7a0c16c04d57edf921ffeb741eff19b:docs/audits/2026_11_03-epic-m6-records/stage-c/control-driver/receipt.json"
+      ],
+      "start": "2026-11-03T13:07:53.623297+00:00",
+      "end": "2026-11-03T13:07:53.624680+00:00",
+      "rc": 0,
+      "stdout_sha256": "4ba845c7a223d13aeabbe7592a89dc878a3021583007ac6a5aa7e4082981a8b6",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan-346",
+        "show",
+        "a0d4c4fda7a0c16c04d57edf921ffeb741eff19b:docs/audits/2026_11_03-epic-m6-records/stage-c/control-driver/stderr"
+      ],
+      "start": "2026-11-03T13:07:53.624690+00:00",
+      "end": "2026-11-03T13:07:53.626078+00:00",
+      "rc": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan-346",
+        "show",
+        "a0d4c4fda7a0c16c04d57edf921ffeb741eff19b:docs/audits/2026_11_03-epic-m6-records/stage-c/control-driver/stdout"
+      ],
+      "start": "2026-11-03T13:07:53.626100+00:00",
+      "end": "2026-11-03T13:07:53.627471+00:00",
+      "rc": 0,
+      "stdout_sha256": "e8693d56695c5d4287452646fada6560bc3343bc59c25a855bced5f7ac67256e",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan-346",
+        "show",
+        "a0d4c4fda7a0c16c04d57edf921ffeb741eff19b:docs/audits/2026_11_03-epic-m6-records/stage-c/control-summary.json"
+      ],
+      "start": "2026-11-03T13:07:53.627491+00:00",
+      "end": "2026-11-03T13:07:53.628890+00:00",
+      "rc": 0,
+      "stdout_sha256": "89d883b375657037febf7f5f896b45f85d38271c96040c735af1250d08074de7",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan-346",
+        "show",
+        "a0d4c4fda7a0c16c04d57edf921ffeb741eff19b:docs/audits/2026_11_03-epic-m6-records/stage-c/link-fixtures/missing-anchor.json"
+      ],
+      "start": "2026-11-03T13:07:53.628908+00:00",
+      "end": "2026-11-03T13:07:53.630236+00:00",
+      "rc": 0,
+      "stdout_sha256": "3e82223cd0c8b53528c09c0f561b13cbe7c137590e0db4987f900d42edcce860",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan-346",
+        "show",
+        "a0d4c4fda7a0c16c04d57edf921ffeb741eff19b:docs/audits/2026_11_03-epic-m6-records/stage-c/link-fixtures/missing-target.json"
+      ],
+      "start": "2026-11-03T13:07:53.630250+00:00",
+      "end": "2026-11-03T13:07:53.631644+00:00",
+      "rc": 0,
+      "stdout_sha256": "89c7c8e770a49f93427b7d25edfd4dc71e60a26573116f4af9e6df63ee7dac58",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan-346",
+        "show",
+        "a0d4c4fda7a0c16c04d57edf921ffeb741eff19b:docs/audits/2026_11_03-epic-m6-records/stage-c/link-fixtures/positive.json"
+      ],
+      "start": "2026-11-03T13:07:53.631662+00:00",
+      "end": "2026-11-03T13:07:53.633006+00:00",
+      "rc": 0,
+      "stdout_sha256": "00c6177fccc0e7437913560e5c16f09eed029b5e3df321a1de5672763c558597",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan-346",
+        "show",
+        "a0d4c4fda7a0c16c04d57edf921ffeb741eff19b:docs/audits/2026_11_03-epic-m6-records/stage-c/link-fixtures/unsupported.json"
+      ],
+      "start": "2026-11-03T13:07:53.633026+00:00",
+      "end": "2026-11-03T13:07:53.634393+00:00",
+      "rc": 0,
+      "stdout_sha256": "43c44304de772e42826e01da6304c2b099e678f31ad126f7e210d0e034ed4ce9",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan-346",
+        "show",
+        "a0d4c4fda7a0c16c04d57edf921ffeb741eff19b:docs/audits/2026_11_03-epic-m6-records/stage-c/link-missing-anchor/receipt.json"
+      ],
+      "start": "2026-11-03T13:07:53.634410+00:00",
+      "end": "2026-11-03T13:07:53.635802+00:00",
+      "rc": 0,
+      "stdout_sha256": "f9c5d49c92aab57daa95409304b3ca0bf66b65abf34ed3616e323f8a3b452eaf",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan-346",
+        "show",
+        "a0d4c4fda7a0c16c04d57edf921ffeb741eff19b:docs/audits/2026_11_03-epic-m6-records/stage-c/link-missing-anchor/stderr"
+      ],
+      "start": "2026-11-03T13:07:53.635819+00:00",
+      "end": "2026-11-03T13:07:53.637202+00:00",
+      "rc": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan-346",
+        "show",
+        "a0d4c4fda7a0c16c04d57edf921ffeb741eff19b:docs/audits/2026_11_03-epic-m6-records/stage-c/link-missing-anchor/stdout"
+      ],
+      "start": "2026-11-03T13:07:53.637211+00:00",
+      "end": "2026-11-03T13:07:53.638491+00:00",
+      "rc": 0,
+      "stdout_sha256": "76b7ed0b6c6585ec6505aade3531278d83b4400b03ad7fe03162a0dee8389a58",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan-346",
+        "show",
+        "a0d4c4fda7a0c16c04d57edf921ffeb741eff19b:docs/audits/2026_11_03-epic-m6-records/stage-c/link-missing-target/receipt.json"
+      ],
+      "start": "2026-11-03T13:07:53.638506+00:00",
+      "end": "2026-11-03T13:07:53.639861+00:00",
+      "rc": 0,
+      "stdout_sha256": "b5b6956fb8e8bb223ffe58af7eadfa0f62e5ed68867d95599f2b17e41edc29a6",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan-346",
+        "show",
+        "a0d4c4fda7a0c16c04d57edf921ffeb741eff19b:docs/audits/2026_11_03-epic-m6-records/stage-c/link-missing-target/stderr"
+      ],
+      "start": "2026-11-03T13:07:53.639874+00:00",
+      "end": "2026-11-03T13:07:53.641326+00:00",
+      "rc": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan-346",
+        "show",
+        "a0d4c4fda7a0c16c04d57edf921ffeb741eff19b:docs/audits/2026_11_03-epic-m6-records/stage-c/link-missing-target/stdout"
+      ],
+      "start": "2026-11-03T13:07:53.641334+00:00",
+      "end": "2026-11-03T13:07:53.642703+00:00",
+      "rc": 0,
+      "stdout_sha256": "469515b53a6369138136b70ac14e71927f4f66ea5a71228121f63379fb0cbc69",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan-346",
+        "show",
+        "a0d4c4fda7a0c16c04d57edf921ffeb741eff19b:docs/audits/2026_11_03-epic-m6-records/stage-c/link-positive/receipt.json"
+      ],
+      "start": "2026-11-03T13:07:53.642717+00:00",
+      "end": "2026-11-03T13:07:53.644074+00:00",
+      "rc": 0,
+      "stdout_sha256": "d1d7ab6d1e05be665ec5ad63e9268d10e4a101cd286fe78aa7d41e7dc3405c4d",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan-346",
+        "show",
+        "a0d4c4fda7a0c16c04d57edf921ffeb741eff19b:docs/audits/2026_11_03-epic-m6-records/stage-c/link-positive/stderr"
+      ],
+      "start": "2026-11-03T13:07:53.644092+00:00",
+      "end": "2026-11-03T13:07:53.645412+00:00",
+      "rc": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan-346",
+        "show",
+        "a0d4c4fda7a0c16c04d57edf921ffeb741eff19b:docs/audits/2026_11_03-epic-m6-records/stage-c/link-positive/stdout"
+      ],
+      "start": "2026-11-03T13:07:53.645421+00:00",
+      "end": "2026-11-03T13:07:53.646871+00:00",
+      "rc": 0,
+      "stdout_sha256": "3f0b5dd46c644acc447450c081e935f4328d23e3fe9d204e08d72d976856ec2e",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan-346",
+        "show",
+        "a0d4c4fda7a0c16c04d57edf921ffeb741eff19b:docs/audits/2026_11_03-epic-m6-records/stage-c/link-unsupported/receipt.json"
+      ],
+      "start": "2026-11-03T13:07:53.646884+00:00",
+      "end": "2026-11-03T13:07:53.648457+00:00",
+      "rc": 0,
+      "stdout_sha256": "78f651bf57dc778bfe5c3a01c1eec3382280f34649916a6cced5efdb301915af",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan-346",
+        "show",
+        "a0d4c4fda7a0c16c04d57edf921ffeb741eff19b:docs/audits/2026_11_03-epic-m6-records/stage-c/link-unsupported/stderr"
+      ],
+      "start": "2026-11-03T13:07:53.648469+00:00",
+      "end": "2026-11-03T13:07:53.649811+00:00",
+      "rc": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan-346",
+        "show",
+        "a0d4c4fda7a0c16c04d57edf921ffeb741eff19b:docs/audits/2026_11_03-epic-m6-records/stage-c/link-unsupported/stdout"
+      ],
+      "start": "2026-11-03T13:07:53.649818+00:00",
+      "end": "2026-11-03T13:07:53.651052+00:00",
+      "rc": 0,
+      "stdout_sha256": "40fdfb4ab5ef8fb8e635299956ab24e3259f75211674e7d7264fdc46b638b7fa",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan-346",
+        "show",
+        "a0d4c4fda7a0c16c04d57edf921ffeb741eff19b:docs/audits/2026_11_03-epic-m6-records/stage-c/new-fixture-generation/receipt.json"
+      ],
+      "start": "2026-11-03T13:07:53.651067+00:00",
+      "end": "2026-11-03T13:07:53.652400+00:00",
+      "rc": 0,
+      "stdout_sha256": "0eae5b925002515f42f19d30b01344da953a89c03890edfd34c065ae49a5a84f",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan-346",
+        "show",
+        "a0d4c4fda7a0c16c04d57edf921ffeb741eff19b:docs/audits/2026_11_03-epic-m6-records/stage-c/new-fixture-generation/stderr"
+      ],
+      "start": "2026-11-03T13:07:53.652412+00:00",
+      "end": "2026-11-03T13:07:53.653698+00:00",
+      "rc": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan-346",
+        "show",
+        "a0d4c4fda7a0c16c04d57edf921ffeb741eff19b:docs/audits/2026_11_03-epic-m6-records/stage-c/new-fixture-generation/stdout"
+      ],
+      "start": "2026-11-03T13:07:53.653705+00:00",
+      "end": "2026-11-03T13:07:53.655367+00:00",
+      "rc": 0,
+      "stdout_sha256": "c1ac5711b0a00cac94a1bcf365f88eec90ec1f1281e79f2135c65c029420229b",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan-346",
+        "show",
+        "a0d4c4fda7a0c16c04d57edf921ffeb741eff19b:docs/audits/2026_11_03-epic-m6-records/stage-c/table-changed-source/receipt.json"
+      ],
+      "start": "2026-11-03T13:07:53.655380+00:00",
+      "end": "2026-11-03T13:07:53.656854+00:00",
+      "rc": 0,
+      "stdout_sha256": "d14ab51ff33b18e771e36f0830630d5ae31f1fcf4ad5583290541437bf83f873",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan-346",
+        "show",
+        "a0d4c4fda7a0c16c04d57edf921ffeb741eff19b:docs/audits/2026_11_03-epic-m6-records/stage-c/table-changed-source/stderr"
+      ],
+      "start": "2026-11-03T13:07:53.656873+00:00",
+      "end": "2026-11-03T13:07:53.658136+00:00",
+      "rc": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan-346",
+        "show",
+        "a0d4c4fda7a0c16c04d57edf921ffeb741eff19b:docs/audits/2026_11_03-epic-m6-records/stage-c/table-changed-source/stdout"
+      ],
+      "start": "2026-11-03T13:07:53.658145+00:00",
+      "end": "2026-11-03T13:07:53.659401+00:00",
+      "rc": 0,
+      "stdout_sha256": "265f919d93e66be806319eff45550d383f2fad049ab826a56c9adceec14243e0",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan-346",
+        "show",
+        "a0d4c4fda7a0c16c04d57edf921ffeb741eff19b:docs/audits/2026_11_03-epic-m6-records/stage-c/table-duplicate-route/receipt.json"
+      ],
+      "start": "2026-11-03T13:07:53.659436+00:00",
+      "end": "2026-11-03T13:07:53.660704+00:00",
+      "rc": 0,
+      "stdout_sha256": "87e420f3ff22b8b32b44b14c27bec9f2f2637a764c6646fac15091698760809c",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan-346",
+        "show",
+        "a0d4c4fda7a0c16c04d57edf921ffeb741eff19b:docs/audits/2026_11_03-epic-m6-records/stage-c/table-duplicate-route/stderr"
+      ],
+      "start": "2026-11-03T13:07:53.660738+00:00",
+      "end": "2026-11-03T13:07:53.661957+00:00",
+      "rc": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan-346",
+        "show",
+        "a0d4c4fda7a0c16c04d57edf921ffeb741eff19b:docs/audits/2026_11_03-epic-m6-records/stage-c/table-duplicate-route/stdout"
+      ],
+      "start": "2026-11-03T13:07:53.661964+00:00",
+      "end": "2026-11-03T13:07:53.663168+00:00",
+      "rc": 0,
+      "stdout_sha256": "7d1ed14300dec8b3a3477eff387151fdcc2f6f9bf556aa1b7e4938194ce9b43e",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan-346",
+        "show",
+        "a0d4c4fda7a0c16c04d57edf921ffeb741eff19b:docs/audits/2026_11_03-epic-m6-records/stage-c/table-fixture-generation/receipt.json"
+      ],
+      "start": "2026-11-03T13:07:53.663175+00:00",
+      "end": "2026-11-03T13:07:53.664397+00:00",
+      "rc": 0,
+      "stdout_sha256": "728eb43534d1fc6684d1d9aeead60aa01d4658adf8166ffda9bb98084e345430",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan-346",
+        "show",
+        "a0d4c4fda7a0c16c04d57edf921ffeb741eff19b:docs/audits/2026_11_03-epic-m6-records/stage-c/table-fixture-generation/stderr"
+      ],
+      "start": "2026-11-03T13:07:53.664405+00:00",
+      "end": "2026-11-03T13:07:53.665626+00:00",
+      "rc": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan-346",
+        "show",
+        "a0d4c4fda7a0c16c04d57edf921ffeb741eff19b:docs/audits/2026_11_03-epic-m6-records/stage-c/table-fixture-generation/stdout"
+      ],
+      "start": "2026-11-03T13:07:53.665648+00:00",
+      "end": "2026-11-03T13:07:53.666917+00:00",
+      "rc": 0,
+      "stdout_sha256": "7eb523f442a848f44236e1b5da8bfe90bd08ce14d3e01d4794253e4326b53962",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan-346",
+        "show",
+        "a0d4c4fda7a0c16c04d57edf921ffeb741eff19b:docs/audits/2026_11_03-epic-m6-records/stage-c/table-fixtures/changed-source.json"
+      ],
+      "start": "2026-11-03T13:07:53.666924+00:00",
+      "end": "2026-11-03T13:07:53.669768+00:00",
+      "rc": 0,
+      "stdout_sha256": "0804432e7b8a23505cf75eb4998ebf68fe2dfb2a4fcb9c7a6283c46ead4be36e",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan-346",
+        "show",
+        "a0d4c4fda7a0c16c04d57edf921ffeb741eff19b:docs/audits/2026_11_03-epic-m6-records/stage-c/table-fixtures/duplicate-route.json"
+      ],
+      "start": "2026-11-03T13:07:53.670845+00:00",
+      "end": "2026-11-03T13:07:53.673398+00:00",
+      "rc": 0,
+      "stdout_sha256": "680a32c5d211610cc47565a166f93601458290f9e2600b1ccdeae73bd00b81a8",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan-346",
+        "show",
+        "a0d4c4fda7a0c16c04d57edf921ffeb741eff19b:docs/audits/2026_11_03-epic-m6-records/stage-c/table-fixtures/history-as-defect.json"
+      ],
+      "start": "2026-11-03T13:07:53.674398+00:00",
+      "end": "2026-11-03T13:07:53.676991+00:00",
+      "rc": 0,
+      "stdout_sha256": "26bb089dc3232b6fad349155f9d12c18b2350e8348077b4d7dbdf9109ec8b12b",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan-346",
+        "show",
+        "a0d4c4fda7a0c16c04d57edf921ffeb741eff19b:docs/audits/2026_11_03-epic-m6-records/stage-c/table-fixtures/logical-as-savings.json"
+      ],
+      "start": "2026-11-03T13:07:53.677966+00:00",
+      "end": "2026-11-03T13:07:53.680738+00:00",
+      "rc": 0,
+      "stdout_sha256": "5009a5f10f13f02c1f27e885f499944b63c4200608b9232767cab2885d019d58",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan-346",
+        "show",
+        "a0d4c4fda7a0c16c04d57edf921ffeb741eff19b:docs/audits/2026_11_03-epic-m6-records/stage-c/table-fixtures/omitted-folder.json"
+      ],
+      "start": "2026-11-03T13:07:53.681679+00:00",
+      "end": "2026-11-03T13:07:53.684332+00:00",
+      "rc": 0,
+      "stdout_sha256": "a7dbf29ce7759bace3423cf65162bd43e5a6869a1fe9df9904b0665a7dc3eae0",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan-346",
+        "show",
+        "a0d4c4fda7a0c16c04d57edf921ffeb741eff19b:docs/audits/2026_11_03-epic-m6-records/stage-c/table-fixtures/omitted-route.json"
+      ],
+      "start": "2026-11-03T13:07:53.685273+00:00",
+      "end": "2026-11-03T13:07:53.688205+00:00",
+      "rc": 0,
+      "stdout_sha256": "b22a15e3d1deb60e9eb366b792f9e80c40f7f2d12c606e8b442971e2e43face7",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan-346",
+        "show",
+        "a0d4c4fda7a0c16c04d57edf921ffeb741eff19b:docs/audits/2026_11_03-epic-m6-records/stage-c/table-fixtures/positive.json"
+      ],
+      "start": "2026-11-03T13:07:53.689140+00:00",
+      "end": "2026-11-03T13:07:53.691724+00:00",
+      "rc": 0,
+      "stdout_sha256": "20c4b612470c12532433d4b1d97a3c87cc0c65f1f2eafbbaa569cb97d8151860",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan-346",
+        "show",
+        "a0d4c4fda7a0c16c04d57edf921ffeb741eff19b:docs/audits/2026_11_03-epic-m6-records/stage-c/table-fixtures/t39-as-new.json"
+      ],
+      "start": "2026-11-03T13:07:53.692793+00:00",
+      "end": "2026-11-03T13:07:53.695444+00:00",
+      "rc": 0,
+      "stdout_sha256": "8929a0170df6dd6daec8a50554f5e4be5372b068b50ff2199817b7394aceb43c",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan-346",
+        "show",
+        "a0d4c4fda7a0c16c04d57edf921ffeb741eff19b:docs/audits/2026_11_03-epic-m6-records/stage-c/table-fixtures/whole-file-credit.json"
+      ],
+      "start": "2026-11-03T13:07:53.696385+00:00",
+      "end": "2026-11-03T13:07:53.699075+00:00",
+      "rc": 0,
+      "stdout_sha256": "f2728d581ca8ed8312a2f668daf50328925ba4bbea4175e9e4e22a8d07de8663",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan-346",
+        "show",
+        "a0d4c4fda7a0c16c04d57edf921ffeb741eff19b:docs/audits/2026_11_03-epic-m6-records/stage-c/table-history-as-defect/receipt.json"
+      ],
+      "start": "2026-11-03T13:07:53.700024+00:00",
+      "end": "2026-11-03T13:07:53.701489+00:00",
+      "rc": 0,
+      "stdout_sha256": "28abde007a46e4e1ebfb760153bdd2329c1e295b06c5507b401909d38a95be84",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan-346",
+        "show",
+        "a0d4c4fda7a0c16c04d57edf921ffeb741eff19b:docs/audits/2026_11_03-epic-m6-records/stage-c/table-history-as-defect/stderr"
+      ],
+      "start": "2026-11-03T13:07:53.701508+00:00",
+      "end": "2026-11-03T13:07:53.702941+00:00",
+      "rc": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan-346",
+        "show",
+        "a0d4c4fda7a0c16c04d57edf921ffeb741eff19b:docs/audits/2026_11_03-epic-m6-records/stage-c/table-history-as-defect/stdout"
+      ],
+      "start": "2026-11-03T13:07:53.702950+00:00",
+      "end": "2026-11-03T13:07:53.704446+00:00",
+      "rc": 0,
+      "stdout_sha256": "7ed259339d89cdd0cf98108ee23868c64c2b2b3ca5e5ca8c74dff2ce42a49953",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan-346",
+        "show",
+        "a0d4c4fda7a0c16c04d57edf921ffeb741eff19b:docs/audits/2026_11_03-epic-m6-records/stage-c/table-logical-as-savings/receipt.json"
+      ],
+      "start": "2026-11-03T13:07:53.704458+00:00",
+      "end": "2026-11-03T13:07:53.705890+00:00",
+      "rc": 0,
+      "stdout_sha256": "5371c82c2dce86ede9427829042ff0533c2e73425be7c40eec848a3d661425c9",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan-346",
+        "show",
+        "a0d4c4fda7a0c16c04d57edf921ffeb741eff19b:docs/audits/2026_11_03-epic-m6-records/stage-c/table-logical-as-savings/stderr"
+      ],
+      "start": "2026-11-03T13:07:53.705909+00:00",
+      "end": "2026-11-03T13:07:53.707327+00:00",
+      "rc": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan-346",
+        "show",
+        "a0d4c4fda7a0c16c04d57edf921ffeb741eff19b:docs/audits/2026_11_03-epic-m6-records/stage-c/table-logical-as-savings/stdout"
+      ],
+      "start": "2026-11-03T13:07:53.707335+00:00",
+      "end": "2026-11-03T13:07:53.708711+00:00",
+      "rc": 0,
+      "stdout_sha256": "c1ad47e97f793e0e8703a040e0075d424bf22b9fdd6d83363a3d92a5c97129a2",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan-346",
+        "show",
+        "a0d4c4fda7a0c16c04d57edf921ffeb741eff19b:docs/audits/2026_11_03-epic-m6-records/stage-c/table-omitted-folder/receipt.json"
+      ],
+      "start": "2026-11-03T13:07:53.708727+00:00",
+      "end": "2026-11-03T13:07:53.710103+00:00",
+      "rc": 0,
+      "stdout_sha256": "22c66b2dab4bea5a8a0a90d944ac0ab7b0a9fa8f71c765cf8f194a1236a2b229",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan-346",
+        "show",
+        "a0d4c4fda7a0c16c04d57edf921ffeb741eff19b:docs/audits/2026_11_03-epic-m6-records/stage-c/table-omitted-folder/stderr"
+      ],
+      "start": "2026-11-03T13:07:53.710118+00:00",
+      "end": "2026-11-03T13:07:53.711486+00:00",
+      "rc": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan-346",
+        "show",
+        "a0d4c4fda7a0c16c04d57edf921ffeb741eff19b:docs/audits/2026_11_03-epic-m6-records/stage-c/table-omitted-folder/stdout"
+      ],
+      "start": "2026-11-03T13:07:53.711495+00:00",
+      "end": "2026-11-03T13:07:53.712861+00:00",
+      "rc": 0,
+      "stdout_sha256": "518cd2622cdfc4a4e708fc7313177c70ab1672499103e775b8c6f2f73f09496b",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan-346",
+        "show",
+        "a0d4c4fda7a0c16c04d57edf921ffeb741eff19b:docs/audits/2026_11_03-epic-m6-records/stage-c/table-omitted-route/receipt.json"
+      ],
+      "start": "2026-11-03T13:07:53.712869+00:00",
+      "end": "2026-11-03T13:07:53.714293+00:00",
+      "rc": 0,
+      "stdout_sha256": "a75de69d1113a79017b6ecfd6a91e9463f05ddc7bac15a3486ddfbeaa9a37e22",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan-346",
+        "show",
+        "a0d4c4fda7a0c16c04d57edf921ffeb741eff19b:docs/audits/2026_11_03-epic-m6-records/stage-c/table-omitted-route/stderr"
+      ],
+      "start": "2026-11-03T13:07:53.714304+00:00",
+      "end": "2026-11-03T13:07:53.715818+00:00",
+      "rc": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan-346",
+        "show",
+        "a0d4c4fda7a0c16c04d57edf921ffeb741eff19b:docs/audits/2026_11_03-epic-m6-records/stage-c/table-omitted-route/stdout"
+      ],
+      "start": "2026-11-03T13:07:53.715845+00:00",
+      "end": "2026-11-03T13:07:53.717264+00:00",
+      "rc": 0,
+      "stdout_sha256": "7d1ed14300dec8b3a3477eff387151fdcc2f6f9bf556aa1b7e4938194ce9b43e",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan-346",
+        "show",
+        "a0d4c4fda7a0c16c04d57edf921ffeb741eff19b:docs/audits/2026_11_03-epic-m6-records/stage-c/table-positive/receipt.json"
+      ],
+      "start": "2026-11-03T13:07:53.717281+00:00",
+      "end": "2026-11-03T13:07:53.719051+00:00",
+      "rc": 0,
+      "stdout_sha256": "86621a4dfd42a315a9242ea13d727dbb036c6c970225f6596eebf9ec11a4e531",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan-346",
+        "show",
+        "a0d4c4fda7a0c16c04d57edf921ffeb741eff19b:docs/audits/2026_11_03-epic-m6-records/stage-c/table-positive/stderr"
+      ],
+      "start": "2026-11-03T13:07:53.719066+00:00",
+      "end": "2026-11-03T13:07:53.720370+00:00",
+      "rc": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan-346",
+        "show",
+        "a0d4c4fda7a0c16c04d57edf921ffeb741eff19b:docs/audits/2026_11_03-epic-m6-records/stage-c/table-positive/stdout"
+      ],
+      "start": "2026-11-03T13:07:53.720394+00:00",
+      "end": "2026-11-03T13:07:53.721766+00:00",
+      "rc": 0,
+      "stdout_sha256": "7e33405cb74e9c5788ea48bd45152a333b7147776a01ce3085c6851f0ae7e9b7",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan-346",
+        "show",
+        "a0d4c4fda7a0c16c04d57edf921ffeb741eff19b:docs/audits/2026_11_03-epic-m6-records/stage-c/table-t39-as-new/receipt.json"
+      ],
+      "start": "2026-11-03T13:07:53.721776+00:00",
+      "end": "2026-11-03T13:07:53.723139+00:00",
+      "rc": 0,
+      "stdout_sha256": "5d4a60f70d258658ea686e272e60a8d8d5d2b0c28a2a5d621609f1df31f815d3",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan-346",
+        "show",
+        "a0d4c4fda7a0c16c04d57edf921ffeb741eff19b:docs/audits/2026_11_03-epic-m6-records/stage-c/table-t39-as-new/stderr"
+      ],
+      "start": "2026-11-03T13:07:53.723157+00:00",
+      "end": "2026-11-03T13:07:53.724458+00:00",
+      "rc": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan-346",
+        "show",
+        "a0d4c4fda7a0c16c04d57edf921ffeb741eff19b:docs/audits/2026_11_03-epic-m6-records/stage-c/table-t39-as-new/stdout"
+      ],
+      "start": "2026-11-03T13:07:53.724466+00:00",
+      "end": "2026-11-03T13:07:53.725805+00:00",
+      "rc": 0,
+      "stdout_sha256": "55be79b5a017d0c553d7987cbccd0164435286f8c3d06dd89c3f89ff6a1ad5cb",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan-346",
+        "show",
+        "a0d4c4fda7a0c16c04d57edf921ffeb741eff19b:docs/audits/2026_11_03-epic-m6-records/stage-c/table-whole-file-credit/receipt.json"
+      ],
+      "start": "2026-11-03T13:07:53.725818+00:00",
+      "end": "2026-11-03T13:07:53.727211+00:00",
+      "rc": 0,
+      "stdout_sha256": "2a061213d28c58b1147a51f94aaa1a6e59453a6ea1b84ac37a2df3fe6d3cb9e4",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan-346",
+        "show",
+        "a0d4c4fda7a0c16c04d57edf921ffeb741eff19b:docs/audits/2026_11_03-epic-m6-records/stage-c/table-whole-file-credit/stderr"
+      ],
+      "start": "2026-11-03T13:07:53.727230+00:00",
+      "end": "2026-11-03T13:07:53.728586+00:00",
+      "rc": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan-346",
+        "show",
+        "a0d4c4fda7a0c16c04d57edf921ffeb741eff19b:docs/audits/2026_11_03-epic-m6-records/stage-c/table-whole-file-credit/stdout"
+      ],
+      "start": "2026-11-03T13:07:53.728616+00:00",
+      "end": "2026-11-03T13:07:53.730021+00:00",
+      "rc": 0,
+      "stdout_sha256": "ba890a828843fa75e1923bb45c7044809adaeeb3f12dad0e0f88fd66fafd2925",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan-346",
+        "show",
+        "a0d4c4fda7a0c16c04d57edf921ffeb741eff19b:docs/audits/2026_11_03-epic-m6-records/stage-d/created-issues.json"
+      ],
+      "start": "2026-11-03T13:07:53.730038+00:00",
+      "end": "2026-11-03T13:07:53.731523+00:00",
+      "rc": 0,
+      "stdout_sha256": "1022f416da50026c1af5108ff8b8a8324774198a2bb3817e5c445ef911c8fcc9",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan-346",
+        "show",
+        "a0d4c4fda7a0c16c04d57edf921ffeb741eff19b:docs/audits/2026_11_03-epic-m6-records/stage-d/current-gate-driver/receipt.json"
+      ],
+      "start": "2026-11-03T13:07:53.731547+00:00",
+      "end": "2026-11-03T13:07:53.733088+00:00",
+      "rc": 0,
+      "stdout_sha256": "0853b035406ec7ac7a1ff208a39b03f3616b78ff91936c59295933dffbb07add",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan-346",
+        "show",
+        "a0d4c4fda7a0c16c04d57edf921ffeb741eff19b:docs/audits/2026_11_03-epic-m6-records/stage-d/current-gate-driver/stderr"
+      ],
+      "start": "2026-11-03T13:07:53.733104+00:00",
+      "end": "2026-11-03T13:07:53.734513+00:00",
+      "rc": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan-346",
+        "show",
+        "a0d4c4fda7a0c16c04d57edf921ffeb741eff19b:docs/audits/2026_11_03-epic-m6-records/stage-d/current-gate-driver/stdout"
+      ],
+      "start": "2026-11-03T13:07:53.734524+00:00",
+      "end": "2026-11-03T13:07:53.735974+00:00",
+      "rc": 0,
+      "stdout_sha256": "43ae5d34f6a4cb8da9a05268b721f70e40ddab2d238ecbbc424a38f10aef4c9c",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan-346",
+        "show",
+        "a0d4c4fda7a0c16c04d57edf921ffeb741eff19b:docs/audits/2026_11_03-epic-m6-records/stage-d/encoding-verification/receipt.json"
+      ],
+      "start": "2026-11-03T13:07:53.736015+00:00",
+      "end": "2026-11-03T13:07:53.737461+00:00",
+      "rc": 0,
+      "stdout_sha256": "4777923b144e1e607a13454c1807173d0d32d25647acf1742023190164fe92a1",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan-346",
+        "show",
+        "a0d4c4fda7a0c16c04d57edf921ffeb741eff19b:docs/audits/2026_11_03-epic-m6-records/stage-d/encoding-verification/stderr"
+      ],
+      "start": "2026-11-03T13:07:53.737478+00:00",
+      "end": "2026-11-03T13:07:53.738855+00:00",
+      "rc": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan-346",
+        "show",
+        "a0d4c4fda7a0c16c04d57edf921ffeb741eff19b:docs/audits/2026_11_03-epic-m6-records/stage-d/encoding-verification/stdout"
+      ],
+      "start": "2026-11-03T13:07:53.738884+00:00",
+      "end": "2026-11-03T13:07:53.740258+00:00",
+      "rc": 0,
+      "stdout_sha256": "c587c12fc97603888ba17cb75e77b77e2df7ae44f7ac0bb7a75fec3d96f5f42a",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan-346",
+        "show",
+        "a0d4c4fda7a0c16c04d57edf921ffeb741eff19b:docs/audits/2026_11_03-epic-m6-records/stage-d/gates-summary.json"
+      ],
+      "start": "2026-11-03T13:07:53.740272+00:00",
+      "end": "2026-11-03T13:07:53.741827+00:00",
+      "rc": 0,
+      "stdout_sha256": "734d29f1e138db432c3dae9e3752d40ca91a1338dcca8d2101feb1dd632e04e8",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan-346",
+        "show",
+        "a0d4c4fda7a0c16c04d57edf921ffeb741eff19b:docs/audits/2026_11_03-epic-m6-records/stage-d/gates/audit-checkboxes/receipt.json"
+      ],
+      "start": "2026-11-03T13:07:53.741845+00:00",
+      "end": "2026-11-03T13:07:53.743183+00:00",
+      "rc": 0,
+      "stdout_sha256": "e0bf56e96f875a339cf4eb411dde969b9b989589ecafaa0f8d26da1ad4681954",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan-346",
+        "show",
+        "a0d4c4fda7a0c16c04d57edf921ffeb741eff19b:docs/audits/2026_11_03-epic-m6-records/stage-d/gates/audit-checkboxes/stderr"
+      ],
+      "start": "2026-11-03T13:07:53.743199+00:00",
+      "end": "2026-11-03T13:07:53.744522+00:00",
+      "rc": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan-346",
+        "show",
+        "a0d4c4fda7a0c16c04d57edf921ffeb741eff19b:docs/audits/2026_11_03-epic-m6-records/stage-d/gates/audit-checkboxes/stdout"
+      ],
+      "start": "2026-11-03T13:07:53.744531+00:00",
+      "end": "2026-11-03T13:07:53.745882+00:00",
+      "rc": 0,
+      "stdout_sha256": "71f21b5f65b777c3c18799c08624626e7530b84922db3c7b7c3256eab7f277aa",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan-346",
+        "show",
+        "a0d4c4fda7a0c16c04d57edf921ffeb741eff19b:docs/audits/2026_11_03-epic-m6-records/stage-d/gates/audit-issue-lint/receipt.json"
+      ],
+      "start": "2026-11-03T13:07:53.745898+00:00",
+      "end": "2026-11-03T13:07:53.747313+00:00",
+      "rc": 0,
+      "stdout_sha256": "7a4675b9fd4f05df1c9e0a795dd5847248b90c010bf5b47a970e363046fde713",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan-346",
+        "show",
+        "a0d4c4fda7a0c16c04d57edf921ffeb741eff19b:docs/audits/2026_11_03-epic-m6-records/stage-d/gates/audit-issue-lint/stderr"
+      ],
+      "start": "2026-11-03T13:07:53.747326+00:00",
+      "end": "2026-11-03T13:07:53.748807+00:00",
+      "rc": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan-346",
+        "show",
+        "a0d4c4fda7a0c16c04d57edf921ffeb741eff19b:docs/audits/2026_11_03-epic-m6-records/stage-d/gates/audit-issue-lint/stdout"
+      ],
+      "start": "2026-11-03T13:07:53.748832+00:00",
+      "end": "2026-11-03T13:07:53.750145+00:00",
+      "rc": 0,
+      "stdout_sha256": "58434c87317ab849c2cc8074179fa80194ae14d6345c5b7b22801f2ee06967ba",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan-346",
+        "show",
+        "a0d4c4fda7a0c16c04d57edf921ffeb741eff19b:docs/audits/2026_11_03-epic-m6-records/stage-d/gates/bug-checkboxes/receipt.json"
+      ],
+      "start": "2026-11-03T13:07:53.750156+00:00",
+      "end": "2026-11-03T13:07:53.751482+00:00",
+      "rc": 0,
+      "stdout_sha256": "7e3329fb3ec2130e3e3af1c0a228f28f09bc61bc8bfa20cccbeed7c5483a9038",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan-346",
+        "show",
+        "a0d4c4fda7a0c16c04d57edf921ffeb741eff19b:docs/audits/2026_11_03-epic-m6-records/stage-d/gates/bug-checkboxes/stderr"
+      ],
+      "start": "2026-11-03T13:07:53.751495+00:00",
+      "end": "2026-11-03T13:07:53.752890+00:00",
+      "rc": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan-346",
+        "show",
+        "a0d4c4fda7a0c16c04d57edf921ffeb741eff19b:docs/audits/2026_11_03-epic-m6-records/stage-d/gates/bug-checkboxes/stdout"
+      ],
+      "start": "2026-11-03T13:07:53.752898+00:00",
+      "end": "2026-11-03T13:07:53.754307+00:00",
+      "rc": 0,
+      "stdout_sha256": "d797c6ed72f8bc4c25092fa98f307b7cd8905d604927ff4659c05ad01d874bce",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan-346",
+        "show",
+        "a0d4c4fda7a0c16c04d57edf921ffeb741eff19b:docs/audits/2026_11_03-epic-m6-records/stage-d/gates/ceremony/receipt.json"
+      ],
+      "start": "2026-11-03T13:07:53.754318+00:00",
+      "end": "2026-11-03T13:07:53.755895+00:00",
+      "rc": 0,
+      "stdout_sha256": "944ddf91f0b8b71957f4323fd8298ab88236bfc3e5e458607fb38013e902a76e",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan-346",
+        "show",
+        "a0d4c4fda7a0c16c04d57edf921ffeb741eff19b:docs/audits/2026_11_03-epic-m6-records/stage-d/gates/ceremony/stderr"
+      ],
+      "start": "2026-11-03T13:07:53.755911+00:00",
+      "end": "2026-11-03T13:07:53.757274+00:00",
+      "rc": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan-346",
+        "show",
+        "a0d4c4fda7a0c16c04d57edf921ffeb741eff19b:docs/audits/2026_11_03-epic-m6-records/stage-d/gates/ceremony/stdout"
+      ],
+      "start": "2026-11-03T13:07:53.757285+00:00",
+      "end": "2026-11-03T13:07:53.758665+00:00",
+      "rc": 0,
+      "stdout_sha256": "fdbf16764f1b8a4477a97ef3930d7c0c07356eea5d724739bbbc0b552629659b",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan-346",
+        "show",
+        "a0d4c4fda7a0c16c04d57edf921ffeb741eff19b:docs/audits/2026_11_03-epic-m6-records/stage-d/gates/confinement-current/receipt.json"
+      ],
+      "start": "2026-11-03T13:07:53.758682+00:00",
+      "end": "2026-11-03T13:07:53.760409+00:00",
+      "rc": 0,
+      "stdout_sha256": "3ab64b5174aeb91d23d317c0dfedf0e9bfa9f99aa12e2a03265d83a82328f339",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan-346",
+        "show",
+        "a0d4c4fda7a0c16c04d57edf921ffeb741eff19b:docs/audits/2026_11_03-epic-m6-records/stage-d/gates/confinement-current/stderr"
+      ],
+      "start": "2026-11-03T13:07:53.760430+00:00",
+      "end": "2026-11-03T13:07:53.761830+00:00",
+      "rc": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan-346",
+        "show",
+        "a0d4c4fda7a0c16c04d57edf921ffeb741eff19b:docs/audits/2026_11_03-epic-m6-records/stage-d/gates/confinement-current/stdout"
+      ],
+      "start": "2026-11-03T13:07:53.761838+00:00",
+      "end": "2026-11-03T13:07:53.763224+00:00",
+      "rc": 0,
+      "stdout_sha256": "afde9bf990402df8daf5bf3d8a9bcf2b29589f2c2e0bbac852f10dcf853c57ca",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan-346",
+        "show",
+        "a0d4c4fda7a0c16c04d57edf921ffeb741eff19b:docs/audits/2026_11_03-epic-m6-records/stage-d/gates/diff-check/receipt.json"
+      ],
+      "start": "2026-11-03T13:07:53.763254+00:00",
+      "end": "2026-11-03T13:07:53.764695+00:00",
+      "rc": 0,
+      "stdout_sha256": "562a3a2fc64902780b1c4890f198df609f652b04cf30c26c8eeb764f2d5b405b",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan-346",
+        "show",
+        "a0d4c4fda7a0c16c04d57edf921ffeb741eff19b:docs/audits/2026_11_03-epic-m6-records/stage-d/gates/diff-check/stderr"
+      ],
+      "start": "2026-11-03T13:07:53.764712+00:00",
+      "end": "2026-11-03T13:07:53.766089+00:00",
+      "rc": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan-346",
+        "show",
+        "a0d4c4fda7a0c16c04d57edf921ffeb741eff19b:docs/audits/2026_11_03-epic-m6-records/stage-d/gates/diff-check/stdout"
+      ],
+      "start": "2026-11-03T13:07:53.766119+00:00",
+      "end": "2026-11-03T13:07:53.767533+00:00",
+      "rc": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan-346",
+        "show",
+        "a0d4c4fda7a0c16c04d57edf921ffeb741eff19b:docs/audits/2026_11_03-epic-m6-records/stage-d/gates/index-check/receipt.json"
+      ],
+      "start": "2026-11-03T13:07:53.767540+00:00",
+      "end": "2026-11-03T13:07:53.768905+00:00",
+      "rc": 0,
+      "stdout_sha256": "11ec88952741dd72682b11f3346379f56ec095df26507547ea6033bf06e2a75c",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan-346",
+        "show",
+        "a0d4c4fda7a0c16c04d57edf921ffeb741eff19b:docs/audits/2026_11_03-epic-m6-records/stage-d/gates/index-check/stderr"
+      ],
+      "start": "2026-11-03T13:07:53.768919+00:00",
+      "end": "2026-11-03T13:07:53.770325+00:00",
+      "rc": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan-346",
+        "show",
+        "a0d4c4fda7a0c16c04d57edf921ffeb741eff19b:docs/audits/2026_11_03-epic-m6-records/stage-d/gates/index-check/stdout"
+      ],
+      "start": "2026-11-03T13:07:53.770334+00:00",
+      "end": "2026-11-03T13:07:53.771651+00:00",
+      "rc": 0,
+      "stdout_sha256": "232b345c76ad64a47de4d43e62d9aeb4f2850472cde78ddd1b1e56d72103d927",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan-346",
+        "show",
+        "a0d4c4fda7a0c16c04d57edf921ffeb741eff19b:docs/audits/2026_11_03-epic-m6-records/stage-d/gates/index-write/receipt.json"
+      ],
+      "start": "2026-11-03T13:07:53.771662+00:00",
+      "end": "2026-11-03T13:07:53.773016+00:00",
+      "rc": 0,
+      "stdout_sha256": "8025aec3633b94fc9ac99b219d916ce6a9ed87755979647da156b306943ba0db",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan-346",
+        "show",
+        "a0d4c4fda7a0c16c04d57edf921ffeb741eff19b:docs/audits/2026_11_03-epic-m6-records/stage-d/gates/index-write/stderr"
+      ],
+      "start": "2026-11-03T13:07:53.773032+00:00",
+      "end": "2026-11-03T13:07:53.774319+00:00",
+      "rc": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan-346",
+        "show",
+        "a0d4c4fda7a0c16c04d57edf921ffeb741eff19b:docs/audits/2026_11_03-epic-m6-records/stage-d/gates/index-write/stdout"
+      ],
+      "start": "2026-11-03T13:07:53.774328+00:00",
+      "end": "2026-11-03T13:07:53.775633+00:00",
+      "rc": 0,
+      "stdout_sha256": "7b8a198e8e165dced02021a2a5f0147967d0541f5963d695c29a95765ca997e9",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan-346",
+        "show",
+        "a0d4c4fda7a0c16c04d57edf921ffeb741eff19b:docs/audits/2026_11_03-epic-m6-records/stage-d/gates/register/receipt.json"
+      ],
+      "start": "2026-11-03T13:07:53.775644+00:00",
+      "end": "2026-11-03T13:07:53.777285+00:00",
+      "rc": 0,
+      "stdout_sha256": "a864580040171ff594a2ce8878a0b061c6f6c571c7b0320f71c2df7e4fba2c29",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan-346",
+        "show",
+        "a0d4c4fda7a0c16c04d57edf921ffeb741eff19b:docs/audits/2026_11_03-epic-m6-records/stage-d/gates/register/stderr"
+      ],
+      "start": "2026-11-03T13:07:53.777301+00:00",
+      "end": "2026-11-03T13:07:53.778738+00:00",
+      "rc": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan-346",
+        "show",
+        "a0d4c4fda7a0c16c04d57edf921ffeb741eff19b:docs/audits/2026_11_03-epic-m6-records/stage-d/gates/register/stdout"
+      ],
+      "start": "2026-11-03T13:07:53.778766+00:00",
+      "end": "2026-11-03T13:07:53.780135+00:00",
+      "rc": 0,
+      "stdout_sha256": "cc8109c4204c07664404413df6aa0b7df7fbdb124d291137a00192188cc341b6",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan-346",
+        "show",
+        "a0d4c4fda7a0c16c04d57edf921ffeb741eff19b:docs/audits/2026_11_03-epic-m6-records/stage-d/gates/rules/receipt.json"
+      ],
+      "start": "2026-11-03T13:07:53.780146+00:00",
+      "end": "2026-11-03T13:07:53.781490+00:00",
+      "rc": 0,
+      "stdout_sha256": "b7ae2a5f98e9e2ec23bc1737f7ba3243a5f06adafa9e78451dcda76d86e7b944",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan-346",
+        "show",
+        "a0d4c4fda7a0c16c04d57edf921ffeb741eff19b:docs/audits/2026_11_03-epic-m6-records/stage-d/gates/rules/stderr"
+      ],
+      "start": "2026-11-03T13:07:53.781506+00:00",
+      "end": "2026-11-03T13:07:53.783441+00:00",
+      "rc": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan-346",
+        "show",
+        "a0d4c4fda7a0c16c04d57edf921ffeb741eff19b:docs/audits/2026_11_03-epic-m6-records/stage-d/gates/rules/stdout"
+      ],
+      "start": "2026-11-03T13:07:53.783455+00:00",
+      "end": "2026-11-03T13:07:53.784798+00:00",
+      "rc": 0,
+      "stdout_sha256": "5ecec1bf185709d166b0c35447dd7ef65107be90632d41665f1d26e3bd0afbb1",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan-346",
+        "show",
+        "a0d4c4fda7a0c16c04d57edf921ffeb741eff19b:docs/audits/2026_11_03-epic-m6-records/stage-d/new-record-scan-driver/receipt.json"
+      ],
+      "start": "2026-11-03T13:07:53.784810+00:00",
+      "end": "2026-11-03T13:07:53.786119+00:00",
+      "rc": 0,
+      "stdout_sha256": "6fd5d17496af1e192ab3661fede4739efe672a62804cfd9650b24c9d0e8b1b9c",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan-346",
+        "show",
+        "a0d4c4fda7a0c16c04d57edf921ffeb741eff19b:docs/audits/2026_11_03-epic-m6-records/stage-d/new-record-scan-driver/stderr"
+      ],
+      "start": "2026-11-03T13:07:53.786129+00:00",
+      "end": "2026-11-03T13:07:53.787459+00:00",
+      "rc": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan-346",
+        "show",
+        "a0d4c4fda7a0c16c04d57edf921ffeb741eff19b:docs/audits/2026_11_03-epic-m6-records/stage-d/new-record-scan-driver/stdout"
+      ],
+      "start": "2026-11-03T13:07:53.787468+00:00",
+      "end": "2026-11-03T13:07:53.789002+00:00",
+      "rc": 0,
+      "stdout_sha256": "85022a2e4de42ed70176ba52c9c5ff14c3d1b5b8b350345ae24bceb6ee38c9ae",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan-346",
+        "show",
+        "a0d4c4fda7a0c16c04d57edf921ffeb741eff19b:docs/audits/2026_11_03-epic-m6-records/stage-d/new-record-scan/manifest.json"
+      ],
+      "start": "2026-11-03T13:07:53.789018+00:00",
+      "end": "2026-11-03T13:07:53.790511+00:00",
+      "rc": 0,
+      "stdout_sha256": "e305b514e7c0246484ed65b1556b24521df8cad4cf580f8dc98a01f5a64db9fa",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan-346",
+        "show",
+        "a0d4c4fda7a0c16c04d57edf921ffeb741eff19b:docs/audits/2026_11_03-epic-m6-records/stage-d/new-record-scan/scan-command.json"
+      ],
+      "start": "2026-11-03T13:07:53.790576+00:00",
+      "end": "2026-11-03T13:07:53.792002+00:00",
+      "rc": 0,
+      "stdout_sha256": "bec2d512863e3ab44ac1c1fe348de8019f9cea29225820d72da98c4c8a4ac6c4",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan-346",
+        "show",
+        "a0d4c4fda7a0c16c04d57edf921ffeb741eff19b:docs/audits/2026_11_03-epic-m6-records/stage-d/new-record-scan/stderr"
+      ],
+      "start": "2026-11-03T13:07:53.792019+00:00",
+      "end": "2026-11-03T13:07:53.793382+00:00",
+      "rc": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan-346",
+        "show",
+        "a0d4c4fda7a0c16c04d57edf921ffeb741eff19b:docs/audits/2026_11_03-epic-m6-records/stage-d/new-record-scan/stdout"
+      ],
+      "start": "2026-11-03T13:07:53.793390+00:00",
+      "end": "2026-11-03T13:07:53.794715+00:00",
+      "rc": 0,
+      "stdout_sha256": "ae7d101f07c8c55bfd82db597d8d383d0f9c1102459a98a228136f4248a15379",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan-346",
+        "show",
+        "a0d4c4fda7a0c16c04d57edf921ffeb741eff19b:docs/audits/2026_11_03-epic-m6-records/stage-d/pre-issue-lint/receipt.json"
+      ],
+      "start": "2026-11-03T13:07:53.794725+00:00",
+      "end": "2026-11-03T13:07:53.796161+00:00",
+      "rc": 0,
+      "stdout_sha256": "be0b9248c16f8298eac6c41ffdcf707db78a8b0e89113eaeeeb8d154ff026cff",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan-346",
+        "show",
+        "a0d4c4fda7a0c16c04d57edf921ffeb741eff19b:docs/audits/2026_11_03-epic-m6-records/stage-d/pre-issue-lint/stderr"
+      ],
+      "start": "2026-11-03T13:07:53.796173+00:00",
+      "end": "2026-11-03T13:07:53.797717+00:00",
+      "rc": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan-346",
+        "show",
+        "a0d4c4fda7a0c16c04d57edf921ffeb741eff19b:docs/audits/2026_11_03-epic-m6-records/stage-d/pre-issue-lint/stdout"
+      ],
+      "start": "2026-11-03T13:07:53.797739+00:00",
+      "end": "2026-11-03T13:07:53.799085+00:00",
+      "rc": 0,
+      "stdout_sha256": "850fde5659b6ae874c33ebc9d908de4e4e36546ae5ec7dca551a361dadb4a97c",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan-346",
+        "show",
+        "a0d4c4fda7a0c16c04d57edf921ffeb741eff19b:docs/audits/2026_11_03-epic-m6-records/stage-d/publication-encoding-driver/receipt.json"
+      ],
+      "start": "2026-11-03T13:07:53.799101+00:00",
+      "end": "2026-11-03T13:07:53.800607+00:00",
+      "rc": 0,
+      "stdout_sha256": "6c10b77464d64c499aa56c0c5dd43e771ea0446dfcfa277c3cb325cc5f69e7f7",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan-346",
+        "show",
+        "a0d4c4fda7a0c16c04d57edf921ffeb741eff19b:docs/audits/2026_11_03-epic-m6-records/stage-d/publication-encoding-driver/stderr"
+      ],
+      "start": "2026-11-03T13:07:53.800624+00:00",
+      "end": "2026-11-03T13:07:53.801975+00:00",
+      "rc": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan-346",
+        "show",
+        "a0d4c4fda7a0c16c04d57edf921ffeb741eff19b:docs/audits/2026_11_03-epic-m6-records/stage-d/publication-encoding-driver/stdout"
+      ],
+      "start": "2026-11-03T13:07:53.802001+00:00",
+      "end": "2026-11-03T13:07:53.803295+00:00",
+      "rc": 0,
+      "stdout_sha256": "660c17866d82e81b442be0b67cacfbbc2f7ef148bd9dbe0581048c13225ea908",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan-346",
+        "show",
+        "a0d4c4fda7a0c16c04d57edf921ffeb741eff19b:docs/audits/2026_11_03-epic-m6-records/stage-d/publication-encoding/manifest.json"
+      ],
+      "start": "2026-11-03T13:07:53.803309+00:00",
+      "end": "2026-11-03T13:07:53.804756+00:00",
+      "rc": 0,
+      "stdout_sha256": "2b5130c0b275df73f7115559a0cfff706f6c130055c71bdfb2d49141bdc1067a",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan-346",
+        "show",
+        "a0d4c4fda7a0c16c04d57edf921ffeb741eff19b:docs/audits/2026_11_03-epic-m6-records/stage-d/publication-encoding/original-18.json"
+      ],
+      "start": "2026-11-03T13:07:53.804783+00:00",
+      "end": "2026-11-03T13:07:53.806324+00:00",
+      "rc": 0,
+      "stdout_sha256": "b85c0c23e4cb009a3deb210c418b7be713e7a86321d906dbca9db2cfd9b7c4c2",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan-346",
+        "show",
+        "a0d4c4fda7a0c16c04d57edf921ffeb741eff19b:docs/audits/2026_11_03-epic-m6-records/stage-d/publication-encoding/original-19.json"
+      ],
+      "start": "2026-11-03T13:07:53.806419+00:00",
+      "end": "2026-11-03T13:07:53.809383+00:00",
+      "rc": 0,
+      "stdout_sha256": "f5f6fb5ea3dadea484784a8e0368c3d612697b6d84c129da347445325c35b783",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan-346",
+        "show",
+        "a0d4c4fda7a0c16c04d57edf921ffeb741eff19b:docs/audits/2026_11_03-epic-m6-records/stage-d/publication-encoding/original-20.json"
+      ],
+      "start": "2026-11-03T13:07:53.810963+00:00",
+      "end": "2026-11-03T13:07:53.814758+00:00",
+      "rc": 0,
+      "stdout_sha256": "be60e8cf4d8fc5fade26ec11d8ab21c892a261d25f9a433de87d0e6a5aefc190",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan-346",
+        "show",
+        "a0d4c4fda7a0c16c04d57edf921ffeb741eff19b:docs/audits/2026_11_03-epic-m6-records/stage-d/publication-encoding/original-21.json"
+      ],
+      "start": "2026-11-03T13:07:53.816196+00:00",
+      "end": "2026-11-03T13:07:53.819178+00:00",
+      "rc": 0,
+      "stdout_sha256": "fbf094c50ce4046afac5eb2e395b294461037c3009a4b72603dc69289613fde5",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan-346",
+        "show",
+        "a0d4c4fda7a0c16c04d57edf921ffeb741eff19b:docs/audits/2026_11_03-epic-m6-records/stage-d/publication-encoding/original-22.json"
+      ],
+      "start": "2026-11-03T13:07:53.820679+00:00",
+      "end": "2026-11-03T13:07:53.823706+00:00",
+      "rc": 0,
+      "stdout_sha256": "0b56913d82db14c0ba194632b4945275a17573543064e6ba6fde0cf7fe33d20e",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan-346",
+        "show",
+        "a0d4c4fda7a0c16c04d57edf921ffeb741eff19b:docs/audits/2026_11_03-epic-m6-records/stage-d/publication-encoding/original-23.json"
+      ],
+      "start": "2026-11-03T13:07:53.825202+00:00",
+      "end": "2026-11-03T13:07:53.828144+00:00",
+      "rc": 0,
+      "stdout_sha256": "f1ed4fbf6d1e0e2284024712e72879bdfc15ee10c9d3bd8d9f76637ae8802fe3",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan-346",
+        "show",
+        "a0d4c4fda7a0c16c04d57edf921ffeb741eff19b:docs/audits/2026_11_03-epic-m6-records/stage-d/publication-encoding/original-24.json"
+      ],
+      "start": "2026-11-03T13:07:53.829587+00:00",
+      "end": "2026-11-03T13:07:53.832635+00:00",
+      "rc": 0,
+      "stdout_sha256": "dd50f4fe473528f51dec616bb315b5297a0e36001ca1f72540842476eba85a2b",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan-346",
+        "show",
+        "a0d4c4fda7a0c16c04d57edf921ffeb741eff19b:docs/audits/2026_11_03-epic-m6-records/stage-d/publication-encoding/original-25.json"
+      ],
+      "start": "2026-11-03T13:07:53.834089+00:00",
+      "end": "2026-11-03T13:07:53.837164+00:00",
+      "rc": 0,
+      "stdout_sha256": "eae89a26f46f1d08670521f873821524e1a849d1ebb15a3732381a18d23d8f95",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan-346",
+        "show",
+        "a0d4c4fda7a0c16c04d57edf921ffeb741eff19b:docs/audits/2026_11_03-epic-m6-records/stage-d/publication-encoding/original-26.json"
+      ],
+      "start": "2026-11-03T13:07:53.838577+00:00",
+      "end": "2026-11-03T13:07:53.841719+00:00",
+      "rc": 0,
+      "stdout_sha256": "f5f6fb5ea3dadea484784a8e0368c3d612697b6d84c129da347445325c35b783",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan-346",
+        "show",
+        "a0d4c4fda7a0c16c04d57edf921ffeb741eff19b:docs/audits/2026_11_03-epic-m6-records/stage-d/publication-encoding/original-27.json"
+      ],
+      "start": "2026-11-03T13:07:53.843347+00:00",
+      "end": "2026-11-03T13:07:53.846610+00:00",
+      "rc": 0,
+      "stdout_sha256": "5add89e1e0f60968833c7acd5c205e72d9538113b0cf29042390b7a4e51f4385",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan-346",
+        "show",
+        "a0d4c4fda7a0c16c04d57edf921ffeb741eff19b:docs/audits/2026_11_03-epic-m6-records/stage-d/publication-encoding/original-28.json"
+      ],
+      "start": "2026-11-03T13:07:53.848069+00:00",
+      "end": "2026-11-03T13:07:53.850977+00:00",
+      "rc": 0,
+      "stdout_sha256": "deaeabf33bfeb092eaa3d763db80dd1dae565ab92f1664826beb1b3b1448e998",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan-346",
+        "show",
+        "a0d4c4fda7a0c16c04d57edf921ffeb741eff19b:docs/audits/2026_11_03-epic-m6-records/stage-d/publication-notes.md"
+      ],
+      "start": "2026-11-03T13:07:53.852381+00:00",
+      "end": "2026-11-03T13:07:53.853817+00:00",
+      "rc": 0,
+      "stdout_sha256": "9fa997b2712d35e67a21b70d90216bb84e7769eacbd50e3d37ab704c49b02834",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan-346",
+        "show",
+        "a0d4c4fda7a0c16c04d57edf921ffeb741eff19b:docs/audits/2026_11_03-epic-m6-records/stage-d/publication-refusals/commit/receipt.json.json"
+      ],
+      "start": "2026-11-03T13:07:53.853834+00:00",
+      "end": "2026-11-03T13:07:53.855392+00:00",
+      "rc": 0,
+      "stdout_sha256": "eea109ee1c98ec6886edf6c4c3183bda754c54ea229cee60856a5d8324346179",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan-346",
+        "show",
+        "a0d4c4fda7a0c16c04d57edf921ffeb741eff19b:docs/audits/2026_11_03-epic-m6-records/stage-d/publication-refusals/commit/stderr.json"
+      ],
+      "start": "2026-11-03T13:07:53.855440+00:00",
+      "end": "2026-11-03T13:07:53.856936+00:00",
+      "rc": 0,
+      "stdout_sha256": "4e5c555b45066a45cfc9df6b0fd7b3648b034ec2490662900850bc3e317462f3",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan-346",
+        "show",
+        "a0d4c4fda7a0c16c04d57edf921ffeb741eff19b:docs/audits/2026_11_03-epic-m6-records/stage-d/publication-refusals/commit/stdout.json"
+      ],
+      "start": "2026-11-03T13:07:53.856950+00:00",
+      "end": "2026-11-03T13:07:53.858354+00:00",
+      "rc": 0,
+      "stdout_sha256": "5c8d708e1684ef53e34678daa815cd2d4fcf3d56a9a8f7b2dd2cb7966363eda8",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan-346",
+        "show",
+        "a0d4c4fda7a0c16c04d57edf921ffeb741eff19b:docs/audits/2026_11_03-epic-m6-records/stage-d/publication-refusals/staged-diff-check/receipt.json.json"
+      ],
+      "start": "2026-11-03T13:07:53.858370+00:00",
+      "end": "2026-11-03T13:07:53.859777+00:00",
+      "rc": 0,
+      "stdout_sha256": "540d36b89eae729d37e5292987dbedab1594a531831607188d8e4173954fa54f",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan-346",
+        "show",
+        "a0d4c4fda7a0c16c04d57edf921ffeb741eff19b:docs/audits/2026_11_03-epic-m6-records/stage-d/publication-refusals/staged-diff-check/stderr.json"
+      ],
+      "start": "2026-11-03T13:07:53.859795+00:00",
+      "end": "2026-11-03T13:07:53.861610+00:00",
+      "rc": 0,
+      "stdout_sha256": "5c8d708e1684ef53e34678daa815cd2d4fcf3d56a9a8f7b2dd2cb7966363eda8",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan-346",
+        "show",
+        "a0d4c4fda7a0c16c04d57edf921ffeb741eff19b:docs/audits/2026_11_03-epic-m6-records/stage-d/publication-refusals/staged-diff-check/stdout.json"
+      ],
+      "start": "2026-11-03T13:07:53.861621+00:00",
+      "end": "2026-11-03T13:07:53.863164+00:00",
+      "rc": 0,
+      "stdout_sha256": "e902244cc3c54c180b9557cc17b2db65b0644b67eb239e2b84c236ba40268d9a",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan-346",
+        "show",
+        "a0d4c4fda7a0c16c04d57edf921ffeb741eff19b:docs/audits/2026_11_03-epic-m6-records/stage-d/seal/receipt.json"
+      ],
+      "start": "2026-11-03T13:07:53.863225+00:00",
+      "end": "2026-11-03T13:07:53.864662+00:00",
+      "rc": 0,
+      "stdout_sha256": "9c3acc874b125ba39e991732fd9a859455179a116809013ed9bb8b60cbb8d305",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan-346",
+        "show",
+        "a0d4c4fda7a0c16c04d57edf921ffeb741eff19b:docs/audits/2026_11_03-epic-m6-records/stage-d/seal/stderr"
+      ],
+      "start": "2026-11-03T13:07:53.864678+00:00",
+      "end": "2026-11-03T13:07:53.866579+00:00",
+      "rc": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan-346",
+        "show",
+        "a0d4c4fda7a0c16c04d57edf921ffeb741eff19b:docs/audits/2026_11_03-epic-m6-records/stage-d/seal/stdout"
+      ],
+      "start": "2026-11-03T13:07:53.866590+00:00",
+      "end": "2026-11-03T13:07:53.868060+00:00",
+      "rc": 0,
+      "stdout_sha256": "3dff060efcf56b00114451a68b68a23e5803a2eca401df8cea192c403d90618f",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan-346",
+        "show",
+        "a0d4c4fda7a0c16c04d57edf921ffeb741eff19b:docs/audits/2026_11_03-epic-m6-records/stage-d/sealed-manifest.json"
+      ],
+      "start": "2026-11-03T13:07:53.868078+00:00",
+      "end": "2026-11-03T13:07:53.869553+00:00",
+      "rc": 0,
+      "stdout_sha256": "2eefe431ace405ac2c01c1a946401bc85307310d1e5d609020561db584ed0269",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan-346",
+        "show",
+        "a0d4c4fda7a0c16c04d57edf921ffeb741eff19b:docs/audits/2026_11_03-epic-m6-records/stage-d/tracker-link-readback/receipt.json"
+      ],
+      "start": "2026-11-03T13:07:53.869625+00:00",
+      "end": "2026-11-03T13:07:53.871122+00:00",
+      "rc": 0,
+      "stdout_sha256": "3f6148f9b34c07b0489237949df79d1404225fd7ddccf5fcd504d6496f71d4e3",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan-346",
+        "show",
+        "a0d4c4fda7a0c16c04d57edf921ffeb741eff19b:docs/audits/2026_11_03-epic-m6-records/stage-d/tracker-link-readback/stderr"
+      ],
+      "start": "2026-11-03T13:07:53.871139+00:00",
+      "end": "2026-11-03T13:07:53.872541+00:00",
+      "rc": 0,
+      "stdout_sha256": "33a324e5b2afd5cd3f3b53babc0b60bba8f506f00f8bbda025834351d4cb6f0b",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan-346",
+        "show",
+        "a0d4c4fda7a0c16c04d57edf921ffeb741eff19b:docs/audits/2026_11_03-epic-m6-records/stage-d/tracker-link-readback/stdout"
+      ],
+      "start": "2026-11-03T13:07:53.872557+00:00",
+      "end": "2026-11-03T13:07:53.873943+00:00",
+      "rc": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan-346",
+        "show",
+        "a0d4c4fda7a0c16c04d57edf921ffeb741eff19b:docs/audits/2026_11_03-epic-m6-records/stage-d/tracker-verification-corrected/receipt.json"
+      ],
+      "start": "2026-11-03T13:07:53.873971+00:00",
+      "end": "2026-11-03T13:07:53.875392+00:00",
+      "rc": 0,
+      "stdout_sha256": "e481223e47888d2620f80169acb4091921a7f77139428053d7c90a8dbe020c0b",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan-346",
+        "show",
+        "a0d4c4fda7a0c16c04d57edf921ffeb741eff19b:docs/audits/2026_11_03-epic-m6-records/stage-d/tracker-verification-corrected/stderr"
+      ],
+      "start": "2026-11-03T13:07:53.875402+00:00",
+      "end": "2026-11-03T13:07:53.876763+00:00",
+      "rc": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan-346",
+        "show",
+        "a0d4c4fda7a0c16c04d57edf921ffeb741eff19b:docs/audits/2026_11_03-epic-m6-records/stage-d/tracker-verification-corrected/stdout"
+      ],
+      "start": "2026-11-03T13:07:53.876773+00:00",
+      "end": "2026-11-03T13:07:53.878114+00:00",
+      "rc": 0,
+      "stdout_sha256": "1db5111d244a440acadfc3e7f159f57f8beca5d5906aa160dac8054b0a133208",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan-346",
+        "show",
+        "a0d4c4fda7a0c16c04d57edf921ffeb741eff19b:docs/audits/2026_11_03-epic-m6-records/stage-d/tracker-verified.json"
+      ],
+      "start": "2026-11-03T13:07:53.878138+00:00",
+      "end": "2026-11-03T13:07:53.879578+00:00",
+      "rc": 0,
+      "stdout_sha256": "e267d1afde5f49731371592d39819fb1cacfaf0b51919f4268210d60d63dbf62",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan-346",
+        "show",
+        "a0d4c4fda7a0c16c04d57edf921ffeb741eff19b:docs/audits/2026_11_03-epic-m6-records/stage-d/tracker/attach-audit-to-693.stderr"
+      ],
+      "start": "2026-11-03T13:07:53.879595+00:00",
+      "end": "2026-11-03T13:07:53.881060+00:00",
+      "rc": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan-346",
+        "show",
+        "a0d4c4fda7a0c16c04d57edf921ffeb741eff19b:docs/audits/2026_11_03-epic-m6-records/stage-d/tracker/attach-audit-to-693.stdout"
+      ],
+      "start": "2026-11-03T13:07:53.881069+00:00",
+      "end": "2026-11-03T13:07:53.882825+00:00",
+      "rc": 0,
+      "stdout_sha256": "722cf745b9765f6afab6267dec1665a3b934535bb1914cba602a402aa8334d32",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan-346",
+        "show",
+        "a0d4c4fda7a0c16c04d57edf921ffeb741eff19b:docs/audits/2026_11_03-epic-m6-records/stage-d/tracker/audit-after.stderr"
+      ],
+      "start": "2026-11-03T13:07:53.882906+00:00",
+      "end": "2026-11-03T13:07:53.884462+00:00",
+      "rc": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan-346",
+        "show",
+        "a0d4c4fda7a0c16c04d57edf921ffeb741eff19b:docs/audits/2026_11_03-epic-m6-records/stage-d/tracker/audit-after.stdout"
+      ],
+      "start": "2026-11-03T13:07:53.884472+00:00",
+      "end": "2026-11-03T13:07:53.886196+00:00",
+      "rc": 0,
+      "stdout_sha256": "94f04156bd32fc61bf4cb5c39ea293d5b2d2d9a3b4877a193cfc8d047569a134",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan-346",
+        "show",
+        "a0d4c4fda7a0c16c04d57edf921ffeb741eff19b:docs/audits/2026_11_03-epic-m6-records/stage-d/tracker/audit-before.stderr"
+      ],
+      "start": "2026-11-03T13:07:53.886279+00:00",
+      "end": "2026-11-03T13:07:53.887724+00:00",
+      "rc": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan-346",
+        "show",
+        "a0d4c4fda7a0c16c04d57edf921ffeb741eff19b:docs/audits/2026_11_03-epic-m6-records/stage-d/tracker/audit-before.stdout"
+      ],
+      "start": "2026-11-03T13:07:53.887753+00:00",
+      "end": "2026-11-03T13:07:53.889530+00:00",
+      "rc": 0,
+      "stdout_sha256": "8906b1918ef7c315a440ac40d2383a597fbbd5f8284d564611f0992d58857533",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan-346",
+        "show",
+        "a0d4c4fda7a0c16c04d57edf921ffeb741eff19b:docs/audits/2026_11_03-epic-m6-records/stage-d/tracker/audit-parent.stderr"
+      ],
+      "start": "2026-11-03T13:07:53.889607+00:00",
+      "end": "2026-11-03T13:07:53.891408+00:00",
+      "rc": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan-346",
+        "show",
+        "a0d4c4fda7a0c16c04d57edf921ffeb741eff19b:docs/audits/2026_11_03-epic-m6-records/stage-d/tracker/audit-parent.stdout"
+      ],
+      "start": "2026-11-03T13:07:53.891415+00:00",
+      "end": "2026-11-03T13:07:53.893083+00:00",
+      "rc": 0,
+      "stdout_sha256": "722cf745b9765f6afab6267dec1665a3b934535bb1914cba602a402aa8334d32",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan-346",
+        "show",
+        "a0d4c4fda7a0c16c04d57edf921ffeb741eff19b:docs/audits/2026_11_03-epic-m6-records/stage-d/tracker/bug-parent.stderr"
+      ],
+      "start": "2026-11-03T13:07:53.893163+00:00",
+      "end": "2026-11-03T13:07:53.894489+00:00",
+      "rc": 0,
+      "stdout_sha256": "00e190220cf8c7763d83286d47b3e1247e2e06959ff5500d507e393e5272d0ad",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan-346",
+        "show",
+        "a0d4c4fda7a0c16c04d57edf921ffeb741eff19b:docs/audits/2026_11_03-epic-m6-records/stage-d/tracker/bug-parent.stdout"
+      ],
+      "start": "2026-11-03T13:07:53.894506+00:00",
+      "end": "2026-11-03T13:07:53.896177+00:00",
+      "rc": 0,
+      "stdout_sha256": "6d7731a82b4347d24f537948ae6df0a1d1489a21b8f13d6fec56c206fadaee74",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan-346",
+        "show",
+        "a0d4c4fda7a0c16c04d57edf921ffeb741eff19b:docs/audits/2026_11_03-epic-m6-records/stage-d/tracker/bug.stderr"
+      ],
+      "start": "2026-11-03T13:07:53.896194+00:00",
+      "end": "2026-11-03T13:07:53.897560+00:00",
+      "rc": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan-346",
+        "show",
+        "a0d4c4fda7a0c16c04d57edf921ffeb741eff19b:docs/audits/2026_11_03-epic-m6-records/stage-d/tracker/bug.stdout"
+      ],
+      "start": "2026-11-03T13:07:53.897568+00:00",
+      "end": "2026-11-03T13:07:53.898893+00:00",
+      "rc": 0,
+      "stdout_sha256": "439f57d49bef12d5fd43e2318994c38e8c2277957f9a5ae414455d4f14481115",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan-346",
+        "show",
+        "a0d4c4fda7a0c16c04d57edf921ffeb741eff19b:docs/audits/2026_11_03-epic-m6-records/stage-d/tracker/commands.json"
+      ],
+      "start": "2026-11-03T13:07:53.898910+00:00",
+      "end": "2026-11-03T13:07:53.900225+00:00",
+      "rc": 0,
+      "stdout_sha256": "937925a3c48b46ab800c3f88ec9bfc1853ac022ae58d1e76f319bb950142bf75",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan-346",
+        "show",
+        "a0d4c4fda7a0c16c04d57edf921ffeb741eff19b:docs/audits/2026_11_03-epic-m6-records/stage-d/tracker/slice-parent.stderr"
+      ],
+      "start": "2026-11-03T13:07:53.900241+00:00",
+      "end": "2026-11-03T13:07:53.901552+00:00",
+      "rc": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan-346",
+        "show",
+        "a0d4c4fda7a0c16c04d57edf921ffeb741eff19b:docs/audits/2026_11_03-epic-m6-records/stage-d/tracker/slice-parent.stdout"
+      ],
+      "start": "2026-11-03T13:07:53.901562+00:00",
+      "end": "2026-11-03T13:07:53.903265+00:00",
+      "rc": 0,
+      "stdout_sha256": "eb9da6b78ff13550360a7579e3549388f3ecebe17d86090d5ce80bc1e85ec455",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan-346",
+        "show",
+        "a0d4c4fda7a0c16c04d57edf921ffeb741eff19b:docs/audits/2026_11_03-epic-m6-records/tools/confinement.py"
+      ],
+      "start": "2026-11-03T13:07:53.903349+00:00",
+      "end": "2026-11-03T13:07:53.904751+00:00",
+      "rc": 0,
+      "stdout_sha256": "00d343e4a9604bc7432a0422ca9b1c6f1fc2e9fd84201052598f4a895480d5da",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan-346",
+        "show",
+        "a0d4c4fda7a0c16c04d57edf921ffeb741eff19b:docs/audits/2026_11_03-epic-m6-records/tools/current-gates.py"
+      ],
+      "start": "2026-11-03T13:07:53.904765+00:00",
+      "end": "2026-11-03T13:07:53.906255+00:00",
+      "rc": 0,
+      "stdout_sha256": "2edb163415cf5565c36e619699ae25af1e9506cdd3ef7774a5fbfa84b9c99ffd",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan-346",
+        "show",
+        "a0d4c4fda7a0c16c04d57edf921ffeb741eff19b:docs/audits/2026_11_03-epic-m6-records/tools/heading-metadata.py"
+      ],
+      "start": "2026-11-03T13:07:53.906302+00:00",
+      "end": "2026-11-03T13:07:53.907684+00:00",
+      "rc": 0,
+      "stdout_sha256": "89af701603aa601edb153909b0f7342daa9c381d43b411f5732d96a3998f7a99",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan-346",
+        "show",
+        "a0d4c4fda7a0c16c04d57edf921ffeb741eff19b:docs/audits/2026_11_03-epic-m6-records/tools/inventory-schema.py"
+      ],
+      "start": "2026-11-03T13:07:53.907704+00:00",
+      "end": "2026-11-03T13:07:53.909030+00:00",
+      "rc": 0,
+      "stdout_sha256": "4915ff8d8dae465ba9f1253f6d7d86b7ba8018b797a49e1ea8e5d299ebdbcc19",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan-346",
+        "show",
+        "a0d4c4fda7a0c16c04d57edf921ffeb741eff19b:docs/audits/2026_11_03-epic-m6-records/tools/link.py"
+      ],
+      "start": "2026-11-03T13:07:53.909043+00:00",
+      "end": "2026-11-03T13:07:53.910402+00:00",
+      "rc": 0,
+      "stdout_sha256": "fe54ef439fa7379f0aa66dcb3e99e1b3d62e2ee79a602409d9419fd066b8802d",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan-346",
+        "show",
+        "a0d4c4fda7a0c16c04d57edf921ffeb741eff19b:docs/audits/2026_11_03-epic-m6-records/tools/make-control-fixtures.py"
+      ],
+      "start": "2026-11-03T13:07:53.910413+00:00",
+      "end": "2026-11-03T13:07:53.911680+00:00",
+      "rc": 0,
+      "stdout_sha256": "ab45406049272f3c0af703bb2d6c8ec7e3370b3d92a303d06db4e4365d063b1f",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan-346",
+        "show",
+        "a0d4c4fda7a0c16c04d57edf921ffeb741eff19b:docs/audits/2026_11_03-epic-m6-records/tools/pointer-navigation.py"
+      ],
+      "start": "2026-11-03T13:07:53.911690+00:00",
+      "end": "2026-11-03T13:07:53.913467+00:00",
+      "rc": 0,
+      "stdout_sha256": "be1e8d5bc30dea9535aa87a4ffc4e1ba3d310bfecc25d67c7e4cb360b4edcf43",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan-346",
+        "show",
+        "a0d4c4fda7a0c16c04d57edf921ffeb741eff19b:docs/audits/2026_11_03-epic-m6-records/tools/publication-encoding.py"
+      ],
+      "start": "2026-11-03T13:07:53.913481+00:00",
+      "end": "2026-11-03T13:07:53.914916+00:00",
+      "rc": 0,
+      "stdout_sha256": "4d3d55889db081298c56a17fd9a4d96a46023f465ee7226c9de43b4c2afad284",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan-346",
+        "show",
+        "a0d4c4fda7a0c16c04d57edf921ffeb741eff19b:docs/audits/2026_11_03-epic-m6-records/tools/readers.py"
+      ],
+      "start": "2026-11-03T13:07:53.914934+00:00",
+      "end": "2026-11-03T13:07:53.916249+00:00",
+      "rc": 0,
+      "stdout_sha256": "3002c00a8cd18b7a5042bba33d36574a57ddc72d7938fad450d87cc7b10abecc",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan-346",
+        "show",
+        "a0d4c4fda7a0c16c04d57edf921ffeb741eff19b:docs/audits/2026_11_03-epic-m6-records/tools/record-scan.py"
+      ],
+      "start": "2026-11-03T13:07:53.916266+00:00",
+      "end": "2026-11-03T13:07:53.917719+00:00",
+      "rc": 0,
+      "stdout_sha256": "64541e925b10bd1cbd4c5ea9d19a56fa50230046e2fd370f6106fea60d1f858b",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan-346",
+        "show",
+        "a0d4c4fda7a0c16c04d57edf921ffeb741eff19b:docs/audits/2026_11_03-epic-m6-records/tools/record.py"
+      ],
+      "start": "2026-11-03T13:07:53.917737+00:00",
+      "end": "2026-11-03T13:07:53.919273+00:00",
+      "rc": 0,
+      "stdout_sha256": "57302504180c9d5346b690cab93b4240a1700404fd3979e37d3b721735d360de",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan-346",
+        "show",
+        "a0d4c4fda7a0c16c04d57edf921ffeb741eff19b:docs/audits/2026_11_03-epic-m6-records/tools/run-controls.py"
+      ],
+      "start": "2026-11-03T13:07:53.919312+00:00",
+      "end": "2026-11-03T13:07:53.920706+00:00",
+      "rc": 0,
+      "stdout_sha256": "f874484b949f539f442530960c620a8100a7435509ce451856f6a7244d7c3571",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan-346",
+        "show",
+        "a0d4c4fda7a0c16c04d57edf921ffeb741eff19b:docs/audits/2026_11_03-epic-m6-records/tools/seal.py"
+      ],
+      "start": "2026-11-03T13:07:53.920723+00:00",
+      "end": "2026-11-03T13:07:53.922064+00:00",
+      "rc": 0,
+      "stdout_sha256": "b99c478fced51ddf5a95f9aaede4e184d1667ac46e3203eb569ef2df34ac513a",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan-346",
+        "show",
+        "a0d4c4fda7a0c16c04d57edf921ffeb741eff19b:docs/audits/2026_11_03-epic-m6-records/tools/table.py"
+      ],
+      "start": "2026-11-03T13:07:53.922080+00:00",
+      "end": "2026-11-03T13:07:53.923432+00:00",
+      "rc": 0,
+      "stdout_sha256": "47873fd118aabb48bfca3d24453907a52c7211b0d1fd08da4d78697518ee377f",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan-346",
+        "show",
+        "a0d4c4fda7a0c16c04d57edf921ffeb741eff19b:docs/audits/2026_11_03-epic-m6-records/tools/tracker-readback.py"
+      ],
+      "start": "2026-11-03T13:07:53.923454+00:00",
+      "end": "2026-11-03T13:07:53.924792+00:00",
+      "rc": 0,
+      "stdout_sha256": "81d8cfe5a4a110c063b468240f3bae8190f4f4056312dfa8a82b7d7336e775d0",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan-346",
+        "show",
+        "a0d4c4fda7a0c16c04d57edf921ffeb741eff19b:docs/audits/2026_11_03-epic-m6-records/tools/verify-encoding.py"
+      ],
+      "start": "2026-11-03T13:07:53.924809+00:00",
+      "end": "2026-11-03T13:07:53.926163+00:00",
+      "rc": 0,
+      "stdout_sha256": "c06115e2abe25b3591031572138df824724410aa9d7fd9c73dfeb0977b7f2c9a",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan-346",
+        "show",
+        "a0d4c4fda7a0c16c04d57edf921ffeb741eff19b:docs/audits/2026_11_03-epic-m6-records/tools/verify-tracker.py"
+      ],
+      "start": "2026-11-03T13:07:53.926180+00:00",
+      "end": "2026-11-03T13:07:53.927874+00:00",
+      "rc": 0,
+      "stdout_sha256": "b44678c83e24b7bf5d6893c94a6bebde5d7d3d30df0e4f17d757944627d0f1a7",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan-346",
+        "show",
+        "a0d4c4fda7a0c16c04d57edf921ffeb741eff19b:docs/work-logs/2026_11-work_logs/2026_11_03-work_log.md"
+      ],
+      "start": "2026-11-03T13:07:53.927892+00:00",
+      "end": "2026-11-03T13:07:53.929219+00:00",
+      "rc": 0,
+      "stdout_sha256": "74baf274a3d37e5cd3e9204713a699f225ae23310b541f9ead2dd25dc2c7d04f",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan-346",
+        "show",
+        "a0d4c4fda7a0c16c04d57edf921ffeb741eff19b:docs/work-logs/INDEX.md"
+      ],
+      "start": "2026-11-03T13:07:53.929240+00:00",
+      "end": "2026-11-03T13:07:53.931180+00:00",
+      "rc": 0,
+      "stdout_sha256": "c919893188318c1aa562b70aab4268202f1b2f48b31016639757e7068b7beb1d",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ]
+}
