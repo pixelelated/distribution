@@ -1,0 +1,8 @@
+{
+  "result": "FAIL before completion acceptance",
+  "observed_input": "523a25d5b0140be131c1de02881f21790f013f4f",
+  "actual_object_type": "tree",
+  "failure": "AssertionError at direct-parent predicate; an observed tree OID was supplied as TIP before the final checkpoint was consumed",
+  "correction": "Use checkpoint6592329438 actual commit ad0df587128577212337aa76d171b0b9cfaae4a4 and explicitly require commit type",
+  "metadata_limit": "Original tool error observed in root conversation; no invented start/end/raw-stream receipt. Initial reader retained unchanged. No lane evidence failed and no producer ran."
+}

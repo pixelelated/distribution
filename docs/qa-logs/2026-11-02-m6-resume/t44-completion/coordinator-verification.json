@@ -1,0 +1,356 @@
+{
+  "result": "PASS immutable normal completion; external publication separate",
+  "at": "2026-11-03T00:46:39.528521+00:00",
+  "tip": "ad0df587128577212337aa76d171b0b9cfaae4a4",
+  "accepted": "f01abd480f4e0b337a9fcdde2cec9bc1746b525d",
+  "marker_sha256": "e5de3cc09413bbb35d9bd32897eaaefd8ec56f113dfb0f468fe044a661a8638b",
+  "evidence_hashes": 14,
+  "accepted_files_unchanged": 440,
+  "changed_paths": [
+    ".github/sessions/saved-session-state-feature-m6-es-vendored-and-data-691.md",
+    "docs/audits/2026_11_02-epic-m6-es-vendored-and-data/audit-completion.json",
+    "docs/audits/2026_11_02-epic-m6-es-vendored-and-data/completion/RESULT.md",
+    "docs/audits/2026_11_02-epic-m6-es-vendored-and-data/completion/acceptance-dispatch.json",
+    "docs/audits/2026_11_02-epic-m6-es-vendored-and-data/completion/acceptance-dispatch.md",
+    "docs/audits/2026_11_02-epic-m6-es-vendored-and-data/completion/checks-readback.json",
+    "docs/audits/2026_11_02-epic-m6-es-vendored-and-data/completion/checks/ceremony-full/receipt.json",
+    "docs/audits/2026_11_02-epic-m6-es-vendored-and-data/completion/checks/ceremony-full/scope.json",
+    "docs/audits/2026_11_02-epic-m6-es-vendored-and-data/completion/checks/ceremony-full/stderr",
+    "docs/audits/2026_11_02-epic-m6-es-vendored-and-data/completion/checks/ceremony-full/stdout",
+    "docs/audits/2026_11_02-epic-m6-es-vendored-and-data/completion/checks/completion-read-scan/receipt.json",
+    "docs/audits/2026_11_02-epic-m6-es-vendored-and-data/completion/checks/completion-read-scan/scope.json",
+    "docs/audits/2026_11_02-epic-m6-es-vendored-and-data/completion/checks/completion-read-scan/stderr",
+    "docs/audits/2026_11_02-epic-m6-es-vendored-and-data/completion/checks/completion-read-scan/stdout",
+    "docs/audits/2026_11_02-epic-m6-es-vendored-and-data/completion/checks/diff/receipt.json",
+    "docs/audits/2026_11_02-epic-m6-es-vendored-and-data/completion/checks/diff/scope.json",
+    "docs/audits/2026_11_02-epic-m6-es-vendored-and-data/completion/checks/diff/stderr",
+    "docs/audits/2026_11_02-epic-m6-es-vendored-and-data/completion/checks/diff/stdout",
+    "docs/audits/2026_11_02-epic-m6-es-vendored-and-data/completion/checks/hooks/receipt.json",
+    "docs/audits/2026_11_02-epic-m6-es-vendored-and-data/completion/checks/hooks/scope.json",
+    "docs/audits/2026_11_02-epic-m6-es-vendored-and-data/completion/checks/hooks/stderr",
+    "docs/audits/2026_11_02-epic-m6-es-vendored-and-data/completion/checks/hooks/stdout",
+    "docs/audits/2026_11_02-epic-m6-es-vendored-and-data/completion/checks/index-write/receipt.json",
+    "docs/audits/2026_11_02-epic-m6-es-vendored-and-data/completion/checks/index-write/scope.json",
+    "docs/audits/2026_11_02-epic-m6-es-vendored-and-data/completion/checks/index-write/stderr",
+    "docs/audits/2026_11_02-epic-m6-es-vendored-and-data/completion/checks/index-write/stdout",
+    "docs/audits/2026_11_02-epic-m6-es-vendored-and-data/completion/checks/index/receipt.json",
+    "docs/audits/2026_11_02-epic-m6-es-vendored-and-data/completion/checks/index/scope.json",
+    "docs/audits/2026_11_02-epic-m6-es-vendored-and-data/completion/checks/index/stderr",
+    "docs/audits/2026_11_02-epic-m6-es-vendored-and-data/completion/checks/index/stdout",
+    "docs/audits/2026_11_02-epic-m6-es-vendored-and-data/completion/checks/issue-1413/receipt.json",
+    "docs/audits/2026_11_02-epic-m6-es-vendored-and-data/completion/checks/issue-1413/scope.json",
+    "docs/audits/2026_11_02-epic-m6-es-vendored-and-data/completion/checks/issue-1413/stderr",
+    "docs/audits/2026_11_02-epic-m6-es-vendored-and-data/completion/checks/issue-1413/stdout",
+    "docs/audits/2026_11_02-epic-m6-es-vendored-and-data/completion/checks/issue-1414/receipt.json",
+    "docs/audits/2026_11_02-epic-m6-es-vendored-and-data/completion/checks/issue-1414/scope.json",
+    "docs/audits/2026_11_02-epic-m6-es-vendored-and-data/completion/checks/issue-1414/stderr",
+    "docs/audits/2026_11_02-epic-m6-es-vendored-and-data/completion/checks/issue-1414/stdout",
+    "docs/audits/2026_11_02-epic-m6-es-vendored-and-data/completion/checks/issue-691/receipt.json",
+    "docs/audits/2026_11_02-epic-m6-es-vendored-and-data/completion/checks/issue-691/scope.json",
+    "docs/audits/2026_11_02-epic-m6-es-vendored-and-data/completion/checks/issue-691/stderr",
+    "docs/audits/2026_11_02-epic-m6-es-vendored-and-data/completion/checks/issue-691/stdout",
+    "docs/audits/2026_11_02-epic-m6-es-vendored-and-data/completion/checks/issue-lint/receipt.json",
+    "docs/audits/2026_11_02-epic-m6-es-vendored-and-data/completion/checks/issue-lint/scope.json",
+    "docs/audits/2026_11_02-epic-m6-es-vendored-and-data/completion/checks/issue-lint/stderr",
+    "docs/audits/2026_11_02-epic-m6-es-vendored-and-data/completion/checks/issue-lint/stdout",
+    "docs/audits/2026_11_02-epic-m6-es-vendored-and-data/completion/checks/marker/receipt.json",
+    "docs/audits/2026_11_02-epic-m6-es-vendored-and-data/completion/checks/marker/scope.json",
+    "docs/audits/2026_11_02-epic-m6-es-vendored-and-data/completion/checks/marker/stderr",
+    "docs/audits/2026_11_02-epic-m6-es-vendored-and-data/completion/checks/marker/stdout",
+    "docs/audits/2026_11_02-epic-m6-es-vendored-and-data/completion/checks/normal-lint/receipt.json",
+    "docs/audits/2026_11_02-epic-m6-es-vendored-and-data/completion/checks/normal-lint/scope.json",
+    "docs/audits/2026_11_02-epic-m6-es-vendored-and-data/completion/checks/normal-lint/stderr",
+    "docs/audits/2026_11_02-epic-m6-es-vendored-and-data/completion/checks/normal-lint/stdout",
+    "docs/audits/2026_11_02-epic-m6-es-vendored-and-data/completion/checks/register/receipt.json",
+    "docs/audits/2026_11_02-epic-m6-es-vendored-and-data/completion/checks/register/scope.json",
+    "docs/audits/2026_11_02-epic-m6-es-vendored-and-data/completion/checks/register/stderr",
+    "docs/audits/2026_11_02-epic-m6-es-vendored-and-data/completion/checks/register/stdout",
+    "docs/audits/2026_11_02-epic-m6-es-vendored-and-data/completion/checks/rules/receipt.json",
+    "docs/audits/2026_11_02-epic-m6-es-vendored-and-data/completion/checks/rules/scope.json",
+    "docs/audits/2026_11_02-epic-m6-es-vendored-and-data/completion/checks/rules/stderr",
+    "docs/audits/2026_11_02-epic-m6-es-vendored-and-data/completion/checks/rules/stdout",
+    "docs/audits/2026_11_02-epic-m6-es-vendored-and-data/completion/completion-read.py",
+    "docs/audits/2026_11_02-epic-m6-es-vendored-and-data/completion/coordinator-inputs.json",
+    "docs/audits/2026_11_02-epic-m6-es-vendored-and-data/completion/coordinator/acceptance.md",
+    "docs/audits/2026_11_02-epic-m6-es-vendored-and-data/completion/coordinator/coordinator-support-run/root-run.json",
+    "docs/audits/2026_11_02-epic-m6-es-vendored-and-data/completion/coordinator/integration/commands.json",
+    "docs/audits/2026_11_02-epic-m6-es-vendored-and-data/completion/coordinator/integration/log-resolution.json",
+    "docs/audits/2026_11_02-epic-m6-es-vendored-and-data/completion/coordinator/integration/result.json",
+    "docs/audits/2026_11_02-epic-m6-es-vendored-and-data/completion/coordinator/root-reconciliation.json",
+    "docs/audits/2026_11_02-epic-m6-es-vendored-and-data/completion/coordinator/support/report.md",
+    "docs/audits/2026_11_02-epic-m6-es-vendored-and-data/completion/input-reads/1/receipt.json",
+    "docs/audits/2026_11_02-epic-m6-es-vendored-and-data/completion/input-reads/1/scope.json",
+    "docs/audits/2026_11_02-epic-m6-es-vendored-and-data/completion/input-reads/1/stderr",
+    "docs/audits/2026_11_02-epic-m6-es-vendored-and-data/completion/input-reads/1/stdout",
+    "docs/audits/2026_11_02-epic-m6-es-vendored-and-data/completion/input-reads/2/receipt.json",
+    "docs/audits/2026_11_02-epic-m6-es-vendored-and-data/completion/input-reads/2/scope.json",
+    "docs/audits/2026_11_02-epic-m6-es-vendored-and-data/completion/input-reads/2/stderr",
+    "docs/audits/2026_11_02-epic-m6-es-vendored-and-data/completion/input-reads/2/stdout",
+    "docs/audits/2026_11_02-epic-m6-es-vendored-and-data/completion/input-reads/3/receipt.json",
+    "docs/audits/2026_11_02-epic-m6-es-vendored-and-data/completion/input-reads/3/scope.json",
+    "docs/audits/2026_11_02-epic-m6-es-vendored-and-data/completion/input-reads/3/stderr",
+    "docs/audits/2026_11_02-epic-m6-es-vendored-and-data/completion/input-reads/3/stdout",
+    "docs/audits/2026_11_02-epic-m6-es-vendored-and-data/completion/input-reads/4/receipt.json",
+    "docs/audits/2026_11_02-epic-m6-es-vendored-and-data/completion/input-reads/4/scope.json",
+    "docs/audits/2026_11_02-epic-m6-es-vendored-and-data/completion/input-reads/4/stderr",
+    "docs/audits/2026_11_02-epic-m6-es-vendored-and-data/completion/input-reads/4/stdout",
+    "docs/audits/2026_11_02-epic-m6-es-vendored-and-data/completion/input-reads/5/receipt.json",
+    "docs/audits/2026_11_02-epic-m6-es-vendored-and-data/completion/input-reads/5/scope.json",
+    "docs/audits/2026_11_02-epic-m6-es-vendored-and-data/completion/input-reads/5/stderr",
+    "docs/audits/2026_11_02-epic-m6-es-vendored-and-data/completion/input-reads/5/stdout",
+    "docs/audits/2026_11_02-epic-m6-es-vendored-and-data/completion/input-reads/6/receipt.json",
+    "docs/audits/2026_11_02-epic-m6-es-vendored-and-data/completion/input-reads/6/scope.json",
+    "docs/audits/2026_11_02-epic-m6-es-vendored-and-data/completion/input-reads/6/stderr",
+    "docs/audits/2026_11_02-epic-m6-es-vendored-and-data/completion/input-reads/6/stdout",
+    "docs/audits/2026_11_02-epic-m6-es-vendored-and-data/completion/input-reads/7/receipt.json",
+    "docs/audits/2026_11_02-epic-m6-es-vendored-and-data/completion/input-reads/7/scope.json",
+    "docs/audits/2026_11_02-epic-m6-es-vendored-and-data/completion/input-reads/7/stderr",
+    "docs/audits/2026_11_02-epic-m6-es-vendored-and-data/completion/input-reads/7/stdout",
+    "docs/audits/2026_11_02-epic-m6-es-vendored-and-data/completion/live-issues.json",
+    "docs/audits/2026_11_02-epic-m6-es-vendored-and-data/completion/run.py",
+    "docs/audits/2026_11_02-epic-m6-es-vendored-and-data/completion/start.json",
+    "docs/audits/2026_11_02-epic-m6-es-vendored-and-data/tracker-completion.json",
+    "docs/audits/2026_11_02-epic-m6-es-vendored-and-data/tracker-final-readback.json",
+    "docs/work-logs/2026_11-work_logs/2026_11_03-work_log.md",
+    "docs/work-logs/INDEX.md"
+  ],
+  "new_command_bindings": [
+    {
+      "path": "docs/audits/2026_11_02-epic-m6-es-vendored-and-data/completion/input-reads/2/receipt.json",
+      "argv": [
+        "git",
+        "show",
+        "e7b5f22eeca9b5f3347cf5b83fdeedcfd97f459c:docs/qa-logs/2026-11-02-m6-resume/t44-final/root-reconciliation.json"
+      ],
+      "rc": 0,
+      "stdout_sha256": "37b6e03f3375811b7d1e6fcc60b7bd2dfedc4c6d6510c85ddb9ab92ce1c2aac1",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "docs/audits/2026_11_02-epic-m6-es-vendored-and-data/completion/checks/ceremony-full/receipt.json",
+      "argv": [
+        "tools/ceremony-check"
+      ],
+      "rc": 0,
+      "stdout_sha256": "561b12c243ba283b1fd2be49d5a4b0671264ff0689f16ada8d1e37f167a03575",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "docs/audits/2026_11_02-epic-m6-es-vendored-and-data/completion/checks/issue-1413/receipt.json",
+      "argv": [
+        "tools/box-check",
+        "--issue",
+        "1413"
+      ],
+      "rc": 0,
+      "stdout_sha256": "7ae8534fd7d26020a8b0e7221cf3313b595e275a0fea6a8adb4568b7e135a317",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "docs/audits/2026_11_02-epic-m6-es-vendored-and-data/completion/input-reads/6/receipt.json",
+      "argv": [
+        "git",
+        "show",
+        "e7b5f22eeca9b5f3347cf5b83fdeedcfd97f459c:docs/qa-logs/2026-11-02-m6-resume/t44-final/support/report.md"
+      ],
+      "rc": 0,
+      "stdout_sha256": "2772ed1f9fa87dcaca14be904463d431859185998189b32f086d5790387be21e",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "docs/audits/2026_11_02-epic-m6-es-vendored-and-data/completion/checks/index/receipt.json",
+      "argv": [
+        "tools/work-log-index",
+        "--check"
+      ],
+      "rc": 0,
+      "stdout_sha256": "232b345c76ad64a47de4d43e62d9aeb4f2850472cde78ddd1b1e56d72103d927",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "docs/audits/2026_11_02-epic-m6-es-vendored-and-data/completion/checks/index-write/receipt.json",
+      "argv": [
+        "tools/work-log-index",
+        "--write"
+      ],
+      "rc": 0,
+      "stdout_sha256": "061368efbc0d97703a7e08de9352ed34d8e316a8b20cce6ee5fbc6b9b580f3d3",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "docs/audits/2026_11_02-epic-m6-es-vendored-and-data/completion/input-reads/5/receipt.json",
+      "argv": [
+        "git",
+        "show",
+        "e7b5f22eeca9b5f3347cf5b83fdeedcfd97f459c:docs/qa-logs/2026-11-02-m6-resume/t44-final/integration/log-resolution.json"
+      ],
+      "rc": 0,
+      "stdout_sha256": "fdf4e3fe25761e5738cc6c657c2c70c120d5b148447e08ac8aceaac05b18feb3",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "docs/audits/2026_11_02-epic-m6-es-vendored-and-data/completion/checks/issue-lint/receipt.json",
+      "argv": [
+        "python3",
+        "-I",
+        "-B",
+        "tools/lint-audit-artifacts",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-es-vendored-and-data-691/docs/audits/2026_11_02-epic-m6-es-vendored-and-data",
+        "--issue",
+        "1413"
+      ],
+      "rc": 0,
+      "stdout_sha256": "d9cbac168216e5fb2405c65558daecceb1d5c50b78b60625587a32f5b372cd6a",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "docs/audits/2026_11_02-epic-m6-es-vendored-and-data/completion/checks/marker/receipt.json",
+      "argv": [
+        "python3",
+        "-I",
+        "-B",
+        "-c",
+        "import runpy,datetime,pathlib; n=runpy.run_path('tools/ceremony-check'); print('PASS schema1',n['completed_audit_marker'](pathlib.Path('/workspace/repos/pixelelated/distribution.worktrees/m6-es-vendored-and-data-691/docs/audits/2026_11_02-epic-m6-es-vendored-and-data/audit-completion.json'),pathlib.Path('.'),datetime.datetime.now(datetime.timezone.utc)))"
+      ],
+      "rc": 0,
+      "stdout_sha256": "d9a6d656059dc4b000fed8aa252dbe0f16ba1d12c902aa34753fc4669de52a93",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "docs/audits/2026_11_02-epic-m6-es-vendored-and-data/completion/checks/hooks/receipt.json",
+      "argv": [
+        ".githooks/hooks-test"
+      ],
+      "rc": 0,
+      "stdout_sha256": "3402d5f59e65118cf905eb74dd1cda7660eeffd181ad248e23a56f68395e0a5c",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "docs/audits/2026_11_02-epic-m6-es-vendored-and-data/completion/checks/issue-691/receipt.json",
+      "argv": [
+        "tools/box-check",
+        "--issue",
+        "691"
+      ],
+      "rc": 0,
+      "stdout_sha256": "7ae8534fd7d26020a8b0e7221cf3313b595e275a0fea6a8adb4568b7e135a317",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "docs/audits/2026_11_02-epic-m6-es-vendored-and-data/completion/input-reads/3/receipt.json",
+      "argv": [
+        "git",
+        "show",
+        "e7b5f22eeca9b5f3347cf5b83fdeedcfd97f459c:docs/qa-logs/2026-11-02-m6-resume/t44-final/integration/result.json"
+      ],
+      "rc": 0,
+      "stdout_sha256": "cb9f14560ead7f4085b5ab82a50b9113a975ef2b00cae566fb0a2d7b2a27d761",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "docs/audits/2026_11_02-epic-m6-es-vendored-and-data/completion/checks/rules/receipt.json",
+      "argv": [
+        "tools/rules-check",
+        "--quiet"
+      ],
+      "rc": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "docs/audits/2026_11_02-epic-m6-es-vendored-and-data/completion/checks/normal-lint/receipt.json",
+      "argv": [
+        "python3",
+        "-I",
+        "-B",
+        "tools/lint-audit-artifacts",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-es-vendored-and-data-691/docs/audits/2026_11_02-epic-m6-es-vendored-and-data"
+      ],
+      "rc": 0,
+      "stdout_sha256": "02120d5f59a5231dc9647c20a0d1c07e6ea93ad2500512509f798e00e1257403",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "docs/audits/2026_11_02-epic-m6-es-vendored-and-data/completion/input-reads/1/receipt.json",
+      "argv": [
+        "git",
+        "show",
+        "e7b5f22eeca9b5f3347cf5b83fdeedcfd97f459c:docs/qa-logs/2026-11-02-m6-resume/t44-final/acceptance.md"
+      ],
+      "rc": 0,
+      "stdout_sha256": "d13ff3b73210a689046b89155c2df3b6e83ce82cc399000bc3282edc731356de",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "docs/audits/2026_11_02-epic-m6-es-vendored-and-data/completion/checks/register/receipt.json",
+      "argv": [
+        "tools/register-check"
+      ],
+      "rc": 0,
+      "stdout_sha256": "a663cbd892b0646df3ab8ca7417fe230f414e09711f264cda79ea904d4bbc2fa",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "docs/audits/2026_11_02-epic-m6-es-vendored-and-data/completion/checks/completion-read-scan/receipt.json",
+      "argv": [
+        "python3",
+        "-I",
+        "-B",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-es-vendored-and-data-691/docs/audits/2026_11_02-epic-m6-es-vendored-and-data/completion/completion-read.py",
+        "--scan"
+      ],
+      "rc": 0,
+      "stdout_sha256": "afa68b30cbafd093a191bd10e35f2025361cbe478b92f8d28f5d3b753dac13e7",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "docs/audits/2026_11_02-epic-m6-es-vendored-and-data/completion/checks/issue-1414/receipt.json",
+      "argv": [
+        "tools/box-check",
+        "--issue",
+        "1414"
+      ],
+      "rc": 0,
+      "stdout_sha256": "d1dcf8ca1df7944ccb5f51aae3afd80e2565e5bec1ad179a09607a932ce078cb",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "docs/audits/2026_11_02-epic-m6-es-vendored-and-data/completion/input-reads/4/receipt.json",
+      "argv": [
+        "git",
+        "show",
+        "e7b5f22eeca9b5f3347cf5b83fdeedcfd97f459c:docs/qa-logs/2026-11-02-m6-resume/t44-final/integration/commands.json"
+      ],
+      "rc": 0,
+      "stdout_sha256": "46d02e9d9b52cea4db6fbd7e67488f4141ba78ccd58c77d6ffa1748b2f2eb301",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "docs/audits/2026_11_02-epic-m6-es-vendored-and-data/completion/input-reads/7/receipt.json",
+      "argv": [
+        "git",
+        "show",
+        "e7b5f22eeca9b5f3347cf5b83fdeedcfd97f459c:docs/qa-logs/2026-11-02-m6-resume/t44-final/coordinator-support-run/root-run.json"
+      ],
+      "rc": 0,
+      "stdout_sha256": "53b37fb10906b28fd4370e62ddea1d6aede96026bdadc3aaf91daf4f76a47866",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "docs/audits/2026_11_02-epic-m6-es-vendored-and-data/completion/checks/diff/receipt.json",
+      "argv": [
+        "git",
+        "diff",
+        "--check",
+        "f01abd480f4e0b337a9fcdde2cec9bc1746b525d"
+      ],
+      "rc": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ],
+  "checks": 13,
+  "closed_at": "2026-11-03T00:35:53Z",
+  "completed_at": "2026-11-03T00:40:52.534921+00:00",
+  "no_accepted_execution_replayed": true
+}
