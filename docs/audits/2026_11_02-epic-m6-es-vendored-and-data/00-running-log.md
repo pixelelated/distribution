@@ -45,3 +45,7 @@ First commit d6d08bf19c was pushed clean, but immutable payload readback failed:
 PL-001 is **Resolved for the carrying-decision documentation only** under [#691 dispatch6591582676](https://github.com/pixelelated/distribution/issues/691#issuecomment-6591582676). See [stage-e/disposition.md](stage-e/disposition.md) for the exact2.4.12 carry rationale, observed2.5.3 comparison, revisit trigger, all five #1414 routes and four preserved receipt qualifications. Questions1–3 are answered by that record. #1414 remains open with five unchecked future criteria; #1413 remains open for root acceptance. The preceding D text is dated history, not the current resolution status. No source upgrade, compatibility proof or combined tree is inferred. Both time-to-play quantities remain unmeasured.
 
 Actual new executor: Codex / openai/gpt-6-astra / openai / xhigh, own observed Herdr footer (UI observation, not provider attestation); session01a19d12-1c5f-7022-8053-102f6a94b7fe, wN:p5. Started reading2026-11-02; documentary writes2026-11-03 UTC. Original attribution and Local reviewers[] are unchanged.
+
+## 2026-11-03T00:11:33.731496+00:00 — F/G/H record result
+
+Current F gates allrc0; stage-f/gate-readback.json binds exits and raw streams. Retro#691 comment6591747066 is exact-read-back. H custody retains49 old and102 new synthetic-proof files; no deletion. See stage-h/handback.md for all limits and next owners. Final commit publication/exact-tip scan is retained externally without an evidence-only commit loop. Root acceptance remains pending.

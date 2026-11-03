@@ -1,3 +1,9 @@
+# Current T44 state — H records ready for publication
+
+Continuous E-H dispatch #691 comment6591582676 is implemented. S1d0274e2 documents temporary doctest2.4.12 carry and five open #1414 routes. PL001 resolved documentation only; #1413 remains open for root acceptance. F snapshot gates allrc0; final exact-commit checks/push/status remain external at /tmp/m6-t44-eh-publication-qhf1l0l6. Retro6591747066 exact-read-back. H retains49 old scratch files and102 new synthetic-proof files; eligible/deleted empty, next owners explicit. No source/ES change, accepted replay, runtime or closure. Whole ES55158/tree64b90 remains clean. Stop after clean published H for root acceptance; do not initiate another slice. Actual Codex/openai/gpt-6-astra/xhigh, session01a19d12-1c5f-7022-8053-102f6a94b7fe/wN:p5; CPUs8-23. Both time-to-play quantities unmeasured.
+
+## Preserved earlier pointer states
+
 # Current T44 state — E/S1 documentary outcome
 
 Dispatch #691 comment6591582676 authorizes continuous records-only E–H. Accepted D923dd and whole ES55158/tree64b90 remain fixed. PL001 resolved for carrying-decision documentation only; stage-e/disposition.md and #1414 bind rationale, revisit trigger and five owners. F/G/H remain in progress; no audit closure/marker or root acceptance claimed. Actual Codex/openai/gpt-6-astra/xhigh, session01a19d12-1c5f-7022-8053-102f6a94b7fe/wN:p5. CPU8–23.

@@ -1,0 +1,3431 @@
+{
+  "recorded_at": "2026-11-03T00:07:45.264211+00:00",
+  "eligible": [],
+  "deleted": [],
+  "old_census": {
+    "path": "stage-d/owned-scratch-census.json",
+    "sha256": "5104b1e2f129dc6db63deba38e10ab5e0b6a260dba38dd6a43ee7062a7520c7e",
+    "named_files": 14,
+    "tiny_fixture_files": 35
+  },
+  "retained_old": [
+    {
+      "path": "/tmp/t44-stage-a-start.py",
+      "current_observed_at": "2026-11-03T00:07:45.264211+00:00",
+      "disposition": "RETAIN",
+      "next_owner": "T2 wN:p5 under a future explicit coordinator custody dispatch",
+      "reason": "Historical content/owner census lacks original creation/inode and completed-invocation binding; no retirement provenance is invented.",
+      "current": {
+        "device": 46,
+        "inode": 6753141,
+        "mode": "0o664",
+        "bytes": 7231,
+        "sha256": "22383259267ac9926ba8997cb690e935b9090b3ccc8622f09cf10ba5184ea3f8",
+        "identity_kind": "current observation only; not historical creation"
+      },
+      "original_content_match": true,
+      "original_content": {
+        "path": "/tmp/t44-stage-a-start.py",
+        "bytes": 7231,
+        "sha256": "22383259267ac9926ba8997cb690e935b9090b3ccc8622f09cf10ba5184ea3f8",
+        "owner": "T44 current executor; small helper/script, not source export",
+        "retired": false
+      }
+    },
+    {
+      "path": "/tmp/t44-stage-a-local.py",
+      "current_observed_at": "2026-11-03T00:07:45.264211+00:00",
+      "disposition": "RETAIN",
+      "next_owner": "T2 wN:p5 under a future explicit coordinator custody dispatch",
+      "reason": "Historical content/owner census lacks original creation/inode and completed-invocation binding; no retirement provenance is invented.",
+      "current": {
+        "device": 46,
+        "inode": 6753852,
+        "mode": "0o664",
+        "bytes": 4820,
+        "sha256": "bfc19966853828a48824033a8e39630aca9325612a46700abab14713d6841378",
+        "identity_kind": "current observation only; not historical creation"
+      },
+      "original_content_match": true,
+      "original_content": {
+        "path": "/tmp/t44-stage-a-local.py",
+        "bytes": 4820,
+        "sha256": "bfc19966853828a48824033a8e39630aca9325612a46700abab14713d6841378",
+        "owner": "T44 current executor; small helper/script, not source export",
+        "retired": false
+      }
+    },
+    {
+      "path": "/tmp/t44-read.py",
+      "current_observed_at": "2026-11-03T00:07:45.264211+00:00",
+      "disposition": "RETAIN",
+      "next_owner": "T2 wN:p5 under a future explicit coordinator custody dispatch",
+      "reason": "Historical content/owner census lacks original creation/inode and completed-invocation binding; no retirement provenance is invented.",
+      "current": {
+        "device": 46,
+        "inode": 6755982,
+        "mode": "0o664",
+        "bytes": 1118,
+        "sha256": "2ba872e25742e2282f84656295fb50cf695c428ebbee1bb9b667ecc7a3090061",
+        "identity_kind": "current observation only; not historical creation"
+      },
+      "original_content_match": true,
+      "original_content": {
+        "path": "/tmp/t44-read.py",
+        "bytes": 1118,
+        "sha256": "2ba872e25742e2282f84656295fb50cf695c428ebbee1bb9b667ecc7a3090061",
+        "owner": "T44 current executor; small helper/script, not source export",
+        "retired": false
+      }
+    },
+    {
+      "path": "/tmp/t44-b-observations.py",
+      "current_observed_at": "2026-11-03T00:07:45.264211+00:00",
+      "disposition": "RETAIN",
+      "next_owner": "T2 wN:p5 under a future explicit coordinator custody dispatch",
+      "reason": "Historical content/owner census lacks original creation/inode and completed-invocation binding; no retirement provenance is invented.",
+      "current": {
+        "device": 46,
+        "inode": 6757036,
+        "mode": "0o664",
+        "bytes": 9141,
+        "sha256": "10cbb9eb57d3b0cdf09a15766dc55dcf99ab6ddb80ab8353b5d60d1a05729045",
+        "identity_kind": "current observation only; not historical creation"
+      },
+      "original_content_match": true,
+      "original_content": {
+        "path": "/tmp/t44-b-observations.py",
+        "bytes": 9141,
+        "sha256": "10cbb9eb57d3b0cdf09a15766dc55dcf99ab6ddb80ab8353b5d60d1a05729045",
+        "owner": "T44 current executor; small helper/script, not source export",
+        "retired": false
+      }
+    },
+    {
+      "path": "/tmp/t44-catalogue.py",
+      "current_observed_at": "2026-11-03T00:07:45.264211+00:00",
+      "disposition": "RETAIN",
+      "next_owner": "T2 wN:p5 under a future explicit coordinator custody dispatch",
+      "reason": "Historical content/owner census lacks original creation/inode and completed-invocation binding; no retirement provenance is invented.",
+      "current": {
+        "device": 46,
+        "inode": 6757672,
+        "mode": "0o664",
+        "bytes": 3231,
+        "sha256": "c74c0bce6afc2ffca6f83d3c2cdb3df8d2f80e9d6fd95367c587629cc9216df9",
+        "identity_kind": "current observation only; not historical creation"
+      },
+      "original_content_match": true,
+      "original_content": {
+        "path": "/tmp/t44-catalogue.py",
+        "bytes": 3231,
+        "sha256": "c74c0bce6afc2ffca6f83d3c2cdb3df8d2f80e9d6fd95367c587629cc9216df9",
+        "owner": "T44 current executor; small helper/script, not source export",
+        "retired": false
+      }
+    },
+    {
+      "path": "/tmp/t44-collect.py",
+      "current_observed_at": "2026-11-03T00:07:45.264211+00:00",
+      "disposition": "RETAIN",
+      "next_owner": "T2 wN:p5 under a future explicit coordinator custody dispatch",
+      "reason": "Historical content/owner census lacks original creation/inode and completed-invocation binding; no retirement provenance is invented.",
+      "current": {
+        "device": 46,
+        "inode": 6758146,
+        "mode": "0o664",
+        "bytes": 7770,
+        "sha256": "d6bf478ab29c0b886c0fdcf3dffb9f67405b26f9ce7779978ddc30f452b78bfd",
+        "identity_kind": "current observation only; not historical creation"
+      },
+      "original_content_match": true,
+      "original_content": {
+        "path": "/tmp/t44-collect.py",
+        "bytes": 7770,
+        "sha256": "d6bf478ab29c0b886c0fdcf3dffb9f67405b26f9ce7779978ddc30f452b78bfd",
+        "owner": "T44 current executor; small helper/script, not source export",
+        "retired": false
+      }
+    },
+    {
+      "path": "/tmp/t44-tables.py",
+      "current_observed_at": "2026-11-03T00:07:45.264211+00:00",
+      "disposition": "RETAIN",
+      "next_owner": "T2 wN:p5 under a future explicit coordinator custody dispatch",
+      "reason": "Historical content/owner census lacks original creation/inode and completed-invocation binding; no retirement provenance is invented.",
+      "current": {
+        "device": 46,
+        "inode": 6759909,
+        "mode": "0o664",
+        "bytes": 11331,
+        "sha256": "94b358990f618b65b931c03201d230ccfd7b7108af8b5911b8dfcf8a3fdd7678",
+        "identity_kind": "current observation only; not historical creation"
+      },
+      "original_content_match": true,
+      "original_content": {
+        "path": "/tmp/t44-tables.py",
+        "bytes": 11331,
+        "sha256": "94b358990f618b65b931c03201d230ccfd7b7108af8b5911b8dfcf8a3fdd7678",
+        "owner": "T44 current executor; small helper/script, not source export",
+        "retired": false
+      }
+    },
+    {
+      "path": "/tmp/t44-run-new.py",
+      "current_observed_at": "2026-11-03T00:07:45.264211+00:00",
+      "disposition": "RETAIN",
+      "next_owner": "T2 wN:p5 under a future explicit coordinator custody dispatch",
+      "reason": "Historical content/owner census lacks original creation/inode and completed-invocation binding; no retirement provenance is invented.",
+      "current": {
+        "device": 46,
+        "inode": 6758549,
+        "mode": "0o664",
+        "bytes": 1194,
+        "sha256": "011fc58127e952f61d07c1b8f60d145e11e13c8605abe52b594bb116d1444743",
+        "identity_kind": "current observation only; not historical creation"
+      },
+      "original_content_match": true,
+      "original_content": {
+        "path": "/tmp/t44-run-new.py",
+        "bytes": 1194,
+        "sha256": "011fc58127e952f61d07c1b8f60d145e11e13c8605abe52b594bb116d1444743",
+        "owner": "T44 current executor; small helper/script, not source export",
+        "retired": false
+      }
+    },
+    {
+      "path": "/tmp/t44-controls.py",
+      "current_observed_at": "2026-11-03T00:07:45.264211+00:00",
+      "disposition": "RETAIN",
+      "next_owner": "T2 wN:p5 under a future explicit coordinator custody dispatch",
+      "reason": "Historical content/owner census lacks original creation/inode and completed-invocation binding; no retirement provenance is invented.",
+      "current": {
+        "device": 46,
+        "inode": 6762919,
+        "mode": "0o664",
+        "bytes": 5347,
+        "sha256": "61641f9992d4faa10b0af29176971ad11a863bf33c9a81a84bf56c7ff42c38cf",
+        "identity_kind": "current observation only; not historical creation"
+      },
+      "original_content_match": true,
+      "original_content": {
+        "path": "/tmp/t44-controls.py",
+        "bytes": 5347,
+        "sha256": "61641f9992d4faa10b0af29176971ad11a863bf33c9a81a84bf56c7ff42c38cf",
+        "owner": "T44 current executor; small helper/script, not source export",
+        "retired": false
+      }
+    },
+    {
+      "path": "/tmp/t44-confinement.py",
+      "current_observed_at": "2026-11-03T00:07:45.264211+00:00",
+      "disposition": "RETAIN",
+      "next_owner": "T2 wN:p5 under a future explicit coordinator custody dispatch",
+      "reason": "Historical content/owner census lacks original creation/inode and completed-invocation binding; no retirement provenance is invented.",
+      "current": {
+        "device": 46,
+        "inode": 6762938,
+        "mode": "0o664",
+        "bytes": 3031,
+        "sha256": "ee4bf46b31cf71859869bf2f0fe3ef42921950717a42c3575e1ea73c0f049ea5",
+        "identity_kind": "current observation only; not historical creation"
+      },
+      "original_content_match": true,
+      "original_content": {
+        "path": "/tmp/t44-confinement.py",
+        "bytes": 3031,
+        "sha256": "ee4bf46b31cf71859869bf2f0fe3ef42921950717a42c3575e1ea73c0f049ea5",
+        "owner": "T44 current executor; small helper/script, not source export",
+        "retired": false
+      }
+    },
+    {
+      "path": "/tmp/t44-records.py",
+      "current_observed_at": "2026-11-03T00:07:45.264211+00:00",
+      "disposition": "RETAIN",
+      "next_owner": "T2 wN:p5 under a future explicit coordinator custody dispatch",
+      "reason": "Historical content/owner census lacks original creation/inode and completed-invocation binding; no retirement provenance is invented.",
+      "current": {
+        "device": 46,
+        "inode": 6764990,
+        "mode": "0o664",
+        "bytes": 36769,
+        "sha256": "6858cf1cb719839b3d0e16c9976c847e0abbe3c07e2797abeab0931fdaeb2cee",
+        "identity_kind": "current observation only; not historical creation"
+      },
+      "original_content_match": true,
+      "original_content": {
+        "path": "/tmp/t44-records.py",
+        "bytes": 36769,
+        "sha256": "6858cf1cb719839b3d0e16c9976c847e0abbe3c07e2797abeab0931fdaeb2cee",
+        "owner": "T44 current executor; small helper/script, not source export",
+        "retired": false
+      }
+    },
+    {
+      "path": "/tmp/t44-gate.py",
+      "current_observed_at": "2026-11-03T00:07:45.264211+00:00",
+      "disposition": "RETAIN",
+      "next_owner": "T2 wN:p5 under a future explicit coordinator custody dispatch",
+      "reason": "Historical content/owner census lacks original creation/inode and completed-invocation binding; no retirement provenance is invented.",
+      "current": {
+        "device": 46,
+        "inode": 6765393,
+        "mode": "0o664",
+        "bytes": 2589,
+        "sha256": "4aaa3639ea79671000a409300021bf6675dda92b55f3ace256d7daf25025d846",
+        "identity_kind": "current observation only; not historical creation"
+      },
+      "original_content_match": true,
+      "original_content": {
+        "path": "/tmp/t44-gate.py",
+        "bytes": 2589,
+        "sha256": "4aaa3639ea79671000a409300021bf6675dda92b55f3ace256d7daf25025d846",
+        "owner": "T44 current executor; small helper/script, not source export",
+        "retired": false
+      }
+    },
+    {
+      "path": "/tmp/t44-guard-git.py",
+      "current_observed_at": "2026-11-03T00:07:45.264211+00:00",
+      "disposition": "RETAIN",
+      "next_owner": "T2 wN:p5 under a future explicit coordinator custody dispatch",
+      "reason": "Historical content/owner census lacks original creation/inode and completed-invocation binding; no retirement provenance is invented.",
+      "current": {
+        "device": 46,
+        "inode": 6767853,
+        "mode": "0o664",
+        "bytes": 3414,
+        "sha256": "9eaa0947817d68121bd94adf8501090f3cee6cb73fb58486571ca6bc39b8004d",
+        "identity_kind": "current observation only; not historical creation"
+      },
+      "original_content_match": true,
+      "original_content": {
+        "path": "/tmp/t44-guard-git.py",
+        "bytes": 3414,
+        "sha256": "9eaa0947817d68121bd94adf8501090f3cee6cb73fb58486571ca6bc39b8004d",
+        "owner": "T44 current executor; small helper/script, not source export",
+        "retired": false
+      }
+    },
+    {
+      "path": "/workspace/repos/pixelelated/distribution.worktrees/m6-es-vendored-and-data-691/docs/audits/2026_11_02-epic-m6-es-vendored-and-data/tools/__pycache__/catalogue.cpython-314.pyc",
+      "current_observed_at": "2026-11-03T00:07:45.264211+00:00",
+      "disposition": "RETAIN",
+      "next_owner": "T2 wN:p5 under a future explicit coordinator custody dispatch",
+      "reason": "Historical content/owner census lacks original creation/inode and completed-invocation binding; no retirement provenance is invented.",
+      "current": {
+        "device": 66304,
+        "inode": 27182385,
+        "mode": "0o664",
+        "bytes": 9933,
+        "sha256": "4f8481b118957e19d53e7c63fc79b57adc323b8f9e9d00dd04893095479c1c52",
+        "identity_kind": "current observation only; not historical creation"
+      },
+      "original_content_match": true,
+      "original_content": {
+        "path": "/workspace/repos/pixelelated/distribution.worktrees/m6-es-vendored-and-data-691/docs/audits/2026_11_02-epic-m6-es-vendored-and-data/tools/__pycache__/catalogue.cpython-314.pyc",
+        "bytes": 9933,
+        "sha256": "4f8481b118957e19d53e7c63fc79b57adc323b8f9e9d00dd04893095479c1c52",
+        "owner": "T44 new collector Python bytecode; ignored, not a committed artifact; no source export",
+        "retired": false
+      }
+    },
+    {
+      "path": "/tmp/m6-t44-confinement-1cu3u1nr/repo/.git/COMMIT_EDITMSG",
+      "current_observed_at": "2026-11-03T00:07:45.264211+00:00",
+      "disposition": "RETAIN",
+      "next_owner": "T2 wN:p5 under a future explicit coordinator custody dispatch",
+      "reason": "Historical content/owner census lacks original creation/inode and completed-invocation binding; no retirement provenance is invented.",
+      "current": {
+        "device": 46,
+        "inode": 6767903,
+        "mode": "0o664",
+        "bytes": 25,
+        "sha256": "9f06508a2e9379bfa164c78f0566c0f476df2390821706956b7f49ef73c25214",
+        "identity_kind": "current observation only; not historical creation"
+      },
+      "original_content_match": true,
+      "original_content": {
+        "path": "repo/.git/COMMIT_EDITMSG",
+        "bytes": 25,
+        "sha256": "9f06508a2e9379bfa164c78f0566c0f476df2390821706956b7f49ef73c25214"
+      }
+    },
+    {
+      "path": "/tmp/m6-t44-confinement-1cu3u1nr/repo/.git/HEAD",
+      "current_observed_at": "2026-11-03T00:07:45.264211+00:00",
+      "disposition": "RETAIN",
+      "next_owner": "T2 wN:p5 under a future explicit coordinator custody dispatch",
+      "reason": "Historical content/owner census lacks original creation/inode and completed-invocation binding; no retirement provenance is invented.",
+      "current": {
+        "device": 46,
+        "inode": 6767867,
+        "mode": "0o664",
+        "bytes": 23,
+        "sha256": "f6f2b945f6c411b02ba3da9c7ace88dcf71b6af65ba2e0d89aa82900042b5a10",
+        "identity_kind": "current observation only; not historical creation"
+      },
+      "original_content_match": true,
+      "original_content": {
+        "path": "repo/.git/HEAD",
+        "bytes": 23,
+        "sha256": "f6f2b945f6c411b02ba3da9c7ace88dcf71b6af65ba2e0d89aa82900042b5a10"
+      }
+    },
+    {
+      "path": "/tmp/m6-t44-confinement-1cu3u1nr/repo/.git/config",
+      "current_observed_at": "2026-11-03T00:07:45.264211+00:00",
+      "disposition": "RETAIN",
+      "next_owner": "T2 wN:p5 under a future explicit coordinator custody dispatch",
+      "reason": "Historical content/owner census lacks original creation/inode and completed-invocation binding; no retirement provenance is invented.",
+      "current": {
+        "device": 46,
+        "inode": 6767861,
+        "mode": "0o664",
+        "bytes": 92,
+        "sha256": "cfe7ba1238c9a78be7535d7c63bcaf5a4d5011d46b07c9b45d3bbf7d6c312dfe",
+        "identity_kind": "current observation only; not historical creation"
+      },
+      "original_content_match": true,
+      "original_content": {
+        "path": "repo/.git/config",
+        "bytes": 92,
+        "sha256": "cfe7ba1238c9a78be7535d7c63bcaf5a4d5011d46b07c9b45d3bbf7d6c312dfe"
+      }
+    },
+    {
+      "path": "/tmp/m6-t44-confinement-1cu3u1nr/repo/.git/index",
+      "current_observed_at": "2026-11-03T00:07:45.264211+00:00",
+      "disposition": "RETAIN",
+      "next_owner": "T2 wN:p5 under a future explicit coordinator custody dispatch",
+      "reason": "Historical content/owner census lacks original creation/inode and completed-invocation binding; no retirement provenance is invented.",
+      "current": {
+        "device": 46,
+        "inode": 6767956,
+        "mode": "0o664",
+        "bytes": 611,
+        "sha256": "fb40f7af5cb36a307c36e3b25810e68ebdc962238c9775608073a78626e0e025",
+        "identity_kind": "current observation only; not historical creation"
+      },
+      "original_content_match": true,
+      "original_content": {
+        "path": "repo/.git/index",
+        "bytes": 611,
+        "sha256": "fb40f7af5cb36a307c36e3b25810e68ebdc962238c9775608073a78626e0e025"
+      }
+    },
+    {
+      "path": "/tmp/m6-t44-confinement-1cu3u1nr/repo/.git/logs/HEAD",
+      "current_observed_at": "2026-11-03T00:07:45.264211+00:00",
+      "disposition": "RETAIN",
+      "next_owner": "T2 wN:p5 under a future explicit coordinator custody dispatch",
+      "reason": "Historical content/owner census lacks original creation/inode and completed-invocation binding; no retirement provenance is invented.",
+      "current": {
+        "device": 46,
+        "inode": 6767909,
+        "mode": "0o664",
+        "bytes": 722,
+        "sha256": "5c6a1f377c65493dc3d6655206f69de41c2c2e92eccea2974b2dea3a672fd05c",
+        "identity_kind": "current observation only; not historical creation"
+      },
+      "original_content_match": true,
+      "original_content": {
+        "path": "repo/.git/logs/HEAD",
+        "bytes": 722,
+        "sha256": "5c6a1f377c65493dc3d6655206f69de41c2c2e92eccea2974b2dea3a672fd05c"
+      }
+    },
+    {
+      "path": "/tmp/m6-t44-confinement-1cu3u1nr/repo/.git/logs/refs/heads/master",
+      "current_observed_at": "2026-11-03T00:07:45.264211+00:00",
+      "disposition": "RETAIN",
+      "next_owner": "T2 wN:p5 under a future explicit coordinator custody dispatch",
+      "reason": "Historical content/owner census lacks original creation/inode and completed-invocation binding; no retirement provenance is invented.",
+      "current": {
+        "device": 46,
+        "inode": 6767912,
+        "mode": "0o664",
+        "bytes": 722,
+        "sha256": "5c6a1f377c65493dc3d6655206f69de41c2c2e92eccea2974b2dea3a672fd05c",
+        "identity_kind": "current observation only; not historical creation"
+      },
+      "original_content_match": true,
+      "original_content": {
+        "path": "repo/.git/logs/refs/heads/master",
+        "bytes": 722,
+        "sha256": "5c6a1f377c65493dc3d6655206f69de41c2c2e92eccea2974b2dea3a672fd05c"
+      }
+    },
+    {
+      "path": "/tmp/m6-t44-confinement-1cu3u1nr/repo/.git/objects/06/bfa6e25908c2df937fb61cdbfebe48806d3a50",
+      "current_observed_at": "2026-11-03T00:07:45.264211+00:00",
+      "disposition": "RETAIN",
+      "next_owner": "T2 wN:p5 under a future explicit coordinator custody dispatch",
+      "reason": "Historical content/owner census lacks original creation/inode and completed-invocation binding; no retirement provenance is invented.",
+      "current": {
+        "device": 46,
+        "inode": 6767928,
+        "mode": "0o444",
+        "bytes": 173,
+        "sha256": "759b8f40d732cc561d5a011e2fddc5d4345d49fcafd8df1e1c0754f37387abfa",
+        "identity_kind": "current observation only; not historical creation"
+      },
+      "original_content_match": true,
+      "original_content": {
+        "path": "repo/.git/objects/06/bfa6e25908c2df937fb61cdbfebe48806d3a50",
+        "bytes": 173,
+        "sha256": "759b8f40d732cc561d5a011e2fddc5d4345d49fcafd8df1e1c0754f37387abfa"
+      }
+    },
+    {
+      "path": "/tmp/m6-t44-confinement-1cu3u1nr/repo/.git/objects/07/66715caab738f230ea1a4e7da12928b59ed948",
+      "current_observed_at": "2026-11-03T00:07:45.264211+00:00",
+      "disposition": "RETAIN",
+      "next_owner": "T2 wN:p5 under a future explicit coordinator custody dispatch",
+      "reason": "Historical content/owner census lacks original creation/inode and completed-invocation binding; no retirement provenance is invented.",
+      "current": {
+        "device": 46,
+        "inode": 6767900,
+        "mode": "0o444",
+        "bytes": 49,
+        "sha256": "7d70aa8d0793ba5f56e9319a4f204df826892cbccdf1305da7804dee5958842f",
+        "identity_kind": "current observation only; not historical creation"
+      },
+      "original_content_match": true,
+      "original_content": {
+        "path": "repo/.git/objects/07/66715caab738f230ea1a4e7da12928b59ed948",
+        "bytes": 49,
+        "sha256": "7d70aa8d0793ba5f56e9319a4f204df826892cbccdf1305da7804dee5958842f"
+      }
+    },
+    {
+      "path": "/tmp/m6-t44-confinement-1cu3u1nr/repo/.git/objects/10/fadf16e608c9bbd3172c35fba55b2f4a666015",
+      "current_observed_at": "2026-11-03T00:07:45.264211+00:00",
+      "disposition": "RETAIN",
+      "next_owner": "T2 wN:p5 under a future explicit coordinator custody dispatch",
+      "reason": "Historical content/owner census lacks original creation/inode and completed-invocation binding; no retirement provenance is invented.",
+      "current": {
+        "device": 46,
+        "inode": 6767898,
+        "mode": "0o444",
+        "bytes": 50,
+        "sha256": "da586cdff5508ae430eb49bdbaf79e31ebe942c994a0cd6c5f7446da601bf94f",
+        "identity_kind": "current observation only; not historical creation"
+      },
+      "original_content_match": true,
+      "original_content": {
+        "path": "repo/.git/objects/10/fadf16e608c9bbd3172c35fba55b2f4a666015",
+        "bytes": 50,
+        "sha256": "da586cdff5508ae430eb49bdbaf79e31ebe942c994a0cd6c5f7446da601bf94f"
+      }
+    },
+    {
+      "path": "/tmp/m6-t44-confinement-1cu3u1nr/repo/.git/objects/15/3aaaa013b87d163b5d1d657754aeec7ba40d8a",
+      "current_observed_at": "2026-11-03T00:07:45.264211+00:00",
+      "disposition": "RETAIN",
+      "next_owner": "T2 wN:p5 under a future explicit coordinator custody dispatch",
+      "reason": "Historical content/owner census lacks original creation/inode and completed-invocation binding; no retirement provenance is invented.",
+      "current": {
+        "device": 46,
+        "inode": 6767947,
+        "mode": "0o444",
+        "bytes": 78,
+        "sha256": "5bfe090eb47398f5b53f175d7eab3c5900073965aff36c5576d18fdc57f324c4",
+        "identity_kind": "current observation only; not historical creation"
+      },
+      "original_content_match": true,
+      "original_content": {
+        "path": "repo/.git/objects/15/3aaaa013b87d163b5d1d657754aeec7ba40d8a",
+        "bytes": 78,
+        "sha256": "5bfe090eb47398f5b53f175d7eab3c5900073965aff36c5576d18fdc57f324c4"
+      }
+    },
+    {
+      "path": "/tmp/m6-t44-confinement-1cu3u1nr/repo/.git/objects/18/1a737a8d988932fe5694332067e0ef954edb53",
+      "current_observed_at": "2026-11-03T00:07:45.264211+00:00",
+      "disposition": "RETAIN",
+      "next_owner": "T2 wN:p5 under a future explicit coordinator custody dispatch",
+      "reason": "Historical content/owner census lacks original creation/inode and completed-invocation binding; no retirement provenance is invented.",
+      "current": {
+        "device": 46,
+        "inode": 6767894,
+        "mode": "0o444",
+        "bytes": 55,
+        "sha256": "d1832b05727a8c073367d83a55bddb08cc3f7d4a1905a02a5b547bf854e1a380",
+        "identity_kind": "current observation only; not historical creation"
+      },
+      "original_content_match": true,
+      "original_content": {
+        "path": "repo/.git/objects/18/1a737a8d988932fe5694332067e0ef954edb53",
+        "bytes": 55,
+        "sha256": "d1832b05727a8c073367d83a55bddb08cc3f7d4a1905a02a5b547bf854e1a380"
+      }
+    },
+    {
+      "path": "/tmp/m6-t44-confinement-1cu3u1nr/repo/.git/objects/1e/c455d7e17d04305b200264a49eda54302b9b47",
+      "current_observed_at": "2026-11-03T00:07:45.264211+00:00",
+      "disposition": "RETAIN",
+      "next_owner": "T2 wN:p5 under a future explicit coordinator custody dispatch",
+      "reason": "Historical content/owner census lacks original creation/inode and completed-invocation binding; no retirement provenance is invented.",
+      "current": {
+        "device": 46,
+        "inode": 6767918,
+        "mode": "0o444",
+        "bytes": 33,
+        "sha256": "1f2644ac1b2a7993b3a3c7763860d386a329ec2d499e4b84f8d59ae0dddc8cad",
+        "identity_kind": "current observation only; not historical creation"
+      },
+      "original_content_match": true,
+      "original_content": {
+        "path": "repo/.git/objects/1e/c455d7e17d04305b200264a49eda54302b9b47",
+        "bytes": 33,
+        "sha256": "1f2644ac1b2a7993b3a3c7763860d386a329ec2d499e4b84f8d59ae0dddc8cad"
+      }
+    },
+    {
+      "path": "/tmp/m6-t44-confinement-1cu3u1nr/repo/.git/objects/1e/d6ec90ff3fc180389aae01abba586ac9725d0e",
+      "current_observed_at": "2026-11-03T00:07:45.264211+00:00",
+      "disposition": "RETAIN",
+      "next_owner": "T2 wN:p5 under a future explicit coordinator custody dispatch",
+      "reason": "Historical content/owner census lacks original creation/inode and completed-invocation binding; no retirement provenance is invented.",
+      "current": {
+        "device": 46,
+        "inode": 6767938,
+        "mode": "0o444",
+        "bytes": 55,
+        "sha256": "714feba54dbb854c20e1826390206628c2411e16a1dd48fe3857be92e042ecf0",
+        "identity_kind": "current observation only; not historical creation"
+      },
+      "original_content_match": true,
+      "original_content": {
+        "path": "repo/.git/objects/1e/d6ec90ff3fc180389aae01abba586ac9725d0e",
+        "bytes": 55,
+        "sha256": "714feba54dbb854c20e1826390206628c2411e16a1dd48fe3857be92e042ecf0"
+      }
+    },
+    {
+      "path": "/tmp/m6-t44-confinement-1cu3u1nr/repo/.git/objects/20/2e8bc4efe0e088ce261f33f41ff849267561dd",
+      "current_observed_at": "2026-11-03T00:07:45.264211+00:00",
+      "disposition": "RETAIN",
+      "next_owner": "T2 wN:p5 under a future explicit coordinator custody dispatch",
+      "reason": "Historical content/owner census lacks original creation/inode and completed-invocation binding; no retirement provenance is invented.",
+      "current": {
+        "device": 46,
+        "inode": 6767896,
+        "mode": "0o444",
+        "bytes": 44,
+        "sha256": "0d7527f78855cae885202c56c5f4a4a3320f563a867543530d561b8729f9e28e",
+        "identity_kind": "current observation only; not historical creation"
+      },
+      "original_content_match": true,
+      "original_content": {
+        "path": "repo/.git/objects/20/2e8bc4efe0e088ce261f33f41ff849267561dd",
+        "bytes": 44,
+        "sha256": "0d7527f78855cae885202c56c5f4a4a3320f563a867543530d561b8729f9e28e"
+      }
+    },
+    {
+      "path": "/tmp/m6-t44-confinement-1cu3u1nr/repo/.git/objects/25/6cf866bec13da15cb5aade575df01f876a5f83",
+      "current_observed_at": "2026-11-03T00:07:45.264211+00:00",
+      "disposition": "RETAIN",
+      "next_owner": "T2 wN:p5 under a future explicit coordinator custody dispatch",
+      "reason": "Historical content/owner census lacks original creation/inode and completed-invocation binding; no retirement provenance is invented.",
+      "current": {
+        "device": 46,
+        "inode": 6767926,
+        "mode": "0o444",
+        "bytes": 78,
+        "sha256": "ef28a80122f2861778d406e73a53db6272ef41f01ae87acd613a214e24996c43",
+        "identity_kind": "current observation only; not historical creation"
+      },
+      "original_content_match": true,
+      "original_content": {
+        "path": "repo/.git/objects/25/6cf866bec13da15cb5aade575df01f876a5f83",
+        "bytes": 78,
+        "sha256": "ef28a80122f2861778d406e73a53db6272ef41f01ae87acd613a214e24996c43"
+      }
+    },
+    {
+      "path": "/tmp/m6-t44-confinement-1cu3u1nr/repo/.git/objects/25/d8e09d3a23290dd95f976caa6e1b399dfa81cf",
+      "current_observed_at": "2026-11-03T00:07:45.264211+00:00",
+      "disposition": "RETAIN",
+      "next_owner": "T2 wN:p5 under a future explicit coordinator custody dispatch",
+      "reason": "Historical content/owner census lacks original creation/inode and completed-invocation binding; no retirement provenance is invented.",
+      "current": {
+        "device": 46,
+        "inode": 6767925,
+        "mode": "0o444",
+        "bytes": 48,
+        "sha256": "48b96ea14bfbd6100c7c7d90a18778d65f72b2dcdfd83cba372e1b12dd6ed043",
+        "identity_kind": "current observation only; not historical creation"
+      },
+      "original_content_match": true,
+      "original_content": {
+        "path": "repo/.git/objects/25/d8e09d3a23290dd95f976caa6e1b399dfa81cf",
+        "bytes": 48,
+        "sha256": "48b96ea14bfbd6100c7c7d90a18778d65f72b2dcdfd83cba372e1b12dd6ed043"
+      }
+    },
+    {
+      "path": "/tmp/m6-t44-confinement-1cu3u1nr/repo/.git/objects/26/dc057bae7bed8e0c4973bdf7ea55874e03ca98",
+      "current_observed_at": "2026-11-03T00:07:45.264211+00:00",
+      "disposition": "RETAIN",
+      "next_owner": "T2 wN:p5 under a future explicit coordinator custody dispatch",
+      "reason": "Historical content/owner census lacks original creation/inode and completed-invocation binding; no retirement provenance is invented.",
+      "current": {
+        "device": 46,
+        "inode": 6767888,
+        "mode": "0o444",
+        "bytes": 81,
+        "sha256": "5f5982718a4e63a92bb4d7b601fe2da963fc59597266f9433ae54ec7da5ef83f",
+        "identity_kind": "current observation only; not historical creation"
+      },
+      "original_content_match": true,
+      "original_content": {
+        "path": "repo/.git/objects/26/dc057bae7bed8e0c4973bdf7ea55874e03ca98",
+        "bytes": 81,
+        "sha256": "5f5982718a4e63a92bb4d7b601fe2da963fc59597266f9433ae54ec7da5ef83f"
+      }
+    },
+    {
+      "path": "/tmp/m6-t44-confinement-1cu3u1nr/repo/.git/objects/2b/8d502becd53367ad4e06a7b315267210530cc8",
+      "current_observed_at": "2026-11-03T00:07:45.264211+00:00",
+      "disposition": "RETAIN",
+      "next_owner": "T2 wN:p5 under a future explicit coordinator custody dispatch",
+      "reason": "Historical content/owner census lacks original creation/inode and completed-invocation binding; no retirement provenance is invented.",
+      "current": {
+        "device": 46,
+        "inode": 6767890,
+        "mode": "0o444",
+        "bytes": 48,
+        "sha256": "0a69d94063f3c6a741cbede8c51ea14ff02aaff34bcf896b535e495bba07547a",
+        "identity_kind": "current observation only; not historical creation"
+      },
+      "original_content_match": true,
+      "original_content": {
+        "path": "repo/.git/objects/2b/8d502becd53367ad4e06a7b315267210530cc8",
+        "bytes": 48,
+        "sha256": "0a69d94063f3c6a741cbede8c51ea14ff02aaff34bcf896b535e495bba07547a"
+      }
+    },
+    {
+      "path": "/tmp/m6-t44-confinement-1cu3u1nr/repo/.git/objects/37/691c99b139b859e613ec8594336c6f4471845b",
+      "current_observed_at": "2026-11-03T00:07:45.264211+00:00",
+      "disposition": "RETAIN",
+      "next_owner": "T2 wN:p5 under a future explicit coordinator custody dispatch",
+      "reason": "Historical content/owner census lacks original creation/inode and completed-invocation binding; no retirement provenance is invented.",
+      "current": {
+        "device": 46,
+        "inode": 6767905,
+        "mode": "0o444",
+        "bytes": 136,
+        "sha256": "5d761efd0dfdf5635703af41ed8b79e191130a8a6222c0bc6c5950d34ff8f4e8",
+        "identity_kind": "current observation only; not historical creation"
+      },
+      "original_content_match": true,
+      "original_content": {
+        "path": "repo/.git/objects/37/691c99b139b859e613ec8594336c6f4471845b",
+        "bytes": 136,
+        "sha256": "5d761efd0dfdf5635703af41ed8b79e191130a8a6222c0bc6c5950d34ff8f4e8"
+      }
+    },
+    {
+      "path": "/tmp/m6-t44-confinement-1cu3u1nr/repo/.git/objects/49/543146fdb0c714f3853a13ac089445b016447a",
+      "current_observed_at": "2026-11-03T00:07:45.264211+00:00",
+      "disposition": "RETAIN",
+      "next_owner": "T2 wN:p5 under a future explicit coordinator custody dispatch",
+      "reason": "Historical content/owner census lacks original creation/inode and completed-invocation binding; no retirement provenance is invented.",
+      "current": {
+        "device": 46,
+        "inode": 6767943,
+        "mode": "0o444",
+        "bytes": 51,
+        "sha256": "09ad32f0cc5fdd8d601783f8a7eef9b5c4b7af1f022ebc3a64a38300c701bc18",
+        "identity_kind": "current observation only; not historical creation"
+      },
+      "original_content_match": true,
+      "original_content": {
+        "path": "repo/.git/objects/49/543146fdb0c714f3853a13ac089445b016447a",
+        "bytes": 51,
+        "sha256": "09ad32f0cc5fdd8d601783f8a7eef9b5c4b7af1f022ebc3a64a38300c701bc18"
+      }
+    },
+    {
+      "path": "/tmp/m6-t44-confinement-1cu3u1nr/repo/.git/objects/4a/7dee795b17ddb38d43b7005c3ae77ca26ac56d",
+      "current_observed_at": "2026-11-03T00:07:45.264211+00:00",
+      "disposition": "RETAIN",
+      "next_owner": "T2 wN:p5 under a future explicit coordinator custody dispatch",
+      "reason": "Historical content/owner census lacks original creation/inode and completed-invocation binding; no retirement provenance is invented.",
+      "current": {
+        "device": 46,
+        "inode": 6767945,
+        "mode": "0o444",
+        "bytes": 49,
+        "sha256": "8817bb3805e4e1e92b5efdfe12203e8d40be9406ab57ff96e15b47f0eac9efd2",
+        "identity_kind": "current observation only; not historical creation"
+      },
+      "original_content_match": true,
+      "original_content": {
+        "path": "repo/.git/objects/4a/7dee795b17ddb38d43b7005c3ae77ca26ac56d",
+        "bytes": 49,
+        "sha256": "8817bb3805e4e1e92b5efdfe12203e8d40be9406ab57ff96e15b47f0eac9efd2"
+      }
+    },
+    {
+      "path": "/tmp/m6-t44-confinement-1cu3u1nr/repo/.git/objects/4f/192d2066f115982aa2dd2c2af36595cf79c341",
+      "current_observed_at": "2026-11-03T00:07:45.264211+00:00",
+      "disposition": "RETAIN",
+      "next_owner": "T2 wN:p5 under a future explicit coordinator custody dispatch",
+      "reason": "Historical content/owner census lacks original creation/inode and completed-invocation binding; no retirement provenance is invented.",
+      "current": {
+        "device": 46,
+        "inode": 6767892,
+        "mode": "0o444",
+        "bytes": 55,
+        "sha256": "e84b917c0072ac91d6885356cf14be10de26580ee540004ba52992c51bde6e25",
+        "identity_kind": "current observation only; not historical creation"
+      },
+      "original_content_match": true,
+      "original_content": {
+        "path": "repo/.git/objects/4f/192d2066f115982aa2dd2c2af36595cf79c341",
+        "bytes": 55,
+        "sha256": "e84b917c0072ac91d6885356cf14be10de26580ee540004ba52992c51bde6e25"
+      }
+    },
+    {
+      "path": "/tmp/m6-t44-confinement-1cu3u1nr/repo/.git/objects/4f/53c5ffe11fd62ce622bd3367eea4cfdd22e730",
+      "current_observed_at": "2026-11-03T00:07:45.264211+00:00",
+      "disposition": "RETAIN",
+      "next_owner": "T2 wN:p5 under a future explicit coordinator custody dispatch",
+      "reason": "Historical content/owner census lacks original creation/inode and completed-invocation binding; no retirement provenance is invented.",
+      "current": {
+        "device": 46,
+        "inode": 6767941,
+        "mode": "0o444",
+        "bytes": 44,
+        "sha256": "9d9abdad0554a08565ba03e465621dcd49dfce288dde898a50b1cb274d354701",
+        "identity_kind": "current observation only; not historical creation"
+      },
+      "original_content_match": true,
+      "original_content": {
+        "path": "repo/.git/objects/4f/53c5ffe11fd62ce622bd3367eea4cfdd22e730",
+        "bytes": 44,
+        "sha256": "9d9abdad0554a08565ba03e465621dcd49dfce288dde898a50b1cb274d354701"
+      }
+    },
+    {
+      "path": "/tmp/m6-t44-confinement-1cu3u1nr/repo/.git/objects/66/1be38bf193aca7aa96298bd301228c0d7adf2a",
+      "current_observed_at": "2026-11-03T00:07:45.264211+00:00",
+      "disposition": "RETAIN",
+      "next_owner": "T2 wN:p5 under a future explicit coordinator custody dispatch",
+      "reason": "Historical content/owner census lacks original creation/inode and completed-invocation binding; no retirement provenance is invented.",
+      "current": {
+        "device": 46,
+        "inode": 6767936,
+        "mode": "0o444",
+        "bytes": 36,
+        "sha256": "7a29d29a41e6c90ca5cda699675cb830a0a650a6131f457ab150a26ab8634930",
+        "identity_kind": "current observation only; not historical creation"
+      },
+      "original_content_match": true,
+      "original_content": {
+        "path": "repo/.git/objects/66/1be38bf193aca7aa96298bd301228c0d7adf2a",
+        "bytes": 36,
+        "sha256": "7a29d29a41e6c90ca5cda699675cb830a0a650a6131f457ab150a26ab8634930"
+      }
+    },
+    {
+      "path": "/tmp/m6-t44-confinement-1cu3u1nr/repo/.git/objects/6c/8b7b8f5958c5bc6698e427d52ca3e59b70106a",
+      "current_observed_at": "2026-11-03T00:07:45.264211+00:00",
+      "disposition": "RETAIN",
+      "next_owner": "T2 wN:p5 under a future explicit coordinator custody dispatch",
+      "reason": "Historical content/owner census lacks original creation/inode and completed-invocation binding; no retirement provenance is invented.",
+      "current": {
+        "device": 46,
+        "inode": 6767902,
+        "mode": "0o444",
+        "bytes": 78,
+        "sha256": "61944b02cc33f2edb87c855c7a1e5d20d8b9dc75be369a1d6226a97c58ecd3e6",
+        "identity_kind": "current observation only; not historical creation"
+      },
+      "original_content_match": true,
+      "original_content": {
+        "path": "repo/.git/objects/6c/8b7b8f5958c5bc6698e427d52ca3e59b70106a",
+        "bytes": 78,
+        "sha256": "61944b02cc33f2edb87c855c7a1e5d20d8b9dc75be369a1d6226a97c58ecd3e6"
+      }
+    },
+    {
+      "path": "/tmp/m6-t44-confinement-1cu3u1nr/repo/.git/objects/73/0344ded5bb25bfc3c047abcf5fc80c3eb62630",
+      "current_observed_at": "2026-11-03T00:07:45.264211+00:00",
+      "disposition": "RETAIN",
+      "next_owner": "T2 wN:p5 under a future explicit coordinator custody dispatch",
+      "reason": "Historical content/owner census lacks original creation/inode and completed-invocation binding; no retirement provenance is invented.",
+      "current": {
+        "device": 46,
+        "inode": 6767940,
+        "mode": "0o444",
+        "bytes": 55,
+        "sha256": "9cefdd2b38f8c0b6c34243b8716c1907b22b8cec8883b68d45d73b384cb44159",
+        "identity_kind": "current observation only; not historical creation"
+      },
+      "original_content_match": true,
+      "original_content": {
+        "path": "repo/.git/objects/73/0344ded5bb25bfc3c047abcf5fc80c3eb62630",
+        "bytes": 55,
+        "sha256": "9cefdd2b38f8c0b6c34243b8716c1907b22b8cec8883b68d45d73b384cb44159"
+      }
+    },
+    {
+      "path": "/tmp/m6-t44-confinement-1cu3u1nr/repo/.git/objects/80/3f2526eda5744f3bc95bf7481b7971f64f18ce",
+      "current_observed_at": "2026-11-03T00:07:45.264211+00:00",
+      "disposition": "RETAIN",
+      "next_owner": "T2 wN:p5 under a future explicit coordinator custody dispatch",
+      "reason": "Historical content/owner census lacks original creation/inode and completed-invocation binding; no retirement provenance is invented.",
+      "current": {
+        "device": 46,
+        "inode": 6767886,
+        "mode": "0o444",
+        "bytes": 64,
+        "sha256": "ac5264e31068f95030ea23e3dfea7f40f010e204e49a63bd6431d265d1547f1c",
+        "identity_kind": "current observation only; not historical creation"
+      },
+      "original_content_match": true,
+      "original_content": {
+        "path": "repo/.git/objects/80/3f2526eda5744f3bc95bf7481b7971f64f18ce",
+        "bytes": 64,
+        "sha256": "ac5264e31068f95030ea23e3dfea7f40f010e204e49a63bd6431d265d1547f1c"
+      }
+    },
+    {
+      "path": "/tmp/m6-t44-confinement-1cu3u1nr/repo/.git/objects/9c/4eb645416b37b3f3e00364cbeb77018b2a0e11",
+      "current_observed_at": "2026-11-03T00:07:45.264211+00:00",
+      "disposition": "RETAIN",
+      "next_owner": "T2 wN:p5 under a future explicit coordinator custody dispatch",
+      "reason": "Historical content/owner census lacks original creation/inode and completed-invocation binding; no retirement provenance is invented.",
+      "current": {
+        "device": 46,
+        "inode": 6767923,
+        "mode": "0o444",
+        "bytes": 82,
+        "sha256": "96623030d53c071d6d22f384c8f3d55847c3013e5a48aaacb454d6471466575c",
+        "identity_kind": "current observation only; not historical creation"
+      },
+      "original_content_match": true,
+      "original_content": {
+        "path": "repo/.git/objects/9c/4eb645416b37b3f3e00364cbeb77018b2a0e11",
+        "bytes": 82,
+        "sha256": "96623030d53c071d6d22f384c8f3d55847c3013e5a48aaacb454d6471466575c"
+      }
+    },
+    {
+      "path": "/tmp/m6-t44-confinement-1cu3u1nr/repo/.git/objects/9f/77a8619d72ef69affaf24ec25819431ec3809c",
+      "current_observed_at": "2026-11-03T00:07:45.264211+00:00",
+      "disposition": "RETAIN",
+      "next_owner": "T2 wN:p5 under a future explicit coordinator custody dispatch",
+      "reason": "Historical content/owner census lacks original creation/inode and completed-invocation binding; no retirement provenance is invented.",
+      "current": {
+        "device": 46,
+        "inode": 6767958,
+        "mode": "0o444",
+        "bytes": 172,
+        "sha256": "a023b1ee5db45b5e796f09b3062c8eab70245889da07282f154363caa1ed9923",
+        "identity_kind": "current observation only; not historical creation"
+      },
+      "original_content_match": true,
+      "original_content": {
+        "path": "repo/.git/objects/9f/77a8619d72ef69affaf24ec25819431ec3809c",
+        "bytes": 172,
+        "sha256": "a023b1ee5db45b5e796f09b3062c8eab70245889da07282f154363caa1ed9923"
+      }
+    },
+    {
+      "path": "/tmp/m6-t44-confinement-1cu3u1nr/repo/.git/objects/d5/c3a21f662135df947f04b63543d230bfc6e9e8",
+      "current_observed_at": "2026-11-03T00:07:45.264211+00:00",
+      "disposition": "RETAIN",
+      "next_owner": "T2 wN:p5 under a future explicit coordinator custody dispatch",
+      "reason": "Historical content/owner census lacks original creation/inode and completed-invocation binding; no retirement provenance is invented.",
+      "current": {
+        "device": 46,
+        "inode": 6767921,
+        "mode": "0o444",
+        "bytes": 64,
+        "sha256": "aa426e7a0910788dc9c638d293981b62136e9453ccbbb009288a4623a6beb677",
+        "identity_kind": "current observation only; not historical creation"
+      },
+      "original_content_match": true,
+      "original_content": {
+        "path": "repo/.git/objects/d5/c3a21f662135df947f04b63543d230bfc6e9e8",
+        "bytes": 64,
+        "sha256": "aa426e7a0910788dc9c638d293981b62136e9453ccbbb009288a4623a6beb677"
+      }
+    },
+    {
+      "path": "/tmp/m6-t44-confinement-1cu3u1nr/repo/.git/objects/d8/d44b7064cf91007d43b86f918e47c4c52efa15",
+      "current_observed_at": "2026-11-03T00:07:45.264211+00:00",
+      "disposition": "RETAIN",
+      "next_owner": "T2 wN:p5 under a future explicit coordinator custody dispatch",
+      "reason": "Historical content/owner census lacks original creation/inode and completed-invocation binding; no retirement provenance is invented.",
+      "current": {
+        "device": 46,
+        "inode": 6767949,
+        "mode": "0o444",
+        "bytes": 173,
+        "sha256": "c368e540fcf43bc6008d668f203a4571abb8efe210bf6cae00ffe5adfea76da6",
+        "identity_kind": "current observation only; not historical creation"
+      },
+      "original_content_match": true,
+      "original_content": {
+        "path": "repo/.git/objects/d8/d44b7064cf91007d43b86f918e47c4c52efa15",
+        "bytes": 173,
+        "sha256": "c368e540fcf43bc6008d668f203a4571abb8efe210bf6cae00ffe5adfea76da6"
+      }
+    },
+    {
+      "path": "/tmp/m6-t44-confinement-1cu3u1nr/repo/.git/objects/df/967b96a579e45a18b8251732d16804b2e56a55",
+      "current_observed_at": "2026-11-03T00:07:45.264211+00:00",
+      "disposition": "RETAIN",
+      "next_owner": "T2 wN:p5 under a future explicit coordinator custody dispatch",
+      "reason": "Historical content/owner census lacks original creation/inode and completed-invocation binding; no retirement provenance is invented.",
+      "current": {
+        "device": 46,
+        "inode": 6767883,
+        "mode": "0o444",
+        "bytes": 20,
+        "sha256": "a68879a026ee9eaa8c8eeb0826d1bb255a36e9bb38c76b3e42d892b22d0c4728",
+        "identity_kind": "current observation only; not historical creation"
+      },
+      "original_content_match": true,
+      "original_content": {
+        "path": "repo/.git/objects/df/967b96a579e45a18b8251732d16804b2e56a55",
+        "bytes": 20,
+        "sha256": "a68879a026ee9eaa8c8eeb0826d1bb255a36e9bb38c76b3e42d892b22d0c4728"
+      }
+    },
+    {
+      "path": "/tmp/m6-t44-confinement-1cu3u1nr/repo/.git/refs/heads/master",
+      "current_observed_at": "2026-11-03T00:07:45.264211+00:00",
+      "disposition": "RETAIN",
+      "next_owner": "T2 wN:p5 under a future explicit coordinator custody dispatch",
+      "reason": "Historical content/owner census lacks original creation/inode and completed-invocation binding; no retirement provenance is invented.",
+      "current": {
+        "device": 46,
+        "inode": 6767960,
+        "mode": "0o664",
+        "bytes": 41,
+        "sha256": "a12b25cf8f67736b9490d137c6c7ff604b5e9059ec58597fd619b076062f281f",
+        "identity_kind": "current observation only; not historical creation"
+      },
+      "original_content_match": true,
+      "original_content": {
+        "path": "repo/.git/refs/heads/master",
+        "bytes": 41,
+        "sha256": "a12b25cf8f67736b9490d137c6c7ff604b5e9059ec58597fd619b076062f281f"
+      }
+    },
+    {
+      "path": "/tmp/m6-t44-confinement-1cu3u1nr/repo/docs/audits/2026_11_02-epic-m6-es-vendored-and-data/synthetic-record.md",
+      "current_observed_at": "2026-11-03T00:07:45.264211+00:00",
+      "disposition": "RETAIN",
+      "next_owner": "T2 wN:p5 under a future explicit coordinator custody dispatch",
+      "reason": "Historical content/owner census lacks original creation/inode and completed-invocation binding; no retirement provenance is invented.",
+      "current": {
+        "device": 46,
+        "inode": 6767880,
+        "mode": "0o664",
+        "bytes": 17,
+        "sha256": "f956bc2248540a965e2cf2945d0af174324f097133ae27d43083d2e4b9ccdcb9",
+        "identity_kind": "current observation only; not historical creation"
+      },
+      "original_content_match": true,
+      "original_content": {
+        "path": "repo/docs/audits/2026_11_02-epic-m6-es-vendored-and-data/synthetic-record.md",
+        "bytes": 17,
+        "sha256": "f956bc2248540a965e2cf2945d0af174324f097133ae27d43083d2e4b9ccdcb9"
+      }
+    },
+    {
+      "path": "/tmp/m6-t44-confinement-1cu3u1nr/repo/projects/ROCKNIX/packages/ui/emulationstation/package.mk",
+      "current_observed_at": "2026-11-03T00:07:45.264211+00:00",
+      "disposition": "RETAIN",
+      "next_owner": "T2 wN:p5 under a future explicit coordinator custody dispatch",
+      "reason": "Historical content/owner census lacks original creation/inode and completed-invocation binding; no retirement provenance is invented.",
+      "current": {
+        "device": 46,
+        "inode": 6767876,
+        "mode": "0o664",
+        "bytes": 5,
+        "sha256": "f34848ca92665c342abd5816c9e3eda0e82180671195362bcd0080544a3bc2ac",
+        "identity_kind": "current observation only; not historical creation"
+      },
+      "original_content_match": true,
+      "original_content": {
+        "path": "repo/projects/ROCKNIX/packages/ui/emulationstation/package.mk",
+        "bytes": 5,
+        "sha256": "f34848ca92665c342abd5816c9e3eda0e82180671195362bcd0080544a3bc2ac"
+      }
+    }
+  ],
+  "retained_new_fixture": [
+    {
+      "path": "/tmp/m6-t44-eh-fixture-l_fwr4zc/allowlist.json",
+      "current_observed_at": "2026-11-03T00:07:45.264211+00:00",
+      "disposition": "RETAIN",
+      "next_owner": "T2 wN:p5 under a future explicit coordinator custody dispatch",
+      "reason": "New tiny synthetic Git proof retained as root-review evidence; creation/final files bound in stage-e/controls/results.json and controls-run receipt, no product source. No cleanup requested for evidence.",
+      "current": {
+        "device": 46,
+        "inode": 6784586,
+        "mode": "0o664",
+        "bytes": 567,
+        "sha256": "84f823a5ba526d21f5323a6710d43767726a6c462010e4ce01737649d8980e28",
+        "identity_kind": "current observation only; not historical creation"
+      },
+      "original_content_match": true,
+      "original_content": {
+        "path": "/tmp/m6-t44-eh-fixture-l_fwr4zc/allowlist.json",
+        "bytes": 567,
+        "sha256": "84f823a5ba526d21f5323a6710d43767726a6c462010e4ce01737649d8980e28",
+        "device": 46,
+        "inode": 6784586
+      }
+    },
+    {
+      "path": "/tmp/m6-t44-eh-fixture-l_fwr4zc/es/.git/COMMIT_EDITMSG",
+      "current_observed_at": "2026-11-03T00:07:45.264211+00:00",
+      "disposition": "RETAIN",
+      "next_owner": "T2 wN:p5 under a future explicit coordinator custody dispatch",
+      "reason": "New tiny synthetic Git proof retained as root-review evidence; creation/final files bound in stage-e/controls/results.json and controls-run receipt, no product source. No cleanup requested for evidence.",
+      "current": {
+        "device": 46,
+        "inode": 6784518,
+        "mode": "0o664",
+        "bytes": 18,
+        "sha256": "3eb7c51eb882a5f63dde424a213f36897dbed180e79051a8062d8b77122bcb31",
+        "identity_kind": "current observation only; not historical creation"
+      },
+      "original_content_match": true,
+      "original_content": {
+        "path": "/tmp/m6-t44-eh-fixture-l_fwr4zc/es/.git/COMMIT_EDITMSG",
+        "bytes": 18,
+        "sha256": "3eb7c51eb882a5f63dde424a213f36897dbed180e79051a8062d8b77122bcb31",
+        "device": 46,
+        "inode": 6784518
+      }
+    },
+    {
+      "path": "/tmp/m6-t44-eh-fixture-l_fwr4zc/es/.git/HEAD",
+      "current_observed_at": "2026-11-03T00:07:45.264211+00:00",
+      "disposition": "RETAIN",
+      "next_owner": "T2 wN:p5 under a future explicit coordinator custody dispatch",
+      "reason": "New tiny synthetic Git proof retained as root-review evidence; creation/final files bound in stage-e/controls/results.json and controls-run receipt, no product source. No cleanup requested for evidence.",
+      "current": {
+        "device": 46,
+        "inode": 6784507,
+        "mode": "0o664",
+        "bytes": 23,
+        "sha256": "f6f2b945f6c411b02ba3da9c7ace88dcf71b6af65ba2e0d89aa82900042b5a10",
+        "identity_kind": "current observation only; not historical creation"
+      },
+      "original_content_match": true,
+      "original_content": {
+        "path": "/tmp/m6-t44-eh-fixture-l_fwr4zc/es/.git/HEAD",
+        "bytes": 23,
+        "sha256": "f6f2b945f6c411b02ba3da9c7ace88dcf71b6af65ba2e0d89aa82900042b5a10",
+        "device": 46,
+        "inode": 6784507
+      }
+    },
+    {
+      "path": "/tmp/m6-t44-eh-fixture-l_fwr4zc/es/.git/ORIG_HEAD",
+      "current_observed_at": "2026-11-03T00:07:45.264211+00:00",
+      "disposition": "RETAIN",
+      "next_owner": "T2 wN:p5 under a future explicit coordinator custody dispatch",
+      "reason": "New tiny synthetic Git proof retained as root-review evidence; creation/final files bound in stage-e/controls/results.json and controls-run receipt, no product source. No cleanup requested for evidence.",
+      "current": {
+        "device": 46,
+        "inode": 6784868,
+        "mode": "0o664",
+        "bytes": 41,
+        "sha256": "c9a64fa224f3d32b953c3f494265103cae10fdbf856983d18fe2ae2b8e152567",
+        "identity_kind": "current observation only; not historical creation"
+      },
+      "original_content_match": true,
+      "original_content": {
+        "path": "/tmp/m6-t44-eh-fixture-l_fwr4zc/es/.git/ORIG_HEAD",
+        "bytes": 41,
+        "sha256": "c9a64fa224f3d32b953c3f494265103cae10fdbf856983d18fe2ae2b8e152567",
+        "device": 46,
+        "inode": 6784868
+      }
+    },
+    {
+      "path": "/tmp/m6-t44-eh-fixture-l_fwr4zc/es/.git/config",
+      "current_observed_at": "2026-11-03T00:07:45.264211+00:00",
+      "disposition": "RETAIN",
+      "next_owner": "T2 wN:p5 under a future explicit coordinator custody dispatch",
+      "reason": "New tiny synthetic Git proof retained as root-review evidence; creation/final files bound in stage-e/controls/results.json and controls-run receipt, no product source. No cleanup requested for evidence.",
+      "current": {
+        "device": 46,
+        "inode": 6784501,
+        "mode": "0o664",
+        "bytes": 92,
+        "sha256": "cfe7ba1238c9a78be7535d7c63bcaf5a4d5011d46b07c9b45d3bbf7d6c312dfe",
+        "identity_kind": "current observation only; not historical creation"
+      },
+      "original_content_match": true,
+      "original_content": {
+        "path": "/tmp/m6-t44-eh-fixture-l_fwr4zc/es/.git/config",
+        "bytes": 92,
+        "sha256": "cfe7ba1238c9a78be7535d7c63bcaf5a4d5011d46b07c9b45d3bbf7d6c312dfe",
+        "device": 46,
+        "inode": 6784501
+      }
+    },
+    {
+      "path": "/tmp/m6-t44-eh-fixture-l_fwr4zc/es/.git/index",
+      "current_observed_at": "2026-11-03T00:07:45.264211+00:00",
+      "disposition": "RETAIN",
+      "next_owner": "T2 wN:p5 under a future explicit coordinator custody dispatch",
+      "reason": "New tiny synthetic Git proof retained as root-review evidence; creation/final files bound in stage-e/controls/results.json and controls-run receipt, no product source. No cleanup requested for evidence.",
+      "current": {
+        "device": 46,
+        "inode": 6784867,
+        "mode": "0o664",
+        "bytes": 137,
+        "sha256": "b4b4a7e2e1df7eaa93cc9ed8052e4b76a7a64ad75130155d19edfc6ba2dc7497",
+        "identity_kind": "current observation only; not historical creation"
+      },
+      "original_content_match": true,
+      "original_content": {
+        "path": "/tmp/m6-t44-eh-fixture-l_fwr4zc/es/.git/index",
+        "bytes": 137,
+        "sha256": "b4b4a7e2e1df7eaa93cc9ed8052e4b76a7a64ad75130155d19edfc6ba2dc7497",
+        "device": 46,
+        "inode": 6784867
+      }
+    },
+    {
+      "path": "/tmp/m6-t44-eh-fixture-l_fwr4zc/es/.git/logs/HEAD",
+      "current_observed_at": "2026-11-03T00:07:45.264211+00:00",
+      "disposition": "RETAIN",
+      "next_owner": "T2 wN:p5 under a future explicit coordinator custody dispatch",
+      "reason": "New tiny synthetic Git proof retained as root-review evidence; creation/final files bound in stage-e/controls/results.json and controls-run receipt, no product source. No cleanup requested for evidence.",
+      "current": {
+        "device": 46,
+        "inode": 6784524,
+        "mode": "0o664",
+        "bytes": 542,
+        "sha256": "b378cfca698ec4671772a03044551c8816ca41035aaaf1f65e363428a83b0cfb",
+        "identity_kind": "current observation only; not historical creation"
+      },
+      "original_content_match": true,
+      "original_content": {
+        "path": "/tmp/m6-t44-eh-fixture-l_fwr4zc/es/.git/logs/HEAD",
+        "bytes": 542,
+        "sha256": "b378cfca698ec4671772a03044551c8816ca41035aaaf1f65e363428a83b0cfb",
+        "device": 46,
+        "inode": 6784524
+      }
+    },
+    {
+      "path": "/tmp/m6-t44-eh-fixture-l_fwr4zc/es/.git/logs/refs/heads/master",
+      "current_observed_at": "2026-11-03T00:07:45.264211+00:00",
+      "disposition": "RETAIN",
+      "next_owner": "T2 wN:p5 under a future explicit coordinator custody dispatch",
+      "reason": "New tiny synthetic Git proof retained as root-review evidence; creation/final files bound in stage-e/controls/results.json and controls-run receipt, no product source. No cleanup requested for evidence.",
+      "current": {
+        "device": 46,
+        "inode": 6784527,
+        "mode": "0o664",
+        "bytes": 542,
+        "sha256": "b378cfca698ec4671772a03044551c8816ca41035aaaf1f65e363428a83b0cfb",
+        "identity_kind": "current observation only; not historical creation"
+      },
+      "original_content_match": true,
+      "original_content": {
+        "path": "/tmp/m6-t44-eh-fixture-l_fwr4zc/es/.git/logs/refs/heads/master",
+        "bytes": 542,
+        "sha256": "b378cfca698ec4671772a03044551c8816ca41035aaaf1f65e363428a83b0cfb",
+        "device": 46,
+        "inode": 6784527
+      }
+    },
+    {
+      "path": "/tmp/m6-t44-eh-fixture-l_fwr4zc/es/.git/objects/2c/7b21369e6cb3bdabd253bb3241cf9f40d24e5c",
+      "current_observed_at": "2026-11-03T00:07:45.264211+00:00",
+      "disposition": "RETAIN",
+      "next_owner": "T2 wN:p5 under a future explicit coordinator custody dispatch",
+      "reason": "New tiny synthetic Git proof retained as root-review evidence; creation/final files bound in stage-e/controls/results.json and controls-run receipt, no product source. No cleanup requested for evidence.",
+      "current": {
+        "device": 46,
+        "inode": 6784520,
+        "mode": "0o444",
+        "bytes": 137,
+        "sha256": "ad4316b4f2959f4e4836a42d291632c977ff80fa4231e2c907cd99f0512345f0",
+        "identity_kind": "current observation only; not historical creation"
+      },
+      "original_content_match": true,
+      "original_content": {
+        "path": "/tmp/m6-t44-eh-fixture-l_fwr4zc/es/.git/objects/2c/7b21369e6cb3bdabd253bb3241cf9f40d24e5c",
+        "bytes": 137,
+        "sha256": "ad4316b4f2959f4e4836a42d291632c977ff80fa4231e2c907cd99f0512345f0",
+        "device": 46,
+        "inode": 6784520
+      }
+    },
+    {
+      "path": "/tmp/m6-t44-eh-fixture-l_fwr4zc/es/.git/objects/38/9f1b6d15a4a0bd882b217cb520f2c4120356ab",
+      "current_observed_at": "2026-11-03T00:07:45.264211+00:00",
+      "disposition": "RETAIN",
+      "next_owner": "T2 wN:p5 under a future explicit coordinator custody dispatch",
+      "reason": "New tiny synthetic Git proof retained as root-review evidence; creation/final files bound in stage-e/controls/results.json and controls-run receipt, no product source. No cleanup requested for evidence.",
+      "current": {
+        "device": 46,
+        "inode": 6784861,
+        "mode": "0o444",
+        "bytes": 177,
+        "sha256": "d5db733a33ba17d31a842afaaf2fc534f34fd397a49cb9abd0599f8cae756193",
+        "identity_kind": "current observation only; not historical creation"
+      },
+      "original_content_match": true,
+      "original_content": {
+        "path": "/tmp/m6-t44-eh-fixture-l_fwr4zc/es/.git/objects/38/9f1b6d15a4a0bd882b217cb520f2c4120356ab",
+        "bytes": 177,
+        "sha256": "d5db733a33ba17d31a842afaaf2fc534f34fd397a49cb9abd0599f8cae756193",
+        "device": 46,
+        "inode": 6784861
+      }
+    },
+    {
+      "path": "/tmp/m6-t44-eh-fixture-l_fwr4zc/es/.git/objects/95/486afa6594fe79a9fdb86dc7f0b15b7ee6c012",
+      "current_observed_at": "2026-11-03T00:07:45.264211+00:00",
+      "disposition": "RETAIN",
+      "next_owner": "T2 wN:p5 under a future explicit coordinator custody dispatch",
+      "reason": "New tiny synthetic Git proof retained as root-review evidence; creation/final files bound in stage-e/controls/results.json and controls-run receipt, no product source. No cleanup requested for evidence.",
+      "current": {
+        "device": 46,
+        "inode": 6784517,
+        "mode": "0o444",
+        "bytes": 53,
+        "sha256": "56079931dd940a6131a0351ce978bf1b00bb0d17988b68064547fc0e7adb0f5e",
+        "identity_kind": "current observation only; not historical creation"
+      },
+      "original_content_match": true,
+      "original_content": {
+        "path": "/tmp/m6-t44-eh-fixture-l_fwr4zc/es/.git/objects/95/486afa6594fe79a9fdb86dc7f0b15b7ee6c012",
+        "bytes": 53,
+        "sha256": "56079931dd940a6131a0351ce978bf1b00bb0d17988b68064547fc0e7adb0f5e",
+        "device": 46,
+        "inode": 6784517
+      }
+    },
+    {
+      "path": "/tmp/m6-t44-eh-fixture-l_fwr4zc/es/.git/objects/cc/7ca8876d135b1d84709f3417e5a851365ed7d1",
+      "current_observed_at": "2026-11-03T00:07:45.264211+00:00",
+      "disposition": "RETAIN",
+      "next_owner": "T2 wN:p5 under a future explicit coordinator custody dispatch",
+      "reason": "New tiny synthetic Git proof retained as root-review evidence; creation/final files bound in stage-e/controls/results.json and controls-run receipt, no product source. No cleanup requested for evidence.",
+      "current": {
+        "device": 46,
+        "inode": 6784514,
+        "mode": "0o444",
+        "bytes": 34,
+        "sha256": "5cc82dd566c274ef7912b978e8dfdf4257686f3053588fe3a3ad6854e4a5eb4a",
+        "identity_kind": "current observation only; not historical creation"
+      },
+      "original_content_match": true,
+      "original_content": {
+        "path": "/tmp/m6-t44-eh-fixture-l_fwr4zc/es/.git/objects/cc/7ca8876d135b1d84709f3417e5a851365ed7d1",
+        "bytes": 34,
+        "sha256": "5cc82dd566c274ef7912b978e8dfdf4257686f3053588fe3a3ad6854e4a5eb4a",
+        "device": 46,
+        "inode": 6784514
+      }
+    },
+    {
+      "path": "/tmp/m6-t44-eh-fixture-l_fwr4zc/es/.git/refs/heads/master",
+      "current_observed_at": "2026-11-03T00:07:45.264211+00:00",
+      "disposition": "RETAIN",
+      "next_owner": "T2 wN:p5 under a future explicit coordinator custody dispatch",
+      "reason": "New tiny synthetic Git proof retained as root-review evidence; creation/final files bound in stage-e/controls/results.json and controls-run receipt, no product source. No cleanup requested for evidence.",
+      "current": {
+        "device": 46,
+        "inode": 6784870,
+        "mode": "0o664",
+        "bytes": 41,
+        "sha256": "0228c0e13a7e397da38cb4df3ffece0a4b5341cd924d2372159f6bf96fd5a6e4",
+        "identity_kind": "current observation only; not historical creation"
+      },
+      "original_content_match": true,
+      "original_content": {
+        "path": "/tmp/m6-t44-eh-fixture-l_fwr4zc/es/.git/refs/heads/master",
+        "bytes": 41,
+        "sha256": "0228c0e13a7e397da38cb4df3ffece0a4b5341cd924d2372159f6bf96fd5a6e4",
+        "device": 46,
+        "inode": 6784870
+      }
+    },
+    {
+      "path": "/tmp/m6-t44-eh-fixture-l_fwr4zc/es/identity",
+      "current_observed_at": "2026-11-03T00:07:45.264211+00:00",
+      "disposition": "RETAIN",
+      "next_owner": "T2 wN:p5 under a future explicit coordinator custody dispatch",
+      "reason": "New tiny synthetic Git proof retained as root-review evidence; creation/final files bound in stage-e/controls/results.json and controls-run receipt, no product source. No cleanup requested for evidence.",
+      "current": {
+        "device": 46,
+        "inode": 6784858,
+        "mode": "0o664",
+        "bytes": 18,
+        "sha256": "9c3713f4d3a29e5f3c311910d3a02e08ca7a0226d4259d391a7e4798306d3b98",
+        "identity_kind": "current observation only; not historical creation"
+      },
+      "original_content_match": true,
+      "original_content": {
+        "path": "/tmp/m6-t44-eh-fixture-l_fwr4zc/es/identity",
+        "bytes": 18,
+        "sha256": "9c3713f4d3a29e5f3c311910d3a02e08ca7a0226d4259d391a7e4798306d3b98",
+        "device": 46,
+        "inode": 6784858
+      }
+    },
+    {
+      "path": "/tmp/m6-t44-eh-fixture-l_fwr4zc/repo/.git/COMMIT_EDITMSG",
+      "current_observed_at": "2026-11-03T00:07:45.264211+00:00",
+      "disposition": "RETAIN",
+      "next_owner": "T2 wN:p5 under a future explicit coordinator custody dispatch",
+      "reason": "New tiny synthetic Git proof retained as root-review evidence; creation/final files bound in stage-e/controls/results.json and controls-run receipt, no product source. No cleanup requested for evidence.",
+      "current": {
+        "device": 46,
+        "inode": 6784544,
+        "mode": "0o664",
+        "bytes": 52,
+        "sha256": "ae41f3df0321439f492a753854a92fbcfb09f723ac048efcd5661006a8811175",
+        "identity_kind": "current observation only; not historical creation"
+      },
+      "original_content_match": true,
+      "original_content": {
+        "path": "/tmp/m6-t44-eh-fixture-l_fwr4zc/repo/.git/COMMIT_EDITMSG",
+        "bytes": 52,
+        "sha256": "ae41f3df0321439f492a753854a92fbcfb09f723ac048efcd5661006a8811175",
+        "device": 46,
+        "inode": 6784544
+      }
+    },
+    {
+      "path": "/tmp/m6-t44-eh-fixture-l_fwr4zc/repo/.git/HEAD",
+      "current_observed_at": "2026-11-03T00:07:45.264211+00:00",
+      "disposition": "RETAIN",
+      "next_owner": "T2 wN:p5 under a future explicit coordinator custody dispatch",
+      "reason": "New tiny synthetic Git proof retained as root-review evidence; creation/final files bound in stage-e/controls/results.json and controls-run receipt, no product source. No cleanup requested for evidence.",
+      "current": {
+        "device": 46,
+        "inode": 6784493,
+        "mode": "0o664",
+        "bytes": 23,
+        "sha256": "f6f2b945f6c411b02ba3da9c7ace88dcf71b6af65ba2e0d89aa82900042b5a10",
+        "identity_kind": "current observation only; not historical creation"
+      },
+      "original_content_match": true,
+      "original_content": {
+        "path": "/tmp/m6-t44-eh-fixture-l_fwr4zc/repo/.git/HEAD",
+        "bytes": 23,
+        "sha256": "f6f2b945f6c411b02ba3da9c7ace88dcf71b6af65ba2e0d89aa82900042b5a10",
+        "device": 46,
+        "inode": 6784493
+      }
+    },
+    {
+      "path": "/tmp/m6-t44-eh-fixture-l_fwr4zc/repo/.git/ORIG_HEAD",
+      "current_observed_at": "2026-11-03T00:07:45.264211+00:00",
+      "disposition": "RETAIN",
+      "next_owner": "T2 wN:p5 under a future explicit coordinator custody dispatch",
+      "reason": "New tiny synthetic Git proof retained as root-review evidence; creation/final files bound in stage-e/controls/results.json and controls-run receipt, no product source. No cleanup requested for evidence.",
+      "current": {
+        "device": 46,
+        "inode": 6784818,
+        "mode": "0o664",
+        "bytes": 41,
+        "sha256": "7850a90042653630771410e780f52f953747adef79bfcddfc1aca3a2da6e79be",
+        "identity_kind": "current observation only; not historical creation"
+      },
+      "original_content_match": true,
+      "original_content": {
+        "path": "/tmp/m6-t44-eh-fixture-l_fwr4zc/repo/.git/ORIG_HEAD",
+        "bytes": 41,
+        "sha256": "7850a90042653630771410e780f52f953747adef79bfcddfc1aca3a2da6e79be",
+        "device": 46,
+        "inode": 6784818
+      }
+    },
+    {
+      "path": "/tmp/m6-t44-eh-fixture-l_fwr4zc/repo/.git/config",
+      "current_observed_at": "2026-11-03T00:07:45.264211+00:00",
+      "disposition": "RETAIN",
+      "next_owner": "T2 wN:p5 under a future explicit coordinator custody dispatch",
+      "reason": "New tiny synthetic Git proof retained as root-review evidence; creation/final files bound in stage-e/controls/results.json and controls-run receipt, no product source. No cleanup requested for evidence.",
+      "current": {
+        "device": 46,
+        "inode": 6784487,
+        "mode": "0o664",
+        "bytes": 92,
+        "sha256": "cfe7ba1238c9a78be7535d7c63bcaf5a4d5011d46b07c9b45d3bbf7d6c312dfe",
+        "identity_kind": "current observation only; not historical creation"
+      },
+      "original_content_match": true,
+      "original_content": {
+        "path": "/tmp/m6-t44-eh-fixture-l_fwr4zc/repo/.git/config",
+        "bytes": 92,
+        "sha256": "cfe7ba1238c9a78be7535d7c63bcaf5a4d5011d46b07c9b45d3bbf7d6c312dfe",
+        "device": 46,
+        "inode": 6784487
+      }
+    },
+    {
+      "path": "/tmp/m6-t44-eh-fixture-l_fwr4zc/repo/.git/index",
+      "current_observed_at": "2026-11-03T00:07:45.264211+00:00",
+      "disposition": "RETAIN",
+      "next_owner": "T2 wN:p5 under a future explicit coordinator custody dispatch",
+      "reason": "New tiny synthetic Git proof retained as root-review evidence; creation/final files bound in stage-e/controls/results.json and controls-run receipt, no product source. No cleanup requested for evidence.",
+      "current": {
+        "device": 46,
+        "inode": 6784838,
+        "mode": "0o664",
+        "bytes": 1097,
+        "sha256": "31572486f297509d1fabd47be83c0cf565c28c25f50887e5aa83daef246eb6cf",
+        "identity_kind": "current observation only; not historical creation"
+      },
+      "original_content_match": true,
+      "original_content": {
+        "path": "/tmp/m6-t44-eh-fixture-l_fwr4zc/repo/.git/index",
+        "bytes": 1097,
+        "sha256": "31572486f297509d1fabd47be83c0cf565c28c25f50887e5aa83daef246eb6cf",
+        "device": 46,
+        "inode": 6784838
+      }
+    },
+    {
+      "path": "/tmp/m6-t44-eh-fixture-l_fwr4zc/repo/.git/logs/HEAD",
+      "current_observed_at": "2026-11-03T00:07:45.264211+00:00",
+      "disposition": "RETAIN",
+      "next_owner": "T2 wN:p5 under a future explicit coordinator custody dispatch",
+      "reason": "New tiny synthetic Git proof retained as root-review evidence; creation/final files bound in stage-e/controls/results.json and controls-run receipt, no product source. No cleanup requested for evidence.",
+      "current": {
+        "device": 46,
+        "inode": 6784550,
+        "mode": "0o664",
+        "bytes": 3611,
+        "sha256": "117f960eae141fa9a860a42b2e20f1e1787c3e2ef66b1b73b103ab3fea3ad821",
+        "identity_kind": "current observation only; not historical creation"
+      },
+      "original_content_match": true,
+      "original_content": {
+        "path": "/tmp/m6-t44-eh-fixture-l_fwr4zc/repo/.git/logs/HEAD",
+        "bytes": 3611,
+        "sha256": "117f960eae141fa9a860a42b2e20f1e1787c3e2ef66b1b73b103ab3fea3ad821",
+        "device": 46,
+        "inode": 6784550
+      }
+    },
+    {
+      "path": "/tmp/m6-t44-eh-fixture-l_fwr4zc/repo/.git/logs/refs/heads/master",
+      "current_observed_at": "2026-11-03T00:07:45.264211+00:00",
+      "disposition": "RETAIN",
+      "next_owner": "T2 wN:p5 under a future explicit coordinator custody dispatch",
+      "reason": "New tiny synthetic Git proof retained as root-review evidence; creation/final files bound in stage-e/controls/results.json and controls-run receipt, no product source. No cleanup requested for evidence.",
+      "current": {
+        "device": 46,
+        "inode": 6784553,
+        "mode": "0o664",
+        "bytes": 3611,
+        "sha256": "117f960eae141fa9a860a42b2e20f1e1787c3e2ef66b1b73b103ab3fea3ad821",
+        "identity_kind": "current observation only; not historical creation"
+      },
+      "original_content_match": true,
+      "original_content": {
+        "path": "/tmp/m6-t44-eh-fixture-l_fwr4zc/repo/.git/logs/refs/heads/master",
+        "bytes": 3611,
+        "sha256": "117f960eae141fa9a860a42b2e20f1e1787c3e2ef66b1b73b103ab3fea3ad821",
+        "device": 46,
+        "inode": 6784553
+      }
+    },
+    {
+      "path": "/tmp/m6-t44-eh-fixture-l_fwr4zc/repo/.git/objects/06/157cd634d9f86f7e680c089f120933fd5699a7",
+      "current_observed_at": "2026-11-03T00:07:45.264211+00:00",
+      "disposition": "RETAIN",
+      "next_owner": "T2 wN:p5 under a future explicit coordinator custody dispatch",
+      "reason": "New tiny synthetic Git proof retained as root-review evidence; creation/final files bound in stage-e/controls/results.json and controls-run receipt, no product source. No cleanup requested for evidence.",
+      "current": {
+        "device": 46,
+        "inode": 6784659,
+        "mode": "0o444",
+        "bytes": 79,
+        "sha256": "47650ef1143ba9891aece98ea4c4d029f30edd78426325625c6483ac6651f3ec",
+        "identity_kind": "current observation only; not historical creation"
+      },
+      "original_content_match": true,
+      "original_content": {
+        "path": "/tmp/m6-t44-eh-fixture-l_fwr4zc/repo/.git/objects/06/157cd634d9f86f7e680c089f120933fd5699a7",
+        "bytes": 79,
+        "sha256": "47650ef1143ba9891aece98ea4c4d029f30edd78426325625c6483ac6651f3ec",
+        "device": 46,
+        "inode": 6784659
+      }
+    },
+    {
+      "path": "/tmp/m6-t44-eh-fixture-l_fwr4zc/repo/.git/objects/07/3e9227ed81a85f49df5d7a8db7ccfe324bbdd6",
+      "current_observed_at": "2026-11-03T00:07:45.264211+00:00",
+      "disposition": "RETAIN",
+      "next_owner": "T2 wN:p5 under a future explicit coordinator custody dispatch",
+      "reason": "New tiny synthetic Git proof retained as root-review evidence; creation/final files bound in stage-e/controls/results.json and controls-run receipt, no product source. No cleanup requested for evidence.",
+      "current": {
+        "device": 46,
+        "inode": 6784746,
+        "mode": "0o444",
+        "bytes": 121,
+        "sha256": "f08446193dd3e3925f913353ef83a13bb8b555c5bbce0525be7c63671bc19aad",
+        "identity_kind": "current observation only; not historical creation"
+      },
+      "original_content_match": true,
+      "original_content": {
+        "path": "/tmp/m6-t44-eh-fixture-l_fwr4zc/repo/.git/objects/07/3e9227ed81a85f49df5d7a8db7ccfe324bbdd6",
+        "bytes": 121,
+        "sha256": "f08446193dd3e3925f913353ef83a13bb8b555c5bbce0525be7c63671bc19aad",
+        "device": 46,
+        "inode": 6784746
+      }
+    },
+    {
+      "path": "/tmp/m6-t44-eh-fixture-l_fwr4zc/repo/.git/objects/11/3620eca9c71a0f59819a40409400232fe7a564",
+      "current_observed_at": "2026-11-03T00:07:45.264211+00:00",
+      "disposition": "RETAIN",
+      "next_owner": "T2 wN:p5 under a future explicit coordinator custody dispatch",
+      "reason": "New tiny synthetic Git proof retained as root-review evidence; creation/final files bound in stage-e/controls/results.json and controls-run receipt, no product source. No cleanup requested for evidence.",
+      "current": {
+        "device": 46,
+        "inode": 6784723,
+        "mode": "0o444",
+        "bytes": 164,
+        "sha256": "747be5dea58273f5e2f7bb7b83b384c9b938ef89ef4ab60be16f850bf5c495d9",
+        "identity_kind": "current observation only; not historical creation"
+      },
+      "original_content_match": true,
+      "original_content": {
+        "path": "/tmp/m6-t44-eh-fixture-l_fwr4zc/repo/.git/objects/11/3620eca9c71a0f59819a40409400232fe7a564",
+        "bytes": 164,
+        "sha256": "747be5dea58273f5e2f7bb7b83b384c9b938ef89ef4ab60be16f850bf5c495d9",
+        "device": 46,
+        "inode": 6784723
+      }
+    },
+    {
+      "path": "/tmp/m6-t44-eh-fixture-l_fwr4zc/repo/.git/objects/11/83e48b5f1fcaf7342a29f530079ab0dc9b6862",
+      "current_observed_at": "2026-11-03T00:07:45.264211+00:00",
+      "disposition": "RETAIN",
+      "next_owner": "T2 wN:p5 under a future explicit coordinator custody dispatch",
+      "reason": "New tiny synthetic Git proof retained as root-review evidence; creation/final files bound in stage-e/controls/results.json and controls-run receipt, no product source. No cleanup requested for evidence.",
+      "current": {
+        "device": 46,
+        "inode": 6784850,
+        "mode": "0o444",
+        "bytes": 79,
+        "sha256": "a4e1c25c0c28e8960834967ddaf7a0366a787621529954a439f4b749fe76977e",
+        "identity_kind": "current observation only; not historical creation"
+      },
+      "original_content_match": true,
+      "original_content": {
+        "path": "/tmp/m6-t44-eh-fixture-l_fwr4zc/repo/.git/objects/11/83e48b5f1fcaf7342a29f530079ab0dc9b6862",
+        "bytes": 79,
+        "sha256": "a4e1c25c0c28e8960834967ddaf7a0366a787621529954a439f4b749fe76977e",
+        "device": 46,
+        "inode": 6784850
+      }
+    },
+    {
+      "path": "/tmp/m6-t44-eh-fixture-l_fwr4zc/repo/.git/objects/21/19620a8f1604810f68695c4583438305cc258d",
+      "current_observed_at": "2026-11-03T00:07:45.264211+00:00",
+      "disposition": "RETAIN",
+      "next_owner": "T2 wN:p5 under a future explicit coordinator custody dispatch",
+      "reason": "New tiny synthetic Git proof retained as root-review evidence; creation/final files bound in stage-e/controls/results.json and controls-run receipt, no product source. No cleanup requested for evidence.",
+      "current": {
+        "device": 46,
+        "inode": 6784570,
+        "mode": "0o444",
+        "bytes": 56,
+        "sha256": "848982bae9f34fea4731cca1e848b9b4ace1ff4b1ad8e5317eb890f53b197e69",
+        "identity_kind": "current observation only; not historical creation"
+      },
+      "original_content_match": true,
+      "original_content": {
+        "path": "/tmp/m6-t44-eh-fixture-l_fwr4zc/repo/.git/objects/21/19620a8f1604810f68695c4583438305cc258d",
+        "bytes": 56,
+        "sha256": "848982bae9f34fea4731cca1e848b9b4ace1ff4b1ad8e5317eb890f53b197e69",
+        "device": 46,
+        "inode": 6784570
+      }
+    },
+    {
+      "path": "/tmp/m6-t44-eh-fixture-l_fwr4zc/repo/.git/objects/26/c54104ebf68302d6ac78d160c0aa3c695b91bd",
+      "current_observed_at": "2026-11-03T00:07:45.264211+00:00",
+      "disposition": "RETAIN",
+      "next_owner": "T2 wN:p5 under a future explicit coordinator custody dispatch",
+      "reason": "New tiny synthetic Git proof retained as root-review evidence; creation/final files bound in stage-e/controls/results.json and controls-run receipt, no product source. No cleanup requested for evidence.",
+      "current": {
+        "device": 46,
+        "inode": 6784773,
+        "mode": "0o444",
+        "bytes": 45,
+        "sha256": "957ed416292e7f190bdc9b240433ae42f6d85f66f15415cd41d3ae581ee024ad",
+        "identity_kind": "current observation only; not historical creation"
+      },
+      "original_content_match": true,
+      "original_content": {
+        "path": "/tmp/m6-t44-eh-fixture-l_fwr4zc/repo/.git/objects/26/c54104ebf68302d6ac78d160c0aa3c695b91bd",
+        "bytes": 45,
+        "sha256": "957ed416292e7f190bdc9b240433ae42f6d85f66f15415cd41d3ae581ee024ad",
+        "device": 46,
+        "inode": 6784773
+      }
+    },
+    {
+      "path": "/tmp/m6-t44-eh-fixture-l_fwr4zc/repo/.git/objects/27/a31c5caf6064aa03a10b8a9d404d218ea0e8e5",
+      "current_observed_at": "2026-11-03T00:07:45.264211+00:00",
+      "disposition": "RETAIN",
+      "next_owner": "T2 wN:p5 under a future explicit coordinator custody dispatch",
+      "reason": "New tiny synthetic Git proof retained as root-review evidence; creation/final files bound in stage-e/controls/results.json and controls-run receipt, no product source. No cleanup requested for evidence.",
+      "current": {
+        "device": 46,
+        "inode": 6784539,
+        "mode": "0o444",
+        "bytes": 55,
+        "sha256": "ff935dc5a8f94556087c0f7e39cfc2abf59a90cc26660a8a4fd0ed8131796e5f",
+        "identity_kind": "current observation only; not historical creation"
+      },
+      "original_content_match": true,
+      "original_content": {
+        "path": "/tmp/m6-t44-eh-fixture-l_fwr4zc/repo/.git/objects/27/a31c5caf6064aa03a10b8a9d404d218ea0e8e5",
+        "bytes": 55,
+        "sha256": "ff935dc5a8f94556087c0f7e39cfc2abf59a90cc26660a8a4fd0ed8131796e5f",
+        "device": 46,
+        "inode": 6784539
+      }
+    },
+    {
+      "path": "/tmp/m6-t44-eh-fixture-l_fwr4zc/repo/.git/objects/29/8ee7eb779c6a7f7a389987273dd6a688e27790",
+      "current_observed_at": "2026-11-03T00:07:45.264211+00:00",
+      "disposition": "RETAIN",
+      "next_owner": "T2 wN:p5 under a future explicit coordinator custody dispatch",
+      "reason": "New tiny synthetic Git proof retained as root-review evidence; creation/final files bound in stage-e/controls/results.json and controls-run receipt, no product source. No cleanup requested for evidence.",
+      "current": {
+        "device": 46,
+        "inode": 6784744,
+        "mode": "0o444",
+        "bytes": 54,
+        "sha256": "a701154ccfb75e29c4d6c8067b111e271622b0f479b859878417d9dd693caa3f",
+        "identity_kind": "current observation only; not historical creation"
+      },
+      "original_content_match": true,
+      "original_content": {
+        "path": "/tmp/m6-t44-eh-fixture-l_fwr4zc/repo/.git/objects/29/8ee7eb779c6a7f7a389987273dd6a688e27790",
+        "bytes": 54,
+        "sha256": "a701154ccfb75e29c4d6c8067b111e271622b0f479b859878417d9dd693caa3f",
+        "device": 46,
+        "inode": 6784744
+      }
+    },
+    {
+      "path": "/tmp/m6-t44-eh-fixture-l_fwr4zc/repo/.git/objects/2a/67d2951b018724707a8ea9f2e7b70504635990",
+      "current_observed_at": "2026-11-03T00:07:45.264211+00:00",
+      "disposition": "RETAIN",
+      "next_owner": "T2 wN:p5 under a future explicit coordinator custody dispatch",
+      "reason": "New tiny synthetic Git proof retained as root-review evidence; creation/final files bound in stage-e/controls/results.json and controls-run receipt, no product source. No cleanup requested for evidence.",
+      "current": {
+        "device": 46,
+        "inode": 6784753,
+        "mode": "0o444",
+        "bytes": 172,
+        "sha256": "e4e20fdcb4f2989fd84d65f1fc9a940de5198d8f76f8b0947a1ac3e5665f862f",
+        "identity_kind": "current observation only; not historical creation"
+      },
+      "original_content_match": true,
+      "original_content": {
+        "path": "/tmp/m6-t44-eh-fixture-l_fwr4zc/repo/.git/objects/2a/67d2951b018724707a8ea9f2e7b70504635990",
+        "bytes": 172,
+        "sha256": "e4e20fdcb4f2989fd84d65f1fc9a940de5198d8f76f8b0947a1ac3e5665f862f",
+        "device": 46,
+        "inode": 6784753
+      }
+    },
+    {
+      "path": "/tmp/m6-t44-eh-fixture-l_fwr4zc/repo/.git/objects/2b/a407ad0b79b11f7b86c086ff3c2842c32522db",
+      "current_observed_at": "2026-11-03T00:07:45.264211+00:00",
+      "disposition": "RETAIN",
+      "next_owner": "T2 wN:p5 under a future explicit coordinator custody dispatch",
+      "reason": "New tiny synthetic Git proof retained as root-review evidence; creation/final files bound in stage-e/controls/results.json and controls-run receipt, no product source. No cleanup requested for evidence.",
+      "current": {
+        "device": 46,
+        "inode": 6784750,
+        "mode": "0o444",
+        "bytes": 49,
+        "sha256": "97293db5b7104cd3a64f811b0b0eb45a3729766bc010d21cecde8f2a36b9e659",
+        "identity_kind": "current observation only; not historical creation"
+      },
+      "original_content_match": true,
+      "original_content": {
+        "path": "/tmp/m6-t44-eh-fixture-l_fwr4zc/repo/.git/objects/2b/a407ad0b79b11f7b86c086ff3c2842c32522db",
+        "bytes": 49,
+        "sha256": "97293db5b7104cd3a64f811b0b0eb45a3729766bc010d21cecde8f2a36b9e659",
+        "device": 46,
+        "inode": 6784750
+      }
+    },
+    {
+      "path": "/tmp/m6-t44-eh-fixture-l_fwr4zc/repo/.git/objects/2c/2e27ace4211031c47ead0cd5ad342283127ab9",
+      "current_observed_at": "2026-11-03T00:07:45.264211+00:00",
+      "disposition": "RETAIN",
+      "next_owner": "T2 wN:p5 under a future explicit coordinator custody dispatch",
+      "reason": "New tiny synthetic Git proof retained as root-review evidence; creation/final files bound in stage-e/controls/results.json and controls-run receipt, no product source. No cleanup requested for evidence.",
+      "current": {
+        "device": 46,
+        "inode": 6784635,
+        "mode": "0o444",
+        "bytes": 172,
+        "sha256": "1bc5d1f325748d1751126b183588dc0c1fd4e7deb0db5ed3cc4a0e876573af07",
+        "identity_kind": "current observation only; not historical creation"
+      },
+      "original_content_match": true,
+      "original_content": {
+        "path": "/tmp/m6-t44-eh-fixture-l_fwr4zc/repo/.git/objects/2c/2e27ace4211031c47ead0cd5ad342283127ab9",
+        "bytes": 172,
+        "sha256": "1bc5d1f325748d1751126b183588dc0c1fd4e7deb0db5ed3cc4a0e876573af07",
+        "device": 46,
+        "inode": 6784635
+      }
+    },
+    {
+      "path": "/tmp/m6-t44-eh-fixture-l_fwr4zc/repo/.git/objects/2d/a5abcecbdb42b74913740e95f63f6cba4c1afe",
+      "current_observed_at": "2026-11-03T00:07:45.264211+00:00",
+      "disposition": "RETAIN",
+      "next_owner": "T2 wN:p5 under a future explicit coordinator custody dispatch",
+      "reason": "New tiny synthetic Git proof retained as root-review evidence; creation/final files bound in stage-e/controls/results.json and controls-run receipt, no product source. No cleanup requested for evidence.",
+      "current": {
+        "device": 46,
+        "inode": 6784565,
+        "mode": "0o444",
+        "bytes": 28,
+        "sha256": "a0632fcc1384c588edde1630e7eb1c92b8e3202848e4329363f957f8a0afaea5",
+        "identity_kind": "current observation only; not historical creation"
+      },
+      "original_content_match": true,
+      "original_content": {
+        "path": "/tmp/m6-t44-eh-fixture-l_fwr4zc/repo/.git/objects/2d/a5abcecbdb42b74913740e95f63f6cba4c1afe",
+        "bytes": 28,
+        "sha256": "a0632fcc1384c588edde1630e7eb1c92b8e3202848e4329363f957f8a0afaea5",
+        "device": 46,
+        "inode": 6784565
+      }
+    },
+    {
+      "path": "/tmp/m6-t44-eh-fixture-l_fwr4zc/repo/.git/objects/30/06b20b2c06e5992f973640f4ce6e69006191ab",
+      "current_observed_at": "2026-11-03T00:07:45.264211+00:00",
+      "disposition": "RETAIN",
+      "next_owner": "T2 wN:p5 under a future explicit coordinator custody dispatch",
+      "reason": "New tiny synthetic Git proof retained as root-review evidence; creation/final files bound in stage-e/controls/results.json and controls-run receipt, no product source. No cleanup requested for evidence.",
+      "current": {
+        "device": 46,
+        "inode": 6784840,
+        "mode": "0o444",
+        "bytes": 55,
+        "sha256": "9edf0568d82eaf1247fc261b78a68af2bf08fb0a12e2d3d1ecc1b970434b988d",
+        "identity_kind": "current observation only; not historical creation"
+      },
+      "original_content_match": true,
+      "original_content": {
+        "path": "/tmp/m6-t44-eh-fixture-l_fwr4zc/repo/.git/objects/30/06b20b2c06e5992f973640f4ce6e69006191ab",
+        "bytes": 55,
+        "sha256": "9edf0568d82eaf1247fc261b78a68af2bf08fb0a12e2d3d1ecc1b970434b988d",
+        "device": 46,
+        "inode": 6784840
+      }
+    },
+    {
+      "path": "/tmp/m6-t44-eh-fixture-l_fwr4zc/repo/.git/objects/30/a06535ddf83a555b10698b0bd6e27c2e7f6929",
+      "current_observed_at": "2026-11-03T00:07:45.264211+00:00",
+      "disposition": "RETAIN",
+      "next_owner": "T2 wN:p5 under a future explicit coordinator custody dispatch",
+      "reason": "New tiny synthetic Git proof retained as root-review evidence; creation/final files bound in stage-e/controls/results.json and controls-run receipt, no product source. No cleanup requested for evidence.",
+      "current": {
+        "device": 46,
+        "inode": 6784847,
+        "mode": "0o444",
+        "bytes": 96,
+        "sha256": "950327a632efdb09c58c6858b6c38fd1daaae64c8986b80a10326a3909cb1369",
+        "identity_kind": "current observation only; not historical creation"
+      },
+      "original_content_match": true,
+      "original_content": {
+        "path": "/tmp/m6-t44-eh-fixture-l_fwr4zc/repo/.git/objects/30/a06535ddf83a555b10698b0bd6e27c2e7f6929",
+        "bytes": 96,
+        "sha256": "950327a632efdb09c58c6858b6c38fd1daaae64c8986b80a10326a3909cb1369",
+        "device": 46,
+        "inode": 6784847
+      }
+    },
+    {
+      "path": "/tmp/m6-t44-eh-fixture-l_fwr4zc/repo/.git/objects/33/4954ebae170d543fb37fdbdeb72926ac1edb9c",
+      "current_observed_at": "2026-11-03T00:07:45.264211+00:00",
+      "disposition": "RETAIN",
+      "next_owner": "T2 wN:p5 under a future explicit coordinator custody dispatch",
+      "reason": "New tiny synthetic Git proof retained as root-review evidence; creation/final files bound in stage-e/controls/results.json and controls-run receipt, no product source. No cleanup requested for evidence.",
+      "current": {
+        "device": 46,
+        "inode": 6784775,
+        "mode": "0o444",
+        "bytes": 48,
+        "sha256": "c4f0c86099f6859b1c2df54147ec7e38c578fef9f79f9f000f54407d77710fa0",
+        "identity_kind": "current observation only; not historical creation"
+      },
+      "original_content_match": true,
+      "original_content": {
+        "path": "/tmp/m6-t44-eh-fixture-l_fwr4zc/repo/.git/objects/33/4954ebae170d543fb37fdbdeb72926ac1edb9c",
+        "bytes": 48,
+        "sha256": "c4f0c86099f6859b1c2df54147ec7e38c578fef9f79f9f000f54407d77710fa0",
+        "device": 46,
+        "inode": 6784775
+      }
+    },
+    {
+      "path": "/tmp/m6-t44-eh-fixture-l_fwr4zc/repo/.git/objects/37/0767ca1421673f30b92dd132cb0e1e507cccec",
+      "current_observed_at": "2026-11-03T00:07:45.264211+00:00",
+      "disposition": "RETAIN",
+      "next_owner": "T2 wN:p5 under a future explicit coordinator custody dispatch",
+      "reason": "New tiny synthetic Git proof retained as root-review evidence; creation/final files bound in stage-e/controls/results.json and controls-run receipt, no product source. No cleanup requested for evidence.",
+      "current": {
+        "device": 46,
+        "inode": 6784835,
+        "mode": "0o444",
+        "bytes": 41,
+        "sha256": "c300ccc1a6e8cc689e89bb98ade041a7fdd54b664a0a7a4fac71eca64a47f1ae",
+        "identity_kind": "current observation only; not historical creation"
+      },
+      "original_content_match": true,
+      "original_content": {
+        "path": "/tmp/m6-t44-eh-fixture-l_fwr4zc/repo/.git/objects/37/0767ca1421673f30b92dd132cb0e1e507cccec",
+        "bytes": 41,
+        "sha256": "c300ccc1a6e8cc689e89bb98ade041a7fdd54b664a0a7a4fac71eca64a47f1ae",
+        "device": 46,
+        "inode": 6784835
+      }
+    },
+    {
+      "path": "/tmp/m6-t44-eh-fixture-l_fwr4zc/repo/.git/objects/3c/cf6d47d88c9825f0330214208d57d9b41dea2e",
+      "current_observed_at": "2026-11-03T00:07:45.264211+00:00",
+      "disposition": "RETAIN",
+      "next_owner": "T2 wN:p5 under a future explicit coordinator custody dispatch",
+      "reason": "New tiny synthetic Git proof retained as root-review evidence; creation/final files bound in stage-e/controls/results.json and controls-run receipt, no product source. No cleanup requested for evidence.",
+      "current": {
+        "device": 46,
+        "inode": 6784592,
+        "mode": "0o444",
+        "bytes": 55,
+        "sha256": "d6de8e607b95f409078ef7e407a92650ae5a576f14943943c8d37ca3f324fea0",
+        "identity_kind": "current observation only; not historical creation"
+      },
+      "original_content_match": true,
+      "original_content": {
+        "path": "/tmp/m6-t44-eh-fixture-l_fwr4zc/repo/.git/objects/3c/cf6d47d88c9825f0330214208d57d9b41dea2e",
+        "bytes": 55,
+        "sha256": "d6de8e607b95f409078ef7e407a92650ae5a576f14943943c8d37ca3f324fea0",
+        "device": 46,
+        "inode": 6784592
+      }
+    },
+    {
+      "path": "/tmp/m6-t44-eh-fixture-l_fwr4zc/repo/.git/objects/3f/2e0e109aab452c31d7df31cbde6017655403d8",
+      "current_observed_at": "2026-11-03T00:07:45.264211+00:00",
+      "disposition": "RETAIN",
+      "next_owner": "T2 wN:p5 under a future explicit coordinator custody dispatch",
+      "reason": "New tiny synthetic Git proof retained as root-review evidence; creation/final files bound in stage-e/controls/results.json and controls-run receipt, no product source. No cleanup requested for evidence.",
+      "current": {
+        "device": 46,
+        "inode": 6784845,
+        "mode": "0o444",
+        "bytes": 82,
+        "sha256": "21cae3b4fe55de7349e16d9134a9e73164e1233d2cfb49adaff85310c92dde3e",
+        "identity_kind": "current observation only; not historical creation"
+      },
+      "original_content_match": true,
+      "original_content": {
+        "path": "/tmp/m6-t44-eh-fixture-l_fwr4zc/repo/.git/objects/3f/2e0e109aab452c31d7df31cbde6017655403d8",
+        "bytes": 82,
+        "sha256": "21cae3b4fe55de7349e16d9134a9e73164e1233d2cfb49adaff85310c92dde3e",
+        "device": 46,
+        "inode": 6784845
+      }
+    },
+    {
+      "path": "/tmp/m6-t44-eh-fixture-l_fwr4zc/repo/.git/objects/3f/fdffbadec0ae261c3ba993f619f70a856393b6",
+      "current_observed_at": "2026-11-03T00:07:45.264211+00:00",
+      "disposition": "RETAIN",
+      "next_owner": "T2 wN:p5 under a future explicit coordinator custody dispatch",
+      "reason": "New tiny synthetic Git proof retained as root-review evidence; creation/final files bound in stage-e/controls/results.json and controls-run receipt, no product source. No cleanup requested for evidence.",
+      "current": {
+        "device": 46,
+        "inode": 6784536,
+        "mode": "0o444",
+        "bytes": 45,
+        "sha256": "a319b0f061ece0e7eda19c616b53898e5dc7e262b29c4635eee417f50108910a",
+        "identity_kind": "current observation only; not historical creation"
+      },
+      "original_content_match": true,
+      "original_content": {
+        "path": "/tmp/m6-t44-eh-fixture-l_fwr4zc/repo/.git/objects/3f/fdffbadec0ae261c3ba993f619f70a856393b6",
+        "bytes": 45,
+        "sha256": "a319b0f061ece0e7eda19c616b53898e5dc7e262b29c4635eee417f50108910a",
+        "device": 46,
+        "inode": 6784536
+      }
+    },
+    {
+      "path": "/tmp/m6-t44-eh-fixture-l_fwr4zc/repo/.git/objects/41/eaab799b14e0ec6224a17fc9b072a9cba3c0e5",
+      "current_observed_at": "2026-11-03T00:07:45.264211+00:00",
+      "disposition": "RETAIN",
+      "next_owner": "T2 wN:p5 under a future explicit coordinator custody dispatch",
+      "reason": "New tiny synthetic Git proof retained as root-review evidence; creation/final files bound in stage-e/controls/results.json and controls-run receipt, no product source. No cleanup requested for evidence.",
+      "current": {
+        "device": 46,
+        "inode": 6784721,
+        "mode": "0o444",
+        "bytes": 78,
+        "sha256": "029e7c67da471cfe9a1d9c5dbb9dea389c24a34e7f2b0218b721cb535ff120e9",
+        "identity_kind": "current observation only; not historical creation"
+      },
+      "original_content_match": true,
+      "original_content": {
+        "path": "/tmp/m6-t44-eh-fixture-l_fwr4zc/repo/.git/objects/41/eaab799b14e0ec6224a17fc9b072a9cba3c0e5",
+        "bytes": 78,
+        "sha256": "029e7c67da471cfe9a1d9c5dbb9dea389c24a34e7f2b0218b721cb535ff120e9",
+        "device": 46,
+        "inode": 6784721
+      }
+    },
+    {
+      "path": "/tmp/m6-t44-eh-fixture-l_fwr4zc/repo/.git/objects/43/7215a8ec0855c64407beb405b897155b1b3db1",
+      "current_observed_at": "2026-11-03T00:07:45.264211+00:00",
+      "disposition": "RETAIN",
+      "next_owner": "T2 wN:p5 under a future explicit coordinator custody dispatch",
+      "reason": "New tiny synthetic Git proof retained as root-review evidence; creation/final files bound in stage-e/controls/results.json and controls-run receipt, no product source. No cleanup requested for evidence.",
+      "current": {
+        "device": 46,
+        "inode": 6784684,
+        "mode": "0o444",
+        "bytes": 67,
+        "sha256": "1cfa0a11cee1a0f6f27b21dd9228beddc756ef2278c6bb2756a9431d4193ee1a",
+        "identity_kind": "current observation only; not historical creation"
+      },
+      "original_content_match": true,
+      "original_content": {
+        "path": "/tmp/m6-t44-eh-fixture-l_fwr4zc/repo/.git/objects/43/7215a8ec0855c64407beb405b897155b1b3db1",
+        "bytes": 67,
+        "sha256": "1cfa0a11cee1a0f6f27b21dd9228beddc756ef2278c6bb2756a9431d4193ee1a",
+        "device": 46,
+        "inode": 6784684
+      }
+    },
+    {
+      "path": "/tmp/m6-t44-eh-fixture-l_fwr4zc/repo/.git/objects/4b/f72ea574d1d6c01d149fcd678fb9d959f870b2",
+      "current_observed_at": "2026-11-03T00:07:45.264211+00:00",
+      "disposition": "RETAIN",
+      "next_owner": "T2 wN:p5 under a future explicit coordinator custody dispatch",
+      "reason": "New tiny synthetic Git proof retained as root-review evidence; creation/final files bound in stage-e/controls/results.json and controls-run receipt, no product source. No cleanup requested for evidence.",
+      "current": {
+        "device": 46,
+        "inode": 6784576,
+        "mode": "0o444",
+        "bytes": 48,
+        "sha256": "bbec6c9564f892f674157937af3b198e26973a7ebc0616a5a2a4170d4ea84507",
+        "identity_kind": "current observation only; not historical creation"
+      },
+      "original_content_match": true,
+      "original_content": {
+        "path": "/tmp/m6-t44-eh-fixture-l_fwr4zc/repo/.git/objects/4b/f72ea574d1d6c01d149fcd678fb9d959f870b2",
+        "bytes": 48,
+        "sha256": "bbec6c9564f892f674157937af3b198e26973a7ebc0616a5a2a4170d4ea84507",
+        "device": 46,
+        "inode": 6784576
+      }
+    },
+    {
+      "path": "/tmp/m6-t44-eh-fixture-l_fwr4zc/repo/.git/objects/4d/8ebaa39515947ef6848efb474b80067a933595",
+      "current_observed_at": "2026-11-03T00:07:45.264211+00:00",
+      "disposition": "RETAIN",
+      "next_owner": "T2 wN:p5 under a future explicit coordinator custody dispatch",
+      "reason": "New tiny synthetic Git proof retained as root-review evidence; creation/final files bound in stage-e/controls/results.json and controls-run receipt, no product source. No cleanup requested for evidence.",
+      "current": {
+        "device": 46,
+        "inode": 6784771,
+        "mode": "0o444",
+        "bytes": 62,
+        "sha256": "045febfb630168fdc59022dce7bd3a5d9719ace1f2d4a30eddd2914ac897064f",
+        "identity_kind": "current observation only; not historical creation"
+      },
+      "original_content_match": true,
+      "original_content": {
+        "path": "/tmp/m6-t44-eh-fixture-l_fwr4zc/repo/.git/objects/4d/8ebaa39515947ef6848efb474b80067a933595",
+        "bytes": 62,
+        "sha256": "045febfb630168fdc59022dce7bd3a5d9719ace1f2d4a30eddd2914ac897064f",
+        "device": 46,
+        "inode": 6784771
+      }
+    },
+    {
+      "path": "/tmp/m6-t44-eh-fixture-l_fwr4zc/repo/.git/objects/4f/04b3aba20c002455fd929b54281b410ec2904e",
+      "current_observed_at": "2026-11-03T00:07:45.264211+00:00",
+      "disposition": "RETAIN",
+      "next_owner": "T2 wN:p5 under a future explicit coordinator custody dispatch",
+      "reason": "New tiny synthetic Git proof retained as root-review evidence; creation/final files bound in stage-e/controls/results.json and controls-run receipt, no product source. No cleanup requested for evidence.",
+      "current": {
+        "device": 46,
+        "inode": 6784715,
+        "mode": "0o444",
+        "bytes": 121,
+        "sha256": "0656d9acb4ae332bf815fddaaa2ac5f6edd67b023a164bb066310cc4d07f5c4f",
+        "identity_kind": "current observation only; not historical creation"
+      },
+      "original_content_match": true,
+      "original_content": {
+        "path": "/tmp/m6-t44-eh-fixture-l_fwr4zc/repo/.git/objects/4f/04b3aba20c002455fd929b54281b410ec2904e",
+        "bytes": 121,
+        "sha256": "0656d9acb4ae332bf815fddaaa2ac5f6edd67b023a164bb066310cc4d07f5c4f",
+        "device": 46,
+        "inode": 6784715
+      }
+    },
+    {
+      "path": "/tmp/m6-t44-eh-fixture-l_fwr4zc/repo/.git/objects/58/1e924782de3a0f6f6a93222905043876f66b9f",
+      "current_observed_at": "2026-11-03T00:07:45.264211+00:00",
+      "disposition": "RETAIN",
+      "next_owner": "T2 wN:p5 under a future explicit coordinator custody dispatch",
+      "reason": "New tiny synthetic Git proof retained as root-review evidence; creation/final files bound in stage-e/controls/results.json and controls-run receipt, no product source. No cleanup requested for evidence.",
+      "current": {
+        "device": 46,
+        "inode": 6784625,
+        "mode": "0o444",
+        "bytes": 55,
+        "sha256": "d19283325f69f9f65a3c7737145f0f8386cd4132f73729c98ab1d7784aa2aa32",
+        "identity_kind": "current observation only; not historical creation"
+      },
+      "original_content_match": true,
+      "original_content": {
+        "path": "/tmp/m6-t44-eh-fixture-l_fwr4zc/repo/.git/objects/58/1e924782de3a0f6f6a93222905043876f66b9f",
+        "bytes": 55,
+        "sha256": "d19283325f69f9f65a3c7737145f0f8386cd4132f73729c98ab1d7784aa2aa32",
+        "device": 46,
+        "inode": 6784625
+      }
+    },
+    {
+      "path": "/tmp/m6-t44-eh-fixture-l_fwr4zc/repo/.git/objects/5c/a13543006b55e4ba17b2e1a1588192e4aba1f8",
+      "current_observed_at": "2026-11-03T00:07:45.264211+00:00",
+      "disposition": "RETAIN",
+      "next_owner": "T2 wN:p5 under a future explicit coordinator custody dispatch",
+      "reason": "New tiny synthetic Git proof retained as root-review evidence; creation/final files bound in stage-e/controls/results.json and controls-run receipt, no product source. No cleanup requested for evidence.",
+      "current": {
+        "device": 46,
+        "inode": 6784627,
+        "mode": "0o444",
+        "bytes": 95,
+        "sha256": "074bcc5696bf292b26850efc5286ce09a17816ab3655fa7612b13f6b3616340d",
+        "identity_kind": "current observation only; not historical creation"
+      },
+      "original_content_match": true,
+      "original_content": {
+        "path": "/tmp/m6-t44-eh-fixture-l_fwr4zc/repo/.git/objects/5c/a13543006b55e4ba17b2e1a1588192e4aba1f8",
+        "bytes": 95,
+        "sha256": "074bcc5696bf292b26850efc5286ce09a17816ab3655fa7612b13f6b3616340d",
+        "device": 46,
+        "inode": 6784627
+      }
+    },
+    {
+      "path": "/tmp/m6-t44-eh-fixture-l_fwr4zc/repo/.git/objects/5d/0a190ae6bab7f374bd80d38c14d57d97564245",
+      "current_observed_at": "2026-11-03T00:07:45.264211+00:00",
+      "disposition": "RETAIN",
+      "next_owner": "T2 wN:p5 under a future explicit coordinator custody dispatch",
+      "reason": "New tiny synthetic Git proof retained as root-review evidence; creation/final files bound in stage-e/controls/results.json and controls-run receipt, no product source. No cleanup requested for evidence.",
+      "current": {
+        "device": 46,
+        "inode": 6784710,
+        "mode": "0o444",
+        "bytes": 26,
+        "sha256": "2fedc4318e6581840fa3aa10535d8b67f11dfb48947a8ff7e05994a1732fd553",
+        "identity_kind": "current observation only; not historical creation"
+      },
+      "original_content_match": true,
+      "original_content": {
+        "path": "/tmp/m6-t44-eh-fixture-l_fwr4zc/repo/.git/objects/5d/0a190ae6bab7f374bd80d38c14d57d97564245",
+        "bytes": 26,
+        "sha256": "2fedc4318e6581840fa3aa10535d8b67f11dfb48947a8ff7e05994a1732fd553",
+        "device": 46,
+        "inode": 6784710
+      }
+    },
+    {
+      "path": "/tmp/m6-t44-eh-fixture-l_fwr4zc/repo/.git/objects/62/6a405ee2b19a9161ee62b829710440e76b925e",
+      "current_observed_at": "2026-11-03T00:07:45.264211+00:00",
+      "disposition": "RETAIN",
+      "next_owner": "T2 wN:p5 under a future explicit coordinator custody dispatch",
+      "reason": "New tiny synthetic Git proof retained as root-review evidence; creation/final files bound in stage-e/controls/results.json and controls-run receipt, no product source. No cleanup requested for evidence.",
+      "current": {
+        "device": 46,
+        "inode": 6784662,
+        "mode": "0o444",
+        "bytes": 171,
+        "sha256": "c827e3eced972ae9340c6ee7d0902faa33c3dfd7447128868057488c8f737368",
+        "identity_kind": "current observation only; not historical creation"
+      },
+      "original_content_match": true,
+      "original_content": {
+        "path": "/tmp/m6-t44-eh-fixture-l_fwr4zc/repo/.git/objects/62/6a405ee2b19a9161ee62b829710440e76b925e",
+        "bytes": 171,
+        "sha256": "c827e3eced972ae9340c6ee7d0902faa33c3dfd7447128868057488c8f737368",
+        "device": 46,
+        "inode": 6784662
+      }
+    },
+    {
+      "path": "/tmp/m6-t44-eh-fixture-l_fwr4zc/repo/.git/objects/66/c5018efea6f36bdee77c3adb58d7e384b8f4ce",
+      "current_observed_at": "2026-11-03T00:07:45.264211+00:00",
+      "disposition": "RETAIN",
+      "next_owner": "T2 wN:p5 under a future explicit coordinator custody dispatch",
+      "reason": "New tiny synthetic Git proof retained as root-review evidence; creation/final files bound in stage-e/controls/results.json and controls-run receipt, no product source. No cleanup requested for evidence.",
+      "current": {
+        "device": 46,
+        "inode": 6784777,
+        "mode": "0o444",
+        "bytes": 79,
+        "sha256": "6e41b42af0d25938581e3e7dece99217bae7685eb35ad9d2218df7e63637fe67",
+        "identity_kind": "current observation only; not historical creation"
+      },
+      "original_content_match": true,
+      "original_content": {
+        "path": "/tmp/m6-t44-eh-fixture-l_fwr4zc/repo/.git/objects/66/c5018efea6f36bdee77c3adb58d7e384b8f4ce",
+        "bytes": 79,
+        "sha256": "6e41b42af0d25938581e3e7dece99217bae7685eb35ad9d2218df7e63637fe67",
+        "device": 46,
+        "inode": 6784777
+      }
+    },
+    {
+      "path": "/tmp/m6-t44-eh-fixture-l_fwr4zc/repo/.git/objects/69/a8c06ce5b6df944b1680a79fc01cb532216f2d",
+      "current_observed_at": "2026-11-03T00:07:45.264211+00:00",
+      "disposition": "RETAIN",
+      "next_owner": "T2 wN:p5 under a future explicit coordinator custody dispatch",
+      "reason": "New tiny synthetic Git proof retained as root-review evidence; creation/final files bound in stage-e/controls/results.json and controls-run receipt, no product source. No cleanup requested for evidence.",
+      "current": {
+        "device": 46,
+        "inode": 6784751,
+        "mode": "0o444",
+        "bytes": 78,
+        "sha256": "b762ca7807f4b23c1c8bac876fd2e836789aa419f5442f0e93d08e85486753c7",
+        "identity_kind": "current observation only; not historical creation"
+      },
+      "original_content_match": true,
+      "original_content": {
+        "path": "/tmp/m6-t44-eh-fixture-l_fwr4zc/repo/.git/objects/69/a8c06ce5b6df944b1680a79fc01cb532216f2d",
+        "bytes": 78,
+        "sha256": "b762ca7807f4b23c1c8bac876fd2e836789aa419f5442f0e93d08e85486753c7",
+        "device": 46,
+        "inode": 6784751
+      }
+    },
+    {
+      "path": "/tmp/m6-t44-eh-fixture-l_fwr4zc/repo/.git/objects/69/b4a58f9b1f083c90196e9293ffd7aae5524695",
+      "current_observed_at": "2026-11-03T00:07:45.264211+00:00",
+      "disposition": "RETAIN",
+      "next_owner": "T2 wN:p5 under a future explicit coordinator custody dispatch",
+      "reason": "New tiny synthetic Git proof retained as root-review evidence; creation/final files bound in stage-e/controls/results.json and controls-run receipt, no product source. No cleanup requested for evidence.",
+      "current": {
+        "device": 46,
+        "inode": 6784690,
+        "mode": "0o444",
+        "bytes": 79,
+        "sha256": "0a388a171518e21a46a97a96c878cce0d6aee0ba1803b2bb858d8787e240f7d7",
+        "identity_kind": "current observation only; not historical creation"
+      },
+      "original_content_match": true,
+      "original_content": {
+        "path": "/tmp/m6-t44-eh-fixture-l_fwr4zc/repo/.git/objects/69/b4a58f9b1f083c90196e9293ffd7aae5524695",
+        "bytes": 79,
+        "sha256": "0a388a171518e21a46a97a96c878cce0d6aee0ba1803b2bb858d8787e240f7d7",
+        "device": 46,
+        "inode": 6784690
+      }
+    },
+    {
+      "path": "/tmp/m6-t44-eh-fixture-l_fwr4zc/repo/.git/objects/74/dd4fbd5e2a4db38162e6b462aabdfa65f87ed7",
+      "current_observed_at": "2026-11-03T00:07:45.264211+00:00",
+      "disposition": "RETAIN",
+      "next_owner": "T2 wN:p5 under a future explicit coordinator custody dispatch",
+      "reason": "New tiny synthetic Git proof retained as root-review evidence; creation/final files bound in stage-e/controls/results.json and controls-run receipt, no product source. No cleanup requested for evidence.",
+      "current": {
+        "device": 46,
+        "inode": 6784799,
+        "mode": "0o444",
+        "bytes": 57,
+        "sha256": "8c02a937a8eb8c78d1434a6dca2b7386132f493491e1b7e5138cec8a7b7f4e7a",
+        "identity_kind": "current observation only; not historical creation"
+      },
+      "original_content_match": true,
+      "original_content": {
+        "path": "/tmp/m6-t44-eh-fixture-l_fwr4zc/repo/.git/objects/74/dd4fbd5e2a4db38162e6b462aabdfa65f87ed7",
+        "bytes": 57,
+        "sha256": "8c02a937a8eb8c78d1434a6dca2b7386132f493491e1b7e5138cec8a7b7f4e7a",
+        "device": 46,
+        "inode": 6784799
+      }
+    },
+    {
+      "path": "/tmp/m6-t44-eh-fixture-l_fwr4zc/repo/.git/objects/76/f49ef3837f905e15bec8df0fdc2de86b5eeca4",
+      "current_observed_at": "2026-11-03T00:07:45.264211+00:00",
+      "disposition": "RETAIN",
+      "next_owner": "T2 wN:p5 under a future explicit coordinator custody dispatch",
+      "reason": "New tiny synthetic Git proof retained as root-review evidence; creation/final files bound in stage-e/controls/results.json and controls-run receipt, no product source. No cleanup requested for evidence.",
+      "current": {
+        "device": 46,
+        "inode": 6784541,
+        "mode": "0o444",
+        "bytes": 45,
+        "sha256": "20c04f12c386628786ef903500c0de3cdeb0f058458dfec37f9390dbae638385",
+        "identity_kind": "current observation only; not historical creation"
+      },
+      "original_content_match": true,
+      "original_content": {
+        "path": "/tmp/m6-t44-eh-fixture-l_fwr4zc/repo/.git/objects/76/f49ef3837f905e15bec8df0fdc2de86b5eeca4",
+        "bytes": 45,
+        "sha256": "20c04f12c386628786ef903500c0de3cdeb0f058458dfec37f9390dbae638385",
+        "device": 46,
+        "inode": 6784541
+      }
+    },
+    {
+      "path": "/tmp/m6-t44-eh-fixture-l_fwr4zc/repo/.git/objects/7a/c4aef9e96c7204782445e656c2c47b3244037a",
+      "current_observed_at": "2026-11-03T00:07:45.264211+00:00",
+      "disposition": "RETAIN",
+      "next_owner": "T2 wN:p5 under a future explicit coordinator custody dispatch",
+      "reason": "New tiny synthetic Git proof retained as root-review evidence; creation/final files bound in stage-e/controls/results.json and controls-run receipt, no product source. No cleanup requested for evidence.",
+      "current": {
+        "device": 46,
+        "inode": 6784807,
+        "mode": "0o444",
+        "bytes": 78,
+        "sha256": "30db4b3aba7b4473b4c3a8161a1c9fe5d329cf7d2f55e8a5d7f94b873e2ae2da",
+        "identity_kind": "current observation only; not historical creation"
+      },
+      "original_content_match": true,
+      "original_content": {
+        "path": "/tmp/m6-t44-eh-fixture-l_fwr4zc/repo/.git/objects/7a/c4aef9e96c7204782445e656c2c47b3244037a",
+        "bytes": 78,
+        "sha256": "30db4b3aba7b4473b4c3a8161a1c9fe5d329cf7d2f55e8a5d7f94b873e2ae2da",
+        "device": 46,
+        "inode": 6784807
+      }
+    },
+    {
+      "path": "/tmp/m6-t44-eh-fixture-l_fwr4zc/repo/.git/objects/7c/08c1ebbebc9f48f2e2d7eb22f31b7676922dc8",
+      "current_observed_at": "2026-11-03T00:07:45.264211+00:00",
+      "disposition": "RETAIN",
+      "next_owner": "T2 wN:p5 under a future explicit coordinator custody dispatch",
+      "reason": "New tiny synthetic Git proof retained as root-review evidence; creation/final files bound in stage-e/controls/results.json and controls-run receipt, no product source. No cleanup requested for evidence.",
+      "current": {
+        "device": 46,
+        "inode": 6784633,
+        "mode": "0o444",
+        "bytes": 79,
+        "sha256": "0098d8c3f15545562077876aededf09a98a5ce4f320195cf6e8e1ebe09f61b44",
+        "identity_kind": "current observation only; not historical creation"
+      },
+      "original_content_match": true,
+      "original_content": {
+        "path": "/tmp/m6-t44-eh-fixture-l_fwr4zc/repo/.git/objects/7c/08c1ebbebc9f48f2e2d7eb22f31b7676922dc8",
+        "bytes": 79,
+        "sha256": "0098d8c3f15545562077876aededf09a98a5ce4f320195cf6e8e1ebe09f61b44",
+        "device": 46,
+        "inode": 6784633
+      }
+    },
+    {
+      "path": "/tmp/m6-t44-eh-fixture-l_fwr4zc/repo/.git/objects/7d/491e2bfaf06ce4111956bac4b6a3b6963c62dc",
+      "current_observed_at": "2026-11-03T00:07:45.264211+00:00",
+      "disposition": "RETAIN",
+      "next_owner": "T2 wN:p5 under a future explicit coordinator custody dispatch",
+      "reason": "New tiny synthetic Git proof retained as root-review evidence; creation/final files bound in stage-e/controls/results.json and controls-run receipt, no product source. No cleanup requested for evidence.",
+      "current": {
+        "device": 46,
+        "inode": 6784657,
+        "mode": "0o444",
+        "bytes": 68,
+        "sha256": "4e22ebd1988c3e7190e581674076289e7d20ce14e76ff5d54e70ca2937ad8955",
+        "identity_kind": "current observation only; not historical creation"
+      },
+      "original_content_match": true,
+      "original_content": {
+        "path": "/tmp/m6-t44-eh-fixture-l_fwr4zc/repo/.git/objects/7d/491e2bfaf06ce4111956bac4b6a3b6963c62dc",
+        "bytes": 68,
+        "sha256": "4e22ebd1988c3e7190e581674076289e7d20ce14e76ff5d54e70ca2937ad8955",
+        "device": 46,
+        "inode": 6784657
+      }
+    },
+    {
+      "path": "/tmp/m6-t44-eh-fixture-l_fwr4zc/repo/.git/objects/83/52c7353f555d64b5452edb4e11de0c675b9eaf",
+      "current_observed_at": "2026-11-03T00:07:45.264211+00:00",
+      "disposition": "RETAIN",
+      "next_owner": "T2 wN:p5 under a future explicit coordinator custody dispatch",
+      "reason": "New tiny synthetic Git proof retained as root-review evidence; creation/final files bound in stage-e/controls/results.json and controls-run receipt, no product source. No cleanup requested for evidence.",
+      "current": {
+        "device": 46,
+        "inode": 6784719,
+        "mode": "0o444",
+        "bytes": 49,
+        "sha256": "ee9e91ee0a2edef2bdc0fd3d078278c34ecb217c6ac4cf9dc14fefc0df74fb41",
+        "identity_kind": "current observation only; not historical creation"
+      },
+      "original_content_match": true,
+      "original_content": {
+        "path": "/tmp/m6-t44-eh-fixture-l_fwr4zc/repo/.git/objects/83/52c7353f555d64b5452edb4e11de0c675b9eaf",
+        "bytes": 49,
+        "sha256": "ee9e91ee0a2edef2bdc0fd3d078278c34ecb217c6ac4cf9dc14fefc0df74fb41",
+        "device": 46,
+        "inode": 6784719
+      }
+    },
+    {
+      "path": "/tmp/m6-t44-eh-fixture-l_fwr4zc/repo/.git/objects/83/d74707d8571ad7966764c06fba3cb964b8a9d3",
+      "current_observed_at": "2026-11-03T00:07:45.264211+00:00",
+      "disposition": "RETAIN",
+      "next_owner": "T2 wN:p5 under a future explicit coordinator custody dispatch",
+      "reason": "New tiny synthetic Git proof retained as root-review evidence; creation/final files bound in stage-e/controls/results.json and controls-run receipt, no product source. No cleanup requested for evidence.",
+      "current": {
+        "device": 46,
+        "inode": 6784846,
+        "mode": "0o444",
+        "bytes": 67,
+        "sha256": "d830382e3bd07ee4f70d6fcde815f972a7d59f549760aeb555b842783705d128",
+        "identity_kind": "current observation only; not historical creation"
+      },
+      "original_content_match": true,
+      "original_content": {
+        "path": "/tmp/m6-t44-eh-fixture-l_fwr4zc/repo/.git/objects/83/d74707d8571ad7966764c06fba3cb964b8a9d3",
+        "bytes": 67,
+        "sha256": "d830382e3bd07ee4f70d6fcde815f972a7d59f549760aeb555b842783705d128",
+        "device": 46,
+        "inode": 6784846
+      }
+    },
+    {
+      "path": "/tmp/m6-t44-eh-fixture-l_fwr4zc/repo/.git/objects/89/030a3fe925fb2d1491c36f9794f031afe271c3",
+      "current_observed_at": "2026-11-03T00:07:45.264211+00:00",
+      "disposition": "RETAIN",
+      "next_owner": "T2 wN:p5 under a future explicit coordinator custody dispatch",
+      "reason": "New tiny synthetic Git proof retained as root-review evidence; creation/final files bound in stage-e/controls/results.json and controls-run receipt, no product source. No cleanup requested for evidence.",
+      "current": {
+        "device": 46,
+        "inode": 6784688,
+        "mode": "0o444",
+        "bytes": 81,
+        "sha256": "d512d34d8118a252051ffa06d47655938c11dfeae9579f3cdfdca83ed3e94615",
+        "identity_kind": "current observation only; not historical creation"
+      },
+      "original_content_match": true,
+      "original_content": {
+        "path": "/tmp/m6-t44-eh-fixture-l_fwr4zc/repo/.git/objects/89/030a3fe925fb2d1491c36f9794f031afe271c3",
+        "bytes": 81,
+        "sha256": "d512d34d8118a252051ffa06d47655938c11dfeae9579f3cdfdca83ed3e94615",
+        "device": 46,
+        "inode": 6784688
+      }
+    },
+    {
+      "path": "/tmp/m6-t44-eh-fixture-l_fwr4zc/repo/.git/objects/8a/9f6339df13417079342b4a7a81c6da2f67b3bf",
+      "current_observed_at": "2026-11-03T00:07:45.264211+00:00",
+      "disposition": "RETAIN",
+      "next_owner": "T2 wN:p5 under a future explicit coordinator custody dispatch",
+      "reason": "New tiny synthetic Git proof retained as root-review evidence; creation/final files bound in stage-e/controls/results.json and controls-run receipt, no product source. No cleanup requested for evidence.",
+      "current": {
+        "device": 46,
+        "inode": 6784629,
+        "mode": "0o444",
+        "bytes": 46,
+        "sha256": "288aa9e0f4295f8ec7c8b557cd91b7b626334741cda3131ce73e9dbe5e39dc86",
+        "identity_kind": "current observation only; not historical creation"
+      },
+      "original_content_match": true,
+      "original_content": {
+        "path": "/tmp/m6-t44-eh-fixture-l_fwr4zc/repo/.git/objects/8a/9f6339df13417079342b4a7a81c6da2f67b3bf",
+        "bytes": 46,
+        "sha256": "288aa9e0f4295f8ec7c8b557cd91b7b626334741cda3131ce73e9dbe5e39dc86",
+        "device": 46,
+        "inode": 6784629
+      }
+    },
+    {
+      "path": "/tmp/m6-t44-eh-fixture-l_fwr4zc/repo/.git/objects/91/6e47a660e68dcad0f74876da533e42d62cfc5d",
+      "current_observed_at": "2026-11-03T00:07:45.264211+00:00",
+      "disposition": "RETAIN",
+      "next_owner": "T2 wN:p5 under a future explicit coordinator custody dispatch",
+      "reason": "New tiny synthetic Git proof retained as root-review evidence; creation/final files bound in stage-e/controls/results.json and controls-run receipt, no product source. No cleanup requested for evidence.",
+      "current": {
+        "device": 46,
+        "inode": 6784681,
+        "mode": "0o444",
+        "bytes": 27,
+        "sha256": "647476f11bca4637bdc1c2c25bffae9c7a60551be8848735bbd75b9da3abf1af",
+        "identity_kind": "current observation only; not historical creation"
+      },
+      "original_content_match": true,
+      "original_content": {
+        "path": "/tmp/m6-t44-eh-fixture-l_fwr4zc/repo/.git/objects/91/6e47a660e68dcad0f74876da533e42d62cfc5d",
+        "bytes": 27,
+        "sha256": "647476f11bca4637bdc1c2c25bffae9c7a60551be8848735bbd75b9da3abf1af",
+        "device": 46,
+        "inode": 6784681
+      }
+    },
+    {
+      "path": "/tmp/m6-t44-eh-fixture-l_fwr4zc/repo/.git/objects/94/75bc5687940740b9a899464c767a64a3946b92",
+      "current_observed_at": "2026-11-03T00:07:45.264211+00:00",
+      "disposition": "RETAIN",
+      "next_owner": "T2 wN:p5 under a future explicit coordinator custody dispatch",
+      "reason": "New tiny synthetic Git proof retained as root-review evidence; creation/final files bound in stage-e/controls/results.json and controls-run receipt, no product source. No cleanup requested for evidence.",
+      "current": {
+        "device": 46,
+        "inode": 6784580,
+        "mode": "0o444",
+        "bytes": 161,
+        "sha256": "dae21f196f8c0c02626faca6eb488d8730380b4aef9771f833f704132487fb58",
+        "identity_kind": "current observation only; not historical creation"
+      },
+      "original_content_match": true,
+      "original_content": {
+        "path": "/tmp/m6-t44-eh-fixture-l_fwr4zc/repo/.git/objects/94/75bc5687940740b9a899464c767a64a3946b92",
+        "bytes": 161,
+        "sha256": "dae21f196f8c0c02626faca6eb488d8730380b4aef9771f833f704132487fb58",
+        "device": 46,
+        "inode": 6784580
+      }
+    },
+    {
+      "path": "/tmp/m6-t44-eh-fixture-l_fwr4zc/repo/.git/objects/94/b6c545d2fb6d7aa8ddb993c7068bb98a1faeac",
+      "current_observed_at": "2026-11-03T00:07:45.264211+00:00",
+      "disposition": "RETAIN",
+      "next_owner": "T2 wN:p5 under a future explicit coordinator custody dispatch",
+      "reason": "New tiny synthetic Git proof retained as root-review evidence; creation/final files bound in stage-e/controls/results.json and controls-run receipt, no product source. No cleanup requested for evidence.",
+      "current": {
+        "device": 46,
+        "inode": 6784851,
+        "mode": "0o444",
+        "bytes": 196,
+        "sha256": "0faf5366c3a93034565dedd925f4ab6c5294e7c75dc3a8f40a0b80526ccfa6b9",
+        "identity_kind": "current observation only; not historical creation"
+      },
+      "original_content_match": true,
+      "original_content": {
+        "path": "/tmp/m6-t44-eh-fixture-l_fwr4zc/repo/.git/objects/94/b6c545d2fb6d7aa8ddb993c7068bb98a1faeac",
+        "bytes": 196,
+        "sha256": "0faf5366c3a93034565dedd925f4ab6c5294e7c75dc3a8f40a0b80526ccfa6b9",
+        "device": 46,
+        "inode": 6784851
+      }
+    },
+    {
+      "path": "/tmp/m6-t44-eh-fixture-l_fwr4zc/repo/.git/objects/98/63707d0f1afb97a4e66c8b6bf7e64532744f3b",
+      "current_observed_at": "2026-11-03T00:07:45.264211+00:00",
+      "disposition": "RETAIN",
+      "next_owner": "T2 wN:p5 under a future explicit coordinator custody dispatch",
+      "reason": "New tiny synthetic Git proof retained as root-review evidence; creation/final files bound in stage-e/controls/results.json and controls-run receipt, no product source. No cleanup requested for evidence.",
+      "current": {
+        "device": 46,
+        "inode": 6784805,
+        "mode": "0o444",
+        "bytes": 49,
+        "sha256": "791d50f684e6641b1a5999de533e6a00ab73ddf2f0b2ac3d8986439cc8898229",
+        "identity_kind": "current observation only; not historical creation"
+      },
+      "original_content_match": true,
+      "original_content": {
+        "path": "/tmp/m6-t44-eh-fixture-l_fwr4zc/repo/.git/objects/98/63707d0f1afb97a4e66c8b6bf7e64532744f3b",
+        "bytes": 49,
+        "sha256": "791d50f684e6641b1a5999de533e6a00ab73ddf2f0b2ac3d8986439cc8898229",
+        "device": 46,
+        "inode": 6784805
+      }
+    },
+    {
+      "path": "/tmp/m6-t44-eh-fixture-l_fwr4zc/repo/.git/objects/a6/4418960560c771057f220c838ba8883bb38260",
+      "current_observed_at": "2026-11-03T00:07:45.264211+00:00",
+      "disposition": "RETAIN",
+      "next_owner": "T2 wN:p5 under a future explicit coordinator custody dispatch",
+      "reason": "New tiny synthetic Git proof retained as root-review evidence; creation/final files bound in stage-e/controls/results.json and controls-run receipt, no product source. No cleanup requested for evidence.",
+      "current": {
+        "device": 46,
+        "inode": 6784686,
+        "mode": "0o444",
+        "bytes": 59,
+        "sha256": "65cfd8528d0c77153fc00d13c5dcb786b121cba3298e5d077416eedf5f2802b9",
+        "identity_kind": "current observation only; not historical creation"
+      },
+      "original_content_match": true,
+      "original_content": {
+        "path": "/tmp/m6-t44-eh-fixture-l_fwr4zc/repo/.git/objects/a6/4418960560c771057f220c838ba8883bb38260",
+        "bytes": 59,
+        "sha256": "65cfd8528d0c77153fc00d13c5dcb786b121cba3298e5d077416eedf5f2802b9",
+        "device": 46,
+        "inode": 6784686
+      }
+    },
+    {
+      "path": "/tmp/m6-t44-eh-fixture-l_fwr4zc/repo/.git/objects/a9/39cbd019283a6de6628c7ff5a1a1b7fdffe228",
+      "current_observed_at": "2026-11-03T00:07:45.264211+00:00",
+      "disposition": "RETAIN",
+      "next_owner": "T2 wN:p5 under a future explicit coordinator custody dispatch",
+      "reason": "New tiny synthetic Git proof retained as root-review evidence; creation/final files bound in stage-e/controls/results.json and controls-run receipt, no product source. No cleanup requested for evidence.",
+      "current": {
+        "device": 46,
+        "inode": 6784748,
+        "mode": "0o444",
+        "bytes": 45,
+        "sha256": "714be93eed2ec57a8dd49d7e8e56997f96bcb273971704056e2a94471fa1891b",
+        "identity_kind": "current observation only; not historical creation"
+      },
+      "original_content_match": true,
+      "original_content": {
+        "path": "/tmp/m6-t44-eh-fixture-l_fwr4zc/repo/.git/objects/a9/39cbd019283a6de6628c7ff5a1a1b7fdffe228",
+        "bytes": 45,
+        "sha256": "714be93eed2ec57a8dd49d7e8e56997f96bcb273971704056e2a94471fa1891b",
+        "device": 46,
+        "inode": 6784748
+      }
+    },
+    {
+      "path": "/tmp/m6-t44-eh-fixture-l_fwr4zc/repo/.git/objects/aa/a707f0429848a98443e3ec03b725c120d03d3b",
+      "current_observed_at": "2026-11-03T00:07:45.264211+00:00",
+      "disposition": "RETAIN",
+      "next_owner": "T2 wN:p5 under a future explicit coordinator custody dispatch",
+      "reason": "New tiny synthetic Git proof retained as root-review evidence; creation/final files bound in stage-e/controls/results.json and controls-run receipt, no product source. No cleanup requested for evidence.",
+      "current": {
+        "device": 46,
+        "inode": 6784842,
+        "mode": "0o444",
+        "bytes": 121,
+        "sha256": "f8416ee847353bb5ac6999b36d714a742d20c6a4c5fcb4c3d9ac9fa9a8f8f74f",
+        "identity_kind": "current observation only; not historical creation"
+      },
+      "original_content_match": true,
+      "original_content": {
+        "path": "/tmp/m6-t44-eh-fixture-l_fwr4zc/repo/.git/objects/aa/a707f0429848a98443e3ec03b725c120d03d3b",
+        "bytes": 121,
+        "sha256": "f8416ee847353bb5ac6999b36d714a742d20c6a4c5fcb4c3d9ac9fa9a8f8f74f",
+        "device": 46,
+        "inode": 6784842
+      }
+    },
+    {
+      "path": "/tmp/m6-t44-eh-fixture-l_fwr4zc/repo/.git/objects/ab/73a0360ab12eadd451e07743ecd15726b5cd3c",
+      "current_observed_at": "2026-11-03T00:07:45.264211+00:00",
+      "disposition": "RETAIN",
+      "next_owner": "T2 wN:p5 under a future explicit coordinator custody dispatch",
+      "reason": "New tiny synthetic Git proof retained as root-review evidence; creation/final files bound in stage-e/controls/results.json and controls-run receipt, no product source. No cleanup requested for evidence.",
+      "current": {
+        "device": 46,
+        "inode": 6784595,
+        "mode": "0o444",
+        "bytes": 79,
+        "sha256": "fb3416347d7e6f20893e00f8bafaa3cb1db9cb58d2d98dbdfac7491fafeedb59",
+        "identity_kind": "current observation only; not historical creation"
+      },
+      "original_content_match": true,
+      "original_content": {
+        "path": "/tmp/m6-t44-eh-fixture-l_fwr4zc/repo/.git/objects/ab/73a0360ab12eadd451e07743ecd15726b5cd3c",
+        "bytes": 79,
+        "sha256": "fb3416347d7e6f20893e00f8bafaa3cb1db9cb58d2d98dbdfac7491fafeedb59",
+        "device": 46,
+        "inode": 6784595
+      }
+    },
+    {
+      "path": "/tmp/m6-t44-eh-fixture-l_fwr4zc/repo/.git/objects/ac/f8bb92cbd37ae94eac252afc0843c561395764",
+      "current_observed_at": "2026-11-03T00:07:45.264211+00:00",
+      "disposition": "RETAIN",
+      "next_owner": "T2 wN:p5 under a future explicit coordinator custody dispatch",
+      "reason": "New tiny synthetic Git proof retained as root-review evidence; creation/final files bound in stage-e/controls/results.json and controls-run receipt, no product source. No cleanup requested for evidence.",
+      "current": {
+        "device": 46,
+        "inode": 6784574,
+        "mode": "0o444",
+        "bytes": 45,
+        "sha256": "921a18ef9cc68c78e91e0f30414f0f711872cc3b39fc96f1ff56051db8bc59ff",
+        "identity_kind": "current observation only; not historical creation"
+      },
+      "original_content_match": true,
+      "original_content": {
+        "path": "/tmp/m6-t44-eh-fixture-l_fwr4zc/repo/.git/objects/ac/f8bb92cbd37ae94eac252afc0843c561395764",
+        "bytes": 45,
+        "sha256": "921a18ef9cc68c78e91e0f30414f0f711872cc3b39fc96f1ff56051db8bc59ff",
+        "device": 46,
+        "inode": 6784574
+      }
+    },
+    {
+      "path": "/tmp/m6-t44-eh-fixture-l_fwr4zc/repo/.git/objects/af/8dfa5c9267ab5e04fdc5e3b6ae64dd64deec59",
+      "current_observed_at": "2026-11-03T00:07:45.264211+00:00",
+      "disposition": "RETAIN",
+      "next_owner": "T2 wN:p5 under a future explicit coordinator custody dispatch",
+      "reason": "New tiny synthetic Git proof retained as root-review evidence; creation/final files bound in stage-e/controls/results.json and controls-run receipt, no product source. No cleanup requested for evidence.",
+      "current": {
+        "device": 46,
+        "inode": 6784717,
+        "mode": "0o444",
+        "bytes": 45,
+        "sha256": "525c492bc24c95f220f11618cd1b6fe301c277eb905638c271a5f670d59b6db3",
+        "identity_kind": "current observation only; not historical creation"
+      },
+      "original_content_match": true,
+      "original_content": {
+        "path": "/tmp/m6-t44-eh-fixture-l_fwr4zc/repo/.git/objects/af/8dfa5c9267ab5e04fdc5e3b6ae64dd64deec59",
+        "bytes": 45,
+        "sha256": "525c492bc24c95f220f11618cd1b6fe301c277eb905638c271a5f670d59b6db3",
+        "device": 46,
+        "inode": 6784717
+      }
+    },
+    {
+      "path": "/tmp/m6-t44-eh-fixture-l_fwr4zc/repo/.git/objects/b2/7174bc024d03142cc69ec99d249c5d5c4cd0d6",
+      "current_observed_at": "2026-11-03T00:07:45.264211+00:00",
+      "disposition": "RETAIN",
+      "next_owner": "T2 wN:p5 under a future explicit coordinator custody dispatch",
+      "reason": "New tiny synthetic Git proof retained as root-review evidence; creation/final files bound in stage-e/controls/results.json and controls-run receipt, no product source. No cleanup requested for evidence.",
+      "current": {
+        "device": 46,
+        "inode": 6784844,
+        "mode": "0o444",
+        "bytes": 45,
+        "sha256": "ca26dacdd8ddae00486a4f4983bbc3765f30c996f1ebf7713d7e459eecf73ff1",
+        "identity_kind": "current observation only; not historical creation"
+      },
+      "original_content_match": true,
+      "original_content": {
+        "path": "/tmp/m6-t44-eh-fixture-l_fwr4zc/repo/.git/objects/b2/7174bc024d03142cc69ec99d249c5d5c4cd0d6",
+        "bytes": 45,
+        "sha256": "ca26dacdd8ddae00486a4f4983bbc3765f30c996f1ebf7713d7e459eecf73ff1",
+        "device": 46,
+        "inode": 6784844
+      }
+    },
+    {
+      "path": "/tmp/m6-t44-eh-fixture-l_fwr4zc/repo/.git/objects/b7/108bdfb9fa65fc17d156ee6f07f04905a9543f",
+      "current_observed_at": "2026-11-03T00:07:45.264211+00:00",
+      "disposition": "RETAIN",
+      "next_owner": "T2 wN:p5 under a future explicit coordinator custody dispatch",
+      "reason": "New tiny synthetic Git proof retained as root-review evidence; creation/final files bound in stage-e/controls/results.json and controls-run receipt, no product source. No cleanup requested for evidence.",
+      "current": {
+        "device": 46,
+        "inode": 6784572,
+        "mode": "0o444",
+        "bytes": 95,
+        "sha256": "7aa090855e379db94810ed2666368acfbef332d6a8d219d83845773ce5cad395",
+        "identity_kind": "current observation only; not historical creation"
+      },
+      "original_content_match": true,
+      "original_content": {
+        "path": "/tmp/m6-t44-eh-fixture-l_fwr4zc/repo/.git/objects/b7/108bdfb9fa65fc17d156ee6f07f04905a9543f",
+        "bytes": 95,
+        "sha256": "7aa090855e379db94810ed2666368acfbef332d6a8d219d83845773ce5cad395",
+        "device": 46,
+        "inode": 6784572
+      }
+    },
+    {
+      "path": "/tmp/m6-t44-eh-fixture-l_fwr4zc/repo/.git/objects/b9/01a06d02b098f0ac2b6930d5e023b52291d917",
+      "current_observed_at": "2026-11-03T00:07:45.264211+00:00",
+      "disposition": "RETAIN",
+      "next_owner": "T2 wN:p5 under a future explicit coordinator custody dispatch",
+      "reason": "New tiny synthetic Git proof retained as root-review evidence; creation/final files bound in stage-e/controls/results.json and controls-run receipt, no product source. No cleanup requested for evidence.",
+      "current": {
+        "device": 46,
+        "inode": 6784543,
+        "mode": "0o444",
+        "bytes": 51,
+        "sha256": "fe76b3632590e85fdd5e1ca6dbf6d875c2574944167219293c5d3f6a0e880268",
+        "identity_kind": "current observation only; not historical creation"
+      },
+      "original_content_match": true,
+      "original_content": {
+        "path": "/tmp/m6-t44-eh-fixture-l_fwr4zc/repo/.git/objects/b9/01a06d02b098f0ac2b6930d5e023b52291d917",
+        "bytes": 51,
+        "sha256": "fe76b3632590e85fdd5e1ca6dbf6d875c2574944167219293c5d3f6a0e880268",
+        "device": 46,
+        "inode": 6784543
+      }
+    },
+    {
+      "path": "/tmp/m6-t44-eh-fixture-l_fwr4zc/repo/.git/objects/b9/335772d572b3b818763fc7bf8ae47fd36a0147",
+      "current_observed_at": "2026-11-03T00:07:45.264211+00:00",
+      "disposition": "RETAIN",
+      "next_owner": "T2 wN:p5 under a future explicit coordinator custody dispatch",
+      "reason": "New tiny synthetic Git proof retained as root-review evidence; creation/final files bound in stage-e/controls/results.json and controls-run receipt, no product source. No cleanup requested for evidence.",
+      "current": {
+        "device": 46,
+        "inode": 6784660,
+        "mode": "0o444",
+        "bytes": 78,
+        "sha256": "b61cb8ad6d29eeb5eba7e36b74d1a9640f05f2d3b6c9b6b64d343e046824b32a",
+        "identity_kind": "current observation only; not historical creation"
+      },
+      "original_content_match": true,
+      "original_content": {
+        "path": "/tmp/m6-t44-eh-fixture-l_fwr4zc/repo/.git/objects/b9/335772d572b3b818763fc7bf8ae47fd36a0147",
+        "bytes": 78,
+        "sha256": "b61cb8ad6d29eeb5eba7e36b74d1a9640f05f2d3b6c9b6b64d343e046824b32a",
+        "device": 46,
+        "inode": 6784660
+      }
+    },
+    {
+      "path": "/tmp/m6-t44-eh-fixture-l_fwr4zc/repo/.git/objects/b9/e683ea29fb320fb3eca908e9092e9e926e1791",
+      "current_observed_at": "2026-11-03T00:07:45.264211+00:00",
+      "disposition": "RETAIN",
+      "next_owner": "T2 wN:p5 under a future explicit coordinator custody dispatch",
+      "reason": "New tiny synthetic Git proof retained as root-review evidence; creation/final files bound in stage-e/controls/results.json and controls-run receipt, no product source. No cleanup requested for evidence.",
+      "current": {
+        "device": 46,
+        "inode": 6784593,
+        "mode": "0o444",
+        "bytes": 45,
+        "sha256": "986515df1acc96518e3c3b41805415dd260e8dda1ddc3a92cc51ef9da1b53766",
+        "identity_kind": "current observation only; not historical creation"
+      },
+      "original_content_match": true,
+      "original_content": {
+        "path": "/tmp/m6-t44-eh-fixture-l_fwr4zc/repo/.git/objects/b9/e683ea29fb320fb3eca908e9092e9e926e1791",
+        "bytes": 45,
+        "sha256": "986515df1acc96518e3c3b41805415dd260e8dda1ddc3a92cc51ef9da1b53766",
+        "device": 46,
+        "inode": 6784593
+      }
+    },
+    {
+      "path": "/tmp/m6-t44-eh-fixture-l_fwr4zc/repo/.git/objects/ba/60332a45f2e1135a8ddd4921dcb76376071452",
+      "current_observed_at": "2026-11-03T00:07:45.264211+00:00",
+      "disposition": "RETAIN",
+      "next_owner": "T2 wN:p5 under a future explicit coordinator custody dispatch",
+      "reason": "New tiny synthetic Git proof retained as root-review evidence; creation/final files bound in stage-e/controls/results.json and controls-run receipt, no product source. No cleanup requested for evidence.",
+      "current": {
+        "device": 46,
+        "inode": 6784622,
+        "mode": "0o444",
+        "bytes": 38,
+        "sha256": "a68241dcc6d822912cc12b141b12b51eb195b56ae12c18ce3ba2f2f167936ae1",
+        "identity_kind": "current observation only; not historical creation"
+      },
+      "original_content_match": true,
+      "original_content": {
+        "path": "/tmp/m6-t44-eh-fixture-l_fwr4zc/repo/.git/objects/ba/60332a45f2e1135a8ddd4921dcb76376071452",
+        "bytes": 38,
+        "sha256": "a68241dcc6d822912cc12b141b12b51eb195b56ae12c18ce3ba2f2f167936ae1",
+        "device": 46,
+        "inode": 6784622
+      }
+    },
+    {
+      "path": "/tmp/m6-t44-eh-fixture-l_fwr4zc/repo/.git/objects/be/1e0abedf5df3ad557b57136bbf2615495daf88",
+      "current_observed_at": "2026-11-03T00:07:45.264211+00:00",
+      "disposition": "RETAIN",
+      "next_owner": "T2 wN:p5 under a future explicit coordinator custody dispatch",
+      "reason": "New tiny synthetic Git proof retained as root-review evidence; creation/final files bound in stage-e/controls/results.json and controls-run receipt, no product source. No cleanup requested for evidence.",
+      "current": {
+        "device": 46,
+        "inode": 6784578,
+        "mode": "0o444",
+        "bytes": 79,
+        "sha256": "e355bfbbbcb952238fff3eedd3584971f9677e106c65b9934d05658653e12ecf",
+        "identity_kind": "current observation only; not historical creation"
+      },
+      "original_content_match": true,
+      "original_content": {
+        "path": "/tmp/m6-t44-eh-fixture-l_fwr4zc/repo/.git/objects/be/1e0abedf5df3ad557b57136bbf2615495daf88",
+        "bytes": 79,
+        "sha256": "e355bfbbbcb952238fff3eedd3584971f9677e106c65b9934d05658653e12ecf",
+        "device": 46,
+        "inode": 6784578
+      }
+    },
+    {
+      "path": "/tmp/m6-t44-eh-fixture-l_fwr4zc/repo/.git/objects/c2/1c9352f7526e9576892a6631e0e8cf1fccd34d",
+      "current_observed_at": "2026-11-03T00:07:45.264211+00:00",
+      "disposition": "RETAIN",
+      "next_owner": "T2 wN:p5 under a future explicit coordinator custody dispatch",
+      "reason": "New tiny synthetic Git proof retained as root-review evidence; creation/final files bound in stage-e/controls/results.json and controls-run receipt, no product source. No cleanup requested for evidence.",
+      "current": {
+        "device": 46,
+        "inode": 6784654,
+        "mode": "0o444",
+        "bytes": 26,
+        "sha256": "44ee4be9a4d902c3dd4d65453e76f7a763e1a700492c121f399ee2c0f585fff5",
+        "identity_kind": "current observation only; not historical creation"
+      },
+      "original_content_match": true,
+      "original_content": {
+        "path": "/tmp/m6-t44-eh-fixture-l_fwr4zc/repo/.git/objects/c2/1c9352f7526e9576892a6631e0e8cf1fccd34d",
+        "bytes": 26,
+        "sha256": "44ee4be9a4d902c3dd4d65453e76f7a763e1a700492c121f399ee2c0f585fff5",
+        "device": 46,
+        "inode": 6784654
+      }
+    },
+    {
+      "path": "/tmp/m6-t44-eh-fixture-l_fwr4zc/repo/.git/objects/c3/e9d545d9359a117fbad00e3a3902cff7c870d5",
+      "current_observed_at": "2026-11-03T00:07:45.264211+00:00",
+      "disposition": "RETAIN",
+      "next_owner": "T2 wN:p5 under a future explicit coordinator custody dispatch",
+      "reason": "New tiny synthetic Git proof retained as root-review evidence; creation/final files bound in stage-e/controls/results.json and controls-run receipt, no product source. No cleanup requested for evidence.",
+      "current": {
+        "device": 46,
+        "inode": 6784692,
+        "mode": "0o444",
+        "bytes": 168,
+        "sha256": "0b73efafad8632b6154f76c847869d825cc9bbf0c61b21d02247bdc9c6f7f0c9",
+        "identity_kind": "current observation only; not historical creation"
+      },
+      "original_content_match": true,
+      "original_content": {
+        "path": "/tmp/m6-t44-eh-fixture-l_fwr4zc/repo/.git/objects/c3/e9d545d9359a117fbad00e3a3902cff7c870d5",
+        "bytes": 168,
+        "sha256": "0b73efafad8632b6154f76c847869d825cc9bbf0c61b21d02247bdc9c6f7f0c9",
+        "device": 46,
+        "inode": 6784692
+      }
+    },
+    {
+      "path": "/tmp/m6-t44-eh-fixture-l_fwr4zc/repo/.git/objects/c4/9c92041cff78b9b661bef19b5438e3f5d01b64",
+      "current_observed_at": "2026-11-03T00:07:45.264211+00:00",
+      "disposition": "RETAIN",
+      "next_owner": "T2 wN:p5 under a future explicit coordinator custody dispatch",
+      "reason": "New tiny synthetic Git proof retained as root-review evidence; creation/final files bound in stage-e/controls/results.json and controls-run receipt, no product source. No cleanup requested for evidence.",
+      "current": {
+        "device": 46,
+        "inode": 6784779,
+        "mode": "0o444",
+        "bytes": 170,
+        "sha256": "e51ca21d3c0bb2769c2f405681641e7eb84b05687731be3c078a09265994af96",
+        "identity_kind": "current observation only; not historical creation"
+      },
+      "original_content_match": true,
+      "original_content": {
+        "path": "/tmp/m6-t44-eh-fixture-l_fwr4zc/repo/.git/objects/c4/9c92041cff78b9b661bef19b5438e3f5d01b64",
+        "bytes": 170,
+        "sha256": "e51ca21d3c0bb2769c2f405681641e7eb84b05687731be3c078a09265994af96",
+        "device": 46,
+        "inode": 6784779
+      }
+    },
+    {
+      "path": "/tmp/m6-t44-eh-fixture-l_fwr4zc/repo/.git/objects/c7/c889bb95d4367211e176d1fcb0205b2a5e4c57",
+      "current_observed_at": "2026-11-03T00:07:45.264211+00:00",
+      "disposition": "RETAIN",
+      "next_owner": "T2 wN:p5 under a future explicit coordinator custody dispatch",
+      "reason": "New tiny synthetic Git proof retained as root-review evidence; creation/final files bound in stage-e/controls/results.json and controls-run receipt, no product source. No cleanup requested for evidence.",
+      "current": {
+        "device": 46,
+        "inode": 6784631,
+        "mode": "0o444",
+        "bytes": 48,
+        "sha256": "6316666c8d4e4f18e87e4855802076bec394b371e59b7e9cf5be29c19a39d5bd",
+        "identity_kind": "current observation only; not historical creation"
+      },
+      "original_content_match": true,
+      "original_content": {
+        "path": "/tmp/m6-t44-eh-fixture-l_fwr4zc/repo/.git/objects/c7/c889bb95d4367211e176d1fcb0205b2a5e4c57",
+        "bytes": 48,
+        "sha256": "6316666c8d4e4f18e87e4855802076bec394b371e59b7e9cf5be29c19a39d5bd",
+        "device": 46,
+        "inode": 6784631
+      }
+    },
+    {
+      "path": "/tmp/m6-t44-eh-fixture-l_fwr4zc/repo/.git/objects/c9/728eaee35d6a7b8ab0a79aa980ea89fb4c60c0",
+      "current_observed_at": "2026-11-03T00:07:45.264211+00:00",
+      "disposition": "RETAIN",
+      "next_owner": "T2 wN:p5 under a future explicit coordinator custody dispatch",
+      "reason": "New tiny synthetic Git proof retained as root-review evidence; creation/final files bound in stage-e/controls/results.json and controls-run receipt, no product source. No cleanup requested for evidence.",
+      "current": {
+        "device": 46,
+        "inode": 6784849,
+        "mode": "0o444",
+        "bytes": 112,
+        "sha256": "3e5c752b52bc05ca4f434118ee50f4b0c62e3c4818017011879505e2919666de",
+        "identity_kind": "current observation only; not historical creation"
+      },
+      "original_content_match": true,
+      "original_content": {
+        "path": "/tmp/m6-t44-eh-fixture-l_fwr4zc/repo/.git/objects/c9/728eaee35d6a7b8ab0a79aa980ea89fb4c60c0",
+        "bytes": 112,
+        "sha256": "3e5c752b52bc05ca4f434118ee50f4b0c62e3c4818017011879505e2919666de",
+        "device": 46,
+        "inode": 6784849
+      }
+    },
+    {
+      "path": "/tmp/m6-t44-eh-fixture-l_fwr4zc/repo/.git/objects/cd/c032c8bf06a8f9bad6702449a4ce871f39a5a3",
+      "current_observed_at": "2026-11-03T00:07:45.264211+00:00",
+      "disposition": "RETAIN",
+      "next_owner": "T2 wN:p5 under a future explicit coordinator custody dispatch",
+      "reason": "New tiny synthetic Git proof retained as root-review evidence; creation/final files bound in stage-e/controls/results.json and controls-run receipt, no product source. No cleanup requested for evidence.",
+      "current": {
+        "device": 46,
+        "inode": 6784546,
+        "mode": "0o444",
+        "bytes": 133,
+        "sha256": "cb28190d92e7d0b49c0392dd458038b2c47548724f650fb44a51401702270004",
+        "identity_kind": "current observation only; not historical creation"
+      },
+      "original_content_match": true,
+      "original_content": {
+        "path": "/tmp/m6-t44-eh-fixture-l_fwr4zc/repo/.git/objects/cd/c032c8bf06a8f9bad6702449a4ce871f39a5a3",
+        "bytes": 133,
+        "sha256": "cb28190d92e7d0b49c0392dd458038b2c47548724f650fb44a51401702270004",
+        "device": 46,
+        "inode": 6784546
+      }
+    },
+    {
+      "path": "/tmp/m6-t44-eh-fixture-l_fwr4zc/repo/.git/objects/d9/98c844749461eb6554011cc85834ada9a8a56f",
+      "current_observed_at": "2026-11-03T00:07:45.264211+00:00",
+      "disposition": "RETAIN",
+      "next_owner": "T2 wN:p5 under a future explicit coordinator custody dispatch",
+      "reason": "New tiny synthetic Git proof retained as root-review evidence; creation/final files bound in stage-e/controls/results.json and controls-run receipt, no product source. No cleanup requested for evidence.",
+      "current": {
+        "device": 46,
+        "inode": 6784589,
+        "mode": "0o444",
+        "bytes": 42,
+        "sha256": "aa699358916c6593efb2069f5f24eaac84fcb561d1a9a8c95e09e84034768a58",
+        "identity_kind": "current observation only; not historical creation"
+      },
+      "original_content_match": true,
+      "original_content": {
+        "path": "/tmp/m6-t44-eh-fixture-l_fwr4zc/repo/.git/objects/d9/98c844749461eb6554011cc85834ada9a8a56f",
+        "bytes": 42,
+        "sha256": "aa699358916c6593efb2069f5f24eaac84fcb561d1a9a8c95e09e84034768a58",
+        "device": 46,
+        "inode": 6784589
+      }
+    },
+    {
+      "path": "/tmp/m6-t44-eh-fixture-l_fwr4zc/repo/.git/objects/df/30bb27aea494586313133747b759c72da14c05",
+      "current_observed_at": "2026-11-03T00:07:45.264211+00:00",
+      "disposition": "RETAIN",
+      "next_owner": "T2 wN:p5 under a future explicit coordinator custody dispatch",
+      "reason": "New tiny synthetic Git proof retained as root-review evidence; creation/final files bound in stage-e/controls/results.json and controls-run receipt, no product source. No cleanup requested for evidence.",
+      "current": {
+        "device": 46,
+        "inode": 6784809,
+        "mode": "0o444",
+        "bytes": 168,
+        "sha256": "fada532b2f5dfd05c61ee1a41167d9a13223d67856ca990550792a95cc50ffe0",
+        "identity_kind": "current observation only; not historical creation"
+      },
+      "original_content_match": true,
+      "original_content": {
+        "path": "/tmp/m6-t44-eh-fixture-l_fwr4zc/repo/.git/objects/df/30bb27aea494586313133747b759c72da14c05",
+        "bytes": 168,
+        "sha256": "fada532b2f5dfd05c61ee1a41167d9a13223d67856ca990550792a95cc50ffe0",
+        "device": 46,
+        "inode": 6784809
+      }
+    },
+    {
+      "path": "/tmp/m6-t44-eh-fixture-l_fwr4zc/repo/.git/objects/e0/c673bc7a29c26d05fc654844ba0a5d26c89ad7",
+      "current_observed_at": "2026-11-03T00:07:45.264211+00:00",
+      "disposition": "RETAIN",
+      "next_owner": "T2 wN:p5 under a future explicit coordinator custody dispatch",
+      "reason": "New tiny synthetic Git proof retained as root-review evidence; creation/final files bound in stage-e/controls/results.json and controls-run receipt, no product source. No cleanup requested for evidence.",
+      "current": {
+        "device": 46,
+        "inode": 6784597,
+        "mode": "0o444",
+        "bytes": 170,
+        "sha256": "90587fe769a12b9d20f599e0e7f0f7e412016a14bbb22c4326d719556c2a9040",
+        "identity_kind": "current observation only; not historical creation"
+      },
+      "original_content_match": true,
+      "original_content": {
+        "path": "/tmp/m6-t44-eh-fixture-l_fwr4zc/repo/.git/objects/e0/c673bc7a29c26d05fc654844ba0a5d26c89ad7",
+        "bytes": 170,
+        "sha256": "90587fe769a12b9d20f599e0e7f0f7e412016a14bbb22c4326d719556c2a9040",
+        "device": 46,
+        "inode": 6784597
+      }
+    },
+    {
+      "path": "/tmp/m6-t44-eh-fixture-l_fwr4zc/repo/.git/objects/e1/09e9fa1731bcef03a703f79a1f4d3c1f4fa6cf",
+      "current_observed_at": "2026-11-03T00:07:45.264211+00:00",
+      "disposition": "RETAIN",
+      "next_owner": "T2 wN:p5 under a future explicit coordinator custody dispatch",
+      "reason": "New tiny synthetic Git proof retained as root-review evidence; creation/final files bound in stage-e/controls/results.json and controls-run receipt, no product source. No cleanup requested for evidence.",
+      "current": {
+        "device": 46,
+        "inode": 6784713,
+        "mode": "0o444",
+        "bytes": 47,
+        "sha256": "2ca597d61f0c3bfeed3473f42a3a596a5ecdf32741cc24ec0a9edfed067e4112",
+        "identity_kind": "current observation only; not historical creation"
+      },
+      "original_content_match": true,
+      "original_content": {
+        "path": "/tmp/m6-t44-eh-fixture-l_fwr4zc/repo/.git/objects/e1/09e9fa1731bcef03a703f79a1f4d3c1f4fa6cf",
+        "bytes": 47,
+        "sha256": "2ca597d61f0c3bfeed3473f42a3a596a5ecdf32741cc24ec0a9edfed067e4112",
+        "device": 46,
+        "inode": 6784713
+      }
+    },
+    {
+      "path": "/tmp/m6-t44-eh-fixture-l_fwr4zc/repo/.git/objects/e5/d6d0efe384688f4ecabd37e4a90a5c62512715",
+      "current_observed_at": "2026-11-03T00:07:45.264211+00:00",
+      "disposition": "RETAIN",
+      "next_owner": "T2 wN:p5 under a future explicit coordinator custody dispatch",
+      "reason": "New tiny synthetic Git proof retained as root-review evidence; creation/final files bound in stage-e/controls/results.json and controls-run receipt, no product source. No cleanup requested for evidence.",
+      "current": {
+        "device": 46,
+        "inode": 6784606,
+        "mode": "0o444",
+        "bytes": 172,
+        "sha256": "aa7f0bb026e08a5ddbfcd84d2ea7633180b403addd4001e3178afc3c6077a511",
+        "identity_kind": "current observation only; not historical creation"
+      },
+      "original_content_match": true,
+      "original_content": {
+        "path": "/tmp/m6-t44-eh-fixture-l_fwr4zc/repo/.git/objects/e5/d6d0efe384688f4ecabd37e4a90a5c62512715",
+        "bytes": 172,
+        "sha256": "aa7f0bb026e08a5ddbfcd84d2ea7633180b403addd4001e3178afc3c6077a511",
+        "device": 46,
+        "inode": 6784606
+      }
+    },
+    {
+      "path": "/tmp/m6-t44-eh-fixture-l_fwr4zc/repo/.git/objects/e9/2ead713f6b33ce110428338b2ebb19147b4eef",
+      "current_observed_at": "2026-11-03T00:07:45.264211+00:00",
+      "disposition": "RETAIN",
+      "next_owner": "T2 wN:p5 under a future explicit coordinator custody dispatch",
+      "reason": "New tiny synthetic Git proof retained as root-review evidence; creation/final files bound in stage-e/controls/results.json and controls-run receipt, no product source. No cleanup requested for evidence.",
+      "current": {
+        "device": 46,
+        "inode": 6784741,
+        "mode": "0o444",
+        "bytes": 26,
+        "sha256": "f4ca44d937e754bff6738280427f1b7b2401ee78bae4e3f2f9214e47f08f5060",
+        "identity_kind": "current observation only; not historical creation"
+      },
+      "original_content_match": true,
+      "original_content": {
+        "path": "/tmp/m6-t44-eh-fixture-l_fwr4zc/repo/.git/objects/e9/2ead713f6b33ce110428338b2ebb19147b4eef",
+        "bytes": 26,
+        "sha256": "f4ca44d937e754bff6738280427f1b7b2401ee78bae4e3f2f9214e47f08f5060",
+        "device": 46,
+        "inode": 6784741
+      }
+    },
+    {
+      "path": "/tmp/m6-t44-eh-fixture-l_fwr4zc/repo/.git/objects/eb/b2b89eda2590c353dab7f71948a945a3e7dd6b",
+      "current_observed_at": "2026-11-03T00:07:45.264211+00:00",
+      "disposition": "RETAIN",
+      "next_owner": "T2 wN:p5 under a future explicit coordinator custody dispatch",
+      "reason": "New tiny synthetic Git proof retained as root-review evidence; creation/final files bound in stage-e/controls/results.json and controls-run receipt, no product source. No cleanup requested for evidence.",
+      "current": {
+        "device": 46,
+        "inode": 6784803,
+        "mode": "0o444",
+        "bytes": 45,
+        "sha256": "5eca4b604cc6b222933f8388da340f959b42477177157cf123f20404a6aeca45",
+        "identity_kind": "current observation only; not historical creation"
+      },
+      "original_content_match": true,
+      "original_content": {
+        "path": "/tmp/m6-t44-eh-fixture-l_fwr4zc/repo/.git/objects/eb/b2b89eda2590c353dab7f71948a945a3e7dd6b",
+        "bytes": 45,
+        "sha256": "5eca4b604cc6b222933f8388da340f959b42477177157cf123f20404a6aeca45",
+        "device": 46,
+        "inode": 6784803
+      }
+    },
+    {
+      "path": "/tmp/m6-t44-eh-fixture-l_fwr4zc/repo/.git/objects/f3/cc4ae474736cf8e192a26654292445093b9653",
+      "current_observed_at": "2026-11-03T00:07:45.264211+00:00",
+      "disposition": "RETAIN",
+      "next_owner": "T2 wN:p5 under a future explicit coordinator custody dispatch",
+      "reason": "New tiny synthetic Git proof retained as root-review evidence; creation/final files bound in stage-e/controls/results.json and controls-run receipt, no product source. No cleanup requested for evidence.",
+      "current": {
+        "device": 46,
+        "inode": 6784837,
+        "mode": "0o444",
+        "bytes": 45,
+        "sha256": "4a4de833ce3c925863f14ad67b0e8de024fd5647e5c6ccac69e84da2d3535f9d",
+        "identity_kind": "current observation only; not historical creation"
+      },
+      "original_content_match": true,
+      "original_content": {
+        "path": "/tmp/m6-t44-eh-fixture-l_fwr4zc/repo/.git/objects/f3/cc4ae474736cf8e192a26654292445093b9653",
+        "bytes": 45,
+        "sha256": "4a4de833ce3c925863f14ad67b0e8de024fd5647e5c6ccac69e84da2d3535f9d",
+        "device": 46,
+        "inode": 6784837
+      }
+    },
+    {
+      "path": "/tmp/m6-t44-eh-fixture-l_fwr4zc/repo/.git/objects/f5/d659ffa3895f7a9e79e9b2cd75bc2224b6a44a",
+      "current_observed_at": "2026-11-03T00:07:45.264211+00:00",
+      "disposition": "RETAIN",
+      "next_owner": "T2 wN:p5 under a future explicit coordinator custody dispatch",
+      "reason": "New tiny synthetic Git proof retained as root-review evidence; creation/final files bound in stage-e/controls/results.json and controls-run receipt, no product source. No cleanup requested for evidence.",
+      "current": {
+        "device": 46,
+        "inode": 6784567,
+        "mode": "0o444",
+        "bytes": 42,
+        "sha256": "f004c3fbfff2e19637cc8c07a6562922ede1de8b5868d8996f4171d82f52f37f",
+        "identity_kind": "current observation only; not historical creation"
+      },
+      "original_content_match": true,
+      "original_content": {
+        "path": "/tmp/m6-t44-eh-fixture-l_fwr4zc/repo/.git/objects/f5/d659ffa3895f7a9e79e9b2cd75bc2224b6a44a",
+        "bytes": 42,
+        "sha256": "f004c3fbfff2e19637cc8c07a6562922ede1de8b5868d8996f4171d82f52f37f",
+        "device": 46,
+        "inode": 6784567
+      }
+    },
+    {
+      "path": "/tmp/m6-t44-eh-fixture-l_fwr4zc/repo/.git/objects/fa/d0799f952f754ecca38949cf5783c2c88f39a8",
+      "current_observed_at": "2026-11-03T00:07:45.264211+00:00",
+      "disposition": "RETAIN",
+      "next_owner": "T2 wN:p5 under a future explicit coordinator custody dispatch",
+      "reason": "New tiny synthetic Git proof retained as root-review evidence; creation/final files bound in stage-e/controls/results.json and controls-run receipt, no product source. No cleanup requested for evidence.",
+      "current": {
+        "device": 46,
+        "inode": 6784801,
+        "mode": "0o444",
+        "bytes": 96,
+        "sha256": "22223ba9901e364ed1804700029c2e3bee371406cfda37c512caa228256dcda6",
+        "identity_kind": "current observation only; not historical creation"
+      },
+      "original_content_match": true,
+      "original_content": {
+        "path": "/tmp/m6-t44-eh-fixture-l_fwr4zc/repo/.git/objects/fa/d0799f952f754ecca38949cf5783c2c88f39a8",
+        "bytes": 96,
+        "sha256": "22223ba9901e364ed1804700029c2e3bee371406cfda37c512caa228256dcda6",
+        "device": 46,
+        "inode": 6784801
+      }
+    },
+    {
+      "path": "/tmp/m6-t44-eh-fixture-l_fwr4zc/repo/.git/refs/heads/master",
+      "current_observed_at": "2026-11-03T00:07:45.264211+00:00",
+      "disposition": "RETAIN",
+      "next_owner": "T2 wN:p5 under a future explicit coordinator custody dispatch",
+      "reason": "New tiny synthetic Git proof retained as root-review evidence; creation/final files bound in stage-e/controls/results.json and controls-run receipt, no product source. No cleanup requested for evidence.",
+      "current": {
+        "device": 46,
+        "inode": 6784853,
+        "mode": "0o664",
+        "bytes": 41,
+        "sha256": "f3ebb602033c571164789b6852ee7561ae3327804f3c4637e3dd1cfef16feab3",
+        "identity_kind": "current observation only; not historical creation"
+      },
+      "original_content_match": true,
+      "original_content": {
+        "path": "/tmp/m6-t44-eh-fixture-l_fwr4zc/repo/.git/refs/heads/master",
+        "bytes": 41,
+        "sha256": "f3ebb602033c571164789b6852ee7561ae3327804f3c4637e3dd1cfef16feab3",
+        "device": 46,
+        "inode": 6784853
+      }
+    },
+    {
+      "path": "/tmp/m6-t44-eh-fixture-l_fwr4zc/repo/docs/audits/t44/00-running-log.md",
+      "current_observed_at": "2026-11-03T00:07:45.264211+00:00",
+      "disposition": "RETAIN",
+      "next_owner": "T2 wN:p5 under a future explicit coordinator custody dispatch",
+      "reason": "New tiny synthetic Git proof retained as root-review evidence; creation/final files bound in stage-e/controls/results.json and controls-run receipt, no product source. No cleanup requested for evidence.",
+      "current": {
+        "device": 46,
+        "inode": 6784562,
+        "mode": "0o664",
+        "bytes": 12,
+        "sha256": "8d974abae5622f35dbdeff17e9eb2569b08c4e883acf6c351d17455d3d11189e",
+        "identity_kind": "current observation only; not historical creation"
+      },
+      "original_content_match": true,
+      "original_content": {
+        "path": "/tmp/m6-t44-eh-fixture-l_fwr4zc/repo/docs/audits/t44/00-running-log.md",
+        "bytes": 12,
+        "sha256": "8d974abae5622f35dbdeff17e9eb2569b08c4e883acf6c351d17455d3d11189e",
+        "device": 46,
+        "inode": 6784562
+      }
+    },
+    {
+      "path": "/tmp/m6-t44-eh-fixture-l_fwr4zc/repo/docs/audits/t44/stage-a/frozen.json",
+      "current_observed_at": "2026-11-03T00:07:45.264211+00:00",
+      "disposition": "RETAIN",
+      "next_owner": "T2 wN:p5 under a future explicit coordinator custody dispatch",
+      "reason": "New tiny synthetic Git proof retained as root-review evidence; creation/final files bound in stage-e/controls/results.json and controls-run receipt, no product source. No cleanup requested for evidence.",
+      "current": {
+        "device": 46,
+        "inode": 6784817,
+        "mode": "0o664",
+        "bytes": 26,
+        "sha256": "3330ccd5da765874b6dc924baa188c579b7b48decf9051d1001c4ceb6b803a27",
+        "identity_kind": "current observation only; not historical creation"
+      },
+      "original_content_match": true,
+      "original_content": {
+        "path": "/tmp/m6-t44-eh-fixture-l_fwr4zc/repo/docs/audits/t44/stage-a/frozen.json",
+        "bytes": 26,
+        "sha256": "3330ccd5da765874b6dc924baa188c579b7b48decf9051d1001c4ceb6b803a27",
+        "device": 46,
+        "inode": 6784817
+      }
+    },
+    {
+      "path": "/tmp/m6-t44-eh-fixture-l_fwr4zc/repo/docs/audits/t44/stage-e/decision.md",
+      "current_observed_at": "2026-11-03T00:07:45.264211+00:00",
+      "disposition": "RETAIN",
+      "next_owner": "T2 wN:p5 under a future explicit coordinator custody dispatch",
+      "reason": "New tiny synthetic Git proof retained as root-review evidence; creation/final files bound in stage-e/controls/results.json and controls-run receipt, no product source. No cleanup requested for evidence.",
+      "current": {
+        "device": 46,
+        "inode": 6784826,
+        "mode": "0o664",
+        "bytes": 25,
+        "sha256": "3ec265bab11e575a767c7218b0e6c0c6dd90f81e493828b250b82f2f6266eaa2",
+        "identity_kind": "current observation only; not historical creation"
+      },
+      "original_content_match": true,
+      "original_content": {
+        "path": "/tmp/m6-t44-eh-fixture-l_fwr4zc/repo/docs/audits/t44/stage-e/decision.md",
+        "bytes": 25,
+        "sha256": "3ec265bab11e575a767c7218b0e6c0c6dd90f81e493828b250b82f2f6266eaa2",
+        "device": 46,
+        "inode": 6784826
+      }
+    },
+    {
+      "path": "/tmp/m6-t44-eh-fixture-l_fwr4zc/repo/docs/retros/2026-11-03-m6-es-vendored-and-data.md",
+      "current_observed_at": "2026-11-03T00:07:45.264211+00:00",
+      "disposition": "RETAIN",
+      "next_owner": "T2 wN:p5 under a future explicit coordinator custody dispatch",
+      "reason": "New tiny synthetic Git proof retained as root-review evidence; creation/final files bound in stage-e/controls/results.json and controls-run receipt, no product source. No cleanup requested for evidence.",
+      "current": {
+        "device": 46,
+        "inode": 6784828,
+        "mode": "0o664",
+        "bytes": 29,
+        "sha256": "32e6597457ef3ef12b7a386dc49a98bf63c7b9a55685fee609a790d0a5469532",
+        "identity_kind": "current observation only; not historical creation"
+      },
+      "original_content_match": true,
+      "original_content": {
+        "path": "/tmp/m6-t44-eh-fixture-l_fwr4zc/repo/docs/retros/2026-11-03-m6-es-vendored-and-data.md",
+        "bytes": 29,
+        "sha256": "32e6597457ef3ef12b7a386dc49a98bf63c7b9a55685fee609a790d0a5469532",
+        "device": 46,
+        "inode": 6784828
+      }
+    },
+    {
+      "path": "/tmp/m6-t44-eh-fixture-l_fwr4zc/repo/docs/work-logs/2026_11-work_logs/2026_11_03-work_log.md",
+      "current_observed_at": "2026-11-03T00:07:45.264211+00:00",
+      "disposition": "RETAIN",
+      "next_owner": "T2 wN:p5 under a future explicit coordinator custody dispatch",
+      "reason": "New tiny synthetic Git proof retained as root-review evidence; creation/final files bound in stage-e/controls/results.json and controls-run receipt, no product source. No cleanup requested for evidence.",
+      "current": {
+        "device": 46,
+        "inode": 6784831,
+        "mode": "0o664",
+        "bytes": 29,
+        "sha256": "32e6597457ef3ef12b7a386dc49a98bf63c7b9a55685fee609a790d0a5469532",
+        "identity_kind": "current observation only; not historical creation"
+      },
+      "original_content_match": true,
+      "original_content": {
+        "path": "/tmp/m6-t44-eh-fixture-l_fwr4zc/repo/docs/work-logs/2026_11-work_logs/2026_11_03-work_log.md",
+        "bytes": 29,
+        "sha256": "32e6597457ef3ef12b7a386dc49a98bf63c7b9a55685fee609a790d0a5469532",
+        "device": 46,
+        "inode": 6784831
+      }
+    },
+    {
+      "path": "/tmp/m6-t44-eh-fixture-l_fwr4zc/repo/docs/work-logs/INDEX.md",
+      "current_observed_at": "2026-11-03T00:07:45.264211+00:00",
+      "disposition": "RETAIN",
+      "next_owner": "T2 wN:p5 under a future explicit coordinator custody dispatch",
+      "reason": "New tiny synthetic Git proof retained as root-review evidence; creation/final files bound in stage-e/controls/results.json and controls-run receipt, no product source. No cleanup requested for evidence.",
+      "current": {
+        "device": 46,
+        "inode": 6784832,
+        "mode": "0o664",
+        "bytes": 29,
+        "sha256": "32e6597457ef3ef12b7a386dc49a98bf63c7b9a55685fee609a790d0a5469532",
+        "identity_kind": "current observation only; not historical creation"
+      },
+      "original_content_match": true,
+      "original_content": {
+        "path": "/tmp/m6-t44-eh-fixture-l_fwr4zc/repo/docs/work-logs/INDEX.md",
+        "bytes": 29,
+        "sha256": "32e6597457ef3ef12b7a386dc49a98bf63c7b9a55685fee609a790d0a5469532",
+        "device": 46,
+        "inode": 6784832
+      }
+    },
+    {
+      "path": "/tmp/m6-t44-eh-fixture-l_fwr4zc/repo/projects/toy/package.mk",
+      "current_observed_at": "2026-11-03T00:07:45.264211+00:00",
+      "disposition": "RETAIN",
+      "next_owner": "T2 wN:p5 under a future explicit coordinator custody dispatch",
+      "reason": "New tiny synthetic Git proof retained as root-review evidence; creation/final files bound in stage-e/controls/results.json and controls-run receipt, no product source. No cleanup requested for evidence.",
+      "current": {
+        "device": 46,
+        "inode": 6784533,
+        "mode": "0o664",
+        "bytes": 29,
+        "sha256": "6ab3a94a64e4ee88673e2925b77e649a786b3dc0b9ddb514e3ab8705317952a0",
+        "identity_kind": "current observation only; not historical creation"
+      },
+      "original_content_match": true,
+      "original_content": {
+        "path": "/tmp/m6-t44-eh-fixture-l_fwr4zc/repo/projects/toy/package.mk",
+        "bytes": 29,
+        "sha256": "6ab3a94a64e4ee88673e2925b77e649a786b3dc0b9ddb514e3ab8705317952a0",
+        "device": 46,
+        "inode": 6784533
+      }
+    }
+  ],
+  "durable_publication": [
+    {
+      "path": "/tmp/m6-t44-d-publication-spbna76t",
+      "reason": "Preserve accepted D publication evidence unchanged"
+    },
+    {
+      "path": "/tmp/m6-t44-eh-publication-qhf1l0l6",
+      "reason": "Preserve current ordinary-file publication receipts, helper source and exact raw diagnostics; creation.json binds directory creation"
+    }
+  ],
+  "jobs": "The new guard-control invocation and receipt-control jobs completed. All known invocation IDs are in their receipts. No global process census or cleanup is performed. Future final record commands create durable receipts, not retirement candidates.",
+  "mutation_plan": "No path is eligible. Commit this exact retained-path plan before any possible retirement; this dispatch will perform no deletion. Current identity alone is not historical ownership proof.",
+  "unknown_paths": "No broad /tmp census; any unlisted earlier helper is outside retirement scope and left unchanged."
+}

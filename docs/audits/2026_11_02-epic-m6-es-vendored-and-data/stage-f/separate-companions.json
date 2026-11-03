@@ -1,0 +1,70 @@
+{
+  "source_ref": "923dd5371ded83fa965449a83f7a16d15a174772",
+  "source_path": "docs/audits/2026_11_02-epic-m6-es-vendored-and-data/stage-a/inputs/actual-head/companions.json",
+  "source_sha256": "2a1676a51f25d12cc1f1fe131b5cb3b21c3bbc5b9c9d60dd79269ae8a8767f64",
+  "companions": [
+    {
+      "contains_primary": false,
+      "external_tree": "03e88868d18b35b057a4de88d66b73c1f3703587",
+      "french": {
+        "bytes": 186106,
+        "mode": "100644",
+        "object_type": "blob",
+        "oid": "e1476e9a2299c64a5bb987e846d3ed12344c643c",
+        "sha256": "d44e12528725640e42d44d6f0adbd8ef436c4c7683ff93f5afa969655500af13"
+      },
+      "native_different_from_survey": [
+        "locale/lang/fr/LC_MESSAGES/emulationstation2.po"
+      ],
+      "owner": "T21",
+      "ref": "3ae9610b0f3fb61d23eb6a2c3459ad19f962e2b1"
+    },
+    {
+      "contains_primary": false,
+      "external_tree": "03e88868d18b35b057a4de88d66b73c1f3703587",
+      "french": {
+        "bytes": 185264,
+        "mode": "100644",
+        "object_type": "blob",
+        "oid": "d2f51f447730ef7df0f839e6f612dcc12651046e",
+        "sha256": "12714f0ca5259b664f7ec603ff185d88bb86e3148d6ce38760597324b787ee2f"
+      },
+      "native_different_from_survey": [
+        "locale/lang/fr/LC_MESSAGES/emulationstation2.po"
+      ],
+      "owner": "T34",
+      "ref": "52f0ff5128cf96bfcdec9082ded75347ecea11e6"
+    },
+    {
+      "contains_primary": false,
+      "external_tree": "03e88868d18b35b057a4de88d66b73c1f3703587",
+      "french": {
+        "bytes": 185251,
+        "mode": "100644",
+        "object_type": "blob",
+        "oid": "04593f0fa6adf7b05e8fa69023b96c478a43cbe6",
+        "sha256": "f547329a120a5cbd608916161167e128d5817bae55fd3f973181f0105ecaaa29"
+      },
+      "native_different_from_survey": [
+        "locale/lang/fr/LC_MESSAGES/emulationstation2.po"
+      ],
+      "owner": "T35",
+      "ref": "b7fdb3a24c859ce91f9fd381bb0956901b8d23cb"
+    },
+    {
+      "contains_primary": false,
+      "external_tree": "03e88868d18b35b057a4de88d66b73c1f3703587",
+      "french": {
+        "bytes": 185217,
+        "mode": "100644",
+        "object_type": "blob",
+        "oid": "41d0878cb3f8f101cf2aa6d9529f247f6f0b147f",
+        "sha256": "b197ed5c800f5d52e6e1cdb3050116df439699d633ac5a00d57ced75615a4e38"
+      },
+      "native_different_from_survey": [],
+      "owner": "T36",
+      "ref": "9c1bd5f093cfc1ccd42640282226b7b970442ef1"
+    }
+  ],
+  "limit": "Four separate accepted refs; no combined source or runtime"
+}

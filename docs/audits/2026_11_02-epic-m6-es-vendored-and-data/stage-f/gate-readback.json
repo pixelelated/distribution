@@ -1,0 +1,73 @@
+{
+  "at": "2026-11-03T00:11:33.731496+00:00",
+  "result": "PASS",
+  "checks": {
+    "rules": {
+      "receipt_sha256": "40f13ef4ca6cc7ac3f540b5dff486f66974d10bc397d5aaac940adfad5052dd7",
+      "rc": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "register": {
+      "receipt_sha256": "3195918a1b5176c31898ef6777a81d02f8c44526061379279c59a73c6cc1b045",
+      "rc": 0,
+      "stdout_sha256": "a663cbd892b0646df3ab8ca7417fe230f414e09711f264cda79ea904d4bbc2fa",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "index": {
+      "receipt_sha256": "541a4e65ec107824617e1e1638d36edf5d22d80adc2855bdecbcc9ab7ae99598",
+      "rc": 0,
+      "stdout_sha256": "232b345c76ad64a47de4d43e62d9aeb4f2850472cde78ddd1b1e56d72103d927",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "ceremony": {
+      "receipt_sha256": "c4a0af5008440daea5c1819741a72dacb4a50f1732e2dbf62d88d0bcc663191f",
+      "rc": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "issue": {
+      "receipt_sha256": "e166b87dc02cfc483d64107ef7956a3646c495d476c46ca5caf14f14dd0033bb",
+      "rc": 0,
+      "stdout_sha256": "7ae8534fd7d26020a8b0e7221cf3313b595e275a0fea6a8adb4568b7e135a317",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "resolution": {
+      "receipt_sha256": "9547871fe397ad41f1535c1310366f0e60dd267d9a5b2aeaeaa3157535290a0d",
+      "rc": 0,
+      "stdout_sha256": "02120d5f59a5231dc9647c20a0d1c07e6ea93ad2500512509f798e00e1257403",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "resolution-issue": {
+      "receipt_sha256": "23fa8609d255043934b6c202278f0a6cd7b4deae851fb7bd20e33e687971d8d9",
+      "rc": 0,
+      "stdout_sha256": "d9cbac168216e5fb2405c65558daecceb1d5c50b78b60625587a32f5b372cd6a",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "hooks": {
+      "receipt_sha256": "7c18bb813467085adb09a3f0239aa893c0610f94b92ddd520e08eed04bbb71a2",
+      "rc": 0,
+      "stdout_sha256": "3402d5f59e65118cf905eb74dd1cda7660eeffd181ad248e23a56f68395e0a5c",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "forbidden": {
+      "receipt_sha256": "cad433d116392eafb65bab3725a8ec3cbe131e429e25ebc771b202b62fdb0417",
+      "rc": 0,
+      "stdout_sha256": "422d60923639f3f67b4c82e4c6cd6ec8355272661ea19750771d1358d5aee776",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "confinement": {
+      "receipt_sha256": "33e4b8064073c0bbef90d6f0ab1e46758395a7da389359d1fd0a8160c2f058ad",
+      "rc": 0,
+      "stdout_sha256": "19328639d504f5198ba5c687a0d13535d0eeb682f3e909977e79c3d9e8d3a429",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "diff": {
+      "receipt_sha256": "4e341994af5f8e8132a869ec47bb95193258e8e501c479f0419f666ef1d16150",
+      "rc": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  },
+  "limits": "Current snapshot gates, not accepted A-D producer replay. Scope enumerations and actual start/end are in each receipt. New self-receipts added after a scan are outside that scan; an external whole-tree exact-final scan is required after H commit."
+}

@@ -1,0 +1,52 @@
+{
+  "argv": [
+    "tools/register-check"
+  ],
+  "cwd": "/workspace/repos/pixelelated/distribution.worktrees/m6-es-vendored-and-data-691",
+  "inputs": {
+    "/workspace/repos/pixelelated/distribution.worktrees/m6-es-vendored-and-data-691/tools/register-check": {
+      "sha256": "8f444f93b71ffdf8bf5e900e2973920ea5b898702a498727028c371e648397db",
+      "bytes": 5983
+    }
+  },
+  "scope_sha256": "92ac84cde08324190c576bfd9857dd3f4a7697090fffcecb858558e216ad04f3",
+  "scope_note": "tracked ordinary T44 records before invocation; output directory excluded; explicit extra inputs above",
+  "head": "d0274e2de5d8af353f8643798491ad8c126da73f",
+  "index_entries_sha256": "166044a9da2dab3437650623926862fc137067f6b5f75da2d67487e29ef96559",
+  "runner_sha256": "bdfc4fafdc4f67e4a3015af5324848591e4d578231a86eba8876ee9cee31eb96",
+  "started_at": "2026-11-03T00:08:15.789029+00:00",
+  "cpus": [
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21,
+    22,
+    23
+  ],
+  "executor": {
+    "harness": "Codex",
+    "model": "openai/gpt-6-astra",
+    "effort": "xhigh",
+    "lane": "wN:p5",
+    "session": "01a19d12-1c5f-7022-8053-102f6a94b7fe",
+    "identity_source": "own observed Herdr footer; UI observation, not provider attestation"
+  },
+  "python": "3.14.4 (main, Aug 20 2026, 10:41:58) [GCC 15.2.0]",
+  "locale": "C",
+  "timeout_seconds": 120,
+  "ended_at": "2026-11-03T00:08:17.105544+00:00",
+  "elapsed_seconds": 1.316498180036433,
+  "rc": 0,
+  "stdout_sha256": "a663cbd892b0646df3ab8ca7417fe230f414e09711f264cda79ea904d4bbc2fa",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+}
