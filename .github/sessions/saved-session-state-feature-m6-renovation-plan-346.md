@@ -1,6 +1,6 @@
 # M6 coordinator current handoff
 
-Updated 2026-11-03 14:41 UTC by Codex / GPT-6-Astra / xhigh (own observed footer, not provider-attested), session01a19d11-f5c8-7bb0-80f3-49ad28732af2, wN:p2.
+Updated 2026-11-03 15:19 UTC by Codex / GPT-6-Astra / xhigh (own observed footer, not provider-attested), session01a19d11-f5c8-7bb0-80f3-49ad28732af2, wN:p2.
 
 ## Resume here
 
@@ -8,15 +8,17 @@ Worktree `/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan
 
 ## Current lanes and acceptance boundaries
 
-Updated 2026-11-03 14:41 UTC. T39/T41/T42/T43/T44/T46 accepted with verified completion markers. T46 completiondf8058 is verified in6606790544, evidence2e6dd4c5648ea0bd0e85951702a2aa94e22d350e under docs/qa-logs/2026-11-03-m6-records-completion/. All five worker lanes returned/available.693 stays17checked/1integration criterion open. Actual ordered integration remains pending.
+Updated 2026-11-03 15:19 UTC. All five workers are observed working on bounded integration inputs under #346 comment6607568979, after the user challenged the idle handoff. Accepted audits/markers remain accepted; no new audit or source fix. Coordinator frozen71bee11968b8a2f3b0165004f21c5498a47a6054, next8ebaf8daad8eaac6331dff6fc048fb4411d7decb. Root retains roadmap, merge resolutions, live integration, runtime and closure.
 
-| Lane | Current outcome | Next useful action |
+| Lane | Active assignment | Return boundary |
 | --- | --- | --- |
-| P1 wN:p3 | T46 final support returned:204 matches/3 differences; H final inputs and publication reconcile | Available; no replay |
-| T1 wN:p4 | T46 accepted T39 bridge returned; root192 identity comparisons agree, all48 corrections integration-pending | Available; accepted work stays accepted |
-| T2 wN:p5 | T44 acceptedf01/completionad0df verified6592382782 | Available for bounded support |
-| T3 wN:p6 | Completiondf8058, marker and unchanged976 accepted files verified; clean remote/HEAD | Available; ordered integration remains root-owned |
-| T5 wN:p7 | Stream proof returned; v2 adopts staged-index/working/untracked checks and three index-only refusals | Available; no execution assignment |
+| P1 wN:p3 | Exactly46 accepted source/completion delivery rows from literal tracker headers and existing completion evidence | Machine-readable integration manifest and unresolved fields |
+| T1 wN:p4 | T4/T38/T39/T46 doctrine/source mode/blob intersections against pinned coordinator/next | Exact overlap inputs, no source re-review or resolution |
+| T2 wN:p5 | Accepted interface ES changed-path intersections | Exact source collision inputs;16dbac base is not M7 patch overlay |
+| T3 wN:p6 | Literal unchecked criteria and explicit remaining guest/pin/integration conditions across46 slices | Closure-evidence matrix, no satisfaction verdict |
+| T5 wN:p7 | Other distribution accepted source mode/blob intersections | Exact collision inputs, no recipe or test execution |
+
+Root next joins these five disjoint outputs into the actual ordered integration brief. Read full6607568979 including correction before further input. Each worker returns one result/early blocker and stops; no repeated audit or assignment just to fill panes. No other lane controls. Current next remains8ebaf8; M7's published current plan still names independent work and uncompleted public-candidate requirements, so no live next ownership clearance is inferred. Root must reconcile that existing boundary before any live roll-up.
 
 Use existing wN lanes and absolute workdirs; verify HERDR_ENV=1 before controls. Do not answer permission prompts. P1's factual selector question was inspected and answered with the exact excerpt it requested; no approval or runtime authority was supplied. CPU8–23, no runtime allocation.
 
@@ -30,7 +32,7 @@ Root new simulation against2ab42922be8d0b693e41a9fcfa9e8c666beae462 passed: all 
 
 Acceptance evidence published e4dacd1812213da2c09e67e3a277121f3af8dd43; decision6605921275. Audit1417 closed/completed2026-11-03T14:07:02Z. Completion-only6605965227 returned atdf8058e4353c54b73d4eea4d356ce18df901aabf, checkpoint6606526044. Root verified marker03bed591,14evidence hashes,7immutable coordinator inputs,976frozen auditfiles,813-byteREADME,32command receipts/141inputs and exact226path scan. Existing schema validator passes; all15 current gates are retained PASS, no producer replay. Fresh remote/HEAD/clean agree. Original review-capacity interruption recovered normally; original failures and root reader correction are preserved.
 
-Evidence/lossless publication packet: docs/qa-logs/2026-11-03-m6-records-completion/.693 remains17checked/1unchecked,1416 open/two checked,1415 open2checked/1actual-integration criterion remaining after marker verification6606790544. Source d707,seed8710,S1 45d455,fixed-at17a064 and completiondf8058 stay distinct. No accepted replay or actual merge. H retains everything. All worker lanes are available. Next root work is preparing the actual ordered integration under the plan and existing owners; do not reopen completed audits or dispatch duplicate reviews to fill lanes.
+Evidence/lossless publication packet: docs/qa-logs/2026-11-03-m6-records-completion/.693 remains17checked/1unchecked,1416 open/two checked,1415 open2checked/1actual-integration criterion remaining after marker verification6606790544. Source d707,seed8710,S1 45d455,fixed-at17a064 and completiondf8058 stay distinct. No accepted replay or actual merge. H retains everything. All five workers now execute the bounded integration-input assignments above. Root joins those outputs into the concrete serial integration work; accepted audits remain closed to replay.
 
 ## Accepted work and pending integration
 
@@ -49,7 +51,7 @@ T41 acceptance6588269141/completion6588465063; #688 open28checked until area int
 
 T42 D230 and final packet preserve native384151/38/22/173, separate inherited50/26with21/7/22,12fork-written498lines,3931accepted artifacts/391source identities. G202/G203/G383 holes remain. New root simulation pins lane4cf8 to coordinator8b83; original strict log refusal remains FAIL, exact continuation and4controls preserve the10,620byte coordinator continuation and2+6whole entries. All remaining new integrated checks pass. Full whitespace remainsrc2 on six unchanged accepted D raw receipts; allotherpaths0. No actual merge. Root records retained under `t42-final-integration/`; external publication manifest62ef887c2fd2cc67c7b88ebd9c1bdb80091423596c60a1cf0e6e1cdc01dc8781 retained under `t42-final-publication/`. H's126/129scan claim and cachemetadata-only custody remain qualified; new exact-final lane scan supplements the former.
 
-Milestone6 current prefix is reconciled to T46 completion verified and ordered integration next; all five worker lanes are available. Completion verification and latest current tracker/milestone readbacks are under docs/qa-logs/2026-11-03-m6-records-completion/. Preserve the entire existing backlog/history suffix. Prior final/milestone-readback.json and earlier dispatch/disposition snapshots remain historical. Do not invent duplicate work to occupy available lanes.
+Milestone6 current prefix is reconciled to T46 completion verified and ordered integration next; all five worker lanes are active under6607568979. Completion verification and latest current tracker/milestone readbacks are under docs/qa-logs/2026-11-03-m6-records-completion/. Preserve the entire existing backlog/history suffix. Prior final/milestone-readback.json and earlier dispatch/disposition snapshots remain historical. Do not invent duplicate work to occupy available lanes.
 
 ## Resources, continuity and publishing
 

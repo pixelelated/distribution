@@ -1,0 +1,122 @@
+[
+  {
+    "pane": "wN:p3",
+    "lane": "P1",
+    "task": "delivery manifest: exactly46 accepted source/completion rows, unresolved fields and ancestry; no source review",
+    "before_state": "done",
+    "session": {
+      "agent": "codex",
+      "kind": "id",
+      "source": "herdr:codex",
+      "value": "01a19d11\u002ddda5\u002d72e3\u002d86f9\u002d416f36341c24"
+    },
+    "start": "2026\u002d11\u002d03T15:17:39.580752+00:00",
+    "end": "2026\u002d11\u002d03T15:17:39.884130+00:00",
+    "argv": [
+      "herdr",
+      "agent",
+      "prompt",
+      "wN:p3",
+      "M6 coordinator wN:p2 dispatch to existing P1 wN:p3: read FULL #346 comment6607568979, including its pre\u002ddelivery factual correction, and execute only your named bounded task: delivery manifest: exactly46 accepted source/completion rows, unresolved fields and ancestry; no source review. URL https://github.com/pixelelated/distribution/issues/346#issuecomment\u002d6607568979 . Frozen coordinator71bee11968b8a2f3b0165004f21c5498a47a6054 and next8ebaf8daad8eaac6331dff6fc048fb4411d7decb. This is integration preparation after accepted T46 completion, not a new audit or planning delegation. Your existing worktree stays unchanged; absolute immutable Git reads and new small private metadata only. CPU8\u201323, no producer replay, source export, repository/tracker/ref writes, merge, runtime, held read or permission answer. Begin now under that full dispatch, return the concrete artifact/early blocker to wN:p2, then stop. Root retains planning and actual integration; no extra approval relay."
+    ],
+    "rc": 0,
+    "stdout": "{\"id\":\"cli:agent:prompt\",\"result\":{\"agent\":{\"agent\":\"codex\",\"agent_session\":{\"agent\":\"codex\",\"kind\":\"id\",\"source\":\"herdr:codex\",\"value\":\"01a19d11\u002ddda5\u002d72e3\u002d86f9\u002d416f36341c24\"},\"agent_status\":\"done\",\"completion_seq\":1736,\"cwd\":\"/workspace/repos/pixelelated/distribution.worktrees/m6\u002dp1\u002dsurvey\u002d641\",\"focused\":false,\"foreground_cwd\":\"/workspace/repos/pixelelated/distribution.worktrees/m6\u002dp1\u002dsurvey\u002d641\",\"name\":\"m6\u002dp1\u002dsurvey\",\"pane_id\":\"wN:p3\",\"revision\":1543,\"state_change_seq\":1736,\"tab_id\":\"wN:t3\",\"terminal_id\":\"term_65edbc5991b837\",\"terminal_title\":\"Resume M6 coordination work | m6\u002dp1\u002dsurvey\u002d641\",\"terminal_title_stripped\":\"Resume M6 coordination work | m6\u002dp1\u002dsurvey\u002d641\",\"workspace_id\":\"wN\"},\"type\":\"agent_prompted\"}}\n",
+    "stderr": ""
+  },
+  {
+    "pane": "wN:p4",
+    "lane": "T1",
+    "task": "doctrine/source overlap inputs for T4/T38/T39/T46; reuse accepted T39 bridge, metadata only",
+    "before_state": "done",
+    "session": {
+      "agent": "codex",
+      "kind": "id",
+      "source": "herdr:codex",
+      "value": "01a19d12\u002d0c07\u002d7ba3\u002d88b8\u002dab9d609f4d67"
+    },
+    "start": "2026\u002d11\u002d03T15:17:39.887878+00:00",
+    "end": "2026\u002d11\u002d03T15:17:40.193557+00:00",
+    "argv": [
+      "herdr",
+      "agent",
+      "prompt",
+      "wN:p4",
+      "M6 coordinator wN:p2 dispatch to existing T1 wN:p4: read FULL #346 comment6607568979, including its pre\u002ddelivery factual correction, and execute only your named bounded task: doctrine/source overlap inputs for T4/T38/T39/T46; reuse accepted T39 bridge, metadata only. URL https://github.com/pixelelated/distribution/issues/346#issuecomment\u002d6607568979 . Frozen coordinator71bee11968b8a2f3b0165004f21c5498a47a6054 and next8ebaf8daad8eaac6331dff6fc048fb4411d7decb. This is integration preparation after accepted T46 completion, not a new audit or planning delegation. Your existing worktree stays unchanged; absolute immutable Git reads and new small private metadata only. CPU8\u201323, no producer replay, source export, repository/tracker/ref writes, merge, runtime, held read or permission answer. Begin now under that full dispatch, return the concrete artifact/early blocker to wN:p2, then stop. Root retains planning and actual integration; no extra approval relay."
+    ],
+    "rc": 0,
+    "stdout": "{\"id\":\"cli:agent:prompt\",\"result\":{\"agent\":{\"agent\":\"codex\",\"agent_session\":{\"agent\":\"codex\",\"kind\":\"id\",\"source\":\"herdr:codex\",\"value\":\"01a19d12\u002d0c07\u002d7ba3\u002d88b8\u002dab9d609f4d67\"},\"agent_status\":\"done\",\"completion_seq\":1709,\"cwd\":\"/workspace/repos/pixelelated/distribution.worktrees/m6\u002dos\u002dlaunch\u002dcontrol\u002dstate\u002d648\",\"focused\":false,\"foreground_cwd\":\"/workspace/repos/pixelelated/distribution.worktrees/m6\u002dos\u002dlaunch\u002dcontrol\u002dstate\u002d648\",\"name\":\"m6\u002dt1\u002dos\u002dlaunch\",\"pane_id\":\"wN:p4\",\"revision\":4,\"state_change_seq\":1709,\"tab_id\":\"wN:t4\",\"terminal_id\":\"term_65edbc5991bc38\",\"terminal_title\":\"Resume M6 coordinator work | m6\u002dos\u002dlaunch\u002dcontrol\u002d...\",\"terminal_title_stripped\":\"Resume M6 coordinator work | m6\u002dos\u002dlaunch\u002dcontrol\u002d...\",\"workspace_id\":\"wN\"},\"type\":\"agent_prompted\"}}\n",
+    "stderr": ""
+  },
+  {
+    "pane": "wN:p5",
+    "lane": "T2",
+    "task": "ES integration changed\u002dpath intersections at accepted refs; read the pre\u002ddelivery185036/16dbac correction, no inferred M7 overlay",
+    "before_state": "done",
+    "session": {
+      "agent": "codex",
+      "kind": "id",
+      "source": "herdr:codex",
+      "value": "01a19d12\u002d1c5f\u002d7022\u002d8053\u002d102f6a94b7fe"
+    },
+    "start": "2026\u002d11\u002d03T15:17:40.197409+00:00",
+    "end": "2026\u002d11\u002d03T15:17:40.502501+00:00",
+    "argv": [
+      "herdr",
+      "agent",
+      "prompt",
+      "wN:p5",
+      "M6 coordinator wN:p2 dispatch to existing T2 wN:p5: read FULL #346 comment6607568979, including its pre\u002ddelivery factual correction, and execute only your named bounded task: ES integration changed\u002dpath intersections at accepted refs; read the pre\u002ddelivery185036/16dbac correction, no inferred M7 overlay. URL https://github.com/pixelelated/distribution/issues/346#issuecomment\u002d6607568979 . Frozen coordinator71bee11968b8a2f3b0165004f21c5498a47a6054 and next8ebaf8daad8eaac6331dff6fc048fb4411d7decb. This is integration preparation after accepted T46 completion, not a new audit or planning delegation. Your existing worktree stays unchanged; absolute immutable Git reads and new small private metadata only. CPU8\u201323, no producer replay, source export, repository/tracker/ref writes, merge, runtime, held read or permission answer. Begin now under that full dispatch, return the concrete artifact/early blocker to wN:p2, then stop. Root retains planning and actual integration; no extra approval relay."
+    ],
+    "rc": 0,
+    "stdout": "{\"id\":\"cli:agent:prompt\",\"result\":{\"agent\":{\"agent\":\"codex\",\"agent_session\":{\"agent\":\"codex\",\"kind\":\"id\",\"source\":\"herdr:codex\",\"value\":\"01a19d12\u002d1c5f\u002d7022\u002d8053\u002d102f6a94b7fe\"},\"agent_status\":\"done\",\"completion_seq\":1686,\"cwd\":\"/workspace/repos/pixelelated/distribution.worktrees/m6\u002des\u002dlaunch\u002dpath\u002d649\",\"focused\":false,\"foreground_cwd\":\"/workspace/repos/pixelelated/distribution.worktrees/m6\u002des\u002dlaunch\u002dpath\u002d649\",\"name\":\"m6\u002dt2\u002des\u002dlaunch\",\"pane_id\":\"wN:p5\",\"revision\":4,\"state_change_seq\":1686,\"tab_id\":\"wN:t5\",\"terminal_id\":\"term_65edbc5991c4e9\",\"terminal_title\":\"Resume M6 coordinator work | m6\u002des\u002dlaunch\u002dpath\u002d649\",\"terminal_title_stripped\":\"Resume M6 coordinator work | m6\u002des\u002dlaunch\u002dpath\u002d649\",\"workspace_id\":\"wN\"},\"type\":\"agent_prompted\"}}\n",
+    "stderr": ""
+  },
+  {
+    "pane": "wN:p6",
+    "lane": "T3",
+    "task": "literal remaining closure\u002devidence matrix from46 slice bodies, with exact unchecked criteria and explicit runtime/integration conditions",
+    "before_state": "done",
+    "session": {
+      "agent": "codex",
+      "kind": "id",
+      "source": "herdr:codex",
+      "value": "01a19d12\u002d29e3\u002d7fe0\u002d9f41\u002d038dac0a5deb"
+    },
+    "start": "2026\u002d11\u002d03T15:17:40.505753+00:00",
+    "end": "2026\u002d11\u002d03T15:17:40.810737+00:00",
+    "argv": [
+      "herdr",
+      "agent",
+      "prompt",
+      "wN:p6",
+      "M6 coordinator wN:p2 dispatch to existing T3 wN:p6: read FULL #346 comment6607568979, including its pre\u002ddelivery factual correction, and execute only your named bounded task: literal remaining closure\u002devidence matrix from46 slice bodies, with exact unchecked criteria and explicit runtime/integration conditions. URL https://github.com/pixelelated/distribution/issues/346#issuecomment\u002d6607568979 . Frozen coordinator71bee11968b8a2f3b0165004f21c5498a47a6054 and next8ebaf8daad8eaac6331dff6fc048fb4411d7decb. This is integration preparation after accepted T46 completion, not a new audit or planning delegation. Your existing worktree stays unchanged; absolute immutable Git reads and new small private metadata only. CPU8\u201323, no producer replay, source export, repository/tracker/ref writes, merge, runtime, held read or permission answer. Begin now under that full dispatch, return the concrete artifact/early blocker to wN:p2, then stop. Root retains planning and actual integration; no extra approval relay."
+    ],
+    "rc": 0,
+    "stdout": "{\"id\":\"cli:agent:prompt\",\"result\":{\"agent\":{\"agent\":\"codex\",\"agent_session\":{\"agent\":\"codex\",\"kind\":\"id\",\"source\":\"herdr:codex\",\"value\":\"01a19d12\u002d29e3\u002d7fe0\u002d9f41\u002d038dac0a5deb\"},\"agent_status\":\"done\",\"completion_seq\":1744,\"cwd\":\"/workspace/repos/pixelelated/distribution.worktrees/m6\u002demulators\u002dlibretro\u002d650\",\"focused\":false,\"foreground_cwd\":\"/workspace/repos/pixelelated/distribution.worktrees/m6\u002demulators\u002dlibretro\u002d650\",\"name\":\"m6\u002dt3\u002demulators\",\"pane_id\":\"wN:p6\",\"revision\":4,\"state_change_seq\":1744,\"tab_id\":\"wN:t6\",\"terminal_id\":\"term_65edbc5991cb9a\",\"terminal_title\":\"Resume M6 coordinator work | m6\u002demulators\u002dlibretro...\",\"terminal_title_stripped\":\"Resume M6 coordinator work | m6\u002demulators\u002dlibretro...\",\"workspace_id\":\"wN\"},\"type\":\"agent_prompted\"}}\n",
+    "stderr": ""
+  },
+  {
+    "pane": "wN:p7",
+    "lane": "T5",
+    "task": "distribution source intersections for the specifically listed non\u002ddoctrine slices; metadata only, no recipe/test replay",
+    "before_state": "done",
+    "session": {
+      "agent": "codex",
+      "kind": "id",
+      "source": "herdr:codex",
+      "value": "01a19d12\u002d3d7a\u002d7642\u002d9108\u002dae06a719cdd7"
+    },
+    "start": "2026\u002d11\u002d03T15:17:40.814366+00:00",
+    "end": "2026\u002d11\u002d03T15:17:41.119786+00:00",
+    "argv": [
+      "herdr",
+      "agent",
+      "prompt",
+      "wN:p7",
+      "M6 coordinator wN:p2 dispatch to existing T5 wN:p7: read FULL #346 comment6607568979, including its pre\u002ddelivery factual correction, and execute only your named bounded task: distribution source intersections for the specifically listed non\u002ddoctrine slices; metadata only, no recipe/test replay. URL https://github.com/pixelelated/distribution/issues/346#issuecomment\u002d6607568979 . Frozen coordinator71bee11968b8a2f3b0165004f21c5498a47a6054 and next8ebaf8daad8eaac6331dff6fc048fb4411d7decb. This is integration preparation after accepted T46 completion, not a new audit or planning delegation. Your existing worktree stays unchanged; absolute immutable Git reads and new small private metadata only. CPU8\u201323, no producer replay, source export, repository/tracker/ref writes, merge, runtime, held read or permission answer. Begin now under that full dispatch, return the concrete artifact/early blocker to wN:p2, then stop. Root retains planning and actual integration; no extra approval relay."
+    ],
+    "rc": 0,
+    "stdout": "{\"id\":\"cli:agent:prompt\",\"result\":{\"agent\":{\"agent\":\"codex\",\"agent_session\":{\"agent\":\"codex\",\"kind\":\"id\",\"source\":\"herdr:codex\",\"value\":\"01a19d12\u002d3d7a\u002d7642\u002d9108\u002dae06a719cdd7\"},\"agent_status\":\"done\",\"completion_seq\":1726,\"cwd\":\"/workspace/repos/pixelelated/distribution.worktrees/m6\u002dbuild\u002dengine\u002d652\",\"focused\":false,\"foreground_cwd\":\"/workspace/repos/pixelelated/distribution.worktrees/m6\u002dbuild\u002dengine\u002d652\",\"name\":\"m6\u002dt5\u002dbuild\u002dengine\",\"pane_id\":\"wN:p7\",\"revision\":4,\"state_change_seq\":1726,\"tab_id\":\"wN:t7\",\"terminal_id\":\"term_65edbc5991d53b\",\"terminal_title\":\"Resume M6 coordination | m6\u002dbuild\u002dengine\u002d652\",\"terminal_title_stripped\":\"Resume M6 coordination | m6\u002dbuild\u002dengine\u002d652\",\"workspace_id\":\"wN\"},\"type\":\"agent_prompted\"}}\n",
+    "stderr": ""
+  }
+]

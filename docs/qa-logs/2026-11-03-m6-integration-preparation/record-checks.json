@@ -1,0 +1,71 @@
+[
+  {
+    "argv": [
+      "tools/rules\u002dcheck"
+    ],
+    "cwd": "/workspace/repos/pixelelated/distribution.worktrees/m6\u002drenovation\u002dplan\u002d346",
+    "start": "2026\u002d11\u002d03T15:20:24.750932+00:00",
+    "end": "2026\u002d11\u002d03T15:20:24.769688+00:00",
+    "rc": 0,
+    "stdout": "ok    front   adversarial\u002dcouncil.md\nok    front   bugs\u002dare\u002dagent\u002dfirst.md\nok    always  bugs\u002dare\u002dagent\u002dfirst.md says it loads every session\nok    front   ceremonies.md\nok    always  ceremonies.md says it loads every session\nok    front   change\u002dlog.md\nok    front   council\u002dsubstrate\u002dintegrity.md\nok    front   decision\u002dregister.md\nok    front   device\u002dbuilds.md\nok    front   documentation\u002daccuracy.md\nok    front   engineering\u002dpractices.md\nok    front   es\u002dcode\u002dtraps.md\nok    front   es\u002dnative\u002dui.md\nok    front   es\u002dplayer\u002dtext.md\nok    front   es\u002dui\u002dstyle\u002dguide.md\nok    front   fork\u002dworkflow.md\nok    front   generic\u002dx64\u002dvm\u002dtesting.md\nok    front   handheld\u002devidence.md\nok    front   instruction\u002dfiles.md\nok    front   issue\u002dtracking.md\nok    front   learning\u002dcapture.md\nok    front   least\u002dsurprise.md\nok    always  least\u002dsurprise.md says it loads every session\nok    front   milestone\u002dphase\u002dnaming.md\nok    front   packaging\u002dand\u002dpatches.md\nok    front   player\u002dlanguage.md\nok    always  player\u002dlanguage.md says it loads every session\nok    front   rclone\u002dcloud\u002dsync.md\nok    front   release\u002dcandidates.md\nok    always  release\u002dcandidates.md says it loads every session\nok    front   time\u002dto\u002dplay.md\nok    always  time\u002dto\u002dplay.md says it loads every session\nok    front   upgrade\u002dand\u002dinstall.md\nok    front   vm\u002dfirst.md\nok    always  vm\u002dfirst.md says it loads every session\nok    front   working\u002dprinciples.md\nok    front   worktrees.md\nok    index   30 files, 30 rows, the same set\nok    tools   hook, fork\u002dworkflow and instruction index agree\nok    count   CLAUDE.md says All 30, and there are 30\nok    count   AGENTS.md says All 30, and there are 30\nok    agents  AGENTS.md is 27471 bytes (budget 32768)\nok    list    AGENTS.md carries the generated rule list\nok    mention CLAUDE.md names every rule\nrules\u002dcheck: 30 rule files, every one front\u002dmattered and indexed\n",
+    "stderr": "",
+    "stdout_sha256": "5ecec1bf185709d166b0c35447dd7ef65107be90632d41665f1d26e3bd0afbb1",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "tools/register\u002dcheck"
+    ],
+    "cwd": "/workspace/repos/pixelelated/distribution.worktrees/m6\u002drenovation\u002dplan\u002d346",
+    "start": "2026\u002d11\u002d03T15:20:24.751354+00:00",
+    "end": "2026\u002d11\u002d03T15:20:26.391045+00:00",
+    "rc": 0,
+    "stdout": "register\u002dcheck: 733 IDs, each once; every citation in the live documents names a row\n",
+    "stderr": "",
+    "stdout_sha256": "f789b8651574f3f80cdaf59661d11b83e448096628a34c5188b2e001c8362d59",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "tools/work\u002dlog\u002dindex",
+      "\u002d\u002dcheck"
+    ],
+    "cwd": "/workspace/repos/pixelelated/distribution.worktrees/m6\u002drenovation\u002dplan\u002d346",
+    "start": "2026\u002d11\u002d03T15:20:24.751621+00:00",
+    "end": "2026\u002d11\u002d03T15:20:24.773329+00:00",
+    "rc": 0,
+    "stdout": "work\u002dlog index: current\n",
+    "stderr": "",
+    "stdout_sha256": "232b345c76ad64a47de4d43e62d9aeb4f2850472cde78ddd1b1e56d72103d927",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "tools/ceremony\u002dcheck",
+      "\u002d\u002dgate"
+    ],
+    "cwd": "/workspace/repos/pixelelated/distribution.worktrees/m6\u002drenovation\u002dplan\u002d346",
+    "start": "2026\u002d11\u002d03T15:20:24.752066+00:00",
+    "end": "2026\u002d11\u002d03T15:20:35.164145+00:00",
+    "rc": 0,
+    "stdout": "ceremony\u002dcheck: overdue (CI is red, the push goes through) audit: 13 issues closed and 1 days since 2026\u002d11\u002d02 (cadence 12 issues or 14 days) \u002d\u002d run the code\u002dauditor skill\n",
+    "stderr": "",
+    "stdout_sha256": "74928135dc28d882d959c869aa085162caf7e43810621b617649eedd9fb106b6",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "diff",
+      "\u002d\u002dcheck"
+    ],
+    "cwd": "/workspace/repos/pixelelated/distribution.worktrees/m6\u002drenovation\u002dplan\u002d346",
+    "start": "2026\u002d11\u002d03T15:20:24.769731+00:00",
+    "end": "2026\u002d11\u002d03T15:20:24.810242+00:00",
+    "rc": 0,
+    "stdout": "",
+    "stderr": "",
+    "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  }
+]
