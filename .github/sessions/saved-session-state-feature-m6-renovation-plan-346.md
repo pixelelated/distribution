@@ -1,6 +1,6 @@
 # M6 coordinator current handoff
 
-Updated 2026-11-03 18:53 UTC by Codex / GPT-6-Astra / xhigh (own observed footer, not provider-attested), session01a19d11-f5c8-7bb0-80f3-49ad28732af2, wN:p2.
+Updated 2026-11-03 19:08 UTC by Codex / GPT-6-Astra / xhigh (own observed footer, not provider-attested), session01a19d11-f5c8-7bb0-80f3-49ad28732af2, wN:p2.
 
 ## Resume here
 
@@ -12,15 +12,15 @@ Read `docs/qa-logs/2026-11-03-m6-integration-preparation/implementation-progress
 
 | Lane | Latest observed assignment | Boundary |
 | --- | --- | --- |
-| P1 wN:p3 | Working observed 18:49:40: T26 French catalogue input,6612615661 | Exact stopped ES pair; metadata/proposal only |
-| T1 wN:p4 | Working observed 18:51:54: T8 day logs/brief,6612666343 | Exact new distribution pair; no construction |
-| T2 wN:p5 | Working observed 18:51:54: T8 friction/VM-QA records,6612666343 | Whole records only; historical VM prose grants no runtime |
-| T3 wN:p6 | Working observed 18:49:41: T26 production conflicts,6612615661 | Two named sources and header seam |
-| T5 wN:p7 | Working observed 18:49:41: T26 unit-test conflict,6612615661 | Named test source and same-file fixtures |
+| P1 wN:p3 | Working observed at new dispatch6612961539: T9 friction inputs | Exact stopped distribution pair; whole records only |
+| T1 wN:p4 | Working observed at6612961539: T9 day logs/brief | Named automatic combination included; no construction |
+| T2 wN:p5 | Working observed after transfer6612920645: T26 production/header inputs | Unchanged ES pair; catalogue caller qualifications included |
+| T3 wN:p6 | Capacity-stopped during T26 production read; no completed handback | Task transferred; partial work is not accepted evidence |
+| T5 wN:p7 | Working observed at6612961539: T9 instruction-rule inputs | Conflict and two named automatic rule seams only |
 
 These are dated observations, not continuous-activity claims. Root owns both private serial drivers, actual choices, candidate construction and later validation.
 
-Distribution owner `/workspace/tmp/m6-coordinator/distribution-candidate-20261103-l6h_zpw7`: seven of46 endpoints incorporated, T1 through T7. Read run-08/state.json, SHA c28d18c7b69a3ab8c55eb7fa3aff22bce55281e6017c5649cdd9192e1bcb0e17. Current d6f6ef406c899e5fca446c837904e58a82ec0444; incoming T8 f50a031158156c2c43cc8e18752e70cee6d72895; conflict31d637a1a0dfb729d040db192503b9a236a95b6d. New binding `/tmp/m6-distribution-t8-conflict-inputs.json` SHA12cf48fda3a6630c6c428b0365bc42c5db6fc81fa7a5bdfb540d9ec64a288bf3. T6 added five exact missing records, T7 four; carried bytes/order and the governing brief remain exact, with explicit incoming-order/separator dispositions and normal INDEX regeneration. T7's outside-marker release-gate regression was removed under the existing T4 authority, not a new policy. Independent immutable readbacks preceded both exact-pair resumes. Full carried M7 ES package remains unchanged.
+Distribution owner `/workspace/tmp/m6-coordinator/distribution-candidate-20261103-l6h_zpw7`: eight of46 endpoints incorporated, T1 through T8. Read run-09/state.json, SHA050ba4f62e3bf205ad65b4faea720ee6153bc9413642a582df5bc8b920172a93. Currente51431ddbebca1187389dd8d783113deb8801624; incoming T9 995e7f869f17e0e7d56d91e0485ec098197dd789; conflict7322a250ba8f03640088a59f7e9fc6e589a410e9. New binding `/tmp/m6-distribution-t9-conflict-inputs.json` SHA69c45a11ccf9e4d3c0700221bba968708f8e8f9efe95db770d8df74bfb1f716a. T8 adds eight exact whole records (two friction, three QA, three day), preserving all carried bytes, failures and image-only qualifications. Thirteen incoming friction order pairs and eleven day pairs are explicitly subordinated to carried order; separator choices are retained. The governing survey brief stays exact under the existing T4 disposition. Normal INDEX generation and independent six-file byte readback preceded the exact-pair resume. T8 resolutionec1b2aaeff83f4333b44941b2c01f06ca52995ce, result6213bc802cf13b9abe3b7590c509560f5551b6a73d4d2533ae7d8f9e5e5746dc. Full carried M7 ES package remains unchanged.
 
 ES owner `/workspace/tmp/m6-coordinator/es-candidate-20261103-420yq9_k`: four of11 remediation endpoints incorporated, T2/T18/T20/T21. Read run-04/state.json SHA b005c4c800a3e6e631dc5bcbee6bdabb82d1e8b6cafee6e3581573439ab675be. Current1988bf1c9251bbd195a088ab7412b03952cda6a4; incoming T26 757f5370ea17617edc59e8823d639a4e3a146961; conflictba0a0c0cbc30b1ecb0ee2106ea4e882de787fb38. Binding `/tmp/m6-es-t26-conflict-inputs.json` SHA3f39a73ead39df129d6f88067f23468127e1e0eef9ec0d738e0624b62f44588f. T21 resolution-t21-03 retains root's exact ten-file disposition and installation tree12d9af676000906ee235fb5e0100ca4687b281fa, result60970b570788dac1f453aeed5bcedd29b00b878b20b09e7669bc339e0b3965c0. Scoped production/helper readbacks and the exact oracle amendment are source evidence only. Eight helper cases and the new guarded-key regression are unexecuted. All original refusals and prior candidates remain intact.
 
@@ -30,7 +30,11 @@ Validation preparation is complete only as source-route analysis. T2 report `/tm
 
 Private local retention beside the original probe now includes root-continuation-08-20261103-yi4vcdw_ (310files/989193bytes, manifest71efe7310caefe99c945bca3063e0add1e0a3dd12953ca5724de01cb8a66c1b7) and root-continuation-09-20261103-q25iczue (374files/745546bytes, manifest57931582c35fef81722c098a92273d324da15265da6e3d652ad14a7a565e2c5e). Earlier sealed increments remain intact. These selected metadata/receipts are local custody, not off-host backup. Source objects and original outputs remain in their named exclusive stores. The earlier outer-receipt filename error and exact restoration from the prior seal are retained; all later wrappers refuse existing output paths before running.
 
-Root next: consume T8 and T26 bounded inputs, choose actual combinations, independently reconcile the constructed output, and resume only the exact stopped pair. Detailed private findings remain local; public comments carry scope. M7 owns next and last reported its finite runtime returned; no fresh census or new authority follows. No M6 runtime, shared integration, source-pin promotion or slice closure. Accepted audits remain closed to replay; integrated validation and first carrying-image obligations remain outstanding.
+T26 catalogue/test inputs are complete at the unchanged pair. The catalogue report identifies39 new literal keys, one exact incoming duplicate, four unmarked key changes requiring final caller reconciliation, and one carried identical duplicate. The test report preserves79 complete cases in a proposed union; none were run. T3 hit selected-model capacity before handing back production inputs; T2 now owns that unfinished review under6612920645, without reading T3 partial scratch or changing models.
+
+Latest local retention root-continuation-10-20261103-6beb7v07 binds301 selected files/1102091bytes, manifest6f0a92d2d2e4f3327e661a3faf824c7f4164584f3f624429e07c6bde5c3279bc. Original candidate source objects remain in their owners; no off-host backup is claimed.
+
+Root next: consume T9 and T26 bounded inputs, choose actual combinations, independently reconcile the constructed output, and resume only the exact stopped pair. Detailed private findings remain local; public comments carry scope. M7 owns next and last reported its finite runtime returned; no fresh census or new authority follows. No M6 runtime, shared integration, source-pin promotion or slice closure. Accepted audits remain closed to replay; integrated validation and first carrying-image obligations remain outstanding.
 
 ## Current T46 acceptance and completion boundary
 

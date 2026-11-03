@@ -1,6 +1,6 @@
 # M6 integration construction progress
 
-Root observation at 2026-11-03T18:53:28.473005+00:00. These are private source candidates and
+Root observation at 2026-11-03T19:08:42.486968+00:00. These are private source candidates and
 bounded readbacks. Live integration, image qualification and issue closure remain
 separate; M7 still owns next.
 
@@ -12,21 +12,22 @@ their explicit preservation receipts. The register implementation passed sixteen
 new controls and root independently reconciled its exact output and side orders.
 The original helper failures and historical evidence remain unchanged.
 
-The canonical 46-endpoint sequence has now incorporated T1 through T7 into synthetic
+The canonical 46-endpoint sequence has now incorporated T1 through T8 into synthetic
 two-parent history. T1's resolution retained eighteen incoming record entries and
 both package dependency additions; the newly combined recipe passed pkgcheck and
 shell syntax. T2 retained five further incoming entries; T3 retained eleven, T4
-five, T5 thirteen, T6 five and T7 four. T4 also combined the doctrine updates and
+five, T5 thirteen, T6 five, T7 four and T8 eight. T4 also combined the doctrine updates and
 preserved the governing reading-prerequisite meaning; its new combined rules
 check passed. Later resolutions kept that brief unchanged. Each resolution
 preserved the complete carried record bytes, explicitly chose carried order where
 common entries had incompatible positions, and regenerated INDEX normally.
 No failed merge was replayed. The full carried ES package remains unchanged.
 
-The driver is stopped at T8 on six record/brief paths. T1 and T2 received
-disjoint exact-pair inputs under #346 comment6612666343 and were observed working.
-Root retains source choices, construction, INDEX and serial continuation. No
-shared ref has moved.
+The driver is stopped at T9 on five rule/record paths. P1, T1 and T5 received
+disjoint exact-pair inputs under #346 comment6612961539 and were observed working.
+T8 preserved all carried QA rows and historical limitations, and its six-file
+resolution passed independent immutable readback before resume. Root retains
+source choices, construction, INDEX and serial continuation. No shared ref moved.
 
 ## ES candidate
 
@@ -37,20 +38,22 @@ its original constructor and historical tests were not replayed.
 
 The T21 ten-file combination is now incorporated after scoped production/helper
 readbacks and one exact test-oracle amendment. Its new tests remain unexecuted.
-The driver stopped at T26 with four source/catalogue conflicts. P1, T3 and T5
-were observed working on disjoint catalogue, production and unit-test inputs
-under6612615661. The later T32 third-arming obligation remains explicit; it has
+The driver stopped at T26 with four source/catalogue conflicts. The catalogue and unit-test input reviews
+returned under6612615661. T3 stopped during the production read on selected-model
+capacity, without a completed handback; T2 was observed working after the explicit
+transfer6612920645. No model switch or repeated prompt was used. The later T32 third-arming obligation remains explicit; it has
 not been imported early. No compilation, runtime or shared acceptance follows.
 
 ## Current lane observations
 
-T1 and T2 were observed working on T8's day/brief and friction/VM-QA inputs at
-18:51:54 UTC. P1, T3 and T5 were observed working on T26's inputs at18:49 UTC.
-These are dated observations. Root owns source choices, exact construction and
-both serial drivers. T2's completed validation preparation identified the real
-han.h supplier; the exact pugixml source and rapidjson configure supplier remain
-unbound through the allowed routes. This is not a global absence claim. No
-compiler/test/runtime admission exists.
+P1, T1 and T5 were observed working after the T9 dispatch6612961539; T2 was
+observed working after the T26 transfer6612920645. T3 remains capacity-stopped.
+These are dated observations, not continuous-activity claims. Root owns source
+choices, exact construction and both serial drivers. T2's completed validation
+preparation identified the real han.h supplier; exact pugixml and rapidjson
+configure custody remains unbound. A subsequent root check of the conventional
+named pugixml module store also found it absent; this is not a global absence
+claim. No compiler/test/runtime admission exists.
 
 ## Independent findings and corrections
 
@@ -136,3 +139,8 @@ The eighth and ninth selected retention increments bind310/989193 and374/745546
 files/bytes respectively, including the new distribution/ES stops, root source
 choices, exact installation, reader returns and next assignments. The coordinator
 handoff carries their immutable manifest hashes and the future T32 obligation.
+
+Tenth selected retention binds301 files/1102091 bytes: T8 resolution/run09,
+T8 and T26 bounded returns, the last publication/milestone receipts and new
+assignments. The capacity observation and explicit transfer are retained.
+The public checkpoint carries scope and custody, not the private finding payloads.
