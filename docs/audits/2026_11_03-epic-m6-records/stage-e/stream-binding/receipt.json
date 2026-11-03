@@ -1,0 +1,47 @@
+{
+  "argv": [
+    "bash",
+    "docs/audits/2026_11_03-epic-m6-records/stage-e/stream-binding.sh"
+  ],
+  "cwd": "/workspace/repos/pixelelated/distribution.worktrees/m6-records-693",
+  "start": "2026-11-03T13:17:47.162079+00:00",
+  "end": "2026-11-03T13:17:47.188565+00:00",
+  "rc": 0,
+  "inputs": [
+    {
+      "path": "/workspace/repos/pixelelated/distribution.worktrees/m6-records-693/docs/audits/2026_11_03-epic-m6-records/stage-e/stream-binding.sh",
+      "bytes": 903,
+      "sha256": "0009ccde4696ca39c810d1a93924a59e2aca73b57ed9615cae4af4a7e42a03c7",
+      "mode": "0o664"
+    },
+    {
+      "path": "/workspace/repos/pixelelated/distribution.worktrees/m6-records-693/docs/audits/2026_11_03-epic-m6-records/stage-e/stream-brief-v2.md",
+      "bytes": 17629,
+      "sha256": "97d82c4f522e0c9a8f02366114bc74655346546cc3a8f1367ee33599b7aa343f",
+      "mode": "0o664"
+    }
+  ],
+  "stdout_sha256": "be351145eedb7d4c6bfaa96bfd7aec68ac2166c787ed8392e7cdf972b669119d",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "recorder_sha256": "35c4629f5663957a870af3059015e86fac15ae5cc098820bb6ee7bf64776b4a8",
+  "cpu_affinity": [
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21,
+    22,
+    23
+  ],
+  "python": "3.14.4 (main, Aug 20 2026, 10:41:58) [GCC 15.2.0]",
+  "stream_transport": "base64 of exact original bytes; no raw-stream rewrite"
+}

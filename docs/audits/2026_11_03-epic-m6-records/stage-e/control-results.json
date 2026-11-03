@@ -1,0 +1,86 @@
+[
+  {
+    "name": "index-source",
+    "rc": 1,
+    "expected": 1,
+    "receipt": "stage-e/scope-controls/index-source/receipt.json"
+  },
+  {
+    "name": "index-frozen",
+    "rc": 1,
+    "expected": 1,
+    "receipt": "stage-e/scope-controls/index-frozen/receipt.json"
+  },
+  {
+    "name": "index-readme",
+    "rc": 1,
+    "expected": 1,
+    "receipt": "stage-e/scope-controls/index-readme/receipt.json"
+  },
+  {
+    "name": "history-source",
+    "rc": 1,
+    "expected": 1,
+    "receipt": "stage-e/scope-controls/history-source/receipt.json"
+  },
+  {
+    "name": "history-revert",
+    "rc": 1,
+    "expected": 1,
+    "receipt": "stage-e/scope-controls/history-revert/receipt.json"
+  },
+  {
+    "name": "history-frozen",
+    "rc": 1,
+    "expected": 1,
+    "receipt": "stage-e/scope-controls/history-frozen/receipt.json"
+  },
+  {
+    "name": "history-wrong-readme-repair",
+    "rc": 1,
+    "expected": 1,
+    "receipt": "stage-e/scope-controls/history-wrong-readme-repair/receipt.json"
+  },
+  {
+    "name": "unrelated-retro",
+    "rc": 1,
+    "expected": 1,
+    "receipt": "stage-e/scope-controls/unrelated-retro/receipt.json"
+  },
+  {
+    "name": "unrelated-day",
+    "rc": 1,
+    "expected": 1,
+    "receipt": "stage-e/scope-controls/unrelated-day/receipt.json"
+  },
+  {
+    "name": "executable",
+    "rc": 1,
+    "expected": 1,
+    "receipt": "stage-e/scope-controls/executable/receipt.json"
+  },
+  {
+    "name": "symlink",
+    "rc": 1,
+    "expected": 1,
+    "receipt": "stage-e/scope-controls/symlink/receipt.json"
+  },
+  {
+    "name": "merge",
+    "rc": 1,
+    "expected": 1,
+    "receipt": "stage-e/scope-controls/merge/receipt.json"
+  },
+  {
+    "name": "deletion",
+    "rc": 1,
+    "expected": 1,
+    "receipt": "stage-e/scope-controls/deletion/receipt.json"
+  },
+  {
+    "name": "positive",
+    "rc": 1,
+    "expected": 0,
+    "receipt": "stage-e/scope-controls/positive/receipt.json"
+  }
+]

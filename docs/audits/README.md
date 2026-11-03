@@ -16,5 +16,8 @@ docs/audits/YYYY_MM_DD-{scope}-{item-name}/
 issue on `pixelelated/distribution` — Issues are disabled on `ROCKNIX/distribution`.
 
 The skill grounds work against this project's own doctrine rather than a single
-rubric file: the instruction files whose `applyTo` matches the changed paths,
-`docs/blindspot-register.md`, and the invariants those files state.
+rubric file: every-session rules (no `paths:` key or a `**` glob), instruction
+files whose `paths:` globs match the changed paths, `docs/blindspot-register.md`,
+and the invariants those files state. See the
+[rule-selection convention](../../.claude/rules/instruction-files.md).
+<!-- #1416 -->

@@ -1,0 +1,3 @@
+# New E-H guard v1 predicate correction — 2026-11-03
+
+The v1 positive refused two correct working identities because it required literal POSIX0644, while new ordinary files have0664 permissions and Git100644 identity. SHA1 bytes matched expected README/frozen blobs. Git ordinary non-executable100644 is the brief’s constraint; group-write permission is not a Git mode distinction. v2 maps ordinary non-executable files to100644, rejects executable/nonordinary files, and retains all index mode/blob checks. Original v1 programs,13 non-isolated refusals and failed positive remain in their original receipts; they do not count as the final isolated-control proof. The new v2 run uses the same retained tiny fixture inputs; no D control or fixture producer is invoked again.

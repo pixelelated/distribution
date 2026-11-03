@@ -1,3 +1,9 @@
+# T46 — S1/E–H active
+
+Actual Codex/GPT-6-Astra/xhigh, T3 wN:p6. Clean start a0d4c4fda7a0c16c04d57edf921ffeb741eff19b verified; explicit #693 comment6604790499 and immutable2aea545afb746ab002e755cf301f4aa89930e1e9 stream v2 govern. New stage-e proof and guard controls are complete; exact README paragraph candidate applied, S1 commit/checks next. Preserve305 D files/17 tools/29 transports and the qualifications in stage-e/stream-brief-v2.md. Continue F/G/H after actual S1, retain all scratch, leave1417/1416 open and693 criteria untouched, then one clean published handback and stop. No marker or merge/runtime/permission action.
+
+## Preserved preceding D handoff
+
 # T46 records — A–D execution handoff
 
 Current record updated 2026-11-03T12:36:27.347907+00:00 by actual Codex/GPT-6-Astra/xhigh (observed harness, not provider-attested), T3 m6-t3-emulators wN:p6, session01a19d12-29e3-7fe0-9f41-038dac0a5deb.

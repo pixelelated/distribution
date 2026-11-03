@@ -1,0 +1,76 @@
+{
+  "argv": [
+    "tools/register-check"
+  ],
+  "cwd": "/workspace/repos/pixelelated/distribution.worktrees/m6-records-693",
+  "start": "2026-11-03T13:25:52.744618+00:00",
+  "end": "2026-11-03T13:25:53.913757+00:00",
+  "rc": 0,
+  "inputs": [
+    {
+      "path": "/workspace/repos/pixelelated/distribution.worktrees/m6-records-693/docs/audits/2026_11_03-epic-m6-records/04-analysis.md",
+      "bytes": 10463,
+      "sha256": "97280d7fe9f6435cec1529d149c81dbb913a67b02791da8110af3adbf9e8fb52",
+      "mode": "0o664"
+    },
+    {
+      "path": "/workspace/repos/pixelelated/distribution.worktrees/m6-records-693/docs/audits/2026_11_03-epic-m6-records/05-punch-list.md",
+      "bytes": 2807,
+      "sha256": "aa1fff61f90e8c755e1ab14e9c40eb7948d9e8c7b24fdb7985969015e52484d7",
+      "mode": "0o664"
+    },
+    {
+      "path": "/workspace/repos/pixelelated/distribution.worktrees/m6-records-693/docs/audits/2026_11_03-epic-m6-records/second-opinions/review-plan.json",
+      "bytes": 515,
+      "sha256": "313657fba5a42bcd971d20edc26b0142d7c621e5d42ca3ca55e2dd55eed68ba9",
+      "mode": "0o664"
+    },
+    {
+      "path": "/workspace/repos/pixelelated/distribution.worktrees/m6-records-693/docs/audits/README.md",
+      "bytes": 813,
+      "sha256": "410e4432c01a38cda578a68fdaa730129c15a8e3e60c7305001bb40bd5a71b6c",
+      "mode": "0o664"
+    },
+    {
+      "path": "/workspace/repos/pixelelated/distribution.worktrees/m6-records-693/docs/audits/2026_11_03-epic-m6-records/stage-e/scope-policy.json",
+      "bytes": 61603,
+      "sha256": "c9e2474804ba209c6aa767866de9df5768e9805d11a69f9dbfce2c7172041b00",
+      "mode": "0o664"
+    },
+    {
+      "path": "/workspace/repos/pixelelated/distribution.worktrees/m6-records-693/docs/audits/2026_11_03-epic-m6-records/tools/eh-scope.py",
+      "bytes": 4808,
+      "sha256": "7e48e422ff6f25092a01f9a032c63291ce1c87a6ccbf1839333b54a216550628",
+      "mode": "0o664"
+    },
+    {
+      "path": "/workspace/repos/pixelelated/distribution.worktrees/m6-records-693/tools/register-check",
+      "bytes": 5983,
+      "sha256": "8f444f93b71ffdf8bf5e900e2973920ea5b898702a498727028c371e648397db",
+      "mode": "0o775"
+    }
+  ],
+  "stdout_sha256": "cc8109c4204c07664404413df6aa0b7df7fbdb124d291137a00192188cc341b6",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "recorder_sha256": "35c4629f5663957a870af3059015e86fac15ae5cc098820bb6ee7bf64776b4a8",
+  "cpu_affinity": [
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21,
+    22,
+    23
+  ],
+  "python": "3.14.4 (main, Aug 20 2026, 10:41:58) [GCC 15.2.0]",
+  "stream_transport": "base64 of exact original bytes; no raw-stream rewrite"
+}

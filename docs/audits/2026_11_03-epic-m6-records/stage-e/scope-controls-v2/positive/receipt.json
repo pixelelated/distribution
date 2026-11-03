@@ -1,0 +1,60 @@
+{
+  "argv": [
+    "python3",
+    "-B",
+    "/workspace/repos/pixelelated/distribution.worktrees/m6-records-693/docs/audits/2026_11_03-epic-m6-records/tools/eh-scope.py",
+    "--repo",
+    "/tmp/m6-t46-eh-fixtures-kbnfwd30/positive",
+    "--policy",
+    "/tmp/m6-t46-eh-fixtures-kbnfwd30/positive-policy.json",
+    "--tip",
+    "f605deb1f98d61d9417d017c42525878d1762b35"
+  ],
+  "cwd": "/workspace/repos/pixelelated/distribution.worktrees/m6-records-693",
+  "start": "2026-11-03T13:22:24.574286+00:00",
+  "end": "2026-11-03T13:22:24.616663+00:00",
+  "rc": 0,
+  "inputs": [
+    {
+      "path": "/workspace/repos/pixelelated/distribution.worktrees/m6-records-693/docs/audits/2026_11_03-epic-m6-records/tools/eh-scope.py",
+      "bytes": 4808,
+      "sha256": "7e48e422ff6f25092a01f9a032c63291ce1c87a6ccbf1839333b54a216550628",
+      "mode": "0o664"
+    },
+    {
+      "path": "/tmp/m6-t46-eh-fixtures-kbnfwd30/positive-policy.json",
+      "bytes": 2052,
+      "sha256": "bb158baefd79f6e3b2a79f1aacc92f99f49c73372c0d642b5dd5d423e814fdb2",
+      "mode": "0o664"
+    },
+    {
+      "path": "/workspace/repos/pixelelated/distribution.worktrees/m6-records-693/docs/audits/2026_11_03-epic-m6-records/stage-e/fixtures-manifest.json",
+      "bytes": 115337,
+      "sha256": "6fe11f9e6c860eb507690b76a24af98403f5ec512a44fa9660e8420703871f78",
+      "mode": "0o664"
+    }
+  ],
+  "stdout_sha256": "da0c8322ccffc809f033a47507ea23001d566ece2e5d49679f17c7b0d501a719",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "recorder_sha256": "35c4629f5663957a870af3059015e86fac15ae5cc098820bb6ee7bf64776b4a8",
+  "cpu_affinity": [
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21,
+    22,
+    23
+  ],
+  "python": "3.14.4 (main, Aug 20 2026, 10:41:58) [GCC 15.2.0]",
+  "stream_transport": "base64 of exact original bytes; no raw-stream rewrite"
+}

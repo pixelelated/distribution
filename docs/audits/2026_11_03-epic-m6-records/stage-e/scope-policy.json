@@ -1,0 +1,1569 @@
+{
+  "after_oid": "98c7a7461a4d7c44c55f7909ce8b6ff7bbb58fb0",
+  "after_sha256": "410e4432c01a38cda578a68fdaa730129c15a8e3e60c7305001bb40bd5a71b6c",
+  "audit_root": "docs/audits/2026_11_03-epic-m6-records/",
+  "base": "a0d4c4fda7a0c16c04d57edf921ffeb741eff19b",
+  "before_oid": "129a331b82383350e4878f8e7bec91f7e53851b1",
+  "exact_records": [
+    ".github/sessions/saved-session-state-feature-m6-records-693.md",
+    "docs/work-logs/2026_11-work_logs/2026_11_03-work_log.md",
+    "docs/work-logs/INDEX.md",
+    "docs/retros/2026-11-03-m6-records.md"
+  ],
+  "execution_dates": [
+    "2026-11-03"
+  ],
+  "frozen": {
+    "docs/audits/2026_11_03-epic-m6-records/01-research-notes.md": {
+      "mode": "100644",
+      "oid": "692f857a6760a74fe6b7a9b918106ff59e060ee6",
+      "type": "blob"
+    },
+    "docs/audits/2026_11_03-epic-m6-records/03-retrospective.md": {
+      "mode": "100644",
+      "oid": "35d3a98ca31f6048f86b4ead39ef5fe934580639",
+      "type": "blob"
+    },
+    "docs/audits/2026_11_03-epic-m6-records/second-opinions/review-plan.json": {
+      "mode": "100644",
+      "oid": "2dcbba613bc1677e9973b0cbbf368916deaa78d0",
+      "type": "blob"
+    },
+    "docs/audits/2026_11_03-epic-m6-records/stage-a/commands.json": {
+      "mode": "100644",
+      "oid": "7a3d02ec6dadc233db6783a7eca561c3e2ca176c",
+      "type": "blob"
+    },
+    "docs/audits/2026_11_03-epic-m6-records/stage-a/dispatch-and-issues.json": {
+      "mode": "100644",
+      "oid": "6725f745748fc16d800cc31e96bbb813f18d4a45",
+      "type": "blob"
+    },
+    "docs/audits/2026_11_03-epic-m6-records/stage-a/first-independent-observations.json": {
+      "mode": "100644",
+      "oid": "c83c2b4713a8f8a3a58cde024abac60bb2560470",
+      "type": "blob"
+    },
+    "docs/audits/2026_11_03-epic-m6-records/stage-a/groups.json": {
+      "mode": "100644",
+      "oid": "37651eded43cd2628bb2c3b03bffb72876a98821",
+      "type": "blob"
+    },
+    "docs/audits/2026_11_03-epic-m6-records/stage-a/local-fixtures/positive-v2/2026_11_03-epic-local-control/01-research-notes.md": {
+      "mode": "100644",
+      "oid": "5a8183c140333609baf837736ebc698762917b66",
+      "type": "blob"
+    },
+    "docs/audits/2026_11_03-epic-m6-records/stage-a/local-fixtures/positive-v2/2026_11_03-epic-local-control/02-forward-audit.md": {
+      "mode": "100644",
+      "oid": "5a8183c140333609baf837736ebc698762917b66",
+      "type": "blob"
+    },
+    "docs/audits/2026_11_03-epic-m6-records/stage-a/local-fixtures/positive-v2/2026_11_03-epic-local-control/03-retrospective.md": {
+      "mode": "100644",
+      "oid": "5a8183c140333609baf837736ebc698762917b66",
+      "type": "blob"
+    },
+    "docs/audits/2026_11_03-epic-m6-records/stage-a/local-fixtures/positive-v2/2026_11_03-epic-local-control/04-analysis.md": {
+      "mode": "100644",
+      "oid": "e99828fa5766b6cfd12a52a52ff220b76dde22dc",
+      "type": "blob"
+    },
+    "docs/audits/2026_11_03-epic-m6-records/stage-a/local-fixtures/positive-v2/2026_11_03-epic-local-control/05-punch-list.md": {
+      "mode": "100644",
+      "oid": "d03c75e4f8f937c4c83e903d05c9d762ad1c7da1",
+      "type": "blob"
+    },
+    "docs/audits/2026_11_03-epic-m6-records/stage-a/local-fixtures/positive-v2/2026_11_03-epic-local-control/second-opinions/review-plan.json": {
+      "mode": "100644",
+      "oid": "2dcbba613bc1677e9973b0cbbf368916deaa78d0",
+      "type": "blob"
+    },
+    "docs/audits/2026_11_03-epic-m6-records/stage-a/local-fixtures/positive/2026_11_03-epic-local-control/01-research-notes.md": {
+      "mode": "100644",
+      "oid": "5a8183c140333609baf837736ebc698762917b66",
+      "type": "blob"
+    },
+    "docs/audits/2026_11_03-epic-m6-records/stage-a/local-fixtures/positive/2026_11_03-epic-local-control/02-forward-audit.md": {
+      "mode": "100644",
+      "oid": "5a8183c140333609baf837736ebc698762917b66",
+      "type": "blob"
+    },
+    "docs/audits/2026_11_03-epic-m6-records/stage-a/local-fixtures/positive/2026_11_03-epic-local-control/03-retrospective.md": {
+      "mode": "100644",
+      "oid": "5a8183c140333609baf837736ebc698762917b66",
+      "type": "blob"
+    },
+    "docs/audits/2026_11_03-epic-m6-records/stage-a/local-fixtures/positive/2026_11_03-epic-local-control/04-analysis.md": {
+      "mode": "100644",
+      "oid": "e99828fa5766b6cfd12a52a52ff220b76dde22dc",
+      "type": "blob"
+    },
+    "docs/audits/2026_11_03-epic-m6-records/stage-a/local-fixtures/positive/2026_11_03-epic-local-control/05-punch-list.md": {
+      "mode": "100644",
+      "oid": "d3dfbd8ae38d6f708e6e4627628e2984d76e757d",
+      "type": "blob"
+    },
+    "docs/audits/2026_11_03-epic-m6-records/stage-a/local-fixtures/positive/2026_11_03-epic-local-control/second-opinions/review-plan.json": {
+      "mode": "100644",
+      "oid": "2dcbba613bc1677e9973b0cbbf368916deaa78d0",
+      "type": "blob"
+    },
+    "docs/audits/2026_11_03-epic-m6-records/stage-a/local-fixtures/reviewer-count-negative-v2/2026_11_03-epic-local-control/01-research-notes.md": {
+      "mode": "100644",
+      "oid": "5a8183c140333609baf837736ebc698762917b66",
+      "type": "blob"
+    },
+    "docs/audits/2026_11_03-epic-m6-records/stage-a/local-fixtures/reviewer-count-negative-v2/2026_11_03-epic-local-control/02-forward-audit.md": {
+      "mode": "100644",
+      "oid": "5a8183c140333609baf837736ebc698762917b66",
+      "type": "blob"
+    },
+    "docs/audits/2026_11_03-epic-m6-records/stage-a/local-fixtures/reviewer-count-negative-v2/2026_11_03-epic-local-control/03-retrospective.md": {
+      "mode": "100644",
+      "oid": "5a8183c140333609baf837736ebc698762917b66",
+      "type": "blob"
+    },
+    "docs/audits/2026_11_03-epic-m6-records/stage-a/local-fixtures/reviewer-count-negative-v2/2026_11_03-epic-local-control/04-analysis.md": {
+      "mode": "100644",
+      "oid": "e99828fa5766b6cfd12a52a52ff220b76dde22dc",
+      "type": "blob"
+    },
+    "docs/audits/2026_11_03-epic-m6-records/stage-a/local-fixtures/reviewer-count-negative-v2/2026_11_03-epic-local-control/05-punch-list.md": {
+      "mode": "100644",
+      "oid": "d03c75e4f8f937c4c83e903d05c9d762ad1c7da1",
+      "type": "blob"
+    },
+    "docs/audits/2026_11_03-epic-m6-records/stage-a/local-fixtures/reviewer-count-negative-v2/2026_11_03-epic-local-control/second-opinions/review-plan.json": {
+      "mode": "100644",
+      "oid": "ac04435b4c309199b89775fe9768152122d23705",
+      "type": "blob"
+    },
+    "docs/audits/2026_11_03-epic-m6-records/stage-a/local-fixtures/reviewer-count-negative/2026_11_03-epic-local-control/01-research-notes.md": {
+      "mode": "100644",
+      "oid": "5a8183c140333609baf837736ebc698762917b66",
+      "type": "blob"
+    },
+    "docs/audits/2026_11_03-epic-m6-records/stage-a/local-fixtures/reviewer-count-negative/2026_11_03-epic-local-control/02-forward-audit.md": {
+      "mode": "100644",
+      "oid": "5a8183c140333609baf837736ebc698762917b66",
+      "type": "blob"
+    },
+    "docs/audits/2026_11_03-epic-m6-records/stage-a/local-fixtures/reviewer-count-negative/2026_11_03-epic-local-control/03-retrospective.md": {
+      "mode": "100644",
+      "oid": "5a8183c140333609baf837736ebc698762917b66",
+      "type": "blob"
+    },
+    "docs/audits/2026_11_03-epic-m6-records/stage-a/local-fixtures/reviewer-count-negative/2026_11_03-epic-local-control/04-analysis.md": {
+      "mode": "100644",
+      "oid": "e99828fa5766b6cfd12a52a52ff220b76dde22dc",
+      "type": "blob"
+    },
+    "docs/audits/2026_11_03-epic-m6-records/stage-a/local-fixtures/reviewer-count-negative/2026_11_03-epic-local-control/05-punch-list.md": {
+      "mode": "100644",
+      "oid": "d3dfbd8ae38d6f708e6e4627628e2984d76e757d",
+      "type": "blob"
+    },
+    "docs/audits/2026_11_03-epic-m6-records/stage-a/local-fixtures/reviewer-count-negative/2026_11_03-epic-local-control/second-opinions/review-plan.json": {
+      "mode": "100644",
+      "oid": "ac04435b4c309199b89775fe9768152122d23705",
+      "type": "blob"
+    },
+    "docs/audits/2026_11_03-epic-m6-records/stage-a/local-positive-v2/receipt.json": {
+      "mode": "100644",
+      "oid": "89302ab0f8ea289edd1fd9a6c8ef7992423ac76d",
+      "type": "blob"
+    },
+    "docs/audits/2026_11_03-epic-m6-records/stage-a/local-positive-v2/stderr": {
+      "mode": "100644",
+      "oid": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "type": "blob"
+    },
+    "docs/audits/2026_11_03-epic-m6-records/stage-a/local-positive-v2/stdout": {
+      "mode": "100644",
+      "oid": "00ff249ebee8d52220dd44b2956465164ba2fb32",
+      "type": "blob"
+    },
+    "docs/audits/2026_11_03-epic-m6-records/stage-a/local-positive/receipt.json": {
+      "mode": "100644",
+      "oid": "f0d63ff20105c66f487ffe97b6363f6368be7d2d",
+      "type": "blob"
+    },
+    "docs/audits/2026_11_03-epic-m6-records/stage-a/local-positive/stderr": {
+      "mode": "100644",
+      "oid": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "type": "blob"
+    },
+    "docs/audits/2026_11_03-epic-m6-records/stage-a/local-positive/stdout": {
+      "mode": "100644",
+      "oid": "260e51f8570443cfae4f3ff70f3cb5bc0ccdd718",
+      "type": "blob"
+    },
+    "docs/audits/2026_11_03-epic-m6-records/stage-a/local-reviewer-count-negative-v2/receipt.json": {
+      "mode": "100644",
+      "oid": "ee404c25fdbbd3641bff6d2792a71d0daac88b0c",
+      "type": "blob"
+    },
+    "docs/audits/2026_11_03-epic-m6-records/stage-a/local-reviewer-count-negative-v2/stderr": {
+      "mode": "100644",
+      "oid": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "type": "blob"
+    },
+    "docs/audits/2026_11_03-epic-m6-records/stage-a/local-reviewer-count-negative-v2/stdout": {
+      "mode": "100644",
+      "oid": "3f135b1f53e57d5676e058b851b0e4a0f746a174",
+      "type": "blob"
+    },
+    "docs/audits/2026_11_03-epic-m6-records/stage-a/local-reviewer-count-negative/receipt.json": {
+      "mode": "100644",
+      "oid": "72d932b377b4dd3890310c96032a701cab0f93e0",
+      "type": "blob"
+    },
+    "docs/audits/2026_11_03-epic-m6-records/stage-a/local-reviewer-count-negative/stderr": {
+      "mode": "100644",
+      "oid": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "type": "blob"
+    },
+    "docs/audits/2026_11_03-epic-m6-records/stage-a/local-reviewer-count-negative/stdout": {
+      "mode": "100644",
+      "oid": "a81a034799fb3b69f510263bcdb9796bdaa9ccf1",
+      "type": "blob"
+    },
+    "docs/audits/2026_11_03-epic-m6-records/stage-a/source-binding/receipt.json": {
+      "mode": "100644",
+      "oid": "1dc6aebfc2936d2419bbb4c40f3a76704f979596",
+      "type": "blob"
+    },
+    "docs/audits/2026_11_03-epic-m6-records/stage-a/source-binding/stderr": {
+      "mode": "100644",
+      "oid": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "type": "blob"
+    },
+    "docs/audits/2026_11_03-epic-m6-records/stage-a/source-binding/stdout": {
+      "mode": "100644",
+      "oid": "5e36ce6f5df0bde37bcd6a6bcc73ca7ce71ff31e",
+      "type": "blob"
+    },
+    "docs/audits/2026_11_03-epic-m6-records/stage-a/summary.json": {
+      "mode": "100644",
+      "oid": "c13366752bace51e34dcab31b679117c3bd1cce1",
+      "type": "blob"
+    },
+    "docs/audits/2026_11_03-epic-m6-records/stage-b/heading-metadata-proof/receipt.json": {
+      "mode": "100644",
+      "oid": "3bef30b00d3abc1fdbe4615b7c0b9afef14d0f6d",
+      "type": "blob"
+    },
+    "docs/audits/2026_11_03-epic-m6-records/stage-b/heading-metadata-proof/stderr": {
+      "mode": "100644",
+      "oid": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "type": "blob"
+    },
+    "docs/audits/2026_11_03-epic-m6-records/stage-b/heading-metadata-proof/stdout": {
+      "mode": "100644",
+      "oid": "ca126ae4e35de50a6e298e442a34a8e66d8f179e",
+      "type": "blob"
+    },
+    "docs/audits/2026_11_03-epic-m6-records/stage-b/heading-metadata.json": {
+      "mode": "100644",
+      "oid": "6b22d477d392d7a9154e0571db03a6f3c098d03a",
+      "type": "blob"
+    },
+    "docs/audits/2026_11_03-epic-m6-records/stage-b/inherited-and-duplicates.json": {
+      "mode": "100644",
+      "oid": "0f1d55de0d5f3afa6313bc04d149311cf766ddfe",
+      "type": "blob"
+    },
+    "docs/audits/2026_11_03-epic-m6-records/stage-b/inventory-schema-proof/receipt.json": {
+      "mode": "100644",
+      "oid": "3d61297d16e034f916eb1806a502408efb36da68",
+      "type": "blob"
+    },
+    "docs/audits/2026_11_03-epic-m6-records/stage-b/inventory-schema-proof/stderr": {
+      "mode": "100644",
+      "oid": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "type": "blob"
+    },
+    "docs/audits/2026_11_03-epic-m6-records/stage-b/inventory-schema-proof/stdout": {
+      "mode": "100644",
+      "oid": "f9e4788140267b77e15af68da5134cadfca2ff41",
+      "type": "blob"
+    },
+    "docs/audits/2026_11_03-epic-m6-records/stage-b/inventory-schema.json": {
+      "mode": "100644",
+      "oid": "5ea6945dbf7a930bf2d03dad41e845ea2b69639e",
+      "type": "blob"
+    },
+    "docs/audits/2026_11_03-epic-m6-records/stage-b/observations.json": {
+      "mode": "100644",
+      "oid": "0e64f4c2aa602f143a827a20a24e46c60e1ad1c6",
+      "type": "blob"
+    },
+    "docs/audits/2026_11_03-epic-m6-records/stage-b/pointer-navigation/receipt.json": {
+      "mode": "100644",
+      "oid": "78ec2fc80587928fe9f161ccdc272dbda9df8021",
+      "type": "blob"
+    },
+    "docs/audits/2026_11_03-epic-m6-records/stage-b/pointer-navigation/stderr": {
+      "mode": "100644",
+      "oid": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "type": "blob"
+    },
+    "docs/audits/2026_11_03-epic-m6-records/stage-b/pointer-navigation/stdout": {
+      "mode": "100644",
+      "oid": "980b05a61de670ee8122e9aa7ddeb56c96a34177",
+      "type": "blob"
+    },
+    "docs/audits/2026_11_03-epic-m6-records/stage-b/range-preparation/receipt.json": {
+      "mode": "100644",
+      "oid": "45dfcfd60adba7bcc101377f5f5be76e87c68f72",
+      "type": "blob"
+    },
+    "docs/audits/2026_11_03-epic-m6-records/stage-b/range-preparation/stderr": {
+      "mode": "100644",
+      "oid": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "type": "blob"
+    },
+    "docs/audits/2026_11_03-epic-m6-records/stage-b/range-preparation/stdout": {
+      "mode": "100644",
+      "oid": "97db3846c2d26dc2651638ffa7cd66df243b4a70",
+      "type": "blob"
+    },
+    "docs/audits/2026_11_03-epic-m6-records/stage-b/ranges.json": {
+      "mode": "100644",
+      "oid": "9592d38f6189a3332b73cf4d362399b07eacec2d",
+      "type": "blob"
+    },
+    "docs/audits/2026_11_03-epic-m6-records/stage-b/read-00/receipt.json": {
+      "mode": "100644",
+      "oid": "0a01a5bd7317a7828067d1f6ab63d4dddc132397",
+      "type": "blob"
+    },
+    "docs/audits/2026_11_03-epic-m6-records/stage-b/read-00/stderr": {
+      "mode": "100644",
+      "oid": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "type": "blob"
+    },
+    "docs/audits/2026_11_03-epic-m6-records/stage-b/read-00/stdout": {
+      "mode": "100644",
+      "oid": "cbc39cc0bd9e5e852836bb0005d4436e061237b0",
+      "type": "blob"
+    },
+    "docs/audits/2026_11_03-epic-m6-records/stage-b/read-01/receipt.json": {
+      "mode": "100644",
+      "oid": "308841a9265693187aec62c5de0e41426d426261",
+      "type": "blob"
+    },
+    "docs/audits/2026_11_03-epic-m6-records/stage-b/read-01/stderr": {
+      "mode": "100644",
+      "oid": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "type": "blob"
+    },
+    "docs/audits/2026_11_03-epic-m6-records/stage-b/read-01/stdout": {
+      "mode": "100644",
+      "oid": "1b2a90dadd4015d3041c1d1996a906283997afe6",
+      "type": "blob"
+    },
+    "docs/audits/2026_11_03-epic-m6-records/stage-b/read-02/receipt.json": {
+      "mode": "100644",
+      "oid": "8b6d5e229bcce6ebecc99b2b5bf3eeaca316d066",
+      "type": "blob"
+    },
+    "docs/audits/2026_11_03-epic-m6-records/stage-b/read-02/stderr": {
+      "mode": "100644",
+      "oid": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "type": "blob"
+    },
+    "docs/audits/2026_11_03-epic-m6-records/stage-b/read-02/stdout": {
+      "mode": "100644",
+      "oid": "c537905843fc463dd58368f2e3be035496e7b81e",
+      "type": "blob"
+    },
+    "docs/audits/2026_11_03-epic-m6-records/stage-b/read-03/receipt.json": {
+      "mode": "100644",
+      "oid": "283d5f254bdf6305fd0207fa33e1c2f925a8bf6d",
+      "type": "blob"
+    },
+    "docs/audits/2026_11_03-epic-m6-records/stage-b/read-03/stderr": {
+      "mode": "100644",
+      "oid": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "type": "blob"
+    },
+    "docs/audits/2026_11_03-epic-m6-records/stage-b/read-03/stdout": {
+      "mode": "100644",
+      "oid": "1d0fba312e6c6dbfa3e2cca2f6b668f7855a7a0a",
+      "type": "blob"
+    },
+    "docs/audits/2026_11_03-epic-m6-records/stage-b/read-04/receipt.json": {
+      "mode": "100644",
+      "oid": "4b46c9810e2d0c648e02099d8d4e1b777c3360e0",
+      "type": "blob"
+    },
+    "docs/audits/2026_11_03-epic-m6-records/stage-b/read-04/stderr": {
+      "mode": "100644",
+      "oid": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "type": "blob"
+    },
+    "docs/audits/2026_11_03-epic-m6-records/stage-b/read-04/stdout": {
+      "mode": "100644",
+      "oid": "bd861cfb5fe907b5650899ce323a2b5212a98043",
+      "type": "blob"
+    },
+    "docs/audits/2026_11_03-epic-m6-records/stage-b/read-05/receipt.json": {
+      "mode": "100644",
+      "oid": "14ab0af9ef5a045f046692a2b6673f5550bb0f69",
+      "type": "blob"
+    },
+    "docs/audits/2026_11_03-epic-m6-records/stage-b/read-05/stderr": {
+      "mode": "100644",
+      "oid": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "type": "blob"
+    },
+    "docs/audits/2026_11_03-epic-m6-records/stage-b/read-05/stdout": {
+      "mode": "100644",
+      "oid": "65787733836a0a88d254f0eaffcdc919312df009",
+      "type": "blob"
+    },
+    "docs/audits/2026_11_03-epic-m6-records/stage-b/read-06/receipt.json": {
+      "mode": "100644",
+      "oid": "8a671f83615bcd90ca745f8db679f16154b0a4b0",
+      "type": "blob"
+    },
+    "docs/audits/2026_11_03-epic-m6-records/stage-b/read-06/stderr": {
+      "mode": "100644",
+      "oid": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "type": "blob"
+    },
+    "docs/audits/2026_11_03-epic-m6-records/stage-b/read-06/stdout": {
+      "mode": "100644",
+      "oid": "e081d0d6bf67ce44b9b97af5ee37ad08966e7908",
+      "type": "blob"
+    },
+    "docs/audits/2026_11_03-epic-m6-records/stage-b/read-07/receipt.json": {
+      "mode": "100644",
+      "oid": "e766c061960a3f15e379f76c91debec40e0f44e1",
+      "type": "blob"
+    },
+    "docs/audits/2026_11_03-epic-m6-records/stage-b/read-07/stderr": {
+      "mode": "100644",
+      "oid": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "type": "blob"
+    },
+    "docs/audits/2026_11_03-epic-m6-records/stage-b/read-07/stdout": {
+      "mode": "100644",
+      "oid": "624c9b323d0ce511038d3293604062b1311a7447",
+      "type": "blob"
+    },
+    "docs/audits/2026_11_03-epic-m6-records/stage-b/read-08/receipt.json": {
+      "mode": "100644",
+      "oid": "4880d512e2028df292037f748a3d3692034ff299",
+      "type": "blob"
+    },
+    "docs/audits/2026_11_03-epic-m6-records/stage-b/read-08/stderr": {
+      "mode": "100644",
+      "oid": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "type": "blob"
+    },
+    "docs/audits/2026_11_03-epic-m6-records/stage-b/read-08/stdout": {
+      "mode": "100644",
+      "oid": "d7f647526f1078c0fc136b07acb86c5c58cdad44",
+      "type": "blob"
+    },
+    "docs/audits/2026_11_03-epic-m6-records/stage-b/read-09/receipt.json": {
+      "mode": "100644",
+      "oid": "78398577d423f0023299fb25adaa4008293d5cdd",
+      "type": "blob"
+    },
+    "docs/audits/2026_11_03-epic-m6-records/stage-b/read-09/stderr": {
+      "mode": "100644",
+      "oid": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "type": "blob"
+    },
+    "docs/audits/2026_11_03-epic-m6-records/stage-b/read-09/stdout": {
+      "mode": "100644",
+      "oid": "5b3335516689cbbef525583d21874e5cda56c06f",
+      "type": "blob"
+    },
+    "docs/audits/2026_11_03-epic-m6-records/stage-b/read-10/receipt.json": {
+      "mode": "100644",
+      "oid": "5ad0eeff1cc6c09a852001d8910e4e9fc6195079",
+      "type": "blob"
+    },
+    "docs/audits/2026_11_03-epic-m6-records/stage-b/read-10/stderr": {
+      "mode": "100644",
+      "oid": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "type": "blob"
+    },
+    "docs/audits/2026_11_03-epic-m6-records/stage-b/read-10/stdout": {
+      "mode": "100644",
+      "oid": "ba0d5036d24e41c2f2e1aa2c2affb3bb9905d9c2",
+      "type": "blob"
+    },
+    "docs/audits/2026_11_03-epic-m6-records/stage-b/read-11/receipt.json": {
+      "mode": "100644",
+      "oid": "d7aa1a4ea48a052e676b13f286c979f9f4bcf251",
+      "type": "blob"
+    },
+    "docs/audits/2026_11_03-epic-m6-records/stage-b/read-11/stderr": {
+      "mode": "100644",
+      "oid": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "type": "blob"
+    },
+    "docs/audits/2026_11_03-epic-m6-records/stage-b/read-11/stdout": {
+      "mode": "100644",
+      "oid": "7b3cd9ccc003b2a4a0742da9f6a5d5340a92a4fb",
+      "type": "blob"
+    },
+    "docs/audits/2026_11_03-epic-m6-records/stage-b/read-12/receipt.json": {
+      "mode": "100644",
+      "oid": "b5baaf9713625f85763177991e37affabb80f67a",
+      "type": "blob"
+    },
+    "docs/audits/2026_11_03-epic-m6-records/stage-b/read-12/stderr": {
+      "mode": "100644",
+      "oid": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "type": "blob"
+    },
+    "docs/audits/2026_11_03-epic-m6-records/stage-b/read-12/stdout": {
+      "mode": "100644",
+      "oid": "5472a01e9bb40eba21d5e071c465645bcb0a6623",
+      "type": "blob"
+    },
+    "docs/audits/2026_11_03-epic-m6-records/stage-b/read-13/receipt.json": {
+      "mode": "100644",
+      "oid": "e966eef7fc93843b601ff7c9dd1ac61777d93314",
+      "type": "blob"
+    },
+    "docs/audits/2026_11_03-epic-m6-records/stage-b/read-13/stderr": {
+      "mode": "100644",
+      "oid": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "type": "blob"
+    },
+    "docs/audits/2026_11_03-epic-m6-records/stage-b/read-13/stdout": {
+      "mode": "100644",
+      "oid": "b2c271e1e95c32d446c6e7542295e001b6b54584",
+      "type": "blob"
+    },
+    "docs/audits/2026_11_03-epic-m6-records/stage-b/read-14/receipt.json": {
+      "mode": "100644",
+      "oid": "fafec31694cf936914e3ce11927c77454daed05a",
+      "type": "blob"
+    },
+    "docs/audits/2026_11_03-epic-m6-records/stage-b/read-14/stderr": {
+      "mode": "100644",
+      "oid": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "type": "blob"
+    },
+    "docs/audits/2026_11_03-epic-m6-records/stage-b/read-14/stdout": {
+      "mode": "100644",
+      "oid": "52107af204a49ba67facc4713680d2e0ac6e5215",
+      "type": "blob"
+    },
+    "docs/audits/2026_11_03-epic-m6-records/stage-b/read-15/receipt.json": {
+      "mode": "100644",
+      "oid": "0d6fb230012107852fdf2047e0210321e51feb29",
+      "type": "blob"
+    },
+    "docs/audits/2026_11_03-epic-m6-records/stage-b/read-15/stderr": {
+      "mode": "100644",
+      "oid": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "type": "blob"
+    },
+    "docs/audits/2026_11_03-epic-m6-records/stage-b/read-15/stdout": {
+      "mode": "100644",
+      "oid": "03b1d286ca54db2fa4fc923ff1a0283ceb4b096d",
+      "type": "blob"
+    },
+    "docs/audits/2026_11_03-epic-m6-records/stage-b/read-16/receipt.json": {
+      "mode": "100644",
+      "oid": "1d92c3a22e650e74ff8ee5c700ee7ebef333da4f",
+      "type": "blob"
+    },
+    "docs/audits/2026_11_03-epic-m6-records/stage-b/read-16/stderr": {
+      "mode": "100644",
+      "oid": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "type": "blob"
+    },
+    "docs/audits/2026_11_03-epic-m6-records/stage-b/read-16/stdout": {
+      "mode": "100644",
+      "oid": "4d3c2bbcdbb5e16d4a2dac9a0353b586a083307b",
+      "type": "blob"
+    },
+    "docs/audits/2026_11_03-epic-m6-records/stage-b/route-inputs.json": {
+      "mode": "100644",
+      "oid": "e1086878be2ca50b8f04492e779023d0b45ead99",
+      "type": "blob"
+    },
+    "docs/audits/2026_11_03-epic-m6-records/stage-b/table-assembly/receipt.json": {
+      "mode": "100644",
+      "oid": "7362288bf99787afc536fcbb390393fc60d0d2ee",
+      "type": "blob"
+    },
+    "docs/audits/2026_11_03-epic-m6-records/stage-b/table-assembly/stderr": {
+      "mode": "100644",
+      "oid": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "type": "blob"
+    },
+    "docs/audits/2026_11_03-epic-m6-records/stage-b/table-assembly/stdout": {
+      "mode": "100644",
+      "oid": "2bf7bcad741e50efa0e21ba6f403b2e320e33c71",
+      "type": "blob"
+    },
+    "docs/audits/2026_11_03-epic-m6-records/stage-b/table.json": {
+      "mode": "100644",
+      "oid": "d91a2348437bf1881b13f3a0fef1a65c8c93a631",
+      "type": "blob"
+    },
+    "docs/audits/2026_11_03-epic-m6-records/stage-c/confinement-edit_then_revert/receipt.json": {
+      "mode": "100644",
+      "oid": "8cf5c9af6bfb72c33c7b613d942ecb7f95db74de",
+      "type": "blob"
+    },
+    "docs/audits/2026_11_03-epic-m6-records/stage-c/confinement-edit_then_revert/stderr": {
+      "mode": "100644",
+      "oid": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "type": "blob"
+    },
+    "docs/audits/2026_11_03-epic-m6-records/stage-c/confinement-edit_then_revert/stdout": {
+      "mode": "100644",
+      "oid": "9561ce14bfdee4656f97ba4229d2a50139f8228e",
+      "type": "blob"
+    },
+    "docs/audits/2026_11_03-epic-m6-records/stage-c/confinement-fixtures.json": {
+      "mode": "100644",
+      "oid": "74717a13044fc450ad3f58883a5ebafc940f2ffd",
+      "type": "blob"
+    },
+    "docs/audits/2026_11_03-epic-m6-records/stage-c/confinement-positive/receipt.json": {
+      "mode": "100644",
+      "oid": "ce10a80cc916280e93bcd1dcfca1ca6f1117e9f8",
+      "type": "blob"
+    },
+    "docs/audits/2026_11_03-epic-m6-records/stage-c/confinement-positive/stderr": {
+      "mode": "100644",
+      "oid": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "type": "blob"
+    },
+    "docs/audits/2026_11_03-epic-m6-records/stage-c/confinement-positive/stdout": {
+      "mode": "100644",
+      "oid": "df38f04c619b077cdf295164c494459ee0a2f647",
+      "type": "blob"
+    },
+    "docs/audits/2026_11_03-epic-m6-records/stage-c/confinement-source_edit/receipt.json": {
+      "mode": "100644",
+      "oid": "c3d9fad33ed62d6a25d73e7a2a12715a465f7f9a",
+      "type": "blob"
+    },
+    "docs/audits/2026_11_03-epic-m6-records/stage-c/confinement-source_edit/stderr": {
+      "mode": "100644",
+      "oid": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "type": "blob"
+    },
+    "docs/audits/2026_11_03-epic-m6-records/stage-c/confinement-source_edit/stdout": {
+      "mode": "100644",
+      "oid": "41fbdbc5ebe242a1f726f84a0f12fca13901ec40",
+      "type": "blob"
+    },
+    "docs/audits/2026_11_03-epic-m6-records/stage-c/control-driver/receipt.json": {
+      "mode": "100644",
+      "oid": "b788d0ad1ea1c7d9e4ce8ae6aa44a03d9afe55e3",
+      "type": "blob"
+    },
+    "docs/audits/2026_11_03-epic-m6-records/stage-c/control-driver/stderr": {
+      "mode": "100644",
+      "oid": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "type": "blob"
+    },
+    "docs/audits/2026_11_03-epic-m6-records/stage-c/control-driver/stdout": {
+      "mode": "100644",
+      "oid": "16e55a17d736cced2ca3b2733f8450dc9c4a0450",
+      "type": "blob"
+    },
+    "docs/audits/2026_11_03-epic-m6-records/stage-c/control-summary.json": {
+      "mode": "100644",
+      "oid": "b32caecf17c7242a32eb64104a5e0ee2f93acd4f",
+      "type": "blob"
+    },
+    "docs/audits/2026_11_03-epic-m6-records/stage-c/link-fixtures/missing-anchor.json": {
+      "mode": "100644",
+      "oid": "42bf24dabd06da098460d57a38031287f3e23faa",
+      "type": "blob"
+    },
+    "docs/audits/2026_11_03-epic-m6-records/stage-c/link-fixtures/missing-target.json": {
+      "mode": "100644",
+      "oid": "73d6e6006c6e80a83d56f8109a4fa8cc38ad49fe",
+      "type": "blob"
+    },
+    "docs/audits/2026_11_03-epic-m6-records/stage-c/link-fixtures/positive.json": {
+      "mode": "100644",
+      "oid": "f69350afc898d1fe125013f8e6873b32a4370c59",
+      "type": "blob"
+    },
+    "docs/audits/2026_11_03-epic-m6-records/stage-c/link-fixtures/unsupported.json": {
+      "mode": "100644",
+      "oid": "a310eb495db1329ea9588cabe541d25b55c62b8f",
+      "type": "blob"
+    },
+    "docs/audits/2026_11_03-epic-m6-records/stage-c/link-missing-anchor/receipt.json": {
+      "mode": "100644",
+      "oid": "21ef479a6abf5f66e461ddc8ef66bb4890c00bce",
+      "type": "blob"
+    },
+    "docs/audits/2026_11_03-epic-m6-records/stage-c/link-missing-anchor/stderr": {
+      "mode": "100644",
+      "oid": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "type": "blob"
+    },
+    "docs/audits/2026_11_03-epic-m6-records/stage-c/link-missing-anchor/stdout": {
+      "mode": "100644",
+      "oid": "0152c22f41481510842ca56ed5cfc91c1aec62d3",
+      "type": "blob"
+    },
+    "docs/audits/2026_11_03-epic-m6-records/stage-c/link-missing-target/receipt.json": {
+      "mode": "100644",
+      "oid": "9dc334c57768789ee02999ec299f66d23d39df0a",
+      "type": "blob"
+    },
+    "docs/audits/2026_11_03-epic-m6-records/stage-c/link-missing-target/stderr": {
+      "mode": "100644",
+      "oid": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "type": "blob"
+    },
+    "docs/audits/2026_11_03-epic-m6-records/stage-c/link-missing-target/stdout": {
+      "mode": "100644",
+      "oid": "630d93268ad912ec4874d27159e429b3471c9c64",
+      "type": "blob"
+    },
+    "docs/audits/2026_11_03-epic-m6-records/stage-c/link-positive/receipt.json": {
+      "mode": "100644",
+      "oid": "fd53d345fdd359c4868252fcd030afe6604e3638",
+      "type": "blob"
+    },
+    "docs/audits/2026_11_03-epic-m6-records/stage-c/link-positive/stderr": {
+      "mode": "100644",
+      "oid": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "type": "blob"
+    },
+    "docs/audits/2026_11_03-epic-m6-records/stage-c/link-positive/stdout": {
+      "mode": "100644",
+      "oid": "13866a0a915140122b05a43a131e6cd8ef8d9f3c",
+      "type": "blob"
+    },
+    "docs/audits/2026_11_03-epic-m6-records/stage-c/link-unsupported/receipt.json": {
+      "mode": "100644",
+      "oid": "bf448a91f07c89fc6d7c7957b38f1f5f86757a99",
+      "type": "blob"
+    },
+    "docs/audits/2026_11_03-epic-m6-records/stage-c/link-unsupported/stderr": {
+      "mode": "100644",
+      "oid": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "type": "blob"
+    },
+    "docs/audits/2026_11_03-epic-m6-records/stage-c/link-unsupported/stdout": {
+      "mode": "100644",
+      "oid": "f2b7f69e2deca3680509cf1582220fafc77a7d44",
+      "type": "blob"
+    },
+    "docs/audits/2026_11_03-epic-m6-records/stage-c/new-fixture-generation/receipt.json": {
+      "mode": "100644",
+      "oid": "b7db1be45268573ed18976b9ab5931e3a40f4ae2",
+      "type": "blob"
+    },
+    "docs/audits/2026_11_03-epic-m6-records/stage-c/new-fixture-generation/stderr": {
+      "mode": "100644",
+      "oid": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "type": "blob"
+    },
+    "docs/audits/2026_11_03-epic-m6-records/stage-c/new-fixture-generation/stdout": {
+      "mode": "100644",
+      "oid": "f883173d470516b2fe5780ff8342ae47e9896e6f",
+      "type": "blob"
+    },
+    "docs/audits/2026_11_03-epic-m6-records/stage-c/table-changed-source/receipt.json": {
+      "mode": "100644",
+      "oid": "01cdc5b2de892e3eb0267e8cec68fe6a68f015b0",
+      "type": "blob"
+    },
+    "docs/audits/2026_11_03-epic-m6-records/stage-c/table-changed-source/stderr": {
+      "mode": "100644",
+      "oid": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "type": "blob"
+    },
+    "docs/audits/2026_11_03-epic-m6-records/stage-c/table-changed-source/stdout": {
+      "mode": "100644",
+      "oid": "e06743c46d37a9c90d7a68e6e3e85a614d4bfbb3",
+      "type": "blob"
+    },
+    "docs/audits/2026_11_03-epic-m6-records/stage-c/table-duplicate-route/receipt.json": {
+      "mode": "100644",
+      "oid": "466ebe5a888664ea7d784dd413ad98e5a3cae50f",
+      "type": "blob"
+    },
+    "docs/audits/2026_11_03-epic-m6-records/stage-c/table-duplicate-route/stderr": {
+      "mode": "100644",
+      "oid": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "type": "blob"
+    },
+    "docs/audits/2026_11_03-epic-m6-records/stage-c/table-duplicate-route/stdout": {
+      "mode": "100644",
+      "oid": "4eff7665be2d69fdb650f17d1a98c08daffe1db4",
+      "type": "blob"
+    },
+    "docs/audits/2026_11_03-epic-m6-records/stage-c/table-fixture-generation/receipt.json": {
+      "mode": "100644",
+      "oid": "5788730baafc95ed5b73113d0a7b2c7f9b84990e",
+      "type": "blob"
+    },
+    "docs/audits/2026_11_03-epic-m6-records/stage-c/table-fixture-generation/stderr": {
+      "mode": "100644",
+      "oid": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "type": "blob"
+    },
+    "docs/audits/2026_11_03-epic-m6-records/stage-c/table-fixture-generation/stdout": {
+      "mode": "100644",
+      "oid": "4ba2720474d4bf15ed5fcf07754b3550c7e4c5dd",
+      "type": "blob"
+    },
+    "docs/audits/2026_11_03-epic-m6-records/stage-c/table-fixtures/changed-source.json": {
+      "mode": "100644",
+      "oid": "9f5d356a1c44ef7768ba6fc96fa42f6df9fd4389",
+      "type": "blob"
+    },
+    "docs/audits/2026_11_03-epic-m6-records/stage-c/table-fixtures/duplicate-route.json": {
+      "mode": "100644",
+      "oid": "a0314eaf872470d483b7ffebe42f83413e917b53",
+      "type": "blob"
+    },
+    "docs/audits/2026_11_03-epic-m6-records/stage-c/table-fixtures/history-as-defect.json": {
+      "mode": "100644",
+      "oid": "9a280ed30ad1637e788a39abbb6319eb4dd3cebe",
+      "type": "blob"
+    },
+    "docs/audits/2026_11_03-epic-m6-records/stage-c/table-fixtures/logical-as-savings.json": {
+      "mode": "100644",
+      "oid": "e4c613cf0271d30e145bdac0a9108f6fc98e6efe",
+      "type": "blob"
+    },
+    "docs/audits/2026_11_03-epic-m6-records/stage-c/table-fixtures/omitted-folder.json": {
+      "mode": "100644",
+      "oid": "34d20f475d37774f24d62dfd13787eaa2e660635",
+      "type": "blob"
+    },
+    "docs/audits/2026_11_03-epic-m6-records/stage-c/table-fixtures/omitted-route.json": {
+      "mode": "100644",
+      "oid": "7267661b4672029ae10d1abf63d995f6b10eb48a",
+      "type": "blob"
+    },
+    "docs/audits/2026_11_03-epic-m6-records/stage-c/table-fixtures/positive.json": {
+      "mode": "100644",
+      "oid": "d91a2348437bf1881b13f3a0fef1a65c8c93a631",
+      "type": "blob"
+    },
+    "docs/audits/2026_11_03-epic-m6-records/stage-c/table-fixtures/t39-as-new.json": {
+      "mode": "100644",
+      "oid": "c667f4ce06a771e18f6e100a581ee99f016f0b2c",
+      "type": "blob"
+    },
+    "docs/audits/2026_11_03-epic-m6-records/stage-c/table-fixtures/whole-file-credit.json": {
+      "mode": "100644",
+      "oid": "254863c08b3e6eab9755d49da8837d523d8a9365",
+      "type": "blob"
+    },
+    "docs/audits/2026_11_03-epic-m6-records/stage-c/table-history-as-defect/receipt.json": {
+      "mode": "100644",
+      "oid": "5d7ffd68846bcc694605e33bd4c4d90b59651489",
+      "type": "blob"
+    },
+    "docs/audits/2026_11_03-epic-m6-records/stage-c/table-history-as-defect/stderr": {
+      "mode": "100644",
+      "oid": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "type": "blob"
+    },
+    "docs/audits/2026_11_03-epic-m6-records/stage-c/table-history-as-defect/stdout": {
+      "mode": "100644",
+      "oid": "87ba51e856579fedfa6e772f0077cf9a8909a4e1",
+      "type": "blob"
+    },
+    "docs/audits/2026_11_03-epic-m6-records/stage-c/table-logical-as-savings/receipt.json": {
+      "mode": "100644",
+      "oid": "6bf42586cda7d936f8e462624fc72b4f60a71cf3",
+      "type": "blob"
+    },
+    "docs/audits/2026_11_03-epic-m6-records/stage-c/table-logical-as-savings/stderr": {
+      "mode": "100644",
+      "oid": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "type": "blob"
+    },
+    "docs/audits/2026_11_03-epic-m6-records/stage-c/table-logical-as-savings/stdout": {
+      "mode": "100644",
+      "oid": "e8c5883394a7d5cd3587afb752090bf5f1f5fd7c",
+      "type": "blob"
+    },
+    "docs/audits/2026_11_03-epic-m6-records/stage-c/table-omitted-folder/receipt.json": {
+      "mode": "100644",
+      "oid": "ceef10b101936b7e0d9c19f8a50cfbce9103c5ef",
+      "type": "blob"
+    },
+    "docs/audits/2026_11_03-epic-m6-records/stage-c/table-omitted-folder/stderr": {
+      "mode": "100644",
+      "oid": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "type": "blob"
+    },
+    "docs/audits/2026_11_03-epic-m6-records/stage-c/table-omitted-folder/stdout": {
+      "mode": "100644",
+      "oid": "87a6f9adca7a4e7209f079e90d2d2f95718cc14c",
+      "type": "blob"
+    },
+    "docs/audits/2026_11_03-epic-m6-records/stage-c/table-omitted-route/receipt.json": {
+      "mode": "100644",
+      "oid": "bcaf1483e4038a73b1c9fa2a76ab01bc9fcb6c39",
+      "type": "blob"
+    },
+    "docs/audits/2026_11_03-epic-m6-records/stage-c/table-omitted-route/stderr": {
+      "mode": "100644",
+      "oid": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "type": "blob"
+    },
+    "docs/audits/2026_11_03-epic-m6-records/stage-c/table-omitted-route/stdout": {
+      "mode": "100644",
+      "oid": "4eff7665be2d69fdb650f17d1a98c08daffe1db4",
+      "type": "blob"
+    },
+    "docs/audits/2026_11_03-epic-m6-records/stage-c/table-positive/receipt.json": {
+      "mode": "100644",
+      "oid": "f17a41c5d69e2ddf8c3a117b8c14ede01a8ed0cb",
+      "type": "blob"
+    },
+    "docs/audits/2026_11_03-epic-m6-records/stage-c/table-positive/stderr": {
+      "mode": "100644",
+      "oid": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "type": "blob"
+    },
+    "docs/audits/2026_11_03-epic-m6-records/stage-c/table-positive/stdout": {
+      "mode": "100644",
+      "oid": "d8dd407efdda3b805607bfbde01c08f340b65a83",
+      "type": "blob"
+    },
+    "docs/audits/2026_11_03-epic-m6-records/stage-c/table-t39-as-new/receipt.json": {
+      "mode": "100644",
+      "oid": "ed14b99229ff9adb78e684b3d2099500746e21d7",
+      "type": "blob"
+    },
+    "docs/audits/2026_11_03-epic-m6-records/stage-c/table-t39-as-new/stderr": {
+      "mode": "100644",
+      "oid": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "type": "blob"
+    },
+    "docs/audits/2026_11_03-epic-m6-records/stage-c/table-t39-as-new/stdout": {
+      "mode": "100644",
+      "oid": "b88238ce1aad54c272df5e6bc9d4aef6cfded7c5",
+      "type": "blob"
+    },
+    "docs/audits/2026_11_03-epic-m6-records/stage-c/table-whole-file-credit/receipt.json": {
+      "mode": "100644",
+      "oid": "c52e5e68f6032a643d03d9ff13075bb4b6873e06",
+      "type": "blob"
+    },
+    "docs/audits/2026_11_03-epic-m6-records/stage-c/table-whole-file-credit/stderr": {
+      "mode": "100644",
+      "oid": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "type": "blob"
+    },
+    "docs/audits/2026_11_03-epic-m6-records/stage-c/table-whole-file-credit/stdout": {
+      "mode": "100644",
+      "oid": "291995a92a9f094592dd764e2dd80cec457f880a",
+      "type": "blob"
+    },
+    "docs/audits/2026_11_03-epic-m6-records/stage-d/created-issues.json": {
+      "mode": "100644",
+      "oid": "b7f3a9cac9df29bc28b670ee69736f691dcfd9c2",
+      "type": "blob"
+    },
+    "docs/audits/2026_11_03-epic-m6-records/stage-d/current-gate-driver/receipt.json": {
+      "mode": "100644",
+      "oid": "3ab7de737cab3bbc137058d1edaca6acd6a25c07",
+      "type": "blob"
+    },
+    "docs/audits/2026_11_03-epic-m6-records/stage-d/current-gate-driver/stderr": {
+      "mode": "100644",
+      "oid": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "type": "blob"
+    },
+    "docs/audits/2026_11_03-epic-m6-records/stage-d/current-gate-driver/stdout": {
+      "mode": "100644",
+      "oid": "a347eff9baf74b69bf32f27d3165f5046998376c",
+      "type": "blob"
+    },
+    "docs/audits/2026_11_03-epic-m6-records/stage-d/encoding-verification/receipt.json": {
+      "mode": "100644",
+      "oid": "01a6668af1e0b2d60b14fb327e1a6edc24ac7eae",
+      "type": "blob"
+    },
+    "docs/audits/2026_11_03-epic-m6-records/stage-d/encoding-verification/stderr": {
+      "mode": "100644",
+      "oid": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "type": "blob"
+    },
+    "docs/audits/2026_11_03-epic-m6-records/stage-d/encoding-verification/stdout": {
+      "mode": "100644",
+      "oid": "3c2fedcfbe8830bd160dc1ddebe65358d13641e3",
+      "type": "blob"
+    },
+    "docs/audits/2026_11_03-epic-m6-records/stage-d/gates-summary.json": {
+      "mode": "100644",
+      "oid": "cc79f9a24e336cf70fb235a854d56ae8ad9eaf3d",
+      "type": "blob"
+    },
+    "docs/audits/2026_11_03-epic-m6-records/stage-d/gates/audit-checkboxes/receipt.json": {
+      "mode": "100644",
+      "oid": "a36689e6744ab89014e0db2aac3eeae1db074b57",
+      "type": "blob"
+    },
+    "docs/audits/2026_11_03-epic-m6-records/stage-d/gates/audit-checkboxes/stderr": {
+      "mode": "100644",
+      "oid": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "type": "blob"
+    },
+    "docs/audits/2026_11_03-epic-m6-records/stage-d/gates/audit-checkboxes/stdout": {
+      "mode": "100644",
+      "oid": "dbbdcd9d1a7ea37f73caca43b26a68e4521b7b9c",
+      "type": "blob"
+    },
+    "docs/audits/2026_11_03-epic-m6-records/stage-d/gates/audit-issue-lint/receipt.json": {
+      "mode": "100644",
+      "oid": "aa0fea154c1b8b368790f81fd66b6d21df478681",
+      "type": "blob"
+    },
+    "docs/audits/2026_11_03-epic-m6-records/stage-d/gates/audit-issue-lint/stderr": {
+      "mode": "100644",
+      "oid": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "type": "blob"
+    },
+    "docs/audits/2026_11_03-epic-m6-records/stage-d/gates/audit-issue-lint/stdout": {
+      "mode": "100644",
+      "oid": "b62d046dd1abe62ed811f1f864f8edd6c1a5e337",
+      "type": "blob"
+    },
+    "docs/audits/2026_11_03-epic-m6-records/stage-d/gates/bug-checkboxes/receipt.json": {
+      "mode": "100644",
+      "oid": "bffa97172c8f4072954fd270b7d1daf14dba8896",
+      "type": "blob"
+    },
+    "docs/audits/2026_11_03-epic-m6-records/stage-d/gates/bug-checkboxes/stderr": {
+      "mode": "100644",
+      "oid": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "type": "blob"
+    },
+    "docs/audits/2026_11_03-epic-m6-records/stage-d/gates/bug-checkboxes/stdout": {
+      "mode": "100644",
+      "oid": "f1a354a2f7b8f66c0d238c52614d9942243a7899",
+      "type": "blob"
+    },
+    "docs/audits/2026_11_03-epic-m6-records/stage-d/gates/ceremony/receipt.json": {
+      "mode": "100644",
+      "oid": "a312465465ff424531bfe268b662a22814dc76d2",
+      "type": "blob"
+    },
+    "docs/audits/2026_11_03-epic-m6-records/stage-d/gates/ceremony/stderr": {
+      "mode": "100644",
+      "oid": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "type": "blob"
+    },
+    "docs/audits/2026_11_03-epic-m6-records/stage-d/gates/ceremony/stdout": {
+      "mode": "100644",
+      "oid": "f09cc85cf8ccd2fe88af36464c99c7f1d1726a03",
+      "type": "blob"
+    },
+    "docs/audits/2026_11_03-epic-m6-records/stage-d/gates/confinement-current/receipt.json": {
+      "mode": "100644",
+      "oid": "28c82c5f71e9282cd534675b523aaba2e52c940f",
+      "type": "blob"
+    },
+    "docs/audits/2026_11_03-epic-m6-records/stage-d/gates/confinement-current/stderr": {
+      "mode": "100644",
+      "oid": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "type": "blob"
+    },
+    "docs/audits/2026_11_03-epic-m6-records/stage-d/gates/confinement-current/stdout": {
+      "mode": "100644",
+      "oid": "9d756614167381d86586f5a7ed0a0c4ebde0159f",
+      "type": "blob"
+    },
+    "docs/audits/2026_11_03-epic-m6-records/stage-d/gates/diff-check/receipt.json": {
+      "mode": "100644",
+      "oid": "ee9a3cf3d29f1a7cda90eba6cf8830f4598ed5c8",
+      "type": "blob"
+    },
+    "docs/audits/2026_11_03-epic-m6-records/stage-d/gates/diff-check/stderr": {
+      "mode": "100644",
+      "oid": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "type": "blob"
+    },
+    "docs/audits/2026_11_03-epic-m6-records/stage-d/gates/diff-check/stdout": {
+      "mode": "100644",
+      "oid": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "type": "blob"
+    },
+    "docs/audits/2026_11_03-epic-m6-records/stage-d/gates/index-check/receipt.json": {
+      "mode": "100644",
+      "oid": "309a8478fa366ffe789411a6bd11c7fa7054577f",
+      "type": "blob"
+    },
+    "docs/audits/2026_11_03-epic-m6-records/stage-d/gates/index-check/stderr": {
+      "mode": "100644",
+      "oid": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "type": "blob"
+    },
+    "docs/audits/2026_11_03-epic-m6-records/stage-d/gates/index-check/stdout": {
+      "mode": "100644",
+      "oid": "6eb1c1a0c6507a90a4fac2195673d37b73b0bba5",
+      "type": "blob"
+    },
+    "docs/audits/2026_11_03-epic-m6-records/stage-d/gates/index-write/receipt.json": {
+      "mode": "100644",
+      "oid": "0f11d7831db2a201999998163e2a1f92c13eb15c",
+      "type": "blob"
+    },
+    "docs/audits/2026_11_03-epic-m6-records/stage-d/gates/index-write/stderr": {
+      "mode": "100644",
+      "oid": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "type": "blob"
+    },
+    "docs/audits/2026_11_03-epic-m6-records/stage-d/gates/index-write/stdout": {
+      "mode": "100644",
+      "oid": "eaf0c984f2ddd135bdbf109eea2c23306a4fa839",
+      "type": "blob"
+    },
+    "docs/audits/2026_11_03-epic-m6-records/stage-d/gates/register/receipt.json": {
+      "mode": "100644",
+      "oid": "683e9918930adba549416559a503e105859a244b",
+      "type": "blob"
+    },
+    "docs/audits/2026_11_03-epic-m6-records/stage-d/gates/register/stderr": {
+      "mode": "100644",
+      "oid": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "type": "blob"
+    },
+    "docs/audits/2026_11_03-epic-m6-records/stage-d/gates/register/stdout": {
+      "mode": "100644",
+      "oid": "1a7c98de1503fcf2daeafb0b7c705cc84734e41d",
+      "type": "blob"
+    },
+    "docs/audits/2026_11_03-epic-m6-records/stage-d/gates/rules/receipt.json": {
+      "mode": "100644",
+      "oid": "ac88e6fab718b095eb6d74cd084edb79d61179e6",
+      "type": "blob"
+    },
+    "docs/audits/2026_11_03-epic-m6-records/stage-d/gates/rules/stderr": {
+      "mode": "100644",
+      "oid": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "type": "blob"
+    },
+    "docs/audits/2026_11_03-epic-m6-records/stage-d/gates/rules/stdout": {
+      "mode": "100644",
+      "oid": "eeb694153e4b07ae591b04bd1b731c656470514a",
+      "type": "blob"
+    },
+    "docs/audits/2026_11_03-epic-m6-records/stage-d/new-record-scan-driver/receipt.json": {
+      "mode": "100644",
+      "oid": "362b24a5987c2d8a17843c7d778bf51d89d2df20",
+      "type": "blob"
+    },
+    "docs/audits/2026_11_03-epic-m6-records/stage-d/new-record-scan-driver/stderr": {
+      "mode": "100644",
+      "oid": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "type": "blob"
+    },
+    "docs/audits/2026_11_03-epic-m6-records/stage-d/new-record-scan-driver/stdout": {
+      "mode": "100644",
+      "oid": "a756c9b72c0e82d56e00dae2ddc3b56dd9b434d4",
+      "type": "blob"
+    },
+    "docs/audits/2026_11_03-epic-m6-records/stage-d/new-record-scan/manifest.json": {
+      "mode": "100644",
+      "oid": "60044bea69f9ba612c593a52b8a7526eb08ee28b",
+      "type": "blob"
+    },
+    "docs/audits/2026_11_03-epic-m6-records/stage-d/new-record-scan/scan-command.json": {
+      "mode": "100644",
+      "oid": "bb6a15df3aa79afd9f10b3248023d0c21dac7825",
+      "type": "blob"
+    },
+    "docs/audits/2026_11_03-epic-m6-records/stage-d/new-record-scan/stderr": {
+      "mode": "100644",
+      "oid": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "type": "blob"
+    },
+    "docs/audits/2026_11_03-epic-m6-records/stage-d/new-record-scan/stdout": {
+      "mode": "100644",
+      "oid": "06ddfd54a4fe6c51a61c351de91d7f8c7db516ef",
+      "type": "blob"
+    },
+    "docs/audits/2026_11_03-epic-m6-records/stage-d/pre-issue-lint/receipt.json": {
+      "mode": "100644",
+      "oid": "cce38816d91be5d33faa03d4f96cd177435077a7",
+      "type": "blob"
+    },
+    "docs/audits/2026_11_03-epic-m6-records/stage-d/pre-issue-lint/stderr": {
+      "mode": "100644",
+      "oid": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "type": "blob"
+    },
+    "docs/audits/2026_11_03-epic-m6-records/stage-d/pre-issue-lint/stdout": {
+      "mode": "100644",
+      "oid": "6de892b07c1903403c94df4bbc363a67ee9cee6c",
+      "type": "blob"
+    },
+    "docs/audits/2026_11_03-epic-m6-records/stage-d/publication-encoding-driver/receipt.json": {
+      "mode": "100644",
+      "oid": "364b11d4147ce326f50eb768efe60b7fdef0eeec",
+      "type": "blob"
+    },
+    "docs/audits/2026_11_03-epic-m6-records/stage-d/publication-encoding-driver/stderr": {
+      "mode": "100644",
+      "oid": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "type": "blob"
+    },
+    "docs/audits/2026_11_03-epic-m6-records/stage-d/publication-encoding-driver/stdout": {
+      "mode": "100644",
+      "oid": "81a11cd925be97223262b71c93f3ac75f99b44e9",
+      "type": "blob"
+    },
+    "docs/audits/2026_11_03-epic-m6-records/stage-d/publication-encoding/manifest.json": {
+      "mode": "100644",
+      "oid": "064c31a6355ce8d15c7ed462bf40145b493797a9",
+      "type": "blob"
+    },
+    "docs/audits/2026_11_03-epic-m6-records/stage-d/publication-encoding/original-18.json": {
+      "mode": "100644",
+      "oid": "b8f83d7f99406abc9bc6766da0c58c4b84b61ed7",
+      "type": "blob"
+    },
+    "docs/audits/2026_11_03-epic-m6-records/stage-d/publication-encoding/original-19.json": {
+      "mode": "100644",
+      "oid": "0dffce0cc8cbc1f90a4b60b4ac0ef7d13bcb405b",
+      "type": "blob"
+    },
+    "docs/audits/2026_11_03-epic-m6-records/stage-d/publication-encoding/original-20.json": {
+      "mode": "100644",
+      "oid": "6dd087a21deeecfa38969e83466026a3db017ee1",
+      "type": "blob"
+    },
+    "docs/audits/2026_11_03-epic-m6-records/stage-d/publication-encoding/original-21.json": {
+      "mode": "100644",
+      "oid": "d6acb2fd5a370dcb0c5ec41abdd0f6833459ba0b",
+      "type": "blob"
+    },
+    "docs/audits/2026_11_03-epic-m6-records/stage-d/publication-encoding/original-22.json": {
+      "mode": "100644",
+      "oid": "6fdc2b757532b73a6980eaa5a261a1fc13956606",
+      "type": "blob"
+    },
+    "docs/audits/2026_11_03-epic-m6-records/stage-d/publication-encoding/original-23.json": {
+      "mode": "100644",
+      "oid": "d978a11fa198694fb7f954fe51c8eb6e834dc949",
+      "type": "blob"
+    },
+    "docs/audits/2026_11_03-epic-m6-records/stage-d/publication-encoding/original-24.json": {
+      "mode": "100644",
+      "oid": "31decf9a28a99f46786d0f5fdacaeedff40e1e5b",
+      "type": "blob"
+    },
+    "docs/audits/2026_11_03-epic-m6-records/stage-d/publication-encoding/original-25.json": {
+      "mode": "100644",
+      "oid": "f8e03dcf7fc2b649073a5341b43781f759647fe2",
+      "type": "blob"
+    },
+    "docs/audits/2026_11_03-epic-m6-records/stage-d/publication-encoding/original-26.json": {
+      "mode": "100644",
+      "oid": "0dffce0cc8cbc1f90a4b60b4ac0ef7d13bcb405b",
+      "type": "blob"
+    },
+    "docs/audits/2026_11_03-epic-m6-records/stage-d/publication-encoding/original-27.json": {
+      "mode": "100644",
+      "oid": "ee414df06de20b02f673924883951dd7818c368a",
+      "type": "blob"
+    },
+    "docs/audits/2026_11_03-epic-m6-records/stage-d/publication-encoding/original-28.json": {
+      "mode": "100644",
+      "oid": "a37df1397068b9ab4b98c8fd18f92503021ebc2d",
+      "type": "blob"
+    },
+    "docs/audits/2026_11_03-epic-m6-records/stage-d/publication-notes.md": {
+      "mode": "100644",
+      "oid": "9da107763db366d164ef08a005bc0a30ace098a3",
+      "type": "blob"
+    },
+    "docs/audits/2026_11_03-epic-m6-records/stage-d/publication-refusals/commit/receipt.json.json": {
+      "mode": "100644",
+      "oid": "d387347521307fd3d8d385e903f08655582a692c",
+      "type": "blob"
+    },
+    "docs/audits/2026_11_03-epic-m6-records/stage-d/publication-refusals/commit/stderr.json": {
+      "mode": "100644",
+      "oid": "7894d38fd63ccca7c022601d93b84b84b8a41d6a",
+      "type": "blob"
+    },
+    "docs/audits/2026_11_03-epic-m6-records/stage-d/publication-refusals/commit/stdout.json": {
+      "mode": "100644",
+      "oid": "5b76988dde433c1427263853ac09889a2cb0bd73",
+      "type": "blob"
+    },
+    "docs/audits/2026_11_03-epic-m6-records/stage-d/publication-refusals/staged-diff-check/receipt.json.json": {
+      "mode": "100644",
+      "oid": "df696081db4a4faf35462e5dbe63bdd41a67ee73",
+      "type": "blob"
+    },
+    "docs/audits/2026_11_03-epic-m6-records/stage-d/publication-refusals/staged-diff-check/stderr.json": {
+      "mode": "100644",
+      "oid": "5b76988dde433c1427263853ac09889a2cb0bd73",
+      "type": "blob"
+    },
+    "docs/audits/2026_11_03-epic-m6-records/stage-d/publication-refusals/staged-diff-check/stdout.json": {
+      "mode": "100644",
+      "oid": "e8394c31c0bfd3188afceef938c1c1a34ba6f887",
+      "type": "blob"
+    },
+    "docs/audits/2026_11_03-epic-m6-records/stage-d/seal/receipt.json": {
+      "mode": "100644",
+      "oid": "4a9bc7b36ea8eabab6cdc1ec48efd280a8ad01ee",
+      "type": "blob"
+    },
+    "docs/audits/2026_11_03-epic-m6-records/stage-d/seal/stderr": {
+      "mode": "100644",
+      "oid": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "type": "blob"
+    },
+    "docs/audits/2026_11_03-epic-m6-records/stage-d/seal/stdout": {
+      "mode": "100644",
+      "oid": "325a4ed7d740593da6adf28940fe40cb610945a4",
+      "type": "blob"
+    },
+    "docs/audits/2026_11_03-epic-m6-records/stage-d/sealed-manifest.json": {
+      "mode": "100644",
+      "oid": "0d1b2f34499129201581014dd18c3cd3a3781ef1",
+      "type": "blob"
+    },
+    "docs/audits/2026_11_03-epic-m6-records/stage-d/tracker-link-readback/receipt.json": {
+      "mode": "100644",
+      "oid": "305f49816b4a2b0e76cd375fda0eef04ab8b7f3c",
+      "type": "blob"
+    },
+    "docs/audits/2026_11_03-epic-m6-records/stage-d/tracker-link-readback/stderr": {
+      "mode": "100644",
+      "oid": "fbe5603a927d0472afd45b7e45366f21508cd9ea",
+      "type": "blob"
+    },
+    "docs/audits/2026_11_03-epic-m6-records/stage-d/tracker-link-readback/stdout": {
+      "mode": "100644",
+      "oid": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "type": "blob"
+    },
+    "docs/audits/2026_11_03-epic-m6-records/stage-d/tracker-verification-corrected/receipt.json": {
+      "mode": "100644",
+      "oid": "98657772a27fc4162a2093701c83f9e90082347c",
+      "type": "blob"
+    },
+    "docs/audits/2026_11_03-epic-m6-records/stage-d/tracker-verification-corrected/stderr": {
+      "mode": "100644",
+      "oid": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "type": "blob"
+    },
+    "docs/audits/2026_11_03-epic-m6-records/stage-d/tracker-verification-corrected/stdout": {
+      "mode": "100644",
+      "oid": "07d86e91ddf86231a088ed191fae0575336cced9",
+      "type": "blob"
+    },
+    "docs/audits/2026_11_03-epic-m6-records/stage-d/tracker-verified.json": {
+      "mode": "100644",
+      "oid": "0e68f3dc5ea3a7b423ae3228f103788053fb5ffb",
+      "type": "blob"
+    },
+    "docs/audits/2026_11_03-epic-m6-records/stage-d/tracker/attach-audit-to-693.stderr": {
+      "mode": "100644",
+      "oid": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "type": "blob"
+    },
+    "docs/audits/2026_11_03-epic-m6-records/stage-d/tracker/attach-audit-to-693.stdout": {
+      "mode": "100644",
+      "oid": "9fe586107fc38f57f71e89607c0fa2b01ab4a18b",
+      "type": "blob"
+    },
+    "docs/audits/2026_11_03-epic-m6-records/stage-d/tracker/audit-after.stderr": {
+      "mode": "100644",
+      "oid": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "type": "blob"
+    },
+    "docs/audits/2026_11_03-epic-m6-records/stage-d/tracker/audit-after.stdout": {
+      "mode": "100644",
+      "oid": "1628aad16c9cba6ddb1678b740442b5bb51f9e0d",
+      "type": "blob"
+    },
+    "docs/audits/2026_11_03-epic-m6-records/stage-d/tracker/audit-before.stderr": {
+      "mode": "100644",
+      "oid": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "type": "blob"
+    },
+    "docs/audits/2026_11_03-epic-m6-records/stage-d/tracker/audit-before.stdout": {
+      "mode": "100644",
+      "oid": "d9e25624e32da663fca18f8d50d441c9de94c9c9",
+      "type": "blob"
+    },
+    "docs/audits/2026_11_03-epic-m6-records/stage-d/tracker/audit-parent.stderr": {
+      "mode": "100644",
+      "oid": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "type": "blob"
+    },
+    "docs/audits/2026_11_03-epic-m6-records/stage-d/tracker/audit-parent.stdout": {
+      "mode": "100644",
+      "oid": "9fe586107fc38f57f71e89607c0fa2b01ab4a18b",
+      "type": "blob"
+    },
+    "docs/audits/2026_11_03-epic-m6-records/stage-d/tracker/bug-parent.stderr": {
+      "mode": "100644",
+      "oid": "7c51ed0d5a1b31dfdebc2976cc546bb0662fc4a8",
+      "type": "blob"
+    },
+    "docs/audits/2026_11_03-epic-m6-records/stage-d/tracker/bug-parent.stdout": {
+      "mode": "100644",
+      "oid": "706ba3174036bdbe9b537fe1cc77e9ea1e343c3a",
+      "type": "blob"
+    },
+    "docs/audits/2026_11_03-epic-m6-records/stage-d/tracker/bug.stderr": {
+      "mode": "100644",
+      "oid": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "type": "blob"
+    },
+    "docs/audits/2026_11_03-epic-m6-records/stage-d/tracker/bug.stdout": {
+      "mode": "100644",
+      "oid": "0272830278812997ada7766d19423318d63e3fc3",
+      "type": "blob"
+    },
+    "docs/audits/2026_11_03-epic-m6-records/stage-d/tracker/commands.json": {
+      "mode": "100644",
+      "oid": "58158f8e17d84c280e7da70747488ae21175d2bb",
+      "type": "blob"
+    },
+    "docs/audits/2026_11_03-epic-m6-records/stage-d/tracker/slice-parent.stderr": {
+      "mode": "100644",
+      "oid": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "type": "blob"
+    },
+    "docs/audits/2026_11_03-epic-m6-records/stage-d/tracker/slice-parent.stdout": {
+      "mode": "100644",
+      "oid": "53f218beefeacbc20c4b62367e3566a38f837761",
+      "type": "blob"
+    },
+    "docs/audits/2026_11_03-epic-m6-records/tools/confinement.py": {
+      "mode": "100644",
+      "oid": "57f8690496d960056d11ddc71ecdd32fb53026af",
+      "type": "blob"
+    },
+    "docs/audits/2026_11_03-epic-m6-records/tools/current-gates.py": {
+      "mode": "100644",
+      "oid": "e20bce0abb03aaeab84fc2d25e1035cca80d2471",
+      "type": "blob"
+    },
+    "docs/audits/2026_11_03-epic-m6-records/tools/heading-metadata.py": {
+      "mode": "100644",
+      "oid": "25006f4be9d440606644428078d84255c4ee6585",
+      "type": "blob"
+    },
+    "docs/audits/2026_11_03-epic-m6-records/tools/inventory-schema.py": {
+      "mode": "100644",
+      "oid": "653b85419d668926b2f59f63427c5b9bd9317ede",
+      "type": "blob"
+    },
+    "docs/audits/2026_11_03-epic-m6-records/tools/link.py": {
+      "mode": "100644",
+      "oid": "fe06e4ee45d5d5312aa81db9345ef582f308aae4",
+      "type": "blob"
+    },
+    "docs/audits/2026_11_03-epic-m6-records/tools/make-control-fixtures.py": {
+      "mode": "100644",
+      "oid": "cc20149be30ed117e0dfb37cdef1dbf7d31e67e9",
+      "type": "blob"
+    },
+    "docs/audits/2026_11_03-epic-m6-records/tools/pointer-navigation.py": {
+      "mode": "100644",
+      "oid": "b4fc4dded81113d3c1f7bdf8472df1af5c46c916",
+      "type": "blob"
+    },
+    "docs/audits/2026_11_03-epic-m6-records/tools/publication-encoding.py": {
+      "mode": "100644",
+      "oid": "536400f4647d114bfe6617fc8126cb0cbe3cf373",
+      "type": "blob"
+    },
+    "docs/audits/2026_11_03-epic-m6-records/tools/readers.py": {
+      "mode": "100644",
+      "oid": "eccb751d455a6d5c6d7257acd891af4e458e2b48",
+      "type": "blob"
+    },
+    "docs/audits/2026_11_03-epic-m6-records/tools/record-scan.py": {
+      "mode": "100644",
+      "oid": "06f4295f3a2406eaeb4d80250e8b135276e58b03",
+      "type": "blob"
+    },
+    "docs/audits/2026_11_03-epic-m6-records/tools/record.py": {
+      "mode": "100644",
+      "oid": "7e6d7530377a42d682867c515f054c81eab91871",
+      "type": "blob"
+    },
+    "docs/audits/2026_11_03-epic-m6-records/tools/run-controls.py": {
+      "mode": "100644",
+      "oid": "2fada774ca2fd0747d6af961c27a4b2cd90b94f3",
+      "type": "blob"
+    },
+    "docs/audits/2026_11_03-epic-m6-records/tools/seal.py": {
+      "mode": "100644",
+      "oid": "a8aa91364370c396da2a7a4609037714b946b0e7",
+      "type": "blob"
+    },
+    "docs/audits/2026_11_03-epic-m6-records/tools/table.py": {
+      "mode": "100644",
+      "oid": "199144ea2687db3bac13b26061ade2ade6ee92c4",
+      "type": "blob"
+    },
+    "docs/audits/2026_11_03-epic-m6-records/tools/tracker-readback.py": {
+      "mode": "100644",
+      "oid": "2ceade26ca68dc24e870102f7da40cbb2f5cb2b5",
+      "type": "blob"
+    },
+    "docs/audits/2026_11_03-epic-m6-records/tools/verify-encoding.py": {
+      "mode": "100644",
+      "oid": "2724297d8a65300cef3b0f8fb27e6d82e081759f",
+      "type": "blob"
+    },
+    "docs/audits/2026_11_03-epic-m6-records/tools/verify-tracker.py": {
+      "mode": "100644",
+      "oid": "7fe296dc1453551c63e6a229e81fd760bb1371ba",
+      "type": "blob"
+    }
+  },
+  "mutable": [
+    "docs/audits/2026_11_03-epic-m6-records/00-running-log.md",
+    "docs/audits/2026_11_03-epic-m6-records/02-forward-audit.md",
+    "docs/audits/2026_11_03-epic-m6-records/04-analysis.md",
+    "docs/audits/2026_11_03-epic-m6-records/05-punch-list.md",
+    "docs/audits/2026_11_03-epic-m6-records/06-audit-summary.md",
+    "docs/audits/2026_11_03-epic-m6-records/07-questions-for-the-maintainer.md"
+  ],
+  "new_prefixes": [
+    "docs/audits/2026_11_03-epic-m6-records/stage-e/",
+    "docs/audits/2026_11_03-epic-m6-records/stage-f/",
+    "docs/audits/2026_11_03-epic-m6-records/stage-g/",
+    "docs/audits/2026_11_03-epic-m6-records/stage-h/"
+  ],
+  "new_tools": [
+    "docs/audits/2026_11_03-epic-m6-records/tools/eh-record.py",
+    "docs/audits/2026_11_03-epic-m6-records/tools/eh-source.py",
+    "docs/audits/2026_11_03-epic-m6-records/tools/eh-scope.py",
+    "docs/audits/2026_11_03-epic-m6-records/tools/eh-fixtures.py",
+    "docs/audits/2026_11_03-epic-m6-records/tools/eh-controls.py",
+    "docs/audits/2026_11_03-epic-m6-records/tools/eh-gates.py",
+    "docs/audits/2026_11_03-epic-m6-records/tools/eh-custody.py",
+    "docs/audits/2026_11_03-epic-m6-records/tools/eh-final.py"
+  ],
+  "readme": "docs/audits/README.md",
+  "schema": 1
+}

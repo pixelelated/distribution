@@ -1,0 +1,3149 @@
+{
+  "root": "/tmp/m6-t46-eh-fixtures-kbnfwd30",
+  "cases": [
+    {
+      "name": "index-source",
+      "repo": "/tmp/m6-t46-eh-fixtures-kbnfwd30/index-source",
+      "policy": "/tmp/m6-t46-eh-fixtures-kbnfwd30/index-source-policy.json",
+      "policy_sha256": "bb158baefd79f6e3b2a79f1aacc92f99f49c73372c0d642b5dd5d423e814fdb2",
+      "base": "7147cc28ed1e099d27b5d788b247917a29ea3bf5",
+      "tip": "f605deb1f98d61d9417d017c42525878d1762b35",
+      "expected": 1,
+      "index_only": true
+    },
+    {
+      "name": "index-frozen",
+      "repo": "/tmp/m6-t46-eh-fixtures-kbnfwd30/index-frozen",
+      "policy": "/tmp/m6-t46-eh-fixtures-kbnfwd30/index-frozen-policy.json",
+      "policy_sha256": "bb158baefd79f6e3b2a79f1aacc92f99f49c73372c0d642b5dd5d423e814fdb2",
+      "base": "7147cc28ed1e099d27b5d788b247917a29ea3bf5",
+      "tip": "f605deb1f98d61d9417d017c42525878d1762b35",
+      "expected": 1,
+      "index_only": true
+    },
+    {
+      "name": "index-readme",
+      "repo": "/tmp/m6-t46-eh-fixtures-kbnfwd30/index-readme",
+      "policy": "/tmp/m6-t46-eh-fixtures-kbnfwd30/index-readme-policy.json",
+      "policy_sha256": "bb158baefd79f6e3b2a79f1aacc92f99f49c73372c0d642b5dd5d423e814fdb2",
+      "base": "7147cc28ed1e099d27b5d788b247917a29ea3bf5",
+      "tip": "f605deb1f98d61d9417d017c42525878d1762b35",
+      "expected": 1,
+      "index_only": true
+    },
+    {
+      "name": "history-source",
+      "repo": "/tmp/m6-t46-eh-fixtures-kbnfwd30/history-source",
+      "policy": "/tmp/m6-t46-eh-fixtures-kbnfwd30/history-source-policy.json",
+      "policy_sha256": "bb158baefd79f6e3b2a79f1aacc92f99f49c73372c0d642b5dd5d423e814fdb2",
+      "base": "7147cc28ed1e099d27b5d788b247917a29ea3bf5",
+      "tip": "44e90cc3c62199983d9f65cdcf129973a10504ce",
+      "expected": 1,
+      "index_only": false
+    },
+    {
+      "name": "history-revert",
+      "repo": "/tmp/m6-t46-eh-fixtures-kbnfwd30/history-revert",
+      "policy": "/tmp/m6-t46-eh-fixtures-kbnfwd30/history-revert-policy.json",
+      "policy_sha256": "bb158baefd79f6e3b2a79f1aacc92f99f49c73372c0d642b5dd5d423e814fdb2",
+      "base": "7147cc28ed1e099d27b5d788b247917a29ea3bf5",
+      "tip": "a8107e2344dc8b16d1f60de0ccdce7dd0488a25a",
+      "expected": 1,
+      "index_only": false
+    },
+    {
+      "name": "history-frozen",
+      "repo": "/tmp/m6-t46-eh-fixtures-kbnfwd30/history-frozen",
+      "policy": "/tmp/m6-t46-eh-fixtures-kbnfwd30/history-frozen-policy.json",
+      "policy_sha256": "bb158baefd79f6e3b2a79f1aacc92f99f49c73372c0d642b5dd5d423e814fdb2",
+      "base": "7147cc28ed1e099d27b5d788b247917a29ea3bf5",
+      "tip": "4d18f618d387cdc4280cf3fa59a1298def8c34da",
+      "expected": 1,
+      "index_only": false
+    },
+    {
+      "name": "history-wrong-readme-repair",
+      "repo": "/tmp/m6-t46-eh-fixtures-kbnfwd30/history-wrong-readme-repair",
+      "policy": "/tmp/m6-t46-eh-fixtures-kbnfwd30/history-wrong-readme-repair-policy.json",
+      "policy_sha256": "bb158baefd79f6e3b2a79f1aacc92f99f49c73372c0d642b5dd5d423e814fdb2",
+      "base": "7147cc28ed1e099d27b5d788b247917a29ea3bf5",
+      "tip": "9468c9c8189fe16bec67b1b2bbec8ecdf149ecc8",
+      "expected": 1,
+      "index_only": false
+    },
+    {
+      "name": "unrelated-retro",
+      "repo": "/tmp/m6-t46-eh-fixtures-kbnfwd30/unrelated-retro",
+      "policy": "/tmp/m6-t46-eh-fixtures-kbnfwd30/unrelated-retro-policy.json",
+      "policy_sha256": "bb158baefd79f6e3b2a79f1aacc92f99f49c73372c0d642b5dd5d423e814fdb2",
+      "base": "7147cc28ed1e099d27b5d788b247917a29ea3bf5",
+      "tip": "f605deb1f98d61d9417d017c42525878d1762b35",
+      "expected": 1,
+      "index_only": false
+    },
+    {
+      "name": "unrelated-day",
+      "repo": "/tmp/m6-t46-eh-fixtures-kbnfwd30/unrelated-day",
+      "policy": "/tmp/m6-t46-eh-fixtures-kbnfwd30/unrelated-day-policy.json",
+      "policy_sha256": "bb158baefd79f6e3b2a79f1aacc92f99f49c73372c0d642b5dd5d423e814fdb2",
+      "base": "7147cc28ed1e099d27b5d788b247917a29ea3bf5",
+      "tip": "f605deb1f98d61d9417d017c42525878d1762b35",
+      "expected": 1,
+      "index_only": false
+    },
+    {
+      "name": "executable",
+      "repo": "/tmp/m6-t46-eh-fixtures-kbnfwd30/executable",
+      "policy": "/tmp/m6-t46-eh-fixtures-kbnfwd30/executable-policy.json",
+      "policy_sha256": "bb158baefd79f6e3b2a79f1aacc92f99f49c73372c0d642b5dd5d423e814fdb2",
+      "base": "7147cc28ed1e099d27b5d788b247917a29ea3bf5",
+      "tip": "f605deb1f98d61d9417d017c42525878d1762b35",
+      "expected": 1,
+      "index_only": false
+    },
+    {
+      "name": "symlink",
+      "repo": "/tmp/m6-t46-eh-fixtures-kbnfwd30/symlink",
+      "policy": "/tmp/m6-t46-eh-fixtures-kbnfwd30/symlink-policy.json",
+      "policy_sha256": "bb158baefd79f6e3b2a79f1aacc92f99f49c73372c0d642b5dd5d423e814fdb2",
+      "base": "7147cc28ed1e099d27b5d788b247917a29ea3bf5",
+      "tip": "f605deb1f98d61d9417d017c42525878d1762b35",
+      "expected": 1,
+      "index_only": false
+    },
+    {
+      "name": "merge",
+      "repo": "/tmp/m6-t46-eh-fixtures-kbnfwd30/merge",
+      "policy": "/tmp/m6-t46-eh-fixtures-kbnfwd30/merge-policy.json",
+      "policy_sha256": "bb158baefd79f6e3b2a79f1aacc92f99f49c73372c0d642b5dd5d423e814fdb2",
+      "base": "7147cc28ed1e099d27b5d788b247917a29ea3bf5",
+      "tip": "4bb3c5d8631bedaa2f4f8a6e6a02601f05101de8",
+      "expected": 1,
+      "index_only": false
+    },
+    {
+      "name": "deletion",
+      "repo": "/tmp/m6-t46-eh-fixtures-kbnfwd30/deletion",
+      "policy": "/tmp/m6-t46-eh-fixtures-kbnfwd30/deletion-policy.json",
+      "policy_sha256": "bb158baefd79f6e3b2a79f1aacc92f99f49c73372c0d642b5dd5d423e814fdb2",
+      "base": "7147cc28ed1e099d27b5d788b247917a29ea3bf5",
+      "tip": "a01bc6b57b7dd97c76728a020bebeb413c0e2a51",
+      "expected": 1,
+      "index_only": false
+    },
+    {
+      "name": "positive",
+      "repo": "/tmp/m6-t46-eh-fixtures-kbnfwd30/positive",
+      "policy": "/tmp/m6-t46-eh-fixtures-kbnfwd30/positive-policy.json",
+      "policy_sha256": "bb158baefd79f6e3b2a79f1aacc92f99f49c73372c0d642b5dd5d423e814fdb2",
+      "base": "7147cc28ed1e099d27b5d788b247917a29ea3bf5",
+      "tip": "f605deb1f98d61d9417d017c42525878d1762b35",
+      "expected": 0,
+      "index_only": false
+    }
+  ],
+  "commands": [
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/tmp/m6-t46-eh-fixtures-kbnfwd30/index-source",
+        "init",
+        "--quiet",
+        "--initial-branch=main"
+      ],
+      "cwd": "/workspace/repos/pixelelated/distribution.worktrees/m6-records-693",
+      "start": "2026-11-03T13:21:19.093525+00:00",
+      "end": "2026-11-03T13:21:19.095075+00:00",
+      "rc": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_base64": "",
+      "stderr_base64": ""
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/tmp/m6-t46-eh-fixtures-kbnfwd30/index-source",
+        "add",
+        "--all"
+      ],
+      "cwd": "/workspace/repos/pixelelated/distribution.worktrees/m6-records-693",
+      "start": "2026-11-03T13:21:19.095200+00:00",
+      "end": "2026-11-03T13:21:19.096331+00:00",
+      "rc": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_base64": "",
+      "stderr_base64": ""
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/tmp/m6-t46-eh-fixtures-kbnfwd30/index-source",
+        "-c",
+        "user.name=T46 synthetic fixture",
+        "-c",
+        "user.email=t46-fixture@example.invalid",
+        "commit",
+        "--quiet",
+        "-m",
+        "Synthetic baseline"
+      ],
+      "cwd": "/workspace/repos/pixelelated/distribution.worktrees/m6-records-693",
+      "start": "2026-11-03T13:21:19.096341+00:00",
+      "end": "2026-11-03T13:21:19.098629+00:00",
+      "rc": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_base64": "",
+      "stderr_base64": ""
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/tmp/m6-t46-eh-fixtures-kbnfwd30/index-source",
+        "rev-parse",
+        "HEAD"
+      ],
+      "cwd": "/workspace/repos/pixelelated/distribution.worktrees/m6-records-693",
+      "start": "2026-11-03T13:21:19.098636+00:00",
+      "end": "2026-11-03T13:21:19.099268+00:00",
+      "rc": 0,
+      "stdout_sha256": "3b96afd68f2644e190b5397a861f54298c6c2cd9d6201a88eab3d6ad7ae91e7d",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_base64": "NzE0N2NjMjhlZDFlMDk5ZDI3YjVkNzg4YjI0NzkxN2EyOWVhM2JmNQo=",
+      "stderr_base64": ""
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/tmp/m6-t46-eh-fixtures-kbnfwd30/index-source",
+        "ls-tree",
+        "7147cc28ed1e099d27b5d788b247917a29ea3bf5",
+        "--",
+        "docs/audits/2026_11_03-epic-m6-records/stage-a/frozen.txt"
+      ],
+      "cwd": "/workspace/repos/pixelelated/distribution.worktrees/m6-records-693",
+      "start": "2026-11-03T13:21:19.099286+00:00",
+      "end": "2026-11-03T13:21:19.100129+00:00",
+      "rc": 0,
+      "stdout_sha256": "150566ab056019a333df7ae6551e8f099bfd946cd3aa33d1b9868620f06c4890",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_base64": "MTAwNjQ0IGJsb2IgNTk3Mjg4NTM0N2RiYzJjZTE3OGI3ZTA4YWViOTQxYzM1OTM0MjVmNglkb2NzL2F1ZGl0cy8yMDI2XzExXzAzLWVwaWMtbTYtcmVjb3Jkcy9zdGFnZS1hL2Zyb3plbi50eHQK",
+      "stderr_base64": ""
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/tmp/m6-t46-eh-fixtures-kbnfwd30/index-source",
+        "add",
+        "--all"
+      ],
+      "cwd": "/workspace/repos/pixelelated/distribution.worktrees/m6-records-693",
+      "start": "2026-11-03T13:21:19.100552+00:00",
+      "end": "2026-11-03T13:21:19.102238+00:00",
+      "rc": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_base64": "",
+      "stderr_base64": ""
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/tmp/m6-t46-eh-fixtures-kbnfwd30/index-source",
+        "-c",
+        "user.name=T46 synthetic fixture",
+        "-c",
+        "user.email=t46-fixture@example.invalid",
+        "commit",
+        "--quiet",
+        "-m",
+        "Synthetic exact authorized correction and records"
+      ],
+      "cwd": "/workspace/repos/pixelelated/distribution.worktrees/m6-records-693",
+      "start": "2026-11-03T13:21:19.102266+00:00",
+      "end": "2026-11-03T13:21:19.104746+00:00",
+      "rc": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_base64": "",
+      "stderr_base64": ""
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/tmp/m6-t46-eh-fixtures-kbnfwd30/index-source",
+        "rev-parse",
+        "HEAD"
+      ],
+      "cwd": "/workspace/repos/pixelelated/distribution.worktrees/m6-records-693",
+      "start": "2026-11-03T13:21:19.104754+00:00",
+      "end": "2026-11-03T13:21:19.105366+00:00",
+      "rc": 0,
+      "stdout_sha256": "f01595dacb3aac6a83c7fa1376226574b415e52a40fbb015e9200af31951f122",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_base64": "ZjYwNWRlYjFmOThkNjFkOTQxN2QwMTdjNDI1MjU4NzhkMTc2MmIzNQo=",
+      "stderr_base64": ""
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/tmp/m6-t46-eh-fixtures-kbnfwd30/index-source",
+        "add",
+        "--",
+        "product.txt"
+      ],
+      "cwd": "/workspace/repos/pixelelated/distribution.worktrees/m6-records-693",
+      "start": "2026-11-03T13:21:19.105423+00:00",
+      "end": "2026-11-03T13:21:19.106663+00:00",
+      "rc": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_base64": "",
+      "stderr_base64": ""
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/tmp/m6-t46-eh-fixtures-kbnfwd30/index-source",
+        "rev-parse",
+        "HEAD"
+      ],
+      "cwd": "/workspace/repos/pixelelated/distribution.worktrees/m6-records-693",
+      "start": "2026-11-03T13:21:19.106706+00:00",
+      "end": "2026-11-03T13:21:19.107316+00:00",
+      "rc": 0,
+      "stdout_sha256": "f01595dacb3aac6a83c7fa1376226574b415e52a40fbb015e9200af31951f122",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_base64": "ZjYwNWRlYjFmOThkNjFkOTQxN2QwMTdjNDI1MjU4NzhkMTc2MmIzNQo=",
+      "stderr_base64": ""
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/tmp/m6-t46-eh-fixtures-kbnfwd30/index-frozen",
+        "init",
+        "--quiet",
+        "--initial-branch=main"
+      ],
+      "cwd": "/workspace/repos/pixelelated/distribution.worktrees/m6-records-693",
+      "start": "2026-11-03T13:21:19.107434+00:00",
+      "end": "2026-11-03T13:21:19.108419+00:00",
+      "rc": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_base64": "",
+      "stderr_base64": ""
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/tmp/m6-t46-eh-fixtures-kbnfwd30/index-frozen",
+        "add",
+        "--all"
+      ],
+      "cwd": "/workspace/repos/pixelelated/distribution.worktrees/m6-records-693",
+      "start": "2026-11-03T13:21:19.108509+00:00",
+      "end": "2026-11-03T13:21:19.109466+00:00",
+      "rc": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_base64": "",
+      "stderr_base64": ""
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/tmp/m6-t46-eh-fixtures-kbnfwd30/index-frozen",
+        "-c",
+        "user.name=T46 synthetic fixture",
+        "-c",
+        "user.email=t46-fixture@example.invalid",
+        "commit",
+        "--quiet",
+        "-m",
+        "Synthetic baseline"
+      ],
+      "cwd": "/workspace/repos/pixelelated/distribution.worktrees/m6-records-693",
+      "start": "2026-11-03T13:21:19.109473+00:00",
+      "end": "2026-11-03T13:21:19.111532+00:00",
+      "rc": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_base64": "",
+      "stderr_base64": ""
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/tmp/m6-t46-eh-fixtures-kbnfwd30/index-frozen",
+        "rev-parse",
+        "HEAD"
+      ],
+      "cwd": "/workspace/repos/pixelelated/distribution.worktrees/m6-records-693",
+      "start": "2026-11-03T13:21:19.111538+00:00",
+      "end": "2026-11-03T13:21:19.112142+00:00",
+      "rc": 0,
+      "stdout_sha256": "3b96afd68f2644e190b5397a861f54298c6c2cd9d6201a88eab3d6ad7ae91e7d",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_base64": "NzE0N2NjMjhlZDFlMDk5ZDI3YjVkNzg4YjI0NzkxN2EyOWVhM2JmNQo=",
+      "stderr_base64": ""
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/tmp/m6-t46-eh-fixtures-kbnfwd30/index-frozen",
+        "ls-tree",
+        "7147cc28ed1e099d27b5d788b247917a29ea3bf5",
+        "--",
+        "docs/audits/2026_11_03-epic-m6-records/stage-a/frozen.txt"
+      ],
+      "cwd": "/workspace/repos/pixelelated/distribution.worktrees/m6-records-693",
+      "start": "2026-11-03T13:21:19.112149+00:00",
+      "end": "2026-11-03T13:21:19.112868+00:00",
+      "rc": 0,
+      "stdout_sha256": "150566ab056019a333df7ae6551e8f099bfd946cd3aa33d1b9868620f06c4890",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_base64": "MTAwNjQ0IGJsb2IgNTk3Mjg4NTM0N2RiYzJjZTE3OGI3ZTA4YWViOTQxYzM1OTM0MjVmNglkb2NzL2F1ZGl0cy8yMDI2XzExXzAzLWVwaWMtbTYtcmVjb3Jkcy9zdGFnZS1hL2Zyb3plbi50eHQK",
+      "stderr_base64": ""
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/tmp/m6-t46-eh-fixtures-kbnfwd30/index-frozen",
+        "add",
+        "--all"
+      ],
+      "cwd": "/workspace/repos/pixelelated/distribution.worktrees/m6-records-693",
+      "start": "2026-11-03T13:21:19.113269+00:00",
+      "end": "2026-11-03T13:21:19.114288+00:00",
+      "rc": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_base64": "",
+      "stderr_base64": ""
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/tmp/m6-t46-eh-fixtures-kbnfwd30/index-frozen",
+        "-c",
+        "user.name=T46 synthetic fixture",
+        "-c",
+        "user.email=t46-fixture@example.invalid",
+        "commit",
+        "--quiet",
+        "-m",
+        "Synthetic exact authorized correction and records"
+      ],
+      "cwd": "/workspace/repos/pixelelated/distribution.worktrees/m6-records-693",
+      "start": "2026-11-03T13:21:19.114297+00:00",
+      "end": "2026-11-03T13:21:19.116732+00:00",
+      "rc": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_base64": "",
+      "stderr_base64": ""
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/tmp/m6-t46-eh-fixtures-kbnfwd30/index-frozen",
+        "rev-parse",
+        "HEAD"
+      ],
+      "cwd": "/workspace/repos/pixelelated/distribution.worktrees/m6-records-693",
+      "start": "2026-11-03T13:21:19.116739+00:00",
+      "end": "2026-11-03T13:21:19.117356+00:00",
+      "rc": 0,
+      "stdout_sha256": "f01595dacb3aac6a83c7fa1376226574b415e52a40fbb015e9200af31951f122",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_base64": "ZjYwNWRlYjFmOThkNjFkOTQxN2QwMTdjNDI1MjU4NzhkMTc2MmIzNQo=",
+      "stderr_base64": ""
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/tmp/m6-t46-eh-fixtures-kbnfwd30/index-frozen",
+        "add",
+        "--",
+        "docs/audits/2026_11_03-epic-m6-records/stage-a/frozen.txt"
+      ],
+      "cwd": "/workspace/repos/pixelelated/distribution.worktrees/m6-records-693",
+      "start": "2026-11-03T13:21:19.117407+00:00",
+      "end": "2026-11-03T13:21:19.118204+00:00",
+      "rc": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_base64": "",
+      "stderr_base64": ""
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/tmp/m6-t46-eh-fixtures-kbnfwd30/index-frozen",
+        "rev-parse",
+        "HEAD"
+      ],
+      "cwd": "/workspace/repos/pixelelated/distribution.worktrees/m6-records-693",
+      "start": "2026-11-03T13:21:19.118243+00:00",
+      "end": "2026-11-03T13:21:19.118959+00:00",
+      "rc": 0,
+      "stdout_sha256": "f01595dacb3aac6a83c7fa1376226574b415e52a40fbb015e9200af31951f122",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_base64": "ZjYwNWRlYjFmOThkNjFkOTQxN2QwMTdjNDI1MjU4NzhkMTc2MmIzNQo=",
+      "stderr_base64": ""
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/tmp/m6-t46-eh-fixtures-kbnfwd30/index-readme",
+        "init",
+        "--quiet",
+        "--initial-branch=main"
+      ],
+      "cwd": "/workspace/repos/pixelelated/distribution.worktrees/m6-records-693",
+      "start": "2026-11-03T13:21:19.119156+00:00",
+      "end": "2026-11-03T13:21:19.120210+00:00",
+      "rc": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_base64": "",
+      "stderr_base64": ""
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/tmp/m6-t46-eh-fixtures-kbnfwd30/index-readme",
+        "add",
+        "--all"
+      ],
+      "cwd": "/workspace/repos/pixelelated/distribution.worktrees/m6-records-693",
+      "start": "2026-11-03T13:21:19.120313+00:00",
+      "end": "2026-11-03T13:21:19.121212+00:00",
+      "rc": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_base64": "",
+      "stderr_base64": ""
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/tmp/m6-t46-eh-fixtures-kbnfwd30/index-readme",
+        "-c",
+        "user.name=T46 synthetic fixture",
+        "-c",
+        "user.email=t46-fixture@example.invalid",
+        "commit",
+        "--quiet",
+        "-m",
+        "Synthetic baseline"
+      ],
+      "cwd": "/workspace/repos/pixelelated/distribution.worktrees/m6-records-693",
+      "start": "2026-11-03T13:21:19.121219+00:00",
+      "end": "2026-11-03T13:21:19.123178+00:00",
+      "rc": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_base64": "",
+      "stderr_base64": ""
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/tmp/m6-t46-eh-fixtures-kbnfwd30/index-readme",
+        "rev-parse",
+        "HEAD"
+      ],
+      "cwd": "/workspace/repos/pixelelated/distribution.worktrees/m6-records-693",
+      "start": "2026-11-03T13:21:19.123185+00:00",
+      "end": "2026-11-03T13:21:19.123774+00:00",
+      "rc": 0,
+      "stdout_sha256": "3b96afd68f2644e190b5397a861f54298c6c2cd9d6201a88eab3d6ad7ae91e7d",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_base64": "NzE0N2NjMjhlZDFlMDk5ZDI3YjVkNzg4YjI0NzkxN2EyOWVhM2JmNQo=",
+      "stderr_base64": ""
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/tmp/m6-t46-eh-fixtures-kbnfwd30/index-readme",
+        "ls-tree",
+        "7147cc28ed1e099d27b5d788b247917a29ea3bf5",
+        "--",
+        "docs/audits/2026_11_03-epic-m6-records/stage-a/frozen.txt"
+      ],
+      "cwd": "/workspace/repos/pixelelated/distribution.worktrees/m6-records-693",
+      "start": "2026-11-03T13:21:19.123790+00:00",
+      "end": "2026-11-03T13:21:19.124601+00:00",
+      "rc": 0,
+      "stdout_sha256": "150566ab056019a333df7ae6551e8f099bfd946cd3aa33d1b9868620f06c4890",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_base64": "MTAwNjQ0IGJsb2IgNTk3Mjg4NTM0N2RiYzJjZTE3OGI3ZTA4YWViOTQxYzM1OTM0MjVmNglkb2NzL2F1ZGl0cy8yMDI2XzExXzAzLWVwaWMtbTYtcmVjb3Jkcy9zdGFnZS1hL2Zyb3plbi50eHQK",
+      "stderr_base64": ""
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/tmp/m6-t46-eh-fixtures-kbnfwd30/index-readme",
+        "add",
+        "--all"
+      ],
+      "cwd": "/workspace/repos/pixelelated/distribution.worktrees/m6-records-693",
+      "start": "2026-11-03T13:21:19.125012+00:00",
+      "end": "2026-11-03T13:21:19.126151+00:00",
+      "rc": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_base64": "",
+      "stderr_base64": ""
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/tmp/m6-t46-eh-fixtures-kbnfwd30/index-readme",
+        "-c",
+        "user.name=T46 synthetic fixture",
+        "-c",
+        "user.email=t46-fixture@example.invalid",
+        "commit",
+        "--quiet",
+        "-m",
+        "Synthetic exact authorized correction and records"
+      ],
+      "cwd": "/workspace/repos/pixelelated/distribution.worktrees/m6-records-693",
+      "start": "2026-11-03T13:21:19.126160+00:00",
+      "end": "2026-11-03T13:21:19.128419+00:00",
+      "rc": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_base64": "",
+      "stderr_base64": ""
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/tmp/m6-t46-eh-fixtures-kbnfwd30/index-readme",
+        "rev-parse",
+        "HEAD"
+      ],
+      "cwd": "/workspace/repos/pixelelated/distribution.worktrees/m6-records-693",
+      "start": "2026-11-03T13:21:19.128426+00:00",
+      "end": "2026-11-03T13:21:19.129102+00:00",
+      "rc": 0,
+      "stdout_sha256": "f01595dacb3aac6a83c7fa1376226574b415e52a40fbb015e9200af31951f122",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_base64": "ZjYwNWRlYjFmOThkNjFkOTQxN2QwMTdjNDI1MjU4NzhkMTc2MmIzNQo=",
+      "stderr_base64": ""
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/tmp/m6-t46-eh-fixtures-kbnfwd30/index-readme",
+        "add",
+        "--",
+        "docs/audits/README.md"
+      ],
+      "cwd": "/workspace/repos/pixelelated/distribution.worktrees/m6-records-693",
+      "start": "2026-11-03T13:21:19.129174+00:00",
+      "end": "2026-11-03T13:21:19.130201+00:00",
+      "rc": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_base64": "",
+      "stderr_base64": ""
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/tmp/m6-t46-eh-fixtures-kbnfwd30/index-readme",
+        "rev-parse",
+        "HEAD"
+      ],
+      "cwd": "/workspace/repos/pixelelated/distribution.worktrees/m6-records-693",
+      "start": "2026-11-03T13:21:19.130259+00:00",
+      "end": "2026-11-03T13:21:19.130937+00:00",
+      "rc": 0,
+      "stdout_sha256": "f01595dacb3aac6a83c7fa1376226574b415e52a40fbb015e9200af31951f122",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_base64": "ZjYwNWRlYjFmOThkNjFkOTQxN2QwMTdjNDI1MjU4NzhkMTc2MmIzNQo=",
+      "stderr_base64": ""
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/tmp/m6-t46-eh-fixtures-kbnfwd30/history-source",
+        "init",
+        "--quiet",
+        "--initial-branch=main"
+      ],
+      "cwd": "/workspace/repos/pixelelated/distribution.worktrees/m6-records-693",
+      "start": "2026-11-03T13:21:19.131125+00:00",
+      "end": "2026-11-03T13:21:19.132213+00:00",
+      "rc": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_base64": "",
+      "stderr_base64": ""
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/tmp/m6-t46-eh-fixtures-kbnfwd30/history-source",
+        "add",
+        "--all"
+      ],
+      "cwd": "/workspace/repos/pixelelated/distribution.worktrees/m6-records-693",
+      "start": "2026-11-03T13:21:19.132312+00:00",
+      "end": "2026-11-03T13:21:19.133208+00:00",
+      "rc": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_base64": "",
+      "stderr_base64": ""
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/tmp/m6-t46-eh-fixtures-kbnfwd30/history-source",
+        "-c",
+        "user.name=T46 synthetic fixture",
+        "-c",
+        "user.email=t46-fixture@example.invalid",
+        "commit",
+        "--quiet",
+        "-m",
+        "Synthetic baseline"
+      ],
+      "cwd": "/workspace/repos/pixelelated/distribution.worktrees/m6-records-693",
+      "start": "2026-11-03T13:21:19.133215+00:00",
+      "end": "2026-11-03T13:21:19.135278+00:00",
+      "rc": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_base64": "",
+      "stderr_base64": ""
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/tmp/m6-t46-eh-fixtures-kbnfwd30/history-source",
+        "rev-parse",
+        "HEAD"
+      ],
+      "cwd": "/workspace/repos/pixelelated/distribution.worktrees/m6-records-693",
+      "start": "2026-11-03T13:21:19.135284+00:00",
+      "end": "2026-11-03T13:21:19.135869+00:00",
+      "rc": 0,
+      "stdout_sha256": "3b96afd68f2644e190b5397a861f54298c6c2cd9d6201a88eab3d6ad7ae91e7d",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_base64": "NzE0N2NjMjhlZDFlMDk5ZDI3YjVkNzg4YjI0NzkxN2EyOWVhM2JmNQo=",
+      "stderr_base64": ""
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/tmp/m6-t46-eh-fixtures-kbnfwd30/history-source",
+        "ls-tree",
+        "7147cc28ed1e099d27b5d788b247917a29ea3bf5",
+        "--",
+        "docs/audits/2026_11_03-epic-m6-records/stage-a/frozen.txt"
+      ],
+      "cwd": "/workspace/repos/pixelelated/distribution.worktrees/m6-records-693",
+      "start": "2026-11-03T13:21:19.135884+00:00",
+      "end": "2026-11-03T13:21:19.136659+00:00",
+      "rc": 0,
+      "stdout_sha256": "150566ab056019a333df7ae6551e8f099bfd946cd3aa33d1b9868620f06c4890",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_base64": "MTAwNjQ0IGJsb2IgNTk3Mjg4NTM0N2RiYzJjZTE3OGI3ZTA4YWViOTQxYzM1OTM0MjVmNglkb2NzL2F1ZGl0cy8yMDI2XzExXzAzLWVwaWMtbTYtcmVjb3Jkcy9zdGFnZS1hL2Zyb3plbi50eHQK",
+      "stderr_base64": ""
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/tmp/m6-t46-eh-fixtures-kbnfwd30/history-source",
+        "add",
+        "--all"
+      ],
+      "cwd": "/workspace/repos/pixelelated/distribution.worktrees/m6-records-693",
+      "start": "2026-11-03T13:21:19.137064+00:00",
+      "end": "2026-11-03T13:21:19.138096+00:00",
+      "rc": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_base64": "",
+      "stderr_base64": ""
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/tmp/m6-t46-eh-fixtures-kbnfwd30/history-source",
+        "-c",
+        "user.name=T46 synthetic fixture",
+        "-c",
+        "user.email=t46-fixture@example.invalid",
+        "commit",
+        "--quiet",
+        "-m",
+        "Synthetic exact authorized correction and records"
+      ],
+      "cwd": "/workspace/repos/pixelelated/distribution.worktrees/m6-records-693",
+      "start": "2026-11-03T13:21:19.138105+00:00",
+      "end": "2026-11-03T13:21:19.140412+00:00",
+      "rc": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_base64": "",
+      "stderr_base64": ""
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/tmp/m6-t46-eh-fixtures-kbnfwd30/history-source",
+        "rev-parse",
+        "HEAD"
+      ],
+      "cwd": "/workspace/repos/pixelelated/distribution.worktrees/m6-records-693",
+      "start": "2026-11-03T13:21:19.140419+00:00",
+      "end": "2026-11-03T13:21:19.141072+00:00",
+      "rc": 0,
+      "stdout_sha256": "f01595dacb3aac6a83c7fa1376226574b415e52a40fbb015e9200af31951f122",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_base64": "ZjYwNWRlYjFmOThkNjFkOTQxN2QwMTdjNDI1MjU4NzhkMTc2MmIzNQo=",
+      "stderr_base64": ""
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/tmp/m6-t46-eh-fixtures-kbnfwd30/history-source",
+        "add",
+        "--all"
+      ],
+      "cwd": "/workspace/repos/pixelelated/distribution.worktrees/m6-records-693",
+      "start": "2026-11-03T13:21:19.141137+00:00",
+      "end": "2026-11-03T13:21:19.141987+00:00",
+      "rc": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_base64": "",
+      "stderr_base64": ""
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/tmp/m6-t46-eh-fixtures-kbnfwd30/history-source",
+        "-c",
+        "user.name=T46 synthetic fixture",
+        "-c",
+        "user.email=t46-fixture@example.invalid",
+        "commit",
+        "--quiet",
+        "-m",
+        "Synthetic forbidden source edit"
+      ],
+      "cwd": "/workspace/repos/pixelelated/distribution.worktrees/m6-records-693",
+      "start": "2026-11-03T13:21:19.141995+00:00",
+      "end": "2026-11-03T13:21:19.143987+00:00",
+      "rc": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_base64": "",
+      "stderr_base64": ""
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/tmp/m6-t46-eh-fixtures-kbnfwd30/history-source",
+        "rev-parse",
+        "HEAD"
+      ],
+      "cwd": "/workspace/repos/pixelelated/distribution.worktrees/m6-records-693",
+      "start": "2026-11-03T13:21:19.143994+00:00",
+      "end": "2026-11-03T13:21:19.144616+00:00",
+      "rc": 0,
+      "stdout_sha256": "3caf8a12d9da03f8dd2ba411a3ad02c96f0516ab404a8e78bc389c261d91ff26",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_base64": "NDRlOTBjYzNjNjIxOTk5ODNkOWY2NWNkY2YxMjk5NzNhMTA1MDRjZQo=",
+      "stderr_base64": ""
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/tmp/m6-t46-eh-fixtures-kbnfwd30/history-source",
+        "rev-parse",
+        "HEAD"
+      ],
+      "cwd": "/workspace/repos/pixelelated/distribution.worktrees/m6-records-693",
+      "start": "2026-11-03T13:21:19.144643+00:00",
+      "end": "2026-11-03T13:21:19.145350+00:00",
+      "rc": 0,
+      "stdout_sha256": "3caf8a12d9da03f8dd2ba411a3ad02c96f0516ab404a8e78bc389c261d91ff26",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_base64": "NDRlOTBjYzNjNjIxOTk5ODNkOWY2NWNkY2YxMjk5NzNhMTA1MDRjZQo=",
+      "stderr_base64": ""
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/tmp/m6-t46-eh-fixtures-kbnfwd30/history-revert",
+        "init",
+        "--quiet",
+        "--initial-branch=main"
+      ],
+      "cwd": "/workspace/repos/pixelelated/distribution.worktrees/m6-records-693",
+      "start": "2026-11-03T13:21:19.145547+00:00",
+      "end": "2026-11-03T13:21:19.146657+00:00",
+      "rc": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_base64": "",
+      "stderr_base64": ""
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/tmp/m6-t46-eh-fixtures-kbnfwd30/history-revert",
+        "add",
+        "--all"
+      ],
+      "cwd": "/workspace/repos/pixelelated/distribution.worktrees/m6-records-693",
+      "start": "2026-11-03T13:21:19.146759+00:00",
+      "end": "2026-11-03T13:21:19.147692+00:00",
+      "rc": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_base64": "",
+      "stderr_base64": ""
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/tmp/m6-t46-eh-fixtures-kbnfwd30/history-revert",
+        "-c",
+        "user.name=T46 synthetic fixture",
+        "-c",
+        "user.email=t46-fixture@example.invalid",
+        "commit",
+        "--quiet",
+        "-m",
+        "Synthetic baseline"
+      ],
+      "cwd": "/workspace/repos/pixelelated/distribution.worktrees/m6-records-693",
+      "start": "2026-11-03T13:21:19.147699+00:00",
+      "end": "2026-11-03T13:21:19.149634+00:00",
+      "rc": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_base64": "",
+      "stderr_base64": ""
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/tmp/m6-t46-eh-fixtures-kbnfwd30/history-revert",
+        "rev-parse",
+        "HEAD"
+      ],
+      "cwd": "/workspace/repos/pixelelated/distribution.worktrees/m6-records-693",
+      "start": "2026-11-03T13:21:19.149640+00:00",
+      "end": "2026-11-03T13:21:19.150269+00:00",
+      "rc": 0,
+      "stdout_sha256": "3b96afd68f2644e190b5397a861f54298c6c2cd9d6201a88eab3d6ad7ae91e7d",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_base64": "NzE0N2NjMjhlZDFlMDk5ZDI3YjVkNzg4YjI0NzkxN2EyOWVhM2JmNQo=",
+      "stderr_base64": ""
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/tmp/m6-t46-eh-fixtures-kbnfwd30/history-revert",
+        "ls-tree",
+        "7147cc28ed1e099d27b5d788b247917a29ea3bf5",
+        "--",
+        "docs/audits/2026_11_03-epic-m6-records/stage-a/frozen.txt"
+      ],
+      "cwd": "/workspace/repos/pixelelated/distribution.worktrees/m6-records-693",
+      "start": "2026-11-03T13:21:19.150283+00:00",
+      "end": "2026-11-03T13:21:19.151071+00:00",
+      "rc": 0,
+      "stdout_sha256": "150566ab056019a333df7ae6551e8f099bfd946cd3aa33d1b9868620f06c4890",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_base64": "MTAwNjQ0IGJsb2IgNTk3Mjg4NTM0N2RiYzJjZTE3OGI3ZTA4YWViOTQxYzM1OTM0MjVmNglkb2NzL2F1ZGl0cy8yMDI2XzExXzAzLWVwaWMtbTYtcmVjb3Jkcy9zdGFnZS1hL2Zyb3plbi50eHQK",
+      "stderr_base64": ""
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/tmp/m6-t46-eh-fixtures-kbnfwd30/history-revert",
+        "add",
+        "--all"
+      ],
+      "cwd": "/workspace/repos/pixelelated/distribution.worktrees/m6-records-693",
+      "start": "2026-11-03T13:21:19.151686+00:00",
+      "end": "2026-11-03T13:21:19.152799+00:00",
+      "rc": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_base64": "",
+      "stderr_base64": ""
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/tmp/m6-t46-eh-fixtures-kbnfwd30/history-revert",
+        "-c",
+        "user.name=T46 synthetic fixture",
+        "-c",
+        "user.email=t46-fixture@example.invalid",
+        "commit",
+        "--quiet",
+        "-m",
+        "Synthetic exact authorized correction and records"
+      ],
+      "cwd": "/workspace/repos/pixelelated/distribution.worktrees/m6-records-693",
+      "start": "2026-11-03T13:21:19.152808+00:00",
+      "end": "2026-11-03T13:21:19.155120+00:00",
+      "rc": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_base64": "",
+      "stderr_base64": ""
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/tmp/m6-t46-eh-fixtures-kbnfwd30/history-revert",
+        "rev-parse",
+        "HEAD"
+      ],
+      "cwd": "/workspace/repos/pixelelated/distribution.worktrees/m6-records-693",
+      "start": "2026-11-03T13:21:19.155129+00:00",
+      "end": "2026-11-03T13:21:19.155914+00:00",
+      "rc": 0,
+      "stdout_sha256": "f01595dacb3aac6a83c7fa1376226574b415e52a40fbb015e9200af31951f122",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_base64": "ZjYwNWRlYjFmOThkNjFkOTQxN2QwMTdjNDI1MjU4NzhkMTc2MmIzNQo=",
+      "stderr_base64": ""
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/tmp/m6-t46-eh-fixtures-kbnfwd30/history-revert",
+        "add",
+        "--all"
+      ],
+      "cwd": "/workspace/repos/pixelelated/distribution.worktrees/m6-records-693",
+      "start": "2026-11-03T13:21:19.155974+00:00",
+      "end": "2026-11-03T13:21:19.156800+00:00",
+      "rc": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_base64": "",
+      "stderr_base64": ""
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/tmp/m6-t46-eh-fixtures-kbnfwd30/history-revert",
+        "-c",
+        "user.name=T46 synthetic fixture",
+        "-c",
+        "user.email=t46-fixture@example.invalid",
+        "commit",
+        "--quiet",
+        "-m",
+        "Synthetic forbidden source edit"
+      ],
+      "cwd": "/workspace/repos/pixelelated/distribution.worktrees/m6-records-693",
+      "start": "2026-11-03T13:21:19.156807+00:00",
+      "end": "2026-11-03T13:21:19.158702+00:00",
+      "rc": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_base64": "",
+      "stderr_base64": ""
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/tmp/m6-t46-eh-fixtures-kbnfwd30/history-revert",
+        "rev-parse",
+        "HEAD"
+      ],
+      "cwd": "/workspace/repos/pixelelated/distribution.worktrees/m6-records-693",
+      "start": "2026-11-03T13:21:19.158708+00:00",
+      "end": "2026-11-03T13:21:19.159313+00:00",
+      "rc": 0,
+      "stdout_sha256": "3caf8a12d9da03f8dd2ba411a3ad02c96f0516ab404a8e78bc389c261d91ff26",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_base64": "NDRlOTBjYzNjNjIxOTk5ODNkOWY2NWNkY2YxMjk5NzNhMTA1MDRjZQo=",
+      "stderr_base64": ""
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/tmp/m6-t46-eh-fixtures-kbnfwd30/history-revert",
+        "add",
+        "--all"
+      ],
+      "cwd": "/workspace/repos/pixelelated/distribution.worktrees/m6-records-693",
+      "start": "2026-11-03T13:21:19.159363+00:00",
+      "end": "2026-11-03T13:21:19.160171+00:00",
+      "rc": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_base64": "",
+      "stderr_base64": ""
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/tmp/m6-t46-eh-fixtures-kbnfwd30/history-revert",
+        "-c",
+        "user.name=T46 synthetic fixture",
+        "-c",
+        "user.email=t46-fixture@example.invalid",
+        "commit",
+        "--quiet",
+        "-m",
+        "Synthetic source edit then revert"
+      ],
+      "cwd": "/workspace/repos/pixelelated/distribution.worktrees/m6-records-693",
+      "start": "2026-11-03T13:21:19.160179+00:00",
+      "end": "2026-11-03T13:21:19.162024+00:00",
+      "rc": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_base64": "",
+      "stderr_base64": ""
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/tmp/m6-t46-eh-fixtures-kbnfwd30/history-revert",
+        "rev-parse",
+        "HEAD"
+      ],
+      "cwd": "/workspace/repos/pixelelated/distribution.worktrees/m6-records-693",
+      "start": "2026-11-03T13:21:19.162031+00:00",
+      "end": "2026-11-03T13:21:19.162690+00:00",
+      "rc": 0,
+      "stdout_sha256": "2e7e08c9b6ab4c06d5599a14a143928a0fd6edabb0d9a5139f0d0bfe5c62a558",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_base64": "YTgxMDdlMjM0NGRjOGIxNmQxZjYwZGUwY2NkY2U3ZGQwNDg4YTI1YQo=",
+      "stderr_base64": ""
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/tmp/m6-t46-eh-fixtures-kbnfwd30/history-revert",
+        "rev-parse",
+        "HEAD"
+      ],
+      "cwd": "/workspace/repos/pixelelated/distribution.worktrees/m6-records-693",
+      "start": "2026-11-03T13:21:19.162721+00:00",
+      "end": "2026-11-03T13:21:19.163368+00:00",
+      "rc": 0,
+      "stdout_sha256": "2e7e08c9b6ab4c06d5599a14a143928a0fd6edabb0d9a5139f0d0bfe5c62a558",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_base64": "YTgxMDdlMjM0NGRjOGIxNmQxZjYwZGUwY2NkY2U3ZGQwNDg4YTI1YQo=",
+      "stderr_base64": ""
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/tmp/m6-t46-eh-fixtures-kbnfwd30/history-frozen",
+        "init",
+        "--quiet",
+        "--initial-branch=main"
+      ],
+      "cwd": "/workspace/repos/pixelelated/distribution.worktrees/m6-records-693",
+      "start": "2026-11-03T13:21:19.163585+00:00",
+      "end": "2026-11-03T13:21:19.164597+00:00",
+      "rc": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_base64": "",
+      "stderr_base64": ""
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/tmp/m6-t46-eh-fixtures-kbnfwd30/history-frozen",
+        "add",
+        "--all"
+      ],
+      "cwd": "/workspace/repos/pixelelated/distribution.worktrees/m6-records-693",
+      "start": "2026-11-03T13:21:19.164695+00:00",
+      "end": "2026-11-03T13:21:19.165603+00:00",
+      "rc": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_base64": "",
+      "stderr_base64": ""
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/tmp/m6-t46-eh-fixtures-kbnfwd30/history-frozen",
+        "-c",
+        "user.name=T46 synthetic fixture",
+        "-c",
+        "user.email=t46-fixture@example.invalid",
+        "commit",
+        "--quiet",
+        "-m",
+        "Synthetic baseline"
+      ],
+      "cwd": "/workspace/repos/pixelelated/distribution.worktrees/m6-records-693",
+      "start": "2026-11-03T13:21:19.165609+00:00",
+      "end": "2026-11-03T13:21:19.167701+00:00",
+      "rc": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_base64": "",
+      "stderr_base64": ""
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/tmp/m6-t46-eh-fixtures-kbnfwd30/history-frozen",
+        "rev-parse",
+        "HEAD"
+      ],
+      "cwd": "/workspace/repos/pixelelated/distribution.worktrees/m6-records-693",
+      "start": "2026-11-03T13:21:19.167707+00:00",
+      "end": "2026-11-03T13:21:19.168312+00:00",
+      "rc": 0,
+      "stdout_sha256": "3b96afd68f2644e190b5397a861f54298c6c2cd9d6201a88eab3d6ad7ae91e7d",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_base64": "NzE0N2NjMjhlZDFlMDk5ZDI3YjVkNzg4YjI0NzkxN2EyOWVhM2JmNQo=",
+      "stderr_base64": ""
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/tmp/m6-t46-eh-fixtures-kbnfwd30/history-frozen",
+        "ls-tree",
+        "7147cc28ed1e099d27b5d788b247917a29ea3bf5",
+        "--",
+        "docs/audits/2026_11_03-epic-m6-records/stage-a/frozen.txt"
+      ],
+      "cwd": "/workspace/repos/pixelelated/distribution.worktrees/m6-records-693",
+      "start": "2026-11-03T13:21:19.168327+00:00",
+      "end": "2026-11-03T13:21:19.169127+00:00",
+      "rc": 0,
+      "stdout_sha256": "150566ab056019a333df7ae6551e8f099bfd946cd3aa33d1b9868620f06c4890",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_base64": "MTAwNjQ0IGJsb2IgNTk3Mjg4NTM0N2RiYzJjZTE3OGI3ZTA4YWViOTQxYzM1OTM0MjVmNglkb2NzL2F1ZGl0cy8yMDI2XzExXzAzLWVwaWMtbTYtcmVjb3Jkcy9zdGFnZS1hL2Zyb3plbi50eHQK",
+      "stderr_base64": ""
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/tmp/m6-t46-eh-fixtures-kbnfwd30/history-frozen",
+        "add",
+        "--all"
+      ],
+      "cwd": "/workspace/repos/pixelelated/distribution.worktrees/m6-records-693",
+      "start": "2026-11-03T13:21:19.169512+00:00",
+      "end": "2026-11-03T13:21:19.170585+00:00",
+      "rc": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_base64": "",
+      "stderr_base64": ""
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/tmp/m6-t46-eh-fixtures-kbnfwd30/history-frozen",
+        "-c",
+        "user.name=T46 synthetic fixture",
+        "-c",
+        "user.email=t46-fixture@example.invalid",
+        "commit",
+        "--quiet",
+        "-m",
+        "Synthetic exact authorized correction and records"
+      ],
+      "cwd": "/workspace/repos/pixelelated/distribution.worktrees/m6-records-693",
+      "start": "2026-11-03T13:21:19.170612+00:00",
+      "end": "2026-11-03T13:21:19.173049+00:00",
+      "rc": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_base64": "",
+      "stderr_base64": ""
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/tmp/m6-t46-eh-fixtures-kbnfwd30/history-frozen",
+        "rev-parse",
+        "HEAD"
+      ],
+      "cwd": "/workspace/repos/pixelelated/distribution.worktrees/m6-records-693",
+      "start": "2026-11-03T13:21:19.173056+00:00",
+      "end": "2026-11-03T13:21:19.173826+00:00",
+      "rc": 0,
+      "stdout_sha256": "f01595dacb3aac6a83c7fa1376226574b415e52a40fbb015e9200af31951f122",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_base64": "ZjYwNWRlYjFmOThkNjFkOTQxN2QwMTdjNDI1MjU4NzhkMTc2MmIzNQo=",
+      "stderr_base64": ""
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/tmp/m6-t46-eh-fixtures-kbnfwd30/history-frozen",
+        "add",
+        "--all"
+      ],
+      "cwd": "/workspace/repos/pixelelated/distribution.worktrees/m6-records-693",
+      "start": "2026-11-03T13:21:19.173890+00:00",
+      "end": "2026-11-03T13:21:19.174805+00:00",
+      "rc": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_base64": "",
+      "stderr_base64": ""
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/tmp/m6-t46-eh-fixtures-kbnfwd30/history-frozen",
+        "-c",
+        "user.name=T46 synthetic fixture",
+        "-c",
+        "user.email=t46-fixture@example.invalid",
+        "commit",
+        "--quiet",
+        "-m",
+        "Synthetic frozen receipt edit"
+      ],
+      "cwd": "/workspace/repos/pixelelated/distribution.worktrees/m6-records-693",
+      "start": "2026-11-03T13:21:19.174814+00:00",
+      "end": "2026-11-03T13:21:19.176964+00:00",
+      "rc": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_base64": "",
+      "stderr_base64": ""
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/tmp/m6-t46-eh-fixtures-kbnfwd30/history-frozen",
+        "rev-parse",
+        "HEAD"
+      ],
+      "cwd": "/workspace/repos/pixelelated/distribution.worktrees/m6-records-693",
+      "start": "2026-11-03T13:21:19.176971+00:00",
+      "end": "2026-11-03T13:21:19.177600+00:00",
+      "rc": 0,
+      "stdout_sha256": "496558cd239f02d0fb015324ec19e362307d0aafd9e747effb5ebfa3b294b26d",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_base64": "NGQxOGY2MThkMzg3Y2RjNDI4MGNmM2ZhNTlhMTI5OGRlZjhjMzRkYQo=",
+      "stderr_base64": ""
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/tmp/m6-t46-eh-fixtures-kbnfwd30/history-frozen",
+        "rev-parse",
+        "HEAD"
+      ],
+      "cwd": "/workspace/repos/pixelelated/distribution.worktrees/m6-records-693",
+      "start": "2026-11-03T13:21:19.177628+00:00",
+      "end": "2026-11-03T13:21:19.178307+00:00",
+      "rc": 0,
+      "stdout_sha256": "496558cd239f02d0fb015324ec19e362307d0aafd9e747effb5ebfa3b294b26d",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_base64": "NGQxOGY2MThkMzg3Y2RjNDI4MGNmM2ZhNTlhMTI5OGRlZjhjMzRkYQo=",
+      "stderr_base64": ""
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/tmp/m6-t46-eh-fixtures-kbnfwd30/history-wrong-readme-repair",
+        "init",
+        "--quiet",
+        "--initial-branch=main"
+      ],
+      "cwd": "/workspace/repos/pixelelated/distribution.worktrees/m6-records-693",
+      "start": "2026-11-03T13:21:19.178547+00:00",
+      "end": "2026-11-03T13:21:19.179631+00:00",
+      "rc": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_base64": "",
+      "stderr_base64": ""
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/tmp/m6-t46-eh-fixtures-kbnfwd30/history-wrong-readme-repair",
+        "add",
+        "--all"
+      ],
+      "cwd": "/workspace/repos/pixelelated/distribution.worktrees/m6-records-693",
+      "start": "2026-11-03T13:21:19.179737+00:00",
+      "end": "2026-11-03T13:21:19.180663+00:00",
+      "rc": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_base64": "",
+      "stderr_base64": ""
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/tmp/m6-t46-eh-fixtures-kbnfwd30/history-wrong-readme-repair",
+        "-c",
+        "user.name=T46 synthetic fixture",
+        "-c",
+        "user.email=t46-fixture@example.invalid",
+        "commit",
+        "--quiet",
+        "-m",
+        "Synthetic baseline"
+      ],
+      "cwd": "/workspace/repos/pixelelated/distribution.worktrees/m6-records-693",
+      "start": "2026-11-03T13:21:19.180670+00:00",
+      "end": "2026-11-03T13:21:19.182706+00:00",
+      "rc": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_base64": "",
+      "stderr_base64": ""
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/tmp/m6-t46-eh-fixtures-kbnfwd30/history-wrong-readme-repair",
+        "rev-parse",
+        "HEAD"
+      ],
+      "cwd": "/workspace/repos/pixelelated/distribution.worktrees/m6-records-693",
+      "start": "2026-11-03T13:21:19.182713+00:00",
+      "end": "2026-11-03T13:21:19.183340+00:00",
+      "rc": 0,
+      "stdout_sha256": "3b96afd68f2644e190b5397a861f54298c6c2cd9d6201a88eab3d6ad7ae91e7d",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_base64": "NzE0N2NjMjhlZDFlMDk5ZDI3YjVkNzg4YjI0NzkxN2EyOWVhM2JmNQo=",
+      "stderr_base64": ""
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/tmp/m6-t46-eh-fixtures-kbnfwd30/history-wrong-readme-repair",
+        "ls-tree",
+        "7147cc28ed1e099d27b5d788b247917a29ea3bf5",
+        "--",
+        "docs/audits/2026_11_03-epic-m6-records/stage-a/frozen.txt"
+      ],
+      "cwd": "/workspace/repos/pixelelated/distribution.worktrees/m6-records-693",
+      "start": "2026-11-03T13:21:19.183352+00:00",
+      "end": "2026-11-03T13:21:19.184091+00:00",
+      "rc": 0,
+      "stdout_sha256": "150566ab056019a333df7ae6551e8f099bfd946cd3aa33d1b9868620f06c4890",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_base64": "MTAwNjQ0IGJsb2IgNTk3Mjg4NTM0N2RiYzJjZTE3OGI3ZTA4YWViOTQxYzM1OTM0MjVmNglkb2NzL2F1ZGl0cy8yMDI2XzExXzAzLWVwaWMtbTYtcmVjb3Jkcy9zdGFnZS1hL2Zyb3plbi50eHQK",
+      "stderr_base64": ""
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/tmp/m6-t46-eh-fixtures-kbnfwd30/history-wrong-readme-repair",
+        "add",
+        "--all"
+      ],
+      "cwd": "/workspace/repos/pixelelated/distribution.worktrees/m6-records-693",
+      "start": "2026-11-03T13:21:19.184496+00:00",
+      "end": "2026-11-03T13:21:19.185623+00:00",
+      "rc": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_base64": "",
+      "stderr_base64": ""
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/tmp/m6-t46-eh-fixtures-kbnfwd30/history-wrong-readme-repair",
+        "-c",
+        "user.name=T46 synthetic fixture",
+        "-c",
+        "user.email=t46-fixture@example.invalid",
+        "commit",
+        "--quiet",
+        "-m",
+        "Synthetic exact authorized correction and records"
+      ],
+      "cwd": "/workspace/repos/pixelelated/distribution.worktrees/m6-records-693",
+      "start": "2026-11-03T13:21:19.185632+00:00",
+      "end": "2026-11-03T13:21:19.187934+00:00",
+      "rc": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_base64": "",
+      "stderr_base64": ""
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/tmp/m6-t46-eh-fixtures-kbnfwd30/history-wrong-readme-repair",
+        "rev-parse",
+        "HEAD"
+      ],
+      "cwd": "/workspace/repos/pixelelated/distribution.worktrees/m6-records-693",
+      "start": "2026-11-03T13:21:19.187941+00:00",
+      "end": "2026-11-03T13:21:19.188560+00:00",
+      "rc": 0,
+      "stdout_sha256": "f01595dacb3aac6a83c7fa1376226574b415e52a40fbb015e9200af31951f122",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_base64": "ZjYwNWRlYjFmOThkNjFkOTQxN2QwMTdjNDI1MjU4NzhkMTc2MmIzNQo=",
+      "stderr_base64": ""
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/tmp/m6-t46-eh-fixtures-kbnfwd30/history-wrong-readme-repair",
+        "add",
+        "--all"
+      ],
+      "cwd": "/workspace/repos/pixelelated/distribution.worktrees/m6-records-693",
+      "start": "2026-11-03T13:21:19.188620+00:00",
+      "end": "2026-11-03T13:21:19.189470+00:00",
+      "rc": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_base64": "",
+      "stderr_base64": ""
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/tmp/m6-t46-eh-fixtures-kbnfwd30/history-wrong-readme-repair",
+        "-c",
+        "user.name=T46 synthetic fixture",
+        "-c",
+        "user.email=t46-fixture@example.invalid",
+        "commit",
+        "--quiet",
+        "-m",
+        "Synthetic wrong README"
+      ],
+      "cwd": "/workspace/repos/pixelelated/distribution.worktrees/m6-records-693",
+      "start": "2026-11-03T13:21:19.189480+00:00",
+      "end": "2026-11-03T13:21:19.191635+00:00",
+      "rc": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_base64": "",
+      "stderr_base64": ""
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/tmp/m6-t46-eh-fixtures-kbnfwd30/history-wrong-readme-repair",
+        "rev-parse",
+        "HEAD"
+      ],
+      "cwd": "/workspace/repos/pixelelated/distribution.worktrees/m6-records-693",
+      "start": "2026-11-03T13:21:19.191642+00:00",
+      "end": "2026-11-03T13:21:19.192280+00:00",
+      "rc": 0,
+      "stdout_sha256": "80039194ae5b1c714d63c1bd72766b26da775f36e3c9e915d85a8b973ac050f8",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_base64": "NDRjYTVhMDBlZTdhNWVlMjdhYTdlMjA4ZmMxYWZiYmY0M2EyNjAwYwo=",
+      "stderr_base64": ""
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/tmp/m6-t46-eh-fixtures-kbnfwd30/history-wrong-readme-repair",
+        "add",
+        "--all"
+      ],
+      "cwd": "/workspace/repos/pixelelated/distribution.worktrees/m6-records-693",
+      "start": "2026-11-03T13:21:19.192343+00:00",
+      "end": "2026-11-03T13:21:19.193156+00:00",
+      "rc": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_base64": "",
+      "stderr_base64": ""
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/tmp/m6-t46-eh-fixtures-kbnfwd30/history-wrong-readme-repair",
+        "-c",
+        "user.name=T46 synthetic fixture",
+        "-c",
+        "user.email=t46-fixture@example.invalid",
+        "commit",
+        "--quiet",
+        "-m",
+        "Synthetic later README repair"
+      ],
+      "cwd": "/workspace/repos/pixelelated/distribution.worktrees/m6-records-693",
+      "start": "2026-11-03T13:21:19.193164+00:00",
+      "end": "2026-11-03T13:21:19.194990+00:00",
+      "rc": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_base64": "",
+      "stderr_base64": ""
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/tmp/m6-t46-eh-fixtures-kbnfwd30/history-wrong-readme-repair",
+        "rev-parse",
+        "HEAD"
+      ],
+      "cwd": "/workspace/repos/pixelelated/distribution.worktrees/m6-records-693",
+      "start": "2026-11-03T13:21:19.195001+00:00",
+      "end": "2026-11-03T13:21:19.195651+00:00",
+      "rc": 0,
+      "stdout_sha256": "f66de455fc6143754fc8857c5d54792bdbaa53f7a73af6425bbd1b1dfda0cb46",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_base64": "OTQ2OGM5YzgxODlmZTE2YmVjNjdiMWIyYmJlYzhlY2RmMTQ5ZWNjOAo=",
+      "stderr_base64": ""
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/tmp/m6-t46-eh-fixtures-kbnfwd30/history-wrong-readme-repair",
+        "rev-parse",
+        "HEAD"
+      ],
+      "cwd": "/workspace/repos/pixelelated/distribution.worktrees/m6-records-693",
+      "start": "2026-11-03T13:21:19.195678+00:00",
+      "end": "2026-11-03T13:21:19.196345+00:00",
+      "rc": 0,
+      "stdout_sha256": "f66de455fc6143754fc8857c5d54792bdbaa53f7a73af6425bbd1b1dfda0cb46",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_base64": "OTQ2OGM5YzgxODlmZTE2YmVjNjdiMWIyYmJlYzhlY2RmMTQ5ZWNjOAo=",
+      "stderr_base64": ""
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/tmp/m6-t46-eh-fixtures-kbnfwd30/unrelated-retro",
+        "init",
+        "--quiet",
+        "--initial-branch=main"
+      ],
+      "cwd": "/workspace/repos/pixelelated/distribution.worktrees/m6-records-693",
+      "start": "2026-11-03T13:21:19.196616+00:00",
+      "end": "2026-11-03T13:21:19.197616+00:00",
+      "rc": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_base64": "",
+      "stderr_base64": ""
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/tmp/m6-t46-eh-fixtures-kbnfwd30/unrelated-retro",
+        "add",
+        "--all"
+      ],
+      "cwd": "/workspace/repos/pixelelated/distribution.worktrees/m6-records-693",
+      "start": "2026-11-03T13:21:19.197714+00:00",
+      "end": "2026-11-03T13:21:19.198660+00:00",
+      "rc": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_base64": "",
+      "stderr_base64": ""
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/tmp/m6-t46-eh-fixtures-kbnfwd30/unrelated-retro",
+        "-c",
+        "user.name=T46 synthetic fixture",
+        "-c",
+        "user.email=t46-fixture@example.invalid",
+        "commit",
+        "--quiet",
+        "-m",
+        "Synthetic baseline"
+      ],
+      "cwd": "/workspace/repos/pixelelated/distribution.worktrees/m6-records-693",
+      "start": "2026-11-03T13:21:19.198668+00:00",
+      "end": "2026-11-03T13:21:19.200673+00:00",
+      "rc": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_base64": "",
+      "stderr_base64": ""
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/tmp/m6-t46-eh-fixtures-kbnfwd30/unrelated-retro",
+        "rev-parse",
+        "HEAD"
+      ],
+      "cwd": "/workspace/repos/pixelelated/distribution.worktrees/m6-records-693",
+      "start": "2026-11-03T13:21:19.200679+00:00",
+      "end": "2026-11-03T13:21:19.201308+00:00",
+      "rc": 0,
+      "stdout_sha256": "3b96afd68f2644e190b5397a861f54298c6c2cd9d6201a88eab3d6ad7ae91e7d",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_base64": "NzE0N2NjMjhlZDFlMDk5ZDI3YjVkNzg4YjI0NzkxN2EyOWVhM2JmNQo=",
+      "stderr_base64": ""
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/tmp/m6-t46-eh-fixtures-kbnfwd30/unrelated-retro",
+        "ls-tree",
+        "7147cc28ed1e099d27b5d788b247917a29ea3bf5",
+        "--",
+        "docs/audits/2026_11_03-epic-m6-records/stage-a/frozen.txt"
+      ],
+      "cwd": "/workspace/repos/pixelelated/distribution.worktrees/m6-records-693",
+      "start": "2026-11-03T13:21:19.201323+00:00",
+      "end": "2026-11-03T13:21:19.202140+00:00",
+      "rc": 0,
+      "stdout_sha256": "150566ab056019a333df7ae6551e8f099bfd946cd3aa33d1b9868620f06c4890",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_base64": "MTAwNjQ0IGJsb2IgNTk3Mjg4NTM0N2RiYzJjZTE3OGI3ZTA4YWViOTQxYzM1OTM0MjVmNglkb2NzL2F1ZGl0cy8yMDI2XzExXzAzLWVwaWMtbTYtcmVjb3Jkcy9zdGFnZS1hL2Zyb3plbi50eHQK",
+      "stderr_base64": ""
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/tmp/m6-t46-eh-fixtures-kbnfwd30/unrelated-retro",
+        "add",
+        "--all"
+      ],
+      "cwd": "/workspace/repos/pixelelated/distribution.worktrees/m6-records-693",
+      "start": "2026-11-03T13:21:19.202553+00:00",
+      "end": "2026-11-03T13:21:19.203672+00:00",
+      "rc": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_base64": "",
+      "stderr_base64": ""
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/tmp/m6-t46-eh-fixtures-kbnfwd30/unrelated-retro",
+        "-c",
+        "user.name=T46 synthetic fixture",
+        "-c",
+        "user.email=t46-fixture@example.invalid",
+        "commit",
+        "--quiet",
+        "-m",
+        "Synthetic exact authorized correction and records"
+      ],
+      "cwd": "/workspace/repos/pixelelated/distribution.worktrees/m6-records-693",
+      "start": "2026-11-03T13:21:19.203681+00:00",
+      "end": "2026-11-03T13:21:19.205933+00:00",
+      "rc": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_base64": "",
+      "stderr_base64": ""
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/tmp/m6-t46-eh-fixtures-kbnfwd30/unrelated-retro",
+        "rev-parse",
+        "HEAD"
+      ],
+      "cwd": "/workspace/repos/pixelelated/distribution.worktrees/m6-records-693",
+      "start": "2026-11-03T13:21:19.205940+00:00",
+      "end": "2026-11-03T13:21:19.206559+00:00",
+      "rc": 0,
+      "stdout_sha256": "f01595dacb3aac6a83c7fa1376226574b415e52a40fbb015e9200af31951f122",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_base64": "ZjYwNWRlYjFmOThkNjFkOTQxN2QwMTdjNDI1MjU4NzhkMTc2MmIzNQo=",
+      "stderr_base64": ""
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/tmp/m6-t46-eh-fixtures-kbnfwd30/unrelated-retro",
+        "rev-parse",
+        "HEAD"
+      ],
+      "cwd": "/workspace/repos/pixelelated/distribution.worktrees/m6-records-693",
+      "start": "2026-11-03T13:21:19.206634+00:00",
+      "end": "2026-11-03T13:21:19.207354+00:00",
+      "rc": 0,
+      "stdout_sha256": "f01595dacb3aac6a83c7fa1376226574b415e52a40fbb015e9200af31951f122",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_base64": "ZjYwNWRlYjFmOThkNjFkOTQxN2QwMTdjNDI1MjU4NzhkMTc2MmIzNQo=",
+      "stderr_base64": ""
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/tmp/m6-t46-eh-fixtures-kbnfwd30/unrelated-day",
+        "init",
+        "--quiet",
+        "--initial-branch=main"
+      ],
+      "cwd": "/workspace/repos/pixelelated/distribution.worktrees/m6-records-693",
+      "start": "2026-11-03T13:21:19.207638+00:00",
+      "end": "2026-11-03T13:21:19.208643+00:00",
+      "rc": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_base64": "",
+      "stderr_base64": ""
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/tmp/m6-t46-eh-fixtures-kbnfwd30/unrelated-day",
+        "add",
+        "--all"
+      ],
+      "cwd": "/workspace/repos/pixelelated/distribution.worktrees/m6-records-693",
+      "start": "2026-11-03T13:21:19.208753+00:00",
+      "end": "2026-11-03T13:21:19.209666+00:00",
+      "rc": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_base64": "",
+      "stderr_base64": ""
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/tmp/m6-t46-eh-fixtures-kbnfwd30/unrelated-day",
+        "-c",
+        "user.name=T46 synthetic fixture",
+        "-c",
+        "user.email=t46-fixture@example.invalid",
+        "commit",
+        "--quiet",
+        "-m",
+        "Synthetic baseline"
+      ],
+      "cwd": "/workspace/repos/pixelelated/distribution.worktrees/m6-records-693",
+      "start": "2026-11-03T13:21:19.209674+00:00",
+      "end": "2026-11-03T13:21:19.211753+00:00",
+      "rc": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_base64": "",
+      "stderr_base64": ""
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/tmp/m6-t46-eh-fixtures-kbnfwd30/unrelated-day",
+        "rev-parse",
+        "HEAD"
+      ],
+      "cwd": "/workspace/repos/pixelelated/distribution.worktrees/m6-records-693",
+      "start": "2026-11-03T13:21:19.211762+00:00",
+      "end": "2026-11-03T13:21:19.212376+00:00",
+      "rc": 0,
+      "stdout_sha256": "3b96afd68f2644e190b5397a861f54298c6c2cd9d6201a88eab3d6ad7ae91e7d",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_base64": "NzE0N2NjMjhlZDFlMDk5ZDI3YjVkNzg4YjI0NzkxN2EyOWVhM2JmNQo=",
+      "stderr_base64": ""
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/tmp/m6-t46-eh-fixtures-kbnfwd30/unrelated-day",
+        "ls-tree",
+        "7147cc28ed1e099d27b5d788b247917a29ea3bf5",
+        "--",
+        "docs/audits/2026_11_03-epic-m6-records/stage-a/frozen.txt"
+      ],
+      "cwd": "/workspace/repos/pixelelated/distribution.worktrees/m6-records-693",
+      "start": "2026-11-03T13:21:19.212384+00:00",
+      "end": "2026-11-03T13:21:19.213134+00:00",
+      "rc": 0,
+      "stdout_sha256": "150566ab056019a333df7ae6551e8f099bfd946cd3aa33d1b9868620f06c4890",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_base64": "MTAwNjQ0IGJsb2IgNTk3Mjg4NTM0N2RiYzJjZTE3OGI3ZTA4YWViOTQxYzM1OTM0MjVmNglkb2NzL2F1ZGl0cy8yMDI2XzExXzAzLWVwaWMtbTYtcmVjb3Jkcy9zdGFnZS1hL2Zyb3plbi50eHQK",
+      "stderr_base64": ""
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/tmp/m6-t46-eh-fixtures-kbnfwd30/unrelated-day",
+        "add",
+        "--all"
+      ],
+      "cwd": "/workspace/repos/pixelelated/distribution.worktrees/m6-records-693",
+      "start": "2026-11-03T13:21:19.213544+00:00",
+      "end": "2026-11-03T13:21:19.214562+00:00",
+      "rc": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_base64": "",
+      "stderr_base64": ""
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/tmp/m6-t46-eh-fixtures-kbnfwd30/unrelated-day",
+        "-c",
+        "user.name=T46 synthetic fixture",
+        "-c",
+        "user.email=t46-fixture@example.invalid",
+        "commit",
+        "--quiet",
+        "-m",
+        "Synthetic exact authorized correction and records"
+      ],
+      "cwd": "/workspace/repos/pixelelated/distribution.worktrees/m6-records-693",
+      "start": "2026-11-03T13:21:19.214571+00:00",
+      "end": "2026-11-03T13:21:19.216883+00:00",
+      "rc": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_base64": "",
+      "stderr_base64": ""
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/tmp/m6-t46-eh-fixtures-kbnfwd30/unrelated-day",
+        "rev-parse",
+        "HEAD"
+      ],
+      "cwd": "/workspace/repos/pixelelated/distribution.worktrees/m6-records-693",
+      "start": "2026-11-03T13:21:19.216890+00:00",
+      "end": "2026-11-03T13:21:19.217559+00:00",
+      "rc": 0,
+      "stdout_sha256": "f01595dacb3aac6a83c7fa1376226574b415e52a40fbb015e9200af31951f122",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_base64": "ZjYwNWRlYjFmOThkNjFkOTQxN2QwMTdjNDI1MjU4NzhkMTc2MmIzNQo=",
+      "stderr_base64": ""
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/tmp/m6-t46-eh-fixtures-kbnfwd30/unrelated-day",
+        "rev-parse",
+        "HEAD"
+      ],
+      "cwd": "/workspace/repos/pixelelated/distribution.worktrees/m6-records-693",
+      "start": "2026-11-03T13:21:19.217632+00:00",
+      "end": "2026-11-03T13:21:19.218312+00:00",
+      "rc": 0,
+      "stdout_sha256": "f01595dacb3aac6a83c7fa1376226574b415e52a40fbb015e9200af31951f122",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_base64": "ZjYwNWRlYjFmOThkNjFkOTQxN2QwMTdjNDI1MjU4NzhkMTc2MmIzNQo=",
+      "stderr_base64": ""
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/tmp/m6-t46-eh-fixtures-kbnfwd30/executable",
+        "init",
+        "--quiet",
+        "--initial-branch=main"
+      ],
+      "cwd": "/workspace/repos/pixelelated/distribution.worktrees/m6-records-693",
+      "start": "2026-11-03T13:21:19.218603+00:00",
+      "end": "2026-11-03T13:21:19.219729+00:00",
+      "rc": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_base64": "",
+      "stderr_base64": ""
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/tmp/m6-t46-eh-fixtures-kbnfwd30/executable",
+        "add",
+        "--all"
+      ],
+      "cwd": "/workspace/repos/pixelelated/distribution.worktrees/m6-records-693",
+      "start": "2026-11-03T13:21:19.219829+00:00",
+      "end": "2026-11-03T13:21:19.220758+00:00",
+      "rc": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_base64": "",
+      "stderr_base64": ""
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/tmp/m6-t46-eh-fixtures-kbnfwd30/executable",
+        "-c",
+        "user.name=T46 synthetic fixture",
+        "-c",
+        "user.email=t46-fixture@example.invalid",
+        "commit",
+        "--quiet",
+        "-m",
+        "Synthetic baseline"
+      ],
+      "cwd": "/workspace/repos/pixelelated/distribution.worktrees/m6-records-693",
+      "start": "2026-11-03T13:21:19.220764+00:00",
+      "end": "2026-11-03T13:21:19.222919+00:00",
+      "rc": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_base64": "",
+      "stderr_base64": ""
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/tmp/m6-t46-eh-fixtures-kbnfwd30/executable",
+        "rev-parse",
+        "HEAD"
+      ],
+      "cwd": "/workspace/repos/pixelelated/distribution.worktrees/m6-records-693",
+      "start": "2026-11-03T13:21:19.222926+00:00",
+      "end": "2026-11-03T13:21:19.223581+00:00",
+      "rc": 0,
+      "stdout_sha256": "3b96afd68f2644e190b5397a861f54298c6c2cd9d6201a88eab3d6ad7ae91e7d",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_base64": "NzE0N2NjMjhlZDFlMDk5ZDI3YjVkNzg4YjI0NzkxN2EyOWVhM2JmNQo=",
+      "stderr_base64": ""
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/tmp/m6-t46-eh-fixtures-kbnfwd30/executable",
+        "ls-tree",
+        "7147cc28ed1e099d27b5d788b247917a29ea3bf5",
+        "--",
+        "docs/audits/2026_11_03-epic-m6-records/stage-a/frozen.txt"
+      ],
+      "cwd": "/workspace/repos/pixelelated/distribution.worktrees/m6-records-693",
+      "start": "2026-11-03T13:21:19.223595+00:00",
+      "end": "2026-11-03T13:21:19.224423+00:00",
+      "rc": 0,
+      "stdout_sha256": "150566ab056019a333df7ae6551e8f099bfd946cd3aa33d1b9868620f06c4890",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_base64": "MTAwNjQ0IGJsb2IgNTk3Mjg4NTM0N2RiYzJjZTE3OGI3ZTA4YWViOTQxYzM1OTM0MjVmNglkb2NzL2F1ZGl0cy8yMDI2XzExXzAzLWVwaWMtbTYtcmVjb3Jkcy9zdGFnZS1hL2Zyb3plbi50eHQK",
+      "stderr_base64": ""
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/tmp/m6-t46-eh-fixtures-kbnfwd30/executable",
+        "add",
+        "--all"
+      ],
+      "cwd": "/workspace/repos/pixelelated/distribution.worktrees/m6-records-693",
+      "start": "2026-11-03T13:21:19.224822+00:00",
+      "end": "2026-11-03T13:21:19.225893+00:00",
+      "rc": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_base64": "",
+      "stderr_base64": ""
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/tmp/m6-t46-eh-fixtures-kbnfwd30/executable",
+        "-c",
+        "user.name=T46 synthetic fixture",
+        "-c",
+        "user.email=t46-fixture@example.invalid",
+        "commit",
+        "--quiet",
+        "-m",
+        "Synthetic exact authorized correction and records"
+      ],
+      "cwd": "/workspace/repos/pixelelated/distribution.worktrees/m6-records-693",
+      "start": "2026-11-03T13:21:19.225902+00:00",
+      "end": "2026-11-03T13:21:19.228128+00:00",
+      "rc": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_base64": "",
+      "stderr_base64": ""
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/tmp/m6-t46-eh-fixtures-kbnfwd30/executable",
+        "rev-parse",
+        "HEAD"
+      ],
+      "cwd": "/workspace/repos/pixelelated/distribution.worktrees/m6-records-693",
+      "start": "2026-11-03T13:21:19.228135+00:00",
+      "end": "2026-11-03T13:21:19.228740+00:00",
+      "rc": 0,
+      "stdout_sha256": "f01595dacb3aac6a83c7fa1376226574b415e52a40fbb015e9200af31951f122",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_base64": "ZjYwNWRlYjFmOThkNjFkOTQxN2QwMTdjNDI1MjU4NzhkMTc2MmIzNQo=",
+      "stderr_base64": ""
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/tmp/m6-t46-eh-fixtures-kbnfwd30/executable",
+        "add",
+        "--",
+        "docs/audits/2026_11_03-epic-m6-records/stage-e/fixture.txt"
+      ],
+      "cwd": "/workspace/repos/pixelelated/distribution.worktrees/m6-records-693",
+      "start": "2026-11-03T13:21:19.228779+00:00",
+      "end": "2026-11-03T13:21:19.229584+00:00",
+      "rc": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_base64": "",
+      "stderr_base64": ""
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/tmp/m6-t46-eh-fixtures-kbnfwd30/executable",
+        "rev-parse",
+        "HEAD"
+      ],
+      "cwd": "/workspace/repos/pixelelated/distribution.worktrees/m6-records-693",
+      "start": "2026-11-03T13:21:19.229603+00:00",
+      "end": "2026-11-03T13:21:19.230255+00:00",
+      "rc": 0,
+      "stdout_sha256": "f01595dacb3aac6a83c7fa1376226574b415e52a40fbb015e9200af31951f122",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_base64": "ZjYwNWRlYjFmOThkNjFkOTQxN2QwMTdjNDI1MjU4NzhkMTc2MmIzNQo=",
+      "stderr_base64": ""
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/tmp/m6-t46-eh-fixtures-kbnfwd30/symlink",
+        "init",
+        "--quiet",
+        "--initial-branch=main"
+      ],
+      "cwd": "/workspace/repos/pixelelated/distribution.worktrees/m6-records-693",
+      "start": "2026-11-03T13:21:19.230549+00:00",
+      "end": "2026-11-03T13:21:19.231551+00:00",
+      "rc": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_base64": "",
+      "stderr_base64": ""
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/tmp/m6-t46-eh-fixtures-kbnfwd30/symlink",
+        "add",
+        "--all"
+      ],
+      "cwd": "/workspace/repos/pixelelated/distribution.worktrees/m6-records-693",
+      "start": "2026-11-03T13:21:19.231650+00:00",
+      "end": "2026-11-03T13:21:19.232919+00:00",
+      "rc": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_base64": "",
+      "stderr_base64": ""
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/tmp/m6-t46-eh-fixtures-kbnfwd30/symlink",
+        "-c",
+        "user.name=T46 synthetic fixture",
+        "-c",
+        "user.email=t46-fixture@example.invalid",
+        "commit",
+        "--quiet",
+        "-m",
+        "Synthetic baseline"
+      ],
+      "cwd": "/workspace/repos/pixelelated/distribution.worktrees/m6-records-693",
+      "start": "2026-11-03T13:21:19.232925+00:00",
+      "end": "2026-11-03T13:21:19.234906+00:00",
+      "rc": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_base64": "",
+      "stderr_base64": ""
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/tmp/m6-t46-eh-fixtures-kbnfwd30/symlink",
+        "rev-parse",
+        "HEAD"
+      ],
+      "cwd": "/workspace/repos/pixelelated/distribution.worktrees/m6-records-693",
+      "start": "2026-11-03T13:21:19.234916+00:00",
+      "end": "2026-11-03T13:21:19.235581+00:00",
+      "rc": 0,
+      "stdout_sha256": "3b96afd68f2644e190b5397a861f54298c6c2cd9d6201a88eab3d6ad7ae91e7d",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_base64": "NzE0N2NjMjhlZDFlMDk5ZDI3YjVkNzg4YjI0NzkxN2EyOWVhM2JmNQo=",
+      "stderr_base64": ""
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/tmp/m6-t46-eh-fixtures-kbnfwd30/symlink",
+        "ls-tree",
+        "7147cc28ed1e099d27b5d788b247917a29ea3bf5",
+        "--",
+        "docs/audits/2026_11_03-epic-m6-records/stage-a/frozen.txt"
+      ],
+      "cwd": "/workspace/repos/pixelelated/distribution.worktrees/m6-records-693",
+      "start": "2026-11-03T13:21:19.235597+00:00",
+      "end": "2026-11-03T13:21:19.236364+00:00",
+      "rc": 0,
+      "stdout_sha256": "150566ab056019a333df7ae6551e8f099bfd946cd3aa33d1b9868620f06c4890",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_base64": "MTAwNjQ0IGJsb2IgNTk3Mjg4NTM0N2RiYzJjZTE3OGI3ZTA4YWViOTQxYzM1OTM0MjVmNglkb2NzL2F1ZGl0cy8yMDI2XzExXzAzLWVwaWMtbTYtcmVjb3Jkcy9zdGFnZS1hL2Zyb3plbi50eHQK",
+      "stderr_base64": ""
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/tmp/m6-t46-eh-fixtures-kbnfwd30/symlink",
+        "add",
+        "--all"
+      ],
+      "cwd": "/workspace/repos/pixelelated/distribution.worktrees/m6-records-693",
+      "start": "2026-11-03T13:21:19.236747+00:00",
+      "end": "2026-11-03T13:21:19.237801+00:00",
+      "rc": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_base64": "",
+      "stderr_base64": ""
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/tmp/m6-t46-eh-fixtures-kbnfwd30/symlink",
+        "-c",
+        "user.name=T46 synthetic fixture",
+        "-c",
+        "user.email=t46-fixture@example.invalid",
+        "commit",
+        "--quiet",
+        "-m",
+        "Synthetic exact authorized correction and records"
+      ],
+      "cwd": "/workspace/repos/pixelelated/distribution.worktrees/m6-records-693",
+      "start": "2026-11-03T13:21:19.237808+00:00",
+      "end": "2026-11-03T13:21:19.240343+00:00",
+      "rc": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_base64": "",
+      "stderr_base64": ""
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/tmp/m6-t46-eh-fixtures-kbnfwd30/symlink",
+        "rev-parse",
+        "HEAD"
+      ],
+      "cwd": "/workspace/repos/pixelelated/distribution.worktrees/m6-records-693",
+      "start": "2026-11-03T13:21:19.240357+00:00",
+      "end": "2026-11-03T13:21:19.241024+00:00",
+      "rc": 0,
+      "stdout_sha256": "f01595dacb3aac6a83c7fa1376226574b415e52a40fbb015e9200af31951f122",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_base64": "ZjYwNWRlYjFmOThkNjFkOTQxN2QwMTdjNDI1MjU4NzhkMTc2MmIzNQo=",
+      "stderr_base64": ""
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/tmp/m6-t46-eh-fixtures-kbnfwd30/symlink",
+        "add",
+        "--",
+        "docs/audits/2026_11_03-epic-m6-records/stage-e/link"
+      ],
+      "cwd": "/workspace/repos/pixelelated/distribution.worktrees/m6-records-693",
+      "start": "2026-11-03T13:21:19.241066+00:00",
+      "end": "2026-11-03T13:21:19.241917+00:00",
+      "rc": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_base64": "",
+      "stderr_base64": ""
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/tmp/m6-t46-eh-fixtures-kbnfwd30/symlink",
+        "rev-parse",
+        "HEAD"
+      ],
+      "cwd": "/workspace/repos/pixelelated/distribution.worktrees/m6-records-693",
+      "start": "2026-11-03T13:21:19.241936+00:00",
+      "end": "2026-11-03T13:21:19.242567+00:00",
+      "rc": 0,
+      "stdout_sha256": "f01595dacb3aac6a83c7fa1376226574b415e52a40fbb015e9200af31951f122",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_base64": "ZjYwNWRlYjFmOThkNjFkOTQxN2QwMTdjNDI1MjU4NzhkMTc2MmIzNQo=",
+      "stderr_base64": ""
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/tmp/m6-t46-eh-fixtures-kbnfwd30/merge",
+        "init",
+        "--quiet",
+        "--initial-branch=main"
+      ],
+      "cwd": "/workspace/repos/pixelelated/distribution.worktrees/m6-records-693",
+      "start": "2026-11-03T13:21:19.242869+00:00",
+      "end": "2026-11-03T13:21:19.243838+00:00",
+      "rc": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_base64": "",
+      "stderr_base64": ""
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/tmp/m6-t46-eh-fixtures-kbnfwd30/merge",
+        "add",
+        "--all"
+      ],
+      "cwd": "/workspace/repos/pixelelated/distribution.worktrees/m6-records-693",
+      "start": "2026-11-03T13:21:19.243937+00:00",
+      "end": "2026-11-03T13:21:19.244863+00:00",
+      "rc": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_base64": "",
+      "stderr_base64": ""
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/tmp/m6-t46-eh-fixtures-kbnfwd30/merge",
+        "-c",
+        "user.name=T46 synthetic fixture",
+        "-c",
+        "user.email=t46-fixture@example.invalid",
+        "commit",
+        "--quiet",
+        "-m",
+        "Synthetic baseline"
+      ],
+      "cwd": "/workspace/repos/pixelelated/distribution.worktrees/m6-records-693",
+      "start": "2026-11-03T13:21:19.244870+00:00",
+      "end": "2026-11-03T13:21:19.246961+00:00",
+      "rc": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_base64": "",
+      "stderr_base64": ""
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/tmp/m6-t46-eh-fixtures-kbnfwd30/merge",
+        "rev-parse",
+        "HEAD"
+      ],
+      "cwd": "/workspace/repos/pixelelated/distribution.worktrees/m6-records-693",
+      "start": "2026-11-03T13:21:19.246967+00:00",
+      "end": "2026-11-03T13:21:19.247556+00:00",
+      "rc": 0,
+      "stdout_sha256": "3b96afd68f2644e190b5397a861f54298c6c2cd9d6201a88eab3d6ad7ae91e7d",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_base64": "NzE0N2NjMjhlZDFlMDk5ZDI3YjVkNzg4YjI0NzkxN2EyOWVhM2JmNQo=",
+      "stderr_base64": ""
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/tmp/m6-t46-eh-fixtures-kbnfwd30/merge",
+        "ls-tree",
+        "7147cc28ed1e099d27b5d788b247917a29ea3bf5",
+        "--",
+        "docs/audits/2026_11_03-epic-m6-records/stage-a/frozen.txt"
+      ],
+      "cwd": "/workspace/repos/pixelelated/distribution.worktrees/m6-records-693",
+      "start": "2026-11-03T13:21:19.247570+00:00",
+      "end": "2026-11-03T13:21:19.248321+00:00",
+      "rc": 0,
+      "stdout_sha256": "150566ab056019a333df7ae6551e8f099bfd946cd3aa33d1b9868620f06c4890",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_base64": "MTAwNjQ0IGJsb2IgNTk3Mjg4NTM0N2RiYzJjZTE3OGI3ZTA4YWViOTQxYzM1OTM0MjVmNglkb2NzL2F1ZGl0cy8yMDI2XzExXzAzLWVwaWMtbTYtcmVjb3Jkcy9zdGFnZS1hL2Zyb3plbi50eHQK",
+      "stderr_base64": ""
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/tmp/m6-t46-eh-fixtures-kbnfwd30/merge",
+        "add",
+        "--all"
+      ],
+      "cwd": "/workspace/repos/pixelelated/distribution.worktrees/m6-records-693",
+      "start": "2026-11-03T13:21:19.248723+00:00",
+      "end": "2026-11-03T13:21:19.249732+00:00",
+      "rc": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_base64": "",
+      "stderr_base64": ""
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/tmp/m6-t46-eh-fixtures-kbnfwd30/merge",
+        "-c",
+        "user.name=T46 synthetic fixture",
+        "-c",
+        "user.email=t46-fixture@example.invalid",
+        "commit",
+        "--quiet",
+        "-m",
+        "Synthetic exact authorized correction and records"
+      ],
+      "cwd": "/workspace/repos/pixelelated/distribution.worktrees/m6-records-693",
+      "start": "2026-11-03T13:21:19.249741+00:00",
+      "end": "2026-11-03T13:21:19.251984+00:00",
+      "rc": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_base64": "",
+      "stderr_base64": ""
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/tmp/m6-t46-eh-fixtures-kbnfwd30/merge",
+        "rev-parse",
+        "HEAD"
+      ],
+      "cwd": "/workspace/repos/pixelelated/distribution.worktrees/m6-records-693",
+      "start": "2026-11-03T13:21:19.251997+00:00",
+      "end": "2026-11-03T13:21:19.252656+00:00",
+      "rc": 0,
+      "stdout_sha256": "f01595dacb3aac6a83c7fa1376226574b415e52a40fbb015e9200af31951f122",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_base64": "ZjYwNWRlYjFmOThkNjFkOTQxN2QwMTdjNDI1MjU4NzhkMTc2MmIzNQo=",
+      "stderr_base64": ""
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/tmp/m6-t46-eh-fixtures-kbnfwd30/merge",
+        "checkout",
+        "--quiet",
+        "-b",
+        "side"
+      ],
+      "cwd": "/workspace/repos/pixelelated/distribution.worktrees/m6-records-693",
+      "start": "2026-11-03T13:21:19.252672+00:00",
+      "end": "2026-11-03T13:21:19.253805+00:00",
+      "rc": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_base64": "",
+      "stderr_base64": ""
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/tmp/m6-t46-eh-fixtures-kbnfwd30/merge",
+        "add",
+        "--all"
+      ],
+      "cwd": "/workspace/repos/pixelelated/distribution.worktrees/m6-records-693",
+      "start": "2026-11-03T13:21:19.253858+00:00",
+      "end": "2026-11-03T13:21:19.254696+00:00",
+      "rc": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_base64": "",
+      "stderr_base64": ""
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/tmp/m6-t46-eh-fixtures-kbnfwd30/merge",
+        "-c",
+        "user.name=T46 synthetic fixture",
+        "-c",
+        "user.email=t46-fixture@example.invalid",
+        "commit",
+        "--quiet",
+        "-m",
+        "Synthetic side record"
+      ],
+      "cwd": "/workspace/repos/pixelelated/distribution.worktrees/m6-records-693",
+      "start": "2026-11-03T13:21:19.254703+00:00",
+      "end": "2026-11-03T13:21:19.256798+00:00",
+      "rc": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_base64": "",
+      "stderr_base64": ""
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/tmp/m6-t46-eh-fixtures-kbnfwd30/merge",
+        "rev-parse",
+        "HEAD"
+      ],
+      "cwd": "/workspace/repos/pixelelated/distribution.worktrees/m6-records-693",
+      "start": "2026-11-03T13:21:19.256804+00:00",
+      "end": "2026-11-03T13:21:19.257398+00:00",
+      "rc": 0,
+      "stdout_sha256": "c764e41fd929f1dc9f88df06e35eb694e864fd3996ccd30fea43030636ca9b70",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_base64": "ZDc2NGEwMjFjMTFjODllYjhkZWFhZGM1NzQyNTViZjI3Y2RhMjRlOQo=",
+      "stderr_base64": ""
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/tmp/m6-t46-eh-fixtures-kbnfwd30/merge",
+        "checkout",
+        "--quiet",
+        "main"
+      ],
+      "cwd": "/workspace/repos/pixelelated/distribution.worktrees/m6-records-693",
+      "start": "2026-11-03T13:21:19.257412+00:00",
+      "end": "2026-11-03T13:21:19.258599+00:00",
+      "rc": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_base64": "",
+      "stderr_base64": ""
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/tmp/m6-t46-eh-fixtures-kbnfwd30/merge",
+        "add",
+        "--all"
+      ],
+      "cwd": "/workspace/repos/pixelelated/distribution.worktrees/m6-records-693",
+      "start": "2026-11-03T13:21:19.258652+00:00",
+      "end": "2026-11-03T13:21:19.259561+00:00",
+      "rc": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_base64": "",
+      "stderr_base64": ""
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/tmp/m6-t46-eh-fixtures-kbnfwd30/merge",
+        "-c",
+        "user.name=T46 synthetic fixture",
+        "-c",
+        "user.email=t46-fixture@example.invalid",
+        "commit",
+        "--quiet",
+        "-m",
+        "Synthetic main record"
+      ],
+      "cwd": "/workspace/repos/pixelelated/distribution.worktrees/m6-records-693",
+      "start": "2026-11-03T13:21:19.259569+00:00",
+      "end": "2026-11-03T13:21:19.261572+00:00",
+      "rc": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_base64": "",
+      "stderr_base64": ""
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/tmp/m6-t46-eh-fixtures-kbnfwd30/merge",
+        "rev-parse",
+        "HEAD"
+      ],
+      "cwd": "/workspace/repos/pixelelated/distribution.worktrees/m6-records-693",
+      "start": "2026-11-03T13:21:19.261580+00:00",
+      "end": "2026-11-03T13:21:19.262167+00:00",
+      "rc": 0,
+      "stdout_sha256": "9bd16a26fe015de6f8fe711f68924793849b736ca1c1dd6193602275b2026184",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_base64": "OTIxYzQ1YmYyMDcyYmNiZjE2ZmYwYjQ1YzZhZmQwOWUxOGYyOWM4Zgo=",
+      "stderr_base64": ""
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/tmp/m6-t46-eh-fixtures-kbnfwd30/merge",
+        "-c",
+        "user.name=T46 synthetic fixture",
+        "-c",
+        "user.email=t46-fixture@example.invalid",
+        "merge",
+        "--no-ff",
+        "--quiet",
+        "side",
+        "-m",
+        "Synthetic merge refusal"
+      ],
+      "cwd": "/workspace/repos/pixelelated/distribution.worktrees/m6-records-693",
+      "start": "2026-11-03T13:21:19.262180+00:00",
+      "end": "2026-11-03T13:21:19.265552+00:00",
+      "rc": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_base64": "",
+      "stderr_base64": ""
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/tmp/m6-t46-eh-fixtures-kbnfwd30/merge",
+        "rev-parse",
+        "HEAD"
+      ],
+      "cwd": "/workspace/repos/pixelelated/distribution.worktrees/m6-records-693",
+      "start": "2026-11-03T13:21:19.265578+00:00",
+      "end": "2026-11-03T13:21:19.266218+00:00",
+      "rc": 0,
+      "stdout_sha256": "52bb780594fce1a55b87b178369f7d703d416fd7f53304f03f0017ec16339145",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_base64": "NGJiM2M1ZDg2MzFiZWRhYTJmNGY4YTZlNmEwMjYwMWYwNTEwMWRlOAo=",
+      "stderr_base64": ""
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/tmp/m6-t46-eh-fixtures-kbnfwd30/deletion",
+        "init",
+        "--quiet",
+        "--initial-branch=main"
+      ],
+      "cwd": "/workspace/repos/pixelelated/distribution.worktrees/m6-records-693",
+      "start": "2026-11-03T13:21:19.266587+00:00",
+      "end": "2026-11-03T13:21:19.267692+00:00",
+      "rc": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_base64": "",
+      "stderr_base64": ""
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/tmp/m6-t46-eh-fixtures-kbnfwd30/deletion",
+        "add",
+        "--all"
+      ],
+      "cwd": "/workspace/repos/pixelelated/distribution.worktrees/m6-records-693",
+      "start": "2026-11-03T13:21:19.267794+00:00",
+      "end": "2026-11-03T13:21:19.268759+00:00",
+      "rc": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_base64": "",
+      "stderr_base64": ""
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/tmp/m6-t46-eh-fixtures-kbnfwd30/deletion",
+        "-c",
+        "user.name=T46 synthetic fixture",
+        "-c",
+        "user.email=t46-fixture@example.invalid",
+        "commit",
+        "--quiet",
+        "-m",
+        "Synthetic baseline"
+      ],
+      "cwd": "/workspace/repos/pixelelated/distribution.worktrees/m6-records-693",
+      "start": "2026-11-03T13:21:19.268766+00:00",
+      "end": "2026-11-03T13:21:19.270798+00:00",
+      "rc": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_base64": "",
+      "stderr_base64": ""
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/tmp/m6-t46-eh-fixtures-kbnfwd30/deletion",
+        "rev-parse",
+        "HEAD"
+      ],
+      "cwd": "/workspace/repos/pixelelated/distribution.worktrees/m6-records-693",
+      "start": "2026-11-03T13:21:19.270812+00:00",
+      "end": "2026-11-03T13:21:19.271413+00:00",
+      "rc": 0,
+      "stdout_sha256": "3b96afd68f2644e190b5397a861f54298c6c2cd9d6201a88eab3d6ad7ae91e7d",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_base64": "NzE0N2NjMjhlZDFlMDk5ZDI3YjVkNzg4YjI0NzkxN2EyOWVhM2JmNQo=",
+      "stderr_base64": ""
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/tmp/m6-t46-eh-fixtures-kbnfwd30/deletion",
+        "ls-tree",
+        "7147cc28ed1e099d27b5d788b247917a29ea3bf5",
+        "--",
+        "docs/audits/2026_11_03-epic-m6-records/stage-a/frozen.txt"
+      ],
+      "cwd": "/workspace/repos/pixelelated/distribution.worktrees/m6-records-693",
+      "start": "2026-11-03T13:21:19.271427+00:00",
+      "end": "2026-11-03T13:21:19.272212+00:00",
+      "rc": 0,
+      "stdout_sha256": "150566ab056019a333df7ae6551e8f099bfd946cd3aa33d1b9868620f06c4890",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_base64": "MTAwNjQ0IGJsb2IgNTk3Mjg4NTM0N2RiYzJjZTE3OGI3ZTA4YWViOTQxYzM1OTM0MjVmNglkb2NzL2F1ZGl0cy8yMDI2XzExXzAzLWVwaWMtbTYtcmVjb3Jkcy9zdGFnZS1hL2Zyb3plbi50eHQK",
+      "stderr_base64": ""
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/tmp/m6-t46-eh-fixtures-kbnfwd30/deletion",
+        "add",
+        "--all"
+      ],
+      "cwd": "/workspace/repos/pixelelated/distribution.worktrees/m6-records-693",
+      "start": "2026-11-03T13:21:19.272611+00:00",
+      "end": "2026-11-03T13:21:19.273643+00:00",
+      "rc": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_base64": "",
+      "stderr_base64": ""
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/tmp/m6-t46-eh-fixtures-kbnfwd30/deletion",
+        "-c",
+        "user.name=T46 synthetic fixture",
+        "-c",
+        "user.email=t46-fixture@example.invalid",
+        "commit",
+        "--quiet",
+        "-m",
+        "Synthetic exact authorized correction and records"
+      ],
+      "cwd": "/workspace/repos/pixelelated/distribution.worktrees/m6-records-693",
+      "start": "2026-11-03T13:21:19.273654+00:00",
+      "end": "2026-11-03T13:21:19.276466+00:00",
+      "rc": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_base64": "",
+      "stderr_base64": ""
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/tmp/m6-t46-eh-fixtures-kbnfwd30/deletion",
+        "rev-parse",
+        "HEAD"
+      ],
+      "cwd": "/workspace/repos/pixelelated/distribution.worktrees/m6-records-693",
+      "start": "2026-11-03T13:21:19.276476+00:00",
+      "end": "2026-11-03T13:21:19.277104+00:00",
+      "rc": 0,
+      "stdout_sha256": "f01595dacb3aac6a83c7fa1376226574b415e52a40fbb015e9200af31951f122",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_base64": "ZjYwNWRlYjFmOThkNjFkOTQxN2QwMTdjNDI1MjU4NzhkMTc2MmIzNQo=",
+      "stderr_base64": ""
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/tmp/m6-t46-eh-fixtures-kbnfwd30/deletion",
+        "update-index",
+        "--force-remove",
+        "--",
+        "docs/audits/2026_11_03-epic-m6-records/stage-e/fixture.txt"
+      ],
+      "cwd": "/workspace/repos/pixelelated/distribution.worktrees/m6-records-693",
+      "start": "2026-11-03T13:21:19.277117+00:00",
+      "end": "2026-11-03T13:21:19.277858+00:00",
+      "rc": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_base64": "",
+      "stderr_base64": ""
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/tmp/m6-t46-eh-fixtures-kbnfwd30/deletion",
+        "-c",
+        "user.name=T46 synthetic fixture",
+        "-c",
+        "user.email=t46-fixture@example.invalid",
+        "commit",
+        "--quiet",
+        "-m",
+        "Synthetic index deletion; working file retained"
+      ],
+      "cwd": "/workspace/repos/pixelelated/distribution.worktrees/m6-records-693",
+      "start": "2026-11-03T13:21:19.277864+00:00",
+      "end": "2026-11-03T13:21:19.279842+00:00",
+      "rc": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_base64": "",
+      "stderr_base64": ""
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/tmp/m6-t46-eh-fixtures-kbnfwd30/deletion",
+        "rev-parse",
+        "HEAD"
+      ],
+      "cwd": "/workspace/repos/pixelelated/distribution.worktrees/m6-records-693",
+      "start": "2026-11-03T13:21:19.279860+00:00",
+      "end": "2026-11-03T13:21:19.280453+00:00",
+      "rc": 0,
+      "stdout_sha256": "f2e85344538b70c2d591f9898a9dda604a3785186eff98dbf4f8bf199c1a807a",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_base64": "YTAxYmM2YjU3YjdkZDk3Yzc2NzI4YTAyMGJlYmViNDEzYzBlMmE1MQo=",
+      "stderr_base64": ""
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/tmp/m6-t46-eh-fixtures-kbnfwd30/positive",
+        "init",
+        "--quiet",
+        "--initial-branch=main"
+      ],
+      "cwd": "/workspace/repos/pixelelated/distribution.worktrees/m6-records-693",
+      "start": "2026-11-03T13:21:19.280817+00:00",
+      "end": "2026-11-03T13:21:19.281871+00:00",
+      "rc": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_base64": "",
+      "stderr_base64": ""
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/tmp/m6-t46-eh-fixtures-kbnfwd30/positive",
+        "add",
+        "--all"
+      ],
+      "cwd": "/workspace/repos/pixelelated/distribution.worktrees/m6-records-693",
+      "start": "2026-11-03T13:21:19.282035+00:00",
+      "end": "2026-11-03T13:21:19.283156+00:00",
+      "rc": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_base64": "",
+      "stderr_base64": ""
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/tmp/m6-t46-eh-fixtures-kbnfwd30/positive",
+        "-c",
+        "user.name=T46 synthetic fixture",
+        "-c",
+        "user.email=t46-fixture@example.invalid",
+        "commit",
+        "--quiet",
+        "-m",
+        "Synthetic baseline"
+      ],
+      "cwd": "/workspace/repos/pixelelated/distribution.worktrees/m6-records-693",
+      "start": "2026-11-03T13:21:19.283180+00:00",
+      "end": "2026-11-03T13:21:19.285231+00:00",
+      "rc": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_base64": "",
+      "stderr_base64": ""
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/tmp/m6-t46-eh-fixtures-kbnfwd30/positive",
+        "rev-parse",
+        "HEAD"
+      ],
+      "cwd": "/workspace/repos/pixelelated/distribution.worktrees/m6-records-693",
+      "start": "2026-11-03T13:21:19.285237+00:00",
+      "end": "2026-11-03T13:21:19.285849+00:00",
+      "rc": 0,
+      "stdout_sha256": "3b96afd68f2644e190b5397a861f54298c6c2cd9d6201a88eab3d6ad7ae91e7d",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_base64": "NzE0N2NjMjhlZDFlMDk5ZDI3YjVkNzg4YjI0NzkxN2EyOWVhM2JmNQo=",
+      "stderr_base64": ""
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/tmp/m6-t46-eh-fixtures-kbnfwd30/positive",
+        "ls-tree",
+        "7147cc28ed1e099d27b5d788b247917a29ea3bf5",
+        "--",
+        "docs/audits/2026_11_03-epic-m6-records/stage-a/frozen.txt"
+      ],
+      "cwd": "/workspace/repos/pixelelated/distribution.worktrees/m6-records-693",
+      "start": "2026-11-03T13:21:19.285860+00:00",
+      "end": "2026-11-03T13:21:19.286574+00:00",
+      "rc": 0,
+      "stdout_sha256": "150566ab056019a333df7ae6551e8f099bfd946cd3aa33d1b9868620f06c4890",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_base64": "MTAwNjQ0IGJsb2IgNTk3Mjg4NTM0N2RiYzJjZTE3OGI3ZTA4YWViOTQxYzM1OTM0MjVmNglkb2NzL2F1ZGl0cy8yMDI2XzExXzAzLWVwaWMtbTYtcmVjb3Jkcy9zdGFnZS1hL2Zyb3plbi50eHQK",
+      "stderr_base64": ""
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/tmp/m6-t46-eh-fixtures-kbnfwd30/positive",
+        "add",
+        "--all"
+      ],
+      "cwd": "/workspace/repos/pixelelated/distribution.worktrees/m6-records-693",
+      "start": "2026-11-03T13:21:19.286987+00:00",
+      "end": "2026-11-03T13:21:19.288129+00:00",
+      "rc": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_base64": "",
+      "stderr_base64": ""
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/tmp/m6-t46-eh-fixtures-kbnfwd30/positive",
+        "-c",
+        "user.name=T46 synthetic fixture",
+        "-c",
+        "user.email=t46-fixture@example.invalid",
+        "commit",
+        "--quiet",
+        "-m",
+        "Synthetic exact authorized correction and records"
+      ],
+      "cwd": "/workspace/repos/pixelelated/distribution.worktrees/m6-records-693",
+      "start": "2026-11-03T13:21:19.288138+00:00",
+      "end": "2026-11-03T13:21:19.290408+00:00",
+      "rc": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_base64": "",
+      "stderr_base64": ""
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/tmp/m6-t46-eh-fixtures-kbnfwd30/positive",
+        "rev-parse",
+        "HEAD"
+      ],
+      "cwd": "/workspace/repos/pixelelated/distribution.worktrees/m6-records-693",
+      "start": "2026-11-03T13:21:19.290419+00:00",
+      "end": "2026-11-03T13:21:19.291075+00:00",
+      "rc": 0,
+      "stdout_sha256": "f01595dacb3aac6a83c7fa1376226574b415e52a40fbb015e9200af31951f122",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_base64": "ZjYwNWRlYjFmOThkNjFkOTQxN2QwMTdjNDI1MjU4NzhkMTc2MmIzNQo=",
+      "stderr_base64": ""
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/tmp/m6-t46-eh-fixtures-kbnfwd30/positive",
+        "rev-parse",
+        "HEAD"
+      ],
+      "cwd": "/workspace/repos/pixelelated/distribution.worktrees/m6-records-693",
+      "start": "2026-11-03T13:21:19.291096+00:00",
+      "end": "2026-11-03T13:21:19.291731+00:00",
+      "rc": 0,
+      "stdout_sha256": "f01595dacb3aac6a83c7fa1376226574b415e52a40fbb015e9200af31951f122",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_base64": "ZjYwNWRlYjFmOThkNjFkOTQxN2QwMTdjNDI1MjU4NzhkMTc2MmIzNQo=",
+      "stderr_base64": ""
+    }
+  ]
+}

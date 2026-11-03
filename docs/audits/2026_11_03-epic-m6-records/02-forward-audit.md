@@ -322,3 +322,11 @@ PROOF history: retained T39 bridge and prior/current metadata delta — no old p
 PROOF tool-run: stage-b/table-assembly/receipt.json and heading-metadata-proof/receipt.json.
 PROOF fixture: stage-c/control-summary.json — new controls, not historical runtime acceptance.
 PROOF design: bounded reading and owner routing under v2/D-WORKFLOW-236; no runtime or cost-savings inference.
+
+## E factual erratum and source candidate — 2026-11-03T13:24:46.541556+00:00
+
+Authority: #693 comment6604790499 and immutable coordinator2aea545afb746ab002e755cf301f4aa89930e1e9:docs/reviews/briefs/t46-streams.md v2. The local register is not imported or changed. D is accepted only within its recorded limits.
+
+Correct denominators are95 route occurrences/89 unique targets, not95 unique targets. The reviewed-source README context is lines17–20, not17–22; line19 remains the finding. Original D receipts/readbacks and its immutable account remain unchanged. The first D pre-issue lint binds04/05 prefixes8278/2482 bytes, not final8920/2807; later issue-lint0 does not explicitly bind those final document inputs. Pre-seal00/06 bind3846/3946-byte prefixes, not5007/5107. Final314-file custody is separate. Forty outside-audit input occurrences were not independently reopened by support. Current child-script identities do not reconstruct earlier metadata.
+
+New desired-wording proof refused the immutable666-byte README, then passed the exact813-byte candidate SHA256410e4432c01a38cda578a68fdaa730129c15a8e3e60c7305001bb40bd5a71b6c. Only the authorized final paragraph is applied. PL-001 remains Open until the actual S1 commit exists. New guard v2 has13 relevant refusals and one complete positive, including all3 index-only states; its v1 POSIX/Git-mode mismatch and failed positive remain retained. All305 frozen D files,17 original tools and29 transports remain unchanged. No D producer/control/scan rerun.

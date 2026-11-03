@@ -1,0 +1,279 @@
+{
+  "cases": [
+    {
+      "name": "index-source",
+      "refusals": [
+        {
+          "path": "product.txt",
+          "reason": "outside exact write ownership",
+          "view": "staged-index"
+        },
+        {
+          "path": "product.txt",
+          "reason": "outside exact write ownership",
+          "view": "protected-baseline-to-index"
+        },
+        {
+          "path": "product.txt",
+          "reason": "outside exact write ownership",
+          "view": "working-tree"
+        }
+      ],
+      "receipt": "stage-e/scope-controls-v2/index-source/receipt.json",
+      "stdout_sha256": "33884bf17c19ea22e3b6dc773d8754775092b773efd5b88930a1c66e5cf1fd12"
+    },
+    {
+      "name": "index-frozen",
+      "refusals": [
+        {
+          "path": "docs/audits/2026_11_03-epic-m6-records/stage-a/frozen.txt",
+          "reason": "outside exact write ownership",
+          "view": "staged-index"
+        },
+        {
+          "path": "docs/audits/2026_11_03-epic-m6-records/stage-a/frozen.txt",
+          "reason": "frozen D artifact changed",
+          "view": "staged-index"
+        },
+        {
+          "path": "docs/audits/2026_11_03-epic-m6-records/stage-a/frozen.txt",
+          "reason": "outside exact write ownership",
+          "view": "protected-baseline-to-index"
+        },
+        {
+          "path": "docs/audits/2026_11_03-epic-m6-records/stage-a/frozen.txt",
+          "reason": "frozen D artifact changed",
+          "view": "protected-baseline-to-index"
+        },
+        {
+          "path": "docs/audits/2026_11_03-epic-m6-records/stage-a/frozen.txt",
+          "reason": "outside exact write ownership",
+          "view": "working-tree"
+        },
+        {
+          "path": "docs/audits/2026_11_03-epic-m6-records/stage-a/frozen.txt",
+          "reason": "identity drift",
+          "view": "frozen-index"
+        }
+      ],
+      "receipt": "stage-e/scope-controls-v2/index-frozen/receipt.json",
+      "stdout_sha256": "bd1504f176c2db85873d0c61f747bcf21d355f34fbd7700cb43db26038f7e476"
+    },
+    {
+      "name": "index-readme",
+      "refusals": [
+        {
+          "path": "docs/audits/README.md",
+          "reason": "README not exact specified after blob",
+          "view": "staged-index"
+        },
+        {
+          "path": "docs/audits/README.md",
+          "reason": "README not exact specified after blob",
+          "view": "protected-baseline-to-index"
+        },
+        {
+          "path": "docs/audits/README.md",
+          "reason": "exact current after identity required",
+          "view": "index-current"
+        }
+      ],
+      "receipt": "stage-e/scope-controls-v2/index-readme/receipt.json",
+      "stdout_sha256": "467e7374765a17e6f8d6020c2b1e6304cc7e62d08695e1a5f50fe0bbd032f536"
+    },
+    {
+      "name": "history-source",
+      "refusals": [
+        {
+          "path": "product.txt",
+          "reason": "outside exact write ownership",
+          "view": "commit:44e90cc3c62199983d9f65cdcf129973a10504ce"
+        },
+        {
+          "path": "product.txt",
+          "reason": "outside exact write ownership",
+          "view": "protected-baseline-to-tip"
+        },
+        {
+          "path": "product.txt",
+          "reason": "outside exact write ownership",
+          "view": "protected-baseline-to-index"
+        }
+      ],
+      "receipt": "stage-e/scope-controls-v2/history-source/receipt.json",
+      "stdout_sha256": "994eaeec2397f2a92a110c47ddcd1e984df42713d28da891bcaab3fc6817e92b"
+    },
+    {
+      "name": "history-revert",
+      "refusals": [
+        {
+          "path": "product.txt",
+          "reason": "outside exact write ownership",
+          "view": "commit:44e90cc3c62199983d9f65cdcf129973a10504ce"
+        },
+        {
+          "path": "product.txt",
+          "reason": "outside exact write ownership",
+          "view": "commit:a8107e2344dc8b16d1f60de0ccdce7dd0488a25a"
+        }
+      ],
+      "receipt": "stage-e/scope-controls-v2/history-revert/receipt.json",
+      "stdout_sha256": "f534747e567f05f7614b1965e2b2531fb72f2a12d4e565087dcd78d8b855b192"
+    },
+    {
+      "name": "history-frozen",
+      "refusals": [
+        {
+          "path": "docs/audits/2026_11_03-epic-m6-records/stage-a/frozen.txt",
+          "reason": "outside exact write ownership",
+          "view": "commit:4d18f618d387cdc4280cf3fa59a1298def8c34da"
+        },
+        {
+          "path": "docs/audits/2026_11_03-epic-m6-records/stage-a/frozen.txt",
+          "reason": "frozen D artifact changed",
+          "view": "commit:4d18f618d387cdc4280cf3fa59a1298def8c34da"
+        },
+        {
+          "path": "docs/audits/2026_11_03-epic-m6-records/stage-a/frozen.txt",
+          "reason": "outside exact write ownership",
+          "view": "protected-baseline-to-tip"
+        },
+        {
+          "path": "docs/audits/2026_11_03-epic-m6-records/stage-a/frozen.txt",
+          "reason": "frozen D artifact changed",
+          "view": "protected-baseline-to-tip"
+        },
+        {
+          "path": "docs/audits/2026_11_03-epic-m6-records/stage-a/frozen.txt",
+          "reason": "outside exact write ownership",
+          "view": "protected-baseline-to-index"
+        },
+        {
+          "path": "docs/audits/2026_11_03-epic-m6-records/stage-a/frozen.txt",
+          "reason": "frozen D artifact changed",
+          "view": "protected-baseline-to-index"
+        },
+        {
+          "path": "docs/audits/2026_11_03-epic-m6-records/stage-a/frozen.txt",
+          "reason": "identity drift",
+          "view": "frozen-tip"
+        },
+        {
+          "path": "docs/audits/2026_11_03-epic-m6-records/stage-a/frozen.txt",
+          "reason": "identity drift",
+          "view": "frozen-index"
+        },
+        {
+          "path": "docs/audits/2026_11_03-epic-m6-records/stage-a/frozen.txt",
+          "reason": "identity drift",
+          "view": "frozen-working"
+        }
+      ],
+      "receipt": "stage-e/scope-controls-v2/history-frozen/receipt.json",
+      "stdout_sha256": "dc877d86d9b4b63d4832cef3ab0f963616c6ffc7543f1c08a0602e76900a12ec"
+    },
+    {
+      "name": "history-wrong-readme-repair",
+      "refusals": [
+        {
+          "path": "docs/audits/README.md",
+          "reason": "README not exact specified after blob",
+          "view": "commit:44ca5a00ee7a5ee27aa7e208fc1afbbf43a2600c"
+        }
+      ],
+      "receipt": "stage-e/scope-controls-v2/history-wrong-readme-repair/receipt.json",
+      "stdout_sha256": "5278552506aa5aa5ceaafe45eff31af3bb327cc26efd6ffac3918b9d7fcaa86e"
+    },
+    {
+      "name": "unrelated-retro",
+      "refusals": [
+        {
+          "path": "docs/retros/2026-11-02-unrelated.md",
+          "reason": "outside exact write ownership",
+          "view": "untracked"
+        }
+      ],
+      "receipt": "stage-e/scope-controls-v2/unrelated-retro/receipt.json",
+      "stdout_sha256": "cde5417903ef02f394280753b8c33dad644dab92bc7e0b2baa6f6733ff16b0ad"
+    },
+    {
+      "name": "unrelated-day",
+      "refusals": [
+        {
+          "path": "docs/work-logs/2026_11-work_logs/2026_11_02-work_log.md",
+          "reason": "outside exact write ownership",
+          "view": "untracked"
+        }
+      ],
+      "receipt": "stage-e/scope-controls-v2/unrelated-day/receipt.json",
+      "stdout_sha256": "a279e45d91dae0407dbe632a5e38afee1bab2fcfa29773b058a09026e323f2a7"
+    },
+    {
+      "name": "executable",
+      "refusals": [
+        {
+          "path": "docs/audits/2026_11_03-epic-m6-records/stage-e/fixture.txt",
+          "reason": "ordinary100644 required",
+          "view": "staged-index"
+        },
+        {
+          "path": "docs/audits/2026_11_03-epic-m6-records/stage-e/fixture.txt",
+          "reason": "ordinary100644 required",
+          "view": "protected-baseline-to-index"
+        }
+      ],
+      "receipt": "stage-e/scope-controls-v2/executable/receipt.json",
+      "stdout_sha256": "4a1b93660393667005d6c5b28e69138ad4e79edf564f6b823cec56d392569df6"
+    },
+    {
+      "name": "symlink",
+      "refusals": [
+        {
+          "path": "docs/audits/2026_11_03-epic-m6-records/stage-e/link",
+          "reason": "ordinary100644 required",
+          "view": "staged-index"
+        },
+        {
+          "path": "docs/audits/2026_11_03-epic-m6-records/stage-e/link",
+          "reason": "ordinary100644 required",
+          "view": "protected-baseline-to-index"
+        }
+      ],
+      "receipt": "stage-e/scope-controls-v2/symlink/receipt.json",
+      "stdout_sha256": "08a902f95283330f37c190ce321bf24220e373a7f822e58e363b8cf5765300ed"
+    },
+    {
+      "name": "merge",
+      "refusals": [
+        {
+          "path": "4bb3c5d8631bedaa2f4f8a6e6a02601f05101de8",
+          "reason": "merge/root forbidden",
+          "view": "history"
+        }
+      ],
+      "receipt": "stage-e/scope-controls-v2/merge/receipt.json",
+      "stdout_sha256": "3735c3aec518219efa11522d95e48669657e0609d5133a0282168dbda25ef232"
+    },
+    {
+      "name": "deletion",
+      "refusals": [
+        {
+          "path": "docs/audits/2026_11_03-epic-m6-records/stage-e/fixture.txt",
+          "reason": "deletion/rename forbidden",
+          "view": "commit:a01bc6b57b7dd97c76728a020bebeb413c0e2a51"
+        }
+      ],
+      "receipt": "stage-e/scope-controls-v2/deletion/receipt.json",
+      "stdout_sha256": "b739b260942984e15d9ecc74af27cad6a01e5df182ffe0bbcdfcbeb48e048a90"
+    },
+    {
+      "name": "positive",
+      "refusals": [],
+      "receipt": "stage-e/scope-controls-v2/positive/receipt.json",
+      "stdout_sha256": "da0c8322ccffc809f033a47507ea23001d566ece2e5d49679f17c7b0d501a719"
+    }
+  ],
+  "isolated_index_predicates": true,
+  "positive_empty_refusals": true,
+  "original_v1_failure_retained": true
+}
