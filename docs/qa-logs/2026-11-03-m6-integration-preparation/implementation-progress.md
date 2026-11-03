@@ -194,3 +194,21 @@ Retention22/23 preserves326selectedmetadatafiles/1307767bytes locally; original
 Git objects remain in private owners, not an off-host backup. M7 owner02 and
 diagnostic01 have returned. Fresh diagnostic02 START21:42:29.496541 is active
 under its separate720s window; M6 stays source-only through actual RETURN.
+
+## Private ES endpoints constructed and distribution T14 continued
+
+T14 exact composition received independent records/INDEX readback and two sets
+of ten new actual-AST fixture controls. Root retained all runtime and cleanup
+limits, then advanced once to14/46 and stopped at T15. T1/T2 are observed
+working on finite record/tool conflict inputs under6616716885.
+
+T33 catalogue and five automatic seams received bounded source readbacks.
+After root disposition the ES driver reached11/11, final commit913716da and
+tree1198ac81. Final P1 catalogue and T5 metadata reconciliation under6616587756
+are working; automatic merge success is not source or product acceptance.
+Unexecuted compiler/runtime/UI and inherited caller/dependency limits remain.
+
+Retention24/25 binds271selectedfiles/1805807bytes locally. Original objects
+and full packets remain with their owners, not an off-host backup. M7
+diagnostic03 RETURN22:00:53.193671 is reconciled: originals0/0/0 and unchanged
+QCOW, selected readback only. No active allocation or next handover.
