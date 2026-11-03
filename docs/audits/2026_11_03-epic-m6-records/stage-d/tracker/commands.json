@@ -1,0 +1,104 @@
+[
+  {
+    "name": "audit-before",
+    "argv": [
+      "gh",
+      "api",
+      "repos/pixelelated/distribution/issues/1417"
+    ],
+    "cwd": "/workspace/repos/pixelelated/distribution.worktrees/m6-records-693",
+    "start": "2026-11-03T12:35:12.367225+00:00",
+    "end": "2026-11-03T12:35:13.011380+00:00",
+    "rc": 0,
+    "stdout_sha256": "8906b1918ef7c315a440ac40d2383a597fbbd5f8284d564611f0992d58857533",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "attach-audit-to-693",
+    "argv": [
+      "gh",
+      "api",
+      "repos/pixelelated/distribution/issues/693/sub_issues",
+      "--method",
+      "POST",
+      "-F",
+      "sub_issue_id=6182667073"
+    ],
+    "cwd": "/workspace/repos/pixelelated/distribution.worktrees/m6-records-693",
+    "start": "2026-11-03T12:35:13.012231+00:00",
+    "end": "2026-11-03T12:35:14.447600+00:00",
+    "rc": 0,
+    "stdout_sha256": "722cf745b9765f6afab6267dec1665a3b934535bb1914cba602a402aa8334d32",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "audit-parent",
+    "argv": [
+      "gh",
+      "api",
+      "repos/pixelelated/distribution/issues/1417/parent"
+    ],
+    "cwd": "/workspace/repos/pixelelated/distribution.worktrees/m6-records-693",
+    "start": "2026-11-03T12:35:14.448956+00:00",
+    "end": "2026-11-03T12:35:14.952610+00:00",
+    "rc": 0,
+    "stdout_sha256": "722cf745b9765f6afab6267dec1665a3b934535bb1914cba602a402aa8334d32",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "slice-parent",
+    "argv": [
+      "gh",
+      "api",
+      "repos/pixelelated/distribution/issues/693/parent"
+    ],
+    "cwd": "/workspace/repos/pixelelated/distribution.worktrees/m6-records-693",
+    "start": "2026-11-03T12:35:14.958197+00:00",
+    "end": "2026-11-03T12:35:15.548802+00:00",
+    "rc": 0,
+    "stdout_sha256": "eb9da6b78ff13550360a7579e3549388f3ecebe17d86090d5ce80bc1e85ec455",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "audit-after",
+    "argv": [
+      "gh",
+      "api",
+      "repos/pixelelated/distribution/issues/1417"
+    ],
+    "cwd": "/workspace/repos/pixelelated/distribution.worktrees/m6-records-693",
+    "start": "2026-11-03T12:35:15.549781+00:00",
+    "end": "2026-11-03T12:35:16.025229+00:00",
+    "rc": 0,
+    "stdout_sha256": "94f04156bd32fc61bf4cb5c39ea293d5b2d2d9a3b4877a193cfc8d047569a134",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "bug",
+    "argv": [
+      "gh",
+      "api",
+      "repos/pixelelated/distribution/issues/1416"
+    ],
+    "cwd": "/workspace/repos/pixelelated/distribution.worktrees/m6-records-693",
+    "start": "2026-11-03T12:35:16.026340+00:00",
+    "end": "2026-11-03T12:35:16.427728+00:00",
+    "rc": 0,
+    "stdout_sha256": "439f57d49bef12d5fd43e2318994c38e8c2277957f9a5ae414455d4f14481115",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "bug-parent",
+    "argv": [
+      "gh",
+      "api",
+      "repos/pixelelated/distribution/issues/1416/parent"
+    ],
+    "cwd": "/workspace/repos/pixelelated/distribution.worktrees/m6-records-693",
+    "start": "2026-11-03T12:35:16.428588+00:00",
+    "end": "2026-11-03T12:35:16.768485+00:00",
+    "rc": 1,
+    "stdout_sha256": "6d7731a82b4347d24f537948ae6df0a1d1489a21b8f13d6fec56c206fadaee74",
+    "stderr_sha256": "00e190220cf8c7763d83286d47b3e1247e2e06959ff5500d507e393e5272d0ad"
+  }
+]

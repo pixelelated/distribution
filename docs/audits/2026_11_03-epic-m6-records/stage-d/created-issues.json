@@ -1,0 +1,67 @@
+{
+  "audit": {
+    "url": "https://github.com/pixelelated/distribution/issues/1417",
+    "title": "M6.P2: Audit: T46 records — 1 finding (0 critical, 0 high)",
+    "issue_number": 1417,
+    "body": "T46 records audit, child of #693 / records epic #1415, M6.P2. Local actual primary Codex/GPT-6-Astra/xhigh, T3 wN:p6; one model perspective, reviewers[], no provider call or independent reviewer. Governing v2 647a8831739ffa28995e1955e68225ca0226c926; dispatch #693 comment6603284080.\n\n## Executive summary\n\n\nOne Low Documentation Gap, L-01 / PL-001: current docs/audits/README.md:19 tells an audit reader to use `applyTo`, contrary to the named canonical `paths:` rule convention. Source remains unchanged. All95 direct targets resolve by immutable metadata;99 finite reading records retain exact ranges and masks. New controls pass their expected outcomes. This is a Stage-D disposition packet, not final acceptance or an integrated-next claim.\n\nreviewed-at: d707c82ab8c48b674acc1f95a9571f0cb24d226a\nexecution-seed: 8710a6210a40de0110244d03a886161ee06faf29\nfixed-at:\n\n## Acceptance-criteria scorecard\n\n| Brief criteria | Evidence / state at D |\n| --- | --- |\n| 1–4 source/identity/populations | 00–07, stage-a source-binding, table.json;127469 paths/2190843187 logical bytes,10 exhaustive roots; source distinct from seed |\n| 5–6 finite readings | 95 keyed routes/89 targets,10 entrypoints,99 reading records;71 selected timestamp sections/15 unknown fallbacks; exact masks/unread status |\n| 7–8 questions/ownership | Q1–Q7 below,02 trace/self-refutation, accepted T39 outcomes and #1407 boundary retained |\n| 9–11 new controls/identity | Complete table positive+8 refusals, link controls, per-commit fixtures, namespaced actual Local plan+real lint fixtures |\n| 12–14 D records/gates | Actual pre-issue/issue/check receipts and readbacks in stage-d; completion is claimed only when recorded there |\n| 12 resolution half,15–18 final obligations | Await root disposition, later E–H/acceptance/marker/integration; not selected or credited at D |\n\n\n## Acceptance criteria\n\n- [ ] PL-001: the audit README’s rule-selector guidance agrees with the canonical paths/every-session convention, demonstrated by bounded source trace and current rules/record checks, with historical receipts unchanged; reactive bug #1416. Remains Open pending root stream disposition.\n\nAlready written: the documentary finding wrote no device/cloud state; no user-data migration is implicated.\n\nCan this be done on the VM? This immutable documentary/metadata analysis and new host record-tool validation need no runtime. No device behavior is claimed; later runtime/removal proof requires a separate owning brief.\n\n## Punch list and retained evidence\n\n# T46 punch list — one Low item, disposition pending\n\n## PL-001 — Current audit README names the obsolete rule key\n\nSeverity: Low. Category: Documentation Gap. Source finding L-01. Question Q2 (also Q1/Q3/Q7). Owner area records.\n\nAt reviewed-at d707c82ab8c48b674acc1f95a9571f0cb24d226a, docs/audits/README.md:19 says the instruction files whose `applyTo` matches changed paths define the rubric. The canonical .claude/rules/instruction-files.md:9,27,37–47 defines `paths:` plus the no-key/every-session behavior. The surrounding README is current instructions, not a preserved command example.\n\nConsequence: an auditor following the literal key can select the wrong instructions or omit applicable ones. Self-refutation: the canonical guide remains reachable, limiting severity; historical #314 methodology explains provenance but does not govern current rules. T39’s retained46 outcome routes and bounded issue searches assign no existing correction for this key. Source unchanged; no Phase7 outcome chosen.\n\nAlready written: documentation has not written device/cloud state; no user-data migration is implicated. Historical receipts and author identities must remain byte-exact.\n\nCan this be done on the VM? Documentary source comparison and current rule checks need no runtime; no device fact or guest behavior is claimed.\n\nAcceptance: a separately authorized current-doc correction names the actual `paths:` convention and every-session behavior, with a bounded source trace and rules/record checks showing the wording agrees with instruction-files.md. Exact changed-path evidence must show historical receipts untouched. Root owns that stream disposition; this audit does not apply the correction.\n\nEvidence: 02-forward-audit.md L-01, stage-b/table.json finding_trace, stage-b/read-00/stdout, stage-b/inherited-and-duplicates.json. Reactive issue assigned in Stage D summary/readback.\n\n## Machine index\n\n```yaml\npunch_index:\n  - id: PL-001\n    severity: Low\n    category: Documentation Gap\n    source_finding: L-01\n    question: Q2\n    owner_area: records\n    where: docs/audits/README.md:19\n    acceptance: Current instruction names paths and every-session behavior with bounded source and rule-check evidence; historical receipts unchanged.\n    outcome: open\n```\n\n## Phase 7 resolution gate\n\n| Item | Outcome | Evidence |\n| --- | --- | --- |\n| PL-001 | Open | Stage D finding only; awaiting root stream disposition. No correction, deferral or withdrawal selected. |\n\n## Pre-existing tracked scope\n\nT39 accepted48 paths/15 Resolved/22 Deferred/9 Withdrawn remain owned by #686/#807/#346 for integration. #1407 retains monthly indexing and33-document/2770-line review under D-WORKFLOW-223/224. No duplicate PL numbers or new resolution is assigned to those owners.\n\nPre-issue lint PASS is retained at docs/audits/2026_11_03-epic-m6-records/stage-d/pre-issue-lint/receipt.json. New table/link/per-commit confinement controls have expected positive/refusal exits; stage-c/control-summary.json lists all18 actual invocations. Exact source, range, mask and ownership tables are in stage-b/table.json. Publication checkpoint follows on #693; no E–H, resolution, completion marker, acceptance, integration or closure is claimed.",
+    "state": "open",
+    "user": {
+      "login": "blitterbot",
+      "name": "blitterbot",
+      "email": null,
+      "avatar_url": "https://avatars.githubusercontent.com/u/335883270?v=4",
+      "id": 335883270
+    },
+    "assignees": null,
+    "labels": [
+      {
+        "name": "audit",
+        "color": "5319e7",
+        "description": ""
+      },
+      {
+        "name": "punch-list",
+        "color": "5319e7",
+        "description": ""
+      }
+    ],
+    "milestone": 6,
+    "state_reason": null,
+    "comments": 0,
+    "created_at": "2026-11-03T12:34:34Z",
+    "updated_at": "2026-11-03T12:34:34Z",
+    "closed_at": null,
+    "display_url": "https://github.com/pixelelated/distribution/issues/1417",
+    "display_title": "M6.P2: Audit: T46 records — 1 finding (0 critical, 0 high)"
+  },
+  "bug": {
+    "url": "https://github.com/pixelelated/distribution/issues/1416",
+    "title": "Low: Audit README names the obsolete rule-selection key",
+    "issue_number": 1416,
+    "body": "Discovered by T46 #693, Local actual primary Codex / GPT-6-Astra / xhigh, T3 wN:p6. Severity Low; Documentation Gap. Source reviewed-at d707c82ab8c48b674acc1f95a9571f0cb24d226a. No fix applied; root retains stream disposition. This reactive bug has no milestone or parent.\n\n## Literal trace and reader consequence\n\nAt that source, docs/audits/README.md:19 instructs auditors to use instruction files whose `applyTo` matches changed paths. The current canonical .claude/rules/instruction-files.md:9,27,37–47 specifies `paths:`, including omitted-key/every-session behavior. The README’s surrounding lines17–22 describe current audit practice. A literal reader can search for the wrong selector and omit applicable rules.\n\nREADME SHA25617269ce0820878e809890a9f737cd665c77d32ff07a20e779aed4fac1b745d79; instruction guide SHA256ca638c32b6bbf991c02a865b9c3ab19279416806e7baa0a320713989610da845. Evidence: docs/audits/2026_11_03-epic-m6-records/02-forward-audit.md, stage-b/table.json finding_trace and stage-b/read-00/stdout in feature/m6-records-693.\n\n## Self-refutation and existing owners\n\nThe canonical guide remains reachable, so this is Low documentary risk, not an observed runtime failure. Historical #314 comment5879416677 preserves old Copilot methodology; that explains provenance but does not make this current instruction correct. The accepted T39 46-outcome bridge contains no correction for this key; its README release instruction correction is separate PL-02/#1400. Targeted searches for applyTo and docs/audits/README.md returned only #314 and #693 respectively. Search scope is retained, not claimed exhaustive.\n\nAlready written: this documentation wrote no device/cloud state; no user-data migration is implicated. Historical receipts and author identities must remain unchanged.\n\nCan this be done on the VM? Documentary source comparison and current rule/record checks need no runtime. No device or guest behavior is claimed.\n\n## Acceptance criteria\n\n- [ ] A bounded committed source trace shows the current audit README names the actual `paths:` convention and every-session behavior consistently with instruction-files.md.\n- [ ] The correction’s rules/record checks pass, and its exact changed-path evidence proves historical receipts and source programs unchanged.\n\nNo source correction, Phase7 resolution or closure is authorized by this issue alone; T46 stops at D for root disposition.",
+    "state": "open",
+    "user": {
+      "login": "blitterbot",
+      "name": "blitterbot",
+      "email": null,
+      "avatar_url": "https://avatars.githubusercontent.com/u/335883270?v=4",
+      "id": 335883270
+    },
+    "assignees": null,
+    "labels": [
+      {
+        "name": "bug",
+        "color": "d73a4a",
+        "description": "Something isn't working"
+      }
+    ],
+    "milestone": null,
+    "state_reason": null,
+    "comments": 0,
+    "created_at": "2026-11-03T12:34:11Z",
+    "updated_at": "2026-11-03T12:34:11Z",
+    "closed_at": null,
+    "display_url": "https://github.com/pixelelated/distribution/issues/1416",
+    "display_title": "Low: Audit README names the obsolete rule-selection key"
+  }
+}

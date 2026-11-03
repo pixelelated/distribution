@@ -1,0 +1,251 @@
+{
+  "commands": [
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/tmp/m6-t46-confinement-s69_op77",
+        "init",
+        "--quiet"
+      ],
+      "cwd": "/workspace/repos/pixelelated/distribution.worktrees/m6-records-693",
+      "end": "2026-11-03T12:29:11.045053+00:00",
+      "rc": 0,
+      "start": "2026-11-03T12:29:11.043660+00:00",
+      "stderr": "",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout": "",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/tmp/m6-t46-confinement-s69_op77",
+        "add",
+        "--all"
+      ],
+      "cwd": "/workspace/repos/pixelelated/distribution.worktrees/m6-records-693",
+      "end": "2026-11-03T12:29:11.046249+00:00",
+      "rc": 0,
+      "start": "2026-11-03T12:29:11.045110+00:00",
+      "stderr": "",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout": "",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/tmp/m6-t46-confinement-s69_op77",
+        "-c",
+        "user.name=T46 synthetic fixture",
+        "-c",
+        "user.email=t46-fixture@example.invalid",
+        "commit",
+        "-m",
+        "Synthetic seed"
+      ],
+      "cwd": "/workspace/repos/pixelelated/distribution.worktrees/m6-records-693",
+      "end": "2026-11-03T12:29:11.048596+00:00",
+      "rc": 0,
+      "start": "2026-11-03T12:29:11.046259+00:00",
+      "stderr": "",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout": "[master (root-commit) 9132214] Synthetic seed\n 1 file changed, 1 insertion(+)\n create mode 100644 product.txt\n",
+      "stdout_sha256": "a89ebb1adb6d88fff858a3cd9bb128dfcb8f7657f318c3eecafbf50425b54efb"
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/tmp/m6-t46-confinement-s69_op77",
+        "rev-parse",
+        "HEAD"
+      ],
+      "cwd": "/workspace/repos/pixelelated/distribution.worktrees/m6-records-693",
+      "end": "2026-11-03T12:29:11.049348+00:00",
+      "rc": 0,
+      "start": "2026-11-03T12:29:11.048609+00:00",
+      "stderr": "",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout": "9132214bc63d74cf777971fb8f0b486afd1fecfc\n",
+      "stdout_sha256": "1a02006f79ca1441bb114284a4df3e65f6ce4108e024cbefebc814b992b32ac6"
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/tmp/m6-t46-confinement-s69_op77",
+        "add",
+        "--all"
+      ],
+      "cwd": "/workspace/repos/pixelelated/distribution.worktrees/m6-records-693",
+      "end": "2026-11-03T12:29:11.050319+00:00",
+      "rc": 0,
+      "start": "2026-11-03T12:29:11.049435+00:00",
+      "stderr": "",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout": "",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/tmp/m6-t46-confinement-s69_op77",
+        "-c",
+        "user.name=T46 synthetic fixture",
+        "-c",
+        "user.email=t46-fixture@example.invalid",
+        "commit",
+        "-m",
+        "Synthetic permitted record"
+      ],
+      "cwd": "/workspace/repos/pixelelated/distribution.worktrees/m6-records-693",
+      "end": "2026-11-03T12:29:11.052529+00:00",
+      "rc": 0,
+      "start": "2026-11-03T12:29:11.050326+00:00",
+      "stderr": "",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout": "[master f368f45] Synthetic permitted record\n 1 file changed, 1 insertion(+)\n create mode 100644 docs/audits/2026_11_03-epic-m6-records/fixture.txt\n",
+      "stdout_sha256": "a24969331b3957476beb129974a273b3265a4f1e074bf48a2c3aa218945ed9da"
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/tmp/m6-t46-confinement-s69_op77",
+        "rev-parse",
+        "HEAD"
+      ],
+      "cwd": "/workspace/repos/pixelelated/distribution.worktrees/m6-records-693",
+      "end": "2026-11-03T12:29:11.053216+00:00",
+      "rc": 0,
+      "start": "2026-11-03T12:29:11.052541+00:00",
+      "stderr": "",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout": "f368f459863e44833a25c11a3f3a25b86ac9a1cd\n",
+      "stdout_sha256": "69cf545d6fd94a379deaf752fe900a945e2cd5b212b6173f0abb839fd4e644ee"
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/tmp/m6-t46-confinement-s69_op77",
+        "add",
+        "--all"
+      ],
+      "cwd": "/workspace/repos/pixelelated/distribution.worktrees/m6-records-693",
+      "end": "2026-11-03T12:29:11.054136+00:00",
+      "rc": 0,
+      "start": "2026-11-03T12:29:11.053271+00:00",
+      "stderr": "",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout": "",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/tmp/m6-t46-confinement-s69_op77",
+        "-c",
+        "user.name=T46 synthetic fixture",
+        "-c",
+        "user.email=t46-fixture@example.invalid",
+        "commit",
+        "-m",
+        "Synthetic forbidden source edit"
+      ],
+      "cwd": "/workspace/repos/pixelelated/distribution.worktrees/m6-records-693",
+      "end": "2026-11-03T12:29:11.056311+00:00",
+      "rc": 0,
+      "start": "2026-11-03T12:29:11.054143+00:00",
+      "stderr": "",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout": "[master 8cbffbc] Synthetic forbidden source edit\n 1 file changed, 1 insertion(+), 1 deletion(-)\n",
+      "stdout_sha256": "6123f55cb25f938a6b9c0b040dc7c07ae8ba63ee85020c6878b084b090937822"
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/tmp/m6-t46-confinement-s69_op77",
+        "rev-parse",
+        "HEAD"
+      ],
+      "cwd": "/workspace/repos/pixelelated/distribution.worktrees/m6-records-693",
+      "end": "2026-11-03T12:29:11.056943+00:00",
+      "rc": 0,
+      "start": "2026-11-03T12:29:11.056324+00:00",
+      "stderr": "",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout": "8cbffbcee95bfc3f5ebf10741384720688a4fb14\n",
+      "stdout_sha256": "4648c5676ed894ea756dac46e74bf9b30dc5414146cc42c22be7186fd3a3611a"
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/tmp/m6-t46-confinement-s69_op77",
+        "add",
+        "--all"
+      ],
+      "cwd": "/workspace/repos/pixelelated/distribution.worktrees/m6-records-693",
+      "end": "2026-11-03T12:29:11.057669+00:00",
+      "rc": 0,
+      "start": "2026-11-03T12:29:11.056984+00:00",
+      "stderr": "",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout": "",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/tmp/m6-t46-confinement-s69_op77",
+        "-c",
+        "user.name=T46 synthetic fixture",
+        "-c",
+        "user.email=t46-fixture@example.invalid",
+        "commit",
+        "-m",
+        "Synthetic edit then revert"
+      ],
+      "cwd": "/workspace/repos/pixelelated/distribution.worktrees/m6-records-693",
+      "end": "2026-11-03T12:29:11.059747+00:00",
+      "rc": 0,
+      "start": "2026-11-03T12:29:11.057676+00:00",
+      "stderr": "",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout": "[master af9673e] Synthetic edit then revert\n 1 file changed, 1 insertion(+), 1 deletion(-)\n",
+      "stdout_sha256": "63460857fe782fec31847ae578db76ae8c9ea7fff82ebfa5cc114d071a5773cd"
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/tmp/m6-t46-confinement-s69_op77",
+        "rev-parse",
+        "HEAD"
+      ],
+      "cwd": "/workspace/repos/pixelelated/distribution.worktrees/m6-records-693",
+      "end": "2026-11-03T12:29:11.060445+00:00",
+      "rc": 0,
+      "start": "2026-11-03T12:29:11.059759+00:00",
+      "stderr": "",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout": "af9673efec8df94599ae67feff6a2213a4e110fc\n",
+      "stdout_sha256": "27353363cb648d3ba3a0841a3a2223ed3187940fdec01cf4a8399355d746b013"
+    }
+  ],
+  "custody": "New tiny synthetic Git fixture only; retained, no real source exported.",
+  "edit_then_revert": "af9673efec8df94599ae67feff6a2213a4e110fc",
+  "positive": "f368f459863e44833a25c11a3f3a25b86ac9a1cd",
+  "repo": "/tmp/m6-t46-confinement-s69_op77",
+  "seed": "9132214bc63d74cf777971fb8f0b486afd1fecfc",
+  "source_edit": "8cbffbcee95bfc3f5ebf10741384720688a4fb14"
+}

@@ -1,0 +1,5 @@
+Traceback (most recent call last):
+  File "/workspace/repos/pixelelated/distribution.worktrees/m6-records-693/docs/audits/2026_11_03-epic-m6-records/tools/tracker-readback.py", line 12, in <module>
+    rc,bp=api('bug-parent',base+'1416/parent');assert rc!=0 and bp.get('status')=='404' and bp.get('message')=='Not Found'
+                                                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError

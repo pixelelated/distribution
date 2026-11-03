@@ -1,0 +1,74 @@
+{
+  "argv": [
+    "python3",
+    "-B",
+    "/workspace/repos/pixelelated/distribution.worktrees/m6-records-693/docs/audits/2026_11_03-epic-m6-records/tools/table.py",
+    "validate",
+    "/workspace/repos/pixelelated/distribution.worktrees/m6-records-693/docs/audits/2026_11_03-epic-m6-records/stage-c/table-fixtures/logical-as-savings.json"
+  ],
+  "cpus": [
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21,
+    22,
+    23
+  ],
+  "cwd": "/workspace/repos/pixelelated/distribution.worktrees/m6-records-693",
+  "end": "2026-11-03T12:29:10.633025+00:00",
+  "inputs": {
+    "/workspace/repos/pixelelated/distribution.worktrees/m6-records-693/docs/audits/2026_11_03-epic-m6-records/stage-a/groups.json": {
+      "bytes": 3807,
+      "sha256": "e47509f11a57b580b19489095629201b76d18ef2c5a5eef7724c850b1a72e5bc"
+    },
+    "/workspace/repos/pixelelated/distribution.worktrees/m6-records-693/docs/audits/2026_11_03-epic-m6-records/stage-a/summary.json": {
+      "bytes": 928,
+      "sha256": "cff4dbe1f8a3e4efa93f0b4a2668b9f3caf613290e556ef9e3c3fff75b0ca31e"
+    },
+    "/workspace/repos/pixelelated/distribution.worktrees/m6-records-693/docs/audits/2026_11_03-epic-m6-records/stage-b/observations.json": {
+      "bytes": 27534,
+      "sha256": "707cc6d550324fb65e9fad148c6ce9feecf6485ad2982a5340e5013598f377dd"
+    },
+    "/workspace/repos/pixelelated/distribution.worktrees/m6-records-693/docs/audits/2026_11_03-epic-m6-records/stage-b/ranges.json": {
+      "bytes": 89160,
+      "sha256": "fd54c78f4deae6db0ac14a8c0d6f4271046494ba40f9a553275ca3be4a00144e"
+    },
+    "/workspace/repos/pixelelated/distribution.worktrees/m6-records-693/docs/audits/2026_11_03-epic-m6-records/stage-b/route-inputs.json": {
+      "bytes": 79818,
+      "sha256": "38654a79022594a0c2d6a3ce3fdaa0292c089516624b380737b6f8a807f65ecc"
+    },
+    "/workspace/repos/pixelelated/distribution.worktrees/m6-records-693/docs/audits/2026_11_03-epic-m6-records/stage-c/table-fixtures/logical-as-savings.json": {
+      "bytes": 928190,
+      "sha256": "b2730a1450acfffea09b09b5445b18807b7f246e775ad161e14306b02153a465"
+    },
+    "/workspace/repos/pixelelated/distribution.worktrees/m6-records-693/docs/audits/2026_11_03-epic-m6-records/tools/table.py": {
+      "bytes": 10157,
+      "sha256": "47873fd118aabb48bfca3d24453907a52c7211b0d1fd08da4d78697518ee377f"
+    },
+    "/workspace/repos/pixelelated/distribution.worktrees/m6-records-693/docs/qa-logs/2026-11-03-m6-records-preparation/p1-routes/entrypoints.json": {
+      "bytes": 3102,
+      "sha256": "d8ffc17334b94bc3e352784b93dd8e4178a7f263d3f2874b84a51f1b2c277fed"
+    },
+    "/workspace/repos/pixelelated/distribution.worktrees/m6-records-693/docs/qa-logs/2026-11-03-m6-records-preparation/t1-report.json": {
+      "bytes": 154113,
+      "sha256": "06cd4c41aff526c58c8ef533441dcadc758ee76f6acddbb0278a96731dc365ed"
+    }
+  },
+  "locale": "C",
+  "python": "3.14.4 (main, Aug 20 2026, 10:41:58) [GCC 15.2.0]",
+  "rc": 1,
+  "recorder_sha256": "57302504180c9d5346b690cab93b4240a1700404fd3979e37d3b721735d360de",
+  "start": "2026-11-03T12:29:10.595227+00:00",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "stdout_sha256": "c1ad47e97f793e0e8703a040e0075d424bf22b9fdd6d83363a3d92a5c97129a2"
+}

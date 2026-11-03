@@ -1,0 +1,51 @@
+{
+  "argv": [
+    "python3",
+    "-B",
+    "tools/lint-audit-artifacts",
+    "--phase",
+    "pre-issue",
+    "docs/audits/2026_11_03-epic-m6-records/stage-a/local-fixtures/reviewer-count-negative-v2/2026_11_03-epic-local-control"
+  ],
+  "cpus": [
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21,
+    22,
+    23
+  ],
+  "cwd": "/workspace/repos/pixelelated/distribution.worktrees/m6-records-693",
+  "end": "2026-11-03T12:13:25.313108+00:00",
+  "inputs": {
+    "/workspace/repos/pixelelated/distribution.worktrees/m6-records-693/docs/audits/2026_11_03-epic-m6-records/stage-a/local-fixtures/reviewer-count-negative-v2/2026_11_03-epic-local-control/05-punch-list.md": {
+      "bytes": 227,
+      "sha256": "6fd73a2e2d89993c5d0edfabc65585609fed9f45af3f3b18eb654f9ea7b67a3b"
+    },
+    "/workspace/repos/pixelelated/distribution.worktrees/m6-records-693/docs/audits/2026_11_03-epic-m6-records/stage-a/local-fixtures/reviewer-count-negative-v2/2026_11_03-epic-local-control/second-opinions/review-plan.json": {
+      "bytes": 552,
+      "sha256": "771d67355132b4a1414f1ec6acf1d3e2b54d737dd5129d02b652efbe7a96827c"
+    },
+    "/workspace/repos/pixelelated/distribution.worktrees/m6-records-693/tools/lint-audit-artifacts": {
+      "bytes": 29243,
+      "sha256": "47899b443ac4c40a74c1de8b40814ff6e6978497ae0875b8fd6a033fe8750613"
+    }
+  },
+  "locale": "C",
+  "python": "3.14.4 (main, Aug 20 2026, 10:41:58) [GCC 15.2.0]",
+  "rc": 1,
+  "recorder_sha256": "57302504180c9d5346b690cab93b4240a1700404fd3979e37d3b721735d360de",
+  "start": "2026-11-03T12:13:25.278376+00:00",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "stdout_sha256": "e8e2b395add376fa95ce276b7eeec290f8f2bf7029029e2ce68603c62209b109"
+}

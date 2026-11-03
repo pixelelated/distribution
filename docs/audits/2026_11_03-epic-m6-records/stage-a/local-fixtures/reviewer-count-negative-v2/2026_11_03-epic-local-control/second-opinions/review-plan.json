@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "depth": "local",
+  "primary": {
+    "harness": "Codex",
+    "model": "openai/gpt-6-astra",
+    "lab": "openai",
+    "effort": "xhigh",
+    "identity_source": "Own observed Codex Herdr footer GPT-6-Astra xhigh; namespace normalized for lint, not provider-attested"
+  },
+  "reviewers": [
+    {
+      "member": "gpt"
+    }
+  ],
+  "tier_exception": "D-WORKFLOW-184",
+  "reason": "T46 records is a Local table under plan section6c; no external reviewer.",
+  "session": "01a19d12-29e3-7fe0-9f41-038dac0a5deb",
+  "lane": "wN:p6"
+}

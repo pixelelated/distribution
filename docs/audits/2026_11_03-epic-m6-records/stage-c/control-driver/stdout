@@ -1,0 +1,40 @@
+CREATED complete positive and 8 separately mutated table fixtures (route duplicate and omission separately).
+T46_RECEIPT /workspace/repos/pixelelated/distribution.worktrees/m6-records-693/docs/audits/2026_11_03-epic-m6-records/stage-c/table-fixture-generation/receipt.json rc=0
+REFUSE source/seed metadata identity
+T46_RECEIPT /workspace/repos/pixelelated/distribution.worktrees/m6-records-693/docs/audits/2026_11_03-epic-m6-records/stage-c/table-changed-source/receipt.json rc=1
+REFUSE unique exhaustive route keys
+T46_RECEIPT /workspace/repos/pixelelated/distribution.worktrees/m6-records-693/docs/audits/2026_11_03-epic-m6-records/stage-c/table-duplicate-route/receipt.json rc=1
+REFUSE historical route unsupported defect 10
+T46_RECEIPT /workspace/repos/pixelelated/distribution.worktrees/m6-records-693/docs/audits/2026_11_03-epic-m6-records/stage-c/table-history-as-defect/receipt.json rc=1
+REFUSE logical bytes are not savings
+T46_RECEIPT /workspace/repos/pixelelated/distribution.worktrees/m6-records-693/docs/audits/2026_11_03-epic-m6-records/stage-c/table-logical-as-savings/receipt.json rc=1
+REFUSE exhaustive group keys and bound metadata; group sums
+T46_RECEIPT /workspace/repos/pixelelated/distribution.worktrees/m6-records-693/docs/audits/2026_11_03-epic-m6-records/stage-c/table-omitted-folder/receipt.json rc=1
+REFUSE unique exhaustive route keys
+T46_RECEIPT /workspace/repos/pixelelated/distribution.worktrees/m6-records-693/docs/audits/2026_11_03-epic-m6-records/stage-c/table-omitted-route/receipt.json rc=1
+PASS complete T46 table: exact source/groups/routes/readings/inherited owners and cost units
+T46_RECEIPT /workspace/repos/pixelelated/distribution.worktrees/m6-records-693/docs/audits/2026_11_03-epic-m6-records/stage-c/table-positive/receipt.json rc=0
+REFUSE accepted T39 ownership/outcomes
+T46_RECEIPT /workspace/repos/pixelelated/distribution.worktrees/m6-records-693/docs/audits/2026_11_03-epic-m6-records/stage-c/table-t39-as-new/receipt.json rc=1
+REFUSE bounded reading credit 13
+T46_RECEIPT /workspace/repos/pixelelated/distribution.worktrees/m6-records-693/docs/audits/2026_11_03-epic-m6-records/stage-c/table-whole-file-credit/receipt.json rc=1
+CREATED 4 new link fixtures and 3 synthetic confinement histories at /tmp/m6-t46-confinement-s69_op77
+T46_RECEIPT /workspace/repos/pixelelated/distribution.worktrees/m6-records-693/docs/audits/2026_11_03-epic-m6-records/stage-c/new-fixture-generation/receipt.json rc=0
+REFUSE missing anchor
+T46_RECEIPT /workspace/repos/pixelelated/distribution.worktrees/m6-records-693/docs/audits/2026_11_03-epic-m6-records/stage-c/link-missing-anchor/receipt.json rc=1
+REFUSE missing target
+T46_RECEIPT /workspace/repos/pixelelated/distribution.worktrees/m6-records-693/docs/audits/2026_11_03-epic-m6-records/stage-c/link-missing-target/receipt.json rc=1
+PASS literal fixture path and supported ASCII ATX anchor
+T46_RECEIPT /workspace/repos/pixelelated/distribution.worktrees/m6-records-693/docs/audits/2026_11_03-epic-m6-records/stage-c/link-positive/receipt.json rc=0
+UNKNOWN unsupported heading/HTML/setext syntax
+T46_RECEIPT /workspace/repos/pixelelated/distribution.worktrees/m6-records-693/docs/audits/2026_11_03-epic-m6-records/stage-c/link-unsupported/receipt.json rc=2
+{"allowlist": [".github/sessions/saved-session-state-feature-m6-records-693.md", "docs/work-logs/2026_11-work_logs/2026_11_03-work_log.md", "docs/work-logs/INDEX.md", "docs/audits/2026_11_03-epic-m6-records/"], "commits": [{"commit": "f368f459863e44833a25c11a3f3a25b86ac9a1cd", "paths": ["docs/audits/2026_11_03-epic-m6-records/fixture.txt"]}], "refusals": [], "seed": "9132214bc63d74cf777971fb8f0b486afd1fecfc", "tip": "f368f459863e44833a25c11a3f3a25b86ac9a1cd"}
+PASS T46 per-commit confinement; final diff alone is insufficient
+T46_RECEIPT /workspace/repos/pixelelated/distribution.worktrees/m6-records-693/docs/audits/2026_11_03-epic-m6-records/stage-c/confinement-positive/receipt.json rc=0
+{"allowlist": [".github/sessions/saved-session-state-feature-m6-records-693.md", "docs/work-logs/2026_11-work_logs/2026_11_03-work_log.md", "docs/work-logs/INDEX.md", "docs/audits/2026_11_03-epic-m6-records/"], "commits": [{"commit": "f368f459863e44833a25c11a3f3a25b86ac9a1cd", "paths": ["docs/audits/2026_11_03-epic-m6-records/fixture.txt"]}, {"commit": "8cbffbcee95bfc3f5ebf10741384720688a4fb14", "paths": ["product.txt"]}], "refusals": [{"commit": "8cbffbcee95bfc3f5ebf10741384720688a4fb14", "path": "product.txt"}], "seed": "9132214bc63d74cf777971fb8f0b486afd1fecfc", "tip": "8cbffbcee95bfc3f5ebf10741384720688a4fb14"}
+REFUSE T46 per-commit confinement; final diff alone is insufficient
+T46_RECEIPT /workspace/repos/pixelelated/distribution.worktrees/m6-records-693/docs/audits/2026_11_03-epic-m6-records/stage-c/confinement-source_edit/receipt.json rc=1
+{"allowlist": [".github/sessions/saved-session-state-feature-m6-records-693.md", "docs/work-logs/2026_11-work_logs/2026_11_03-work_log.md", "docs/work-logs/INDEX.md", "docs/audits/2026_11_03-epic-m6-records/"], "commits": [{"commit": "f368f459863e44833a25c11a3f3a25b86ac9a1cd", "paths": ["docs/audits/2026_11_03-epic-m6-records/fixture.txt"]}, {"commit": "8cbffbcee95bfc3f5ebf10741384720688a4fb14", "paths": ["product.txt"]}, {"commit": "af9673efec8df94599ae67feff6a2213a4e110fc", "paths": ["product.txt"]}], "refusals": [{"commit": "8cbffbcee95bfc3f5ebf10741384720688a4fb14", "path": "product.txt"}, {"commit": "af9673efec8df94599ae67feff6a2213a4e110fc", "path": "product.txt"}], "seed": "9132214bc63d74cf777971fb8f0b486afd1fecfc", "tip": "af9673efec8df94599ae67feff6a2213a4e110fc"}
+REFUSE T46 per-commit confinement; final diff alone is insufficient
+T46_RECEIPT /workspace/repos/pixelelated/distribution.worktrees/m6-records-693/docs/audits/2026_11_03-epic-m6-records/stage-c/confinement-edit_then_revert/receipt.json rc=1
+PASS new T46 controls: 18 actual expected exits

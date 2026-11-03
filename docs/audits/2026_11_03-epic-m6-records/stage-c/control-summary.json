@@ -1,0 +1,114 @@
+{
+  "runs": [
+    {
+      "name": "table-fixture-generation",
+      "rc": 0,
+      "expected": 0,
+      "receipt": "stage-c/table-fixture-generation/receipt.json"
+    },
+    {
+      "name": "table-changed-source",
+      "rc": 1,
+      "expected": 1,
+      "receipt": "stage-c/table-changed-source/receipt.json"
+    },
+    {
+      "name": "table-duplicate-route",
+      "rc": 1,
+      "expected": 1,
+      "receipt": "stage-c/table-duplicate-route/receipt.json"
+    },
+    {
+      "name": "table-history-as-defect",
+      "rc": 1,
+      "expected": 1,
+      "receipt": "stage-c/table-history-as-defect/receipt.json"
+    },
+    {
+      "name": "table-logical-as-savings",
+      "rc": 1,
+      "expected": 1,
+      "receipt": "stage-c/table-logical-as-savings/receipt.json"
+    },
+    {
+      "name": "table-omitted-folder",
+      "rc": 1,
+      "expected": 1,
+      "receipt": "stage-c/table-omitted-folder/receipt.json"
+    },
+    {
+      "name": "table-omitted-route",
+      "rc": 1,
+      "expected": 1,
+      "receipt": "stage-c/table-omitted-route/receipt.json"
+    },
+    {
+      "name": "table-positive",
+      "rc": 0,
+      "expected": 0,
+      "receipt": "stage-c/table-positive/receipt.json"
+    },
+    {
+      "name": "table-t39-as-new",
+      "rc": 1,
+      "expected": 1,
+      "receipt": "stage-c/table-t39-as-new/receipt.json"
+    },
+    {
+      "name": "table-whole-file-credit",
+      "rc": 1,
+      "expected": 1,
+      "receipt": "stage-c/table-whole-file-credit/receipt.json"
+    },
+    {
+      "name": "new-fixture-generation",
+      "rc": 0,
+      "expected": 0,
+      "receipt": "stage-c/new-fixture-generation/receipt.json"
+    },
+    {
+      "name": "link-missing-anchor",
+      "rc": 1,
+      "expected": 1,
+      "receipt": "stage-c/link-missing-anchor/receipt.json"
+    },
+    {
+      "name": "link-missing-target",
+      "rc": 1,
+      "expected": 1,
+      "receipt": "stage-c/link-missing-target/receipt.json"
+    },
+    {
+      "name": "link-positive",
+      "rc": 0,
+      "expected": 0,
+      "receipt": "stage-c/link-positive/receipt.json"
+    },
+    {
+      "name": "link-unsupported",
+      "rc": 2,
+      "expected": 2,
+      "receipt": "stage-c/link-unsupported/receipt.json"
+    },
+    {
+      "name": "confinement-positive",
+      "rc": 0,
+      "expected": 0,
+      "receipt": "stage-c/confinement-positive/receipt.json"
+    },
+    {
+      "name": "confinement-source_edit",
+      "rc": 1,
+      "expected": 1,
+      "receipt": "stage-c/confinement-source_edit/receipt.json"
+    },
+    {
+      "name": "confinement-edit_then_revert",
+      "rc": 1,
+      "expected": 1,
+      "receipt": "stage-c/confinement-edit_then_revert/receipt.json"
+    }
+  ],
+  "all_expected": true,
+  "no_accepted_replay": true
+}

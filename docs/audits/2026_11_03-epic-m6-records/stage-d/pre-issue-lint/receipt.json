@@ -1,0 +1,53 @@
+{
+  "argv": [
+    "tools/lint-audit-artifacts",
+    "--phase",
+    "pre-issue",
+    "docs/audits/2026_11_03-epic-m6-records"
+  ],
+  "cpus": [
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21,
+    22,
+    23
+  ],
+  "cwd": "/workspace/repos/pixelelated/distribution.worktrees/m6-records-693",
+  "end": "2026-11-03T12:33:33.950467+00:00",
+  "inputs": {
+    "/workspace/repos/pixelelated/distribution.worktrees/m6-records-693/docs/audits/2026_11_03-epic-m6-records/04-analysis.md": {
+      "bytes": 8278,
+      "sha256": "7251bd63e30f1ba541c56a35a56dc72190263f3af7531605d3208c9673a6e3fa"
+    },
+    "/workspace/repos/pixelelated/distribution.worktrees/m6-records-693/docs/audits/2026_11_03-epic-m6-records/05-punch-list.md": {
+      "bytes": 2482,
+      "sha256": "c0f4f3447af6f1ea62b129b99b7478080965932dc93df4bf8a034218e86b7923"
+    },
+    "/workspace/repos/pixelelated/distribution.worktrees/m6-records-693/docs/audits/2026_11_03-epic-m6-records/second-opinions/review-plan.json": {
+      "bytes": 515,
+      "sha256": "313657fba5a42bcd971d20edc26b0142d7c621e5d42ca3ca55e2dd55eed68ba9"
+    },
+    "/workspace/repos/pixelelated/distribution.worktrees/m6-records-693/tools/lint-audit-artifacts": {
+      "bytes": 29243,
+      "sha256": "47899b443ac4c40a74c1de8b40814ff6e6978497ae0875b8fd6a033fe8750613"
+    }
+  },
+  "locale": "C",
+  "python": "3.14.4 (main, Aug 20 2026, 10:41:58) [GCC 15.2.0]",
+  "rc": 0,
+  "recorder_sha256": "57302504180c9d5346b690cab93b4240a1700404fd3979e37d3b721735d360de",
+  "start": "2026-11-03T12:33:33.911526+00:00",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "stdout_sha256": "850fde5659b6ae874c33ebc9d908de4e4e36546ae5ec7dca551a361dadb4a97c"
+}

@@ -1,3 +1,17 @@
+# T46 records — A–D execution handoff
+
+Current record updated 2026-11-03T12:36:27.347907+00:00 by actual Codex/GPT-6-Astra/xhigh (observed harness, not provider-attested), T3 m6-t3-emulators wN:p6, session01a19d12-29e3-7fe0-9f41-038dac0a5deb.
+
+Exact worktree /workspace/repos/pixelelated/distribution.worktrees/m6-records-693; branch feature/m6-records-693; execution seed8710a6210a40de0110244d03a886161ee06faf29. Source reviewed-at d707c82ab8c48b674acc1f95a9571f0cb24d226a is separate. Governing v2 647a8831739ffa28995e1955e68225ca0226c926 / #693 comment6603284080. fixed-at empty.
+
+A–D packet complete; D tracker audit#1417 (actual child693/M6), Low reactive bug#1416 (no parent/milestone). One Open PL-001, current audit README applyTo/paths mismatch. Current gates pass (ceremony has a nonblocking audit-cadence warning); normal publication receipts are retained in docs/audits/2026_11_03-epic-m6-records/stage-d/. Read06/07 and the exact #693 D checkpoint for the published tip and final clean-state observation.
+
+Stop at published D for root stream disposition. No E–H, Phase7 outcome, source edit, marker, merge or closure. Source binding127469 paths/2190843187 logical bytes,95 routes/89 targets,99 finite reading records,86/86 index counts. New controls and original failures retained. Actual acceptance/integration are not implied. Root owns later dispatch.
+
+All original source-only and CPU8–23 boundaries remain. Historical emulator/T41 trees untouched; no accepted producer replay, source export, fetch, runtime/host/provider/device/cloud action or permission answer. T39 accepted corrections remain #686/#807/#346 integration; #1407 retains indexing/33-reference work.
+
+## Preserved seed handoff (historical)
+
 # T46 records — execution seed handoff
 
 Prepared 2026-11-03T12:00:57.457227+00:00 by M6 coordinator, Codex/GPT-6-Astra/xhigh (observed harness, not provider-attested), wN:p2. This is seed preparation, not execution evidence.

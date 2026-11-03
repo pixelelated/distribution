@@ -1,0 +1,52 @@
+{
+  "argv": [
+    "python3",
+    "-B",
+    "docs/audits/2026_11_03-epic-m6-records/tools/run-controls.py"
+  ],
+  "cpus": [
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21,
+    22,
+    23
+  ],
+  "cwd": "/workspace/repos/pixelelated/distribution.worktrees/m6-records-693",
+  "end": "2026-11-03T12:29:11.457802+00:00",
+  "inputs": {
+    "/workspace/repos/pixelelated/distribution.worktrees/m6-records-693/docs/audits/2026_11_03-epic-m6-records/tools/confinement.py": {
+      "bytes": 1986,
+      "sha256": "00d343e4a9604bc7432a0422ca9b1c6f1fc2e9fd84201052598f4a895480d5da"
+    },
+    "/workspace/repos/pixelelated/distribution.worktrees/m6-records-693/docs/audits/2026_11_03-epic-m6-records/tools/link.py": {
+      "bytes": 1087,
+      "sha256": "fe54ef439fa7379f0aa66dcb3e99e1b3d62e2ee79a602409d9419fd066b8802d"
+    },
+    "/workspace/repos/pixelelated/distribution.worktrees/m6-records-693/docs/audits/2026_11_03-epic-m6-records/tools/make-control-fixtures.py": {
+      "bytes": 2344,
+      "sha256": "ab45406049272f3c0af703bb2d6c8ec7e3370b3d92a303d06db4e4365d063b1f"
+    },
+    "/workspace/repos/pixelelated/distribution.worktrees/m6-records-693/docs/audits/2026_11_03-epic-m6-records/tools/run-controls.py": {
+      "bytes": 1893,
+      "sha256": "f874484b949f539f442530960c620a8100a7435509ce451856f6a7244d7c3571"
+    }
+  },
+  "locale": "C",
+  "python": "3.14.4 (main, Aug 20 2026, 10:41:58) [GCC 15.2.0]",
+  "rc": 0,
+  "recorder_sha256": "57302504180c9d5346b690cab93b4240a1700404fd3979e37d3b721735d360de",
+  "start": "2026-11-03T12:29:10.212074+00:00",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "stdout_sha256": "e8693d56695c5d4287452646fada6560bc3343bc59c25a855bced5f7ac67256e"
+}

@@ -1,0 +1,44 @@
+{
+  "argv": [
+    "bash",
+    "-c",
+    "set -eu\nexport LC_ALL=C\nT46_PARENT=$(mktemp -d /tmp/m6-t46-inputs.XXXXXX)\ntaskset -c 8-23 python3 -B docs/qa-logs/2026-11-03-m6-records-preparation/inputs.py \\\n  --repo \"$PWD\" --ref d707c82ab8c48b674acc1f95a9571f0cb24d226a \\\n  --out \"$T46_PARENT/bound\"\nprintf \"T46_PARENT=%s\\n\" \"$T46_PARENT\""
+  ],
+  "cpus": [
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21,
+    22,
+    23
+  ],
+  "cwd": "/workspace/repos/pixelelated/distribution.worktrees/m6-records-693",
+  "end": "2026-11-03T12:11:15.407435+00:00",
+  "inputs": {
+    "/workspace/repos/pixelelated/distribution.worktrees/m6-records-693/docs/qa-logs/2026-11-03-m6-records-preparation/inputs.py": {
+      "bytes": 5551,
+      "sha256": "1ab10007bcaba531e6bea520ca51ca362baf7dd0c1686ddae56dfe2d8dd8c17f"
+    },
+    "/workspace/repos/pixelelated/distribution.worktrees/m6-records-693/docs/reviews/briefs/records.md": {
+      "bytes": 23067,
+      "sha256": "889d608784976501128c7c021cf2211ff42cf546095ee4efb7931e7f3a6bd4e0"
+    }
+  },
+  "locale": "C",
+  "python": "3.14.4 (main, Aug 20 2026, 10:41:58) [GCC 15.2.0]",
+  "rc": 0,
+  "recorder_sha256": "57302504180c9d5346b690cab93b4240a1700404fd3979e37d3b721735d360de",
+  "start": "2026-11-03T12:11:14.862391+00:00",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "stdout_sha256": "a50566a02c6395997cf9dc32bab20e1604513857676133ea1094e63b74fac1fc"
+}
