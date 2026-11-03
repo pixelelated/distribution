@@ -365,3 +365,15 @@ Evidence: `docs/qa-logs/2026-11-02-m6-resume/t43-brief-proof/RETURN.md`,
 lossless `proof-records.jsonl` (196 source/receipt files; private Git object
 store excluded). Header/version/ownership wording now records dispatch
 readiness; the source population and 20 criteria remain the proved contract.
+
+## Final acceptance errata — 2026-11-02
+
+Root final assessment accepts8282cbcade3be32b437f7391be7e216d9a6b1074 within the existing source-only contract. D evidence is reused without producer replay; new final records and disposable integration against749e5c7f2df2c8444b07f8521493d12b7f7a962b pass. The exact20-criterion map and raw checks are under docs/qa-logs/2026-11-02-m6-resume/t43-final/.
+
+PL-001 resolves custody only; all93source-input gaps remain open, with224consumers188open/36positive. H records881retired/eightretained/zero partial after the committed plan. Four empty prefixes used nonrecursive rmdir; cache preservation is metadata-only and inaccessiblePID2389 prevents any all-same-UID clean claim. No further cleanup follows automatically.
+
+Four early F controls bind an older final-confinement.py hash45612b79. Removing the one later retirement-owner-scope.py allowlist entry reconstructs that exact hash; the reconstructed copy is labelled derived, not recovered historical evidence. Final receipts bind currentb7ee4e57; earlier controls are not relabeled as final-code tests.
+
+The root log resolver originally rejected time-only seconds and one exact historical heading without UTC/dash. New audit-local resolution validates seconds and accepts only that whole legacy entry's pinned hash, preserving all bytes and each branch's entry order. The first conflict fixture changed the heading and therefore correctly represented two distinct entries; its failed expectation remains retained. A corrected same-heading/body-conflict fixture refuses, all six new controls pass, logs/INDEX reconcile and remaining integrated gates pass. Shared historical helpers are unchanged. No actual area merge or accepted-stage replay occurred.
+
+All20criteria are accepted with these scoped evidentiary meanings, not as source correctness or runtime proof. Audit closure/completion marker follow explicit live acceptance; #690 stays open until actual ordered area integration.

@@ -1,0 +1,93 @@
+{
+  "base": "92e8d07b6163ec5ddd3e9b67f1c42a472b2911d1",
+  "coordinator": "749e5c7f2df2c8444b07f8521493d12b7f7a962b",
+  "lane": "8282cbcade3be32b437f7391be7e216d9a6b1074",
+  "input_sha256": [
+    "cd7d81017823ea73e533db1233fb5f20c56862c0b76b7c8da1744373512de54b",
+    "a7a1866d3fc3b6882c2e04f75197cd8fc4a73269007d2c45dfa2cf11ed15859d",
+    "b7f479c5ed7f1476075c75b3c06385818842b5341eba6e95670a08ed7816df9c"
+  ],
+  "original_parser_failure": "append entry heading/body/boundary invalid",
+  "original_fixture_failure_preserved": true,
+  "fixture_correction": "Modify body under identical heading, not heading itself. Resolver unchanged.",
+  "entry_sequences": [
+    [
+      "## 21:49 UTC \u2014 T43 running; T42 completion verified; next-table preparation",
+      "## 22:12:19 UTC \u2014 M6 T44 candidate and retained T46 preparation (#346, #691, #693)",
+      "## 22:21:05 UTC \u2014 T44 handoff proof active; T43 publication custody (#346, #690, #691)",
+      "## 22:32:25 UTC \u2014 T44 proved v2; T43 immutable handback review (#346, #690, #691)",
+      "## 22:51:15 UTC \u2014 #690 / #691: release the next bounded work in both lanes",
+      "## 22:57:42 UTC \u2014 #690 / #691: observed work and current queue",
+      "## 23:15:28 UTC \u2014 #690: clarify owned cleanup evidence after a real refusal",
+      "## 23:46:39 UTC \u2014 M6 T44 D reconciliation and vendor follow-up; T43 final support"
+    ],
+    [
+      "## 21:39 UTC \u2014 T43 execution seed prepared",
+      "## 22:11 UTC \u2014 #690: T43 source table through Stage D (#1412)",
+      "## 23:00 #690: T43 S1 outcome custody under accepted D"
+    ]
+  ],
+  "merged_sha256": "31ef1390e27442c24b3e96ef6926db87b6dcf48a2ef15ccadb83c45fd80d9a8f",
+  "controls": [
+    {
+      "case": "old-bytes-edited",
+      "input_sha256": [
+        "cd7d81017823ea73e533db1233fb5f20c56862c0b76b7c8da1744373512de54b",
+        "a7a1866d3fc3b6882c2e04f75197cd8fc4a73269007d2c45dfa2cf11ed15859d",
+        "70cd0dcdd24b6deb03aa186e21f16229a36e6a119a46adc641069a86ae6f6aba"
+      ],
+      "refused": true,
+      "reason": "existing log bytes changed"
+    },
+    {
+      "case": "missing-terminal-newline",
+      "input_sha256": [
+        "cd7d81017823ea73e533db1233fb5f20c56862c0b76b7c8da1744373512de54b",
+        "a7a1866d3fc3b6882c2e04f75197cd8fc4a73269007d2c45dfa2cf11ed15859d",
+        "80a900e439965af191b56ff9de15793e4e6211a7705cf2d98a8283546516e21b"
+      ],
+      "refused": true,
+      "reason": "not whole append entries"
+    },
+    {
+      "case": "legacy-body-edited",
+      "input_sha256": [
+        "cd7d81017823ea73e533db1233fb5f20c56862c0b76b7c8da1744373512de54b",
+        "a7a1866d3fc3b6882c2e04f75197cd8fc4a73269007d2c45dfa2cf11ed15859d",
+        "ce21fe2cdfd1207438e646f0dc368ad019591690f7c2badcb63db09c4301ec69"
+      ],
+      "refused": true,
+      "reason": "legacy entry bytes changed"
+    },
+    {
+      "case": "invalid-seconds",
+      "input_sha256": [
+        "cd7d81017823ea73e533db1233fb5f20c56862c0b76b7c8da1744373512de54b",
+        "b491dee22d6504aa342dcfbe713543b139012b95ecc7503296105f13cedcee29",
+        "b7f479c5ed7f1476075c75b3c06385818842b5341eba6e95670a08ed7816df9c"
+      ],
+      "refused": true,
+      "reason": "time data '22:12:99 UTC' does not match format '%H:%M:%S UTC'"
+    },
+    {
+      "case": "unrecognized-legacy-heading",
+      "input_sha256": [
+        "cd7d81017823ea73e533db1233fb5f20c56862c0b76b7c8da1744373512de54b",
+        "a7a1866d3fc3b6882c2e04f75197cd8fc4a73269007d2c45dfa2cf11ed15859d",
+        "b0099735bc2daa61a46295067c027a9d3fe9634ebd57f68d1dcf21b7d2b9f137"
+      ],
+      "refused": true,
+      "reason": "unrecognized entry heading"
+    },
+    {
+      "case": "same-heading-conflict",
+      "input_sha256": [
+        "cd7d81017823ea73e533db1233fb5f20c56862c0b76b7c8da1744373512de54b",
+        "a7a1866d3fc3b6882c2e04f75197cd8fc4a73269007d2c45dfa2cf11ed15859d",
+        "30bbbbc55411144ff25a735703e5db156f8dfece3ca45959d6532546eaacf456"
+      ],
+      "refused": true,
+      "reason": "same heading has conflicting bytes"
+    }
+  ]
+}

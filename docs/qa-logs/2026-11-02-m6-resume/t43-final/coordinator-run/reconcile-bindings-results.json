@@ -1,0 +1,1093 @@
+{
+  "errors": [
+    {
+      "check": "unmatched direct program/input hash",
+      "detail": {
+        "receipt": "docs/audits/2026_11_02-epic-m6-patches-unshipped/stage-f/confinement.json",
+        "path": "docs/audits/2026_11_02-epic-m6-patches-unshipped/tools/final-confinement.py",
+        "expected": "45612b79bd6971cd453c44a0a98212d90f7bbfd6a27b6c0d1d729af005b87969",
+        "final_hash": "b7ee4e576629d6e3f4da628d3a5d0f0dc908a490fc92c2aa3a85447c9d32d739"
+      }
+    },
+    {
+      "check": "unmatched direct program/input hash",
+      "detail": {
+        "receipt": "docs/audits/2026_11_02-epic-m6-patches-unshipped/stage-f/frozen-negative.json",
+        "path": "docs/audits/2026_11_02-epic-m6-patches-unshipped/tools/final-confinement.py",
+        "expected": "45612b79bd6971cd453c44a0a98212d90f7bbfd6a27b6c0d1d729af005b87969",
+        "final_hash": "b7ee4e576629d6e3f4da628d3a5d0f0dc908a490fc92c2aa3a85447c9d32d739"
+      }
+    },
+    {
+      "check": "unmatched direct program/input hash",
+      "detail": {
+        "receipt": "docs/audits/2026_11_02-epic-m6-patches-unshipped/stage-f/hooks.json",
+        "path": ".githooks/hooks-test",
+        "expected": "fcaa1327ebbe7ea141d63e5b0a0fac5f84c9f821053d0ba77cec06a37360a473",
+        "final_hash": null
+      }
+    },
+    {
+      "check": "unmatched direct program/input hash",
+      "detail": {
+        "receipt": "docs/audits/2026_11_02-epic-m6-patches-unshipped/stage-f/scope-positive.json",
+        "path": "docs/audits/2026_11_02-epic-m6-patches-unshipped/tools/final-confinement.py",
+        "expected": "45612b79bd6971cd453c44a0a98212d90f7bbfd6a27b6c0d1d729af005b87969",
+        "final_hash": "b7ee4e576629d6e3f4da628d3a5d0f0dc908a490fc92c2aa3a85447c9d32d739"
+      }
+    },
+    {
+      "check": "unmatched direct program/input hash",
+      "detail": {
+        "receipt": "docs/audits/2026_11_02-epic-m6-patches-unshipped/stage-f/source-negative.json",
+        "path": "docs/audits/2026_11_02-epic-m6-patches-unshipped/tools/final-confinement.py",
+        "expected": "45612b79bd6971cd453c44a0a98212d90f7bbfd6a27b6c0d1d729af005b87969",
+        "final_hash": "b7ee4e576629d6e3f4da628d3a5d0f0dc908a490fc92c2aa3a85447c9d32d739"
+      }
+    }
+  ],
+  "limits": [],
+  "facts": {
+    "receipts_checked": 56,
+    "receipt_exits": {
+      "0": 50,
+      "1": 6
+    },
+    "core_files": 126,
+    "core_bytes": 29369291,
+    "appendices": {
+      "handback-request.md": {
+        "bytes": 5948,
+        "sha256": "15dea245ec5110b7be9e4a1bc9374e9bb736ae6e74137eaf285971dca1c1cc96"
+      },
+      "handback-posted.json": {
+        "bytes": 23,
+        "sha256": "f0111961941ad405f6c00f643e2e65698f0bbb9f5a77578957c1b20eba007563"
+      },
+      "handback-readback.json": {
+        "bytes": 18160,
+        "sha256": "cf46689a6b6980e89abcb326c019da1659c8ef3c9ac0ee70afd4a4461c9a107d"
+      },
+      "coordinator-return.json": {
+        "bytes": 2242,
+        "sha256": "acd015c12723eda8b420a7d16111fbbcee53d5f33dbbb00c26732ea3c1df1631"
+      },
+      "coordinator-return.stdout": {
+        "bytes": 737,
+        "sha256": "0fadff91604d000ccdee428e7380ed8ab5d1180fca7f68d08f39c20dced43cf0"
+      },
+      "coordinator-return.stderr": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "coordinator-observation.json": {
+        "bytes": 806,
+        "sha256": "6db8a1291f76407b04a62c89319ea10076231f941b0600b3973d8d2222c06e36"
+      },
+      "coordinator-observation.stdout": {
+        "bytes": 2192,
+        "sha256": "9192035a50cd3a14b227121a3ec1bb42b53b879cb20cb6426c1da4dd33f65e71"
+      },
+      "coordinator-observation.stderr": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    "publication_checks": 23,
+    "tracker": {
+      "690_state": "OPEN",
+      "690_unchecked": 20,
+      "1412_state": "OPEN",
+      "1412_checked": 1,
+      "marker_absent": true
+    },
+    "retained_check_outputs": {
+      "final-resolution.stdout": "== docs/audits/2026_11_02-epic-m6-patches-unshipped\n  ok    01-research-notes.md\n  ok    02-forward-audit.md\n  ok    03-retrospective.md\n  ok    04-analysis.md\n  ok    05-punch-list.md\n  ok    04 \u00a7 Executive summary\n  ok    04 \u00a7 Acceptance-criteria scorecard\n  ok    04 \u00a7 Risk assessment\n  ok    04 \u00a7 Coverage boundary\n  ok    04 \u00a7 Quality self-check\n  ok    review plan: local, 1 model perspectives, 0 verified external calls\n  ok    review-plan: local at epic tier under D-WORKFLOW-184 (T43 provenance/reachability table, plan section 6c; actual primary alone under explicit #690 dispatch)\n  ok    1 punch item(s): PL-001\n  ok    PL-001 outcome recorded with evidence\n  ok    PL-001 index and table agree (resolved)\n  ok    04 \u00a7 Renovation face answers Q1 to Q7\n  ok    PL-001 answers Q3\n\nPASS\n",
+      "final-issue-resolution.stdout": "== docs/audits/2026_11_02-epic-m6-patches-unshipped\n  ok    01-research-notes.md\n  ok    02-forward-audit.md\n  ok    03-retrospective.md\n  ok    04-analysis.md\n  ok    05-punch-list.md\n  ok    04 \u00a7 Executive summary\n  ok    04 \u00a7 Acceptance-criteria scorecard\n  ok    04 \u00a7 Risk assessment\n  ok    04 \u00a7 Coverage boundary\n  ok    04 \u00a7 Quality self-check\n  ok    review plan: local, 1 model perspectives, 0 verified external calls\n  ok    review-plan: local at epic tier under D-WORKFLOW-184 (T43 provenance/reachability table, plan section 6c; actual primary alone under explicit #690 dispatch)\n  ok    1 punch item(s): PL-001\n  ok    PL-001 outcome recorded with evidence\n  ok    PL-001 index and table agree (resolved)\n  ok    04 \u00a7 Renovation face answers Q1 to Q7\n  ok    PL-001 answers Q3\n  ok    issue #1412 carries a task list (1 items)\n  ok    issue #1412 references PL-001\n\nPASS\n",
+      "final-box-audit.stdout": "box-check: 1 issue(s), 0 open checkbox(es), 0 fail, 0 issue(s) with rows to re-derive against\n",
+      "final-box-slice-headers-v2.stdout": "note  #690: 20 open checkbox(es); decided rows cite it: D-WORKFLOW-231 -- re-derive against them\nbox-check: 1 issue(s), 20 open checkbox(es), 0 fail, 1 issue(s) with rows to re-derive against\n",
+      "remote-final.stdout": "8282cbcade3be32b437f7391be7e216d9a6b1074\trefs/heads/feature/m6-patches-unshipped-690\n",
+      "status-final.stdout": ""
+    }
+  },
+  "receipts": [
+    {
+      "receipt": "docs/audits/2026_11_02-epic-m6-patches-unshipped/stage-e/identity.json",
+      "argv": [
+        "herdr",
+        "agent",
+        "read",
+        "m6-t1-os-launch",
+        "--source",
+        "visible"
+      ],
+      "exit": 0,
+      "started": "2026-11-02T22:56:14.107080+00:00",
+      "finished": "2026-11-02T22:56:14.110444+00:00",
+      "direct_bindings": []
+    },
+    {
+      "receipt": "docs/audits/2026_11_02-epic-m6-patches-unshipped/stage-e/s1-controls-run.json",
+      "argv": [
+        "python3",
+        "docs/audits/2026_11_02-epic-m6-patches-unshipped/tools/prepare-owner-outcomes.py"
+      ],
+      "exit": 0,
+      "started": "2026-11-02T22:59:01.848967+00:00",
+      "finished": "2026-11-02T22:59:03.301143+00:00",
+      "direct_bindings": [
+        {
+          "path": "docs/audits/2026_11_02-epic-m6-patches-unshipped/tools/prepare-owner-outcomes.py",
+          "bound_at": "docs/audits/2026_11_02-epic-m6-patches-unshipped/tools/prepare-owner-outcomes.py",
+          "sha256": "da4cb78e9cf614aa8ae45791ae2b79b785b4efcf1c0a0f69614b440e8ff2c7f0"
+        }
+      ]
+    },
+    {
+      "receipt": "docs/audits/2026_11_02-epic-m6-patches-unshipped/stage-f/box-audit.json",
+      "argv": [
+        "tools/box-check",
+        "--issue",
+        "1412"
+      ],
+      "exit": 0,
+      "started": "2026-11-02T23:04:46.757527+00:00",
+      "finished": "2026-11-02T23:04:47.175290+00:00",
+      "direct_bindings": [
+        {
+          "path": "tools/box-check",
+          "bound_at": "tools/box-check",
+          "sha256": "3563b26951fccd737fa904e99620f66727fdc7ad6526eabcd16a7e8e2f41c314"
+        }
+      ]
+    },
+    {
+      "receipt": "docs/audits/2026_11_02-epic-m6-patches-unshipped/stage-f/box-slice.json",
+      "argv": [
+        "tools/box-check",
+        "--issue",
+        "690"
+      ],
+      "exit": 0,
+      "started": "2026-11-02T23:04:43.655752+00:00",
+      "finished": "2026-11-02T23:04:44.188132+00:00",
+      "direct_bindings": [
+        {
+          "path": "tools/box-check",
+          "bound_at": "tools/box-check",
+          "sha256": "3563b26951fccd737fa904e99620f66727fdc7ad6526eabcd16a7e8e2f41c314"
+        }
+      ]
+    },
+    {
+      "receipt": "docs/audits/2026_11_02-epic-m6-patches-unshipped/stage-f/ceremony.json",
+      "argv": [
+        "tools/ceremony-check",
+        "--gate"
+      ],
+      "exit": 0,
+      "started": "2026-11-02T23:04:46.246720+00:00",
+      "finished": "2026-11-02T23:04:54.426744+00:00",
+      "direct_bindings": [
+        {
+          "path": "tools/ceremony-check",
+          "bound_at": "tools/ceremony-check",
+          "sha256": "30d997190473a9b75447673dffd2ac5a9133555944e6b443b9163345b78303c0"
+        }
+      ]
+    },
+    {
+      "receipt": "docs/audits/2026_11_02-epic-m6-patches-unshipped/stage-f/confinement.json",
+      "argv": [
+        "python3",
+        "docs/audits/2026_11_02-epic-m6-patches-unshipped/tools/final-confinement.py",
+        "--out",
+        "docs/audits/2026_11_02-epic-m6-patches-unshipped/stage-f/confinement-result.json"
+      ],
+      "exit": 0,
+      "started": "2026-11-02T23:04:08.189239+00:00",
+      "finished": "2026-11-02T23:04:08.694940+00:00",
+      "direct_bindings": [
+        {
+          "path": "docs/audits/2026_11_02-epic-m6-patches-unshipped/stage-f/confinement-result.json",
+          "bound_at": "docs/audits/2026_11_02-epic-m6-patches-unshipped/stage-f/confinement-result.json",
+          "sha256": "f1a487ccbccb25f2b4c8da8822c92f2224b7b8601bcb7b1176ca425cd76d6783"
+        }
+      ]
+    },
+    {
+      "receipt": "docs/audits/2026_11_02-epic-m6-patches-unshipped/stage-f/frozen-negative.json",
+      "argv": [
+        "python3",
+        "docs/audits/2026_11_02-epic-m6-patches-unshipped/tools/final-confinement.py",
+        "--fixture",
+        "docs/audits/2026_11_02-epic-m6-patches-unshipped/stage-f/fixtures/frozen-negative.json"
+      ],
+      "exit": 1,
+      "started": "2026-11-02T23:04:02.425953+00:00",
+      "finished": "2026-11-02T23:04:02.488549+00:00",
+      "direct_bindings": [
+        {
+          "path": "docs/audits/2026_11_02-epic-m6-patches-unshipped/stage-f/fixtures/frozen-negative.json",
+          "bound_at": "docs/audits/2026_11_02-epic-m6-patches-unshipped/stage-f/fixtures/frozen-negative.json",
+          "sha256": "02f048cf03598939889dfaa928844adffcc322acbf9c0b37444da02cdca6cb5c"
+        }
+      ]
+    },
+    {
+      "receipt": "docs/audits/2026_11_02-epic-m6-patches-unshipped/stage-f/hooks.json",
+      "argv": [
+        ".githooks/hooks-test"
+      ],
+      "exit": 0,
+      "started": "2026-11-02T23:04:46.220108+00:00",
+      "finished": "2026-11-02T23:04:46.915406+00:00",
+      "direct_bindings": []
+    },
+    {
+      "receipt": "docs/audits/2026_11_02-epic-m6-patches-unshipped/stage-f/index.json",
+      "argv": [
+        "tools/work-log-index",
+        "--check"
+      ],
+      "exit": 0,
+      "started": "2026-11-02T23:04:47.120488+00:00",
+      "finished": "2026-11-02T23:04:47.142132+00:00",
+      "direct_bindings": [
+        {
+          "path": "tools/work-log-index",
+          "bound_at": "tools/work-log-index",
+          "sha256": "6c7a82704454c159a5f677cb384d455a51d0c827acfad7904945acc5d5272a77"
+        }
+      ]
+    },
+    {
+      "receipt": "docs/audits/2026_11_02-epic-m6-patches-unshipped/stage-f/issue-lint-v2.json",
+      "argv": [
+        "tools/lint-audit-artifacts",
+        "docs/audits/2026_11_02-epic-m6-patches-unshipped",
+        "--issue",
+        "1412"
+      ],
+      "exit": 0,
+      "started": "2026-11-02T23:05:07.352039+00:00",
+      "finished": "2026-11-02T23:05:07.811060+00:00",
+      "direct_bindings": [
+        {
+          "path": "tools/lint-audit-artifacts",
+          "bound_at": "tools/lint-audit-artifacts",
+          "sha256": "47899b443ac4c40a74c1de8b40814ff6e6978497ae0875b8fd6a033fe8750613"
+        }
+      ]
+    },
+    {
+      "receipt": "docs/audits/2026_11_02-epic-m6-patches-unshipped/stage-f/issue-lint.json",
+      "argv": [
+        "tools/lint-audit-artifacts",
+        "docs/audits/2026_11_02-epic-m6-patches-unshipped",
+        "--issue",
+        "1412"
+      ],
+      "exit": 1,
+      "started": "2026-11-02T23:04:48.060297+00:00",
+      "finished": "2026-11-02T23:04:48.517101+00:00",
+      "direct_bindings": [
+        {
+          "path": "tools/lint-audit-artifacts",
+          "bound_at": "tools/lint-audit-artifacts",
+          "sha256": "47899b443ac4c40a74c1de8b40814ff6e6978497ae0875b8fd6a033fe8750613"
+        }
+      ]
+    },
+    {
+      "receipt": "docs/audits/2026_11_02-epic-m6-patches-unshipped/stage-f/late-record-controls-run.json",
+      "argv": [
+        "python3",
+        "-c",
+        "import copy,hashlib,importlib.util,json,pathlib\nr=pathlib.Path('docs/audits/2026_11_02-epic-m6-patches-unshipped');spec=importlib.util.spec_from_file_location('retire',r/'tools/retirement.py');m=importlib.util.module_from_spec(spec);spec.loader.exec_module(m)\noriginal=m.load;bad=copy.deepcopy(original('stage-f/retirement-controls-v2.json'));bad['known_children'][0]['joined']=False\nf=r/'stage-f/fixtures/unaccounted-child.json';f.write_text(json.dumps(bad,indent=2)+'\\n')\nm.load=lambda name:bad if name=='stage-f/retirement-controls-v2.json' else original(name)\ntry:m.completed('stage-f/retirement-controls-v2-run.json')\nexcept AssertionError as e:assert 'unaccounted F control child' in str(e);refusal=str(e)\nelse:raise AssertionError('missing child termination not refused')\nm.load=original;positive=m.completed('stage-f/retirement-controls-v2-run.json');assert all(c['joined'] and c['exit']==0 for c in positive['accounted_known_children'])\nplan=(r/'stage-h/retirement-plan.json').read_bytes();value=json.loads(plan);assert len(value['roots'])==889 and plan.endswith(b'\\n')\ncorrection=json.loads((r/'stage-h/planner-correction.json').read_text());assert hashlib.sha256(plan).hexdigest()==correction['stored_plan_sha256']\n# Demonstrate exact malformed suffix refusal and byte-preserving corrected JSON.\nbad_bytes=pathlib.Path(correction['original_raw_path']).read_bytes()\ntry:json.loads(bad_bytes)\nexcept json.JSONDecodeError as e:parse_failure=str(e)\nelse:raise AssertionError('original literal suffix unexpectedly parsed')\nassert json.loads(bad_bytes[:-2])==value\n(r/'stage-f/late-record-controls.json').write_text(json.dumps({'fixture_sha256':hashlib.sha256(f.read_bytes()).hexdigest(),'program_sha256':hashlib.sha256((r/'tools/retirement.py').read_bytes()).hexdigest(),'unaccounted_child_refusal':refusal,'actual_child_positive':positive,'original_plan_parse_failure':parse_failure,'corrected_json_roundtrip':True,'plan_sha256':hashlib.sha256(plan).hexdigest(),'unchanged_root_records':889},indent=2)+'\\n')\nprint('PASS narrow new child-completion refusal/positive and exact planner storage refusal/correction; guard functions retain their tested identities')\n"
+      ],
+      "exit": 0,
+      "started": "2026-11-02T23:20:53.213032+00:00",
+      "finished": "2026-11-02T23:20:53.621819+00:00",
+      "direct_bindings": []
+    },
+    {
+      "receipt": "docs/audits/2026_11_02-epic-m6-patches-unshipped/stage-f/register.json",
+      "argv": [
+        "tools/register-check"
+      ],
+      "exit": 0,
+      "started": "2026-11-02T23:04:45.064759+00:00",
+      "finished": "2026-11-02T23:04:46.252670+00:00",
+      "direct_bindings": [
+        {
+          "path": "tools/register-check",
+          "bound_at": "tools/register-check",
+          "sha256": "8f444f93b71ffdf8bf5e900e2973920ea5b898702a498727028c371e648397db"
+        }
+      ]
+    },
+    {
+      "receipt": "docs/audits/2026_11_02-epic-m6-patches-unshipped/stage-f/resolution-lint-v2.json",
+      "argv": [
+        "tools/lint-audit-artifacts",
+        "docs/audits/2026_11_02-epic-m6-patches-unshipped"
+      ],
+      "exit": 0,
+      "started": "2026-11-02T23:05:05.042244+00:00",
+      "finished": "2026-11-02T23:05:05.081093+00:00",
+      "direct_bindings": [
+        {
+          "path": "tools/lint-audit-artifacts",
+          "bound_at": "tools/lint-audit-artifacts",
+          "sha256": "47899b443ac4c40a74c1de8b40814ff6e6978497ae0875b8fd6a033fe8750613"
+        }
+      ]
+    },
+    {
+      "receipt": "docs/audits/2026_11_02-epic-m6-patches-unshipped/stage-f/resolution-lint.json",
+      "argv": [
+        "tools/lint-audit-artifacts",
+        "docs/audits/2026_11_02-epic-m6-patches-unshipped"
+      ],
+      "exit": 1,
+      "started": "2026-11-02T23:04:45.565451+00:00",
+      "finished": "2026-11-02T23:04:45.616781+00:00",
+      "direct_bindings": [
+        {
+          "path": "tools/lint-audit-artifacts",
+          "bound_at": "tools/lint-audit-artifacts",
+          "sha256": "47899b443ac4c40a74c1de8b40814ff6e6978497ae0875b8fd6a033fe8750613"
+        }
+      ]
+    },
+    {
+      "receipt": "docs/audits/2026_11_02-epic-m6-patches-unshipped/stage-f/retirement-controls-run.json",
+      "argv": [
+        "python3",
+        "docs/audits/2026_11_02-epic-m6-patches-unshipped/tools/retirement-controls.py"
+      ],
+      "exit": 1,
+      "started": "2026-11-02T23:10:04.843634+00:00",
+      "finished": "2026-11-02T23:10:04.922038+00:00",
+      "direct_bindings": [
+        {
+          "path": "docs/audits/2026_11_02-epic-m6-patches-unshipped/tools/retirement-controls.py",
+          "bound_at_preserved_snapshot": [
+            "docs/audits/2026_11_02-epic-m6-patches-unshipped/stage-f/failed-retirement-controls.py"
+          ],
+          "sha256": "f313251c0d0fdb84db1835c3108fb30610d17b55dfec8f39a711241d9a906ff3"
+        }
+      ]
+    },
+    {
+      "receipt": "docs/audits/2026_11_02-epic-m6-patches-unshipped/stage-f/retirement-controls-v2-run.json",
+      "argv": [
+        "python3",
+        "docs/audits/2026_11_02-epic-m6-patches-unshipped/tools/retirement-controls.py"
+      ],
+      "exit": 0,
+      "started": "2026-11-02T23:18:27.217556+00:00",
+      "finished": "2026-11-02T23:18:27.278376+00:00",
+      "direct_bindings": [
+        {
+          "path": "docs/audits/2026_11_02-epic-m6-patches-unshipped/tools/retirement-controls.py",
+          "bound_at": "docs/audits/2026_11_02-epic-m6-patches-unshipped/tools/retirement-controls.py",
+          "sha256": "5355d711d0bff1416b2e47a76bf33fb46e9e489740a03583e8dbe727f0707ec0"
+        }
+      ]
+    },
+    {
+      "receipt": "docs/audits/2026_11_02-epic-m6-patches-unshipped/stage-f/rules.json",
+      "argv": [
+        "tools/rules-check"
+      ],
+      "exit": 0,
+      "started": "2026-11-02T23:04:44.581271+00:00",
+      "finished": "2026-11-02T23:04:44.599107+00:00",
+      "direct_bindings": [
+        {
+          "path": "tools/rules-check",
+          "bound_at": "tools/rules-check",
+          "sha256": "e2ce3541a44861585f393a83bc33a8e57c6d39a2b3b1196c981b2045bc50fa23"
+        }
+      ]
+    },
+    {
+      "receipt": "docs/audits/2026_11_02-epic-m6-patches-unshipped/stage-f/scan-controls-run.json",
+      "argv": [
+        "python3",
+        "docs/audits/2026_11_02-epic-m6-patches-unshipped/tools/final-record-controls.py"
+      ],
+      "exit": 0,
+      "started": "2026-11-02T23:12:35.066650+00:00",
+      "finished": "2026-11-02T23:12:35.362685+00:00",
+      "direct_bindings": [
+        {
+          "path": "docs/audits/2026_11_02-epic-m6-patches-unshipped/tools/final-record-controls.py",
+          "bound_at": "docs/audits/2026_11_02-epic-m6-patches-unshipped/tools/final-record-controls.py",
+          "sha256": "2f8417e28c9863e8bdbb82613ea793f2bc3215f677a4e8f2ca75ac37e4afb7b4"
+        }
+      ]
+    },
+    {
+      "receipt": "docs/audits/2026_11_02-epic-m6-patches-unshipped/stage-f/scope-positive.json",
+      "argv": [
+        "python3",
+        "docs/audits/2026_11_02-epic-m6-patches-unshipped/tools/final-confinement.py",
+        "--fixture",
+        "docs/audits/2026_11_02-epic-m6-patches-unshipped/stage-f/fixtures/scope-positive.json"
+      ],
+      "exit": 0,
+      "started": "2026-11-02T23:04:06.317463+00:00",
+      "finished": "2026-11-02T23:04:06.337587+00:00",
+      "direct_bindings": [
+        {
+          "path": "docs/audits/2026_11_02-epic-m6-patches-unshipped/stage-f/fixtures/scope-positive.json",
+          "bound_at": "docs/audits/2026_11_02-epic-m6-patches-unshipped/stage-f/fixtures/scope-positive.json",
+          "sha256": "ebe3ee6a95ca9ce5b44af4cfa8cdf59c5bd7815ab0a1f6f4b6e4e154916756ad"
+        }
+      ]
+    },
+    {
+      "receipt": "docs/audits/2026_11_02-epic-m6-patches-unshipped/stage-f/source-negative.json",
+      "argv": [
+        "python3",
+        "docs/audits/2026_11_02-epic-m6-patches-unshipped/tools/final-confinement.py",
+        "--fixture",
+        "docs/audits/2026_11_02-epic-m6-patches-unshipped/stage-f/fixtures/source-negative.json"
+      ],
+      "exit": 1,
+      "started": "2026-11-02T23:04:04.470827+00:00",
+      "finished": "2026-11-02T23:04:04.533613+00:00",
+      "direct_bindings": [
+        {
+          "path": "docs/audits/2026_11_02-epic-m6-patches-unshipped/stage-f/fixtures/source-negative.json",
+          "bound_at": "docs/audits/2026_11_02-epic-m6-patches-unshipped/stage-f/fixtures/source-negative.json",
+          "sha256": "6931f018abfe75dba7abef1772c36398739fe452335346ce5290651e556792a4"
+        }
+      ]
+    },
+    {
+      "receipt": "docs/audits/2026_11_02-epic-m6-patches-unshipped/stage-h/plan-run.json",
+      "argv": [
+        "python3",
+        "docs/audits/2026_11_02-epic-m6-patches-unshipped/tools/retirement.py",
+        "plan"
+      ],
+      "exit": 1,
+      "started": "2026-11-02T23:10:08.033266+00:00",
+      "finished": "2026-11-02T23:10:09.828122+00:00",
+      "direct_bindings": [
+        {
+          "path": "docs/audits/2026_11_02-epic-m6-patches-unshipped/tools/retirement.py",
+          "bound_at_preserved_snapshot": [
+            "docs/audits/2026_11_02-epic-m6-patches-unshipped/stage-f/failed-retirement.py"
+          ],
+          "sha256": "2b98e817e600b31cbe213cb03e063fc51697ee56eadbcfb8ddb91ede682991a8"
+        }
+      ]
+    },
+    {
+      "receipt": "docs/audits/2026_11_02-epic-m6-patches-unshipped/stage-h/plan-v2-run.json",
+      "argv": [
+        "python3",
+        "docs/audits/2026_11_02-epic-m6-patches-unshipped/tools/retirement.py",
+        "plan"
+      ],
+      "exit": 0,
+      "started": "2026-11-02T23:18:52.068782+00:00",
+      "finished": "2026-11-02T23:18:55.724735+00:00",
+      "direct_bindings": [
+        {
+          "path": "docs/audits/2026_11_02-epic-m6-patches-unshipped/tools/retirement.py",
+          "bound_at_preserved_snapshot": [
+            "docs/audits/2026_11_02-epic-m6-patches-unshipped/stage-h/retirement-planner-v2.py"
+          ],
+          "sha256": "dfa163488f8dd4919d6c3a8dfa0ccf58b94284406c2570c9844bc73720012f4b"
+        }
+      ]
+    },
+    {
+      "receipt": "docs/audits/2026_11_02-epic-m6-patches-unshipped/stage-h/retirement-run.json",
+      "argv": [
+        "python3",
+        "docs/audits/2026_11_02-epic-m6-patches-unshipped/tools/retirement.py",
+        "retire"
+      ],
+      "exit": 0,
+      "started": "2026-11-02T23:23:45.532985+00:00",
+      "finished": "2026-11-02T23:24:00.553111+00:00",
+      "direct_bindings": [
+        {
+          "path": "docs/audits/2026_11_02-epic-m6-patches-unshipped/tools/retirement.py",
+          "bound_at": "docs/audits/2026_11_02-epic-m6-patches-unshipped/tools/retirement.py",
+          "sha256": "0d9aed11d6053c20d10f95075d9dc12b6177b9dfa80e459c5ec92450668f23a8"
+        }
+      ]
+    },
+    {
+      "receipt": "external:exact-commit-scan-v2.json",
+      "argv": [
+        "python3",
+        "docs/audits/2026_11_02-epic-m6-patches-unshipped/tools/final-record-scan.py",
+        "commit",
+        "/workspace/tmp/m6-t43/eh-publication/exact-commit-records-v2"
+      ],
+      "exit": 0,
+      "started": "2026-11-02T23:29:22.404537+00:00",
+      "finished": "2026-11-02T23:29:23.223278+00:00",
+      "direct_bindings": [
+        {
+          "path": "docs/audits/2026_11_02-epic-m6-patches-unshipped/tools/final-record-scan.py",
+          "bound_at": "docs/audits/2026_11_02-epic-m6-patches-unshipped/tools/final-record-scan.py",
+          "sha256": "4e1f1575a008bbb9fdc74dabcb3dcdd17fe2825a3e5979b77cc8b44c5a0ab074"
+        }
+      ]
+    },
+    {
+      "receipt": "external:exact-commit-scan.json",
+      "argv": [
+        "python3",
+        "docs/audits/2026_11_02-epic-m6-patches-unshipped/tools/final-record-scan.py",
+        "commit",
+        "/workspace/tmp/m6-t43/eh-publication/exact-commit-records"
+      ],
+      "exit": 0,
+      "started": "2026-11-02T23:27:00.986879+00:00",
+      "finished": "2026-11-02T23:27:01.800235+00:00",
+      "direct_bindings": [
+        {
+          "path": "docs/audits/2026_11_02-epic-m6-patches-unshipped/tools/final-record-scan.py",
+          "bound_at": "docs/audits/2026_11_02-epic-m6-patches-unshipped/tools/final-record-scan.py",
+          "sha256": "4e1f1575a008bbb9fdc74dabcb3dcdd17fe2825a3e5979b77cc8b44c5a0ab074"
+        }
+      ]
+    },
+    {
+      "receipt": "external:f-forbidden.json",
+      "argv": [
+        "tools/forbidden-terms-check"
+      ],
+      "exit": 0,
+      "started": "2026-11-02T23:07:22.673185+00:00",
+      "finished": "2026-11-02T23:09:35.078927+00:00",
+      "direct_bindings": [
+        {
+          "path": "tools/forbidden-terms-check",
+          "bound_at": "tools/forbidden-terms-check",
+          "sha256": "6907bed8857ce27f38b31ef18c09abc2d9dd9345b28afd483e8a44e3253c0e63"
+        }
+      ]
+    },
+    {
+      "receipt": "external:fg-plan-commit.json",
+      "argv": [
+        "git",
+        "commit",
+        "-q",
+        "-m",
+        "docs: resolve T43 custody and bind the bounded cleanup plan",
+        "-m",
+        "Refs #690, #1412. Preserve all 93 source-input gaps and frozen D evidence. Record F gates, G learning, own-lane cleanup controls and the exact H plan before any production deletion."
+      ],
+      "exit": 0,
+      "started": "2026-11-02T23:23:14.413587+00:00",
+      "finished": "2026-11-02T23:23:15.531282+00:00",
+      "direct_bindings": []
+    },
+    {
+      "receipt": "external:final-box-audit.json",
+      "argv": [
+        "tools/box-check",
+        "--issue",
+        "1412"
+      ],
+      "exit": 0,
+      "started": "2026-11-02T23:25:59.827061+00:00",
+      "finished": "2026-11-02T23:26:00.242769+00:00",
+      "direct_bindings": [
+        {
+          "path": "tools/box-check",
+          "bound_at": "tools/box-check",
+          "sha256": "3563b26951fccd737fa904e99620f66727fdc7ad6526eabcd16a7e8e2f41c314"
+        }
+      ]
+    },
+    {
+      "receipt": "external:final-box-slice-headers-v2.json",
+      "argv": [
+        "tools/box-check",
+        "--issue",
+        "690"
+      ],
+      "exit": 0,
+      "started": "2026-11-02T23:34:56.897033+00:00",
+      "finished": "2026-11-02T23:34:57.308559+00:00",
+      "direct_bindings": [
+        {
+          "path": "tools/box-check",
+          "bound_at": "tools/box-check",
+          "sha256": "3563b26951fccd737fa904e99620f66727fdc7ad6526eabcd16a7e8e2f41c314"
+        }
+      ]
+    },
+    {
+      "receipt": "external:final-box-slice-headers.json",
+      "argv": [
+        "tools/box-check",
+        "--issue",
+        "690"
+      ],
+      "exit": 0,
+      "started": "2026-11-02T23:32:58.594087+00:00",
+      "finished": "2026-11-02T23:32:59.052969+00:00",
+      "direct_bindings": [
+        {
+          "path": "tools/box-check",
+          "bound_at": "tools/box-check",
+          "sha256": "3563b26951fccd737fa904e99620f66727fdc7ad6526eabcd16a7e8e2f41c314"
+        }
+      ]
+    },
+    {
+      "receipt": "external:final-box-slice.json",
+      "argv": [
+        "tools/box-check",
+        "--issue",
+        "690"
+      ],
+      "exit": 0,
+      "started": "2026-11-02T23:26:01.549154+00:00",
+      "finished": "2026-11-02T23:26:01.995225+00:00",
+      "direct_bindings": [
+        {
+          "path": "tools/box-check",
+          "bound_at": "tools/box-check",
+          "sha256": "3563b26951fccd737fa904e99620f66727fdc7ad6526eabcd16a7e8e2f41c314"
+        }
+      ]
+    },
+    {
+      "receipt": "external:final-ceremony.json",
+      "argv": [
+        "tools/ceremony-check",
+        "--gate"
+      ],
+      "exit": 0,
+      "started": "2026-11-02T23:25:58.476603+00:00",
+      "finished": "2026-11-02T23:26:06.606948+00:00",
+      "direct_bindings": [
+        {
+          "path": "tools/ceremony-check",
+          "bound_at": "tools/ceremony-check",
+          "sha256": "30d997190473a9b75447673dffd2ac5a9133555944e6b443b9163345b78303c0"
+        }
+      ]
+    },
+    {
+      "receipt": "external:final-current-confinement.json",
+      "argv": [
+        "python3",
+        "docs/audits/2026_11_02-epic-m6-patches-unshipped/tools/final-confinement.py",
+        "--out",
+        "/workspace/tmp/m6-t43/eh-publication/final-current-confinement-result.json"
+      ],
+      "exit": 0,
+      "started": "2026-11-02T23:25:59.643578+00:00",
+      "finished": "2026-11-02T23:26:00.211242+00:00",
+      "direct_bindings": [
+        {
+          "path": "docs/audits/2026_11_02-epic-m6-patches-unshipped/tools/final-confinement.py",
+          "bound_at": "docs/audits/2026_11_02-epic-m6-patches-unshipped/tools/final-confinement.py",
+          "sha256": "b7ee4e576629d6e3f4da628d3a5d0f0dc908a490fc92c2aa3a85447c9d32d739"
+        },
+        {
+          "path": "/workspace/tmp/m6-t43/eh-publication/final-current-confinement-result.json",
+          "bound_at": "external:final-current-confinement-result.json",
+          "sha256": "8b8d02efda4b080cff322136e2b277ef89db0a58e65e371aca638347e1a52a0b"
+        }
+      ]
+    },
+    {
+      "receipt": "external:final-current-scan.json",
+      "argv": [
+        "python3",
+        "docs/audits/2026_11_02-epic-m6-patches-unshipped/tools/final-record-scan.py",
+        "current",
+        "/workspace/tmp/m6-t43/eh-publication/final-current-records"
+      ],
+      "exit": 0,
+      "started": "2026-11-02T23:25:57.849118+00:00",
+      "finished": "2026-11-02T23:25:58.580012+00:00",
+      "direct_bindings": [
+        {
+          "path": "docs/audits/2026_11_02-epic-m6-patches-unshipped/tools/final-record-scan.py",
+          "bound_at": "docs/audits/2026_11_02-epic-m6-patches-unshipped/tools/final-record-scan.py",
+          "sha256": "4e1f1575a008bbb9fdc74dabcb3dcdd17fe2825a3e5979b77cc8b44c5a0ab074"
+        }
+      ]
+    },
+    {
+      "receipt": "external:final-index.json",
+      "argv": [
+        "tools/work-log-index",
+        "--check"
+      ],
+      "exit": 0,
+      "started": "2026-11-02T23:26:00.717668+00:00",
+      "finished": "2026-11-02T23:26:00.738861+00:00",
+      "direct_bindings": [
+        {
+          "path": "tools/work-log-index",
+          "bound_at": "tools/work-log-index",
+          "sha256": "6c7a82704454c159a5f677cb384d455a51d0c827acfad7904945acc5d5272a77"
+        }
+      ]
+    },
+    {
+      "receipt": "external:final-issue-resolution.json",
+      "argv": [
+        "tools/lint-audit-artifacts",
+        "docs/audits/2026_11_02-epic-m6-patches-unshipped",
+        "--issue",
+        "1412"
+      ],
+      "exit": 0,
+      "started": "2026-11-02T23:25:55.167929+00:00",
+      "finished": "2026-11-02T23:25:55.719810+00:00",
+      "direct_bindings": [
+        {
+          "path": "tools/lint-audit-artifacts",
+          "bound_at": "tools/lint-audit-artifacts",
+          "sha256": "47899b443ac4c40a74c1de8b40814ff6e6978497ae0875b8fd6a033fe8750613"
+        }
+      ]
+    },
+    {
+      "receipt": "external:final-register.json",
+      "argv": [
+        "tools/register-check"
+      ],
+      "exit": 0,
+      "started": "2026-11-02T23:26:02.289086+00:00",
+      "finished": "2026-11-02T23:26:03.479559+00:00",
+      "direct_bindings": [
+        {
+          "path": "tools/register-check",
+          "bound_at": "tools/register-check",
+          "sha256": "8f444f93b71ffdf8bf5e900e2973920ea5b898702a498727028c371e648397db"
+        }
+      ]
+    },
+    {
+      "receipt": "external:final-resolution.json",
+      "argv": [
+        "tools/lint-audit-artifacts",
+        "docs/audits/2026_11_02-epic-m6-patches-unshipped"
+      ],
+      "exit": 0,
+      "started": "2026-11-02T23:25:57.314248+00:00",
+      "finished": "2026-11-02T23:25:57.353126+00:00",
+      "direct_bindings": [
+        {
+          "path": "tools/lint-audit-artifacts",
+          "bound_at": "tools/lint-audit-artifacts",
+          "sha256": "47899b443ac4c40a74c1de8b40814ff6e6978497ae0875b8fd6a033fe8750613"
+        }
+      ]
+    },
+    {
+      "receipt": "external:final-rules.json",
+      "argv": [
+        "tools/rules-check"
+      ],
+      "exit": 0,
+      "started": "2026-11-02T23:26:01.385639+00:00",
+      "finished": "2026-11-02T23:26:01.403250+00:00",
+      "direct_bindings": [
+        {
+          "path": "tools/rules-check",
+          "bound_at": "tools/rules-check",
+          "sha256": "e2ce3541a44861585f393a83bc33a8e57c6d39a2b3b1196c981b2045bc50fa23"
+        }
+      ]
+    },
+    {
+      "receipt": "external:final-whitespace.json",
+      "argv": [
+        "git",
+        "diff",
+        "--check",
+        "601e4694f9726b2228d3571efdb5cfc061c6d442"
+      ],
+      "exit": 0,
+      "started": "2026-11-02T23:25:56.234564+00:00",
+      "finished": "2026-11-02T23:25:56.428306+00:00",
+      "direct_bindings": []
+    },
+    {
+      "receipt": "external:h-commit.json",
+      "argv": [
+        "git",
+        "commit",
+        "-q",
+        "-m",
+        "docs: record T43 bounded retirement and final handback",
+        "-m",
+        "Refs #690, #1412. Record 881 retired roots, eight retained roots and exact process/cache limits. Preserve all 93 open source-input qualifications; audit closure and final acceptance remain coordinator-owned."
+      ],
+      "exit": 0,
+      "started": "2026-11-02T23:26:37.553303+00:00",
+      "finished": "2026-11-02T23:26:37.787250+00:00",
+      "direct_bindings": []
+    },
+    {
+      "receipt": "external:postcommit-confinement-v2.json",
+      "argv": [
+        "python3",
+        "docs/audits/2026_11_02-epic-m6-patches-unshipped/tools/final-confinement.py",
+        "--out",
+        "/workspace/tmp/m6-t43/eh-publication/postcommit-confinement-v2-result.json"
+      ],
+      "exit": 0,
+      "started": "2026-11-02T23:29:21.083095+00:00",
+      "finished": "2026-11-02T23:29:21.704592+00:00",
+      "direct_bindings": [
+        {
+          "path": "docs/audits/2026_11_02-epic-m6-patches-unshipped/tools/final-confinement.py",
+          "bound_at": "docs/audits/2026_11_02-epic-m6-patches-unshipped/tools/final-confinement.py",
+          "sha256": "b7ee4e576629d6e3f4da628d3a5d0f0dc908a490fc92c2aa3a85447c9d32d739"
+        },
+        {
+          "path": "/workspace/tmp/m6-t43/eh-publication/postcommit-confinement-v2-result.json",
+          "bound_at": "external:postcommit-confinement-v2-result.json",
+          "sha256": "5bc5d15ed4adddb58c3eeb194642ad9456919cf79fcc8c7eed3ac25dcadbb9d0"
+        }
+      ]
+    },
+    {
+      "receipt": "external:postcommit-confinement.json",
+      "argv": [
+        "python3",
+        "docs/audits/2026_11_02-epic-m6-patches-unshipped/tools/final-confinement.py",
+        "--out",
+        "/workspace/tmp/m6-t43/eh-publication/postcommit-confinement-result.json"
+      ],
+      "exit": 0,
+      "started": "2026-11-02T23:27:01.793555+00:00",
+      "finished": "2026-11-02T23:27:02.381992+00:00",
+      "direct_bindings": [
+        {
+          "path": "docs/audits/2026_11_02-epic-m6-patches-unshipped/tools/final-confinement.py",
+          "bound_at": "docs/audits/2026_11_02-epic-m6-patches-unshipped/tools/final-confinement.py",
+          "sha256": "b7ee4e576629d6e3f4da628d3a5d0f0dc908a490fc92c2aa3a85447c9d32d739"
+        },
+        {
+          "path": "/workspace/tmp/m6-t43/eh-publication/postcommit-confinement-result.json",
+          "bound_at": "external:postcommit-confinement-result.json",
+          "sha256": "0630792f14403a456487fd3483e664e6c9f900ca03c5513a6041582469a46918"
+        }
+      ]
+    },
+    {
+      "receipt": "external:postcommit-whitespace-v2.json",
+      "argv": [
+        "git",
+        "diff",
+        "--check",
+        "601e4694f9726b2228d3571efdb5cfc061c6d442",
+        "HEAD"
+      ],
+      "exit": 0,
+      "started": "2026-11-02T23:29:21.525332+00:00",
+      "finished": "2026-11-02T23:29:21.756785+00:00",
+      "direct_bindings": []
+    },
+    {
+      "receipt": "external:postcommit-whitespace.json",
+      "argv": [
+        "git",
+        "diff",
+        "--check",
+        "601e4694f9726b2228d3571efdb5cfc061c6d442",
+        "HEAD"
+      ],
+      "exit": 0,
+      "started": "2026-11-02T23:26:59.573584+00:00",
+      "finished": "2026-11-02T23:26:59.802936+00:00",
+      "direct_bindings": []
+    },
+    {
+      "receipt": "external:preplan-confinement.json",
+      "argv": [
+        "python3",
+        "docs/audits/2026_11_02-epic-m6-patches-unshipped/tools/final-confinement.py",
+        "--out",
+        "/workspace/tmp/m6-t43/eh-publication/preplan-confinement-result.json"
+      ],
+      "exit": 0,
+      "started": "2026-11-02T23:22:04.687767+00:00",
+      "finished": "2026-11-02T23:22:05.197264+00:00",
+      "direct_bindings": [
+        {
+          "path": "docs/audits/2026_11_02-epic-m6-patches-unshipped/tools/final-confinement.py",
+          "bound_at": "docs/audits/2026_11_02-epic-m6-patches-unshipped/tools/final-confinement.py",
+          "sha256": "b7ee4e576629d6e3f4da628d3a5d0f0dc908a490fc92c2aa3a85447c9d32d739"
+        },
+        {
+          "path": "/workspace/tmp/m6-t43/eh-publication/preplan-confinement-result.json",
+          "bound_at": "external:preplan-confinement-result.json",
+          "sha256": "65c45b36e4ddd6addecfc06dc7355bea4754dc95e0c1dc093ecbc0890762a4af"
+        }
+      ]
+    },
+    {
+      "receipt": "external:preplan-current-scan.json",
+      "argv": [
+        "python3",
+        "docs/audits/2026_11_02-epic-m6-patches-unshipped/tools/final-record-scan.py",
+        "current",
+        "/workspace/tmp/m6-t43/eh-publication/preplan-scan"
+      ],
+      "exit": 0,
+      "started": "2026-11-02T23:22:07.208261+00:00",
+      "finished": "2026-11-02T23:22:07.920566+00:00",
+      "direct_bindings": [
+        {
+          "path": "docs/audits/2026_11_02-epic-m6-patches-unshipped/tools/final-record-scan.py",
+          "bound_at": "docs/audits/2026_11_02-epic-m6-patches-unshipped/tools/final-record-scan.py",
+          "sha256": "4e1f1575a008bbb9fdc74dabcb3dcdd17fe2825a3e5979b77cc8b44c5a0ab074"
+        }
+      ]
+    },
+    {
+      "receipt": "external:prose-commit.json",
+      "argv": [
+        "git",
+        "commit",
+        "-q",
+        "-m",
+        "docs: clarify T43 owner links and retrospective chronology",
+        "-m",
+        "Refs #690, #1412. Separate population counts from issue references and distinguish initial cleanup observations from the actual H outcome. Evidence and source bytes remain unchanged."
+      ],
+      "exit": 0,
+      "started": "2026-11-02T23:28:56.735890+00:00",
+      "finished": "2026-11-02T23:28:56.927726+00:00",
+      "direct_bindings": []
+    },
+    {
+      "receipt": "external:push-v2.json",
+      "argv": [
+        "git",
+        "-c",
+        "credential.helper=",
+        "-c",
+        "credential.helper=!gh auth git-credential",
+        "push",
+        "-q",
+        "origin-https",
+        "feature/m6-patches-unshipped-690:feature/m6-patches-unshipped-690"
+      ],
+      "exit": 0,
+      "started": "2026-11-02T23:29:24.912894+00:00",
+      "finished": "2026-11-02T23:29:26.653791+00:00",
+      "direct_bindings": []
+    },
+    {
+      "receipt": "external:push.json",
+      "argv": [
+        "git",
+        "-c",
+        "credential.helper=",
+        "-c",
+        "credential.helper=!gh auth git-credential",
+        "push",
+        "-q",
+        "origin-https",
+        "feature/m6-patches-unshipped-690:feature/m6-patches-unshipped-690"
+      ],
+      "exit": 0,
+      "started": "2026-11-02T23:27:08.696895+00:00",
+      "finished": "2026-11-02T23:27:16.352059+00:00",
+      "direct_bindings": []
+    },
+    {
+      "receipt": "external:remote-final.json",
+      "argv": [
+        "git",
+        "-c",
+        "credential.helper=",
+        "-c",
+        "credential.helper=!gh auth git-credential",
+        "ls-remote",
+        "origin-https",
+        "refs/heads/feature/m6-patches-unshipped-690"
+      ],
+      "exit": 0,
+      "started": "2026-11-02T23:32:03.847665+00:00",
+      "finished": "2026-11-02T23:32:04.108985+00:00",
+      "direct_bindings": []
+    },
+    {
+      "receipt": "external:s1-commit.json",
+      "argv": [
+        "git",
+        "commit",
+        "-q",
+        "-m",
+        "docs: retain T43 source-input outcome custody",
+        "-m",
+        "Refs #690, #1412. Bind the exact 93-key matrix and seven new metadata refusals before its positive result. Preserve every source-input gap and original accepted evidence."
+      ],
+      "exit": 0,
+      "started": "2026-11-02T23:00:37.988818+00:00",
+      "finished": "2026-11-02T23:00:38.273599+00:00",
+      "direct_bindings": []
+    },
+    {
+      "receipt": "external:status-final.json",
+      "argv": [
+        "git",
+        "status",
+        "--porcelain=v1"
+      ],
+      "exit": 0,
+      "started": "2026-11-02T23:32:03.633893+00:00",
+      "finished": "2026-11-02T23:32:03.931629+00:00",
+      "direct_bindings": []
+    },
+    {
+      "receipt": "appendix:coordinator-return.json",
+      "argv": [
+        "herdr",
+        "agent",
+        "prompt",
+        "m6-coordinator",
+        "T1 T43 final E\u2013H hand-back is published and exactly read back: #690 comment 6591247872 (https://github.com/pixelelated/distribution/issues/690#issuecomment-6591247872). Clean remote/HEAD 8282cbcade3be32b437f7391be7e216d9a6b1074 in assigned m6-patches-unshipped-690; no merge. PL-001 Resolved for custody only; all 93 input gaps remain open (87 wholly/6 mixed), exact 224 consumers retained. Seven S1 refusals + positive and new own-lane cleanup controls pass. F gates and final 159-path/35,595,500-byte exact-commit scan pass; original D/source identities unchanged. H committed plan fb97dd53 preceded deletion: 881 retired, 8 symlink-bearing candidate roots retained, 0 partial; four empties nonrecursive rmdir. Original PermissionError/code/failure receipts and unknown PID 2389 visibility limit remain; no global-clean claim. Cache evidence is metadata only for H. Final retro comment 6591200156 exact-readback; #690 reviewed-at seed/fixed-at 8282, 20 unchecked criteria unchanged; audit #1412 stays open, no marker. Ordinary-file packet /workspace/tmp/m6-t43/eh-publication/, MANIFEST.json SHA256 19163d8c1b4c3c153d94a45e1d81e83c0cbe8a5a3e5bdfaec690eb43819bb178, 126 core files. Hand-back names exact retained roots, raw/planner/header correction history and next owners. Stopped available for root integration simulation/final acceptance; no further cleanup/source/runtime/permission action. Actual primary Codex / GPT-6-Astra / xhigh, session 01a19d12-0c07-7ba3-88b8-ab9d609f4d67."
+      ],
+      "exit": 0,
+      "started": "2026-11-02T23:36:11.421463+00:00",
+      "finished": "2026-11-02T23:36:11.725142+00:00",
+      "direct_bindings": []
+    },
+    {
+      "receipt": "appendix:coordinator-observation.json",
+      "argv": [
+        "herdr",
+        "agent",
+        "read",
+        "m6-coordinator",
+        "--source",
+        "recent-unwrapped",
+        "--lines",
+        "32"
+      ],
+      "exit": 0,
+      "started": "2026-11-02T23:36:19.962966+00:00",
+      "finished": "2026-11-02T23:36:19.965052+00:00",
+      "direct_bindings": []
+    }
+  ]
+}

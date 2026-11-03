@@ -1,0 +1,532 @@
+[
+  {
+    "name": "head",
+    "argv": [
+      "git",
+      "rev-parse",
+      "HEAD"
+    ],
+    "cwd": "/workspace/tmp/m6-coordinator/t43-final-20261102T2355/integration",
+    "start": "2026-11-02T23:53:09.989092+00:00",
+    "end": "2026-11-02T23:53:09.990137+00:00",
+    "elapsed_seconds": 0.001046933000907302,
+    "rc": 0,
+    "timed_out": false,
+    "stdout": "001-head.stdout",
+    "stdout_sha256": "7bec0e48ad098e436dc2c26780fb34845d001430fa2735186bf0613789c50e11",
+    "stdout_masked_sha256": "7bec0e48ad098e436dc2c26780fb34845d001430fa2735186bf0613789c50e11",
+    "stderr": "001-head.stderr",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stderr_masked_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "merge-head",
+    "argv": [
+      "git",
+      "rev-parse",
+      "MERGE_HEAD"
+    ],
+    "cwd": "/workspace/tmp/m6-coordinator/t43-final-20261102T2355/integration",
+    "start": "2026-11-02T23:53:09.990665+00:00",
+    "end": "2026-11-02T23:53:09.991478+00:00",
+    "elapsed_seconds": 0.0008149259956553578,
+    "rc": 0,
+    "timed_out": false,
+    "stdout": "002-merge-head.stdout",
+    "stdout_sha256": "20477c4e9ec06610ab9ddfb619053c1f8adbb41082af38811036b0784607026a",
+    "stdout_masked_sha256": "20477c4e9ec06610ab9ddfb619053c1f8adbb41082af38811036b0784607026a",
+    "stderr": "002-merge-head.stderr",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stderr_masked_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "unmerged",
+    "argv": [
+      "git",
+      "ls-files",
+      "-u",
+      "-z"
+    ],
+    "cwd": "/workspace/tmp/m6-coordinator/t43-final-20261102T2355/integration",
+    "start": "2026-11-02T23:53:09.991679+00:00",
+    "end": "2026-11-02T23:53:10.009327+00:00",
+    "elapsed_seconds": 0.01765080395853147,
+    "rc": 0,
+    "timed_out": false,
+    "stdout": "003-unmerged.stdout",
+    "stdout_sha256": "e434100e109b3be35944de6763149f40235c6a975759180cb3952b7fec47806d",
+    "stdout_masked_sha256": "e434100e109b3be35944de6763149f40235c6a975759180cb3952b7fec47806d",
+    "stderr": "003-unmerged.stderr",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stderr_masked_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "base",
+    "argv": [
+      "git",
+      "merge-base",
+      "--all",
+      "749e5c7f2df2c8444b07f8521493d12b7f7a962b",
+      "8282cbcade3be32b437f7391be7e216d9a6b1074"
+    ],
+    "cwd": "/workspace/tmp/m6-coordinator/t43-final-20261102T2355/integration",
+    "start": "2026-11-02T23:53:10.009544+00:00",
+    "end": "2026-11-02T23:53:10.010980+00:00",
+    "elapsed_seconds": 0.0014377289917320013,
+    "rc": 0,
+    "timed_out": false,
+    "stdout": "004-base.stdout",
+    "stdout_sha256": "71901d93ffa962b595125f3eeb52d20ec236d806ae33f6cc14c1196a24e3d5e1",
+    "stdout_masked_sha256": "71901d93ffa962b595125f3eeb52d20ec236d806ae33f6cc14c1196a24e3d5e1",
+    "stderr": "004-base.stderr",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stderr_masked_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "log-source",
+    "argv": [
+      "git",
+      "show",
+      "92e8d07b6163ec5ddd3e9b67f1c42a472b2911d1:docs/work-logs/2026_11-work_logs/2026_11_02-work_log.md"
+    ],
+    "cwd": "/workspace/tmp/m6-coordinator/t43-final-20261102T2355/integration",
+    "start": "2026-11-02T23:53:10.011157+00:00",
+    "end": "2026-11-02T23:53:10.012244+00:00",
+    "elapsed_seconds": 0.0010869349935092032,
+    "rc": 0,
+    "timed_out": false,
+    "stdout": "005-log-source.stdout",
+    "stdout_sha256": "cd7d81017823ea73e533db1233fb5f20c56862c0b76b7c8da1744373512de54b",
+    "stdout_masked_sha256": "cd7d81017823ea73e533db1233fb5f20c56862c0b76b7c8da1744373512de54b",
+    "stderr": "005-log-source.stderr",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stderr_masked_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "log-source",
+    "argv": [
+      "git",
+      "show",
+      "749e5c7f2df2c8444b07f8521493d12b7f7a962b:docs/work-logs/2026_11-work_logs/2026_11_02-work_log.md"
+    ],
+    "cwd": "/workspace/tmp/m6-coordinator/t43-final-20261102T2355/integration",
+    "start": "2026-11-02T23:53:10.013307+00:00",
+    "end": "2026-11-02T23:53:10.014581+00:00",
+    "elapsed_seconds": 0.0012759859673678875,
+    "rc": 0,
+    "timed_out": false,
+    "stdout": "006-log-source.stdout",
+    "stdout_sha256": "a7a1866d3fc3b6882c2e04f75197cd8fc4a73269007d2c45dfa2cf11ed15859d",
+    "stdout_masked_sha256": "a7a1866d3fc3b6882c2e04f75197cd8fc4a73269007d2c45dfa2cf11ed15859d",
+    "stderr": "006-log-source.stderr",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stderr_masked_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "log-source",
+    "argv": [
+      "git",
+      "show",
+      "8282cbcade3be32b437f7391be7e216d9a6b1074:docs/work-logs/2026_11-work_logs/2026_11_02-work_log.md"
+    ],
+    "cwd": "/workspace/tmp/m6-coordinator/t43-final-20261102T2355/integration",
+    "start": "2026-11-02T23:53:10.015942+00:00",
+    "end": "2026-11-02T23:53:10.017185+00:00",
+    "elapsed_seconds": 0.0012427819892764091,
+    "rc": 0,
+    "timed_out": false,
+    "stdout": "007-log-source.stdout",
+    "stdout_sha256": "b7f479c5ed7f1476075c75b3c06385818842b5341eba6e95670a08ed7816df9c",
+    "stdout_masked_sha256": "b7f479c5ed7f1476075c75b3c06385818842b5341eba6e95670a08ed7816df9c",
+    "stderr": "007-log-source.stderr",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stderr_masked_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "index-render",
+    "argv": [
+      "tools/work-log-index"
+    ],
+    "cwd": "/workspace/tmp/m6-coordinator/t43-final-20261102T2355/integration",
+    "start": "2026-11-02T23:53:10.021666+00:00",
+    "end": "2026-11-02T23:53:10.042844+00:00",
+    "elapsed_seconds": 0.021179820992983878,
+    "rc": 0,
+    "timed_out": false,
+    "stdout": "008-index-render.stdout",
+    "stdout_sha256": "a0e1dec083648682e3194f93fc69b38c851034d14feaa01473c0763ff8a14bac",
+    "stdout_masked_sha256": "0d76f5e43d326cb47d1cbcb5be49f9544d67c8a893c647f9b1e1050309e6bca8",
+    "stderr": "008-index-render.stderr",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stderr_masked_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "index-write",
+    "argv": [
+      "tools/work-log-index",
+      "--write"
+    ],
+    "cwd": "/workspace/tmp/m6-coordinator/t43-final-20261102T2355/integration",
+    "start": "2026-11-02T23:53:10.047314+00:00",
+    "end": "2026-11-02T23:53:10.068467+00:00",
+    "elapsed_seconds": 0.02115500101353973,
+    "rc": 0,
+    "timed_out": false,
+    "stdout": "009-index-write.stdout",
+    "stdout_sha256": "061368efbc0d97703a7e08de9352ed34d8e316a8b20cce6ee5fbc6b9b580f3d3",
+    "stdout_masked_sha256": "061368efbc0d97703a7e08de9352ed34d8e316a8b20cce6ee5fbc6b9b580f3d3",
+    "stderr": "009-index-write.stderr",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stderr_masked_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "other-unstaged",
+    "argv": [
+      "git",
+      "diff",
+      "--name-only",
+      "-z",
+      "--",
+      ".",
+      ":(exclude,literal)docs/work-logs/2026_11-work_logs/2026_11_02-work_log.md",
+      ":(exclude,literal)docs/work-logs/INDEX.md"
+    ],
+    "cwd": "/workspace/tmp/m6-coordinator/t43-final-20261102T2355/integration",
+    "start": "2026-11-02T23:53:10.068724+00:00",
+    "end": "2026-11-02T23:53:10.256268+00:00",
+    "elapsed_seconds": 0.18755631800740957,
+    "rc": 0,
+    "timed_out": false,
+    "stdout": "010-other-unstaged.stdout",
+    "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stdout_masked_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stderr": "010-other-unstaged.stderr",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stderr_masked_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "stage-log-index",
+    "argv": [
+      "git",
+      "add",
+      "--",
+      "docs/work-logs/2026_11-work_logs/2026_11_02-work_log.md",
+      "docs/work-logs/INDEX.md"
+    ],
+    "cwd": "/workspace/tmp/m6-coordinator/t43-final-20261102T2355/integration",
+    "start": "2026-11-02T23:53:10.256623+00:00",
+    "end": "2026-11-02T23:53:10.515608+00:00",
+    "elapsed_seconds": 0.2589962219935842,
+    "rc": 0,
+    "timed_out": false,
+    "stdout": "011-stage-log-index.stdout",
+    "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stdout_masked_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stderr": "011-stage-log-index.stderr",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stderr_masked_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "protected-paths",
+    "argv": [
+      "git",
+      "diff",
+      "--cached",
+      "--name-only",
+      "749e5c7f2df2c8444b07f8521493d12b7f7a962b",
+      "--",
+      "packages",
+      "projects",
+      "tools",
+      "scripts",
+      ".claude",
+      ".githooks",
+      "docs/reviews",
+      "docs/decision-register.md"
+    ],
+    "cwd": "/workspace/tmp/m6-coordinator/t43-final-20261102T2355/integration",
+    "start": "2026-11-02T23:53:10.515923+00:00",
+    "end": "2026-11-02T23:53:10.539217+00:00",
+    "elapsed_seconds": 0.023303453985136002,
+    "rc": 0,
+    "timed_out": false,
+    "stdout": "012-protected-paths.stdout",
+    "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stdout_masked_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stderr": "012-protected-paths.stderr",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stderr_masked_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "unmerged-final",
+    "argv": [
+      "git",
+      "ls-files",
+      "-u"
+    ],
+    "cwd": "/workspace/tmp/m6-coordinator/t43-final-20261102T2355/integration",
+    "start": "2026-11-02T23:53:10.539531+00:00",
+    "end": "2026-11-02T23:53:10.555646+00:00",
+    "elapsed_seconds": 0.016123724984936416,
+    "rc": 0,
+    "timed_out": false,
+    "stdout": "013-unmerged-final.stdout",
+    "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stdout_masked_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stderr": "013-unmerged-final.stderr",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stderr_masked_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "whitespace",
+    "argv": [
+      "git",
+      "diff",
+      "--cached",
+      "--check"
+    ],
+    "cwd": "/workspace/tmp/m6-coordinator/t43-final-20261102T2355/integration",
+    "start": "2026-11-02T23:53:10.555947+00:00",
+    "end": "2026-11-02T23:53:10.723149+00:00",
+    "elapsed_seconds": 0.1672116209520027,
+    "rc": 0,
+    "timed_out": false,
+    "stdout": "014-whitespace.stdout",
+    "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stdout_masked_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stderr": "014-whitespace.stderr",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stderr_masked_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "rules",
+    "argv": [
+      "tools/rules-check",
+      "--quiet"
+    ],
+    "cwd": "/workspace/tmp/m6-coordinator/t43-final-20261102T2355/integration",
+    "start": "2026-11-02T23:53:10.723505+00:00",
+    "end": "2026-11-02T23:53:10.742122+00:00",
+    "elapsed_seconds": 0.018621087016072124,
+    "rc": 0,
+    "timed_out": false,
+    "stdout": "015-rules.stdout",
+    "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stdout_masked_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stderr": "015-rules.stderr",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stderr_masked_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "register",
+    "argv": [
+      "tools/register-check"
+    ],
+    "cwd": "/workspace/tmp/m6-coordinator/t43-final-20261102T2355/integration",
+    "start": "2026-11-02T23:53:10.742359+00:00",
+    "end": "2026-11-02T23:53:11.930448+00:00",
+    "elapsed_seconds": 1.1881002370500937,
+    "rc": 0,
+    "timed_out": false,
+    "stdout": "016-register.stdout",
+    "stdout_sha256": "1835bdf2e854f6e2a70b5d992e0af0318c353b77ec03332abcfb3c88ec00c962",
+    "stdout_masked_sha256": "1835bdf2e854f6e2a70b5d992e0af0318c353b77ec03332abcfb3c88ec00c962",
+    "stderr": "016-register.stderr",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stderr_masked_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "index",
+    "argv": [
+      "tools/work-log-index",
+      "--check"
+    ],
+    "cwd": "/workspace/tmp/m6-coordinator/t43-final-20261102T2355/integration",
+    "start": "2026-11-02T23:53:11.930837+00:00",
+    "end": "2026-11-02T23:53:11.951876+00:00",
+    "elapsed_seconds": 0.02104143099859357,
+    "rc": 0,
+    "timed_out": false,
+    "stdout": "017-index.stdout",
+    "stdout_sha256": "232b345c76ad64a47de4d43e62d9aeb4f2850472cde78ddd1b1e56d72103d927",
+    "stdout_masked_sha256": "232b345c76ad64a47de4d43e62d9aeb4f2850472cde78ddd1b1e56d72103d927",
+    "stderr": "017-index.stderr",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stderr_masked_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "ceremony",
+    "argv": [
+      "tools/ceremony-check",
+      "--gate"
+    ],
+    "cwd": "/workspace/tmp/m6-coordinator/t43-final-20261102T2355/integration",
+    "start": "2026-11-02T23:53:11.952145+00:00",
+    "end": "2026-11-02T23:53:21.489414+00:00",
+    "elapsed_seconds": 9.53727638401324,
+    "rc": 0,
+    "timed_out": false,
+    "stdout": "018-ceremony.stdout",
+    "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stdout_masked_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stderr": "018-ceremony.stderr",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stderr_masked_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "hooks",
+    "argv": [
+      ".githooks/hooks-test"
+    ],
+    "cwd": "/workspace/tmp/m6-coordinator/t43-final-20261102T2355/integration",
+    "start": "2026-11-02T23:53:21.489779+00:00",
+    "end": "2026-11-02T23:53:22.138744+00:00",
+    "elapsed_seconds": 0.6489749779575504,
+    "rc": 0,
+    "timed_out": false,
+    "stdout": "019-hooks.stdout",
+    "stdout_sha256": "3402d5f59e65118cf905eb74dd1cda7660eeffd181ad248e23a56f68395e0a5c",
+    "stdout_masked_sha256": "18ef560c4d0be87e49a931308c3a8fe53b1009f72831d8cb542a822e6c886c2b",
+    "stderr": "019-hooks.stderr",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stderr_masked_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "forbidden",
+    "argv": [
+      "tools/forbidden-terms-check"
+    ],
+    "cwd": "/workspace/tmp/m6-coordinator/t43-final-20261102T2355/integration",
+    "start": "2026-11-02T23:53:22.139204+00:00",
+    "end": "2026-11-02T23:55:34.967834+00:00",
+    "elapsed_seconds": 132.8286410010187,
+    "rc": 0,
+    "timed_out": false,
+    "stdout": "020-forbidden.stdout",
+    "stdout_sha256": "25528b334353c7f02f6e9c9aefe8644f15fb906a7ac33d0285f92ebcee5a7a3c",
+    "stdout_masked_sha256": "25528b334353c7f02f6e9c9aefe8644f15fb906a7ac33d0285f92ebcee5a7a3c",
+    "stderr": "020-forbidden.stderr",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stderr_masked_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "lint",
+    "argv": [
+      "tools/lint-audit-artifacts",
+      "docs/audits/2026_11_02-epic-m6-patches-unshipped"
+    ],
+    "cwd": "/workspace/tmp/m6-coordinator/t43-final-20261102T2355/integration",
+    "start": "2026-11-02T23:55:34.968243+00:00",
+    "end": "2026-11-02T23:55:35.007433+00:00",
+    "elapsed_seconds": 0.03919489902909845,
+    "rc": 0,
+    "timed_out": false,
+    "stdout": "021-lint.stdout",
+    "stdout_sha256": "9badb58862f6a2e7093816d63f1d6ad26018c6fe9319179180cf501720b8240e",
+    "stdout_masked_sha256": "9badb58862f6a2e7093816d63f1d6ad26018c6fe9319179180cf501720b8240e",
+    "stderr": "021-lint.stderr",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stderr_masked_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "lint-issue",
+    "argv": [
+      "tools/lint-audit-artifacts",
+      "docs/audits/2026_11_02-epic-m6-patches-unshipped",
+      "--issue",
+      "1412"
+    ],
+    "cwd": "/workspace/tmp/m6-coordinator/t43-final-20261102T2355/integration",
+    "start": "2026-11-02T23:55:35.007787+00:00",
+    "end": "2026-11-02T23:55:35.429651+00:00",
+    "elapsed_seconds": 0.4218750949949026,
+    "rc": 0,
+    "timed_out": false,
+    "stdout": "022-lint-issue.stdout",
+    "stdout_sha256": "496923f7d06379dfa148e78404ecf8c5a7b752a83ec640cf792f11bd9309e88c",
+    "stdout_masked_sha256": "496923f7d06379dfa148e78404ecf8c5a7b752a83ec640cf792f11bd9309e88c",
+    "stderr": "022-lint-issue.stderr",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stderr_masked_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "slice",
+    "argv": [
+      "tools/box-check",
+      "--issue",
+      "690"
+    ],
+    "cwd": "/workspace/tmp/m6-coordinator/t43-final-20261102T2355/integration",
+    "start": "2026-11-02T23:55:35.430075+00:00",
+    "end": "2026-11-02T23:55:35.956554+00:00",
+    "elapsed_seconds": 0.5264857139554806,
+    "rc": 0,
+    "timed_out": false,
+    "stdout": "023-slice.stdout",
+    "stdout_sha256": "939a8135b8e775c0ffc66541d2ef8000845ccc699531fac1095bdd148f1ff059",
+    "stdout_masked_sha256": "939a8135b8e775c0ffc66541d2ef8000845ccc699531fac1095bdd148f1ff059",
+    "stderr": "023-slice.stderr",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stderr_masked_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "audit",
+    "argv": [
+      "tools/box-check",
+      "--issue",
+      "1412"
+    ],
+    "cwd": "/workspace/tmp/m6-coordinator/t43-final-20261102T2355/integration",
+    "start": "2026-11-02T23:55:35.956924+00:00",
+    "end": "2026-11-02T23:55:36.390649+00:00",
+    "elapsed_seconds": 0.4337346950196661,
+    "rc": 0,
+    "timed_out": false,
+    "stdout": "024-audit.stdout",
+    "stdout_sha256": "7ae8534fd7d26020a8b0e7221cf3313b595e275a0fea6a8adb4568b7e135a317",
+    "stdout_masked_sha256": "7ae8534fd7d26020a8b0e7221cf3313b595e275a0fea6a8adb4568b7e135a317",
+    "stderr": "024-audit.stderr",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stderr_masked_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "bug1408",
+    "argv": [
+      "tools/box-check",
+      "--issue",
+      "1408"
+    ],
+    "cwd": "/workspace/tmp/m6-coordinator/t43-final-20261102T2355/integration",
+    "start": "2026-11-02T23:55:36.391034+00:00",
+    "end": "2026-11-02T23:55:36.795988+00:00",
+    "elapsed_seconds": 0.4049615770345554,
+    "rc": 0,
+    "timed_out": false,
+    "stdout": "025-bug1408.stdout",
+    "stdout_sha256": "54286a7ff1a860485f086751367b85a8c2655262e7cabc7699d04c5724c5a7d3",
+    "stdout_masked_sha256": "54286a7ff1a860485f086751367b85a8c2655262e7cabc7699d04c5724c5a7d3",
+    "stderr": "025-bug1408.stderr",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stderr_masked_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "bug1410",
+    "argv": [
+      "tools/box-check",
+      "--issue",
+      "1410"
+    ],
+    "cwd": "/workspace/tmp/m6-coordinator/t43-final-20261102T2355/integration",
+    "start": "2026-11-02T23:55:36.796375+00:00",
+    "end": "2026-11-02T23:55:37.285294+00:00",
+    "elapsed_seconds": 0.4889256390160881,
+    "rc": 0,
+    "timed_out": false,
+    "stdout": "026-bug1410.stdout",
+    "stdout_sha256": "2926fda36b88fd91fcaa1980262b6b57daeab40344ebafafb08d8c61907584f7",
+    "stdout_masked_sha256": "2926fda36b88fd91fcaa1980262b6b57daeab40344ebafafb08d8c61907584f7",
+    "stderr": "026-bug1410.stderr",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stderr_masked_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  }
+]

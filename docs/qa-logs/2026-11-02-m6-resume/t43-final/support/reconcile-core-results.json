@@ -1,0 +1,96 @@
+{
+  "errors": [],
+  "facts": {
+    "ancestry": [
+      "676115271e9bbaa9e8db81f6de73a7b49094c5b4 601e4694f9726b2228d3571efdb5cfc061c6d442",
+      "d4a25244a80c6459b22e044f6ae6d1e5dc946886 676115271e9bbaa9e8db81f6de73a7b49094c5b4",
+      "fb97dd53bd8e936ff7402888c70fb6bc25f7180d d4a25244a80c6459b22e044f6ae6d1e5dc946886",
+      "9de1dbf950982621e1470a67efb7951ae29359c4 fb97dd53bd8e936ff7402888c70fb6bc25f7180d",
+      "8282cbcade3be32b437f7391be7e216d9a6b1074 9de1dbf950982621e1470a67efb7951ae29359c4"
+    ],
+    "identity": {
+      "changed_records": 159,
+      "frozen_D": 2923,
+      "native": 432,
+      "recipes": 31,
+      "selectors": 6,
+      "selected_union": 469,
+      "D_programs": 18,
+      "preserved02_sha256": "7500dde4d45de7cac02a0359b0f6171c4c6fea8b1d1045559971d024ea418869"
+    },
+    "transport_shape": {
+      "at": "2026-11-02T22:20:10.777581+00:00",
+      "encoding": "one literal hyphen represented as backslash-u002d in the exact benign source filename component; inverse is exact byte replacement of stored_component only",
+      "stored_component": "0034-serial-qcom-geni-mask\\u002dirq-during-system-suspend.patch",
+      "source_blob": "d4cd73ecef6777cd1b8557f812bb75028f86c37f",
+      "precedent": "Brief v2 section2 and t43-brief-proof/RETURN.md document the same source-name escape in historical members.tsv. Source paths and historical preparation are unchanged.",
+      "files": 19,
+      "evidence": "Original producer hashes refer to raw decoded bytes. Stored transport hashes/lengths are separate. JSON semantics are unchanged. Markdown/text readers must use the explicit decoder. No A-C producer reran."
+    },
+    "matrix": {
+      "keys": 93,
+      "consumers": {
+        "open": 188,
+        "positive": 36
+      },
+      "mixed": 6,
+      "wholly_open": 87,
+      "owners": {
+        "T25 #672": 9,
+        "T11 #658": 72,
+        "T30 #677": 3,
+        "T23 #670": 7,
+        "T8 #655": 2
+      },
+      "immutable_inputs": 46
+    },
+    "S1_controls": [
+      {
+        "name": "missing-key",
+        "exit": 1,
+        "expected_refusal": "native key membership"
+      },
+      {
+        "name": "duplicate-key",
+        "exit": 1,
+        "expected_refusal": "duplicate key:"
+      },
+      {
+        "name": "changed-owner",
+        "exit": 1,
+        "expected_refusal": "original owner changed"
+      },
+      {
+        "name": "lost-open-consumer",
+        "exit": 1,
+        "expected_refusal": "open consumer membership lost"
+      },
+      {
+        "name": "lost-positive-consumer",
+        "exit": 1,
+        "expected_refusal": "positive consumer membership lost"
+      },
+      {
+        "name": "invented-success",
+        "exit": 1,
+        "expected_refusal": "missing input must remain open"
+      },
+      {
+        "name": "changed-receipt",
+        "exit": 1,
+        "expected_refusal": "bound receipt identity"
+      },
+      {
+        "name": "positive",
+        "exit": 0,
+        "expected_refusal": null
+      }
+    ],
+    "scan": {
+      "count": 159,
+      "bytes": 35595500,
+      "stdin_sha256": "a1d06aea2824a097cca91210d89460e7803ce6e9cf93d87941ce8e49146a9f9d",
+      "scanner_replayed": false
+    }
+  }
+}

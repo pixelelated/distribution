@@ -1,0 +1,71 @@
+from prooflib import *
+import sys
+core=json.loads((P/'reconcile-core-results.json').read_text());cleanup=json.loads((P/'reconcile-cleanup-results.json').read_text());bind=json.loads((P/'reconcile-bindings-results.json').read_text());supp=json.loads((P/'reconcile-supplement-results.json').read_text())
+assert not core['errors'] and not cleanup['errors'] and not supp['errors']
+assert len(bind['errors'])==len(supp['facts']['resolved_initial_binding_reports'])==5
+created=datetime.datetime.now(datetime.timezone.utc).isoformat()
+qualification=supp['facts']['source_version_qualification']
+result={'observed_at':created,'reader':'Codex / GPT-6-Astra / xhigh / OpenAI; existing T5 m6-t5-build-engine wN:p7; session01a19d12-3d7a-7642-9108-ae06a719cdd7','dispatch':'https://github.com/pixelelated/distribution/issues/690#issuecomment-6591269070','coordinator':ROOT,'seed':SEED,'accepted_D':D,'final':FINAL,'unexplained_literal_mismatches':[],'provenance_qualification':qualification,'core':core['facts'],'cleanup':cleanup['facts'],'publication':{k:v for k,v in bind['facts'].items() if k!='retained_check_outputs'},'supplement':supp['facts'],'limits':['No gates, producers, controls, tests, deletion or integration executed.','No projection, retained-root, cache, process or host inspection.','Only permitted publication files read externally through componentwise NOFOLLOW regular-file handles.','Cleanup outcome and process/no-reference facts are retained invocation evidence, not fresh state verification.','Gate timing and source-version qualifications retained; no acceptance decision.']}
+(P/'RESULT.json').write_text(json.dumps(result,indent=2)+'\n')
+repro="""#!/usr/bin/env python3
+# Reproduce only T5 immutable record comparisons, never a lane producer/gate.
+import os,pathlib,subprocess,json,datetime
+p=pathlib.Path(__file__).resolve().parent
+assert set(os.sched_getaffinity(0))==set(range(8,24))
+runs=[]
+for name in ['inspect-records.py','reconcile-core.py','reconcile-cleanup.py','reconcile-bindings.py','reconcile-supplement.py']:
+ argv=['python3',str(p/name)]
+ start=datetime.datetime.now(datetime.timezone.utc).isoformat()
+ r=subprocess.run(argv,cwd=p,capture_output=True)
+ runs.append({'argv':argv,'start':start,'rc':r.returncode})
+ print(name,'rc',r.returncode)
+ if r.returncode:
+  print(r.stderr.decode());break
+(p/'reproducer-runs.json').write_text(json.dumps(runs,indent=2)+'\\n')
+raise SystemExit(runs[-1]['rc'])
+"""
+(P/'reproduce.py').write_text(repro)
+report=f"""# T43 final-record reconciliation — T5 return to wN:p2
+
+{created}. Actual reader: Codex / GPT-6-Astra / xhigh / OpenAI, existing T5 wN:p7, session01a19d12-3d7a-7642-9108-ae06a719cdd7. All subprocesses CPUs8–23. Bounded support under690comment6591269070; no independent-review, acceptance or integration verdict.
+
+**Result: record populations, immutable identities, retained command outputs and final publication reconcile. One source-version provenance qualification remains explicit; no unexplained literal hash mismatch was waived.**
+
+Four early F receipts (confinement, frozen-negative, scope-positive and source-negative) bind final-confinement.py SHA25645612b79bd6971cd453c44a0a98212d90f7bbfd6a27b6c0d1d729af005b87969, while the final file isb7ee4e576629d6e3f4da628d3a5d0f0dc908a490fc92c2aa3a85447c9d32d739. Removing the single literal new-tool allowlist entry for retirement-owner-scope.py reconstructs the former hash exactly in memory. The old version is not stored separately. This binds the historical controls to their old bytes, not to the final version; later final-confinement receipts bind the current version. Root owns any further record disposition. The preliminary .githooks/hooks-test binding alert was a restriction in this reader; direct immutable hashing matchesfcaa1327 exactly. Raw preliminary reports and the explicit follow-up remain separate.
+
+Scope and preservation:
+
+- Full690 thread/current20criteria, full1412, original v2, complete stream/errata and D233/D234 read from coordinator{ROOT}. V2 hash a73aef709a5902a7cbbb7ba0409d1128f855a3fe7e70430c010ef0fa9047dcbf; current stream/errata16d22d8b4cc8d49c7a37e073f5130f622f6d4dbd693cfceeb3c3939548d76230.
+- Reused accepted D support report340e89f5817bd5e9be8316c40c745f9520acf883317abd0976653029df63c349. Seed601e4694→D67611527→S1d4a25244→planfb97dd53→H9de1dbf9→final8282cbcade3be32b437f7391be7e216d9a6b1074 is the exact single-parent chain; no merge.
+- All2923 frozen D artifacts retain mode/blob identity, including original14 programs/779 call records,19 stored representations and02 SHA7500dde4d45de7cac02a0359b0f6171c4c6fea8b1d1045559971d024ea418869. D contains18 helper files in total; that broader count is distinct from the preserved original14. The separate02 addendum is linked from README/04/05/06.
+- All432 source keys,31 recipes and6 selectors (469 unique paths) match seed/D/final. The whole seed/final and each E–H commit diff contain only permitted records, with no deletion/rename or source/rule/register drift.
+
+New E–H records:
+
+- Exactly93 matrix keys preserve original owner/application/receipt text,46 immutable input bindings and all224 consumers:188 open/36 positive,87 wholly open/6 mixed. Routes remain T25#672:9, T11#658:72, T30#677:3, T23#670:7, T8#655:2. Per-plan source/owner/limit/result fields reconcile to accepted effective receipts. PL-001 is custody-only Resolved; all93 source-input gaps remain open.
+- Seven S1 specific failures precede positive0, with fixture/program/input-manifest/output hashes and times. New scan controls retain1/1/0 and exact input/output bindings. No control was rerun.
+- Original all-same-UID failure remains rc1 with original program2b98e817 and stderr304a35c5; it is not a passed guard. Eleven own-lane refusals plus scoped positive bind the preserved tested program and controller, including actual own-FD and inaccessible-known-child cases. Child824219 is recorded joined/exit0. Final-code changes are exactly the documented completed-child binding and planner newline writer; all named guard functions retain their AST structure.
+- The889-root plan derives from811 D custody roots,72 current-prefix records,4 separately authorized empty prefixes and2 new F roots. Exact plan SHA9f006406f7e3ab4668418ddc31a72cd0d808161cf1a15748e419b254b5871590 is committed atfb97dd53. Commit receipt finishes23:23:15.531282UTC; retirement starts23:23:45.532985UTC. Raw planner bytes differ solely by the documented final literal-backslash-n correction.
+- Retained results reconcile881 retired/8 retained/0 partial; all exact retained entries agree with the census. The four empty prefixes record nonrecursive rmdir only. Twenty-one cache metadata pairs match; no fresh content-hash proof. PID2389 visibility remains unknown, with no global no-reference claim. These are recorded outcomes, not a new root/cache/process observation.
+
+Publication and tracker:
+
+- Pinned external MANIFEST SHA19163d8c1b4c3c153d94a45e1d81e83c0cbe8a5a3e5bdfaec690eb43819bb178 matches all126 core ordinary files/29,369,291 bytes. All9 declared later appendices were read and hashed separately; they are not silently added to that core manifest.
+- Final scan enumerates exactly159 changed paths/35,595,500 repository bytes, no exclusions. Independently hashing those record bytes plus158 separators reproduces scanner-input SHAa1d06aea2824a097cca91210d89460e7803ce6e9cf93d87941ce8e49146a9f9d. The scanner itself was not run. Earlier136972-file scan is not relabeled final.
+- Fifty-six command receipts bind their actual argv/exits/outputs/recorder/direct inputs, with the prior-source qualification above:50 exit0 and6 retained exit1. Twenty-three publication checks agree. Normal/issue resolution PASS, issue0fail, hooks, source/confinement and scan results remain actual retained receipts.
+- Rules/index/ceremony/resolution checks precede the final prose-only clarification, as publication.json states. Normal hooks and exact-commit scan/confinement/whitespace follow it. No claim that every gate ran against final bytes.
+- Recorded push/remote names final8282cb; status is empty. Exact retro/file/live comment and handback/request/readback agree. Captured690 is open with20unchecked, seed/final headers and otherwise unchanged body;1412 is open with one custody criterion checked. No completion marker. Root acceptance/integration remain pending responsibilities, not this reader's verdict.
+
+Limits: no accepted re-audit or producer replay; no source export/checkout/fetch, gates/tests/cleanup/integration execution, repository/tracker/kit/shared-ref writes, retained-root/cache/process/host inspection, runtime/provider/device/cloud/private-held action or permission answer. Historical T38/T42 and launch trees untouched. Original source-application/offset/fuzz/authorship and time-to-play limits carry forward; High1408/Medium1410 and owner actions remain as recorded. This report does not freshly verify those external owners' state.
+
+Reproducer: taskset -c 8-23 python3 {P}/reproduce.py. It invokes only the five saved T5 record-read/comparison scripts. RESULT.json records the aggregate result; reconcile-*-results.json preserve intermediate evidence, including the initial binding alerts and exact resolution. observed-reads.jsonl contains immutable Git argv/exits/byte hashes and confined external file identity/hash records. command-01/02 record initial issue/object reads. All evidence is private local scratch, not committed or published. Return sent through Herdr; then stop.
+"""
+(P/'RETURN.md').write_text(report)
+# Hash return records, excluding the manifest itself and subsequent delivery receipt.
+members={}
+for f in sorted(P.iterdir()):
+ if f.is_file() and f.name not in ['MANIFEST.json','delivery.json','delivery.stdout','delivery.stderr','delivery-readback.stdout']:
+  bb=f.read_bytes();members[f.name]={'bytes':len(bb),'sha256':sha(bb)}
+ownmanifest={'created':created,'scope':'T5 bounded final-record support only','reader':result['reader'],'cpus':list(range(8,24)),'files':members,'excluded':['MANIFEST.json','later delivery records'],'external_core_manifest_sha256':'19163d8c1b4c3c153d94a45e1d81e83c0cbe8a5a3e5bdfaec690eb43819bb178'}
+(P/'MANIFEST.json').write_text(json.dumps(ownmanifest,indent=2)+'\n')
+print('RETURN_SHA256',sha((P/'RETURN.md').read_bytes()));print('RESULT_SHA256',sha((P/'RESULT.json').read_bytes()));print('MANIFEST_SHA256',sha((P/'MANIFEST.json').read_bytes()));print('REPORT',P/'RETURN.md')

@@ -1,0 +1,93 @@
+#!/usr/bin/env python3
+from pathlib import Path
+import datetime, hashlib, json, os, stat, subprocess
+P=Path('/workspace/tmp/m6-t43/eh-publication')
+A=Path('docs/audits/2026_11_02-epic-m6-patches-unshipped')
+TIP='8282cbcade3be32b437f7391be7e216d9a6b1074'
+D='676115271e9bbaa9e8db81f6de73a7b49094c5b4'
+SEED='601e4694f9726b2228d3571efdb5cfc061c6d442'
+def blob(path):
+    fd=os.open(path,os.O_RDONLY|os.O_NOFOLLOW)
+    with os.fdopen(fd,'rb') as f:
+        before=os.fstat(f.fileno())
+        assert stat.S_ISREG(before.st_mode),str(path)
+        b=f.read()
+        after=os.fstat(f.fileno())
+        assert (before.st_dev,before.st_ino,before.st_size,before.st_mtime_ns)==(after.st_dev,after.st_ino,after.st_size,after.st_mtime_ns),str(path)
+        return b
+def read(path): return json.loads(blob(path))
+def ident(path):
+    b=blob(path)
+    return {'bytes':len(b),'sha256':hashlib.sha256(b).hexdigest()}
+def write(name,obj):
+    with (P/name).open('x') as f: json.dump(obj,f,indent=2,ensure_ascii=False);f.write('\n')
+assert subprocess.check_output(['git','rev-parse','HEAD'],text=True).strip()==TIP
+assert subprocess.check_output(['git','branch','--show-current'],text=True).strip()=='feature/m6-patches-unshipped-690'
+assert subprocess.check_output(['git','status','--porcelain=v1'])==b''
+assert blob(P/'status-final.stdout')==b''
+assert blob(P/'remote-final.stdout').decode().split()==[TIP,'refs/heads/feature/m6-patches-unshipped-690']
+checks={}
+for name in ['s1-commit','fg-plan-commit','h-commit','prose-commit','final-rules','final-register','final-index','final-ceremony','final-resolution','final-issue-resolution','final-box-audit','final-box-slice','final-box-slice-headers','final-box-slice-headers-v2','final-current-confinement','final-current-scan','final-whitespace','exact-commit-scan-v2','postcommit-confinement-v2','postcommit-whitespace-v2','push-v2','remote-final','status-final']:
+    r=read(P/(name+'.json'))
+    assert r['exit']==0 and r['finished'],name
+    assert r['affinity']==list(range(8,24)),name
+    for stream in ['stdout','stderr']:
+        assert ident(P/(name+'.'+stream))['sha256']==r[stream+'_sha256'],(name,stream)
+    checks[name]={'receipt':name+'.json','exit':r['exit'],'started':r['started'],'finished':r['finished']}
+hooks=read(A/'stage-f/hooks.json')
+assert hooks['exit']==0
+scan=read(P/'exact-commit-records-v2.manifest.json')
+assert scan['ref']==TIP and scan['base']==D and scan['count']==159 and scan['total_bytes']==35595500
+assert scan['excluded_repository_paths']==[]
+sr=read(P/'exact-commit-records-v2.result.json')
+assert sr['exit']==0 and sr['manifest_sha256']==ident(P/'exact-commit-records-v2.manifest.json')['sha256']
+conf=read(P/'postcommit-confinement-v2-result.json')
+assert conf['head']==TIP and conf['frozen_artifacts_compared']==2923 and conf['frozen_modes_blobs_equal'] and conf['source_seed_D_HEAD_worktree_equal']
+source=read(P/'source-header-readback-v2.json')
+before=read(P/'source-header-before.json')
+assert source['body']==blob(P/'source-header-request-v2.md').decode()
+assert source['state']=='open' and source['body'].count('- [ ] ')==20
+assert source['body'].replace('reviewed-at: '+SEED,'reviewed-at:').replace('fixed-at: '+TIP,'fixed-at:')==before['body']
+audit=read(P/'audit-final-readback.json')
+assert audit['state']=='open' and audit['body'].count('- [x] ')==1 and audit['body'].count('- [ ] ')==0
+retro=read(P/'retro-readback.json')
+assert retro['body']==blob(P/'retro-request.md').decode()
+assert retro['body'].split('\n\n',1)[1]==blob(Path('docs/retros/2026-11-02-m6-patches-unshipped.md')).decode()
+close=read(A/'stage-h/closing-census.json')
+assert (close['retired'],close['retained'],close['partial'])==(881,8,0)
+assert close['committed_plan_at']=='fb97dd53bd8e936ff7402888c70fb6bc25f7180d'
+refs=['stage-e/owner-outcomes.json','stage-e/owner-outcome-controls.json','stage-e/input-manifest.json','stage-f/retirement-controls-v2.json','stage-f/late-record-controls.json','stage-f/hooks.json','stage-h/retirement-plan.json','stage-h/retirement-run.json','stage-h/retirement-result.json','stage-h/closing-census.json','stage-h/planner-correction.json','stage-g/final-retro-binding.json']
+write('publication.json',{
+ 'created':datetime.datetime.now(datetime.timezone.utc).isoformat(),
+ 'identity':'Codex / GPT-6-Astra / xhigh (OpenAI), T1 wN:p4, session 01a19d12-0c07-7ba3-88b8-ab9d609f4d67; observed identity retained in stage-e/identity.stdout',
+ 'worktree':str(Path.cwd()),'branch':'feature/m6-patches-unshipped-690','final_tip':TIP,'seed':SEED,'accepted_D':D,
+ 'record_commits':list(reversed(conf['commits_after_D'])),
+ 'scope':'Local actual primary; records-only S1/E-F-G-H under #690 comments 6590563116, 6590591845, 6590887584. No coordinator merge.',
+ 'checks':checks,'hook_check':{'path':str(A/'stage-f/hooks.json'),**ident(A/'stage-f/hooks.json')},
+ 'final_commit_scan':{'paths':scan['count'],'repository_bytes':scan['total_bytes'],'stdin_bytes_with_record_separators':sr['stdin_bytes'],'excluded_repository_paths':[],'manifest': 'exact-commit-records-v2.manifest.json','manifest_sha256':sr['manifest_sha256']},
+ 'earlier_whole_tree_scan':'f-forbidden exit0 covered 136972 tracked files before later H records; it is not the final whole-tree scan. Final changed-record exact-commit scan and unchanged-D mode/blob reconciliation have distinct scopes.',
+ 'gate_timing':'Final rules/register/index/ceremony/resolution/issue checks precede the final narrative clarification commit. That commit changed only owner-link prose, retrospective chronology, its binding and running log; normal hooks, exact-commit scan, confinement and whitespace checks followed it. Source-header issue check followed live header update.',
+ 'confinement':{k:conf[k] for k in ['frozen_artifacts_compared','selected_sources','recipes','selectors','frozen_modes_blobs_equal','source_seed_D_HEAD_worktree_equal']},
+ 'custody_outcome':{'PL-001':'Resolved for outcome custody only','source_input_gaps_open':93,'wholly_open':87,'mixed':6,'consumer_entries':224,'open_consumers':188,'retained_positive_consumers':36,'owner_paths':{'T25 #672':9,'T11 #658':72,'T30 #677':3,'T23 #670':7,'T8 #655':2}},
+ 'cleanup':close,'original_failures':'Original rc1 all-same-UID observation/code/control scratch evidence and parser/commit refusals remain retained. Raw retirement-plan-v2.raw and separate corrected storage identity remain distinct.',
+ 'retrospective_comment':retro['url'],'source_headers':{'reviewed-at':SEED,'fixed-at':TIP,'issue_state':source['state'],'root_owned_open_criteria':20},
+ 'audit':{'number':1412,'state':'open','checked_custody_criterion':1,'completion_marker':'not created; root acceptance required'},
+ 'retained_artifact_bindings':{str(A/r):ident(A/r) for r in refs},
+ 'limits':'All 93 missing source inputs, original 14 programs/779 calls/19 stored transport artifacts and proof classes preserved. High #1408 and Medium #1410 remain open/unfixed; #585 unsent; removal #1048/#346. Both time-to-play quantities unmeasured. No source/product/rule/register edit, accepted A-D replay, runtime/host/provider/device/cloud/held/private action or permission answer. CPUs8-23.',
+ 'next_owner_action':'Root integration simulation/final acceptance and any later completion-record dispatch. T1 stops available; no additional cleanup of eight retained roots.'
+})
+future=['handback-request.md','handback-posted.json','handback-readback.json','coordinator-return.json','coordinator-return.stdout','coordinator-return.stderr','coordinator-observation.json','coordinator-observation.stdout','coordinator-observation.stderr']
+members={}
+def visit(directory):
+    for e in sorted(os.scandir(directory),key=lambda e:e.name):
+        st=e.stat(follow_symlinks=False)
+        rel=str(Path(e.path).relative_to(P))
+        assert not stat.S_ISLNK(st.st_mode),rel
+        if stat.S_ISDIR(st.st_mode): visit(Path(e.path))
+        else:
+            assert stat.S_ISREG(st.st_mode),rel
+            assert rel not in ['MANIFEST.json']+future,rel
+            members[rel]=ident(Path(e.path))
+visit(P)
+write('MANIFEST.json',{'final_tip':TIP,'created':datetime.datetime.now(datetime.timezone.utc).isoformat(),'scope':'All existing ordinary files in this exact own-lane publication packet at manifest creation; no symlink traversal. The manifest does not hash itself.','members':members,'file_count':len(members),'total_bytes':sum(v['bytes'] for v in members.values()),'excluded_self':['MANIFEST.json'],'future_delivery_appendices':future,'delivery_limit':'Later handback/delivery/readback appendices are separate from this fixed core manifest, avoiding a self-referential receipt loop. Their exact body readbacks are retained after submission.'})
+print(json.dumps({'manifest':str(P/'MANIFEST.json'),**ident(P/'MANIFEST.json'),'files':len(members),'member_bytes':sum(v['bytes'] for v in members.values()),'tip':TIP}))

@@ -1,0 +1,69 @@
+[
+  {
+    "name": "issue-690",
+    "argv": [
+      "gh",
+      "issue",
+      "view",
+      "690",
+      "--repo",
+      "pixelelated/distribution",
+      "--json",
+      "number,title,body,comments,state,closedAt,updatedAt"
+    ],
+    "start": "2026-11-02T23:37:53.444301+00:00",
+    "end": "2026-11-02T23:37:54.083792+00:00",
+    "rc": 0,
+    "stdout_sha256": "92041082fb83695a992c04a002e56d4ca3078a5f94b64ee2d7a67851cffd1056",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "issue-1412",
+    "argv": [
+      "gh",
+      "issue",
+      "view",
+      "1412",
+      "--repo",
+      "pixelelated/distribution",
+      "--json",
+      "number,title,body,comments,state,closedAt,updatedAt"
+    ],
+    "start": "2026-11-02T23:37:54.084247+00:00",
+    "end": "2026-11-02T23:37:54.564236+00:00",
+    "rc": 0,
+    "stdout_sha256": "a3858cc626522fbd2a733c698b5ee267f634107624ec3f2adeb2cae13d1c29c1",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "dispatch",
+    "argv": [
+      "gh",
+      "api",
+      "repos/pixelelated/distribution/issues/comments/6591269070"
+    ],
+    "start": "2026-11-02T23:37:54.564420+00:00",
+    "end": "2026-11-02T23:37:55.102545+00:00",
+    "rc": 0,
+    "stdout_sha256": "ee15597059010b81ca7e4247b1c9cb092d405a68040cd8d9a2f62a6ac2415df2",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "root-paths",
+    "argv": [
+      "git",
+      "ls-tree",
+      "-r",
+      "--name-only",
+      "f1000e157c2f0248820e1b77055e81521b079a3f",
+      "--",
+      "docs/reviews/briefs",
+      "docs/qa-logs/2026-11-02-m6-resume"
+    ],
+    "start": "2026-11-02T23:37:55.102711+00:00",
+    "end": "2026-11-02T23:37:55.107602+00:00",
+    "rc": 0,
+    "stdout_sha256": "2123474917a433e4195e1c8ecfb908f0dc75c7df14aaf561e7952168e6fbc0e2",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  }
+]

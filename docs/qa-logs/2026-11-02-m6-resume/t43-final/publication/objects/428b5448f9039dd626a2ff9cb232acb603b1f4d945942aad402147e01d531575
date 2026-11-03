@@ -1,0 +1,333 @@
+{
+  "created": "2026-11-02T23:35:01.979943+00:00",
+  "identity": "Codex / GPT-6-Astra / xhigh (OpenAI), T1 wN:p4, session 01a19d12-0c07-7ba3-88b8-ab9d609f4d67; observed identity retained in stage-e/identity.stdout",
+  "worktree": "/workspace/repos/pixelelated/distribution.worktrees/m6-patches-unshipped-690",
+  "branch": "feature/m6-patches-unshipped-690",
+  "final_tip": "8282cbcade3be32b437f7391be7e216d9a6b1074",
+  "seed": "601e4694f9726b2228d3571efdb5cfc061c6d442",
+  "accepted_D": "676115271e9bbaa9e8db81f6de73a7b49094c5b4",
+  "record_commits": [
+    "d4a25244a80c6459b22e044f6ae6d1e5dc946886",
+    "fb97dd53bd8e936ff7402888c70fb6bc25f7180d",
+    "9de1dbf950982621e1470a67efb7951ae29359c4",
+    "8282cbcade3be32b437f7391be7e216d9a6b1074"
+  ],
+  "scope": "Local actual primary; records-only S1/E-F-G-H under #690 comments 6590563116, 6590591845, 6590887584. No coordinator merge.",
+  "checks": {
+    "s1-commit": {
+      "receipt": "s1-commit.json",
+      "exit": 0,
+      "started": "2026-11-02T23:00:37.988818+00:00",
+      "finished": "2026-11-02T23:00:38.273599+00:00"
+    },
+    "fg-plan-commit": {
+      "receipt": "fg-plan-commit.json",
+      "exit": 0,
+      "started": "2026-11-02T23:23:14.413587+00:00",
+      "finished": "2026-11-02T23:23:15.531282+00:00"
+    },
+    "h-commit": {
+      "receipt": "h-commit.json",
+      "exit": 0,
+      "started": "2026-11-02T23:26:37.553303+00:00",
+      "finished": "2026-11-02T23:26:37.787250+00:00"
+    },
+    "prose-commit": {
+      "receipt": "prose-commit.json",
+      "exit": 0,
+      "started": "2026-11-02T23:28:56.735890+00:00",
+      "finished": "2026-11-02T23:28:56.927726+00:00"
+    },
+    "final-rules": {
+      "receipt": "final-rules.json",
+      "exit": 0,
+      "started": "2026-11-02T23:26:01.385639+00:00",
+      "finished": "2026-11-02T23:26:01.403250+00:00"
+    },
+    "final-register": {
+      "receipt": "final-register.json",
+      "exit": 0,
+      "started": "2026-11-02T23:26:02.289086+00:00",
+      "finished": "2026-11-02T23:26:03.479559+00:00"
+    },
+    "final-index": {
+      "receipt": "final-index.json",
+      "exit": 0,
+      "started": "2026-11-02T23:26:00.717668+00:00",
+      "finished": "2026-11-02T23:26:00.738861+00:00"
+    },
+    "final-ceremony": {
+      "receipt": "final-ceremony.json",
+      "exit": 0,
+      "started": "2026-11-02T23:25:58.476603+00:00",
+      "finished": "2026-11-02T23:26:06.606948+00:00"
+    },
+    "final-resolution": {
+      "receipt": "final-resolution.json",
+      "exit": 0,
+      "started": "2026-11-02T23:25:57.314248+00:00",
+      "finished": "2026-11-02T23:25:57.353126+00:00"
+    },
+    "final-issue-resolution": {
+      "receipt": "final-issue-resolution.json",
+      "exit": 0,
+      "started": "2026-11-02T23:25:55.167929+00:00",
+      "finished": "2026-11-02T23:25:55.719810+00:00"
+    },
+    "final-box-audit": {
+      "receipt": "final-box-audit.json",
+      "exit": 0,
+      "started": "2026-11-02T23:25:59.827061+00:00",
+      "finished": "2026-11-02T23:26:00.242769+00:00"
+    },
+    "final-box-slice": {
+      "receipt": "final-box-slice.json",
+      "exit": 0,
+      "started": "2026-11-02T23:26:01.549154+00:00",
+      "finished": "2026-11-02T23:26:01.995225+00:00"
+    },
+    "final-box-slice-headers": {
+      "receipt": "final-box-slice-headers.json",
+      "exit": 0,
+      "started": "2026-11-02T23:32:58.594087+00:00",
+      "finished": "2026-11-02T23:32:59.052969+00:00"
+    },
+    "final-box-slice-headers-v2": {
+      "receipt": "final-box-slice-headers-v2.json",
+      "exit": 0,
+      "started": "2026-11-02T23:34:56.897033+00:00",
+      "finished": "2026-11-02T23:34:57.308559+00:00"
+    },
+    "final-current-confinement": {
+      "receipt": "final-current-confinement.json",
+      "exit": 0,
+      "started": "2026-11-02T23:25:59.643578+00:00",
+      "finished": "2026-11-02T23:26:00.211242+00:00"
+    },
+    "final-current-scan": {
+      "receipt": "final-current-scan.json",
+      "exit": 0,
+      "started": "2026-11-02T23:25:57.849118+00:00",
+      "finished": "2026-11-02T23:25:58.580012+00:00"
+    },
+    "final-whitespace": {
+      "receipt": "final-whitespace.json",
+      "exit": 0,
+      "started": "2026-11-02T23:25:56.234564+00:00",
+      "finished": "2026-11-02T23:25:56.428306+00:00"
+    },
+    "exact-commit-scan-v2": {
+      "receipt": "exact-commit-scan-v2.json",
+      "exit": 0,
+      "started": "2026-11-02T23:29:22.404537+00:00",
+      "finished": "2026-11-02T23:29:23.223278+00:00"
+    },
+    "postcommit-confinement-v2": {
+      "receipt": "postcommit-confinement-v2.json",
+      "exit": 0,
+      "started": "2026-11-02T23:29:21.083095+00:00",
+      "finished": "2026-11-02T23:29:21.704592+00:00"
+    },
+    "postcommit-whitespace-v2": {
+      "receipt": "postcommit-whitespace-v2.json",
+      "exit": 0,
+      "started": "2026-11-02T23:29:21.525332+00:00",
+      "finished": "2026-11-02T23:29:21.756785+00:00"
+    },
+    "push-v2": {
+      "receipt": "push-v2.json",
+      "exit": 0,
+      "started": "2026-11-02T23:29:24.912894+00:00",
+      "finished": "2026-11-02T23:29:26.653791+00:00"
+    },
+    "remote-final": {
+      "receipt": "remote-final.json",
+      "exit": 0,
+      "started": "2026-11-02T23:32:03.847665+00:00",
+      "finished": "2026-11-02T23:32:04.108985+00:00"
+    },
+    "status-final": {
+      "receipt": "status-final.json",
+      "exit": 0,
+      "started": "2026-11-02T23:32:03.633893+00:00",
+      "finished": "2026-11-02T23:32:03.931629+00:00"
+    }
+  },
+  "hook_check": {
+    "path": "docs/audits/2026_11_02-epic-m6-patches-unshipped/stage-f/hooks.json",
+    "bytes": 807,
+    "sha256": "dbbb48de00246e9d7a85c89de544ab00022265e771f8142e434cd04baff67501"
+  },
+  "final_commit_scan": {
+    "paths": 159,
+    "repository_bytes": 35595500,
+    "stdin_bytes_with_record_separators": 35595658,
+    "excluded_repository_paths": [],
+    "manifest": "exact-commit-records-v2.manifest.json",
+    "manifest_sha256": "4606a3e824cde197c5b1f1b48144a4c6dba578603cee2641c305b859bbdca204"
+  },
+  "earlier_whole_tree_scan": "f-forbidden exit0 covered 136972 tracked files before later H records; it is not the final whole-tree scan. Final changed-record exact-commit scan and unchanged-D mode/blob reconciliation have distinct scopes.",
+  "gate_timing": "Final rules/register/index/ceremony/resolution/issue checks precede the final narrative clarification commit. That commit changed only owner-link prose, retrospective chronology, its binding and running log; normal hooks, exact-commit scan, confinement and whitespace checks followed it. Source-header issue check followed live header update.",
+  "confinement": {
+    "frozen_artifacts_compared": 2923,
+    "selected_sources": 432,
+    "recipes": 31,
+    "selectors": 6,
+    "frozen_modes_blobs_equal": true,
+    "source_seed_D_HEAD_worktree_equal": true
+  },
+  "custody_outcome": {
+    "PL-001": "Resolved for outcome custody only",
+    "source_input_gaps_open": 93,
+    "wholly_open": 87,
+    "mixed": 6,
+    "consumer_entries": 224,
+    "open_consumers": 188,
+    "retained_positive_consumers": 36,
+    "owner_paths": {
+      "T25 #672": 9,
+      "T11 #658": 72,
+      "T30 #677": 3,
+      "T23 #670": 7,
+      "T8 #655": 2
+    }
+  },
+  "cleanup": {
+    "at": "2026-11-02T23:25:22.735364+00:00",
+    "committed_plan_at": "fb97dd53bd8e936ff7402888c70fb6bc25f7180d",
+    "plan_sha256": "9f006406f7e3ab4668418ddc31a72cd0d808161cf1a15748e419b254b5871590",
+    "retired": 881,
+    "retained": 8,
+    "partial": 0,
+    "retired_absence_confirmed": true,
+    "retained_roots": {
+      "/workspace/tmp/m6-t43/G029-002-candidate-fgmacmf7": {
+        "status": "retained",
+        "reason": "symlink or special-file substitution",
+        "evidence": "stage-b/application-overlay/G029.json",
+        "producer": "stage-b/application-overlay-run.json"
+      },
+      "/workspace/tmp/m6-t43/G029-003-candidate-b53jjc_q": {
+        "status": "retained",
+        "reason": "symlink or special-file substitution",
+        "evidence": "stage-b/application-overlay/G029.json",
+        "producer": "stage-b/application-overlay-run.json"
+      },
+      "/workspace/tmp/m6-t43/G030-002-candidate-u5a65a8u": {
+        "status": "retained",
+        "reason": "symlink or special-file substitution",
+        "evidence": "stage-b/application-overlay/G030.json",
+        "producer": "stage-b/application-overlay-run.json"
+      },
+      "/workspace/tmp/m6-t43/G030-003-candidate-hjfx_ay_": {
+        "status": "retained",
+        "reason": "symlink or special-file substitution",
+        "evidence": "stage-b/application-overlay/G030.json",
+        "producer": "stage-b/application-overlay-run.json"
+      },
+      "/workspace/tmp/m6-t43/G031-003-candidate-r8btd6bw": {
+        "status": "retained",
+        "reason": "symlink or special-file substitution",
+        "evidence": "stage-b/application-overlay/G031.json",
+        "producer": "stage-b/application-overlay-run.json"
+      },
+      "/workspace/tmp/m6-t43/G031-002-candidate-4qkix3ox": {
+        "status": "retained",
+        "reason": "symlink or special-file substitution",
+        "evidence": "stage-b/application-overlay/G031.json",
+        "producer": "stage-b/application-overlay-run.json"
+      },
+      "/workspace/tmp/m6-t43/G032-003-candidate-vv3mfixq": {
+        "status": "retained",
+        "reason": "symlink or special-file substitution",
+        "evidence": "stage-b/application-overlay/G032.json",
+        "producer": "stage-b/application-overlay-run.json"
+      },
+      "/workspace/tmp/m6-t43/G032-002-candidate-lac0z4sq": {
+        "status": "retained",
+        "reason": "symlink or special-file substitution",
+        "evidence": "stage-b/application-overlay/G032.json",
+        "producer": "stage-b/application-overlay-run.json"
+      }
+    },
+    "four_empty_prefixes_nonrecursive_removed": [
+      "/workspace/tmp/m6-t43/G029-prefix-42enpova",
+      "/workspace/tmp/m6-t43/G030-prefix-2ggn9ugi",
+      "/workspace/tmp/m6-t43/G031-prefix-hwtjss09",
+      "/workspace/tmp/m6-t43/G032-prefix-tcxi8jlr"
+    ],
+    "cache_metadata_equal": true,
+    "cache_content_evidence": "D retains21 original before/after content-hash pairs; H made fresh metadata comparisons only, no new archive content hash.",
+    "durable_publication_roots_preserved": true,
+    "execution_scope": "Lane record tools, finite new metadata controls and guarded own scratch retirement only. No accepted producer/source application, extraction, fetch, recipe/config, compiler/VM/runtime allocation, host-ledger/provider/device/cloud action, held read or permission answer. CPUs8–23.",
+    "process_limit": "Original all-same-UID attempt could not read /proc/2389/cwd. Its owner/references remain unknown; this module does not inspect it or claim it unrelated. No all-same-UID/global no-reference assertion is available.",
+    "global_no_reference_assertion": false,
+    "remaining_action": "Root final integration/acceptance; any later handling of the8 retained symlink-bearing roots needs its own qualified scope."
+  },
+  "original_failures": "Original rc1 all-same-UID observation/code/control scratch evidence and parser/commit refusals remain retained. Raw retirement-plan-v2.raw and separate corrected storage identity remain distinct.",
+  "retrospective_comment": "https://github.com/pixelelated/distribution/issues/690#issuecomment-6591200156",
+  "source_headers": {
+    "reviewed-at": "601e4694f9726b2228d3571efdb5cfc061c6d442",
+    "fixed-at": "8282cbcade3be32b437f7391be7e216d9a6b1074",
+    "issue_state": "open",
+    "root_owned_open_criteria": 20
+  },
+  "audit": {
+    "number": 1412,
+    "state": "open",
+    "checked_custody_criterion": 1,
+    "completion_marker": "not created; root acceptance required"
+  },
+  "retained_artifact_bindings": {
+    "docs/audits/2026_11_02-epic-m6-patches-unshipped/stage-e/owner-outcomes.json": {
+      "bytes": 555575,
+      "sha256": "49e9b15056cb2641b243ddf4c515d8187d4bc599748cd32f155f1cfe2327452e"
+    },
+    "docs/audits/2026_11_02-epic-m6-patches-unshipped/stage-e/owner-outcome-controls.json": {
+      "bytes": 9117,
+      "sha256": "aa1dba2fdcd9926018f33a84b19f8733820f5137e55ed998e7693e574f0d62b2"
+    },
+    "docs/audits/2026_11_02-epic-m6-patches-unshipped/stage-e/input-manifest.json": {
+      "bytes": 12410,
+      "sha256": "9b50195663fdae40d41f745e82cec4f68b5a970340bda87de07c428ac6a5684b"
+    },
+    "docs/audits/2026_11_02-epic-m6-patches-unshipped/stage-f/retirement-controls-v2.json": {
+      "bytes": 9896,
+      "sha256": "75c274f4976f3fb03f3b7478f7f97491305529bedb575c0fe02b1c8e39e3178c"
+    },
+    "docs/audits/2026_11_02-epic-m6-patches-unshipped/stage-f/late-record-controls.json": {
+      "bytes": 1786,
+      "sha256": "14173de50a74835685de4d554a217f4924b4b8daf60405b6ef15aeccc8dc1cc6"
+    },
+    "docs/audits/2026_11_02-epic-m6-patches-unshipped/stage-f/hooks.json": {
+      "bytes": 807,
+      "sha256": "dbbb48de00246e9d7a85c89de544ab00022265e771f8142e434cd04baff67501"
+    },
+    "docs/audits/2026_11_02-epic-m6-patches-unshipped/stage-h/retirement-plan.json": {
+      "bytes": 29043832,
+      "sha256": "9f006406f7e3ab4668418ddc31a72cd0d808161cf1a15748e419b254b5871590"
+    },
+    "docs/audits/2026_11_02-epic-m6-patches-unshipped/stage-h/retirement-run.json": {
+      "bytes": 932,
+      "sha256": "f8ad1ad1eb754a55fcd06801d810229fc5767963c01cff6de898ec98f2e36c23"
+    },
+    "docs/audits/2026_11_02-epic-m6-patches-unshipped/stage-h/retirement-result.json": {
+      "bytes": 1596871,
+      "sha256": "9fce056b62fd74a90c5f9eafccb29d62afdc982e251e2a1ff02fe250646e8bec"
+    },
+    "docs/audits/2026_11_02-epic-m6-patches-unshipped/stage-h/closing-census.json": {
+      "bytes": 3661,
+      "sha256": "b471ae9a8191e4e995787a5edbea443adc6e1ba5db3f77e2361581d8c425a6ee"
+    },
+    "docs/audits/2026_11_02-epic-m6-patches-unshipped/stage-h/planner-correction.json": {
+      "bytes": 1547,
+      "sha256": "1a844ecc812ce308748a4ee6a7102fa5741d10cddf359b5d6eab44fc736e8e7c"
+    },
+    "docs/audits/2026_11_02-epic-m6-patches-unshipped/stage-g/final-retro-binding.json": {
+      "bytes": 277,
+      "sha256": "be6120a7d12dbc4c337c42448508d8971e4ccc9966acfdc61097bd6141f8df64"
+    }
+  },
+  "limits": "All 93 missing source inputs, original 14 programs/779 calls/19 stored transport artifacts and proof classes preserved. High #1408 and Medium #1410 remain open/unfixed; #585 unsent; removal #1048/#346. Both time-to-play quantities unmeasured. No source/product/rule/register edit, accepted A-D replay, runtime/host/provider/device/cloud/held/private action or permission answer. CPUs8-23.",
+  "next_owner_action": "Root integration simulation/final acceptance and any later completion-record dispatch. T1 stops available; no additional cleanup of eight retained roots."
+}

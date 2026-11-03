@@ -1,0 +1,73 @@
+[
+  {
+    "argv": [
+      "git",
+      "show",
+      "f1000e157c2f0248820e1b77055e81521b079a3f:docs/reviews/briefs/patches-unshipped.md"
+    ],
+    "rc": 0,
+    "sha256": "a73aef709a5902a7cbbb7ba0409d1128f855a3fe7e70430c010ef0fa9047dcbf",
+    "record": "full-brief.txt"
+  },
+  {
+    "argv": [
+      "git",
+      "show",
+      "f1000e157c2f0248820e1b77055e81521b079a3f:docs/reviews/briefs/t43-streams.md"
+    ],
+    "rc": 0,
+    "sha256": "16d22d8b4cc8d49c7a37e073f5130f622f6d4dbd693cfceeb3c3939548d76230",
+    "record": "full-streams.txt"
+  },
+  {
+    "argv": [
+      "git",
+      "show",
+      "f1000e157c2f0248820e1b77055e81521b079a3f:docs/qa-logs/2026-11-02-m6-resume/t43-stage-d-support/report.md"
+    ],
+    "rc": 0,
+    "sha256": "340e89f5817bd5e9be8316c40c745f9520acf883317abd0976653029df63c349",
+    "record": "accepted-d-support.txt"
+  },
+  {
+    "argv": [
+      "git",
+      "diff",
+      "--name-status",
+      "676115271e9bbaa9e8db81f6de73a7b49094c5b4",
+      "8282cbcade3be32b437f7391be7e216d9a6b1074"
+    ],
+    "rc": 0,
+    "sha256": "2b1f3340cde85f432749e4db97a6d3022dd7fc81e939d5f77816673979983d3e",
+    "record": "final-changed-paths.txt"
+  },
+  {
+    "argv": [
+      "git",
+      "log",
+      "--reverse",
+      "--format=%H %P%n%s",
+      "676115271e9bbaa9e8db81f6de73a7b49094c5b4..8282cbcade3be32b437f7391be7e216d9a6b1074"
+    ],
+    "rc": 0,
+    "sha256": "859ef18f887f2ef957004b5fe4664926fb649015e3464762bc6e1326b2592d9c",
+    "record": "ancestry.txt"
+  },
+  {
+    "argv": [
+      "git",
+      "ls-tree",
+      "-r",
+      "--long",
+      "8282cbcade3be32b437f7391be7e216d9a6b1074",
+      "--",
+      "docs/audits/2026_11_02-epic-m6-patches-unshipped/stage-e",
+      "docs/audits/2026_11_02-epic-m6-patches-unshipped/stage-f",
+      "docs/audits/2026_11_02-epic-m6-patches-unshipped/stage-g",
+      "docs/audits/2026_11_02-epic-m6-patches-unshipped/stage-h"
+    ],
+    "rc": 0,
+    "sha256": "50ecb72ec7f811c39cfa6af106c27e6fc9db03d5d2d8cf82a212321a4d37407a",
+    "record": "new-record-paths.txt"
+  }
+]

@@ -1,0 +1,47 @@
+{
+  "errors": [],
+  "facts": {
+    "scan_control_exits": [
+      1,
+      1,
+      0
+    ],
+    "resolved_initial_binding_reports": [
+      {
+        "receipt": "docs/audits/2026_11_02-epic-m6-patches-unshipped/stage-f/confinement.json",
+        "qualification": "Exact older source reconstructed in memory by removing the single new-tool allowlist entry. No original-version source file is retained separately; original controls are not claimed against final bytes.",
+        "expected_old_sha256": "45612b79bd6971cd453c44a0a98212d90f7bbfd6a27b6c0d1d729af005b87969",
+        "current_sha256": "b7ee4e576629d6e3f4da628d3a5d0f0dc908a490fc92c2aa3a85447c9d32d739"
+      },
+      {
+        "receipt": "docs/audits/2026_11_02-epic-m6-patches-unshipped/stage-f/frozen-negative.json",
+        "qualification": "Exact older source reconstructed in memory by removing the single new-tool allowlist entry. No original-version source file is retained separately; original controls are not claimed against final bytes.",
+        "expected_old_sha256": "45612b79bd6971cd453c44a0a98212d90f7bbfd6a27b6c0d1d729af005b87969",
+        "current_sha256": "b7ee4e576629d6e3f4da628d3a5d0f0dc908a490fc92c2aa3a85447c9d32d739"
+      },
+      {
+        "receipt": "docs/audits/2026_11_02-epic-m6-patches-unshipped/stage-f/hooks.json",
+        "resolution": "The preliminary reader excluded .githooks paths; direct immutable read matches the expected hash.",
+        "hash": "fcaa1327ebbe7ea141d63e5b0a0fac5f84c9f821053d0ba77cec06a37360a473"
+      },
+      {
+        "receipt": "docs/audits/2026_11_02-epic-m6-patches-unshipped/stage-f/scope-positive.json",
+        "qualification": "Exact older source reconstructed in memory by removing the single new-tool allowlist entry. No original-version source file is retained separately; original controls are not claimed against final bytes.",
+        "expected_old_sha256": "45612b79bd6971cd453c44a0a98212d90f7bbfd6a27b6c0d1d729af005b87969",
+        "current_sha256": "b7ee4e576629d6e3f4da628d3a5d0f0dc908a490fc92c2aa3a85447c9d32d739"
+      },
+      {
+        "receipt": "docs/audits/2026_11_02-epic-m6-patches-unshipped/stage-f/source-negative.json",
+        "qualification": "Exact older source reconstructed in memory by removing the single new-tool allowlist entry. No original-version source file is retained separately; original controls are not claimed against final bytes.",
+        "expected_old_sha256": "45612b79bd6971cd453c44a0a98212d90f7bbfd6a27b6c0d1d729af005b87969",
+        "current_sha256": "b7ee4e576629d6e3f4da628d3a5d0f0dc908a490fc92c2aa3a85447c9d32d739"
+      }
+    ],
+    "source_version_qualification": "Four early F confinement/control receipts name45612b79; final guard isb7ee4e57. Exact single-entry inverse reconstructs45612b79. No original control replay or claim that old controls ran current bytes.",
+    "program_preservation_original_programs_count": 14,
+    "program_preservation_separate_new_readers_count": 3,
+    "accepted_support_report_sha256": "340e89f5817bd5e9be8316c40c745f9520acf883317abd0976653029df63c349",
+    "brief_sha256": "a73aef709a5902a7cbbb7ba0409d1128f855a3fe7e70430c010ef0fa9047dcbf",
+    "stream_with_errata_sha256": "16d22d8b4cc8d49c7a37e073f5130f622f6d4dbd693cfceeb3c3939548d76230"
+  }
+}

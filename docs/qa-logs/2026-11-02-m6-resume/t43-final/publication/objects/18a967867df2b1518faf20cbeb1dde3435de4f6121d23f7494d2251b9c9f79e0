@@ -1,0 +1,10 @@
+{
+  "type": "Observed functions.exec / exec_command result, not a record.py producer receipt",
+  "command": "taskset -c 8-23 python3 /workspace/tmp/m6-t43/eh-publication/finalize-publication.py",
+  "chunk_id": "7cfc21",
+  "exit_code": 1,
+  "wall_time_seconds": 0.220508635,
+  "stderr": "AssertionError at line 50: source-header body with hash values removed did not equal source-header-before.json. Original header replacement consumed the blank line after fixed-at.",
+  "effect": "No publication.json or MANIFEST.json was written; read-only comparison failed before writes. Original builder, request and readback remain.",
+  "correction": "Only restore original blank-line separation in live issue body. Final v2 before/after comparison must prove only two hash values differ. No repository edit or new tip."
+}

@@ -1,0 +1,42 @@
+{
+  "errors": [],
+  "facts": {
+    "plan_sha256": "9f006406f7e3ab4668418ddc31a72cd0d808161cf1a15748e419b254b5871590",
+    "plan_commit": "fb97dd53bd8e936ff7402888c70fb6bc25f7180d",
+    "commit_finished": "2026-11-02T23:23:15.531282+00:00",
+    "retire_started": "2026-11-02T23:23:45.532985+00:00",
+    "counts": {
+      "retired": 881,
+      "retained": 8
+    },
+    "scope_categories": {
+      "D": 811,
+      "current-prefix": 72,
+      "empty-current-only": 4,
+      "new-F": 2
+    },
+    "cache_metadata_pairs": 21,
+    "fresh_cache_content_hash_claim": false,
+    "own_controls": [
+      "changed-content",
+      "symlink-substitution",
+      "mount-crossing-metadata",
+      "owner-mismatch-metadata",
+      "changed-identity",
+      "unknown-root",
+      "durable-root",
+      "actual-own-fd",
+      "missing-own-completion",
+      "ambiguous-known-identity",
+      "actual-inaccessible-known-owner",
+      "scoped-positive-after-fd-close"
+    ],
+    "known_child": 824219,
+    "changed_functions_after_test": [
+      "completed",
+      "plan"
+    ],
+    "original_failure_exit": 1,
+    "no_root_process_or_cache_inspection": true
+  }
+}

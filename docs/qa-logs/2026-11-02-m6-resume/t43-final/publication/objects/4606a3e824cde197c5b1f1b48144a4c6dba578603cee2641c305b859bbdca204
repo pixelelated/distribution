@@ -1,0 +1,647 @@
+{
+  "mode": "commit",
+  "ref": "8282cbcade3be32b437f7391be7e216d9a6b1074",
+  "base": "676115271e9bbaa9e8db81f6de73a7b49094c5b4",
+  "scope": "Every changed record path since accepted D; current mode also includes all untracked paths. Unchanged accepted records are covered by final-confinement mode/blob reconciliation.",
+  "excluded_repository_paths": [],
+  "count": 159,
+  "total_bytes": 35595500,
+  "files": {
+    ".github/sessions/saved-session-state-feature-m6-patches-unshipped-690.md": {
+      "bytes": 6254,
+      "sha256": "e37b80aa5b0e39d6a25ad6b5ab487cdc952d57acb66e2e5c74a7c67e0cc380f2"
+    },
+    "docs/audits/2026_11_02-epic-m6-patches-unshipped/00-running-log.md": {
+      "bytes": 10537,
+      "sha256": "5df1c1c47e7b320e0cf1863d1eb12fb1a0fea90144c1210702cbe57765e58f14"
+    },
+    "docs/audits/2026_11_02-epic-m6-patches-unshipped/04-analysis.md": {
+      "bytes": 13322,
+      "sha256": "9a4c887026d260659ccec5fa08d55d1bf37b45f69ad194771a85e416801178aa"
+    },
+    "docs/audits/2026_11_02-epic-m6-patches-unshipped/05-punch-list.md": {
+      "bytes": 4958,
+      "sha256": "456a20ce2b38996438b0514679c7d704fa09775275264bed572c4ceade6de940"
+    },
+    "docs/audits/2026_11_02-epic-m6-patches-unshipped/06-audit-summary.md": {
+      "bytes": 3951,
+      "sha256": "20b3d6c4a45abf086519b7da63521811c40a3f82fea6a5fadb689a71a1881c8c"
+    },
+    "docs/audits/2026_11_02-epic-m6-patches-unshipped/07-questions-for-the-maintainer.md": {
+      "bytes": 2453,
+      "sha256": "5801c76615e0b5c90b7a98835704a8c4a6681638cb28bcacc59bbe5712858356"
+    },
+    "docs/audits/2026_11_02-epic-m6-patches-unshipped/README.md": {
+      "bytes": 2395,
+      "sha256": "1bf513c744da686b6b72d486a86f156c7e16392256daaf44fb1a657a3a75771e"
+    },
+    "docs/audits/2026_11_02-epic-m6-patches-unshipped/stage-e/02-outcome-addendum.md": {
+      "bytes": 1709,
+      "sha256": "22135e6e9edd58b9a8b2a718ead9bb1c3201cbb5f24a99399982e75b0c984282"
+    },
+    "docs/audits/2026_11_02-epic-m6-patches-unshipped/stage-e/S1-report.md": {
+      "bytes": 1786,
+      "sha256": "2bc87bb645b342e88750c1212d1ff9a641116c27245bf1bcdc2432dd13483ddc"
+    },
+    "docs/audits/2026_11_02-epic-m6-patches-unshipped/stage-e/authority-bindings.json": {
+      "bytes": 974,
+      "sha256": "7e1ad2f5b3d15b45801d1fc3912475fb052666296f1ff153226d34d14b2c5edd"
+    },
+    "docs/audits/2026_11_02-epic-m6-patches-unshipped/stage-e/dispatch-readback.json": {
+      "bytes": 4033,
+      "sha256": "32662ba19ac2273ee8ebbf3b1c0e72e4a19f376d2435a88f8b9756179d17155b"
+    },
+    "docs/audits/2026_11_02-epic-m6-patches-unshipped/stage-e/fixtures/changed-owner.json": {
+      "bytes": 555476,
+      "sha256": "3f2c869c64e9df2138210f03dc7c5ed977d7fdf8a6774b3bfa357d23348dc419"
+    },
+    "docs/audits/2026_11_02-epic-m6-patches-unshipped/stage-e/fixtures/changed-owner.stderr": {
+      "bytes": 664,
+      "sha256": "586041c6dc72373a3078a2e24009b03f76cca87141fc0a406a773d80fd14a6e4"
+    },
+    "docs/audits/2026_11_02-epic-m6-patches-unshipped/stage-e/fixtures/changed-owner.stdout": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "docs/audits/2026_11_02-epic-m6-patches-unshipped/stage-e/fixtures/changed-receipt.json": {
+      "bytes": 555575,
+      "sha256": "90cd5c4c521a5898c9c186fabb0f5829801d1fca7805c80f28b40471a39e916f"
+    },
+    "docs/audits/2026_11_02-epic-m6-patches-unshipped/stage-e/fixtures/changed-receipt.stderr": {
+      "bytes": 746,
+      "sha256": "84b2e592f7f5b401fa06f25a6e0f539057c912354d3aabb10e195737b8831430"
+    },
+    "docs/audits/2026_11_02-epic-m6-patches-unshipped/stage-e/fixtures/changed-receipt.stdout": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "docs/audits/2026_11_02-epic-m6-patches-unshipped/stage-e/fixtures/duplicate-key.json": {
+      "bytes": 558039,
+      "sha256": "9d5542467efe8ea1022298e060f4caeb358eaa36026a8034fbbff2e43dc75e3e"
+    },
+    "docs/audits/2026_11_02-epic-m6-patches-unshipped/stage-e/fixtures/duplicate-key.stderr": {
+      "bytes": 1414,
+      "sha256": "244d3d23cdbd88a1fd30a51feae823e6809de0013897a6b673c1407593df35f5"
+    },
+    "docs/audits/2026_11_02-epic-m6-patches-unshipped/stage-e/fixtures/duplicate-key.stdout": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "docs/audits/2026_11_02-epic-m6-patches-unshipped/stage-e/fixtures/invented-success.json": {
+      "bytes": 555608,
+      "sha256": "5c2380a8d27621c1068411449cd3660f97244ef00c13376ee94e533682d9ec90"
+    },
+    "docs/audits/2026_11_02-epic-m6-patches-unshipped/stage-e/fixtures/invented-success.stderr": {
+      "bytes": 872,
+      "sha256": "77d054aeb647e3d9bdaedd53ee4586cf5c8a9de1f317518eedfbb8b3c21acc5e"
+    },
+    "docs/audits/2026_11_02-epic-m6-patches-unshipped/stage-e/fixtures/invented-success.stdout": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "docs/audits/2026_11_02-epic-m6-patches-unshipped/stage-e/fixtures/lost-open-consumer.json": {
+      "bytes": 553640,
+      "sha256": "f9f35e00ba5791dec30cb1c54d79d9f099b5d1a65ba5bb32c233d26fa2cf967f"
+    },
+    "docs/audits/2026_11_02-epic-m6-patches-unshipped/stage-e/fixtures/lost-open-consumer.stderr": {
+      "bytes": 646,
+      "sha256": "f508abead3f6184652e4ec295dded3776285a036e4aa89fd5925f12089005296"
+    },
+    "docs/audits/2026_11_02-epic-m6-patches-unshipped/stage-e/fixtures/lost-open-consumer.stdout": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "docs/audits/2026_11_02-epic-m6-patches-unshipped/stage-e/fixtures/lost-positive-consumer.json": {
+      "bytes": 553685,
+      "sha256": "dc645bd3c9afb17040939efb40da23e8cfdd8355713d10ba7431df23c6d8d5a2"
+    },
+    "docs/audits/2026_11_02-epic-m6-patches-unshipped/stage-e/fixtures/lost-positive-consumer.stderr": {
+      "bytes": 662,
+      "sha256": "19bf96afcac8d7d26964a69b38807d96d988ccfd6b7b4b3b39e9dac5295b58da"
+    },
+    "docs/audits/2026_11_02-epic-m6-patches-unshipped/stage-e/fixtures/lost-positive-consumer.stdout": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "docs/audits/2026_11_02-epic-m6-patches-unshipped/stage-e/fixtures/missing-key.json": {
+      "bytes": 552547,
+      "sha256": "c1f8fec8c675a674cbebcc7b154038e843ab61b320c61d251c1032e2f2c09858"
+    },
+    "docs/audits/2026_11_02-epic-m6-patches-unshipped/stage-e/fixtures/missing-key.stderr": {
+      "bytes": 732,
+      "sha256": "88c69e5a50abd2890ad96368640520afbf12bdc3003454a1a731c222b2b21fec"
+    },
+    "docs/audits/2026_11_02-epic-m6-patches-unshipped/stage-e/fixtures/missing-key.stdout": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "docs/audits/2026_11_02-epic-m6-patches-unshipped/stage-e/fixtures/positive.stderr": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "docs/audits/2026_11_02-epic-m6-patches-unshipped/stage-e/fixtures/positive.stdout": {
+      "bytes": 161,
+      "sha256": "c7fe7101b73a6200370b5fc17f86333e72c0581467ed8520fa505b65c6891d6a"
+    },
+    "docs/audits/2026_11_02-epic-m6-patches-unshipped/stage-e/identity.json": {
+      "bytes": 773,
+      "sha256": "7f783054813aea935429984aac56335ab236bfc244eff06ef634050edb2fa3a4"
+    },
+    "docs/audits/2026_11_02-epic-m6-patches-unshipped/stage-e/identity.stderr": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "docs/audits/2026_11_02-epic-m6-patches-unshipped/stage-e/identity.stdout": {
+      "bytes": 3212,
+      "sha256": "00157a606646c32171d0a6c1afbd991f80336967230c2e1e3a6ee62713391405"
+    },
+    "docs/audits/2026_11_02-epic-m6-patches-unshipped/stage-e/input-manifest.json": {
+      "bytes": 12410,
+      "sha256": "9b50195663fdae40d41f745e82cec4f68b5a970340bda87de07c428ac6a5684b"
+    },
+    "docs/audits/2026_11_02-epic-m6-patches-unshipped/stage-e/owner-outcome-controls.json": {
+      "bytes": 9117,
+      "sha256": "aa1dba2fdcd9926018f33a84b19f8733820f5137e55ed998e7693e574f0d62b2"
+    },
+    "docs/audits/2026_11_02-epic-m6-patches-unshipped/stage-e/owner-outcomes.json": {
+      "bytes": 555575,
+      "sha256": "49e9b15056cb2641b243ddf4c515d8187d4bc599748cd32f155f1cfe2327452e"
+    },
+    "docs/audits/2026_11_02-epic-m6-patches-unshipped/stage-e/placement-readback.json": {
+      "bytes": 1057,
+      "sha256": "4c2c16dc22068313f36168e2609fe60bebca1e34f4ed841cf6e4d1dcbe8e4ab5"
+    },
+    "docs/audits/2026_11_02-epic-m6-patches-unshipped/stage-e/s1-controls-run.json": {
+      "bytes": 942,
+      "sha256": "d7d3efa4b249e9078eaa1fa4470e754de732e2e24fe0b35ab2cf74aa9982094a"
+    },
+    "docs/audits/2026_11_02-epic-m6-patches-unshipped/stage-e/s1-controls-run.stderr": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "docs/audits/2026_11_02-epic-m6-patches-unshipped/stage-e/s1-controls-run.stdout": {
+      "bytes": 627,
+      "sha256": "ad6ff60f1b368f7ace7f1cc5f3b08bd8718bf3b31a4432c22ea425397ee4fc6f"
+    },
+    "docs/audits/2026_11_02-epic-m6-patches-unshipped/stage-e/s1-result.json": {
+      "bytes": 603,
+      "sha256": "154d63055b01c2c939dfbe2c42821161f3f81f495fd0ace48d90e7bb5cf824ce"
+    },
+    "docs/audits/2026_11_02-epic-m6-patches-unshipped/stage-f/F-report.md": {
+      "bytes": 1773,
+      "sha256": "dbc5bc046f205426131c751733f65f9a01feeb7dbe4ee8de3b4ac04546907da0"
+    },
+    "docs/audits/2026_11_02-epic-m6-patches-unshipped/stage-f/audit-resolution-body.md": {
+      "bytes": 9271,
+      "sha256": "0f64bb13bef3b3782694710fff41b8d390c61c730aa84cd6e46cddbb138c3396"
+    },
+    "docs/audits/2026_11_02-epic-m6-patches-unshipped/stage-f/audit-resolution-readback.json": {
+      "bytes": 10591,
+      "sha256": "eb0a3fece64e65b65b22a0c79907a26896427f3999df93f5f6239e138e59a247"
+    },
+    "docs/audits/2026_11_02-epic-m6-patches-unshipped/stage-f/box-audit.json": {
+      "bytes": 824,
+      "sha256": "841d9d7a3eb1c72f189d5862be16d242b766d4b5503ca52105aa9fc77498a4cb"
+    },
+    "docs/audits/2026_11_02-epic-m6-patches-unshipped/stage-f/box-audit.stderr": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "docs/audits/2026_11_02-epic-m6-patches-unshipped/stage-f/box-audit.stdout": {
+      "bytes": 94,
+      "sha256": "7ae8534fd7d26020a8b0e7221cf3313b595e275a0fea6a8adb4568b7e135a317"
+    },
+    "docs/audits/2026_11_02-epic-m6-patches-unshipped/stage-f/box-slice.json": {
+      "bytes": 823,
+      "sha256": "4dc0df1122ad65701e71da33158a640f5f4713ab02cecce75f6c82f902bf350e"
+    },
+    "docs/audits/2026_11_02-epic-m6-patches-unshipped/stage-f/box-slice.stderr": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "docs/audits/2026_11_02-epic-m6-patches-unshipped/stage-f/box-slice.stdout": {
+      "bytes": 192,
+      "sha256": "096e9ae204710bdf3d2b68da0a68a508990ba5cb13ed5214a6c841102f60e03f"
+    },
+    "docs/audits/2026_11_02-epic-m6-patches-unshipped/stage-f/ceremony.json": {
+      "bytes": 821,
+      "sha256": "b1f3d67a3c306e0daaaab7b08e462513a19236c6600f9484becd416665311284"
+    },
+    "docs/audits/2026_11_02-epic-m6-patches-unshipped/stage-f/ceremony.stderr": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "docs/audits/2026_11_02-epic-m6-patches-unshipped/stage-f/ceremony.stdout": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "docs/audits/2026_11_02-epic-m6-patches-unshipped/stage-f/confinement-result.json": {
+      "bytes": 5897,
+      "sha256": "f1a487ccbccb25f2b4c8da8822c92f2224b7b8601bcb7b1176ca425cd76d6783"
+    },
+    "docs/audits/2026_11_02-epic-m6-patches-unshipped/stage-f/confinement.json": {
+      "bytes": 1189,
+      "sha256": "36cc361612f8680f9615a9ab6af0a0a757561b9b4fab4d20fb1ff7eacf7b38c9"
+    },
+    "docs/audits/2026_11_02-epic-m6-patches-unshipped/stage-f/confinement.stderr": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "docs/audits/2026_11_02-epic-m6-patches-unshipped/stage-f/confinement.stdout": {
+      "bytes": 176,
+      "sha256": "9468adf0400a3f75398ef1d7364346a47986da100fbd23c753b5c956d9345505"
+    },
+    "docs/audits/2026_11_02-epic-m6-patches-unshipped/stage-f/failed-retirement-controls.py": {
+      "bytes": 3895,
+      "sha256": "f313251c0d0fdb84db1835c3108fb30610d17b55dfec8f39a711241d9a906ff3"
+    },
+    "docs/audits/2026_11_02-epic-m6-patches-unshipped/stage-f/failed-retirement.py": {
+      "bytes": 11374,
+      "sha256": "2b98e817e600b31cbe213cb03e063fc51697ee56eadbcfb8ddb91ede682991a8"
+    },
+    "docs/audits/2026_11_02-epic-m6-patches-unshipped/stage-f/fixtures/frozen-negative.json": {
+      "bytes": 73,
+      "sha256": "02f048cf03598939889dfaa928844adffcc322acbf9c0b37444da02cdca6cb5c"
+    },
+    "docs/audits/2026_11_02-epic-m6-patches-unshipped/stage-f/fixtures/scan-changed.json": {
+      "bytes": 8641,
+      "sha256": "680651efbf92b7f4f43b060c527d2fb6d6c3817c84f5377eb719845a20f7a37b"
+    },
+    "docs/audits/2026_11_02-epic-m6-patches-unshipped/stage-f/fixtures/scan-changed.stderr": {
+      "bytes": 874,
+      "sha256": "2eb53c8c3be194c42e944501c01bcb433ac2766b4413ceade0436fb0c24ce3d3"
+    },
+    "docs/audits/2026_11_02-epic-m6-patches-unshipped/stage-f/fixtures/scan-changed.stdout": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "docs/audits/2026_11_02-epic-m6-patches-unshipped/stage-f/fixtures/scan-missing.json": {
+      "bytes": 8454,
+      "sha256": "f2e7ddb31103c2abe7b0584f43be83f00cccc5b39e66ac161cb5698762516c2e"
+    },
+    "docs/audits/2026_11_02-epic-m6-patches-unshipped/stage-f/fixtures/scan-missing.stderr": {
+      "bytes": 870,
+      "sha256": "e79fbcf323555688d27344b0e05ec0f5c7279af5bad2a2474b2c3be94ca5a038"
+    },
+    "docs/audits/2026_11_02-epic-m6-patches-unshipped/stage-f/fixtures/scan-missing.stdout": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "docs/audits/2026_11_02-epic-m6-patches-unshipped/stage-f/fixtures/scan-positive.json": {
+      "bytes": 8641,
+      "sha256": "8af7aa7368c4a281aac5c93d1980151d6729802f3ed2c3144266ca35ad7599cf"
+    },
+    "docs/audits/2026_11_02-epic-m6-patches-unshipped/stage-f/fixtures/scan-positive.stderr": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "docs/audits/2026_11_02-epic-m6-patches-unshipped/stage-f/fixtures/scan-positive.stdout": {
+      "bytes": 36,
+      "sha256": "6676588d6d2079cb9eac79650747ee6e4e2d58ef953ca11ec199b270c008f083"
+    },
+    "docs/audits/2026_11_02-epic-m6-patches-unshipped/stage-f/fixtures/scope-positive.json": {
+      "bytes": 77,
+      "sha256": "ebe3ee6a95ca9ce5b44af4cfa8cdf59c5bd7815ab0a1f6f4b6e4e154916756ad"
+    },
+    "docs/audits/2026_11_02-epic-m6-patches-unshipped/stage-f/fixtures/source-negative.json": {
+      "bytes": 61,
+      "sha256": "6931f018abfe75dba7abef1772c36398739fe452335346ce5290651e556792a4"
+    },
+    "docs/audits/2026_11_02-epic-m6-patches-unshipped/stage-f/fixtures/unaccounted-child.json": {
+      "bytes": 9897,
+      "sha256": "2c5cf8ed26985a8475c642033e480efa628d2c492ee088b416b32660670ba6c5"
+    },
+    "docs/audits/2026_11_02-epic-m6-patches-unshipped/stage-f/frozen-negative.json": {
+      "bytes": 1205,
+      "sha256": "4d251c6507c35cb73ab044ff77abe124e803149b5bd9447c7274568f5c2ee645"
+    },
+    "docs/audits/2026_11_02-epic-m6-patches-unshipped/stage-f/frozen-negative.stderr": {
+      "bytes": 926,
+      "sha256": "0654a68f0bf929dce69bbbdf35a791b25bced3146174f6f996b7287f8d573d12"
+    },
+    "docs/audits/2026_11_02-epic-m6-patches-unshipped/stage-f/frozen-negative.stdout": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "docs/audits/2026_11_02-epic-m6-patches-unshipped/stage-f/hooks.json": {
+      "bytes": 807,
+      "sha256": "dbbb48de00246e9d7a85c89de544ab00022265e771f8142e434cd04baff67501"
+    },
+    "docs/audits/2026_11_02-epic-m6-patches-unshipped/stage-f/hooks.stderr": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "docs/audits/2026_11_02-epic-m6-patches-unshipped/stage-f/hooks.stdout": {
+      "bytes": 2370,
+      "sha256": "3402d5f59e65118cf905eb74dd1cda7660eeffd181ad248e23a56f68395e0a5c"
+    },
+    "docs/audits/2026_11_02-epic-m6-patches-unshipped/stage-f/index.json": {
+      "bytes": 822,
+      "sha256": "a0a40b102ac03830bda7399e035afd0ed14e9baeb039ffdad93e93632f711851"
+    },
+    "docs/audits/2026_11_02-epic-m6-patches-unshipped/stage-f/index.stderr": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "docs/audits/2026_11_02-epic-m6-patches-unshipped/stage-f/index.stdout": {
+      "bytes": 24,
+      "sha256": "232b345c76ad64a47de4d43e62d9aeb4f2850472cde78ddd1b1e56d72103d927"
+    },
+    "docs/audits/2026_11_02-epic-m6-patches-unshipped/stage-f/issue-lint-v2.json": {
+      "bytes": 902,
+      "sha256": "dcf0b2924542e6e84332067e9f90ad986f839c720d2d99165d3cc3b8fdb364d3"
+    },
+    "docs/audits/2026_11_02-epic-m6-patches-unshipped/stage-f/issue-lint-v2.stderr": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "docs/audits/2026_11_02-epic-m6-patches-unshipped/stage-f/issue-lint-v2.stdout": {
+      "bytes": 890,
+      "sha256": "496923f7d06379dfa148e78404ecf8c5a7b752a83ec640cf792f11bd9309e88c"
+    },
+    "docs/audits/2026_11_02-epic-m6-patches-unshipped/stage-f/issue-lint.json": {
+      "bytes": 902,
+      "sha256": "bb426100fd8abb94115c468705f10f22beed178577c7e5301167016354351b3c"
+    },
+    "docs/audits/2026_11_02-epic-m6-patches-unshipped/stage-f/issue-lint.stderr": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "docs/audits/2026_11_02-epic-m6-patches-unshipped/stage-f/issue-lint.stdout": {
+      "bytes": 932,
+      "sha256": "38dad13eb913582a51089ba592f8293fd1bd7d8c573aea5e952bab9d7f464816"
+    },
+    "docs/audits/2026_11_02-epic-m6-patches-unshipped/stage-f/late-record-controls-run.json": {
+      "bytes": 2903,
+      "sha256": "d4d14c4235667e8975ddf96cf6ac8d44943735efe250a880f9d2d1553d8118a9"
+    },
+    "docs/audits/2026_11_02-epic-m6-patches-unshipped/stage-f/late-record-controls-run.stderr": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "docs/audits/2026_11_02-epic-m6-patches-unshipped/stage-f/late-record-controls-run.stdout": {
+      "bytes": 143,
+      "sha256": "cf0505057c41ad47a3ebd9b563e563ee8a9f3432cf5cd86fab41ef9473d5b2a7"
+    },
+    "docs/audits/2026_11_02-epic-m6-patches-unshipped/stage-f/late-record-controls.json": {
+      "bytes": 1786,
+      "sha256": "14173de50a74835685de4d554a217f4924b4b8daf60405b6ef15aeccc8dc1cc6"
+    },
+    "docs/audits/2026_11_02-epic-m6-patches-unshipped/stage-f/register.json": {
+      "bytes": 807,
+      "sha256": "337aa4711549882b63a15449b5c737a00d3cebb191dea2ccbf88f252381258f0"
+    },
+    "docs/audits/2026_11_02-epic-m6-patches-unshipped/stage-f/register.stderr": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "docs/audits/2026_11_02-epic-m6-patches-unshipped/stage-f/register.stdout": {
+      "bytes": 85,
+      "sha256": "939f15cb88dd7faeecd6b0679625bdd823d073a9b745d40111df28037f42b306"
+    },
+    "docs/audits/2026_11_02-epic-m6-patches-unshipped/stage-f/resolution-lint-v2.json": {
+      "bytes": 875,
+      "sha256": "41ed294cb89ac10f20f836a1ae09807c8c03c043487e6ac058ddced84b6e4760"
+    },
+    "docs/audits/2026_11_02-epic-m6-patches-unshipped/stage-f/resolution-lint-v2.stderr": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "docs/audits/2026_11_02-epic-m6-patches-unshipped/stage-f/resolution-lint-v2.stdout": {
+      "bytes": 802,
+      "sha256": "9badb58862f6a2e7093816d63f1d6ad26018c6fe9319179180cf501720b8240e"
+    },
+    "docs/audits/2026_11_02-epic-m6-patches-unshipped/stage-f/resolution-lint.json": {
+      "bytes": 875,
+      "sha256": "adce659bd6b64f23b0870e9ea2dc26a7da15c529c724edcfa1253b8b84a99729"
+    },
+    "docs/audits/2026_11_02-epic-m6-patches-unshipped/stage-f/resolution-lint.stderr": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "docs/audits/2026_11_02-epic-m6-patches-unshipped/stage-f/resolution-lint.stdout": {
+      "bytes": 844,
+      "sha256": "d6035a160efa87f9848a03ff86a83b977334411e5e90e5aa73189bef8992cdc2"
+    },
+    "docs/audits/2026_11_02-epic-m6-patches-unshipped/stage-f/retirement-control-creation-v2.json": {
+      "bytes": 751,
+      "sha256": "fc39a7c3eaa7f6e2aa4d364bfd4352e3a9b299f88cdb2173855c09a4ec440a4d"
+    },
+    "docs/audits/2026_11_02-epic-m6-patches-unshipped/stage-f/retirement-control-creation.json": {
+      "bytes": 622,
+      "sha256": "b9fc6df187813a31901b06410e7edd3401fe2e9e3b58d0a1a024cdfae98e5261"
+    },
+    "docs/audits/2026_11_02-epic-m6-patches-unshipped/stage-f/retirement-control-custody-v2.json": {
+      "bytes": 1222,
+      "sha256": "fa2646fedff3fcd5c8371fc1f532822619abffabe520f33c2f3867daa0c07242"
+    },
+    "docs/audits/2026_11_02-epic-m6-patches-unshipped/stage-f/retirement-control-custody.json": {
+      "bytes": 721,
+      "sha256": "8c70c34706570f5632213433eb606291e2ffcfd327a138513feac17ea90b6aa0"
+    },
+    "docs/audits/2026_11_02-epic-m6-patches-unshipped/stage-f/retirement-controls-run.json": {
+      "bytes": 936,
+      "sha256": "0bc138282db7dbf5468e28debe6e907ab5cda5ad857e23cdbb9361710a49ee24"
+    },
+    "docs/audits/2026_11_02-epic-m6-patches-unshipped/stage-f/retirement-controls-run.stderr": {
+      "bytes": 1231,
+      "sha256": "304a35c54e67eae80ca8ac34f72914a399bf610ff373b2b2be590c50c2b10483"
+    },
+    "docs/audits/2026_11_02-epic-m6-patches-unshipped/stage-f/retirement-controls-run.stdout": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "docs/audits/2026_11_02-epic-m6-patches-unshipped/stage-f/retirement-controls-v2-run.json": {
+      "bytes": 936,
+      "sha256": "b15a074534933cc63d9f39dd9b7ef49c74d289661e767dc4f2816e6646ca7a0c"
+    },
+    "docs/audits/2026_11_02-epic-m6-patches-unshipped/stage-f/retirement-controls-v2-run.stderr": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "docs/audits/2026_11_02-epic-m6-patches-unshipped/stage-f/retirement-controls-v2-run.stdout": {
+      "bytes": 215,
+      "sha256": "4ec15e0df02229d7ec2d71e07a98a2876d4315754742e8700001508cda9cece1"
+    },
+    "docs/audits/2026_11_02-epic-m6-patches-unshipped/stage-f/retirement-controls-v2.json": {
+      "bytes": 9896,
+      "sha256": "75c274f4976f3fb03f3b7478f7f97491305529bedb575c0fe02b1c8e39e3178c"
+    },
+    "docs/audits/2026_11_02-epic-m6-patches-unshipped/stage-f/retirement-tested-v2.py": {
+      "bytes": 11888,
+      "sha256": "91f7df3fc72031937c136ec15f407b000dc24b03cd4d0c77595e61bd6b0577d9"
+    },
+    "docs/audits/2026_11_02-epic-m6-patches-unshipped/stage-f/rules.json": {
+      "bytes": 801,
+      "sha256": "a53fe9f29cfcb5826fdd95d03ea91d73ec88141978c1e9dd6ba8bf49676a157a"
+    },
+    "docs/audits/2026_11_02-epic-m6-patches-unshipped/stage-f/rules.stderr": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "docs/audits/2026_11_02-epic-m6-patches-unshipped/stage-f/rules.stdout": {
+      "bytes": 1878,
+      "sha256": "5ecec1bf185709d166b0c35447dd7ef65107be90632d41665f1d26e3bd0afbb1"
+    },
+    "docs/audits/2026_11_02-epic-m6-patches-unshipped/stage-f/scan-controls-run.json": {
+      "bytes": 940,
+      "sha256": "b0dd66b8b5c0cb8dbb07c6414eb6093149f22e25dc04c75020a232f4f8feac1e"
+    },
+    "docs/audits/2026_11_02-epic-m6-patches-unshipped/stage-f/scan-controls-run.stderr": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "docs/audits/2026_11_02-epic-m6-patches-unshipped/stage-f/scan-controls-run.stdout": {
+      "bytes": 139,
+      "sha256": "99b8792711fa6ddb64ca6c5da41097aeeb9fc41c5dfb2d9413d1c67c7a9b1809"
+    },
+    "docs/audits/2026_11_02-epic-m6-patches-unshipped/stage-f/scan-controls.json": {
+      "bytes": 2527,
+      "sha256": "81a39c37cf89956229876778c797729b15bffcb6f1be6715ad5877011558541d"
+    },
+    "docs/audits/2026_11_02-epic-m6-patches-unshipped/stage-f/scope-positive.json": {
+      "bytes": 1203,
+      "sha256": "419b23e68b2a7e0e1aaf36d65491816434806dd6267fa55eea848e930f2cda5a"
+    },
+    "docs/audits/2026_11_02-epic-m6-patches-unshipped/stage-f/scope-positive.stderr": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "docs/audits/2026_11_02-epic-m6-patches-unshipped/stage-f/scope-positive.stdout": {
+      "bytes": 29,
+      "sha256": "a176a9a4cb667e2c150328f3216e95fdeb87fd919afc32e0f0070c2124377788"
+    },
+    "docs/audits/2026_11_02-epic-m6-patches-unshipped/stage-f/source-negative.json": {
+      "bytes": 1205,
+      "sha256": "23ac64281ab9a43ca2b321a8b1072ff6f7a5634dcd0f59d18e55c5b942a10c57"
+    },
+    "docs/audits/2026_11_02-epic-m6-patches-unshipped/stage-f/source-negative.stderr": {
+      "bytes": 914,
+      "sha256": "c1d64221d9b18017d69e1343dcc45ddd64f28b3a793373f7753e0093094e8103"
+    },
+    "docs/audits/2026_11_02-epic-m6-patches-unshipped/stage-f/source-negative.stdout": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "docs/audits/2026_11_02-epic-m6-patches-unshipped/stage-g/final-retro-binding.json": {
+      "bytes": 277,
+      "sha256": "be6120a7d12dbc4c337c42448508d8971e4ccc9966acfdc61097bd6141f8df64"
+    },
+    "docs/audits/2026_11_02-epic-m6-patches-unshipped/stage-g/retro-binding.json": {
+      "bytes": 295,
+      "sha256": "efd92b6b1a29f60e002e2f8b219eb5336eb23273f5e310b0a12a2ec25bdf3749"
+    },
+    "docs/audits/2026_11_02-epic-m6-patches-unshipped/stage-h/closing-census.json": {
+      "bytes": 3661,
+      "sha256": "b471ae9a8191e4e995787a5edbea443adc6e1ba5db3f77e2361581d8c425a6ee"
+    },
+    "docs/audits/2026_11_02-epic-m6-patches-unshipped/stage-h/owner-scope-dispatch.json": {
+      "bytes": 4249,
+      "sha256": "0f80bda9efb61129e88a6ec6b7caace5dd889fd535e82c5672ccf95a27beb7e0"
+    },
+    "docs/audits/2026_11_02-epic-m6-patches-unshipped/stage-h/plan-run.json": {
+      "bytes": 930,
+      "sha256": "0404266a734531fe098be770f0625d1bf604b846d0dd36db33c8900440a206da"
+    },
+    "docs/audits/2026_11_02-epic-m6-patches-unshipped/stage-h/plan-run.stderr": {
+      "bytes": 2038,
+      "sha256": "98c7b8fe11ea32ceb07e42523bdf50dab82a8bb8cfb98f133bdee2f82a1bc50c"
+    },
+    "docs/audits/2026_11_02-epic-m6-patches-unshipped/stage-h/plan-run.stdout": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "docs/audits/2026_11_02-epic-m6-patches-unshipped/stage-h/plan-summary.json": {
+      "bytes": 2949,
+      "sha256": "9a8e651e24c590598d67ce41e83f9eb0a3424cd09b26220af6cf715747d7e721"
+    },
+    "docs/audits/2026_11_02-epic-m6-patches-unshipped/stage-h/plan-v2-run.json": {
+      "bytes": 930,
+      "sha256": "3e77d41ee254ad0ae7dbf74b1e3fbaf2d55d1c8661ac51b9775a1c660ac89d8a"
+    },
+    "docs/audits/2026_11_02-epic-m6-patches-unshipped/stage-h/plan-v2-run.stderr": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "docs/audits/2026_11_02-epic-m6-patches-unshipped/stage-h/plan-v2-run.stdout": {
+      "bytes": 84,
+      "sha256": "2fc25b6d2a77f0e01d71a8cf479e8f25c175171475179f4ea66e3c1ca60f8f7a"
+    },
+    "docs/audits/2026_11_02-epic-m6-patches-unshipped/stage-h/planner-correction.json": {
+      "bytes": 1547,
+      "sha256": "1a844ecc812ce308748a4ee6a7102fa5741d10cddf359b5d6eab44fc736e8e7c"
+    },
+    "docs/audits/2026_11_02-epic-m6-patches-unshipped/stage-h/retirement-plan.json": {
+      "bytes": 29043832,
+      "sha256": "9f006406f7e3ab4668418ddc31a72cd0d808161cf1a15748e419b254b5871590"
+    },
+    "docs/audits/2026_11_02-epic-m6-patches-unshipped/stage-h/retirement-planner-v2.py": {
+      "bytes": 12197,
+      "sha256": "dfa163488f8dd4919d6c3a8dfa0ccf58b94284406c2570c9844bc73720012f4b"
+    },
+    "docs/audits/2026_11_02-epic-m6-patches-unshipped/stage-h/retirement-result.json": {
+      "bytes": 1596871,
+      "sha256": "9fce056b62fd74a90c5f9eafccb29d62afdc982e251e2a1ff02fe250646e8bec"
+    },
+    "docs/audits/2026_11_02-epic-m6-patches-unshipped/stage-h/retirement-run.json": {
+      "bytes": 932,
+      "sha256": "f8ad1ad1eb754a55fcd06801d810229fc5767963c01cff6de898ec98f2e36c23"
+    },
+    "docs/audits/2026_11_02-epic-m6-patches-unshipped/stage-h/retirement-run.stderr": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "docs/audits/2026_11_02-epic-m6-patches-unshipped/stage-h/retirement-run.stdout": {
+      "bytes": 74,
+      "sha256": "637c21b4bee3126eb4f42f6e9aa715e513414ec159b3fe365aef5943939f3c18"
+    },
+    "docs/audits/2026_11_02-epic-m6-patches-unshipped/tools/check-owner-outcomes.py": {
+      "bytes": 2490,
+      "sha256": "6d365f9fc4b662c94f59d2ca089ff2525ddd685f9710aa9781a51e01b37c074e"
+    },
+    "docs/audits/2026_11_02-epic-m6-patches-unshipped/tools/final-confinement.py": {
+      "bytes": 4428,
+      "sha256": "b7ee4e576629d6e3f4da628d3a5d0f0dc908a490fc92c2aa3a85447c9d32d739"
+    },
+    "docs/audits/2026_11_02-epic-m6-patches-unshipped/tools/final-record-controls.py": {
+      "bytes": 1670,
+      "sha256": "2f8417e28c9863e8bdbb82613ea793f2bc3215f677a4e8f2ca75ac37e4afb7b4"
+    },
+    "docs/audits/2026_11_02-epic-m6-patches-unshipped/tools/final-record-scan.py": {
+      "bytes": 3153,
+      "sha256": "4e1f1575a008bbb9fdc74dabcb3dcdd17fe2825a3e5979b77cc8b44c5a0ab074"
+    },
+    "docs/audits/2026_11_02-epic-m6-patches-unshipped/tools/prepare-owner-outcomes.py": {
+      "bytes": 4296,
+      "sha256": "da4cb78e9cf614aa8ae45791ae2b79b785b4efcf1c0a0f69614b440e8ff2c7f0"
+    },
+    "docs/audits/2026_11_02-epic-m6-patches-unshipped/tools/retirement-controls.py": {
+      "bytes": 5849,
+      "sha256": "5355d711d0bff1416b2e47a76bf33fb46e9e489740a03583e8dbe727f0707ec0"
+    },
+    "docs/audits/2026_11_02-epic-m6-patches-unshipped/tools/retirement-owner-scope.py": {
+      "bytes": 2314,
+      "sha256": "5f36320f13d441f4e98e558e59b83371dcc3146d4d352ed9d37f63fca2e8f34a"
+    },
+    "docs/audits/2026_11_02-epic-m6-patches-unshipped/tools/retirement.py": {
+      "bytes": 12196,
+      "sha256": "0d9aed11d6053c20d10f95075d9dc12b6177b9dfa80e459c5ec92450668f23a8"
+    },
+    "docs/audits/2026_11_02-epic-m6-patches-unshipped/tools/s1-input-contract.py": {
+      "bytes": 5230,
+      "sha256": "e9e614472271fdbf5fa73d9e7d093c3250e9871c6dcd12943606822336a70886"
+    },
+    "docs/retros/2026-11-02-m6-patches-unshipped.md": {
+      "bytes": 5669,
+      "sha256": "af34fb8ffe3ffd715f153166c98105ae360b19e2983f6603047d287f6d708fb2"
+    },
+    "docs/work-logs/2026_11-work_logs/2026_11_02-work_log.md": {
+      "bytes": 44412,
+      "sha256": "b7f479c5ed7f1476075c75b3c06385818842b5341eba6e95670a08ed7816df9c"
+    },
+    "docs/work-logs/INDEX.md": {
+      "bytes": 164274,
+      "sha256": "bb8b243489f38d0242c30ce3cbbe2d9605834d23874b1034e3ff011d18772595"
+    }
+  }
+}

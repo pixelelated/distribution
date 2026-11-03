@@ -1,0 +1,249 @@
+{
+  "observed_at": "2026-11-02T23:47:37.135203+00:00",
+  "reader": "Codex / GPT-6-Astra / xhigh / OpenAI; existing T5 m6-t5-build-engine wN:p7; session01a19d12-3d7a-7642-9108-ae06a719cdd7",
+  "dispatch": "https://github.com/pixelelated/distribution/issues/690#issuecomment-6591269070",
+  "coordinator": "f1000e157c2f0248820e1b77055e81521b079a3f",
+  "seed": "601e4694f9726b2228d3571efdb5cfc061c6d442",
+  "accepted_D": "676115271e9bbaa9e8db81f6de73a7b49094c5b4",
+  "final": "8282cbcade3be32b437f7391be7e216d9a6b1074",
+  "unexplained_literal_mismatches": [],
+  "provenance_qualification": "Four early F confinement/control receipts name45612b79; final guard isb7ee4e57. Exact single-entry inverse reconstructs45612b79. No original control replay or claim that old controls ran current bytes.",
+  "core": {
+    "ancestry": [
+      "676115271e9bbaa9e8db81f6de73a7b49094c5b4 601e4694f9726b2228d3571efdb5cfc061c6d442",
+      "d4a25244a80c6459b22e044f6ae6d1e5dc946886 676115271e9bbaa9e8db81f6de73a7b49094c5b4",
+      "fb97dd53bd8e936ff7402888c70fb6bc25f7180d d4a25244a80c6459b22e044f6ae6d1e5dc946886",
+      "9de1dbf950982621e1470a67efb7951ae29359c4 fb97dd53bd8e936ff7402888c70fb6bc25f7180d",
+      "8282cbcade3be32b437f7391be7e216d9a6b1074 9de1dbf950982621e1470a67efb7951ae29359c4"
+    ],
+    "identity": {
+      "changed_records": 159,
+      "frozen_D": 2923,
+      "native": 432,
+      "recipes": 31,
+      "selectors": 6,
+      "selected_union": 469,
+      "D_programs": 18,
+      "preserved02_sha256": "7500dde4d45de7cac02a0359b0f6171c4c6fea8b1d1045559971d024ea418869"
+    },
+    "transport_shape": {
+      "at": "2026-11-02T22:20:10.777581+00:00",
+      "encoding": "one literal hyphen represented as backslash-u002d in the exact benign source filename component; inverse is exact byte replacement of stored_component only",
+      "stored_component": "0034-serial-qcom-geni-mask\\u002dirq-during-system-suspend.patch",
+      "source_blob": "d4cd73ecef6777cd1b8557f812bb75028f86c37f",
+      "precedent": "Brief v2 section2 and t43-brief-proof/RETURN.md document the same source-name escape in historical members.tsv. Source paths and historical preparation are unchanged.",
+      "files": 19,
+      "evidence": "Original producer hashes refer to raw decoded bytes. Stored transport hashes/lengths are separate. JSON semantics are unchanged. Markdown/text readers must use the explicit decoder. No A-C producer reran."
+    },
+    "matrix": {
+      "keys": 93,
+      "consumers": {
+        "open": 188,
+        "positive": 36
+      },
+      "mixed": 6,
+      "wholly_open": 87,
+      "owners": {
+        "T25 #672": 9,
+        "T11 #658": 72,
+        "T30 #677": 3,
+        "T23 #670": 7,
+        "T8 #655": 2
+      },
+      "immutable_inputs": 46
+    },
+    "S1_controls": [
+      {
+        "name": "missing-key",
+        "exit": 1,
+        "expected_refusal": "native key membership"
+      },
+      {
+        "name": "duplicate-key",
+        "exit": 1,
+        "expected_refusal": "duplicate key:"
+      },
+      {
+        "name": "changed-owner",
+        "exit": 1,
+        "expected_refusal": "original owner changed"
+      },
+      {
+        "name": "lost-open-consumer",
+        "exit": 1,
+        "expected_refusal": "open consumer membership lost"
+      },
+      {
+        "name": "lost-positive-consumer",
+        "exit": 1,
+        "expected_refusal": "positive consumer membership lost"
+      },
+      {
+        "name": "invented-success",
+        "exit": 1,
+        "expected_refusal": "missing input must remain open"
+      },
+      {
+        "name": "changed-receipt",
+        "exit": 1,
+        "expected_refusal": "bound receipt identity"
+      },
+      {
+        "name": "positive",
+        "exit": 0,
+        "expected_refusal": null
+      }
+    ],
+    "scan": {
+      "count": 159,
+      "bytes": 35595500,
+      "stdin_sha256": "a1d06aea2824a097cca91210d89460e7803ce6e9cf93d87941ce8e49146a9f9d",
+      "scanner_replayed": false
+    }
+  },
+  "cleanup": {
+    "plan_sha256": "9f006406f7e3ab4668418ddc31a72cd0d808161cf1a15748e419b254b5871590",
+    "plan_commit": "fb97dd53bd8e936ff7402888c70fb6bc25f7180d",
+    "commit_finished": "2026-11-02T23:23:15.531282+00:00",
+    "retire_started": "2026-11-02T23:23:45.532985+00:00",
+    "counts": {
+      "retired": 881,
+      "retained": 8
+    },
+    "scope_categories": {
+      "D": 811,
+      "current-prefix": 72,
+      "empty-current-only": 4,
+      "new-F": 2
+    },
+    "cache_metadata_pairs": 21,
+    "fresh_cache_content_hash_claim": false,
+    "own_controls": [
+      "changed-content",
+      "symlink-substitution",
+      "mount-crossing-metadata",
+      "owner-mismatch-metadata",
+      "changed-identity",
+      "unknown-root",
+      "durable-root",
+      "actual-own-fd",
+      "missing-own-completion",
+      "ambiguous-known-identity",
+      "actual-inaccessible-known-owner",
+      "scoped-positive-after-fd-close"
+    ],
+    "known_child": 824219,
+    "changed_functions_after_test": [
+      "completed",
+      "plan"
+    ],
+    "original_failure_exit": 1,
+    "no_root_process_or_cache_inspection": true
+  },
+  "publication": {
+    "receipts_checked": 56,
+    "receipt_exits": {
+      "0": 50,
+      "1": 6
+    },
+    "core_files": 126,
+    "core_bytes": 29369291,
+    "appendices": {
+      "handback-request.md": {
+        "bytes": 5948,
+        "sha256": "15dea245ec5110b7be9e4a1bc9374e9bb736ae6e74137eaf285971dca1c1cc96"
+      },
+      "handback-posted.json": {
+        "bytes": 23,
+        "sha256": "f0111961941ad405f6c00f643e2e65698f0bbb9f5a77578957c1b20eba007563"
+      },
+      "handback-readback.json": {
+        "bytes": 18160,
+        "sha256": "cf46689a6b6980e89abcb326c019da1659c8ef3c9ac0ee70afd4a4461c9a107d"
+      },
+      "coordinator-return.json": {
+        "bytes": 2242,
+        "sha256": "acd015c12723eda8b420a7d16111fbbcee53d5f33dbbb00c26732ea3c1df1631"
+      },
+      "coordinator-return.stdout": {
+        "bytes": 737,
+        "sha256": "0fadff91604d000ccdee428e7380ed8ab5d1180fca7f68d08f39c20dced43cf0"
+      },
+      "coordinator-return.stderr": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "coordinator-observation.json": {
+        "bytes": 806,
+        "sha256": "6db8a1291f76407b04a62c89319ea10076231f941b0600b3973d8d2222c06e36"
+      },
+      "coordinator-observation.stdout": {
+        "bytes": 2192,
+        "sha256": "9192035a50cd3a14b227121a3ec1bb42b53b879cb20cb6426c1da4dd33f65e71"
+      },
+      "coordinator-observation.stderr": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    "publication_checks": 23,
+    "tracker": {
+      "690_state": "OPEN",
+      "690_unchecked": 20,
+      "1412_state": "OPEN",
+      "1412_checked": 1,
+      "marker_absent": true
+    }
+  },
+  "supplement": {
+    "scan_control_exits": [
+      1,
+      1,
+      0
+    ],
+    "resolved_initial_binding_reports": [
+      {
+        "receipt": "docs/audits/2026_11_02-epic-m6-patches-unshipped/stage-f/confinement.json",
+        "qualification": "Exact older source reconstructed in memory by removing the single new-tool allowlist entry. No original-version source file is retained separately; original controls are not claimed against final bytes.",
+        "expected_old_sha256": "45612b79bd6971cd453c44a0a98212d90f7bbfd6a27b6c0d1d729af005b87969",
+        "current_sha256": "b7ee4e576629d6e3f4da628d3a5d0f0dc908a490fc92c2aa3a85447c9d32d739"
+      },
+      {
+        "receipt": "docs/audits/2026_11_02-epic-m6-patches-unshipped/stage-f/frozen-negative.json",
+        "qualification": "Exact older source reconstructed in memory by removing the single new-tool allowlist entry. No original-version source file is retained separately; original controls are not claimed against final bytes.",
+        "expected_old_sha256": "45612b79bd6971cd453c44a0a98212d90f7bbfd6a27b6c0d1d729af005b87969",
+        "current_sha256": "b7ee4e576629d6e3f4da628d3a5d0f0dc908a490fc92c2aa3a85447c9d32d739"
+      },
+      {
+        "receipt": "docs/audits/2026_11_02-epic-m6-patches-unshipped/stage-f/hooks.json",
+        "resolution": "The preliminary reader excluded .githooks paths; direct immutable read matches the expected hash.",
+        "hash": "fcaa1327ebbe7ea141d63e5b0a0fac5f84c9f821053d0ba77cec06a37360a473"
+      },
+      {
+        "receipt": "docs/audits/2026_11_02-epic-m6-patches-unshipped/stage-f/scope-positive.json",
+        "qualification": "Exact older source reconstructed in memory by removing the single new-tool allowlist entry. No original-version source file is retained separately; original controls are not claimed against final bytes.",
+        "expected_old_sha256": "45612b79bd6971cd453c44a0a98212d90f7bbfd6a27b6c0d1d729af005b87969",
+        "current_sha256": "b7ee4e576629d6e3f4da628d3a5d0f0dc908a490fc92c2aa3a85447c9d32d739"
+      },
+      {
+        "receipt": "docs/audits/2026_11_02-epic-m6-patches-unshipped/stage-f/source-negative.json",
+        "qualification": "Exact older source reconstructed in memory by removing the single new-tool allowlist entry. No original-version source file is retained separately; original controls are not claimed against final bytes.",
+        "expected_old_sha256": "45612b79bd6971cd453c44a0a98212d90f7bbfd6a27b6c0d1d729af005b87969",
+        "current_sha256": "b7ee4e576629d6e3f4da628d3a5d0f0dc908a490fc92c2aa3a85447c9d32d739"
+      }
+    ],
+    "source_version_qualification": "Four early F confinement/control receipts name45612b79; final guard isb7ee4e57. Exact single-entry inverse reconstructs45612b79. No original control replay or claim that old controls ran current bytes.",
+    "program_preservation_original_programs_count": 14,
+    "program_preservation_separate_new_readers_count": 3,
+    "accepted_support_report_sha256": "340e89f5817bd5e9be8316c40c745f9520acf883317abd0976653029df63c349",
+    "brief_sha256": "a73aef709a5902a7cbbb7ba0409d1128f855a3fe7e70430c010ef0fa9047dcbf",
+    "stream_with_errata_sha256": "16d22d8b4cc8d49c7a37e073f5130f622f6d4dbd693cfceeb3c3939548d76230"
+  },
+  "limits": [
+    "No gates, producers, controls, tests, deletion or integration executed.",
+    "No projection, retained-root, cache, process or host inspection.",
+    "Only permitted publication files read externally through componentwise NOFOLLOW regular-file handles.",
+    "Cleanup outcome and process/no-reference facts are retained invocation evidence, not fresh state verification.",
+    "Gate timing and source-version qualifications retained; no acceptance decision."
+  ]
+}
