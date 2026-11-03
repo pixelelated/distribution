@@ -1,6 +1,6 @@
 # M6 coordinator current handoff
 
-Updated 2026-11-03 16:03 UTC by Codex / GPT-6-Astra / xhigh (own observed footer, not provider-attested), session01a19d11-f5c8-7bb0-80f3-49ad28732af2, wN:p2.
+Updated 2026-11-03 16:50 UTC by Codex / GPT-6-Astra / xhigh (own observed footer, not provider-attested), session01a19d11-f5c8-7bb0-80f3-49ad28732af2, wN:p2.
 
 ## Resume here
 
@@ -8,23 +8,25 @@ Worktree `/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan
 
 ## Current lanes and acceptance boundaries
 
-Updated 2026-11-03 16:02 UTC. Both five-lane integration-preparation rounds6607568979/6608027633 returned and are retained under `docs/qa-logs/2026-11-03-m6-integration-preparation/`. Root repaired T22's literal source fields from original acceptance; criteria/state unchanged. Candidate order selects42 separately cited completion/final-record tips and four explicit accepted endpoints; marker absence at those four endpoints remains qualified, not a new audit failure.
+Updated 2026-11-03T16:50:24.072974+00:00. Read `docs/qa-logs/2026-11-03-m6-integration-preparation/implementation-progress.md` first. The original implementation round returned; root has consumed those results into actual private candidate construction.
 
-| Lane | Current state / next deliverable | Boundary |
+| Lane | Current task/state | Boundary |
 | --- | --- | --- |
-| P1 wN:p3 | Proof returned; available for bounded verification of the first implementation return | Three route/name gaps corrected in published v2; no replay |
-| T1 wN:p4 | Working: exact fork-tool-list resolver under6608793796 | Private candidate only; root installs |
-| T2 wN:p5 | Working: M7 ES comparison-baseline construction under6608793796 | Preserve001–028 and separate architecture overlay; no pin choice |
-| T3 wN:p6 | Working: shared-record reconciliation helper under6608793796 | Preserve bytes/order; unresolved collisions returned to root |
-| T5 wN:p7 | Working: ordered private merge driver under6608793796 | Tiny synthetic controls only; root runs real candidate |
+| P1 wN:p3 | T1 and T5 independent readbacks returned; available | No old controls replayed |
+| T1 wN:p4 | Day-record stranger proof returned ready under6609913311 | No blocking contradiction; two index qualifications retained |
+| T2 wN:p5 | Working: four register collisions' namespace/current-citation inputs under6609913311 | Root chooses clerical mapping |
+| T3 wN:p6 | Partial record helper returned; ready for proved day-record continuation | Original helper/34controls/inputs frozen |
+| T5 wN:p7 | ES baseline readback and minimal driver correction returned; available | Root executes actual candidate |
 
-Root's first new isolated M7+coordinator merge-tree probe returned13 conflicts: one fork-only tool-list row, register/friction/nine day logs/INDEX. Exact private store/tree/commands are in `candidate-probe/`. It is an unresolved initial probe before46 slices, not integration or acceptance. `candidate-order.json` selects immutable canonical endpoints. The proved v2 brief is `docs/reviews/briefs/m6-integration-candidate.md` at published b44594962a0996a3ce7f58ecd64f0b9079843af4, SHA2563a3c65660b0730ca2f45539b8a2d27a8bdfbcc1e69843bc19c72f88ef8d426a5. Full dispatch6608793796 was read back exactly; all four deliveries started from done and all four workers were observed working at16:02 UTC. P1's three route/name corrections are resolved; original proof and hash-identical recovered v1 are retained. Root retains planning, resolutions, real candidate execution, live integration, runtime and closure. Do not repeat completed inventories or audits.
+Root privately resolved three of13 initial distribution conflicts; partial tree96869a5b7ee18c24b9146f2e6c1df8335245d26c. Register/eight dayfiles/INDEX remain. Exact root programs and raw receipts are retained privately in `root-continuation-20261103` beside the probe repository named by `candidate-probe/result.json`; its MANIFEST binds64selectedfiles. No source candidate is installed in a shared worktree/ref. The day brief `docs/reviews/briefs/m6-integration-day-records.md` is proved v2 with two index qualifications; publish it and dispatch T3 explicitly.
 
-M7 read-only handoff retains its ownership of canonical next and its pointer. Current M7 checkpoint41b5287311476efd076bf6f9efca0cc94099fbec has the same product directories and full ES package as1850362563dc02720f1910faa415ed96580fa7d2. ES base16dbac plus patch treeb17587b4d1eaf7e1083f7e37af44f8e262969d35 is the preservation input; base-pin equality alone is insufficient. Root independently verified these immutable identities and next ancestry in the private probe. M7 reports pending Nova reboot permission/no active runtime; this is reported state, not a new grant or root process census. Source candidate preparation can proceed; live next clearance and D191 build selection remain ungranted/unresolved. Do not answer M7's permission question.
+Root independently consumed the ES baseline28b3f7e and corrected ordered driver, then actually started the11canonical accepted ES endpoints from an explicitly synthetic wrapper of the already-constructed common baseline. First T2 merge stopped with FileData.cpp/French-catalogue conflicts, no later attempt. Failed treec8d6a92dc1c5d555e6f92c7a1f8d4769bc4a7983; state/commands remain under the exclusive root-owned ES candidate packet `es-candidate-20261103-420yq9_k`, alongside the private distribution probe owner. Resolve the exact failed pair before resume; approval must genuinely name the root decision. No source pin/runtime acceptance follows. This local route is convenience only; the private owner records and actual receipts remain authoritative.
 
-Use existing wN lanes and absolute workdirs; verify HERDR_ENV=1 before controls. CPUs8–23. No runtime/host ledger, physical/cloud action, held reads, shared source writes or accepted producer replay. Temporary source/Git construction stays under `/workspace/tmp/<lane>/` after df/inode reads; no long-lived M6 integration branch. Root state stays in this branch pointer while M7 owns saved-session-state-next.md.
+The46distribution endpoint order is already retained in candidate-order.json; do not run another inventory round. Four historical marker absences remain qualified for later closure-contract disposition. The original v2 integration contract remains b44594962a0996a3ce7f58ecd64f0b9079843af4. Original producer failures and P1 evidence limitations remain preserved.
 
-Root next consumes these actual implementations directly: independently verify T1's exact tool-row bytes; let P1 inspect the first complete helper against its concrete contract; resolve T3's explicit ledger collisions without dropping whole entries; use T5's tested driver on the root private probe after the initial13 conflicts are resolved. T2's baseline is a new strict common-package construction, not a new ES pin or M7 runtime recertification. Preserve any early strict failure and resolve that exact input/method boundary rather than restarting accepted work. The46-endpoint order is already selected and retained; no further inventory round is queued. Four older marker absences need historical closure-contract disposition before closure, not before isolated candidate preparation. Do not merge or publish next while M7 retains ownership.
+M7 still owns next and its checkpoint. Owner reports new source lanes in separate branches, Nova reboot completed, and its short source-collection window returned. M6's comparison baseline41b528 and full carried ES package remain pinned; no moving M7 head is substituted. Shared detailed host/implementation bindings stay local. Public scope comments6609839167/6609913311 were approved after one detailed payload was rejected; do not repost the rejected private payload.
+
+Root next: finish exact record dispositions and regenerate INDEX only after installation; resolve the first two ES conflicts against carried M7 behavior; then continue the private ordered driver. No live next roll-up or build choice is granted here. All accepted audits remain closed to replay.
 
 ## Current T46 acceptance and completion boundary
 
@@ -36,7 +38,7 @@ Root new simulation against2ab42922be8d0b693e41a9fcfa9e8c666beae462 passed: all 
 
 Acceptance evidence published e4dacd1812213da2c09e67e3a277121f3af8dd43; decision6605921275. Audit1417 closed/completed2026-11-03T14:07:02Z. Completion-only6605965227 returned atdf8058e4353c54b73d4eea4d356ce18df901aabf, checkpoint6606526044. Root verified marker03bed591,14evidence hashes,7immutable coordinator inputs,976frozen auditfiles,813-byteREADME,32command receipts/141inputs and exact226path scan. Existing schema validator passes; all15 current gates are retained PASS, no producer replay. Fresh remote/HEAD/clean agree. Original review-capacity interruption recovered normally; original failures and root reader correction are preserved.
 
-Evidence/lossless publication packet: docs/qa-logs/2026-11-03-m6-records-completion/.693 remains17checked/1unchecked,1416 open/two checked,1415 open2checked/1actual-integration criterion remaining after marker verification6606790544. Source d707,seed8710,S1 45d455,fixed-at17a064 and completiondf8058 stay distinct. No accepted replay or actual merge. H retains everything. Both integration-input rounds are complete. P1 completed the proof; four implementation workers are active under6608793796. Accepted audits remain closed to replay.
+Evidence/lossless publication packet: docs/qa-logs/2026-11-03-m6-records-completion/.693 remains17checked/1unchecked,1416 open/two checked,1415 open2checked/1actual-integration criterion remaining after marker verification6606790544. Source d707,seed8710,S1 45d455,fixed-at17a064 and completiondf8058 stay distinct. No accepted replay or actual merge. H retains everything. Both integration-input rounds are complete. The implementation round6608793796 returned; current bounded continuations are listed above. Accepted audits remain closed to replay.
 
 ## Accepted work and pending integration
 
@@ -55,7 +57,7 @@ T41 acceptance6588269141/completion6588465063; #688 open28checked until area int
 
 T42 D230 and final packet preserve native384151/38/22/173, separate inherited50/26with21/7/22,12fork-written498lines,3931accepted artifacts/391source identities. G202/G203/G383 holes remain. New root simulation pins lane4cf8 to coordinator8b83; original strict log refusal remains FAIL, exact continuation and4controls preserve the10,620byte coordinator continuation and2+6whole entries. All remaining new integrated checks pass. Full whitespace remainsrc2 on six unchanged accepted D raw receipts; allotherpaths0. No actual merge. Root records retained under `t42-final-integration/`; external publication manifest62ef887c2fd2cc67c7b88ebd9c1bdb80091423596c60a1cf0e6e1cdc01dc8781 retained under `t42-final-publication/`. H's126/129scan claim and cachemetadata-only custody remain qualified; new exact-final lane scan supplements the former.
 
-Milestone6 current prefix records the returned inputs, isolated probe and four active implementations6608793796; the historical all-five-active6607568979 snapshot remains in its original evidence. Completion verification and latest current tracker/milestone readbacks are under docs/qa-logs/2026-11-03-m6-records-completion/. Preserve the entire existing backlog/history suffix. Prior final/milestone-readback.json and earlier dispatch/disposition snapshots remain historical. Do not invent duplicate work to occupy available lanes.
+Milestone6 current prefix is being updated to the actual private constructions and current bounded continuations; the historical all-five-active6607568979 snapshot remains in its original evidence. Completion verification and latest current tracker/milestone readbacks are under docs/qa-logs/2026-11-03-m6-records-completion/. Preserve the entire existing backlog/history suffix. Prior final/milestone-readback.json and earlier dispatch/disposition snapshots remain historical. Do not invent duplicate work to occupy available lanes.
 
 ## Resources, continuity and publishing
 
