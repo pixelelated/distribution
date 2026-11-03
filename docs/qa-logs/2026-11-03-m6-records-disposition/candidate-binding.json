@@ -1,0 +1,13 @@
+{
+  "started_at": "2026-11-03T12:56:09.145213+00:00",
+  "finished_at": "2026-11-03T12:56:09.172796+00:00",
+  "argv": [
+    "bash",
+    "-c",
+    "taskset -c 8-23 python3 -B - <<'PY'\nimport hashlib, subprocess\nD='a0d4c4fda7a0c16c04d57edf921ffeb741eff19b'\nS='8710a6210a40de0110244d03a886161ee06faf29'\nA='docs/audits/2026_11_03-epic-m6-records/'\ndef git(*args):\n    return subprocess.check_output(['git', *args])\nassert git('rev-parse', D+'^{commit}').decode().strip() == D\nassert git('show', '-s', '--format=%P', D).decode().strip() == S\npaths=[p for p in git('ls-tree','-r','--name-only','-z',D,'--',A).split(b'\\0') if p]\nassert len(paths) == 311\nfor path, digest in [\n    ('docs/audits/README.md','17269ce0820878e809890a9f737cd665c77d32ff07a20e779aed4fac1b745d79'),\n    ('.claude/rules/instruction-files.md','ca638c32b6bbf991c02a865b9c3ab19279416806e7baa0a320713989610da845')]:\n    assert hashlib.sha256(git('show',D+':'+path)).hexdigest() == digest\nprint('PASS T46 stream binding: D a0d4c4fda7a0 / 311 audit files / 1 owned documentation path')\nPY"
+  ],
+  "brief_sha256": "e44b47b4fc7f174461d57a76b44953279dee5137371c71797ad300f5625cfcba",
+  "exit": 0,
+  "stdout": "PASS T46 stream binding: D a0d4c4fda7a0 / 311 audit files / 1 owned documentation path\n",
+  "stderr": ""
+}

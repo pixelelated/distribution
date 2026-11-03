@@ -1,0 +1,96 @@
+{
+  "observed_at": "2026-11-03T12:53:48.493845+00:00",
+  "scope": "Root bounded defect and stream-input comparison; no audit producer execution",
+  "readme_comparisons": [
+    {
+      "argv": [
+        "git",
+        "show",
+        "d707c82ab8c48b674acc1f95a9571f0cb24d226a:docs/audits/README.md"
+      ],
+      "started_at": "2026-11-03T12:53:48.481890+00:00",
+      "finished_at": "2026-11-03T12:53:48.483606+00:00",
+      "exit": 0,
+      "sha256": "17269ce0820878e809890a9f737cd665c77d32ff07a20e779aed4fac1b745d79",
+      "bytes": 666,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "show",
+        "8710a6210a40de0110244d03a886161ee06faf29:docs/audits/README.md"
+      ],
+      "started_at": "2026-11-03T12:53:48.483627+00:00",
+      "finished_at": "2026-11-03T12:53:48.485260+00:00",
+      "exit": 0,
+      "sha256": "17269ce0820878e809890a9f737cd665c77d32ff07a20e779aed4fac1b745d79",
+      "bytes": 666,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "show",
+        "a0d4c4fda7a0c16c04d57edf921ffeb741eff19b:docs/audits/README.md"
+      ],
+      "started_at": "2026-11-03T12:53:48.485276+00:00",
+      "finished_at": "2026-11-03T12:53:48.486663+00:00",
+      "exit": 0,
+      "sha256": "17269ce0820878e809890a9f737cd665c77d32ff07a20e779aed4fac1b745d79",
+      "bytes": 666,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "show",
+        "f92bc2f372c0c0ed32018975e903ac83b33bf3a5:docs/audits/README.md"
+      ],
+      "started_at": "2026-11-03T12:53:48.486675+00:00",
+      "finished_at": "2026-11-03T12:53:48.488098+00:00",
+      "exit": 0,
+      "sha256": "17269ce0820878e809890a9f737cd665c77d32ff07a20e779aed4fac1b745d79",
+      "bytes": 666,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "show",
+        "4eb5dfab8e745914a55e7de3e5a43c5b91ebc608:docs/audits/README.md"
+      ],
+      "started_at": "2026-11-03T12:53:48.488109+00:00",
+      "finished_at": "2026-11-03T12:53:48.489414+00:00",
+      "exit": 0,
+      "sha256": "17269ce0820878e809890a9f737cd665c77d32ff07a20e779aed4fac1b745d79",
+      "bytes": 666,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ],
+  "canonical_guide": {
+    "ref": "a0d4c4fda7a0c16c04d57edf921ffeb741eff19b",
+    "path": ".claude/rules/instruction-files.md",
+    "sha256": "ca638c32b6bbf991c02a865b9c3ab19279416806e7baa0a320713989610da845",
+    "trace_lines": [
+      9,
+      27,
+      37,
+      47
+    ]
+  },
+  "old_paragraph": "The skill grounds work against this project's own doctrine rather than a single\nrubric file: the instruction files whose `applyTo` matches the changed paths,\n`docs/blindspot-register.md`, and the invariants those files state.\n",
+  "replacement_paragraph": "The skill grounds work against this project's own doctrine rather than a single\nrubric file: every-session rules (no `paths:` key or a `**` glob), instruction\nfiles whose `paths:` globs match the changed paths, `docs/blindspot-register.md`,\nand the invariants those files state. See the\n[rule-selection convention](../../.claude/rules/instruction-files.md).\n<!-- #1416 -->\n",
+  "expected_after_sha256": "410e4432c01a38cda578a68fdaa730129c15a8e3e60c7305001bb40bd5a71b6c",
+  "expected_after_bytes": 813,
+  "audit_files": 311,
+  "mutable_narratives": [
+    "docs/audits/2026_11_03-epic-m6-records/00-running-log.md",
+    "docs/audits/2026_11_03-epic-m6-records/02-forward-audit.md",
+    "docs/audits/2026_11_03-epic-m6-records/04-analysis.md",
+    "docs/audits/2026_11_03-epic-m6-records/05-punch-list.md",
+    "docs/audits/2026_11_03-epic-m6-records/06-audit-summary.md",
+    "docs/audits/2026_11_03-epic-m6-records/07-questions-for-the-maintainer.md"
+  ],
+  "frozen_artifacts": 305
+}
