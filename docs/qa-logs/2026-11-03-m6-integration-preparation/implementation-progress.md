@@ -1,48 +1,41 @@
 # M6 integration construction progress
 
-Root observation at 2026-11-03T19:28:19.683871+00:00. These are private source candidates and
+Root observation at 2026-11-03T19:53:28.251438+00:00. These are private source candidates and
 bounded readbacks. Shared integration, image qualification and issue closure remain
 separate; M7 still owns next.
 
 ## Distribution candidate
 
-The original thirteen M7/coordinator conflicts are resolved. Nine canonical
-endpoints, T1 through T9, are now incorporated into private two-parent history.
-Whole records, explicit order/separator choices and generated indexes retain their
-receipts. The full carried M7 ES package remains unchanged. No failed merge was
-replayed and no shared ref moved.
-
-The sequence is stopped at T10. All three bounded inputs returned under6613140117.
-Root constructed its eight-path candidate, preserving twelve new record entries
-already auto-combined in place. New rule/index checks passed. The combined host-tool
-selection and workflow condition now have a fresh, bounded validation assignment
-under6613406748. That assignment uses synthetic files, never old producer suites or
-production input directories. T10 has not resumed or been accepted.
+Eleven canonical endpoints, T1 through T11, are now incorporated into private
+two-parent history. T10 passed thirteen new isolated controls with expected
+refusals retained; its workflow/caller conclusions remain source-only. T11 preserves
+four new whole records, the exact automatic launcher and explicit carried-order
+choices. Independent bytes and new INDEX checked before each exact-pair resume.
+The sequence is stopped at T12; root has read the owning body, with no new input
+dispatch yet. Full carried M7 ES package remains unchanged. No shared ref moved.
 
 ## ES candidate
 
-T2, T18, T20 and T21 are incorporated in the eleven-endpoint private sequence.
-The new T21 helper/caller correction and exact oracle amendment retain scoped
-source readbacks. Their tests remain unexecuted. The mandatory later T32 arming
-obligation remains explicit and has not been imported early.
+T2, T18, T20, T21 and T26 are incorporated in the eleven-endpoint private sequence.
+Three T26 source readers returned; root selected two bounded followthroughs,
+verified their exact sealed outputs and combined them before private continuation.
+Original construction failure and a coordinate-label error are retained with a
+separate factual UTF8 erratum. The final four-file candidate and all79 test
+source declarations remain uncompiled/unexecuted. Detailed findings stay local.
+The later T32 arming obligation remains explicit and was not imported early.
 
-The sequence is stopped at T26. Its transferred production input is complete.
-Root constructed the four-file candidate and dispatched independent production,
-catalogue and test-source readbacks under6613346843. The original constructor
-source-matcher refusal is preserved; a separately named narrow correction produced
-the candidate. New lifecycle/sample combinations require validation, not just
-successful source construction. No compiler, product tests or runtime ran; T26
-has not resumed or been accepted.
+The sequence stopped at T31. P1/T1/T2/T5 were each observed working after new
+scope dispatch6613897571 on disjoint catalogue, BIOS/loading, bookkeeper and
+Moonlight/test conflict inputs. These are finite preservation proposals, not
+acceptance or a replay of accepted audits. Root retains combinations and validation.
 
 ## Current lane observations
 
-P1, T2 and T5 were observed working after6613346843; T1 was observed working
-after6613406748. T3 remains parked after selected-model capacity stopped its prior
-read, without a handback; no repeated prompt or model switch occurred. These are
-dated observations, not continuous-activity claims. Root owns both serial drivers
-and final choices. Exact dependency custody and the compiler/sysroot environment
-for later ES validation remain unbound; finite missing routes are not global
-absence. M6 holds no compiler, VM or product-runtime allocation.
+The four working observations above are dated, not continuous-activity claims.
+T3 remains parked after selected-model capacity stopped its earlier read, without
+a handback; no repeated prompt or model switch. Exact dependency custody and
+compiler/sysroot environment remain unbound through named routes, not globally
+absent. M6 holds no runtime/compiler allocation and continues on CPUs8–23.
 
 ## Independent findings and corrections
 
@@ -138,3 +131,10 @@ Eleventh selected retention binds309files/1015148bytes; the twelfth binds66files
 940768bytes. They retain new states, constructors, the original matcher failure,
 bounded returns and exact dispatch bindings. Original source objects remain in
 private owner stores; these local copies are not off-host backup.
+
+Selected retention now reaches increment15:411files/1332552bytes with exact-copy
+readback and a sealed manifest in the coordinator handoff. Earlier increments13/14
+remain frozen. New source objects remain in private owner stores; no off-host
+backup claim. M7's requested conditional window was granted and subsequently has
+an actual ledger RETURN19:51:45.069027; this is owner-recorded custody, not a fresh
+host process census or new integration authority.
