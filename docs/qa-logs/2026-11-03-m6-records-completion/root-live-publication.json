@@ -1,0 +1,52 @@
+[
+  {
+    "argv": [
+      "git",
+      "\u002dc",
+      "credential.helper=",
+      "\u002dc",
+      "credential.helper=!gh auth git\u002dcredential",
+      "ls\u002dremote",
+      "origin\u002dhttps",
+      "refs/heads/feature/m6\u002drecords\u002d693"
+    ],
+    "cwd": ".",
+    "start": "2026\u002d11\u002d03T14:39:46.113025+00:00",
+    "end": "2026\u002d11\u002d03T14:39:46.370591+00:00",
+    "rc": 0,
+    "stdout": "df8058e4353c54b73d4eea4d356ce18df901aabf\trefs/heads/feature/m6\u002drecords\u002d693\n",
+    "stderr": "",
+    "stdout_sha256": "2634754219c524bf525a4502177cac0e3afb989126c57680649a4f2f67ace43e",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "status",
+      "\u002d\u002dporcelain=v1"
+    ],
+    "cwd": "/workspace/repos/pixelelated/distribution.worktrees/m6\u002drecords\u002d693",
+    "start": "2026\u002d11\u002d03T14:39:46.370643+00:00",
+    "end": "2026\u002d11\u002d03T14:39:46.666240+00:00",
+    "rc": 0,
+    "stdout": "",
+    "stderr": "",
+    "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "rev\u002dparse",
+      "HEAD"
+    ],
+    "cwd": "/workspace/repos/pixelelated/distribution.worktrees/m6\u002drecords\u002d693",
+    "start": "2026\u002d11\u002d03T14:39:46.666271+00:00",
+    "end": "2026\u002d11\u002d03T14:39:46.667917+00:00",
+    "rc": 0,
+    "stdout": "df8058e4353c54b73d4eea4d356ce18df901aabf\n",
+    "stderr": "",
+    "stdout_sha256": "8e8667603cabfee8dae2d3dc4c3e619b697febc933bb46f5bd303b2c4fe1c7a9",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  }
+]

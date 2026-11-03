@@ -1,0 +1,78 @@
+{
+  "observed_utc": "2026\u002d11\u002d03T14:40:08.801894+00:00",
+  "argv": [
+    "herdr",
+    "agent",
+    "list"
+  ],
+  "rc": 0,
+  "workspace": "wN",
+  "agents": [
+    {
+      "agent_session": {
+        "agent": "codex",
+        "kind": "id",
+        "source": "herdr:codex",
+        "value": "01a19d11\u002df5c8\u002d7bb0\u002d80f3\u002d49ad28732af2"
+      },
+      "agent_status": "working",
+      "name": "m6\u002dcoordinator",
+      "pane_id": "wN:p2"
+    },
+    {
+      "agent_session": {
+        "agent": "codex",
+        "kind": "id",
+        "source": "herdr:codex",
+        "value": "01a19d11\u002ddda5\u002d72e3\u002d86f9\u002d416f36341c24"
+      },
+      "agent_status": "done",
+      "name": "m6\u002dp1\u002dsurvey",
+      "pane_id": "wN:p3"
+    },
+    {
+      "agent_session": {
+        "agent": "codex",
+        "kind": "id",
+        "source": "herdr:codex",
+        "value": "01a19d12\u002d0c07\u002d7ba3\u002d88b8\u002dab9d609f4d67"
+      },
+      "agent_status": "done",
+      "name": "m6\u002dt1\u002dos\u002dlaunch",
+      "pane_id": "wN:p4"
+    },
+    {
+      "agent_session": {
+        "agent": "codex",
+        "kind": "id",
+        "source": "herdr:codex",
+        "value": "01a19d12\u002d1c5f\u002d7022\u002d8053\u002d102f6a94b7fe"
+      },
+      "agent_status": "done",
+      "name": "m6\u002dt2\u002des\u002dlaunch",
+      "pane_id": "wN:p5"
+    },
+    {
+      "agent_session": {
+        "agent": "codex",
+        "kind": "id",
+        "source": "herdr:codex",
+        "value": "01a19d12\u002d29e3\u002d7fe0\u002d9f41\u002d038dac0a5deb"
+      },
+      "agent_status": "done",
+      "name": "m6\u002dt3\u002demulators",
+      "pane_id": "wN:p6"
+    },
+    {
+      "agent_session": {
+        "agent": "codex",
+        "kind": "id",
+        "source": "herdr:codex",
+        "value": "01a19d12\u002d3d7a\u002d7642\u002d9108\u002dae06a719cdd7"
+      },
+      "agent_status": "done",
+      "name": "m6\u002dt5\u002dbuild\u002dengine",
+      "pane_id": "wN:p7"
+    }
+  ]
+}

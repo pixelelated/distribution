@@ -1,6 +1,6 @@
 # M6 coordinator current handoff
 
-Updated 2026-11-03 14:02 UTC by Codex / GPT-6-Astra / xhigh (own observed footer, not provider-attested), session01a19d11-f5c8-7bb0-80f3-49ad28732af2, wN:p2.
+Updated 2026-11-03 14:41 UTC by Codex / GPT-6-Astra / xhigh (own observed footer, not provider-attested), session01a19d11-f5c8-7bb0-80f3-49ad28732af2, wN:p2.
 
 ## Resume here
 
@@ -8,14 +8,14 @@ Worktree `/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan
 
 ## Current lanes and acceptance boundaries
 
-Updated 2026-11-03 14:02 UTC. T39/T41/T42/T43/T44 accepted with verified completion markers. T46 final17a064 accepted6605921275; audit1417 closed/completed and normal completion6605965227 is active in T3.693 stays17checked/1integration criterion open. Actual ordered integration remains pending.
+Updated 2026-11-03 14:41 UTC. T39/T41/T42/T43/T44/T46 accepted with verified completion markers. T46 completiondf8058 is verified under docs/qa-logs/2026-11-03-m6-records-completion/. All five worker lanes returned/available.693 stays17checked/1integration criterion open. Actual ordered integration remains pending.
 
 | Lane | Current outcome | Next useful action |
 | --- | --- | --- |
 | P1 wN:p3 | T46 final support returned:204 matches/3 differences; H final inputs and publication reconcile | Available; no replay |
 | T1 wN:p4 | T46 accepted T39 bridge returned; root192 identity comparisons agree, all48 corrections integration-pending | Available; accepted work stays accepted |
 | T2 wN:p5 | T44 acceptedf01/completionad0df verified6592382782 | Available for bounded support |
-| T3 wN:p6 | Final17a064/S1 45d455 published clean; root simulation and final-record reconciliation pass | Completion-only6605965227 active; then root marker verification |
+| T3 wN:p6 | Completiondf8058, marker and unchanged976 accepted files verified; clean remote/HEAD | Available; ordered integration remains root-owned |
 | T5 wN:p7 | Stream proof returned; v2 adopts staged-index/working/untracked checks and three index-only refusals | Available; no execution assignment |
 
 Use existing wN lanes and absolute workdirs; verify HERDR_ENV=1 before controls. Do not answer permission prompts. P1's factual selector question was inspected and answered with the exact excerpt it requested; no approval or runtime authority was supplied. CPU8–23, no runtime allocation.
@@ -28,7 +28,9 @@ P1 final support6605473056 returned204 matches/3 differences, stored losslessly 
 
 Root new simulation against2ab42922be8d0b693e41a9fcfa9e8c666beae462 passed: all owner identities,305 frozen files, whole4+4 log entries, regenerated INDEX, normal/issue resolution lints, rules/register/ceremony gate/hooks/issue checks and forbidden0/135959. Original clone identity128 and expected conflict1 retained; continuation passes. No actual merge. Full receipts and18-criterion mapping are under docs/qa-logs/2026-11-03-m6-records-final/.
 
-Acceptance evidence published e4dacd1812213da2c09e67e3a277121f3af8dd43; full decision6605921275 exact-read-back. Audit1417 actually closed/completed2026-11-03T14:07:02Z. Completion-only dispatch6605965227 exact-read-back and T3 observed working in wN:p6. Next root action: verify its clean published schema1 marker/closed tracker readbacks and all976 accepted audit files unchanged.693 has17checked/1unchecked: criterion18 keeps the actual integration/closure/status sequence open; bug1416/two checked and epic1415 remain open. Current milestone/epic and accepted-tracker-readbacks.json agree. No old producer/control/scan or source replay. Current recorded H retains all roots; no deletion or new census. No other lane has an execution assignment.
+Acceptance evidence published e4dacd1812213da2c09e67e3a277121f3af8dd43; decision6605921275. Audit1417 closed/completed2026-11-03T14:07:02Z. Completion-only6605965227 returned atdf8058e4353c54b73d4eea4d356ce18df901aabf, checkpoint6606526044. Root verified marker03bed591,14evidence hashes,7immutable coordinator inputs,976frozen auditfiles,813-byteREADME,32command receipts/141inputs and exact226path scan. Existing schema validator passes; all15 current gates are retained PASS, no producer replay. Fresh remote/HEAD/clean agree. Original review-capacity interruption recovered normally; original failures and root reader correction are preserved.
+
+Evidence/lossless publication packet: docs/qa-logs/2026-11-03-m6-records-completion/.693 remains17checked/1unchecked,1416 open/two checked,1415 open with only actual-integration criterion remaining after marker verification. Source d707,seed8710,S1 45d455,fixed-at17a064 and completiondf8058 stay distinct. No accepted replay or actual merge. H retains everything. All worker lanes are available. Next root work is preparing the actual ordered integration under the plan and existing owners; do not reopen completed audits or dispatch duplicate reviews to fill lanes.
 
 ## Accepted work and pending integration
 
@@ -37,7 +39,7 @@ Updated 2026-11-02T23:59:46.035392+00:00.
 1. T43 final8282 accepted6591649449; completionfd1238800b61431a8febeebe8cf44f41d2384bbb verified by root6591865102. Audit1412closedcompleted,690open20checked andseed601e/final8282headers unchanged. Marker21evidence hashes,16newcommittedcommand bindings,12normalchecks andall3078accepted audit files unchanged verify. Publication94core+3checkpoint files hash-bound,30command receipts29rc0/one retained helperrefusal; supportedstdin scan binds61paths/399862bytes, remote/cleanexact. Root verification/losslessretention under t43-completion/. One coordinator-reader normalized-field KeyError is retained and corrected (issue_number versus rawnumber); no lane evidence failure. T1 available, no new action. Root actual ordered area integration and690closure remain future; no further source/cleanup/replay. Original final integration against749e passed26newcontinuationcommands and preserved all literal earlier failures, under t43-final/.
 2. T43 PL001 resolves custody only;93 source-input gaps and224consumers188open/36positive remain. H881retired/eightretained/zero partial and unknownPID2389 visibility remain scoped recorded outcomes. No further cleanup. Four old controls bind45612b79, currentguardb7ee4e57; exact reconstructed old bytes are labelled derived, not a recovered historical file. Source/program/A–D receipts are unchanged; old tests/applications/cleanup were not replayed. Retain /workspace/tmp/m6-t43/eh-publication/ and its135 ordinary-file identities, losslessly indexed in t43-final/publication/.
 3. T44 acceptedf01abd480f4e0b337a9fcdde2cec9bc1746b525d at691comment6592210088; normalcompletionad0df587128577212337aa76d171b0b9cfaae4a4 verified6592382782. Marker14evidence hashes,7immutablecoordinatorinputs,21newcommittedcommandbindings,13checks andall440acceptedfiles unchanged verified. Exact106-path finalscan710595rawbytes+106separatorLF=710701bytes matches; all11externalpublicationcommands rc0, exactremote/clean/checkpointreadbacks. Ordinarypacket53files/396499bytes retained losslessly under t44-completion/publication/. Root initial wrongobjecttype and scalar-versus-tuple validator assumptions were refused and corrected; initialreaders/errorqualification retained, no lane failure or producer replay.691open20checked/seed48a335/finalf01/ES55158headers;1413closedcompleted;1414openM6parent700fiveunchecked. T2available, no new assignment. Acceptance evidence published e7b5f22e, dispatch continuity07cc1946. Earlier root37-command simulation against93b247 and P1rootthreebyteequal outputs remain under t44-final/. Four D limits and laterpartialreceipt/old-currentrunner qualifications remain; H49old+102newfiles retained,none deleted. WholeES55158/tree64b90 unchanged. Root owns actualintegration/691closure; no source/runtime/replay/cleanup.
-4. T46 final handback is accepted and completion-only work active as detailed above; source cutoff and finite reader ranges are explicit. Documentationindex/33reference review remains Backlog1407/D223/D224. Historical T44 completion and all accepted lane outcomes remain unchanged.
+4. T46 final handback and completion marker are accepted/verified as detailed above; source cutoff and finite reader ranges are explicit. Documentationindex/33reference review remains Backlog1407/D223/D224. Historical T44 completion and all accepted lane outcomes remain unchanged.
 
 ## Evidence and limits
 
@@ -47,7 +49,7 @@ T41 acceptance6588269141/completion6588465063; #688 open28checked until area int
 
 T42 D230 and final packet preserve native384151/38/22/173, separate inherited50/26with21/7/22,12fork-written498lines,3931accepted artifacts/391source identities. G202/G203/G383 holes remain. New root simulation pins lane4cf8 to coordinator8b83; original strict log refusal remains FAIL, exact continuation and4controls preserve the10,620byte coordinator continuation and2+6whole entries. All remaining new integrated checks pass. Full whitespace remainsrc2 on six unchanged accepted D raw receipts; allotherpaths0. No actual merge. Root records retained under `t42-final-integration/`; external publication manifest62ef887c2fd2cc67c7b88ebd9c1bdb80091423596c60a1cf0e6e1cdc01dc8781 retained under `t42-final-publication/`. H's126/129scan claim and cachemetadata-only custody remain qualified; new exact-final lane scan supplements the former.
 
-Milestone6 is reconciled to T46 accepted/completion active; P1/T1/T2/T5 are available. Latest exact readback is final/milestone-readback.json, with backlog/history suffix byte-preserved. Exact new readback is disposition/eh-milestone-readback.json; historical/backlog suffix preserved. Latest dispatch/seed/acknowledgement/milestone receipts are under docs/qa-logs/2026-11-03-m6-records-preparation/dispatch/. Earlier t43-dispatch/, t44-dispatch/, lane-progress/milestone.json and t44-completion/milestone-readback.json remain historical. Do not invent duplicate work to occupy available lanes.
+Milestone6 current prefix is being reconciled to T46 completion verified and ordered integration next; all five worker lanes are available. Completion verification and latest current tracker/milestone readbacks are under docs/qa-logs/2026-11-03-m6-records-completion/. Preserve the entire existing backlog/history suffix. Prior final/milestone-readback.json and earlier dispatch/disposition snapshots remain historical. Do not invent duplicate work to occupy available lanes.
 
 ## Resources, continuity and publishing
 
