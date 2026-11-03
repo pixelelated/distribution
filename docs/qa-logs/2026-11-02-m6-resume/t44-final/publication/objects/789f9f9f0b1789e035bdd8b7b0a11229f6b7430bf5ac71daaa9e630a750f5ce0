@@ -1,0 +1,71 @@
+{
+  "at": "2026-11-03T00:15:31.527337+00:00",
+  "result": "PASS",
+  "tip": "f01abd480f4e0b337a9fcdde2cec9bc1746b525d",
+  "head_clean_after_all_checks": true,
+  "gates": {
+    "final-forbidden": {
+      "receipt_sha256": "785d31075530a34644bcc878c62dcd3ef2c3238419128d8cd5989c330f565ede",
+      "rc": 0,
+      "stdout_sha256": "c7593fffcf951ce5ab012bb4252d318f4aae0d535f57e78615b49c1b5798a2cd",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "final-confinement": {
+      "receipt_sha256": "9c3227cafe4c28db066ee198a18dccd898ce795044176f0b6452a3ed823b5eb5",
+      "rc": 0,
+      "stdout_sha256": "fbdf7025c8829d0b4590386d18993ea552988ead62788f519ba33e0b55d8be0f",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "final-immutable": {
+      "receipt_sha256": "446b2a5be05a1411f5401389f65a8d71928fb8d6df887e15e0dc23cde8e2ea21",
+      "rc": 0,
+      "stdout_sha256": "edd9cc4b38abebf1bca820a27475548015c35488e2d5e6133505b6f173afc5d9",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "final-resolution": {
+      "receipt_sha256": "af85bf3ec5d1b54a22c33925eb26a67e6e8d689c6bcf0b21e0171ca9e2f323aa",
+      "rc": 0,
+      "stdout_sha256": "02120d5f59a5231dc9647c20a0d1c07e6ea93ad2500512509f798e00e1257403",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "final-resolution-issue-network": {
+      "receipt_sha256": "0f8b9aa128188e2d57c5947a72f53766d40c9b31c4cae275b699beff58e9ce94",
+      "rc": 0,
+      "stdout_sha256": "d9cbac168216e5fb2405c65558daecceb1d5c50b78b60625587a32f5b372cd6a",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "final-rules": {
+      "receipt_sha256": "2ae989e3bfac93ee8053dffc284018e9e30b08f7537a4971d5d457b8334b1023",
+      "rc": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "final-register": {
+      "receipt_sha256": "78d5dfdda8385c54a96e94d1b8830ba0e1b778832d87b922a1be025b329788f5",
+      "rc": 0,
+      "stdout_sha256": "a663cbd892b0646df3ab8ca7417fe230f414e09711f264cda79ea904d4bbc2fa",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "final-index": {
+      "receipt_sha256": "0a17bbc91cb68603735ae0ca272b0aad70d7c2286f06a6d147f83a0ff8336f98",
+      "rc": 0,
+      "stdout_sha256": "232b345c76ad64a47de4d43e62d9aeb4f2850472cde78ddd1b1e56d72103d927",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "final-ceremony-network": {
+      "receipt_sha256": "5a1d51f2befa3f6b3bf12ad4cf25a60ad1fb8ee20f79e8b6b690263239bdae11",
+      "rc": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "final-diff": {
+      "receipt_sha256": "cd532f5f27ac46de266f25a8735732255ae93773f75911c5f2c77f1ce96ebad2",
+      "rc": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  },
+  "earlier_attempts": "final-resolution-issue rc1 and final-ceremony rc0/network warning retained. Original parallel supervisor exited1 because it evaluated the earlier rc1, before its postchecks. This readback separately verifies the successful network retries and current exact tip/clean status. No failure is erased.",
+  "forbidden_output": "forbidden-terms-check: 0 hits in 134491 tracked files\n",
+  "external_scope": "All committed current ordinary records included. Receipt self-exclusion is only this external publication directory."
+}

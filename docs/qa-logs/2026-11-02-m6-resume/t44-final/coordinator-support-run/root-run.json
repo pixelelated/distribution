@@ -1,0 +1,20 @@
+{
+  "executor": "Codex/GPT-6-Astra/xhigh wN:p2 session01a19d11-f5c8-7bb0-80f3-49ad28732af2",
+  "comparator_author": "P1; unmodified source retains author attribution",
+  "argv": [
+    "python3",
+    "-I",
+    "-B",
+    "docs/qa-logs/2026-11-02-m6-resume/t44-final/coordinator-support-run/reconcile.py"
+  ],
+  "start": "2026-11-03T00:32:19.656763+00:00",
+  "end": "2026-11-03T00:32:21.350678+00:00",
+  "rc": 0,
+  "stdout_sha256": "307e3b722c4bf70cb6d34a0261e58fd5a83c99ba23365a85feaf704240e36f34",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "byte_equal": {
+    "results.json": true,
+    "scope-comparisons.json": true,
+    "explicit-inputs.json": true
+  }
+}

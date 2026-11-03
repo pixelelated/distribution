@@ -1,0 +1,69 @@
+from pathlib import Path
+import subprocess, json, hashlib, datetime, difflib
+R=Path('/workspace/repos/pixelelated/distribution.worktrees/m6-es-vendored-and-data-691')
+A=R/'docs/audits/2026_11_02-epic-m6-es-vendored-and-data'
+P=Path('/tmp/m6-t44-eh-publication-qhf1l0l6')
+D='923dd5371ded83fa965449a83f7a16d15a174772'
+def sha(b):return hashlib.sha256(b).hexdigest()
+def show(ref,path):return subprocess.check_output(['git','show',ref+':'+path],cwd=R)
+def put(path,value):
+ path.parent.mkdir(parents=True,exist_ok=True);path.write_text(value)
+def js(path,value):put(path,json.dumps(value,indent=2)+'\n')
+now=datetime.datetime.now(datetime.timezone.utc).isoformat()
+brief=show('821de9d39378b091c9d55a2f68734d8a36d65613','docs/reviews/briefs/t44-streams.md')
+(A/'stage-e').mkdir()
+(A/'stage-e/stream-v2.md').write_bytes(brief)
+js(A/'stage-e/start.json',{'started_at':now,'read_started_utc_date':'2026-11-02','writing_utc_date':'2026-11-03','brief_ref':'821de9d39378b091c9d55a2f68734d8a36d65613','brief_sha256':sha(brief),'distribution_start':D,'es':'55158d2a64c69fe295fb4e67fd174424a71b1b4d','es_tree':'64b90eb8cb07bdfcd690c74ff6bc980ae490657c','harness':'Codex','model':'openai/gpt-6-astra','lab':'openai','effort':'xhigh','identity_source':'own observed Herdr footer; UI observation, not provider attestation','session':'01a19d12-1c5f-7022-8053-102f6a94b7fe','lane':'wN:p5','cpus':'8-23','publication_directory':str(P)})
+disp='''# S1 carrying decision — 2026-11-03
+
+Authority: [full coordinator dispatch #691 comment6591582676](https://github.com/pixelelated/distribution/issues/691#issuecomment-6591582676), stream v2 at821de9d39378b091c9d55a2f68734d8a36d65613. PL-001 is Resolved for the carrying-decision documentation only. Root retains final acceptance. This records the coordinator's decision, not a new executor policy or compatibility result.
+
+Retain doctest 2.4.12 for this audit close-out and the existing accepted harness baseline. Header SHA25694029a7d32da24a56249658147dbd2b33ff0b9ed665295cbbaf19aafff5b0ced and import324f9c483d9b4a11249c47888b40fb5cc691be7f remain fixed. The official2.5.3 release was observed2026-11-02; that dated comparison is not tested compatibility. Temporary retention preserves the test substrate associated with accepted evidence while an update is evaluated on a separately pinned current integration tree. It does not mean2.4.12 is latest, safer or permanently preferred.
+
+Revisit at the next doctest/toolchain/test-harness change or before the vendored-library portion of upstream submission, whichever occurs first. A relevant confirmed defect triggers owner triage. Coordinator scheduling and fresh compatibility proof are required; no release-readiness rule is waived.
+
+## Five owned follow-ups
+
+#1414 remains open in M6, actual child of #700, with all five criteria unchecked. Its full body is retained alongside this record. Examples of test consumers are not an exhaustive consumer list.
+
+| Group | Missing input / next work | Owner boundary |
+| --- | --- | --- |
+| doctest | Complete consumer/compiler/allowed-failure mapping, separately pinned current update evaluation | #700; T18 #665, T2 #649, T34 #681, T35 #682 |
+| rcheevos, inherited T20 R13 | Exact selected import mapping for distinct12.2.1/10.7.0 markers and dated12.5.0 applicability | T20 #667 retains excluded hash/RVZ and three-hasher obligations |
+| libretro-common | Exact upstream revisions for mixed subset and local deltas | #700 with T20 #667; excluded MD5/hash behavior stays T20 |
+| NanoSVG | Imported snapshot and optimization delta mapped to upstream commits | #700 with T36 #683 rendering boundary |
+| id3v2lib | Flattened import/current revision, CMake2.0 versus README1.0, selected library/vendor-test targets | #700 with T37 #684 configuration context |
+
+Missing upstream mappings remain open. No newer-version applicability, removal, compatibility result or combined accepted tree follows. Pugixml system selection and uninitialized gitlink remain distinct. Separate T2/T21/T34/T35 catalogue integration stays #700's future work; T36 has zero French delta. Existing bugs, #256's submission map and #585's unsent drafts retain ownership. No source acquisition, update or runtime is authorized.
+
+Questions1–3 in06/07 are answered by this temporary carry decision and these five routes. #1413 stays open for root acceptance; checking its one documentary criterion closes no source defect. Can this be done on the VM? No runtime is needed to document this decision. A future library change requires separately dispatched owner tests and GENERIC_X64 where applicable.
+
+## Preserved D qualifications
+
+1. stage-c/consumer-input-bindings.json binds historical records.py SHA2566858cf1cb719839b3d0e16c9976c847e0abbe3c07e2797abeab0931fdaeb2cee, retained at stage-d/pre-issue-1/records.py. Current tools/records.py differs only in the scorecard heading; current-program-binding.json binds both immutable files. The old hash is not relabeled current.
+2. Earlier D lint/gate snapshots predate final00/02/06 bytes and prove only their snapshots/pre-issue scope. Current document readback and index-2/syntax-3/diff-3 have their own inputs. E/F current resolution checks are new evidence, not retroactive certification.
+3. The original ignored-bytecode manifest failure retains exit1/diagnostic but lacks full original argv, times and raw-stream hashes. The later fully bound MANIFEST_KEYSET refusal is distinct; missing provenance remains missing.
+4. stage-d/worklog-index-write.receipt.json lacks stderr hash/file. New complete receipts do not fill that historical gap.
+
+First publicationd6d08bf19c15b73cd587a1822b3ed7463f45873f and correctedD923dd5371ded83fa965449a83f7a16d15a174772 remain distinct. All original A–D programs/receipts and Local plan remain frozen. Both time-to-play quantities remain unmeasured.
+'''
+put(A/'stage-e/disposition.md',disp)
+oldpath=str((A/'stage-d/pre-issue-1/records.py').relative_to(R));newpath=str((A/'tools/records.py').relative_to(R))
+old,new=show(D,oldpath),show(D,newpath)
+diff=''.join(difflib.unified_diff(old.decode().splitlines(True),new.decode().splitlines(True),fromfile=oldpath,tofile=newpath))
+assert sha(old)=='6858cf1cb719839b3d0e16c9976c847e0abbe3c07e2797abeab0931fdaeb2cee'
+assert old.replace(b'## Acceptance criteria Scorecard',b'## Acceptance-criteria scorecard')==new, diff
+js(A/'stage-e/current-program-binding.json',{'ref':D,'read_command':['git','show','REF:PATH'],'old':{'path':oldpath,'sha256':sha(old)},'current':{'path':newpath,'sha256':sha(new)},'exact_diff':diff,'assertion':'Only Scorecard -> Acceptance-criteria scorecard heading; original bindings unchanged'})
+put(A/'stage-e/program-heading.diff',diff)
+for f in ['00-running-log.md','02-forward-audit.md','04-analysis.md','06-audit-summary.md','07-questions-for-the-maintainer.md']:
+ p=A/f; t=p.read_text();t+='\n## E/S1 documentary outcome — 2026-11-03\n\nPL-001 is **Resolved for the carrying-decision documentation only** under [#691 dispatch6591582676](https://github.com/pixelelated/distribution/issues/691#issuecomment-6591582676). See [stage-e/disposition.md](stage-e/disposition.md) for the exact2.4.12 carry rationale, observed2.5.3 comparison, revisit trigger, all five #1414 routes and four preserved receipt qualifications. Questions1–3 are answered by that record. #1414 remains open with five unchecked future criteria; #1413 remains open for root acceptance. The preceding D text is dated history, not the current resolution status. No source upgrade, compatibility proof or combined tree is inferred. Both time-to-play quantities remain unmeasured.\n'
+ if f=='00-running-log.md':t+='\nActual new executor: Codex / openai/gpt-6-astra / openai / xhigh, own observed Herdr footer (UI observation, not provider attestation); session01a19d12-1c5f-7022-8053-102f6a94b7fe, wN:p5. Started reading2026-11-02; documentary writes2026-11-03 UTC. Original attribution and Local reviewers[] are unchanged.\n'
+ put(p,t)
+p=A/'05-punch-list.md'; t=p.read_text().replace('Outcomes remain Open until that disposition.','This opening description records the accepted D checkpoint. The current E/S1 documentary outcome follows below.').replace('| PL-001 | Open | D checkpoint; coordinator #700 disposition pending; no source action authorized |','| PL-001 | Resolved | Carrying-decision documentation only; #691 comment6591582676, #1414 five-group follow-up, stage-e/disposition.md; source and compatibility work remain separately owned |').replace('  outcome: open','  outcome: resolved')
+t+='\n## E/S1 current outcome — 2026-11-03\n\nPL-001 is Resolved for the carrying-decision documentation only. [stage-e/disposition.md](stage-e/disposition.md) records the exact carry decision, rationale, trigger, owner links and preserved D qualifications. #1413 stays open for root acceptance. #1414 remains open, five criteria unchecked. The historical D finding above remains the reason this decision was required; it is not a source defect closure.\n';put(p,t)
+pointer=R/'.github/sessions/saved-session-state-feature-m6-es-vendored-and-data-691.md'
+put(pointer,'# Current T44 state — E/S1 documentary outcome\n\nDispatch #691 comment6591582676 authorizes continuous records-only E–H. Accepted D923dd and whole ES55158/tree64b90 remain fixed. PL001 resolved for carrying-decision documentation only; stage-e/disposition.md and #1414 bind rationale, revisit trigger and five owners. F/G/H remain in progress; no audit closure/marker or root acceptance claimed. Actual Codex/openai/gpt-6-astra/xhigh, session01a19d12-1c5f-7022-8053-102f6a94b7fe/wN:p5. CPU8–23.\n\n## Preserved D pointer history\n\n'+pointer.read_text())
+log=R/'docs/work-logs/2026_11-work_logs/2026_11_03-work_log.md'
+assert not log.exists()
+put(log,'# Work log — 2026-11-03\n\n## '+now+' — T44 carrying-decision documentation\n\nUnder #691 comment6591582676, T2 records the coordinator’s temporary doctest2.4.12 carry decision, rationale and earliest revisit trigger, routing five vendor groups to open #1414. PL001 resolves documentation only; source/compatibility work remains separately owned. Preserve accepted D bytes and four receipt limitations. New E–H confinement controls and current record checks are owed; no accepted producer replay or runtime. Actor Codex/openai/gpt-6-astra/xhigh, wN:p5, session01a19d12-1c5f-7022-8053-102f6a94b7fe. Both time-to-play quantities unmeasured.\n')
+print(json.dumps({'stage_e':str(A/'stage-e'),'brief_sha256':sha(brief),'old_sha256':sha(old),'current_sha256':sha(new),'date':now},indent=2))

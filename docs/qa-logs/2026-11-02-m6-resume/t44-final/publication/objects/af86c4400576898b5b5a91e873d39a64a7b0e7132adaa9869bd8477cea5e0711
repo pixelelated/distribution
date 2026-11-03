@@ -1,0 +1,52 @@
+{
+  "argv": [
+    "git",
+    "commit",
+    "-m",
+    "T44: record temporary vendor carry decision and owner routes",
+    "-m",
+    "Refs #691. PL001 resolves carrying-decision documentation only; preserve accepted A-D evidence and source identities."
+  ],
+  "cwd": "/workspace/repos/pixelelated/distribution.worktrees/m6-es-vendored-and-data-691",
+  "inputs": {},
+  "scope_sha256": "3be9e786018b792af9019026c9526a60ecec244e87137c558554b420b198a47e",
+  "scope_note": "tracked ordinary T44 records before invocation; output directory excluded; explicit extra inputs above",
+  "head": "923dd5371ded83fa965449a83f7a16d15a174772",
+  "index_entries_sha256": "14b550d03fe0d3b0367a6a73024f6124d2a18afaaf0e4ec6383057c681a69c1e",
+  "runner_sha256": "bdfc4fafdc4f67e4a3015af5324848591e4d578231a86eba8876ee9cee31eb96",
+  "started_at": "2026-11-03T00:05:55.131476+00:00",
+  "cpus": [
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21,
+    22,
+    23
+  ],
+  "executor": {
+    "harness": "Codex",
+    "model": "openai/gpt-6-astra",
+    "effort": "xhigh",
+    "lane": "wN:p5",
+    "session": "01a19d12-1c5f-7022-8053-102f6a94b7fe",
+    "identity_source": "own observed Herdr footer; UI observation, not provider attestation"
+  },
+  "python": "3.14.4 (main, Aug 20 2026, 10:41:58) [GCC 15.2.0]",
+  "locale": "C",
+  "timeout_seconds": 300,
+  "ended_at": "2026-11-03T00:05:55.366605+00:00",
+  "elapsed_seconds": 0.23510515299858525,
+  "rc": 0,
+  "stdout_sha256": "701a7ecce5e78bcdbdf55500da0d64d7708125991051b73329554c4be0bfbf82",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+}

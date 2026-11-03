@@ -1,0 +1,413 @@
+{
+  "observed_at": "2026-11-03T00:25:27.408047+00:00",
+  "result": "PASS",
+  "manifest_sha256": "07d40168cb238a2f3fc667766499fab6332965145469d70fbf138e751685a1e0",
+  "commands": [
+    {
+      "receipt": "final-ceremony/receipt.json",
+      "argv": [
+        "tools/ceremony-check",
+        "--gate"
+      ],
+      "rc": 0,
+      "head": "f01abd480f4e0b337a9fcdde2cec9bc1746b525d",
+      "started_at": "2026-11-03T00:12:53.744930+00:00",
+      "ended_at": "2026-11-03T00:12:55.318176+00:00"
+    },
+    {
+      "receipt": "final-ceremony-network/receipt.json",
+      "argv": [
+        "tools/ceremony-check",
+        "--gate"
+      ],
+      "rc": 0,
+      "head": "f01abd480f4e0b337a9fcdde2cec9bc1746b525d",
+      "started_at": "2026-11-03T00:13:32.627802+00:00",
+      "ended_at": "2026-11-03T00:13:45.201420+00:00"
+    },
+    {
+      "receipt": "final-confinement/receipt.json",
+      "argv": [
+        "python3",
+        "-I",
+        "-B",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-es-vendored-and-data-691/docs/audits/2026_11_02-epic-m6-es-vendored-and-data/tools/final-confinement.py",
+        "--repo",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-es-vendored-and-data-691",
+        "--es",
+        "/home/max/Development/emulationstation-next.worktrees/m6-es-vendored-and-data-691",
+        "--allowlist",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-es-vendored-and-data-691/docs/audits/2026_11_02-epic-m6-es-vendored-and-data/stage-e/allowlist.json",
+        "--tip",
+        "f01abd480f4e0b337a9fcdde2cec9bc1746b525d"
+      ],
+      "rc": 0,
+      "head": "f01abd480f4e0b337a9fcdde2cec9bc1746b525d",
+      "started_at": "2026-11-03T00:12:50.935215+00:00",
+      "ended_at": "2026-11-03T00:12:53.536231+00:00"
+    },
+    {
+      "receipt": "final-diff/receipt.json",
+      "argv": [
+        "git",
+        "diff",
+        "--check",
+        "48a335700d05a733703e1b58536877b91b921259",
+        "f01abd480f4e0b337a9fcdde2cec9bc1746b525d"
+      ],
+      "rc": 0,
+      "head": "f01abd480f4e0b337a9fcdde2cec9bc1746b525d",
+      "started_at": "2026-11-03T00:12:53.741371+00:00",
+      "ended_at": "2026-11-03T00:12:53.779520+00:00"
+    },
+    {
+      "receipt": "final-es-identity/receipt.json",
+      "argv": [
+        "git",
+        "-C",
+        "/home/max/Development/emulationstation-next.worktrees/m6-es-vendored-and-data-691",
+        "rev-parse",
+        "HEAD",
+        "HEAD^{tree}"
+      ],
+      "rc": 0,
+      "head": "f01abd480f4e0b337a9fcdde2cec9bc1746b525d",
+      "started_at": "2026-11-03T00:16:38.822644+00:00",
+      "ended_at": "2026-11-03T00:16:38.824045+00:00"
+    },
+    {
+      "receipt": "final-es-status/receipt.json",
+      "argv": [
+        "git",
+        "-C",
+        "/home/max/Development/emulationstation-next.worktrees/m6-es-vendored-and-data-691",
+        "status",
+        "--porcelain=v1",
+        "--untracked-files=all"
+      ],
+      "rc": 0,
+      "head": "f01abd480f4e0b337a9fcdde2cec9bc1746b525d",
+      "started_at": "2026-11-03T00:16:39.025872+00:00",
+      "ended_at": "2026-11-03T00:16:39.029949+00:00"
+    },
+    {
+      "receipt": "final-forbidden/receipt.json",
+      "argv": [
+        "tools/forbidden-terms-check"
+      ],
+      "rc": 0,
+      "head": "f01abd480f4e0b337a9fcdde2cec9bc1746b525d",
+      "started_at": "2026-11-03T00:12:50.933196+00:00",
+      "ended_at": "2026-11-03T00:15:06.436620+00:00"
+    },
+    {
+      "receipt": "final-immutable/receipt.json",
+      "argv": [
+        "python3",
+        "-I",
+        "-B",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-es-vendored-and-data-691/docs/audits/2026_11_02-epic-m6-es-vendored-and-data/stage-f/immutable-readback.py",
+        "/tmp/m6-t44-eh-publication-qhf1l0l6/exact-final-artifacts.json"
+      ],
+      "rc": 0,
+      "head": "f01abd480f4e0b337a9fcdde2cec9bc1746b525d",
+      "started_at": "2026-11-03T00:12:50.930239+00:00",
+      "ended_at": "2026-11-03T00:12:51.014725+00:00"
+    },
+    {
+      "receipt": "final-index/receipt.json",
+      "argv": [
+        "tools/work-log-index",
+        "--check"
+      ],
+      "rc": 0,
+      "head": "f01abd480f4e0b337a9fcdde2cec9bc1746b525d",
+      "started_at": "2026-11-03T00:12:53.513079+00:00",
+      "ended_at": "2026-11-03T00:12:53.535724+00:00"
+    },
+    {
+      "receipt": "final-issue-1413/receipt.json",
+      "argv": [
+        "tools/box-check",
+        "--issue",
+        "1413"
+      ],
+      "rc": 0,
+      "head": "f01abd480f4e0b337a9fcdde2cec9bc1746b525d",
+      "started_at": "2026-11-03T00:16:38.162160+00:00",
+      "ended_at": "2026-11-03T00:16:38.619370+00:00"
+    },
+    {
+      "receipt": "final-issue-691/receipt.json",
+      "argv": [
+        "tools/box-check",
+        "--issue",
+        "691"
+      ],
+      "rc": 0,
+      "head": "f01abd480f4e0b337a9fcdde2cec9bc1746b525d",
+      "started_at": "2026-11-03T00:16:38.160264+00:00",
+      "ended_at": "2026-11-03T00:16:38.836134+00:00"
+    },
+    {
+      "receipt": "final-register/receipt.json",
+      "argv": [
+        "tools/register-check"
+      ],
+      "rc": 0,
+      "head": "f01abd480f4e0b337a9fcdde2cec9bc1746b525d",
+      "started_at": "2026-11-03T00:12:51.973981+00:00",
+      "ended_at": "2026-11-03T00:12:53.297660+00:00"
+    },
+    {
+      "receipt": "final-resolution/receipt.json",
+      "argv": [
+        "python3",
+        "-I",
+        "-B",
+        "tools/lint-audit-artifacts",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-es-vendored-and-data-691/docs/audits/2026_11_02-epic-m6-es-vendored-and-data"
+      ],
+      "rc": 0,
+      "head": "f01abd480f4e0b337a9fcdde2cec9bc1746b525d",
+      "started_at": "2026-11-03T00:12:51.218362+00:00",
+      "ended_at": "2026-11-03T00:12:51.257193+00:00"
+    },
+    {
+      "receipt": "final-resolution-issue/receipt.json",
+      "argv": [
+        "python3",
+        "-I",
+        "-B",
+        "tools/lint-audit-artifacts",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-es-vendored-and-data-691/docs/audits/2026_11_02-epic-m6-es-vendored-and-data",
+        "--issue",
+        "1413"
+      ],
+      "rc": 1,
+      "head": "f01abd480f4e0b337a9fcdde2cec9bc1746b525d",
+      "started_at": "2026-11-03T00:12:51.461659+00:00",
+      "ended_at": "2026-11-03T00:12:51.543444+00:00"
+    },
+    {
+      "receipt": "final-resolution-issue-network/receipt.json",
+      "argv": [
+        "python3",
+        "-I",
+        "-B",
+        "tools/lint-audit-artifacts",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-es-vendored-and-data-691/docs/audits/2026_11_02-epic-m6-es-vendored-and-data",
+        "--issue",
+        "1413"
+      ],
+      "rc": 0,
+      "head": "f01abd480f4e0b337a9fcdde2cec9bc1746b525d",
+      "started_at": "2026-11-03T00:13:22.504403+00:00",
+      "ended_at": "2026-11-03T00:13:22.913737+00:00"
+    },
+    {
+      "receipt": "final-rules/receipt.json",
+      "argv": [
+        "tools/rules-check",
+        "--quiet"
+      ],
+      "rc": 0,
+      "head": "f01abd480f4e0b337a9fcdde2cec9bc1746b525d",
+      "started_at": "2026-11-03T00:12:51.746926+00:00",
+      "ended_at": "2026-11-03T00:12:51.765656+00:00"
+    },
+    {
+      "receipt": "h-commit/receipt.json",
+      "argv": [
+        "git",
+        "commit",
+        "-m",
+        "T44: finish record gates, retro and bounded evidence custody",
+        "-m",
+        "Refs #691. Preserve accepted source and A-D evidence; retain unsupported scratch explicitly. Root acceptance and integration remain pending."
+      ],
+      "rc": 0,
+      "head": "d0274e2de5d8af353f8643798491ad8c126da73f",
+      "started_at": "2026-11-03T00:12:19.737633+00:00",
+      "ended_at": "2026-11-03T00:12:19.953626+00:00"
+    },
+    {
+      "receipt": "h-confinement/receipt.json",
+      "argv": [
+        "python3",
+        "-I",
+        "-B",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-es-vendored-and-data-691/docs/audits/2026_11_02-epic-m6-es-vendored-and-data/tools/final-confinement.py",
+        "--repo",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-es-vendored-and-data-691",
+        "--es",
+        "/home/max/Development/emulationstation-next.worktrees/m6-es-vendored-and-data-691",
+        "--allowlist",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-es-vendored-and-data-691/docs/audits/2026_11_02-epic-m6-es-vendored-and-data/stage-e/allowlist.json",
+        "--working"
+      ],
+      "rc": 0,
+      "head": "d0274e2de5d8af353f8643798491ad8c126da73f",
+      "started_at": "2026-11-03T00:12:16.855992+00:00",
+      "ended_at": "2026-11-03T00:12:19.273711+00:00"
+    },
+    {
+      "receipt": "h-diff/receipt.json",
+      "argv": [
+        "git",
+        "diff",
+        "--check",
+        "48a335700d05a733703e1b58536877b91b921259"
+      ],
+      "rc": 0,
+      "head": "d0274e2de5d8af353f8643798491ad8c126da73f",
+      "started_at": "2026-11-03T00:12:19.476482+00:00",
+      "ended_at": "2026-11-03T00:12:19.536915+00:00"
+    },
+    {
+      "receipt": "h-push/receipt.json",
+      "argv": [
+        "git",
+        "push",
+        "--porcelain",
+        "origin",
+        "HEAD:refs/heads/feature/m6-es-vendored-and-data-691"
+      ],
+      "rc": 0,
+      "head": "f01abd480f4e0b337a9fcdde2cec9bc1746b525d",
+      "started_at": "2026-11-03T00:15:31.930730+00:00",
+      "ended_at": "2026-11-03T00:15:34.699860+00:00"
+    },
+    {
+      "receipt": "h-status/receipt.json",
+      "argv": [
+        "git",
+        "status",
+        "--porcelain=v1"
+      ],
+      "rc": 0,
+      "head": "d0274e2de5d8af353f8643798491ad8c126da73f",
+      "started_at": "2026-11-03T00:12:16.370294+00:00",
+      "ended_at": "2026-11-03T00:12:16.654726+00:00"
+    },
+    {
+      "receipt": "immutable-s1/receipt.json",
+      "argv": [
+        "python3",
+        "-I",
+        "-B",
+        "/tmp/m6-t44-eh-publication-qhf1l0l6/immutable-readback.py",
+        "/tmp/m6-t44-eh-publication-qhf1l0l6/immutable-s1-result.json"
+      ],
+      "rc": 0,
+      "head": "d0274e2de5d8af353f8643798491ad8c126da73f",
+      "started_at": "2026-11-03T00:09:55.356426+00:00",
+      "ended_at": "2026-11-03T00:09:55.435677+00:00"
+    },
+    {
+      "receipt": "published-head/receipt.json",
+      "argv": [
+        "git",
+        "rev-parse",
+        "HEAD",
+        "HEAD^{tree}"
+      ],
+      "rc": 0,
+      "head": "f01abd480f4e0b337a9fcdde2cec9bc1746b525d",
+      "started_at": "2026-11-03T00:15:36.266681+00:00",
+      "ended_at": "2026-11-03T00:15:36.268361+00:00"
+    },
+    {
+      "receipt": "published-status/receipt.json",
+      "argv": [
+        "git",
+        "status",
+        "--porcelain=v1"
+      ],
+      "rc": 0,
+      "head": "f01abd480f4e0b337a9fcdde2cec9bc1746b525d",
+      "started_at": "2026-11-03T00:15:35.777848+00:00",
+      "ended_at": "2026-11-03T00:15:36.061780+00:00"
+    },
+    {
+      "receipt": "remote-tip/receipt.json",
+      "argv": [
+        "git",
+        "ls-remote",
+        "--exit-code",
+        "origin",
+        "refs/heads/feature/m6-es-vendored-and-data-691"
+      ],
+      "rc": 0,
+      "head": "f01abd480f4e0b337a9fcdde2cec9bc1746b525d",
+      "started_at": "2026-11-03T00:15:34.927885+00:00",
+      "ended_at": "2026-11-03T00:15:35.570929+00:00"
+    },
+    {
+      "receipt": "remote-url/receipt.json",
+      "argv": [
+        "git",
+        "remote",
+        "get-url",
+        "origin"
+      ],
+      "rc": 0,
+      "head": "f01abd480f4e0b337a9fcdde2cec9bc1746b525d",
+      "started_at": "2026-11-03T00:15:31.725434+00:00",
+      "ended_at": "2026-11-03T00:15:31.726608+00:00"
+    },
+    {
+      "receipt": "s1-commit/receipt.json",
+      "argv": [
+        "git",
+        "commit",
+        "-m",
+        "T44: record temporary vendor carry decision and owner routes",
+        "-m",
+        "Refs #691. PL001 resolves carrying-decision documentation only; preserve accepted A-D evidence and source identities."
+      ],
+      "rc": 0,
+      "head": "923dd5371ded83fa965449a83f7a16d15a174772",
+      "started_at": "2026-11-03T00:05:55.131476+00:00",
+      "ended_at": "2026-11-03T00:05:55.366605+00:00"
+    },
+    {
+      "receipt": "s1-confinement/receipt.json",
+      "argv": [
+        "python3",
+        "-I",
+        "-B",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-es-vendored-and-data-691/docs/audits/2026_11_02-epic-m6-es-vendored-and-data/tools/final-confinement.py",
+        "--repo",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-es-vendored-and-data-691",
+        "--es",
+        "/home/max/Development/emulationstation-next.worktrees/m6-es-vendored-and-data-691",
+        "--allowlist",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-es-vendored-and-data-691/docs/audits/2026_11_02-epic-m6-es-vendored-and-data/stage-e/allowlist.json",
+        "--working"
+      ],
+      "rc": 0,
+      "head": "923dd5371ded83fa965449a83f7a16d15a174772",
+      "started_at": "2026-11-03T00:05:52.936086+00:00",
+      "ended_at": "2026-11-03T00:05:54.924571+00:00"
+    },
+    {
+      "receipt": "s1-status/receipt.json",
+      "argv": [
+        "git",
+        "status",
+        "--porcelain=v1"
+      ],
+      "rc": 0,
+      "head": "923dd5371ded83fa965449a83f7a16d15a174772",
+      "started_at": "2026-11-03T00:05:52.439350+00:00",
+      "ended_at": "2026-11-03T00:05:52.728308+00:00"
+    }
+  ],
+  "counts": {
+    "total": 29,
+    "rc0": 28,
+    "rc1": 1
+  },
+  "scope": "Root ordinary retained command/output identity reconciliation; no producer invocation"
+}

@@ -1,0 +1,2785 @@
+{
+  "checks": [
+    {
+      "check": "pinned publication RETURN.md",
+      "detail": null,
+      "pass": true
+    },
+    {
+      "check": "pinned publication SHA256SUMS",
+      "detail": null,
+      "pass": true
+    },
+    {
+      "check": "pinned publication publication-readback.json",
+      "detail": null,
+      "pass": true
+    },
+    {
+      "check": "confined publication file RETURN.md",
+      "detail": null,
+      "pass": true
+    },
+    {
+      "check": "confined publication file creation.json",
+      "detail": null,
+      "pass": true
+    },
+    {
+      "check": "confined publication file exact-final-artifacts.json",
+      "detail": null,
+      "pass": true
+    },
+    {
+      "check": "confined publication file exact-final-gates.json",
+      "detail": null,
+      "pass": true
+    },
+    {
+      "check": "confined publication file exact-final-scan-scope.json",
+      "detail": null,
+      "pass": true
+    },
+    {
+      "check": "confined publication file final-ceremony/input-scope.json",
+      "detail": null,
+      "pass": true
+    },
+    {
+      "check": "confined publication file final-ceremony/receipt.json",
+      "detail": null,
+      "pass": true
+    },
+    {
+      "check": "confined publication file final-ceremony/stderr",
+      "detail": null,
+      "pass": true
+    },
+    {
+      "check": "confined publication file final-ceremony/stdout",
+      "detail": null,
+      "pass": true
+    },
+    {
+      "check": "confined publication file final-ceremony-network/input-scope.json",
+      "detail": null,
+      "pass": true
+    },
+    {
+      "check": "confined publication file final-ceremony-network/receipt.json",
+      "detail": null,
+      "pass": true
+    },
+    {
+      "check": "confined publication file final-ceremony-network/stderr",
+      "detail": null,
+      "pass": true
+    },
+    {
+      "check": "confined publication file final-ceremony-network/stdout",
+      "detail": null,
+      "pass": true
+    },
+    {
+      "check": "confined publication file final-confinement/input-scope.json",
+      "detail": null,
+      "pass": true
+    },
+    {
+      "check": "confined publication file final-confinement/receipt.json",
+      "detail": null,
+      "pass": true
+    },
+    {
+      "check": "confined publication file final-confinement/stderr",
+      "detail": null,
+      "pass": true
+    },
+    {
+      "check": "confined publication file final-confinement/stdout",
+      "detail": null,
+      "pass": true
+    },
+    {
+      "check": "confined publication file final-confinement-controls.py",
+      "detail": null,
+      "pass": true
+    },
+    {
+      "check": "confined publication file final-confinement.py",
+      "detail": null,
+      "pass": true
+    },
+    {
+      "check": "confined publication file final-diff/input-scope.json",
+      "detail": null,
+      "pass": true
+    },
+    {
+      "check": "confined publication file final-diff/receipt.json",
+      "detail": null,
+      "pass": true
+    },
+    {
+      "check": "confined publication file final-diff/stderr",
+      "detail": null,
+      "pass": true
+    },
+    {
+      "check": "confined publication file final-diff/stdout",
+      "detail": null,
+      "pass": true
+    },
+    {
+      "check": "confined publication file final-es-identity/input-scope.json",
+      "detail": null,
+      "pass": true
+    },
+    {
+      "check": "confined publication file final-es-identity/receipt.json",
+      "detail": null,
+      "pass": true
+    },
+    {
+      "check": "confined publication file final-es-identity/stderr",
+      "detail": null,
+      "pass": true
+    },
+    {
+      "check": "confined publication file final-es-identity/stdout",
+      "detail": null,
+      "pass": true
+    },
+    {
+      "check": "confined publication file final-es-status/input-scope.json",
+      "detail": null,
+      "pass": true
+    },
+    {
+      "check": "confined publication file final-es-status/receipt.json",
+      "detail": null,
+      "pass": true
+    },
+    {
+      "check": "confined publication file final-es-status/stderr",
+      "detail": null,
+      "pass": true
+    },
+    {
+      "check": "confined publication file final-es-status/stdout",
+      "detail": null,
+      "pass": true
+    },
+    {
+      "check": "confined publication file final-forbidden/input-scope.json",
+      "detail": null,
+      "pass": true
+    },
+    {
+      "check": "confined publication file final-forbidden/receipt.json",
+      "detail": null,
+      "pass": true
+    },
+    {
+      "check": "confined publication file final-forbidden/stderr",
+      "detail": null,
+      "pass": true
+    },
+    {
+      "check": "confined publication file final-forbidden/stdout",
+      "detail": null,
+      "pass": true
+    },
+    {
+      "check": "confined publication file final-immutable/input-scope.json",
+      "detail": null,
+      "pass": true
+    },
+    {
+      "check": "confined publication file final-immutable/receipt.json",
+      "detail": null,
+      "pass": true
+    },
+    {
+      "check": "confined publication file final-immutable/stderr",
+      "detail": null,
+      "pass": true
+    },
+    {
+      "check": "confined publication file final-immutable/stdout",
+      "detail": null,
+      "pass": true
+    },
+    {
+      "check": "confined publication file final-index/input-scope.json",
+      "detail": null,
+      "pass": true
+    },
+    {
+      "check": "confined publication file final-index/receipt.json",
+      "detail": null,
+      "pass": true
+    },
+    {
+      "check": "confined publication file final-index/stderr",
+      "detail": null,
+      "pass": true
+    },
+    {
+      "check": "confined publication file final-index/stdout",
+      "detail": null,
+      "pass": true
+    },
+    {
+      "check": "confined publication file final-issue-1413/input-scope.json",
+      "detail": null,
+      "pass": true
+    },
+    {
+      "check": "confined publication file final-issue-1413/receipt.json",
+      "detail": null,
+      "pass": true
+    },
+    {
+      "check": "confined publication file final-issue-1413/stderr",
+      "detail": null,
+      "pass": true
+    },
+    {
+      "check": "confined publication file final-issue-1413/stdout",
+      "detail": null,
+      "pass": true
+    },
+    {
+      "check": "confined publication file final-issue-691/input-scope.json",
+      "detail": null,
+      "pass": true
+    },
+    {
+      "check": "confined publication file final-issue-691/receipt.json",
+      "detail": null,
+      "pass": true
+    },
+    {
+      "check": "confined publication file final-issue-691/stderr",
+      "detail": null,
+      "pass": true
+    },
+    {
+      "check": "confined publication file final-issue-691/stdout",
+      "detail": null,
+      "pass": true
+    },
+    {
+      "check": "confined publication file final-live-issues.json",
+      "detail": null,
+      "pass": true
+    },
+    {
+      "check": "confined publication file final-network-attempts.json",
+      "detail": null,
+      "pass": true
+    },
+    {
+      "check": "confined publication file final-record-runner.py",
+      "detail": null,
+      "pass": true
+    },
+    {
+      "check": "confined publication file final-register/input-scope.json",
+      "detail": null,
+      "pass": true
+    },
+    {
+      "check": "confined publication file final-register/receipt.json",
+      "detail": null,
+      "pass": true
+    },
+    {
+      "check": "confined publication file final-register/stderr",
+      "detail": null,
+      "pass": true
+    },
+    {
+      "check": "confined publication file final-register/stdout",
+      "detail": null,
+      "pass": true
+    },
+    {
+      "check": "confined publication file final-resolution/input-scope.json",
+      "detail": null,
+      "pass": true
+    },
+    {
+      "check": "confined publication file final-resolution/receipt.json",
+      "detail": null,
+      "pass": true
+    },
+    {
+      "check": "confined publication file final-resolution/stderr",
+      "detail": null,
+      "pass": true
+    },
+    {
+      "check": "confined publication file final-resolution/stdout",
+      "detail": null,
+      "pass": true
+    },
+    {
+      "check": "confined publication file final-resolution-issue/input-scope.json",
+      "detail": null,
+      "pass": true
+    },
+    {
+      "check": "confined publication file final-resolution-issue/receipt.json",
+      "detail": null,
+      "pass": true
+    },
+    {
+      "check": "confined publication file final-resolution-issue/stderr",
+      "detail": null,
+      "pass": true
+    },
+    {
+      "check": "confined publication file final-resolution-issue/stdout",
+      "detail": null,
+      "pass": true
+    },
+    {
+      "check": "confined publication file final-resolution-issue-network/input-scope.json",
+      "detail": null,
+      "pass": true
+    },
+    {
+      "check": "confined publication file final-resolution-issue-network/receipt.json",
+      "detail": null,
+      "pass": true
+    },
+    {
+      "check": "confined publication file final-resolution-issue-network/stderr",
+      "detail": null,
+      "pass": true
+    },
+    {
+      "check": "confined publication file final-resolution-issue-network/stdout",
+      "detail": null,
+      "pass": true
+    },
+    {
+      "check": "confined publication file final-rules/input-scope.json",
+      "detail": null,
+      "pass": true
+    },
+    {
+      "check": "confined publication file final-rules/receipt.json",
+      "detail": null,
+      "pass": true
+    },
+    {
+      "check": "confined publication file final-rules/stderr",
+      "detail": null,
+      "pass": true
+    },
+    {
+      "check": "confined publication file final-rules/stdout",
+      "detail": null,
+      "pass": true
+    },
+    {
+      "check": "confined publication file h-commit/input-scope.json",
+      "detail": null,
+      "pass": true
+    },
+    {
+      "check": "confined publication file h-commit/receipt.json",
+      "detail": null,
+      "pass": true
+    },
+    {
+      "check": "confined publication file h-commit/stderr",
+      "detail": null,
+      "pass": true
+    },
+    {
+      "check": "confined publication file h-commit/stdout",
+      "detail": null,
+      "pass": true
+    },
+    {
+      "check": "confined publication file h-confinement/input-scope.json",
+      "detail": null,
+      "pass": true
+    },
+    {
+      "check": "confined publication file h-confinement/receipt.json",
+      "detail": null,
+      "pass": true
+    },
+    {
+      "check": "confined publication file h-confinement/stderr",
+      "detail": null,
+      "pass": true
+    },
+    {
+      "check": "confined publication file h-confinement/stdout",
+      "detail": null,
+      "pass": true
+    },
+    {
+      "check": "confined publication file h-diff/input-scope.json",
+      "detail": null,
+      "pass": true
+    },
+    {
+      "check": "confined publication file h-diff/receipt.json",
+      "detail": null,
+      "pass": true
+    },
+    {
+      "check": "confined publication file h-diff/stderr",
+      "detail": null,
+      "pass": true
+    },
+    {
+      "check": "confined publication file h-diff/stdout",
+      "detail": null,
+      "pass": true
+    },
+    {
+      "check": "confined publication file h-push/input-scope.json",
+      "detail": null,
+      "pass": true
+    },
+    {
+      "check": "confined publication file h-push/receipt.json",
+      "detail": null,
+      "pass": true
+    },
+    {
+      "check": "confined publication file h-push/stderr",
+      "detail": null,
+      "pass": true
+    },
+    {
+      "check": "confined publication file h-push/stdout",
+      "detail": null,
+      "pass": true
+    },
+    {
+      "check": "confined publication file h-status/input-scope.json",
+      "detail": null,
+      "pass": true
+    },
+    {
+      "check": "confined publication file h-status/receipt.json",
+      "detail": null,
+      "pass": true
+    },
+    {
+      "check": "confined publication file h-status/stderr",
+      "detail": null,
+      "pass": true
+    },
+    {
+      "check": "confined publication file h-status/stdout",
+      "detail": null,
+      "pass": true
+    },
+    {
+      "check": "confined publication file immutable-readback.py",
+      "detail": null,
+      "pass": true
+    },
+    {
+      "check": "confined publication file immutable-s1/input-scope.json",
+      "detail": null,
+      "pass": true
+    },
+    {
+      "check": "confined publication file immutable-s1/receipt.json",
+      "detail": null,
+      "pass": true
+    },
+    {
+      "check": "confined publication file immutable-s1/stderr",
+      "detail": null,
+      "pass": true
+    },
+    {
+      "check": "confined publication file immutable-s1/stdout",
+      "detail": null,
+      "pass": true
+    },
+    {
+      "check": "confined publication file immutable-s1-result.json",
+      "detail": null,
+      "pass": true
+    },
+    {
+      "check": "confined publication file live-records.json",
+      "detail": null,
+      "pass": true
+    },
+    {
+      "check": "confined publication file preserved-stage-e-diff-2-stdout",
+      "detail": null,
+      "pass": true
+    },
+    {
+      "check": "confined publication file preserved-stage-e-program-heading.diff",
+      "detail": null,
+      "pass": true
+    },
+    {
+      "check": "confined publication file publication-readback.json",
+      "detail": null,
+      "pass": true
+    },
+    {
+      "check": "confined publication file published-head/input-scope.json",
+      "detail": null,
+      "pass": true
+    },
+    {
+      "check": "confined publication file published-head/receipt.json",
+      "detail": null,
+      "pass": true
+    },
+    {
+      "check": "confined publication file published-head/stderr",
+      "detail": null,
+      "pass": true
+    },
+    {
+      "check": "confined publication file published-head/stdout",
+      "detail": null,
+      "pass": true
+    },
+    {
+      "check": "confined publication file published-status/input-scope.json",
+      "detail": null,
+      "pass": true
+    },
+    {
+      "check": "confined publication file published-status/receipt.json",
+      "detail": null,
+      "pass": true
+    },
+    {
+      "check": "confined publication file published-status/stderr",
+      "detail": null,
+      "pass": true
+    },
+    {
+      "check": "confined publication file published-status/stdout",
+      "detail": null,
+      "pass": true
+    },
+    {
+      "check": "confined publication file remote-tip/input-scope.json",
+      "detail": null,
+      "pass": true
+    },
+    {
+      "check": "confined publication file remote-tip/receipt.json",
+      "detail": null,
+      "pass": true
+    },
+    {
+      "check": "confined publication file remote-tip/stderr",
+      "detail": null,
+      "pass": true
+    },
+    {
+      "check": "confined publication file remote-tip/stdout",
+      "detail": null,
+      "pass": true
+    },
+    {
+      "check": "confined publication file remote-url/input-scope.json",
+      "detail": null,
+      "pass": true
+    },
+    {
+      "check": "confined publication file remote-url/receipt.json",
+      "detail": null,
+      "pass": true
+    },
+    {
+      "check": "confined publication file remote-url/stderr",
+      "detail": null,
+      "pass": true
+    },
+    {
+      "check": "confined publication file remote-url/stdout",
+      "detail": null,
+      "pass": true
+    },
+    {
+      "check": "confined publication file retro-readback.json",
+      "detail": null,
+      "pass": true
+    },
+    {
+      "check": "confined publication file retro.md",
+      "detail": null,
+      "pass": true
+    },
+    {
+      "check": "confined publication file s1-commit/input-scope.json",
+      "detail": null,
+      "pass": true
+    },
+    {
+      "check": "confined publication file s1-commit/receipt.json",
+      "detail": null,
+      "pass": true
+    },
+    {
+      "check": "confined publication file s1-commit/stderr",
+      "detail": null,
+      "pass": true
+    },
+    {
+      "check": "confined publication file s1-commit/stdout",
+      "detail": null,
+      "pass": true
+    },
+    {
+      "check": "confined publication file s1-confinement/input-scope.json",
+      "detail": null,
+      "pass": true
+    },
+    {
+      "check": "confined publication file s1-confinement/receipt.json",
+      "detail": null,
+      "pass": true
+    },
+    {
+      "check": "confined publication file s1-confinement/stderr",
+      "detail": null,
+      "pass": true
+    },
+    {
+      "check": "confined publication file s1-confinement/stdout",
+      "detail": null,
+      "pass": true
+    },
+    {
+      "check": "confined publication file s1-status/input-scope.json",
+      "detail": null,
+      "pass": true
+    },
+    {
+      "check": "confined publication file s1-status/receipt.json",
+      "detail": null,
+      "pass": true
+    },
+    {
+      "check": "confined publication file s1-status/stderr",
+      "detail": null,
+      "pass": true
+    },
+    {
+      "check": "confined publication file s1-status/stdout",
+      "detail": null,
+      "pass": true
+    },
+    {
+      "check": "confined publication file setup.py",
+      "detail": null,
+      "pass": true
+    },
+    {
+      "check": "D/final artifact counts",
+      "detail": null,
+      "pass": true
+    },
+    {
+      "check": "268 frozen mode/blob identities",
+      "detail": null,
+      "pass": true
+    },
+    {
+      "check": "single-parent continuation d0274e2de5d8af353f8643798491ad8c126da73f",
+      "detail": null,
+      "pass": true
+    },
+    {
+      "check": "per-commit exact records/modes d0274e2de5d8af353f8643798491ad8c126da73f",
+      "detail": [],
+      "pass": true
+    },
+    {
+      "check": "single-parent continuation f01abd480f4e0b337a9fcdde2cec9bc1746b525d",
+      "detail": null,
+      "pass": true
+    },
+    {
+      "check": "per-commit exact records/modes f01abd480f4e0b337a9fcdde2cec9bc1746b525d",
+      "detail": [],
+      "pass": true
+    },
+    {
+      "check": "whole ES immutable root",
+      "detail": null,
+      "pass": true
+    },
+    {
+      "check": "D artifact manifest keyset",
+      "detail": null,
+      "pass": true
+    },
+    {
+      "check": "D artifact manifest mode/blob/bytes/SHA256",
+      "detail": [],
+      "pass": true
+    },
+    {
+      "check": "final artifact manifest keyset",
+      "detail": null,
+      "pass": true
+    },
+    {
+      "check": "final artifact manifest mode/blob/bytes/SHA256",
+      "detail": [],
+      "pass": true
+    },
+    {
+      "check": "original D payload manifest SHA/keyset",
+      "detail": null,
+      "pass": true
+    },
+    {
+      "check": "original D 273 payload byte/hash bindings",
+      "detail": null,
+      "pass": true
+    },
+    {
+      "check": "stream exact published v2",
+      "detail": null,
+      "pass": true
+    },
+    {
+      "check": "frozen records.py old",
+      "detail": null,
+      "pass": true
+    },
+    {
+      "check": "frozen records.py current",
+      "detail": null,
+      "pass": true
+    },
+    {
+      "check": "records.py sole heading change",
+      "detail": null,
+      "pass": true
+    },
+    {
+      "check": "lossless transport stage-e/program-heading.diff",
+      "detail": null,
+      "pass": true
+    },
+    {
+      "check": "lossless transport stage-e/diff-2/stdout",
+      "detail": null,
+      "pass": true
+    },
+    {
+      "check": "external runner is retained old version",
+      "detail": null,
+      "pass": true
+    },
+    {
+      "check": "external current final-confinement.py",
+      "detail": null,
+      "pass": true
+    },
+    {
+      "check": "external current final-confinement-controls.py",
+      "detail": null,
+      "pass": true
+    },
+    {
+      "check": "receipt streams/scope/program git:docs/audits/2026_11_02-epic-m6-es-vendored-and-data/stage-e/ceremony/receipt.json",
+      "detail": [],
+      "pass": true
+    },
+    {
+      "check": "receipt streams/scope/program git:docs/audits/2026_11_02-epic-m6-es-vendored-and-data/stage-e/confinement/receipt.json",
+      "detail": [],
+      "pass": true
+    },
+    {
+      "check": "receipt streams/scope/program git:docs/audits/2026_11_02-epic-m6-es-vendored-and-data/stage-e/controls-run/receipt.json",
+      "detail": [],
+      "pass": true
+    },
+    {
+      "check": "receipt streams/scope/program git:docs/audits/2026_11_02-epic-m6-es-vendored-and-data/stage-e/diff-2/receipt.json",
+      "detail": [],
+      "pass": true
+    },
+    {
+      "check": "receipt streams/scope/program git:docs/audits/2026_11_02-epic-m6-es-vendored-and-data/stage-e/diff-3/receipt.json",
+      "detail": [],
+      "pass": true
+    },
+    {
+      "check": "receipt streams/scope/program git:docs/audits/2026_11_02-epic-m6-es-vendored-and-data/stage-e/index-2/receipt.json",
+      "detail": [],
+      "pass": true
+    },
+    {
+      "check": "receipt streams/scope/program git:docs/audits/2026_11_02-epic-m6-es-vendored-and-data/stage-e/index-write/receipt.json",
+      "detail": [],
+      "pass": true
+    },
+    {
+      "check": "receipt streams/scope/program git:docs/audits/2026_11_02-epic-m6-es-vendored-and-data/stage-e/issue-2/receipt.json",
+      "detail": [],
+      "pass": true
+    },
+    {
+      "check": "receipt streams/scope/program git:docs/audits/2026_11_02-epic-m6-es-vendored-and-data/stage-e/parent-read/receipt.json",
+      "detail": [],
+      "pass": true
+    },
+    {
+      "check": "receipt streams/scope/program git:docs/audits/2026_11_02-epic-m6-es-vendored-and-data/stage-e/register-2/receipt.json",
+      "detail": [],
+      "pass": true
+    },
+    {
+      "check": "receipt streams/scope/program git:docs/audits/2026_11_02-epic-m6-es-vendored-and-data/stage-e/resolution-issue/receipt.json",
+      "detail": [],
+      "pass": true
+    },
+    {
+      "check": "receipt streams/scope/program git:docs/audits/2026_11_02-epic-m6-es-vendored-and-data/stage-e/resolution/receipt.json",
+      "detail": [],
+      "pass": true
+    },
+    {
+      "check": "receipt streams/scope/program git:docs/audits/2026_11_02-epic-m6-es-vendored-and-data/stage-e/rules/receipt.json",
+      "detail": [],
+      "pass": true
+    },
+    {
+      "check": "receipt streams/scope/program git:docs/audits/2026_11_02-epic-m6-es-vendored-and-data/stage-e/runner-failure-control/receipt.json",
+      "detail": [],
+      "pass": true
+    },
+    {
+      "check": "receipt streams/scope/program git:docs/audits/2026_11_02-epic-m6-es-vendored-and-data/stage-e/runner-positive-control/receipt.json",
+      "detail": [],
+      "pass": true
+    },
+    {
+      "check": "receipt streams/scope/program git:docs/audits/2026_11_02-epic-m6-es-vendored-and-data/stage-e/syntax/receipt.json",
+      "detail": [],
+      "pass": true
+    },
+    {
+      "check": "receipt streams/scope/program git:docs/audits/2026_11_02-epic-m6-es-vendored-and-data/stage-f/ceremony/receipt.json",
+      "detail": [],
+      "pass": true
+    },
+    {
+      "check": "receipt streams/scope/program git:docs/audits/2026_11_02-epic-m6-es-vendored-and-data/stage-f/confinement/receipt.json",
+      "detail": [],
+      "pass": true
+    },
+    {
+      "check": "receipt streams/scope/program git:docs/audits/2026_11_02-epic-m6-es-vendored-and-data/stage-f/diff/receipt.json",
+      "detail": [],
+      "pass": true
+    },
+    {
+      "check": "receipt streams/scope/program git:docs/audits/2026_11_02-epic-m6-es-vendored-and-data/stage-f/forbidden/receipt.json",
+      "detail": [],
+      "pass": true
+    },
+    {
+      "check": "receipt streams/scope/program git:docs/audits/2026_11_02-epic-m6-es-vendored-and-data/stage-f/hooks/receipt.json",
+      "detail": [],
+      "pass": true
+    },
+    {
+      "check": "receipt streams/scope/program git:docs/audits/2026_11_02-epic-m6-es-vendored-and-data/stage-f/immutable-s1/receipt.json",
+      "detail": [],
+      "pass": true
+    },
+    {
+      "check": "receipt streams/scope/program git:docs/audits/2026_11_02-epic-m6-es-vendored-and-data/stage-f/index-write/receipt.json",
+      "detail": [],
+      "pass": true
+    },
+    {
+      "check": "receipt streams/scope/program git:docs/audits/2026_11_02-epic-m6-es-vendored-and-data/stage-f/index/receipt.json",
+      "detail": [],
+      "pass": true
+    },
+    {
+      "check": "receipt streams/scope/program git:docs/audits/2026_11_02-epic-m6-es-vendored-and-data/stage-f/issue/receipt.json",
+      "detail": [],
+      "pass": true
+    },
+    {
+      "check": "receipt streams/scope/program git:docs/audits/2026_11_02-epic-m6-es-vendored-and-data/stage-f/register/receipt.json",
+      "detail": [],
+      "pass": true
+    },
+    {
+      "check": "receipt streams/scope/program git:docs/audits/2026_11_02-epic-m6-es-vendored-and-data/stage-f/resolution-issue/receipt.json",
+      "detail": [],
+      "pass": true
+    },
+    {
+      "check": "receipt streams/scope/program git:docs/audits/2026_11_02-epic-m6-es-vendored-and-data/stage-f/resolution/receipt.json",
+      "detail": [],
+      "pass": true
+    },
+    {
+      "check": "receipt streams/scope/program git:docs/audits/2026_11_02-epic-m6-es-vendored-and-data/stage-f/rules/receipt.json",
+      "detail": [],
+      "pass": true
+    },
+    {
+      "check": "receipt streams/scope/program publication:final-ceremony/receipt.json",
+      "detail": [],
+      "pass": true
+    },
+    {
+      "check": "receipt streams/scope/program publication:final-ceremony-network/receipt.json",
+      "detail": [],
+      "pass": true
+    },
+    {
+      "check": "receipt streams/scope/program publication:final-confinement/receipt.json",
+      "detail": [],
+      "pass": true
+    },
+    {
+      "check": "receipt streams/scope/program publication:final-diff/receipt.json",
+      "detail": [],
+      "pass": true
+    },
+    {
+      "check": "receipt streams/scope/program publication:final-es-identity/receipt.json",
+      "detail": [],
+      "pass": true
+    },
+    {
+      "check": "receipt streams/scope/program publication:final-es-status/receipt.json",
+      "detail": [],
+      "pass": true
+    },
+    {
+      "check": "receipt streams/scope/program publication:final-forbidden/receipt.json",
+      "detail": [],
+      "pass": true
+    },
+    {
+      "check": "receipt streams/scope/program publication:final-immutable/receipt.json",
+      "detail": [],
+      "pass": true
+    },
+    {
+      "check": "receipt streams/scope/program publication:final-index/receipt.json",
+      "detail": [],
+      "pass": true
+    },
+    {
+      "check": "receipt streams/scope/program publication:final-issue-1413/receipt.json",
+      "detail": [],
+      "pass": true
+    },
+    {
+      "check": "receipt streams/scope/program publication:final-issue-691/receipt.json",
+      "detail": [],
+      "pass": true
+    },
+    {
+      "check": "receipt streams/scope/program publication:final-register/receipt.json",
+      "detail": [],
+      "pass": true
+    },
+    {
+      "check": "receipt streams/scope/program publication:final-resolution/receipt.json",
+      "detail": [],
+      "pass": true
+    },
+    {
+      "check": "receipt streams/scope/program publication:final-resolution-issue/receipt.json",
+      "detail": [],
+      "pass": true
+    },
+    {
+      "check": "receipt streams/scope/program publication:final-resolution-issue-network/receipt.json",
+      "detail": [],
+      "pass": true
+    },
+    {
+      "check": "receipt streams/scope/program publication:final-rules/receipt.json",
+      "detail": [],
+      "pass": true
+    },
+    {
+      "check": "receipt streams/scope/program publication:h-commit/receipt.json",
+      "detail": [],
+      "pass": true
+    },
+    {
+      "check": "receipt streams/scope/program publication:h-confinement/receipt.json",
+      "detail": [],
+      "pass": true
+    },
+    {
+      "check": "receipt streams/scope/program publication:h-diff/receipt.json",
+      "detail": [],
+      "pass": true
+    },
+    {
+      "check": "receipt streams/scope/program publication:h-push/receipt.json",
+      "detail": [],
+      "pass": true
+    },
+    {
+      "check": "receipt streams/scope/program publication:h-status/receipt.json",
+      "detail": [],
+      "pass": true
+    },
+    {
+      "check": "receipt streams/scope/program publication:immutable-s1/receipt.json",
+      "detail": [],
+      "pass": true
+    },
+    {
+      "check": "receipt streams/scope/program publication:published-head/receipt.json",
+      "detail": [],
+      "pass": true
+    },
+    {
+      "check": "receipt streams/scope/program publication:published-status/receipt.json",
+      "detail": [],
+      "pass": true
+    },
+    {
+      "check": "receipt streams/scope/program publication:remote-tip/receipt.json",
+      "detail": [],
+      "pass": true
+    },
+    {
+      "check": "receipt streams/scope/program publication:remote-url/receipt.json",
+      "detail": [],
+      "pass": true
+    },
+    {
+      "check": "receipt streams/scope/program publication:s1-commit/receipt.json",
+      "detail": [],
+      "pass": true
+    },
+    {
+      "check": "receipt streams/scope/program publication:s1-confinement/receipt.json",
+      "detail": [],
+      "pass": true
+    },
+    {
+      "check": "receipt streams/scope/program publication:s1-status/receipt.json",
+      "detail": [],
+      "pass": true
+    },
+    {
+      "check": "11 controls 74 commands 102 retained files",
+      "detail": null,
+      "pass": true
+    },
+    {
+      "check": "guard control product-edit-revert",
+      "detail": null,
+      "pass": true
+    },
+    {
+      "check": "guard control frozen-artifact",
+      "detail": null,
+      "pass": true
+    },
+    {
+      "check": "guard control unrelated-retro",
+      "detail": null,
+      "pass": true
+    },
+    {
+      "check": "guard control unrelated-worklog",
+      "detail": null,
+      "pass": true
+    },
+    {
+      "check": "guard control symlink",
+      "detail": null,
+      "pass": true
+    },
+    {
+      "check": "guard control executable-mode",
+      "detail": null,
+      "pass": true
+    },
+    {
+      "check": "guard control deletion",
+      "detail": null,
+      "pass": true
+    },
+    {
+      "check": "guard control rename",
+      "detail": null,
+      "pass": true
+    },
+    {
+      "check": "guard control positive",
+      "detail": null,
+      "pass": true
+    },
+    {
+      "check": "guard control es-dirty",
+      "detail": null,
+      "pass": true
+    },
+    {
+      "check": "guard control es-identity",
+      "detail": null,
+      "pass": true
+    },
+    {
+      "check": "74 inline command stdout/stderr SHA bindings",
+      "detail": null,
+      "pass": true
+    },
+    {
+      "check": "recorded fixture-config metadata SHA",
+      "detail": null,
+      "pass": true
+    },
+    {
+      "check": "new retained exit runner-failure-control",
+      "detail": null,
+      "pass": true
+    },
+    {
+      "check": "new retained exit runner-positive-control",
+      "detail": null,
+      "pass": true
+    },
+    {
+      "check": "new retained exit diff-2",
+      "detail": null,
+      "pass": true
+    },
+    {
+      "check": "new retained exit diff-3",
+      "detail": null,
+      "pass": true
+    },
+    {
+      "check": "four first-attempt missing receipts preserved",
+      "detail": null,
+      "pass": true
+    },
+    {
+      "check": "gate summary actual receipt git:rules",
+      "detail": null,
+      "pass": true
+    },
+    {
+      "check": "gate summary actual receipt git:register",
+      "detail": null,
+      "pass": true
+    },
+    {
+      "check": "gate summary actual receipt git:index",
+      "detail": null,
+      "pass": true
+    },
+    {
+      "check": "gate summary actual receipt git:ceremony",
+      "detail": null,
+      "pass": true
+    },
+    {
+      "check": "gate summary actual receipt git:issue",
+      "detail": null,
+      "pass": true
+    },
+    {
+      "check": "gate summary actual receipt git:resolution",
+      "detail": null,
+      "pass": true
+    },
+    {
+      "check": "gate summary actual receipt git:resolution-issue",
+      "detail": null,
+      "pass": true
+    },
+    {
+      "check": "gate summary actual receipt git:hooks",
+      "detail": null,
+      "pass": true
+    },
+    {
+      "check": "gate summary actual receipt git:forbidden",
+      "detail": null,
+      "pass": true
+    },
+    {
+      "check": "gate summary actual receipt git:confinement",
+      "detail": null,
+      "pass": true
+    },
+    {
+      "check": "gate summary actual receipt git:diff",
+      "detail": null,
+      "pass": true
+    },
+    {
+      "check": "gate summary actual receipt publication:final-forbidden",
+      "detail": null,
+      "pass": true
+    },
+    {
+      "check": "exact-final gate scope final-forbidden",
+      "detail": null,
+      "pass": true
+    },
+    {
+      "check": "gate summary actual receipt publication:final-confinement",
+      "detail": null,
+      "pass": true
+    },
+    {
+      "check": "exact-final gate scope final-confinement",
+      "detail": null,
+      "pass": true
+    },
+    {
+      "check": "gate summary actual receipt publication:final-immutable",
+      "detail": null,
+      "pass": true
+    },
+    {
+      "check": "exact-final gate scope final-immutable",
+      "detail": null,
+      "pass": true
+    },
+    {
+      "check": "gate summary actual receipt publication:final-resolution",
+      "detail": null,
+      "pass": true
+    },
+    {
+      "check": "exact-final gate scope final-resolution",
+      "detail": null,
+      "pass": true
+    },
+    {
+      "check": "gate summary actual receipt publication:final-resolution-issue-network",
+      "detail": null,
+      "pass": true
+    },
+    {
+      "check": "exact-final gate scope final-resolution-issue-network",
+      "detail": null,
+      "pass": true
+    },
+    {
+      "check": "gate summary actual receipt publication:final-rules",
+      "detail": null,
+      "pass": true
+    },
+    {
+      "check": "exact-final gate scope final-rules",
+      "detail": null,
+      "pass": true
+    },
+    {
+      "check": "gate summary actual receipt publication:final-register",
+      "detail": null,
+      "pass": true
+    },
+    {
+      "check": "exact-final gate scope final-register",
+      "detail": null,
+      "pass": true
+    },
+    {
+      "check": "gate summary actual receipt publication:final-index",
+      "detail": null,
+      "pass": true
+    },
+    {
+      "check": "exact-final gate scope final-index",
+      "detail": null,
+      "pass": true
+    },
+    {
+      "check": "gate summary actual receipt publication:final-ceremony-network",
+      "detail": null,
+      "pass": true
+    },
+    {
+      "check": "exact-final gate scope final-ceremony-network",
+      "detail": null,
+      "pass": true
+    },
+    {
+      "check": "gate summary actual receipt publication:final-diff",
+      "detail": null,
+      "pass": true
+    },
+    {
+      "check": "exact-final gate scope final-diff",
+      "detail": null,
+      "pass": true
+    },
+    {
+      "check": "publication readback final-ceremony/receipt.json",
+      "detail": null,
+      "pass": true
+    },
+    {
+      "check": "publication readback final-ceremony-network/receipt.json",
+      "detail": null,
+      "pass": true
+    },
+    {
+      "check": "publication readback final-confinement/receipt.json",
+      "detail": null,
+      "pass": true
+    },
+    {
+      "check": "publication readback final-diff/receipt.json",
+      "detail": null,
+      "pass": true
+    },
+    {
+      "check": "publication readback final-es-identity/receipt.json",
+      "detail": null,
+      "pass": true
+    },
+    {
+      "check": "publication readback final-es-status/receipt.json",
+      "detail": null,
+      "pass": true
+    },
+    {
+      "check": "publication readback final-forbidden/receipt.json",
+      "detail": null,
+      "pass": true
+    },
+    {
+      "check": "publication readback final-immutable/receipt.json",
+      "detail": null,
+      "pass": true
+    },
+    {
+      "check": "publication readback final-index/receipt.json",
+      "detail": null,
+      "pass": true
+    },
+    {
+      "check": "publication readback final-issue-1413/receipt.json",
+      "detail": null,
+      "pass": true
+    },
+    {
+      "check": "publication readback final-issue-691/receipt.json",
+      "detail": null,
+      "pass": true
+    },
+    {
+      "check": "publication readback final-register/receipt.json",
+      "detail": null,
+      "pass": true
+    },
+    {
+      "check": "publication readback final-resolution/receipt.json",
+      "detail": null,
+      "pass": true
+    },
+    {
+      "check": "publication readback final-resolution-issue/receipt.json",
+      "detail": null,
+      "pass": true
+    },
+    {
+      "check": "publication readback final-resolution-issue-network/receipt.json",
+      "detail": null,
+      "pass": true
+    },
+    {
+      "check": "publication readback final-rules/receipt.json",
+      "detail": null,
+      "pass": true
+    },
+    {
+      "check": "publication readback h-commit/receipt.json",
+      "detail": null,
+      "pass": true
+    },
+    {
+      "check": "publication readback h-confinement/receipt.json",
+      "detail": null,
+      "pass": true
+    },
+    {
+      "check": "publication readback h-diff/receipt.json",
+      "detail": null,
+      "pass": true
+    },
+    {
+      "check": "publication readback h-push/receipt.json",
+      "detail": null,
+      "pass": true
+    },
+    {
+      "check": "publication readback h-status/receipt.json",
+      "detail": null,
+      "pass": true
+    },
+    {
+      "check": "publication readback immutable-s1/receipt.json",
+      "detail": null,
+      "pass": true
+    },
+    {
+      "check": "publication readback published-head/receipt.json",
+      "detail": null,
+      "pass": true
+    },
+    {
+      "check": "publication readback published-status/receipt.json",
+      "detail": null,
+      "pass": true
+    },
+    {
+      "check": "publication readback remote-tip/receipt.json",
+      "detail": null,
+      "pass": true
+    },
+    {
+      "check": "publication readback remote-url/receipt.json",
+      "detail": null,
+      "pass": true
+    },
+    {
+      "check": "publication readback s1-commit/receipt.json",
+      "detail": null,
+      "pass": true
+    },
+    {
+      "check": "publication readback s1-confinement/receipt.json",
+      "detail": null,
+      "pass": true
+    },
+    {
+      "check": "publication readback s1-status/receipt.json",
+      "detail": null,
+      "pass": true
+    },
+    {
+      "check": "final failed issue attempt remains rc1",
+      "detail": null,
+      "pass": true
+    },
+    {
+      "check": "exact final raw normal/issue PASS",
+      "detail": null,
+      "pass": true
+    },
+    {
+      "check": "S1 actual resolution stage-e/resolution",
+      "detail": null,
+      "pass": true
+    },
+    {
+      "check": "S1 actual resolution stage-e/resolution-issue",
+      "detail": null,
+      "pass": true
+    },
+    {
+      "check": "exact-final immutable enumeration SHA",
+      "detail": null,
+      "pass": true
+    },
+    {
+      "check": "exact-final immutable index entries SHA",
+      "detail": null,
+      "pass": true
+    },
+    {
+      "check": "scan ordinary-file count",
+      "detail": null,
+      "pass": true
+    },
+    {
+      "check": "head/tree readback",
+      "detail": null,
+      "pass": true
+    },
+    {
+      "check": "remote readback exact final branch",
+      "detail": null,
+      "pass": true
+    },
+    {
+      "check": "clean publication statuses",
+      "detail": null,
+      "pass": true
+    },
+    {
+      "check": "ES readback exact seed/root",
+      "detail": null,
+      "pass": true
+    },
+    {
+      "check": "retained-only H counts",
+      "detail": null,
+      "pass": true
+    },
+    {
+      "check": "old census SHA frozen",
+      "detail": null,
+      "pass": true
+    },
+    {
+      "check": "new retained fixture metadata matches controls",
+      "detail": null,
+      "pass": true
+    },
+    {
+      "check": "old retain never grants eligibility",
+      "detail": null,
+      "pass": true
+    },
+    {
+      "check": "49 old retained rows equal accepted census metadata",
+      "detail": null,
+      "pass": true
+    },
+    {
+      "check": "retro immutable/external/posted binding",
+      "detail": null,
+      "pass": true
+    },
+    {
+      "check": "four companions copied accepted context",
+      "detail": null,
+      "pass": true
+    },
+    {
+      "check": "decision input binding docs/audits/2026_11_02-epic-m6-es-vendored-and-data/stage-e/disposition.md",
+      "detail": null,
+      "pass": true
+    },
+    {
+      "check": "decision input binding docs/audits/2026_11_02-epic-m6-es-vendored-and-data/stage-e/stream-v2.md",
+      "detail": null,
+      "pass": true
+    },
+    {
+      "check": "decision input binding docs/audits/2026_11_02-epic-m6-es-vendored-and-data/stage-e/live-records.json",
+      "detail": null,
+      "pass": true
+    },
+    {
+      "check": "decision input binding docs/audits/2026_11_02-epic-m6-es-vendored-and-data/stage-e/parent-read/stdout",
+      "detail": null,
+      "pass": true
+    },
+    {
+      "check": "decision input binding docs/audits/2026_11_02-epic-m6-es-vendored-and-data/05-punch-list.md",
+      "detail": null,
+      "pass": true
+    },
+    {
+      "check": "live body matches final retained #691",
+      "detail": null,
+      "pass": true
+    },
+    {
+      "check": "only four header replacements #691",
+      "detail": null,
+      "pass": true
+    },
+    {
+      "check": "exact four header pins #691",
+      "detail": null,
+      "pass": true
+    },
+    {
+      "check": "live body matches final retained #1413",
+      "detail": null,
+      "pass": true
+    },
+    {
+      "check": "only four header replacements #1413",
+      "detail": null,
+      "pass": true
+    },
+    {
+      "check": "exact four header pins #1413",
+      "detail": null,
+      "pass": true
+    },
+    {
+      "check": "live backlog exact retained body",
+      "detail": null,
+      "pass": true
+    },
+    {
+      "check": "tracker checkbox counts",
+      "detail": null,
+      "pass": true
+    },
+    {
+      "check": "actual parent/milestone readbacks",
+      "detail": null,
+      "pass": true
+    },
+    {
+      "check": "posted retro body equals current owning thread",
+      "detail": null,
+      "pass": true
+    },
+    {
+      "check": "complete support and dispatch retained",
+      "detail": null,
+      "pass": true
+    }
+  ],
+  "facts": {
+    "D_manifest_named_candidates": [
+      "docs/audits/2026_11_02-epic-m6-es-vendored-and-data/stage-d/payload-manifest.json"
+    ],
+    "authority_comments": [
+      6591982620,
+      6591582676
+    ],
+    "changed_audit": 172,
+    "explicit_input_unmatched": [],
+    "live_shapes": {
+      "issue1413": [
+        "issue",
+        "comments"
+      ],
+      "issue1414": [
+        "issue",
+        "comments"
+      ],
+      "issue691": [
+        "issue",
+        "comments"
+      ]
+    },
+    "new_commits": [
+      "d0274e2de5d8af353f8643798491ad8c126da73f",
+      "f01abd480f4e0b337a9fcdde2cec9bc1746b525d"
+    ],
+    "old_census_keys": [
+      "recorded_at",
+      "files",
+      "tiny_git",
+      "limit",
+      "correction_recorded_at"
+    ],
+    "outside_audit": [
+      ".github/sessions/saved-session-state-feature-m6-es-vendored-and-data-691.md",
+      "docs/retros/2026-11-03-m6-es-vendored-and-data.md",
+      "docs/work-logs/2026_11-work_logs/2026_11_03-work_log.md",
+      "docs/work-logs/INDEX.md"
+    ],
+    "partial_scopes_no_receipt": [
+      "docs/audits/2026_11_02-epic-m6-es-vendored-and-data/stage-e/diff/input-scope.json",
+      "docs/audits/2026_11_02-epic-m6-es-vendored-and-data/stage-e/index/input-scope.json",
+      "docs/audits/2026_11_02-epic-m6-es-vendored-and-data/stage-e/issue/input-scope.json",
+      "docs/audits/2026_11_02-epic-m6-es-vendored-and-data/stage-e/register/input-scope.json"
+    ],
+    "per_commit_changes": [
+      {
+        "commit": "d0274e2de5d8af353f8643798491ad8c126da73f",
+        "paths": [
+          ".github/sessions/saved-session-state-feature-m6-es-vendored-and-data-691.md",
+          "docs/audits/2026_11_02-epic-m6-es-vendored-and-data/00-running-log.md",
+          "docs/audits/2026_11_02-epic-m6-es-vendored-and-data/02-forward-audit.md",
+          "docs/audits/2026_11_02-epic-m6-es-vendored-and-data/04-analysis.md",
+          "docs/audits/2026_11_02-epic-m6-es-vendored-and-data/05-punch-list.md",
+          "docs/audits/2026_11_02-epic-m6-es-vendored-and-data/06-audit-summary.md",
+          "docs/audits/2026_11_02-epic-m6-es-vendored-and-data/07-questions-for-the-maintainer.md",
+          "docs/audits/2026_11_02-epic-m6-es-vendored-and-data/stage-e/allowlist.json",
+          "docs/audits/2026_11_02-epic-m6-es-vendored-and-data/stage-e/ceremony/input-scope.json",
+          "docs/audits/2026_11_02-epic-m6-es-vendored-and-data/stage-e/ceremony/receipt.json",
+          "docs/audits/2026_11_02-epic-m6-es-vendored-and-data/stage-e/ceremony/stderr",
+          "docs/audits/2026_11_02-epic-m6-es-vendored-and-data/stage-e/ceremony/stdout",
+          "docs/audits/2026_11_02-epic-m6-es-vendored-and-data/stage-e/confinement/input-scope.json",
+          "docs/audits/2026_11_02-epic-m6-es-vendored-and-data/stage-e/confinement/receipt.json",
+          "docs/audits/2026_11_02-epic-m6-es-vendored-and-data/stage-e/confinement/stderr",
+          "docs/audits/2026_11_02-epic-m6-es-vendored-and-data/stage-e/confinement/stdout",
+          "docs/audits/2026_11_02-epic-m6-es-vendored-and-data/stage-e/controls-run/input-scope.json",
+          "docs/audits/2026_11_02-epic-m6-es-vendored-and-data/stage-e/controls-run/receipt.json",
+          "docs/audits/2026_11_02-epic-m6-es-vendored-and-data/stage-e/controls-run/stderr",
+          "docs/audits/2026_11_02-epic-m6-es-vendored-and-data/stage-e/controls-run/stdout",
+          "docs/audits/2026_11_02-epic-m6-es-vendored-and-data/stage-e/controls/deletion.stderr",
+          "docs/audits/2026_11_02-epic-m6-es-vendored-and-data/stage-e/controls/deletion.stdout",
+          "docs/audits/2026_11_02-epic-m6-es-vendored-and-data/stage-e/controls/es-dirty.stderr",
+          "docs/audits/2026_11_02-epic-m6-es-vendored-and-data/stage-e/controls/es-dirty.stdout",
+          "docs/audits/2026_11_02-epic-m6-es-vendored-and-data/stage-e/controls/es-identity.stderr",
+          "docs/audits/2026_11_02-epic-m6-es-vendored-and-data/stage-e/controls/es-identity.stdout",
+          "docs/audits/2026_11_02-epic-m6-es-vendored-and-data/stage-e/controls/executable-mode.stderr",
+          "docs/audits/2026_11_02-epic-m6-es-vendored-and-data/stage-e/controls/executable-mode.stdout",
+          "docs/audits/2026_11_02-epic-m6-es-vendored-and-data/stage-e/controls/frozen-artifact.stderr",
+          "docs/audits/2026_11_02-epic-m6-es-vendored-and-data/stage-e/controls/frozen-artifact.stdout",
+          "docs/audits/2026_11_02-epic-m6-es-vendored-and-data/stage-e/controls/positive.stderr",
+          "docs/audits/2026_11_02-epic-m6-es-vendored-and-data/stage-e/controls/positive.stdout",
+          "docs/audits/2026_11_02-epic-m6-es-vendored-and-data/stage-e/controls/product-edit-revert.stderr",
+          "docs/audits/2026_11_02-epic-m6-es-vendored-and-data/stage-e/controls/product-edit-revert.stdout",
+          "docs/audits/2026_11_02-epic-m6-es-vendored-and-data/stage-e/controls/rename.stderr",
+          "docs/audits/2026_11_02-epic-m6-es-vendored-and-data/stage-e/controls/rename.stdout",
+          "docs/audits/2026_11_02-epic-m6-es-vendored-and-data/stage-e/controls/results.json",
+          "docs/audits/2026_11_02-epic-m6-es-vendored-and-data/stage-e/controls/symlink.stderr",
+          "docs/audits/2026_11_02-epic-m6-es-vendored-and-data/stage-e/controls/symlink.stdout",
+          "docs/audits/2026_11_02-epic-m6-es-vendored-and-data/stage-e/controls/unrelated-retro.stderr",
+          "docs/audits/2026_11_02-epic-m6-es-vendored-and-data/stage-e/controls/unrelated-retro.stdout",
+          "docs/audits/2026_11_02-epic-m6-es-vendored-and-data/stage-e/controls/unrelated-worklog.stderr",
+          "docs/audits/2026_11_02-epic-m6-es-vendored-and-data/stage-e/controls/unrelated-worklog.stdout",
+          "docs/audits/2026_11_02-epic-m6-es-vendored-and-data/stage-e/current-program-binding.json",
+          "docs/audits/2026_11_02-epic-m6-es-vendored-and-data/stage-e/decision-readback.json",
+          "docs/audits/2026_11_02-epic-m6-es-vendored-and-data/stage-e/diff-2/input-scope.json",
+          "docs/audits/2026_11_02-epic-m6-es-vendored-and-data/stage-e/diff-2/receipt.json",
+          "docs/audits/2026_11_02-epic-m6-es-vendored-and-data/stage-e/diff-2/stderr",
+          "docs/audits/2026_11_02-epic-m6-es-vendored-and-data/stage-e/diff-2/stdout.json",
+          "docs/audits/2026_11_02-epic-m6-es-vendored-and-data/stage-e/diff-3/input-scope.json",
+          "docs/audits/2026_11_02-epic-m6-es-vendored-and-data/stage-e/diff-3/receipt.json",
+          "docs/audits/2026_11_02-epic-m6-es-vendored-and-data/stage-e/diff-3/stderr",
+          "docs/audits/2026_11_02-epic-m6-es-vendored-and-data/stage-e/diff-3/stdout",
+          "docs/audits/2026_11_02-epic-m6-es-vendored-and-data/stage-e/diff/input-scope.json",
+          "docs/audits/2026_11_02-epic-m6-es-vendored-and-data/stage-e/disposition.md",
+          "docs/audits/2026_11_02-epic-m6-es-vendored-and-data/stage-e/index-2/input-scope.json",
+          "docs/audits/2026_11_02-epic-m6-es-vendored-and-data/stage-e/index-2/receipt.json",
+          "docs/audits/2026_11_02-epic-m6-es-vendored-and-data/stage-e/index-2/stderr",
+          "docs/audits/2026_11_02-epic-m6-es-vendored-and-data/stage-e/index-2/stdout",
+          "docs/audits/2026_11_02-epic-m6-es-vendored-and-data/stage-e/index-write/input-scope.json",
+          "docs/audits/2026_11_02-epic-m6-es-vendored-and-data/stage-e/index-write/receipt.json",
+          "docs/audits/2026_11_02-epic-m6-es-vendored-and-data/stage-e/index-write/stderr",
+          "docs/audits/2026_11_02-epic-m6-es-vendored-and-data/stage-e/index-write/stdout",
+          "docs/audits/2026_11_02-epic-m6-es-vendored-and-data/stage-e/index/input-scope.json",
+          "docs/audits/2026_11_02-epic-m6-es-vendored-and-data/stage-e/issue-2/input-scope.json",
+          "docs/audits/2026_11_02-epic-m6-es-vendored-and-data/stage-e/issue-2/receipt.json",
+          "docs/audits/2026_11_02-epic-m6-es-vendored-and-data/stage-e/issue-2/stderr",
+          "docs/audits/2026_11_02-epic-m6-es-vendored-and-data/stage-e/issue-2/stdout",
+          "docs/audits/2026_11_02-epic-m6-es-vendored-and-data/stage-e/issue/input-scope.json",
+          "docs/audits/2026_11_02-epic-m6-es-vendored-and-data/stage-e/live-records.json",
+          "docs/audits/2026_11_02-epic-m6-es-vendored-and-data/stage-e/parent-read/input-scope.json",
+          "docs/audits/2026_11_02-epic-m6-es-vendored-and-data/stage-e/parent-read/receipt.json",
+          "docs/audits/2026_11_02-epic-m6-es-vendored-and-data/stage-e/parent-read/stderr",
+          "docs/audits/2026_11_02-epic-m6-es-vendored-and-data/stage-e/parent-read/stdout",
+          "docs/audits/2026_11_02-epic-m6-es-vendored-and-data/stage-e/program-heading.diff.json",
+          "docs/audits/2026_11_02-epic-m6-es-vendored-and-data/stage-e/raw-transport.json",
+          "docs/audits/2026_11_02-epic-m6-es-vendored-and-data/stage-e/register-2/input-scope.json",
+          "docs/audits/2026_11_02-epic-m6-es-vendored-and-data/stage-e/register-2/receipt.json",
+          "docs/audits/2026_11_02-epic-m6-es-vendored-and-data/stage-e/register-2/stderr",
+          "docs/audits/2026_11_02-epic-m6-es-vendored-and-data/stage-e/register-2/stdout",
+          "docs/audits/2026_11_02-epic-m6-es-vendored-and-data/stage-e/register/input-scope.json",
+          "docs/audits/2026_11_02-epic-m6-es-vendored-and-data/stage-e/resolution-issue/input-scope.json",
+          "docs/audits/2026_11_02-epic-m6-es-vendored-and-data/stage-e/resolution-issue/receipt.json",
+          "docs/audits/2026_11_02-epic-m6-es-vendored-and-data/stage-e/resolution-issue/stderr",
+          "docs/audits/2026_11_02-epic-m6-es-vendored-and-data/stage-e/resolution-issue/stdout",
+          "docs/audits/2026_11_02-epic-m6-es-vendored-and-data/stage-e/resolution/input-scope.json",
+          "docs/audits/2026_11_02-epic-m6-es-vendored-and-data/stage-e/resolution/receipt.json",
+          "docs/audits/2026_11_02-epic-m6-es-vendored-and-data/stage-e/resolution/stderr",
+          "docs/audits/2026_11_02-epic-m6-es-vendored-and-data/stage-e/resolution/stdout",
+          "docs/audits/2026_11_02-epic-m6-es-vendored-and-data/stage-e/rules/input-scope.json",
+          "docs/audits/2026_11_02-epic-m6-es-vendored-and-data/stage-e/rules/receipt.json",
+          "docs/audits/2026_11_02-epic-m6-es-vendored-and-data/stage-e/rules/stderr",
+          "docs/audits/2026_11_02-epic-m6-es-vendored-and-data/stage-e/rules/stdout",
+          "docs/audits/2026_11_02-epic-m6-es-vendored-and-data/stage-e/runner-attempt-1/failure.json",
+          "docs/audits/2026_11_02-epic-m6-es-vendored-and-data/stage-e/runner-attempt-1/final-record-runner.py",
+          "docs/audits/2026_11_02-epic-m6-es-vendored-and-data/stage-e/runner-controls-readback.json",
+          "docs/audits/2026_11_02-epic-m6-es-vendored-and-data/stage-e/runner-failure-control/input-scope.json",
+          "docs/audits/2026_11_02-epic-m6-es-vendored-and-data/stage-e/runner-failure-control/receipt.json",
+          "docs/audits/2026_11_02-epic-m6-es-vendored-and-data/stage-e/runner-failure-control/stderr",
+          "docs/audits/2026_11_02-epic-m6-es-vendored-and-data/stage-e/runner-failure-control/stdout",
+          "docs/audits/2026_11_02-epic-m6-es-vendored-and-data/stage-e/runner-positive-control/input-scope.json",
+          "docs/audits/2026_11_02-epic-m6-es-vendored-and-data/stage-e/runner-positive-control/receipt.json",
+          "docs/audits/2026_11_02-epic-m6-es-vendored-and-data/stage-e/runner-positive-control/stderr",
+          "docs/audits/2026_11_02-epic-m6-es-vendored-and-data/stage-e/runner-positive-control/stdout",
+          "docs/audits/2026_11_02-epic-m6-es-vendored-and-data/stage-e/start.json",
+          "docs/audits/2026_11_02-epic-m6-es-vendored-and-data/stage-e/stream-v2.md",
+          "docs/audits/2026_11_02-epic-m6-es-vendored-and-data/stage-e/syntax/input-scope.json",
+          "docs/audits/2026_11_02-epic-m6-es-vendored-and-data/stage-e/syntax/receipt.json",
+          "docs/audits/2026_11_02-epic-m6-es-vendored-and-data/stage-e/syntax/stderr",
+          "docs/audits/2026_11_02-epic-m6-es-vendored-and-data/stage-e/syntax/stdout",
+          "docs/audits/2026_11_02-epic-m6-es-vendored-and-data/tools/final-confinement-controls.py",
+          "docs/audits/2026_11_02-epic-m6-es-vendored-and-data/tools/final-confinement.py",
+          "docs/audits/2026_11_02-epic-m6-es-vendored-and-data/tools/final-record-runner.py",
+          "docs/work-logs/2026_11-work_logs/2026_11_03-work_log.md",
+          "docs/work-logs/INDEX.md"
+        ]
+      },
+      {
+        "commit": "f01abd480f4e0b337a9fcdde2cec9bc1746b525d",
+        "paths": [
+          ".github/sessions/saved-session-state-feature-m6-es-vendored-and-data-691.md",
+          "docs/audits/2026_11_02-epic-m6-es-vendored-and-data/00-running-log.md",
+          "docs/audits/2026_11_02-epic-m6-es-vendored-and-data/README.md",
+          "docs/audits/2026_11_02-epic-m6-es-vendored-and-data/stage-f/ceremony/input-scope.json",
+          "docs/audits/2026_11_02-epic-m6-es-vendored-and-data/stage-f/ceremony/receipt.json",
+          "docs/audits/2026_11_02-epic-m6-es-vendored-and-data/stage-f/ceremony/stderr",
+          "docs/audits/2026_11_02-epic-m6-es-vendored-and-data/stage-f/ceremony/stdout",
+          "docs/audits/2026_11_02-epic-m6-es-vendored-and-data/stage-f/confinement/input-scope.json",
+          "docs/audits/2026_11_02-epic-m6-es-vendored-and-data/stage-f/confinement/receipt.json",
+          "docs/audits/2026_11_02-epic-m6-es-vendored-and-data/stage-f/confinement/stderr",
+          "docs/audits/2026_11_02-epic-m6-es-vendored-and-data/stage-f/confinement/stdout",
+          "docs/audits/2026_11_02-epic-m6-es-vendored-and-data/stage-f/diff/input-scope.json",
+          "docs/audits/2026_11_02-epic-m6-es-vendored-and-data/stage-f/diff/receipt.json",
+          "docs/audits/2026_11_02-epic-m6-es-vendored-and-data/stage-f/diff/stderr",
+          "docs/audits/2026_11_02-epic-m6-es-vendored-and-data/stage-f/diff/stdout",
+          "docs/audits/2026_11_02-epic-m6-es-vendored-and-data/stage-f/forbidden/input-scope.json",
+          "docs/audits/2026_11_02-epic-m6-es-vendored-and-data/stage-f/forbidden/receipt.json",
+          "docs/audits/2026_11_02-epic-m6-es-vendored-and-data/stage-f/forbidden/stderr",
+          "docs/audits/2026_11_02-epic-m6-es-vendored-and-data/stage-f/forbidden/stdout",
+          "docs/audits/2026_11_02-epic-m6-es-vendored-and-data/stage-f/gate-readback.json",
+          "docs/audits/2026_11_02-epic-m6-es-vendored-and-data/stage-f/hooks/input-scope.json",
+          "docs/audits/2026_11_02-epic-m6-es-vendored-and-data/stage-f/hooks/receipt.json",
+          "docs/audits/2026_11_02-epic-m6-es-vendored-and-data/stage-f/hooks/stderr",
+          "docs/audits/2026_11_02-epic-m6-es-vendored-and-data/stage-f/hooks/stdout",
+          "docs/audits/2026_11_02-epic-m6-es-vendored-and-data/stage-f/immutable-readback.py",
+          "docs/audits/2026_11_02-epic-m6-es-vendored-and-data/stage-f/immutable-s1-result.json",
+          "docs/audits/2026_11_02-epic-m6-es-vendored-and-data/stage-f/immutable-s1/input-scope.json",
+          "docs/audits/2026_11_02-epic-m6-es-vendored-and-data/stage-f/immutable-s1/receipt.json",
+          "docs/audits/2026_11_02-epic-m6-es-vendored-and-data/stage-f/immutable-s1/stderr",
+          "docs/audits/2026_11_02-epic-m6-es-vendored-and-data/stage-f/immutable-s1/stdout",
+          "docs/audits/2026_11_02-epic-m6-es-vendored-and-data/stage-f/index-write/input-scope.json",
+          "docs/audits/2026_11_02-epic-m6-es-vendored-and-data/stage-f/index-write/receipt.json",
+          "docs/audits/2026_11_02-epic-m6-es-vendored-and-data/stage-f/index-write/stderr",
+          "docs/audits/2026_11_02-epic-m6-es-vendored-and-data/stage-f/index-write/stdout",
+          "docs/audits/2026_11_02-epic-m6-es-vendored-and-data/stage-f/index/input-scope.json",
+          "docs/audits/2026_11_02-epic-m6-es-vendored-and-data/stage-f/index/receipt.json",
+          "docs/audits/2026_11_02-epic-m6-es-vendored-and-data/stage-f/index/stderr",
+          "docs/audits/2026_11_02-epic-m6-es-vendored-and-data/stage-f/index/stdout",
+          "docs/audits/2026_11_02-epic-m6-es-vendored-and-data/stage-f/issue/input-scope.json",
+          "docs/audits/2026_11_02-epic-m6-es-vendored-and-data/stage-f/issue/receipt.json",
+          "docs/audits/2026_11_02-epic-m6-es-vendored-and-data/stage-f/issue/stderr",
+          "docs/audits/2026_11_02-epic-m6-es-vendored-and-data/stage-f/issue/stdout",
+          "docs/audits/2026_11_02-epic-m6-es-vendored-and-data/stage-f/register/input-scope.json",
+          "docs/audits/2026_11_02-epic-m6-es-vendored-and-data/stage-f/register/receipt.json",
+          "docs/audits/2026_11_02-epic-m6-es-vendored-and-data/stage-f/register/stderr",
+          "docs/audits/2026_11_02-epic-m6-es-vendored-and-data/stage-f/register/stdout",
+          "docs/audits/2026_11_02-epic-m6-es-vendored-and-data/stage-f/resolution-issue/input-scope.json",
+          "docs/audits/2026_11_02-epic-m6-es-vendored-and-data/stage-f/resolution-issue/receipt.json",
+          "docs/audits/2026_11_02-epic-m6-es-vendored-and-data/stage-f/resolution-issue/stderr",
+          "docs/audits/2026_11_02-epic-m6-es-vendored-and-data/stage-f/resolution-issue/stdout",
+          "docs/audits/2026_11_02-epic-m6-es-vendored-and-data/stage-f/resolution/input-scope.json",
+          "docs/audits/2026_11_02-epic-m6-es-vendored-and-data/stage-f/resolution/receipt.json",
+          "docs/audits/2026_11_02-epic-m6-es-vendored-and-data/stage-f/resolution/stderr",
+          "docs/audits/2026_11_02-epic-m6-es-vendored-and-data/stage-f/resolution/stdout",
+          "docs/audits/2026_11_02-epic-m6-es-vendored-and-data/stage-f/rules/input-scope.json",
+          "docs/audits/2026_11_02-epic-m6-es-vendored-and-data/stage-f/rules/receipt.json",
+          "docs/audits/2026_11_02-epic-m6-es-vendored-and-data/stage-f/rules/stderr",
+          "docs/audits/2026_11_02-epic-m6-es-vendored-and-data/stage-f/rules/stdout",
+          "docs/audits/2026_11_02-epic-m6-es-vendored-and-data/stage-f/separate-companions.json",
+          "docs/audits/2026_11_02-epic-m6-es-vendored-and-data/stage-g/retro-readback.json",
+          "docs/audits/2026_11_02-epic-m6-es-vendored-and-data/stage-h/custody-plan.json",
+          "docs/audits/2026_11_02-epic-m6-es-vendored-and-data/stage-h/handback.md",
+          "docs/retros/2026-11-03-m6-es-vendored-and-data.md",
+          "docs/work-logs/2026_11-work_logs/2026_11_03-work_log.md",
+          "docs/work-logs/INDEX.md"
+        ]
+      }
+    ],
+    "programs": {
+      "controls": "65de120e47aa84dfe38e9aad5ee9a66a7200c96750c0d449d77302a210f78ffd",
+      "current_runner": "bdfc4fafdc4f67e4a3015af5324848591e4d578231a86eba8876ee9cee31eb96",
+      "guard": "cee56cb42ce2812e3f288f96aacca8a4529913a207d70005a3c56122bf025fee",
+      "old_runner": "b762558858bdb7f1b5e2cdba8eb4d16c7df8d7758830e126bc44934f905cf3c4"
+    },
+    "publication_command_receipts": 29,
+    "publication_manifest_entries": 135,
+    "receipt_bindings": [
+      {
+        "argv": [
+          "tools/ceremony-check",
+          "--gate"
+        ],
+        "head": "923dd5371ded83fa965449a83f7a16d15a174772",
+        "location": "git:docs/audits/2026_11_02-epic-m6-es-vendored-and-data/stage-e/ceremony/receipt.json",
+        "rc": 0,
+        "runner_sha256": "b762558858bdb7f1b5e2cdba8eb4d16c7df8d7758830e126bc44934f905cf3c4",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "argv": [
+          "python3",
+          "-I",
+          "-B",
+          "/workspace/repos/pixelelated/distribution.worktrees/m6-es-vendored-and-data-691/docs/audits/2026_11_02-epic-m6-es-vendored-and-data/tools/final-confinement.py",
+          "--repo",
+          "/workspace/repos/pixelelated/distribution.worktrees/m6-es-vendored-and-data-691",
+          "--es",
+          "/home/max/Development/emulationstation-next.worktrees/m6-es-vendored-and-data-691",
+          "--allowlist",
+          "/workspace/repos/pixelelated/distribution.worktrees/m6-es-vendored-and-data-691/docs/audits/2026_11_02-epic-m6-es-vendored-and-data/stage-e/allowlist.json",
+          "--working"
+        ],
+        "head": "923dd5371ded83fa965449a83f7a16d15a174772",
+        "location": "git:docs/audits/2026_11_02-epic-m6-es-vendored-and-data/stage-e/confinement/receipt.json",
+        "rc": 0,
+        "runner_sha256": "b762558858bdb7f1b5e2cdba8eb4d16c7df8d7758830e126bc44934f905cf3c4",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "f7964bd1a3e7c2facf787de59bce25b9b9f0030f3feded2d31aec2477b679691"
+      },
+      {
+        "argv": [
+          "python3",
+          "-I",
+          "-B",
+          "/workspace/repos/pixelelated/distribution.worktrees/m6-es-vendored-and-data-691/docs/audits/2026_11_02-epic-m6-es-vendored-and-data/tools/final-confinement-controls.py",
+          "--guard",
+          "/workspace/repos/pixelelated/distribution.worktrees/m6-es-vendored-and-data-691/docs/audits/2026_11_02-epic-m6-es-vendored-and-data/tools/final-confinement.py",
+          "--out",
+          "/workspace/repos/pixelelated/distribution.worktrees/m6-es-vendored-and-data-691/docs/audits/2026_11_02-epic-m6-es-vendored-and-data/stage-e/controls"
+        ],
+        "head": "923dd5371ded83fa965449a83f7a16d15a174772",
+        "location": "git:docs/audits/2026_11_02-epic-m6-es-vendored-and-data/stage-e/controls-run/receipt.json",
+        "rc": 0,
+        "runner_sha256": "b762558858bdb7f1b5e2cdba8eb4d16c7df8d7758830e126bc44934f905cf3c4",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "6fbdb7ed47f94fe37a9f35243723a47f6a1c2523e8a47ce74fe1363550f38ec2"
+      },
+      {
+        "argv": [
+          "git",
+          "diff",
+          "--check",
+          "48a335700d05a733703e1b58536877b91b921259"
+        ],
+        "head": "923dd5371ded83fa965449a83f7a16d15a174772",
+        "location": "git:docs/audits/2026_11_02-epic-m6-es-vendored-and-data/stage-e/diff-2/receipt.json",
+        "rc": 2,
+        "runner_sha256": "bdfc4fafdc4f67e4a3015af5324848591e4d578231a86eba8876ee9cee31eb96",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "9d285b5b3024d225a3818b4284256d100faa776deb488ae5d30acb65daae2547"
+      },
+      {
+        "argv": [
+          "git",
+          "diff",
+          "--check",
+          "48a335700d05a733703e1b58536877b91b921259"
+        ],
+        "head": "923dd5371ded83fa965449a83f7a16d15a174772",
+        "location": "git:docs/audits/2026_11_02-epic-m6-es-vendored-and-data/stage-e/diff-3/receipt.json",
+        "rc": 0,
+        "runner_sha256": "bdfc4fafdc4f67e4a3015af5324848591e4d578231a86eba8876ee9cee31eb96",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "argv": [
+          "tools/work-log-index",
+          "--check"
+        ],
+        "head": "923dd5371ded83fa965449a83f7a16d15a174772",
+        "location": "git:docs/audits/2026_11_02-epic-m6-es-vendored-and-data/stage-e/index-2/receipt.json",
+        "rc": 0,
+        "runner_sha256": "bdfc4fafdc4f67e4a3015af5324848591e4d578231a86eba8876ee9cee31eb96",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "232b345c76ad64a47de4d43e62d9aeb4f2850472cde78ddd1b1e56d72103d927"
+      },
+      {
+        "argv": [
+          "tools/work-log-index",
+          "--write"
+        ],
+        "head": "923dd5371ded83fa965449a83f7a16d15a174772",
+        "location": "git:docs/audits/2026_11_02-epic-m6-es-vendored-and-data/stage-e/index-write/receipt.json",
+        "rc": 0,
+        "runner_sha256": "b762558858bdb7f1b5e2cdba8eb4d16c7df8d7758830e126bc44934f905cf3c4",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "b970b077ac2bab0e7b04fadc776b5ccc74c408997df36c34f5c3c7a2d8e866f5"
+      },
+      {
+        "argv": [
+          "tools/box-check",
+          "--issue",
+          "1413"
+        ],
+        "head": "923dd5371ded83fa965449a83f7a16d15a174772",
+        "location": "git:docs/audits/2026_11_02-epic-m6-es-vendored-and-data/stage-e/issue-2/receipt.json",
+        "rc": 0,
+        "runner_sha256": "bdfc4fafdc4f67e4a3015af5324848591e4d578231a86eba8876ee9cee31eb96",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "7ae8534fd7d26020a8b0e7221cf3313b595e275a0fea6a8adb4568b7e135a317"
+      },
+      {
+        "argv": [
+          "gh",
+          "api",
+          "repos/pixelelated/distribution/issues/1414/parent"
+        ],
+        "head": "923dd5371ded83fa965449a83f7a16d15a174772",
+        "location": "git:docs/audits/2026_11_02-epic-m6-es-vendored-and-data/stage-e/parent-read/receipt.json",
+        "rc": 0,
+        "runner_sha256": "b762558858bdb7f1b5e2cdba8eb4d16c7df8d7758830e126bc44934f905cf3c4",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "c5005238da812595d3a4eb0528d72e6cfc4454aa72283a2ccc2e786404c2fd79"
+      },
+      {
+        "argv": [
+          "tools/register-check"
+        ],
+        "head": "923dd5371ded83fa965449a83f7a16d15a174772",
+        "location": "git:docs/audits/2026_11_02-epic-m6-es-vendored-and-data/stage-e/register-2/receipt.json",
+        "rc": 0,
+        "runner_sha256": "bdfc4fafdc4f67e4a3015af5324848591e4d578231a86eba8876ee9cee31eb96",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "a663cbd892b0646df3ab8ca7417fe230f414e09711f264cda79ea904d4bbc2fa"
+      },
+      {
+        "argv": [
+          "python3",
+          "-I",
+          "-B",
+          "tools/lint-audit-artifacts",
+          "/workspace/repos/pixelelated/distribution.worktrees/m6-es-vendored-and-data-691/docs/audits/2026_11_02-epic-m6-es-vendored-and-data",
+          "--issue",
+          "1413"
+        ],
+        "head": "923dd5371ded83fa965449a83f7a16d15a174772",
+        "location": "git:docs/audits/2026_11_02-epic-m6-es-vendored-and-data/stage-e/resolution-issue/receipt.json",
+        "rc": 0,
+        "runner_sha256": "b762558858bdb7f1b5e2cdba8eb4d16c7df8d7758830e126bc44934f905cf3c4",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "d9cbac168216e5fb2405c65558daecceb1d5c50b78b60625587a32f5b372cd6a"
+      },
+      {
+        "argv": [
+          "python3",
+          "-I",
+          "-B",
+          "tools/lint-audit-artifacts",
+          "/workspace/repos/pixelelated/distribution.worktrees/m6-es-vendored-and-data-691/docs/audits/2026_11_02-epic-m6-es-vendored-and-data"
+        ],
+        "head": "923dd5371ded83fa965449a83f7a16d15a174772",
+        "location": "git:docs/audits/2026_11_02-epic-m6-es-vendored-and-data/stage-e/resolution/receipt.json",
+        "rc": 0,
+        "runner_sha256": "b762558858bdb7f1b5e2cdba8eb4d16c7df8d7758830e126bc44934f905cf3c4",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "02120d5f59a5231dc9647c20a0d1c07e6ea93ad2500512509f798e00e1257403"
+      },
+      {
+        "argv": [
+          "tools/rules-check",
+          "--quiet"
+        ],
+        "head": "923dd5371ded83fa965449a83f7a16d15a174772",
+        "location": "git:docs/audits/2026_11_02-epic-m6-es-vendored-and-data/stage-e/rules/receipt.json",
+        "rc": 0,
+        "runner_sha256": "b762558858bdb7f1b5e2cdba8eb4d16c7df8d7758830e126bc44934f905cf3c4",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "argv": [
+          "python3",
+          "-I",
+          "-B",
+          "-c",
+          "import sys; print(\"synthetic stdout\"); print(\"synthetic stderr\",file=sys.stderr); sys.exit(7)"
+        ],
+        "head": "923dd5371ded83fa965449a83f7a16d15a174772",
+        "location": "git:docs/audits/2026_11_02-epic-m6-es-vendored-and-data/stage-e/runner-failure-control/receipt.json",
+        "rc": 7,
+        "runner_sha256": "bdfc4fafdc4f67e4a3015af5324848591e4d578231a86eba8876ee9cee31eb96",
+        "stderr_sha256": "09867ef64544e1337986481d1cd1359998999beaf1bb3c23fb91ac8abfc3dffe",
+        "stdout_sha256": "74e366b714516751de5bf7d288540550888ccc9f94b82c4a035b72d5998df7ec"
+      },
+      {
+        "argv": [
+          "python3",
+          "-I",
+          "-B",
+          "-c",
+          "print(\"synthetic success\")"
+        ],
+        "head": "923dd5371ded83fa965449a83f7a16d15a174772",
+        "location": "git:docs/audits/2026_11_02-epic-m6-es-vendored-and-data/stage-e/runner-positive-control/receipt.json",
+        "rc": 0,
+        "runner_sha256": "bdfc4fafdc4f67e4a3015af5324848591e4d578231a86eba8876ee9cee31eb96",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "82b9e06c5dcfd4a7fe60fb1dd42e95bcdba6cff4f199aec1e5381d6d181e136b"
+      },
+      {
+        "argv": [
+          "python3",
+          "-I",
+          "-B",
+          "-c",
+          "import ast,pathlib; paths=['/workspace/repos/pixelelated/distribution.worktrees/m6-es-vendored-and-data-691/docs/audits/2026_11_02-epic-m6-es-vendored-and-data/tools/final-confinement.py', '/workspace/repos/pixelelated/distribution.worktrees/m6-es-vendored-and-data-691/docs/audits/2026_11_02-epic-m6-es-vendored-and-data/tools/final-confinement-controls.py', '/workspace/repos/pixelelated/distribution.worktrees/m6-es-vendored-and-data-691/docs/audits/2026_11_02-epic-m6-es-vendored-and-data/tools/final-record-runner.py']; [ast.parse(pathlib.Path(p).read_bytes(),filename=p) for p in paths]; print(\"PASS three new programs; parsed only\")"
+        ],
+        "head": "923dd5371ded83fa965449a83f7a16d15a174772",
+        "location": "git:docs/audits/2026_11_02-epic-m6-es-vendored-and-data/stage-e/syntax/receipt.json",
+        "rc": 0,
+        "runner_sha256": "bdfc4fafdc4f67e4a3015af5324848591e4d578231a86eba8876ee9cee31eb96",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "cadc5b6fc1d6fbf5cca7f20a395f40cec2c56cf5cbbf8cefcdcd860b01d886f9"
+      },
+      {
+        "argv": [
+          "tools/ceremony-check",
+          "--gate"
+        ],
+        "head": "d0274e2de5d8af353f8643798491ad8c126da73f",
+        "location": "git:docs/audits/2026_11_02-epic-m6-es-vendored-and-data/stage-f/ceremony/receipt.json",
+        "rc": 0,
+        "runner_sha256": "bdfc4fafdc4f67e4a3015af5324848591e4d578231a86eba8876ee9cee31eb96",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "argv": [
+          "python3",
+          "-I",
+          "-B",
+          "/workspace/repos/pixelelated/distribution.worktrees/m6-es-vendored-and-data-691/docs/audits/2026_11_02-epic-m6-es-vendored-and-data/tools/final-confinement.py",
+          "--repo",
+          "/workspace/repos/pixelelated/distribution.worktrees/m6-es-vendored-and-data-691",
+          "--es",
+          "/home/max/Development/emulationstation-next.worktrees/m6-es-vendored-and-data-691",
+          "--allowlist",
+          "/workspace/repos/pixelelated/distribution.worktrees/m6-es-vendored-and-data-691/docs/audits/2026_11_02-epic-m6-es-vendored-and-data/stage-e/allowlist.json",
+          "--working"
+        ],
+        "head": "d0274e2de5d8af353f8643798491ad8c126da73f",
+        "location": "git:docs/audits/2026_11_02-epic-m6-es-vendored-and-data/stage-f/confinement/receipt.json",
+        "rc": 0,
+        "runner_sha256": "bdfc4fafdc4f67e4a3015af5324848591e4d578231a86eba8876ee9cee31eb96",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "19328639d504f5198ba5c687a0d13535d0eeb682f3e909977e79c3d9e8d3a429"
+      },
+      {
+        "argv": [
+          "git",
+          "diff",
+          "--check",
+          "48a335700d05a733703e1b58536877b91b921259"
+        ],
+        "head": "d0274e2de5d8af353f8643798491ad8c126da73f",
+        "location": "git:docs/audits/2026_11_02-epic-m6-es-vendored-and-data/stage-f/diff/receipt.json",
+        "rc": 0,
+        "runner_sha256": "bdfc4fafdc4f67e4a3015af5324848591e4d578231a86eba8876ee9cee31eb96",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "argv": [
+          "tools/forbidden-terms-check"
+        ],
+        "head": "d0274e2de5d8af353f8643798491ad8c126da73f",
+        "location": "git:docs/audits/2026_11_02-epic-m6-es-vendored-and-data/stage-f/forbidden/receipt.json",
+        "rc": 0,
+        "runner_sha256": "bdfc4fafdc4f67e4a3015af5324848591e4d578231a86eba8876ee9cee31eb96",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "422d60923639f3f67b4c82e4c6cd6ec8355272661ea19750771d1358d5aee776"
+      },
+      {
+        "argv": [
+          ".githooks/hooks-test"
+        ],
+        "head": "d0274e2de5d8af353f8643798491ad8c126da73f",
+        "location": "git:docs/audits/2026_11_02-epic-m6-es-vendored-and-data/stage-f/hooks/receipt.json",
+        "rc": 0,
+        "runner_sha256": "bdfc4fafdc4f67e4a3015af5324848591e4d578231a86eba8876ee9cee31eb96",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "3402d5f59e65118cf905eb74dd1cda7660eeffd181ad248e23a56f68395e0a5c"
+      },
+      {
+        "argv": [
+          "python3",
+          "-I",
+          "-B",
+          "/tmp/m6-t44-eh-publication-qhf1l0l6/immutable-readback.py",
+          "/tmp/m6-t44-eh-publication-qhf1l0l6/immutable-s1-result.json"
+        ],
+        "head": "d0274e2de5d8af353f8643798491ad8c126da73f",
+        "location": "git:docs/audits/2026_11_02-epic-m6-es-vendored-and-data/stage-f/immutable-s1/receipt.json",
+        "rc": 0,
+        "runner_sha256": "bdfc4fafdc4f67e4a3015af5324848591e4d578231a86eba8876ee9cee31eb96",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "807752968672860068d5b9a7fa3098375b76fed3d606f8cca46cbcc4c084322e"
+      },
+      {
+        "argv": [
+          "tools/work-log-index",
+          "--write"
+        ],
+        "head": "d0274e2de5d8af353f8643798491ad8c126da73f",
+        "location": "git:docs/audits/2026_11_02-epic-m6-es-vendored-and-data/stage-f/index-write/receipt.json",
+        "rc": 0,
+        "runner_sha256": "bdfc4fafdc4f67e4a3015af5324848591e4d578231a86eba8876ee9cee31eb96",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "5aed54880ebf6140106c1841e0da768f32ffb78bcbf12ebc1100d6a878aba137"
+      },
+      {
+        "argv": [
+          "tools/work-log-index",
+          "--check"
+        ],
+        "head": "d0274e2de5d8af353f8643798491ad8c126da73f",
+        "location": "git:docs/audits/2026_11_02-epic-m6-es-vendored-and-data/stage-f/index/receipt.json",
+        "rc": 0,
+        "runner_sha256": "bdfc4fafdc4f67e4a3015af5324848591e4d578231a86eba8876ee9cee31eb96",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "232b345c76ad64a47de4d43e62d9aeb4f2850472cde78ddd1b1e56d72103d927"
+      },
+      {
+        "argv": [
+          "tools/box-check",
+          "--issue",
+          "1413"
+        ],
+        "head": "d0274e2de5d8af353f8643798491ad8c126da73f",
+        "location": "git:docs/audits/2026_11_02-epic-m6-es-vendored-and-data/stage-f/issue/receipt.json",
+        "rc": 0,
+        "runner_sha256": "bdfc4fafdc4f67e4a3015af5324848591e4d578231a86eba8876ee9cee31eb96",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "7ae8534fd7d26020a8b0e7221cf3313b595e275a0fea6a8adb4568b7e135a317"
+      },
+      {
+        "argv": [
+          "tools/register-check"
+        ],
+        "head": "d0274e2de5d8af353f8643798491ad8c126da73f",
+        "location": "git:docs/audits/2026_11_02-epic-m6-es-vendored-and-data/stage-f/register/receipt.json",
+        "rc": 0,
+        "runner_sha256": "bdfc4fafdc4f67e4a3015af5324848591e4d578231a86eba8876ee9cee31eb96",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "a663cbd892b0646df3ab8ca7417fe230f414e09711f264cda79ea904d4bbc2fa"
+      },
+      {
+        "argv": [
+          "python3",
+          "-I",
+          "-B",
+          "tools/lint-audit-artifacts",
+          "/workspace/repos/pixelelated/distribution.worktrees/m6-es-vendored-and-data-691/docs/audits/2026_11_02-epic-m6-es-vendored-and-data",
+          "--issue",
+          "1413"
+        ],
+        "head": "d0274e2de5d8af353f8643798491ad8c126da73f",
+        "location": "git:docs/audits/2026_11_02-epic-m6-es-vendored-and-data/stage-f/resolution-issue/receipt.json",
+        "rc": 0,
+        "runner_sha256": "bdfc4fafdc4f67e4a3015af5324848591e4d578231a86eba8876ee9cee31eb96",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "d9cbac168216e5fb2405c65558daecceb1d5c50b78b60625587a32f5b372cd6a"
+      },
+      {
+        "argv": [
+          "python3",
+          "-I",
+          "-B",
+          "tools/lint-audit-artifacts",
+          "/workspace/repos/pixelelated/distribution.worktrees/m6-es-vendored-and-data-691/docs/audits/2026_11_02-epic-m6-es-vendored-and-data"
+        ],
+        "head": "d0274e2de5d8af353f8643798491ad8c126da73f",
+        "location": "git:docs/audits/2026_11_02-epic-m6-es-vendored-and-data/stage-f/resolution/receipt.json",
+        "rc": 0,
+        "runner_sha256": "bdfc4fafdc4f67e4a3015af5324848591e4d578231a86eba8876ee9cee31eb96",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "02120d5f59a5231dc9647c20a0d1c07e6ea93ad2500512509f798e00e1257403"
+      },
+      {
+        "argv": [
+          "tools/rules-check",
+          "--quiet"
+        ],
+        "head": "d0274e2de5d8af353f8643798491ad8c126da73f",
+        "location": "git:docs/audits/2026_11_02-epic-m6-es-vendored-and-data/stage-f/rules/receipt.json",
+        "rc": 0,
+        "runner_sha256": "bdfc4fafdc4f67e4a3015af5324848591e4d578231a86eba8876ee9cee31eb96",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "argv": [
+          "tools/ceremony-check",
+          "--gate"
+        ],
+        "head": "f01abd480f4e0b337a9fcdde2cec9bc1746b525d",
+        "location": "publication:final-ceremony/receipt.json",
+        "rc": 0,
+        "runner_sha256": "bdfc4fafdc4f67e4a3015af5324848591e4d578231a86eba8876ee9cee31eb96",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "3c6037f63a70b599e11cba28f4c0ed134b367f9f8db1a00e27eb0bd4c85cd0e8"
+      },
+      {
+        "argv": [
+          "tools/ceremony-check",
+          "--gate"
+        ],
+        "head": "f01abd480f4e0b337a9fcdde2cec9bc1746b525d",
+        "location": "publication:final-ceremony-network/receipt.json",
+        "rc": 0,
+        "runner_sha256": "bdfc4fafdc4f67e4a3015af5324848591e4d578231a86eba8876ee9cee31eb96",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "argv": [
+          "python3",
+          "-I",
+          "-B",
+          "/workspace/repos/pixelelated/distribution.worktrees/m6-es-vendored-and-data-691/docs/audits/2026_11_02-epic-m6-es-vendored-and-data/tools/final-confinement.py",
+          "--repo",
+          "/workspace/repos/pixelelated/distribution.worktrees/m6-es-vendored-and-data-691",
+          "--es",
+          "/home/max/Development/emulationstation-next.worktrees/m6-es-vendored-and-data-691",
+          "--allowlist",
+          "/workspace/repos/pixelelated/distribution.worktrees/m6-es-vendored-and-data-691/docs/audits/2026_11_02-epic-m6-es-vendored-and-data/stage-e/allowlist.json",
+          "--tip",
+          "f01abd480f4e0b337a9fcdde2cec9bc1746b525d"
+        ],
+        "head": "f01abd480f4e0b337a9fcdde2cec9bc1746b525d",
+        "location": "publication:final-confinement/receipt.json",
+        "rc": 0,
+        "runner_sha256": "bdfc4fafdc4f67e4a3015af5324848591e4d578231a86eba8876ee9cee31eb96",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "fbdf7025c8829d0b4590386d18993ea552988ead62788f519ba33e0b55d8be0f"
+      },
+      {
+        "argv": [
+          "git",
+          "diff",
+          "--check",
+          "48a335700d05a733703e1b58536877b91b921259",
+          "f01abd480f4e0b337a9fcdde2cec9bc1746b525d"
+        ],
+        "head": "f01abd480f4e0b337a9fcdde2cec9bc1746b525d",
+        "location": "publication:final-diff/receipt.json",
+        "rc": 0,
+        "runner_sha256": "bdfc4fafdc4f67e4a3015af5324848591e4d578231a86eba8876ee9cee31eb96",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "argv": [
+          "git",
+          "-C",
+          "/home/max/Development/emulationstation-next.worktrees/m6-es-vendored-and-data-691",
+          "rev-parse",
+          "HEAD",
+          "HEAD^{tree}"
+        ],
+        "head": "f01abd480f4e0b337a9fcdde2cec9bc1746b525d",
+        "location": "publication:final-es-identity/receipt.json",
+        "rc": 0,
+        "runner_sha256": "bdfc4fafdc4f67e4a3015af5324848591e4d578231a86eba8876ee9cee31eb96",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "a8f61148c02ebe3635e8791fb111b180b86f87aec0d1ac139d112dd017ef92ce"
+      },
+      {
+        "argv": [
+          "git",
+          "-C",
+          "/home/max/Development/emulationstation-next.worktrees/m6-es-vendored-and-data-691",
+          "status",
+          "--porcelain=v1",
+          "--untracked-files=all"
+        ],
+        "head": "f01abd480f4e0b337a9fcdde2cec9bc1746b525d",
+        "location": "publication:final-es-status/receipt.json",
+        "rc": 0,
+        "runner_sha256": "bdfc4fafdc4f67e4a3015af5324848591e4d578231a86eba8876ee9cee31eb96",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "argv": [
+          "tools/forbidden-terms-check"
+        ],
+        "head": "f01abd480f4e0b337a9fcdde2cec9bc1746b525d",
+        "location": "publication:final-forbidden/receipt.json",
+        "rc": 0,
+        "runner_sha256": "bdfc4fafdc4f67e4a3015af5324848591e4d578231a86eba8876ee9cee31eb96",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "c7593fffcf951ce5ab012bb4252d318f4aae0d535f57e78615b49c1b5798a2cd"
+      },
+      {
+        "argv": [
+          "python3",
+          "-I",
+          "-B",
+          "/workspace/repos/pixelelated/distribution.worktrees/m6-es-vendored-and-data-691/docs/audits/2026_11_02-epic-m6-es-vendored-and-data/stage-f/immutable-readback.py",
+          "/tmp/m6-t44-eh-publication-qhf1l0l6/exact-final-artifacts.json"
+        ],
+        "head": "f01abd480f4e0b337a9fcdde2cec9bc1746b525d",
+        "location": "publication:final-immutable/receipt.json",
+        "rc": 0,
+        "runner_sha256": "bdfc4fafdc4f67e4a3015af5324848591e4d578231a86eba8876ee9cee31eb96",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "edd9cc4b38abebf1bca820a27475548015c35488e2d5e6133505b6f173afc5d9"
+      },
+      {
+        "argv": [
+          "tools/work-log-index",
+          "--check"
+        ],
+        "head": "f01abd480f4e0b337a9fcdde2cec9bc1746b525d",
+        "location": "publication:final-index/receipt.json",
+        "rc": 0,
+        "runner_sha256": "bdfc4fafdc4f67e4a3015af5324848591e4d578231a86eba8876ee9cee31eb96",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "232b345c76ad64a47de4d43e62d9aeb4f2850472cde78ddd1b1e56d72103d927"
+      },
+      {
+        "argv": [
+          "tools/box-check",
+          "--issue",
+          "1413"
+        ],
+        "head": "f01abd480f4e0b337a9fcdde2cec9bc1746b525d",
+        "location": "publication:final-issue-1413/receipt.json",
+        "rc": 0,
+        "runner_sha256": "bdfc4fafdc4f67e4a3015af5324848591e4d578231a86eba8876ee9cee31eb96",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "7ae8534fd7d26020a8b0e7221cf3313b595e275a0fea6a8adb4568b7e135a317"
+      },
+      {
+        "argv": [
+          "tools/box-check",
+          "--issue",
+          "691"
+        ],
+        "head": "f01abd480f4e0b337a9fcdde2cec9bc1746b525d",
+        "location": "publication:final-issue-691/receipt.json",
+        "rc": 0,
+        "runner_sha256": "bdfc4fafdc4f67e4a3015af5324848591e4d578231a86eba8876ee9cee31eb96",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "48f4a7bf5ee04dceec993e46d5d90d26505638fc7e10b158f7d61c1f954a3dd0"
+      },
+      {
+        "argv": [
+          "tools/register-check"
+        ],
+        "head": "f01abd480f4e0b337a9fcdde2cec9bc1746b525d",
+        "location": "publication:final-register/receipt.json",
+        "rc": 0,
+        "runner_sha256": "bdfc4fafdc4f67e4a3015af5324848591e4d578231a86eba8876ee9cee31eb96",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "a663cbd892b0646df3ab8ca7417fe230f414e09711f264cda79ea904d4bbc2fa"
+      },
+      {
+        "argv": [
+          "python3",
+          "-I",
+          "-B",
+          "tools/lint-audit-artifacts",
+          "/workspace/repos/pixelelated/distribution.worktrees/m6-es-vendored-and-data-691/docs/audits/2026_11_02-epic-m6-es-vendored-and-data"
+        ],
+        "head": "f01abd480f4e0b337a9fcdde2cec9bc1746b525d",
+        "location": "publication:final-resolution/receipt.json",
+        "rc": 0,
+        "runner_sha256": "bdfc4fafdc4f67e4a3015af5324848591e4d578231a86eba8876ee9cee31eb96",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "02120d5f59a5231dc9647c20a0d1c07e6ea93ad2500512509f798e00e1257403"
+      },
+      {
+        "argv": [
+          "python3",
+          "-I",
+          "-B",
+          "tools/lint-audit-artifacts",
+          "/workspace/repos/pixelelated/distribution.worktrees/m6-es-vendored-and-data-691/docs/audits/2026_11_02-epic-m6-es-vendored-and-data",
+          "--issue",
+          "1413"
+        ],
+        "head": "f01abd480f4e0b337a9fcdde2cec9bc1746b525d",
+        "location": "publication:final-resolution-issue/receipt.json",
+        "rc": 1,
+        "runner_sha256": "bdfc4fafdc4f67e4a3015af5324848591e4d578231a86eba8876ee9cee31eb96",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "d38c0b1915428494e4aa8afde814cb45c3c3acc6cc1a5493e98553f2a21acd50"
+      },
+      {
+        "argv": [
+          "python3",
+          "-I",
+          "-B",
+          "tools/lint-audit-artifacts",
+          "/workspace/repos/pixelelated/distribution.worktrees/m6-es-vendored-and-data-691/docs/audits/2026_11_02-epic-m6-es-vendored-and-data",
+          "--issue",
+          "1413"
+        ],
+        "head": "f01abd480f4e0b337a9fcdde2cec9bc1746b525d",
+        "location": "publication:final-resolution-issue-network/receipt.json",
+        "rc": 0,
+        "runner_sha256": "bdfc4fafdc4f67e4a3015af5324848591e4d578231a86eba8876ee9cee31eb96",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "d9cbac168216e5fb2405c65558daecceb1d5c50b78b60625587a32f5b372cd6a"
+      },
+      {
+        "argv": [
+          "tools/rules-check",
+          "--quiet"
+        ],
+        "head": "f01abd480f4e0b337a9fcdde2cec9bc1746b525d",
+        "location": "publication:final-rules/receipt.json",
+        "rc": 0,
+        "runner_sha256": "bdfc4fafdc4f67e4a3015af5324848591e4d578231a86eba8876ee9cee31eb96",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "argv": [
+          "git",
+          "commit",
+          "-m",
+          "T44: finish record gates, retro and bounded evidence custody",
+          "-m",
+          "Refs #691. Preserve accepted source and A-D evidence; retain unsupported scratch explicitly. Root acceptance and integration remain pending."
+        ],
+        "head": "d0274e2de5d8af353f8643798491ad8c126da73f",
+        "location": "publication:h-commit/receipt.json",
+        "rc": 0,
+        "runner_sha256": "bdfc4fafdc4f67e4a3015af5324848591e4d578231a86eba8876ee9cee31eb96",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "a0a04fe5abe8ef1a94724831d5bd31cf3d8e1accacf8d4ab96982f4d238200bc"
+      },
+      {
+        "argv": [
+          "python3",
+          "-I",
+          "-B",
+          "/workspace/repos/pixelelated/distribution.worktrees/m6-es-vendored-and-data-691/docs/audits/2026_11_02-epic-m6-es-vendored-and-data/tools/final-confinement.py",
+          "--repo",
+          "/workspace/repos/pixelelated/distribution.worktrees/m6-es-vendored-and-data-691",
+          "--es",
+          "/home/max/Development/emulationstation-next.worktrees/m6-es-vendored-and-data-691",
+          "--allowlist",
+          "/workspace/repos/pixelelated/distribution.worktrees/m6-es-vendored-and-data-691/docs/audits/2026_11_02-epic-m6-es-vendored-and-data/stage-e/allowlist.json",
+          "--working"
+        ],
+        "head": "d0274e2de5d8af353f8643798491ad8c126da73f",
+        "location": "publication:h-confinement/receipt.json",
+        "rc": 0,
+        "runner_sha256": "bdfc4fafdc4f67e4a3015af5324848591e4d578231a86eba8876ee9cee31eb96",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "8f4d2840446061c32bade02ff9d1791b69881d1d8a8a93ef7a6c38b7e027ec37"
+      },
+      {
+        "argv": [
+          "git",
+          "diff",
+          "--check",
+          "48a335700d05a733703e1b58536877b91b921259"
+        ],
+        "head": "d0274e2de5d8af353f8643798491ad8c126da73f",
+        "location": "publication:h-diff/receipt.json",
+        "rc": 0,
+        "runner_sha256": "bdfc4fafdc4f67e4a3015af5324848591e4d578231a86eba8876ee9cee31eb96",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "argv": [
+          "git",
+          "push",
+          "--porcelain",
+          "origin",
+          "HEAD:refs/heads/feature/m6-es-vendored-and-data-691"
+        ],
+        "head": "f01abd480f4e0b337a9fcdde2cec9bc1746b525d",
+        "location": "publication:h-push/receipt.json",
+        "rc": 0,
+        "runner_sha256": "bdfc4fafdc4f67e4a3015af5324848591e4d578231a86eba8876ee9cee31eb96",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "f6f5167b1476ca4d5008902bf47671b14141c3b33d4a435af151094cc0be1fd4"
+      },
+      {
+        "argv": [
+          "git",
+          "status",
+          "--porcelain=v1"
+        ],
+        "head": "d0274e2de5d8af353f8643798491ad8c126da73f",
+        "location": "publication:h-status/receipt.json",
+        "rc": 0,
+        "runner_sha256": "bdfc4fafdc4f67e4a3015af5324848591e4d578231a86eba8876ee9cee31eb96",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "14d8c79b704047c929abc1d21dfa70dd2d675382ad389e9c9ebfe8d89ab80fa3"
+      },
+      {
+        "argv": [
+          "python3",
+          "-I",
+          "-B",
+          "/tmp/m6-t44-eh-publication-qhf1l0l6/immutable-readback.py",
+          "/tmp/m6-t44-eh-publication-qhf1l0l6/immutable-s1-result.json"
+        ],
+        "head": "d0274e2de5d8af353f8643798491ad8c126da73f",
+        "location": "publication:immutable-s1/receipt.json",
+        "rc": 0,
+        "runner_sha256": "bdfc4fafdc4f67e4a3015af5324848591e4d578231a86eba8876ee9cee31eb96",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "807752968672860068d5b9a7fa3098375b76fed3d606f8cca46cbcc4c084322e"
+      },
+      {
+        "argv": [
+          "git",
+          "rev-parse",
+          "HEAD",
+          "HEAD^{tree}"
+        ],
+        "head": "f01abd480f4e0b337a9fcdde2cec9bc1746b525d",
+        "location": "publication:published-head/receipt.json",
+        "rc": 0,
+        "runner_sha256": "bdfc4fafdc4f67e4a3015af5324848591e4d578231a86eba8876ee9cee31eb96",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "5558378ad1b2bc70d5c5487854dff80aa2cddaa03367fe0875cedc8a25522b04"
+      },
+      {
+        "argv": [
+          "git",
+          "status",
+          "--porcelain=v1"
+        ],
+        "head": "f01abd480f4e0b337a9fcdde2cec9bc1746b525d",
+        "location": "publication:published-status/receipt.json",
+        "rc": 0,
+        "runner_sha256": "bdfc4fafdc4f67e4a3015af5324848591e4d578231a86eba8876ee9cee31eb96",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "argv": [
+          "git",
+          "ls-remote",
+          "--exit-code",
+          "origin",
+          "refs/heads/feature/m6-es-vendored-and-data-691"
+        ],
+        "head": "f01abd480f4e0b337a9fcdde2cec9bc1746b525d",
+        "location": "publication:remote-tip/receipt.json",
+        "rc": 0,
+        "runner_sha256": "bdfc4fafdc4f67e4a3015af5324848591e4d578231a86eba8876ee9cee31eb96",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "2cfedd73abea17bf390d668c566a7ee3cc56fc2042a0640e6bffc34102456655"
+      },
+      {
+        "argv": [
+          "git",
+          "remote",
+          "get-url",
+          "origin"
+        ],
+        "head": "f01abd480f4e0b337a9fcdde2cec9bc1746b525d",
+        "location": "publication:remote-url/receipt.json",
+        "rc": 0,
+        "runner_sha256": "bdfc4fafdc4f67e4a3015af5324848591e4d578231a86eba8876ee9cee31eb96",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "a0ac7928106ad22718179c36247687ab6fca7ddbb48f1db018180af3faa9484f"
+      },
+      {
+        "argv": [
+          "git",
+          "commit",
+          "-m",
+          "T44: record temporary vendor carry decision and owner routes",
+          "-m",
+          "Refs #691. PL001 resolves carrying-decision documentation only; preserve accepted A-D evidence and source identities."
+        ],
+        "head": "923dd5371ded83fa965449a83f7a16d15a174772",
+        "location": "publication:s1-commit/receipt.json",
+        "rc": 0,
+        "runner_sha256": "bdfc4fafdc4f67e4a3015af5324848591e4d578231a86eba8876ee9cee31eb96",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "701a7ecce5e78bcdbdf55500da0d64d7708125991051b73329554c4be0bfbf82"
+      },
+      {
+        "argv": [
+          "python3",
+          "-I",
+          "-B",
+          "/workspace/repos/pixelelated/distribution.worktrees/m6-es-vendored-and-data-691/docs/audits/2026_11_02-epic-m6-es-vendored-and-data/tools/final-confinement.py",
+          "--repo",
+          "/workspace/repos/pixelelated/distribution.worktrees/m6-es-vendored-and-data-691",
+          "--es",
+          "/home/max/Development/emulationstation-next.worktrees/m6-es-vendored-and-data-691",
+          "--allowlist",
+          "/workspace/repos/pixelelated/distribution.worktrees/m6-es-vendored-and-data-691/docs/audits/2026_11_02-epic-m6-es-vendored-and-data/stage-e/allowlist.json",
+          "--working"
+        ],
+        "head": "923dd5371ded83fa965449a83f7a16d15a174772",
+        "location": "publication:s1-confinement/receipt.json",
+        "rc": 0,
+        "runner_sha256": "bdfc4fafdc4f67e4a3015af5324848591e4d578231a86eba8876ee9cee31eb96",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "edc79eb8482ebe288b5255652d7307da7901d1b0cfbe4b7d9d89ec4c6352ef69"
+      },
+      {
+        "argv": [
+          "git",
+          "status",
+          "--porcelain=v1"
+        ],
+        "head": "923dd5371ded83fa965449a83f7a16d15a174772",
+        "location": "publication:s1-status/receipt.json",
+        "rc": 0,
+        "runner_sha256": "bdfc4fafdc4f67e4a3015af5324848591e4d578231a86eba8876ee9cee31eb96",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "1e41d346532da9540cdd6669e3d4bcc6d75a58a9bbf85935cce3f1fb22259339"
+      }
+    ],
+    "receipt_count": 58,
+    "receipt_exit_histogram": {
+      "0": 55,
+      "1": 1,
+      "2": 1,
+      "7": 1
+    },
+    "scan": {
+      "all_keys": 134671,
+      "enumeration_sha256": "baa49ba3a13e86332e77ca7529f0d1925c381e0e95afa7a14991e73194506a74",
+      "index_entries_sha256": "d7c48ad5849cde53ebe7abe3e59ad1b413388b980631b11e969f2d39906449c4",
+      "modes": {
+        "100644": 104027,
+        "100755": 30464,
+        "120000": 180
+      },
+      "ordinary": 134491,
+      "scope_rows": 443
+    },
+    "tracker_counts": {
+      "1413": {
+        "checked": 1,
+        "unchecked": 0
+      },
+      "1414": {
+        "checked": 0,
+        "unchecked": 5
+      },
+      "691": {
+        "checked": 0,
+        "unchecked": 20
+      }
+    }
+  },
+  "failures": [],
+  "identity": {
+    "agent": "/root",
+    "harness": "Codex",
+    "lane": "historical P1 / wN:p3",
+    "provider": "OpenAI",
+    "session": "01a19d11-dda5-72e3-86f9-416f36341c24"
+  },
+  "scope": "Immutable E-H comparison only, no accepted producer/checker replay or final acceptance"
+}

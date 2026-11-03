@@ -1,0 +1,60 @@
+{
+  "checks": 331,
+  "failures": [],
+  "facts": {
+    "publication_manifest_entries": 135,
+    "new_commits": [
+      "d0274e2de5d8af353f8643798491ad8c126da73f",
+      "f01abd480f4e0b337a9fcdde2cec9bc1746b525d"
+    ],
+    "changed_audit": 172,
+    "outside_audit": [
+      ".github/sessions/saved-session-state-feature-m6-es-vendored-and-data-691.md",
+      "docs/retros/2026-11-03-m6-es-vendored-and-data.md",
+      "docs/work-logs/2026_11-work_logs/2026_11_03-work_log.md",
+      "docs/work-logs/INDEX.md"
+    ],
+    "receipt_count": 58,
+    "receipt_exit_histogram": {
+      "0": 55,
+      "2": 1,
+      "7": 1,
+      "1": 1
+    },
+    "publication_command_receipts": 29,
+    "scan": {
+      "all_keys": 134671,
+      "ordinary": 134491,
+      "modes": {
+        "100644": 104027,
+        "100755": 30464,
+        "120000": 180
+      },
+      "enumeration_sha256": "baa49ba3a13e86332e77ca7529f0d1925c381e0e95afa7a14991e73194506a74",
+      "index_entries_sha256": "d7c48ad5849cde53ebe7abe3e59ad1b413388b980631b11e969f2d39906449c4",
+      "scope_rows": 443
+    },
+    "old_census_keys": [
+      "recorded_at",
+      "files",
+      "tiny_git",
+      "limit",
+      "correction_recorded_at"
+    ],
+    "live_shapes": {
+      "issue691": [
+        "issue",
+        "comments"
+      ],
+      "issue1413": [
+        "issue",
+        "comments"
+      ],
+      "issue1414": [
+        "issue",
+        "comments"
+      ]
+    },
+    "explicit_input_unmatched": []
+  }
+}

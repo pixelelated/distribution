@@ -1,0 +1,24 @@
+Run only the independent metadata comparator, never any lane producer/checker:
+taskset -c 8-23 python3 -B /tmp/m6-t44-final-support-vd7hgdar/reconcile.py
+
+All child Git reads inherit CPUs8–23. Exact executed Git argv and named batch inputs are in commands.jsonl. The comparator uses git show REF:PATH, ls-tree -r -z REF, rev-list --reverse D..FINAL and cat-file --batch for named artifact blobs. It never checks out a tree, exports source, imports lane code, or follows a publication symlink. Files beneath the one authorized publication directory are opened from / component-wise with O_DIRECTORY|O_NOFOLLOW, then O_NOFOLLOW|O_NONBLOCK and fstat(S_ISREG) for each named ordinary file. Only SHA256SUMS-listed files and the three pinned start files are read. Embedded scratch paths are metadata, never read targets.
+
+Important immutable reads:
+taskset -c 8-23 git -C /workspace/repos/pixelelated/distribution.worktrees/m6-es-vendored-and-data-691 show 821de9d39378b091c9d55a2f68734d8a36d65613:docs/reviews/briefs/t44-streams.md
+taskset -c 8-23 git -C /workspace/repos/pixelelated/distribution.worktrees/m6-es-vendored-and-data-691 diff --no-ext-diff --unified=2 923dd5371ded83fa965449a83f7a16d15a174772 f01abd480f4e0b337a9fcdde2cec9bc1746b525d -- docs/audits/2026_11_02-epic-m6-es-vendored-and-data/04-analysis.md docs/audits/2026_11_02-epic-m6-es-vendored-and-data/05-punch-list.md docs/audits/2026_11_02-epic-m6-es-vendored-and-data/06-audit-summary.md docs/audits/2026_11_02-epic-m6-es-vendored-and-data/07-questions-for-the-maintainer.md
+taskset -c 8-23 git -C /home/max/Development/emulationstation-next.worktrees/m6-es-vendored-and-data-691 show -s --format=%T 55158d2a64c69fe295fb4e67fd174424a71b1b4d
+
+Owning tracker reads already retained in live-issues.json/live-parents.json:
+github_fetch_issue(repository_full_name="pixelelated/distribution",issue_number=N), N=691,1413,1414
+github_fetch_issue_comments(repo_full_name="pixelelated/distribution",issue_number=N), N=691,1413,1414
+github_fetch(url="https://api.github.com/repos/pixelelated/distribution/issues/N/parent"), N=691,1413,1414
+Connector link_id: link_6ac2961edf2081918a8d75b020eff02b
+All ten #691 comments were returned, including full support6591982620, dispatch6591582676, and posted retro6591747066. No tracker writes. Live consistency statements refer to this retained readback, not future issue state.
+
+Pinned external start hashes (all matched):
+81f3c07211ccac2871130a1fc962a128afa7d4eb8aaa3cbce8a8fb61cab381e6  RETURN.md
+07d40168cb238a2f3fc667766499fab6332965145469d70fbf138e751685a1e0  SHA256SUMS
+e3fbe551a5af2f0b131ee0c9b82d75f99f32836972adc4b8e1506c6cc0ac359a  publication-readback.json
+Authorized root: /tmp/m6-t44-eh-publication-qhf1l0l6
+
+Historical and incomplete exits remain historical/incomplete. The report does not supply original missing raw metadata, certify runtime behavior, or decide root acceptance.

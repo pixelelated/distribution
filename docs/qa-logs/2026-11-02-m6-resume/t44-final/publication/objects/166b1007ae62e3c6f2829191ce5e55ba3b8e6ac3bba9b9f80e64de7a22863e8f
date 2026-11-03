@@ -1,0 +1,13 @@
+{
+  "recorded_at": "2026-11-03T00:14:39.209021+00:00",
+  "initial": {
+    "final-resolution-issue": "rc1 because sandboxed gh could not read #1413; three downstream artifact failures are from that missing live body",
+    "final-ceremony": "rc0 but explicitly warned live tracker could not answer; not claimed as a successful live check"
+  },
+  "corrected": {
+    "final-resolution-issue-network": "rc0; normal resolution PASS with live issue read",
+    "final-ceremony-network": "rc0 and empty stdout/stderr with authorized live network access"
+  },
+  "same_final_commit": "f01abd480f4e0b337a9fcdde2cec9bc1746b525d",
+  "limits": "All original outputs retained; no source or repository artifact changed. Final gate verdict uses the separately named successful network checks, not the sandbox-limited snapshots."
+}

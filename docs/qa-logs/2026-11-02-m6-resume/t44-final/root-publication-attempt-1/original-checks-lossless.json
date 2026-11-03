@@ -1,0 +1,192 @@
+{
+  "events": [
+    {
+      "name": "rules",
+      "argv": [
+        "tools/rules-check",
+        "--quiet"
+      ],
+      "start": "2026-11-03T00:33:54.670774+00:00",
+      "end": "2026-11-03T00:33:54.689707+00:00",
+      "elapsed_seconds": 0.01891478698235005,
+      "rc": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_masked_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_masked_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "index",
+      "argv": [
+        "tools/work-log-index",
+        "--check"
+      ],
+      "start": "2026-11-03T00:33:54.671535+00:00",
+      "end": "2026-11-03T00:33:54.694238+00:00",
+      "elapsed_seconds": 0.02270322199910879,
+      "rc": 0,
+      "stdout_sha256": "232b345c76ad64a47de4d43e62d9aeb4f2850472cde78ddd1b1e56d72103d927",
+      "stdout_masked_sha256": "232b345c76ad64a47de4d43e62d9aeb4f2850472cde78ddd1b1e56d72103d927",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_masked_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "diff",
+      "argv": [
+        "git",
+        "diff",
+        "--check"
+      ],
+      "start": "2026-11-03T00:33:54.691316+00:00",
+      "end": "2026-11-03T00:33:54.732875+00:00",
+      "elapsed_seconds": 0.04156478197546676,
+      "rc": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_masked_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_masked_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "register",
+      "argv": [
+        "tools/register-check"
+      ],
+      "start": "2026-11-03T00:33:54.671169+00:00",
+      "end": "2026-11-03T00:33:56.258910+00:00",
+      "elapsed_seconds": 1.587750226026401,
+      "rc": 0,
+      "stdout_sha256": "1835bdf2e854f6e2a70b5d992e0af0318c353b77ec03332abcfb3c88ec00c962",
+      "stdout_masked_sha256": "1835bdf2e854f6e2a70b5d992e0af0318c353b77ec03332abcfb3c88ec00c962",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_masked_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "ceremony",
+      "argv": [
+        "tools/ceremony-check",
+        "--gate"
+      ],
+      "start": "2026-11-03T00:33:54.671773+00:00",
+      "end": "2026-11-03T00:34:02.266080+00:00",
+      "elapsed_seconds": 7.594315697031561,
+      "rc": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_masked_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_masked_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "stage",
+      "argv": [
+        "git",
+        "add",
+        "--",
+        ".github/sessions/saved-session-state-feature-m6-renovation-plan-346.md",
+        "docs/work-logs/2026_11-work_logs/2026_11_03-work_log.md",
+        "docs/work-logs/INDEX.md",
+        "docs/qa-logs/2026-11-02-m6-resume/t44-final",
+        "docs/qa-logs/2026-11-02-m6-resume/t44-merge-log.py",
+        "docs/qa-logs/2026-11-02-m6-resume/t44-reconcile-final.py",
+        "docs/qa-logs/2026-11-02-m6-resume/t44-retain-publication.py",
+        "docs/qa-logs/2026-11-02-m6-resume/t44-simulate-final.py"
+      ],
+      "start": "2026-11-03T00:34:02.268647+00:00",
+      "end": "2026-11-03T00:34:02.408996+00:00",
+      "elapsed_seconds": 0.14036088297143579,
+      "rc": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_masked_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_masked_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "staged-diff",
+      "argv": [
+        "git",
+        "diff",
+        "--cached",
+        "--check"
+      ],
+      "start": "2026-11-03T00:34:02.411224+00:00",
+      "end": "2026-11-03T00:34:02.435066+00:00",
+      "elapsed_seconds": 0.023845285002607852,
+      "rc": 2,
+      "stdout_sha256": "a21f44bf50bb6305af3a2411faad51800514879eb8931a75a6ab3b320fda711f",
+      "stdout_masked_sha256": "a21f44bf50bb6305af3a2411faad51800514879eb8931a75a6ab3b320fda711f",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_masked_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ],
+  "raw_streams": {
+    "staged-diff.stderr": {
+      "raw": "",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "staged-diff.stdout": {
+      "raw": "docs/qa-logs/2026-11-02-m6-resume/t44-final/publication/objects/9d285b5b3024d225a3818b4284256d100faa776deb488ae5d30acb65daae2547:2: trailing whitespace.\n++ \ndocs/qa-logs/2026-11-02-m6-resume/t44-final/publication/objects/9d285b5b3024d225a3818b4284256d100faa776deb488ae5d30acb65daae2547:4: trailing whitespace.\n++ \ndocs/qa-logs/2026-11-02-m6-resume/t44-final/publication/objects/9d285b5b3024d225a3818b4284256d100faa776deb488ae5d30acb65daae2547:6: trailing whitespace.\n++ \ndocs/qa-logs/2026-11-02-m6-resume/t44-final/publication/objects/9d285b5b3024d225a3818b4284256d100faa776deb488ae5d30acb65daae2547:8: trailing whitespace.\n++ \ndocs/qa-logs/2026-11-02-m6-resume/t44-final/publication/objects/f6f5167b1476ca4d5008902bf47671b14141c3b33d4a435af151094cc0be1fd4:2: space before tab in indent.\n+ \tHEAD:refs/heads/feature/m6-es-vendored-and-data-691\t923dd5371d..f01abd480f\ndocs/qa-logs/2026-11-02-m6-resume/t44-final/publication/objects/fd31702886aad207a6b638c253068cc85b2754e955ff289bccfd81b3e0d698de:4: trailing whitespace.\n+ \ndocs/qa-logs/2026-11-02-m6-resume/t44-final/publication/objects/fd31702886aad207a6b638c253068cc85b2754e955ff289bccfd81b3e0d698de:6: trailing whitespace.\n+ \ndocs/qa-logs/2026-11-02-m6-resume/t44-final/publication/objects/fd31702886aad207a6b638c253068cc85b2754e955ff289bccfd81b3e0d698de:9: trailing whitespace.\n+ \ndocs/qa-logs/2026-11-02-m6-resume/t44-final/publication/objects/fd31702886aad207a6b638c253068cc85b2754e955ff289bccfd81b3e0d698de:11: trailing whitespace.\n+ \ndocs/qa-logs/2026-11-02-m6-resume/t44-final/publication/objects/fd31702886aad207a6b638c253068cc85b2754e955ff289bccfd81b3e0d698de:11: new blank line at EOF.\n",
+      "sha256": "a21f44bf50bb6305af3a2411faad51800514879eb8931a75a6ab3b320fda711f",
+      "bytes": 1647
+    },
+    "stage.stderr": {
+      "raw": "",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "stage.stdout": {
+      "raw": "",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "ceremony.stderr": {
+      "raw": "",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "ceremony.stdout": {
+      "raw": "",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "register.stderr": {
+      "raw": "",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "register.stdout": {
+      "raw": "register-check: 731 IDs, each once; every citation in the live documents names a row\n",
+      "sha256": "1835bdf2e854f6e2a70b5d992e0af0318c353b77ec03332abcfb3c88ec00c962",
+      "bytes": 85
+    },
+    "diff.stderr": {
+      "raw": "",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "diff.stdout": {
+      "raw": "",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "index.stderr": {
+      "raw": "",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "index.stdout": {
+      "raw": "work-log index: current\n",
+      "sha256": "232b345c76ad64a47de4d43e62d9aeb4f2850472cde78ddd1b1e56d72103d927",
+      "bytes": 24
+    },
+    "rules.stderr": {
+      "raw": "",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "rules.stdout": {
+      "raw": "",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    }
+  }
+}
