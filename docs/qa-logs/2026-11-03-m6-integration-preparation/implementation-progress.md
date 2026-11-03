@@ -1,68 +1,51 @@
 # M6 integration construction progress
 
-Root observation at 2026-11-03T17:24:17.800332+00:00. All results below are private candidates or bounded
-readbacks; they do not promote a source pin, integrate next or close slice issues.
+Root observation at 2026-11-03T18:05:52.318617+00:00. These are private source candidates and
+bounded readbacks. Live integration, image qualification and issue closure remain
+separate; M7 still owns next.
 
 ## Distribution candidate
 
-The initial M7/coordinator probe had thirteen conflicts. Root independently
-reconciled and installed three in its private object store:
+All thirteen initial M7/coordinator conflicts are resolved in the private store.
+The tool list, whole record entries, register decisions and generated index retain
+their explicit preservation receipts. The register implementation passed sixteen
+new controls and root independently reconciled its exact output and side orders.
+The original helper failures and historical evidence remain unchanged.
 
-- The fork-tool list adds exactly 32 bytes after the existing audit-lint tool,
-  preserving the complete coordinator prefix/suffix and the three renovation tools.
-- October 26 preserves 70 complete entries (10 M7, 60 coordinator), their bytes
-  and each side's order, with one identical 27-byte prologue.
-- The friction log preserves the complete 188,065-byte base once, then the exact
-  9,327-byte M7 append and 24,816-byte coordinator append. Both input files begin
-  with the unchanged base; their suffixes have no common nonblank line. The old
-  parser's changed-entry report was a trailing separator at the append boundary.
-  This resolution interprets no historical timestamp and changes no entry text.
+The canonical 46-endpoint sequence has now incorporated T1 and T2 into synthetic
+two-parent history. T1's resolution retained eighteen incoming record entries and
+both package dependency additions; the newly combined recipe passed pkgcheck and
+shell syntax. T2 retained five further incoming record entries. Each resolution
+preserved the complete carried record bytes, explicitly chose carried order where
+common entries had incompatible positions, and regenerated INDEX normally.
+No failed merge was replayed. The full carried ES package remains unchanged.
 
-Root subsequently reconciled and installed eight further day files: 315 complete
-entries (130 M7, 185 coordinator), unchanged within each entry and in each side's
-order. The exact coordinator prologues were selected prospectively; alternate
-prologues remain in normalization receipts. Two pinned heading exceptions stay
-bounded to their exact inputs. T3's new policy passed 27 fresh controls; the old
-helper and its controls were not replayed.
-
-The normal unchanged work-log-index program then regenerated INDEX from the
-private candidate's 87 day files. Every input byte and every other tree path stayed
-unchanged. Current partial tree: `3e679e54e86054df00d8cc7df26106334abe0fad`.
-Twelve of the thirteen initial conflicts are resolved; only the register remains.
-The full M7 ES package is preserved. No distribution merge commit or shared ref exists.
-
-The register policy preserves both meanings of four colliding IDs. M7 reserved
-the four replacement IDs; P1 reconciled all nineteen collision categories and
-53 spans, and proved the key-order graph acyclic. Proved v2 is
-`docs/reviews/briefs/m6-integration-register.md`; implementation requires its
-explicit dispatch. The dirty-file custody of a separate M7 declaration remains
-qualified, and historical citations stay version-bound.
+The driver is stopped at T3 on five record paths. P1 and T1 are reading those exact
+new conflicts under #346 comment6611664772; root retains ordering, construction,
+INDEX regeneration and the next exact-pair disposition. No shared ref has moved.
 
 ## ES candidate
 
-The common M7 baseline tree is `28b3f7eacfb1fd1d739c1b6427391ab9947fc182`.
-T5 independently reconciled T2's 127 receipts, 28 ordered patch transitions,
-30 immutable input identities, final index and complete 40-entry package
-preservation contract. The original setup-mode refusal remains separate.
-Strict cached Git construction does not establish patch(1), full build-engine
-or runtime equivalence. The separate architecture overlay remains separate.
+The reconciled common M7 baseline entered the eleven-endpoint sequence without
+reapplying its patches. T2, T18 and T20 are incorporated in private synthetic
+history. T20's new combined source received two scoped independent readbacks;
+its original constructor and historical tests were not replayed.
 
-Root wrapped that existing tree in an explicitly synthetic comparison commit
-and started the eleven accepted ES endpoints in canonical slice order, excluding
-T44's reference-only duplicate. No patch was reapplied. The first T2 stop was
-resolved by retaining the captured launch reference and both French catalogue
-appends. The first catalogue reader incorrectly treated equal words in distinct
-contexts as duplicate keys; it stopped before a resolution tree or resume. The
-corrected context-aware reader and three new tiny cases are retained separately.
+The driver is stopped at T21. Root constructed the seven-file combination and
+all three readers returned their bounded source results under6611433921. One new
+regression case is present as source only; it has not run. A concrete interface
+qualification is being checked against the already scheduled later endpoint by
+T3 under6611593758 before root chooses a correction or continuation. Detailed
+findings and exact bindings remain private. No compile/runtime acceptance is
+implied by source construction or lexical consistency.
 
-Root's genuine disposition resumed the exact stopped pair without replaying the
-failed merge. T2 and T18 are now incorporated into the private candidate. T20
-stopped at four files, tree `75dd9c5ad98fcc69ea09dfe2db570eb9a8c569cd`, current
-`df65a5d464ec0995fcba3360e6e430054bf7c401`. T2 and T5 returned bounded
-implementation/test proposals under #346 comment 6610433813. They identify a
-HARDCORE lock interaction beyond the marker spans and a test-case closing-brace
-boundary; root retains combination and verification. No compilation or runtime
-claim follows from these source constructions.
+## Current lane observations
+
+P1 and T1 were observed working on the T3 distribution record conflicts. T3 was
+observed working on the bounded ES followthrough. T2 and T5 have completed their
+candidate readbacks and are available for the next useful dependency. Root is
+combining results and owns both serial drivers. These are dated observations,
+not a claim that every lane remains continuously busy.
 
 ## Independent findings and corrections
 
@@ -110,3 +93,17 @@ audit-cadence warning; this checkpoint does not waive it or replay accepted audi
 M7 subsequently reported its separately admitted installed-profile VM RETURN.
 The coordinator read the masked shared-ledger return; this is owner-recorded
 completion, not a new process census. M7 retains next; no M6 runtime is allocated.
+
+New selected private retention binds 757 ordinary metadata/report/receipt files,
+6,543,987 logical bytes, in the separately sealed third continuation packet. It
+preserves new constructor failures, readbacks, actual driver states and root
+dispositions. Original Git source objects and candidate contexts stay in their
+exclusive owners. This remains local custody, not off-host backup.
+
+A detailed public dispatch was again refused by automatic approval review; it
+was not published. A general scope-only replacement was accepted and read back;
+the substantive binding was delivered privately to the existing lanes.
+
+M7's latest finite container proof has an actual owner-recorded RETURN. Root
+read its masked ledger record; no new host census or runtime authority follows.
+M6 retains CPU8–23 for source/record work and no runtime allocation.
