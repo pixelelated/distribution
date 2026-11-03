@@ -154,3 +154,24 @@ is not off-host backup. M7's first maintenance allocation returned before the gu
 owner launched, with original watched-command125 retained. The scheduling window is
 finished; a retry requires corrected source and fresh owner/admission/request. Root
 read the masked ledger record, without claiming a fresh host census.
+
+## T31 private continuation and T32 input handoff
+
+T31's selected source correction and matching translation received independent
+source readback. Root verified the exact tree and retained limits, then advanced
+the private ES history to six of11 endpoints. The new run06 stops at T32; this is
+not product acceptance, runtime proof, a pin promotion or shared integration.
+The retained T32 timing obligation is now explicitly assigned at that stop.
+
+P1/T1/T2/T5 were each observed working under6615397898 on finite catalogue,
+threaded scraper, primary scraper and registration/helper inputs. T3 remains
+capacity-stopped. T14's new redacted structural read succeeded and its original
+refusal remains preserved; source choices and opaque/external-interface limits
+still belong to root. Distribution remains13/46 without a T14 candidate.
+
+Retention20 binds78selectedfiles/913405bytes locally, preserving original
+packets and source-store ownership. It does not constitute off-host backup.
+M7's first owner returned before launch; a fresh owner02 grant was issued and
+actual START21:07:07.028070 recorded. M6 remains source-only through that
+window; M7 owns active supervision/cleanup and next. Later RETURN must be read
+before the runtime exclusion is released.
