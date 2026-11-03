@@ -1,0 +1,39 @@
+{
+  "result": "PASS",
+  "exact_bodies_and_states": true,
+  "closed_completed": [
+    1417
+  ],
+  "verified_utc": "2026-11-03T14:24:08.231403+00:00",
+  "closed_at": "2026-11-03T14:07:02Z",
+  "timestamp_meaning": "Current verification time is distinct from tracker closure time.",
+  "issues": {
+    "1417": {
+      "state": "closed",
+      "state_reason": "completed",
+      "closed_at": "2026-11-03T14:07:02Z",
+      "body_sha256": "c1fbe950c9c82ac14f6c4746ed82becfd6c5fd3039dfeb9a7cd13883533d12c6"
+    },
+    "693": {
+      "state": "open",
+      "state_reason": null,
+      "closed_at": null,
+      "body_sha256": "a2619f32ed71fbaab89fc135321981a0f18e581f74b08e7c328979396778fce7"
+    },
+    "1416": {
+      "state": "open",
+      "state_reason": null,
+      "closed_at": null,
+      "body_sha256": "ad898e68949dd5e08c03fdd8daf80569fa584b79dad26cafc00ec11cf36ab63d"
+    },
+    "1415": {
+      "state": "open",
+      "state_reason": null,
+      "closed_at": null,
+      "body_sha256": "618b4f9700885203aef4820aaa0b364f330fd30ea00716f207f8498aa6437d81"
+    }
+  },
+  "accepted_final": "17a064e6110306dd2b692cfd1b13d4f518d8def5",
+  "coordinator": "e4dacd1812213da2c09e67e3a277121f3af8dd43",
+  "no_tracker_writes": true
+}

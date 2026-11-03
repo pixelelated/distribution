@@ -1,0 +1,78 @@
+{
+  "argv": [
+    "tools/ceremony-check",
+    "--gate"
+  ],
+  "cwd": "/workspace/repos/pixelelated/distribution.worktrees/m6-records-693",
+  "start": "2026-11-03T14:27:30.184419+00:00",
+  "end": "2026-11-03T14:27:39.416161+00:00",
+  "rc": 0,
+  "inputs": [
+    {
+      "path": "/workspace/repos/pixelelated/distribution.worktrees/m6-records-693/docs/audits/2026_11_03-epic-m6-records/04-analysis.md",
+      "bytes": 11902,
+      "sha256": "67b871805eba46f60245ecdaa969862a7e021a83e2d7cebcc9418fc160ee42dc"
+    },
+    {
+      "path": "/workspace/repos/pixelelated/distribution.worktrees/m6-records-693/docs/audits/2026_11_03-epic-m6-records/05-punch-list.md",
+      "bytes": 5977,
+      "sha256": "58c305fa7aa0ea9148d4af8e88d622dbc1c70193223981b71a24bb02792ec215"
+    },
+    {
+      "path": "/workspace/repos/pixelelated/distribution.worktrees/m6-records-693/docs/audits/2026_11_03-epic-m6-records/second-opinions/review-plan.json",
+      "bytes": 515,
+      "sha256": "313657fba5a42bcd971d20edc26b0142d7c621e5d42ca3ca55e2dd55eed68ba9"
+    },
+    {
+      "path": "/workspace/repos/pixelelated/distribution.worktrees/m6-records-693/docs/audits/README.md",
+      "bytes": 813,
+      "sha256": "410e4432c01a38cda578a68fdaa730129c15a8e3e60c7305001bb40bd5a71b6c"
+    },
+    {
+      "path": "/workspace/repos/pixelelated/distribution.worktrees/m6-records-693/docs/audits/2026_11_03-epic-m6-records/audit-completion.json",
+      "bytes": 2929,
+      "sha256": "03bed5910a7f6cac95adb57a1379053e873f4c897f700aee38989fe159ec45e3"
+    },
+    {
+      "path": "/workspace/repos/pixelelated/distribution.worktrees/m6-records-693/docs/audits/2026_11_03-epic-m6-records/completion/tracker-1417.json",
+      "bytes": 87352,
+      "sha256": "f6f2990aed6f7587bc4223dddd033e23ac4bd827cb126aaf40631f0cf92928f5"
+    },
+    {
+      "path": "/workspace/repos/pixelelated/distribution.worktrees/m6-records-693/docs/audits/2026_11_03-epic-m6-records/completion/tracker-completion.json",
+      "bytes": 1218,
+      "sha256": "3c9bb1f94b59ecaaac7ced85005a242ec1622a7f806f21286c9aed65b2bbb319"
+    },
+    {
+      "path": "/workspace/repos/pixelelated/distribution.worktrees/m6-records-693/tools/ceremony-check",
+      "bytes": 25409,
+      "sha256": "30d997190473a9b75447673dffd2ac5a9133555944e6b443b9163345b78303c0"
+    },
+    {
+      "path": "/workspace/repos/pixelelated/distribution.worktrees/m6-records-693/tools/lint-audit-artifacts",
+      "bytes": 29243,
+      "sha256": "47899b443ac4c40a74c1de8b40814ff6e6978497ae0875b8fd6a033fe8750613"
+    }
+  ],
+  "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "recorder_sha256": "6cd4ccebd38065d06fab0a0c82e287157b91cee309fd0030b8eed6c69e363ab8",
+  "cpu_affinity": [
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21,
+    22,
+    23
+  ]
+}

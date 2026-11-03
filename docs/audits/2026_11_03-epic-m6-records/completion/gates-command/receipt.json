@@ -1,0 +1,46 @@
+{
+  "argv": [
+    "python3",
+    "-B",
+    "docs/audits/2026_11_03-epic-m6-records/completion/gates.py",
+    "--dest",
+    "gates"
+  ],
+  "cwd": "/workspace/repos/pixelelated/distribution.worktrees/m6-records-693",
+  "start": "2026-11-03T14:27:18.786155+00:00",
+  "end": "2026-11-03T14:27:41.653772+00:00",
+  "rc": 0,
+  "inputs": [
+    {
+      "path": "/workspace/repos/pixelelated/distribution.worktrees/m6-records-693/docs/audits/2026_11_03-epic-m6-records/completion/gates.py",
+      "bytes": 1930,
+      "sha256": "75fffc9115e87d584ccf8c0dbedc272b02aba6fee6b868989ff6bd0af180720a"
+    },
+    {
+      "path": "/workspace/repos/pixelelated/distribution.worktrees/m6-records-693/docs/audits/2026_11_03-epic-m6-records/completion/record.py",
+      "bytes": 1908,
+      "sha256": "6cd4ccebd38065d06fab0a0c82e287157b91cee309fd0030b8eed6c69e363ab8"
+    }
+  ],
+  "stdout_sha256": "07b0db2180c8a321f546c1b684e1d6691a69536b428047c586fd2639506e5f2b",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "recorder_sha256": "6cd4ccebd38065d06fab0a0c82e287157b91cee309fd0030b8eed6c69e363ab8",
+  "cpu_affinity": [
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21,
+    22,
+    23
+  ]
+}

@@ -1,0 +1,1574 @@
+{
+  "base": "17a064e6110306dd2b692cfd1b13d4f518d8def5",
+  "tip": "17a064e6110306dd2b692cfd1b13d4f518d8def5",
+  "commits": [],
+  "frozen_count": 976,
+  "frozen_manifest_sha256": "d18bbb7bc3e0ce294b912fd663eed4fc8731a18092ed4fca19119490e088de5d",
+  "source_readme_sha256": "410e4432c01a38cda578a68fdaa730129c15a8e3e60c7305001bb40bd5a71b6c",
+  "views": {
+    "tip": 0,
+    "index": 0,
+    "working": 3
+  },
+  "untracked": 217,
+  "scope": "Only new completion records/marker, exact lane pointer, November3 day and INDEX; no accepted audit/source mutation, deletion, unsafe mode or merge.",
+  "files": [
+    {
+      "path": ".github/sessions/saved-session-state-feature-m6-records-693.md",
+      "mode": "100644",
+      "bytes": 8554,
+      "sha256": "6f1cefc1ebea6f9e5933e8487c47493310b647ff69efb3fdcc99862383cbee64",
+      "blob": "b66e851b44326be60a1547c45d395d317c57ef87"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/audit-completion.json",
+      "mode": "100644",
+      "bytes": 2929,
+      "sha256": "03bed5910a7f6cac95adb57a1379053e873f4c897f700aee38989fe159ec45e3",
+      "blob": "ee5f4eb05209b006a88a37fcbcf1d06db8be97c3"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/completion/acceptance-body.md",
+      "mode": "100644",
+      "bytes": 3521,
+      "sha256": "aee2b1a5e5a885ca1a7f23492050f5adf9af31bd4e1b50d3dd737877d33ca88f",
+      "blob": "825dd16e89ccb5bbc0c5ba122b8473662fd68759"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/completion/acceptance-readback.json",
+      "mode": "100644",
+      "bytes": 6909,
+      "sha256": "13e5ab86afc717933011450fe5353739a1afbd20a744b59fefef028c15861524",
+      "blob": "57d4303e9a4e84e3dd2516d041c65e35385eb001"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/completion/accepted-audit-identities.json",
+      "mode": "100644",
+      "bytes": 203465,
+      "sha256": "b104bbc65266d6725c1caefff50c62812d0a53866078b097a4e6adf7ce650688",
+      "blob": "36b85ba9194dcb6359dd3b893af1a6272c81cf70"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/completion/approval-capacity.md",
+      "mode": "100644",
+      "bytes": 366,
+      "sha256": "32e31b2476d7b5d10dc3a1568a37aeebcc7706531a0331f98a70c41424960870",
+      "blob": "3ec25c5634bb358c6e909c8e31d2914fa0d2635e"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/completion/blocker-state.json",
+      "mode": "100644",
+      "bytes": 15212,
+      "sha256": "a626f8afef4b7279e842c1085138130298df0464c70280cebda685fb078ef789",
+      "blob": "bb3a054027d21ba6e38e80d3e6e35f348509277a"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/completion/collect.py",
+      "mode": "100644",
+      "bytes": 5131,
+      "sha256": "f7264c4300bd2cba4558b08b3898158af28f15a711646d364dfa6a815bb15520",
+      "blob": "1875a8c6f070858cfcc58637e493b242d1b0548c"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/completion/collection-command/input-0.json",
+      "mode": "100644",
+      "bytes": 7101,
+      "sha256": "ca86a35b20c0c31c108de6078c3ff1fb2557f9b67bd351b9dcaa39489ebbe99d",
+      "blob": "08421ff3296012498c2c85635a37397874d16986"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/completion/collection-command/input-1.json",
+      "mode": "100644",
+      "bytes": 56917,
+      "sha256": "b611768da021fba714e9ef235ddac9bfcec12ccbcb3f8af760d8c63f0bb66bfc",
+      "blob": "7feaf414aba0279efecb4d59aee4da5f25acba10"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/completion/collection-command/input-2.json",
+      "mode": "100644",
+      "bytes": 786,
+      "sha256": "d1d7281d0f714ecf0ec7640604633072ed7d28db4651382fb2bd6b240c14e457",
+      "blob": "67ac8389f3444f37d215e9976f13bb943ef605fb"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/completion/collection-command/receipt.json",
+      "mode": "100644",
+      "bytes": 1524,
+      "sha256": "93bd93d1361ac59fe92bd49023fb10914eb06ce68061e6390102335924e259c4",
+      "blob": "a4efa3fd17eb0477c1a546af09b15230ab395ae7"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/completion/collection-command/stderr.json",
+      "mode": "100644",
+      "bytes": 113,
+      "sha256": "47052b8093ac951a93b2a5fdd9cb1930d3173c55a232e6c65063b02b93a91c5d",
+      "blob": "a835debfca76523af76626f11685472e60513e3a"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/completion/collection-command/stdout.json",
+      "mode": "100644",
+      "bytes": 567,
+      "sha256": "9b935dc5c8d2e2457c25b7aed559d905d9618dab053a5b96ee8c45f35f82632a",
+      "blob": "0dda5a86c745dad6fdae2301cac5067d5b23c506"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/completion/collection/commands.json",
+      "mode": "100644",
+      "bytes": 660956,
+      "sha256": "85423c3ffb5807021ff437cde966ea9cc572574f3c0887f8804e64b7189e3ef1",
+      "blob": "e3b1b2cae32f35e8fac0123dcc35477be083b5df"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/completion/compare.py",
+      "mode": "100644",
+      "bytes": 5430,
+      "sha256": "57c8044518d55328705c59e6410cb4a0b4ddb721841370c87e461d1852784f01",
+      "blob": "276807c380eddb4c4afbd037d2ea5afe5598e6ff"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/completion/comparison-command/input-0.json",
+      "mode": "100644",
+      "bytes": 7497,
+      "sha256": "a099fdd3cc1343feaf504436657debc907870aaa94e209a06897aecad70dc88e",
+      "blob": "f83dc6aecbb720bb219526ff394f8cf239385cc7"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/completion/comparison-command/input-1.json",
+      "mode": "100644",
+      "bytes": 271567,
+      "sha256": "7d34b35bb4bd17c1eb73ecee8a472d42ccb1bcdcb782d9a1fc9d78b5463b1dd1",
+      "blob": "68dc2f52e12b0391dbc06c62bd5df16d786cc2e8"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/completion/comparison-command/input-2.json",
+      "mode": "100644",
+      "bytes": 3908,
+      "sha256": "f7630563a72aaded64d348072bc923a11266fd46fb2d1695169de70e517208cd",
+      "blob": "a1cd3d4c7a1ea9ed0ff10e4aa9dc53cddc4bebc8"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/completion/context.json",
+      "mode": "100644",
+      "bytes": 396,
+      "sha256": "19276a8813aafcbcf5dc0083caaf2418dd9db1bb9e31578f14769cbd118284e2",
+      "blob": "2f7a6b1a2a0f24c8b82c4c145014ff5653a21f1b"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/completion/coordinator-inputs.json",
+      "mode": "100644",
+      "bytes": 3551,
+      "sha256": "83d627007ca08e7728bf2aaeebf68e913827b948c6d235bc1741046a63af91c1",
+      "blob": "fc283b80eb238ab55bc706253bd278f64e6d4fd3"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/completion/coordinator/acceptance.md",
+      "mode": "100644",
+      "bytes": 5025,
+      "sha256": "5811f1a9895f76eee428f17c700012a0f5db25152fc77ca5c6a4523557c08d2b",
+      "blob": "788c15b1cd4afd2db5aad26a3631161dd40fd609"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/completion/coordinator/criteria.md",
+      "mode": "100644",
+      "bytes": 3772,
+      "sha256": "4fd3b96c7dfe1c0ee40d4ded8494b481f891b860a760434be2d29d2e569520ca",
+      "blob": "6b2d0e9bd0afdf225f9589a6de95da2195931df6"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/completion/coordinator/integration/retention.json",
+      "mode": "100644",
+      "bytes": 35896,
+      "sha256": "dfdbe9a0a2916c83df9f2eaebfc69e9f21b44a9e7d17f6632977a559c168c8fc",
+      "blob": "a852c748bd6c52e764b14e5984e8631e2288c722"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/completion/coordinator/p1-support/retention.json",
+      "mode": "100644",
+      "bytes": 3985,
+      "sha256": "6daccd3db2e3d73dc9025c7ad53bf9147102b3876779fdb9777a5392dee5e7f8",
+      "blob": "5bd24765e3bc0111f13da44cfd968a49740fcd65"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/completion/coordinator/publication/retention.json",
+      "mode": "100644",
+      "bytes": 23895,
+      "sha256": "f46be23bb441f358a816bf6ed979afa55defa7606f8d18e49dcc52ce09da54d6",
+      "blob": "54214ec0e240ef23d4533c2cb734b85f53447021"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/completion/coordinator/root-live-publication.json",
+      "mode": "100644",
+      "bytes": 1986,
+      "sha256": "ac7b5fafcda393bf57f73e54b3db42948e4355a2bbbf67980ee832641823b6a5",
+      "blob": "e670f1d88290cb7fad1d438965380ceee6a1f705"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/completion/coordinator/root-record-checks-network.json",
+      "mode": "100644",
+      "bytes": 715,
+      "sha256": "f5d4e0e1622964f4ae4dced5e261c0fc69c05f23bf0c960ae21b4c1ede13b300",
+      "blob": "9c2fa507036def085ab59916d82c404147e7df4d"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/completion/dispatch-body.md",
+      "mode": "100644",
+      "bytes": 3916,
+      "sha256": "dd4b5c3e7203eb71dfea6a36d6e02ba97cdb6e1bae94d8cb478cd57e23d0fb42",
+      "blob": "0e3718c28dd5a2809f5c6b916a024a09335ac0aa"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/completion/dispatch-readback.json",
+      "mode": "100644",
+      "bytes": 7306,
+      "sha256": "41aaf0d1c21e130754aba70d6d9442b703daeb74ad958fec86fd952b5ec089f8",
+      "blob": "6e63a57a43711691f736b644bba3c7c0ffc04f41"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/completion/expected-current.json",
+      "mode": "100644",
+      "bytes": 42484,
+      "sha256": "8bf5be0c9395ef312be588f8c0f76a8f5547e130f9d4bb7348c0248ebbf9ef5e",
+      "blob": "b28bf3cd4f6f1e70ac229c46b65c3aa1947de050"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/completion/failed-issue-post.json",
+      "mode": "100644",
+      "bytes": 429,
+      "sha256": "60c2ae904504a4c210cc2b29c61130a7cffaecc5098f9be2d6b8b2996130b0bd",
+      "blob": "6ef94780941d4d96915e04c581f2efe4143455a5"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/completion/gates-command/input-0.json",
+      "mode": "100644",
+      "bytes": 2831,
+      "sha256": "e1c59dd3590732cac26323494db03ced5011efdc08f24467dcb4cfc6acd75ba6",
+      "blob": "cbe4f4f2ee22b00639e2da0c0b27b7863397b0a5"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/completion/gates-command/input-1.json",
+      "mode": "100644",
+      "bytes": 2800,
+      "sha256": "0e66c70ddd873426bc1ca3ea2c8664fb9758140b641a403eaacd5a1675f69653",
+      "blob": "59fb2c1930d063e7a965ececceeb35af92075c45"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/completion/gates-command/receipt.json",
+      "mode": "100644",
+      "bytes": 1271,
+      "sha256": "1814e384bf83afc7d1ec7d37764ac8ac4206e05c5b7aaa38d5c7b27b02cc631f",
+      "blob": "0713d134a4196c83aaaf4eba8bbfcaa519aa08bb"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/completion/gates-command/stderr.json",
+      "mode": "100644",
+      "bytes": 113,
+      "sha256": "47052b8093ac951a93b2a5fdd9cb1930d3173c55a232e6c65063b02b93a91c5d",
+      "blob": "a835debfca76523af76626f11685472e60513e3a"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/completion/gates-command/stdout.json",
+      "mode": "100644",
+      "bytes": 11012,
+      "sha256": "c326c27fc3d42002419bf0d6c4a841632d99bff6e00b66814ffc027c40b97d24",
+      "blob": "8e51e61698f19d4ffe6785bff2ec133b2a35cc36"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/completion/gates.py",
+      "mode": "100644",
+      "bytes": 1930,
+      "sha256": "75fffc9115e87d584ccf8c0dbedc272b02aba6fee6b868989ff6bd0af180720a",
+      "blob": "5bde64224677ef6e5edfa06ea07a1e93b9ad4eaa"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/completion/gates/ceremony-full/input-0.json",
+      "mode": "100644",
+      "bytes": 16123,
+      "sha256": "6e1fdf3f51aa6d7b9eb3baff75ce3406ed7642200b15fcdfc38245e2d6356137",
+      "blob": "8f4be48f81d9ee141bbff1a993fd8e67fac4b384"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/completion/gates/ceremony-full/input-1.json",
+      "mode": "100644",
+      "bytes": 8224,
+      "sha256": "0f48ead3da55a15788f6467dc42f02014ada30a3c7dc841efcff0fa195a3ff3f",
+      "blob": "9c4137d5215a49d309af1aba6c58e67d45fdeeba"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/completion/gates/ceremony-full/input-2.json",
+      "mode": "100644",
+      "bytes": 955,
+      "sha256": "7bdd6cb1771f8209aa8af70e89c8daf0f2b3c71855c7648fcc8b0b808e8bd7af",
+      "blob": "6bcfa1a3647dd8b24a1075c3ecb10aa32073dc39"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/completion/gates/ceremony-full/input-3.json",
+      "mode": "100644",
+      "bytes": 1301,
+      "sha256": "e65bd41c372869274e183a102232ab986b42ec8cde83b6ad17e1a236e72e74f5",
+      "blob": "be36832a199a6224ed37ea4f7757b056279a6423"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/completion/gates/ceremony-full/input-4.json",
+      "mode": "100644",
+      "bytes": 4165,
+      "sha256": "e6807a7cab6aa9e91bdf50c866fe4cbe72b5bd422cfe1e12ab865ea4cebb2c18",
+      "blob": "e8743e7ee3dcb0113f05766de01cbdb416ed281d"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/completion/gates/ceremony-full/input-5.json",
+      "mode": "100644",
+      "bytes": 116737,
+      "sha256": "38a3a6edcda874c9084e75c23cba19309c1de2aa3cee3f941e6fb0af49deb2b2",
+      "blob": "9c5a129723e072e3e475b829680d9152dd512663"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/completion/gates/ceremony-full/input-6.json",
+      "mode": "100644",
+      "bytes": 1894,
+      "sha256": "6c9bf979a4d596d36e6887e72f4ddbd20edce73032e7f064a528dae7dc22e6a6",
+      "blob": "8e27d611dff2c768a6649e6a3cfc09d55b2bc101"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/completion/gates/ceremony-full/input-7.json",
+      "mode": "100644",
+      "bytes": 34098,
+      "sha256": "7dfce88349606cafcb413af198b4c7c052cf2ccaafd55b4db6fdbbe671c1da95",
+      "blob": "3a69aa38decc98a61a23868793b2ad26cee12054"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/completion/gates/ceremony-full/input-8.json",
+      "mode": "100644",
+      "bytes": 39216,
+      "sha256": "a97ef5cf140788f1f8b9c1c19745e2fc00c9a2ce8eed4e33a8aafa0131e3da30",
+      "blob": "1af681fdf41b92a3bd479148ef9a18f5de54b741"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/completion/gates/ceremony-full/receipt.json",
+      "mode": "100644",
+      "bytes": 2926,
+      "sha256": "c3fde933a74a1d41ca69ef1478abf485842e12532733e8f0719944875c0491b5",
+      "blob": "1fa2e77c0c17c2af5f71f48589ee44fb71f10257"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/completion/gates/ceremony-full/stderr.json",
+      "mode": "100644",
+      "bytes": 113,
+      "sha256": "47052b8093ac951a93b2a5fdd9cb1930d3173c55a232e6c65063b02b93a91c5d",
+      "blob": "a835debfca76523af76626f11685472e60513e3a"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/completion/gates/ceremony-full/stdout.json",
+      "mode": "100644",
+      "bytes": 1572,
+      "sha256": "dc8ef95f8008a82f70a19a26da382711b9a4df0dfe8806018fa454da61d87cf2",
+      "blob": "288d3c70aa43bc00509a8277e2455e1eb3149c47"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/completion/gates/ceremony-gate/input-0.json",
+      "mode": "100644",
+      "bytes": 16123,
+      "sha256": "6e1fdf3f51aa6d7b9eb3baff75ce3406ed7642200b15fcdfc38245e2d6356137",
+      "blob": "8f4be48f81d9ee141bbff1a993fd8e67fac4b384"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/completion/gates/ceremony-gate/input-1.json",
+      "mode": "100644",
+      "bytes": 8224,
+      "sha256": "0f48ead3da55a15788f6467dc42f02014ada30a3c7dc841efcff0fa195a3ff3f",
+      "blob": "9c4137d5215a49d309af1aba6c58e67d45fdeeba"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/completion/gates/ceremony-gate/input-2.json",
+      "mode": "100644",
+      "bytes": 955,
+      "sha256": "7bdd6cb1771f8209aa8af70e89c8daf0f2b3c71855c7648fcc8b0b808e8bd7af",
+      "blob": "6bcfa1a3647dd8b24a1075c3ecb10aa32073dc39"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/completion/gates/ceremony-gate/input-3.json",
+      "mode": "100644",
+      "bytes": 1301,
+      "sha256": "e65bd41c372869274e183a102232ab986b42ec8cde83b6ad17e1a236e72e74f5",
+      "blob": "be36832a199a6224ed37ea4f7757b056279a6423"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/completion/gates/ceremony-gate/input-4.json",
+      "mode": "100644",
+      "bytes": 4165,
+      "sha256": "e6807a7cab6aa9e91bdf50c866fe4cbe72b5bd422cfe1e12ab865ea4cebb2c18",
+      "blob": "e8743e7ee3dcb0113f05766de01cbdb416ed281d"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/completion/gates/ceremony-gate/input-5.json",
+      "mode": "100644",
+      "bytes": 116737,
+      "sha256": "38a3a6edcda874c9084e75c23cba19309c1de2aa3cee3f941e6fb0af49deb2b2",
+      "blob": "9c5a129723e072e3e475b829680d9152dd512663"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/completion/gates/ceremony-gate/input-6.json",
+      "mode": "100644",
+      "bytes": 1894,
+      "sha256": "6c9bf979a4d596d36e6887e72f4ddbd20edce73032e7f064a528dae7dc22e6a6",
+      "blob": "8e27d611dff2c768a6649e6a3cfc09d55b2bc101"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/completion/gates/ceremony-gate/input-7.json",
+      "mode": "100644",
+      "bytes": 34098,
+      "sha256": "7dfce88349606cafcb413af198b4c7c052cf2ccaafd55b4db6fdbbe671c1da95",
+      "blob": "3a69aa38decc98a61a23868793b2ad26cee12054"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/completion/gates/ceremony-gate/input-8.json",
+      "mode": "100644",
+      "bytes": 39216,
+      "sha256": "a97ef5cf140788f1f8b9c1c19745e2fc00c9a2ce8eed4e33a8aafa0131e3da30",
+      "blob": "1af681fdf41b92a3bd479148ef9a18f5de54b741"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/completion/gates/ceremony-gate/receipt.json",
+      "mode": "100644",
+      "bytes": 2940,
+      "sha256": "4ba4c0e32ab8ba37647e222ab8a8a9d3819313f60569609aba3a4617b7afaf13",
+      "blob": "4f6d20f19a153dc8fa3b94db25d5ec8c7a669bc7"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/completion/gates/ceremony-gate/stderr.json",
+      "mode": "100644",
+      "bytes": 113,
+      "sha256": "47052b8093ac951a93b2a5fdd9cb1930d3173c55a232e6c65063b02b93a91c5d",
+      "blob": "a835debfca76523af76626f11685472e60513e3a"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/completion/gates/ceremony-gate/stdout.json",
+      "mode": "100644",
+      "bytes": 113,
+      "sha256": "47052b8093ac951a93b2a5fdd9cb1930d3173c55a232e6c65063b02b93a91c5d",
+      "blob": "a835debfca76523af76626f11685472e60513e3a"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/completion/gates/index-write/input-0.json",
+      "mode": "100644",
+      "bytes": 16123,
+      "sha256": "6e1fdf3f51aa6d7b9eb3baff75ce3406ed7642200b15fcdfc38245e2d6356137",
+      "blob": "8f4be48f81d9ee141bbff1a993fd8e67fac4b384"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/completion/gates/index-write/input-1.json",
+      "mode": "100644",
+      "bytes": 8224,
+      "sha256": "0f48ead3da55a15788f6467dc42f02014ada30a3c7dc841efcff0fa195a3ff3f",
+      "blob": "9c4137d5215a49d309af1aba6c58e67d45fdeeba"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/completion/gates/index-write/input-2.json",
+      "mode": "100644",
+      "bytes": 955,
+      "sha256": "7bdd6cb1771f8209aa8af70e89c8daf0f2b3c71855c7648fcc8b0b808e8bd7af",
+      "blob": "6bcfa1a3647dd8b24a1075c3ecb10aa32073dc39"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/completion/gates/index-write/input-3.json",
+      "mode": "100644",
+      "bytes": 1301,
+      "sha256": "e65bd41c372869274e183a102232ab986b42ec8cde83b6ad17e1a236e72e74f5",
+      "blob": "be36832a199a6224ed37ea4f7757b056279a6423"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/completion/gates/index-write/input-4.json",
+      "mode": "100644",
+      "bytes": 4165,
+      "sha256": "e6807a7cab6aa9e91bdf50c866fe4cbe72b5bd422cfe1e12ab865ea4cebb2c18",
+      "blob": "e8743e7ee3dcb0113f05766de01cbdb416ed281d"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/completion/gates/index-write/input-5.json",
+      "mode": "100644",
+      "bytes": 116737,
+      "sha256": "38a3a6edcda874c9084e75c23cba19309c1de2aa3cee3f941e6fb0af49deb2b2",
+      "blob": "9c5a129723e072e3e475b829680d9152dd512663"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/completion/gates/index-write/input-6.json",
+      "mode": "100644",
+      "bytes": 1894,
+      "sha256": "6c9bf979a4d596d36e6887e72f4ddbd20edce73032e7f064a528dae7dc22e6a6",
+      "blob": "8e27d611dff2c768a6649e6a3cfc09d55b2bc101"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/completion/gates/index-write/input-7.json",
+      "mode": "100644",
+      "bytes": 6069,
+      "sha256": "614b5d7e80f30da7b76a8db9325417b33d8bffa7256b1c472cd65347f8a835e8",
+      "blob": "104a4f1cf8f8e47215b67525cd678cceefee0c6f"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/completion/gates/index-write/receipt.json",
+      "mode": "100644",
+      "bytes": 2711,
+      "sha256": "e21c55f60ba4f10c3d1695a9335651c3264897430c0375f85b8cdceb1d4d3c1d",
+      "blob": "a801e125f56da2ccaf5048540657bd7befe44339"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/completion/gates/index-write/stderr.json",
+      "mode": "100644",
+      "bytes": 113,
+      "sha256": "47052b8093ac951a93b2a5fdd9cb1930d3173c55a232e6c65063b02b93a91c5d",
+      "blob": "a835debfca76523af76626f11685472e60513e3a"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/completion/gates/index-write/stdout.json",
+      "mode": "100644",
+      "bytes": 174,
+      "sha256": "495f094097398443fed3d65bd568592707de0ac38017866f08f11e4fc575d2e3",
+      "blob": "56660190a3a5c72923ea46d6283453d72328855a"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/completion/gates/index/input-0.json",
+      "mode": "100644",
+      "bytes": 16123,
+      "sha256": "6e1fdf3f51aa6d7b9eb3baff75ce3406ed7642200b15fcdfc38245e2d6356137",
+      "blob": "8f4be48f81d9ee141bbff1a993fd8e67fac4b384"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/completion/gates/index/input-1.json",
+      "mode": "100644",
+      "bytes": 8224,
+      "sha256": "0f48ead3da55a15788f6467dc42f02014ada30a3c7dc841efcff0fa195a3ff3f",
+      "blob": "9c4137d5215a49d309af1aba6c58e67d45fdeeba"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/completion/gates/index/input-2.json",
+      "mode": "100644",
+      "bytes": 955,
+      "sha256": "7bdd6cb1771f8209aa8af70e89c8daf0f2b3c71855c7648fcc8b0b808e8bd7af",
+      "blob": "6bcfa1a3647dd8b24a1075c3ecb10aa32073dc39"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/completion/gates/index/input-3.json",
+      "mode": "100644",
+      "bytes": 1301,
+      "sha256": "e65bd41c372869274e183a102232ab986b42ec8cde83b6ad17e1a236e72e74f5",
+      "blob": "be36832a199a6224ed37ea4f7757b056279a6423"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/completion/gates/index/input-4.json",
+      "mode": "100644",
+      "bytes": 4165,
+      "sha256": "e6807a7cab6aa9e91bdf50c866fe4cbe72b5bd422cfe1e12ab865ea4cebb2c18",
+      "blob": "e8743e7ee3dcb0113f05766de01cbdb416ed281d"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/completion/gates/index/input-5.json",
+      "mode": "100644",
+      "bytes": 116737,
+      "sha256": "38a3a6edcda874c9084e75c23cba19309c1de2aa3cee3f941e6fb0af49deb2b2",
+      "blob": "9c5a129723e072e3e475b829680d9152dd512663"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/completion/gates/index/input-6.json",
+      "mode": "100644",
+      "bytes": 1894,
+      "sha256": "6c9bf979a4d596d36e6887e72f4ddbd20edce73032e7f064a528dae7dc22e6a6",
+      "blob": "8e27d611dff2c768a6649e6a3cfc09d55b2bc101"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/completion/gates/index/input-7.json",
+      "mode": "100644",
+      "bytes": 6069,
+      "sha256": "614b5d7e80f30da7b76a8db9325417b33d8bffa7256b1c472cd65347f8a835e8",
+      "blob": "104a4f1cf8f8e47215b67525cd678cceefee0c6f"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/completion/gates/index/receipt.json",
+      "mode": "100644",
+      "bytes": 2711,
+      "sha256": "473e36f06201725ecb87d88d5f4bb118f7e2a5b334ed18dc69aa44e331d36e50",
+      "blob": "23784f71527be85460f4f6f3324cd4d4ec8c0ac4"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/completion/gates/index/stderr.json",
+      "mode": "100644",
+      "bytes": 113,
+      "sha256": "47052b8093ac951a93b2a5fdd9cb1930d3173c55a232e6c65063b02b93a91c5d",
+      "blob": "a835debfca76523af76626f11685472e60513e3a"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/completion/gates/index/stdout.json",
+      "mode": "100644",
+      "bytes": 146,
+      "sha256": "f4efc51b5f206b6c91f62ca72ca3ac2db01c25de454896b4ff2fdf941f35d770",
+      "blob": "8f0d83568c5cf3b36bd12609ee5c8d6c9060837e"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/completion/gates/issue-1415/input-0.json",
+      "mode": "100644",
+      "bytes": 16123,
+      "sha256": "6e1fdf3f51aa6d7b9eb3baff75ce3406ed7642200b15fcdfc38245e2d6356137",
+      "blob": "8f4be48f81d9ee141bbff1a993fd8e67fac4b384"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/completion/gates/issue-1415/input-1.json",
+      "mode": "100644",
+      "bytes": 8224,
+      "sha256": "0f48ead3da55a15788f6467dc42f02014ada30a3c7dc841efcff0fa195a3ff3f",
+      "blob": "9c4137d5215a49d309af1aba6c58e67d45fdeeba"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/completion/gates/issue-1415/input-2.json",
+      "mode": "100644",
+      "bytes": 955,
+      "sha256": "7bdd6cb1771f8209aa8af70e89c8daf0f2b3c71855c7648fcc8b0b808e8bd7af",
+      "blob": "6bcfa1a3647dd8b24a1075c3ecb10aa32073dc39"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/completion/gates/issue-1415/input-3.json",
+      "mode": "100644",
+      "bytes": 1301,
+      "sha256": "e65bd41c372869274e183a102232ab986b42ec8cde83b6ad17e1a236e72e74f5",
+      "blob": "be36832a199a6224ed37ea4f7757b056279a6423"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/completion/gates/issue-1415/input-4.json",
+      "mode": "100644",
+      "bytes": 4165,
+      "sha256": "e6807a7cab6aa9e91bdf50c866fe4cbe72b5bd422cfe1e12ab865ea4cebb2c18",
+      "blob": "e8743e7ee3dcb0113f05766de01cbdb416ed281d"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/completion/gates/issue-1415/input-5.json",
+      "mode": "100644",
+      "bytes": 116737,
+      "sha256": "38a3a6edcda874c9084e75c23cba19309c1de2aa3cee3f941e6fb0af49deb2b2",
+      "blob": "9c5a129723e072e3e475b829680d9152dd512663"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/completion/gates/issue-1415/input-6.json",
+      "mode": "100644",
+      "bytes": 1894,
+      "sha256": "6c9bf979a4d596d36e6887e72f4ddbd20edce73032e7f064a528dae7dc22e6a6",
+      "blob": "8e27d611dff2c768a6649e6a3cfc09d55b2bc101"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/completion/gates/issue-1415/input-7.json",
+      "mode": "100644",
+      "bytes": 7464,
+      "sha256": "24355350464665e5f4cc72d89b1aca0fe358b7d54b954bed26bea684564c18fc",
+      "blob": "680e699845511f64371c107294c3e5b69dc2d26e"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/completion/gates/issue-1415/receipt.json",
+      "mode": "100644",
+      "bytes": 2713,
+      "sha256": "296f177b8829ab2707912382e85210190085bd4b9ad72e8732f3488ddb02042d",
+      "blob": "ee1af8f6fc9bf07ac5a0e4b1bc0bb1f2bbf36099"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/completion/gates/issue-1415/stderr.json",
+      "mode": "100644",
+      "bytes": 113,
+      "sha256": "47052b8093ac951a93b2a5fdd9cb1930d3173c55a232e6c65063b02b93a91c5d",
+      "blob": "a835debfca76523af76626f11685472e60513e3a"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/completion/gates/issue-1415/stdout.json",
+      "mode": "100644",
+      "bytes": 371,
+      "sha256": "abbbeaec58fc11f6e15d11d8acc9ffa7d859f65468a13370a9134e10df03f759",
+      "blob": "12f8e6e698780cff365ff76c6af698b679d167b9"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/completion/gates/issue-1416/input-0.json",
+      "mode": "100644",
+      "bytes": 16123,
+      "sha256": "6e1fdf3f51aa6d7b9eb3baff75ce3406ed7642200b15fcdfc38245e2d6356137",
+      "blob": "8f4be48f81d9ee141bbff1a993fd8e67fac4b384"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/completion/gates/issue-1416/input-1.json",
+      "mode": "100644",
+      "bytes": 8224,
+      "sha256": "0f48ead3da55a15788f6467dc42f02014ada30a3c7dc841efcff0fa195a3ff3f",
+      "blob": "9c4137d5215a49d309af1aba6c58e67d45fdeeba"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/completion/gates/issue-1416/input-2.json",
+      "mode": "100644",
+      "bytes": 955,
+      "sha256": "7bdd6cb1771f8209aa8af70e89c8daf0f2b3c71855c7648fcc8b0b808e8bd7af",
+      "blob": "6bcfa1a3647dd8b24a1075c3ecb10aa32073dc39"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/completion/gates/issue-1416/input-3.json",
+      "mode": "100644",
+      "bytes": 1301,
+      "sha256": "e65bd41c372869274e183a102232ab986b42ec8cde83b6ad17e1a236e72e74f5",
+      "blob": "be36832a199a6224ed37ea4f7757b056279a6423"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/completion/gates/issue-1416/input-4.json",
+      "mode": "100644",
+      "bytes": 4165,
+      "sha256": "e6807a7cab6aa9e91bdf50c866fe4cbe72b5bd422cfe1e12ab865ea4cebb2c18",
+      "blob": "e8743e7ee3dcb0113f05766de01cbdb416ed281d"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/completion/gates/issue-1416/input-5.json",
+      "mode": "100644",
+      "bytes": 116737,
+      "sha256": "38a3a6edcda874c9084e75c23cba19309c1de2aa3cee3f941e6fb0af49deb2b2",
+      "blob": "9c5a129723e072e3e475b829680d9152dd512663"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/completion/gates/issue-1416/input-6.json",
+      "mode": "100644",
+      "bytes": 1894,
+      "sha256": "6c9bf979a4d596d36e6887e72f4ddbd20edce73032e7f064a528dae7dc22e6a6",
+      "blob": "8e27d611dff2c768a6649e6a3cfc09d55b2bc101"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/completion/gates/issue-1416/input-7.json",
+      "mode": "100644",
+      "bytes": 7464,
+      "sha256": "24355350464665e5f4cc72d89b1aca0fe358b7d54b954bed26bea684564c18fc",
+      "blob": "680e699845511f64371c107294c3e5b69dc2d26e"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/completion/gates/issue-1416/receipt.json",
+      "mode": "100644",
+      "bytes": 2713,
+      "sha256": "7e6ecc5d2e1c5c1a217d9192ca64b71218d95507355cd7bd43aa0c5e928f4924",
+      "blob": "f432074478c6d19814dacf781ef9c9c922be60d5"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/completion/gates/issue-1416/stderr.json",
+      "mode": "100644",
+      "bytes": 113,
+      "sha256": "47052b8093ac951a93b2a5fdd9cb1930d3173c55a232e6c65063b02b93a91c5d",
+      "blob": "a835debfca76523af76626f11685472e60513e3a"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/completion/gates/issue-1416/stdout.json",
+      "mode": "100644",
+      "bytes": 242,
+      "sha256": "4a8a620c6bf48ff45a06d2c01d19a2d149072cc4ceb7b5be18f0e7dfe80e79ac",
+      "blob": "06496de69e318fc2c37c8a5480680d3672c3f9fe"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/completion/gates/issue-1417/input-0.json",
+      "mode": "100644",
+      "bytes": 16123,
+      "sha256": "6e1fdf3f51aa6d7b9eb3baff75ce3406ed7642200b15fcdfc38245e2d6356137",
+      "blob": "8f4be48f81d9ee141bbff1a993fd8e67fac4b384"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/completion/gates/issue-1417/input-1.json",
+      "mode": "100644",
+      "bytes": 8224,
+      "sha256": "0f48ead3da55a15788f6467dc42f02014ada30a3c7dc841efcff0fa195a3ff3f",
+      "blob": "9c4137d5215a49d309af1aba6c58e67d45fdeeba"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/completion/gates/issue-1417/input-2.json",
+      "mode": "100644",
+      "bytes": 955,
+      "sha256": "7bdd6cb1771f8209aa8af70e89c8daf0f2b3c71855c7648fcc8b0b808e8bd7af",
+      "blob": "6bcfa1a3647dd8b24a1075c3ecb10aa32073dc39"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/completion/gates/issue-1417/input-3.json",
+      "mode": "100644",
+      "bytes": 1301,
+      "sha256": "e65bd41c372869274e183a102232ab986b42ec8cde83b6ad17e1a236e72e74f5",
+      "blob": "be36832a199a6224ed37ea4f7757b056279a6423"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/completion/gates/issue-1417/input-4.json",
+      "mode": "100644",
+      "bytes": 4165,
+      "sha256": "e6807a7cab6aa9e91bdf50c866fe4cbe72b5bd422cfe1e12ab865ea4cebb2c18",
+      "blob": "e8743e7ee3dcb0113f05766de01cbdb416ed281d"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/completion/gates/issue-1417/input-5.json",
+      "mode": "100644",
+      "bytes": 116737,
+      "sha256": "38a3a6edcda874c9084e75c23cba19309c1de2aa3cee3f941e6fb0af49deb2b2",
+      "blob": "9c5a129723e072e3e475b829680d9152dd512663"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/completion/gates/issue-1417/input-6.json",
+      "mode": "100644",
+      "bytes": 1894,
+      "sha256": "6c9bf979a4d596d36e6887e72f4ddbd20edce73032e7f064a528dae7dc22e6a6",
+      "blob": "8e27d611dff2c768a6649e6a3cfc09d55b2bc101"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/completion/gates/issue-1417/input-7.json",
+      "mode": "100644",
+      "bytes": 7464,
+      "sha256": "24355350464665e5f4cc72d89b1aca0fe358b7d54b954bed26bea684564c18fc",
+      "blob": "680e699845511f64371c107294c3e5b69dc2d26e"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/completion/gates/issue-1417/receipt.json",
+      "mode": "100644",
+      "bytes": 2713,
+      "sha256": "444ab2b116720dbd815a0b6bc7271f8e7a912cbf1aa32aacf51b9552406849e0",
+      "blob": "e8745784bfa66d9262f6dce534336bbceab40b3a"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/completion/gates/issue-1417/stderr.json",
+      "mode": "100644",
+      "bytes": 113,
+      "sha256": "47052b8093ac951a93b2a5fdd9cb1930d3173c55a232e6c65063b02b93a91c5d",
+      "blob": "a835debfca76523af76626f11685472e60513e3a"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/completion/gates/issue-1417/stdout.json",
+      "mode": "100644",
+      "bytes": 242,
+      "sha256": "4a8a620c6bf48ff45a06d2c01d19a2d149072cc4ceb7b5be18f0e7dfe80e79ac",
+      "blob": "06496de69e318fc2c37c8a5480680d3672c3f9fe"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/completion/gates/issue-693/input-0.json",
+      "mode": "100644",
+      "bytes": 16123,
+      "sha256": "6e1fdf3f51aa6d7b9eb3baff75ce3406ed7642200b15fcdfc38245e2d6356137",
+      "blob": "8f4be48f81d9ee141bbff1a993fd8e67fac4b384"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/completion/gates/issue-693/input-1.json",
+      "mode": "100644",
+      "bytes": 8224,
+      "sha256": "0f48ead3da55a15788f6467dc42f02014ada30a3c7dc841efcff0fa195a3ff3f",
+      "blob": "9c4137d5215a49d309af1aba6c58e67d45fdeeba"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/completion/gates/issue-693/input-2.json",
+      "mode": "100644",
+      "bytes": 955,
+      "sha256": "7bdd6cb1771f8209aa8af70e89c8daf0f2b3c71855c7648fcc8b0b808e8bd7af",
+      "blob": "6bcfa1a3647dd8b24a1075c3ecb10aa32073dc39"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/completion/gates/issue-693/input-3.json",
+      "mode": "100644",
+      "bytes": 1301,
+      "sha256": "e65bd41c372869274e183a102232ab986b42ec8cde83b6ad17e1a236e72e74f5",
+      "blob": "be36832a199a6224ed37ea4f7757b056279a6423"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/completion/gates/issue-693/input-4.json",
+      "mode": "100644",
+      "bytes": 4165,
+      "sha256": "e6807a7cab6aa9e91bdf50c866fe4cbe72b5bd422cfe1e12ab865ea4cebb2c18",
+      "blob": "e8743e7ee3dcb0113f05766de01cbdb416ed281d"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/completion/gates/issue-693/input-5.json",
+      "mode": "100644",
+      "bytes": 116737,
+      "sha256": "38a3a6edcda874c9084e75c23cba19309c1de2aa3cee3f941e6fb0af49deb2b2",
+      "blob": "9c5a129723e072e3e475b829680d9152dd512663"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/completion/gates/issue-693/input-6.json",
+      "mode": "100644",
+      "bytes": 1894,
+      "sha256": "6c9bf979a4d596d36e6887e72f4ddbd20edce73032e7f064a528dae7dc22e6a6",
+      "blob": "8e27d611dff2c768a6649e6a3cfc09d55b2bc101"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/completion/gates/issue-693/input-7.json",
+      "mode": "100644",
+      "bytes": 7464,
+      "sha256": "24355350464665e5f4cc72d89b1aca0fe358b7d54b954bed26bea684564c18fc",
+      "blob": "680e699845511f64371c107294c3e5b69dc2d26e"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/completion/gates/issue-693/receipt.json",
+      "mode": "100644",
+      "bytes": 2712,
+      "sha256": "27e2be13d6bdeafd711ff7a363c19d09084d68259d8220d396440642d2e495c5",
+      "blob": "59c68562a4788a5bde9fc17de5398e7962c07f60"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/completion/gates/issue-693/stderr.json",
+      "mode": "100644",
+      "bytes": 113,
+      "sha256": "47052b8093ac951a93b2a5fdd9cb1930d3173c55a232e6c65063b02b93a91c5d",
+      "blob": "a835debfca76523af76626f11685472e60513e3a"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/completion/gates/issue-693/stdout.json",
+      "mode": "100644",
+      "bytes": 371,
+      "sha256": "2e0cc3d22a55a5a2d057889d3e81187a0b39d8e8e3fda2d916886523fdf93033",
+      "blob": "65cb0a199db25d100a450360c90e339fb2e55781"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/completion/gates/issue-resolution/input-0.json",
+      "mode": "100644",
+      "bytes": 16123,
+      "sha256": "6e1fdf3f51aa6d7b9eb3baff75ce3406ed7642200b15fcdfc38245e2d6356137",
+      "blob": "8f4be48f81d9ee141bbff1a993fd8e67fac4b384"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/completion/gates/issue-resolution/input-1.json",
+      "mode": "100644",
+      "bytes": 8224,
+      "sha256": "0f48ead3da55a15788f6467dc42f02014ada30a3c7dc841efcff0fa195a3ff3f",
+      "blob": "9c4137d5215a49d309af1aba6c58e67d45fdeeba"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/completion/gates/issue-resolution/input-2.json",
+      "mode": "100644",
+      "bytes": 955,
+      "sha256": "7bdd6cb1771f8209aa8af70e89c8daf0f2b3c71855c7648fcc8b0b808e8bd7af",
+      "blob": "6bcfa1a3647dd8b24a1075c3ecb10aa32073dc39"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/completion/gates/issue-resolution/input-3.json",
+      "mode": "100644",
+      "bytes": 1301,
+      "sha256": "e65bd41c372869274e183a102232ab986b42ec8cde83b6ad17e1a236e72e74f5",
+      "blob": "be36832a199a6224ed37ea4f7757b056279a6423"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/completion/gates/issue-resolution/input-4.json",
+      "mode": "100644",
+      "bytes": 4165,
+      "sha256": "e6807a7cab6aa9e91bdf50c866fe4cbe72b5bd422cfe1e12ab865ea4cebb2c18",
+      "blob": "e8743e7ee3dcb0113f05766de01cbdb416ed281d"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/completion/gates/issue-resolution/input-5.json",
+      "mode": "100644",
+      "bytes": 116737,
+      "sha256": "38a3a6edcda874c9084e75c23cba19309c1de2aa3cee3f941e6fb0af49deb2b2",
+      "blob": "9c5a129723e072e3e475b829680d9152dd512663"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/completion/gates/issue-resolution/input-6.json",
+      "mode": "100644",
+      "bytes": 1894,
+      "sha256": "6c9bf979a4d596d36e6887e72f4ddbd20edce73032e7f064a528dae7dc22e6a6",
+      "blob": "8e27d611dff2c768a6649e6a3cfc09d55b2bc101"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/completion/gates/issue-resolution/input-7.json",
+      "mode": "100644",
+      "bytes": 39216,
+      "sha256": "a97ef5cf140788f1f8b9c1c19745e2fc00c9a2ce8eed4e33a8aafa0131e3da30",
+      "blob": "1af681fdf41b92a3bd479148ef9a18f5de54b741"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/completion/gates/issue-resolution/receipt.json",
+      "mode": "100644",
+      "bytes": 2782,
+      "sha256": "5db3157867da2937550a4abf20f53ea40460ff95ffd716078ef440bd65d3c917",
+      "blob": "cd543280d120ab76cbe35a26ece2772ae92ec74b"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/completion/gates/issue-resolution/stderr.json",
+      "mode": "100644",
+      "bytes": 113,
+      "sha256": "47052b8093ac951a93b2a5fdd9cb1930d3173c55a232e6c65063b02b93a91c5d",
+      "blob": "a835debfca76523af76626f11685472e60513e3a"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/completion/gates/issue-resolution/stdout.json",
+      "mode": "100644",
+      "bytes": 1251,
+      "sha256": "790b14cd68ce0416ca226f79edaca473916f9b22444d8bcc816ca8e27c2b30b7",
+      "blob": "8f15c9a934acb63f55a2309abb566b9764c125ce"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/completion/gates/marker/input-0.json",
+      "mode": "100644",
+      "bytes": 16123,
+      "sha256": "6e1fdf3f51aa6d7b9eb3baff75ce3406ed7642200b15fcdfc38245e2d6356137",
+      "blob": "8f4be48f81d9ee141bbff1a993fd8e67fac4b384"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/completion/gates/marker/input-1.json",
+      "mode": "100644",
+      "bytes": 8224,
+      "sha256": "0f48ead3da55a15788f6467dc42f02014ada30a3c7dc841efcff0fa195a3ff3f",
+      "blob": "9c4137d5215a49d309af1aba6c58e67d45fdeeba"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/completion/gates/marker/input-2.json",
+      "mode": "100644",
+      "bytes": 955,
+      "sha256": "7bdd6cb1771f8209aa8af70e89c8daf0f2b3c71855c7648fcc8b0b808e8bd7af",
+      "blob": "6bcfa1a3647dd8b24a1075c3ecb10aa32073dc39"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/completion/gates/marker/input-3.json",
+      "mode": "100644",
+      "bytes": 1301,
+      "sha256": "e65bd41c372869274e183a102232ab986b42ec8cde83b6ad17e1a236e72e74f5",
+      "blob": "be36832a199a6224ed37ea4f7757b056279a6423"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/completion/gates/marker/input-4.json",
+      "mode": "100644",
+      "bytes": 4165,
+      "sha256": "e6807a7cab6aa9e91bdf50c866fe4cbe72b5bd422cfe1e12ab865ea4cebb2c18",
+      "blob": "e8743e7ee3dcb0113f05766de01cbdb416ed281d"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/completion/gates/marker/input-5.json",
+      "mode": "100644",
+      "bytes": 116737,
+      "sha256": "38a3a6edcda874c9084e75c23cba19309c1de2aa3cee3f941e6fb0af49deb2b2",
+      "blob": "9c5a129723e072e3e475b829680d9152dd512663"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/completion/gates/marker/input-6.json",
+      "mode": "100644",
+      "bytes": 1894,
+      "sha256": "6c9bf979a4d596d36e6887e72f4ddbd20edce73032e7f064a528dae7dc22e6a6",
+      "blob": "8e27d611dff2c768a6649e6a3cfc09d55b2bc101"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/completion/gates/marker/input-7.json",
+      "mode": "100644",
+      "bytes": 948,
+      "sha256": "93115c00c20afc6b6aaa019a43e1e28a368d81bd1fcf327a4ab25ef38aab3d8d",
+      "blob": "ba13db70a20bf9a5839465f3da6cefd874cc1323"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/completion/gates/marker/input-8.json",
+      "mode": "100644",
+      "bytes": 34098,
+      "sha256": "7dfce88349606cafcb413af198b4c7c052cf2ccaafd55b4db6fdbbe671c1da95",
+      "blob": "3a69aa38decc98a61a23868793b2ad26cee12054"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/completion/gates/marker/receipt.json",
+      "mode": "100644",
+      "bytes": 3106,
+      "sha256": "15d33f849b94594221b01c1f1470449754532fb449812043e5e628144168b470",
+      "blob": "e55406e055d044521310daf73a43039d1e7c984a"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/completion/gates/marker/stderr.json",
+      "mode": "100644",
+      "bytes": 113,
+      "sha256": "47052b8093ac951a93b2a5fdd9cb1930d3173c55a232e6c65063b02b93a91c5d",
+      "blob": "a835debfca76523af76626f11685472e60513e3a"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/completion/gates/marker/stdout.json",
+      "mode": "100644",
+      "bytes": 323,
+      "sha256": "32c3e4300c40756467e99464b2633444d8c38efdaab02cf4d3ec9d4f332b5495",
+      "blob": "4060ae466f364b6bc233dc103479001968320124"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/completion/gates/normal-resolution/input-0.json",
+      "mode": "100644",
+      "bytes": 16123,
+      "sha256": "6e1fdf3f51aa6d7b9eb3baff75ce3406ed7642200b15fcdfc38245e2d6356137",
+      "blob": "8f4be48f81d9ee141bbff1a993fd8e67fac4b384"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/completion/gates/normal-resolution/input-1.json",
+      "mode": "100644",
+      "bytes": 8224,
+      "sha256": "0f48ead3da55a15788f6467dc42f02014ada30a3c7dc841efcff0fa195a3ff3f",
+      "blob": "9c4137d5215a49d309af1aba6c58e67d45fdeeba"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/completion/gates/normal-resolution/input-2.json",
+      "mode": "100644",
+      "bytes": 955,
+      "sha256": "7bdd6cb1771f8209aa8af70e89c8daf0f2b3c71855c7648fcc8b0b808e8bd7af",
+      "blob": "6bcfa1a3647dd8b24a1075c3ecb10aa32073dc39"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/completion/gates/normal-resolution/input-3.json",
+      "mode": "100644",
+      "bytes": 1301,
+      "sha256": "e65bd41c372869274e183a102232ab986b42ec8cde83b6ad17e1a236e72e74f5",
+      "blob": "be36832a199a6224ed37ea4f7757b056279a6423"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/completion/gates/normal-resolution/input-4.json",
+      "mode": "100644",
+      "bytes": 4165,
+      "sha256": "e6807a7cab6aa9e91bdf50c866fe4cbe72b5bd422cfe1e12ab865ea4cebb2c18",
+      "blob": "e8743e7ee3dcb0113f05766de01cbdb416ed281d"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/completion/gates/normal-resolution/input-5.json",
+      "mode": "100644",
+      "bytes": 116737,
+      "sha256": "38a3a6edcda874c9084e75c23cba19309c1de2aa3cee3f941e6fb0af49deb2b2",
+      "blob": "9c5a129723e072e3e475b829680d9152dd512663"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/completion/gates/normal-resolution/input-6.json",
+      "mode": "100644",
+      "bytes": 1894,
+      "sha256": "6c9bf979a4d596d36e6887e72f4ddbd20edce73032e7f064a528dae7dc22e6a6",
+      "blob": "8e27d611dff2c768a6649e6a3cfc09d55b2bc101"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/completion/gates/normal-resolution/input-7.json",
+      "mode": "100644",
+      "bytes": 39216,
+      "sha256": "a97ef5cf140788f1f8b9c1c19745e2fc00c9a2ce8eed4e33a8aafa0131e3da30",
+      "blob": "1af681fdf41b92a3bd479148ef9a18f5de54b741"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/completion/gates/normal-resolution/receipt.json",
+      "mode": "100644",
+      "bytes": 2755,
+      "sha256": "21abf51dc43941689f2baa84fb9be489c98f55889c1b34572c7e742f9f44cc42",
+      "blob": "b1ca6b87c1b0e729d0c3844c17d46d0d483baf86"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/completion/gates/normal-resolution/stderr.json",
+      "mode": "100644",
+      "bytes": 113,
+      "sha256": "47052b8093ac951a93b2a5fdd9cb1930d3173c55a232e6c65063b02b93a91c5d",
+      "blob": "a835debfca76523af76626f11685472e60513e3a"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/completion/gates/normal-resolution/stdout.json",
+      "mode": "100644",
+      "bytes": 1135,
+      "sha256": "faee1c77196386f9383bcaffd3f640991f315ac72910d615af9b3ac77ef0f337",
+      "blob": "b690f678e7eb3bc9a78aa396801aafb6775981e0"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/completion/gates/register/input-0.json",
+      "mode": "100644",
+      "bytes": 16123,
+      "sha256": "6e1fdf3f51aa6d7b9eb3baff75ce3406ed7642200b15fcdfc38245e2d6356137",
+      "blob": "8f4be48f81d9ee141bbff1a993fd8e67fac4b384"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/completion/gates/register/input-1.json",
+      "mode": "100644",
+      "bytes": 8224,
+      "sha256": "0f48ead3da55a15788f6467dc42f02014ada30a3c7dc841efcff0fa195a3ff3f",
+      "blob": "9c4137d5215a49d309af1aba6c58e67d45fdeeba"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/completion/gates/register/input-2.json",
+      "mode": "100644",
+      "bytes": 955,
+      "sha256": "7bdd6cb1771f8209aa8af70e89c8daf0f2b3c71855c7648fcc8b0b808e8bd7af",
+      "blob": "6bcfa1a3647dd8b24a1075c3ecb10aa32073dc39"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/completion/gates/register/input-3.json",
+      "mode": "100644",
+      "bytes": 1301,
+      "sha256": "e65bd41c372869274e183a102232ab986b42ec8cde83b6ad17e1a236e72e74f5",
+      "blob": "be36832a199a6224ed37ea4f7757b056279a6423"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/completion/gates/register/input-4.json",
+      "mode": "100644",
+      "bytes": 4165,
+      "sha256": "e6807a7cab6aa9e91bdf50c866fe4cbe72b5bd422cfe1e12ab865ea4cebb2c18",
+      "blob": "e8743e7ee3dcb0113f05766de01cbdb416ed281d"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/completion/gates/register/input-5.json",
+      "mode": "100644",
+      "bytes": 116737,
+      "sha256": "38a3a6edcda874c9084e75c23cba19309c1de2aa3cee3f941e6fb0af49deb2b2",
+      "blob": "9c5a129723e072e3e475b829680d9152dd512663"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/completion/gates/register/input-6.json",
+      "mode": "100644",
+      "bytes": 1894,
+      "sha256": "6c9bf979a4d596d36e6887e72f4ddbd20edce73032e7f064a528dae7dc22e6a6",
+      "blob": "8e27d611dff2c768a6649e6a3cfc09d55b2bc101"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/completion/gates/register/input-7.json",
+      "mode": "100644",
+      "bytes": 8197,
+      "sha256": "e10612d6a40924d231f1d9816c09913d3ae822e7a48d7d1c5413457207fc816c",
+      "blob": "e5fec04f03748a1781f51fdea2a7accf3ed7fc45"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/completion/gates/register/receipt.json",
+      "mode": "100644",
+      "bytes": 2696,
+      "sha256": "f041c7cb4264462568bede7006efefd4f89ca40a65c9488577990f627ea155fa",
+      "blob": "ac671f6cce3d76e2b2fe42d84ef1be1425f99fb3"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/completion/gates/register/stderr.json",
+      "mode": "100644",
+      "bytes": 113,
+      "sha256": "47052b8093ac951a93b2a5fdd9cb1930d3173c55a232e6c65063b02b93a91c5d",
+      "blob": "a835debfca76523af76626f11685472e60513e3a"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/completion/gates/register/stdout.json",
+      "mode": "100644",
+      "bytes": 230,
+      "sha256": "99eb1086039bef2245c8ddd4bada196ca6c3080b6f88124ac7eb9c23c7e08fad",
+      "blob": "c03efd778189e292c156613679a540827ff1c8ab"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/completion/gates/results.json",
+      "mode": "100644",
+      "bytes": 726,
+      "sha256": "65adddb7087dd2f2e452ebffda261bcd566886f5ea9583e035a3a552e54ba63d",
+      "blob": "bfa34d941882b9968a6085f0fb42c615c2a5a1eb"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/completion/gates/rules/input-0.json",
+      "mode": "100644",
+      "bytes": 16123,
+      "sha256": "6e1fdf3f51aa6d7b9eb3baff75ce3406ed7642200b15fcdfc38245e2d6356137",
+      "blob": "8f4be48f81d9ee141bbff1a993fd8e67fac4b384"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/completion/gates/rules/input-1.json",
+      "mode": "100644",
+      "bytes": 8224,
+      "sha256": "0f48ead3da55a15788f6467dc42f02014ada30a3c7dc841efcff0fa195a3ff3f",
+      "blob": "9c4137d5215a49d309af1aba6c58e67d45fdeeba"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/completion/gates/rules/input-2.json",
+      "mode": "100644",
+      "bytes": 955,
+      "sha256": "7bdd6cb1771f8209aa8af70e89c8daf0f2b3c71855c7648fcc8b0b808e8bd7af",
+      "blob": "6bcfa1a3647dd8b24a1075c3ecb10aa32073dc39"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/completion/gates/rules/input-3.json",
+      "mode": "100644",
+      "bytes": 1301,
+      "sha256": "e65bd41c372869274e183a102232ab986b42ec8cde83b6ad17e1a236e72e74f5",
+      "blob": "be36832a199a6224ed37ea4f7757b056279a6423"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/completion/gates/rules/input-4.json",
+      "mode": "100644",
+      "bytes": 4165,
+      "sha256": "e6807a7cab6aa9e91bdf50c866fe4cbe72b5bd422cfe1e12ab865ea4cebb2c18",
+      "blob": "e8743e7ee3dcb0113f05766de01cbdb416ed281d"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/completion/gates/rules/input-5.json",
+      "mode": "100644",
+      "bytes": 116737,
+      "sha256": "38a3a6edcda874c9084e75c23cba19309c1de2aa3cee3f941e6fb0af49deb2b2",
+      "blob": "9c5a129723e072e3e475b829680d9152dd512663"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/completion/gates/rules/input-6.json",
+      "mode": "100644",
+      "bytes": 1894,
+      "sha256": "6c9bf979a4d596d36e6887e72f4ddbd20edce73032e7f064a528dae7dc22e6a6",
+      "blob": "8e27d611dff2c768a6649e6a3cfc09d55b2bc101"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/completion/gates/rules/input-7.json",
+      "mode": "100644",
+      "bytes": 14371,
+      "sha256": "c44c161f09a5c3cbc798cc5a4f902da7f0bf4e8fb37d52e8a4fd4c8806013ec4",
+      "blob": "500dbe5ec38ad42f4d2d9db14305244d4edc8e56"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/completion/gates/rules/receipt.json",
+      "mode": "100644",
+      "bytes": 2691,
+      "sha256": "2370a7557c2f10714e76f59208627b8cd1b8002fed90aedcb2a12607ec82b65a",
+      "blob": "fa1e6d7c83f460a5ffc935f9e78c1c8e2685bee0"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/completion/gates/rules/stderr.json",
+      "mode": "100644",
+      "bytes": 113,
+      "sha256": "47052b8093ac951a93b2a5fdd9cb1930d3173c55a232e6c65063b02b93a91c5d",
+      "blob": "a835debfca76523af76626f11685472e60513e3a"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/completion/gates/rules/stdout.json",
+      "mode": "100644",
+      "bytes": 2620,
+      "sha256": "d4b7e480c18ec861d35c5f5fc5b8de6b01583fb818cc7fedc88d507251efa8cc",
+      "blob": "4725760b2b769c0941ddd9e0a9e4ed6b8b909f98"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/completion/gates/staged-whitespace/input-0.json",
+      "mode": "100644",
+      "bytes": 16123,
+      "sha256": "6e1fdf3f51aa6d7b9eb3baff75ce3406ed7642200b15fcdfc38245e2d6356137",
+      "blob": "8f4be48f81d9ee141bbff1a993fd8e67fac4b384"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/completion/gates/staged-whitespace/input-1.json",
+      "mode": "100644",
+      "bytes": 8224,
+      "sha256": "0f48ead3da55a15788f6467dc42f02014ada30a3c7dc841efcff0fa195a3ff3f",
+      "blob": "9c4137d5215a49d309af1aba6c58e67d45fdeeba"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/completion/gates/staged-whitespace/input-2.json",
+      "mode": "100644",
+      "bytes": 955,
+      "sha256": "7bdd6cb1771f8209aa8af70e89c8daf0f2b3c71855c7648fcc8b0b808e8bd7af",
+      "blob": "6bcfa1a3647dd8b24a1075c3ecb10aa32073dc39"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/completion/gates/staged-whitespace/input-3.json",
+      "mode": "100644",
+      "bytes": 1301,
+      "sha256": "e65bd41c372869274e183a102232ab986b42ec8cde83b6ad17e1a236e72e74f5",
+      "blob": "be36832a199a6224ed37ea4f7757b056279a6423"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/completion/gates/staged-whitespace/input-4.json",
+      "mode": "100644",
+      "bytes": 4165,
+      "sha256": "e6807a7cab6aa9e91bdf50c866fe4cbe72b5bd422cfe1e12ab865ea4cebb2c18",
+      "blob": "e8743e7ee3dcb0113f05766de01cbdb416ed281d"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/completion/gates/staged-whitespace/input-5.json",
+      "mode": "100644",
+      "bytes": 116737,
+      "sha256": "38a3a6edcda874c9084e75c23cba19309c1de2aa3cee3f941e6fb0af49deb2b2",
+      "blob": "9c5a129723e072e3e475b829680d9152dd512663"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/completion/gates/staged-whitespace/input-6.json",
+      "mode": "100644",
+      "bytes": 1894,
+      "sha256": "6c9bf979a4d596d36e6887e72f4ddbd20edce73032e7f064a528dae7dc22e6a6",
+      "blob": "8e27d611dff2c768a6649e6a3cfc09d55b2bc101"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/completion/gates/staged-whitespace/receipt.json",
+      "mode": "100644",
+      "bytes": 2500,
+      "sha256": "164ce74ba7d5664bdf45766751a2aa201f7b9cd4d0a21b4e0b775114f69d20ab",
+      "blob": "bfc673fbb34d7dd65f6c0b1e9a15a5d5813e61cd"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/completion/gates/staged-whitespace/stderr.json",
+      "mode": "100644",
+      "bytes": 113,
+      "sha256": "47052b8093ac951a93b2a5fdd9cb1930d3173c55a232e6c65063b02b93a91c5d",
+      "blob": "a835debfca76523af76626f11685472e60513e3a"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/completion/gates/staged-whitespace/stdout.json",
+      "mode": "100644",
+      "bytes": 113,
+      "sha256": "47052b8093ac951a93b2a5fdd9cb1930d3173c55a232e6c65063b02b93a91c5d",
+      "blob": "a835debfca76523af76626f11685472e60513e3a"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/completion/gates/working-whitespace/input-0.json",
+      "mode": "100644",
+      "bytes": 16123,
+      "sha256": "6e1fdf3f51aa6d7b9eb3baff75ce3406ed7642200b15fcdfc38245e2d6356137",
+      "blob": "8f4be48f81d9ee141bbff1a993fd8e67fac4b384"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/completion/gates/working-whitespace/input-1.json",
+      "mode": "100644",
+      "bytes": 8224,
+      "sha256": "0f48ead3da55a15788f6467dc42f02014ada30a3c7dc841efcff0fa195a3ff3f",
+      "blob": "9c4137d5215a49d309af1aba6c58e67d45fdeeba"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/completion/gates/working-whitespace/input-2.json",
+      "mode": "100644",
+      "bytes": 955,
+      "sha256": "7bdd6cb1771f8209aa8af70e89c8daf0f2b3c71855c7648fcc8b0b808e8bd7af",
+      "blob": "6bcfa1a3647dd8b24a1075c3ecb10aa32073dc39"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/completion/gates/working-whitespace/input-3.json",
+      "mode": "100644",
+      "bytes": 1301,
+      "sha256": "e65bd41c372869274e183a102232ab986b42ec8cde83b6ad17e1a236e72e74f5",
+      "blob": "be36832a199a6224ed37ea4f7757b056279a6423"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/completion/gates/working-whitespace/input-4.json",
+      "mode": "100644",
+      "bytes": 4165,
+      "sha256": "e6807a7cab6aa9e91bdf50c866fe4cbe72b5bd422cfe1e12ab865ea4cebb2c18",
+      "blob": "e8743e7ee3dcb0113f05766de01cbdb416ed281d"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/completion/gates/working-whitespace/input-5.json",
+      "mode": "100644",
+      "bytes": 116737,
+      "sha256": "38a3a6edcda874c9084e75c23cba19309c1de2aa3cee3f941e6fb0af49deb2b2",
+      "blob": "9c5a129723e072e3e475b829680d9152dd512663"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/completion/gates/working-whitespace/input-6.json",
+      "mode": "100644",
+      "bytes": 1894,
+      "sha256": "6c9bf979a4d596d36e6887e72f4ddbd20edce73032e7f064a528dae7dc22e6a6",
+      "blob": "8e27d611dff2c768a6649e6a3cfc09d55b2bc101"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/completion/gates/working-whitespace/receipt.json",
+      "mode": "100644",
+      "bytes": 2484,
+      "sha256": "d43680e134ddbe4811b0dc0387095561ea35f44f7cf3e02d4af78f2c03ae0ca9",
+      "blob": "2d73d6e3168d3477556216dce1853cfe7ad3abe5"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/completion/gates/working-whitespace/stderr.json",
+      "mode": "100644",
+      "bytes": 113,
+      "sha256": "47052b8093ac951a93b2a5fdd9cb1930d3173c55a232e6c65063b02b93a91c5d",
+      "blob": "a835debfca76523af76626f11685472e60513e3a"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/completion/gates/working-whitespace/stdout.json",
+      "mode": "100644",
+      "bytes": 113,
+      "sha256": "47052b8093ac951a93b2a5fdd9cb1930d3173c55a232e6c65063b02b93a91c5d",
+      "blob": "a835debfca76523af76626f11685472e60513e3a"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/completion/narratives-command/input-0.json",
+      "mode": "100644",
+      "bytes": 10814,
+      "sha256": "586a771423e1b81f6f7fbc1afadd5e1d5aa39549003b1ef4371a37fe4e9d785d",
+      "blob": "65f2ca49a2ef4ff3c18b46cbeed0859f11d9b505"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/completion/narratives-command/input-1.json",
+      "mode": "100644",
+      "bytes": 4165,
+      "sha256": "e6807a7cab6aa9e91bdf50c866fe4cbe72b5bd422cfe1e12ab865ea4cebb2c18",
+      "blob": "e8743e7ee3dcb0113f05766de01cbdb416ed281d"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/completion/narratives-command/receipt.json",
+      "mode": "100644",
+      "bytes": 1206,
+      "sha256": "f2b5382b6df03ccc7be33430dad88a733b02df1c5e0b37581783e7d723ddcb6b",
+      "blob": "6c4e3b8f77a52f51aa9f19a20793f43a08584b33"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/completion/narratives-command/stderr.json",
+      "mode": "100644",
+      "bytes": 113,
+      "sha256": "47052b8093ac951a93b2a5fdd9cb1930d3173c55a232e6c65063b02b93a91c5d",
+      "blob": "a835debfca76523af76626f11685472e60513e3a"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/completion/narratives-command/stdout.json",
+      "mode": "100644",
+      "bytes": 242,
+      "sha256": "39196aca6ed5a8f1a2aaa6efbecd78d420cee6b4ce3fe33116ce320ee9e838b7",
+      "blob": "7e57aab6b34aa389dcec540575be8abfc01afa15"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/completion/record.py",
+      "mode": "100644",
+      "bytes": 1908,
+      "sha256": "6cd4ccebd38065d06fab0a0c82e287157b91cee309fd0030b8eed6c69e363ab8",
+      "blob": "0500f9e159b8da9de17f07e4c2ace92d4fcaa035"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/completion/summary.md",
+      "mode": "100644",
+      "bytes": 3923,
+      "sha256": "d170990f25ea2e77227a325f68ab50a4b5b001ca34250be3f4461be66c3ef586",
+      "blob": "e2bc5e4a71c8e192eb9d2e0c4d1f75467bb8c375"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/completion/tracker-1415.json",
+      "mode": "100644",
+      "bytes": 80186,
+      "sha256": "8ed1fb13b67cd0453e52f70fcfcf54f7fe585d6f716c02368204caf9cbc9a59b",
+      "blob": "c0e92ea9d82e1312b1f04749fe1b707e7f9bd504"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/completion/tracker-1416.json",
+      "mode": "100644",
+      "bytes": 8382,
+      "sha256": "0687ff393af58df27c6dc7e35b8f2f026ec5182adf0f01e3f871f6d968d94007",
+      "blob": "2bf66ae4e0a2e8a82c86314d175474c68074b1a4"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/completion/tracker-1417.json",
+      "mode": "100644",
+      "bytes": 87352,
+      "sha256": "f6f2990aed6f7587bc4223dddd033e23ac4bd827cb126aaf40631f0cf92928f5",
+      "blob": "cc7c50c92f974566d69986361b74422afa7f6312"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/completion/tracker-693.json",
+      "mode": "100644",
+      "bytes": 81054,
+      "sha256": "69e13c4e3919bfb2b91da63601033f57b62545fa6e48cc3938b18b7875da39d1",
+      "blob": "f23cdcd7696e0308700a8a863491ebe260bbe6be"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/completion/tracker-completion.json",
+      "mode": "100644",
+      "bytes": 1218,
+      "sha256": "3c9bb1f94b59ecaaac7ced85005a242ec1622a7f806f21286c9aed65b2bbb319",
+      "blob": "a2c7dce777e0f7b02fa8c3f316d40f4d27492101"
+    },
+    {
+      "path": "docs/audits/2026_11_03-epic-m6-records/completion/validate-marker.py",
+      "mode": "100644",
+      "bytes": 512,
+      "sha256": "bd961144539c76eed9f5d90a5501ce2a4c2d1b25afa05d6ac29973e78e0dde4e",
+      "blob": "6e08794571019f940fc594821705f19341130cb2"
+    },
+    {
+      "path": "docs/work-logs/2026_11-work_logs/2026_11_03-work_log.md",
+      "mode": "100644",
+      "bytes": 13558,
+      "sha256": "58e94401351815884343049a20edfcd8172cd9d8f813eea293e81b007bd00c0b",
+      "blob": "adc8d7b7585f9c67a04f906f27090307d76a6f46"
+    },
+    {
+      "path": "docs/work-logs/INDEX.md",
+      "mode": "100644",
+      "bytes": 165857,
+      "sha256": "390ba06747b52b292144686ac40cbad573f2aa3e71bbb0595658354b0ef5be64",
+      "blob": "20f9029815cfb241874c81bee2f0190771b0e89b"
+    }
+  ],
+  "count": 220,
+  "logical_bytes": 4494499,
+  "file_manifest_sha256": "c7c112aa6d0393573bdc0052d6e83b4f2029abe36c3e844e0f256ac4fa77d43a",
+  "stdin_sha256": "3fee4f8d66030973c2e9a7b2914f33b42d4cc3f20d3bbff27909a63514c711d7",
+  "argv": [
+    "tools/forbidden-terms-check",
+    "--stdin"
+  ],
+  "cwd": "/workspace/repos/pixelelated/distribution.worktrees/m6-records-693",
+  "start": "2026-11-03T14:27:55.609427+00:00",
+  "end": "2026-11-03T14:27:55.618738+00:00",
+  "rc": 0,
+  "scanner_sha256": "6907bed8857ce27f38b31ef18c09abc2d9dd9345b28afd483e8a44e3253c0e63",
+  "driver_sha256": "57c8044518d55328705c59e6410cb4a0b4ddb721841370c87e461d1852784f01",
+  "stdout_sha256": "ae7d101f07c8c55bfd82db597d8d383d0f9c1102459a98a228136f4248a15379",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "self_exclusions": "New scan output/manifest and the active outer receipt are produced afterward or outside the repository. Final --tip covers exact committed changed paths; precommit working scan is only that snapshot."
+}

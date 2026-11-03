@@ -1,0 +1,49 @@
+{
+  "argv": [
+    "python3",
+    "-B",
+    "docs/audits/2026_11_03-epic-m6-records/completion/collect.py"
+  ],
+  "cwd": "/workspace/repos/pixelelated/distribution.worktrees/m6-records-693",
+  "start": "2026-11-03T14:24:04.922100+00:00",
+  "end": "2026-11-03T14:24:08.239050+00:00",
+  "rc": 0,
+  "inputs": [
+    {
+      "path": "/workspace/repos/pixelelated/distribution.worktrees/m6-records-693/docs/audits/2026_11_03-epic-m6-records/completion/collect.py",
+      "bytes": 5131,
+      "sha256": "f7264c4300bd2cba4558b08b3898158af28f15a711646d364dfa6a815bb15520"
+    },
+    {
+      "path": "/workspace/repos/pixelelated/distribution.worktrees/m6-records-693/docs/audits/2026_11_03-epic-m6-records/completion/expected-current.json",
+      "bytes": 42484,
+      "sha256": "8bf5be0c9395ef312be588f8c0f76a8f5547e130f9d4bb7348c0248ebbf9ef5e"
+    },
+    {
+      "path": "/workspace/repos/pixelelated/distribution.worktrees/m6-records-693/docs/audits/2026_11_03-epic-m6-records/completion/context.json",
+      "bytes": 396,
+      "sha256": "19276a8813aafcbcf5dc0083caaf2418dd9db1bb9e31578f14769cbd118284e2"
+    }
+  ],
+  "stdout_sha256": "8acdd77b3a4555676cd09c2ad7fd18165b4ec537da9929d67c5ef333e9fdc2d8",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "recorder_sha256": "6cd4ccebd38065d06fab0a0c82e287157b91cee309fd0030b8eed6c69e363ab8",
+  "cpu_affinity": [
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21,
+    22,
+    23
+  ]
+}

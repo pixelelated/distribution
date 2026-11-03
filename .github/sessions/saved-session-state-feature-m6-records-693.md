@@ -1,3 +1,15 @@
+# T46 — normal completion record prepared; stop after publication
+
+Updated 2026-11-03T14:26:48.101217+00:00 by actual Codex/GPT-6-Astra/xhigh, observed harness not provider-attested; Local T3 wN:p6/session01a19d12-29e3-7fe0-9f41-038dac0a5deb. Exact m6-records-693 / feature/m6-records-693.
+
+Accepted final/fixed-at remains17a064e6110306dd2b692cfd1b13d4f518d8def5, source reviewed-at d707c82ab8c48b674acc1f95a9571f0cb24d226a, execution seed8710a6210a40de0110244d03a886161ee06faf29, S1 45d455adccb0b2fc418f6442c4ca16a983430617. Root acceptance6605921275 and completion dispatch6605965227 / coordinator e4dacd1812213da2c09e67e3a277121f3af8dd43 govern.
+
+Read docs/audits/2026_11_03-epic-m6-records/completion/summary.md, audit-completion.json and the final completion checkpoint on693. Audit1417 actually CLOSED/completed at2026-11-03T14:07:02Z; marker verified timestamp 2026-11-03T14:24:08.231403+00:00 is distinct. Seven immutable coordinator inputs and exact current tracker bodies/states/times are retained. All976 accepted audit files/source/receipts stay byte/mode exact.693 remains OPEN17checked/1integration criterion unchecked;1416 OPEN/two checked;1415 OPEN. Accepted source/seed/final headers are unchanged.
+
+New completion commit/hash and normal publication/exact-final scan/current tracker readbacks are supplied externally at /tmp/m6-t46-completion-publication-0f2ysrpp and the one final693 checkpoint, after the commit exists. No predicted self hash or receipt-only commit loop. Stop for root marker verification and actual ordered integration/closure. No accepted replay, scratch reopening/deletion, merge, runtime/host/provider/device/cloud or permission answer. CPUs8–23.
+
+## Preserved accepted E–H handoff
+
 # T46 — E–H handback prepared; stop after publication
 
 Updated 2026-11-03T13:36:37.199371+00:00 by actual Codex/GPT-6-Astra/xhigh, Local T3 wN:p6/session01a19d12-29e3-7fe0-9f41-038dac0a5deb. Exact m6-records-693 / feature/m6-records-693.
