@@ -1,39 +1,44 @@
 # M6 integration construction progress
 
-Root observation at 2026-11-03T20:55:08.360693+00:00. These are private source candidates and bounded
-readbacks. Shared integration, image qualification and closure remain separate;
-M7 owns next.
+Current observation 2026-11-04T01:55:42.209612+00:00. Private source construction and bounded
+readbacks only; shared integration, image qualification and closure remain separate.
+M7 w4:p2 owns next. Earlier dated progress below remains historical.
 
 ## Distribution candidate
 
-Thirteen of46 endpoints are incorporated. T13 preserved seven incoming whole
-records, including two already combined automatically, explicit carried-order
-choices and a new INDEX. Independent byte readback passed before the private driver
-continued to T14. The automatic tool stayed unchanged; no product tool ran.
-T14 record inputs are ready. Tool inputs remain partial because the earlier output
-restriction prevented a semantic read; an explicit bounded redacted-inspection
-continuation is under normal approval review. No T14 candidate or resume yet.
+Fourteen of46 endpoints are incorporated, stopped at T15. Root has constructed
+partial adbd7a38d8f7fc1e0f9c1bbe67bc9e1fb7c73910 with five record leaves only;
+142505 other leaves, including tool conflict and INDEX, are unchanged. Exact
+whole-entry insertion/append and explicit record-order choices are independently
+verified by P1 under6620259059. T2 returned a precise lexical-entry dependency;
+root retained the first two refused prefix checks, then established two earlier
+closed entries using new nonexecuting Bash syntax checks. T2 now reads the finite
+source tails under6620388319. No suite command or old reader ran. Tool selection,
+INDEX generation and the T15 merge remain unfinished.
 
 ## ES candidate
 
-Five of11 endpoints remain incorporated, stopped at T31. The selected persistence
-correction and matching French message are now composed in a private two-path
-followthrough;1194paths/modes and1192other leaves are unchanged. Root verified exact
-producer seals, selected replacement spans and catalogue append. Independent source
-readback is active. The conservative retained-state choice and its update-blocking
-tradeoff are explicit. Ten meaningful production-backed validation families remain
-unexecuted, with dependencies and exact write/close fault interception unresolved.
-No T31 resume, product-test/runtime acceptance or pin promotion. Future T32 arming
-remains outstanding; original failures and version limits are retained.
+All11 endpoints are privately constructed at913716da/tree1198ac81. Final catalogue,
+chain/receipt and three combined-source readbacks have returned and their seals and
+final identities match. No combined-source contradiction was identified within
+the inspected routes. External shell/caller/lifetime, dependency, compiler/runtime,
+fault-interception and UI evidence limits remain explicit; no acceptance or pin move.
 
 ## Current lane observations
 
-T1 is working on T14's missing semantic source inputs, T5 on the corrected T31
-source readback. P1 and T2 returned their assigned packets and are available.
-T3 remains capacity-stopped without a handback or model switch. These are dated
-observations, not continuous-activity claims. Root owns private serial construction,
-choices and new validation. M6 stays source-only on CPUs8–23 with no runtime allocation.
-Detailed findings and exact operational bindings remain local.
+All five exact original sessions resumed on user-requested Astra xhigh and gave real
+fresh responses. T2 is observed working from the newly verified T15 entry points;
+P1/T1/T3/T5 are ready after their bounded returns. T3's stale transferred assignment remains transferred. No credential
+changes, current account blocker observed, or expired runtime-grant reuse.
+
+## Current custody and resources
+
+Retention27 binds124 selected metadata/report/program files,1294050bytes locally;
+exact private source objects/indexes remain with their owners. Refresh and final Log
+readback have separate verified retention packets. This is not off-host backup.
+All historical M7 grants are returned/expired; latest mocked-controls RETURN is
+recorded. No M6 runtime allocation. Source subprocesses remain on CPUs8–23.
+The branch checkpoint carries exact next actions, pins, private paths and limits.
 
 ## Independent findings and corrections
 
