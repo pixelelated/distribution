@@ -14,6 +14,13 @@ worktree it starts in, so check that yours carries `next`'s before trusting any 
 `git diff --quiet next -- .claude CLAUDE.md AGENTS.md || echo STALE` -- then merge `next` into
 a feature worktree, or read the rules from `next` (#367).
 
+**Standing host build/test authority:** D-WORKFLOW-196 authorizes routine host
+source preparation/assembly, builds and isolated tests within existing admission,
+resource and worktree rules. Read `.claude/rules/device-builds.md` ("Standing host
+build and test authority") and `docs/build-authority.md` for scope, per-run
+invocation and remaining boundaries. No repeated generic user approval is needed;
+actual platform controls and separately governed actions remain in force.
+
 **Canonical deep-dive docs (this file summarizes; they are authoritative):**
 - `AGENTS.md` — fork workflow and non-obvious gotchas, for agents that read it instead of this file.
 - `packages/README.md` — the authoritative `package.mk` format reference.

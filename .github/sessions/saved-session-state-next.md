@@ -1,3 +1,21 @@
+## Standing build authority — 2026-11-17
+
+Before a routine host assembly/build/isolated test, read `docs/build-authority.md`
+and the standing-authority section of `.claude/rules/device-builds.md`.
+D-WORKFLOW-196 includes internal activation/START and workload execution under
+current admission and platform controls; no repeated generic human yes is needed.
+Existing device/cloud/publication/destructive and supplier boundaries remain.
+This instruction is integrated on canonical next, not only a feature worktree.
+
+**This header supersedes the historical October task/owner state below.** The
+October browser/provider checkpoint is historical evidence, not a runnable task
+or a current ownership restriction. Do not reactivate it, adopt its owner or
+treat conflict-resolution as untouchable on that basis. Before scheduling, read
+the current milestone plan and reconcile current live owner/session, active
+work, completed returns and dependencies. The OS coordinator currently owns M7
+operations in conflict-resolution; the original M6 manager owns independent
+assessment. Standing authority does not itself select work or change priorities.
+
 # Saved Session State
 
 > **Saved:** 2026-10-17T05:53:18Z

@@ -21,6 +21,13 @@ their `paths:` globs. Both files carry the same facts and are kept equal by
 the rule files' own front matter. When something here and a rule file disagree, the rule
 file is right and this file has a bug.
 
+**Standing host build/test authority:** D-WORKFLOW-196 authorizes routine host
+source preparation/assembly, builds and isolated tests within existing admission,
+resource and worktree rules. Read `.claude/rules/device-builds.md` ("Standing host
+build and test authority") and `docs/build-authority.md` for scope, per-run
+invocation and remaining boundaries. No repeated generic user approval is needed;
+actual platform controls and separately governed actions remain in force.
+
 **Canonical deep-dive docs (this file summarizes; they are authoritative):**
 
 - `packages/README.md` — the authoritative `package.mk` format reference.

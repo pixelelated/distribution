@@ -219,3 +219,14 @@ holds failure modes this project has actually committed — consult it before
 calling something greenfield, and add to it when a new one surfaces.
 `docs/decision-register.md` holds settled decisions; cite a row by ID rather
 than re-arguing the choice, and add one the same session a decision is made.
+
+## Discovering standing build authority
+
+The canonical `next` versions of AGENTS.md and CLAUDE.md both point to
+`device-builds.md` and `docs/build-authority.md` for D-WORKFLOW-196. Follow that
+route on startup, including from an older feature worktree. A branch-local draft
+or installed skill alone is not a published project instruction: retain the
+integration commit and remote publication state in the change's evidence. Do not
+claim portability is complete while `git show next:<path>` still lacks the rule.
+Standing user authorization does not replace current per-run admission or platform
+review, and documentation integration is not a gate on already-authorized work.
