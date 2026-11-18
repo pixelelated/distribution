@@ -1,0 +1,95 @@
+{
+  "schema": "project-priorities-v1",
+  "revision": "2026-11-16-m6-m7-separation-1",
+  "decision": "D-WORKFLOW-185",
+  "issue": "https://github.com/pixelelated/distribution/issues/1435",
+  "owner": "M7 coordinator w4:p2; M6 assessment owner wN:p2",
+  "priorities": {
+    "M7-SCOPE": {
+      "status": "active",
+      "goal": "Recover the M7-only candidate scope without discarding M6 findings or independent M7 fixes",
+      "owner": "M7 root and P9",
+      "allowed_kinds": [
+        "scope-reconciliation",
+        "priority-maintenance"
+      ],
+      "allowed_input_milestones": [
+        "M6",
+        "M7"
+      ],
+      "output_milestone": "M7",
+      "next": "M7-only boundary and inert proposal returned; finish focused derivative review and fresh refusing readiness/context bindings without applying M6 overlays",
+      "exit_evidence": "Root-selected M7-only source disposition with retained M6 recommendation mapping"
+    },
+    "M7-STABILIZE": {
+      "status": "active",
+      "goal": "Stabilize and qualify the current M7 candidate",
+      "owner": "M7 root",
+      "allowed_kinds": [
+        "source-stabilization",
+        "validation-preparation",
+        "qualification"
+      ],
+      "allowed_input_milestones": [
+        "M7"
+      ],
+      "output_milestone": "M7",
+      "next": "Independent #610 scoped guest proof completed and retired; installed-product proof awaits candidate build. Consume active P7 checkpoint/report seam correction, preflight actual terminal route, then run fresh assembly under D196; preserve spent11/12/13.",
+      "exit_evidence": "Exact candidate source/build identities and required M7 qualification results"
+    },
+    "M6-ASSESS": {
+      "status": "active",
+      "goal": "Assess the full codebase in parallel and maintain a recommendation punchlist",
+      "owner": "M6 root wN:p2",
+      "allowed_kinds": [
+        "assessment",
+        "punchlist-maintenance"
+      ],
+      "allowed_input_milestones": [
+        "M6",
+        "M7"
+      ],
+      "output_milestone": "M6",
+      "next": "193 completed useful metadata: actualG282 anchor verified, one successorG283 SM8550-aarch64 flycast2021-lr FIRST_NONPOSITIVE, three identity tuples; wholeG283 OPEN. Original owner consumed200 reports/checkpoint539; T2/T5/T3 READY, fallback closed. Next ordinary bounded G283 declared-input/transformation relation remains owner-selected; useful backlog not exhausted. No M7 integration or early gap review.",
+      "exit_evidence": "Findings and coverage map; final gap analysis remains separately scheduled",
+      "execution_state": "finite-continuation-complete-next-operand-defined"
+    },
+    "M6-GAP": {
+      "status": "waiting",
+      "goal": "Review the latest completed M7 build and exact source while development is paused",
+      "owner": "M6 root with M7 frozen build handoff",
+      "allowed_kinds": [
+        "final-gap-review"
+      ],
+      "allowed_input_milestones": [
+        "M7"
+      ],
+      "output_milestone": "M6",
+      "next": "After M7 completion, explicitly record the frozen latest build/source and development pause",
+      "exit_evidence": "Final gap-analysis report and reconciled punchlist against that frozen build"
+    },
+    "NEXT-MAJOR": {
+      "status": "deferred",
+      "goal": "Plan and implement the next major build using the M6 recommendations",
+      "owner": "Coordinator after M7 completion and final gap review",
+      "allowed_kinds": [
+        "recommendation-integration"
+      ],
+      "allowed_input_milestones": [
+        "M6",
+        "M7"
+      ],
+      "output_milestone": "NEXT-MAJOR",
+      "next": "Select the post-M7 implementation plan from M6 results; no implementation into M7",
+      "exit_evidence": "Separately selected next-major-build plan and qualification"
+    }
+  },
+  "exclusions": [
+    "M6 recommendations are not M7 candidate input or a dependency on M7 stabilization",
+    "A reviewed handoff or compatible patch does not authorize cross-milestone integration",
+    "Technical provenance labels alone do not decide scope; independently required M7 fixes need their own M7 rationale",
+    "No blanket rollback, artifact deletion, queue replay, runtime authority or retention renewal is granted",
+    "Do not start the final development pause or M6 final gap review before the explicit M7 completion/freeze handoff"
+  ],
+  "progress_revision": "2026-11-18T03:54:06.205265+00:00"
+}

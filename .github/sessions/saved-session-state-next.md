@@ -11,337 +11,376 @@
 > Earlier activity/approval-waiting descriptions below are historical where
 > superseded; M6 remains with its own manager.
 
-> **2026-11-17 blocked-branch continuation (D-WORKFLOW-195 / #1437):**
-> Assembly START remains rejected. Independent #610 fixture completed20 host
-> checks in P8; root verified149 sealed members and consumed done14699. Root's
-> guest dependency comparison is complete; target-image qualification stays open.
-> M6 continuation193 completed useful G283 metadata, done14711;
-> original manager retains next relation assessment; wholeG283 remains open. Read
-> `docs/qa-logs/2026-11-17-proactive-continuation/blocked-path-parallel-progress/RESULT.json`
-> for actual outcomes and next dependencies. Preserve separate M6/M7 ownership.
+## Standing build authority — 2026-11-17
 
-> **Human channel boundary (D-WORKFLOW-194 / #1436 / #1437):** every prompt to
-> Max Coordinator one-on-one is visible to Max. Keep operational accounting and
-> unchanged follow-ups local; use the existing filtered escalation mechanism only
-> for meaningful outcomes, new/changed blockers or understandable decisions.
-> Answer actual user status questions. No implementation/receipt prompt to the
-> steward for this correction; evidence is in
-> `docs/qa-logs/2026-11-17-proactive-continuation/human-channel-boundary/RESULT.json`.
-> The existing M7 runtime decision remains unchanged and unresolved.
+Before a routine host assembly/build/isolated test, read `docs/build-authority.md`
+and the standing-authority section of `.claude/rules/device-builds.md`.
+D-WORKFLOW-196 includes internal activation/START and workload execution under
+current admission and platform controls; no repeated generic human yes is needed.
+Existing device/cloud/publication/destructive and supplier boundaries remain.
+This instruction is integrated on canonical next, not only a feature worktree.
 
-> **2026-11-17 current real boundary:** `docs/qa-logs/2026-11-17-proactive-continuation/materialization06-next-preparation/CONTINUATION-RESULT.json`: root path/executor binding and paired221-input/19-source checks completed; five activation records and custody published with original0. Platform automatic approval review rejected START for lack of runtime authorization. Verified START/archive/tree absent and service not-found/inactive/PID0. Prepared plain-language one-attempt source-assembly decision in `runtime-decision-proposal.json`; preserve rejection/spent selection, no automatic retry/bypass, no retention renewal. Earlier preparation-only status below is historical where superseded.
-
-> **2026-11-17 current static-input continuation:** read `docs/qa-logs/2026-11-17-proactive-continuation/python-static-input-preparation/RESULT.json`. Corrected baseline and two Python batches actually completed16/27/25 reads. Original failed attempts and baseline receipt-envelope error preserved; Python cuts and exact image equality verified. Twelve tools,20 module entries and4 loader files joined; target ELF version/kinds inspected without execution. Worker/prior contracts pass source validation but runtime remains unselected. Root performed `vm-successor-preflight.json`; next bind exact firmware/readback/safe-name and current authority/admission for the existing disposable VM adapter. No Max question, guest/build claim or timer wait. Older status notices below are historical where superseded.
-
-> **2026-11-17 focused recurrence correction:** read `docs/retros/2026-11-17-retention-continuation.md`. Observer15/escalation04 now refuse unchanged root-preparation postponement and expose stale working/preparation. Collector source/reference preparation has advanced to the tested lease derivative; collector subsequently executed once and failed on absent image `prlimit`; publication succeeded and service exited. Read `docs/qa-logs/2026-11-17-proactive-continuation/collector-run-outcome.json`. Root owns source-only guest-limit contract reconciliation; no current Max question. D-WORKFLOW-192.
-
-> **2026-11-17 runner executed:** input-stability resolved with owned source/helper
-> copies. Four expected cases and service retirement verified; original publisher
-> failed0664 mode, with tested source correction kept separate. No full-lifecycle
-> PASS or OS build. Root started baseline17 source preparation; no current Max
-> action. Read `docs/qa-logs/2026-11-17-proactive-continuation/owned-run-outcome.json`
-> and `baseline17-next-preparation/SELECTION.json`. Earlier unstarted/retention-wait
-> notes below are historical. D-WORKFLOW-191 / #1437.
-
-> **2026-11-17 decision-quality correction:** the fresh retention question is
-> withdrawn; root owns clarification, not Max. Read
-> `docs/qa-logs/2026-11-17-proactive-continuation/meaningful-decision-application.md`.
-> No capability/build has started; no renewal or execution authority inferred.
-> D-WORKFLOW-190 extends D-WORKFLOW-184/187/189. Earlier notices below are history
-> where they describe a pending fresh Max decision.
-
-> **2026-11-17 current continuation:** root advanced readiness: capacity/resource-owner,
-> 74 input bindings and exact sandbox/host namespace mismatch, with tested source
-> correction to the existing dispatcher. No generic new runtime approval gate is
-> established by worker scope or null fields. Exact fresh lifetime proposal is
-> prepared; previous D-WORKFLOW-188 window is expired/spent. No capability/build
-> start. Read `docs/qa-logs/2026-11-17-proactive-continuation/` and current priorities.
-> Monitor14 uses socket events in the same service/state/lock and recovery timer;
-> repeated evidence cannot reset progress age/budget. D-WORKFLOW-189 / #1434.
-
-> **2026-11-16 retention decision:** D-WORKFLOW-188 records Max’s approval, two
-> owner acknowledgments and the18:05:07–22:04:42UTC common window. The prior
-> user-approval blocker is resolved. Read current priorities for root-owned
-> nonexecuting preparation; runtime/build/retry/copy/cleanup remain unselected.
-
-> **Stopped work:** proactively notify the human lane through the existing
-> `tools/coordinator-escalation` mechanism and retain separate delivery/consumption
-> state. Read the escalation section of `docs/coordination-continuity.md` and
-> verify the runtime service hook on resume (D-WORKFLOW-187 / #1437).
-
-> **2026-11-16 communication split:** Max Coordinator one-on-one is the primary
-> direct conversation; OS work coordination retains worker dispatch and monitor
-> traffic. Start with [the one-on-one agenda](../../docs/coordinator-one-on-one.md)
-> for lane identities and unresolved human-facing items (D-WORKFLOW-186 / #1436).
+**This header supersedes the historical October task/owner state below.** The
+October browser/provider checkpoint is historical evidence, not a runnable task
+or a current ownership restriction. Do not reactivate it, adopt its owner or
+treat conflict-resolution as untouchable on that basis. Before scheduling, read
+the current milestone plan and reconcile current live owner/session, active
+work, completed returns and dependencies. The OS coordinator currently owns M7
+operations in conflict-resolution; the original M6 manager owns independent
+assessment. Standing authority does not itself select work or change priorities.
 
 # Saved Session State
 
-> **2026-11-16 priority correction:** read [current priorities](../../docs/current-priorities.md)
-> and the linked queue before using this older checkpoint. M7 stabilization is
-> independent of M6's assessment punchlist. M6's final review of the latest frozen
-> build follows M7 completion; recommendations enter the subsequent major build.
-> D-WORKFLOW-185 / #1435. The November coordinator ledger and dated work logs own
-> current activity; the October session below is historical, not current dispatch.
+> **Saved:** 2026-10-17T05:53:18Z
+> **Branch:** `feature/m7-audit-integration-603`
+> **Repository:** `pixelelated/distribution`; integration branch `next`
+> **Request:** Continue M7 browser investigation and try another rclone provider login; Google Drive and Dropbox forms now observed, GTK4 engine/fixture compiled.
 
-> Saved: 2026-10-09T16:22:40.016769+00:00
-> Coordinator: feature/conflict-resolution
-> Repository: pixelelated/distribution
+## Start here
 
-## Start here — owner updates complete; #529 startup follow-up and #528 publication queue
+pixelelated is an immutable Linux distribution for handheld gaming devices, built
+by cross-compiling complete OS images. There is no application development server.
+The release target is 0.0.1; the current engineering image is private owner testing,
+not a designated public RC. The OS name and cloud default are lowercase
+`pixelelated` and `/pixelelated`; preserve existing selected paths and credentials.
 
-This is an immutable Linux distribution build system, not a runnable app.
-Read this complete checkpoint, primary `next`'s AGENTS.md and every-session
-`.claude/rules/`; scoped rules before their paths. M7's live milestone body is
-the ordered plan. `docs/device-testing-policy.md` controls physical operations;
-`docs/es-menu-map.md` and `docs/conflict-wizard-ia.md` are interface law.
-Rules were equal to next at this continuation. Current brand is lowercase
-pixelelated, GitHub pixelelated/distribution, maintainer rasteratops, bot blitterbot.
+1. Read current `next:AGENTS.md`, its every-session `.claude/rules/` files, and
+   scoped rules before touching their paths. Read the `session-resume` skill.
+2. Read this checkpoint, the [live M7 ordered plan](https://github.com/pixelelated/distribution/milestone/7),
+   `docs/releases/next-candidate-work.md` and active issues #616/#576/#617/#587/#615. Historical
+   queues in archived checkpoints are not the current plan.
+3. Read `docs/qa-logs/2026-10-16-browser-headroom-587/README.md`, `analysis.json`,
+   `originals/busy-stop.json`, `originals/recovery.json` and run `verify.py`.
+   Then read the earlier #615 physical packet for the still-inconclusive loaded-page
+   question. Portable #614 is complete; do not repeat its accepted controls.
+4. Use `/workspace/repos/rocknix.worktrees/m7-player-setup` on
+   `feature/m7-audit-integration-603` for coordinator edits. The primary checkout
+   `/workspace/repos/rocknix` stays on `next`. The harness checkout
+   `/workspace/repos/rocknix.worktrees/conflict-resolution` is stale and stays
+   untouched; do not merge its unrelated history. Verify rules with
+   `git diff --quiet next -- .claude CLAUDE.md AGENTS.md`.
 
-The old checkpoint is archived as .github/sessions/archived/saved-session-state-next-20261009T160735Z.md. Its pending #519 approval and
-old launch commands are history. The owner explicitly approved the exact
-alignment/guarded rollback, then RG35XX SP transfer/reboot/screenshots; later
-approved both RG SP and Retroid Pocket Nova transfer/reboot following their
-named preparation/screenshots proposal. Do not ask again for those completed
-actions or rerun them. No gameplay, input, cloud sync/mutation or automatic-sync
-reenable is authorized by this deployment. All three keep startup/game-exit
-cloud sync off. Prior scoped source/docs commits, pushes and host/VM work remain
-authorized. No goal exists. Website #511 stays separate.
+GitHub developer identity is `blitterbot`; maintainer is `rasteratops`.
+Use configured `gh` authentication and existing SSH configuration; never print
+credential values. Private inventories, signed streams and personal captures stay
+outside Git. Device read output must exclude `key|pass|token|user|psk` lines.
+`docs/device-testing-policy.md` and `tools/device-act` govern named device actions.
 
-All three authorized transfers/reboots and final installed/preservation/frame checks
-are complete. Original five-channel results are0 for every transfer/reboot, and
-actual owners exited. RG35XX SP640×480, RG SP720×480, Nova1280×960 frames reviewed.
-The RG SP and Nova have been explicitly handed back for normal use; do not
-interrupt them with more device actions. No deployment job remains active.
+## Current focus and October17 completed experiments
 
-No RC designation/publication clearance. #528's source/licence and independently
-verified off-host custody remain. An owner engineering test is not that gate.
-No compiler, VM, provider or external-audit job remains active; all earlier
-successful and failed original results are preserved. Never repeat H70002,
-SM855003, replacement18, #507/#524 or #519's rehearsals merely to resume.
+D-WORKFLOW-170: #576 GTK4 is first among engine-migration experiments; #617 Blink
+is fallback. #616 provider attribution remains parallel. No production engine,
+UA, script filter or service-suspension policy is selected. WebKit2.54.1 GTK3/API4.1
+already paints with Skia; GTK4 is not yet a measured H700 memory/speed improvement.
+#587/#615 remain unresolved. **No build, VM, browser or audit job is active.**
 
-## Workspace and integration
+**The requested second provider was exercised.** A fresh2GiB GENERIC VM used the
+normal installed ES/rclone flow to open Google Drive and then Dropbox. Both
+returned HTTP200 and painted sign-in forms, two reviewed frames each, with empty
+fields. No credentials or consent were submitted. Local fixture also loaded.
+Event probes were on, periodic observer off, default UA,640x457 content/DPR1.
+This is functional launch/cancel/recovery proof, not a completed account link,
+trusted-input proof or fair performance/memory ranking. The engine compilation
+overlapped and durations differed. Whole-guest MemAvailable is not browser PSS.
+Public exact-source evidence:
+`docs/qa-logs/2026-10-17-provider-functional-616/` and
+`docs/qa-logs/2026-10-17-provider-instrumentation-616/`.
 
-- Root `/workspace/repos/rocknix.worktrees/conflict-resolution`, branch
-  `feature/conflict-resolution`, historical product divergence/older ES pin.
-  **Never merge this branch wholesale.** Commit owned evidence/docs, then
-  cherry-pick explicit full hashes onto primary `next`. Root also lacks next's
-  completed #507 audit packet, so its advisory cadence warning is stale; the
-  canonical next network-enabled ceremony gate passes. Do not rerun the audit.
-- Primary `/workspace/repos/rocknix`, branch `next`. Before this continuation,
-  root6f61bcdd15bcad3c42f11b900d80ee340a8290b0 and
-  next1609c19fd33d8a18ba3099d1145b95ab8148b467. Prior final hosted checks
-  succeeded; `/tmp/m7-final-delivery-20261009/final-readback.json` retains them.
-- Deployment evidence is published on next at
-  739ed70338c70e8f4783a43a8a898ac95b6e67ea (scoped coordinator commit
-  9c2276777b49ef17a61e40830e24957cf6acadab). Hosted wordlist37958048538 and
-  record37958048559 both completed successfully. #519 is closed completed;
-  whole #344 closure and M7/#529 bodies and actual child relation were read back.
-  Closure receipts and those check results are retained in
-  `docs/qa-logs/2026-10-09-owner-deployment-delivery/`. The preceding checkpoint
-  is archived at `.github/sessions/archived/saved-session-state-next-20261009T162240Z.md`.
-- This final closure/checkpoint follow-up still needs its scoped commit/push and
-  terminal hosted-check consumption. Once delivered, its exact head and original
-  outcomes are at `/tmp/pixelelated-device-deploy-20261009/final-readback.json`.
-  Consult that receipt and GitHub before treating delivery as pending; do not
-  repeat accepted hardware work. No product or firmware change is part of it.
-- Build/input artifacts are under `/workspace/artifacts/`; shared sources under
-  `/workspace/cache/rocknix-sources`. Frozen build worktrees stay on build/*.
-- Credentials use the existing `gh`/SSH configuration. Never print values.
-  SSH alias rg35xxsp carries the device identity; `-o Hostname=<currentIP>`
-  reuses it for another verified device. Raw root@IP may miss that identity.
-  Private deployment directory is0700; do not commit personal inventories or
-  frame pixels. API GitHub reads/writes use explicit pixelelated/distribution.
+All three browser cases closed normally with no guard interventions or survivors;
+same ES PID1645/start1146, idle200, original browser and missing-rclone-directory
+state restored. Original VM/watcher/runner/launcher0; admission41d3a0c1 consumed.
+Owned disk/OVMF2,322,104,320allocated bytes retired after evidence export. Private
+raw logs/full argv/request/PIN/QR frames stay in the owner, outside Git:
+`/workspace/tmp/pix-provider616-vm-20261017-01`.
+Do not publish that whole directory. The expired calibration service stop returned5;
+its original natural240s expiry remains separate, not a rewritten zero.
 
-## #519 actual alignment — completed before update, do not repeat
+The local native-input fixture refused before POST because the product excludes
+loopback URLs from its page marker. **Input remains UNPROVEN.** Source-only v2
+uses exact listener/helper/guard ownership and a fresh server-owner receipt;
+it is in the functional packet under sources/v2-unrun and has not executed.
+Normal phone-instruction navigation initially kept list focus: UP then RIGHT,
+review filled CONTINUE, then X. Initial false starts had no callback or browser;
+they are not handoff defects. Both saved Google frames contain the form.
 
-Owner approved the named alignment and guarded rollback. Final operation
-SHA2564e286b7906d47ef752761442ed294960f6d7ef5b3417f8925f1249024ce676a1
-at `/tmp/pixelelated-personal-cloud-review-20261008/preupgrade-execution04/`
-ran stage/apply with original rc0. Actual acceptance independently read back,
-full fresh binding equal, sealed privately at
-`/tmp/pixelelated-device-deploy-20261009/alignment-acceptance.json`:
-SHAc26a362148e49f69125606c79f8064ed9566ae4ad3920b7f4191d4e12e5102ce;
-private seal SHA dd45f39dcf9d2e7e026316bf2c81d32aa3b99c0429c671658df0b98d7909f42e.
+The diagnostic request/DOM/input helper compiled for GENERIC and H700 and passed
+14 actual pre-GTK controls. Compile owner2.580s, all original channels0,
+admissionf94742 consumed. Tiny helpers remain for immediate tests at
+`/workspace/tmp/pix-provider616-compile-20261017-01/out/`.
+GENERIC SHA8c3a9ba06dc78efffee68bb510b5f273f2fafc8d2ecbc8ee17227a3e4c1e3f0a;
+H700 SHA8da94f0cf89b4788c8e3186eb272e9a9d7d67163a5b3d120d99a4c85aff353be.
+Product source, ES pin and firmware remain unchanged.
 
-All163 protected files/25,549,175B, recovery, credentials and unrelated settings
-preserved. Disabled automatic startup/game-exit sync, restored agreed selected
-save/backup paths to existing /ROCKNIX folders, retained Content selection and
-all defaults, archived only stale experimental migration/scan records. Restored
-frontend/unit states and removed owned gates. No personal cloud operation.
-Redacted actual receipt and original exits in
-`docs/qa-logs/2026-10-09-owner-deployment/`. All four #519 criteria pass.
-After publication of the actual receipt, #519 was closed completed at
-2026-10-09T16:18:32Z. Its complete closed-state readback and #344's corresponding
-closure update are in the separate deployment-delivery packet. Do not reopen
-or repeat alignment merely to resume.
+**GTK4/API6 engine and native-input fixture compile.** Frozen diagnostic checkout:
+`/workspace/repos/rocknix.worktrees/m7-gtk4-build-20261017-01`, branch
+`build/m7-gtk4-20261017-01`, commit969354955741d6c0ca8ce816e1c59ad338b1605b.
+It starts from4c3eda48 and stages only six reviewed overlay recipes/two preserved
+patches. Never merge it as production adoption. Accepted GTK3 roots are unchanged.
+Only independent toolchain/stamps/config were seeded, not a whole old build tree.
+Graphene1.10.8, GTK4.24.1, libseccomp2.6.1, bubblewrap0.11.2 and xdg-dbus-proxy0.1.7
+all compiled; original Python compatibility failure remains retained.
 
-Earlier runtime/executor proofs are complete at
-`docs/qa-logs/2026-10-08-preupgrade-runtime/` and
-`docs/qa-logs/2026-10-08-preupgrade-executor/`. They prove cached ES auto1 must
-be stopped/restarted; masks alone fail because boot unmasks essway; temporary
-negative path conditions survive the actual power recovery. Final executor06
-six controls and final staging controls passed with original five0 channels
-and actual exits. Earlier failures stay failures; all scratch guests/keys gone.
+WebKit2.54.1 completed in2155.316882s, all original channels0, no OOM;
+14,397,218,816B cgroup peak is compiler use, not target browser memory. Host
+swap-out92131pages is recorded. Owner/container exited, admissionae36c146 consumed.
+Engine owner `/workspace/tmp/pix-webkit6-build-20261017-01`, run
+`.build-runs/20261017T050229Z-20b8d63a` in the diagnostic checkout.
+Actual configuration selects GTK4/Wayland/Skia/GBM/sandbox. Leave
+WEBKIT_SAMPLE_MEMORY unset: even value0 enables it; samplerON differs from profilerOFF.
+Evidence: `docs/qa-logs/2026-10-17-gtk4-engine-576/` and earlier gtk4-build-576.
 
-## Three physical devices and private evidence
+All11 critical package/sysroot loaded-byte identities match. Runtime-layer
+readback resolves378edges over94ELFs; adding the compiled fixture resolves396
+over95. **Strict checker remains FAIL:** four absolute build paths and two relative
+`lib` search paths are inherited from accepted-image dependencies; none belongs
+to the new overlay. No loader failure or memory cause is established. Preserve
+all earlier checker failures and versioned repairs in gtk4-closure-576. Root's
+explicit qualification allowed compile only, runtime_authorized:false.
 
-Private root `/tmp/pixelelated-device-deploy-20261009/`. Operation owners are
-`/tmp/pixelelated-{rg35xxsp,rgsp,nova}-{stage,reboot}-20261009/`.
-Each retains console/run.path, original inner/outer/wrapper/runner/launcher
-results, host exits, full installed readback and actual action logs. Public
-redacted receipts: `docs/qa-logs/2026-10-09-owner-deployment/`.
+The tiny GTK4 input fixture then compiled in1.846s, all original channels0;
+peak118,661,120B, no OOM or host swap-out. Owner/container exited and admission
+9af04cef consumed. Binary27056B, SHA
+27908eb5badf203de53332c4e35ee96d8c7fbbb6afefd5d72d11c9d8068359f8 at
+`/workspace/tmp/pix-gtk4-input-compile-20261017-01/out/input/input-spike`.
+Run `.build-runs/20261017T055050Z-ebd5bf9d`, packet gtk4-input-compile-576.
+Retain the new build root only for immediate overlay/runtime tests. Runtime
+input/popup/close, actual sandbox UID/caps/namespaces/seccomp, dlopen/module/schema
+closure, ABI compatibility and H700 performance are still unproved. Root launch
+does not itself prove sandbox isolation.
 
-RG35XX SP: LPDDR4/1.1V, Tailnet100.74.205.40, LAN192.168.1.81 during this run.
-Updated43d0→8b511; new boot519d34ca-fdbe-47c0-88e6-b49138451951.
-Mounts mmcblk0p2 for both storage and ROMs. All163 protected files preserved.
-640×480 frame SHA588ceaab0d11ec5cb2532c92d904339d40b450fea8bb8136e62f2f5007260546
-reviewed: normal ARCADE carousel, footer/Wi-Fi/battery visible, no error modal.
-Stage run20261009T151116Z-4f67442d; reboot20261009T151638Z-74d944a5.
-Both original five0 channels/exits consumed. Queue empty, ES active/idle,
-NRestarts0, current Tailnet Running. Reconnection took minutes; no sleep fault
-was established. No second reboot or injected input.
+Earlier #616 direct-launch six no-NIC controls and12 parser cases stay accepted;
+do not replay for paperwork. Blink source packet remains uncompiled. Herdr w4:p7/p8
+login refresh failed before work; do not call those workers active. Internal agents
+prepared/reviewed disjoint packets; they hold no runtime allocation.
 
-RG SP: LPDDR3/1.2V, Tailnet100.75.221.73; reported LAN192.168.1.212
-was not SSH-reachable. ROMs use mmcblk1p1, storage mmcblk0p2. Old69e603 build;
-163 protected files. Stage20261009T153054Z-58969822; reboot20261009T154750Z-248325fc.
-Both original five0 channels/exits accepted; new boot1c32f0da-dc57-4999-9bb1-3feb99872c0e.
-Exact DDR3/SYSTEM/kernel/DTB/application bytes, retained TF2 mount, preservation
-and reviewed720×480 NES frame pass. FrameSHA47c53db1de62d23976697b35d24ce9222fb66960e70ca0cea1e45e43c9c2e810.
+## Previous completed headroom experiment and publication
 
-Nova: model Retroid Pocket Nova, SM8550; Tailnet100.84.232.105;
-reported LAN192.168.1.202 was not SSH-reachable. Battery had external USB power
-qcom-battmgr-usb, unlike H700's axp20x-usb. Both storage and ROMs mmcblk0p2;
-old69e603. Protected saves filter had0 files (not a claim all storage is empty).
-Before update both actual ABL slots (`/dev/sde64`/65, by-partlabel abl_a/b) match
-accepted258048B ELF SHA1aad3626b7830742cacdcdcf0c8696261ec7fa277bfbcfb9402a60bf896527e9.
-The updater skips matching slots; packaging source is distinct from unresolved
-implementation source. Stage20261009T153521Z-a958794f uses primary worktree to
-avoid the RG SP watcher's root lock. Reboot20261009T155442Z-e4abd974; accepted16:01UTC, all original results0/exits.
-New boot41d8dba4-edec-479e-9d0b-6cf859572b55. Exact installed ABL files and both
-actual slots match, queue empty; configuration/payload/recovery preserved.
-Reviewed TOOLS frame1280×960, SHAfa47da65ffaa07aa2f836cb4e2b735d4bf01ea12f168803131d0f8dcc3cc970b.
-One frontend startup retry also occurs on the prior69e603 boot; afterward it
-runs normally with no failed units. Initial GPU firmware failure subsequently
-resolves by loading the exact GPU/GMU firmware. An early SMMU fault burst is
-retained without a cause/frequency claim; extra journal-count read failed before
-producing a receipt. No audio/gameplay or warning-free-journal claim.
+- D-RA-048 promotes #587 into current M7.P5 beside #615. The owner's verbatim
+  request and each VM-first plan are in #587; M7 current/next order is updated.
+- Four installed-browser runs pass in active/stopped/stopped/active order on
+  unchanged077197/ES16dbac. Available-memory medians233.34/259.07/258.01/231.20MiB;
+  difference of condition mean medians26.27MiB. Actual synthetic proxy PSS22–24MiB.
+  Observer7.7–7.9MiB measured; PSI unavailable. No guard/OOM; four reviewed loaded
+  and four reviewed return frames. Normal queue/cache/account/config preservation
+  passes, with service restarts1.035/1.037s.
+- Separate slow-response initial-flush control reproduces Result=timeout/status9
+  at15.062s even though systemctl stop returns0. Both signed awards and SQLite
+  survive this case. Immediate-success synthetic peer recovery is ready1.041s,
+  queue empty by3.841s. No real server acknowledgement/idempotency proof.
+- Original failed admission125 and first no-NIC loopback8080 collision remain
+  fixture failures, not product-memory failures. All successful allocation result
+  channels0, guest/observer/matrix exited; admission consumed.2,412,744,704bytes
+  of owned disk/OVMF retired. No physical device or cloud operation.
+- Exact evidence, original archive, offline analysis/verifier, executed fixtures
+  and reviewed frames: `docs/qa-logs/2026-10-16-browser-headroom-587/`.
+- Previous publicationffd13eabcd128f8a0410ea6e9f9ab58afa7331cb is verified on both
+  ordinary refs with CI passed. This session's evidence/record commit follows it;
+  inspect Git and `/tmp/pix-m7-browser-headroom-20261016-01` publication receipts.
+  No product source, ES pin or firmware changed.
 
-Additional devices' preparation changed only auto0 through the qualified core
-and restarted cached frontend state. No #519 path or scan operation was called.
-Old69e603 settings writers differ from43d0 private-mode hardening, so exact
-installed source was compared; both actual0644 modes and preserved values passed.
-Settings config hashes may change through ordering; the receipt checks every
-parsed value and duplicate order. Generated cloud rules exactly matched old
-source defaults951a7d65… before and new defaults a5243acb… after. Credentials,
-selected cloud paths, protected payload and recovery retain exact hashes.
-Do not confuse expected generated-file changes with save corruption or claim
-unchanged whole settings bytes. Private comparison scripts and inputs are kept.
+## Physical #615 results and limits
 
-Nova's old build already showed the connmark Tailnet health warning seen on the
-updated RG35XX SP; no new regression is established. LAN probing was read-only,
-no broad scan; healthy Tailnet transfers were left intact. Each reboot remains
-single-attempt; any future action needs its applicable scope. Capture scripts
-use grim with XDG_RUNTIME_DIR=/var/run/0-runtime-dir, WAYLAND_DISPLAY=wayland-1;
-no rocknix-screenshot preference toggle or personal screenshot directory write.
+| Attempt | Observed result | Limitation |
+| --- | --- | --- |
+| Early Escape at about 18s | Kernel key down/up, natural focus; browser gone by the 2s observation; same ES focus returns, no guard | Page still opening. Controller later fails1 on duplicate timestamp logging; not whole-run PASS. No GTK key-consumption log. |
+| Longer attempt, Escape planned 42s | Pressure guard terminates browser at 35.65956s, before Escape; observer1/controller1 | At intervention 190476KiB available, PSI some8.67/full8.21 avg10; minimum184340KiB. No loaded-page screenshot, no OOM/kernel error. |
+| Normal close at 25s | Installed close returns0 in 2.211632358s; controller0/observer0, no guard; same ES focus | Provider content still blank. Frame after explicit3s post-close wait is black; later cancel/carousel render. Visual recovery latency unmeasured. |
 
-## Qualified firmware/software — unchanged, do not rebuild
+Later pressure during recovery reached PSI some26.09/full20.81 avg10. Monitor and
+controller overhead was not separately measured, so attributing the entire rise
+to WebKit, a script, proxy or GPU is unsupported. Round02 also changed observer
+lifetime240→600s, input18→42s and fallback assertion55→65s; round03 restored240s
+and used normal close25s. Browser90s and pressure guards were unchanged. No fourth
+trial. The earlier physical90s `INCOMPLETE_TIME_LIMIT` remains unchanged.
 
-Both handheld firmwares use distro8b5113fa164ada7d002ab138b1e3a9bf795e9de5,
-ES1d76b3da7da75794066df1c089931b890304da7a. All final original build/acceptance
-channels0 and actual processes/container exited. See
-`docs/qa-logs/2026-10-08-device-refresh/`.
+All **163 protected files / 25,549,175 bytes**, selected settings, credentials,
+paths, modes, recovery records and hooks were unchanged. Autosync remains off.
+Same last-observed boot `067a27f1-143d-4fe8-83cd-937560a5c87b`, ES2696/start5810,
+Sway2533/start5399. No game, auth, cloud transfer, reboot or update occurred.
+Final physical readback found no browser/WebKit/OAuth/rclone/test keyboard or
+failed unit; 570156KiB (556.8MiB) available and rendered carousel. These are the
+last test observations, not a fresh device connection at stash time.
 
-- H70002 bundle `/workspace/artifacts/pixelelated-candidates/sha256/1b93642b24901b5c3a96b0a079d6fb4486ca30d213b4b2db890c6e3630404175`.
-  TAR b49cca4ca0b8996fa994181508c887d9df5afe155c9502919bab7bf7e153e39d.
-  ARM244/aarch64671; exact DDR3/DDR4/update bytes and185 ARM files accepted.
-- SM855003 bundle `/workspace/artifacts/pixelelated-candidates/sha256/afcb966f246118798c87e59cd5bc6ce7c2c21167a5d712faea56393409d9d79d`.
-  TAR b3f1a8190e04abbf64d35486601ee19fce35d2d25bc7239b1be7cccd9fb43730.
-  ARM245/aarch64737; GPT,5ABL,187ARM,14FEX and installed helpers accepted.
-  Original02 precompiler Python-API failure remains rc2; no repeated build.
+All six test services exited. After exact export/hash checks, 33 owned files and
+`/tmp/pix-qa615`, `/tmp/pix-qa61502`, `/tmp/pix-qa61503` were removed. The targeted
+reset-failed returned1 for absent transient units; independent failed-unit check
+passed. Preserve that distinction. Private originals/helper receipts remain at
+`/tmp/pix-m7-h700-exit-repro-20261016-01`, including an incidental read-only
+achievements screen: do not publish the entire directory or personal inventories.
 
-Replacement18 VM bundle f557176651026f59bb5931993b12491a6019c0383321fb89fa1a05a596514fe6
-is unchanged: distro7f58b7b1c592908dcd0ba5987955e59aaa79fe66; same ES pin.
-Final13 unaffected default suites + separately qualified #527 corrected walks
-and composed78-frame comparison, 324WebDAV/SFTP/S3 assertions, clean installed
-CF10 and31-check actual16→18 upgrade are accepted. Original qa-21 aggregate rc1
-stays1, not relabelled. All16 corrected frames reviewed; old wrong-screen control
-still fails; no changed baseline/blanket masks. See replacement18 qualification
-and cloud-folder-walks packets. All disposable guests/providers/keys retired.
+Upstream review is in `upstream.md`: selected Sway1.11, libinput1.26.2,
+WebKitGTK2.54.1; no verified matching fix found in the checked sources. The old
+Sway#5423 USB/input report is not a match for the virtual keyboard evidence.
 
-#508/#527/#526/#507/#524/#492 completed/closed. Cross-lab Fable review finished;
-no new transfer/audit needed. Prior RA/link-loss unchanged-input carry-forward
-is bounded, not a new run. Source, canonical UI/flow references and exact-source
-frame indexes agree; owner boot frames are not replacement UI baselines.
+## In progress and next steps
 
-## #528 publication work — current remaining release task
+The milestone body is the ordered plan. The following is its current handoff:
 
-This is not another firmware build or audit. It documents what the exact images
-contain, applicable notices/source and independently verified retrieval/backup.
-Read live #528/#344 and `docs/qa-logs/2026-10-08-final-inventory/`,
-`docs/qa-logs/2026-10-08-source-custody/git-complete/` and
-`docs/qa-logs/2026-10-09-notice-scope/` before work.
+1. **#616 controlled input/provider comparison and #576 portable runtime proof.**
+   First fix the local fixture precondition using the prepared v2 (fresh server
+   owner receipt, actual trusted-input and untrusted-event negative controls).
+   Then use matched uncontended cases for light/Google Drive/Dropbox, fixed UA,
+   geometry, observer and lifetime; compare actual process PSS/reclaim/page
+   readiness before separate UA or script experiments. Initial2GiB functional
+   pass is not1GiB/H700 performance. No account or consent needed. For GTK4,
+   disposition the six inherited search paths and assemble exact new-package
+   payloads over accepted runtime in a fresh guest, including schemas/modules,
+   certificates/fonts/processes/injected bundle. Use compiled input fixture for
+   synthetic typing/popup/close/cleanup, actual sandbox identity and reviewed
+   presentation before provider/performance or physical work. Each new runtime
+   needs fresh admission, owner, guard and active result supervision. Do not
+   rerun completed engine/compiler owners. #587 busy-stop safety remains required
+   before any service suspension policy; Blink is fallback.
+2. **#613 next independent package task, source-only patch ready.**
+   `/tmp/pix-m7-613-source-20261017` has a one-line fallback symlink target fix,
+   patch SHAc22a60e12d87fdb0ca2fa05696267c1df351d2c473400bd37e3d64df87ec2b97;
+   pkgcheck/bash-n/apply checks pass. Current checked upstream still has the bug;
+   conditional contribution belongs #585 after proof. No product edit applied.
+   Fresh VM must isolate hardcoded /storage/.config/emulationstation paths;
+   ES --home alone is insufficient. Prove storage precedence and fallback with
+   fresh ES processes and flow/evidence references before promotion.
+3. **#607–610:** Steam registry, recovery identity, failed-RVZ retry, literal shell
+   metadata assignments. Fix/qualify affected bytes before affected Nova deployment.
+   #611 guidance is backlog. RG SP and Nova still retain the October11 `bc9d`
+   baseline; no transfer is in progress. Do not repeat the RG35XX SP update.
+4. **#528 public release work:** source/notices dispositions, independent retrieval,
+   required backup custody, security/docs and public naming/publication requirements
+   remain. Website #511/#605 and infrastructure are independent. D-WORKFLOW-168
+   permits private owner testing without declaring this image a public RC.
 
-701 distinct components/2,327 profile rows map to all inventoried retained inputs.
-605 exact archives9.04GB and frozen distribution snapshots are locally retained:
-`/workspace/artifacts/pixelelated-release-sources/m7-archives-a7022b76da76a9f6771bb7693d6f6e25854c6731db0750bb46dde29f14d49fce`.
-372 exact tracked Git snapshots/43 roots/439 submodule edges plus six extra groups:
-`/workspace/artifacts/pixelelated-release-sources/m7-git-266c8393884189dec9419628b3e7e527b965598d7b9b31e4ea31fd9af2204dc9`.
-Prebuilt sources/packaging supplements:
-`/workspace/artifacts/pixelelated-release-sources/m7-prebuilt-aeef83ae3a4de7ebaca3816508e804bf935e87285efdcff6226cb52bd2fc4827`.
-All final original results/exits consumed; do not rerun snapshot owners. Teakra's
-unused357MB test LFS payload is omitted with explicit build-edge proof.
+Do not reopen completed #603/#606/#612 audit/qualification or replay accepted
+matrices for cleaner paperwork. #603 reviewed frozen `cdd92`; the two-file ZeroTier
+product delta to077197 has a separate focused local review, not a second external
+review. Exact receipts: `docs/qa-logs/2026-10-15-post-audit-product-delta/`.
 
-All five #528 criteria remain open. Remaining:
-1.17 recipe declaration gaps plus vendor/per-file/output-use terms.13 have some
-   root/scoped evidence, not13 cleared. Corrected GLSL LGPL applies to nnedi3,
-   not the collection. Common/GLSL/RetroPie/slang shaders and ABL lack aggregate
-   basis. Use licence-basis-corrected.json; original sealed error stays retained.
-2. rclone's embedded revision matches retained source but modified=true;
-   Tailscale version tag does not establish binary reproducibility. Doom shareware
-   exact installed bytes retained; terms/provenance and FEX/Nix/vendor scope need
-   disposition. Preliminary ZeroTier object absence is not full clearance.
-3. SM8550 ABL v1.1.9 names LinuxLoader4588733123554b1f7bf935b04e494e4284894546;
-   blitterbot source-ref read returned404. Packaging is not implementation.
-   Owner source/contact route question remains; no upstream outreach authorized.
-4. Independently retrieved/hash-verified source/assets and off-host custody.
-   D-WORKFLOW-107 intends B2 subject to owner's comparison. No bucket, auth or
-   purchase configured. A second local directory is not independent backup.
+## Runtime state and resumption commands
 
-## New owner request — #529 Nova frontend startup retry
+All current build/VM/browser owners are complete; admissions consumed and exact
+host/container exits checked. Source workers are packaging/reviewing evidence only.
+The requested additional-provider functional test is complete in its stated scope.
+No physical action or pending user approval is needed for the next portable tests.
+Do not reuse old run owners, consumed admissions, retired disks or expired listeners.
+Original compile/VM receipts are in the owners/packets above. New runtime requires
+fresh measured admission and watched submission; no off-session notifier exists.
 
-User asked whether the retry warrants follow-up. #529 is created in M7.P5 under
-#344. Source/readback proof is nova-startup-source-bindings.json in the deployment
-packet: installed start_es.sh/essway/111-sway equal their exact old/new refs;
-Sway service/wrapper/es_settings unchanged. essway After=sway orders process
-start, but the scripts have no explicit usable-compositor handshake. This is a
-readiness hypothesis, not a proved diagnosis. Next: retained first-SDL-reason
-analysis and delayed-ready VM reproduction, then a bounded remedy only if
-confirmed. Preserve an original failing control and first-frame/upgrade proof.
-No live device mutation or new firmware is required to investigate. Do not
-conflate the separate early SMMU burst with the SDL retry. #528 can progress
-independently; disposition precedes RC designation.
+Prior #616 VM allocation9e38f30969c5454097c03354fd79a23e consumed;2,312,990,720
+allocated bytes of its owned VM disk/OVMF retired. Export owner
+/workspace/tmp/pix-browser-controls-vm-20261017-01/export/. Frozen run
+m7-p5-build-20261015-03/.build-runs/20261017T040228Z-0fddbf18.
+Compile admission261514b9d3fa44cdaef8b34cbe9f07fd consumed. Tiny helpers remain
+only for queued immediate tests at /workspace/tmp/pix-browser-controls-compile-20261017-01/out/.
+GENERIC SHA530b0d2c7daf739eb061a415da4224a7affcec1b1837a452d182e97a03c16454;
+H700 SHA9dad87a65f5415311d663448834aac1ae281212c931f12c3cc2afb8fbbd0f245.
+Do not rerun consumed producers or replay old owners/ports.
 
-## Next steps and boundaries
+The prior verified published ordinary refs are4594975b5c0e4bcc4a7f24a38ab76f097ffa009f,
+with three hosted checks passed at /tmp/pix-gtk4-publication-20261017-01.
+This checkpoint and new experiment packets follow it. Publication receipts for
+this record batch will be in /tmp/pix-provider-gtk4-publication-20261017-01;
+inspect actual refs and CI before claiming the newest record published.
+No production source, ES pin or firmware changed.
 
-1. Verify the current deployment delivery/hosted checks if marked pending above;
-   consume their original outcomes. Do not redo accepted device operations.
-2. Follow #529's VM-first source/readiness investigation, without interrupting
-   owner devices; no new build before qualified cause/remedy. Continue unblocked
-   #528 exact-source notice/vendor dispositions; keep source
-   access/off-host setup questions distinct. Then #344/#265/#359 release/version,
-   public docs/branding and manifest-bound publication work. No RC call now.
-3. Personal gameplay/input/first cloud test or auto-sync reenable needs named
-   scope. Owner-only cleanup #516 and redundancy #518 stay separate. Keep exact
-   archives/configs/recovery; never treat retained owner originals as disposable
-   build payloads. No Dropbox requirement; local WebDAV/SFTP/S3 proof is complete.
-4. Keep milestone body current, log learnings, archive this checkpoint before
-   next stash, and prove a fresh-context resume. Before push run rules-check,
-   register-check, work-log-index --check and ceremony-check --gate. Package lint
-   only if package.mk changes. No repeat audit/retro triggered by this docs-only
-   hardware evidence delivery; the October9 preparation mini-retro is complete.
+Useful read-only checks from the coordinator:
 
-The watcher records durable results but has no configured off-session notifier.
-Long jobs require active supervision and terminal delivery (#395). Never edit an
-in-flight shell tool, kill by pattern, overwrite original nonzero results or
-manufacture completion from successful submission. Retire only disposable tests
-whose immediate dependency ended, preserving compact receipts and source custody.
+```sh
+git status --short --branch
+git log -4 --oneline
+git ls-remote origin refs/heads/next refs/heads/feature/m7-audit-integration-603
+python3 -I docs/qa-logs/2026-10-17-gtk4-spike/verify.py --repo .
+(cd docs/qa-logs/2026-10-17-browser-controls-results-616 && sha256sum -c SHA256SUMS)
+gh api repos/pixelelated/distribution/milestones/7 --jq .description
+gh issue view 576 --repo pixelelated/distribution
+gh issue view 616 --repo pixelelated/distribution
+```
+
+Use tools/archaeology before declaring another issue new. New runtime uses fresh
+admission/owner and tools/watch-build-submit/tools/watch-build; actively observe
+at most60s intervals and announce actual completion. Never edit in-flight tools.
+Host process checks require actual host context. No broad cleanup or process kill.
+
+## Builds, devices and custody
+
+Product source **077197e6cd3ea31f33b28aaf3882a694b3423b53**, ES
+**16dbac5211eea7e70db7394372033be2be7df829** and timestamp **20261015T161744Z**
+remain unchanged. Firmware: `0.0.1-dev+20261015T161744Z.g077197e6cd3e`.
+GENERIC_X64, H700 and SM8550 builds/readers passed for this source. Build/source
+readiness, image qualification, public RC designation and publication are separate.
+GENERIC frozen checkout:
+`/workspace/repos/rocknix.worktrees/m7-p5-build-20261015-03` on
+`build/m7-p5-20261015-03`. H700 and SM8550 native compact originals:
+`docs/qa-logs/2026-10-15-zerotier-h700-refresh/` and
+`docs/qa-logs/2026-10-15-zerotier-sm8550-refresh/`.
+
+RG35XX SP is the H700 bench, distinct from RG SP. Strict known-host binding:
+Hostname100.74.205.40, HostKeyAlias192.168.1.81, StrictHostKeyChecking=yes,
+UserKnownHostsFile `/home/max/.ssh/known_hosts`, HostKeyAlgorithms=ssh-ed25519.
+Its accepted transfer/reboot authorization is consumed. Saves/cloud/account state
+is protected; browser bench authority does not authorize cloud data operations,
+gameplay, repeated updates or reboots. Device availability must be checked anew.
+
+Keep required source custody outside Git, not disposable VM retention:
+
+- `/workspace/artifacts/pixelelated-release-sources/m7-delivery-source-20261015-01`:
+  1,869 selected objects /12,516,737,444bytes plus metadata; manifest
+  `dfbc11140c9f51d1a92572909e5404a7451df1d43a47a223827da1277e1bfb90`.
+- `/workspace/artifacts/pixelelated-release-sources/m7-notice-delivery-20261015-01`:
+  126 new files /2,059,815bytes plus metadata; manifest
+  `aa373739d72621aa5033025644840be8f9456289ed9171194e200f616c7f9e2c`.
+- Receipts: `docs/qa-logs/2026-10-15-source-delivery/`,
+  `docs/qa-logs/2026-10-15-notice-delivery/`, and
+  `docs/qa-logs/2026-10-15-current-source-mapping/`.
+  Exact earlier source stores remain held; do not reacquire or rerun accepted
+  producers. Local custody/readback is not independent off-host retrieval/backup.
+
+The archived checkpoint below preserves build owners, admissions, original
+failures, source maps, all earlier custody hashes and integration-citation history.
+Source trees were unchanged by that history correction; no force push occurred.
+
+## Pending requests and deferred observations
+
+- ABL and MAME source-contact requests are **pending and unsent**. Exact drafts:
+  `docs/qa-logs/2026-10-15-source-contact-drafts/`; private packet
+  `/tmp/pix-m7-abl-mame-contact-options-20261015`. Do not send or duplicate the
+  pending question. #585 future upstream contributions need their own scope.
+- Root-only stopped-media read remains pending/nonblocking:
+  `bash /tmp/pix-m7-stopped-media-root-readback-terminal-20261015/commands.sh`.
+  It reads five stopped files, deletes nothing. Do not repeat the question or
+  mistake it for cleanup clearance.
+- Nova metadata's original writer remains unknown. September29 install retained
+  storage; September30 empty restore/0B backup explain activity stamps, and
+  pre-install play metadata explains Recent membership. #565 clean/retained
+  controls are delivered; no personal reset is needed or authorized by this stash.
+- #558 shutdown and #561 LED are watches. #587 and #576 GTK4 are current
+  M7 work alongside #616/#617. #568 finalization wording, #562 integrity,
+  #586 credentials and #560 fast shutdown remain backlog. Prior proxy target saving was only390KiB and not
+  adopted; approximately78MiB ES handoff saving was VM evidence, not a provider cure.
+
+## Key files and related context
+
+| File | Change |
+| --- | --- |
+| `docs/qa-logs/2026-10-17-gtk4-spike/`, `2026-10-17-blink-feasibility/` | Original source-only packets; subsequent GTK4 builds are in gtk4-build-576, Blink remains uncompiled |
+| `docs/qa-logs/2026-10-17-browser-controls-616/`, `browser-controls-build-616/`, `browser-controls-vm-616/`, `browser-controls-results-616/` | Diagnostic source, actual compilation/parser proof, executed VM fixture and original outcomes |
+| `docs/qa-logs/2026-10-17-gtk4-build-576/`, `2026-10-17-provider-handoff-616/` | Completed dependency originals and prepared provider wrapper; engine/provider results are in the newer companion packets |
+| `docs/qa-logs/2026-10-17-browser-rendering-options/` | Primary-source graphics findings and parallel ownership |
+| `docs/decision-register.md` | D-WORKFLOW-170 bounded parallel alternatives |
+| `docs/releases/next-candidate-work.md`, `docs/vm-qa-log.md` | GTK4-first migration experiment, provider controls and limits |
+| `docs/work-logs/2026_10-work_logs/2026_10_17-work_log.md`, `docs/friction-log.md` | Findings and preserved fixture failures |
+| This checkpoint and branch pointer | Archived preceding October17 state; terminal owners and executable next queue |
+
+- Current flows: `docs/es-menu-map.md`, `docs/conflict-wizard-ia.md`. No product
+  presentation changed; this packet records the exercised existing flow/frames.
+- Release preparation: `docs/releases/0.0.1-release-preparation.md` and
+  `docs/releases/0.0.1-release-note-draft.md`.
+- #585 tracks a conditional upstream proxy cancellation/quiescence contribution;
+  no patch or message sent. Fable/council remains optional, not an active audit
+  or authorized prepared external transfer.
+
+Ordinary scoped records, commits, pushes and tracker updates remain authorized.
+Commit on the coordinator, fast-forward clean `next`, push both ordinary refs;
+never force push or merge the stale harness. The required context-free handoff
+review is performed on this prepared checkpoint before publication; its receipt
+lives in the private preparation directory. No new physical, external transfer,
+source-contact message or public release is authorized by this record.
+
+Previous full checkpoint: [saved-session-state-next-20261017T055318Z.md](archived/saved-session-state-next-20261017T055318Z.md).
