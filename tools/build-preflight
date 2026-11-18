@@ -31,6 +31,13 @@
 # holding QA state someone is in the middle of.
 
 set -u
+# Opt-in, fixed harmless lifecycle fixture; default host checks remain unchanged.
+# Caller selects a fresh writable ROOT and bounds this entire invocation externally.
+if [ "${1-}" = --report-lifecycle ]; then
+    [ "$#" -eq 2 ] || { echo 'usage: build-preflight --report-lifecycle ROOT' >&2; exit 2; }
+    exec /usr/bin/python3 -I -B "$(dirname -- "$0")/report-lifecycle-probe.py" --root "$2"
+fi
+
 STOP_VMS=0
 RECLAIM_SWAP=0
 for option in "$@"; do

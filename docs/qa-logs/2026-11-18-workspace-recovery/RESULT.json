@@ -1,6 +1,6 @@
 {
-  "status": "ACTIVE_ENGINEERING",
-  "updated_at": "2026-11-18T03:04:28.319256+00:00",
+  "status": "ACTUAL_ASSEMBLY_RUNNING_WITH_INDEPENDENT_VM_PREPARATION",
+  "updated_at": "2026-11-18T03:34:04.902742+00:00",
   "authority": "D-WORKFLOW-196",
   "attempt11": {
     "path": "/workspace/repos/rocknix.worktrees/conflict-resolution/docs/qa-logs/2026-11-18-workspace-recovery/ATTEMPT11-RECONCILIATION.json",
@@ -8,9 +8,9 @@
     "sha256": "3a3ea9d7f4f0f74cb57521bafd341a99b8dd9ebce4b9bb39df6bae79115dc84f"
   },
   "lanes": {
-    "path": "/workspace/repos/rocknix.worktrees/conflict-resolution/docs/qa-logs/2026-11-18-workspace-recovery/LANE-DISPOSITION.json",
-    "bytes": 3354,
-    "sha256": "f15985a2dc6625abd7f3ee0fa17759971e18d78ecac0922c357256524f70f0e6"
+    "path": "/workspace/repos/rocknix.worktrees/conflict-resolution/docs/qa-logs/2026-11-18-workspace-recovery/LANE-DISPOSITION-02.json",
+    "bytes": 3245,
+    "sha256": "8b0d65fa750120a28f11b8b4765b563a631bbb37825d96d47c0db1ec0517c502"
   },
   "observer": {
     "path": "/workspace/repos/rocknix.worktrees/conflict-resolution/docs/qa-logs/2026-11-18-workspace-recovery/OBSERVER-HEALTH.json",
@@ -22,7 +22,49 @@
     "bytes": 293,
     "sha256": "625d9c5a16805e6c4ee844f07cce6245b4bb3897403a7d5c77ab3ee67b18959f"
   },
-  "next_action": "Root finishes writable report route and full lifecycle preflight, consumes P7/P9 source outcomes, then selects a fresh D196 assembly with measured budgets; no spent attempt replay.",
-  "new_assembly_started": false,
-  "human_pane_prompt_sent": false
+  "next_action": "Supervise selected assembly13 to terminal, save/finalize result with actual writer, consume it into next M7 source/build step; PD continues independent Steam test adapter",
+  "new_assembly_started": true,
+  "human_pane_prompt_sent": false,
+  "independent_return": {
+    "path": "/workspace/repos/rocknix.worktrees/conflict-resolution/docs/qa-logs/2026-11-18-workspace-recovery/P8-CONSUMPTION.json",
+    "bytes": 685,
+    "sha256": "304fccad17138f61aeaf758ba8049f314845806a67ea10dd20c72c6f91e08ac3"
+  },
+  "observed_successor": {
+    "path": "/workspace/repos/rocknix.worktrees/conflict-resolution/docs/qa-logs/2026-11-18-workspace-recovery/P8-TO-PD-HANDOFF.json",
+    "bytes": 427,
+    "sha256": "4ddd68753ed325cbcbee05d335af809aed65e3881a0bb76c7e1f8e134bb9d6e9"
+  },
+  "assembly": {
+    "path": "/workspace/repos/rocknix.worktrees/conflict-resolution/docs/qa-logs/2026-11-18-workspace-recovery/RUN13-START.json",
+    "bytes": 1256,
+    "sha256": "e266ac08fd67aba2fdcf885b4157b8002f6bede98b7dd4fad2697c788a842437"
+  },
+  "source_returns": {
+    "path": "/workspace/repos/rocknix.worktrees/conflict-resolution/docs/qa-logs/2026-11-18-workspace-recovery/P7-P9-CONSUMPTION.json",
+    "bytes": 791,
+    "sha256": "79f9074eae353b4bde74419616f9823cda3037629ff644c7a2c310c91ec807a0"
+  },
+  "namespace": {
+    "path": "/workspace/repos/rocknix.worktrees/conflict-resolution/docs/qa-logs/2026-11-18-workspace-recovery/NAMESPACE13-RESULT.json",
+    "bytes": 1035,
+    "sha256": "4bcb94d15af0724d3a2d936cbdb46de72eac9fc54f7684ce0d67d6f52ec7251d"
+  },
+  "report_route": {
+    "path": "/workspace/repos/rocknix.worktrees/conflict-resolution/docs/qa-logs/2026-11-18-workspace-recovery/EXECUTOR-WRITER-16M.json",
+    "bytes": 2269,
+    "sha256": "995d827ff76372b6aaa362607a719b3ab37ce4e64719d8cb27096775208762d6"
+  },
+  "canonical_commit": "17d1378a6de3e69682c9ce344734e89c22194c27",
+  "attempt12": {
+    "status": "FAILED_BEFORE_START",
+    "cause": "Root composer copied spent admission files; exclusive-write guard refused; corrected prospective composition excludes these",
+    "original": {
+      "path": "/workspace/repos/rocknix.worktrees/conflict-resolution/docs/qa-logs/2026-11-18-workspace-recovery/ATTEMPT12-ORIGINAL.json",
+      "bytes": 139779,
+      "sha256": "c2f9d7da01f6af523f1c924b65b5ebf29b56d00368abc7ccd7e25a584eaaa530"
+    },
+    "START_exists": false,
+    "replay": false
+  }
 }

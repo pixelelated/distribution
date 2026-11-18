@@ -1,0 +1,30 @@
+{
+  "status": "PASS",
+  "cases": 21,
+  "original_rc": 0,
+  "tool_chunk": "c28b88",
+  "elapsed_seconds": 0.965,
+  "scope": "Merged16MiB writer, exact embedded source,3100 member plan; positive, corruption, fsync, teardown, duplicates, alias and real child retirement paths",
+  "sources": [
+    {
+      "path": "/workspace/repos/rocknix.worktrees/conflict-resolution/tools/report_writer.py",
+      "bytes": 14665,
+      "sha256": "71c0939c05ba53700a35fd804b30476aceee315f4c46fd27ea9bb9311eb260a4"
+    },
+    {
+      "path": "/workspace/repos/rocknix.worktrees/conflict-resolution/tools/report-lifecycle-probe.py",
+      "bytes": 9377,
+      "sha256": "f5bf2b0031855cb17a645d6fb4c154eefa146611a65f7498d42ede343582152e"
+    },
+    {
+      "path": "/workspace/repos/rocknix.worktrees/conflict-resolution/docs/qa-logs/2026-11-18-workspace-recovery/merged-writer-check/test_writer.py",
+      "bytes": 7612,
+      "sha256": "d139ec2ce1093fa9757f82baa708458d7a4e644b9bf2787640021e0d4d6b1537"
+    }
+  ],
+  "maximum_native_route": {
+    "path": "/workspace/repos/rocknix.worktrees/conflict-resolution/docs/qa-logs/2026-11-18-workspace-recovery/EXECUTOR-WRITER-16M.json",
+    "bytes": 2269,
+    "sha256": "995d827ff76372b6aaa362607a719b3ab37ce4e64719d8cb27096775208762d6"
+  }
+}

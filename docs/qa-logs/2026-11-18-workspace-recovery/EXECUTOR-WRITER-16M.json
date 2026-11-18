@@ -1,0 +1,33 @@
+{
+  "status": "ACTUAL_ROOT_STDIN_16MIB_WRITER_PASS",
+  "request": {
+    "schema": "m7-exclusive-report-stdin-v1",
+    "bytes": 16777216,
+    "sha256": "d8ecdc42ca403ddbb96552daa52d7ebd6e6ada0385b365ad1268a8a152920600",
+    "spool": "/workspace/repos/rocknix.worktrees/conflict-resolution/docs/qa-logs/2026-11-18-workspace-recovery/executor-envelope-16m-01/source.json",
+    "destination": "/workspace/repos/rocknix.worktrees/conflict-resolution/docs/qa-logs/2026-11-18-workspace-recovery/executor-envelope-16m-01/report.json",
+    "parent_identity": [
+      66304,
+      6362244
+    ],
+    "deadline_monotonic": 1824566.644880657,
+    "deadline_wall_ms": 1794972417599
+  },
+  "start": {
+    "chunk_id": "f8ef19",
+    "wall_time_seconds": 1.001638591,
+    "session_id": 13567,
+    "original_token_count": 41,
+    "output": "{\"status\":\"REPORT_STDIN_READY\",\"bytes\":16777216,\"sha256\":\"d8ecdc42ca403ddbb96552daa52d7ebd6e6ada0385b365ad1268a8a152920600\",\"deadline_monotonic\":1824566.644880657}\n"
+  },
+  "send": {
+    "chunk_id": "e8a889",
+    "wall_time_seconds": 0.012395644,
+    "exit_code": 0,
+    "original_token_count": 211,
+    "output": "{\"status\":\"EXCLUSIVE_REPORT_READBACK\",\"source\":{\"path\":\"/workspace/repos/rocknix.worktrees/conflict-resolution/docs/qa-logs/2026-11-18-workspace-recovery/executor-envelope-16m-01/source.json\",\"bytes\":16777216,\"sha256\":\"d8ecdc42ca403ddbb96552daa52d7ebd6e6ada0385b365ad1268a8a152920600\",\"identity\":[66304,6362246,33024,16777216,1794972299054674921,1794972299054674921]},\"output\":{\"path\":\"/workspace/repos/rocknix.worktrees/conflict-resolution/docs/qa-logs/2026-11-18-workspace-recovery/executor-envelope-16m-01/report.json\",\"bytes\":16777216,\"sha256\":\"d8ecdc42ca403ddbb96552daa52d7ebd6e6ada0385b365ad1268a8a152920600\"},\"identity\":[66304,6362247,33152,16777216,1794972299092675368,1794972299092675368],\"read_bytes\":33554432,\"fsynced\":true,\"whole_lifecycle\":false,\"namespace_verified\":false,\"stdin_bytes\":16777217,\"transport_read_bytes\":50331649}\r\n"
+  },
+  "input_generation": "ASCII x repeated 16777215 times, newline, one EOT terminator; one write_stdin call, not argv",
+  "normal_permissions": "workspace-write default, no escalation or edit UI",
+  "full_assembly": false
+}

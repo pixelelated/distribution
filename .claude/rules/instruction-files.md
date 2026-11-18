@@ -142,6 +142,8 @@ both lists and to this table, or it is invisible.**
 | Tool | What it answers | Detail in |
 | --- | --- | --- |
 | `build-preflight` | has the machine the memory for a build; explicit guarded swap reclamation before launch | `device-builds.md` |
+| `report-lifecycle-probe.py` | opt-in harmless child, real report writer and retirement preflight | `device-builds.md` |
+| `report_writer.py` | bounded exclusive report publication, fsync and exact readback | `device-builds.md` |
 | `host-maintenance/` | fixed-target swap helper, narrow administrator installer and isolated guard tests | `device-builds.md` |
 | `archaeology` | what the record already says about a question -- the registers, the work logs, the rules, `git log`, the issues -- before anything is called pending or new | `decision-register.md` |
 | `ceremony-check` | which ceremony is owed (a friction entry's issue, a retro, a weekly or monthly summary, the index, a blindspot's guard, an audit, a futro) and whether the push guard refuses | `ceremonies.md` |
