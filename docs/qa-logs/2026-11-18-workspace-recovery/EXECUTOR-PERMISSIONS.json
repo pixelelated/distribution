@@ -1,0 +1,57 @@
+{
+  "status": "NARROW_WRITABLE_OWNER_SELECTED_LIVE_PROFILE_NOT_HOT_CHANGED",
+  "observed_profile": {
+    "sandbox": "workspace-write",
+    "approval_policy": "on-request",
+    "approvals_reviewer": "auto_review",
+    "writable_roots": [
+      "/workspace/repos/rocknix.worktrees/conflict-resolution",
+      "/tmp"
+    ]
+  },
+  "old_report_destination_outside_writable_roots": true,
+  "manual_dialog_reason": "Path/profile mismatch verified; why that edit route did not obtain automatic review is not established. No platform policy change claimed.",
+  "supported_cli": "codex --add-dir EXACT_OWNED_DIRECTORY with workspace-write/review retained; Herdr agent start passes native args after --",
+  "managed_capability": [
+    {
+      "file": "/tmp/m7-codex-schema-20261118/v2/TurnStartParams.json",
+      "properties": [
+        "approvalPolicy",
+        "approvalsReviewer",
+        "clientUserMessageId",
+        "cwd",
+        "disabledPluginIds",
+        "effort",
+        "input",
+        "model",
+        "outputSchema",
+        "parentTurnId",
+        "personality",
+        "rootTurnId",
+        "sandboxPolicy",
+        "serviceTier",
+        "serviceTierForTurn",
+        "summary",
+        "threadId",
+        "toolOutput",
+        "turnTrigger"
+      ],
+      "sandboxPolicy": {
+        "anyOf": [
+          {
+            "$ref": "#/definitions/SandboxPolicy"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "description": "Override the sandbox policy for this turn and subsequent turns."
+      }
+    }
+  ],
+  "live_managed_policy_changed": false,
+  "chosen_successor_locations": "/workspace/repos/rocknix.worktrees/conflict-resolution/.build-runs/m7-source-assembly12-20261118",
+  "scope": "Owned private source/bindings/output/evidence inside current writable worktree; services and shared admission remain under normal platform review. No full access, no lane restart.",
+  "actual_local_writer": "tools/watch-build-submit --record-result; 1568-byte result with fsync/readback and CURRENT pointer saved in existing writable root",
+  "remaining_verification": "P7 actual >620465-byte terminal producer/writer lifecycle, selected executor namespace and fresh actual assembly finalization"
+}

@@ -50,3 +50,52 @@ This standing authority does not itself authorize physical-device actions,
 personal/cloud data changes, publication, destructive cleanup, changing shared
 platform settings, foreign supplier commitments or automatic retention renewal.
 Those retain their own governing instructions and approvals.
+
+## Complete execution and evidence lifecycle (D-WORKFLOW-197)
+
+Max instructed: “We need to make all five of these changes.” The five accepted
+changes are narrow writable destinations, actual lifecycle preflight, compact
+result references, measured prospective budgets, and observed continuation.
+The exact request and recovery instruction are retained in
+`docs/qa-logs/2026-11-18-workspace-recovery/REQUEST.md` (#1437).
+
+Before selecting a run, reconcile the **effective live** executor profile with
+its owned source, output and report paths. A config edit does not change an
+already-running session. Codex0.169.1 supports `--add-dir <exact-owned-directory>`
+with workspace-write and review retained; Herdr's supported agent-start interface
+passes native arguments after `--`. A managed app-server launcher exposes the
+workspaceWrite `writableRoots` through its supported sandbox policy; require its
+actual settings readback rather than assuming the CLI option was honored.
+Do not restart a busy lane or alter protected/shared permissions to apply this.
+Use an already-writable private location when it satisfies the operation, or
+request review for the exact otherwise-authorized effect. No broad full access.
+
+The November18 live OS session grants its worktree and `/tmp`, not
+`/workspace/artifacts`. `auto_review` does not establish that every editing route
+has access to another directory. The prior large apply_patch publication reached
+a manual edit UI; the pathname/profile mismatch is verified, but the internal
+reason that particular route did not auto-approve is not established. Do not
+claim that changing repository prose or a config file repaired the live profile.
+Select the actual supported writer and test that route, including its permissions.
+
+Preflight the selected executor's prepare, input resolution, bounded execution,
+**same report writer**, readback and retirement with owned disposable probe
+outputs before the expensive run. Use one exclusive, fsynced immutable original
+and bounded path/byte/digest references thereafter. Test payload sizes and
+argument limits representative of the real evidence; a shell touch does not
+prove a later edit-tool publication works. Keep probe success distinct from
+real workload success. `tools/build-preflight` remains the existing entrypoint.
+
+Use `tools/watch-build-submit --record-result` to retain compact immutable result
+references and optionally update a compact current pointer; it does not infer
+success from submission or copy the full ledger. Keep full originals available.
+Derive new work/reporting budgets from actual extraction, checkpoint and writer
+costs plus explicit shutdown/report reserve and current host admission. Separate
+user/platform hard limits from coordinator estimates. Never extend a spent run;
+a prospective D196 selection must explain its limits and preserve the original.
+
+A useful result proceeds into actual next authorized work, or a specific external
+constraint with its owner. Report deadlines do not postpone root preparation.
+Inspect current priority/issue criteria for useful independent work, record
+actual starts and returns through existing lanes, and leave capacity ready when
+its named dependency is unmet. Do not invent reviews or a competing scheduler.

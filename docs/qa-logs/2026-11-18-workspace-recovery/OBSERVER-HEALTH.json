@@ -1,0 +1,38 @@
+{
+  "root": {
+    "at": 1794970743.2832386,
+    "session": "01a0faa5-8103-73d3-8a42-456ab6c3b24b",
+    "status": "working",
+    "availability": "ROOT_BUSY"
+  },
+  "listener": {
+    "at": 1794970743.8749042,
+    "status": "SUBSCRIBED",
+    "connected_at": 1794925583.2818272,
+    "subscription": {
+      "id": "m7-completion-subscription",
+      "result": {
+        "type": "subscription_started"
+      }
+    },
+    "human_tick_rc": 0,
+    "last_tick_reason": "scheduled health/recovery",
+    "last_tick_at": 1794970743.7772682,
+    "last_tick_rc": 0,
+    "last_tick_output": "{\"status\": \"OBSERVED\", \"observer_mode\": \"persistent\", \"next_tick_not_before\": 1794970863.68481, \"root\": {\"at\": 1794970743.2832386, \"session\": \"01a0faa5-8103-73d3-8a42-456ab6c3b24b\", \"status\": \"working\", \"availability\": \"ROOT_BUSY\"}, \"recovery_events\": 256, \"authority\": \"Observer only; no worker/runtime dispatch\"}\n",
+    "last_tick_error": "",
+    "last_event": {
+      "data": {
+        "agent": "codex",
+        "agent_status": "working",
+        "pane_id": "w4:p8",
+        "workspace_id": "w4"
+      },
+      "event": "pane.agent_status_changed"
+    },
+    "last_event_at": 1794970735.0853162
+  },
+  "same_config": "config-20261117-18.json",
+  "new_monitor": false,
+  "budgets_reset": false
+}

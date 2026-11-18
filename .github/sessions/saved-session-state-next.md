@@ -1,3 +1,10 @@
+> **November18 recovery:** D196 remains standing authority; D197 implements the
+> five accepted execution-efficiency changes. Read `docs/build-authority.md` and
+> `docs/qa-logs/2026-11-18-workspace-recovery/RESULT.json`. Attempt11 failed and
+> retired with original evidence retained; P7/P9/P8 source preparation actually
+> resumed. Reconcile current live lanes and operational result before scheduling;
+> earlier activity below is historical, not permission to replay a spent run.
+
 ## Standing build authority — 2026-11-17
 
 Before a routine host assembly/build/isolated test, read `docs/build-authority.md`

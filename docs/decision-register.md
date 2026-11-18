@@ -712,6 +712,8 @@ This is the index of decisions; `docs/work-logs/` is the narrative,
 
 | D-WORKFLOW-196 | 2026-11-17 | **Standing authorization for routine host source preparation/assembly, package/OS builds and isolated tests within existing resource, admission and worktree rules.** Derive per-run readiness/selection/START from this authority, not repeated generic approval. Preserve operation-specific limits, spent attempts, actual platform review and separately governed device/cloud/publication/destructive actions and supplier promises. Publish discoverable instructions on canonical next for every harness; repository prose does not alter platform permissions. | #1437; Max verbatim authority and invocation reference in `docs/build-authority.md`; canonical operating rule in `.claude/rules/device-builds.md` |
 
+| D-WORKFLOW-197 | 2026-11-18 | **Implement all five execution-efficiency changes through existing tools and guidance.** Verify narrow effective executor permissions and the actual prepare/run/save/retire writer route; retain compact references rather than repeated ledgers; derive fresh work/reporting/cleanup limits from observed costs; continue useful results and independent backlog with observed starts. Preserve D196, spent attempts, real platform refusals and one dispatcher; no new framework or broad access. | #1437; Max: “We need to make all five of these changes.” Exact recovery request and acceptance in `docs/qa-logs/2026-11-18-workspace-recovery/REQUEST.md`; operating contract in `docs/build-authority.md` |
+
 ## Open decisions
 
 

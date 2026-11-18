@@ -1,0 +1,48 @@
+{
+  "status": "FAILED_EXTRACTION_RETIRED_REPORT_PUBLICATION_INTERRUPTED",
+  "payload": {
+    "path": "/workspace/artifacts/pixelelated-release-sources/m7-only-materialization11-20261117-01/root-evidence/persistence-input/payload.json",
+    "bytes": 620465,
+    "sha256": "0b22c20c1faac192f9d0aea4b7a92d9e7b45e631c7db5020c50bd678eac3b35f"
+  },
+  "failure": {
+    "status": "FAILED_OR_UNKNOWN_NO_RETRY",
+    "phase": "extract",
+    "path": null,
+    "primary_type": "ValueError",
+    "primary_error": "worker work cutoff; failure custody reserved",
+    "secondary": [],
+    "commands": 3,
+    "partial_outputs": "HOLD_NO_AUTOMATIC_ROLLBACK"
+  },
+  "retirement": {
+    "observation": {
+      "released": true,
+      "systemd": {
+        "Id": "pixelelated-m7-only-materialization11-20261117-01.service",
+        "LoadState": "loaded",
+        "ActiveState": "failed",
+        "InvocationID": "f07967e7bf384420805be853665285c9",
+        "Restart": "no",
+        "TimeoutStopUSec": "10s",
+        "RuntimeMaxUSec": "9min",
+        "ExecMainStartTimestampMonotonic": "1802165341637",
+        "ControlGroup": "",
+        "Delegate": "no",
+        "KillMode": "control-group",
+        "SendSIGKILL": "yes"
+      },
+      "group": null
+    },
+    "disk": {
+      "allocated": 3545280512,
+      "logical": 3287000881,
+      "free": 1059669512192
+    },
+    "threshold_breached": false,
+    "sampling_end": 1802638.551197747,
+    "quota": false,
+    "overshoot_bound": null
+  },
+  "no_replay": true
+}

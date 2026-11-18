@@ -18,7 +18,9 @@ a feature worktree, or read the rules from `next` (#367).
 source preparation/assembly, builds and isolated tests within existing admission,
 resource and worktree rules. Read `.claude/rules/device-builds.md` ("Standing host
 build and test authority") and `docs/build-authority.md` for scope, per-run
-invocation and remaining boundaries. No repeated generic user approval is needed;
+invocation and remaining boundaries. D-WORKFLOW-197 adds actual prepare/run/save/retire preflight, narrow effective
+permissions, compact results, measured budgets and observed continuation.
+No repeated generic user approval is needed;
 actual platform controls and separately governed actions remain in force.
 
 **Canonical deep-dive docs (this file summarizes; they are authoritative):**

@@ -48,6 +48,16 @@ Physical-device/cloud actions, publication, destructive operations, shared
 platform settings and foreign supplier/retention promises remain separately
 governed. M6 assessment and M7 stabilization retain their separate scope.
 
+## Full lifecycle before expensive work
+
+D-WORKFLOW-197 applies the five approved efficiency changes through existing
+entrypoints: verify effective narrow writable locations; preflight the actual
+prepare/run/save/retire route; retain originals once and compact references;
+justify fresh execution/reporting/cleanup budgets from timings; and continue
+results into authorized work with observed starts. See the complete operational
+contract in `docs/build-authority.md#complete-execution-and-evidence-lifecycle-d-workflow-197`.
+A config/schema capability is not proof the live managed permissions changed.
+
 ## Our devices
 
 | Hardware | Target | Arch | Notes |

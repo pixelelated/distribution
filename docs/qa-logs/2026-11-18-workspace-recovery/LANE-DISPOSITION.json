@@ -1,0 +1,71 @@
+{
+  "observed_at": "2026-11-18T03:04:28.319256+00:00",
+  "priority_revision": "2026-11-16-m6-m7-separation-1",
+  "all_open_m7_issues_reviewed": 61,
+  "lanes": [
+    {
+      "pane": "w4:p9",
+      "session": "01a18344-5446-7341-a250-5c66a332fca9",
+      "disposition": "working",
+      "actual_start": 15087,
+      "task": "Measured extraction bottleneck correction and fresh complete lifecycle budget",
+      "owner": "w4:p9",
+      "evidence": "STARTS-OBSERVED.json"
+    },
+    {
+      "pane": "w4:p7",
+      "session": "01a18343-895c-7480-bc4f-f333bf1b3905",
+      "disposition": "working",
+      "actual_start": 15088,
+      "task": "Exact report writer and prepare/run/save/retire preflight source",
+      "owner": "w4:p7",
+      "evidence": "STARTS-OBSERVED.json"
+    },
+    {
+      "pane": "w4:p8",
+      "session": "01a18343-c978-7323-82e8-ebafbe900609",
+      "disposition": "working",
+      "actual_start": 15089,
+      "task": "#610 exact target binding and runnable finite caller proof preparation",
+      "owner": "w4:p8",
+      "evidence": "STARTS-OBSERVED.json"
+    },
+    {
+      "pane": "w4:pA",
+      "session": "01a1a234-b44b-7521-9350-1058943ee6b7",
+      "disposition": "idle-no-authorized-work",
+      "dependency": "#1433 real backup validation needs selected composed image, legal fixture and QA endpoint; root owns admission and candidate selection",
+      "owner": "w4:p2",
+      "meaning": "Ready capacity; backlog not exhausted; no independent assignment selected at this checkpoint",
+      "evidence": "WORKER-PROCESS-PINS.json; M7-ISSUES-ORIGINAL.json; M7-MILESTONE-ORIGINAL.json"
+    },
+    {
+      "pane": "w4:pB",
+      "session": "01a1a234-c080-75d2-98d3-3be40c9a57bb",
+      "disposition": "idle-no-authorized-work",
+      "dependency": "#528 source delivery needs qualified fresh assembly/source identity; root owns assembly; existing source review not replayed",
+      "owner": "w4:p2",
+      "meaning": "Ready capacity; backlog not exhausted; no independent assignment selected at this checkpoint",
+      "evidence": "WORKER-PROCESS-PINS.json; M7-ISSUES-ORIGINAL.json; M7-MILESTONE-ORIGINAL.json"
+    },
+    {
+      "pane": "w4:pC",
+      "session": "01a1a234-cf29-7ce2-a3d2-b3a1785ab705",
+      "disposition": "idle-no-authorized-work",
+      "dependency": "#493/#637 storage/headroom runtime requires selected workload and shared resource admission; extraction evidence analysis is assigned to P9, no duplicate survey",
+      "owner": "w4:p2",
+      "meaning": "Ready capacity; backlog not exhausted; no independent assignment selected at this checkpoint",
+      "evidence": "WORKER-PROCESS-PINS.json; M7-ISSUES-ORIGINAL.json; M7-MILESTONE-ORIGINAL.json"
+    },
+    {
+      "pane": "w4:pD",
+      "session": "01a1a234-de8c-76e3-ad9d-9caf50b7b07a",
+      "disposition": "idle-no-authorized-work",
+      "dependency": "#1293/#610 guest execution awaits P8 exact target fixture binding and root serialized VM admission; no new VM reserved merely to occupy a lane",
+      "owner": "w4:p2",
+      "meaning": "Ready capacity; backlog not exhausted; no independent assignment selected at this checkpoint",
+      "evidence": "WORKER-PROCESS-PINS.json; M7-ISSUES-ORIGINAL.json; M7-MILESTONE-ORIGINAL.json"
+    }
+  ],
+  "M6": "Separate manager recovery routed by steward; no claim of current execution from priority label"
+}
