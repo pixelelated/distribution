@@ -1,0 +1,55 @@
+{
+  "status": "ROOT_DEFAULT_EXECUTOR_TERMINAL_SEAM_PASS",
+  "scope": "Exact candidate terminal functions/private fixture authority and START; host setup replaced; no service or product workload; actual default exec_command and raw PTY stdin used",
+  "checkpoint": {
+    "args": {
+      "cmd": "'/usr/bin/timeout' '--signal=TERM' '--kill-after=1s' '4s' '/usr/bin/taskset' '-c' '8' '/usr/bin/python3' '-I' '-B' '/workspace/repos/rocknix.worktrees/conflict-resolution/docs/qa-logs/2026-11-18-workspace-recovery/terminal-seam-preflight/checkpoint.py' '{\"sequence\":1,\"bytes\":469,\"first\":0,\"last\":0,\"deadline_wall_ms\":1794974271950,\"sha256\":\"bee437ddc45b97a2cbfae04001beb9587fc6881a0d097884d2b53926d3678635\"}' '{\"schema\":\"m7-incremental-originals-v1\",\"owner\":\"/workspace/repos/rocknix.worktrees/conflict-resolution/docs/qa-logs/2026-11-18-workspace-recovery/terminal-seam-preflight/fixtures/default-checkpoint/owner\",\"authority_sha256\":\"2105237f10a91b7d5adb39615d88ecab131b8f1c4d2b4254e8ae8bbfd7409dae\",\"start_sha256\":\"2fbffa42c66e37c3b06c673e911eeef1ebdece3673fbd60953abbf5f8d02e45f\",\"originals\":[{\"ordinal\":0,\"entry\":{\"role\":\"fixture-observation\",\"response\":{\"exit_code\":0}}}]}\n'",
+      "login": false,
+      "yield_time_ms": 6000,
+      "max_output_tokens": 4000
+    },
+    "request": {
+      "sequence": 1,
+      "bytes": 469,
+      "first": 0,
+      "last": 0,
+      "deadline_wall_ms": 1794974271950,
+      "sha256": "bee437ddc45b97a2cbfae04001beb9587fc6881a0d097884d2b53926d3678635"
+    },
+    "response": {
+      "chunk_id": "91fcea",
+      "wall_time_seconds": 0.000010712,
+      "exit_code": 0,
+      "original_token_count": 570,
+      "output": "{\"status\": \"CHECKPOINT_BYTES_FSYNCED_CALLER_COMPARISON_PENDING\", \"sequence\": 1, \"input\": {\"path\": \"/workspace/repos/rocknix.worktrees/conflict-resolution/docs/qa-logs/2026-11-18-workspace-recovery/terminal-seam-preflight/fixtures/default-checkpoint/owner/root-evidence/incremental-001/payload.json\", \"bytes\": 469, \"sha256\": \"bee437ddc45b97a2cbfae04001beb9587fc6881a0d097884d2b53926d3678635\"}, \"intent\": {\"path\": \"/workspace/repos/rocknix.worktrees/conflict-resolution/docs/qa-logs/2026-11-18-workspace-recovery/terminal-seam-preflight/fixtures/default-checkpoint/owner/root-evidence/incremental-001/intent.json\", \"bytes\": 1538, \"sha256\": \"3581f8e1d3ad767102b2ddac03e8a45e2d71e23e521a76b25cd0a94ecebc9afa\"}, \"first\": 0, \"last\": 0, \"authority\": {\"path\": \"/workspace/repos/rocknix.worktrees/conflict-resolution/docs/qa-logs/2026-11-18-workspace-recovery/terminal-seam-preflight/fixtures/default-checkpoint/owner/AUTHORITY.json\", \"bytes\": 2459, \"sha256\": \"2105237f10a91b7d5adb39615d88ecab131b8f1c4d2b4254e8ae8bbfd7409dae\"}, \"START\": {\"path\": \"/workspace/repos/rocknix.worktrees/conflict-resolution/docs/qa-logs/2026-11-18-workspace-recovery/terminal-seam-preflight/fixtures/default-checkpoint/owner/START.json\", \"bytes\": 151, \"sha256\": \"2fbffa42c66e37c3b06c673e911eeef1ebdece3673fbd60953abbf5f8d02e45f\"}, \"fsynced\": true, \"operational_COMMIT\": false, \"retirement_proved\": false, \"caller_acceptance\": null, \"lost_response_remains_unknown\": true, \"receipt\": {\"path\": \"/workspace/repos/rocknix.worktrees/conflict-resolution/docs/qa-logs/2026-11-18-workspace-recovery/terminal-seam-preflight/fixtures/default-checkpoint/owner/root-evidence/incremental-001/receipt.json\", \"bytes\": 1533, \"sha256\": \"178697e95cdb17563c69cc59ebda0a11952ee86da9c5671a8280a02e259f5d94\"}, \"payload_ascii\": \"{\\\"schema\\\":\\\"m7-incremental-originals-v1\\\",\\\"owner\\\":\\\"/workspace/repos/rocknix.worktrees/conflict-resolution/docs/qa-logs/2026-11-18-workspace-recovery/terminal-seam-preflight/fixtures/default-checkpoint/owner\\\",\\\"authority_sha256\\\":\\\"2105237f10a91b7d5adb39615d88ecab131b8f1c4d2b4254e8ae8bbfd7409dae\\\",\\\"start_sha256\\\":\\\"2fbffa42c66e37c3b06c673e911eeef1ebdece3673fbd60953abbf5f8d02e45f\\\",\\\"originals\\\":[{\\\"ordinal\\\":0,\\\"entry\\\":{\\\"role\\\":\\\"fixture-observation\\\",\\\"response\\\":{\\\"exit_code\\\":0}}}]}\\n\"}\n"
+    },
+    "dispatch_wall_ms": 1794974259950,
+    "return_wall_ms": 1794974260103
+  },
+  "persistence": {
+    "prepare": {
+      "chunk_id": "4b2922",
+      "wall_time_seconds": 0.011993417,
+      "exit_code": 0,
+      "original_token_count": 530,
+      "output": "{\"root\":\"/workspace/repos/rocknix.worktrees/conflict-resolution/docs/qa-logs/2026-11-18-workspace-recovery/terminal-seam-preflight/fixtures/default-persist\",\"request\":{\"input\":{\"path\":\"/workspace/repos/rocknix.worktrees/conflict-resolution/docs/qa-logs/2026-11-18-workspace-recovery/terminal-seam-preflight/fixtures/default-persist/owner/root-evidence/persistence-input/payload.json\",\"bytes\":621442,\"sha256\":\"f6ee41e3d698ed59c034afcde2384c428a061146e9d52044882d753cdb51346f\"},\"intent\":{\"path\":\"/workspace/repos/rocknix.worktrees/conflict-resolution/docs/qa-logs/2026-11-18-workspace-recovery/terminal-seam-preflight/fixtures/default-persist/owner/root-evidence/persistence-input/intent.json\",\"bytes\":1956,\"sha256\":\"1382bd2c89cd3f1d60a3d617ff22d15bb522f903f55174c5c77d2136b727ea2d\"},\"deadline_wall_ms\":1794974448706},\"payload\":{\"path\":\"/workspace/repos/rocknix.worktrees/conflict-resolution/docs/qa-logs/2026-11-18-workspace-recovery/terminal-seam-preflight/fixtures/default-persist/submitted.json\",\"bytes\":621442,\"sha256\":\"f6ee41e3d698ed59c034afcde2384c428a061146e9d52044882d753cdb51346f\"},\"bundle_template\":{\"schema\":\"m7-merge02-operational-set-v1\",\"cut\":\"AFTER_TERMINAL_RETURN_ASSEMBLER\",\"owner\":\"/workspace/repos/rocknix.worktrees/conflict-resolution/docs/qa-logs/2026-11-18-workspace-recovery/terminal-seam-preflight/fixtures/default-persist/owner\",\"executor\":\"w4:p2\",\"approval_release_owner\":\"w4:p2\",\"authority_sha256\":\"42288fb55a290c44bab3ce8875eac178f013059f9ac20d527a66af3c73e31278\",\"start_sha256\":\"21ef0b5bef0e2ed49aadfca71869ed6a622ee76f122e0fdc1461a3ecdb8fd4bb\",\"RETURN\":{\"path\":\"/workspace/repos/rocknix.worktrees/conflict-resolution/docs/qa-logs/2026-11-18-workspace-recovery/terminal-seam-preflight/fixtures/default-persist/owner/root-evidence/RETURN.json\",\"bytes\":111,\"sha256\":\"7e8d23506eef6c9a6dab47eee112ddaa4f28bae6a93368d842a30e4f4e8f5f07\"},\"originals\":[{\"id\":0,\"role\":\"RETURN-assembly\",\"method\":\"fixture\",\"response\":{\"exit_code\":0,\"session_id\":null}}],\"collector_index\":null,\"collector_index_parts\":null},\"fixture_scope\":\"actual terminal persistence; host setup replaced; no worker/index/service\"}\n"
+    },
+    "ready": {
+      "chunk_id": "3a261f",
+      "wall_time_seconds": 1.001658736,
+      "session_id": 80963,
+      "original_token_count": 41,
+      "output": "{\"status\":\"REPORT_STDIN_READY\",\"bytes\":621442,\"sha256\":\"f6ee41e3d698ed59c034afcde2384c428a061146e9d52044882d753cdb51346f\",\"deadline_monotonic\":1826597.7550008688}\n"
+    },
+    "final": {
+      "chunk_id": "6d124e",
+      "wall_time_seconds": 0.000034796,
+      "exit_code": 0,
+      "original_token_count": 570,
+      "output": "{\"status\": \"FINAL_PERSISTENCE_COMPLETE_PENDING_REVIEW\", \"commit\": {\"path\": \"/workspace/repos/rocknix.worktrees/conflict-resolution/docs/qa-logs/2026-11-18-workspace-recovery/terminal-seam-preflight/fixtures/default-persist/owner/root-evidence/persistence-commit.json\", \"bytes\": 3054, \"sha256\": \"6c1018009cea4f472f67fefa853b84fb788d7b0326965bd04885b7ad706cc4c2\"}, \"manifest\": {\"path\": \"/workspace/repos/rocknix.worktrees/conflict-resolution/docs/qa-logs/2026-11-18-workspace-recovery/terminal-seam-preflight/fixtures/default-persist/owner/root-evidence/evidence-manifest.json\", \"bytes\": 13202, \"sha256\": \"92ada774bb1c639fe6fac57da58e6aa5d606d9f9d1c38700a11e4d162be07c9d\"}, \"operational_set\": {\"path\": \"/workspace/repos/rocknix.worktrees/conflict-resolution/docs/qa-logs/2026-11-18-workspace-recovery/terminal-seam-preflight/fixtures/default-persist/owner/root-evidence/operational-tool-originals.json\", \"bytes\": 621442, \"sha256\": \"f6ee41e3d698ed59c034afcde2384c428a061146e9d52044882d753cdb51346f\"}, \"persistence_input\": {\"input\": {\"path\": \"/workspace/repos/rocknix.worktrees/conflict-resolution/docs/qa-logs/2026-11-18-workspace-recovery/terminal-seam-preflight/fixtures/default-persist/owner/root-evidence/persistence-input/payload.json\", \"bytes\": 621442, \"sha256\": \"f6ee41e3d698ed59c034afcde2384c428a061146e9d52044882d753cdb51346f\"}, \"intent\": {\"bytes\": 1956, \"path\": \"/workspace/repos/rocknix.worktrees/conflict-resolution/docs/qa-logs/2026-11-18-workspace-recovery/terminal-seam-preflight/fixtures/default-persist/owner/root-evidence/persistence-input/intent.json\", \"sha256\": \"1382bd2c89cd3f1d60a3d617ff22d15bb522f903f55174c5c77d2136b727ea2d\"}, \"actual_file\": {\"path\": \"/workspace/repos/rocknix.worktrees/conflict-resolution/docs/qa-logs/2026-11-18-workspace-recovery/terminal-seam-preflight/fixtures/default-persist/owner/root-evidence/persistence-input/payload.json\", \"bytes\": 621442, \"sha256\": \"f6ee41e3d698ed59c034afcde2384c428a061146e9d52044882d753cdb51346f\"}, \"deadline_monotonic\": 1826597.7550008688, \"deadline_wall_ms\": 1794974448706, \"fsynced\": true, \"tool_ack_is_not_file_proof\": true}, \"index_complete\": false, \"policy\": false, \"end_monotonic\": 1826431.096346814, \"deadline_monotonic\": 1826597.7550008688, \"root_release\": null, \"final_ack_in_committed_set\": false}\r\n"
+    }
+  },
+  "checkpoint_roundtrip_ms": 153,
+  "checkpoint_deadline_unchanged": true,
+  "payload_sent_once": true
+}

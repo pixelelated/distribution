@@ -1,6 +1,6 @@
 {
-  "status": "STEAM_GUEST_PASS_ASSEMBLY_SOURCE_CORRECTION_ACTIVE",
-  "updated_at": "2026-11-18T03:49:31.474418+00:00",
+  "status": "ACTUAL_ASSEMBLY14_RUNNING_STEAM_GUEST_PROOF_COMPLETE",
+  "updated_at": "2026-11-18T04:11:30.242539+00:00",
   "authority": "D-WORKFLOW-196",
   "attempt11": {
     "path": "/workspace/repos/rocknix.worktrees/conflict-resolution/docs/qa-logs/2026-11-18-workspace-recovery/ATTEMPT11-RECONCILIATION.json",
@@ -8,9 +8,9 @@
     "sha256": "3a3ea9d7f4f0f74cb57521bafd341a99b8dd9ebce4b9bb39df6bae79115dc84f"
   },
   "lanes": {
-    "path": "/workspace/repos/rocknix.worktrees/conflict-resolution/docs/qa-logs/2026-11-18-workspace-recovery/LANE-DISPOSITION-05.json",
-    "bytes": 3889,
-    "sha256": "39d9f2284f816ea21ae29c18da773b5f5370b26cee85fee0bfebc53badcf61dd"
+    "path": "/workspace/repos/rocknix.worktrees/conflict-resolution/docs/qa-logs/2026-11-18-workspace-recovery/LANE-DISPOSITION-07.json",
+    "bytes": 3967,
+    "sha256": "1bfcf3dce6ed8a8ba9cc743ac28548de5bc8f81265910c7d75893a61a01a403e"
   },
   "observer": {
     "path": "/workspace/repos/rocknix.worktrees/conflict-resolution/docs/qa-logs/2026-11-18-workspace-recovery/OBSERVER-HEALTH.json",
@@ -22,7 +22,7 @@
     "bytes": 293,
     "sha256": "625d9c5a16805e6c4ee844f07cce6245b4bb3897403a7d5c77ab3ee67b18959f"
   },
-  "next_action": "Consume active P7 run13 control/report correction; compose a fresh successor, exercise actual terminal persistence seam, then start and supervise authorized assembly under D196. Installed-image Steam qualification follows candidate build.",
+  "next_action": "Supervise fresh assembly14 result/report/retirement. Confirm completed script and recipe against accepted no-delta Steam binding; after retirement clear near-full swap through existing guarded helper before build admission. All worker returns consumed; ready lanes have concrete dependencies.",
   "new_assembly_started": true,
   "human_pane_prompt_sent": false,
   "independent_return": {
@@ -36,9 +36,9 @@
     "sha256": "4ddd68753ed325cbcbee05d335af809aed65e3881a0bb76c7e1f8e134bb9d6e9"
   },
   "assembly": {
-    "path": "/workspace/repos/rocknix.worktrees/conflict-resolution/docs/qa-logs/2026-11-18-workspace-recovery/RUN13-OUTCOME.json",
-    "bytes": 5847,
-    "sha256": "5c72202a1ed5cecd028ce4d2a868528a5cf30e612a2f04ac2f1d53d5d529566e"
+    "path": "/workspace/repos/rocknix.worktrees/conflict-resolution/docs/qa-logs/2026-11-18-workspace-recovery/RUN14-START.json",
+    "bytes": 1613,
+    "sha256": "ee2ff0042214d5ec8c92eb9790529233fd2f6ae07024e2340c488f67345693a4"
   },
   "source_returns": {
     "path": "/workspace/repos/rocknix.worktrees/conflict-resolution/docs/qa-logs/2026-11-18-workspace-recovery/P7-P9-CONSUMPTION.json",
@@ -55,7 +55,7 @@
     "bytes": 2269,
     "sha256": "995d827ff76372b6aaa362607a719b3ab37ce4e64719d8cb27096775208762d6"
   },
-  "canonical_commit": "1653349199",
+  "canonical_commit": "cbf54403b2",
   "attempt12": {
     "status": "FAILED_BEFORE_START",
     "cause": "Root composer copied spent admission files; exclusive-write guard refused; corrected prospective composition excludes these",
@@ -67,7 +67,7 @@
     "START_exists": false,
     "replay": false
   },
-  "assembly_running": false,
+  "assembly_running": true,
   "assembly_success": false,
   "actual_steam_vm_submission": {
     "path": "/workspace/repos/rocknix.worktrees/conflict-resolution/docs/qa-logs/2026-11-18-workspace-recovery/steam610/SUBMIT-ORIGINAL.json",
@@ -85,5 +85,21 @@
     "sha256": "a82c7d84457693d0618d4379d139d9ff5c3c0866f1742498d1ab61690c620b95"
   },
   "steam_vm_running": false,
-  "steam_issue_comment": "https://github.com/pixelelated/distribution/issues/610#issuecomment-6968457183"
+  "steam_issue_comment": "https://github.com/pixelelated/distribution/issues/610#issuecomment-6968457183",
+  "canonical_state": "Published via normal pre-push checks; canonical next fast-forwarded",
+  "five_changes": {
+    "path": "/workspace/repos/rocknix.worktrees/conflict-resolution/docs/qa-logs/2026-11-18-workspace-recovery/FIVE-CHANGES-EVIDENCE.json",
+    "bytes": 5505,
+    "sha256": "0d347f7f9f1e6729ea9320a06a5ca71f4401978fcea10e227deabc1a2a56d1c0"
+  },
+  "steam_candidate_binding": {
+    "path": "/workspace/repos/rocknix.worktrees/conflict-resolution/docs/qa-logs/2026-11-18-workspace-recovery/P8-STEAM-INTEGRATION-CONSUMPTION.json",
+    "bytes": 872,
+    "sha256": "b3c0be5e7f24c158cbb4d2273f10296bd4564ca2c173119412d05fa8a87a7bf6"
+  },
+  "build_preparation": {
+    "path": "/workspace/repos/rocknix.worktrees/conflict-resolution/docs/qa-logs/2026-11-18-workspace-recovery/build-successor/NEXT.json",
+    "bytes": 1108,
+    "sha256": "14e00313aacd1e237b3db0eac595ab1899e204b6dbc0f10615fa81d2087021b0"
+  }
 }

@@ -1,0 +1,112 @@
+{
+  "updated_at": "2026-11-18T04:05:53.108670+00:00",
+  "authority": "D-WORKFLOW-196",
+  "decision": "D-WORKFLOW-197",
+  "status": "IMPLEMENTED_REAL_ASSEMBLY_FINALIZATION_PENDING",
+  "changes": [
+    {
+      "id": 1,
+      "change": "Use genuinely writable private build/report locations and classify private data operations separately from service execution",
+      "implemented": true,
+      "evidence": [
+        {
+          "path": "/workspace/repos/rocknix.worktrees/conflict-resolution/docs/qa-logs/2026-11-18-workspace-recovery/EXECUTOR-PERMISSIONS.json",
+          "bytes": 2236,
+          "sha256": "284d48a4cb6a186d41206fee002b598d49d2148b8d4da61ee94a073d5400564f"
+        },
+        {
+          "path": "/workspace/repos/rocknix.worktrees/conflict-resolution/docs/qa-logs/2026-11-18-workspace-recovery/P7-RUN13-CONSUMPTION.json",
+          "bytes": 1712,
+          "sha256": "15a37b517d495cd0a8fb0639d37b9fc44219487c4cdc07e2e576e1acb39d4dde"
+        },
+        {
+          "path": "/workspace/repos/rocknix.worktrees/conflict-resolution/docs/qa-logs/2026-11-18-workspace-recovery/terminal-seam-preflight/RESULT.json",
+          "bytes": 9629,
+          "sha256": "787ac76790a3f34280b6913b10c59dcaa44149c9a1d6239e0c65070ec820c401"
+        }
+      ],
+      "limit": "Original manual edit path was outside live writable roots. Why that particular UI route lacked automatic review remains unestablished; no hot profile or platform-policy change is claimed."
+    },
+    {
+      "id": 2,
+      "change": "Exercise prepare/run/save/retire in selected namespace plus actual terminal writer route",
+      "implemented": true,
+      "evidence": [
+        {
+          "path": "/workspace/repos/rocknix.worktrees/conflict-resolution/docs/qa-logs/2026-11-18-workspace-recovery/NAMESPACE14-RESULT.json",
+          "bytes": 1035,
+          "sha256": "61ebe6627e87d6c1d2eb9a3ae62a52ddca1ed7111e0fb44ede3c4b53c905b7c6"
+        },
+        {
+          "path": "/workspace/repos/rocknix.worktrees/conflict-resolution/docs/qa-logs/2026-11-18-workspace-recovery/terminal-seam-preflight/RESULT.json",
+          "bytes": 9629,
+          "sha256": "787ac76790a3f34280b6913b10c59dcaa44149c9a1d6239e0c65070ec820c401"
+        }
+      ],
+      "limit": "Fixture host setup is explicitly replaced; actual fresh assembly14 lifecycle still running. Earlier standalone preflight missed terminal parent-mode integration; actual0755 refusal retained and0700 route proved."
+    },
+    {
+      "id": 3,
+      "change": "Compact authenticated result references and current pointer instead of repeated full-ledger publication",
+      "implemented": true,
+      "evidence": [
+        {
+          "path": "/workspace/repos/rocknix.worktrees/conflict-resolution/docs/qa-logs/2026-11-18-workspace-recovery/COMPACT-RESULT-TEST.json",
+          "bytes": 293,
+          "sha256": "625d9c5a16805e6c4ee844f07cce6245b4bb3897403a7d5c77ab3ee67b18959f"
+        }
+      ],
+      "published_tools": [
+        "tools/watch-build-submit --record-result"
+      ],
+      "limit": "Full original failure retained once separately; compact current records do not replace originals or prove success."
+    },
+    {
+      "id": 4,
+      "change": "Select fresh operation budgets from measured extraction cutoff, report size and cleanup reserve",
+      "implemented": true,
+      "evidence": [
+        {
+          "path": "/workspace/repos/rocknix.worktrees/conflict-resolution/docs/qa-logs/2026-11-18-workspace-recovery/P9-BUDGET-INTEGRATION.json",
+          "bytes": 1713,
+          "sha256": "15a1ea9f9bce7d283adeeb609d27d1ca58b7e3240ff747fc75ed59bd5b49b363"
+        },
+        {
+          "path": "/workspace/repos/rocknix.worktrees/conflict-resolution/docs/qa-logs/2026-11-18-workspace-recovery/SUCCESSOR14-SELECTION.json",
+          "bytes": 4438,
+          "sha256": "5344cd5377e3626c6d6da0f5123dc6c26f776c437ec465dd24a2c730f19f2382"
+        }
+      ],
+      "limit": "Fresh whole5460s includes cleanup180s/report300s; measured-fit remains to observe. Old attempts and deadlines unchanged."
+    },
+    {
+      "id": 5,
+      "change": "Continue useful returns into observed work and keep independent backlog active",
+      "implemented": true,
+      "evidence": [
+        {
+          "path": "/workspace/repos/rocknix.worktrees/conflict-resolution/docs/qa-logs/2026-11-18-workspace-recovery/RUN14-START.json",
+          "bytes": 1613,
+          "sha256": "ee2ff0042214d5ec8c92eb9790529233fd2f6ae07024e2340c488f67345693a4"
+        },
+        {
+          "path": "/workspace/repos/rocknix.worktrees/conflict-resolution/docs/qa-logs/2026-11-18-workspace-recovery/steam610/RESULT.json",
+          "bytes": 2273,
+          "sha256": "a82c7d84457693d0618d4379d139d9ff5c3c0866f1742498d1ab61690c620b95"
+        },
+        {
+          "path": "/workspace/repos/rocknix.worktrees/conflict-resolution/docs/qa-logs/2026-11-18-workspace-recovery/P8-STEAM-INTEGRATION-START.json",
+          "bytes": 208,
+          "sha256": "400f053f56a60ad7f8bacd65849fb977c2b8dfc9d85360ed7ff3f4b26d6c6ce8"
+        },
+        {
+          "path": "/workspace/repos/rocknix.worktrees/conflict-resolution/docs/qa-logs/2026-11-18-workspace-recovery/LANE-DISPOSITION-06.json",
+          "bytes": 3890,
+          "sha256": "5f4c481b35cf51fdfe95dd39919fcef45cd4f68fa0cd1c7c52ef64cb0a89eb5a"
+        }
+      ],
+      "limit": "Actual source assembly is not an OS build; sustained continuation remains subject to next real outcomes."
+    }
+  ],
+  "human_pane_internal_prompt_sent": false
+}

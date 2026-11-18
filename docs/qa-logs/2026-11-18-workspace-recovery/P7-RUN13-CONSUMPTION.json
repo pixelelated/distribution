@@ -1,0 +1,38 @@
+{
+  "status": "SOURCE_RETURN_ACCEPTED_FOR_FRESH14",
+  "observed_at": "2026-11-18T03:59:03.425723+00:00",
+  "result": {
+    "path": "/workspace/repos/rocknix.worktrees/m7-gtk4-576/docs/qa-logs/2026-11-18-run13-report-followthrough/RESULT.json",
+    "bytes": 2138,
+    "sha256": "fb20071e9168eb202c352ef5f6d93fef89e75b70f2205014ad18c07cc8664308"
+  },
+  "integration": {
+    "path": "/workspace/repos/rocknix.worktrees/m7-gtk4-576/docs/qa-logs/2026-11-18-run13-report-followthrough/INTEGRATION.json",
+    "bytes": 2057,
+    "sha256": "890f5f1fa1a05b8bf083123a05a23369b4aa0ac0e586fa41e6e138d6e8c23582"
+  },
+  "candidates": [
+    {
+      "bytes": 81925,
+      "path": "/workspace/repos/rocknix.worktrees/m7-gtk4-576/docs/qa-logs/2026-11-18-run13-report-followthrough/candidate/terminal.py",
+      "sha256": "3ce3ed9048539d3e982bd63b721537ebff67ef9476230efce3fecb39910fab1c"
+    },
+    {
+      "bytes": 63312,
+      "path": "/workspace/repos/rocknix.worktrees/m7-gtk4-576/docs/qa-logs/2026-11-18-run13-report-followthrough/candidate/execution-sequence.js",
+      "sha256": "d632273358477c72ced0f9770f4a97005ae0d4aac03036472cf5474cfeca947b"
+    }
+  ],
+  "root_seam": {
+    "path": "/workspace/repos/rocknix.worktrees/conflict-resolution/docs/qa-logs/2026-11-18-workspace-recovery/terminal-seam-preflight/RESULT.json",
+    "bytes": 9629,
+    "sha256": "787ac76790a3f34280b6913b10c59dcaa44149c9a1d6239e0c65070ec820c401"
+  },
+  "overlay_references": 4,
+  "intermediate_reference_normalizations": 1,
+  "terminal_runtime_unchanged_except_containment": true,
+  "old_attempts_replayed": false,
+  "completion_sequence_pending": false,
+  "completion_sequence": 15288,
+  "exact_session": "01a18343-895c-7480-bc4f-f333bf1b3905"
+}

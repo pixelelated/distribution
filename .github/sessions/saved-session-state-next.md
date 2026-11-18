@@ -1,15 +1,16 @@
-> **Current execution — November18:** all27 independent Steam caller/literal
-> fixture cases passed in the disposable no-network guest;158 exported files were
-> verified and the slot retired successfully. This is scoped synthetic-overlay
-> proof, not a new OS image or installed-product qualification. Assembly13 ran
-> and retired after a checkpoint deadline guard; final persistence refused a
-> nonprivate spool parent. All originals are preserved. P7 is working15235 on
-> the exact checkpoint/report seam correction; root has corrected prospective
-> parent creation and owns the fresh assembly and actual lifecycle preflight
-> under D196. No user decision is pending. Read
-> `docs/qa-logs/2026-11-18-workspace-recovery/RESULT.json` and its seven-lane record.
-> Earlier activity/approval-waiting descriptions below are historical where
-> superseded; M6 remains with its own manager.
+> **Current execution — November18:** source assembly14 is actually running
+> under D196, with CPU2/2GiB/swap0 and successful incremental checkpoints.
+> Attempt11/12/13 failures are preserved. The corrected terminal route passed
+> root's actual default-executor checkpoint and621442-byte raw-stdin save.
+> Independent #610 guest proof completed27cases and retired; its exact fix regions
+> are already in the selected candidate, so no patch/replay is needed. Two issue
+> criteria are proved; affected-image packaging remains open. All seven worker
+> dispositions are in the compact result. Root supervises assembly/report/retirement,
+> then candidate build readiness; near-full host swap must be handled through
+> the existing guarded helper after active work retires. No new user decision.
+> Read `docs/qa-logs/2026-11-18-workspace-recovery/RESULT.json` for current evidence.
+> Earlier activity/approval waits below are historical where superseded; M6
+> remains independently owned and is not an M7 dependency.
 
 ## Standing build authority — 2026-11-17
 

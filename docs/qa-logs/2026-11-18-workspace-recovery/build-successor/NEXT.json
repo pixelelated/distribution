@@ -1,0 +1,19 @@
+{
+  "status": "ASSEMBLY_RUNNING_SUCCESSOR_PREPARATION",
+  "owner": "w4:p2",
+  "priority": "M7-STABILIZE",
+  "issue": 555,
+  "authority": "D-WORKFLOW-196 and existing D-INFRA-015 fixed helper",
+  "sequence": [
+    "Consume original assembly14 result, final evidence persistence and actual service/resource retirement; no inferred success from active status",
+    "Bind exact resulting M7 source tree and P8 packaged-script relation; prepare fresh isolated build branch/worktree without modifying retained assembly output",
+    "After no active compiler/watcher/guest, run existing guarded build-preflight --reclaim-swap; preserve any real refusal, no broad swapoff",
+    "Recheck target-specific capacity/caches and actual ordinary build admission, then GENERIC build and exact clean/retained qualification"
+  ],
+  "current_dependency": "Assembly14 still active; swap reclamation is intentionally not attempted during it",
+  "capacity_evidence": "HOST-PREFLIGHT.json",
+  "current_swap_free_mib": 90,
+  "original_attempts_preserved": true,
+  "device_action": false,
+  "need_new_generic_user_approval": false
+}
