@@ -1,23 +1,11 @@
-> **Current execution — November18:** source assembly14 is actually running
-> under D196, with CPU2/2GiB/swap0 and successful incremental checkpoints.
-> Attempt11/12/13 failures are preserved. The corrected terminal route passed
-> root's actual default-executor checkpoint and621442-byte raw-stdin save.
-> Independent #610 guest proof completed27cases and retired; its exact fix regions
-> are already in the selected candidate, so no patch/replay is needed. Two issue
-> criteria are proved; affected-image packaging remains open. All seven worker
-> dispositions are in the compact result. Root supervises assembly/report/retirement,
-> then candidate build readiness; near-full host swap must be handled through
-> the existing guarded helper after active work retires. No new user decision.
-> Read `docs/qa-logs/2026-11-18-workspace-recovery/RESULT.json` for current evidence.
-> Earlier activity/approval waits below are historical where superseded; M6
-> remains independently owned and is not an M7 dependency.
-
-> **Execution observation, November17 (D-WORKFLOW-195):** source-assembly START
-> remains rejected. Independent #610 fixture preparation completed20 host checks;
-> target-image qualification remains open. M6 continuation193 completed useful G283 metadata, done14711;
-> wholeG283 remains open and next relation assessment stays with its original owner.
-> Earlier settled-state observations are history, not current execution status.
-> Evidence: `docs/qa-logs/2026-11-17-proactive-continuation/blocked-path-parallel-progress/RESULT.json`.
+> **Current execution — November18:** exact M7 source is assembled and privately
+> checked out. Reviewed ES input binding and normal unpack passed; all1315 files
+> match bytes/modes. GCC/glibc archives were acquired and checksum-verified.
+> Root continues remaining dependencies and cold-build admission; PC owns the
+> bounded memory-envelope assessment. No compiler/image start is claimed.
+> Assembly14 failure/retirement and saved report remain preserved. No new user decision.
+> Read `docs/qa-logs/2026-11-18-workspace-recovery/CURRENT.json` for current evidence.
+> Older activity and approval waits below are historical where superseded.
 
 # Current project priorities
 

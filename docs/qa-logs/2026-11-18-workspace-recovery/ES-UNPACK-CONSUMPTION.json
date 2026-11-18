@@ -1,0 +1,17 @@
+{
+  "observed_at": "2026-11-18T04:54:09.171961+00:00",
+  "status": "NORMAL_ES_UNPACK_VERIFIED_SOURCE_ACQUISITION_ACTIVE",
+  "source_commit": "14cb43477a7c405ac99a65f698fb39939d0b1433",
+  "source_tree": "c21988f9b8656f57b2cf050bdb0effe3371f4b34",
+  "unpack_original": "/workspace/repos/rocknix.worktrees/conflict-resolution/.build-runs/m7-candidate-build-20261118-01/es-unpack01/RESULT.json",
+  "readback": "/workspace/repos/rocknix.worktrees/conflict-resolution/.build-runs/m7-candidate-build-20261118-01/es-unpack01/SOURCE-READBACK.json",
+  "verified_files": 1315,
+  "original_rc": 0,
+  "service": "pixelelated-m7-es-unpack-20261118-01.service",
+  "service_terminal_result": "success0 in2.169s; memory92.3MB; source readback .276s",
+  "next_action": "Normal GCC/glibc source acquisition actually running in private owner; full cold-build capacity and remaining dependencies stay root-owned",
+  "current_service": "pixelelated-m7-source-acquisition-20261118-01.service",
+  "current_invocation": "e8f249a565f84bb3b136611e418c80ec",
+  "compiler_started": false,
+  "new_image": false
+}

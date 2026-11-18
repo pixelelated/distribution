@@ -1,0 +1,22 @@
+{
+  "observed_at": "2026-11-18T04:42:18.069565+00:00",
+  "PB": {
+    "completion_seq": 15398,
+    "seal": "/workspace/repos/rocknix.worktrees/m7-source-delivery-20261103/docs/qa-logs/2026-11-18-es-builder-input-preparation/SHA256SUMS",
+    "members": 35,
+    "bytes": 514151,
+    "verified": true,
+    "next": "Root private checkout, archive copy/custody and four literal context binding; no new worker assignment"
+  },
+  "PC": {
+    "completion_seq": 15397,
+    "manifest": "/workspace/repos/rocknix.worktrees/m7-host-swap-20261103/docs/qa-logs/2026-11-18-generic-build-readiness/MANIFEST.json",
+    "verified_members": 13,
+    "next": "Fresh toolchain required; 32GiB proposal does not fit current memory. Root assess supported lower parallelism envelope while finishing checkout."
+  },
+  "P7": {
+    "completion_seq": 15399,
+    "status": "Source candidate retained; not integrated or required for native Git successor"
+  },
+  "source_acceptance_correction": "PB/PC prepared before native Git17; 5a82 is now actual accepted Git object tree. Disk checkout still being prepared."
+}
