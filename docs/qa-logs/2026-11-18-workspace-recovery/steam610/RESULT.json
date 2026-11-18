@@ -1,0 +1,53 @@
+{
+  "status": "ROOT_VERIFIED_SCOPED_STEAM610_GUEST_PASS",
+  "observed_at": "2026-11-18T03:45:28.070912+00:00",
+  "issue": 610,
+  "full_caller_negative_cases": 20,
+  "literal_assignment_cases": 7,
+  "all_assertions": true,
+  "complete_export_members": 158,
+  "complete_export_bytes": 2945189,
+  "case_results": [
+    {
+      "path": "/workspace/tmp/pix-m7-steam610-vm-20261118-01/export/steam610/guest-run-01/batch-result.json",
+      "bytes": 165940,
+      "sha256": "aafd8b049b3e268839dca2945446e9c8df15f5f99859bf13063b50a150b43f64"
+    },
+    {
+      "path": "/workspace/tmp/pix-m7-steam610-vm-20261118-01/export/steam610/assignment-run-01/result.json",
+      "bytes": 11425,
+      "sha256": "19fd16075be2a7a2b3cabddcccf47c7bd6995b254eb7fa5478b1ec153697e673"
+    }
+  ],
+  "export": {
+    "path": "/workspace/tmp/pix-m7-steam610-vm-20261118-01/records/steam-export.json",
+    "bytes": 65496,
+    "sha256": "abf947ac49cc2986761e5f394d3f89a88fdcf3096701b20c35ab864dbb16a6a1"
+  },
+  "guest_preflight": {
+    "path": "/workspace/tmp/pix-m7-steam610-vm-20261118-01/export/steam610/results/preflight.json",
+    "bytes": 9206,
+    "sha256": "4d6ff9011db5555600bd015b01b0cf67d06c50f9cd339575f712eeaefab1ea37"
+  },
+  "owner": {
+    "path": "/workspace/tmp/pix-m7-steam610-vm-20261118-01/owner-result.json",
+    "bytes": 179,
+    "sha256": "ddbf03a94a35ca70eb07de04e02715d3c9677a2dbc6007ab7d8b45fe592c4714"
+  },
+  "worker": {
+    "path": "/workspace/tmp/pix-m7-steam610-vm-20261118-01/worker-result.json",
+    "bytes": 587,
+    "sha256": "81d42cde9c82ce58ad6c96915da269ced4be44f9194811bc158abdc77ab1c658"
+  },
+  "native_guest_return": 0,
+  "native_qemu_wait": 0,
+  "slot_status_verification": "tool6ed9c2: terminal true, success true, claim released, final cgroup absent, no remaining PIDs",
+  "installed_product_qualification": false,
+  "new_OS_build": false,
+  "next_action": "Retain #610 scoped caller/literal proof in acceptance; installed-image proof follows candidate assembly/build, no repeated27case run",
+  "slot_terminal": {
+    "path": "/workspace/repos/rocknix.worktrees/conflict-resolution/docs/qa-logs/2026-11-18-workspace-recovery/steam610/SLOT-TERMINAL.json",
+    "bytes": 4952,
+    "sha256": "7e68a64aefac4894d1d438455228423c9f265744e9a33acb0b56b8752efc4ed3"
+  }
+}

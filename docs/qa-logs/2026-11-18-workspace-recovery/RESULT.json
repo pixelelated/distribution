@@ -1,6 +1,6 @@
 {
-  "status": "ACTUAL_ASSEMBLY_RUNNING_WITH_INDEPENDENT_VM_PREPARATION",
-  "updated_at": "2026-11-18T03:34:04.902742+00:00",
+  "status": "STEAM_GUEST_PASS_ASSEMBLY_SOURCE_CORRECTION_ACTIVE",
+  "updated_at": "2026-11-18T03:49:31.474418+00:00",
   "authority": "D-WORKFLOW-196",
   "attempt11": {
     "path": "/workspace/repos/rocknix.worktrees/conflict-resolution/docs/qa-logs/2026-11-18-workspace-recovery/ATTEMPT11-RECONCILIATION.json",
@@ -8,9 +8,9 @@
     "sha256": "3a3ea9d7f4f0f74cb57521bafd341a99b8dd9ebce4b9bb39df6bae79115dc84f"
   },
   "lanes": {
-    "path": "/workspace/repos/rocknix.worktrees/conflict-resolution/docs/qa-logs/2026-11-18-workspace-recovery/LANE-DISPOSITION-02.json",
-    "bytes": 3245,
-    "sha256": "8b0d65fa750120a28f11b8b4765b563a631bbb37825d96d47c0db1ec0517c502"
+    "path": "/workspace/repos/rocknix.worktrees/conflict-resolution/docs/qa-logs/2026-11-18-workspace-recovery/LANE-DISPOSITION-05.json",
+    "bytes": 3889,
+    "sha256": "39d9f2284f816ea21ae29c18da773b5f5370b26cee85fee0bfebc53badcf61dd"
   },
   "observer": {
     "path": "/workspace/repos/rocknix.worktrees/conflict-resolution/docs/qa-logs/2026-11-18-workspace-recovery/OBSERVER-HEALTH.json",
@@ -22,7 +22,7 @@
     "bytes": 293,
     "sha256": "625d9c5a16805e6c4ee844f07cce6245b4bb3897403a7d5c77ab3ee67b18959f"
   },
-  "next_action": "Supervise selected assembly13 to terminal, save/finalize result with actual writer, consume it into next M7 source/build step; PD continues independent Steam test adapter",
+  "next_action": "Consume active P7 run13 control/report correction; compose a fresh successor, exercise actual terminal persistence seam, then start and supervise authorized assembly under D196. Installed-image Steam qualification follows candidate build.",
   "new_assembly_started": true,
   "human_pane_prompt_sent": false,
   "independent_return": {
@@ -36,9 +36,9 @@
     "sha256": "4ddd68753ed325cbcbee05d335af809aed65e3881a0bb76c7e1f8e134bb9d6e9"
   },
   "assembly": {
-    "path": "/workspace/repos/rocknix.worktrees/conflict-resolution/docs/qa-logs/2026-11-18-workspace-recovery/RUN13-START.json",
-    "bytes": 1256,
-    "sha256": "e266ac08fd67aba2fdcf885b4157b8002f6bede98b7dd4fad2697c788a842437"
+    "path": "/workspace/repos/rocknix.worktrees/conflict-resolution/docs/qa-logs/2026-11-18-workspace-recovery/RUN13-OUTCOME.json",
+    "bytes": 5847,
+    "sha256": "5c72202a1ed5cecd028ce4d2a868528a5cf30e612a2f04ac2f1d53d5d529566e"
   },
   "source_returns": {
     "path": "/workspace/repos/rocknix.worktrees/conflict-resolution/docs/qa-logs/2026-11-18-workspace-recovery/P7-P9-CONSUMPTION.json",
@@ -55,7 +55,7 @@
     "bytes": 2269,
     "sha256": "995d827ff76372b6aaa362607a719b3ab37ce4e64719d8cb27096775208762d6"
   },
-  "canonical_commit": "17d1378a6de3e69682c9ce344734e89c22194c27",
+  "canonical_commit": "1653349199",
   "attempt12": {
     "status": "FAILED_BEFORE_START",
     "cause": "Root composer copied spent admission files; exclusive-write guard refused; corrected prospective composition excludes these",
@@ -66,5 +66,24 @@
     },
     "START_exists": false,
     "replay": false
-  }
+  },
+  "assembly_running": false,
+  "assembly_success": false,
+  "actual_steam_vm_submission": {
+    "path": "/workspace/repos/rocknix.worktrees/conflict-resolution/docs/qa-logs/2026-11-18-workspace-recovery/steam610/SUBMIT-ORIGINAL.json",
+    "bytes": 630,
+    "sha256": "e4a7e1c9f92129905a0af1029659d09edcccf0fa05df1d5f78c4861f51ee7ed2"
+  },
+  "full_originals": {
+    "path": "/workspace/repos/rocknix.worktrees/conflict-resolution/docs/qa-logs/2026-11-18-workspace-recovery/attempt13-diagnostic/originals.json",
+    "bytes": 1391474,
+    "sha256": "27929bbdd3dc5b43ed4e493199ead4f624e2fe36c9f622a9ac98f4532637cde2"
+  },
+  "steam_guest_result": {
+    "path": "/workspace/repos/rocknix.worktrees/conflict-resolution/docs/qa-logs/2026-11-18-workspace-recovery/steam610/RESULT.json",
+    "bytes": 2273,
+    "sha256": "a82c7d84457693d0618d4379d139d9ff5c3c0866f1742498d1ab61690c620b95"
+  },
+  "steam_vm_running": false,
+  "steam_issue_comment": "https://github.com/pixelelated/distribution/issues/610#issuecomment-6968457183"
 }

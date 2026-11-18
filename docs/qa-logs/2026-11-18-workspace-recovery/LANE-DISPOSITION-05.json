@@ -1,0 +1,82 @@
+{
+  "observed_at": "2026-11-18T03:49:31.474418+00:00",
+  "priority_revision": "2026-11-16-m6-m7-separation-1",
+  "all_open_m7_issues_reviewed": 61,
+  "lanes": [
+    {
+      "pane": "w4:p9",
+      "session": "01a18344-5446-7341-a250-5c66a332fca9",
+      "disposition": "complete",
+      "actual_start": 15087,
+      "task": "Measured extraction bottleneck correction and fresh complete lifecycle budget",
+      "owner": "w4:p9",
+      "evidence": "P7-P9-CONSUMPTION.json; RUN13-START.json",
+      "completion": 15176,
+      "next_owner": "w4:p2",
+      "next_action": "Budget/allocation source integrated in spent assembly13; root owns corrected fresh assembly; ready capacity"
+    },
+    {
+      "pane": "w4:p7",
+      "session": "01a18343-895c-7480-bc4f-f333bf1b3905",
+      "disposition": "working",
+      "actual_start": 15235,
+      "task": "Actual run13 private checkpoint/report permission and terminal seam correction",
+      "owner": "w4:p7",
+      "evidence": "P7-RUN13-TASK.txt; P7-RUN13-DISPATCH.json",
+      "next_owner": "w4:p2",
+      "next_action": "Active source correction of actual checkpoint/report seam; root consumes into fresh guarded assembly"
+    },
+    {
+      "pane": "w4:p8",
+      "session": "01a18343-c978-7323-82e8-ebafbe900609",
+      "disposition": "complete",
+      "actual_start": 15089,
+      "task": "#610 exact target binding and runnable finite caller proof preparation",
+      "owner": "w4:p8",
+      "evidence": "steam610/RESULT.json",
+      "completion": 15134,
+      "next_owner": "w4:p2",
+      "next_action": "27-case ordinary guest proof passed and retired; installed-image qualification awaits candidate assembly/build"
+    },
+    {
+      "pane": "w4:pA",
+      "session": "01a1a234-b44b-7521-9350-1058943ee6b7",
+      "disposition": "idle-no-authorized-work",
+      "dependency": "#1433 real backup validation needs selected composed image, legal fixture and QA endpoint; root owns admission and candidate selection",
+      "owner": "w4:p2",
+      "meaning": "Ready capacity; backlog not exhausted; no independent assignment selected at this checkpoint",
+      "evidence": "WORKER-PROCESS-PINS.json; M7-ISSUES-ORIGINAL.json; M7-MILESTONE-ORIGINAL.json"
+    },
+    {
+      "pane": "w4:pB",
+      "session": "01a1a234-c080-75d2-98d3-3be40c9a57bb",
+      "disposition": "idle-no-authorized-work",
+      "dependency": "#528 source delivery needs qualified fresh assembly/source identity; root owns assembly; existing source review not replayed",
+      "owner": "w4:p2",
+      "meaning": "Ready capacity; backlog not exhausted; no independent assignment selected at this checkpoint",
+      "evidence": "WORKER-PROCESS-PINS.json; M7-ISSUES-ORIGINAL.json; M7-MILESTONE-ORIGINAL.json"
+    },
+    {
+      "pane": "w4:pC",
+      "session": "01a1a234-cf29-7ce2-a3d2-b3a1785ab705",
+      "disposition": "idle-no-authorized-work",
+      "dependency": "#493/#637 storage/headroom runtime requires selected workload and shared resource admission; extraction evidence analysis is assigned to P9, no duplicate survey",
+      "owner": "w4:p2",
+      "meaning": "Ready capacity; backlog not exhausted; no independent assignment selected at this checkpoint",
+      "evidence": "WORKER-PROCESS-PINS.json; M7-ISSUES-ORIGINAL.json; M7-MILESTONE-ORIGINAL.json"
+    },
+    {
+      "pane": "w4:pD",
+      "session": "01a1a234-de8c-76e3-ad9d-9caf50b7b07a",
+      "disposition": "complete",
+      "actual_start": 15143,
+      "task": "Independent Steam ordinary VM action/export source adapter",
+      "owner": "w4:pD",
+      "evidence": "steam610/RESULT.json",
+      "completion": 15219,
+      "next_owner": "w4:p2",
+      "next_action": "27-case ordinary guest proof passed and retired; installed-image qualification awaits candidate assembly/build"
+    }
+  ],
+  "M6": "Separate manager recovery routed by steward; no claim of current execution from priority label"
+}

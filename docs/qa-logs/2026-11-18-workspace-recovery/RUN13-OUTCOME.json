@@ -1,0 +1,87 @@
+{
+  "status": "FAILED_RETIRED_ORIGINALS_RETAINED",
+  "checkpoint_calls": [
+    {
+      "dispatch": 1794972811247,
+      "returned": 1794972817530,
+      "elapsed_ms": 6283,
+      "rc": 0,
+      "reported_wall_seconds": 0.000017293
+    },
+    {
+      "dispatch": 1794972890387,
+      "returned": 1794972896154,
+      "elapsed_ms": 5767,
+      "rc": 0,
+      "reported_wall_seconds": 0.000009418
+    },
+    {
+      "dispatch": 1794972970382,
+      "returned": 1794972975642,
+      "elapsed_ms": 5260,
+      "rc": 0,
+      "reported_wall_seconds": 0.000008139
+    },
+    {
+      "dispatch": 1794973050559,
+      "returned": 1794973055878,
+      "elapsed_ms": 5319,
+      "rc": 0,
+      "reported_wall_seconds": 0.000010696
+    },
+    {
+      "dispatch": 1794973130291,
+      "returned": 1794973135541,
+      "elapsed_ms": 5250,
+      "rc": 0,
+      "reported_wall_seconds": 0.000008973
+    },
+    {
+      "dispatch": 1794973210661,
+      "returned": 1794973218386,
+      "elapsed_ms": 7725,
+      "rc": 1,
+      "reported_wall_seconds": 0.000009597,
+      "tail": "Traceback (most recent call last):\n  File \"/workspace/repos/rocknix.worktrees/conflict-resolution/.build-runs/m7-source-assembly13-20261118/source/terminal.py\", line 1273, in <module>\n    if __name__=='__main__':main()\n                            ~~~~^^\n  File \"/workspace/repos/rocknix.worktrees/conflict-resolution/.build-runs/m7-source-assembly13-20261118/source/terminal.py\", line 1265, in main\n    result=checkpoint_store(a,start,json.loads(sys.argv[2]),sys.argv[3])\n  File \"/workspace/repos/rocknix.worktrees/conflict-resolution/.build-runs/m7-source-assembly13-20261118/source/terminal.py\", line 1215, in checkpoint_store\n    prepared=checkpoint_prepare(a,start,prepare,payload_sha256=digest)\n  File \"/workspace/repos/rocknix.worktrees/conflict-resolution/.build-runs/m7-source-assembly13-20261118/source/terminal.py\", line 1137, in checkpoint_prepare\n    assert 5<remaining<=p['seconds']\n           ^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError\n"
+    }
+  ],
+  "retirement": {
+    "observation": {
+      "released": true,
+      "systemd": {
+        "Id": "pixelelated-m7-only-materialization13-20261118-01.service",
+        "LoadState": "loaded",
+        "ActiveState": "failed",
+        "InvocationID": "d36c8a7fd2804da094d4454ecec5c712",
+        "Restart": "no",
+        "TimeoutStopUSec": "10s",
+        "RuntimeMaxUSec": "1h 21min 30s",
+        "ExecMainStartTimestampMonotonic": "1824953026267",
+        "ControlGroup": "",
+        "Delegate": "no",
+        "KillMode": "control-group",
+        "SendSIGKILL": "yes"
+      },
+      "group": null
+    },
+    "disk": {
+      "allocated": 3530301440,
+      "logical": 3287425096,
+      "free": 1055981432832
+    },
+    "threshold_breached": false,
+    "sampling_end": 1825379.437527889,
+    "quota": false,
+    "overshoot_bound": null
+  },
+  "unknown": [
+    "CONTROL_EXCEPTION_Error: CHECKPOINT_TERMINAL_UNKNOWN"
+  ],
+  "report_error": "Traceback (most recent call last):\r\n  File \u001b[35m\"/workspace/repos/rocknix.worktrees/conflict-resolution/.build-runs/m7-source-assembly13-20261118/source/terminal.py\"\u001b[0m, line \u001b[35m1273\u001b[0m, in \u001b[35m<module>\u001b[0m\r\n    if __name__=='__main__':\u001b[31mmain\u001b[0m\u001b[1;31m()\u001b[0m\r\n                            \u001b[31m~~~~\u001b[0m\u001b[1;31m^^\u001b[0m\r\n  File \u001b[35m\"/workspace/repos/rocknix.worktrees/conflict-resolution/.build-runs/m7-source-assembly13-20261118/source/terminal.py\"\u001b[0m, line \u001b[35m1261\u001b[0m, in \u001b[35mmain\u001b[0m\r\n    elif sys.argv[1]=='persist-stream':\u001b[31mpersist_stream\u001b[0m\u001b[1;31m(a,start,request)\u001b[0m\r\n                                       \u001b[31m~~~~~~~~~~~~~~\u001b[0m\u001b[1;31m^^^^^^^^^^^^^^^^^\u001b[0m\r\n  File \u001b[35m\"/workspace/repos/rocknix.worktrees/conflict-resolution/.build-runs/m7-source-assembly13-20261118/source/terminal.py\"\u001b[0m, line \u001b[35m1243\u001b[0m, in \u001b[35mpersist_stream\u001b[0m\r\n    transport=rw_receive(dict(schema='m7-exclusive-report-stdin-v1',bytes=expected['bytes'],\r\n        sha256=expected['sha256'],spool=p['spool_path'],destination=expected['path'],\r\n        parent_identity=intent['directory_identity'],deadline_monotonic=G,\r\n        deadline_wall_ms=intent['deadline_wall_ms']),gate,IO_SECONDARY)\r\n  File \u001b[35m\"/workspace/repos/rocknix.worktrees/conflict-resolution/.build-runs/m7-source-assembly13-20261118/source/terminal.py\"\u001b[0m, line \u001b[35m921\u001b[0m, in \u001b[35mrw_receive\u001b[0m\r\n    raise primary\r\n  File \u001b[35m\"/workspace/repos/rocknix.worktrees/conflict-resolution/.build-runs/m7-source-assembly13-20261118/source/terminal.py\"\u001b[0m, line \u001b[35m849\u001b[0m, in \u001b[35mrw_receive\u001b[0m\r\n    \u001b[31mrw_require\u001b[0m\u001b[1;31m(st.st_uid == os.geteuid() and stat.S_IMODE(st.st_mode) == 0o700,\u001b[0m\r\n    \u001b[31m~~~~~~~~~~\u001b[0m\u001b[1;31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\u001b[0m\r\n               \u001b[1;31m'spool private owned parent')\u001b[0m\r\n               \u001b[1;31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\u001b[0m\r\n  File \u001b[35m\"/workspace/repos/rocknix.worktrees/conflict-resolution/.build-runs/m7-source-assembly13-20261118/source/terminal.py\"\u001b[0m, line \u001b[35m662\u001b[0m, in \u001b[35mrw_require\u001b[0m\r\n    raise ValueError(reason)\r\n\u001b[1;35mValueError\u001b[0m: \u001b[35mspool private owned parent\u001b[0m\r\n",
+  "diagnostic": {
+    "path": "/workspace/repos/rocknix.worktrees/conflict-resolution/docs/qa-logs/2026-11-18-workspace-recovery/attempt13-diagnostic/originals.json",
+    "bytes": 1391474,
+    "sha256": "27929bbdd3dc5b43ed4e493199ead4f624e2fe36c9f622a9ac98f4532637cde2"
+  },
+  "diagnostic_is_operational_commit": false
+}
