@@ -39,14 +39,14 @@ progressive under D-WORKFLOW-102; a larger panel does not silently expand the
 source scope to the entire distribution.
 
 For #375 the completed local evidence remains a Milestone readiness review;
-its pending independent reviewer changes to Fable because the primary is
+its pending independent reviewer changes to Fable 5.2 because the primary is
 OpenAI. No third reviewer or five-seat run has started. The actual 0.0.1 release
 qualification still needs its own frozen candidate and risk/depth selection.
 
 ## Selection and independence
 
 Prefer the other lab's installed frontier pin: OpenAI primary -> Anthropic
-Fable; Anthropic primary -> OpenAI Astra. For extended depth choose a third lab,
+Fable 5.2. An Anthropic primary uses OpenAI Astra. For extended depth choose a third lab,
 not a different hosting endpoint of either existing model. Use verified current
 project recipes; adopting a newer model is a deliberate roster update.
 

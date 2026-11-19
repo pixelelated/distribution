@@ -18,11 +18,22 @@ silent fallback when the council key is absent. See
 
 | Subagent                 | Canonical model / effort                               | Substrate  | Required env         | Context   |
 | ------------------------ | ------------------------------------------------------ | ---------- | -------------------- | --------- |
-| `council-member-claude`  | `anthropic/claude-fable-5.1`, effort=`xhigh`                                                    | OpenRouter | `OPENROUTER_API_KEY` | 1,000,000 |
+| `council-member-claude`  | `anthropic/claude-fable-5.2`, effort=`xhigh`                                                    | OpenRouter | `OPENROUTER_API_KEY` | 1,000,000 |
 | `council-member-gemini`  | `google/gemini-3.8-flash`, effort=`high`                                                        | OpenRouter | `OPENROUTER_API_KEY` | 1,048,576 |
 | `council-member-gpt`     | `openai/gpt-6-astra`, OpenAI provider, effort=`max`                                             | OpenRouter | `OPENROUTER_API_KEY` | 1,050,000 |
 | `council-member-kimi`    | `moonshotai/kimi-k3`, effort=`max`, provider pin modal → sail-research → together → moonshotai | OpenRouter | `OPENROUTER_API_KEY` | 1,048,576 |
 | `council-member-muse`    | `meta/muse-spark-1.3`, effort=`max`, provider pin `meta`                                        | OpenRouter | `OPENROUTER_API_KEY` | 1,048,576 |
+
+The November 19 change keeps the Claude seat at Fable and keeps its existing
+efforts. OpenRouter requests `anthropic/claude-fable-5.2` at `xhigh`. Its
+catalogue and listed endpoints identify `anthropic/claude-fable-5.2-20261109`,
+with 1,000,000 context tokens and 128,000 completion tokens. The native
+`claude-fable-5-2` direct recipe keeps `high` and its 32,768 default /
+65,536 ceiling. These are catalogue and offline checks. Each actual call
+requires its own provider response evidence.
+[OpenRouter catalogue](https://openrouter.ai/api/v1/models).
+[Fable endpoints](https://openrouter.ai/api/v1/models/anthropic/claude-fable-5.2/endpoints).
+[Claude API model](https://platform.claude.com/docs/en/models/fable-5-2/overview).
 
 Fable 5.1 + GPT-6 Astra were live-verified through the Facilitator on
 2026-09-09 in the source estate (response-model identity PASS for both;
@@ -81,9 +92,16 @@ table is the authority and this table mirrors it — scaffold#571):
 
 ## Coordinator (not a seat)
 
-The model orchestrating a run is the harness's — Claude Code → Claude Opus 5,
-Codex → GPT-5.6 Sol, VS Code Copilot → the skill's frontmatter `model:` — and
-it never votes. The profiles, the identity policy and the interim nature of the
+The model orchestrating a run is the harness's — Claude Code → Claude Opus 5.5 (`claude-opus-5-5`),
+Codex coordinator → GPT-6.2 Astra at `xhigh`, VS Code Copilot → the skill's frontmatter `model:` — and
+it never votes. The public Opus 5.5 metadata identifies
+`claude-opus-5-5` natively and `anthropic/claude-opus-5.5-20260921` as the
+canonical OpenRouter build of `anthropic/claude-opus-5.5`. The listed limits
+are 1,000,000 context and 128,000 completion tokens.
+[Claude API model](https://platform.claude.com/docs/en/models/opus-5-5/overview).
+[OpenRouter endpoints](https://openrouter.ai/api/v1/models/anthropic/claude-opus-5.5/endpoints).
+
+The profiles, the identity policy and the interim nature of the
 arrangement are in [`SKILL.md`](../SKILL.md) § Coordinator; the run manifest
 records what actually ran ([`output-conventions.md`](output-conventions.md)
 § Run manifest, `coordinator` block).

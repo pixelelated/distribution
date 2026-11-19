@@ -1,0 +1,121 @@
+#!/usr/bin/env python3
+"""Offline contract checks. The fake Herdr never opens a terminal or a provider."""
+import contextlib
+import importlib.machinery
+import io
+import json
+import os
+from pathlib import Path
+import subprocess
+import tempfile
+import types
+import unittest
+from unittest.mock import patch
+
+tool = Path(__file__).with_name("herdr-lane").resolve()
+module = types.ModuleType("herdr_lane")
+importlib.machinery.SourceFileLoader(module.__name__, str(tool)).exec_module(module)
+sid = "aaaaaaaa-bbbb-4ccc-8ddd-eeeeeeeeeeee"
+
+
+class Contracts(unittest.TestCase):
+    def setUp(self):
+        temp = tempfile.TemporaryDirectory()
+        self.addCleanup(temp.cleanup)
+        self.cwd = Path(temp.name).resolve()
+        self.env = {"CODEX_HOME": str(self.cwd / "codex"), "CLAUDE_CONFIG_DIR": str(self.cwd / "claude"),
+                    "HERDR_ENV": "1"}
+        env_patch = patch.dict(os.environ, self.env)
+        env_patch.start()
+        self.addCleanup(env_patch.stop)
+        self.args = types.SimpleNamespace(cwd=self.cwd, workspace="wN", role="worker", name="renovation",
+                                          harness="codex", session=None, pane=None, tier=None,
+                                          permission_mode=None, apply=True)
+        self.pane = {"pane_id": "wN:pA", "workspace_id": "wN", "cwd": str(self.cwd)}
+        self.agents = []
+        self.calls = []
+
+    def api(self, *argv):
+        self.calls.append(argv)
+        if argv[:2] == ("agent", "list"):
+            return {"agents": self.agents}
+        if argv[:2] == ("pane", "get"):
+            return {"pane": self.pane}
+        if argv[:2] == ("tab", "create"):
+            self.assertIn("--no-focus", argv)
+            return {"root_pane": self.pane}
+        self.assertEqual(argv[:2], ("agent", "start"))
+        self.assertEqual(argv[argv.index("--pane") + 1], self.pane["pane_id"])
+        return {"agent": {**self.pane, "agent": self.args.harness, "interactive_ready": True,
+                          "agent_session": {"value": sid}}}
+
+    def run_launch(self):
+        with patch.object(module, "herdr", self.api), contextlib.redirect_stderr(io.StringIO()):
+            return module.launch(self.args)
+
+    def pin(self, cwd=None):
+        self.args.session, self.args.pane = sid, self.pane["pane_id"]
+        if self.args.harness == "codex":
+            f = Path(self.env["CODEX_HOME"]) / f"sessions/2026/11/19/rollout-xyz-{sid}.jsonl"
+            row = {"type": "session_meta", "payload": {"id": sid, "cwd": str(cwd or self.cwd)}}
+        else:
+            f = Path(self.env["CLAUDE_CONFIG_DIR"]) / f"projects/test/{sid}.jsonl"
+            row = {"sessionId": sid, "cwd": str(cwd or self.cwd)}
+        f.parent.mkdir(parents=True, exist_ok=True)
+        f.write_text(json.dumps(row) + "\n")
+
+    def test_matrix(self):
+        for harness, tier, model in (("codex", None, None), ("claude", "opus", "claude-opus-5-5"),
+                                     ("claude", "fable", "claude-fable-5-2")):
+            for role in ("coordinator", "worker"):
+                for resume in (False, True):
+                    with self.subTest(harness=harness, tier=tier, role=role, resume=resume):
+                        self.args.harness, self.args.tier, self.args.role = harness, tier, role
+                        self.args.session = self.args.pane = None
+                        if resume:
+                            self.pin()
+                        self.calls.clear()
+                        result = self.run_launch()
+                        argv = result["native_argv"]
+                        self.assertEqual(result["pane"], "wN:pA")
+                        self.assertEqual(sid in argv, resume)
+                        self.assertEqual(any(c[:2] == ("tab", "create") for c in self.calls), not resume)
+                        if harness == "codex":
+                            self.assertIn("gpt-6.2-astra" if role == "coordinator" else "gpt-6.2-sol", argv)
+                            for v in ('model_reasoning_effort="xhigh"', 'approvals_reviewer="auto_review"',
+                                      "workspace-write", "on-request"):
+                                self.assertIn(v, argv)
+                        else:
+                            self.assertEqual(argv[:4], ["--model", model, "--effort", "xhigh"])
+                            self.assertNotIn("--permission-mode", argv)
+
+    def test_refuse_wrong_worktree_and_active_thread(self):
+        self.pin(self.cwd.parent)
+        with self.assertRaisesRegex(ValueError, "another worktree"):
+            self.run_launch()
+        self.pin()
+        self.agents = [{"agent": "codex", "cwd": str(self.cwd)}]
+        with self.assertRaisesRegex(ValueError, "possible active"):
+            self.run_launch()
+        self.assertFalse(any(c[:2] == ("agent", "start") for c in self.calls))
+
+    def test_missing_tier_and_wrong_pane(self):
+        self.args.harness = "claude"
+        with self.assertRaisesRegex(ValueError, "tier"):
+            self.run_launch()
+        self.args.tier = "opus"
+        self.pin()
+        self.pane["workspace_id"] = "w4"
+        with self.assertRaisesRegex(ValueError, "workspace"):
+            self.run_launch()
+
+    def test_cli_dry_run(self):
+        p = subprocess.run([str(tool), "fresh", "--name", "example", "--role", "coordinator",
+                            "--workspace", "w4", "--cwd", str(self.cwd), "--harness", "codex"],
+                           capture_output=True, text=True, check=True)
+        self.assertEqual(json.loads(p.stdout)["start"][:3], ["herdr", "agent", "start"])
+        self.assertEqual(module.stores()["claude"], self.env["CLAUDE_CONFIG_DIR"])
+
+
+if __name__ == "__main__":
+    unittest.main()

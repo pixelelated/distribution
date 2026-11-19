@@ -457,7 +457,7 @@ from the editor's name. Record uncertainty rather than inventing a model ID.
 
 | Primary model lab | Default external reviewer | Invocation / installed effort |
 | --- | --- | --- |
-| OpenAI (including this Codex-led audit) | Anthropic Claude Fable 5.1 | `--member claude --provider openrouter`, `xhigh` |
+| OpenAI (including this Codex-led audit) | Anthropic Claude Fable 5.2 | `--member claude --provider openrouter`, `xhigh` |
 | Anthropic | OpenAI GPT-6 Astra | `--member gpt --provider openrouter`, `max` |
 | Another known lab | Fable or Astra, choosing a different lab | Use the corresponding installed recipe and explain the choice |
 | Unknown | Resolve the lab before dispatch | No same-model "critic" substitute |
@@ -465,8 +465,12 @@ from the editor's name. Record uncertainty rather than inventing a model ID.
 Use `tools/council/run invoke --member <member> --provider openrouter
 --prompt-file <brief> --output <file>`. The installed Facilitator recipes and
 model/effort verification remain authoritative; do not silently replace the
-pinned model with an unverified "latest" alias. Fable's approved effort is
-`xhigh`, not `max`; Astra remains `max` with its OpenAI provider pin.
+pinned model with an unverified "latest" alias. The Fable 5.2 reviewer
+requests `anthropic/claude-fable-5.2` at `xhigh`. Its receipt must identify
+that model or `anthropic/claude-fable-5.2-20261109`. The GPT-6 Astra reviewer
+uses `max` with its OpenAI provider pin. When the chosen primary tier is
+Opus, use Claude Opus 5.5 (`claude-opus-5-5` natively). The primary's actual
+identity still comes from the session.
 
 This is **two model perspectives**, primary plus one external reviewer, not a
 five-seat council. Reuse the invocation/identity checks only: do not start a

@@ -5,10 +5,10 @@ tools: [readFile, edit, search]
 # Single-element prioritized list — declares the canonical OpenRouter identity
 # the Council Facilitator (`scripts/council-invoke.ts`) MUST invoke for this seat.
 # The string is human-readable; it encodes (a) the underlying model id
-# (`anthropic/claude-fable-5.1`), (b) the substrate (`openrouter`), and (c) the
+# (`anthropic/claude-fable-5.2`), (b) the substrate (`openrouter`), and (c) the
 # behavior flag (`reasoning effort=xhigh`). The Facilitator's
-# `modelMatches()` predicate uses SEMANTIC matching against the response-body
-# `model` field. See `.claude/skills/council/references/model-verification.md`
+# `modelMatches()` accepts that exact request ID or its exact catalogue
+# build, `anthropic/claude-fable-5.2-20261109`, in the response. See `.claude/skills/council/references/model-verification.md`
 # § Substrate C.
 #
 # Direct invocation of this agent via `runSubagent` is BANNED as of
@@ -18,7 +18,7 @@ tools: [readFile, edit, search]
 # (`scripts/council-invoke.ts`); the array form remains as a defense
 # against silent picker leakage on any residual non-Facilitator path.
 model:
-  - "anthropic/claude-fable-5.1 (OpenRouter, effort=xhigh)"
+  - "anthropic/claude-fable-5.2 (OpenRouter, effort=xhigh)"
 argument-hint: "Describe the analysis task or paste the step prompt"
 ---
 

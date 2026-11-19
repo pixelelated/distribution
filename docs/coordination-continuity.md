@@ -3,6 +3,8 @@
 The operational coordinator owns worker dispatch and retained result consumption.
 Keep human questions and meaningful outcomes separate from internal receipts.
 
+For model selection, shared login stores, role-specific launches and pinned account handoffs in both workspaces, follow [Lane models and account handoff](lane-models-and-account-handoff.md).
+
 ## Keep communication scoped to its subject
 
 D-WORKFLOW-194 clarification (November 18): Keep each update scoped to its subject. Group facts only when their relationship is established and relevant, and explain that relationship explicitly. In a requested broad overview, separate workstreams. Never use unrelated progress to imply that the current objective advanced or to soften its blocker. Check the implication of the complete response, not only the literal accuracy of each sentence. For example, M6 activity is not M7 progress and does not make M6 an M7 input or gate. State actual dependencies explicitly.

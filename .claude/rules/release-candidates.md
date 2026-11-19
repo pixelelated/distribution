@@ -71,7 +71,7 @@ it has its artifact.
 4. **The full upstream audit, by two agents**: the code auditor at milestone
    tier over everything going upstream -- the distribution's diff against
    `upstream/next` and the EmulationStation fork's against ROCKNIX's master --
-   by Fable 5.1 and GPT-6 Astra (D-QA-048), both through the council's
+   by Fable 5.2 and GPT-6 Astra (D-QA-048, D-WORKFLOW-198), both through the council's
    Facilitator on OpenRouter (D-WORKFLOW-049: every council and audit seat
    goes that way; the native harness's Fable is for the session's own work).
    The key is `~/.config/council/env`, sourced before the Facilitator runs;

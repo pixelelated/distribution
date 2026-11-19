@@ -1,3 +1,7 @@
+Before creating or resuming a coordinator or worker in either workspace, read
+`docs/lane-models-and-account-handoff.md` on `next` (D-WORKFLOW-198). Reconcile
+current live jobs and native session identities before acting on older milestones.
+
 > **Current execution — November18:** exact M7 source is assembled and privately
 > checked out. Reviewed ES input binding and normal unpack passed; all1315 files
 > match bytes/modes. GCC/glibc archives were acquired and checksum-verified.

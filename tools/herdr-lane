@@ -1,0 +1,153 @@
+#!/usr/bin/env python3
+"""Plan or perform one native Herdr lane launch in a selected project worktree."""
+import argparse
+import json
+import os
+import re
+import subprocess
+import sys
+from pathlib import Path
+from uuid import UUID
+
+CODEX = {"coordinator": "gpt-6.2-astra", "worker": "gpt-6.2-sol"}
+CLAUDE = {"fable": "claude-fable-5-2", "opus": "claude-opus-5-5"}
+
+
+def stores():
+    return {h: str(Path(os.environ.get(var) or Path.home() / default).expanduser().resolve())
+            for h, var, default in (("codex", "CODEX_HOME", ".codex"),
+                                    ("claude", "CLAUDE_CONFIG_DIR", ".claude"))}
+
+
+def native(args):
+    if args.harness == "claude":
+        if args.tier is None:
+            raise ValueError("choose the lane's existing Claude tier with --tier")
+        argv = ["--model", CLAUDE[args.tier], "--effort", "xhigh"]
+        if args.permission_mode:
+            argv += ["--permission-mode", args.permission_mode]
+        if args.session:
+            argv += ["--resume", args.session]
+        return argv
+    if args.tier or args.permission_mode:
+        raise ValueError("--tier and --permission-mode apply only to Claude Code")
+    argv = ["resume", args.session] if args.session else []
+    return argv + ["-C", str(args.cwd), "-m", CODEX[args.role], "-c",
+                   'model_reasoning_effort="xhigh"', "-s", "workspace-write", "-a",
+                   "on-request", "-c", 'approvals_reviewer="auto_review"']
+
+
+def verify_transcript(harness, session, cwd):
+    base = Path(stores()[harness])
+    if harness == "codex":
+        matches = (base / "sessions").glob(f"*/*/*/rollout-*-{session}.jsonl")
+    else:
+        matches = (base / "projects").glob(f"*/{session}.jsonl")
+    for path in matches:
+        with path.open() as stream:
+            for line in stream:
+                data = json.loads(line)
+                if harness == "codex":
+                    if data.get("type") != "session_meta":
+                        continue
+                    data = data["payload"]
+                    identity = data.get("id")
+                else:
+                    identity = data.get("sessionId")
+                if identity == session and data.get("cwd"):
+                    if Path(data["cwd"]).resolve() != cwd:
+                        raise ValueError("saved session belongs to another worktree")
+                    return
+    raise ValueError("cannot verify the saved thread and worktree in this harness store")
+
+
+def herdr(*argv):
+    response = subprocess.run(["herdr", *argv], check=True, stdout=subprocess.PIPE, text=True)
+    return json.loads(response.stdout)["result"]
+
+
+def require_pane(pane, args):
+    if pane.get("workspace_id") != args.workspace or Path(pane.get("cwd") or "/").resolve() != args.cwd:
+        raise ValueError("pane workspace or cwd differs from the requested worktree")
+    if pane.get("agent"):
+        raise ValueError("an application already owns the pane")
+
+
+def launch(args):
+    argv = native(args)
+    new_tab = ["tab", "create", "--workspace", args.workspace, "--label", args.name,
+               "--cwd", str(args.cwd), "--no-focus"]
+    start = ["agent", "start", args.name, "--kind", args.harness, "--pane"]
+    if not args.apply:
+        return {"create": None if args.session else ["herdr", *new_tab],
+                "start": ["herdr", *start, args.pane or "<returned pane>", "--", *argv]}
+    if os.environ.get("HERDR_ENV") != "1":
+        raise ValueError("run inside the intended live Herdr session")
+    if args.session:
+        verify_transcript(args.harness, args.session, args.cwd)
+    agents = herdr("agent", "list")["agents"]
+    for agent in agents:
+        if agent.get("name") == args.name:
+            raise ValueError("name is already in use; inspect the existing lane")
+        if args.session and agent.get("agent") == args.harness:
+            identity = (agent.get("agent_session") or {}).get("value")
+            if identity == args.session or (not identity and agent.get("cwd") == str(args.cwd)):
+                raise ValueError("possible active copy of this thread; inspect original lane")
+    if args.session:
+        pane = herdr("pane", "get", args.pane)["pane"]
+        if pane.get("pane_id") != args.pane:
+            raise ValueError("original pane identity changed")
+    else:
+        pane = herdr(*new_tab)["root_pane"]
+    pane_id = pane["pane_id"]
+    print(f"Selected pane {pane_id}. Inspect it after any failure before retrying.", file=sys.stderr)
+    require_pane(pane, args)
+    agent = herdr(*start, pane_id, "--", *argv)["agent"]
+    if (agent.get("pane_id") != pane_id or agent.get("workspace_id") != args.workspace
+            or agent.get("agent") != args.harness or agent.get("cwd") != str(args.cwd)
+            or not agent.get("interactive_ready")):
+        raise ValueError("native agent readiness or identity was not verified")
+    sid = (agent.get("agent_session") or {}).get("value")
+    if args.session and sid != args.session:
+        raise ValueError("inspect the launched pane: resumed UUID not confirmed by Herdr")
+    return {"pane": pane_id, "cwd": str(args.cwd), "thread": sid, "native_argv": argv,
+            "next": "Read back effective model, effort and permissions before dispatch."}
+
+
+def main():
+    p = argparse.ArgumentParser(description=__doc__)
+    subs = p.add_subparsers(dest="action", required=True)
+    subs.add_parser("stores", help="show resolved paths only; compare inside original launch environments")
+    for action in ("fresh", "resume"):
+        s = subs.add_parser(action)
+        for key in ("name", "workspace", "cwd"):
+            s.add_argument("--" + key, required=True)
+        s.add_argument("--harness", required=True, choices=("codex", "claude"))
+        s.add_argument("--role", required=True, choices=CODEX)
+        s.add_argument("--tier", choices=CLAUDE, help="preserve the selected Claude seat")
+        s.add_argument("--permission-mode", choices=("manual", "plan", "acceptEdits", "auto"),
+                       help="only if already approved for this Claude lane; default inherits settings")
+        s.add_argument("--apply", action="store_true", help="create/start once; default prints argv")
+        s.set_defaults(session=None, pane=None)
+        if action == "resume":
+            s.add_argument("--session", required=True, type=lambda s: str(UUID(s)))
+            s.add_argument("--pane", required=True, help="original pane, returned to its shell")
+    args = p.parse_args()
+    if args.action == "stores":
+        print(json.dumps({"uid": os.getuid(), **stores()}, indent=2))
+        return
+    args.cwd = Path(args.cwd).resolve(strict=True)
+    if not args.cwd.is_dir() or args.name.startswith("-") or not args.name.strip():
+        p.error("supply a worktree directory and a lane name")
+    if not re.fullmatch(r"w[0-9A-Za-z]+", args.workspace):
+        p.error("use an exact Herdr workspace ID")
+    if args.pane and not re.fullmatch(re.escape(args.workspace) + r":p[0-9A-Za-z]+", args.pane):
+        p.error("use the original pane ID in the selected workspace")
+    try:
+        print(json.dumps(launch(args), indent=2))
+    except (OSError, ValueError, KeyError, subprocess.CalledProcessError) as exc:
+        p.exit(1, f"herdr-lane: {exc}\n")
+
+
+if __name__ == "__main__":
+    main()

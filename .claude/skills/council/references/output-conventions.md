@@ -163,7 +163,7 @@ the harness profile's preference (`SKILL.md` § Coordinator):
 ```json
 "coordinator": {
   "harness": "claude-code",
-  "requested_model": "claude-opus-5",
+  "requested_model": "claude-opus-5-5",
   "observed_model": null,
   "observation": "unverified",
   "voting": false
@@ -212,8 +212,7 @@ several downstream tools key off these exact names.
 
 Every declared member output MUST have a sibling at
 `<output>.provenance.json`. The Council Facilitator writes the sibling,
-not the member model and not the orchestrator by hand. Current-contract
-schema:
+not the member model and not the orchestrator by hand. Synthetic example of the current contract:
 
 ```json
 {
@@ -224,7 +223,7 @@ schema:
   "genesis_sha256": "sha256-of-anchored-genesis",
   "prev_verdict_sha256": null,
   "member": "claude",
-  "declared_model": "anthropic/claude-fable-5.1 (OpenRouter, effort=xhigh)",
+  "declared_model": "anthropic/claude-fable-5.2 (OpenRouter, effort=xhigh)",
   "substrate": "openrouter",
   "endpoint": "https://openrouter.ai/api/v1/chat/completions",
   "request": {
@@ -241,7 +240,7 @@ schema:
       "http_status": 200,
       "outcome": "success",
       "outcome_reason": "success",
-      "model_field": "anthropic/claude-fable-5.1-20260831",
+      "model_field": "anthropic/claude-fable-5.2-20261109",
       "content_length": 12345,
       "content_sha256": "sha256",
       "usage": {
@@ -275,8 +274,8 @@ schema:
     "verification": {
       "result": "PASS",
       "match_kind": "semantic",
-      "declared": "anthropic/claude-fable-5.1 (OpenRouter, effort=xhigh)",
-      "observed": "anthropic/claude-fable-5.1-20260831",
+      "declared": "anthropic/claude-fable-5.2 (OpenRouter, effort=xhigh)",
+      "observed": "anthropic/claude-fable-5.2-20261109",
       "model_identity_source": "provider_response"
     },
     "effort_verification": {
@@ -364,14 +363,14 @@ appends one section per gate invocation (Step 1, 2, 3, 4, plus each
 tie-break recursion round); the file grows over the lifetime of the
 run.
 
-Schema for each section:
+Synthetic example of each section:
 
 ```markdown
 ### Step {N} · r{R} · {ISO-8601 UTC timestamp}
 
 | Member  | Substrate                 | Declared model                                           | Observed model                    | Verification mechanism      | Result | Notes |
 | ------- | ------------------------- | -------------------------------------------------------- | --------------------------------- | --------------------------- | ------ | ----- |
-| claude  | OpenRouter                 | anthropic/claude-fable-5.1 (OpenRouter, effort=xhigh)   | anthropic/claude-fable-5.1-20260831 | Response body `model` field | PASS   | —     |
+| claude  | OpenRouter                 | anthropic/claude-fable-5.2 (OpenRouter, effort=xhigh)   | anthropic/claude-fable-5.2-20261109 | Response body `model` field | PASS   | —     |
 | gemini  | OpenRouter                 | google/gemini-3.8-flash (OpenRouter, effort=high)       | google/gemini-3.8-flash-20260902    | Response body `model` field | PASS   | —     |
 | gpt     | OpenRouter (OpenAI-pinned) | openai/gpt-6-astra (OpenRouter, via openai, effort=max) | openai/gpt-6-astra-20260903         | Response body `model` field | PASS   | —     |
 | kimi    | OpenRouter (provider pin)  | moonshotai/kimi-k3 (OpenRouter, effort=max)             | moonshotai/kimi-k3                  | Response body `model` field | PASS   | —     |
@@ -402,7 +401,7 @@ Field rules:
   used (e.g. `Cache Explorer turn N`, `OTLP log file: <path>:<line>`,
   `Response body \`model\` field`).
 - **Result** — `PASS` (declared model and observed model match
-  semantically — e.g. `"anthropic/claude-fable-5.1 (OpenRouter, effort=xhigh)"` matches a response-body `model: "anthropic/claude-fable-5.1-20260831"`; `"openai/gpt-6-astra (OpenRouter, via openai, effort=max)"`
+  semantically — e.g. `"anthropic/claude-fable-5.2 (OpenRouter, effort=xhigh)"` matches a response-body `model: "anthropic/claude-fable-5.2-20261109"`; `"openai/gpt-6-astra (OpenRouter, via openai, effort=max)"`
   matches a response body `model: "openai/gpt-6-astra-20260903"`), `FAIL`
   (declared and observed mismatch), or `UNVERIFIABLE` (the
   verification mechanism is unavailable in this session).

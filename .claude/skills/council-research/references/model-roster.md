@@ -17,7 +17,7 @@ specifics (multi-phase locking, Phase-1 invocation order, etc.).
 
 | Member short name | Subagent file                                    | Canonical OpenRouter model / effort                    | Context   | Phases participated           |
 | ----------------- | ------------------------------------------------ | ------------------------------------------------------ | --------- | ----------------------------- |
-| `claude`          | `.claude/agents/council-member-claude.agent.md`  | `anthropic/claude-fable-5.1`, effort=`xhigh` (Fable 5.1 since 2026-09-09)                                                  | 1,000,000 | 1, 3, 4                       |
+| `claude`          | `.claude/agents/council-member-claude.agent.md`  | `anthropic/claude-fable-5.2`, effort=`xhigh` (Fable 5.2 since 2026-11-19)                                                  | 1,000,000 | 1, 3, 4                       |
 | `gemini`          | `.claude/agents/council-member-gemini.agent.md`  | `google/gemini-3.8-flash`, effort=`high`                                                                             | 1,048,576 | 1, 3, 4                       |
 | `gpt`             | `.claude/agents/council-member-gpt.agent.md`     | `openai/gpt-6-astra`, OpenAI provider, effort=`max` (GPT-6 Astra at the highest effort, operator direction 2026-09-09)     | 1,050,000 | 1, 3, 4                       |
 | `kimi`            | `.claude/agents/council-member-kimi.agent.md`    | `moonshotai/kimi-k3`, effort=`max`, provider pin modal → sail-research → together → moonshotai (no fallbacks; 2026-09-08) | 1,048,576 | 1, 3, 4 (required) |
@@ -34,7 +34,7 @@ Every member is invoked through the Council Facilitator
 (`scripts/council-invoke.ts`). Two substrates are available, locked at Setup:
 
 - **OpenRouter (default; explicit `--provider openrouter`)** — one
-  `OPENROUTER_API_KEY` covers all five individually pinned seats. Fable 5.1
+  `OPENROUTER_API_KEY` covers all five individually pinned seats. Fable 5.2
   requests effort=`xhigh` (not `max`: on bounded corpora `max` over-thinks
   into empty envelopes); GPT-6 Astra requests effort=`max` — the operator's
   2026-09-09 direction ("the highest reasoning level we can get from
@@ -53,7 +53,7 @@ Every member is invoked through the Council Facilitator
   when the key is absent; it never silently reroutes.
 - **Direct-API (`--provider direct`)** — per-provider keys
   (`ANTHROPIC_API_KEY`, `AZURE_AI_API_KEY`, `GOOGLE_AI_API_KEY`); explicit
-  maximum-independence fallback, retaining the prior provider recipes.
+  maximum-independence fallback. The Claude recipe uses `claude-fable-5-2` at `high`.
 
 Both routes emit the same attestation tier
 (`local_capture_provider_attested`); see

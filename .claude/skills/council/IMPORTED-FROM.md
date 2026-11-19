@@ -43,7 +43,7 @@ phrasing to be about Rasteratops"*):
 4. `.claude/agents/council-member-mistral.agent.md`: one historical line names a
    placeholder host instead of the source estate's Foundry.
 5. The skill, shared references and member instructions describe only the installed
-   five-seat council (D-WORKFLOW-135): Claude Fable 5.1, Gemini 3.8 Flash, GPT-6 Astra,
+   five-seat council (D-WORKFLOW-135, D-WORKFLOW-198): Claude Fable 5.2, Gemini 3.8 Flash, GPT-6 Astra,
    Kimi K3 and Muse Spark 1.3. The imported evaluation instructions are removed.
    Inactive member files remain as historical recipe records required by the
    imported pin verifier; they explicitly forbid invocation here. Runtime profiles,

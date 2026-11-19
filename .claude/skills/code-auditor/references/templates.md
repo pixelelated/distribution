@@ -98,7 +98,7 @@ reviewer; Milestone blind then refutation, Epic refutation].
 second-opinions/<member>-brief.md --output second-opinions/<member>-audit.md`;
 Milestone blind pass first. **Identity:** selected pin, declared and observed
 model, PASS, successful outcome and output digest from each Facilitator receipt.
-**Effort:** the installed recipe (Fable xhigh; Astra max).
+**Effort:** the installed recipe (Fable 5.2 at xhigh, Astra at max).
 
 `second-opinions/review-plan.json` (Codex-led Milestone example; primary model
 may be `unknown` if its lab is established, with the evidence source stated):
@@ -115,7 +115,7 @@ may be `unknown` if its lab is established, with the evidence source stated):
   },
   "reviewers": [{
     "member": "claude",
-    "model": "anthropic/claude-fable-5.1",
+    "model": "anthropic/claude-fable-5.2",
     "lab": "anthropic",
     "effort": "xhigh",
     "calls": [

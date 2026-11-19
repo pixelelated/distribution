@@ -21,6 +21,12 @@ their `paths:` globs. Both files carry the same facts and are kept equal by
 the rule files' own front matter. When something here and a rule file disagree, the rule
 file is right and this file has a bug.
 
+**Lane models and account handoff:** For both workspaces, Codex coordinators use
+`gpt-6.2-astra`, workers use `gpt-6.2-sol`, and both use `xhigh`. Preserve
+the selected Claude tier with Fable 5.2 or Opus 5.5. Before opening a tab or
+resuming a thread, read `docs/lane-models-and-account-handoff.md` and use
+`tools/herdr-lane` on canonical `next` (D-WORKFLOW-198).
+
 **Standing host build/test authority:** D-WORKFLOW-196 authorizes routine host
 source preparation/assembly, builds and isolated tests within existing admission,
 resource and worktree rules. Read `.claude/rules/device-builds.md` ("Standing host

@@ -4,10 +4,10 @@
   "note": "Seeded by the scaffold corpus (class: adapted) with the sha256 of each corpus-shipped council verifier at the corpus version that delivered it. Repo-owned from the first seed: a repo that carries local verifiers (run-ledger lints, seal writers) pins them here too, and once it does \u2014 deleting the seeder's $adapt-me key \u2014 the cascade preserves this file and the repo re-pins moved corpus verifiers itself, with a reason. An unadapted copy refreshes with every cascade, so its pins track the corpus without hand work. The corpus manifest checksum is the fleet-wide pin of the same bytes; this file is the run-time working-tree gate (scripts/verify-pins.ts, run at council Setup).",
   "pins": {
     "scripts/council-invoke.ts": {
-      "sha": "15275395949e8e29a244b1cf487bbd292c8360bb0e5aaaadbcbe0fa52ec4dc94",
-      "repinned_at": "2026-10-04T02:00:09.903237Z",
-      "repinned_by": "blitterbot",
-      "repin_reason": "D-WORKFLOW-144, #409: update only the project organization URLs/remote scope to pixelelated. Model roster, efforts, verification and evidence contracts are unchanged."
+      "sha": "8a8fc189ab55cd57ef590a6d2cd15da128f468af504cffab70d307bdb7e3e61c",
+      "repinned_at": "2026-11-19T20:34:02.961478+00:00",
+      "repinned_by": "OS coordinator, #1438",
+      "repin_reason": "November 19 Claude model policy: update Fable within its tier, preserve route efforts, omit unsupported sampling, and verify the exact served identities."
     },
     "scripts/lib/council-verification.ts": {
       "sha": "4e8ad4fbdf56b9844b4f5de2af289f429f0b942249693a1130867a5fc440b79c",
@@ -94,10 +94,10 @@
       "repinned_by": "forge-automation"
     },
     "council-seat-efforts.json": {
-      "sha": "7f2b618bc2058eb4772a319f797cd9fc56a44d5baaec511f5bfbc8cf6d6892a0",
-      "repin_reason": "scaffold#917: the Facilitator records the provider OpenRouter names as serving each call (served_provider on every attempt, final.provider_verification) and fails a pinned seat served outside its pin (provider_mismatch_no_retry, exit 7). The roster commits to each pin's served providers, checked against the catalogue endpoint lists now in council-seat-efforts.json; the run lint and preflight require the evidence. Facilitator 1.13.0, shipped with #915's roster in one release.",
-      "repinned_at": "2026-09-28T05:12:43.375Z",
-      "repinned_by": "forge-automation"
+      "sha": "52b40793e88b5b8832826583d409e4cca5d2073d02e8d738ca9425525f9146bb",
+      "repin_reason": "November 19 Claude model policy: verify the Fable 5.2 catalogue effort, completion ceiling and endpoint set without refreshing other seats.",
+      "repinned_at": "2026-11-19T20:34:02.961525+00:00",
+      "repinned_by": "OS coordinator, #1438"
     },
     "scripts/forge-write-status.mjs": {
       "sha": "33dd5225549e5f413c0f30397376ce6d4f8d176b0bdbc443fe8c5ba1e553531f",
@@ -106,10 +106,10 @@
       "repin_reason": "rocknix D-WORKFLOW-088/089: no longer imported by run-start here; its default host and custody path are placeholders (forge.example.invalid, ~/.config/rasteratops/forge-ops-token) so the file carries no word from the fork's wordlist; logic unchanged. Previous: Remove an unused local path binding so the canonical ordinary-council closure passes the consumer lint without an exemption; no credential, identity or write be"
     },
     ".claude/agents/council-member-claude.agent.md": {
-      "sha": "dce34ed4cb3b864d6dd492d9cb273365d25c5addd92b582232516c3a77f124eb",
-      "repin_reason": "Rasteratops #372, D-WORKFLOW-135: remove imported fifth-seat evaluation guidance; describe the installed five seats and mark other recipes inactive. Model declarations and runtime recipes are unchanged.",
-      "repinned_at": "2026-10-02T03:39:39Z",
-      "repinned_by": "Codex (Rasteratops orchestrator)"
+      "sha": "10b8a5ee3dc625f9c5b51dbed7ab530976f55e94e63837ccc6bce77d92436786",
+      "repin_reason": "November 19 Claude model policy: bind the agent declaration to the Fable 5.2 Facilitator recipe and its exact served identity.",
+      "repinned_at": "2026-11-19T20:34:02.961547+00:00",
+      "repinned_by": "OS coordinator, #1438"
     },
     ".claude/agents/council-member-gemini.agent.md": {
       "sha": "7b19b9269406691aad141fbabe70c4ab0dd6f6af42f90acd83fb55e72d4ed5c5",
