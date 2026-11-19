@@ -411,7 +411,7 @@ test("five pins, requests, agent declarations, and catalog agree without SDKs or
       });
       assert.equal(body.model, seat.slug);
       assert.equal(body.models, undefined);
-      assert.equal(body.temperature, 0.3);
+      assert.equal(body.temperature, member === "claude" ? undefined : 0.3);
       assert.deepEqual(body.provider, seat.provider);
       assert.equal(body.reasoning?.effort, seat.effort === "none" ? undefined : seat.effort);
       // SSE-enabled recipes must request streaming, not merely select its parser.
@@ -451,7 +451,7 @@ test("consumers use current recipe model matchers, including provider and build 
       );
   }
   assert.equal(
-    openRouterModelMatches("anthropic/claude-fable-5.1", "anthropic/claude-fable-5"),
+    openRouterModelMatches(roster.members.claude.slug, "anthropic/claude-fable-5.1-20260831"),
     false
   );
   assert.equal(

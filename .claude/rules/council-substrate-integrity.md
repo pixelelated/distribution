@@ -108,6 +108,16 @@ repinned_at }` with a non-empty reason and a fresh timestamp in the
    stash — that is the `stale_blob_regression` signature; if a revert
    is genuinely intended, record it in `.stale-blob-allowlist`.
 
+## Current Claude identities
+
+For new Facilitator calls, the Claude seat requests `anthropic/claude-fable-5.2`
+at `xhigh` on OpenRouter. The response must report that exact ID or
+`anthropic/claude-fable-5.2-20261109`. The explicit Anthropic direct recipe
+requests and verifies `claude-fable-5-2` at its existing `high` setting.
+Use Claude Opus 5.5 for Opus-level work (`claude-opus-5-5` in the native
+catalogue). Record the actual runtime identity separately from the preference.
+Historical contracts continue to be verified against their own evidence.
+
 ## Why this rule exists
 
 The R8 vocabulary-research council-research run (2026-05-27,

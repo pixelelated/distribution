@@ -50,7 +50,7 @@ Those are verification processes, not substitutes for a requested adversarial co
 
 An ordinary independent code audit has the primary auditor plus one external
 reviewer from a different model lab; an explicitly extended audit adds a third
-lab. OpenAI-led audits prefer pinned Fable 5.1; Anthropic-led audits prefer
+lab. OpenAI-led audits prefer pinned Fable 5.2; Anthropic-led audits prefer
 pinned GPT-6 Astra. The two milestone passes are calls, not extra seats. Follow
 [code-auditor review levels](../skills/code-auditor/references/review-levels.md)
 and record the actual primary/reviewer identities. Unknown identity or an
@@ -74,11 +74,14 @@ skill family ships; #136 extends the same floor to CI review agents):
 
 | Seat | Required model | Effort | Context | Routing |
 | --- | --- | --- | ---: | --- |
-| Claude | `anthropic/claude-fable-5.1` | `xhigh` | 1,000,000 | One pinned slug; no cross-model fallback. `xhigh`, not `max`: on bounded corpora `max` over-thinks into empty envelopes |
+| Claude | `anthropic/claude-fable-5.2` | `xhigh` | 1,000,000 | Canonical served build `anthropic/claude-fable-5.2-20261109`. Keep the selected `xhigh` effort and same-model routing |
 | GPT | `openai/gpt-6-astra` | `max` | 1,050,000 | OpenRouter provider pinned to OpenAI; `allow_fallbacks: false`. `max` is the operator's 2026-09-09 direction; `openai/gpt-6-astra-pro` is the recorded escalation |
 
 - **Deprecated:** Claude Opus 4.8 and GPT-5.5 must not occupy these seats; Claude Fable 5 and
   GPT-5.6 Sol retired from them on 2026-09-09 (scaffold#562).
+- Opus-level work uses Claude Opus 5.5 (`claude-opus-5-5` natively). The Claude
+  council seat and the usual Anthropic reviewer for OpenAI-led audits use the
+  Fable tier.
 - Each invocation must capture the served model from the provider response and pass the
   council's semantic identity gate before its output becomes input to the next stage.
 - For a formal council run, all five seats are required. A missing or mismatched seat halts advancement for

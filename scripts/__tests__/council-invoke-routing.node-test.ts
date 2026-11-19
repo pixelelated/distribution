@@ -212,10 +212,8 @@ for (const transport of ["buffered", "sse"] as const) {
         `// Test-only transport: no network or usable credentials.\nlet calls=0;\nglobalThis.fetch=async (url)=>{\nif(String(url)!=='https://openrouter.ai/api/v1/chat/completions'||++calls!==1) throw new Error('Unexpected fixture dispatch');\nreturn new Response(${JSON.stringify(body)}, {status:${status}, headers:{'content-type':${JSON.stringify(transport === "sse" && status === 200 ? "text/event-stream" : "application/json")}}});\n};\n`
       );
       const result = spawnSync(
-        "npx",
+        process.execPath,
         [
-          "--offline",
-          "tsx",
           "--import",
           pathToFileURL(preload).href,
           "scripts/council-invoke.ts",
@@ -386,7 +384,7 @@ test("provider gate: an unpinned seat records its served provider as NOT_PINNED,
   ] as const) {
     t.mock.method(globalThis, "fetch", async () =>
       Response.json({
-        model: "anthropic/claude-fable-5.1-20260831",
+        model: "anthropic/claude-fable-5.2-20261109",
         ...(served ? { provider: served } : {}),
         choices: [{ message: { content: "Synthetic" }, finish_reason: "stop" }],
         usage: {
@@ -420,6 +418,111 @@ test("provider gate: an unpinned seat records its served provider as NOT_PINNED,
       observed_providers: served ? [served] : [],
     });
     assert.equal(receipt.attempts[0].served_provider, served ?? null);
+  }
+});
+
+describe("Fable 5.2 dispatch uses and verifies the exact selected identities", () => {
+  const scenarios = [
+    {
+      provider: "openrouter",
+      endpoint: "https://openrouter.ai/api/v1/chat/completions",
+      requested: "anthropic/claude-fable-5.2",
+      tokens: 128000,
+      cases: [
+        ["anthropic/claude-fable-5.2-20261109", 0, "PASS"],
+        ["anthropic/claude-fable-5.2", 0, "PASS"],
+        ["anthropic/claude-fable-5.2-20991231", 3, "FAIL"],
+        ["anthropic/claude-fable-5.2-fast", 3, "FAIL"],
+        ["anthropic/claude-fable-5.1-20260831", 3, "FAIL"],
+        ["anthropic/claude-opus-5.5-20260921", 3, "FAIL"],
+        [null, 6, "UNVERIFIABLE"],
+      ],
+    },
+    {
+      provider: "direct",
+      endpoint: "https://api.anthropic.com/v1/messages",
+      requested: "claude-fable-5-2",
+      tokens: 32768,
+      cases: [
+        ["claude-fable-5-2", 0, "PASS"],
+        ["claude-fable-5-2-20261109", 3, "FAIL"],
+        ["claude-fable-5-1", 3, "FAIL"],
+        ["claude-opus-5-5", 3, "FAIL"],
+        [null, 6, "UNVERIFIABLE"],
+      ],
+    },
+  ] as const;
+
+  for (const route of scenarios) {
+    for (const [observed, expectedExit, verdict] of route.cases) {
+      it(`${route.provider}: ${observed ?? "missing identity"} yields ${verdict}`, async (t) => {
+        await mkdir(join(process.cwd(), ".work"), { recursive: true });
+        const directory = await mkdtemp(join(process.cwd(), ".work", "fable-52-"));
+        t.after(() => rm(directory, { recursive: true, force: true }));
+        const key = route.provider === "direct" ? "ANTHROPIC_API_KEY" : "OPENROUTER_API_KEY";
+        const prior = process.env[key];
+        process.env[key] = "synthetic-fable-fixture";
+        t.after(() => {
+          if (prior === undefined) delete process.env[key];
+          else process.env[key] = prior;
+        });
+        const content = "Synthetic review.\n";
+        let calls = 0;
+        t.mock.method(globalThis, "fetch", async (url: string | URL, request: RequestInit) => {
+          calls++;
+          assert.equal(String(url), route.endpoint);
+          const body = JSON.parse(String(request.body));
+          assert.equal(body.model, route.requested);
+          assert.equal(body.max_tokens, route.tokens);
+          assert.equal("models" in body, false);
+          assert.equal("temperature" in body, false);
+          if (route.provider === "direct") {
+            assert.deepEqual(body.thinking, { type: "adaptive" });
+            assert.deepEqual(body.output_config, { effort: "high" });
+            return Response.json({
+              model: observed,
+              content: [{ type: "text", text: content }],
+              stop_reason: "end_turn",
+              usage: { input_tokens: 3, output_tokens: 4 },
+            });
+          }
+          assert.deepEqual(body.reasoning, { effort: "xhigh" });
+          assert.equal("provider" in body, false);
+          return Response.json({
+            model: observed,
+            provider: "Anthropic",
+            choices: [{ message: { content }, finish_reason: "stop" }],
+            usage: {
+              prompt_tokens: 3, completion_tokens: 4, total_tokens: 7,
+              completion_tokens_details: { reasoning_tokens: 2 },
+            },
+          });
+        });
+        const output = join(directory, "review.md");
+        const exit = await runCouncilInvocation([
+          "--member", "claude", "--provider", route.provider, "--prompt", "Synthetic review",
+          "--output", output, "--max-retries", "0",
+        ]);
+        assert.equal(exit, expectedExit);
+        assert.equal(calls, 1);
+        const receipt = JSON.parse(await readFile(output + ".provenance.json", "utf8"));
+        assert.equal(receipt.final.verification.result, verdict);
+        assert.equal(receipt.final.verification.observed, observed);
+        if (expectedExit === 0) {
+          assert.equal(receipt.final.verification.model_identity_source, "provider_response");
+          assert.equal(await readFile(output, "utf8"), content);
+        } else if (verdict === "FAIL") {
+          assert.equal(receipt.final.outcome, "model_mismatch_no_retry");
+          await assert.rejects(readFile(output), { code: "ENOENT" });
+        } else {
+          // An unbound invocation retains content for diagnosis. Exit 6 and
+          // UNVERIFIABLE prevent this artifact from qualifying as a review.
+          assert.equal(receipt.final.verification.match_kind, "none");
+          assert.equal(Object.hasOwn(receipt.final.verification, "model_identity_source"), false);
+          assert.equal(await readFile(output, "utf8"), content);
+        }
+      });
+    }
   }
 });
 
@@ -515,7 +618,7 @@ function invokeWithEnv(
   status: number | null;
   stderr: string;
 } {
-  const result = spawnSync("npx", ["tsx", "scripts/council-invoke.ts", ...args], {
+  const result = spawnSync(process.execPath, ["scripts/council-invoke.ts", ...args], {
     cwd: repoRoot,
     encoding: "utf8",
     env: {
@@ -743,9 +846,9 @@ describe("OPENROUTER_RECIPES — per-seat pin, effort, identity", () => {
   // Converged as one fleet table in the scaffold corpus (scaffold#571).
   const expected = {
     claude: {
-      slug: "anthropic/claude-fable-5.1",
+      slug: "anthropic/claude-fable-5.2",
       effort: "xhigh" as const,
-      observed: "anthropic/claude-fable-5.1-20260831",
+      observed: "anthropic/claude-fable-5.2-20261109",
     },
     gemini: {
       slug: "google/gemini-3.8-flash",
@@ -784,7 +887,7 @@ describe("OPENROUTER_RECIPES — per-seat pin, effort, identity", () => {
       if (exp.effort) assert.deepEqual(body.reasoning, { effort: exp.effort });
       else assert.equal("reasoning" in body, false);
     });
-    it(`${seat}: modelMatches accepts its live-observed echo`, () => {
+    it(`${seat}: modelMatches accepts its catalogue or observed echo`, () => {
       assert.equal(recipe.modelMatches(exp.observed), true);
     });
   }

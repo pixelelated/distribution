@@ -1,10 +1,10 @@
 {
   "schema_version": "council-seat-efforts@1.0.0",
-  "note": "Pinned snapshot of each council seat's model and the reasoning efforts that model accepts. Refresh with `npx tsx scripts/lint-council-seat-efforts.ts --refresh` (needs OPENROUTER_API_KEY); validate with the same script (no network). Exists because the gemini seat carried effort=xhigh against a model supporting only high/medium/low from 2026-07-11 to 2026-08-27 and nothing caught it.",
+  "note": "Pinned snapshot of each council seat's model and the reasoning efforts that model accepts. Refresh with `npx tsx scripts/lint-council-seat-efforts.ts --refresh` (needs OPENROUTER_API_KEY); validate with the same script (no network). Exists because the gemini seat carried effort=xhigh against a model supporting only high/medium/low from 2026-07-11 to 2026-08-27 and nothing caught it. The Fable 5.2 row alone was refreshed on 2026-11-19 from the public model and endpoint catalogues.",
   "refreshed_at": "2026-09-28T05:09:37Z",
   "refreshed_from": "https://openrouter.ai/api/v1/models",
   "models": {
-    "anthropic/claude-fable-5.1": {
+    "anthropic/claude-fable-5.2": {
       "supported_efforts": [
         "max",
         "xhigh",
@@ -17,11 +17,11 @@
       "max_completion_tokens": 128000,
       "endpoints": [
         {
-          "tag": "amazon-bedrock",
-          "provider_name": "Amazon Bedrock"
+          "tag": "anthropic",
+          "provider_name": "Anthropic"
         },
         {
-          "tag": "anthropic",
+          "tag": "anthropic/fast",
           "provider_name": "Anthropic"
         },
         {

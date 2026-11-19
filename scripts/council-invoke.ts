@@ -841,7 +841,7 @@ const BEDROCK_MISTRAL_LARGE3_MODEL = "mistral.mistral-large-3-675b-instruct";
 // final.provider_verification, and fails a pinned seat served outside its pin
 // (provider_mismatch_no_retry, exit 7; scaffold#917). It ships with 1.12.0's roster in one release.
 // 1.14.0 preserves all provider observations and refuses unbound staged reconciliation (#943).
-export const FACILITATOR_VERSION = "council-facilitator@1.14.0";
+export const FACILITATOR_VERSION = "council-facilitator@1.15.0";
 
 function openRouterMistralModel(): string {
   const configured = process.env.OPENROUTER_MISTRAL_MODEL?.trim();
@@ -852,6 +852,10 @@ function bedrockMistralRegion(): string {
   return process.env.BEDROCK_MISTRAL_REGION?.trim() || process.env.AWS_REGION?.trim() || "";
 }
 
+const CLAUDE_FABLE_DIRECT = "claude-fable-5-2";
+const CLAUDE_FABLE_OPENROUTER = "anthropic/claude-fable-5.2";
+const CLAUDE_FABLE_CANONICAL = "anthropic/claude-fable-5.2-20261109";
+
 const MEMBERS: Record<DirectMemberId, MemberRecipe> = {
   // -----------------------------------------------------------------------
   // claude — Anthropic Messages API direct
@@ -859,14 +863,10 @@ const MEMBERS: Record<DirectMemberId, MemberRecipe> = {
   claude: {
     id: "claude",
     substrate: "anthropic-direct",
-    declaredModel: "claude-fable-5-1 (anthropic-direct, adaptive-thinking, effort=high)",
+    declaredModel: `${CLAUDE_FABLE_DIRECT} (anthropic-direct, adaptive-thinking, effort=high)`,
     requiredEnv: ["ANTHROPIC_API_KEY"],
-    // Direct fallback moved Opus 4.8 -> Fable 5.1 (user-directed, 2026-09-03,
-    // pfi-collaboration) so the fallback seats the same model as the OpenRouter
-    // route. Adaptive thinking at effort=high draws thinking tokens from the
-    // SAME max_tokens pool as visible output. Starting low (8192/16384)
-    // truncates the corpus before completion (stop_reason=max_tokens). Fable 5.1
-    // supports 128k max output, so we start at a real-headroom value and escalate.
+    // The direct route uses the same Fable tier as OpenRouter. Keep its high
+    // effort and existing budget: adaptive thinking shares max_tokens with text.
     defaultMaxTokens: 32768,
     maxTokensCeiling: 65536,
     endpoint: () => "https://api.anthropic.com/v1/messages",
@@ -877,7 +877,7 @@ const MEMBERS: Record<DirectMemberId, MemberRecipe> = {
     }),
     buildBody: ({ userPrompt, systemPrompt, maxTokens }) => {
       const body: Record<string, unknown> = {
-        model: "claude-fable-5-1",
+        model: CLAUDE_FABLE_DIRECT,
         thinking: { type: "adaptive" },
         output_config: { effort: "high" },
         max_tokens: maxTokens,
@@ -897,8 +897,7 @@ const MEMBERS: Record<DirectMemberId, MemberRecipe> = {
         .join("");
     },
     extractModelField: (r: unknown) => asString(field(r, "model")),
-    modelMatches: (observed: string) =>
-      observed === "claude-fable-5-1" || observed.startsWith("claude-fable-5-1-"),
+    modelMatches: (observed: string) => observed === CLAUDE_FABLE_DIRECT,
     wasTruncated: (r: unknown) => field(r, "stop_reason") === "max_tokens",
   },
 
@@ -1165,7 +1164,7 @@ const MISTRAL_BEDROCK_RECIPE: MemberRecipe = {
 // max_tokens is uniform — OpenRouter normalizes it to each provider's param
 // (e.g. GPT-5.x max_completion_tokens). Each seat also requests its MAXIMUM
 // reasoning effort via OpenRouter's unified reasoning.effort knob (`max` for
-// GPT-6 Astra and Kimi K3; `xhigh` for Fable 5.1, whose 128k output cap `max`
+// GPT-6 Astra and Kimi K3; `xhigh` for Fable 5.2, whose 128k output cap `max`
 // would risk; `high` for Gemini, its advertised ceiling); non-reasoning models
 // omit it.
 //
@@ -1248,9 +1247,13 @@ export interface OpenRouterSeat {
  * model (`gpt-5.5-pro` vs `gpt-5.5`, a `-fast`/`-mini` variant, or a different
  * version digit) leaves a missing pin token or a non-numeric leftover and is
  * correctly REJECTED — the pin can only be satisfied by the same model (any
- * ordering, any re-dated build), never a different one.
+ * ordering, any re-dated build), never a different one. The current Fable seat
+ * uses the two exact public catalogue identities below.
  */
 export function openRouterModelMatches(slug: string, observed: string): boolean {
+  if (slug === CLAUDE_FABLE_OPENROUTER) {
+    return observed === CLAUDE_FABLE_OPENROUTER || observed === CLAUDE_FABLE_CANONICAL;
+  }
   const norm = (s: string) => s.toLowerCase().trim();
   if (norm(slug) === norm(observed)) return true;
   const parts = (s: string): { provider: string; tokens: string[] } => {
@@ -1310,7 +1313,8 @@ function openRouterRecipe(id: MemberId, seat: OpenRouterSeat): MemberRecipe {
         model: slug,
         messages,
         max_tokens: maxTokens,
-        temperature: 0.3,
+        // Fable 5.2 endpoints do not support a sampling override.
+        ...(slug === CLAUDE_FABLE_OPENROUTER ? {} : { temperature: 0.3 }),
       };
       // Request the seat's maximum reasoning effort via OpenRouter's unified
       // reasoning.effort knob (mapped to each provider's native param).
@@ -1402,7 +1406,10 @@ export const OPENROUTER_SEATS: Record<
   // the source estate (#4453) and the scaffold corpus 3.37.4; converged here as the
   // one fleet table in the scaffold corpus (scaffold#571).
   claude: {
-    slug: "anthropic/claude-fable-5.1",
+    // 2026-11-19: upgrade within the assigned Fable tier. The public catalogue
+    // and endpoints agree on the canonical build, xhigh support, 1M context
+    // and 128000 completion tokens. Keep the existing provider-routing policy.
+    slug: CLAUDE_FABLE_OPENROUTER,
     effort: "xhigh",
     maxOutputTokens: 128000,
   },

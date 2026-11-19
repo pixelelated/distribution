@@ -1,0 +1,71 @@
+{
+  "decision": "D-WORKFLOW-198",
+  "issue": 1438,
+  "models": {
+    "fable": {
+      "native_id": "claude-fable-5-2",
+      "openrouter_request_id": "anthropic/claude-fable-5.2",
+      "openrouter_canonical_slug": "anthropic/claude-fable-5.2-20261109",
+      "context": 1000000,
+      "completion_limit": 128000,
+      "openrouter_effort": "xhigh",
+      "direct_effort": "high",
+      "direct_default": 32768,
+      "direct_ceiling": 65536
+    },
+    "opus": {
+      "native_id": "claude-opus-5-5",
+      "openrouter_request_id": "anthropic/claude-opus-5.5",
+      "openrouter_canonical_slug": "anthropic/claude-opus-5.5-20260921",
+      "context": 1000000,
+      "completion_limit": 128000,
+      "usage": "Opus-level instructions. The council Claude seat stays Fable."
+    }
+  },
+  "offline_checks": {
+    "routing_and_seat_efforts": {
+      "passed": 140,
+      "exit": 0
+    },
+    "toolchain": {
+      "passed": 39,
+      "exit": 0
+    },
+    "audit_review": {
+      "passed": 19,
+      "exit": 0
+    },
+    "strict_seat_lint": {
+      "checked": 7,
+      "exit": 0
+    },
+    "verify_pins": {
+      "exit": 0
+    }
+  },
+  "launcher": {
+    "run": "tools/herdr-lane-test",
+    "matrix": "12 role/tier/fresh/resume combinations and refusal cases",
+    "inference_calls": 0
+  },
+  "rollout": {
+    "source": "November 19 one-on-one steward, independently reported",
+    "workspace_ids": [
+      "w4",
+      "wN"
+    ],
+    "original_threads_and_worktrees": 15,
+    "codex_astra_coordinators": 3,
+    "codex_sol_workers": 12,
+    "effort": "xhigh",
+    "idle_clients_refreshed_by_steward": 13,
+    "active_coordinators_read_from_native_turn_context": 2,
+    "codex_review": [
+      "workspace-write",
+      "on-request",
+      "auto_review"
+    ],
+    "live_claude_lanes": 0
+  },
+  "verification": "Native identifiers checked in Claude Code 2.1.328. Public catalogue metadata and mocked Facilitator request/response checks. No paid review."
+}

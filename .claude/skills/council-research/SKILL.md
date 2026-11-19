@@ -12,9 +12,11 @@ agents:
     council-member-muse,
     Researcher Agent,
   ]
-# Single-element prioritized list — see `.claude/skills/council/references/model-verification.md`.
+# Single-element Copilot profile. Claude Code and Codex use the session model.
+# For native Opus and Codex coordinator defaults, see the council skill.
+# See `.claude/skills/council/references/model-verification.md`.
 model:
-  - "Claude Opus 4.8 (copilot)"
+  - "Claude Opus 5.5 (copilot)"
 argument-hint: "Describe the research topic that needs multi-agent input diversity AND fresh research"
 metadata:
   version: 1.9.1

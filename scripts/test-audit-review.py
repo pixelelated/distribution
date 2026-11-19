@@ -21,7 +21,7 @@ class ReviewEvidence(unittest.TestCase):
             'schema_version': 1, 'depth': 'independent',
             'primary': {'harness': 'test', 'model': 'openai/gpt-6-astra',
                         'lab': 'openai', 'identity_source': 'offline test fixture'},
-            'reviewers': [self.reviewer('claude', 'anthropic', 'claude-fable-5.1', 'xhigh')],
+            'reviewers': [self.reviewer('claude', 'anthropic', 'claude-fable-5.2', 'xhigh')],
         }
 
     def reviewer(self, member, lab, name, effort):
@@ -62,7 +62,7 @@ class ReviewEvidence(unittest.TestCase):
         self.assertEqual([], self.errors())
 
     def test_anthropic_primary_openai_reviewer(self):
-        self.plan['primary'].update(lab='anthropic', model='anthropic/claude-fable-5.1')
+        self.plan['primary'].update(lab='anthropic', model='anthropic/claude-fable-5.2')
         self.plan['reviewers'] = [self.reviewer('gpt', 'openai', 'gpt-6-astra', 'max')]
         self.assertEqual([], self.errors())
 
@@ -98,11 +98,11 @@ class ReviewEvidence(unittest.TestCase):
 
     def test_dated_alias_after_semantic_verification(self):
         self.corrupt_receipt(lambda r: r['final']['verification'].update(
-            observed='anthropic/claude-fable-5.1-20260831'))
+            observed='anthropic/claude-fable-5.2-20261109'))
         self.assertEqual([], self.errors())
 
     def test_gpt_outside_provider_pin(self):
-        self.plan['primary'].update(lab='anthropic', model='anthropic/claude-fable-5.1')
+        self.plan['primary'].update(lab='anthropic', model='anthropic/claude-fable-5.2')
         self.plan['reviewers'] = [self.reviewer('gpt', 'openai', 'gpt-6-astra', 'max')]
         f = self.root / 'gpt-blind.md.provenance.json'
         r = json.loads(f.read_text())

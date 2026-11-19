@@ -18,7 +18,7 @@ agents:
 # skill on the harness session's own model (§ Coordinator below); a profile here
 # cannot switch the host's model, and the run manifest records what actually ran.
 model:
-  - "Claude Fable 5.1 (copilot)"
+  - "Claude Fable 5.2 (copilot)"
 argument-hint: "Describe the problem or topic the council should deliberate on"
 metadata:
   version: 1.4.1
@@ -104,7 +104,7 @@ Run when **any** of these is true:
 
 ## The installed roster
 
-pixelelated uses Claude Fable 5.1, Gemini 3.8 Flash, GPT-6 Astra, Kimi K3 and
+pixelelated uses Claude Fable 5.2, Gemini 3.8 Flash, GPT-6 Astra, Kimi K3 and
 Muse Spark 1.3 (D-WORKFLOW-109, D-WORKFLOW-135). Future fifth-seat changes come
 through reviewed imports from the other projects. Until an update is adopted,
 use these five seats. The import procedure is in
@@ -120,9 +120,9 @@ operator is in, and no declaration in this file can change that (owner direction
 
 | Harness         | Coordinator model | Where it is chosen                   |
 | --------------- | ----------------- | ------------------------------------ |
-| Claude Code     | Claude Opus 5     | the session's model                  |
-| Codex           | GPT-5.6 Sol       | the session's model                  |
-| VS Code Copilot | Claude Fable 5.1  | the frontmatter `model:` list above  |
+| Claude Code     | Claude Opus 5.5 (`claude-opus-5-5`) | the session's model |
+| Codex           | GPT-6.2 Astra at `xhigh` | the coordinator session's model |
+| VS Code Copilot | Claude Fable 5.2  | the frontmatter `model:` list above  |
 
 Identity policy: the run manifest's `coordinator` block
 ([`output-conventions.md`](references/output-conventions.md) § Run manifest)

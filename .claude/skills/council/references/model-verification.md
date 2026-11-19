@@ -62,7 +62,7 @@ directly:
 
 | Member  | Provider HTTPS endpoint                                                                                   | Model returned in response               |
 | ------- | --------------------------------------------------------------------------------------------------------- | ---------------------------------------- |
-| claude  | `api.anthropic.com/v1/messages` (with `thinking.type=adaptive`, `output_config.effort=high`)              | `model: "claude-fable-5-1"`              |
+| claude  | `api.anthropic.com/v1/messages` (with `thinking.type=adaptive`, `output_config.effort=high`)              | `model: "claude-fable-5-2"`              |
 | gpt     | `cognitiveservices.azure.com/openai/deployments/gpt-5.5/chat/completions` (with `reasoning_effort=xhigh`) | `model: "gpt-5.5-<datecode>"`            |
 | gemini  | `generativelanguage.googleapis.com/v1beta/models/gemini-3.8-flash:generateContent`                  | `modelVersion: "gemini-3.8-flash"` |
 | kimi    | `cognitiveservices.azure.com/openai/deployments/Kimi-K2.6/chat/completions`                               | `model: "Kimi-K2.6"`                     |
@@ -195,18 +195,11 @@ do not continue with an unverifiable verifier set.
 inference layer, not from any routing layer above. There is no
 intermediate substrate that could lie about the model identity.
 
-**Declared-vs-observed matching is SEMANTIC, not literal.** Observed
-strings are version-stamped or sometimes lowercase
-(`anthropic/claude-fable-5.1-20260831`, `openai/gpt-6-astra-20260903`,
-`mistral-large-3`); declared strings in the
-agent file are human-readable
-(`anthropic/claude-fable-5.1 (OpenRouter, effort=xhigh)`,
-`openai/gpt-6-astra (OpenRouter, via openai, effort=max)`,
-`Mistral-Large-3 (Azure AI Foundry)`). The Facilitator implements
-per-member `modelMatches()` predicates that PASS when the observed
-string encodes the declared model. Both strings are recorded verbatim
-in `provenance.json.final.verification` so the match decision is
-auditable post-hoc.
+**Declared vs observed model.** Each Facilitator recipe defines which
+response identities it accepts. The Claude direct recipe accepts the exact
+native ID `claude-fable-5-2`. Some other recipes accept a documented version
+stamp or spelling. The provenance sibling records both the declared and
+observed strings for later inspection.
 
 **Required env vars:** `ANTHROPIC_API_KEY` (claude), `AZURE_AI_API_KEY`
 (gpt + kimi + mistral), `GOOGLE_AI_API_KEY` (gemini). The Facilitator
@@ -222,7 +215,7 @@ by default (`--provider openrouter` is the explicit equivalent; use
 `--provider direct` only for the max-independence fallback), routing every
 seat through OpenRouter's OpenAI-compatible endpoint with a single
 `OPENROUTER_API_KEY`. Each seat is pinned to one model slug
-(`anthropic/claude-fable-5.1`, `google/gemini-3.8-flash`,
+(`anthropic/claude-fable-5.2`, `google/gemini-3.8-flash`,
 `openai/gpt-6-astra`, `moonshotai/kimi-k3`, `meta/muse-spark-1.3`)
 with **no `models[]` fallback array** — OpenRouter may route across
 providers of the SAME model (infra backup), but a request can never resolve to
@@ -230,7 +223,7 @@ a DIFFERENT model. Each reasoning seat also requests its declared reasoning
 effort via OpenRouter's unified `reasoning.effort` (`max` for GPT-6 Astra —
 operator direction 2026-09-09 — and for Kimi K3, its own default once output
 budgets sit at the model maximum (2026-09-03 limits audit); `xhigh` for
-Fable 5.1, the evidence-based ceiling on bounded corpora; `high` for Gemini,
+Fable 5.2, the existing selected effort; `high` for Gemini,
 the maximum it advertises; `max` for Muse Spark 1.3). Pins of record:
 `OPENROUTER_SEATS` in `scripts/council-invoke.ts` — canonical in the
 scaffold corpus (scaffold#571) and checked against the pinned catalog snapshot
@@ -245,13 +238,14 @@ route for the gpt seat (verified for `gpt-5.6-sol` in 2026-07 and again for
 `gpt-6-astra` on 2026-09-09); fallbacks remain disabled. The provider pin is an
 availability/correctness lever — identity is still response-attested per call.
 
-**Primary mechanism:** identical to Substrate A — the Facilitator captures the
-response-body `model` field and verifies it against the pinned slug. OpenRouter
-echoes the served model order-insensitively and with a build/date suffix
-(`anthropic/claude-fable-5.1` → `anthropic/claude-fable-5.1-20260831`), so the
-per-member matcher (`openRouterModelMatches`) accepts that form but **rejects
-sibling / version / variant / wrong-provider substitutions** (covered by
-`scripts/__tests__/council-invoke-routing.node-test.ts`).
+**Primary mechanism.** The Facilitator checks the response's `model` field.
+The current Claude seat accepts precisely `anthropic/claude-fable-5.2` or
+`anthropic/claude-fable-5.2-20261109`. Its OpenRouter request uses the former,
+with `reasoning.effort=xhigh` and 128,000 completion tokens. The listed endpoints
+omit the sampling override, so the recipe omits `temperature`. Other seats
+keep their existing matchers. An absent or mismatched identity cannot advance
+the run. The request and response gates have offline fixtures in
+`scripts/__tests__/council-invoke-routing.node-test.ts`.
 
 **Routing attestation (scaffold#917/#943, Facilitator 1.14.0).** A provider pin is
 enforced in the request, but only the response can show that it held. OpenRouter
@@ -477,7 +471,7 @@ The per-run `model-verification-log.md` artifact records every gate
 outcome chronologically. Schema lives in
 [`output-conventions.md`](output-conventions.md) § "Model verification log."
 
-A minimal entry:
+A historical example from the September 9 roster:
 
 ```markdown
 ### Step 1 · r1 · 2026-09-09T04:30:12Z
@@ -498,7 +492,7 @@ Every member's `model:` field is a **single-element prioritized list**:
 
 ```yaml
 model:
-  - "anthropic/claude-fable-5.1 (OpenRouter, effort=xhigh)"
+  - "anthropic/claude-fable-5.2 (OpenRouter, effort=xhigh)"
 ```
 
 A multi-element chain like:
@@ -506,7 +500,7 @@ A multi-element chain like:
 ```yaml
 # DO NOT DO THIS in member agents
 model:
-  - "anthropic/claude-fable-5.1 (OpenRouter, effort=xhigh)"
+  - "anthropic/claude-fable-5.2 (OpenRouter, effort=xhigh)"
   - "Claude Sonnet 4.5 (copilot)"
 ```
 
