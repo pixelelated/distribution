@@ -12,7 +12,7 @@ def load(path, name='admission_fixture_module'):
     mod=importlib.util.module_from_spec(spec);loader.exec_module(mod);return mod
 
 
-def prepare_fixture(root, source):
+def prepare_fixture(root, source, configure=None):
     folder=root/'tools/host-maintenance';folder.mkdir(exist_ok=True)
     for name in ['build-admission','retention-report']:
         (folder/name).write_bytes((source/'tools/host-maintenance'/name).read_bytes())
@@ -32,5 +32,7 @@ def prepare_fixture(root, source):
     ap={'checkout':str(root),'retention_plan':str(rp),'retention_report':str(rr),'stage':'fixture',
         'profiles':[{'PROJECT':'ROCKNIX','DEVICE':'GENERIC_X64','ARCH':'x86_64'}],
         'outputs':[{'path':str(root/'build.fixture'),'issue':493,'kind':'build-cache','release_when':'synthetic fixture result accepted'}]}
+    if configure is not None:
+        configure(ap)
     af=root/'admission-plan.json';af.write_text(json.dumps(ap));receipt=root/'admission.json';mod.prepare(af,receipt)
     return mod,af,receipt

@@ -1,0 +1,436 @@
+#!/usr/bin/env python3
+"""Ordinary-account terminal retirement controls. Uses only a disposable checkout."""
+import importlib.util
+import json
+import os
+from pathlib import Path
+import shutil
+import subprocess
+import tempfile
+import time
+import unittest
+from unittest.mock import patch
+
+TOOLS = Path(__file__).resolve().parent
+SOURCE = TOOLS.parents[1]
+spec = importlib.util.spec_from_file_location('fixture', TOOLS / 'admission-test-fixture.py')
+fixture = importlib.util.module_from_spec(spec)
+spec.loader.exec_module(fixture)
+
+
+class Control(unittest.TestCase):
+    def prepare(self, count=1, run_real=False, rc=0):
+        td = tempfile.TemporaryDirectory(prefix='pix-retire-fixture-')
+        self.addCleanup(td.cleanup)
+        self.root = Path(td.name).resolve()
+        self.state = self.root / 'state'
+        self.state.mkdir()
+        self.enterContext(patch.dict(os.environ, XDG_STATE_HOME=str(self.state)))
+        self.references = self.root / 'references'
+        self.references.mkdir()
+        (self.root / 'tools').mkdir()
+        (self.root / 'scripts').mkdir()
+        shutil.copy2(SOURCE / 'Makefile', self.root / 'Makefile')
+        for name in ('watch-build', 'watch-job'):
+            shutil.copy2(SOURCE / 'tools' / name, self.root / 'tools' / name)
+        self.build = self.root / 'build.fixture'
+        self.compiler = self.build / 'build/package'
+        folders = [self.compiler / 'CMakeFiles' / f'{n}.dir' for n in range(count)]
+        for folder in folders:
+            folder.mkdir(parents=True, mode=0o700)
+            for parent in folder.parents:
+                if parent == self.root:
+                    break
+                parent.chmod(0o700)
+        self.paths = [folder / 'cmake_pch.hxx.gch' for folder in folders]
+        for f in self.paths:
+            f.write_bytes(b'ordinary compiled fixture' * 2048)
+        self.graph = self.compiler / 'build.ninja'
+        self.graph.write_text(''.join(f'build {p.relative_to(self.compiler)}: CXX_COMPILER__fixture input.hxx\n'
+                                     for p in self.paths))
+        self.plan_cfg = dict(files=list(map(str, self.paths)), reference_roots=[str(self.references)],
+                             reference_stores=[str(self.references)])
+
+        def configure(plan):
+            plan['retire_on_consume'] = self.plan_cfg
+
+        self.m, self.plan_path, self.receipt = fixture.prepare_fixture(self.root, SOURCE, configure)
+        env = {key: os.environ[key] for key in ('PATH', 'HOME', 'XDG_STATE_HOME') if key in os.environ}
+        env.update(LC_ALL='C', PIXELELATED_BUILD_ADMISSION=str(self.receipt))
+        if run_real:
+            result = subprocess.run([str(self.root / 'tools/watch-build'), '--interval', '1',
+                                     '--', '/usr/bin/true'], cwd=self.root, env=env,
+                                    capture_output=True, text=True, timeout=15)
+            self.assertEqual(result.returncode, 0, result.stderr + result.stdout)
+            self.run = next(p for p in (self.root / '.build-runs').iterdir() if (p / 'admission.json').is_file())
+        else:
+            self.run = self.root / '.build-runs/fixture'
+            self.run.mkdir(parents=True)
+            self.m.admit(self.receipt, self.root, self.run, env)
+            self.m.finish(self.run, rc, 0, rc)
+            (self.run / 'build.rc').write_text(f'{rc}\n')
+            (self.run / 'build.status').write_text('state:       finished\n')
+            # The synthetic terminal controls model an already exited runner.
+            self.m.exited = lambda pid: None
+        probe = self.m.verify_no_filesystem_registry
+
+        def private_state_probe(path):
+            # The scratch checkout can be on the real host registry's volume.
+            # Preserve both routes and the ordinary lstat logic in the fixture.
+            if not path.is_relative_to(self.state):
+                path = self.root / 'default-state' / 'pixelelated' / 'build-admission' / path.name
+            probe(path)
+
+        self.m.verify_no_filesystem_registry = private_state_probe
+        self.row = self.m.read(self.run / 'admission.json')
+        self.registry = Path(self.row['registry'])
+        self.keep = self.root / 'originals-kept'
+        self.keep.mkdir()
+        retained = self.keep / 'retained-source.json'
+        retained.write_text('{"source_archive":"fixture source custody"}\n')
+        successor = self.keep / 'independent-result.json'
+        successor.write_text('{"result":"PASS","fixture":"independently qualified successor"}\n')
+        source_receipt = self.keep / 'source-custody.json'
+        successor_receipt = self.keep / 'supersession.json'
+        source_receipt.write_text(json.dumps(dict(result='PASS', source=self.row['source'], evidence=[self.ref(retained)])))
+        successor_receipt.write_text(json.dumps(dict(result='PASS', admission_id=self.row['id'],
+            files=list(map(str, self.paths)), reference_roots=self.plan_cfg['reference_roots'],
+            reference_stores=self.plan_cfg['reference_stores'], evidence=[self.ref(successor)])))
+        self.files = [dict(selection=dict(path=str(p), aliases=[],
+                           identity=self.m.retirement_identity(p.lstat())), ninja_graph=self.ref(self.graph))
+                      for p in self.paths]
+        originals = [self.run / name for name in ('admission.json', 'runner-result.json', 'build.rc', 'build.status')]
+        self.originals = {p: p.read_bytes() for p in originals}
+        self.proof = dict(run=str(self.run), expected_rc=rc, outputs=self.row['outputs'],
+            disposition='qualified' if rc == 0 else 'failed-investigated',
+            evidence=[self.ref(p) for p in (*originals, retained, successor, source_receipt, successor_receipt, self.graph)],
+            retirement=dict(manifest_sha256='a' * 64, files=self.files,
+                source_custody=self.ref(source_receipt), superseded_by=self.ref(successor_receipt)))
+        self.accepted = self.root / 'acceptance.json'
+        self.write_proof()
+        self.reader = self.m.retirement_reader()
+        self.reader['inventory'].__globals__['generated_mounts'] = lambda _: self.mounts
+        self.reader['read_host_uses'] = self.observe
+        self.m.retirement_reader = lambda: self.reader
+        self.mounts = []
+        self.status = 'clear'
+        self.samples = 0
+        self.stale = False
+
+    def ref(self, path):
+        return dict(path=str(path), sha256=self.m.digest(path))
+
+    def write_proof(self):
+        self.accepted.write_text(json.dumps(self.proof))
+
+    def observe(self, manifest, selections):
+        self.samples += 1
+        before = time.time_ns()
+        if self.stale:
+            before -= 16 * 10**9
+        counts = dict(argument=0, descriptor=int(self.status == 'busy'), executable=0, mapping=0, bind_mount=0)
+        doc = dict(schema=1, status=self.status, scan_complete=self.status != 'incomplete',
+                   manifest_sha256=manifest, started_at_ns=before, finished_at_ns=before,
+                   expires_at=before//10**9 + 300, reason=None, tasks_scanned=2, mount_views_scanned=1,
+                   batches=[dict(selection_sha256=s, files=1, status=self.status,
+                                 reason=None, matches=counts) for s in selections])
+        if self.status == 'incomplete':
+            doc['reason'] = 'fd_incomplete'
+        codes = self.reader['HOST_USE_EXIT']
+        return {s: self.reader['validate_host_use'](doc, codes[self.status], manifest, s, before, before)
+                for s in selections}
+
+    def consume(self):
+        result = self.m.consume(self.run, self.accepted)
+        for path, original in self.originals.items():
+            self.assertEqual(path.read_bytes(), original)
+        self.assertEqual(self.m.read(self.registry / 'jobs.json')['jobs'][self.row['id']]['state'], 'consumed')
+        return result.get('retirement')
+
+    def assert_held(self, reason):
+        journal = self.consume()
+        self.assertEqual(journal['status'], 'held')
+        self.assertEqual(journal['deleted_bytes'], 0)
+        self.assertIn(reason, journal['last_hold'])
+        self.assertTrue(all(p.exists() for p in self.paths))
+        return journal
+
+    def test_real_watch_terminal_automatically_unlinks_and_preserves(self):
+        self.prepare(count=2, run_real=True)
+        blocks = sum(p.stat().st_blocks * 512 for p in self.paths)
+        self.assertGreater(blocks, 0)
+        modes = [p.parent.stat().st_mode for p in self.paths]
+        result = self.consume()
+        self.assertEqual(result['status'], 'retired', result.get('last_hold'))
+        self.assertTrue(all(not p.exists() for p in self.paths))
+        self.assertEqual(result['deleted_bytes'], blocks)
+        self.assertEqual(result['held_bytes'], 0)
+        self.assertEqual(result['observed_available_delta_bytes'],
+                         result['available_after_bytes'] - result['available_before_bytes'])
+        self.assertEqual([p.parent.stat().st_mode for p in self.paths], modes)
+        self.assertTrue(self.graph.is_file())
+        for item in self.proof['evidence']:
+            self.assertEqual(self.m.digest(item['path']), item['sha256'])
+        self.paths[0].write_bytes(b'new output at the completed name')
+        self.assertEqual(self.consume(), result)
+        self.assertEqual(self.paths[0].read_bytes(), b'new output at the completed name')
+        self.assertEqual(self.samples, 1)
+        print(json.dumps(dict(fixture='ordinary disposable watcher',
+              original=self.m.read(self.run / 'runner-result.json'), exact_unlinks=len(self.paths),
+              deleted_bytes=result['deleted_bytes'], held_bytes=result['held_bytes'],
+              available_before_bytes=result['available_before_bytes'],
+              available_after_bytes=result['available_after_bytes'],
+              observed_available_delta_bytes=result['observed_available_delta_bytes']), sort_keys=True), flush=True)
+
+    def test_active_running_and_consumed_overlap(self):
+        self.prepare()
+        with self.m.registry(self.registry) as jobs:
+            jobs['jobs']['other'] = dict(state='running', volume_device=self.row['volume_device'],
+               retention_scope=dict(checkout=str(self.root / 'another-checkout'), outputs=[],
+                                    protected=[str(self.paths[0])]))
+        self.assert_held('registered owner')
+        with self.m.registry(self.registry) as jobs:
+            jobs['jobs']['other'].update(state='consumed', outputs_held=True,
+                                         retained_evidence=[str(self.keep)],
+                                         outputs=[dict(path=str(self.build))])
+            jobs['jobs']['other']['retention_scope']['protected'] = []
+        self.assert_held('consumed owner')
+        self.assertEqual(self.samples, 0)
+
+    def filesystem_registry(self):
+        device = self.root.stat().st_dev
+        filesystem = os.statvfs(self.root).f_fsid
+        return self.state / 'pixelelated' / 'build-admission' / f'{device:x}-{filesystem:x}'
+
+    def test_separate_filesystem_registry_holds_without_mutation(self):
+        self.prepare()
+        foreign = self.filesystem_registry()
+        foreign.mkdir(parents=True)
+        jobs = foreign / 'jobs.json'
+        jobs.write_text(json.dumps({'jobs': {'fixture-active': {'state': 'running'}},
+                                    'queued': {'fixture-queued': {'inputs': [str(self.paths[0])]}}}))
+        before = jobs.read_bytes()
+        self.assert_held('mixed build-admission ownership')
+        self.assertEqual(jobs.read_bytes(), before)
+        self.assertEqual(self.samples, 0)
+
+    def test_default_filesystem_registry_cannot_be_hidden_by_xdg(self):
+        self.prepare()
+        self.assertIn(str(self.state), self.row['retire_on_consume']['registry_state_roots'])
+        self.assertGreater(len(self.row['retire_on_consume']['registry_state_roots']), 1)
+        default = (self.root / 'default-state' / 'pixelelated' / 'build-admission' /
+                   self.filesystem_registry().name)
+        default.mkdir(parents=True)
+        self.assertFalse(self.filesystem_registry().exists())
+        self.assert_held('mixed build-admission ownership')
+
+    def test_registry_materialized_after_host_observation_holds(self):
+        self.prepare()
+
+        def new_registry(*args):
+            observed = self.observe(*args)
+            self.filesystem_registry().mkdir(parents=True)
+            return observed
+
+        self.reader['read_host_uses'] = new_registry
+        self.assert_held('mixed build-admission ownership')
+        self.assertEqual(self.samples, 1)
+
+    def test_unverified_registry_route_holds(self):
+        self.prepare()
+        path = self.filesystem_registry()
+        path.parent.mkdir(parents=True)
+        path.symlink_to(self.root / 'nonexistent-registry', target_is_directory=True)
+        self.assert_held('registry route is unverified')
+        self.assertEqual(self.samples, 0)
+        with patch.dict(os.environ, XDG_STATE_HOME=str(self.root / 'different-state')):
+            self.assert_held('registry routing is unverified or changed')
+
+    def test_unreadable_registry_parent_holds(self):
+        self.prepare()
+        path = self.filesystem_registry()
+        path.parent.mkdir(parents=True)
+        path.parent.chmod(0)
+        try:
+            self.assert_held('registry visibility is unverified')
+        finally:
+            path.parent.chmod(0o700)
+
+    def test_consumed_protected_paths_and_evidence_survive_output_release(self):
+        self.prepare(count=2)
+        with self.m.registry(self.registry) as jobs:
+            jobs['jobs']['peer'] = dict(state='consumed', volume_device=self.row['volume_device'],
+                outputs_held=False, outputs=[], retained_evidence=[str(self.paths[1])],
+                retention_scope=dict(protected=[str(self.paths[0])]))
+        self.assert_held('consumed owner protects')
+        with self.m.registry(self.registry) as jobs:
+            jobs['jobs']['peer']['retention_scope']['protected'] = []
+        self.assert_held('consumed owner retains overlapping evidence')
+        alias = self.keep / 'retained-alias'
+        alias.symlink_to(self.paths[1])
+        with self.m.registry(self.registry) as jobs:
+            jobs['jobs']['peer']['retained_evidence'] = [str(alias)]
+        self.assert_held('consumed owner retains overlapping evidence')
+        self.assertTrue(alias.is_symlink())
+        with self.m.registry(self.registry) as jobs:
+            del jobs['jobs']['peer']['retained_evidence']
+        self.assert_held('unverified retained evidence')
+        self.assertEqual(self.samples, 0)
+
+    def test_current_qualification_protects_an_otherwise_eligible_header(self):
+        self.prepare()
+        keep = self.paths[0]
+        self.proof['evidence'].append(self.ref(keep))
+        self.write_proof()
+        self.assert_held('current qualification retains')
+        receipt = self.m.read(self.run / 'admission-consumed.json')
+        self.assertIn(str(keep), receipt['retained_evidence'])
+        self.assertEqual(self.samples, 0)
+
+    def test_prepared_queue_blocks_then_retry_after_expiry(self):
+        self.prepare()
+        self.m.prepare(self.plan_path, self.root / 'queued.json')
+        self.assert_held('registered owner')
+        queued = self.m.read(self.root / 'queued.json')
+        with self.m.registry(self.registry) as jobs:
+            self.assertIn(queued['id'], jobs['queued'])
+            jobs['queued'][queued['id']]['expires'] = time.time() - 1
+        result = self.consume()
+        self.assertEqual(result['status'], 'retired', result.get('last_hold'))
+        self.assertIn('registered owner', result['first_hold'])
+
+    def test_symlink_and_dormant_container_mount_hold(self):
+        self.prepare()
+        link = self.references / 'alias'
+        link.symlink_to(self.paths[0])
+        self.assert_held('incoming reference')
+        link.unlink()
+        self.mounts = [{'source': str(self.compiler), 'container': 'stopped-fixture'}]
+        self.assert_held('container mount')
+        self.assertEqual(self.samples, 0)
+
+    def test_virtual_disk_dependency_fails_closed(self):
+        self.prepare()
+        (self.references / 'unclassified.qcow2').write_bytes(b'QFI\xfb fixture')
+        self.assert_held('incomplete dependency inventory')
+
+    def test_busy_incomplete_stale_and_unmatched_use(self):
+        self.prepare()
+        for condition in ('busy', 'incomplete'):
+            self.status = condition
+            self.assert_held('not clear')
+        self.status = 'clear'
+        self.stale = True
+        self.assert_held('not clear')
+        self.reader['read_host_uses'] = lambda *args: {}
+        self.assert_held('')
+
+    def test_identity_hardlink_and_private_parent(self):
+        self.prepare()
+        target = self.paths[0]
+        target.parent.chmod(0o777)
+        self.assert_held('parent is shared')
+        self.assertEqual(target.parent.stat().st_mode & 0o777, 0o777)
+        target.parent.chmod(0o700)
+        other = self.root / 'external-hardlink'
+        other.hardlink_to(target)
+        self.assert_held('identity changed')
+        self.assertEqual(other.read_bytes(), target.read_bytes())
+
+    def test_missing_regeneration_holds(self):
+        self.prepare()
+        self.graph.write_text('build irrelevant: phony\n')
+        ref = self.ref(self.graph)
+        self.proof['evidence'][-1] = ref
+        self.files[0]['ninja_graph'] = ref
+        self.write_proof()
+        self.assert_held('does not regenerate')
+
+    def test_unqualified_supersession_holds(self):
+        self.prepare()
+        pathname = Path(self.proof['retirement']['superseded_by']['path'])
+        data = self.m.read(pathname)
+        pathname.write_text(json.dumps(dict(data, result='FAIL')))
+        ref = self.ref(pathname)
+        self.proof['evidence'] = [ref if item['path'] == str(pathname) else item for item in self.proof['evidence']]
+        self.proof['retirement']['superseded_by'] = ref
+        self.write_proof()
+        self.assert_held('supersession is unqualified')
+        self.assertEqual(self.samples, 0)
+
+    def test_late_incoming_reference_holds_even_with_clear_host_use(self):
+        self.prepare()
+
+        def late_reference(*args):
+            (self.references / 'queued.json').write_text(json.dumps({'input': str(self.paths[0].parent)}))
+            return self.observe(*args)
+
+        self.reader['read_host_uses'] = late_reference
+        self.assert_held('incoming reference')
+        self.assertEqual(self.samples, 1)
+
+    def test_failed_original_never_enters_cleanup(self):
+        self.prepare(rc=9)
+        self.assertIsNone(self.consume())
+        self.assertFalse((self.run / 'retirement.json').exists())
+        self.assertEqual(self.samples, 0)
+        self.assertTrue(self.paths[0].exists())
+
+    def test_interruption_after_unlink_and_safe_partial_retry(self):
+        self.prepare(count=3)
+        expected = [p.stat().st_blocks * 512 for p in self.paths]
+        real_unlink = os.unlink
+        attempts = []
+
+        class Interrupted(BaseException):
+            pass
+
+        def unlink(path, **kwargs):
+            real_unlink(path, **kwargs)
+            if path == 'cmake_pch.hxx.gch':
+                attempts.append(path)
+                if len(attempts) == 2:
+                    raise Interrupted()
+
+        with patch.object(self.m.os, 'unlink', side_effect=unlink):
+            with self.assertRaises(Interrupted):
+                self.consume()
+        journal = self.m.read(self.run / 'retirement.json')
+        self.assertEqual([journal['files_progress'][str(p)]['state'] for p in self.paths],
+                         ['retired', 'intent', 'pending'])
+        self.assertFalse(self.paths[0].exists())
+        self.assertFalse(self.paths[1].exists())
+        self.assertTrue(self.paths[2].exists())
+        result = self.consume()
+        self.assertEqual(result['status'], 'partial')
+        self.assertEqual(result['deleted_bytes'], expected[0] + expected[2])
+        self.assertEqual(result['unconfirmed_bytes'], expected[1])
+        self.assertEqual(result['held_bytes'], 0)
+        self.assertEqual(self.consume(), result)
+        self.assertEqual(self.samples, 2)
+
+    def test_restart_after_durable_success_before_summary(self):
+        self.prepare()
+        persist = self.m.durable
+        before = self.paths[0].stat().st_blocks * 512
+
+        class Interrupted(BaseException):
+            pass
+
+        armed = True
+
+        def stop_after_progress(path, contents):
+            nonlocal armed
+            persist(path, contents)
+            if armed and path.name == 'retirement.json' and contents['files_progress'][str(self.paths[0])]['state'] == 'retired':
+                armed = False
+                raise Interrupted()
+
+        with patch.object(self.m, 'durable', side_effect=stop_after_progress), self.assertRaises(Interrupted):
+            self.consume()
+        self.assertEqual(self.consume()['deleted_bytes'], before)
+        self.assertEqual(self.samples, 1)
+
+
+if __name__ == '__main__':
+    unittest.main()

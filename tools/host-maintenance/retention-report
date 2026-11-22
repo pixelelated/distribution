@@ -78,7 +78,7 @@ def source_fixtures(plan):
     return accepted, errors
 
 
-def inventory(plan):
+def inventory(plan, generated=False):
     roots = [Path(p) for p in plan['scan_roots']]
     if not roots or any(not p.is_absolute() or not p.is_dir() or p.is_symlink() for p in roots):
         raise ValueError('scan roots must be explicit existing absolute directories')
@@ -88,6 +88,8 @@ def inventory(plan):
     edges, disks, manifests = [], [], []
     count = 0
     tick = time.monotonic()
+    deadline = tick + 30
+    entries_seen = 0
     targets = {str(Path(c['path'])) for c in plan['candidates']}
     if len(targets) != len(plan['candidates']):
         raise ValueError('duplicate candidate paths')
@@ -99,6 +101,10 @@ def inventory(plan):
             try:
                 with os.scandir(base) as entries:
                     for entry in entries:
+                        if generated:
+                            entries_seen += 1
+                            if entries_seen > 16384 or time.monotonic() >= deadline:
+                                raise ValueError('generated reference scan exceeded its bound')
                         try:
                             if entry.is_symlink():
                                 target = str(Path(entry.path).resolve())
@@ -122,6 +128,9 @@ def inventory(plan):
                                     errors.append('source fixture changed during discovery: ' + str(p))
                                 continue
                             if disk_name:
+                                if generated:
+                                    errors.append('virtual media in generated-file reference scope: ' + str(p))
+                                    continue
                                 with p.open('rb') as stream:
                                     magic = stream.read(4)
                                 if magic == b'QFI\xfb' or name.endswith(('.qcow2', '.qcow', '.vmdk', '.vdi', '.vhd', '.vhdx')):
@@ -132,7 +141,7 @@ def inventory(plan):
                             errors.append(str(error))
             except OSError as error:
                 errors.append(str(error))
-            if time.monotonic() - tick > 10:
+            if not generated and time.monotonic() - tick > 10:
                 print(f'Inspected {count} directories; {len(disks)} disk paths', flush=True)
                 tick = time.monotonic()
     disk_rows = []
@@ -165,15 +174,18 @@ def inventory(plan):
             print(f'Inspected {n + 1}/{len(disks)} backing chains', flush=True)
     for p in manifests:
         try:
-            if p.stat().st_size > 32 * 1024 * 1024:
+            if generated and time.monotonic() >= deadline:
+                raise ValueError('generated reference scan exceeded its bound')
+            if p.stat().st_size > (1048576 if generated else 32 * 1024 * 1024):
                 raise ValueError('unclassified oversized store manifest: ' + str(p))
             for value in strings(json.loads(p.read_text())):
-                if value in targets:
+                if (value in targets or generated and value.startswith('/') and
+                        any(within(t, os.path.normpath(value)) for t in targets)):
                     edges.append(dict(source=str(p), target=value, kind='cross-store-json'))
         except (OSError, ValueError) as e:
             errors.append(str(e))
     active, process_errors = [], []
-    for entry in Path('/proc').glob('[0-9]*/cmdline'):
+    for entry in (() if generated else Path('/proc').glob('[0-9]*/cmdline')):
         try:
             argv = entry.read_bytes().split(b'\0')
             if not argv[0]:
@@ -192,11 +204,14 @@ def inventory(plan):
             process_errors.append(str(e))
     mounts = []
     try:
-        ids = subprocess.check_output(['docker', 'ps', '-aq'], text=True, timeout=30).split()
-        for cid in ids:
-            data = json.loads(subprocess.check_output(['docker', 'inspect', cid], text=True, timeout=30))[0]
-            for mount in data['Mounts']:
-                mounts.append(dict(container=cid, running=data['State']['Running'], source=mount['Source']))
+        if generated:
+            mounts = generated_mounts(deadline)
+        else:
+            ids = subprocess.check_output(['docker', 'ps', '-aq'], text=True, timeout=30).split()
+            for cid in ids:
+                data = json.loads(subprocess.check_output(['docker', 'inspect', cid], text=True, timeout=30))[0]
+                for mount in data['Mounts']:
+                    mounts.append(dict(container=cid, running=data['State']['Running'], source=mount['Source']))
     except (OSError, ValueError, subprocess.SubprocessError) as e:
         errors.append('container inspection: ' + str(e))
     return dict(directories=count, errors=errors + process_errors, disks=disk_rows,
@@ -205,6 +220,42 @@ def inventory(plan):
                 scope='All directories under explicit roots; directory symlinks not followed. '
                       'QCOW magic in img/raw and named virtual disks; JSON references in explicit stores. '
                       'Actual process argv and all container mounts. No whole-host root FD census claimed.')
+
+
+def generated_mounts(deadline):
+    # Deliberately inspect only mount records on the local daemon, including stopped containers.
+    def docker(*argv):
+        timeout = deadline - time.monotonic()
+        if timeout <= 0:
+            raise ValueError('container reference scan exceeded its bound')
+        result = subprocess.run(['/usr/bin/docker', '--host', 'unix:///var/run/docker.sock', *argv],
+                                stdin=subprocess.DEVNULL, capture_output=True, text=True, check=True,
+                                timeout=timeout, env={'PATH': '/usr/bin:/bin', 'LC_ALL': 'C'})
+        if result.stderr or len(result.stdout) > 2 * 1024 * 1024:
+            raise ValueError('unconfirmed or oversized container mount census')
+        return result.stdout.splitlines()
+
+    ids = docker('container', 'ls', '--all', '--no-trunc', '--format', '{{.ID}}')
+    if (len(ids) > 256 or len(set(ids)) != len(ids) or
+            any(not re.fullmatch('[0-9a-f]{64}', ident) for ident in ids)):
+        raise ValueError('invalid container mount census')
+    result = []
+    if ids:
+        records = docker('inspect', '--type=container', '--format', '{{json .Mounts}}', *ids)
+        if len(records) != len(ids):
+            raise ValueError('incomplete container mount census')
+        for ident, raw in zip(ids, records):
+            mounts = json.loads(raw)
+            if not isinstance(mounts, list):
+                raise ValueError('invalid container mounts')
+            for mount in mounts:
+                source = Path(mount['Source'])
+                if not source.is_absolute() or source.resolve(strict=True) != source:
+                    raise ValueError('unresolved container mount source')
+                result.append(dict(container=ident, source=str(source)))
+    if set(docker('container', 'ls', '--all', '--no-trunc', '--format', '{{.ID}}')) != set(ids):
+        raise ValueError('containers changed during mount census')
+    return result
 
 
 def evaluate(candidate, plan, observed):
@@ -317,10 +368,14 @@ def use_result(status, reason, manifest, selection):
 
 
 def read_host_use(manifest, selection):
+    return read_host_uses(manifest, [selection])[selection]
+
+
+def read_host_uses(manifest, selections):
     # Only the preinstalled fixed executable may ever cross the privilege boundary.
     # An enrollment digest is a comparison operand, never a privileged argument.
     def hold(reason):
-        return use_result('incomplete', reason, manifest, selection)
+        return {sel: use_result('incomplete', reason, manifest, sel) for sel in selections}
 
     try:
         for path in [*reversed(HOST_USE_HELPER.parents), HOST_USE_HELPER]:
@@ -344,18 +399,26 @@ def read_host_use(manifest, selection):
     except (OSError, subprocess.TimeoutExpired):
         return hold('producer-unavailable')
     ended = time.time_ns()
+    original_hash = hashlib.sha256(result.stdout).hexdigest()
     if len(result.stdout) > 128 * 1024:
-        outcome = hold('oversized-producer-report')
+        outcomes = hold('oversized-producer-report')
     else:
         try:
             doc = json.loads(result.stdout)
-            outcome = validate_host_use(doc, result.returncode, manifest, selection, started, ended)
-        except (ValueError, KeyError, TypeError, RecursionError):
-            outcome = hold('invalid-or-unmatched-producer-report')
-        outcome['original_stdout_base64'] = base64.b64encode(result.stdout).decode('ascii')
-    outcome['producer_exit'] = result.returncode
-    outcome['producer_report_sha256'] = hashlib.sha256(result.stdout).hexdigest()
-    return outcome
+        except (ValueError, RecursionError):
+            doc = None
+        outcomes = {}
+        original = base64.b64encode(result.stdout).decode('ascii')
+        for selection in selections:
+            try:
+                outcome = validate_host_use(doc, result.returncode, manifest, selection, started, ended)
+            except (ValueError, KeyError, TypeError, RecursionError):
+                outcome = use_result('incomplete', 'invalid-or-unmatched-producer-report', manifest, selection)
+            outcome['original_stdout_base64'] = original
+            outcomes[selection] = outcome
+    for outcome in outcomes.values():
+        outcome.update(producer_exit=result.returncode, producer_report_sha256=original_hash)
+    return outcomes
 
 
 def validate_host_use(doc, rc, manifest, selection, started, ended):
