@@ -21,6 +21,11 @@ their `paths:` globs. Both files carry the same facts and are kept equal by
 the rule files' own front matter. When something here and a rule file disagree, the rule
 file is right and this file has a bug.
 
+**Routine build cleanup:** The build owner automatically retires declared, reproducible
+generated files once a verified successor supersedes them and all use and dependency
+checks pass. Follow the retention rule in `.claude/rules/worktrees.md`
+(D-INFRA-025, #493). Uncertain files stay held with a recorded reason.
+
 **Standing host build/test authority:** D-WORKFLOW-196 authorizes routine host
 source preparation/assembly, builds and isolated tests within existing admission,
 resource and worktree rules. Read `.claude/rules/device-builds.md` ("Standing host

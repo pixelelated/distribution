@@ -14,6 +14,11 @@ worktree it starts in, so check that yours carries `next`'s before trusting any 
 `git diff --quiet next -- .claude CLAUDE.md AGENTS.md || echo STALE` -- then merge `next` into
 a feature worktree, or read the rules from `next` (#367).
 
+**Routine build cleanup:** The build owner automatically retires declared, reproducible
+generated files once a verified successor supersedes them and all use and dependency
+checks pass. Follow the retention rule in `.claude/rules/worktrees.md`
+(D-INFRA-025, #493). Uncertain files stay held with a recorded reason.
+
 **Standing host build/test authority:** D-WORKFLOW-196 authorizes routine host
 source preparation/assembly, builds and isolated tests within existing admission,
 resource and worktree rules. Read `.claude/rules/device-builds.md` ("Standing host

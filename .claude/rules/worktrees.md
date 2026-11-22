@@ -135,6 +135,22 @@ freed; the tool refuses this case outright.
 
 ## Review retention after qualification
 
+D-INFRA-025 authorizes routine automatic disposal through the build's retention
+workflow. Declare eligible generated outputs and their regeneration inputs with
+the producing job. At terminal consumption, verify the original result, an
+accepted successor, the retained recipe and inputs, and the selected files'
+current identities. Check the admission registry for active and queued consumers,
+the protected source, result and dependency records, and current host use.
+Keep any file whose ownership, use, identity, dependencies or regeneration
+cannot be established. Record the reason so its owner can resolve it.
+
+For qualifying files, the ordinary build account records the intended removal,
+unlinks the exact members and verifies which were removed. Record allocated
+bytes separately from the measured change in free space. Preserve the original
+result and reconcile an interrupted cleanup against its journal before continuing.
+A successful qualifying run needs no per-batch maintainer decision. Installing
+a privileged reader or changing host access still requires administrator authority.
+
 A successful build followed by its required QA triggers a **retention review**
 (D-INFRA-018, #461). Before the next build, compare available space with its
 build, independent-copy and QA footprint plus a measured margin; filesystem
@@ -174,8 +190,8 @@ then verify removal, retained inputs and actual free space. A retention review
 never extends an earlier batch's deletion scope. #461 delivered the read-only planner and first later batch. #493 owns remaining
 classification and lifecycle enforcement. `tools/host-maintenance/build-admission`
 now requires current measured capacity/retention before launches and retains
-output ownership through original-result consumption; automatic deletion is
-not implemented. Follow its guide; admission does not extend cleanup authority.
+output ownership through original-result consumption; retirement follows the declared lifecycle and D-INFRA-025.
+Follow the admission guide for the status and limits of the installed workflow.
 
 Use the build account's ownership records and reports for recurring storage
 checks. When a decision needs visibility that account lacks, coordinate one
