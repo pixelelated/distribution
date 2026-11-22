@@ -2,14 +2,17 @@
 """Read-only build capacity and completed-QA disk retention report (#461).
 
 Inputs are an explicit plan, not deletion authority. This tool never removes
-files, changes permissions, stops processes or invokes privileged commands.
+files, changes permissions or stops processes. The optional host-use mode reads a fixed enrolled report.
 Only superseded QA disks are eligible; build trees use fork-worktree separately.
 """
 import argparse
+import base64
 from datetime import datetime, timezone
 import hashlib
 import json
 import os
+import re
+import tempfile
 from pathlib import Path
 import stat
 import subprocess
@@ -297,11 +300,132 @@ def report(plan):
                             'A report is not deletion authority; refresh identities, dependencies and active use before execution.')
 
 
+HOST_USE_HELPER = Path('/usr/local/libexec/pixelelated/host-in-use-report')
+HOST_USE_TIMEOUT = 125
+HOST_USE_EXIT = {'clear': 0, 'busy': 1, 'incomplete': 2}
+
+
+def sha256_arg(value):
+    if not re.fullmatch('[0-9a-f]{64}', value):
+        raise argparse.ArgumentTypeError('expected a lowercase SHA-256 digest')
+    return value
+
+
+def use_result(status, reason, manifest, selection):
+    return dict(schema=1, status=status, reason=reason, manifest_sha256=manifest,
+                selection_sha256=selection, cleanup_authorized=False, reclaimed_bytes=0)
+
+
+def read_host_use(manifest, selection):
+    # Only the preinstalled fixed executable may ever cross the privilege boundary.
+    # An enrollment digest is a comparison operand, never a privileged argument.
+    def hold(reason):
+        return use_result('incomplete', reason, manifest, selection)
+
+    try:
+        for path in [*reversed(HOST_USE_HELPER.parents), HOST_USE_HELPER]:
+            st = path.lstat()
+            valid_type = stat.S_ISREG(st.st_mode) if path == HOST_USE_HELPER else stat.S_ISDIR(st.st_mode)
+            if not valid_type or st.st_uid != 0 or st.st_mode & 0o022:
+                return hold('untrusted-installation')
+    except FileNotFoundError:
+        return hold('producer-not-installed')
+    except OSError:
+        return hold('installation-unreadable')
+
+    if os.geteuid() == 0:
+        return hold('consumer-requires-ordinary-account')
+    started = time.time_ns()
+    try:
+        result = subprocess.run(['/usr/bin/sudo', '-n', '--', str(HOST_USE_HELPER)],
+                                stdin=subprocess.DEVNULL, stdout=subprocess.PIPE,
+                                stderr=subprocess.DEVNULL, timeout=HOST_USE_TIMEOUT,
+                                env={'PATH': '/usr/bin:/bin', 'LC_ALL': 'C'})
+    except (OSError, subprocess.TimeoutExpired):
+        return hold('producer-unavailable')
+    ended = time.time_ns()
+    if len(result.stdout) > 128 * 1024:
+        outcome = hold('oversized-producer-report')
+    else:
+        try:
+            doc = json.loads(result.stdout)
+            outcome = validate_host_use(doc, result.returncode, manifest, selection, started, ended)
+        except (ValueError, KeyError, TypeError, RecursionError):
+            outcome = hold('invalid-or-unmatched-producer-report')
+        outcome['original_stdout_base64'] = base64.b64encode(result.stdout).decode('ascii')
+    outcome['producer_exit'] = result.returncode
+    outcome['producer_report_sha256'] = hashlib.sha256(result.stdout).hexdigest()
+    return outcome
+
+
+def validate_host_use(doc, rc, manifest, selection, started, ended):
+    statuses = HOST_USE_EXIT
+    def require(ok):
+        if not ok:
+            raise ValueError('invalid host-use report')
+    require(isinstance(doc, dict) and type(doc['schema']) is int and doc['schema'] == 1)
+    require(doc['manifest_sha256'] == manifest and statuses[doc['status']] == rc)
+    begin, finish = doc['started_at_ns'], doc['finished_at_ns']
+    require(type(begin) is int and type(finish) is int and started <= begin <= finish <= ended)
+    require(ended - started <= (HOST_USE_TIMEOUT + 1) * 10**9)
+    require(type(doc['expires_at']) is int and ended < doc['expires_at'] * 10**9)
+    require(type(doc['scan_complete']) is bool)
+    batches = doc['batches']
+    require(isinstance(batches, list) and 0 < len(batches) <= 16)
+    selected = {}
+    for batch in batches:
+        identity = batch['selection_sha256']
+        require(isinstance(identity, str) and re.fullmatch('[0-9a-f]{64}', identity))
+        require(identity not in selected and batch['status'] in statuses)
+        require(type(batch['files']) is int and 0 < batch['files'] <= 512)
+        selected[identity] = batch
+    batch = selected[selection]
+    if not doc['scan_complete'] or doc['reason'] is not None:
+        require(doc['status'] == 'incomplete')
+        return use_result('incomplete', 'incomplete-host-visibility', manifest, selection)
+    require(max(statuses[b['status']] for b in batches) == rc)
+    require(all(type(doc[k]) is int and doc[k] > 0 for k in ('tasks_scanned', 'mount_views_scanned')))
+    for row in batches:
+        if row['status'] == 'incomplete':
+            require(row['matches'] is None and isinstance(row['reason'], str))
+            continue
+        matches = row['matches']
+        require(row['reason'] is None and isinstance(matches, dict))
+        require(matches.keys() == {'argument', 'descriptor', 'executable', 'mapping', 'bind_mount'})
+        require(all(type(n) is int and n >= 0 for n in matches.values()))
+        require(any(matches.values()) == (row['status'] == 'busy'))
+    outcome = use_result(batch['status'], {'clear': None, 'busy': 'files-in-use',
+                         'incomplete': 'selection-incomplete'}[batch['status']], manifest, selection)
+    outcome.update(files=batch['files'], observed_at_ns=finish)
+    return outcome
+
+
+def publish_host_use(output, result):
+    # An observer can open the requested path as soon as it appears. Link a
+    # finished private file so it cannot see a partial report or lose an older one.
+    with tempfile.NamedTemporaryFile(mode='w', dir=output.parent) as stream:
+        json.dump(result, stream)
+        stream.write('\n')
+        stream.flush()
+        os.fsync(stream.fileno())
+        os.link(stream.name, output)
+    print(json.dumps({'status': result['status'], 'reason': result['reason']}), flush=True)
+    return HOST_USE_EXIT[result['status']]
+
+
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument('--plan', type=Path, required=True)
+    mode = parser.add_mutually_exclusive_group(required=True)
+    mode.add_argument('--plan', type=Path)
+    mode.add_argument('--host-use-selection', type=sha256_arg)
+    parser.add_argument('--manifest-sha256', type=sha256_arg)
     parser.add_argument('--output', type=Path, required=True)
     args = parser.parse_args()
+    if bool(args.host_use_selection) != bool(args.manifest_sha256):
+        parser.error('--host-use-selection and --manifest-sha256 are required together')
+    if args.host_use_selection:
+        result = read_host_use(args.manifest_sha256, args.host_use_selection)
+        raise SystemExit(publish_host_use(args.output, result))
     plan = json.loads(args.plan.read_text())
     result = report(plan)
     result['plan_sha256'] = digest(args.plan)
