@@ -10,7 +10,7 @@ tools/watch-build --record-only -- python3 -I tools/host-maintenance/retention-r
 
 The output must be new. The tool reads production storage and writes only the
 requested report. It has no deletion, permission-changing, process-stopping,
-swap or privileged mode. A successful command means the report was produced;
+swap or privileged mode for inventory. A successful command means the report was produced;
 inspect each candidate's `eligible` and `rejection_reasons`, inventory errors
 and each build's `fits_now`. A completed report can reject every removal.
 
@@ -92,3 +92,27 @@ verify actual recovery and retained inputs after the separate guarded action.
 Native/Docker/ad-hoc build admission now consumes a current report and measured
 stage under #493; see [build-admission.md](build-admission.md). A report alone
 still cannot start a build or authorize removal.
+
+## Consume an enrolled host-use report
+
+Start with the ordinary ownership, backing-chain, mount and capacity reports.
+For files requiring protected host process visibility, the storage owner can
+approve the [fixed read-only producer](host-in-use-report.md) and its enrollment.
+Use the two digests from that private enrollment. The original selected path
+list and host identities belong in private operational storage.
+
+```sh
+tools/watch-build --record-only -- tools/host-maintenance/retention-report \
+  --manifest-sha256 "$enrollment_sha256" --host-use-selection "$selection_sha256" \
+  --output "$private_owner/fresh-host-use.json"
+```
+
+The ordinary account checks the installation, invokes the single installed
+command noninteractively, and binds its exit and original output to the
+requested batch and invocation time. It writes the completed receipt privately
+at a new path. Exit 0 means the enrolled files were clear during the observed
+scan. Exit 1 holds files in use. Exit 2 holds the batch when the helper is
+unavailable, visibility is incomplete, or evidence fails validation. A missing
+or malformed receipt also holds the batch. Review each installed host result
+through its normal owner. Record a fresh capacity measurement and independently
+reconcile release conditions before a separately authorized retirement.

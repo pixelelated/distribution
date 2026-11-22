@@ -1,0 +1,242 @@
+#!/usr/bin/python3 -IBS
+"""Focused #493 controls in a disposable proc fixture. No privilege or live census."""
+
+import copy
+import json
+import os
+from pathlib import Path
+import runpy
+import tempfile
+import unittest
+from unittest.mock import patch
+
+producer = runpy.run_path(str(Path(__file__).with_name('host-in-use-report')))
+runtime = producer['produce'].__globals__
+NOW = 1_790_000_000
+BOOT = '00000000-0000-4000-8000-000000000000'
+
+
+class ReportTests(unittest.TestCase):
+    def setUp(self):
+        temp = tempfile.TemporaryDirectory()
+        self.addCleanup(temp.cleanup)
+        self.base = Path(temp.name).resolve()
+        self.proc = self.base / 'proc'
+        self.proc.mkdir()
+        self.build = self.base / 'build.example'
+        self.build.mkdir()
+        self.executable = self.base / 'fake-exe'
+        self.executable.write_bytes(b'placeholder')
+        self.file = self.build / 'selected.pch'
+        self.file.write_bytes(b'generated fixture')
+        self.other = self.build / 'later.o'
+        self.other.write_bytes(b'next batch')
+        p = self.proc / 'sys/kernel/random'
+        p.mkdir(parents=True)
+        (p / 'boot_id').write_text(BOOT + '\n')
+        self.table = (self.mount_row(1, self.build.stat().st_dev, '/', '/', 'ext4') +
+                      self.mount_row(2, self.proc.stat().st_dev, '/', '/proc', 'proc'))
+        self.namespaces = self.base / 'namespaces'
+        self.namespaces.mkdir()
+        for tag in producer['NAMESPACES']:
+            (self.namespaces / tag).touch()
+        self.init = self.add_task(1, 1)
+        (self.proc / 'self').symlink_to(self.init, target_is_directory=True)
+        (self.proc / '1/ns').symlink_to(self.namespaces, target_is_directory=True)
+        self.host = {name: (self.namespaces / name).stat().st_ino for name in producer['NAMESPACES']}
+        self.host.update(boot_id=BOOT, independent_mount_sha256=[])
+
+    @staticmethod
+    def mount_row(ident, dev, root, point, kind, options='rw'):
+        return f'{ident} 1 {os.major(dev)}:{os.minor(dev)} {root} {point} rw - {kind} source {options}\n'.encode()
+
+    def add_task(self, pid, tid):
+        task = self.proc / str(pid) / 'task' / str(tid)
+        task.mkdir(parents=True)
+        (task / 'fd').mkdir()
+        (task / 'ns').symlink_to(self.namespaces, target_is_directory=True)
+        (task / 'stat').write_text(f'{tid} (fake process) S' + ' 0' * 18 + ' 1234 0\n')
+        (task / 'status').write_text('Kthread:\t0\nCapEff:\t0000000000080000\n')
+        for name, target in (('cwd', self.base), ('root', self.base), ('exe', self.executable)):
+            (task / name).symlink_to(target)
+        (task / 'mountinfo').write_bytes(self.table)
+        (task / 'cmdline').write_bytes(b'fixture\0private-argument\0')
+        (task / 'maps').write_bytes(b'1000-2000 rw-p 00000000 00:00 0 [heap]\n')
+        return task
+
+    def manifest(self, *files):
+        return dict(schema=1, enrolled_at=NOW - 15, expires_at=NOW + 120, host=copy.deepcopy(self.host),
+                    batches=[dict(build_roots=[str(self.build)], files=[
+                        dict(path=str(file), identity=producer['file_identity'](file.stat()),
+                             aliases=['relative/' + file.name])]) for file in files])
+
+    def observe(self, manifest, clock=lambda: NOW * 10**9, reload=None):
+        raw = json.dumps(manifest).encode()
+        return producer['produce'](load=reload or (lambda: (raw, 'sealed')),
+                                   proc=self.proc, own_pid=9000, clock=clock)
+
+    def assert_incomplete(self, result, reason):
+        self.assertEqual(result['status'], 'incomplete')
+        self.assertFalse(result['scan_complete'])
+        self.assertEqual(result['reason'], reason)
+        self.assertTrue(all(row['status'] == 'incomplete' and row['matches'] is None
+                            for row in result['batches']))
+
+    def test_clear_repeat_and_redaction(self):
+        manifest = self.manifest(self.file, self.other)
+        result = self.observe(manifest)
+        self.assertEqual(result, self.observe(manifest))
+        self.assertEqual(result['status'], 'clear')
+        self.assertTrue(result['scan_complete'])
+        self.assertEqual(result['tasks_scanned'], 1)
+        self.assertEqual([row['status'] for row in result['batches']], ['clear', 'clear'])
+        self.assertEqual(result['manifest_sha256'], producer['digest'](json.dumps(manifest).encode()))
+        output = json.dumps(result)
+        for hidden in (str(self.file), str(self.base), BOOT, 'private-argument', 'selected.pch'):
+            self.assertNotIn(hidden, output)
+
+    def test_busy_thread_alias_descriptor_and_mapping(self):
+        self.add_task(2, 2)
+        thread = self.add_task(2, 3)
+        alias = self.base / 'hardlink'
+        alias.hardlink_to(self.file)
+        (thread / 'fd/7').symlink_to(alias)
+        dev = alias.stat().st_dev
+        ino = alias.stat().st_ino
+        (thread / 'maps').write_text(f'1000-2000 r--p 00000000 {os.major(dev):x}:{os.minor(dev):x} {ino} /hidden\n')
+        result = self.observe(self.manifest(self.file, self.other))
+        self.assertEqual(result['tasks_scanned'], 3)
+        self.assertEqual(result['status'], 'busy')
+        self.assertEqual(result['batches'][0]['matches']['descriptor'], 1)
+        self.assertEqual(result['batches'][0]['matches']['mapping'], 1)
+        self.assertEqual(result['batches'][1]['status'], 'clear')
+        self.assertNotIn('/hidden', json.dumps(result))
+
+    def test_relative_argv_alias_and_exact_bind(self):
+        st = self.file.stat()
+        row = self.mount_row(3, st.st_dev, str(self.file), '/file-bind', 'ext4')
+        (self.init / 'mountinfo').write_bytes(self.table + row)
+        (self.init / 'cmdline').write_bytes(b'fixture\0--pch=relative/selected.pch\0--other=relative/later.o.extra\0')
+        result = self.observe(self.manifest(self.file, self.other))
+        self.assertEqual(result['status'], 'busy')
+        self.assertEqual(result['batches'][0]['matches']['argument'], 1)
+        self.assertEqual(result['batches'][0]['matches']['bind_mount'], 1)
+        self.assertEqual(result['batches'][1]['status'], 'clear')
+
+    def test_retired_and_replaced_batches_do_not_hide_later_batch(self):
+        manifest = self.manifest(self.file, self.other)
+        self.file.unlink()
+        result = self.observe(manifest)
+        self.assertTrue(result['scan_complete'])
+        self.assertEqual(result['status'], 'incomplete')
+        self.assertEqual([row['status'] for row in result['batches']], ['incomplete', 'clear'])
+        self.assertEqual(result['batches'][0]['reason'], 'selected_identity')
+        self.file.symlink_to(self.other)
+        self.assertEqual(self.observe(manifest)['batches'][0]['reason'], 'selected_identity')
+
+    def test_manifest_expiry_and_replacement(self):
+        manifest = self.manifest(self.file)
+        self.assert_incomplete(self.observe(manifest, clock=lambda: (NOW + 121) * 10**9), 'manifest_stale')
+        ticks = iter((NOW, NOW, NOW + 121, NOW + 121))
+        self.assert_incomplete(self.observe(manifest, clock=lambda: next(ticks) * 10**9), 'manifest_stale')
+        raw = json.dumps(manifest).encode()
+        calls = iter(((raw, 'initial'), (raw, 'replacement')))
+        self.assert_incomplete(self.observe(manifest, reload=lambda: next(calls)), 'manifest_changed')
+
+    def test_proc_visibility_and_namespace(self):
+        manifest = self.manifest(self.file)
+        manifest['host']['pid'] += 1
+        self.assert_incomplete(self.observe(manifest), 'host_namespace')
+        (self.init / 'mountinfo').write_bytes(self.table.replace(b'- proc source rw', b'- proc source rw,hidepid=2'))
+        self.assert_incomplete(self.observe(self.manifest(self.file)), 'host_procfs')
+
+    def test_opaque_mount_requires_exact_enrollment(self):
+        self.add_task(2, 2)
+        thread = self.add_task(2, 4)
+        line = self.mount_row(3, 0, '/', '/stacked', 'overlay', 'rw,lowerdir=/dummy')
+        (thread / 'mountinfo').write_bytes(self.table + line)
+        manifest = self.manifest(self.file)
+        self.assert_incomplete(self.observe(manifest), 'mount_projection')
+        namespace = self.host['mnt']
+        manifest['host']['independent_mount_sha256'] = [producer['digest'](str(namespace).encode() + b'\n' + line.rstrip(b'\n'))]
+        self.assertEqual(self.observe(manifest)['status'], 'clear')
+        (thread / 'mountinfo').write_bytes(self.table + line.replace(b'/dummy', b'/different'))
+        self.assert_incomplete(self.observe(manifest), 'mount_projection')
+
+    def test_fd_maps_and_mountinfo_gaps(self):
+        manifest = self.manifest(self.file)
+        for member, reason in (('fd', 'fd_incomplete'), ('maps', 'maps_incomplete'), ('mountinfo', 'mountinfo_incomplete')):
+            with self.subTest(member=member):
+                task = self.add_task(2, 2) if not (self.proc / '2').exists() else self.proc / '2/task/2'
+                path = task / member
+                hidden = task / (member + '.hidden')
+                path.rename(hidden)
+                try:
+                    self.assert_incomplete(self.observe(manifest), reason)
+                finally:
+                    hidden.rename(path)
+
+    def test_bad_maps_and_global_churn_override_busy(self):
+        manifest = self.manifest(self.file)
+        (self.init / 'fd/7').symlink_to(self.file)
+        (self.init / 'maps').write_bytes(b'1000-2000 damaged\n')
+        self.assert_incomplete(self.observe(manifest), 'maps_incomplete')
+        (self.init / 'maps').write_bytes(b'1000-2000 rw-p 00000000 00:00 0 [heap]\n')
+        real_inventory = runtime['inventory']
+        first = real_inventory(self.proc, 9000)
+        results = iter((first, {}))
+        with patch.dict(runtime, inventory=lambda *args: next(results)):
+            self.assert_incomplete(self.observe(manifest), 'task_inventory_changed')
+
+    def test_maps_observation_drift_fails_closed(self):
+        manifest = self.manifest(self.file)
+        original = runtime['read']
+        maps = iter((b'1000-2000 rw-p 00000000 00:00 0 [heap]\n',
+                     b'1000-3000 rw-p 00000000 00:00 0 [heap]\n'))
+
+        def changing_read(path, limit, code):
+            return next(maps) if path == self.init / 'maps' else original(path, limit, code)
+
+        with patch.dict(runtime, read=changing_read):
+            self.assert_incomplete(self.observe(manifest), 'maps_changed')
+
+    def test_fd_inventory_drift_fails_closed(self):
+        manifest = self.manifest(self.file)
+        original = runtime['numbers']
+        tables = iter((set(), {8}))
+
+        def changing_table(path, limit, code, strict=False):
+            return next(tables) if path == self.init / 'fd' else original(path, limit, code, strict)
+
+        with patch.dict(runtime, numbers=changing_table):
+            self.assert_incomplete(self.observe(manifest), 'fd_changed')
+
+    def test_duplicate_fields_and_untrusted_path(self):
+        records = self.manifest(self.file)
+        raw = json.dumps(records).replace('"schema": 1', '"schema": 1, "schema": 1', 1).encode()
+        self.assert_incomplete(self.observe(records, reload=lambda: (raw, 'sealed')), 'manifest_schema')
+        with self.assertRaisesRegex(producer['Incomplete'], 'manifest_trust'):
+            producer['load_trusted_manifest'](self.file)
+        with patch.object(producer['sys'], 'argv', ['host-in-use-report', '--manifest', str(self.file)]):
+            self.assertEqual(producer['main'](), 2)
+
+    def test_output_interface_and_return_codes(self):
+        manifest = self.manifest(self.file)
+        clear = self.observe(manifest)
+        (self.init / 'fd/5').symlink_to(self.file)
+        busy = self.observe(manifest)
+        incomplete = self.observe(manifest, clock=lambda: (NOW + 121) * 10**9)
+        with (patch.object(os, 'getuid', return_value=0), patch.object(os, 'geteuid', return_value=0),
+              patch.object(os, 'isatty', return_value=True), patch.object(os, 'write') as write,
+              patch.object(producer['signal'], 'signal'), patch.object(producer['signal'], 'setitimer')):
+            write.side_effect = lambda fd, data: len(data)
+            for code, result in enumerate((clear, busy, incomplete)):
+                with patch.dict(runtime, produce=lambda: result):
+                    self.assertEqual(producer['main'](), code)
+                    fd, data = write.call_args.args
+                    self.assertEqual(fd, 1)
+                    self.assertEqual(json.loads(data), result)
+
+
+if __name__ == '__main__':
+    unittest.main()

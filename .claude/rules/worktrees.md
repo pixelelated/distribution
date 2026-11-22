@@ -177,6 +177,17 @@ now requires current measured capacity/retention before launches and retains
 output ownership through original-result consumption; automatic deletion is
 not implemented. Follow its guide; admission does not extend cleanup authority.
 
+Use the build account's ownership records and reports for recurring storage
+checks. When a decision needs visibility that account lacks, coordinate one
+administrator-owned, read-only integration for the reviewed scope. Have the
+coordinator invoke it unattended, consume its original result and continue
+the dependent work. Hold on a busy file, incomplete visibility or a stale
+selection. An administrator decides whether to grant new access. Each
+retirement still follows its own output conditions, and capacity is measured
+again before admission. Keep host and process evidence in private operational
+storage. See [retention reporting](../../tools/host-maintenance/retention-report.md)
+and D-INFRA-024 (#493).
+
 ### Retain the record; give a large runtime artifact a reason to stay
 
 D-INFRA-021 and D-INFRA-022 refine this review: the maintainer prioritizes knowing what
