@@ -103,11 +103,119 @@ Docker-shell run must be consumed in its original container namespace before tha
 container is removed; ordinary host-wrapped Docker builds are preferred. A
 container namespace that has disappeared is not proof of individual host exits.
 
-**Consumption releases the reservation, not the outputs.** Output holds and release
-conditions remain recorded; this tool performs no deletion. #493's automatic
-qualified-artifact retirement, interrupted-removal reconciliation, complete
-historical classification and next-build resource telemetry remain separate open
-criteria. No root dependency visibility or automatic cleanup is claimed here.
+Consumption always settles the reservation independently of retirement.
+Existing plans keep their original output holds. Successful plans that opted
+into the narrow generated-file scope below also attempt retirement during the
+same `consume` call. The original consumed receipt stays immutable.
+
+### Automatic retirement of declared generated headers
+
+The first scope is one to four exact `cmake_pch.hxx.gch` files in
+`CMakeFiles` below a declared, private `build.*/build/` output under that
+checkout. Use only same-volume, ordinary-account, singly linked regular
+files. Keep source, licences, staging, caches, archives, media, directories
+and all other generated files under their existing holds. Directory permissions
+stay intact. Set up private writable directories at creation. A shared,
+unreadable or non-writable parent holds the file.
+
+In the admission plan, before `prepare`, add:
+
+```json
+{
+  "inputs": ["/absolute/protected/input"],
+  "retire_on_consume": {
+    "files": ["/checkout/build.example/build/p/CMakeFiles/p.dir/cmake_pch.hxx.gch"],
+    "reference_roots": ["/absolute/managed/compact-reference-root"],
+    "reference_stores": ["/absolute/managed/compact-reference-root"]
+  }
+}
+```
+
+Use `inputs` to register other exact files or directories the job will use.
+Each prepared receipt places a 15-minute dependency hold under the normal
+shared registry lock. An admitted job takes over its queued hold. Expired
+prepared holds cannot start a job. Retirement also checks other active and consumed owners. Consumption
+records the actual qualification evidence paths. The checks protect earlier
+input scopes and retained evidence after a peer's output hold ends. The
+current qualification file and every file in its `evidence` list stay held,
+including otherwise eligible generated outputs. Legacy peer rows with
+unverified scopes or retained operands hold automatic retirement.
+
+Retirement binds the invoking account's passwd and effective home state
+locations and any absolute `XDG_STATE_HOME` to the admitted request. It
+checks the deployed filesystem-keyed registry location in those state
+roots, using the selected volume's device and filesystem ID. An existing
+registry for the volume, a changed route, an unresolved or unreadable route,
+or missing route bindings holds all selected files. These checks run under
+the Git-common lock before observation and again at unlink. A detected
+alternate registry is a hold even when its queue looks empty, since its
+writers use a different lock. The reader does not acquire, repair or write
+that registry. Mixed registries need a common ownership and locking contract
+before automatic retirement can be admitted. Executors with unrepresented
+routing remain outside this scope. The declared roots and stores still need
+to cover all known incoming references. Whole-host use and local
+stopped-container checks are additional to registered ownership.
+
+Add `retirement` to the normal successful qualification evidence:
+
+```text
+{
+  "manifest_sha256": "<approved host-use enrollment SHA-256>",
+  "source_custody": {"path": "<retained source receipt>", "sha256": "<digest>"},
+  "superseded_by": {"path": "<retained successor receipt>", "sha256": "<digest>"},
+  "files": [{
+    "selection": {"path": "<exact declared header>", "identity": {...}, "aliases": []},
+    "ninja_graph": {"path": "<actual enclosing build.ninja>", "sha256": "<digest>"}
+  }]
+}
+```
+
+Use the exact identity and alias fields from the fixed host-use manifest.
+Enroll **one singleton batch per file** under one manifest digest so a prior
+removal cannot make the remaining singleton reports incomplete. Bind the
+enrollment through the established [host-use protocol](host-in-use-report.md).
+New operands require the existing explicit enrollment. No installation or
+access-policy change is part of consumption.
+
+The source receipt has `result: "PASS"`, `source` equal to the admitted
+tracked source identity, and an `evidence` list for retained source and
+licence custody. The successor receipt has `result: "PASS"`, `admission_id`,
+the exact declared `files`, `reference_roots`, `reference_stores`, and an
+`evidence` list for the accepted independent supersession and dependency
+scope. The evidence lists use the normal path/SHA-256 format. Include both
+receipts, every referenced evidence file and each actual Ninja graph in the
+top-level qualification `evidence` list. The checker matches each claimed
+header to an actual CMake C++ compiler output edge in the bound graph.
+The acceptance owner verifies the correspondence of sources, original
+results and the independent replacement when forming those receipts.
+
+Run the same normal `consume` command shown above. A zero result settles the
+original reservation. An added JSON summary and `<run>/retirement.json`
+show `retired`, `held` or `partial`. The private journal records per-file
+holds and the original trusted use observations. It records allocated bytes
+of verified final-link removals separately from the observed filesystem
+available-byte delta, which can include unrelated filesystem activity. An
+interrupted intent whose path is later absent is unconfirmed and contributes
+zero credited bytes. The capacity guard still uses fresh measured free space.
+
+Use the same `consume` and exact acceptance for retry. It resumes untouched
+or still-identical files after renewed checks and never deletes a replacement
+at an already settled name. It performs no build replay. A verified durable
+unlink is credited once; the immutable original consumed receipt still
+records the original reservation transition. The path and dependency
+checks are serialized with cooperating admissions. The trusted host-use
+check remains a short-lived snapshot. Keep the selected scope quiescent and
+exclude independent writers or unmanaged consumers. The tool holds on
+unreadable dependencies, unknown media, failed originals, private owner
+mismatches or a missing/stale/incomplete host check.
+
+Run `python3 -I -B tools/host-maintenance/test-generated-retirement` for the
+ordinary-account controls. They run a disposable normal watcher, perform
+actual unlinks, test interrupted accounting and provide bounded fabricated
+host-use observations to the real consumer validator. They do not use the
+host's installed helper or Docker daemon. These filesystem controls can run
+in a VM. Host-use and filesystem capacity evidence must come from the
+actual target host and volume.
 
 Run the synthetic controls with `test-build-admission` and `test-build-monitor` in
 this directory. They invoke actual launch wrappers and Makefile routes with small

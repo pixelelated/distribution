@@ -116,3 +116,13 @@ unavailable, visibility is incomplete, or evidence fails validation. A missing
 or malformed receipt also holds the batch. Review each installed host result
 through its normal owner. Record a fresh capacity measurement and independently
 reconcile release conditions before a separately authorized retirement.
+
+## Generated-file terminal retirement
+
+The read-only CLI keeps its existing result and exit contract. The opt-in
+[terminal retirement route](build-admission.md#automatic-retirement-of-declared-generated-headers)
+uses the same trusted report reader for all exact singleton selections from
+one invocation. It also uses bounded incoming-link and local-daemon mount
+inspection on the declared compact reference roots. Unknown media and
+incomplete reference inspection are held. The ordinary consumer's exit
+and observed timestamps stay bound to the exact requested batch.

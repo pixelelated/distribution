@@ -98,6 +98,11 @@ with tempfile.TemporaryDirectory(prefix='pix493-admission-') as tmp:
     check(a.returncode!=0 and not (d/'nested-compiler').exists(),'recording-only parent cannot admit nested compilation')
     # #597: all recovery inputs/processes/containers/registries below are isolated.
     # No production registry, container daemon, compiler or VM is accessed.
+    # The reviewed collision predates the normal launcher update. Use
+    # the pinned real bytes only in this historical recovery fixture.
+    historical = subprocess.check_output(['git', '-C', str(root), 'show',
+        '26d2f6abce201692a8f0e4de851780129e483756:tools/watch-build-submit'],
+        env=dict(os.environ, GIT_NO_LAZY_FETCH='1'))
     def recovery_fixture(name):
         d,m,p,r,e=fixture('reporting-'+name)
         runpath=d/'.build-runs/completed';runpath.mkdir(parents=True)
@@ -111,7 +116,8 @@ with tempfile.TemporaryDirectory(prefix='pix493-admission-') as tmp:
         for name,value in [('build.rc',0),('build.pid',4102),('command.pid',4103),('watcher.pid',4104),('build.status.pid',4104)]:
             (runpath/name).write_text(str(value)+'\n')
         (runpath/'build.status').write_text('state:       finished\nwatcher_pid: 4104\njob_pid:     4102  alive=yes\noutcome:     rc=0\n')
-        shutil.copy2(root/'tools/watch-build-submit',owner/'watch-build-submit.py')
+        assert hashlib.sha256(historical).hexdigest() == m.COLLISION_LAUNCHER_SHA256
+        (owner/'watch-build-submit.py').write_bytes(historical)
         (owner/'tool-wrapper.rc').write_text('0\n');(owner/'inner.rc').write_text('0\n')
         (owner/'console.log').write_text("watch-build-submit: [Errno 17] File exists: '"+str(owner/'tool-wrapper.rc')+"'\n")
         m.write(owner/'launcher-start.json',dict(pid=4101,start_ticks='99',cwd=str(d)))
