@@ -156,6 +156,16 @@ class Controls(unittest.TestCase):
         self.assertEqual(self.finish()['verified_unlinked_bytes'],0)
         self.assertEqual(self.observations,1)
 
+    def test_shared_checkout_is_reported_without_traversal(self):
+        marker = self.checkout / 'kept'
+        marker.write_bytes(b'shared checkout')
+        self.checkout.chmod(0o775)
+        with patch.dict(G, registry_routes=lambda _: self.fail('unsafe traversal')):
+            result = G['sweep'](self.checkout)
+        self.assertEqual(result['status'], 'held')
+        self.assertEqual(result['verified_unlinked_bytes'], 0)
+        self.assertEqual(marker.read_bytes(), b'shared checkout')
+
     def test_abandoned_consumed_failure_keeps_unknown_and_originals(self):
         run,leaf,_,_,_=self.terminal(rc=2)
         untracked=leaf.with_name('manual-experiment.c')

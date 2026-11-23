@@ -775,6 +775,14 @@ def choose_runs(checkout, candidates, only):
 def sweep(checkout, only=None):
     deadline=time.monotonic()+SWEEP_SECONDS
     require(os.getuid()==os.geteuid()!=0,'sweep requires the ordinary build account')
+    # Historic build checkouts may be shared. Their recorded paths are useful
+    # for discovery, but cannot be trusted for traversal or modification.
+    checkout = path(str(checkout))
+    mode = checkout.lstat()
+    if stat.S_ISDIR(mode.st_mode) and (mode.st_uid != os.geteuid() or mode.st_mode & 0o022):
+        return dict(schema=1, status='held', checkout=str(checkout),
+                    reason='checkout is shared or owned by another account',
+                    verified_unlinked_bytes=0, results=[])
     checkout=private_directory(checkout)
     if only is not None:
         only=path(str(only))
