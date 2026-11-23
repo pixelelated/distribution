@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
 """Negative admission/lifecycle controls; synthetic host roots, no compiler/VM."""
-import copy,importlib.util,json,os,shutil,subprocess,tempfile,datetime,hashlib,types
+import copy,importlib.util,json,os,select,shutil,subprocess,tempfile,datetime,hashlib,types
 from pathlib import Path
+from unittest.mock import patch
 root=Path(__file__).resolve().parents[2]
 spec=importlib.util.spec_from_file_location('fixture',Path(__file__).with_name('admission-test-fixture.py'));helper=importlib.util.module_from_spec(spec);spec.loader.exec_module(helper)
 checks=[]
@@ -9,11 +10,16 @@ def check(ok,label):
     assert ok,label;checks.append(label);print('PASS '+label,flush=True)
 with tempfile.TemporaryDirectory(prefix='pix493-admission-') as tmp:
     base=Path(tmp)
-    def fixture(name):
+    def fixture(name, *, prepare=True):
         d=base/name;d.mkdir();(d/'tools').mkdir();(d/'scripts').mkdir()
         for x in ['watch-build','watch-job']:shutil.copy2(root/'tools'/x,d/'tools'/x)
-        shutil.copy2(root/'Makefile',d/'Makefile')
-        mod,plan,receipt=helper.prepare_fixture(d,root)
+        makefile = root / 'Makefile'
+        if makefile.is_file():
+            shutil.copy2(makefile, d / 'Makefile')
+        else:
+            (d / 'Makefile').write_bytes(subprocess.check_output(
+                ['git', '--no-lazy-fetch', '-C', str(root), 'show', 'HEAD:Makefile']))
+        mod,plan,receipt=helper.prepare_fixture(d,root,prepare=prepare)
         env={'PATH':os.environ['PATH'],'HOME':str(d),'LC_ALL':'C','PIXELELATED_BUILD_ADMISSION':str(receipt)}
         return d,mod,plan,receipt,env
     def run(d,env,cmd=None):
@@ -29,6 +35,8 @@ with tempfile.TemporaryDirectory(prefix='pix493-admission-') as tmp:
       'changed protected directory':lambda d,m,p,r,e:(d/'kept/unreviewed').touch(),
       'changed profile':lambda d,m,p,r,e:e.update(DEVICE='H700'),
       'refused report':lambda d,m,p,r,e:m.write(d/'retention-report.json',dict(m.read(d/'retention-report.json'),inventory={'errors':['unreadable dependency']})),
+      'missing prebuild review':lambda d,m,p,r,e:m.write(r,{k:v for k,v in m.read(r).items() if k!='prebuild_review'}),
+      'changed prebuild review':lambda d,m,p,r,e:m.write(r,dict(m.read(r),prebuild_review={'schema':1,'status':'held'})),
       'changed registry':lambda d,m,p,r,e:m.write(m.registry_for(d)/'jobs.json',{'schema':1,'generation':1,'jobs':{}}),
     }
     for name,mutate in mutations.items():
@@ -36,10 +44,17 @@ with tempfile.TemporaryDirectory(prefix='pix493-admission-') as tmp:
         check(a.returncode!=0 and not (d/'compiler-started').exists(),name+' blocks payload')
     d,m,p,r,e=fixture('capacity')
     real = m.os.statvfs
+    def refused(operation, diagnostic):
+        try:
+            operation()
+        except ValueError as error:
+            return diagnostic in str(error)
+        return False
+
     try:
-        m.os.statvfs = lambda _:types.SimpleNamespace(f_bavail=0,f_frsize=4096)
-        try:m.prepare(p,d/'no-space.json');ok=False
-        except ValueError:ok=True
+        fsid = real(d).f_fsid
+        m.os.statvfs = lambda _:types.SimpleNamespace(f_bavail=0,f_frsize=4096,f_fsid=fsid)
+        ok=refused(lambda:m.prepare(p,d/'no-space.json'),'install the matching build-retention-cycle')
         check(ok and not (d/'no-space.json').exists(),'prepare refuses insufficient current capacity')
         active=d/'.build-runs/test-capacity';active.mkdir(parents=True)
         try:m.admit(r,d,active,e);ok=False
@@ -53,9 +68,246 @@ with tempfile.TemporaryDirectory(prefix='pix493-admission-') as tmp:
     try:m.prepare(p,d/'overcommitted.json');ok=False
     except ValueError:ok=True
     check(ok,'existing unresolved reservations reduce new capacity')
+
+    def storage_fixture(name):
+        d,m,p,r,e=fixture(name,prepare=False)
+        rp=d/'retention-plan.json';rr=d/'retention-report.json'
+        narrow=d/'old-output';narrow.mkdir()
+        report=m.read(rr)
+        report['builds'][0]['fits_now']=False
+        m.write(rp,dict(m.read(rp),candidates=[{'path':str(narrow),'identity':m.path_identity(narrow)}]))
+        m.write(rr,dict(report,plan_sha256=m.digest(rp)))
+        return d,m,p,r,e,narrow
+
+    d,m,p,r,e,narrow=storage_fixture('point-capacity')
+    capacity_argv=['/usr/bin/python3','-I','-B',str(d/'tools/host-maintenance/build-admission'),
+                   'capacity','--plan',str(p)]
+    result=subprocess.run(capacity_argv,cwd=d,env=e,capture_output=True,text=True,timeout=10)
+    check(result.returncode==0 and json.loads(result.stdout)['status']=='fits'
+          and not m.registry_for(d).exists() and not r.exists(),
+          'direct capacity command ignores stale fits_now bit and creates no registry or receipt')
+    (d/'retention-report.json').unlink()
+    result=subprocess.run(capacity_argv,cwd=d,env=e,capture_output=True,text=True,timeout=10)
+    check(result.returncode==2 and not m.registry_for(d).exists(),
+          'missing caller report refuses even on the healthy fast path')
+
+    d,m,p,r,e,narrow=storage_fixture('ranked-recovery')
+    held=d/'biggest-held';held.mkdir()
+    keep=d/'kept'
+    separate=d/'independent-owned';separate.mkdir()
+    cycle=d/'tools/host-maintenance/build-retention-cycle'
+    # The coordinated reviewer is replaced at its interface, while real
+    # prepare, locks, receipt publication and launch admission run normally.
+    cycle.write_text('# synthetic network-free review seam\n')
+    (d/'fixture-space').write_text('524288\n')
+    free=d/'fixture-space'
+    attempts=[]
+
+    def ranked(checkout, volume, required_bytes, reserved_bytes, protected_paths, *, retire=False):
+        assert Path(checkout)==Path(volume)==d
+        assert required_bytes==1048576
+        reg=m.registry_for(d)
+        # A separately opened file description cannot acquire this lock
+        # while the caller still holds an admission lock.
+        with (reg/'lock').open('r') as lock:
+            m.fcntl.flock(lock,m.fcntl.LOCK_EX|m.fcntl.LOCK_NB)
+        data=m.read(reg/'jobs.json')
+        assert str(keep) in protected_paths and str(d/'build.fixture') in protected_paths
+        assert str(d) not in protected_paths
+        if retire:
+            pending,=data['queued'].values()
+            assert pending['prebuild_pending'] is True and not r.exists()
+            selected={'id':'fixture-terminal','volume_device':d.stat().st_dev}
+            assert refused(lambda:m.check_registered_use(data,selected,[keep]),'registered owner')
+            m.check_registered_use(data,selected,[separate])
+        initial=int(free.read_text())
+        candidates=[{'path':str(held),'allocated_bytes':4000000,'status':'held','owner':'fixture owner'},
+                    {'path':str(separate),'allocated_bytes':1000000,'status':'eligible'}]
+        if retire:
+            separate.rmdir()
+            free.write_text('1572864\n')
+        available=int(free.read_text())
+        shortage=max(0,required_bytes+reserved_bytes-available)
+        attempts.append(retire)
+        return dict(schema=1,available_bytes=available,initial_available_bytes=initial,
+                    required_bytes=required_bytes,reserved_bytes=reserved_bytes,
+                    shortfall_bytes=shortage,candidates=candidates,
+                    measured_reclaimed_bytes=available-initial,attempts=[],omissions=[],
+                    status='held' if shortage else 'fits')
+
+    with m.registry(m.registry_for(d)):
+        pass
+    with patch.object(m,'available_bytes',side_effect=lambda _:int(free.read_text())), \
+         patch.object(m.runpy,'run_path',return_value={'prebuild_review':ranked}):
+        forecast=m.capacity(p)
+        check(forecast['status']=='held' and forecast['shortfall_bytes']==524288
+              and not r.exists() and narrow.exists() and separate.exists(),
+              'read-only capacity reports the ranked shortage and performs no cleanup')
+        row=m.prepare(p,r)
+    check(attempts==[True] and held.exists() and narrow.exists() and not separate.exists()
+          and row['prebuild_review']['measured_reclaimed_bytes']==1048576
+          and [c['path'] for c in row['prebuild_review']['candidates']]==[str(held),str(separate)],
+          'prepare protects pending inputs and continues past a held largest candidate')
+    a=run(d,e)
+    check(a.returncode==0 and (d/'compiler-started').exists(),
+          'ordinary watch-build starts from the unlocked-review receipt and fresh locked capacity')
+
+    d,m,p,r,e,narrow=storage_fixture('raced-reservation')
+    (d/'tools/host-maintenance/build-retention-cycle').write_text('# synthetic review seam\n')
+    space=[524288]
+    def racing_review(checkout, volume, required, reserved, protected, *, retire):
+        assert retire and not r.exists()
+        space[0]=1572864
+        with m.registry(m.registry_for(d)) as jobs:
+            assert len(jobs['queued'])==1
+            jobs['jobs']['other']={'required_bytes':1048576,'state':'running','volume_device':d.stat().st_dev}
+            jobs['generation']+=1
+        return dict(schema=1,status='fits',available_bytes=space[0],initial_available_bytes=524288,
+                    required_bytes=required,reserved_bytes=reserved,shortfall_bytes=0,
+                    measured_reclaimed_bytes=1048576,candidates=[],attempts=[],omissions=[])
+    with patch.object(m,'available_bytes',side_effect=lambda _:space[0]), \
+         patch.object(m.runpy,'run_path',return_value={'prebuild_review':racing_review}):
+        blocked=refused(lambda:m.prepare(p,r),'"shortfall_bytes":524288')
+    ledger=m.read(m.registry_for(d)/'jobs.json')
+    check(blocked and not r.exists() and not ledger['queued'] and 'other' in ledger['jobs'],
+          'concurrent reservation defeats a fits review and only provisional queue hold is cancelled')
+
+    d,m,p,r,e,narrow=storage_fixture('unjoined-reservation')
+    (d/'tools/host-maintenance/build-retention-cycle').write_text('# synthetic review seam\n')
+    space=[524288]
+    def unjoined_review(checkout, volume, required, reserved, protected, *, retire):
+        space[0]=1572864
+        return dict(schema=1,status='fits',available_bytes=space[0],initial_available_bytes=524288,
+                    required_bytes=required,reserved_bytes=reserved,observed_reserved_bytes=1048576,
+                    shortfall_bytes=0,measured_reclaimed_bytes=0,candidates=[],attempts=[],omissions=[])
+    with patch.object(m,'available_bytes',side_effect=lambda _:space[0]), \
+         patch.object(m.runpy,'run_path',return_value={'prebuild_review':unjoined_review}):
+        point=m.capacity(p)
+        check(point['status']=='held' and point['shortfall_bytes']==524288 and not point['attempts'],
+              'ordinary capacity uses only the locked counters and no retirement review')
+        space[0]=524288
+        blocked=refused(lambda:m.prepare(p,r),'reservations outside the original snapshot')
+        check(blocked and not r.exists(),
+              'a later healthy native sample cannot admit across an unresolved reservation')
+
+    d,m,p,r,e,narrow=storage_fixture('candidate-identity')
+    with patch.object(m,'available_bytes',return_value=3456789):
+        check(m.current(m.read(p))['available_bytes']==3456789,
+              'current plan API preserves its available_bytes result')
+    saved=narrow.with_name('original-narrow')
+    narrow.rename(saved)
+    narrow.mkdir()
+    check(refused(lambda:m.current(m.read(p)),'retirement candidate changed')
+          and refused(lambda:m.prepare(p,r),'retirement candidate changed') and not r.exists(),
+          'a replaced report candidate blocks current and preparation even with ample capacity')
+    narrow.rmdir()
+    check(refused(lambda:m.current(m.read(p)),'retirement candidate disappeared'),
+          'an absent candidate requires a newly bound report')
+    saved.rename(narrow)
+    m.prepare(p,r)
+    narrow.rename(saved)
+    a=run(d,e)
+    check(a.returncode!=0 and not (d/'compiler-started').exists(),
+          'ordinary launch refuses a candidate that disappeared after preparation')
+
+    d,m,p,r,e,narrow=storage_fixture('dual-ledgers')
+    e['XDG_STATE_HOME']=str(d/'state')
+    actual=m.available_bytes(d)
+    local_required=131072
+    peer,peer_row=helper.filesystem_reservation(d,Path(e['XDG_STATE_HOME']),262144)
+    with m.registry(m.registry_for(d)) as jobs:
+        jobs['jobs']['native-owner']=dict(peer_row,id='native-owner',registry=str(m.registry_for(d)),
+                                         required_bytes=local_required)
+    native=m.registry_for(d)
+    original_peer=(peer/'jobs.json').read_bytes()
+    cycle=d/'tools/host-maintenance/build-retention-cycle'
+    cycle.write_text('# synthetic read-only ranking seam\n')
+    ranked_calls=[]
+    def last_sizes(volume, paths):
+        assert Path(volume)==d and str(d/'build.peer') in paths
+        for route in (native,peer):
+            with (route/'lock').open('r') as lock:
+                m.fcntl.flock(lock,m.fcntl.LOCK_EX|m.fcntl.LOCK_NB)
+        ranked_calls.append(paths)
+        return {'candidates':[{'path':str(d/'build.peer'),'allocated_bytes':17,
+                               'reason':'retained test size','inventory_sha256':'a'*64}],'omissions':[]}
+    def forbidden_retirement(*args, **kwargs):
+        raise AssertionError('combined-only shortage cannot load the guarded retirement review')
+    ranking={'prebuild_last_sizes':last_sizes,'prebuild_review':forbidden_retirement}
+    commits=[]
+    original_write=m.write
+    def check_commit_locks(path, data, **kwargs):
+        if Path(path)==native/'jobs.json':
+            for route in (native,peer):
+                with (route/'lock').open('r') as lock:
+                    try:
+                        m.fcntl.flock(lock,m.fcntl.LOCK_EX|m.fcntl.LOCK_NB)
+                    except BlockingIOError:
+                        pass
+                    else:
+                        raise AssertionError('native registry commit lost lock: ' + str(route))
+            commits.append(data['generation'])
+        return original_write(path,data,**kwargs)
+    with patch.dict(os.environ,XDG_STATE_HOME=e['XDG_STATE_HOME']), \
+         patch.object(m.runpy,'run_path',return_value=ranking), patch.object(m,'write',side_effect=check_commit_locks):
+        with patch.object(m,'available_bytes',return_value=1048576+local_required+131072):
+            forecast=m.capacity(p)
+            check(forecast['status']=='held' and forecast['shortfall_bytes']==131072
+                  and forecast['git_common_reserved_bytes']==local_required
+                  and forecast['filesystem_reserved_bytes']==262144
+                  and forecast['candidates'][0]['allocated_bytes']==17 and not forecast['attempts'],
+                  'combined shortage reports both locks and retained size without live review')
+            check(refused(lambda:m.prepare(p,r),'"shortfall_bytes":131072') and not r.exists()
+                  and not m.read(native/'jobs.json').get('queued'),
+                  'locally fitting prepare refuses combined shortage without a receipt or provisional hold')
+        receipt=m.prepare(p,r)
+    check(receipt['reserved_bytes']==local_required+262144 and len(ranked_calls)==3
+          and commits and (peer/'jobs.json').read_bytes()==original_peer,
+          'healthy preparation counts both ledgers and commits before either lock is released')
+    data=m.read(peer/'jobs.json')
+    data['generation']+=1
+    data['jobs'][peer_row['id']]['required_bytes']=actual+1024**3
+    m.write(peer/'jobs.json',data)
+    before_launch=(peer/'jobs.json').read_bytes()
+    a=run(d,e)
+    guarded_logs=[item.read_text() for item in (d/'.build-runs').glob('*/build.log')]
+    check(a.returncode!=0 and not (d/'compiler-started').exists()
+          and any('filesystem_reserved_bytes' in item and 'insufficient space' in item for item in guarded_logs)
+          and (peer/'jobs.json').read_bytes()==before_launch,
+          'normal direct launch sees a new filesystem-only reservation after receipt')
+
+    d,m,p,r,e,narrow=storage_fixture('busy-peer')
+    e['XDG_STATE_HOME']=str(d/'state')
+    peer,_=helper.filesystem_reservation(d,Path(e['XDG_STATE_HOME']),1048576)
+    with patch.dict(os.environ,XDG_STATE_HOME=e['XDG_STATE_HOME']):
+        m.prepare(p,r)
+    before=(peer/'jobs.json').read_bytes()
+    child=['/usr/bin/python3','-I','-B','-c',
+           'import fcntl,sys; f=open(sys.argv[1]); fcntl.flock(f,fcntl.LOCK_EX); '
+           'print("locked",flush=True); sys.stdin.buffer.read(1)',str(peer/'lock')]
+    with subprocess.Popen(child,stdin=subprocess.PIPE,stdout=subprocess.PIPE) as locked:
+        try:
+            assert select.select([locked.stdout],[],[],5)[0] and locked.stdout.readline()==b'locked\n'
+            with patch.dict(os.environ,XDG_STATE_HOME=e['XDG_STATE_HOME']):
+                check(refused(lambda:m.capacity(p),'registry is busy')
+                      and refused(lambda:m.prepare(p,d/'peer-busy-receipt.json'),'registry is busy')
+                      and not (d/'peer-busy-receipt.json').exists(),
+                      'real peer flock blocks read-only capacity and receipt publication')
+            a=run(d,e)
+            check(a.returncode!=0 and not (d/'compiler-started').exists()
+                  and any('registry is busy' in item.read_text() for item in (d/'.build-runs').glob('*/build.log'))
+                  and (peer/'jobs.json').read_bytes()==before,
+                  'real peer flock blocks normal direct launch with no peer writes')
+        finally:
+            locked.stdin.close()
+            locked.wait(timeout=5)
+
     d,m,p,r,e=fixture('positive');a=run(d,e);check(a.returncode==0 and (d/'compiler-started').exists(),'valid admission launches payload')
     runs=[x for x in (d/'.build-runs').iterdir() if x.is_dir()];runpath=runs[0];row=m.read(runpath/'admission.json')
     check(row['outputs']==m.read(p)['outputs'],'registered output release conditions match plan')
+    check(row['output_ownership'] == [dict(row['outputs'][0], owner=m.pwd.getpwuid(os.geteuid()).pw_name,
+                                           uid=os.geteuid(), disposition='held')],
+          'normal launch records generated output, owner and release condition')
     (d/'compiler-started').unlink();a=run(d,e);check(a.returncode!=0 and not (d/'compiler-started').exists(),'consumed admission cannot launch twice')
     held=d/'build.fixture';held.mkdir();(held/'keep').write_text('retained cache')
     proof={'run':str(runpath),'disposition':'qualified','expected_rc':0,'outputs':row['outputs'],

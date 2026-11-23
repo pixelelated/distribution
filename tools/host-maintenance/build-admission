@@ -24,6 +24,7 @@ import time
 import uuid
 
 MAX_AGE = 900
+MAX_PEER_LEDGER_BYTES = 32 * 1024**2
 
 
 def require(value, message):
@@ -83,17 +84,55 @@ def registry_for(root):
 
 
 @contextlib.contextmanager
-def registry(path):
+def registry(path, *, read_only=False, ordered=False, peer=False, writeback=True):
     path = Path(path)
-    path.mkdir(mode=0o700, exist_ok=True)
+    empty = {'schema': 1, 'generation': 0, 'jobs': {}}
+    if read_only:
+        try:
+            path.lstat()
+        except FileNotFoundError:
+            require(not peer, 'filesystem-keyed build-admission registry disappeared: ' + str(path))
+            yield empty
+            return
+    else:
+        path.mkdir(mode=0o700, exist_ok=True)
     require(not path.is_symlink() and path.stat().st_uid == os.getuid(), 'invalid registry owner/path')
-    with (path / 'lock').open('a') as lock:
-        fcntl.flock(lock, fcntl.LOCK_EX)
+    lock_path = path / 'lock'
+    flags = os.O_RDONLY if read_only else os.O_RDWR | os.O_CREAT
+    with os.fdopen(os.open(lock_path, flags | os.O_NOFOLLOW | os.O_NONBLOCK, 0o600), 'rb') as lock:
+        info = os.fstat(lock.fileno())
+        require(stat.S_ISREG(info.st_mode) and info.st_uid == os.geteuid() and info.st_nlink == 1,
+                'invalid build-admission lock identity: ' + str(lock_path))
+        try:
+            fcntl.flock(lock, fcntl.LOCK_EX | (fcntl.LOCK_NB if ordered else 0))
+        except BlockingIOError as error:
+            raise ValueError('build-admission registry is busy: ' + str(path)) from error
+        named = lock_path.lstat()
+        require((named.st_dev, named.st_ino) == (info.st_dev, info.st_ino),
+                'build-admission lock changed: ' + str(lock_path))
         file = path / 'jobs.json'
-        data = read(file) if file.exists() else {'schema': 1, 'generation': 0, 'jobs': {}}
-        require(data.get('schema') == 1 and isinstance(data.get('jobs'), dict), 'invalid registry')
+        try:
+            if peer:
+                fd = os.open(file, os.O_RDONLY | os.O_NOFOLLOW | os.O_NONBLOCK)
+                with os.fdopen(fd, 'rb') as stream:
+                    info = os.fstat(stream.fileno())
+                    require(stat.S_ISREG(info.st_mode) and info.st_uid == os.geteuid() and info.st_nlink == 1
+                            and info.st_size <= MAX_PEER_LEDGER_BYTES,
+                            'unverified filesystem-keyed ledger identity: ' + str(file))
+                    raw = stream.read(MAX_PEER_LEDGER_BYTES + 1)
+                require(len(raw) == info.st_size, 'filesystem-keyed ledger changed while reading: ' + str(file))
+                data = json.loads(raw)
+            else:
+                data = read(file)
+        except FileNotFoundError:
+            require(not peer, 'filesystem-keyed build-admission registry has no ledger: ' + str(path))
+            data = empty
+        require(type(data.get('schema')) is int and data['schema'] in ((1, 2) if peer else (1,))
+                and type(data.get('generation')) is int and isinstance(data.get('jobs'), dict),
+                'invalid build-admission registry: ' + str(path))
         yield data
-        write(file, data)
+        if not read_only and writeback:
+            write(file, data)
 
 
 def evidence(items):
@@ -125,7 +164,11 @@ def current(plan):
     for row in report['protected']:
         require(path_identity(row['path']) == row['identity'], 'protected identity changed: ' + row['path'])
     for item in rp['candidates']:
-        require(path_identity(item['path']) == item['identity'], 'retirement candidate changed')
+        try:
+            actual = path_identity(item['path'])
+        except FileNotFoundError as error:
+            raise ValueError('retirement candidate disappeared; refresh its report: ' + item['path']) from error
+        require(actual == item['identity'], 'retirement candidate changed: ' + item['path'])
     matches = [b for b in rp['builds'] if b['name'] == plan['stage']]
     rows = [b for b in report['builds'] if b['name'] == plan['stage']]
     require(len(matches) == len(rows) == 1, 'exactly one matching build stage required')
@@ -135,8 +178,8 @@ def current(plan):
     need = sum(terms.values())
     require(need > 0 and budget['basis'].strip(), 'positive measured budget and basis required')
     evidence(budget['evidence'])
-    require(observed['fits_now'] is True and observed['terms_bytes'] == terms
-            and observed['required_bytes'] == need, 'retention budget refused or changed')
+    require(type(observed.get('fits_now')) is bool and observed['terms_bytes'] == terms
+            and observed['required_bytes'] == need, 'retention budget missing or changed')
     holds = plan['outputs']
     require(isinstance(holds, list) and holds, 'owned outputs and release conditions required')
     seen = set()
@@ -145,6 +188,8 @@ def current(plan):
         require(p.is_absolute() and p.resolve() == p and str(p) not in seen, 'invalid/duplicate output path')
         seen.add(str(p))
         require(type(h['issue']) is int and h['issue'] > 0 and h['release_when'].strip(), 'output needs issue and release condition')
+        if 'owner' in h:
+            require(isinstance(h['owner'], str) and h['owner'].strip(), 'invalid output owner')
         parent = p if p.exists() else p.parent
         require(parent.is_dir() and parent.stat().st_dev == volume_id['device'], 'output is outside measured volume')
         require(h['kind'] in ['build-cache', 'firmware', 'qa-scratch'], 'invalid output classification')
@@ -156,7 +201,9 @@ def current(plan):
     retained_inputs.update(item['path'] for item in budget['evidence'])
     retained_inputs.update((str(retention_plan), str(report_path)))
     for item in rp.get('source_fixtures', []):
-        retained_inputs.update((item['path'], item['archive']))
+        for path in (item['path'], item['archive']):
+            path_identity(path)
+            retained_inputs.add(path)
     scope = dict(checkout=str(root), protected=sorted(retained_inputs), outputs=sorted(seen))
     retirement = retirement_declaration(plan.get('retire_on_consume'), root, scope, volume_id['device'])
     if retirement:
@@ -165,47 +212,272 @@ def current(plan):
     require(isinstance(profiles, list) and profiles, 'explicit build profiles required')
     for profile in profiles:
         require(set(profile) == {'PROJECT', 'DEVICE', 'ARCH'} and all(isinstance(v, str) and v for v in profile.values()), 'invalid build profile')
-    s = os.statvfs(volume)
     return {'checkout': str(root), 'source': source_state(root), 'profiles': profiles,
             'volume': str(volume), 'volume_device': volume_id['device'],
-            'required_bytes': need, 'available_bytes': s.f_bavail * s.f_frsize,
+            'required_bytes': need, 'available_bytes': available_bytes(volume),
             'retention_plan_sha256': digest(retention_plan), 'retention_report_sha256': digest(report_path),
             'outputs': holds, 'registry': str(registry_for(root)),
             'retention_scope': scope, 'retire_on_consume': retirement,
             'container_checkout': plan.get('container_checkout', str(root))}
 
 
+def fixed_state(state):
+    return {k: v for k, v in state.items() if k != 'available_bytes'}
+
+
+def peer_registries(state):
+    roots = registry_state_roots()
+    require(roots, 'build-admission registry routing is unverified')
+    volume = Path(state['volume'])
+    device = volume.stat().st_dev
+    fsid = os.statvfs(volume).f_fsid
+    require(device == state['volume_device'], 'budget volume changed')
+    key = f'{device:x}-{fsid:x}'
+    paths = [Path(root) / 'pixelelated' / 'build-admission' / key for root in roots]
+    return sorted(p for p in paths if filesystem_registry_exists(p)), fsid
+
+
+@contextlib.contextmanager
+def capacity_registries(state, *, read_only=False):
+    """Lock the native ledger and every existing same-volume peer in path order."""
+    primary = Path(state['registry'])
+    peers, fsid = peer_registries(state)
+    with contextlib.ExitStack() as stack:
+        ledgers = {path: stack.enter_context(registry(path, ordered=True,
+                   read_only=read_only or path != primary, peer=path != primary, writeback=False))
+                   for path in sorted({primary, *peers})}
+        require(peer_registries(state) == (peers, fsid), 'build-admission registry routes changed; try again')
+        for path in peers:
+            ledger = ledgers[path]
+            if ledger['schema'] == 2:
+                bridge = ledger.get('tree_retirement_bridge', {})
+                require(bridge.get('policy') == 'build-tree-canonical-queue-v1'
+                        and bridge.get('canonical_registry') == str(primary)
+                        and bridge.get('device') == state['volume_device'] and bridge.get('filesystem_id') == fsid
+                        and all(row['state'] == 'consumed' for row in ledger['jobs'].values())
+                        and not any(row['expires'] > time.time() for row in ledger.get('queued', {}).values()),
+                        'unverified archived build-admission registry: ' + str(path))
+        yield ledgers
+        if not read_only:
+            # Publish before the stack releases any lock, including when a peer
+            # sorts after the native ledger and would otherwise unlock first.
+            write(primary / 'jobs.json', ledgers[primary])
+
+
+def capacity_point(ledgers, state):
+    """Sample free bytes and reservations with all existing volume ledgers locked."""
+    local = 0
+    reserved = 0
+    live_ids = set()
+    for route, ledger in ledgers.items():
+        for ident, row in ledger['jobs'].items():
+            require(type(row['volume_device']) is int and row['state'] in ('running', 'consumed'),
+                    'invalid build-admission row: ' + str(route))
+            if row['volume_device'] != state['volume_device'] or row['state'] == 'consumed':
+                continue
+            amount = row['required_bytes']
+            require(type(amount) is int and amount > 0 and ident not in live_ids,
+                    'invalid or duplicate live reservation: ' + str(route))
+            if str(route) != state['registry']:
+                require(row['id'] == ident and row['registry'] == str(route),
+                        'filesystem-keyed reservation owner/route mismatch: ' + str(route))
+            else:
+                local += amount
+            live_ids.add(ident)
+            reserved += amount
+    available = available_bytes(state['volume'])
+    required = state['required_bytes']
+    shortfall = max(0, required + reserved - available)
+    return dict(volume=state['volume'], available_bytes=available, required_bytes=required, reserved_bytes=reserved,
+                git_common_reserved_bytes=local, filesystem_reserved_bytes=reserved-local,
+                shortfall_bytes=shortfall, status='held' if shortfall else 'fits')
+
+
+def review_paths(jobs, state):
+    scope = state['retention_scope']
+    paths = {*scope['protected'], *scope['outputs']}
+    for lease in live_queue(jobs).values():
+        if lease['device'] == state['volume_device']:
+            paths.update(queued_paths(lease))
+    for job in jobs['jobs'].values():
+        if job['volume_device'] == state['volume_device'] and job['state'] != 'consumed':
+            scope = job.get('retention_scope')
+            require(scope, 'active build has no verified protection scope: ' + job.get('run', '<unknown run>'))
+            paths.update([scope['checkout'], *scope['protected'], *scope['outputs']])
+    paths = sorted(paths)
+    protect_paths([], paths, 'unverified prebuild scope')
+    return paths
+
+
+def registered_paths(ledgers, state):
+    paths = set()
+    for ledger in ledgers.values():
+        for row in ledger['jobs'].values():
+            if row['volume_device'] == state['volume_device']:
+                paths.update(item['path'] for item in row.get('outputs', []))
+                if 'run' in row:
+                    paths.add(row['run'])
+    return sorted(paths)
+
+
+def capacity_summary(point, paths):
+    # Ranking is display-only, even when a last-size receipt matches.
+    omissions = [{'reason': 'Fast capacity check; no live inventory or retirement.'}]
+    summary = dict(point, schema=1, initial_available_bytes=point['available_bytes'], candidates=[],
+                   measured_reclaimed_bytes=0, attempts=[], omissions=omissions)
+    cycle = Path(__file__).with_name('build-retention-cycle')
+    if paths and cycle.is_file():
+        try:
+            ranking = runpy.run_path(str(cycle)).get('prebuild_last_sizes')
+            require(callable(ranking), 'matching retained size reader unavailable')
+            result = ranking(point['volume'], paths)
+            require(isinstance(result.get('candidates'), list) and isinstance(result.get('omissions'), list),
+                    'invalid retained size ranking')
+            summary['candidates'] = result['candidates']
+            omissions.extend(result['omissions'])
+        except (OSError, ValueError, KeyError, TypeError, AttributeError, ImportError, SyntaxError) as error:
+            omissions.append({'reason': str(error)})
+    return summary
+
+
+def prebuild_review(state, point, protected, *, retire=False):
+    """Use the shared engine outside every admission lock."""
+    cycle = Path(__file__).with_name('build-retention-cycle')
+    review = runpy.run_path(str(cycle)).get('prebuild_review') if cycle.is_file() else None
+    require(callable(review), 'install the matching build-retention-cycle before reviewing a space shortage')
+    result = review(state['checkout'], state['volume'], state['required_bytes'],
+                    point['reserved_bytes'], protected, retire=retire)
+    require(isinstance(result, dict) and type(result.get('schema')) is int and result['schema'] == 1
+            and all(type(result.get(key)) is int and result[key] >= 0 for key in
+                    ('available_bytes', 'required_bytes', 'reserved_bytes', 'shortfall_bytes',
+                     'initial_available_bytes', 'measured_reclaimed_bytes'))
+            and all(isinstance(result.get(key), list) for key in ('candidates', 'attempts', 'omissions'))
+            and result['required_bytes'] == state['required_bytes']
+            and result['reserved_bytes'] == point['reserved_bytes']
+            and result['shortfall_bytes'] == max(0, result['required_bytes'] + result['reserved_bytes']
+                                                  - result['available_bytes'])
+            and result.get('status') == ('held' if result['shortfall_bytes'] else 'fits'),
+            'incomplete or inconsistent prebuild review; no space credited')
+    observed = result.get('observed_reserved_bytes', result['reserved_bytes'])
+    require(type(observed) is int and observed >= 0, 'unverified reservations in prebuild review')
+    return result
+
+
+def read_plan(plan_path):
+    raw = plan_path.read_bytes()
+    return json.loads(raw), hashlib.sha256(raw).hexdigest()
+
+
+def extra_reservations(review):
+    return review.get('observed_reserved_bytes', review['reserved_bytes']) > review['reserved_bytes']
+
+
+def require_capacity(point, review):
+    if point['shortfall_bytes']:
+        raise ValueError('insufficient space after existing reservations: ' + json.dumps(
+            dict(review, **point), sort_keys=True, separators=(',', ':')))
+    require(not extra_reservations(review),
+            'review observed reservations outside the original snapshot; reconcile the canonical registry and prepare again')
+
+
+def capacity(plan_path):
+    plan_path = Path(plan_path).resolve(strict=True)
+    plan, plan_sha = read_plan(plan_path)
+    state = current(plan)
+    with capacity_registries(state, read_only=True) as ledgers:
+        point = capacity_point(ledgers, state)
+        paths = registered_paths(ledgers, state)
+    report = capacity_summary(point, paths)
+    with capacity_registries(state, read_only=True) as ledgers:
+        require(digest(plan_path) == plan_sha and fixed_state(current(plan)) == fixed_state(state),
+                'admission inputs changed during capacity review')
+        return dict(report, **capacity_point(ledgers, state))
+
+
+def prepare_receipt(jobs, ident, state, plan_path, plan_sha, output, point, review):
+    require_capacity(point, review)
+    queued = live_queue(jobs)
+    queued[ident] = dict(scope=state['retention_scope'], device=state['volume_device'],
+                         expires=time.time() + MAX_AGE)
+    row = {'schema': 1, 'id': ident, 'utc': utc(), 'plan': str(plan_path),
+           'plan_sha256': plan_sha, 'state': dict(state, available_bytes=point['available_bytes']),
+           'registry_generation': jobs['generation'], 'reserved_bytes': point['reserved_bytes'],
+           'prebuild_review': dict(review, **point), 'tool_sha256': digest(__file__)}
+    write(output, row, exclusive=True)
+    return row
+
+
 def prepare(plan_path, output):
     plan_path = Path(plan_path).resolve(strict=True)
-    plan = read(plan_path); state = current(plan)
-    with registry(state['registry']) as jobs:
-        reserved = sum(j['required_bytes'] for j in jobs['jobs'].values()
-                       if j['state'] != 'consumed' and j['volume_device'] == state['volume_device'])
-        require(state['available_bytes'] >= state['required_bytes'] + reserved, 'insufficient space after existing reservations')
-        row = {'schema': 1, 'id': uuid.uuid4().hex, 'utc': utc(), 'plan': str(plan_path),
-               'plan_sha256': digest(plan_path), 'state': state,
-               'registry_generation': jobs['generation'], 'reserved_bytes': reserved,
-               'tool_sha256': digest(__file__)}
-        queued = live_queue(jobs)
-        for path in state['retention_scope']['protected']:
-            path_identity(path)
-        queued[row['id']] = dict(scope=state['retention_scope'], device=state['volume_device'],
-                                 expires=time.time() + MAX_AGE)
-        write(output, row, exclusive=True)
-    return row
+    output = Path(output).absolute()
+    require(not os.path.lexists(output) and output.parent.is_dir(), 'admission receipt destination unavailable')
+    plan, plan_sha = read_plan(plan_path)
+    state = current(plan)
+    ident = uuid.uuid4().hex
+    primary = Path(state['registry'])
+    pending = None
+    with capacity_registries(state) as ledgers:
+        require(digest(plan_path) == plan_sha and fixed_state(current(plan)) == fixed_state(state),
+                'admission inputs changed before review')
+        point = capacity_point(ledgers, state)
+        paths = registered_paths(ledgers, state)
+        local_shortage = point['required_bytes'] + point['git_common_reserved_bytes'] > point['available_bytes']
+        legacy_peer = any(path != primary and ledger['schema'] == 1 for path, ledger in ledgers.items())
+        if local_shortage and not legacy_peer:
+            # Protect exact names before opening the locks for guarded cleanup.
+            # A provisional hold has no receipt and cannot start a job.
+            scope = dict(state['retention_scope'], protected=sorted(set(
+                state['retention_scope']['protected']) | {str(plan_path), str(output)}))
+            pending = dict(scope=scope, device=state['volume_device'],
+                           expires=time.time() + MAX_AGE, prebuild_pending=True)
+            jobs = ledgers[primary]
+            live_queue(jobs)[ident] = pending
+            protected = review_paths(jobs, state)
+    prepared = False
+    try:
+        review = (prebuild_review(state, point, protected, retire=True) if pending is not None
+                  else capacity_summary(point, paths))
+        if legacy_peer and point['shortfall_bytes']:
+            review['omissions'].append({'reason': 'Filesystem-keyed schema-1 peer has an unobservable prepare interval; '
+                                                  'guarded retirement was not started.'})
+        with capacity_registries(state) as ledgers:
+            jobs = ledgers[primary]
+            require(digest(plan_path) == plan_sha and fixed_state(current(plan)) == fixed_state(state),
+                    'admission inputs changed during review')
+            if pending is not None:
+                require(live_queue(jobs).get(ident) == pending, 'prebuild protection expired or changed; prepare again')
+            point = capacity_point(ledgers, state)
+            row = prepare_receipt(jobs, ident, state, plan_path, plan_sha, output, point, review)
+        prepared = True
+        return row
+    finally:
+        if pending is not None and not prepared:
+            # Failure preserves its original diagnostic. An interrupted prepare
+            # retains only its exact provisional protection until expiry.
+            with contextlib.suppress(OSError, ValueError, KeyError, TypeError):
+                with registry(state['registry']) as jobs:
+                    queued = live_queue(jobs)
+                    if queued.get(ident) == pending:
+                        del queued[ident]
 
 
 def admit(receipt_path, root, run, environment, docker=False):
     receipt_path = Path(receipt_path).resolve(strict=True)
     receipt = read(receipt_path)
     require(receipt['schema'] == 1 and receipt['tool_sha256'] == digest(__file__), 'admission schema/tool changed')
-    age = time.time() - datetime.datetime.fromisoformat(receipt['utc']).timestamp()
-    require(0 <= age <= MAX_AGE, 'admission expired or from the future')
-    require(digest(receipt['plan']) == receipt['plan_sha256'], 'admission plan changed')
-    state = current(read(receipt['plan'])); expected = receipt['state']
+    plan, plan_sha = read_plan(Path(receipt['plan']))
+    require(plan_sha == receipt['plan_sha256'], 'admission plan changed')
+    state = current(plan)
+    expected = receipt['state']
     require(state['checkout'] == str(root.resolve()), 'admission belongs to a different checkout')
-    require({k:v for k,v in state.items() if k != 'available_bytes'} ==
-            {k:v for k,v in expected.items() if k != 'available_bytes'}, 'admission state changed')
+    require(fixed_state(state) == fixed_state(expected), 'admission state changed')
+    review = receipt.get('prebuild_review')
+    require(isinstance(review, dict) and type(review.get('schema')) is int and review['schema'] == 1
+            and review.get('status') == 'fits' and review.get('shortfall_bytes') == 0
+            and review.get('required_bytes') == state['required_bytes']
+            and review.get('reserved_bytes') == receipt['reserved_bytes']
+            and review.get('available_bytes') == expected['available_bytes'],
+            'verified prebuild review absent or changed; prepare a new admission')
     redirected = Path(environment.get('BUILD_DIR', str(root)))
     if docker:
         require(str(redirected) == state['container_checkout'], 'Docker checkout differs from measured mount contract')
@@ -217,37 +489,60 @@ def admit(receipt_path, root, run, environment, docker=False):
                 for p in state['profiles']), 'build profile is outside admission')
     if len(state['profiles']) == 1:
         environment.update(state['profiles'][0])
-    with registry(state['registry']) as jobs:
+    primary = Path(state['registry'])
+
+    def verify_capacity(ledgers):
+        jobs = ledgers[primary]
+        age = time.time() - datetime.datetime.fromisoformat(receipt['utc']).timestamp()
+        require(0 <= age <= MAX_AGE, 'admission expired or from the future')
         require(receipt['id'] not in jobs['jobs'], 'admission has already been used')
         require(jobs['generation'] == receipt['registry_generation'], 'registry changed; prepare a new admission')
         queued = live_queue(jobs)
         lease = queued.get(receipt['id'])
-        require(lease and lease['scope'] == state['retention_scope'] and
+        require(lease and not lease.get('prebuild_pending') and lease['scope'] == state['retention_scope'] and
                 lease['device'] == state['volume_device'], 'admission queue hold absent or changed')
-        reserved = sum(j['required_bytes'] for j in jobs['jobs'].values()
-                       if j['state'] != 'consumed' and j['volume_device'] == state['volume_device'])
-        require(state['available_bytes'] >= state['required_bytes'] + reserved, 'current capacity no longer fits')
-        row = dict(state, id=receipt['id'], state='running', run=str(run), admitted=utc(),
-                   receipt_sha256=digest(receipt_path), runner_pid=os.getpid(),
-                   submission_owner=environment.get('PIXELELATED_SUBMISSION_OWNER'),
-                   pid_namespace=os.stat('/proc/self/ns/pid').st_ino,
-                   runner_start=Path('/proc/self/stat').read_text().rsplit(')',1)[1].split()[19])
-        write(run / 'admission.json', row, exclusive=True)
-        write(run / 'admission-input.json', receipt, exclusive=True)
-        plan = read(receipt['plan'])
-        write(run / 'admission-plan.json', plan, exclusive=True)
-        for name in ('retention_plan', 'retention_report'):
-            snapshot = run / (name.replace('_', '-') + '.json')
-            if row['retire_on_consume']:
-                raw = Path(plan[name]).read_bytes()
-                require(hashlib.sha256(raw).hexdigest() == row[name + '_sha256'],
-                        'admitted retention input changed before snapshot')
-                with snapshot.open('xb') as stream:
-                    stream.write(raw)
-            else:
-                write(snapshot, read(plan[name]), exclusive=True)
-        jobs['jobs'][row['id']] = row; jobs['generation'] += 1
-        del queued[receipt['id']]
+        require(read(receipt_path) == receipt and digest(receipt['plan']) == plan_sha
+                and fixed_state(current(plan)) == fixed_state(state),
+                'admission inputs changed before launch')
+        return capacity_point(ledgers, state)
+
+    with capacity_registries(state, read_only=True) as ledgers:
+        point = verify_capacity(ledgers)
+        paths = registered_paths(ledgers, state)
+    review = capacity_summary(point, paths)
+    with capacity_registries(state) as ledgers:
+        point = verify_capacity(ledgers)
+        require_capacity(point, review)
+        return register_run(ledgers[primary], state, receipt, receipt_path, plan, run, environment, point)
+
+
+def register_run(jobs, state, receipt, receipt_path, plan, run, environment, point):
+    uid = os.geteuid()
+    account = pwd.getpwuid(uid).pw_name
+    row = dict(state, id=receipt['id'], state='running', run=str(run), admitted=utc(),
+               available_bytes=point['available_bytes'], reserved_bytes=point['reserved_bytes'],
+               receipt_sha256=digest(receipt_path), runner_pid=os.getpid(),
+               submission_owner=environment.get('PIXELELATED_SUBMISSION_OWNER'),
+               pid_namespace=os.stat('/proc/self/ns/pid').st_ino,
+               runner_start=Path('/proc/self/stat').read_text().rsplit(')', 1)[1].split()[19])
+    row['output_ownership'] = [dict(output, owner=output.get('owner', account), uid=uid, disposition='held')
+                               for output in state['outputs']]
+    write(run / 'admission.json', row, exclusive=True)
+    write(run / 'admission-input.json', receipt, exclusive=True)
+    write(run / 'admission-plan.json', plan, exclusive=True)
+    for name in ('retention_plan', 'retention_report'):
+        snapshot = run / (name.replace('_', '-') + '.json')
+        if row['retire_on_consume']:
+            raw = Path(plan[name]).read_bytes()
+            require(hashlib.sha256(raw).hexdigest() == row[name + '_sha256'],
+                    'admitted retention input changed before snapshot')
+            with snapshot.open('xb') as stream:
+                stream.write(raw)
+        else:
+            write(snapshot, read(plan[name]), exclusive=True)
+    jobs['jobs'][row['id']] = row
+    jobs['generation'] += 1
+    del jobs['queued'][receipt['id']]
     return row
 
 
@@ -421,15 +716,20 @@ def check_registry_ownership(row):
 
 
 def verify_no_filesystem_registry(path):
+    require(not filesystem_registry_exists(path),
+            'mixed build-admission ownership: separate filesystem-keyed registry present')
+
+
+def filesystem_registry_exists(path):
     for directory in [*reversed(path.parents), path]:
         try:
             current = directory.lstat()
         except FileNotFoundError:
-            return
+            return False
         except OSError as error:
             raise ValueError('filesystem-keyed build-admission registry visibility is unverified') from error
         require(stat.S_ISDIR(current.st_mode), 'filesystem-keyed build-admission registry route is unverified')
-    raise ValueError('mixed build-admission ownership: separate filesystem-keyed registry present')
+    return True
 
 
 def protect_paths(targets, paths, reason):
@@ -452,7 +752,7 @@ def check_registered_use(jobs, row, targets):
 
     for lease in live_queue(jobs).values():
         if lease['device'] == row['volume_device']:
-            check(lease['scope'])
+            protect_paths(targets, queued_paths(lease), 'another registered owner or input holds an overlapping path')
     for other in jobs['jobs'].values():
         if other is row or other.get('id') == row['id'] or other['volume_device'] != row['volume_device']:
             continue
@@ -468,6 +768,14 @@ def check_registered_use(jobs, row, targets):
             if other.get('outputs_held', True):
                 protect_paths(targets, [h['path'] for h in other['outputs']],
                               'another consumed owner still holds an overlapping output')
+
+
+def queued_paths(lease):
+    scope = lease['scope']
+    paths = [*scope['protected'], *scope['outputs']]
+    if lease.get('prebuild_pending') is not True:
+        paths.append(scope['checkout'])
+    return paths
 
 
 def selection_digest(build_root, file):
@@ -968,10 +1276,15 @@ def consume_reporting_failure(run, evidence_path, failure_path):
 def main():
     os.umask(0o077)
     parser=argparse.ArgumentParser(description=__doc__);subs=parser.add_subparsers(dest='action',required=True)
+    p=subs.add_parser('capacity');p.add_argument('--plan',type=Path,required=True)
     p=subs.add_parser('prepare');p.add_argument('--plan',type=Path,required=True);p.add_argument('--output',type=Path,required=True)
     p=subs.add_parser('consume');p.add_argument('--run',type=Path,required=True);p.add_argument('--evidence',type=Path,required=True)
     p=subs.add_parser('consume-reporting-failure');p.add_argument('--run',type=Path,required=True);p.add_argument('--evidence',type=Path,required=True);p.add_argument('--launcher-failure-evidence',type=Path,required=True)
     args=parser.parse_args()
+    if args.action == 'capacity':
+        report = capacity(args.plan)
+        print(json.dumps(report, sort_keys=True))
+        return int(report['status'] == 'held')
     if args.action == 'prepare':
         r = prepare(args.plan, args.output)
         print('prepared admission ' + r['id'])
@@ -999,6 +1312,6 @@ def main():
 
 
 if __name__=='__main__':
-    try:main()
+    try:sys.exit(main())
     except (OSError,ValueError,KeyError,TypeError,subprocess.SubprocessError) as error:
         print('build-admission: '+str(error),file=sys.stderr);sys.exit(2)

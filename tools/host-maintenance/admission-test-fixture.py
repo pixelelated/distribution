@@ -2,6 +2,7 @@
 import importlib.machinery
 import importlib.util
 import json
+import os
 import subprocess
 from pathlib import Path
 
@@ -12,7 +13,24 @@ def load(path, name='admission_fixture_module'):
     mod=importlib.util.module_from_spec(spec);loader.exec_module(mod);return mod
 
 
-def prepare_fixture(root, source, configure=None):
+def filesystem_reservation(root, state_home, amount):
+    """Create an isolated schema-1 ledger matching the frozen filesystem route."""
+    device, fsid = root.stat().st_dev, os.statvfs(root).f_fsid
+    route = state_home / 'pixelelated' / 'build-admission' / f'{device:x}-{fsid:x}'
+    route.mkdir(mode=0o700, parents=True)
+    (route / 'lock').touch(mode=0o600)
+    output = root / 'build.peer'
+    output.mkdir()
+    row = dict(id='filesystem-owner', state='running', required_bytes=amount, volume_device=device,
+               volume=str(root), registry=str(route), checkout=str(root),
+               run=str(root / '.build-runs/peer'),
+               outputs=[dict(path=str(output), issue=493, kind='build-cache', release_when='fixture complete')])
+    data = dict(schema=1, generation=1, jobs={row['id']: row})
+    (route / 'jobs.json').write_text(json.dumps(data))
+    return route, row
+
+
+def prepare_fixture(root, source, configure=None, *, prepare=True):
     folder=root/'tools/host-maintenance';folder.mkdir(exist_ok=True)
     for name in ['build-admission','retention-report']:
         (folder/name).write_bytes((source/'tools/host-maintenance'/name).read_bytes())
@@ -34,5 +52,7 @@ def prepare_fixture(root, source, configure=None):
         'outputs':[{'path':str(root/'build.fixture'),'issue':493,'kind':'build-cache','release_when':'synthetic fixture result accepted'}]}
     if configure is not None:
         configure(ap)
-    af=root/'admission-plan.json';af.write_text(json.dumps(ap));receipt=root/'admission.json';mod.prepare(af,receipt)
+    af=root/'admission-plan.json';af.write_text(json.dumps(ap));receipt=root/'admission.json'
+    if prepare:
+        mod.prepare(af,receipt)
     return mod,af,receipt

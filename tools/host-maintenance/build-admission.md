@@ -9,12 +9,15 @@ or Docker build entrypoint, and a nested build cannot inherit it as an admission
 This is an operational guard, not a security boundary against someone deliberately
 labelling a compiler command as a recording job or bypassing the build tools.
 
-## Prepare from the existing report
+## Plan capacity before copying or launching
 
-Use `retention-report` to create a current report from a measured stage budget,
-protected inputs and the explicit reviewed scan scope. Unknown historical trees
-still need their separate classification; the admission tool does not crawl or
-delete the volume. Use the recording mode for this read-only report job:
+Use `retention-report` to bind a measured stage budget, protected inputs and
+retained evidence. Its `fits_now` describes the earlier point. A report with a
+valid budget can still be used when that earlier point had a shortfall. Every
+candidate named by the report must still match its original identity. If an
+independent retirement changes or removes such a candidate, create a fresh
+report reflecting the settled scope. Put every actual input in the protected
+scope. Use the recording mode for this read-only report job:
 
 ```sh
 tools/watch-build --record-only -- python3 -I tools/host-maintenance/retention-report \
@@ -36,6 +39,7 @@ Create an admission plan (private, outside tracked source):
   "outputs": [
     {"path": "/absolute/frozen-checkout/build.pixelelated-H700.aarch64",
      "issue": 555, "kind": "build-cache",
+     "owner": "H700 build owner",
      "release_when": "the immediately queued H700 qualification and required source custody are accepted"}
   ]
 }
@@ -49,6 +53,28 @@ identity checks still apply. A redirected native `BUILD_DIR` must be a declared
 output root. Docker's `BUILD_DIR` names the container checkout; set
 `container_checkout` in the plan when it differs from the host path. The Docker
 mount contract must map the admitted host checkout there, as usual.
+The optional `owner` identifies the accountable lane. The invoking account
+owns the hold by default. The run records the owner, UID, output path and release
+condition before the payload creates or modifies its outputs.
+
+The read-only capacity check emits schema-1 JSON for preflight callers:
+
+```sh
+python3 -I tools/host-maintenance/build-admission capacity \
+  --plan /absolute/owner/admission-plan.json
+```
+
+Exit 0 means `fits`, exit 1 means a measured shortage, and exit 2 means
+missing or unverified inputs or a busy lock. The result includes
+`available_bytes`, `required_bytes`, `reserved_bytes`, the source split
+`git_common_reserved_bytes` and `filesystem_reserved_bytes`,
+`shortfall_bytes`, `candidates`, `initial_available_bytes`,
+`measured_reclaimed_bytes`, `attempts` and `omissions`. Available bytes
+and reservations come from the final locked sample. The fast check uses
+only up to twelve verified last-size hints from the existing retained
+inventory, matched to already registered run and output paths. It performs
+no live volume walk and credits zero reclaimed bytes. The capacity command
+is advisory. A copy or launch still needs normal admission.
 
 ```sh
 python3 -I tools/host-maintenance/build-admission prepare \
@@ -63,20 +89,39 @@ For durable submission, pass those runner arguments after
 `tools/watch-build-submit --owner FRESH_OWNER --`. A fresh submission owner is
 always required. Do not label a compiler or cache copy `--record-only`.
 
+For a shortage against the Git-common ledger alone, `prepare` can register
+the exact inputs and outputs under the locks, then release them and call the canonical
+`build-retention-cycle.prebuild_review`. The engine ranks verified generated
+output on the measured volume and can try independently eligible scopes when
+the largest candidate is held. It uses the existing guarded retirement
+operation and reports unavailable custody or registry coverage. Periodic
+retirement continues separately. A schema-1 filesystem-keyed peer has a legacy
+preparation interval outside the cleanup guard. That route and a combined-only
+shortage use the ordinary fast check. Direct launch uses the fast check and
+does not call the remover.
+
 Both the report and admission expire after15minutes. The guard binds the report
 and its producing tool, plan, measurement evidence, protected identities, tracked
 source state, checkout, profiles, filesystem and current shared registry generation.
-It rechecks `f_bavail` at launch, excluding filesystem reserve, and subtracts
-unconsumed reservations on the same filesystem. No planned reclamation is counted
-as free space. A changed plan/source/input, unresolved inventory error, refused
-budget, changed registry or used admission requires fresh preparation. A report
-being written successfully does not make its budget acceptable.
+It revalidates source and paths and measures `f_bavail` and unconsumed
+same-volume reservations under lock both before issuing the receipt and before
+launch. The ranked review and measured reclamation are evidence. The locked
+available-byte counter alone determines whether recovery covers the budget.
+A changed plan/source/input, unresolved inventory error, refused budget,
+changed registry or used admission requires fresh preparation. A previous
+operational cleanup decision keeps its own scope and lifetime. Normal receipt
+and lease expiry still govern launch.
 
-The registry is shared by Git worktrees in the common Git directory under
-`pixelelated-build-admission/`, with a file lock. Reservations are conservative
-future byte allowances; existing allocated files are already reflected in available
-space. Ordinary host processes outside these tools are not space-reserved. Existing
-memory/swap preflight and ongoing pressure monitoring remain required.
+Git worktrees share `pixelelated-build-admission/` in the common Git directory.
+The native caller also finds and locks existing same-volume filesystem-keyed
+ledgers in the account state roots. It takes the same exact lock files in
+lexical path order and only writes its native ledger. An unreadable, busy
+or changing peer holds admission. Reservations are conservative future
+byte allowances. Existing allocated files are already reflected in available
+space. The frozen legacy caller still uses only its own lock and ledger.
+The native check covers existing routes it can verify and cannot coordinate
+the first creation of a legacy ledger or reserve for other processes.
+Existing memory/swap preflight and ongoing pressure monitoring remain required.
 
 ## Consume completion; retain outputs honestly
 
