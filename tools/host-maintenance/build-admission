@@ -972,8 +972,11 @@ def main():
     p=subs.add_parser('consume');p.add_argument('--run',type=Path,required=True);p.add_argument('--evidence',type=Path,required=True)
     p=subs.add_parser('consume-reporting-failure');p.add_argument('--run',type=Path,required=True);p.add_argument('--evidence',type=Path,required=True);p.add_argument('--launcher-failure-evidence',type=Path,required=True)
     args=parser.parse_args()
-    if args.action=='prepare':r=prepare(args.plan,args.output);print('prepared admission '+r['id'])
-    elif args.action=='consume-reporting-failure':
+    if args.action == 'prepare':
+        r = prepare(args.plan, args.output)
+        print('prepared admission ' + r['id'])
+        return
+    if args.action=='consume-reporting-failure':
         r=consume_reporting_failure(args.run,args.evidence,args.launcher_failure_evidence)
         print('consumed reporting failure; launcher wait unknown; outputs held; qualification false: '+r['id'])
     else:
@@ -983,6 +986,16 @@ def main():
             fields = ('status', 'deleted_bytes', 'held_bytes', 'unconfirmed_bytes',
                       'available_before_bytes', 'available_after_bytes', 'observed_available_delta_bytes')
             print(json.dumps({field: r['retirement'][field] for field in fields}, sort_keys=True))
+    # Both authoritative consumption paths have released the registry lock.
+    # Preserve their original result and keep retirement diagnostics off stdout.
+    try:
+        cycle = runpy.run_path(str(Path(__file__).with_name('build-retention-cycle')))
+        cycle['consume_hook'](args.run.resolve(strict=True))
+    except Exception as error:
+        # Optional post-consumption maintenance must not change the command's
+        # status, even if its separately deployed source cannot be loaded.
+        with contextlib.suppress(OSError, ValueError):
+            print(f'build retention after consumption: {error}', file=sys.stderr)
 
 
 if __name__=='__main__':

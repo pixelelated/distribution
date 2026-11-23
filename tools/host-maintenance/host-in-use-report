@@ -17,6 +17,9 @@ MANIFEST = Path('/etc/pixelelated/host-in-use.json')
 PROC = Path('/proc')
 MAX_BATCHES = 16
 MAX_FILES = 512
+MAX_TREE_ENTRIES = 200_000
+MAX_TREE_NAME_BYTES = 64 * 1024**2
+MAX_TREE_DEPTH = 64
 MAX_TASKS = 32768
 MAX_FDS = 16384
 DEADLINE_SECONDS = 105
@@ -24,11 +27,20 @@ MIB = 1024 * 1024
 EXIT_STATUS = {'clear': 0, 'busy': 1, 'incomplete': 2}
 IDENTITY = ('device', 'inode', 'size', 'mtime_ns', 'ctime_ns', 'allocated_bytes',
             'uid', 'links', 'mode')
+TREE_IDENTITY = ('device', 'inode', 'uid', 'mode')
+TREE_SCOPE = 'generated-build-tree-v1'
 MATCH_FIELDS = ('argument', 'descriptor', 'executable', 'mapping', 'bind_mount')
 NAMESPACES = ('pid', 'mnt', 'user')
 PROJECTED_FS = {b'overlay', b'aufs', b'ecryptfs', b'shiftfs', b'virtiofs', b'9p',
                 b'fuse', b'fuseblk', b'nfs', b'nfs4', b'cifs', b'smb3'}
+TREE_DIRECT_FS = {b'ext4', b'proc', b'sysfs', b'tmpfs', b'devtmpfs', b'devpts',
+                  b'cgroup', b'cgroup2', b'nsfs', b'mqueue', b'hugetlbfs',
+                  b'ramfs', b'efivarfs', b'configfs', b'debugfs', b'tracefs',
+                  b'securityfs', b'fusectl', b'bpf', b'pstore', b'rpc_pipefs',
+                  b'binfmt_misc', b'functionfs'}
 OPEN_FLAGS = os.O_NOFOLLOW | os.O_CLOEXEC
+NSFS_HANDLE = re.compile(rb'/?(?:net|mnt):\[[1-9][0-9]{0,19}\]')
+MOUNT_HANDLE = re.compile(rb'/?mnt:\[([1-9][0-9]{0,19})\]')
 
 
 class Incomplete(Exception):
@@ -128,23 +140,60 @@ def integer(value, minimum=0):
     return type(value) is int and minimum <= value < 2**64
 
 
+def selection_digest(value):
+    return digest(json.dumps(value, sort_keys=True, separators=(',', ':'),
+                             ensure_ascii=True).encode('ascii'))
+
+
+def mount_digests(values):
+    require(isinstance(values, list) and len(values) <= 256 and
+            all(isinstance(key, str) and re.fullmatch(r'[0-9a-f]{64}', key) for key in values) and
+            len(set(values)) == len(values), 'manifest_schema')
+
+
+def enroll_trees(trees, seen):
+    roots = set()
+    for tree in trees:
+        schema(tree, ('path', 'identity'))
+        path, identity = canonical(tree['path']), tree['identity']
+        schema(identity, TREE_IDENTITY)
+        package_subtree = any(parent.name == 'build' and
+                              parent.parent.name.startswith('build.') and parent.parent.name != 'build.'
+                              for parent in path.parents)
+        require((path.name.startswith('build.') or package_subtree) and '.git' not in path.parts and
+                all(integer(value, 1) for value in identity.values()) and
+                stat.S_ISDIR(identity['mode']) and not identity['mode'] & 0o022 and
+                not any(path == other or path in other.parents or other in path.parents
+                        for other in roots), 'manifest_schema')
+        roots.add(path)
+        key = selection_digest(dict(policy=TREE_SCOPE, **tree))
+        require(key not in seen, 'manifest_schema')
+        seen.add(key)
+        tree['selection_sha256'] = key
+
+
 def read_enrollment(raw):
     with refusal('manifest_schema'):
         enrollment = json.loads(raw, object_pairs_hook=unique_fields)
-        schema(enrollment, ('schema', 'enrolled_at', 'expires_at', 'host', 'batches'))
+        fields = ('schema', 'enrolled_at', 'expires_at', 'host', 'batches')
+        schema(enrollment, (*fields, 'trees') if 'trees' in enrollment else fields)
         start, end = enrollment['enrolled_at'], enrollment['expires_at']
         require(type(enrollment['schema']) is int and enrollment['schema'] == 1 and
                 integer(start, 1) and integer(end, start + 1), 'manifest_schema')
         host = enrollment['host']
-        schema(host, ('boot_id', *NAMESPACES, 'independent_mount_sha256'))
+        tree_approval = ('independent_tree_mount_sha256',) if 'independent_tree_mount_sha256' in host else ()
+        require(not tree_approval or 'trees' in enrollment, 'manifest_schema')
+        schema(host, ('boot_id', *NAMESPACES, 'independent_mount_sha256', *tree_approval))
         require(re.fullmatch(r'[0-9a-f]{8}(-[0-9a-f]{4}){3}-[0-9a-f]{12}', host['boot_id']) and
                 all(integer(host[name], 1) for name in NAMESPACES), 'manifest_schema')
-        approved = host['independent_mount_sha256']
-        require(isinstance(approved, list) and len(approved) <= 256 and
-                len(set(approved)) == len(approved) and
-                all(re.fullmatch(r'[0-9a-f]{64}', key) for key in approved), 'manifest_schema')
+        mount_digests(host['independent_mount_sha256'])
+        if tree_approval:
+            mount_digests(host['independent_tree_mount_sha256'])
         batches = enrollment['batches']
-        require(isinstance(batches, list) and 0 < len(batches) <= MAX_BATCHES, 'manifest_schema')
+        trees = enrollment.get('trees', [])
+        require(isinstance(batches, list) and isinstance(trees, list) and
+                ('trees' not in enrollment or trees) and
+                0 < len(batches) + len(trees) <= MAX_BATCHES, 'manifest_schema')
         seen = set()
         total = 0
         for batch in batches:
@@ -174,11 +223,11 @@ def read_enrollment(raw):
             batch['files'].sort(key=lambda row: row['path'])
             for row in batch['files']:
                 row['aliases'].sort()
-            key = digest(json.dumps(batch, sort_keys=True, separators=(',', ':'),
-                                    ensure_ascii=True).encode('ascii'))
+            key = selection_digest(batch)
             require(key not in seen, 'manifest_schema')
             seen.add(key)
             batch['selection_sha256'] = key
+        enroll_trees(trees, seen)
         return enrollment
 
 
@@ -200,7 +249,10 @@ def mounts(data):
             seen.add(mount_id)
             major, minor = (int(n) for n in fields[2].split(b':'))
             root, point = (Path(unescape_mount(value)) for value in fields[3:5])
-            require(root.is_absolute() and point.is_absolute() and '..' not in root.parts and
+            handle = kind == b'nsfs' and NSFS_HANDLE.fullmatch(fields[3])
+            require(kind != b'nsfs' or not fields[3].lstrip(b'/').startswith((b'mnt:', b'net:'))
+                    or handle, 'mountinfo_incomplete')
+            require((root.is_absolute() or handle) and point.is_absolute() and '..' not in root.parts and
                     '..' not in point.parts, 'mountinfo_incomplete')
             result.append((os.makedev(major, minor), root, point, kind,
                            frozenset(fields[5].split(b',') + options.split(b',')), line))
@@ -256,6 +308,67 @@ def validate_selection(batch, table):
         require(stat.S_ISREG(live['mode']), 'selected_identity')
         observed.append((inode, mount_key(path, inode[0], table)))
     return observed
+
+
+def tree_identity(info):
+    return dict(zip(TREE_IDENTITY, (info.st_dev, info.st_ino, info.st_uid, info.st_mode)))
+
+
+def tree_snapshot(tree, table, budget):
+    """Index an exact enrolled local subtree without reading file contents."""
+    root = Path(tree['path'])
+    require(not any(point == root or root in point.parents for _, _, point, *_ in table),
+            'tree_mounted_subtree')
+    entries = {}
+    link_counts = Counter()
+    link_totals = {}
+
+    def add(relative, info):
+        mode = info.st_mode
+        require(info.st_dev == tree['identity']['device'] and
+                (stat.S_ISDIR(mode) or stat.S_ISREG(mode) or stat.S_ISLNK(mode)), 'tree_entry_type')
+        budget[0] -= 1
+        budget[1] -= len(relative)
+        require(min(budget) >= 0, 'tree_limit')
+        require(relative not in entries, 'tree_changed')
+        entries[relative] = tuple(file_identity(info).values())
+        if not stat.S_ISDIR(mode):
+            inode = info.st_dev, info.st_ino
+            link_counts[inode] += 1
+            require(link_totals.setdefault(inode, info.st_nlink) == info.st_nlink, 'tree_changed')
+
+    def walk(fd, relative, expected, depth):
+        require(depth <= MAX_TREE_DEPTH, 'tree_limit')
+        require(file_identity(os.fstat(fd)) == file_identity(expected), 'tree_changed')
+        add(relative, expected)
+        with os.scandir(fd) as children:
+            for child in children:
+                name = os.fsencode(child.name)
+                path = relative + b'/' + name if relative else name
+                info = child.stat(follow_symlinks=False)
+                if stat.S_ISDIR(info.st_mode):
+                    sub = os.open(child.name, os.O_RDONLY | os.O_DIRECTORY | OPEN_FLAGS, dir_fd=fd)
+                    try:
+                        walk(sub, path, info, depth + 1)
+                    finally:
+                        os.close(sub)
+                    require(file_identity(os.stat(child.name, dir_fd=fd, follow_symlinks=False)) ==
+                            file_identity(info), 'tree_changed')
+                else:
+                    add(path, info)
+        require(file_identity(os.fstat(fd)) == file_identity(expected), 'tree_changed')
+
+    with refusal('tree_identity'), open_exact(root, os.O_RDONLY | os.O_DIRECTORY | os.O_NONBLOCK) as fd:
+        info = os.fstat(fd)
+        require(tree_identity(info) == tree['identity'], 'selected_identity')
+        mount = mount_key(root, info.st_dev, table)
+        walk(fd, b'', info, 0)
+        with open_exact(root, os.O_PATH | os.O_DIRECTORY) as current:
+            require(file_identity(os.fstat(current)) == file_identity(info), 'tree_changed')
+    # A bind of a hardlink outside the tree would otherwise have an unrelated
+    # mountinfo root. Require every non-directory link to be represented.
+    require(link_counts == link_totals, 'tree_external_links')
+    return mount, entries
 
 
 def numbers(path, limit, code, strict=False):
@@ -323,7 +436,7 @@ def maps_hits(raw, inodes, match_name):
 
 
 class References:
-    def __init__(self, batches, independent_mounts):
+    def __init__(self, batches, independent_mounts, trees=None, host_ns=None, tree_mounts=()):
         self.inodes = defaultdict(set)
         self.mount_keys = defaultdict(set)
         self.names = defaultdict(set)
@@ -333,58 +446,135 @@ class References:
                 self.mount_keys[mount].add(index)
                 for name in (row['path'], *row['aliases']):
                     self.names[os.fsencode(name)].add(index)
-        names = b'|'.join(re.escape(n) for n in sorted(self.names, key=len, reverse=True))
-        self.pattern = re.compile(rb"""(?:^|(?<=[=,:"'\s]))(""" + names + rb""")(?=$|[\s,:"'])""")
+        self.pattern = self.name_pattern(self.names, rb"""(?=$|[\s,:"'])""")
         self.views = {}
         self.independent_mounts = frozenset(independent_mounts)
+        self.visible_namespaces = set()
+        self.mount_handles = set()
+        self.host_ns = host_ns
+        self.tree_mounts = frozenset(tree_mounts)
+        self.trees = {}
+        self.tree_names = {}
+        for index, (tree, (mount, entries)) in (trees or {}).items():
+            path = Path(tree['path'])
+            self.trees[index] = (path, mount)
+            self.tree_names[os.fsencode(path)] = index
+            for item in entries.values():
+                self.inodes[item[:2]].add(index)
+        self.tree_pattern = self.name_pattern(self.tree_names, rb"""(?=$|[/\s,:"'])""")
+
+    @staticmethod
+    def name_pattern(names, end):
+        if names:
+            pattern = b'|'.join(re.escape(n) for n in sorted(names, key=len, reverse=True))
+            return re.compile(rb"""(?:^|(?<=[=,:"'\s]))(""" + pattern + rb')' + end)
 
     def match_name(self, value):
-        return {index for match in self.pattern.finditer(value) for index in self.names[match[1]]}
+        hits = {index for match in self.pattern.finditer(value)
+                for index in self.names[match[1]]} if self.pattern else set()
+        if self.tree_pattern:
+            hits.update(self.tree_names[match[1]] for match in self.tree_pattern.finditer(value))
+        return hits
 
     def match_path(self, value):
-        return self.names.get(value.removesuffix(b' (deleted)'), set())
+        value = value.removesuffix(b' (deleted)')
+        return self.names.get(value, set()) | {
+            index for root, index in self.tree_names.items()
+            if value == root or value.startswith(root + b'/')}
+
+    def remember_handle(self, raw):
+        handle = MOUNT_HANDLE.fullmatch(raw)
+        if handle:
+            self.mount_handles.add(int(handle[1]))
+            require(len(self.mount_handles) <= MAX_TASKS, 'mountinfo_incomplete')
+
+    def mount_hits(self, table, ns):
+        hits = set()
+        for device, root, point, kind, _, record in table:
+            if kind == b'nsfs':
+                self.remember_handle(os.fsencode(root))
+            file_projection = self.names and (kind in PROJECTED_FS or kind.startswith(b'fuse.'))
+            tree_projection = self.trees and (kind not in TREE_DIRECT_FS or
+                              record.partition(b' - ')[2].split()[1].startswith(b'/dev/loop'))
+            if file_projection or tree_projection:
+                key_hash = digest(str(ns).encode('ascii') + b'\n' + record)
+                require((not file_projection or key_hash in self.independent_mounts) and
+                        (not tree_projection or key_hash in self.tree_mounts), 'mount_projection')
+            hits.update(self.mount_keys.get((device, root), ()))
+            for index, (path, (selected_device, underlying)) in self.trees.items():
+                if selected_device != device or kind != b'ext4':
+                    continue
+                if underlying == root or underlying in root.parents:
+                    hits.add(index)
+                elif root in underlying.parents:
+                    # The ordinary canonical host-side filesystem mount is
+                    # available to every process. Alternate projections of it
+                    # are a hold, even if the spelling matches inside a container.
+                    if ns != self.host_ns or point / underlying.relative_to(root) != path:
+                        hits.add(index)
+        self.visible_namespaces.add(ns)
+        return hits
 
     def view(self, task, ns):
         raw = read(task / 'mountinfo', 4 * MIB, 'mountinfo_incomplete')
         key = (ns, digest(raw))
         if key not in self.views:
             require(len(self.views) < MAX_TASKS, 'mountinfo_incomplete')
-            hits = set()
-            for device, root, _, kind, _, record in mounts(raw):
-                if kind in PROJECTED_FS or kind.startswith(b'fuse.'):
-                    key_hash = digest(str(ns).encode('ascii') + b'\n' + record)
-                    require(key_hash in self.independent_mounts, 'mount_projection')
-                hits.update(self.mount_keys.get((device, root), ()))
-            self.views[key] = hits
+            self.views[key] = self.mount_hits(mounts(raw), ns)
         return key, self.views[key]
 
-    def link(self, path, code):
+    def link_state(self, path, code):
         with refusal(code):
             before = path.stat()
             value = os.fsencode(os.readlink(path))
             info = path.stat()
         inode = info.st_dev, info.st_ino
         require(inode == (before.st_dev, before.st_ino), 'link_changed')
+        self.remember_handle(value)
+        return inode, value
+
+    def link_hits(self, state):
+        inode, value = state
         return self.match_path(value) | self.inodes.get(inode, set())
+
+    def relative_argument(self, arg, cwd):
+        value = arg.partition(b'=')[2] if arg.startswith(b'-') else arg
+        if value and not value.startswith((b'/', b'-')) and cwd.startswith(b'/'):
+            return self.match_path(os.path.normpath(os.path.join(cwd, value))) & self.trees.keys()
+        return set()
 
     def inspect(self, task, before):
         ns = before[2][1]
         view_key, mounted = self.view(task, ns)
-        hits = {'bind_mount': mounted, 'executable': self.link(task / 'exe', 'task_links')}
-        for name in ('cwd', 'root'):
-            self.link(task / name, 'task_links')
+        links = {name: self.link_state(task / name, 'task_links') for name in ('exe', 'cwd', 'root')}
+        hits = {'bind_mount': mounted, 'executable': self.link_hits(links['exe'])}
         cmdline = read(task / 'cmdline', 4 * MIB, 'cmdline_incomplete')
-        hits['argument'] = {i for arg in cmdline.split(b'\0') for i in self.match_name(arg)}
+        hits['argument'] = set()
+        for arg in cmdline.split(b'\0'):
+            hits['argument'].update(self.match_name(arg))
+            if self.trees:
+                hits['argument'].update(self.relative_argument(arg, links['cwd'][1]))
         fds = numbers(task / 'fd', MAX_FDS, 'fd_incomplete', strict=True)
         hits['descriptor'] = set()
+        if self.trees:
+            scope = self.trees.keys()
+            for name in ('cwd', 'root'):
+                hits['descriptor'].update(self.link_hits(links[name]) & scope)
+        states = {}
         for fd in fds:
-            hits['descriptor'].update(self.link(task / 'fd' / str(fd), 'fd_incomplete'))
+            states[fd] = self.link_state(task / 'fd' / str(fd), 'fd_incomplete')
+            hits['descriptor'].update(self.link_hits(states[fd]))
         require(fds == numbers(task / 'fd', MAX_FDS, 'fd_incomplete', strict=True), 'fd_changed')
         ranges = read(task / 'maps', 16 * MIB, 'maps_incomplete')
         # A live userspace task with an executable must have an mm.
         require(ranges and ranges.endswith(b'\n'), 'maps_incomplete')
         hits['mapping'] = maps_hits(ranges, self.inodes, self.match_path)
         require(read(task / 'maps', 16 * MIB, 'maps_incomplete') == ranges, 'maps_changed')
+        if self.trees:
+            require(states == {fd: self.link_state(task / 'fd' / str(fd), 'fd_incomplete') for fd in fds}
+                    and fds == numbers(task / 'fd', MAX_FDS, 'fd_incomplete', strict=True), 'fd_changed')
+            require(links == {name: self.link_state(task / name, 'task_links') for name in links}, 'task_links_changed')
+            require(read(task / 'cmdline', 4 * MIB, 'cmdline_incomplete') == cmdline, 'cmdline_changed')
         require(task_state(task) == before, 'task_changed')
         require(self.view(task, ns)[0] == view_key, 'mountinfo_changed')
         return hits
@@ -396,15 +586,25 @@ def check_window(enrollment, start, now):
 
 
 def scan(report, enrollment, proc, own_pid, require_ptrace):
-    table = host_mounts(proc, enrollment['host'], require_ptrace)
+    host = enrollment['host']
+    table = host_mounts(proc, host, require_ptrace)
     valid = {}
     for i, batch in enumerate(enrollment['batches']):
         try:
             valid[i] = (batch, validate_selection(batch, table))
         except Incomplete as e:
             report['batches'][i]['reason'] = str(e)
-    require(valid, 'no_valid_batches')
-    refs = References(valid, enrollment['host']['independent_mount_sha256'])
+    trees = {}
+    budget = [MAX_TREE_ENTRIES, MAX_TREE_NAME_BYTES]
+    for i, tree in enumerate(enrollment.get('trees', ()), len(enrollment['batches'])):
+        try:
+            trees[i] = (tree, tree_snapshot(tree, table, budget))
+        except Incomplete as e:
+            report['batches'][i]['reason'] = str(e)
+    require(valid or trees, 'no_valid_batches')
+    refs = References(valid, host['independent_mount_sha256'], trees, host['mnt'],
+                      host.get('independent_tree_mount_sha256', ()))
+    initial_hits = refs.mount_hits(table, host['mnt']) if trees else set()
     tasks = inventory(proc, own_pid)
     matches = defaultdict(Counter)
     for task, state in tasks.items():
@@ -416,17 +616,26 @@ def scan(report, enrollment, proc, own_pid, require_ptrace):
         report['tasks_scanned'] += 1
     report['mount_views_scanned'] = len(refs.views)
     require(report['tasks_scanned'] > 0, 'task_inventory')
-    require(inventory(proc, own_pid) == tasks, 'task_inventory_changed')
-    require(host_mounts(proc, enrollment['host'], require_ptrace) == table, 'host_mounts_changed')
-    for i, (batch, selected) in valid.items():
+    require(refs.mount_handles <= (refs.visible_namespaces | {host['mnt']}),
+            'unobserved_pinned_mount_namespace')
+    for i in initial_hits:
+        if i in trees:
+            matches[i]['bind_mount'] = max(matches[i]['bind_mount'], 1)
+    budget = [MAX_TREE_ENTRIES, MAX_TREE_NAME_BYTES]
+    for i, (scope, selected) in (valid | trees).items():
         row = report['batches'][i]
         try:
-            require(validate_selection(batch, table) == selected, 'selected_identity')
+            if i in trees:
+                require(tree_snapshot(scope, table, budget) == selected, 'tree_changed')
+            else:
+                require(validate_selection(scope, table) == selected, 'selected_identity')
         except Incomplete as e:
             row['reason'] = str(e)
             continue
         row['matches'] = {field: matches[i][field] for field in MATCH_FIELDS}
         row['status'] = 'busy' if any(row['matches'].values()) else 'clear'
+    require(inventory(proc, own_pid) == tasks, 'task_inventory_changed')
+    require(host_mounts(proc, host, require_ptrace) == table, 'host_mounts_changed')
 
 
 def produce(load=load_trusted_manifest, proc=PROC, own_pid=None, require_ptrace=True, clock=time.time_ns):
@@ -443,6 +652,14 @@ def produce(load=load_trusted_manifest, proc=PROC, own_pid=None, require_ptrace=
             report['batches'].append(dict(selection_sha256=batch['selection_sha256'],
                                           files=len(batch['files']), status='incomplete',
                                           reason=None, matches=None))
+        if 'trees' in enrollment:
+            report['tree_scope'] = TREE_SCOPE
+            report['tree_selections'] = []
+            for tree in enrollment['trees']:
+                key = tree['selection_sha256']
+                report['tree_selections'].append(key)
+                report['batches'].append(dict(selection_sha256=key, files=1,
+                                              status='incomplete', reason=None, matches=None))
         check_window(enrollment, start, clock())
         scan(report, enrollment, proc, os.getpid() if own_pid is None else own_pid, require_ptrace)
         require(load() == (raw, sealed_identity), 'manifest_changed')

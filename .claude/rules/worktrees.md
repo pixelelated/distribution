@@ -142,6 +142,8 @@ working files, retain required images, exact source including local changes,
 inputs, licences and original build or failure evidence outside the directory.
 Verify those retained materials are usable for their intended purpose.
 
+Use the shared [build retention lifecycle](../../tools/host-maintenance/build-retention-cycle.md) and [custody format](../../tools/host-maintenance/build-tree-custody.md) for the build account and the installer. A hold or a timer invocation credits zero bytes. Count recovery from an actual unlink receipt and a fresh free-space measurement.
+
 Use normal build completion and a recurring recovery sweep for terminal,
 interrupted and historical builds. Reconcile old holds against actual active
 or immediately queued consumers and their transitive dependencies. An exception

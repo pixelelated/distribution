@@ -1,0 +1,283 @@
+#!/usr/bin/python3 -IBS
+# SPDX-License-Identifier: GPL-2.0-or-later
+"""Disposable producer and consumer-boundary tests for build-tree custody."""
+import hashlib
+import json
+import os
+from pathlib import Path
+import runpy
+import subprocess
+import sys
+import tempfile
+import unittest
+from unittest.mock import patch
+
+TOOLS = Path(__file__).resolve().parent
+CODE = runpy.run_path(str(TOOLS/'build-tree-custody'))
+COMPILE = CODE['compile_config']
+GLOBALS = COMPILE.__globals__
+ENGINE = runpy.run_path(str(TOOLS/'build-tree-retention'))
+
+
+def dump(path,data):
+    path.write_text(json.dumps(data,sort_keys=True) + '\n')
+    path.chmod(0o600)
+
+
+def ref(path):
+    return {'path':str(path),'sha256':hashlib.sha256(path.read_bytes()).hexdigest()}
+
+
+def put(path,content=b'generated'):
+    path.parent.mkdir(parents=True,exist_ok=True)
+    path.write_bytes(content)
+    path.chmod(0o600)
+    return path
+
+
+class Controls(unittest.TestCase):
+    def setUp(self):
+        self.addCleanup(os.umask, os.umask(0o077))
+        t = tempfile.TemporaryDirectory(prefix='pix-tree-custody-')
+        self.addCleanup(t.cleanup)
+        self.top=Path(t.name).resolve()
+        self.checkout=self.top/'checkout'
+        self.parent=self.checkout/'build.fixture'
+        self.root=self.parent/'build'/'package-generated'
+        self.run=self.checkout/'.build-runs'/'produced'
+        self.keepers=self.top/'kept'
+        self.refs=self.top/'refs'
+        self.state=self.top/'registry-state'
+        for path in (self.run,self.keepers,self.refs,self.state,self.root):
+            path.mkdir(parents=True,mode=0o700)
+        self.leaf=put(self.root/'lib'/'a.o')
+        self.peer=put(self.keepers/'lib'/'a.o')
+        self.source=put(self.top/'evidence'/'source-map',b'exact build script inputs')
+        self.deliverable=put(self.top/'evidence'/'installed-output',b'qualified native result')
+        self.result=dict(command_rc=0,monitor_rc=0,runner_rc=0)
+        self.admitted=dict(id='fixture-one',run=str(self.run),checkout=str(self.checkout),
+            volume_device=self.checkout.stat().st_dev,state='running',
+            source=dict(head='a'*40,tracked_diff_sha256='b'*64),
+            pid_namespace=Path('/proc/self/ns/pid').stat().st_ino,runner_pid=2147483647,
+            submission_owner=None,outputs=[dict(path=str(self.parent),kind='build-cache',
+                                                  issue=493,release_when='fixture accepted')],
+            retention_scope=dict(protected=[str(self.source),str(self.deliverable)]))
+        self.accepted=self.top/'evidence'/'acceptance.json'
+        dump(self.run/'admission-input.json',dict(schema=1,id=self.admitted['id'],registry_generation=14))
+        dump(self.run/'runner-result.json',self.result)
+        put(self.run/'build.rc',b'0\n')
+        put(self.run/'build.status',b'state:       finished\n')
+        self.admitted['receipt_sha256']=ref(self.run/'admission-input.json')['sha256']
+        dump(self.run/'admission.json',self.admitted)
+
+    def keep_input(self):
+        return dict(path=str(self.root),host_manifest_sha256='e'*64,
+             keeper=dict(path=str(self.keepers),identity=CODE['dir_id'](self.keepers.lstat())))
+
+    def native_input(self, **changes):
+        path=self.top/'evidence'/'native-catalog.json'
+        doc=dict(schema=1,run=str(self.run),admission_id=self.admitted['id'],
+                 admission_sha256=ref(self.run/'admission.json')['sha256'],
+                 registry_generation=14,root=str(self.root),
+                 directories=[dict(path=str(d.relative_to(self.root)),identity=CODE['dir_id'](d.lstat()))
+                              for d in (self.root,self.leaf.parent)],
+                 files=[dict(path=str(self.leaf.relative_to(self.root)),identity=CODE['file_id'](self.leaf.lstat()),
+                             sha256=ref(self.leaf)['sha256'])])
+        doc.update(changes)
+        dump(path,doc)
+        return dict(path=str(self.root),host_manifest_sha256='e'*64,catalog=ref(path))
+
+    def consume(self, operand=None, protected_inside=False, attach_deliverable=True):
+        self.operand=operand or self.keep_input()
+        self.inputs=dict(schema=1,roots=[self.operand],reference_roots=[str(self.refs)],
+                        reference_stores=[str(self.refs)],registry_state_roots=[str(self.state)],
+                        source_evidence=[ref(self.source)],deliverable_evidence=[ref(self.deliverable)])
+        evidence=[ref(self.source),ref(self.run/'runner-result.json')]
+        if attach_deliverable:
+            evidence.append(ref(self.deliverable))
+        if 'catalog' in self.operand:
+            evidence.append(self.operand['catalog'])
+        if protected_inside:
+            evidence.append(ref(self.leaf))
+        self.proof=dict(run=str(self.run),expected_rc=0,disposition='qualified',
+                     outputs=self.admitted['outputs'],evidence=evidence,build_tree_inputs=self.inputs)
+        dump(self.accepted,self.proof)
+        self.row=dict(self.admitted,state='consumed', original_result=self.result,
+              evidence_sha256=ref(self.accepted)['sha256'],outputs_held=True,
+              retained_evidence=[str(self.run),str(self.accepted),*(r['path'] for r in evidence)])
+        dump(self.run/'admission-consumed.json',self.row)
+
+    def compile(self):
+        return COMPILE(self.run,self.row,self.proof,self.inputs)
+
+    def engine_config(self):
+        config, proof, keep = ENGINE['acceptance'](self.run,self.row)
+        allowed = ENGINE['load_scope'](self.checkout,self.row,config,proof,keep,[str(self.state)])
+        self.assertIn(self.root,allowed[0])
+        return config
+
+    def held(self, reason):
+        with self.assertRaisesRegex((ValueError,OSError),reason):
+            self.compile()
+
+    def test_real_compact_acceptance_to_engine_schema_and_cli(self):
+        self.consume()
+        originals=[self.accepted,self.run/'admission-consumed.json',self.run/'admission-input.json']
+        bytes_before={p:p.read_bytes() for p in originals}
+        cfg=self.engine_config()
+        self.assertEqual(cfg,self.compile())
+        spec,=cfg['roots']
+        self.assertEqual(spec['host_scope'],dict(path=str(self.parent),identity=CODE['dir_id'](self.parent.lstat())))
+        self.assertEqual([f['path'] for f in spec['files']],[str(self.leaf)])
+        self.assertEqual(ENGINE['file_ref'](cfg['preserved_result'])['selection_sha256'],
+                         ENGINE['sha'](ENGINE['encoded']({k:cfg[k] for k in CODE['FIELDS']})))
+        self.assertEqual({p:p.read_bytes() for p in originals},bytes_before)
+        proc=subprocess.run([sys.executable,'-I','-B',str(TOOLS/'build-tree-custody'),
+                '--run',str(self.run),'--acceptance',str(self.accepted)],check=True,capture_output=True,text=True)
+        self.assertEqual(json.loads(proc.stdout),cfg)
+
+    def test_mixed_keeper_tree_keeps_unique_links_repositories_and_other_outputs(self):
+        unknown=put(self.root/'manual.c',b'uncommitted source experiment')
+        changed=put(self.root/'lib'/'mismatch.o',b'local!')
+        put(self.keepers/'lib'/'mismatch.o',b'other!')
+        nested=put(self.root/'embedded'/'copy.o')
+        put(self.root/'embedded'/'.git',b'gitdir: external protected')
+        put(self.keepers/'embedded'/'copy.o')
+        foreign=put(self.top/'legitimate')
+        (self.root/'symlink.o').symlink_to(foreign)
+        put(self.keepers/'symlink.o')
+        hard=self.root/'lib'/'shared.o'
+        os.link(foreign,hard)
+        put(self.keepers/'lib'/'shared.o')
+        staged=put(self.parent/'install_pkg'/'independent')
+        self.consume()
+        self.assertEqual([x['path'] for x in self.compile()['roots'][0]['files']],[str(self.leaf)])
+        self.assertEqual([p.exists() for p in (unknown,changed,nested,hard,staged,foreign)],[True]*6)
+        self.assertTrue((self.root/'symlink.o').is_symlink())
+
+    def test_immutable_selection_reuse_after_some_or_all_generated_names_disappear(self):
+        self.consume()
+        committed=self.compile()
+        snapshot=self.run/CODE['SNAPSHOT']/'snapshot.json'
+        before=ref(snapshot)
+        self.leaf.unlink()
+        self.assertEqual(self.compile(),committed)
+        self.leaf.parent.rmdir()
+        self.root.rmdir()
+        self.assertEqual(self.engine_config(),committed)
+        self.assertEqual(ref(snapshot),before)
+        self.peer.write_bytes(b'changed keeper')
+        self.held('independent custody evidence changed')
+
+    def test_native_catalog_adopts_only_run_bound_names_without_payload_replay(self):
+        unexpected=put(self.root/'untracked.patch')
+        native=self.native_input()
+        self.consume(native)
+        reader=CODE['Budget'].read
+        def reject_leaf(obj,path,**kw):
+            self.assertNotEqual(path,self.leaf,'native catalogue must not replay generated payloads')
+            return reader(obj,path,**kw)
+        with patch.object(CODE['Budget'],'read',reject_leaf):
+            cfg=self.engine_config()
+        self.assertEqual([x['path'] for x in cfg['roots'][0]['files']],[str(self.leaf)])
+        self.assertTrue(unexpected.is_file())
+
+    def test_native_changed_identity_holds_before_creating_receipts(self):
+        self.consume(self.native_input())
+        self.leaf.write_bytes(b'uncommitted replacement')
+        self.held('catalog file identity changed')
+        self.assertFalse((self.run/CODE['SNAPSHOT']).exists())
+
+    def test_native_wrong_producer_generation_and_shared_catalog_hold(self):
+        self.consume(self.native_input(registry_generation=15))
+        self.held('generation or scope differs')
+        self.consume(self.native_input())
+        Path(self.operand['catalog']['path']).chmod(0o666)
+        self.held('shared or untrusted')
+
+    def test_original_binding_and_original_terminal_marker_are_required(self):
+        self.consume()
+        put(self.run/'build.status',b'state:       running\n')
+        self.held('not terminal')
+        put(self.run/'build.status',b'state:       finished\n')
+        self.accepted.unlink()
+        self.held('original acceptance missing')
+
+    def test_deliverable_outside_selection_and_bound_by_original(self):
+        self.consume(attach_deliverable=False)
+        self.held('distinct accepted evidence')
+        self.consume(protected_inside=True)
+        self.held('overlaps generated scope')
+
+    def test_changed_deliverable_or_forged_original_on_retry_holds(self):
+        self.consume()
+        self.compile()
+        self.deliverable.write_bytes(b'changed deliverable')
+        self.held('independent custody evidence changed')
+        self.deliverable.write_bytes(b'qualified native result')
+        tampered=dict(self.row,evidence_sha256='f'*64)
+        with self.assertRaisesRegex(ValueError,'original consumption'):
+            COMPILE(self.run,tampered,self.proof,self.inputs)
+
+    def test_nested_repository_discovered_on_retry_is_protected(self):
+        self.consume()
+        self.compile()
+        put(self.leaf.parent/'.git',b'gitdir: experimental')
+        self.held('nested repository')
+        self.assertTrue(self.leaf.exists())
+
+    def test_missing_keeper_or_budget_refuses(self):
+        self.consume()
+        self.peer.unlink()
+        self.held('no independent same-relative')
+        put(self.peer)
+        with patch.dict(GLOBALS,MAX_BYTES=64):
+            self.held('exceeds item, byte or time limit')
+        self.assertFalse((self.run/CODE['SNAPSHOT']).exists())
+
+    def test_empty_untrusted_snapshot_never_overwritten(self):
+        self.consume()
+        orphan=self.run/CODE['SNAPSHOT']
+        orphan.mkdir()
+        self.held('No such file')
+        self.assertEqual(list(orphan.iterdir()),[])
+
+    def test_concurrent_compilers_publish_one_complete_bundle(self):
+        self.consume()
+        args=[sys.executable,'-I','-B',str(TOOLS/'build-tree-custody'),
+              '--run',str(self.run),'--acceptance',str(self.accepted)]
+        with subprocess.Popen(args,stdout=subprocess.PIPE,stderr=subprocess.PIPE,text=True) as a:
+            with subprocess.Popen(args,stdout=subprocess.PIPE,stderr=subprocess.PIPE,text=True) as b:
+                ax,ae=a.communicate(timeout=5)
+                bx,be=b.communicate(timeout=5)
+        self.assertEqual((a.returncode,b.returncode),(0,0),(ae,be))
+        self.assertEqual(json.loads(ax),json.loads(bx))
+        self.assertEqual(sorted(p.name for p in (self.run/CODE['SNAPSHOT']).iterdir()),
+                         ['preserved-result.json','snapshot.json','source-custody.json'])
+
+    def test_missing_native_catalog_and_changed_source_do_not_gain_custody(self):
+        self.consume(self.native_input())
+        Path(self.operand['catalog']['path']).unlink()
+        self.held('No such file')
+        self.assertFalse((self.run/CODE['SNAPSHOT']).exists())
+        self.consume()
+        self.compile()
+        self.source.write_bytes(b'unreviewed source')
+        self.held('independent custody evidence changed')
+
+    def test_failed_atomic_stage_leaves_no_final_receipts(self):
+        self.consume()
+        save=CODE['fsync_dir']
+        def blocked(f):
+            if f.name.startswith('.build-tree-custody-'):
+                raise OSError('simulated stage fsync refusal')
+            return save(f)
+        with patch.dict(GLOBALS,fsync_dir=blocked):
+            self.held('stage fsync refusal')
+        self.assertFalse((self.run/CODE['SNAPSHOT']).exists())
+        self.assertEqual([],list(self.run.glob('.build-tree-custody-*')))
+        self.assertEqual(len(self.compile()['roots']),1)
+
+
+if __name__ == '__main__':
+    unittest.main()
