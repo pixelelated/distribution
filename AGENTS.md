@@ -33,6 +33,10 @@ lifecycle and recurring cleanup retire verified generated files from finished,
 failed and abandoned builds, including private copies. Record the owner and release
 condition for each exception. See `.claude/rules/worktrees.md` (D-INFRA-025/030, #493).
 
+Before a significant cache copy or build launch, check the measured peak and
+existing reservations against usable space. Follow the largest-first project
+output review in `.claude/rules/worktrees.md` (D-INFRA-032, #493).
+
 **Standing host build/test authority:** D-WORKFLOW-196 authorizes routine host
 source preparation/assembly, builds and isolated tests within existing admission,
 resource and worktree rules. Read `.claude/rules/device-builds.md` ("Standing host

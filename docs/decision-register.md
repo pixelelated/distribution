@@ -730,6 +730,7 @@ This is the index of decisions; `docs/work-logs/` is the narrative,
 | D-INFRA-030 | 2026-11-23 | **Keep a full working directory by default only while its build is active.** Extend D-INFRA-025 to regular cleanup of verified generated trees, private copies and historical leftovers. Preserve needed source, results and evidence independently and retain specific active or queued dependencies with an owner and release condition. | Max, #493, D-INFRA-022/024/025, `.claude/rules/worktrees.md` |
 
 | D-INFRA-031 | 2026-11-23 | **Correct the identifier of the November 23 build-directory decision to D-INFRA-030.** The earlier label was already used in the October 31 M7 VM decision. The cleanup decision text and the standing VM decision are preserved. | #493, D-WORKFLOW-013, D-INFRA-030 |
+| D-INFRA-032 | 2026-11-23 | Check the destination volume before a substantial build copy or launch. Reuse the largest-first project output inventory, including nested build runs. Reconcile measured peak and reservations, protect current inputs and independently retained source and results, retire verified obsolete sets, then remeasure. Record owners and release conditions when outputs are created. | Max, #493, D-INFRA-025/030 |
 
 ## Open decisions
 
