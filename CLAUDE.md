@@ -24,7 +24,7 @@ resuming a thread, read `docs/lane-models-and-account-handoff.md` and use
 Save required images, exact source and evidence independently. The ordinary build
 lifecycle and recurring cleanup retire verified generated files from finished,
 failed and abandoned builds, including private copies. Record the owner and release
-condition for each exception. See `.claude/rules/worktrees.md` (D-INFRA-025/026, #493).
+condition for each exception. See `.claude/rules/worktrees.md` (D-INFRA-025/030, #493).
 
 **Standing host build/test authority:** D-WORKFLOW-196 authorizes routine host
 source preparation/assembly, builds and isolated tests within existing admission,

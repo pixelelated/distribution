@@ -135,7 +135,7 @@ freed; the tool refuses this case outright.
 
 ## Review retention after qualification
 
-D-INFRA-025 and D-INFRA-026 set a lifetime for generated working directories.
+D-INFRA-025 and D-INFRA-030 set a lifetime for generated working directories.
 Keep the full directory by default only while its build is underway. Record
 ownership when creating a private checkout or build root. Before releasing its
 working files, retain required images, exact source including local changes,
