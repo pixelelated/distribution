@@ -65,8 +65,8 @@ all of the armatures in place to support that."*
   written with the `session-stash` skill, the previous copy archived under
   `.github/sessions/archived/`. A working branch's own
   `saved-session-state-<branch>.md` is a pointer to it, so a session started
-  anywhere reaches the same file, and `CLAUDE.md` and `AGENTS.md` name it near
-  their tops. Until 2026-10-02 the copy on `next` was from July.
+  anywhere reaches the same file. `AGENTS.md`, shared with Claude Code through
+  `CLAUDE.md`, names it near the top. Until 2026-10-02 the copy on `next` was from July.
 - **Written for a stranger.** It opens with *Start here*: what the project is,
   what to read and in what order, the rules that bind, the machine's paths,
   where the credentials live (never their values). Then the skill's sections:
@@ -78,7 +78,7 @@ all of the armatures in place to support that."*
   each place it went wrong is fixed in the stash, a rule or a tool, then
   tested again (#368).
 - **Check the rules you loaded.** A session loads the rules of the worktree it
-  starts in: `git diff --quiet next -- .claude CLAUDE.md AGENTS.md || echo STALE`,
+  starts in: `git diff --quiet next -- .agents .claude CLAUDE.md AGENTS.md || echo STALE`,
   and a stale feature worktree reads the rules from `next` before trusting
   them. Integrate by the recorded worktree strategy; do not merge unrelated
   historical feature commits merely to update rules. On

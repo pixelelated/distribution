@@ -23,7 +23,8 @@
 #   list     the block between the rules-index markers in AGENTS.md is exactly
 #            what --write-agents generates from the front matter (Codex loads
 #            no rule on its own, so the list is how it learns they exist).
-#   mention  every rule file is named in CLAUDE.md as well.
+#   shared   CLAUDE.md imports AGENTS.md and Codex's skill directory links to
+#            the canonical Claude Code skill directory.
 #   tools    fork-only tool names agree in the hook and both rule inventories.
 #
 # The guard for the shape "an instruction file nobody can find is one nobody
@@ -206,6 +207,10 @@ def main():
                 fail('agents  AGENTS.md is %d bytes, over the %d-byte project-doc budget Codex reads whole' % (size, CODEX_DOC_BUDGET))
             else:
                 ok('agents  AGENTS.md is %d bytes (budget %d)' % (size, CODEX_DOC_BUDGET))
+        elif t.splitlines()[:1] != ['@AGENTS.md']:
+            fail('shared  CLAUDE.md must begin with an @AGENTS.md import')
+        else:
+            ok('shared  CLAUDE.md imports AGENTS.md')
     # list: the generated block in AGENTS.md
     ap = os.path.join(ROOT, 'AGENTS.md')
     if os.path.exists(ap):
@@ -224,15 +229,13 @@ def main():
                 ok('list    AGENTS.md carries the generated rule list')
         else:
             fail('list    AGENTS.md has no rules-index markers')
-    # mention: CLAUDE.md names every rule too
-    cp = os.path.join(ROOT, 'CLAUDE.md')
-    if os.path.exists(cp):
-        t = open(cp, encoding='utf-8').read()
-        missing = [f for f in files if f[:-3] not in t]
-        if missing:
-            fail('mention CLAUDE.md does not name: %s' % ', '.join(missing))
-        else:
-            ok('mention CLAUDE.md names every rule')
+    # shared: Codex and Claude Code discover the same skill bundles.
+    skill_link = os.path.join(ROOT, '.agents', 'skills')
+    if (os.path.islink(skill_link) and os.readlink(skill_link) == '../.claude/skills'
+            and os.path.isdir(skill_link)):
+        ok('shared  .agents/skills links to .claude/skills')
+    else:
+        fail('shared  .agents/skills must be a relative symlink to ../.claude/skills')
     if fails:
         print('rules-check: %d failure(s)' % len(fails))
         return 1

@@ -9,17 +9,20 @@ emulators, userland) per device.
 on `next` first: the work in flight, what is running, the next commands, and a walk-through
 for an agent who has never seen the project (D-WORKFLOW-133). A session loads the rules of the
 worktree it starts in, so check that yours carries `next`'s before trusting any of them:
-`git diff --quiet next -- .claude CLAUDE.md AGENTS.md || echo STALE` -- then merge `next` into
+`git diff --quiet next -- .agents .claude CLAUDE.md AGENTS.md || echo STALE` -- then merge `next` into
 a feature worktree, or read the rules from `next` (#367).
 
-**How this file is read.** Codex reads `AGENTS.md` (this file, at the root; a nested
-`AGENTS.md` adds to its own subtree) and nothing else on its own, so this file stands
-alone: the commands, the rules that bind every session, and the list of every rule file
-with what it decides. Claude Code reads `CLAUDE.md` and loads `.claude/rules/*.md` by
-their `paths:` globs. Both files carry the same facts and are kept equal by
-`tools/rules-check` (D-WORKFLOW-045), which also regenerates the rule list below from
-the rule files' own front matter. When something here and a rule file disagree, the rule
-file is right and this file has a bug.
+**Shared instructions and skills.** Codex reads `AGENTS.md` directly. Claude Code
+imports this same file from `CLAUDE.md`. Both use the canonical rules under
+`.claude/rules/`. Claude Code applies their native loading rules. In Codex, open
+the every-session rules and any scoped rules listed below that apply to the task.
+The rule files take precedence over their summaries here.
+
+Both tools discover the project skills in `.claude/skills/`. Codex reaches them
+through the `.agents/skills` symlink. Open the skill's `SKILL.md` at its canonical
+path when working in a session with an older skill catalog. `tools/rules-check`
+verifies the shared entry points and regenerates the rule list from the rule
+files' front matter (D-WORKFLOW-045, D-WORKFLOW-199).
 
 **Lane models and account handoff:** For both workspaces, Codex coordinators use
 `gpt-6.2-astra`, workers use `gpt-6.2-sol`, and both use `xhigh`. Preserve
@@ -192,7 +195,7 @@ No Conventional Commits. Scope by package or device, matching history:
 `origin` = `pixelelated/distribution`, `upstream` = `ROCKNIX/distribution`. Full rules in
 `fork-workflow.md` / `worktrees.md`; the essentials:
 
-- Branch `next` = `upstream/next` + a *personal overlay* (`.claude/`, `AGENTS.md`,
+- Branch `next` = `upstream/next` + a *personal overlay* (`.agents/`, `.claude/`, `AGENTS.md`,
   `CLAUDE.md`, `docs/`, `plans/`, `.githooks/`, the fork-only tools). **Never PR `next`
   upstream.**
 - Feature work: branch `feature/<name>` from `next` in a worktree at

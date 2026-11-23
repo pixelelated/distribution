@@ -732,6 +732,8 @@ This is the index of decisions; `docs/work-logs/` is the narrative,
 | D-INFRA-031 | 2026-11-23 | **Correct the identifier of the November 23 build-directory decision to D-INFRA-030.** The earlier label was already used in the October 31 M7 VM decision. The cleanup decision text and the standing VM decision are preserved. | #493, D-WORKFLOW-013, D-INFRA-030 |
 | D-INFRA-032 | 2026-11-23 | Check the destination volume before a substantial build copy or launch. Reuse the largest-first project output inventory, including nested build runs. Reconcile measured peak and reservations, protect current inputs and independently retained source and results, retire verified obsolete sets, then remeasure. Record owners and release conditions when outputs are created. | Max, #493, D-INFRA-025/030 |
 
+| D-WORKFLOW-199 | 2026-11-23 | **Codex and Claude Code share the project's instructions and skill bundles.** Codex reads `AGENTS.md` directly and Claude Code imports it through `CLAUDE.md`. Both use `.claude/rules/` and `.claude/skills/`. The relative `.agents/skills` symlink exposes the same skill bundles to Codex. `tools/rules-check` verifies the import and link. Extends D-WORKFLOW-045. | Max: “We want Codex and Claude to be sharing the same skills and instruction files.” `.claude/rules/instruction-files.md` |
+
 ## Open decisions
 
 

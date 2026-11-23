@@ -61,6 +61,7 @@ hooks_root="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." 2>/dev/null && pwd)"
 
 PERSONAL_PATTERNS=(
   # Agent context, rules and skills
+  '.agents/'
   '.claude/'
   'CLAUDE.md'
   'AGENTS.md'

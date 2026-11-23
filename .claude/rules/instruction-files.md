@@ -6,10 +6,18 @@ paths:
 
 # Where the rules live, and which copy you are reading
 
-Every rule in this directory loads automatically: those with a `paths:` glob
-when a matching file enters context, those without one at session start. There
-is no second copy — `.github/instructions/` was a Copilot convention and is
+Codex reads the shared `AGENTS.md` directly. Claude Code imports it through
+`CLAUDE.md`. Both use the rules in this directory. Claude Code loads rules
+with a `paths:` glob when a matching file enters context and loads rules
+without a glob at session start. Codex opens them according to the generated
+index in `AGENTS.md`. `.github/instructions/` was a Copilot convention and is
 gone, along with Copilot.
+
+Store project skills and their resources under `.claude/skills/`. Claude Code
+discovers them there. Codex discovers them through the repository's relative
+symlink `.agents/skills` → `../.claude/skills`. Adding a skill to the canonical
+directory exposes it to both tools. `tools/rules-check` verifies the import
+and symlink alongside the rule index (D-WORKFLOW-045, D-WORKFLOW-199).
 
 Other tools in use here read the same files: Crush can be pointed at this
 folder with `global-context-path`, and it already discovers `.claude/skills`.
@@ -188,7 +196,7 @@ both lists and to this table, or it is invisible.**
 | `forbidden-terms-check` | does a tree, or a set of lines, carry a word from the list kept outside every tree (D-WORKFLOW-061); the fork CI runs it | `fork-workflow.md` |
 | `register-check` | every decision ID once, every citation naming a real row | `decision-register.md` |
 | `lint-audit-artifacts` | the audit artifacts are well formed | `issue-tracking.md` |
-| `rules-check` | every rule file front-mattered per the standard, every file in this index, the counts in `CLAUDE.md` and `AGENTS.md` true, `AGENTS.md` within Codex's budget and naming every rule (D-WORKFLOW-045) | `instruction-files.md` |
+| `rules-check` | rule front matter and indexes, the `AGENTS.md` budget, the `CLAUDE.md` import and the shared skill symlink (D-WORKFLOW-045) | `instruction-files.md` |
 | `box-check` | is every open acceptance checkbox on the fork agent-verifiable -- names its artifact, and a physical fact when it asks for a device (D-QA-044; the checkbox checker, D-QA-045) | `issue-tracking.md` |
 | `prose-check` | does a rocknix.org draft read as the site's own writers write -- the tells the samples named, fail and warn; `--self-test` passes the maintainer's page and fails a machine-sounding draft (#323, D-WORKFLOW-068) | the `developer-relations` skill |
 | `release-catalog` | what each kept cut carried, what was proven on it and where it is, generated from the artifacts' RECORD.txt into `docs/releases/catalog.md` (D-WORKFLOW-044) | `issue-tracking.md` |
@@ -224,11 +232,11 @@ than re-arguing the choice, and add one the same session a decision is made.
 
 ## Discovering standing build authority
 
-The canonical `next` versions of AGENTS.md and CLAUDE.md both point to
-`device-builds.md` and `docs/build-authority.md` for D-WORKFLOW-196. Follow that
-route on startup, including from an older feature worktree. A branch-local draft
-or installed skill alone is not a published project instruction: retain the
-integration commit and remote publication state in the change's evidence. Do not
+The canonical `next` version of `AGENTS.md` points to `device-builds.md` and
+`docs/build-authority.md` for D-WORKFLOW-196. Claude Code reads the same guidance
+through `CLAUDE.md`. Follow that route on startup, including from an older
+feature worktree. For a published project instruction, retain the integration
+commit and remote publication state in the change's evidence. Do not
 claim portability is complete while `git show next:<path>` still lacks the rule.
 Standing user authorization does not replace current per-run admission or platform
 review, and documentation integration is not a gate on already-authorized work.
