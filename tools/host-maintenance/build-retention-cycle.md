@@ -43,6 +43,47 @@ the affected files held. Use an exact verified fixed-path legacy custody record
 when appropriate, through the engine's own contract. There is no age-only
 deletion.
 
+## Eligible checkout and working directories
+
+A normal account-owned checkout with mode `0755` is supported. Its
+`.build-runs` and generated `build.*` paths can be private (for example,
+`0700`). Every directory traversed from the checkout into a selected
+working path must belong to the build account, match the volume, and
+exclude group and other write access. A `0775` checkout cannot safely
+host this sweep even when its build directory and run records are
+private. Another writer could replace the paths that lead to them.
+The engine reports the hold before discovery. It also holds a shared,
+foreign, redirected or replaced parent inside an otherwise usable
+checkout. A preparation made before this layout is established confers
+no authority over a different checkout or generated inode.
+
+Use an ordinary non-shared project checkout with the existing admission,
+run and result procedure. A future admission may point to a fresh
+owner-controlled project checkout and its own generated outputs. Retain
+original checkout provenance and independent results when selecting
+that route. Existing shared checkouts stay held for the coordinating
+owner. Nested selection narrows the set of positively owned generated
+files through the existing custody and enrollment inputs. It still
+requires trusted parents. Establish that layout when preparing an owned
+checkout for normal admission.
+
+Both expanded and compact custody are limited to owned working files
+under the admitted profile's `build.*/build/` directory. They preserve
+stamps, staged products, toolchains and result receipts outside that
+working directory. A nested repository marker in the removal ancestry
+also holds the affected scope. The engine binds the live ancestor
+identities before host-use observation and rechecks each selected path's
+ancestry at the unlink or empty-directory removal boundary. Unknown
+siblings are left in place.
+
+These layout checks are one part of the normal sweep. Accepted terminal
+custody, all applicable registry locks and queue visibility, preserved
+source/results, and the trusted current host-use report are still
+required. The one-file private transfer cleanup example uses its own
+exact retirement and recovery evidence for the individually named
+transfer. Qualify a build-tree sweep through its own terminal custody and
+host-use checks.
+
 ## Deploy as the ordinary build account
 
 From the reviewed canonical checkout after the engine, its sibling guards and
