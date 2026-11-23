@@ -1,0 +1,419 @@
+#!/usr/bin/env python3
+# SPDX-License-Identifier: GPL-2.0-or-later
+# Copyright (C) 2026-present pixelelated
+"""Run or install the ordinary-account build directory retention cycle."""
+import argparse
+from bisect import bisect_right
+import contextlib
+import fcntl
+import json
+import os
+from pathlib import Path
+import runpy
+import stat
+import subprocess
+import sys
+import tempfile
+import time
+
+
+NAME = 'pixelelated-build-tree-retention'
+TOOLS = Path('tools/host-maintenance')
+SWEEP_TIMEOUT = 205
+DISCOVERY_TIMEOUT = 15
+CYCLE_TIMEOUT = 225
+CHECKOUTS_PER_CYCLE = 4
+MAX_CHECKOUTS = 4096
+MAX_PATH = 4096
+OMITTED = ('Only registered checkouts discoverable from the canonical Git-common registry '
+           'and matching account filesystem registries are visited. The engine checks '
+           'unknown builds within those checkouts. Unregistered checkouts, unrelated '
+           'Git-common registries and the remainder of the volume are not inventoried.')
+
+
+def canonical(path, kind):
+    path = Path(path)
+    if not path.is_absolute() or path.resolve(strict=True) != path:
+        raise ValueError(f'noncanonical {kind}: {path}')
+    info = path.lstat()
+    expected = stat.S_ISDIR if kind == 'directory' else stat.S_ISREG
+    if not expected(info.st_mode) or info.st_uid != os.geteuid() or info.st_mode & 0o002:
+        raise ValueError(f'unsafe or foreign {kind}: {path}')
+    if kind == 'settings' and info.st_mode & 0o022:
+        raise ValueError(f'settings are writable by another account: {path}')
+    return path
+
+
+def config_dir():
+    value = os.environ.get('XDG_CONFIG_HOME')
+    return Path(value) if value else Path.home() / '.config'
+
+
+def config_file():
+    return config_dir() / 'pixelelated/build-retention.json'
+
+
+def engine(checkout):
+    return canonical(checkout / TOOLS / 'build-tree-retention', 'engine')
+
+
+def installed_checkout():
+    path = config_file()
+    try:
+        path.lstat()
+    except FileNotFoundError:
+        return None
+    return read_checkout(path)
+
+
+def read_checkout(path):
+    if not path.is_absolute() or path.parent.resolve() != path.parent:
+        raise ValueError('noncanonical settings location')
+    raw = private_bytes(path, 4096)
+    if raw is None:
+        return None
+    canonical(path, 'settings')
+    settings = json.loads(raw)
+    if (not isinstance(settings, dict) or set(settings) != {'schema', 'checkout', 'state_home'}
+            or type(settings['schema']) is not int or settings['schema'] != 1):
+        raise ValueError('invalid retention settings')
+    checkout = canonical(settings['checkout'], 'directory')
+    state_home = Path(settings['state_home'])
+    if not state_home.is_absolute() or state_home.resolve() != state_home:
+        raise ValueError('invalid build account state directory')
+    return checkout, state_home
+
+
+def sweep(canonical_checkout, state_home, checkout, run=None, timeout=SWEEP_TIMEOUT):
+    command = [str(engine(canonical_checkout)), 'sweep', '--checkout', str(checkout)]
+    if run is not None:
+        command += ['--run', str(run)]
+    result = subprocess.run(command, stdin=subprocess.DEVNULL, timeout=timeout,
+                            env=dict(os.environ, XDG_STATE_HOME=str(state_home))).returncode
+    if result not in {0, 1, 2}:
+        raise ValueError(f'engine returned unexpected status {result}')
+    return result
+
+
+def discovery(root):
+    # Reuse the canonical engine's read-only routing and lock checks. The
+    # snapshots select checkouts only and confer no authority to remove files.
+    helpers = runpy.run_path(str(engine(root)))
+    primary, alternate, _ = helpers['registry_routes'](root)
+    with contextlib.suppress(FileNotFoundError):
+        (primary / 'jobs.json').lstat()
+        alternate = [primary, *alternate]
+    device = root.stat().st_dev
+    filesystem = os.statvfs(root).f_fsid
+    registered = {str(root)}
+    held_routes = []
+    for route in sorted(set(alternate)):
+        try:
+            with helpers['locked_registry'](route) as registry:
+                queue = registry.get('queued', {})
+                if not isinstance(queue, dict):
+                    raise ValueError('queue metadata is not an object')
+                for source, kind in ((registry['jobs'], 'job'), (queue, 'queue')):
+                    for row in source.values():
+                        if kind == 'job':
+                            recorded_device, checkout = row['volume_device'], row['checkout']
+                        else:
+                            recorded_device, checkout = row['device'], row['scope']['checkout']
+                        if type(recorded_device) is not int:
+                            raise ValueError('invalid registered volume identity')
+                        if recorded_device != device:
+                            continue
+                        if not isinstance(checkout, str) or not checkout.startswith('/') or len(checkout) > MAX_PATH:
+                            raise ValueError('invalid registered checkout path')
+                        registered.add(checkout)
+                        if len(registered) > MAX_CHECKOUTS:
+                            raise ValueError('registered checkout count exceeds the finite discovery bound')
+        except (OSError, ValueError, KeyError, TypeError) as error:
+            held_routes.append({'registry': str(route), 'reason': str(error)})
+    if len(registered) > MAX_CHECKOUTS:
+        raise ValueError('registered checkout count exceeds the finite discovery bound')
+    return {'checkouts': sorted(registered), 'device': device, 'filesystem': filesystem, 'held_routes': held_routes}
+
+
+def same_volume(path, device, filesystem):
+    path = canonical(path, 'directory')
+    if path.stat().st_dev != device or os.statvfs(path).f_fsid != filesystem:
+        raise ValueError(f'registered checkout is outside the selected volume: {path}')
+    return path
+
+
+def save_cursor(path, checkout):
+    with tempfile.NamedTemporaryFile(dir=path.parent, prefix='.retention-cursor-', delete=False) as stream:
+        temporary = Path(stream.name)
+        try:
+            stream.write((json.dumps(str(checkout)) + '\n').encode())
+            stream.flush()
+            os.fsync(stream.fileno())
+            os.replace(temporary, path)
+        finally:
+            temporary.unlink(missing_ok=True)
+    fd = os.open(path.parent, os.O_RDONLY | os.O_DIRECTORY | os.O_NOFOLLOW)
+    try:
+        os.fsync(fd)
+    finally:
+        os.close(fd)
+
+
+def reconcile(root, state_home, settings):
+    deadline = time.monotonic() + CYCLE_TIMEOUT
+    cursor = settings.with_name('build-retention.cursor')
+    fd = os.open(cursor.with_suffix('.lock'), os.O_RDWR | os.O_NOFOLLOW | os.O_CREAT | os.O_NONBLOCK, 0o600)
+    with os.fdopen(fd, 'rb') as lock:
+        check_private(os.fstat(lock.fileno()), cursor.with_suffix('.lock'))
+        try:
+            fcntl.flock(lock, fcntl.LOCK_EX | fcntl.LOCK_NB)
+        except BlockingIOError:
+            print(json.dumps({'schema': 1, 'status': 'held', 'reason': 'checkout sweep already active',
+                              'inventory_scope': OMITTED}))
+            return 1
+        command = ['/usr/bin/python3', '-I', '-B', str(Path(__file__).resolve()),
+                   'discover', '--settings', str(settings)]
+        try:
+            task = subprocess.run(command, stdin=subprocess.DEVNULL, stdout=subprocess.PIPE,
+                                  timeout=DISCOVERY_TIMEOUT, check=True)
+        except subprocess.TimeoutExpired:
+            print(json.dumps({'schema': 1, 'status': 'held', 'reason': 'checkout discovery timed out',
+                              'inventory_scope': OMITTED}))
+            return 1
+        report = json.loads(task.stdout)
+        checkouts = report['checkouts']
+        raw = private_bytes(cursor, MAX_PATH * 6 + 4)
+        last = json.loads(raw) if raw is not None else ''
+        if not isinstance(last, str) or len(last) > MAX_PATH:
+            raise ValueError('invalid rotation cursor')
+        offset = bisect_right(checkouts, last) % len(checkouts)
+        ordered = checkouts[offset:] + checkouts[:offset]
+        attempted = []
+        statuses = [1] if report['held_routes'] else []
+        for name in ordered[:CHECKOUTS_PER_CYCLE]:
+            remaining = deadline - time.monotonic()
+            if remaining < SWEEP_TIMEOUT:
+                break
+            # Advance the cursor before a call. An interrupted or repeatedly
+            # expensive checkout cannot starve every later registered producer.
+            save_cursor(cursor, name)
+            detail = {'checkout': name}
+            attempted.append(detail)
+            try:
+                checkout = same_volume(name, report['device'], report['filesystem'])
+            except (OSError, ValueError, RuntimeError) as error:
+                detail.update(status=1, reason=str(error))
+            else:
+                try:
+                    left = deadline - time.monotonic()
+                    if left < SWEEP_TIMEOUT:
+                        detail.update(status=1, reason='full checkout sweep budget unavailable after cursor publication')
+                        statuses.append(1)
+                        break
+                    detail['status'] = sweep(root, state_home, checkout)
+                except subprocess.TimeoutExpired:
+                    detail.update(status=1, reason='checkout sweep exceeded its 205-second subprocess bound')
+                except (OSError, ValueError, subprocess.SubprocessError) as error:
+                    detail.update(status=2, reason=str(error))
+            statuses.append(detail['status'])
+        remaining = len(checkouts) - len(attempted)
+        result = max([*statuses, int(remaining > 0)])
+        print(json.dumps({'schema': 1, 'status': ('settled', 'held', 'integration-failed')[result],
+                          'known_checkouts': len(checkouts), 'attempted': attempted,
+                          'deferred_count': remaining, 'held_routes': report['held_routes'],
+                          'inventory_scope': OMITTED}, sort_keys=True))
+    return result
+
+
+def consume_hook(run):
+    """Observe an already-consumed run; leave stdout and original status alone."""
+    try:
+        settings = installed_checkout()
+        if settings is None:
+            return
+        root, _ = settings
+        run = checked_run(run)
+        script = canonical(root / TOOLS / 'build-retention-cycle', 'cycle')
+        # One attempt per consumed run. The recurring sweep recovers launch
+        # failures, interruption and named holds without changing consumption.
+        path = run / 'build-tree-retention-after-consume.log'
+        try:
+            fd = os.open(path, os.O_WRONLY | os.O_CREAT | os.O_EXCL | os.O_NOFOLLOW, 0o600)
+        except FileExistsError:
+            return
+        with os.fdopen(fd, 'wb', buffering=0) as log:
+            try:
+                subprocess.Popen(
+                    ['/usr/bin/python3', '-I', '-B', str(script), 'sweep',
+                     '--settings', str(config_file()), '--run', str(run)],
+                    cwd=root, stdin=subprocess.DEVNULL, stdout=log, stderr=subprocess.STDOUT,
+                    start_new_session=True)
+            except OSError as error:
+                with contextlib.suppress(OSError):
+                    log.write((str(error) + '\n').encode())
+                raise
+    except (OSError, ValueError, TypeError, subprocess.SubprocessError) as error:
+        # Diagnostic I/O can also fail (for example a closed wrapper pipe).
+        with contextlib.suppress(OSError, ValueError):
+            print(f'build retention after consumption: {error}', file=sys.stderr)
+
+
+def checked_run(path):
+    run = canonical(path, 'directory')
+    if run.parent.name != '.build-runs':
+        raise ValueError(f'not an admission run path: {run}')
+    return run
+
+
+def unit_argument(value):
+    # Restrict installer operands to conventional printable absolute POSIX paths.
+    # Unit quoting protects spaces, specifier expansion and environment expansion.
+    value = str(value)
+    if not value.isascii() or any(ord(char) < 32 or ord(char) == 127 for char in value):
+        raise ValueError('systemd operand contains unsupported characters')
+    return '"' + value.replace('\\', '\\\\').replace('"', '\\"').replace('%', '%%').replace('$', '$$') + '"'
+
+
+def check_private(info, path):
+    if (not stat.S_ISREG(info.st_mode) or info.st_uid != os.geteuid()
+            or info.st_nlink != 1 or stat.S_IMODE(info.st_mode) != 0o600):
+        raise ValueError(f'expected a private, singly-linked ordinary-account file: {path}')
+
+
+def private_bytes(path, limit):
+    try:
+        fd = os.open(path, os.O_RDONLY | os.O_NOFOLLOW | os.O_NONBLOCK)
+    except FileNotFoundError:
+        return None
+    with os.fdopen(fd, 'rb') as stream:
+        before = os.fstat(stream.fileno())
+        check_private(before, path)
+        raw = stream.read(limit + 1)
+        after = os.fstat(stream.fileno())
+        identity = lambda info: (info.st_dev, info.st_ino, info.st_size, info.st_mtime_ns, info.st_ctime_ns)
+        if len(raw) > limit or identity(before) != identity(after) or identity(after) != identity(path.lstat()):
+            raise ValueError(f'installation or cursor read size/identity changed: {path}')
+        return raw
+
+
+def check_installed(path, data):
+    raw = private_bytes(path, len(data))
+    if raw is not None and raw != data:
+        raise ValueError(f'occupied installation path differs: {path}')
+    return raw is not None
+
+
+def publish(path, data):
+    try:
+        fd = os.open(path, os.O_WRONLY | os.O_CREAT | os.O_EXCL | os.O_NOFOLLOW, 0o600)
+    except FileExistsError:
+        if check_installed(path, data):
+            return
+        raise
+    with os.fdopen(fd, 'wb') as stream:
+        stream.write(data)
+        stream.flush()
+        os.fsync(stream.fileno())
+    if not check_installed(path, data):
+        raise ValueError(f'installation readback missing: {path}')
+    fd = os.open(path.parent, os.O_RDONLY | os.O_DIRECTORY | os.O_NOFOLLOW)
+    try:
+        os.fsync(fd)
+    finally:
+        os.close(fd)
+
+
+def install(checkout):
+    checkout = canonical(checkout, 'directory')
+    script = canonical(checkout / TOOLS / 'build-retention-cycle', 'cycle')
+    if script != Path(__file__).resolve(strict=True):
+        raise ValueError('install from the selected canonical checkout')
+    engine(checkout)
+    home = config_dir()
+    if not home.is_absolute() or home.resolve() != home:
+        raise ValueError('configuration directory must be absolute and unaliased')
+    state_home = Path(os.environ.get('XDG_STATE_HOME') or Path.home() / '.local/state')
+    if not state_home.is_absolute() or state_home.resolve() != state_home:
+        raise ValueError('build account state directory must be absolute and unaliased')
+    settings = config_file()
+    units = home / 'systemd/user'
+    candidates = {
+        settings: (json.dumps({'schema': 1, 'checkout': str(checkout),
+                               'state_home': str(state_home)}) + '\n').encode(),
+        units / f'{NAME}.service': f'''[Unit]
+Description=Reconcile retired pixelelated build directories
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/python3 -I -B {unit_argument(script)} sweep --settings {unit_argument(settings)}
+TimeoutStartSec={CYCLE_TIMEOUT + 10}s
+TimeoutStopSec=10s
+UMask=0077
+SuccessExitStatus=1
+'''.encode(),
+        units / f'{NAME}.timer': f'''[Unit]
+Description=Reconcile pixelelated build directories every 15 minutes
+
+[Timer]
+OnCalendar=*:0/15
+Persistent=true
+AccuracySec=1min
+Unit={NAME}.service
+
+[Install]
+WantedBy=timers.target
+'''.encode(),
+    }
+    for directory in (home, home / 'pixelelated', home / 'systemd', units):
+        directory.mkdir(mode=0o700, exist_ok=True)
+        canonical(directory, 'directory')
+    missing = [path for path, data in candidates.items() if not check_installed(path, data)]
+    for path in missing:
+        publish(path, candidates[path])
+    print(json.dumps({'settings': str(settings), 'service': str(units / f'{NAME}.service'),
+                      'timer': str(units / f'{NAME}.timer'), 'activated': False}))
+    return 0
+
+
+def main():
+    parser = argparse.ArgumentParser(description=__doc__)
+    actions = parser.add_subparsers(dest='action', required=True)
+    installer = actions.add_parser('install', help='stage ordinary user unit files without activation')
+    installer.add_argument('--checkout', type=Path, required=True)
+    cycle = actions.add_parser('sweep', help='run one bounded checkout sweep')
+    cycle.add_argument('--settings', type=Path)
+    cycle.add_argument('--run', type=Path)
+    discover = actions.add_parser('discover', help='read the registered checkout scope under the existing locks')
+    discover.add_argument('--settings', required=True, type=Path)
+    args = parser.parse_args()
+    if os.geteuid() == 0:
+        raise ValueError('build retention cycle needs the ordinary build account')
+    if args.action == 'install':
+        return install(args.checkout)
+    # The unit pins paths selected at installation independently of the login shell.
+    settings_path = args.settings if args.settings is not None else config_file()
+    settings = read_checkout(settings_path)
+    if settings is None:
+        raise ValueError('build retention cycle is uninstalled')
+    root, state_home = settings
+    if Path(__file__).resolve(strict=True) != root / TOOLS / 'build-retention-cycle':
+        raise ValueError('cycle does not match its selected canonical checkout')
+    if args.action == 'discover':
+        os.environ['XDG_STATE_HOME'] = str(state_home)
+        print(json.dumps(discovery(root), sort_keys=True))
+        return 0
+    if args.run is None:
+        return reconcile(root, state_home, settings_path)
+    run = checked_run(args.run)
+    checkout = same_volume(run.parent.parent, root.stat().st_dev, os.statvfs(root).f_fsid)
+    status = sweep(root, state_home, checkout, run)
+    print(f'build retention after consumption: sweep exit {status} for {run}', file=sys.stderr)
+    return status
+
+
+if __name__ == '__main__':
+    try:
+        sys.exit(main())
+    except (OSError, ValueError, KeyError, TypeError, RuntimeError, subprocess.SubprocessError) as error:
+        print(f'build-retention-cycle: {error}', file=sys.stderr)
+        sys.exit(2)

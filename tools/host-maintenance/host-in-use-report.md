@@ -1,14 +1,15 @@
 # Host in-use report producer
 
 This #493 producer covers direct Linux host use of exact, enrolled generated
-build files. The fixed installed executable is
+build files and private generated build trees. The fixed installed executable is
 `/usr/local/libexec/pixelelated/host-in-use-report`. It accepts zero arguments
 and reads only the administrator-owned fixed enrollment manifest at
 `/etc/pixelelated/host-in-use.json`. One enrollment can name several exact
 batches. Repeated reads within that enrollment need no administrator
 interaction after the administrator provisions the narrow invocation rule.
-Adding files, replacing enrolled identities, or extending the enrollment
-requires an explicit update by the administrator.
+Adding individually enrolled files or trees, replacing their enrolled
+identities, or extending the enrollment requires an administrator update.
+Changes within a standing tree require a fresh successful observation.
 
 ## Consumer protocol
 
@@ -176,3 +177,105 @@ namespace and projected-mount refusals, process and FD churn, malformed and
 changed mappings, redaction and the exit/stream interface. The fixture logic
 can run on a VM. A VM cannot establish visibility into the build host's
 procfs or the identity of its enrolled files.
+
+## Tree consumer interface for build-tree-retention
+
+The fixed producer entrypoint is unchanged. A v1 enrollment may add `trees`, a
+bounded list of exact administrator-enrolled generated directories. Each tree is
+`{"path":"/absolute/private/checkout/build.example","identity":{"device":1,"inode":2,"uid":1000,"mode":16832}}`
+with the actual root identity. This is one standing enrollment per directory
+identity and window, independent of the number of descendant files. File batches
+and trees may coexist within the existing 16-result limit. A file-only manifest
+and its wire response retain v1 compatibility.
+
+For PC/P7, the tree key is the SHA-256 of sorted-key, compact ASCII JSON
+`{"policy":"generated-build-tree-v1","path":<exact absolute root>,"identity":<four fields above>}`,
+using the same encoding as `build-tree-retention:tree_key`. The producer emits
+the usual v1 batch with that selection digest, `files:1`, and the five existing
+match counters. The raw report additionally contains
+`"tree_scope":"generated-build-tree-v1"` and `"tree_selections":[<tree keys>]`.
+A tree key in that list is a scope marker. The existing captured result,
+per-batch status, enrolled manifest digest and freshness checks determine use.
+
+### Standing tree enrollment and limits
+
+Use `"batches":[]` for a tree-only enrollment. Enroll either a literal
+`build.*` directory or an exact package subtree below
+`build.*/build/`, such as `/private/checkout/build.example/build/example-1/obj`.
+For a nested enrollment the enrolled path and four identity fields belong to
+the nested root, and only that subtree is reported. The retirement consumer
+still verifies that the parent is an admitted build output. Select either a
+parent or its nested subtree in a manifest to keep the scopes disjoint.
+The root is non-symlink, with the enrolled nonroot UID and no group/world write
+bit. All roots must be on the selected host ext4 mount and free of nested
+mounts. This same enrollment covers new descendants
+and later builds reusing the exact root inode. A new root or replacement root
+requires enrollment once, including when adopting legacy output. An enrollment
+does not adopt output ownership, authorize retention, or establish a consumer
+hold.
+
+The reader takes a no-follow descriptor-relative metadata snapshot of every
+descendant, including directories and literal symlink leaves. Descendant
+payloads stay unread. Special files, crossing a filesystem, missing members,
+hardlink counts reaching outside the enrolled tree, and any detected identity
+change hold the selection. Repeated hardlinks within the exact tree are indexed
+by device and inode. Each pass permits at most 200,000 entries and 64 MiB of
+relative-name bytes across the tree selections, at directory depth at most
+64. There are two passes under the existing 105-second overall wall deadline.
+A larger or unreadable tree holds.
+
+Tree matches include descendant and root spelling and inode, file descriptors,
+executable, cwd and chroot root, mapped inodes, directly recognizable argv
+spelling and lexical relative operands, and same-filesystem binds of a
+descendant, the tree, or an ancestor. Cwd and chroot root contribute the
+`descriptor` count. The initial view and live task mount views are examined.
+A foreign mount namespace exposing the tree at the same spelling is still
+in use. Raw `nsfs` `net:[ID]` and `mnt:[ID]` records retain their identity.
+A mount namespace pinned by a mount record or observed descriptor must have
+an inspected view or be the enrolled initial mount namespace. Changed tasks,
+FD sets or targets, argv, task links, maps, mountinfo or tree metadata yield a
+hold. An initial-view bind can contribute one match even if the task counts
+do not already represent it. Result fields stay redacted.
+
+Projected views for trees require a separate
+`host.independent_tree_mount_sha256` list, using the same namespace/raw-record
+digest encoding as the file list. Omit it or use an empty list by default.
+An approval is administrator-held backing evidence for **all** standing tree
+roots and their potential descendants, grounded in the live attached backing
+identities and applicable namespace. A file-only proof or a path/device guess
+does not qualify. The reader checks the exact supplied digest and its current
+record. It does not establish overlay backing independence from mount option
+strings or query a runtime socket. Trees also require proof for unknown
+filesystem types and explicit loop-mounted sources. Shared unqualified views
+hold both scope types in a mixed scan.
+
+### Administrator deployment and remaining Serval gate
+
+The reviewed executable and the fixed manifest described above are the only
+required installation inputs. With separately selected administrator authority,
+place the producer at the existing fixed location and provision a root-owned
+atomic manifest using the actual initial host boot and namespace IDs, the
+approved window and the exact tree identities. The same zero-argument
+command and ordinary consumer already read the resulting tree batch. No shell
+or general runtime interface is part of that rule.
+
+Serval's retained protected result for the different 15-disk scope and the
+ordinary 22-overlay observation supplied no trusted backing evidence for these
+trees. No tree-mount approval is supplied by this change. To qualify a real
+current legacy or new scope there, the storage and runtime owners must verify
+the live attached layer identities and aliases for every applicable view, or
+the obstructing projections must retire normally before a fresh reader run.
+The privileged executable and manifest have not been deployed by these tests.
+
+The reader does not inspect queued or in-flight admission, legacy appliance
+fingerprints, stopped-container declarations, arbitrary application intent, or
+open references held outside the inspected userspace proc interfaces. Keep
+the existing registry and ownership lock contract, both legacy-route holds
+where applicable, retained evidence, and input/symlink checks. The report is
+a point observation under that cut, never unlink authority.
+
+The focused suite exercises the actual producer serialization and exit status,
+the real `retention-report` parser/consumer, and
+`build-tree-retention:clear_tree`, with only the fixed invocation and host OS
+boundaries replaced by isolated fixtures. It verifies clear, busy and
+incomplete outcomes without installing a helper or modifying host policy.

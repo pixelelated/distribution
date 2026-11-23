@@ -1,0 +1,911 @@
+#!/usr/bin/python3 -IBS
+# SPDX-License-Identifier: GPL-2.0-or-later
+"""Retire exact, evidenced generated build outputs under the admission lock (#493)."""
+
+import argparse
+import base64
+from bisect import bisect_right
+from collections import Counter
+from contextlib import ExitStack, contextmanager
+import fcntl
+import hashlib
+import json
+import os
+from pathlib import Path
+import re
+import runpy
+import signal
+import stat
+import subprocess
+import sys
+import time
+
+TOOLS = Path(__file__).resolve().parent
+ADMISSION = runpy.run_path(str(TOOLS / 'build-admission'))
+READER = runpy.run_path(str(TOOLS / 'retention-report'))
+MAX_INPUT = 32 * 1024**2
+MAX_LOG = 64 * 1024**2
+MAX_ITEMS = 65536
+MAX_RUNS = 64
+MAX_OPERATIONS = 128
+MAX_DISCOVERY = 4096
+SWEEP_SECONDS = 200
+MAX_WITNESS_BYTES = 16 * 1024**3
+HOST_AGE = ADMISSION['MAX_USE_AGE_NS']
+POLICY = 'generated-build-tree-v1'
+BRIDGE = 'build-tree-canonical-queue-v1'
+LEGACY_CALLER_SHA = '3276a6dab29754127568b798992415d86455a56b291857403e4434368a002998'
+DIR_FIELDS = ('device', 'inode', 'uid', 'mode')
+OPEN = os.O_NOFOLLOW | os.O_CLOEXEC
+HOLD_ERRORS = (ValueError, KeyError, TypeError, OSError, subprocess.SubprocessError, RuntimeError)
+
+
+class SweepDeadline(Exception):
+    pass
+
+
+class RegistryBusy(ValueError):
+    pass
+
+
+def require(ok, reason):
+    if not ok:
+        raise ValueError(reason)
+
+
+def sha(raw):
+    return hashlib.sha256(raw).hexdigest()
+
+
+def encoded(value):
+    return json.dumps(value, sort_keys=True, separators=(',', ':'), ensure_ascii=True).encode('ascii')
+
+
+def hex_digest(value):
+    return isinstance(value, str) and re.fullmatch('[a-f0-9]{64}', value)
+
+
+def path(value):
+    p = Path(value)
+    require(p.anchor == '/' and str(p) == value and '..' not in p.parts and p != Path('/'),
+            'noncanonical evidence or output path')
+    require(p.resolve() == p, 'symbolic link in evidence or output path')
+    return p
+
+
+def safe_file(p, limit):
+    with os.fdopen(os.open(p, os.O_RDONLY | os.O_NONBLOCK | OPEN), 'rb') as f:
+        before = os.fstat(f.fileno())
+        require(stat.S_ISREG(before.st_mode) and before.st_size <= limit, 'unverified or oversized input')
+        raw = f.read(limit + 1)
+        after = os.fstat(f.fileno())
+    identity = ADMISSION['retirement_identity']
+    require(len(raw) == before.st_size and identity(before) == identity(after) == identity(p.lstat()),
+            'input changed while reading')
+    return raw
+
+
+def json_file(p, limit=MAX_INPUT):
+    raw = safe_file(p, limit)
+    return json.loads(raw), sha(raw)
+
+
+def tree_identity(s):
+    return dict(zip(DIR_FIELDS, (s.st_dev, s.st_ino, s.st_uid, s.st_mode)))
+
+
+def tree_key(root, identity):
+    return sha(encoded(dict(policy=POLICY, path=str(root), identity=identity)))
+
+
+def validate_directory(p, expected, device, uid):
+    require(set(expected) == set(DIR_FIELDS) and all(type(v) is int for v in expected.values())
+            and expected['device'] == device and expected['uid'] == uid and expected['inode'] > 0
+            and stat.S_ISDIR(expected['mode']) and not expected['mode'] & 0o022, 'directory ownership unverified')
+    if p.exists():
+        require(tree_identity(p.lstat()) == expected, 'directory identity changed')
+
+
+def private_directory(p):
+    p = path(str(p))
+    s = p.lstat()
+    require(stat.S_ISDIR(s.st_mode) and s.st_uid == os.geteuid() and not s.st_mode & 0o022,
+            'untrusted private record directory')
+    return p
+
+
+@contextmanager
+def locked_registry(root):
+    private_directory(root)
+    lock = root / 'lock'
+    fd = os.open(lock, os.O_RDWR | OPEN | os.O_NONBLOCK)
+    try:
+        st = os.fstat(fd)
+        require(stat.S_ISREG(st.st_mode) and st.st_uid == os.geteuid() and st.st_nlink == 1,
+                'registry lock identity unverified')
+        try:
+            fcntl.flock(fd, fcntl.LOCK_EX | fcntl.LOCK_NB)
+        except BlockingIOError as error:
+            raise RegistryBusy('admission registry is busy') from error
+        current = lock.lstat()
+        require((current.st_dev, current.st_ino) == (st.st_dev, st.st_ino), 'registry lock changed')
+        jobs, _ = json_file(root / 'jobs.json')
+        require(jobs['schema'] in (1, 2) and type(jobs['generation']) is int
+                and isinstance(jobs['jobs'], dict), 'invalid admission registry')
+        require(jobs['schema'] == 1 or jobs.get('tree_retirement_bridge', {}).get('policy') == BRIDGE,
+                'unrecognized sealed legacy registry')
+        require(all(row['state'] in ('running','consumed') and type(row['volume_device']) is int
+                    for row in jobs['jobs'].values()), 'unknown admission state')
+        require(isinstance(jobs.get('queued',{}),dict) and all(type(x['device']) is int
+                    and type(x['expires']) in (float,int) and isinstance(x['scope'],dict)
+                    for x in jobs.get('queued',{}).values()), 'unverified prepared scope')
+        yield jobs
+    finally:
+        os.close(fd)
+
+
+def registry_routes(checkout):
+    primary = ADMISSION['registry_for'](checkout)
+    roots = ADMISSION['registry_state_roots']()
+    require(roots, 'build-admission registry routing is unverified')
+    device = checkout.stat().st_dev
+    key = f'{device:x}-{os.statvfs(checkout).f_fsid:x}'
+    alternate = []
+    for state in roots:
+        candidate = Path(state) / 'pixelelated' / 'build-admission' / key
+        try:
+            ADMISSION['verify_no_filesystem_registry'](candidate)
+        except ValueError as error:
+            if str(error) != 'mixed build-admission ownership: separate filesystem-keyed registry present':
+                raise
+            alternate.append(candidate)
+    return primary, sorted(set(alternate)), roots
+
+
+def accepted_evidence(items, roots):
+    require(isinstance(items, list) and 0 < len(items) <= MAX_ITEMS, 'preserved evidence missing or oversized')
+    paths = set()
+    remaining = MAX_WITNESS_BYTES
+    for item in items:
+        p = path(item['path'])
+        require(p not in paths and hex_digest(item['sha256']), 'invalid preserved evidence identity')
+        require(not any(p == root or root in p.parents for root in roots),
+                'preserved evidence is inside a generated output root')
+        # Stream large independent deliverables without copying them.
+        identity = ADMISSION['path_identity'](p)
+        remaining -= identity['size']
+        require(stat.S_ISREG(identity['mode']) and remaining >= 0, 'preserved evidence exceeds sweep byte bound')
+        with os.fdopen(os.open(p,os.O_RDONLY | os.O_NONBLOCK | OPEN),'rb') as stream:
+            size = identity['size']
+            digest = hashlib.sha256()
+            while size:
+                data = stream.read(min(size,1024**2))
+                require(data,'preserved evidence was truncated')
+                digest.update(data)
+                size -= len(data)
+            require(not stream.read(1) and digest.hexdigest() == item['sha256']
+                    and ADMISSION['retirement_identity'](os.fstat(stream.fileno())) ==
+                        ADMISSION['retirement_identity'](p.lstat())
+                    and ADMISSION['path_identity'](p) == identity,'preserved evidence changed')
+        paths.add(p)
+    return paths
+
+
+def file_ref(ref):
+    require(set(ref) == {'path', 'sha256'} and hex_digest(ref['sha256']), 'invalid evidence reference')
+    value, digest = json_file(path(ref['path']))
+    require(digest == ref['sha256'], 'bound evidence changed')
+    return value
+
+
+def acceptance(run, row):
+    consumed, digest = json_file(run / 'admission-consumed.json')
+    require(consumed == row and row['state'] == 'consumed', 'original consumption missing or changed')
+    original, _ = json_file(run / 'admission.json')
+    require(all(k == 'state' or row.get(k) == v for k, v in original.items()), 'admission original changed')
+    result, _ = json_file(run / 'runner-result.json')
+    require(result == row['original_result'] and result['monitor_rc'] == 0 and
+            all(type(result[k]) is int for k in ('command_rc', 'monitor_rc', 'runner_rc')) and
+            int(safe_file(run / 'build.rc', 128)) == result['command_rc'] and
+            safe_file(run / 'build.status', 65536).startswith(b'state:       finished\n'),
+            'original run is incomplete or changed')
+    require(row['pid_namespace'] == Path('/proc/self/ns/pid').stat().st_ino, 'original host PID namespace differs')
+    for name in ('build.pid', 'command.pid', 'watcher.pid', 'build.status.pid'):
+        pid = run / name
+        if pid.exists():
+            value = int(safe_file(pid, 128))
+            require(value > 0, 'invalid original PID')
+            ADMISSION['exited'](value)
+    require(type(row['runner_pid']) is int and row['runner_pid'] > 0, 'invalid original runner PID')
+    ADMISSION['exited'](row['runner_pid'])
+    if row.get('submission_owner'):
+        owner = path(row['submission_owner'])
+        launcher, _ = json_file(owner / 'launcher-result.json')
+        require(launcher['runner_returncode'] == result['runner_rc'] == int(safe_file(owner / 'tool-wrapper.rc', 128)),
+                'original launcher outcome differs')
+        require(type(launcher['pid']) is int and launcher['pid'] > 0, 'invalid original launcher PID')
+        ADMISSION['exited'](launcher['pid'])
+
+    adopted_path = run / 'build-tree-adoption.json'
+    adopted = adopted_path.exists()
+    if adopted:
+        require(private_directory(run) == run, 'legacy adoption directory changed')
+        s = adopted_path.lstat()
+        require(stat.S_ISREG(s.st_mode) and s.st_uid == os.geteuid() and s.st_nlink == 1
+                and not s.st_mode & 0o022, 'legacy adoption file is shared or unverified')
+        envelope, _ = json_file(adopted_path)
+        require(set(envelope) == {'schema', 'consumed_sha256', 'acceptance', 'build_tree'} and
+                envelope['schema'] == 1 and envelope['consumed_sha256'] == digest
+                and envelope['acceptance']['sha256'] == row['evidence_sha256'], 'legacy adoption original differs')
+        proof = file_ref(envelope['acceptance'])
+        config = envelope['build_tree']
+        keeper = [Path(envelope['acceptance']['path']), adopted_path]
+    else:
+        matches = []
+        for name in row.get('retained_evidence', []):
+            p = path(name)
+            if p.is_file() and p.stat().st_size <= MAX_INPUT:
+                raw = safe_file(p, MAX_INPUT)
+                if sha(raw) == row['evidence_sha256']:
+                    matches.append((p, json.loads(raw)))
+        require(len(matches) == 1, 'exact original acceptance missing or ambiguous')
+        accepted, proof = matches[0]
+        config = proof.get('build_tree')
+        keeper = [accepted]
+    require(proof['run'] == str(run) and proof['outputs'] == row['outputs']
+            and proof['expected_rc'] == result['runner_rc']
+            and proof['disposition'] == ('qualified' if result['runner_rc'] == 0 else 'failed-investigated'),
+            'original acceptance outcome differs')
+    if not adopted and 'build_tree_inputs' in proof:
+        require(config is None, 'ambiguous generated tree custody')
+        # The producer records compact inputs in the original acceptance. The
+        # shared compiler validates their evidence before materializing scope.
+        accepted_evidence(proof['evidence'], [])
+        supplier = TOOLS / 'build-tree-custody'
+        require(supplier.is_file(), 'compact build-tree custody compiler unavailable')
+        config = runpy.run_path(str(supplier))['compile_config'](run,row,proof,proof['build_tree_inputs'])
+    require(isinstance(config, dict), 'no accepted generated tree custody')
+    return config, proof, keeper + [run]
+
+
+def load_scope(checkout, row, config, proof, own_records, state_roots):
+    require(set(config) == {'schema', 'roots', 'reference_roots', 'reference_stores',
+                            'registry_state_roots', 'source_custody', 'preserved_result'} and
+            config['schema'] == 1 and config['registry_state_roots'] == state_roots, 'unverified tree custody or registry route')
+    require(0 < len(config['roots']) <= 8, 'tree count exceeds sweep bound')
+    uid, device = os.geteuid(), row['volume_device']
+    owned = {path(o['path']) for o in row['outputs'] if o['kind'] == 'build-cache'}
+    roots = {}
+    total = 0
+    for spec in config['roots']:
+        root = path(spec['path'])
+        parents = [p for p in owned if p.parent == checkout and p.name.startswith('build.')
+                   and (root == p or root.is_relative_to(p / 'build'))]
+        base_keys = {'path', 'host_manifest_sha256', 'directories', 'files'}
+        require(len(parents) == 1 and root not in roots and set(spec) in (base_keys,base_keys | {'host_scope'}),
+                'tree is outside the admitted generated output roots')
+        parent = parents[0]
+        require(root != parent or 'host_scope' not in spec, 'full generated root already binds host scope')
+        require(hex_digest(spec['host_manifest_sha256']), 'tree host enrollment digest missing')
+        dirs = {}
+        for entry in spec['directories']:
+            p = path(entry['path'])
+            require(p not in dirs and (p == root or root in p.parents) and '.git' not in p.relative_to(root).parts,
+                    'directory is outside the generated tree')
+            info = entry['identity']
+            validate_directory(p, info, device, uid)
+            dirs[p] = info
+        require(root in dirs and all(p == root or p.parent in dirs for p in dirs), 'directory custody is incomplete')
+        files = {}
+        for entry in spec['files']:
+            p = path(entry['path'])
+            require(p not in files and p.parent in dirs and p not in dirs
+                    and p.name not in ('.git', '.gitmodules'), 'file is outside verified generated directories')
+            info = entry['identity']
+            require(set(info) == set(ADMISSION['retirement_identity'](checkout.lstat()))
+                    and all(type(value) is int and value >= 0 for value in info.values())
+                    and info['device'] == device and info['uid'] == uid and info['links'] == 1
+                    and info['inode'] > 0 and stat.S_ISREG(info['mode']), 'file identity or final-link ownership unverified')
+            files[p] = info
+        total += len(dirs) + len(files)
+        require(total <= MAX_ITEMS, 'generated identity inventory exceeds sweep bound')
+        scope = spec.get('host_scope',dict(path=str(root),identity=dirs[root]))
+        host_root = path(scope['path'])
+        require(set(scope) == {'path','identity'} and host_root in (root,parent),
+                'host scope is neither the exact subtree nor its admitted build root')
+        validate_directory(host_root, scope['identity'], device, uid)
+        require(all(not ADMISSION['overlap'](root,other) for other in roots), 'generated claims overlap')
+        roots[root] = (dirs, files, spec['host_manifest_sha256'], tree_key(host_root,scope['identity']))
+    refs, stores = [list(map(path,config[key])) for key in ('reference_roots','reference_stores')]
+    require(0 < len(refs) <= 8 and len(stores) <= 8 and all(p.is_dir() for p in refs+stores)
+            and all(not ADMISSION['overlap'](p, root) for root in roots for p in refs+stores)
+            and all(any(p == r or r in p.parents for r in refs) for p in stores), 'unverified compact reference scope')
+    source = file_ref(config['source_custody'])
+    kept = file_ref(config['preserved_result'])
+    selection = sha(encoded({k: config[k] for k in ('roots', 'reference_roots', 'reference_stores', 'registry_state_roots')}))
+    require(source['result'] == 'PASS' and source['source'] == row['source']
+            and kept['result'] == 'PASS' and kept['admission_id'] == row['id']
+            and kept['selection_sha256'] == selection, 'independent source, regeneration or result custody unverified')
+    originals = accepted_evidence(proof['evidence'], roots)
+    independent = accepted_evidence(source['evidence'], roots) | accepted_evidence(kept['evidence'], roots)
+    require(all(not any(p == root or root in p.parents for root in roots) for p in own_records
+                + [path(config[key]['path']) for key in ('source_custody','preserved_result')]), 'custody receipt overlaps generated tree')
+    # Keep the registered producer's own accepted sources and other retained records protected.
+    own = row.get('retention_scope')
+    protected = set(originals | independent | set(own_records))
+    protected.update(path(n) for n in row.get('retained_evidence', []))
+    if own:
+        protected.update(path(n) for n in own['protected'])
+    ADMISSION['protect_paths'](roots, sorted(map(str, protected)), 'producer or preserved evidence holds the generated root')
+    return roots, refs, stores, selection, kept.get('peer_custody', [])
+
+
+class Journal:
+    def __init__(self, run, binding, allowed):
+        self.path = run / 'build-tree-retirement.jsonl'
+        self.binding = binding
+        self.allowed = allowed
+        self.states = {}
+        if self.path.exists():
+            info = self.path.lstat()
+            require(info.st_uid == os.geteuid() and info.st_nlink == 1 and not info.st_mode & 0o022,
+                    'unsafe retirement journal')
+            raw = safe_file(self.path, MAX_LOG)
+            require(raw.endswith(b'\n'), 'incomplete retirement journal record')
+            header, *records = raw.splitlines()
+            require(json.loads(header) == binding, 'retirement journal scope changed')
+            for record in records:
+                key, state = json.loads(record)
+                self.advance(key,state)
+        else:
+            flags = os.O_WRONLY | os.O_CREAT | os.O_EXCL | OPEN
+            with os.fdopen(os.open(self.path,flags,0o600),'wb') as stream:
+                stream.write(encoded(binding) + b'\n')
+                stream.flush()
+                os.fsync(stream.fileno())
+            ADMISSION['sync_dir'](run)
+
+    def advance(self, key, state):
+        previous = self.states.get(key)
+        require(key in self.allowed and ((state == 'intent' and previous in (None,'intent'))
+                or (previous == 'intent' and state in ('retired','absent_unconfirmed'))),
+                'retirement journal has invalid transitions')
+        self.states[key] = state
+
+    def record(self, key, state):
+        # A write failure leaves the in-memory disposition unchanged.
+        previous = self.states.get(key)
+        self.advance(key,state)
+        try:
+            self.append(key,state)
+        except HOLD_ERRORS:
+            if previous is None:
+                self.states.pop(key)
+            else:
+                self.states[key] = previous
+            raise
+
+    def append(self, key, state):
+        with os.fdopen(os.open(self.path,os.O_WRONLY | os.O_APPEND | OPEN | os.O_NONBLOCK),'ab') as stream:
+            s = os.fstat(stream.fileno())
+            require(stat.S_ISREG(s.st_mode) and s.st_uid == os.geteuid() and s.st_nlink == 1
+                    and not s.st_mode & 0o022 and s.st_size < MAX_LOG, 'unsafe retirement journal')
+            stream.write(encoded([key,state]) + b'\n')
+            stream.flush()
+            os.fsync(stream.fileno())
+
+
+def clear_tree(outcome, manifest, key):
+    if (outcome['status'] != 'clear' or outcome.get('files') != 1 or outcome.get('manifest_sha256') != manifest
+            or outcome.get('selection_sha256') != key):
+        raise ValueError('trusted tree-use check held: ' + str(outcome.get('reason', outcome['status'])))
+    try:
+        original = json.loads(base64.b64decode(outcome['original_stdout_base64'],validate=True))
+    except (ValueError, KeyError):
+        raise ValueError('trusted report omitted raw tree observation') from None
+    require(original.get('tree_scope') == POLICY and key in original.get('tree_selections', [])
+            and 0 <= time.time_ns() - outcome['observed_at_ns'] <= HOST_AGE, 'trusted tree observation missing or stale')
+    return outcome
+
+
+def tracked(checkout, root):
+    raw = subprocess.check_output(['/usr/bin/git','--no-optional-locks','-C',str(checkout),
+        'ls-files','-z','--',str(root.relative_to(checkout))], stderr=subprocess.PIPE,timeout=5)
+    require(not raw, 'Git tracks content in the generated root')
+
+
+def remove_directory(p, checkout, info, progress, save, before):
+    with ADMISSION['retirement_parent'](p, checkout, info['device']) as parent:
+        try:
+            fd = os.open(p.name, os.O_RDONLY | os.O_DIRECTORY | OPEN,dir_fd=parent)
+        except FileNotFoundError:
+            require(progress['state'] == 'intent', 'directory absent without an intent')
+            save('absent_unconfirmed')
+            return
+        try:
+            require(tree_identity(os.fstat(fd)) == info, 'directory identity changed')
+            with os.scandir(fd) as entries:
+                require(next(entries,None) is None, 'owned directory still contains files')
+            save('intent')
+            before()
+            require(p.parent.resolve(strict=True)==p.parent and
+                    os.path.samestat(os.fstat(parent),p.parent.stat()) and
+                    tree_identity(os.stat(p.name,dir_fd=parent,follow_symlinks=False)) == info, 'directory redirected')
+            os.rmdir(p.name,dir_fd=parent)
+            require(os.fstat(fd).st_nlink == 0, 'directory removal unconfirmed')
+            os.fsync(parent)
+            save('retired')
+        finally:
+            os.close(fd)
+
+
+def known_references(root, refs, stores):
+    plan = dict(scan_roots=list(map(str,refs)), reference_stores=list(map(str,stores)),
+                protected=[], candidates=[dict(path=str(root), owner=str(root.parent))])
+    view = READER['inventory'](plan, generated=True)
+    require(not view['errors'] and not view['references']
+            and not any(ADMISSION['overlap'](root,m['source']) for m in view['container_mounts']),
+            'incoming reference, container mount, or incomplete dependency inventory')
+
+
+def retire_root(checkout, root, spec, refs, stores, journal, recheck, operations, deadline):
+    dirs, files, manifest, key = spec
+    remaining = [p for p in (*files,*dirs) if journal.states.get(str(p)) not in ('retired','absent_unconfirmed')]
+    if not remaining:
+        states = {journal.states[str(p)] for p in (*files,*dirs)}
+        return dict(root=str(root),status='partial' if 'absent_unconfirmed' in states else 'retired',
+                    reason='previous removal unconfirmed' if 'absent_unconfirmed' in states else None, pending=0)
+    # An absent name following an intent cannot be credited. Reconcile the record
+    # durably without relying on a new observation of a deleted inode.
+    for p in remaining:
+        if journal.states.get(str(p)) == 'intent' and not os.path.lexists(p):
+            journal.record(str(p),'absent_unconfirmed')
+    remaining = [p for p in remaining if journal.states.get(str(p)) != 'absent_unconfirmed']
+    if not remaining:
+        return dict(root=str(root),status='partial',reason='previous removal unconfirmed',pending=0)
+    require(operations[0] > 0, 'per-sweep operation bound reached')
+    require(enough_time(deadline), 'per-sweep observation time bound reached')
+    tracked(checkout, root)
+    known_references(root, refs, stores)
+    observed = clear_tree(READER['read_host_use'](manifest,key),manifest,key)
+    known_references(root, refs, stores)
+    tracked(checkout, root)
+
+    def before():
+        require(time.monotonic()<deadline,'sweep mutation deadline exceeded')
+        clear_tree(observed,manifest,key)
+        recheck()
+
+    pending_files = sorted(p for p in remaining if p in files)
+    pending_dirs = sorted((p for p in remaining if p in dirs), key=lambda p: (-len(p.parts),str(p)))
+    held = Counter()
+    for p in pending_files:
+        if not operations[0]:
+            held['per-sweep operation bound reached'] += 1
+            break
+        operations[0] -= 1
+        progress = dict(state=journal.states.get(str(p)))
+        try:
+            ADMISSION['retire_file'](p,checkout,files[p],progress,
+                lambda: journal.record(str(p),progress['state']),before)
+        except HOLD_ERRORS as error:
+            held[str(error)] += 1
+    unsettled_parents = {parent for f in pending_files
+        if journal.states.get(str(f)) not in ('retired','absent_unconfirmed') for parent in f.parents}
+    for p in pending_dirs:
+        if not operations[0]:
+            held['per-sweep operation bound reached'] += 1
+            break
+        if p in unsettled_parents:
+            continue
+        operations[0] -= 1
+        try:
+            remove_directory(p,checkout,dirs[p],dict(state=journal.states.get(str(p))),
+                             lambda state:journal.record(str(p),state),before)
+        except HOLD_ERRORS as error:
+            held[str(error)] += 1
+    pending = sum(journal.states.get(str(p)) not in ('retired','absent_unconfirmed') for p in (*files,*dirs))
+    unconfirmed = sum(journal.states.get(str(p))=='absent_unconfirmed' for p in (*files,*dirs))
+    settled = sum(journal.states.get(str(p))=='retired' for p in (*files,*dirs))
+    reasons = sorted(held)
+    if unconfirmed:
+        reasons.append('previous removal unconfirmed')
+    return dict(root=str(root),status=('partial' if settled or unconfirmed else 'held') if pending or unconfirmed else 'retired',
+                reason='; '.join(reasons) if reasons else None,pending=pending)
+
+
+def check_peers(ledgers, own, roots, claims):
+    """Reconcile exact old holds in memory while preserving original registry rows."""
+    require(isinstance(claims,list) and len(claims)<=4096,'peer custody exceeds bound')
+    registered = {}
+    for jobs in ledgers.values():
+        for key,row in jobs['jobs'].items():
+            require(key not in registered,'duplicate admission across registry routes')
+            registered[key] = row
+    replacements = {}
+    for claim in claims:
+        require(set(claim)=={'id','row_sha256','protected','retained_evidence','release_roots','evidence'},
+                'invalid peer custody claim')
+        ident=claim['id']
+        peer=registered[ident]
+        require(ident!=own['id'] and ident not in replacements and peer['state']=='consumed'
+                and sha(encoded(peer))==claim['row_sha256'], 'peer original custody changed')
+        release=set(map(path,claim['release_roots']))
+        bases=[path(entry['path']) for entry in peer['outputs']]
+        require(release<=set(roots) and all(any(p==base or base in p.parents for base in bases)
+                                             for p in release),'peer release is outside exact owner scope')
+        proof=accepted_evidence(claim['evidence'],roots)
+        retained=set(map(path,claim['retained_evidence'])) | proof | set(map(path,peer.get('retained_evidence',[])))
+        protected=set(map(path,claim['protected'])) | set(map(path,(peer.get('retention_scope') or {}).get('protected',[])))
+        require(retained,'peer retained evidence missing')
+        replacements[ident]=(release,retained,protected)
+    for root in roots:
+        for original in ledgers.values():
+            rows={}
+            for key,row in original['jobs'].items():
+                if key in replacements:
+                    release,retained,protected=replacements[key]
+                    outputs=row['outputs']
+                    if root in release:
+                        outputs=[item for item in outputs if not ADMISSION['overlap'](item['path'],root)]
+                    scope=dict(row.get('retention_scope') or {},protected=sorted(map(str,protected)))
+                    row=dict(row,retention_scope=scope,retained_evidence=sorted(map(str,retained)),outputs=outputs)
+                rows[key]=row
+            checked=dict(original,jobs=rows,queued=dict(original.get('queued',{})))
+            ADMISSION['check_registered_use'](checked,own,[root])
+
+
+def rotate(items, cursor, scope, key):
+    order=sorted(items,key=key)
+    if len(order)<2 or not cursor.exists():
+        return order
+    state,_=json_file(cursor,65536)
+    require(state['scope']==scope and isinstance(state['after'],str),'invalid sweep cursor')
+    cut=bisect_right([key(item) for item in order],state['after'])
+    return order[cut:]+order[:cut]
+
+
+def advance_cursor(cursor, scope, entry):
+    ADMISSION['durable'](cursor,dict(scope=scope,after=entry))
+
+
+def enough_time(deadline):
+    return time.monotonic()+READER['HOST_USE_TIMEOUT']+60 < deadline
+
+
+def run_sweep(checkout, run, row, owning, authority, ledgers, verify_routes, state_roots, operations, deadline):
+    require(row['checkout'] == str(checkout) and row['run'] == str(run)
+            and row['registry'] == str(owning) and row['volume_device'] == checkout.stat().st_dev,
+            'producer run, volume or registry identity differs')
+    config, proof, keep = acceptance(run,row)
+    roots, refs, stores, selection, peers = load_scope(checkout,row,config,proof,keep,state_roots)
+    # Providers bind custody to the accepted selection, never to age or a build.* name.
+    targets = list(roots)
+    check_peers(ledgers,row,targets,peers)
+    verify_routes()
+    allowed = {str(p) for dirs, files, _, _ in roots.values() for p in (*dirs,*files)}
+    journal = Journal(run,dict(schema=1,admission_id=row['id'],selection_sha256=selection,
+                              acceptance_sha256=row['evidence_sha256']),allowed)
+    before_states = dict(journal.states)
+    changed = False
+
+    def before():
+        nonlocal changed
+        verify_routes()
+        if not changed:
+            registered = ledgers[authority]
+            registered['generation'] += 1
+            ADMISSION['durable'](authority/'jobs.json',registered)
+            changed = True
+            verify_routes()
+
+    items = []
+    cursor=run/'build-tree-root-cursor.json'
+    order=rotate(roots,cursor,selection,str)
+    for root in order:
+        if not enough_time(deadline):
+            items.append(dict(root=str(root),status='held',reason='per-sweep observation time bound reached'))
+            break
+        if len(order)>1:
+            advance_cursor(cursor,selection,str(root))
+        try:
+            items.append(retire_root(checkout,root,roots[root],refs,stores,journal,before,operations,deadline))
+        except HOLD_ERRORS as error:
+            items.append(dict(root=str(root),status='held',reason=str(error)))
+    files = {str(p): info['allocated_bytes'] for _, f, _, _ in roots.values() for p,info in f.items()}
+    states = journal.states
+    retired = sum(amount for p,amount in files.items() if states.get(p)=='retired')
+    new = sum(amount for p,amount in files.items() if states.get(p)=='retired' and before_states.get(p)!='retired')
+    pending = sum(amount for p,amount in files.items() if states.get(p) not in ('retired','absent_unconfirmed'))
+    uncertain = sum(amount for p,amount in files.items() if states.get(p)=='absent_unconfirmed')
+    status = 'retired' if all(x['status']=='retired' for x in items) else (
+             'partial' if retired or uncertain or any(x['status']=='partial' for x in items) else 'held')
+    return dict(run=str(run),status=status,roots=items,verified_unlinked_bytes=new,
+                recorded_unlinked_bytes=retired,unconfirmed_bytes=uncertain,held_bytes=pending)
+
+
+def discover(checkout, jobs, only):
+    selected = []
+    for row in jobs['jobs'].values():
+        if row.get('checkout') != str(checkout):
+            continue
+        run = path(row['run'])
+        require(run.parent == checkout / '.build-runs', 'registered run is outside checkout owner')
+        if only is None or run == only:
+            selected.append((run,row))
+    # Unfinished intent first, then terminal history in deterministic order.
+    return sorted(selected, key=lambda x:(not (x[0]/'build-tree-retirement.jsonl').is_file(),str(x[0])))
+
+
+def unknown_outputs(checkout, known):
+    count = 0
+    with os.scandir(checkout) as entries:
+        for index,entry in enumerate(entries):
+            require(index < MAX_DISCOVERY, 'checkout discovery exceeded finite bound')
+            if entry.name.startswith('build.') and Path(entry.path) not in known:
+                count += 1
+    return count
+
+
+def canonical_caller(checkout):
+    caller = path(str(checkout/'tools/host-maintenance/build-admission'))
+    expected = safe_file(TOOLS/'build-admission',MAX_INPUT)
+    require(safe_file(caller,MAX_INPUT)==expected, 'adopted caller is not the current queue-aware admission')
+    text = expected.decode()
+    require('queued = live_queue(jobs)' in text and "lease = queued.get(receipt['id'])" in text,
+            'adopted admission does not have the real queued prepare/launch contract')
+    registry = ADMISSION['registry_for'](checkout)
+    return registry, sha(expected)
+
+
+def sealed_authority(legacy, jobs, device, fsid):
+    proof = jobs['tree_retirement_bridge']
+    require(set(proof)=={'policy','checkout','canonical_registry','caller_sha256','legacy_sha256',
+                         'device','filesystem_id'} and proof['policy']==BRIDGE
+            and proof['device']==device and proof['filesystem_id']==fsid
+            and hex_digest(proof['legacy_sha256'])
+            and not any(x['expires']>time.time() for x in jobs.get('queued',{}).values())
+            and all(row['state']=='consumed' for row in jobs['jobs'].values()),
+            'sealed legacy registry or route identity changed')
+    original = safe_file(legacy/('sealed-original-'+proof['legacy_sha256']+'.json'),MAX_INPUT)
+    archived = json.loads(original)
+    require(sha(original)==proof['legacy_sha256'] and archived['schema']==1
+            and jobs['jobs']==archived['jobs'] and jobs.get('queued')==archived.get('queued')
+            and jobs['generation']==archived['generation']+1,
+            'sealed registry does not retain the exact original jobs')
+    caller_checkout = path(proof['checkout'])
+    require(caller_checkout.stat().st_dev==device and os.statvfs(caller_checkout).f_fsid==fsid,
+            'adopted caller volume changed')
+    authority, caller_sha = canonical_caller(caller_checkout)
+    require(str(authority)==proof['canonical_registry'] and caller_sha==proof['caller_sha256'],
+            'adopted canonical registry or executable changed')
+    return authority
+
+
+def seal_legacy(checkout, legacy_caller, original_sha):
+    """Explicit ordinary-account transition, never used by sweep or lifecycle."""
+    require(os.getuid()==os.geteuid()!=0 and hex_digest(original_sha), 'invalid transition identity')
+    checkout, legacy_caller = path(str(checkout)),path(str(legacy_caller))
+    require(sha(safe_file(legacy_caller,MAX_INPUT))==LEGACY_CALLER_SHA,
+            'frozen caller schema-1 refusal has not been reviewed')
+    primary, alternate, _ = registry_routes(checkout)
+    authority, caller_sha = canonical_caller(checkout)
+    require(authority==primary and len(alternate)==1 and alternate[0]!=primary, 'unexpected legacy route topology')
+    legacy=alternate[0]
+    with ExitStack() as stack:
+        ledgers={p:stack.enter_context(locked_registry(p)) for p in sorted((primary,legacy))}
+        require(ledgers[primary]['schema']==1, 'canonical registry is unavailable')
+        jobs=ledgers[legacy]
+        original=safe_file(legacy/'jobs.json',MAX_INPUT)
+        require(sha(original)==original_sha and jobs['schema']==1
+                and all(r['state']=='consumed' for r in jobs['jobs'].values())
+                and not any(x['expires']>time.time() for x in jobs.get('queued',{}).values()),
+                'legacy ledger changed or has work still active or queued')
+        destination=legacy/('sealed-original-'+original_sha+'.json')
+        if destination.exists():
+            require(safe_file(destination,MAX_INPUT)==original, 'archived legacy ledger differs')
+        else:
+            with destination.open('xb') as stream:
+                stream.write(original)
+                stream.flush()
+                os.fsync(stream.fileno())
+            ADMISSION['sync_dir'](legacy)
+        proof=dict(policy=BRIDGE,checkout=str(checkout),canonical_registry=str(primary),
+                   caller_sha256=caller_sha,legacy_sha256=original_sha,device=checkout.stat().st_dev,
+                   filesystem_id=os.statvfs(checkout).f_fsid)
+        sealed=dict(jobs,schema=2,generation=jobs['generation']+1,tree_retirement_bridge=proof)
+        ADMISSION['durable'](legacy/'jobs.json',sealed)
+        require(sealed_authority(legacy,sealed,proof['device'],proof['filesystem_id'])==primary,
+                'legacy caller transition failed readback')
+    return dict(schema=1,status='sealed-legacy',legacy_registry=str(legacy),canonical_registry=str(primary),
+                frozen_receipts_invalidated=True,archived_sha256=original_sha)
+
+
+def restore_legacy(checkout, legacy_caller, sealed_sha):
+    """Hand the explicit frozen route back without reviving stale receipts."""
+    require(os.getuid()==os.geteuid()!=0 and hex_digest(sealed_sha), 'invalid restoration identity')
+    checkout, legacy_caller = path(str(checkout)),path(str(legacy_caller))
+    require(sha(safe_file(legacy_caller,MAX_INPUT))==LEGACY_CALLER_SHA,
+            'frozen caller schema-1 refusal has not been reviewed')
+    primary, alternate, _ = registry_routes(checkout)
+    require(len(alternate)==1 and alternate[0]!=primary,'unexpected legacy route topology')
+    legacy=alternate[0]
+    with ExitStack() as stack:
+        ledgers={p:stack.enter_context(locked_registry(p)) for p in sorted((primary,legacy))}
+        canonical=ledgers[primary]
+        jobs=ledgers[legacy]
+        raw=safe_file(legacy/'jobs.json',MAX_INPUT)
+        require(sha(raw)==sealed_sha and jobs['schema']==2 and canonical['schema']==1,
+                'fenced registry changed')
+        device=checkout.stat().st_dev
+        fsid=os.statvfs(checkout).f_fsid
+        require(sealed_authority(legacy,jobs,device,fsid)==primary, 'adopted route changed')
+        require(not any(r['state']!='consumed' for r in canonical['jobs'].values())
+                and not any(x['expires']>time.time() for x in canonical.get('queued',{}).values()),
+                'canonical ledger has work still active or queued')
+        archived=legacy/('sealed-original-'+jobs['tree_retirement_bridge']['legacy_sha256']+'.json')
+        originals,_=json_file(archived)
+        evidence=legacy/('sealed-transition-'+sealed_sha+'.json')
+        if evidence.exists():
+            require(safe_file(evidence,MAX_INPUT)==raw, 'archived transition changed')
+        else:
+            with evidence.open('xb') as stream:
+                stream.write(raw)
+                stream.flush()
+                os.fsync(stream.fileno())
+            ADMISSION['sync_dir'](legacy)
+        canonical['generation']+=1
+        ADMISSION['durable'](primary/'jobs.json',canonical)
+        restored=dict(originals,generation=jobs['generation']+1)
+        ADMISSION['durable'](legacy/'jobs.json',restored)
+        require(json_file(legacy/'jobs.json')[0]==restored and restored['schema']==1,
+                'legacy restoration did not commit')
+    return dict(schema=1,status='restored-legacy',legacy_registry=str(legacy),
+                invalidated_prior_receipts=True,transition_sha256=sealed_sha)
+
+
+def choose_runs(checkout, candidates, only):
+    if only is not None or len(candidates)<2:
+        return candidates[:MAX_RUNS]
+    directory=private_directory(checkout/'.build-runs')
+    cursor=directory/'build-tree-retention-cursor.json'
+    return rotate(candidates,cursor,str(checkout),lambda item:str(item[0]))[:MAX_RUNS]
+
+
+def sweep(checkout, only=None):
+    deadline=time.monotonic()+SWEEP_SECONDS
+    require(os.getuid()==os.geteuid()!=0,'sweep requires the ordinary build account')
+    checkout=private_directory(checkout)
+    if only is not None:
+        only=path(str(only))
+        require(only.parent==checkout/'.build-runs','terminal run is outside checkout owner')
+    top=subprocess.check_output(['/usr/bin/git','--no-optional-locks','-C',str(checkout),
+        'rev-parse','--show-toplevel'],text=True,stderr=subprocess.PIPE,timeout=5).strip()
+    require(top==str(checkout),'checkout is not the Git top-level')
+    natural, alternate, state_roots=registry_routes(checkout)
+    routes=set(alternate)
+    if (natural/'jobs.json').exists():
+        routes.add(natural)
+    for legacy in alternate:
+        hint,_=json_file(legacy/'jobs.json')
+        if hint['schema']==2:
+            routes.add(path(hint['tree_retirement_bridge']['canonical_registry']))
+    results, known, remaining=[],set(),0
+    operations=[MAX_OPERATIONS]
+    before=ADMISSION['available_bytes'](checkout)
+    with ExitStack() as stack:
+        ledgers={p:stack.enter_context(locked_registry(p)) for p in sorted(routes)}
+        selected=[(run,row,route) for route,jobs in ledgers.items()
+                  for run,row in discover(checkout,jobs,only)]
+        require(len({r['id'] for _,r,_ in selected})==len(selected),'duplicate cross-route admission ownership')
+        for _,row,_ in selected:
+            known.update(Path(o['path']) for o in row.get('outputs',[]))
+        histories=[legacy for legacy in alternate if ledgers[legacy]['schema']==2]
+        unresolved=[legacy for legacy in alternate if ledgers[legacy]['schema']==1]
+        device,fsid=checkout.stat().st_dev,os.statvfs(checkout).f_fsid
+        authorities={sealed_authority(p,ledgers[p],device,fsid) for p in histories}
+        if (natural/'jobs.json').exists():
+            authorities.add(natural)
+        if unresolved or (routes and (len(authorities)!=1 or set(histories)|authorities != routes)):
+            reason=('legacy filesystem-keyed admission has an unobservable prepare interval' if unresolved
+                    else 'mixed admission registries lack one verified canonical authority')
+            results.extend(dict(run=str(run),status='held',reason=reason) for run,_,_ in selected[:MAX_RUNS])
+            if not results:
+                results.append(dict(status='held',reason=reason))
+            remaining=max(0,len(selected)-MAX_RUNS)
+        elif routes:
+            authority=next(iter(authorities))
+            require(ledgers[authority]['schema']==1,'queue-aware canonical registry unavailable')
+
+            def verify_routes():
+                require(registry_routes(checkout)==(natural,alternate,state_roots)
+                        and checkout.stat().st_dev==device and os.statvfs(checkout).f_fsid==fsid,
+                        'registry ownership changed')
+                require(all(sealed_authority(p,ledgers[p],device,fsid)==authority for p in histories),
+                        'sealed authority changed')
+
+            candidates, untouched=[],Counter()
+            for run,row,route in selected:
+                if row['state']!='consumed':
+                    untouched['active or not authoritatively consumed']+=1
+                elif not run.is_dir():
+                    untouched['retained terminal run metadata unavailable']+=1
+                elif (run/'build-tree-adoption.json').is_file() or row.get('retained_evidence'):
+                    candidates.append((run,row,route))
+                else:
+                    untouched['owned tree has no accepted custody or legacy adoption']+=1
+            chosen=choose_runs(checkout,candidates,only)
+            attempted=0
+            for run,row,route in chosen:
+                if not enough_time(deadline) or not operations[0]:
+                    break
+                attempted+=1
+                try:
+                    owner=private_directory(run.parent)
+                    if only is None and len(candidates)>1:
+                        advance_cursor(owner/'build-tree-retention-cursor.json',str(checkout),str(run))
+                    results.append(run_sweep(checkout,private_directory(run),row,route,authority,ledgers,
+                                             verify_routes,state_roots,operations,deadline))
+                except HOLD_ERRORS as error:
+                    results.append(dict(run=str(run),status='held',reason=str(error)))
+            remaining=len(candidates)-attempted
+            results.extend(dict(status='held',reason=why,runs=n) for why,n in sorted(untouched.items()))
+    if only is not None and not selected:
+        results.append(dict(run=str(only),status='held',reason='no authoritative registered terminal run'))
+    if only is None:
+        unknown=unknown_outputs(checkout,known)
+        if unknown:
+            results.append(dict(status='held',reason='unknown build directory has no owned registry scope',roots=unknown))
+    if remaining:
+        results.append(dict(status='held',reason='per-sweep run bound reached',runs=remaining))
+    after=ADMISSION['available_bytes'](checkout)
+    verified=sum(r.get('verified_unlinked_bytes',0) for r in results)
+    held=any(r['status'] in ('held','partial') for r in results)
+    return dict(schema=1,status=('partial' if verified or any(r['status']=='partial' for r in results) else 'held')
+                if held else ('retired' if results else 'noop'),checkout=str(checkout),results=results,
+                available_before_bytes=before,available_after_bytes=after,measured_net_bytes=after-before,
+                verified_unlinked_bytes=verified)
+
+
+def main():
+    parser=argparse.ArgumentParser(description=__doc__)
+    commands=parser.add_subparsers(dest='command',required=True)
+    normal=commands.add_parser('sweep')
+    normal.add_argument('--checkout',required=True,type=Path)
+    normal.add_argument('--run',type=Path)
+    bridge=commands.add_parser('seal-legacy')
+    bridge.add_argument('--checkout',required=True,type=Path)
+    bridge.add_argument('--legacy-caller',required=True,type=Path)
+    bridge.add_argument('--original-sha256',required=True)
+    restore=commands.add_parser('restore-legacy')
+    restore.add_argument('--checkout',required=True,type=Path)
+    restore.add_argument('--legacy-caller',required=True,type=Path)
+    restore.add_argument('--sealed-sha256',required=True)
+    args=parser.parse_args()
+    os.umask(0o077)
+
+    def deadline(_signum, _frame):
+        raise SweepDeadline('tree retention exceeded its whole-command deadline')
+    signal.signal(signal.SIGALRM,deadline)
+    signal.setitimer(signal.ITIMER_REAL,SWEEP_SECONDS)
+    try:
+        if args.command=='sweep':
+            report=sweep(args.checkout,args.run)
+        elif args.command=='seal-legacy':
+            report=seal_legacy(args.checkout,args.legacy_caller,args.original_sha256)
+        else:
+            report=restore_legacy(args.checkout,args.legacy_caller,args.sealed_sha256)
+    except RegistryBusy as error:
+        print(json.dumps(dict(schema=1,status='held',reason=str(error)),sort_keys=True))
+        return 1
+    except (*HOLD_ERRORS, SweepDeadline) as error:
+        print(json.dumps(dict(schema=1,status='error',reason=str(error)),sort_keys=True))
+        return 2
+    finally:
+        signal.setitimer(signal.ITIMER_REAL,0)
+    print(json.dumps(report,sort_keys=True))
+    return int(report['status'] in ('held','partial'))
+
+
+if __name__ == '__main__':
+    sys.exit(main())

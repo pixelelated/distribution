@@ -1,0 +1,549 @@
+#!/usr/bin/python3 -IBS
+"""Disposable controls for build-tree retirement. No real Docker or host scan."""
+import base64
+import json
+import os
+from pathlib import Path
+import runpy
+import shutil
+import subprocess
+import tempfile
+import threading
+import time
+import unittest
+from unittest.mock import patch
+
+TOOLS = Path(__file__).resolve().parent
+ENGINE = runpy.run_path(str(TOOLS/'build-tree-retention'))
+G = ENGINE['sweep'].__globals__
+A = G['ADMISSION']
+R = G['READER']
+SRC = TOOLS.parents[1]
+
+
+def dump(path, value):
+    path.write_text(json.dumps(value,sort_keys=True) + '\n')
+
+
+def ref(path):
+    return dict(path=str(path),sha256=G['sha'](path.read_bytes()))
+
+
+def repo(p):
+    p.mkdir(mode=0o700)
+    subprocess.run(['/usr/bin/git','init','-q',str(p)],check=True)
+    return p
+
+
+class Controls(unittest.TestCase):
+    def setUp(self):
+        self.addCleanup(os.umask, os.umask(0o077))
+        temp = tempfile.TemporaryDirectory(prefix='pix-tree-retire-')
+        self.addCleanup(temp.cleanup)
+        self.base=Path(temp.name).resolve()
+        self.checkout=repo(self.base/'checkout')
+        self.keepers=self.base/'kept'
+        self.keepers.mkdir()
+        self.refs=self.base/'refs'
+        self.refs.mkdir()
+        self.routes=self.base/'private-state'
+        self.routes.mkdir()
+        self.enterContext(patch.dict(os.environ,XDG_STATE_HOME=str(self.routes)))
+        self.enterContext(patch.dict(A,registry_state_roots=lambda:[str(self.routes)]))
+        self.registry=A['registry_for'](self.checkout)
+        self.registry.mkdir(mode=0o700)
+        (self.registry/'lock').touch()
+        self.ledger=dict(schema=1,generation=1,jobs={},queued={})
+        dump(self.registry/'jobs.json',self.ledger)
+        self.enterContext(patch.dict(R,inventory=self.references,read_host_use=self.host))
+        self.mounts=[]
+        self.host_status='clear'
+        self.host_extension=True
+        self.observations=0
+        self.root=self.checkout/'build.fixture'
+        self.root.mkdir(mode=0o700)
+
+    def references(self, plan, generated):
+        self.assertTrue(generated)
+        return dict(errors=[],references=[],container_mounts=self.mounts)
+
+    def host(self, manifest, key):
+        self.observations+=1
+        ns=time.time_ns()
+        status='clear' if self.host_status=='stale' else self.host_status
+        count=int(status=='busy')
+        matches=dict(argument=0,descriptor=count,executable=0,mapping=0,bind_mount=0)
+        doc=dict(schema=1,status=status,scan_complete=True,manifest_sha256=manifest,
+            started_at_ns=ns,finished_at_ns=ns,expires_at=ns//10**9+300,reason=None,
+            tasks_scanned=2,mount_views_scanned=1,batches=[dict(selection_sha256=key,files=1,
+                status=status,reason=None,matches=matches)])
+        if self.host_extension:
+            doc.update(tree_scope=G['POLICY'],tree_selections=[key])
+        outcome=R['validate_host_use'](doc,R['HOST_USE_EXIT'][status],manifest,key,ns,ns)
+        outcome['original_stdout_base64']=base64.b64encode(G['encoded'](doc)).decode()
+        if self.host_status=='stale':
+            outcome['observed_at_ns']-=G['HOST_AGE']+1
+        return outcome
+
+    def terminal(self, name='one', rc=0, keep_inside=False, root=None, nested=False, original_registry=None):
+        root=root or self.root
+        child=root/'build'/'generated'
+        child.parent.mkdir(mode=0o700)
+        child.mkdir(mode=0o700)
+        leaf=child/'selected.o'
+        leaf.write_bytes(b'ordinary generated fixture' * 4096)
+        run=self.checkout/'.build-runs'/name
+        run.parent.mkdir(mode=0o700,exist_ok=True)
+        run.mkdir(mode=0o700)
+        outputs=[dict(path=str(root),kind='build-cache',issue=493,release_when='fixture originals accepted')]
+        original=dict(id=name,run=str(run),checkout=str(self.checkout),volume=str(self.checkout),
+            volume_device=self.checkout.stat().st_dev,registry=str(original_registry or self.registry),state='running',
+            pid_namespace=Path('/proc/self/ns/pid').stat().st_ino,runner_pid=2147483647,submission_owner=None,
+            outputs=outputs,source=dict(head='a'*40,tracked_diff_sha256='b'*64),required_bytes=1024,
+            retention_scope=dict(checkout=str(self.checkout),protected=[str(self.keepers)],outputs=[str(root)]))
+        dump(run/'admission.json',original)
+        result=dict(command_rc=rc,monitor_rc=0,runner_rc=rc)
+        dump(run/'runner-result.json',result)
+        (run/'build.rc').write_text(str(rc)+'\n')
+        (run/'build.status').write_text('state:       finished\n')
+        kept=self.keepers/(name+'-sources')
+        kept.write_text('retained generation input and diagnostic')
+        delivered=self.keepers/(name+'-deliverable')
+        delivered.write_text('independent fixture result')
+        source=self.keepers/(name+'-source.json')
+        dump(source,dict(result='PASS',source=original['source'],evidence=[ref(kept)]))
+        scope=dict(path=str(child if nested else root),host_manifest_sha256='e'*64,
+            directories=[dict(path=str(p),identity=G['tree_identity'](p.lstat()))
+                         for p in ([child] if nested else [root,root/'build',child])],
+            files=[dict(path=str(leaf),identity=A['retirement_identity'](leaf.lstat()))])
+        if nested:
+            scope['host_scope']=dict(path=str(root),identity=G['tree_identity'](root.lstat()))
+        claim=dict(roots=[scope],reference_roots=[str(self.refs)],reference_stores=[str(self.refs)],
+                   registry_state_roots=[str(self.routes)])
+        proof=self.keepers/(name+'-preserved.json')
+        dump(proof,dict(result='PASS',admission_id=name,selection_sha256=G['sha'](G['encoded'](claim)),
+                        evidence=[ref(delivered)]))
+        operands=[ref(run/'runner-result.json'),ref(delivered)]
+        if keep_inside:
+            operands.append(ref(leaf))
+        config=dict(schema=1,**claim,source_custody=ref(source),preserved_result=ref(proof))
+        accepted=self.keepers/(name+'-acceptance.json')
+        body=dict(run=str(run),expected_rc=rc,disposition='qualified' if rc==0 else 'failed-investigated',
+                  outputs=outputs,evidence=operands,build_tree=config)
+        dump(accepted,body)
+        row=dict(original,state='consumed',original_result=result,outputs_held=True,
+                 evidence_sha256=ref(accepted)['sha256'],retained_evidence=[str(run),str(accepted),str(delivered)])
+        dump(run/'admission-consumed.json',row)
+        if original_registry is None:
+            self.ledger['jobs'][name]=row
+            dump(self.registry/'jobs.json',self.ledger)
+        return run,leaf,row,config,accepted
+
+    def finish(self, run=None, expected='retired'):
+        result=G['sweep'](self.checkout,run)
+        self.assertEqual(result['status'],expected,result)
+        return result
+
+    def test_real_files_dirs_and_originals_retire_exactly_once(self):
+        run,leaf,_,_,_=self.terminal()
+        expected=leaf.stat().st_blocks*512
+        original=(run/'admission-consumed.json').read_bytes()
+        result=self.finish()
+        self.assertEqual(result['verified_unlinked_bytes'],expected)
+        self.assertFalse(self.root.exists())
+        self.assertEqual((run/'admission-consumed.json').read_bytes(),original)
+        self.assertTrue((self.keepers/'one-deliverable').is_file())
+        self.assertEqual(self.finish()['verified_unlinked_bytes'],0)
+        self.assertEqual(self.observations,1)
+
+    def test_abandoned_consumed_failure_keeps_unknown_and_originals(self):
+        run,leaf,_,_,_=self.terminal(rc=2)
+        untracked=leaf.with_name('manual-experiment.c')
+        untracked.write_text('unique user state')
+        expected=leaf.stat().st_blocks*512
+        self.assertEqual(self.finish(expected='partial')['verified_unlinked_bytes'],expected)
+        self.assertFalse(leaf.exists())
+        self.assertEqual(untracked.read_text(),'unique user state')
+        self.assertEqual(json.loads((run/'runner-result.json').read_bytes())['command_rc'],2)
+
+    def test_active_and_queued_consumer_holds_then_other_live_checkout_survives(self):
+        _,leaf,row,_,_=self.terminal()
+        other=repo(self.base/'different')
+        output=other/'build.running'
+        output.mkdir()
+        active=dict(row,id='other',checkout=str(other),state='running',retained_evidence=[],
+            retention_scope=dict(checkout=str(other),outputs=[str(output)],protected=[str(leaf)]))
+        self.ledger['jobs']['other']=active
+        dump(self.registry/'jobs.json',self.ledger)
+        self.finish(expected='held')
+        self.assertTrue(leaf.exists())
+        active['retention_scope']['protected']=[]
+        self.ledger['queued']['waiter']=dict(device=leaf.stat().st_dev,expires=time.time()+30,
+            scope=dict(checkout=str(other),outputs=[],protected=[str(leaf)]))
+        dump(self.registry/'jobs.json',self.ledger)
+        self.finish(expected='held')
+        self.assertTrue(leaf.exists())
+        self.ledger['queued'].clear()
+        dump(self.registry/'jobs.json',self.ledger)
+        self.finish()
+        self.assertTrue(output.exists())
+
+    def test_host_evidence_scope_and_snapshot_freshness(self):
+        _,leaf,_,_,_=self.terminal()
+        self.host_extension=False
+        self.finish(expected='held')
+        self.host_extension=True
+        for state in ('busy','stale'):
+            self.host_status=state
+            self.finish(expected='held')
+            self.assertTrue(leaf.is_file())
+        self.host_status='clear'
+        self.mounts=[dict(source=str(self.root))]
+        self.finish(expected='held')
+        self.assertTrue(leaf.is_file())
+        self.assertEqual(json.loads((self.registry/'jobs.json').read_bytes())['generation'],1)
+
+    def test_fresh_replacement_and_accepted_evidence_are_preserved(self):
+        run,leaf,_,_,_=self.terminal(keep_inside=True)
+        self.finish(run,expected='held')
+        self.assertTrue(leaf.is_file())
+        self.assertEqual(self.observations,0)
+
+    def test_unconfirmed_recovery_preserves_replacement_and_credits_no_missing_bytes(self):
+        run,leaf,_,config,_=self.terminal()
+        custody=G['load_scope'](self.checkout,self.ledger['jobs']['one'],config,
+            json.loads((self.keepers/'one-acceptance.json').read_bytes()),[run],[str(self.routes)])
+        binding=dict(schema=1,admission_id='one',selection_sha256=custody[3],
+                     acceptance_sha256=self.ledger['jobs']['one']['evidence_sha256'])
+        allowed={str(p) for dirs,files,_,_ in custody[0].values() for p in (*dirs,*files)}
+        journal=G['Journal'](run,binding,allowed)
+        journal.record(str(leaf),'intent')
+        leaf.unlink()
+        leaf.write_bytes(b'unique replacement inode')
+        self.finish(expected='held')
+        self.assertEqual(leaf.read_bytes(),b'unique replacement inode')
+        leaf.unlink()
+        result=self.finish(expected='partial')
+        self.assertEqual(result['verified_unlinked_bytes'],0)
+        self.assertGreater(result['results'][0]['unconfirmed_bytes'],0)
+        self.assertFalse(self.root.exists())
+
+    def test_nested_adoption_and_parent_remain(self):
+        run,leaf,row,config,accepted=self.terminal(nested=True)
+        parent_product=self.root/'required-stamp'
+        parent_product.write_text('protected sibling')
+        adoption=run/'build-tree-adoption.json'
+        dump(adoption,dict(schema=1,acceptance=ref(accepted),build_tree=config,
+             consumed_sha256=ref(run/'admission-consumed.json')['sha256']))
+        adoption.chmod(0o600)
+        self.finish(run)
+        self.assertFalse(leaf.parent.exists())
+        self.assertEqual(parent_product.read_text(),'protected sibling')
+
+    def test_round_robin_surfaces_later_runs(self):
+        candidates=[]
+        (self.checkout/'.build-runs').mkdir(mode=0o700)
+        for i in range(5):
+            candidates.append((self.checkout/'.build-runs'/f'final-{i}',{},self.registry))
+        cursor=self.checkout/'.build-runs'/'build-tree-retention-cursor.json'
+        got=[]
+        with patch.dict(G,MAX_RUNS=2):
+            for _ in range(3):
+                chosen=G['choose_runs'](self.checkout,candidates,None)
+                got.append(chosen)
+                G['advance_cursor'](cursor,str(self.checkout),str(chosen[-1][0]))
+        self.assertEqual([p.name for batch in got for p,_,_ in batch],
+                         ['final-0','final-1','final-2','final-3','final-4','final-0'])
+
+    def test_unfenced_existing_filesystem_registry_stays_unchanged(self):
+        _,leaf,_,_,_=self.terminal()
+        fs=self.make_alternate()
+        before=(fs/'jobs.json').read_bytes()
+        self.finish(expected='held')
+        self.assertEqual((fs/'jobs.json').read_bytes(),before)
+        self.assertEqual(self.observations,0)
+        self.assertTrue(leaf.exists())
+
+    def test_peer_custody_applies_only_to_exact_target_without_rewriting_peer(self):
+        run,leaf,own,config,accepted=self.terminal(nested=True)
+        evidence=self.keepers/'peer-old-acceptance'
+        evidence.write_text('independent peer originals')
+        peer=dict(id='old-peer',state='consumed',volume_device=own['volume_device'],
+                  outputs=own['outputs'],outputs_held=True)
+        self.ledger['jobs']['old-peer']=peer
+        dump(self.registry/'jobs.json',self.ledger)
+        self.finish(run,expected='held')
+        self.assertTrue(leaf.exists())
+        claim=dict(id='old-peer',row_sha256=G['sha'](G['encoded'](peer)),protected=[],
+                   retained_evidence=[str(evidence)],release_roots=[str(leaf.parent)],evidence=[ref(evidence)])
+        result=Path(config['preserved_result']['path'])
+        old=json.loads(result.read_bytes())
+        dump(result,dict(old,peer_custody=[claim]))
+        config['preserved_result']=ref(result)
+        adoption=run/'build-tree-adoption.json'
+        dump(adoption,dict(schema=1,acceptance=ref(accepted),build_tree=config,
+             consumed_sha256=ref(run/'admission-consumed.json')['sha256']))
+        adoption.chmod(0o600)
+        self.finish(run)
+        self.assertEqual(json.loads((self.registry/'jobs.json').read_bytes())['jobs']['old-peer'],peer)
+        self.assertFalse(leaf.exists())
+        self.assertTrue(self.root.exists())
+
+    def test_unknown_registry_state_refuses_without_mutation(self):
+        _,leaf,row,_,_=self.terminal()
+        self.ledger['jobs']['unsupported']=dict(row,id='unsupported',state='suspect')
+        dump(self.registry/'jobs.json',self.ledger)
+        with self.assertRaisesRegex(ValueError,'unknown admission state'):
+            G['sweep'](self.checkout)
+        self.assertTrue(leaf.exists())
+
+    def test_producer_digest_contract_agrees(self):
+        _,_,_,config,_=self.terminal()
+        producer=runpy.run_path(str(TOOLS/'host-in-use-report'))
+        case=config['roots'][0]
+        root=dict(path=case['path'],identity=case['directories'][0]['identity'])
+        target=G['tree_key'](Path(root['path']),root['identity'])
+        producer['enroll_trees']([root],set())
+        self.assertEqual(root['selection_sha256'],target)
+
+    def test_compact_acceptance_calls_runpy_compiler_for_exact_run(self):
+        run,leaf,row,config,accepted=self.terminal()
+        raw=json.loads(accepted.read_bytes())
+        raw.pop('build_tree')
+        fixture_config=self.keepers/'derived-compact.json'
+        dump(fixture_config,config)
+        raw['build_tree_inputs']={'proof_config':str(fixture_config)}
+        dump(accepted,raw)
+        row['evidence_sha256']=ref(accepted)['sha256']
+        dump(run/'admission-consumed.json',row)
+        dump(self.registry/'jobs.json',self.ledger)
+        provider=self.base/'compiler'
+        provider.mkdir()
+        (provider/'build-tree-custody').write_text(
+            'import json\nfrom pathlib import Path\n'
+            'def compile_config(run,row,proof,inputs):\n'
+            '    assert str(run) == row["run"] == proof["run"]\n'
+            '    assert inputs is proof["build_tree_inputs"]\n'
+            '    return json.loads(Path(inputs["proof_config"]).read_text())\n')
+        with patch.dict(G,TOOLS=provider):
+            self.finish(run)
+        self.assertFalse(leaf.exists())
+
+    def test_real_compact_custody_module_and_snapshot_retry(self):
+        if not (TOOLS/'build-tree-custody').is_file():
+            self.skipTest('bind the compact build-tree custody module in the integration checkout')
+        run,leaf,row,_,accepted=self.terminal(nested=True)
+        keeper=self.keepers/'same-generated-leaf'
+        keeper.mkdir(mode=0o700)
+        shutil.copy2(leaf,keeper/leaf.name)
+        self.assertNotEqual(leaf.stat().st_ino,(keeper/leaf.name).stat().st_ino)
+        source=self.keepers/'one-sources'
+        delivered=self.keepers/'one-deliverable'
+        body=json.loads(accepted.read_bytes())
+        body.pop('build_tree')
+        body['evidence'].append(ref(source))
+        body['build_tree_inputs']=dict(schema=1,roots=[dict(path=str(leaf.parent),
+            host_manifest_sha256='e'*64,keeper=dict(path=str(keeper),identity=G['tree_identity'](keeper.lstat())))],
+            reference_roots=[str(self.refs)],reference_stores=[str(self.refs)],registry_state_roots=[str(self.routes)],
+            source_evidence=[ref(source)],deliverable_evidence=[ref(delivered)])
+        dump(accepted,body)
+        receipt=run/'admission-input.json'
+        dump(receipt,dict(schema=1,id=row['id'],registry_generation=0))
+        original=json.loads((run/'admission.json').read_bytes())
+        original['receipt_sha256']=row['receipt_sha256']=ref(receipt)['sha256']
+        row['evidence_sha256']=ref(accepted)['sha256']
+        dump(run/'admission.json',original)
+        dump(run/'admission-consumed.json',row)
+        dump(self.registry/'jobs.json',self.ledger)
+        self.finish(run)
+        snapshot=run/'build-tree-custody'/'snapshot.json'
+        before=snapshot.read_bytes()
+        self.assertTrue((keeper/leaf.name).is_file())
+        self.assertFalse(leaf.exists())
+        self.assertEqual(self.finish(run)['verified_unlinked_bytes'],0)
+        self.assertEqual(snapshot.read_bytes(),before)
+
+    def test_actual_tracked_and_hardlinked_leaves_hold(self):
+        run,leaf,_,_,_=self.terminal()
+        result=leaf.with_suffix('.external')
+        os.link(leaf,result)
+        self.finish(run,expected='held')
+        self.assertEqual(leaf.stat().st_ino,result.stat().st_ino)
+        result.unlink()
+        subprocess.run(['/usr/bin/git','-C',str(self.checkout),'add',str(leaf)],check=True)
+        outcome=self.finish(run,expected='held')
+        self.assertIn('Git tracks',str(outcome))
+        self.assertTrue(leaf.exists())
+
+    def test_bounded_partial_run_resumes_then_keeps_originals(self):
+        run,leaf,_,_,_=self.terminal()
+        with patch.dict(G,MAX_OPERATIONS=1):
+            self.finish(run,expected='partial')
+            self.assertFalse(leaf.exists())
+            self.assertTrue(self.root.exists())
+        self.assertEqual(self.finish(run)['verified_unlinked_bytes'],0)
+        self.assertFalse(self.root.exists())
+
+    def make_alternate(self):
+        key=f'{self.checkout.stat().st_dev:x}-{os.statvfs(self.checkout).f_fsid:x}'
+        fs=self.routes/'pixelelated'/'build-admission'/key
+        fs.mkdir(parents=True,mode=0o700)
+        (fs/'lock').touch()
+        dump(fs/'jobs.json',dict(schema=1,generation=3,jobs={},queued={}))
+        return fs
+
+
+    def canonical_fixture(self):
+        for folder in ('tools','scripts'):
+            (self.checkout/folder).mkdir(exist_ok=True)
+        (self.checkout/'scripts'/'operand').write_text('tracked fixture input')
+        (self.checkout/'Makefile').write_text('fixture:\n')
+        fixture=runpy.run_path(str(TOOLS/'admission-test-fixture.py'))
+        return fixture['prepare_fixture'](self.checkout,SRC)
+
+    def frozen_fixture(self):
+        original=os.environ.get('PIXELELATED_TEST_FROZEN_ADMISSION')
+        if not original:
+            self.skipTest('bind the reviewed frozen build-admission for real compatibility control')
+        original=Path(original)
+        self.assertEqual(G['sha'](original.read_bytes()),G['LEGACY_CALLER_SHA'])
+        volume=repo(self.base/'frozen-checkout')
+        tools=volume/'tools'/'host-maintenance'
+        tools.mkdir(parents=True)
+        for name in ('build-admission','retention-report','memory-policy-635.py'):
+            shutil.copy2(original.parent/name,tools/name)
+        for args in (['add','tools'],['-c','user.email=fixture@example.invalid','-c','user.name=Fixture','commit','-qm','Fixture']):
+            subprocess.run(['/usr/bin/git','-C',str(volume),*args],check=True)
+        f=runpy.run_path(str(tools/'build-admission'))
+        keep=volume/'keep'
+        keep.mkdir()
+        measurement=keep/'measurement'
+        measurement.write_text('small synthetic frozen measurement')
+        budget=dict(name='fixture',terms_bytes={'scratch':1024},basis='disposable admission fixture',
+                    evidence=[ref(measurement)])
+        plan=volume/'retention-plan.json'
+        dump(plan,dict(volume=str(volume),protected=[str(keep)],candidates=[],builds=[budget]))
+        observed=volume/'retention-report.json'
+        stamp=f['utc']()
+        dump(observed,dict(schema=1,result='REPORT_COMPLETE',utc=stamp,observation_start=stamp,
+            deletion_performed=False,inventory={'errors':[]},plan_sha256=ref(plan)['sha256'],
+            tool_sha256=ref(tools/'retention-report')['sha256'],
+            protected=[dict(path=str(keep),identity=f['path_identity'](keep))],
+            builds=[dict(budget,required_bytes=1024,fits_now=True)]))
+        af=volume/'admission-plan.json'
+        dump(af,dict(checkout=str(volume),retention_plan=str(plan),retention_report=str(observed),
+             profiles=[dict(PROJECT='ROCKNIX',DEVICE='GENERIC_X64',ARCH='x86_64')],stage='fixture',
+             outputs=[dict(path=str(volume/'build.frozen'),kind='build-cache',issue=493,release_when='fixture accepts')]))
+        return f,volume,af,tools/'build-admission'
+
+    def test_seal_revalidates_actual_caller_and_returns_frozen_route(self):
+        legacy,private,old_plan,old_caller=self.frozen_fixture()
+        canonical,new_plan,new_receipt=self.canonical_fixture()
+        old_receipt=self.base/'before-fence.json'
+        old_row=legacy['prepare'](old_plan,old_receipt)
+        fs=legacy['registry_for'](private)
+        # Exercise a real frozen prepare paused after current() and before lock acquisition.
+        reached,released=threading.Event(),threading.Event()
+        observed=[]
+        true_current=legacy['current']
+        def pause_current(plan):
+            state=true_current(plan)
+            if threading.current_thread().name=='paused-legacy':
+                reached.set()
+                if not released.wait(10):
+                    raise RuntimeError('fixture did not release the preparer')
+            return state
+        def prepare():
+            try:
+                legacy['prepare'](old_plan,self.base/'paused.json')
+            except (ValueError,OSError,RuntimeError) as error:
+                observed.append(str(error))
+        with patch.dict(legacy['prepare'].__globals__,current=pause_current):
+            thread=threading.Thread(target=prepare,name='paused-legacy')
+            thread.start()
+            try:
+                self.assertTrue(reached.wait(10))
+                legacy_original=json.loads((fs/'jobs.json').read_bytes())
+                legacy_original['queued']={'spent':dict(device=private.stat().st_dev,
+                    expires=time.time()-1,scope=dict(checkout=str(private),outputs=[],protected=[]))}
+                dump(fs/'jobs.json',legacy_original)
+                before=ref(fs/'jobs.json')['sha256']
+                generation=old_row['registry_generation']
+                queue_before=json.loads((self.registry/'jobs.json').read_bytes())['queued']
+                self.assertTrue(queue_before)
+                G['seal_legacy'](self.checkout,old_caller,before)
+                self.assertEqual(json.loads((self.registry/'jobs.json').read_bytes())['queued'],queue_before)
+                sealed=json.loads((fs/'jobs.json').read_bytes())
+                self.assertEqual(sealed['schema'],2)
+                self.assertEqual(sealed['queued'],legacy_original['queued'])
+                self.assertGreater(sealed['generation'],generation)
+                blocked=private/'.build-runs'/'blocked'
+                blocked.mkdir(parents=True)
+                with self.assertRaisesRegex(ValueError,'invalid registry'):
+                    legacy['admit'](old_receipt,private,blocked,{})
+                with self.assertRaisesRegex(ValueError,'invalid registry'):
+                    legacy['prepare'](old_plan,self.base/'new-legacy.json')
+            finally:
+                released.set()
+                thread.join(10)
+        self.assertEqual(observed,['invalid registry'])
+        self.assertFalse((self.base/'paused.json').exists())
+        # Canonical prepare persists a lease and its matching admit still succeeds.
+        fresh=self.base/'canonical-after-seal.json'
+        canonical.prepare(new_plan,fresh)
+        run=self.checkout/'.build-runs'/'canonical'
+        run.mkdir(parents=True)
+        row=canonical.admit(fresh,self.checkout,run,{})
+        jobs=json.loads((self.registry/'jobs.json').read_bytes())
+        self.assertNotIn(row['id'],jobs['queued'])
+        self.assertEqual(jobs['jobs'][row['id']]['state'],'running')
+        with self.assertRaisesRegex(ValueError,'active or queued'):
+            G['restore_legacy'](self.checkout,old_caller,ref(fs/'jobs.json')['sha256'])
+        canonical.finish(run,0,0,0)
+        (run/'build.rc').write_text('0\n')
+        (run/'build.status').write_text('state:       finished\n')
+        for rid in jobs['queued']:
+            self.assertIn(rid,queue_before)
+        for entry in jobs['queued'].values():
+            entry['expires']=time.time()-1
+        retained_queue=jobs['queued']
+        dump(self.registry/'jobs.json',jobs)
+        accepted=self.base/'canonical-acceptance.json'
+        dump(accepted,dict(run=str(run),expected_rc=0,disposition='qualified',outputs=row['outputs'],
+                          evidence=[ref(run/'runner-result.json')]))
+        with patch.object(canonical,'exited',lambda _:None):
+            canonical.consume(run,accepted)
+        G['restore_legacy'](self.checkout,old_caller,ref(fs/'jobs.json')['sha256'])
+        restored=json.loads((fs/'jobs.json').read_bytes())
+        self.assertEqual(restored['schema'],1)
+        self.assertEqual(restored['queued'],legacy_original['queued'])
+        self.assertEqual(json.loads((self.registry/'jobs.json').read_bytes())['queued'],retained_queue)
+        self.assertGreater(restored['generation'],generation+1)
+        with self.assertRaisesRegex(ValueError,'registry changed'):
+            legacy['admit'](old_receipt,private,blocked,{})
+        newest=self.base/'fresh-legacy.json'
+        legacy['prepare'](old_plan,newest)
+        self.assertEqual(legacy['admit'](newest,private,blocked,{})['state'],'running')
+
+    def test_sealed_dual_route_sweeps_registered_private_checkout(self):
+        _,private,_,caller=self.frozen_fixture()
+        mod,_,_=self.canonical_fixture()
+        authority=self.checkout
+        fs=self.make_alternate()
+        self.checkout=private
+        self.root=private/'build.fixture'
+        self.root.mkdir(mode=0o700)
+        _,leaf,row,_,_=self.terminal(original_registry=fs)
+        dump(fs/'jobs.json',dict(schema=1,generation=3,jobs={'one':row},queued={}))
+        self.finish(expected='held')
+        G['seal_legacy'](authority,caller,ref(fs/'jobs.json')['sha256'])
+        fixed=(fs/'jobs.json').read_bytes()
+        before=json.loads((self.registry/'jobs.json').read_bytes())['generation']
+        self.finish()
+        self.assertFalse(leaf.exists())
+        self.assertEqual((fs/'jobs.json').read_bytes(),fixed)
+        self.assertGreater(json.loads((self.registry/'jobs.json').read_bytes())['generation'],before)
+
+
+if __name__=='__main__':
+    unittest.main()

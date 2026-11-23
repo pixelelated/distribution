@@ -108,6 +108,12 @@ Existing plans keep their original output holds. Successful plans that opted
 into the narrow generated-file scope below also attempt retirement during the
 same `consume` call. The original consumed receipt stays immutable.
 
+With [the ordinary-account retirement cycle](build-retention-cycle.md)
+installed, the consumption CLI also triggers the shared generated-tree sweep
+after the authoritative result and reservation are settled. The periodic
+checkout sweep reconciles missed triggers and interrupted work. Both use the
+canonical engine's ownership, independent custody and current-use guards.
+
 ### Automatic retirement of declared generated headers
 
 The first scope is one to four exact `cmake_pch.hxx.gch` files in
