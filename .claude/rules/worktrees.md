@@ -133,6 +133,24 @@ vanishes mid-command and everything afterwards fails for an unrelated-looking
 reason. Detach it instead (`git switch --detach`) if you only need its branch
 freed; the tool refuses this case outright.
 
+## Check build-volume headroom before copying or launching
+
+Before staging a substantial cache or starting a build, use the shared admission
+and retention tools to compare the measured peak for that stage, the host reserve
+and existing reservations with usable bytes on the destination volume. Reuse the
+project's same-volume inventory, including old runs inside active checkouts'
+`.build-runs` directories. Refresh changed entries. When space is tight, review
+the largest generated sets first and continue past any individual hold.
+
+Record each new generated root, its build owner and its release condition when
+planning it. Protect the current seed, queued inputs, source changes, retained
+deliverables and failure evidence. Count shared blocks once. Use the existing
+guarded retirement and completion paths for eligible outputs, and remeasure
+space before admission. If capacity still falls short, report the missing bytes
+and identify the retained groups, their owners and what releases each hold.
+Routine completion and scheduled cleanup continue once the next build fits.
+See D-INFRA-032 and #493.
+
 ## Review retention after qualification
 
 D-INFRA-025 and D-INFRA-030 set a lifetime for generated working directories.
