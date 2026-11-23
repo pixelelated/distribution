@@ -41,6 +41,7 @@ def locked_registry(root):
         fcntl.flock(lock, fcntl.LOCK_EX | fcntl.LOCK_NB)
         yield json.loads((root / 'jobs.json').read_text())
 
+
 if __name__ == '__main__':
     base = Path.home()
     argv = sys.argv[1:]
@@ -121,7 +122,13 @@ class CycleTests(unittest.TestCase):
         (checkout / 'scripts').mkdir()
         for name in ('watch-build', 'watch-job'):
             shutil.copy2(ROOT / 'tools' / name, checkout / 'tools' / name)
-        shutil.copy2(ROOT / 'Makefile', checkout / 'Makefile')
+        # The operational derivative can be a sparse checkout.
+        makefile = ROOT / 'Makefile'
+        if makefile.is_file():
+            shutil.copy2(makefile, checkout / 'Makefile')
+        else:
+            (checkout / 'Makefile').write_bytes(subprocess.check_output(
+                ['/usr/bin/git', '-C', str(ROOT), 'show', 'HEAD:Makefile'], timeout=5))
         admission_tool, _, receipt = HELPER['prepare_fixture'](checkout, ROOT)
         shutil.copy2(HERE / CYCLE, checkout / 'tools/host-maintenance' / CYCLE)
         wrong_engine = checkout / 'tools/host-maintenance/build-tree-retention'
@@ -302,6 +309,245 @@ class CycleTests(unittest.TestCase):
             with self.assertRaises(subprocess.TimeoutExpired):
                 cycle['sweep'](self.canonical, self.state, self.canonical)
         self.assertEqual(call.call_args.kwargs['timeout'], 205)
+
+
+
+TREE_TESTS = runpy.run_path(str(HERE / 'test-build-tree-retention'))
+CYCLE_GLOBALS = runpy.run_path(str(HERE / CYCLE))['prebuild_review'].__globals__
+
+
+class PrebuildTests(unittest.TestCase):
+    def setUp(self):
+        TREE_TESTS['Controls'].setUp(self)
+        self.enterContext(patch.dict(CYCLE_GLOBALS, load_prebuild_engine=lambda _: TREE_TESTS['G']))
+
+    references = TREE_TESTS['Controls'].references
+    host = TREE_TESTS['Controls'].host
+    terminal = TREE_TESTS['Controls'].terminal
+
+    def pending(self, *paths):
+        admit = CYCLE_GLOBALS['scope_paths'](paths)
+        self.ledger['queued']['future'] = dict(
+            scope=dict(checkout=str(self.checkout), protected=sorted(map(str, admit)), outputs=[]),
+            device=self.checkout.stat().st_dev, expires=time.time() + 880, prebuild_pending=True)
+        self.sync()
+
+    def sync(self):
+        TREE_TESTS['dump'](self.registry / 'jobs.json', self.ledger)
+
+    def review(self, paths=(), retire=False, reserved=0, need=2000):
+        return CYCLE_GLOBALS['prebuild_review'](self.checkout, self.base, need, reserved, paths, retire=retire)
+
+    def test_fit_skips_registry_inventory_and_engine(self):
+        with patch.dict(CYCLE_GLOBALS, available_on=lambda *_: 2048,
+                        prebuild_inventory=lambda *a: self.fail('unexpected inventory'),
+                        prebuild_attempt=lambda *a: self.fail('unexpected engine')):
+            r = self.review(retire=True, reserved=48)
+        self.assertEqual((r['status'], r['shortfall_bytes'], r['measured_reclaimed_bytes']), ('fits', 0, 0))
+        self.assertEqual(r['candidates'], [])
+
+    def test_fit_includes_retained_size_without_discovery_or_retirement(self):
+        run = self.checkout / '.build-runs' / 'earlier nested build'
+        run.mkdir(parents=True)
+        selected = CYCLE_GLOBALS['volume_identity'](self.checkout)
+        index, doc = CYCLE_GLOBALS['inventory_paths'](selected)
+        index.parent.mkdir(parents=True)
+        st = run.stat()
+        entry = dict(path=str(run), identity=CYCLE_GLOBALS['directory_identity'](st),
+                     mtime_ns=st.st_mtime_ns, ctime_ns=st.st_ctime_ns, allocated_bytes=43_000_000_000,
+                     reason='previous identified measurement')
+        TREE_TESTS['dump'](doc, dict(schema=1, volume=list(selected), observed_epoch=time.time(), entries=[entry]))
+        TREE_TESTS['dump'](index, dict(schema=1, sha256=TREE_TESTS['ref'](doc)['sha256']))
+        with patch.dict(CYCLE_GLOBALS, available_on=lambda *_: 4096,
+                        load_prebuild_engine=lambda *a: self.fail('unexpected engine'),
+                        prebuild_inventory=lambda *a: self.fail('unexpected discovery'),
+                        prebuild_attempt=lambda *a: self.fail('unexpected retirement')):
+            result = self.review(retire=True)
+            exact = CYCLE_GLOBALS['prebuild_last_sizes'](self.base, [str(run)])
+            other = CYCLE_GLOBALS['prebuild_last_sizes'](self.base, [str(self.root)])
+            run.rename(run.with_name('retired name'))
+            stale = self.review(retire=True)
+        self.assertEqual(result['status'], 'fits')
+        self.assertEqual(result['measured_reclaimed_bytes'], 0)
+        self.assertEqual(result['attempts'], [])
+        self.assertEqual(result['candidates'], exact['candidates'])
+        self.assertEqual(result['candidates'][0]['allocated_bytes'], 43_000_000_000)
+        self.assertEqual(other['candidates'], [])
+        self.assertEqual(stale['status'], 'fits')
+        self.assertEqual(stale['candidates'], [])
+        self.assertTrue(stale['omissions'])
+
+    def test_ranked_refusal_then_real_guarded_removal_and_replay(self):
+        big_run, big, _, _, _ = self.terminal(keep_inside=True, rc=37)
+        # A second accepted leaf provides a distinct smaller fallback.
+        small_root = self.checkout / 'build.small'
+        small_root.mkdir()
+        small_run, small, _, _, _ = self.terminal('small', root=small_root)
+        small_blocks = small.stat().st_blocks * 512
+        self.assertGreater(small_blocks, 0)
+        # A legacy ranking hint can make the large held group sort first
+        # without becoming part of the reclaim accounting.
+        key = CYCLE_GLOBALS['volume_identity'](self.checkout)
+        index, document = CYCLE_GLOBALS['inventory_paths'](key)
+        index.parent.mkdir(parents=True)
+        live = big_run.stat()
+        TREE_TESTS['dump'](document, dict(schema=1, volume=list(key), observed_epoch=time.time(), entries=[
+            dict(path=str(big_run), identity=CYCLE_GLOBALS['directory_identity'](live),
+                 allocated_bytes=small_blocks * 10, mtime_ns=live.st_mtime_ns, ctime_ns=live.st_ctime_ns,
+                 reason='prior scoped measurement')]))
+        TREE_TESTS['dump'](index, dict(schema=1, sha256=TREE_TESTS['ref'](document)['sha256']))
+        protected = self.base / 'next-copy'
+        self.pending(protected)
+        calls = []
+        engine = TREE_TESTS['G']
+
+        def invoke(_supplier, checkout, run):
+            calls.append(run)
+            report = engine['sweep'](checkout, run)
+            return dict(report, returncode=int(report['status'] in ('held', 'partial')))
+
+        def space(*_):
+            return 1024 + (0 if small.exists() else small_blocks)
+
+        with patch.dict(CYCLE_GLOBALS, available_on=space, prebuild_attempt=invoke):
+            preview = self.review([protected])
+            self.assertEqual([r['run'] for r in preview['candidates']], [str(big_run), str(small_run)])
+            self.assertEqual(preview['attempts'], [])
+            actual = self.review([protected], retire=True)
+            replay = self.review([protected], retire=True, need=space() + 1)
+        self.assertEqual(calls[:2], [big_run, small_run])
+        self.assertEqual([x['status'] for x in actual['attempts']], ['held', 'retired'])
+        self.assertEqual(actual['status'], 'fits')
+        self.assertEqual(actual['measured_reclaimed_bytes'], small_blocks)
+        self.assertEqual(replay['measured_reclaimed_bytes'], 0)
+        self.assertTrue(big.is_file())
+        self.assertFalse(small.exists())
+        self.assertEqual(json.loads((big_run / 'runner-result.json').read_text())['runner_rc'], 37)
+        self.assertTrue((small_run / 'admission-consumed.json').is_file())
+
+    def test_historical_nested_hint_is_reported_without_ownership(self):
+        legacy = self.checkout / '.build-runs' / 'large aborted copy'
+        (legacy / 'checkout').mkdir(parents=True)
+        selected = CYCLE_GLOBALS['volume_identity'](self.checkout)
+        index, doc = CYCLE_GLOBALS['inventory_paths'](selected)
+        index.parent.mkdir(parents=True)
+        info = legacy.stat()
+        identity = CYCLE_GLOBALS['directory_identity'](info)
+        entry = dict(path=str(legacy), identity=identity, ctime_ns=info.st_ctime_ns, mtime_ns=info.st_mtime_ns,
+                     allocated_bytes=14_000_000_000, reason='legacy original run held')
+        TREE_TESTS['dump'](doc, dict(schema=1, volume=list(selected), observed_epoch=time.time(), entries=[entry]))
+        TREE_TESTS['dump'](index, dict(schema=1, sha256=TREE_TESTS['ref'](doc)['sha256']))
+        with patch.dict(CYCLE_GLOBALS, available_on=lambda *_: 1024):
+            report = self.review()
+            legacy.rename(legacy.with_name('moved'))
+            (legacy / 'checkout').mkdir(parents=True)
+            stale = self.review()
+        row = report['candidates'][0]
+        self.assertEqual((row['run'], row['allocated_bytes'], row['status']), (str(legacy), 14_000_000_000, 'held'))
+        self.assertEqual(report['measured_reclaimed_bytes'], 0)
+        self.assertTrue(any('identity changed' in item['reason'] for item in stale['omissions']))
+        self.assertTrue(all(row['allocated_bytes'] is None for row in stale['candidates']))
+
+    def test_overlapping_claims_and_hardlinks_cannot_multiply_bytes(self):
+        run, leaf, row, config, proof = self.terminal()
+        second_name = 'second'
+        second = run.with_name(second_name)
+        second.mkdir()
+        original = json.loads((run / 'admission.json').read_text())
+        original.update(id=second_name, run=str(second))
+        TREE_TESTS['dump'](second / 'admission.json', original)
+        copied = json.loads(proof.read_text())
+        copied['run'] = str(second)
+        second_proof = proof.with_name('second.json')
+        TREE_TESTS['dump'](second_proof, copied)
+        another = dict(row, id=second_name, run=str(second), retained_evidence=[str(second_proof)],
+                       evidence_sha256=TREE_TESTS['ref'](second_proof)['sha256'])
+        self.ledger['jobs'][second_name] = another
+        TREE_TESTS['dump'](second / 'admission-consumed.json', another)
+        self.sync()
+        with patch.dict(CYCLE_GLOBALS, available_on=lambda *_: 1024):
+            r = self.review()
+            leaf.with_name('other-name.o').hardlink_to(leaf)
+            linked = self.review()
+        blocks = leaf.stat().st_blocks * 512
+        self.assertEqual([x['observed_final_link_bytes'] for x in r['candidates']], [blocks, blocks])
+        self.assertEqual(sum(x['unique_observed_bytes'] for x in r['candidates']), blocks)
+        self.assertEqual(sum(x['unique_observed_bytes'] for x in linked['candidates']), 0)
+        self.assertEqual(linked['measured_reclaimed_bytes'], 0)
+
+    def test_foreign_reservation_missing_scope_and_unbound_request_hold(self):
+        _, leaf, _, _, _ = self.terminal()
+        protected = self.base / 'future'
+        self.pending(protected)
+        active = dict(self.ledger['jobs']['one'], id='live', state='running', required_bytes=5120)
+        active.pop('retention_scope')
+        self.ledger['jobs']['live'] = active
+        self.sync()
+        with patch.dict(CYCLE_GLOBALS, available_on=lambda *_: 1024,
+                        prebuild_attempt=lambda *a: self.fail('unverified removal')):
+            r = self.review([protected], retire=True)
+            del self.ledger['jobs']['live']
+            self.sync()
+            unbound = self.review([self.base / 'other wanted path'], retire=True)
+        self.assertEqual(r['observed_reserved_bytes'], 5120)
+        self.assertTrue(any('authoritative input scope' in x['reason'] for x in r['omissions']))
+        self.assertEqual(r['attempts'], [])
+        self.assertIn('pending protection', unbound['attempts'][0]['reasons'][0])
+        self.assertTrue(leaf.is_file())
+
+    def test_untransitioned_filesystem_registry_is_observed_and_blocks_action(self):
+        _, leaf, _, _, _ = self.terminal()
+        wanted = self.base / 'wanted'
+        self.pending(wanted)
+        device, fsid = CYCLE_GLOBALS['volume_identity'](self.checkout)
+        old = self.routes / 'pixelelated' / 'build-admission' / f'{device:x}-{fsid:x}'
+        old.mkdir(parents=True)
+        (old / 'lock').touch()
+        ledger = old / 'jobs.json'
+        TREE_TESTS['dump'](ledger, dict(schema=1, generation=9, jobs={}, queued={}))
+        original = ledger.read_bytes()
+        with patch.dict(CYCLE_GLOBALS, available_on=lambda *_: 1024,
+                        prebuild_attempt=lambda *a: self.fail('legacy interval was ignored')):
+            r = self.review([wanted], retire=True)
+        self.assertEqual(r['attempts'], [])
+        self.assertEqual(r['observed_reserved_bytes'], 0)
+        self.assertTrue(any('unobservable prepare interval' in item['reason'] for item in r['omissions']))
+        self.assertEqual(ledger.read_bytes(), original)
+        self.assertTrue(leaf.exists())
+
+    def test_stale_hint_digest_cannot_rank_nor_authorize_candidates(self):
+        run = self.checkout / '.build-runs' / 'manual'
+        (run / 'checkout').mkdir(parents=True)
+        identity = CYCLE_GLOBALS['volume_identity'](self.checkout)
+        index, doc = CYCLE_GLOBALS['inventory_paths'](identity)
+        index.parent.mkdir(parents=True)
+        TREE_TESTS['dump'](doc, dict(schema=1, volume=list(identity), observed_epoch=time.time(), entries=[]))
+        TREE_TESTS['dump'](index, dict(schema=1, sha256='e' * 64))
+        with patch.dict(CYCLE_GLOBALS, available_on=lambda *_: 1024,
+                        prebuild_attempt=lambda *a: self.fail('unbound hint was acted on')):
+            r = self.review(retire=True)
+        self.assertEqual(r['attempts'], [])
+        self.assertIsNone(r['candidates'][0]['allocated_bytes'])
+        self.assertTrue(any('misbound' in item['reason'] for item in r['omissions']))
+
+    def test_next_workload_and_live_queue_outweigh_rank(self):
+        run, leaf, _, _, _ = self.terminal()
+        self.pending(self.base / 'future')
+        self.ledger['queued']['another'] = dict(
+            scope=dict(checkout=str(self.checkout), protected=[str(leaf)], outputs=[]),
+            device=self.checkout.stat().st_dev, expires=time.time() + 840)
+        self.ledger['queued']['expired'] = dict(
+            scope=dict(checkout=str(self.checkout), protected=[], outputs=[]),
+            device=self.checkout.stat().st_dev, expires=time.time() - 10)
+        self.sync()
+        with patch.dict(CYCLE_GLOBALS, available_on=lambda *_: 1024,
+                        prebuild_attempt=lambda *a: self.fail('protected removal')):
+            r = self.review([self.base / 'future'], retire=True)
+        self.assertEqual(r['candidates'][0]['run'], str(run))
+        self.assertIn('overlaps', r['candidates'][0]['reason'])
+        self.assertEqual(r['attempts'], [])
+        self.assertTrue(any('expired preparation' in item['reason'] for item in r['candidates']))
+        self.assertTrue(leaf.is_file())
 
 
 if __name__ == '__main__':

@@ -145,3 +145,95 @@ abandoned job reconciled against real registry and host-use evidence, including
 the engine-reported held and measured available bytes. The isolated lifecycle
 tests exercise the actual admission/watcher/installed cycle with a fake engine,
 so those tests fit a VM and carry no production host-use or reclamation claim.
+
+## Before copying or launching a build
+
+Call the existing cycle module from the normal admission or private-copy
+preflight with the selected checkout and volume, the complete peak byte
+requirement (including the operating reserve), the current registered
+reservations, and all inputs and destinations of the next operation.
+
+```python
+from pathlib import Path
+from runpy import run_path
+
+review = run_path(str(Path(canonical_checkout) /
+                      "tools/host-maintenance/build-retention-cycle"))["prebuild_review"]
+result = review(checkout, volume, required_bytes, reserved_bytes, protected_paths)
+```
+
+The sufficient-capacity path reads live filesystem availability and up to
+twelve retained size hints without loading the engine, acquiring registry
+locks or walking directories. Missing or stale hints do not block a build.
+On a shortage, the preview reads
+the requesting and canonical supplier Git-common registries and the matching
+filesystem registry. It discovers producers from their project rows and
+looks one level beneath `.build-runs` in the known checkout roots. A legacy
+run with an admitted record or a nested checkout can appear even when the
+caller's input list does not name it. A missing registry or unreadable data
+has an explicit hold or omission. Unknown and unrelated project checkouts,
+uninventoried directories, and files beyond the metadata bounds remain
+outside the review. It does not recursively walk build caches.
+
+The result includes `available_bytes`, `initial_available_bytes`,
+`required_bytes`, `reserved_bytes`, `shortfall_bytes`, `candidates`,
+`attempts`, `omissions`, and `measured_reclaimed_bytes`. The first capacity
+snapshot preserves the caller's reservation operand. On shortage,
+`observed_reserved_bytes` separately counts visible running reservations
+across the found routes once. If that count exceeds the caller's snapshot,
+retirement is held. The admission caller owns current, locked capacity
+revalidation before publishing a receipt or starting the work.
+
+Candidates report exact accepted leaves only when their identity, ownership
+and final hard link still match. Native immutable catalogs and identity-bound
+compiled custody snapshots are reusable. A compact keeper without a snapshot
+is unmeasured until the guarded engine acts. Nonzero original outcomes with
+accepted failed-investigated custody can qualify. An expired lease or
+unregistered abandoned run can be reported but supplies no retirement
+authority. `unique_observed_bytes` counts each device/inode once across the
+report; it is an inventory figure and cannot satisfy admission.
+
+A shortage reader can also consume a small, optional retained size inventory
+from the ordinary account's canonical XDG state directory. Under
+`pixelelated/build-retention-inventory/<device-hex>-<fsid-hex>/`, an owned
+`index.json` contains `{"schema":1,"sha256":"..."}` for the exact bytes of
+the sibling `inventory.json`. Both files must be singly linked with mode
+`0600`. The inventory object contains `schema:1`, `volume:[device,fsid]`
+(decimal integers), `observed_epoch` in Unix seconds, and up to 512
+`entries`. Each entry has the already-discovered `path`,
+`allocated_bytes`, a short custody `reason`, full `identity` containing
+`device,inode,uid,mode` as integers, and the observed `mtime_ns` and
+`ctime_ns`. Populate this from retained project measurements and their
+matched directory identities. Stale, replaced, or out-of-scope entries are
+omitted. A matching directory timestamp cannot establish that its descendants
+are unchanged, so hints only affect the presentation order. Hints can
+overlap other hints and must never be added into projected capacity.
+
+Call `prebuild_last_sizes(volume, registered_paths)` if the admission caller
+already matched paths using its locked ledgers. The result contains only
+`candidates` and `omissions`. Candidates have `path`, `allocated_bytes`,
+`reason`, and `inventory_sha256`. The helper checks up to 4,096 supplied
+names lexically, reads at most 4 MiB of fixed inventory metadata within a
+two-second metadata budget, and returns up to twelve matching hints. It
+never acquires an admission lock. Ordinary stat calls inspect only matching
+recorded names and the selected volume.
+
+Use `retire=True` only from the normal shortage path after the workload's
+complete pending protection has been durably published in the existing
+admission registry. The review releases its advisory registry locks before
+calling the guarded engine on a single exact terminal run. The engine must
+see the pending workload scope in its own lock set. Among eligible runs,
+measured final-link bytes govern ordering, with unmeasured compact custody
+as fallback. The engine retains its own use, ownership, dependency and
+recovery checks. A refusal on one run can advance to another; at most three
+exact attempts are made, each with the existing 205-second subprocess bound.
+See the named hold for remaining limitations, including a filesystem-keyed
+legacy preparation interval the engine cannot observe.
+
+Every attempt and final decision resamples free space. The measured reclaimed
+field is bounded by the engine's newly verified unlinks, their observed
+per-attempt gain and the final net gain. An observed increase without that
+binding may improve actual capacity while reporting zero verified reclaim.
+No ranked estimate, pending delete, or recorded allocation is credited as
+free space. The ordinary admission locks, original one-use behavior, and
+periodic reconciliation stay in effect.
