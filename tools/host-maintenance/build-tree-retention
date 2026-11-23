@@ -36,6 +36,7 @@ POLICY = 'generated-build-tree-v1'
 BRIDGE = 'build-tree-canonical-queue-v1'
 LEGACY_CALLER_SHA = '3276a6dab29754127568b798992415d86455a56b291857403e4434368a002998'
 DIR_FIELDS = ('device', 'inode', 'uid', 'mode')
+SOURCE_MARKERS = ('.git', '.gitmodules', '.hg', '.svn', '.bzr')
 OPEN = os.O_NOFOLLOW | os.O_CLOEXEC
 HOLD_ERRORS = (ValueError, KeyError, TypeError, OSError, subprocess.SubprocessError, RuntimeError)
 
@@ -290,8 +291,10 @@ def load_scope(checkout, row, config, proof, own_records, state_roots):
         dirs = {}
         for entry in spec['directories']:
             p = path(entry['path'])
-            require(p not in dirs and (p == root or root in p.parents) and '.git' not in p.relative_to(root).parts,
-                    'directory is outside the generated tree')
+            require(p not in dirs and (p == root or root in p.parents)
+                    and (p == parent or p.is_relative_to(parent / 'build'))
+                    and not set(SOURCE_MARKERS).intersection(p.relative_to(parent).parts),
+                    'directory is outside admitted generated working files')
             info = entry['identity']
             validate_directory(p, info, device, uid)
             dirs[p] = info
@@ -300,7 +303,8 @@ def load_scope(checkout, row, config, proof, own_records, state_roots):
         for entry in spec['files']:
             p = path(entry['path'])
             require(p not in files and p.parent in dirs and p not in dirs
-                    and p.name not in ('.git', '.gitmodules'), 'file is outside verified generated directories')
+                    and p.is_relative_to(parent / 'build') and p.name not in SOURCE_MARKERS,
+                    'file is outside admitted generated working files')
             info = entry['identity']
             require(set(info) == set(ADMISSION['retirement_identity'](checkout.lstat()))
                     and all(type(value) is int and value >= 0 for value in info.values())
@@ -448,6 +452,38 @@ def known_references(root, refs, stores):
             'incoming reference, container mount, or incomplete dependency inventory')
 
 
+def retirement_chain(checkout, target):
+    """The path components the remover must traverse, nearest ancestor first."""
+    for parent in target.parents:
+        yield parent
+        if parent == checkout:
+            break
+
+
+def verify_ancestor(directory, expected, device, *, allow_checkout=False):
+    current = directory.lstat()
+    require(stat.S_ISDIR(current.st_mode) and current.st_dev == device
+            and current.st_uid == os.geteuid() and not current.st_mode & 0o022,
+            'retirement parent is shared, foreign or unverified: ' + str(directory))
+    identity = tree_identity(current)
+    require(expected is None or identity == expected,
+            'retirement directory identity changed: ' + str(directory))
+    require(allow_checkout or not any(os.path.lexists(directory / marker) for marker in SOURCE_MARKERS), 'nested repository in retirement ancestry: ' + str(directory))
+    return identity
+
+
+def pin_ancestors(checkout, remaining, directories):
+    device = checkout.stat().st_dev
+    identities = {}
+    for target in remaining:
+        for ancestor in retirement_chain(checkout, target):
+            if ancestor in identities:
+                break
+            identities[ancestor] = verify_ancestor(ancestor, directories.get(ancestor), device,
+                                                  allow_checkout=ancestor == checkout)
+    return identities
+
+
 def retire_root(checkout, root, spec, refs, stores, journal, recheck, operations, deadline):
     dirs, files, manifest, key = spec
     remaining = [p for p in (*files,*dirs) if journal.states.get(str(p)) not in ('retired','absent_unconfirmed')]
@@ -465,16 +501,21 @@ def retire_root(checkout, root, spec, refs, stores, journal, recheck, operations
         return dict(root=str(root),status='partial',reason='previous removal unconfirmed',pending=0)
     require(operations[0] > 0, 'per-sweep operation bound reached')
     require(enough_time(deadline), 'per-sweep observation time bound reached')
+    pinned = pin_ancestors(checkout, remaining, dirs)
     tracked(checkout, root)
     known_references(root, refs, stores)
     observed = clear_tree(READER['read_host_use'](manifest,key),manifest,key)
     known_references(root, refs, stores)
     tracked(checkout, root)
 
-    def before():
+    def before(target):
         require(time.monotonic()<deadline,'sweep mutation deadline exceeded')
         clear_tree(observed,manifest,key)
         recheck()
+        for directory in retirement_chain(checkout, target):
+            expected = pinned[directory]
+            verify_ancestor(directory, expected, expected['device'],
+                            allow_checkout=directory == checkout)
 
     pending_files = sorted(p for p in remaining if p in files)
     pending_dirs = sorted((p for p in remaining if p in dirs), key=lambda p: (-len(p.parts),str(p)))
@@ -487,7 +528,7 @@ def retire_root(checkout, root, spec, refs, stores, journal, recheck, operations
         progress = dict(state=journal.states.get(str(p)))
         try:
             ADMISSION['retire_file'](p,checkout,files[p],progress,
-                lambda: journal.record(str(p),progress['state']),before)
+                lambda: journal.record(str(p),progress['state']),lambda: before(p))
         except HOLD_ERRORS as error:
             held[str(error)] += 1
     unsettled_parents = {parent for f in pending_files
@@ -501,7 +542,7 @@ def retire_root(checkout, root, spec, refs, stores, journal, recheck, operations
         operations[0] -= 1
         try:
             remove_directory(p,checkout,dirs[p],dict(state=journal.states.get(str(p))),
-                             lambda state:journal.record(str(p),state),before)
+                             lambda state:journal.record(str(p),state),lambda: before(p))
         except HOLD_ERRORS as error:
             held[str(error)] += 1
     pending = sum(journal.states.get(str(p)) not in ('retired','absent_unconfirmed') for p in (*files,*dirs))

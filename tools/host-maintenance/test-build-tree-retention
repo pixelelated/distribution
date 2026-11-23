@@ -166,6 +166,115 @@ class Controls(unittest.TestCase):
         self.assertEqual(result['verified_unlinked_bytes'], 0)
         self.assertEqual(marker.read_bytes(), b'shared checkout')
 
+    def test_owner_private_generated_tree_inside_normal_checkout(self):
+        self.checkout.chmod(0o755)
+        source=self.checkout/'product-source.c'
+        source.write_bytes(b'committed input')
+        subprocess.run(['/usr/bin/git','-C',str(self.checkout),'add',str(source)],check=True)
+        subprocess.run(['/usr/bin/git','-C',str(self.checkout),'-c','user.name=Fixture',
+            '-c','user.email=fixture@example.invalid','commit','-qm','Fixture input'],check=True)
+        source.write_bytes(b'uncommitted product work')
+        run,leaf,_,_,_=self.terminal()
+        retained=self.keepers/'one-deliverable'
+        before={p:p.read_bytes() for p in (source,retained,run/'admission-consumed.json')}
+        expected=leaf.lstat().st_blocks*512
+        result=self.finish(run)
+        self.assertEqual(result['verified_unlinked_bytes'],expected)
+        self.assertEqual(result['measured_net_bytes'],result['available_after_bytes']-result['available_before_bytes'])
+        self.assertFalse(self.root.exists())
+        self.assertEqual({p:p.read_bytes() for p in before},before)
+        if log := os.environ.get('PIXELELATED_TEST_RECORDED_TREE_SWEEP'):
+            out=Path(log)
+            with out.open('x') as stream:
+                json.dump(result,stream,sort_keys=True)
+                stream.write('\n')
+
+    def test_private_leaf_beneath_shared_working_parent_stays_held(self):
+        self.checkout.chmod(0o755)
+        run,leaf,_,_,_=self.terminal(nested=True)
+        leaf.parent.parent.chmod(0o775)
+        result=self.finish(run,expected='held')
+        self.assertIn('retirement parent is shared, foreign or unverified',str(result))
+        self.assertEqual(self.observations,0)
+        self.assertTrue(leaf.is_file())
+
+    def test_foreign_working_parent_is_refused(self):
+        run,leaf,_,_,_=self.terminal(nested=True)
+        foreign=leaf.parent.parent
+        st=Path.lstat
+
+        def foreign_owner(path):
+            current=st(path)
+            if path != foreign:
+                return current
+            fields=list(current)
+            fields[4]=os.geteuid()+1
+            return os.stat_result(fields)
+
+        with patch.object(Path,'lstat',foreign_owner):
+            result=self.finish(run,expected='held')
+        self.assertIn('retirement parent is shared, foreign or unverified',str(result))
+        self.assertEqual(self.observations,0)
+        self.assertTrue(leaf.is_file())
+
+    def test_unlinked_or_redirected_working_parent_is_refused(self):
+        run,leaf,_,_,_=self.terminal(nested=True)
+        working=leaf.parent.parent
+        alternate=self.checkout/'ordinary-source'
+        working.rename(alternate)
+        working.symlink_to(alternate,target_is_directory=True)
+        result=self.finish(run,expected='held')
+        self.assertIn('symbolic link',str(result))
+        self.assertTrue((alternate/'generated'/leaf.name).is_file())
+
+    def test_nested_repository_marker_protects_its_files(self):
+        run,leaf,_,_,_=self.terminal(nested=True)
+        subprocess.run(['/usr/bin/git','init','-q',str(leaf.parent)],check=True)
+        result=self.finish(run,expected='held')
+        self.assertIn('nested repository in retirement ancestry',str(result))
+        self.assertEqual(self.observations,0)
+        self.assertTrue(leaf.is_file())
+
+    def test_expanded_claim_cannot_select_profile_staging(self):
+        run,leaf,row,config,accepted=self.terminal()
+        stage=self.root/'install_pkg'
+        stage.mkdir(mode=0o700)
+        product=stage/'unique-product'
+        product.write_text('only staged result')
+        config['roots'][0]['directories'].append(dict(path=str(stage),identity=G['tree_identity'](stage.lstat())))
+        config['roots'][0]['files'].append(dict(path=str(product),identity=A['retirement_identity'](product.lstat())))
+        adoption=run/'build-tree-adoption.json'
+        dump(adoption,dict(schema=1,acceptance=ref(accepted),build_tree=config,
+                           consumed_sha256=ref(run/'admission-consumed.json')['sha256']))
+        adoption.chmod(0o600)
+        result=self.finish(run,expected='held')
+        self.assertIn('outside admitted generated working files',str(result))
+        self.assertTrue(product.is_file())
+        self.assertTrue(leaf.is_file())
+
+    def test_parent_replaced_after_host_observation_holds_private_leaf(self):
+        self.checkout.chmod(0o755)
+        run,leaf,_,_,_=self.terminal(nested=True)
+        working=leaf.parent.parent
+        displaced=working.with_name('displaced-working')
+        original=A['retirement_identity'](leaf.lstat())
+        child=G['tree_identity'](leaf.parent.lstat())
+
+        def replace_parent(manifest, key):
+            report=self.host(manifest,key)
+            working.rename(displaced)
+            working.mkdir(mode=0o700)
+            (displaced/leaf.parent.name).rename(leaf.parent)
+            self.assertEqual(A['retirement_identity'](leaf.lstat()),original)
+            self.assertEqual(G['tree_identity'](leaf.parent.lstat()),child)
+            return report
+
+        with patch.dict(R,read_host_use=replace_parent):
+            outcome=self.finish(run,expected='held')
+        self.assertIn('retirement directory identity changed',str(outcome))
+        self.assertEqual(outcome['verified_unlinked_bytes'],0)
+        self.assertTrue(leaf.is_file())
+
     def test_abandoned_consumed_failure_keeps_unknown_and_originals(self):
         run,leaf,_,_,_=self.terminal(rc=2)
         untracked=leaf.with_name('manual-experiment.c')
