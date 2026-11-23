@@ -19,8 +19,9 @@ with tempfile.TemporaryDirectory(prefix='pix493-admission-') as tmp:
         else:
             (d / 'Makefile').write_bytes(subprocess.check_output(
                 ['git', '--no-lazy-fetch', '-C', str(root), 'show', 'HEAD:Makefile']))
-        mod,plan,receipt=helper.prepare_fixture(d,root,prepare=prepare)
-        env={'PATH':os.environ['PATH'],'HOME':str(d),'LC_ALL':'C','PIXELELATED_BUILD_ADMISSION':str(receipt)}
+        mod,plan,receipt=helper.prepare_fixture(d,root,prepare=prepare,registry_scope=d)
+        env={'PATH':os.environ['PATH'],'HOME':str(d),'LC_ALL':'C','PIXELELATED_BUILD_ADMISSION':str(receipt),
+             'XDG_STATE_HOME':str(d/'state')}
         return d,mod,plan,receipt,env
     def run(d,env,cmd=None):
         return subprocess.run([str(d/'tools/watch-build'),'--interval','1','--',*(cmd or ['touch','compiler-started'])],cwd=d,env=env,capture_output=True,text=True,timeout=15)
@@ -90,6 +91,20 @@ with tempfile.TemporaryDirectory(prefix='pix493-admission-') as tmp:
     result=subprocess.run(capacity_argv,cwd=d,env=e,capture_output=True,text=True,timeout=10)
     check(result.returncode==2 and not m.registry_for(d).exists(),
           'missing caller report refuses even on the healthy fast path')
+
+    d,m,p,r,e,narrow=storage_fixture('bound-registry-roots')
+    outside=base/'outside-fixture'
+    foreign,_=helper.filesystem_reservation(d,outside,m.available_bytes(d)+1024**3)
+    original_foreign=(foreign/'jobs.json').read_bytes()
+    e.update(HOME=str(outside),XDG_STATE_HOME=str(outside))
+    with patch.dict(os.environ,HOME=e['HOME'],XDG_STATE_HOME=e['XDG_STATE_HOME']):
+        check(m.registry_state_roots()==[str(d/'default-state'),str(d/'state')]
+              and m.prepare(p,r)['reserved_bytes']==0,
+              'fixture prepare ignores account state outside its explicit scratch scope')
+    a=run(d,e)
+    check(a.returncode==0 and (d/'compiler-started').exists()
+          and (foreign/'jobs.json').read_bytes()==original_foreign,
+          'watch-build child uses the same fixture-only registry binding')
 
     d,m,p,r,e,narrow=storage_fixture('ranked-recovery')
     held=d/'biggest-held';held.mkdir()
@@ -250,6 +265,10 @@ with tempfile.TemporaryDirectory(prefix='pix493-admission-') as tmp:
         return original_write(path,data,**kwargs)
     with patch.dict(os.environ,XDG_STATE_HOME=e['XDG_STATE_HOME']), \
          patch.object(m.runpy,'run_path',return_value=ranking), patch.object(m,'write',side_effect=check_commit_locks):
+        with patch.object(m,'available_bytes',return_value=524288):
+            check(refused(lambda:m.prepare(p,r),'unobservable prepare interval') and not r.exists()
+                  and not m.read(native/'jobs.json').get('queued'),
+                  'local shortage with a schema-1 peer holds without calling retirement')
         with patch.object(m,'available_bytes',return_value=1048576+local_required+131072):
             forecast=m.capacity(p)
             check(forecast['status']=='held' and forecast['shortfall_bytes']==131072
@@ -261,7 +280,7 @@ with tempfile.TemporaryDirectory(prefix='pix493-admission-') as tmp:
                   and not m.read(native/'jobs.json').get('queued'),
                   'locally fitting prepare refuses combined shortage without a receipt or provisional hold')
         receipt=m.prepare(p,r)
-    check(receipt['reserved_bytes']==local_required+262144 and len(ranked_calls)==3
+    check(receipt['reserved_bytes']==local_required+262144 and len(ranked_calls)==4
           and commits and (peer/'jobs.json').read_bytes()==original_peer,
           'healthy preparation counts both ledgers and commits before either lock is released')
     data=m.read(peer/'jobs.json')
