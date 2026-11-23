@@ -27,10 +27,11 @@ the selected Claude tier with Fable 5.2 or Opus 5.5. Before opening a tab or
 resuming a thread, read `docs/lane-models-and-account-handoff.md` and use
 `tools/herdr-lane` on canonical `next` (D-WORKFLOW-198).
 
-**Routine build cleanup:** The build owner automatically retires declared, reproducible
-generated files once a verified successor supersedes them and all use and dependency
-checks pass. Follow the retention rule in `.claude/rules/worktrees.md`
-(D-INFRA-025, #493). Uncertain files stay held with a recorded reason.
+**Build directory lifetime.** Keep a full working directory while its build is active.
+Save required images, exact source and evidence independently. The ordinary build
+lifecycle and recurring cleanup retire verified generated files from finished,
+failed and abandoned builds, including private copies. Record the owner and release
+condition for each exception. See `.claude/rules/worktrees.md` (D-INFRA-025/026, #493).
 
 **Standing host build/test authority:** D-WORKFLOW-196 authorizes routine host
 source preparation/assembly, builds and isolated tests within existing admission,

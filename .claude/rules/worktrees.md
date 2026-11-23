@@ -135,14 +135,21 @@ freed; the tool refuses this case outright.
 
 ## Review retention after qualification
 
-D-INFRA-025 authorizes routine automatic disposal through the build's retention
-workflow. Declare eligible generated outputs and their regeneration inputs with
-the producing job. At terminal consumption, verify the original result, an
-accepted successor, the retained recipe and inputs, and the selected files'
-current identities. Check the admission registry for active and queued consumers,
-the protected source, result and dependency records, and current host use.
-Keep any file whose ownership, use, identity, dependencies or regeneration
-cannot be established. Record the reason so its owner can resolve it.
+D-INFRA-025 and D-INFRA-026 set a lifetime for generated working directories.
+Keep the full directory by default only while its build is underway. Record
+ownership when creating a private checkout or build root. Before releasing its
+working files, retain required images, exact source including local changes,
+inputs, licences and original build or failure evidence outside the directory.
+Verify those retained materials are usable for their intended purpose.
+
+Use normal build completion and a recurring recovery sweep for terminal,
+interrupted and historical builds. Reconcile old holds against actual active
+or immediately queued consumers and their transitive dependencies. An exception
+names the files or tree still needed, the consumer or missing evidence, the
+accountable owner and the event that releases the hold. Protect current source
+worktrees, unique uncommitted files, shared sources and retained results.
+Verify current use, file identities and ownership before removal. If coverage
+is incomplete, keep the affected files and record what would establish safety.
 
 For qualifying files, the ordinary build account records the intended removal,
 unlinks the exact members and verifies which were removed. Record allocated
