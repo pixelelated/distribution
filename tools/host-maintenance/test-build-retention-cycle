@@ -319,7 +319,11 @@ CYCLE_GLOBALS = runpy.run_path(str(HERE / CYCLE))['prebuild_review'].__globals__
 class PrebuildTests(unittest.TestCase):
     def setUp(self):
         TREE_TESTS['Controls'].setUp(self)
-        self.enterContext(patch.dict(CYCLE_GLOBALS, load_prebuild_engine=lambda _: TREE_TESTS['G']))
+        # Discovery must use the fixture's Git registry, even when this suite
+        # runs in a production checkout with its own live admission history.
+        supplier = self.checkout / 'tools/host-maintenance/build-retention-cycle'
+        self.enterContext(patch.dict(CYCLE_GLOBALS, __file__=str(supplier),
+                                     load_prebuild_engine=lambda _: TREE_TESTS['G']))
 
     references = TREE_TESTS['Controls'].references
     host = TREE_TESTS['Controls'].host
