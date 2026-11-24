@@ -50,7 +50,7 @@ Read the [M7 milestone](https://github.com/pixelelated/distribution/milestone/7)
   2. `mkdir -m 0755 <wt>/sources`
   3. the retention report (`tools/watch-build --record-only -- python3 -I tools/host-maintenance/retention-report ...`); first check that every `protected` path still exists
   4. `build-admission prepare`
-  5. `tools/build-preflight --reclaim-swap`
+  5. `tools/build-preflight --reclaim-swap 2>&1 | tee <owner>/PREFLIGHT-reclaim-swap.txt` (the record lives in the owner folder, not only the terminal; #555, 23:08Z). Remove `/tmp` (tmpfs) leftovers first: tmpfs pages refill swap within minutes of a reclaim.
   6. `tools/watch-build-submit --owner <owner>/submit-NN -- --admission <admission> -- make docker-<D>`
 - **Run the launch under `set -o pipefail`, with an explicit stop after each step.** Check for a running build with `ps -C make -o args=`, never `pgrep -f` (it matches the launching shell). SM8550's gated command is in this session's transcript at 15:52Z.
 - The first H700 attempt from `d86c089eab` (run `20261124T100549Z-8b97f52f`) is consumed as failed-investigated (`m7-h700-d86c089e-owner-20261124/`).
