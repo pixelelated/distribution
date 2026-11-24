@@ -555,6 +555,138 @@ class PrebuildTests(unittest.TestCase):
 
 
 class FullCollectionTests(unittest.TestCase):
+    def test_coverage_and_capacity_are_independent(self):
+        module = runpy.run_path(str(HERE / CYCLE))
+        full = module['full_sweep']
+        with tempfile.TemporaryDirectory() as folder:
+            root = Path(folder)
+            settings = root / 'settings.json'
+            snapshot = dict(checkouts=[], held_routes=[], runs={}, image_selection=dict(status='none', keeper=None))
+            with patch.dict(os.environ, XDG_STATE_HOME=str(root)), patch.dict(
+                    full.__globals__, discovery=lambda *args, **kwargs: snapshot, available_on=lambda *_: 1024,
+                    engine_observation=lambda *_: self.fail('empty fixture called the engine')):
+                report, rc = full(root, settings)
+                self.assertEqual((rc, report['status'], report['outcome']['backlog']), (1, 'held', 'open'))
+                follow = report['outcome']['follow_through']
+                self.assertEqual((follow['next']['code'], follow['external_candidates']), ('size-inventory', 0))
+                self.assertEqual(report['known_checkouts'], 0)
+                report, rc = full(root, settings, 1024)
+                self.assertEqual((rc, report['status'], report['outcome']['backlog']),
+                                 (0, 'target-met', 'unassessed'))
+                self.assertEqual((report['attempts'], report['measured_reclaimed_bytes']), ([], 0))
+                selected = module['volume_identity'](root)
+                index, inventory = module['inventory_paths'](selected)
+                index.parent.mkdir(parents=True)
+                raw = json.dumps(dict(schema=1, volume=list(selected), entries=[], observed_epoch=time.time()))
+                inventory.write_text(raw)
+                index.write_text(json.dumps(dict(schema=1, sha256=module['hashlib'].sha256(raw.encode()).hexdigest())))
+                inventory.chmod(0o600)
+                index.chmod(0o600)
+                report, rc = full(root, settings)
+                self.assertEqual((rc, report['status'], report['outcome']['backlog']), (0, 'settled', 'disposed'))
+                self.assertEqual((report['attempts'], report['measured_reclaimed_bytes']), ([], 0))
+
+    def test_missed_target_continues_largest_exact_ordinary_run_once(self):
+        module = runpy.run_path(str(HERE / CYCLE))
+        full = module['full_sweep']
+        with tempfile.TemporaryDirectory() as folder:
+            root = Path(folder)
+            owner, other = root / 'producer', root / 'other'
+            owner.mkdir()
+            other.mkdir()
+            run = str(owner / '.build-runs' / 'exact')
+            output = str(owner / 'build.high')
+            smaller_run = str(other / '.build-runs' / 'other')
+            smaller = str(other / 'build.low')
+            snapshot = dict(checkouts=[str(owner), str(other)], held_routes=[], runs={
+                str(owner): [run], str(other): [smaller_run]}, image_selection=dict(status='none', keeper=None))
+            hints = {Path(output): dict(allocated_bytes=9000), Path(smaller): dict(allocated_bytes=8000)}
+            observed, available = [], 100
+            def observe(supplier, checkout, selected_run=None):
+                nonlocal available
+                observed.append((checkout, selected_run))
+                chosen_run, target = (run, output) if checkout == owner else (smaller_run, smaller)
+                if selected_run:
+                    self.assertEqual(selected_run, Path(run))
+                    status, reason, amount = 'retired', None, 20
+                else:
+                    status, reason, amount = 'partial', 'per-sweep operation bound reached', 10
+                available += amount
+                return int(status != 'retired'), dict(status=status, verified_unlinked_bytes=amount,
+                    results=[dict(run=chosen_run, status=status,
+                                  roots=[dict(root=target, status=status, reason=reason)])])
+            with patch.dict(full.__globals__, discovery=lambda *a, **kw: snapshot, retained_hints=lambda *a: hints,
+                            engine_observation=observe, available_on=lambda *_: available):
+                report, rc = full(root, root / 'settings.json', 1000)
+            self.assertEqual(observed, [(owner, None), (other, None), (owner, Path(run))])
+            self.assertEqual((rc, report['status'], report['outcome']['shortfall_bytes']), (1, 'held', 860))
+            self.assertEqual(report['measured_reclaimed_bytes'], 40)
+            self.assertEqual(report['outcome']['progress'], 'verified-unlink')
+            self.assertEqual(report['operator_continuation']['run'], run)
+            self.assertEqual(report['outcome']['follow_through']['next']['path'], smaller)
+
+    def test_noop_checkout_needs_disposition_for_ranked_path(self):
+        finish = runpy.run_path(str(HERE / CYCLE))['finish_full']
+        path = '/fixture/checkout/build.ranked'
+        report = dict(schema=1, target_available_bytes=None, available_bytes=20, known_checkouts=1,
+                      attempts=[dict(checkout='/fixture/checkout', ranked_bytes=10, status='noop', returncode=0)],
+                      omissions=[], ranked_paths=[dict(path=path, checkout='/fixture/checkout', allocated_bytes=10)])
+        result, rc = finish(report)
+        self.assertEqual(rc, 1)
+        self.assertEqual(result['outcome']['follow_through']['next']['path'], path)
+        report['image_selection'] = dict(status='completed', keeper=dict(protected_paths=[path]))
+        result, rc = finish(report)
+        self.assertEqual((rc, result['outcome']['backlog']), (0, 'disposed'))
+
+    def test_only_exact_privileged_observation_escalates(self):
+        finish = runpy.run_path(str(HERE / CYCLE))['finish_full']
+        root = '/fixture/checkout/build.needs-host-use'
+        leaf = dict(root=root, status='held', reason='trusted tree-use check held: producer-not-installed')
+        run = '/fixture/checkout/.build-runs/one'
+        report = dict(schema=1, target_available_bytes=None, available_bytes=20, known_checkouts=1, omissions=[],
+            attempts=[dict(checkout='/fixture/checkout', ranked_bytes=10, status='held', returncode=1,
+                           results=[dict(run=run, status='held', roots=[leaf])])])
+        result, rc = finish(report)
+        external = result['outcome']['follow_through']['next']
+        self.assertEqual((rc, external['kind'], external['owner']), (1, 'external', 'Serval storage administrator'))
+        self.assertEqual(external['privileged_operation']['operand'], root)
+        self.assertEqual(external['privileged_operation']['reporter'], '/usr/local/libexec/pixelelated/host-in-use-report')
+        leaf['reason'] = 'trusted tree-use check held: producer-unavailable'
+        result, rc = finish(report)
+        follow = result['outcome']['follow_through']
+        self.assertEqual((rc, follow['next']['kind'], follow['external_candidates']), (1, 'ordinary', 0))
+
+    @unittest.skipUnless(os.environ.get('PIXELELATED_TEST_FULL_ORIGINALS'), 'saved Serval and steward fixtures not bound')
+    def test_readback_saved_full_originals(self):
+        finish = runpy.run_path(str(HERE / CYCLE))['finish_full']
+        full_path, missing_path = json.loads(os.environ['PIXELELATED_TEST_FULL_ORIGINALS'])
+        full = json.loads(Path(full_path).read_bytes())
+        self.assertEqual((full['visited_checkouts'], full['verified_unlinked_bytes']), (53, 0))
+        self.assertEqual(sum(row.get('reason') == 'checkout is shared or owned by another account'
+                             for row in full['attempts']), 51)
+        result, rc = finish(full)
+        outcome = result['outcome']
+        follow = outcome['follow_through']
+        self.assertEqual((rc, outcome['goal'], outcome['complete'], outcome['backlog']),
+                         (1, 'superseded-build-backlog', False, 'open'))
+        self.assertEqual((follow['next']['code'], follow['next']['kind'], follow['external_candidates']),
+                         ('checkout-ownership', 'ordinary', 0))
+        self.assertEqual(follow['next']['ranked_bytes'], 158979473408)
+        self.assertTrue(follow['next']['ranked_path'].endswith(
+            'm7-signin-sm8550-build-20261025-01/build.pixelelated-SM8550.aarch64'))
+        self.assertIn('legacy-admission', {item['code'] for item in follow['alternatives']})
+        self.assertIsNone(follow['next']['privileged_operation'])
+        print(json.dumps(dict(fixture=full_path, rc=rc, outcome=outcome), sort_keys=True))
+        missing = json.loads(Path(missing_path).read_bytes())
+        self.assertEqual((missing['exit_code'], missing['report']['known_checkouts']), (0, 0))
+        result, rc = finish(missing['report'])
+        outcome = result['outcome']
+        self.assertEqual((rc, outcome['complete'], outcome['backlog']), (1, False, 'open'))
+        follow = outcome['follow_through']
+        self.assertEqual((follow['next']['code'], follow['next']['kind'], follow['external_candidates']),
+                         ('size-inventory', 'ordinary', 0))
+        print(json.dumps(dict(fixture=missing_path, rc=rc, outcome=outcome), sort_keys=True))
+
     def test_full_pass_uses_rank_skips_hold_and_leaves_rotation_cursor(self):
         module = runpy.run_path(str(HERE/CYCLE))
         full = module['full_sweep']
