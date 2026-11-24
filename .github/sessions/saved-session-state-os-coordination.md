@@ -29,7 +29,7 @@ Read the [M7 milestone](https://github.com/pixelelated/distribution/milestone/7)
 - **Dispatched to `w4:p9`** (`m7-clean-state-565`) at 09:14Z, observed working at 09:14:15Z. Source only: successor EmulationStation custody activations for H700/aarch64 and SM8550/aarch64. Today the recipe accepts only GENERIC_X64, so handheld builds would stop at emulationstation. Brief: `/workspace/tmp/rocknix-session/dispatch-p9-es-handheld.txt`.
 - Harness waiters in this session poll each pane's status; nothing watches the workers after a disconnect. On resume, read each pane with `herdr agent read w4:pB` / `w4:p9`.
 - The cleanup is at 2.02 TB free. Batch 4 and the second compaction finished rc 0 (+60.91 GB; compaction total +164.44 GB). The `/workspace/tmp` and staging batches are deferred until pB's VM qualification ends, so no deletion runs beside a live M7 check.
-- Then: H700 and SM8550 cold builds from p9's commit, with fresh admissions. Consider rebuilding the PC image from the same commit, so the device set shares one source (D-INFRA-040). The keeper is retired after the upgrade check passes.
+- Then, in order (also in the M7 milestone body since 09:15Z): H700 and SM8550 cold builds from p9's commit, with fresh admissions. **Rebuild the PC image cold from that same head, then rerun its clean-install and upgrade checks:** `release-candidates.md` step 2 needs one synced head and a shared BUILD_ID across targets, so pB's current run on `3258f06c09` is early evidence only. The keeper is retired after the upgrade check passes.
 
 ## Open items owned by OS
 
