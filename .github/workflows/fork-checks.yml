@@ -3,6 +3,10 @@
 # left without an issue, the retro / weekly / monthly cadence kept, every
 # recent blindspot naming a guard, an audit and a futro when they are owed.
 # Red until each overdue ceremony has its artifact (#254, D-WORKFLOW-028).
+# Two jobs, so a red run says which kind it is (#1450, D-WORKFLOW-202):
+# `guards` is red only when a check or a tool is broken -- act on it; `records`
+# is red while a record is owed (an audit, a futro, a checkbox sweep), which
+# is red by design. tools/ci-silence-check reads them apart by these names.
 # Fork-only (`fork-*`): never part of an upstream PR.
 name: fork record checks
 
@@ -23,14 +27,12 @@ permissions:
   issues: read
 
 jobs:
-  record:
+  guards:
     runs-on: ubuntu-24.04
     steps:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 0
-      - name: identify upstream history for the fork issue-coverage check
-        run: git fetch --no-tags https://github.com/ROCKNIX/distribution.git next:refs/remotes/upstream/next
       - name: work-log index is current
         run: ./tools/work-log-index --check
       - name: decision register is a lookup table
@@ -42,7 +44,7 @@ jobs:
           python3 docs/qa-logs/2026-10-03-watch-job/test-watch-job.py tools/watch-job
           python3 tools/host-maintenance/test-build-monitor
           python3 tools/host-maintenance/test-build-admission
-      - name: recipes name build roots from DISTRONAME, never DISTRO (#497, #1441)
+      - name: "recipes name build roots from DISTRONAME, never DISTRO (#497, #1441)"
         # DISTRO stays ROCKNIX as the configuration namespace; the roots are
         # build.pixelelated-*. git grep exits 1 for no match, 0 for a match and
         # 128 when it cannot run, so only 1 passes.
@@ -60,6 +62,15 @@ jobs:
           ./tools/vm-upgrade-readiness-test
       - name: optional hardware readings are valid or explicitly unavailable
         run: ./tools/rocknix-info-test
+
+  records:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: identify upstream history for the fork issue-coverage check
+        run: git fetch --no-tags https://github.com/ROCKNIX/distribution.git next:refs/remotes/upstream/next
       - name: every open acceptance checkbox is agent-verifiable (D-QA-044)
         env:
           GH_TOKEN: ${{ github.token }}

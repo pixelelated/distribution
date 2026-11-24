@@ -116,7 +116,7 @@ A CI-red ceremony works only while the CI runs. GitHub stopped starting the fork
 - whether the newest completed fork record checks run is red because of a **guard**, which is FAIL and means act;
 - or red only because a **record is owed**: an audit, a futro or a checkbox sweep from the table above. That is OWED, never a failure by itself.
 
-When GitHub cannot be read it exits 2, which is not a pass. The push guard prints its verdict for the head a push of `next` replaces. It warns but does not refuse, because an outage on GitHub's side must not stop the record from being pushed.
+`fork-checks.yml` runs the two kinds as separate jobs, `guards` and `records`, so the run itself shows which kind of red it is. When GitHub cannot be read it exits 2, which is not a pass. The push guard prints its verdict for the head a push of `next` replaces. It warns but does not refuse, because an outage on GitHub's side must not stop the record from being pushed.
 
 ## Execution discipline
 
