@@ -151,6 +151,24 @@ and identify the retained groups, their owners and what releases each hold.
 Routine completion and scheduled cleanup continue once the next build fits.
 See D-INFRA-032 and #493.
 
+Judge cleanup against the request (D-INFRA-034, #493). For a capacity request,
+measure available bytes on the requested volume and compare them with the
+requested target. A target already met can finish with zero unlinks. For a
+whole-backlog request, account for superseded build outputs across the known
+inventory. Record each retirement, independently protected input or result, or
+specific remaining hold with its size, owner and release condition. Incomplete
+inventory keeps the backlog open, even when the admission registry is empty.
+Use the build budget only when it is the requested capacity target.
+
+When a sweep holds, recovers zero against an unmet goal, or finishes partway,
+use its saved report to act on the largest addressable generated set. Check
+who can write it, its aliases and real consumers. Reconcile our own checkout
+modes, registry and inventory under OS ownership. If a specific observation
+or operation needs another owner's access, name the operand, action, and
+owner and continue with the other eligible sets. Report production recovery
+from actual before/after measurements and keep fixture results separate.
+Repeat a held scan when material evidence changes.
+
 ## Review retention after qualification
 
 Keep one local pixelelated OS build across all targets (D-INFRA-033, #493).

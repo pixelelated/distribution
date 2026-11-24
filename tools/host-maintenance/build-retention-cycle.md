@@ -341,3 +341,35 @@ Read-only reporting accepts unsealed legacy rows. Effect routes still require
 the existing registry and custody admission. Full-pass callers can use
 select_os_keeper(ledgers, effect_volume_device) in build-tree-retention and
 apply the reported keeper.protected_paths to their own locked operands.
+
+## Release compiler-cache space from a held checkout
+
+A checkout trust refusal applies to the attempted tree operation. The build
+account can still maintain a separately qualified local ccache with its native
+tool. First check the actual owner and parent, the fs/device and inode, the
+retained image and queued inputs, host copy jobs and relevant container mounts.
+Identify the exact cache root and hold it by directory descriptor. Check the
+shard entries, including their ccache format, version, namespace and link
+counts. An unknown file, foreign writer, competing raw copy or unresolved
+alias holds that store. Move to the next qualified store. The project keeps
+the compiler, configuration, stamps, source and retained images.
+
+On the tested 4.13.6 stores, the build account used the matching host binary
+and libraries. Under the admission locks it bound the cache and library
+directories by open descriptor, selected the empty namespace and evicted
+entries older than 21 days. The native tool takes its shard locks. In a
+qualified wrapper, the native invocation takes this form.
+
+```sh
+"$ccache_bin" --evict-namespace '' --evict-older-than 21d
+```
+
+Bind `CCACHE_DIR` to that selected store and use a controlled config and
+private temporary directory. Validate the affected entry types first.
+An age-only cleanup can also remove unexpected files under the shards.
+Keep the native exit status and the cache metadata before and after. Compare
+the remaining entries, account for shared inodes, and take free-space
+measurements directly around the eviction. Record any partial effect before
+considering another action. Attribute at most the independently verified
+released allocation to a positive free-space delta. This route retires cache
+entries. The surrounding generated profile needs its own disposition.
