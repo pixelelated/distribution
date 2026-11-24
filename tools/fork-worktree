@@ -300,10 +300,43 @@ cmd_sync() {
     return ${rc}
 }
 
+
+# Create the destination before Git sees it. umask alone does not override an
+# inherited default ACL. Never adopt or change the permissions of existing work.
+cmd_build_checkout() (
+    local kind="$1" name="$2" input="$3" dst base stamp common commit
+    umask 022
+    if [[ "$kind" == "add-build" ]]; then
+        [[ "$name" =~ ^[A-Za-z0-9][A-Za-z0-9._-]*$ ]] || return 2
+        common="$(git -C "$ROOT" rev-parse --path-format=absolute --git-common-dir)" || return 1
+        [[ "$common" == */.git ]] || return 1
+        base="${common%/.git}.worktrees"
+        dst="$base/$name"
+        commit="$(git -C "$ROOT" rev-parse --verify --end-of-options "$input^{commit}")" || return 1
+    else
+        # Existing frozen preparations clone to a new checkout in a private run.
+        dst="$name"
+        base="$(dirname -- "$dst")"
+        [[ "$dst" == /*/checkout && "$(realpath -e -- "$base")" == "$base" &&
+           -O "$base" && "$(stat -c %a -- "$base")" == 700 ]] || return 2
+        [[ "$input" == /* && -d "$input" ]] || return 2
+    fi
+    mkdir -m 700 -- "$dst" || return 1
+    stamp="$(stat -c '%d:%i:%u:%a' -- "$dst")" || return 1
+    [[ "$stamp" == *":$(id -u):700" ]] || return 1
+    if [[ "$kind" == "add-build" ]]; then
+        git -C "$ROOT" worktree add -b "build/$name" -- "$dst" "$commit" || return 1
+    else
+        git clone --shared --no-checkout --single-branch -- "$input" "$dst" || return 1
+    fi
+    [[ ! -L "$dst" && "$(stat -c '%d:%i:%u:%a' -- "$dst")" == "$stamp" ]]
+)
+
 case "${1:-}" in
+    add-build|clone-build) [ "$#" -eq 3 ] || exit 2; cmd_build_checkout "$1" "$2" "$3" ;;
     list)   shift; cmd_list "$@" ;;
     remove) shift; cmd_remove "$@" ;;
     repair) shift; cmd_repair "$@" ;;
     sync)   cmd_sync ;;
-    *) echo "usage: ${0##*/} {list|sync|remove <path> [--preserve <dir>] [--force]|repair <path> [ref]}" >&2; exit 1 ;;
+    *) echo "usage: ${0##*/} {add-build <run-name> <commit>|clone-build <private-run>/checkout <source>|list|sync|remove <path> [--preserve <dir>] [--force]|repair <path> [ref]}" >&2; exit 1 ;;
 esac

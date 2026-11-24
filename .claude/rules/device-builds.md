@@ -100,8 +100,16 @@ building. VM-specific behavior must remain scoped to GENERIC_X64; never import
 an old VM-only branch's shared concessions into a handheld image.
 
 ```bash
-git worktree add -b build/<run-name> ../rocknix.worktrees/<run-name> <verified-commit>
+tools/fork-worktree add-build <run-name> <verified-commit>
 ```
+
+For a disposable shared-object clone inside a private run, use
+`tools/fork-worktree clone-build /absolute/private-run/checkout /absolute/source-checkout`.
+Both routes reserve a new owner-only checkout before Git populates it. Preserve
+the clone's source object store for its lifetime. Create new cache roots under
+the build account's ownership and preserve their private root permissions across
+seed copies. Check the checkout and cache root modes before admitting a new
+disposable build. Existing frozen checkouts keep their recorded identities.
 
 The earlier shared `devices` / `test/qa-integration` distribution-build recipe
 is historical. EmulationStation's separate repository still uses its own
