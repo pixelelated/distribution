@@ -199,7 +199,7 @@ def file_ref(ref):
     return value
 
 
-def acceptance(run, row):
+def acceptance(run, row, *, readback=False):
     consumed, digest = json_file(run / 'admission-consumed.json')
     require(consumed == row and row['state'] == 'consumed', 'original consumption missing or changed')
     original, _ = json_file(run / 'admission.json')
@@ -228,7 +228,7 @@ def acceptance(run, row):
         ADMISSION['exited'](launcher['pid'])
 
     adopted_path = run / 'build-tree-adoption.json'
-    adopted = adopted_path.exists()
+    adopted = not readback and adopted_path.exists()
     if adopted:
         require(private_directory(run) == run, 'legacy adoption directory changed')
         s = adopted_path.lstat()
@@ -257,6 +257,8 @@ def acceptance(run, row):
             and proof['expected_rc'] == result['runner_rc']
             and proof['disposition'] == ('qualified' if result['runner_rc'] == 0 else 'failed-investigated'),
             'original acceptance outcome differs')
+    if readback:
+        return proof
     if not adopted and 'build_tree_inputs' in proof:
         require(config is None, 'ambiguous generated tree custody')
         # The producer records compact inputs in the original acceptance. The
@@ -665,6 +667,40 @@ def run_sweep(checkout, run, row, owning, authority, ledgers, verify_routes, sta
                 recorded_unlinked_bytes=retired,unconfirmed_bytes=uncertain,held_bytes=pending)
 
 
+def private_readback_sweep(checkout, run, row, owning, authority, ledgers, verify_routes, operations, deadline):
+    require(row['checkout'] == str(checkout) and row['run'] == str(run)
+            and row['registry'] == str(owning) and row['volume_device'] == checkout.stat().st_dev,
+            'private readback producer run, volume or registry differs')
+    require(os.path.lexists(run / 'private-readback.json'), 'private reconstruction has no durable producer receipt')
+    reader = runpy.run_path(str(TOOLS / 'build-private-readback.py'))
+    proof = acceptance(run, row, readback=True)
+    require(not row.get('retire_on_consume')
+            and not any(key in proof for key in ('build_tree', 'build_tree_inputs'))
+            and not os.path.lexists(run / 'build-tree-adoption.json'), 'mixed retirement declarations')
+    target = run / reader['STAGE'] / reader['LEAF']
+
+    def check_references():
+        verify_routes()
+        check_peers(ledgers, row, [target], [])
+
+    check_references()
+
+    def before_unlink():
+        check_references()
+        # As with tree retirement, fence any outstanding capacity receipts.
+        registry = ledgers[authority]
+        registry['generation'] += 1
+        ADMISSION['durable'](authority / 'jobs.json', registry)
+        verify_routes()
+        operations[0] -= 1
+
+    status, amount = reader['retire'](run, row, proof, deadline, before_unlink, ADMISSION)
+    result = dict(run=str(run), kind=reader['POLICY'], status=status, verified_unlinked_bytes=amount)
+    if status == 'absent_unconfirmed':
+        result.update(status='partial', reason='absence after intent has no verified unlink receipt')
+    return result
+
+
 def discover(checkout, jobs, only):
     selected = []
     for row in jobs['jobs'].values():
@@ -879,7 +915,8 @@ def sweep(checkout, only=None):
                     untouched['active or not authoritatively consumed']+=1
                 elif not run.is_dir():
                     untouched['retained terminal run metadata unavailable']+=1
-                elif (run/'build-tree-adoption.json').is_file() or row.get('retained_evidence'):
+                elif ('private_readback' in row or (run/'build-tree-adoption.json').is_file()
+                      or row.get('retained_evidence')):
                     candidates.append((run,row,route))
                 else:
                     untouched['owned tree has no accepted custody or legacy adoption']+=1
@@ -893,8 +930,13 @@ def sweep(checkout, only=None):
                     owner=private_directory(run.parent)
                     if only is None and len(candidates)>1:
                         advance_cursor(owner/'build-tree-retention-cursor.json',str(checkout),str(run))
-                    results.append(run_sweep(checkout,private_directory(run),row,route,authority,ledgers,
-                                             verify_routes,state_roots,operations,deadline))
+                    if 'private_readback' in row:
+                        results.append(private_readback_sweep(
+                            checkout, private_directory(run), row, route, authority, ledgers,
+                            verify_routes, operations, deadline))
+                    else:
+                        results.append(run_sweep(checkout,private_directory(run),row,route,authority,ledgers,
+                                                 verify_routes,state_roots,operations,deadline))
                 except HOLD_ERRORS as error:
                     results.append(dict(run=str(run),status='held',reason=str(error)))
             remaining=len(candidates)-attempted

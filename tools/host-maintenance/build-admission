@@ -212,13 +212,25 @@ def current(plan):
     require(isinstance(profiles, list) and profiles, 'explicit build profiles required')
     for profile in profiles:
         require(set(profile) == {'PROJECT', 'DEVICE', 'ARCH'} and all(isinstance(v, str) and v for v in profile.values()), 'invalid build profile')
+    private_readback = {}
+    if 'private_readback' in plan:
+        selected = plan['private_readback']
+        require(isinstance(selected, dict) and set(selected) == {'archive', 'sha256'}
+                and isinstance(selected['archive'], str) and selected['archive'] in retained_inputs
+                and isinstance(selected['sha256'], str) and re.fullmatch('[0-9a-f]{64}', selected['sha256'])
+                and not retirement, 'invalid private readback admission')
+        keeper = Path(selected['archive'])
+        require(keeper.suffix == '.tar' and stat.S_ISREG(path_identity(keeper)['mode'])
+                and not any(overlap(keeper, output) for output in (*seen, root / '.build-runs')),
+                'private readback keeper must be a protected release tar outside generated outputs')
+        private_readback['private_readback'] = selected
     return {'checkout': str(root), 'source': source_state(root), 'profiles': profiles,
             'volume': str(volume), 'volume_device': volume_id['device'],
             'required_bytes': need, 'available_bytes': available_bytes(volume),
             'retention_plan_sha256': digest(retention_plan), 'retention_report_sha256': digest(report_path),
             'outputs': holds, 'registry': str(registry_for(root)),
             'retention_scope': scope, 'retire_on_consume': retirement,
-            'container_checkout': plan.get('container_checkout', str(root))}
+            'container_checkout': plan.get('container_checkout', str(root)), **private_readback}
 
 
 def fixed_state(state):

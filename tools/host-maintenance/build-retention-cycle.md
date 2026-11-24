@@ -84,6 +84,59 @@ exact retirement and recovery evidence for the individually named
 transfer. Qualify a build-tree sweep through its own terminal custody and
 host-use checks.
 
+## Private update-tar QA readbacks
+
+The host checkout's `tools/pixelelated-state-check --payload` can opt in to
+retirement for one reconstructed `SYSTEM` file. Plan this as an ordinary
+admitted QA run. Put the exact absolute keeper tar in the admission plan's
+`inputs` and add `"private_readback": {"archive": "/absolute/keeper.tar",
+"sha256": "<original packaging digest>"}` to that plan. Keep the ordinary
+output declarations and their owners and release conditions. The normal
+watcher assigns the private run directory, so no shared scratch root is
+enrolled. Start the reader directly under the watcher from that checkout.
+
+```sh
+tools/watch-build --admission "$admission_receipt" -- \
+  "$checkout/tools/pixelelated-state-check" --payload "$keeper_tar" \
+  --private-readback "$keeper_sha256"
+```
+
+The reader exclusively creates `$run/private-readback/SYSTEM` and passes
+the opened copy only to its own bounded SquashFS listing and cat commands
+via an inherited descriptor. It publishes `$run/private-readback.json`
+after reconstructing and reading back the copy. Keep this receipt and the
+original QA channels. Add the receipt's exact absolute path and SHA-256 to
+the normal acceptance's `evidence` array before running the usual
+`build-admission consume` command. An investigated QA error can be consumed
+without changing its original result. Use this route only for a
+non-exporting readback whose copy will never be a VM disk, bind source,
+queued input or independent deliverable.
+
+The existing after-consume hook and 15-minute sweep both use the canonical
+engine. The engine binds the original terminal result, producer admission,
+and exact accepted receipt, then checks protected and queued references
+under the existing registry locks. It acquires an exclusive kernel lease
+on the copy and a read lease on the independent archive. It verifies the
+archive and exact member again, compares the copy, writes a durable
+intent, rechecks identity, and unlinks only that inode. It retains the
+archive, original channels, source, siblings and run directory. An
+interrupted intent with a missing copy and no receipt stays unconfirmed
+and gets zero byte credit. A present copy with no complete producer receipt
+stays held. Ordinary kernel lease refusal or file contention, changed
+custody, and overlapping registered references also hold the file.
+Verified unlinks and measured available-space changes remain separate.
+
+This tier uses the existing 200-second engine bound. It accepts one plain
+GNU or POSIX release archive up to 5 GiB and one regular `SYSTEM` up to
+4 GiB per producer run, with at most 4,096 tar headers. It requires an owned
+non-shared checkout, the original account and PID namespace, and supported
+Linux file leases. Path or custody inspection outside the exact producer
+and already registered scopes is outside this tier. Historical
+extractions, exported media, install image scratch, manually created
+copies and mixed retirement declarations need their applicable independent
+custody route. Whole-tree and legacy safeguards and the timer configuration
+are unchanged.
+
 ## Deploy as the ordinary build account
 
 From the reviewed canonical checkout after the engine, its sibling guards and
