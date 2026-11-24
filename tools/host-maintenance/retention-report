@@ -2,14 +2,17 @@
 """Read-only build capacity and completed-QA disk retention report (#461).
 
 Inputs are an explicit plan, not deletion authority. This tool never removes
-files, changes permissions, stops processes or invokes privileged commands.
+files, changes permissions or stops processes. The optional host-use mode reads a fixed enrolled report.
 Only superseded QA disks are eligible; build trees use fork-worktree separately.
 """
 import argparse
+import base64
 from datetime import datetime, timezone
 import hashlib
 import json
 import os
+import re
+import tempfile
 from pathlib import Path
 import stat
 import subprocess
@@ -75,7 +78,7 @@ def source_fixtures(plan):
     return accepted, errors
 
 
-def inventory(plan):
+def inventory(plan, generated=False):
     roots = [Path(p) for p in plan['scan_roots']]
     if not roots or any(not p.is_absolute() or not p.is_dir() or p.is_symlink() for p in roots):
         raise ValueError('scan roots must be explicit existing absolute directories')
@@ -85,6 +88,8 @@ def inventory(plan):
     edges, disks, manifests = [], [], []
     count = 0
     tick = time.monotonic()
+    deadline = tick + 30
+    entries_seen = 0
     targets = {str(Path(c['path'])) for c in plan['candidates']}
     if len(targets) != len(plan['candidates']):
         raise ValueError('duplicate candidate paths')
@@ -96,6 +101,10 @@ def inventory(plan):
             try:
                 with os.scandir(base) as entries:
                     for entry in entries:
+                        if generated:
+                            entries_seen += 1
+                            if entries_seen > 16384 or time.monotonic() >= deadline:
+                                raise ValueError('generated reference scan exceeded its bound')
                         try:
                             if entry.is_symlink():
                                 target = str(Path(entry.path).resolve())
@@ -119,6 +128,9 @@ def inventory(plan):
                                     errors.append('source fixture changed during discovery: ' + str(p))
                                 continue
                             if disk_name:
+                                if generated:
+                                    errors.append('virtual media in generated-file reference scope: ' + str(p))
+                                    continue
                                 with p.open('rb') as stream:
                                     magic = stream.read(4)
                                 if magic == b'QFI\xfb' or name.endswith(('.qcow2', '.qcow', '.vmdk', '.vdi', '.vhd', '.vhdx')):
@@ -129,7 +141,7 @@ def inventory(plan):
                             errors.append(str(error))
             except OSError as error:
                 errors.append(str(error))
-            if time.monotonic() - tick > 10:
+            if not generated and time.monotonic() - tick > 10:
                 print(f'Inspected {count} directories; {len(disks)} disk paths', flush=True)
                 tick = time.monotonic()
     disk_rows = []
@@ -162,15 +174,18 @@ def inventory(plan):
             print(f'Inspected {n + 1}/{len(disks)} backing chains', flush=True)
     for p in manifests:
         try:
-            if p.stat().st_size > 32 * 1024 * 1024:
+            if generated and time.monotonic() >= deadline:
+                raise ValueError('generated reference scan exceeded its bound')
+            if p.stat().st_size > (1048576 if generated else 32 * 1024 * 1024):
                 raise ValueError('unclassified oversized store manifest: ' + str(p))
             for value in strings(json.loads(p.read_text())):
-                if value in targets:
+                if (value in targets or generated and value.startswith('/') and
+                        any(within(t, os.path.normpath(value)) for t in targets)):
                     edges.append(dict(source=str(p), target=value, kind='cross-store-json'))
         except (OSError, ValueError) as e:
             errors.append(str(e))
     active, process_errors = [], []
-    for entry in Path('/proc').glob('[0-9]*/cmdline'):
+    for entry in (() if generated else Path('/proc').glob('[0-9]*/cmdline')):
         try:
             argv = entry.read_bytes().split(b'\0')
             if not argv[0]:
@@ -189,11 +204,14 @@ def inventory(plan):
             process_errors.append(str(e))
     mounts = []
     try:
-        ids = subprocess.check_output(['docker', 'ps', '-aq'], text=True, timeout=30).split()
-        for cid in ids:
-            data = json.loads(subprocess.check_output(['docker', 'inspect', cid], text=True, timeout=30))[0]
-            for mount in data['Mounts']:
-                mounts.append(dict(container=cid, running=data['State']['Running'], source=mount['Source']))
+        if generated:
+            mounts = generated_mounts(deadline)
+        else:
+            ids = subprocess.check_output(['docker', 'ps', '-aq'], text=True, timeout=30).split()
+            for cid in ids:
+                data = json.loads(subprocess.check_output(['docker', 'inspect', cid], text=True, timeout=30))[0]
+                for mount in data['Mounts']:
+                    mounts.append(dict(container=cid, running=data['State']['Running'], source=mount['Source']))
     except (OSError, ValueError, subprocess.SubprocessError) as e:
         errors.append('container inspection: ' + str(e))
     return dict(directories=count, errors=errors + process_errors, disks=disk_rows,
@@ -202,6 +220,42 @@ def inventory(plan):
                 scope='All directories under explicit roots; directory symlinks not followed. '
                       'QCOW magic in img/raw and named virtual disks; JSON references in explicit stores. '
                       'Actual process argv and all container mounts. No whole-host root FD census claimed.')
+
+
+def generated_mounts(deadline):
+    # Deliberately inspect only mount records on the local daemon, including stopped containers.
+    def docker(*argv):
+        timeout = deadline - time.monotonic()
+        if timeout <= 0:
+            raise ValueError('container reference scan exceeded its bound')
+        result = subprocess.run(['/usr/bin/docker', '--host', 'unix:///var/run/docker.sock', *argv],
+                                stdin=subprocess.DEVNULL, capture_output=True, text=True, check=True,
+                                timeout=timeout, env={'PATH': '/usr/bin:/bin', 'LC_ALL': 'C'})
+        if result.stderr or len(result.stdout) > 2 * 1024 * 1024:
+            raise ValueError('unconfirmed or oversized container mount census')
+        return result.stdout.splitlines()
+
+    ids = docker('container', 'ls', '--all', '--no-trunc', '--format', '{{.ID}}')
+    if (len(ids) > 256 or len(set(ids)) != len(ids) or
+            any(not re.fullmatch('[0-9a-f]{64}', ident) for ident in ids)):
+        raise ValueError('invalid container mount census')
+    result = []
+    if ids:
+        records = docker('inspect', '--type=container', '--format', '{{json .Mounts}}', *ids)
+        if len(records) != len(ids):
+            raise ValueError('incomplete container mount census')
+        for ident, raw in zip(ids, records):
+            mounts = json.loads(raw)
+            if not isinstance(mounts, list):
+                raise ValueError('invalid container mounts')
+            for mount in mounts:
+                source = Path(mount['Source'])
+                if not source.is_absolute() or source.resolve(strict=True) != source:
+                    raise ValueError('unresolved container mount source')
+                result.append(dict(container=ident, source=str(source)))
+    if set(docker('container', 'ls', '--all', '--no-trunc', '--format', '{{.ID}}')) != set(ids):
+        raise ValueError('containers changed during mount census')
+    return result
 
 
 def evaluate(candidate, plan, observed):
@@ -297,11 +351,144 @@ def report(plan):
                             'A report is not deletion authority; refresh identities, dependencies and active use before execution.')
 
 
+HOST_USE_HELPER = Path('/usr/local/libexec/pixelelated/host-in-use-report')
+HOST_USE_TIMEOUT = 125
+HOST_USE_EXIT = {'clear': 0, 'busy': 1, 'incomplete': 2}
+
+
+def sha256_arg(value):
+    if not re.fullmatch('[0-9a-f]{64}', value):
+        raise argparse.ArgumentTypeError('expected a lowercase SHA-256 digest')
+    return value
+
+
+def use_result(status, reason, manifest, selection):
+    return dict(schema=1, status=status, reason=reason, manifest_sha256=manifest,
+                selection_sha256=selection, cleanup_authorized=False, reclaimed_bytes=0)
+
+
+def read_host_use(manifest, selection):
+    return read_host_uses(manifest, [selection])[selection]
+
+
+def read_host_uses(manifest, selections):
+    # Only the preinstalled fixed executable may ever cross the privilege boundary.
+    # An enrollment digest is a comparison operand, never a privileged argument.
+    def hold(reason):
+        return {sel: use_result('incomplete', reason, manifest, sel) for sel in selections}
+
+    try:
+        for path in [*reversed(HOST_USE_HELPER.parents), HOST_USE_HELPER]:
+            st = path.lstat()
+            valid_type = stat.S_ISREG(st.st_mode) if path == HOST_USE_HELPER else stat.S_ISDIR(st.st_mode)
+            if not valid_type or st.st_uid != 0 or st.st_mode & 0o022:
+                return hold('untrusted-installation')
+    except FileNotFoundError:
+        return hold('producer-not-installed')
+    except OSError:
+        return hold('installation-unreadable')
+
+    if os.geteuid() == 0:
+        return hold('consumer-requires-ordinary-account')
+    started = time.time_ns()
+    try:
+        result = subprocess.run(['/usr/bin/sudo', '-n', '--', str(HOST_USE_HELPER)],
+                                stdin=subprocess.DEVNULL, stdout=subprocess.PIPE,
+                                stderr=subprocess.DEVNULL, timeout=HOST_USE_TIMEOUT,
+                                env={'PATH': '/usr/bin:/bin', 'LC_ALL': 'C'})
+    except (OSError, subprocess.TimeoutExpired):
+        return hold('producer-unavailable')
+    ended = time.time_ns()
+    original_hash = hashlib.sha256(result.stdout).hexdigest()
+    if len(result.stdout) > 128 * 1024:
+        outcomes = hold('oversized-producer-report')
+    else:
+        try:
+            doc = json.loads(result.stdout)
+        except (ValueError, RecursionError):
+            doc = None
+        outcomes = {}
+        original = base64.b64encode(result.stdout).decode('ascii')
+        for selection in selections:
+            try:
+                outcome = validate_host_use(doc, result.returncode, manifest, selection, started, ended)
+            except (ValueError, KeyError, TypeError, RecursionError):
+                outcome = use_result('incomplete', 'invalid-or-unmatched-producer-report', manifest, selection)
+            outcome['original_stdout_base64'] = original
+            outcomes[selection] = outcome
+    for outcome in outcomes.values():
+        outcome.update(producer_exit=result.returncode, producer_report_sha256=original_hash)
+    return outcomes
+
+
+def validate_host_use(doc, rc, manifest, selection, started, ended):
+    statuses = HOST_USE_EXIT
+    def require(ok):
+        if not ok:
+            raise ValueError('invalid host-use report')
+    require(isinstance(doc, dict) and type(doc['schema']) is int and doc['schema'] == 1)
+    require(doc['manifest_sha256'] == manifest and statuses[doc['status']] == rc)
+    begin, finish = doc['started_at_ns'], doc['finished_at_ns']
+    require(type(begin) is int and type(finish) is int and started <= begin <= finish <= ended)
+    require(ended - started <= (HOST_USE_TIMEOUT + 1) * 10**9)
+    require(type(doc['expires_at']) is int and ended < doc['expires_at'] * 10**9)
+    require(type(doc['scan_complete']) is bool)
+    batches = doc['batches']
+    require(isinstance(batches, list) and 0 < len(batches) <= 16)
+    selected = {}
+    for batch in batches:
+        identity = batch['selection_sha256']
+        require(isinstance(identity, str) and re.fullmatch('[0-9a-f]{64}', identity))
+        require(identity not in selected and batch['status'] in statuses)
+        require(type(batch['files']) is int and 0 < batch['files'] <= 512)
+        selected[identity] = batch
+    batch = selected[selection]
+    if not doc['scan_complete'] or doc['reason'] is not None:
+        require(doc['status'] == 'incomplete')
+        return use_result('incomplete', 'incomplete-host-visibility', manifest, selection)
+    require(max(statuses[b['status']] for b in batches) == rc)
+    require(all(type(doc[k]) is int and doc[k] > 0 for k in ('tasks_scanned', 'mount_views_scanned')))
+    for row in batches:
+        if row['status'] == 'incomplete':
+            require(row['matches'] is None and isinstance(row['reason'], str))
+            continue
+        matches = row['matches']
+        require(row['reason'] is None and isinstance(matches, dict))
+        require(matches.keys() == {'argument', 'descriptor', 'executable', 'mapping', 'bind_mount'})
+        require(all(type(n) is int and n >= 0 for n in matches.values()))
+        require(any(matches.values()) == (row['status'] == 'busy'))
+    outcome = use_result(batch['status'], {'clear': None, 'busy': 'files-in-use',
+                         'incomplete': 'selection-incomplete'}[batch['status']], manifest, selection)
+    outcome.update(files=batch['files'], observed_at_ns=finish)
+    return outcome
+
+
+def publish_host_use(output, result):
+    # An observer can open the requested path as soon as it appears. Link a
+    # finished private file so it cannot see a partial report or lose an older one.
+    with tempfile.NamedTemporaryFile(mode='w', dir=output.parent) as stream:
+        json.dump(result, stream)
+        stream.write('\n')
+        stream.flush()
+        os.fsync(stream.fileno())
+        os.link(stream.name, output)
+    print(json.dumps({'status': result['status'], 'reason': result['reason']}), flush=True)
+    return HOST_USE_EXIT[result['status']]
+
+
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument('--plan', type=Path, required=True)
+    mode = parser.add_mutually_exclusive_group(required=True)
+    mode.add_argument('--plan', type=Path)
+    mode.add_argument('--host-use-selection', type=sha256_arg)
+    parser.add_argument('--manifest-sha256', type=sha256_arg)
     parser.add_argument('--output', type=Path, required=True)
     args = parser.parse_args()
+    if bool(args.host_use_selection) != bool(args.manifest_sha256):
+        parser.error('--host-use-selection and --manifest-sha256 are required together')
+    if args.host_use_selection:
+        result = read_host_use(args.manifest_sha256, args.host_use_selection)
+        raise SystemExit(publish_host_use(args.output, result))
     plan = json.loads(args.plan.read_text())
     result = report(plan)
     result['plan_sha256'] = digest(args.plan)

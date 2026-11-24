@@ -5,6 +5,9 @@ Canonical operating rule: [.claude/rules/device-builds.md](../.claude/rules/devi
 This repository record is available to every harness; private memory, an installed
 skill, or access to the originating chat is not required.
 
+For cache staging and build admission, follow the [build-volume headroom
+check](../.claude/rules/worktrees.md#check-build-volume-headroom-before-copying-or-launching).
+
 ## Verbatim authority
 
 > Yes, go ahead and prepare the reviewed code for the M7 build.

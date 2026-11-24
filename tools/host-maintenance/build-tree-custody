@@ -1,0 +1,544 @@
+#!/usr/bin/python3 -IBS
+# SPDX-License-Identifier: GPL-2.0-or-later
+"""Compile immutable retirement custody from one already accepted build proof."""
+import argparse
+import ctypes
+import errno
+import hashlib
+import json
+import os
+from pathlib import Path
+import re
+import stat
+import tempfile
+import time
+
+MAX_ITEMS = 8192
+MAX_META = 16 * 1024**2
+MAX_BYTES = 8 * 1024**3
+MAX_SECONDS = 45
+MAX_DEPTH = 48
+SNAPSHOT = 'build-tree-custody'
+OPEN = os.O_NOFOLLOW | os.O_NONBLOCK | os.O_CLOEXEC
+FIELDS = ('roots', 'reference_roots', 'reference_stores', 'registry_state_roots')
+MARKERS = {'.git', '.gitmodules'}
+
+
+def require(ok, reason):
+    if not ok:
+        raise ValueError(reason)
+
+
+def encoded(value):
+    return json.dumps(value, sort_keys=True, separators=(',', ':'), ensure_ascii=True).encode('ascii')
+
+
+def sha(value):
+    return hashlib.sha256(value).hexdigest()
+
+
+def digest_string(value):
+    return isinstance(value, str) and re.fullmatch('[a-f0-9]{64}', value)
+
+
+def shape(value, keys, reason):
+    require(isinstance(value, dict) and set(value) == set(keys), reason)
+
+
+def canonical(value):
+    p = Path(value)
+    require(p.is_absolute() and p != Path('/') and str(p) == str(value) and '..' not in p.parts
+            and p.resolve() == p, 'noncanonical or symbolic custody path')
+    return p
+
+
+def overlap(a, b):
+    return a.is_relative_to(b) or b.is_relative_to(a)
+
+
+def dir_id(s):
+    return dict(device=s.st_dev, inode=s.st_ino, uid=s.st_uid, mode=s.st_mode)
+
+
+def file_id(s):
+    return dict(device=s.st_dev, inode=s.st_ino, size=s.st_size,
+                mtime_ns=s.st_mtime_ns, ctime_ns=s.st_ctime_ns,
+                allocated_bytes=s.st_blocks * 512, uid=s.st_uid,
+                links=s.st_nlink, mode=s.st_mode)
+
+
+def directory(p, device=None, expected=None):
+    s = canonical(p).lstat()
+    actual = dir_id(s)
+    require(stat.S_ISDIR(s.st_mode) and s.st_uid == os.geteuid()
+            and not s.st_mode & 0o022 and (device is None or s.st_dev == device)
+            and (expected is None or actual == expected), 'custody directory identity or ownership changed')
+    return actual
+
+
+class Budget:
+    def __init__(self):
+        self.bytes = MAX_BYTES
+        self.items = MAX_ITEMS
+        self.until = time.monotonic() + MAX_SECONDS
+
+    def tick(self, items=0, size=0):
+        self.items -= items
+        self.bytes -= size
+        require(self.items >= 0 and self.bytes >= 0 and time.monotonic() <= self.until,
+                'custody work exceeds item, byte or time limit')
+
+    def read(self, path, *, metadata=False, trusted=False):
+        path = canonical(path)
+        with os.fdopen(os.open(path, os.O_RDONLY | OPEN), 'rb') as stream:
+            s = os.fstat(stream.fileno())
+            ident = file_id(s)
+            require(stat.S_ISREG(s.st_mode), 'custody evidence is not regular')
+            if trusted:
+                require(s.st_uid == os.geteuid() and s.st_nlink == 1 and not s.st_mode & 0o022,
+                        'custody control is shared or untrusted')
+            require(not metadata or s.st_size <= MAX_META, 'oversized custody metadata')
+            self.tick(items=1, size=s.st_size)
+            h = hashlib.sha256()
+            raw = bytearray() if metadata else None
+            remaining = s.st_size
+            while remaining:
+                self.tick()
+                data = stream.read(min(remaining, 1024 * 1024))
+                require(data, 'custody input truncated')
+                remaining -= len(data)
+                h.update(data)
+                if raw is not None:
+                    raw.extend(data)
+            require(not stream.read(1) and ident == file_id(os.fstat(stream.fileno()))
+                    == file_id(path.lstat()), 'custody input changed')
+        return h.hexdigest(), ident, bytes(raw) if raw is not None else None
+
+
+def metadata(budget, path):
+    digest, _, raw = budget.read(path, metadata=True, trusted=True)
+    return json.loads(raw), digest
+
+
+def file_ref(ref):
+    shape(ref, ('path', 'sha256'), 'invalid custody evidence reference')
+    require(digest_string(ref['sha256']), 'invalid custody evidence digest')
+    return canonical(ref['path'])
+
+
+def evidence_list(values, *, empty=False):
+    require(isinstance(values, list) and (empty or values) and len(values) <= MAX_ITEMS,
+            'missing or oversized evidence list')
+    mapped = {file_ref(r): r for r in values}
+    require(len(mapped) == len(values), 'duplicate custody evidence paths')
+    return mapped
+
+
+def check_evidence(budget, ref, remembered):
+    p = file_ref(ref)
+    if p not in remembered:
+        remembered[p] = budget.read(p)[:2]
+    value, identity = remembered[p]
+    require(value == ref['sha256'] and identity == file_id(p.lstat()), 'independent custody evidence changed')
+
+
+def ownership(budget, run, row, proof, inputs):
+    require(row['run'] == str(run) and run.parent == canonical(row['checkout']) / '.build-runs'
+            and row['state'] == 'consumed', 'no matching consumed producer')
+    source = row['source']
+    shape(source, ('head','tracked_diff_sha256'), 'missing exact admitted source')
+    require(isinstance(source['head'],str) and re.fullmatch(r'[a-f0-9]{40}|[a-f0-9]{64}',source['head'])
+            and digest_string(source['tracked_diff_sha256']), 'missing exact admitted source')
+    consumed, consumed_sha = metadata(budget, run / 'admission-consumed.json')
+    require(consumed == row, 'original consumption missing or changed')
+    admitted, admission_sha = metadata(budget, run / 'admission.json')
+    require(admitted.get('state') == 'running'
+            and all(k == 'state' or row.get(k) == v for k, v in admitted.items()), 'admission original changed')
+    receipt, receipt_sha = metadata(budget, run / 'admission-input.json')
+    generation = receipt['registry_generation']
+    require(receipt_sha == row['receipt_sha256'] and receipt['id'] == row['id'] and receipt['schema'] == 1
+            and type(generation) is int and generation >= 0, 'admission receipt or generation changed')
+    result, _ = metadata(budget, run / 'runner-result.json')
+    rc = result['runner_rc']
+    status = run / 'build.status'
+    cmd_rc = run / 'build.rc'
+    require(status.lstat().st_size <= 65536 and cmd_rc.lstat().st_size <= 128,
+            'oversized original terminal marker')
+    _, _, status_raw = budget.read(status, metadata=True, trusted=True)
+    _, _, rc_raw = budget.read(cmd_rc, metadata=True, trusted=True)
+    require(status_raw.startswith(b'state:       finished\n')
+            and int(rc_raw) == result['command_rc'], 'original run is not terminal')
+    require(result == row['original_result'] and all(type(result[k]) is int
+            for k in ('runner_rc', 'command_rc', 'monitor_rc')) and result['monitor_rc'] == 0
+            and proof['run'] == str(run) and proof['outputs'] == row['outputs']
+            and type(proof['expected_rc']) is int and proof['expected_rc'] == rc
+            and proof['disposition'] == ('qualified' if rc == 0 else 'failed-investigated')
+            and proof.get('build_tree_inputs') == inputs and 'build_tree' not in proof,
+            'original acceptance does not bind these custody inputs')
+    kept = row['retained_evidence']
+    require(isinstance(kept, list) and len(kept) <= MAX_ITEMS, 'unverified original acceptance references')
+    matches = []
+    for name in kept:
+        p = Path(name)
+        budget.tick(items=1)
+        # The retained list also contains payloads and directories. The producer
+        # reads only possible compact JSON receipts to locate the accepted bytes.
+        try:
+            s = p.lstat()
+        except FileNotFoundError:
+            continue
+        if not stat.S_ISREG(s.st_mode) or s.st_size > MAX_META:
+            continue
+        digest, _, raw = budget.read(p, metadata=True)
+        if digest == row['evidence_sha256']:
+            require(json.loads(raw) == proof, 'accepted proof content changed')
+            matches.append(p)
+    require(len(matches) == 1, 'exact original acceptance missing or ambiguous')
+    return {
+        'admission_id': row['id'], 'admission_sha256': admission_sha,
+        'admission_receipt_sha256': receipt_sha, 'registry_generation': generation,
+        'consumed_sha256': consumed_sha, 'acceptance_sha256': row['evidence_sha256'],
+        'inputs_sha256': sha(encoded(inputs)),
+    }, matches[0]
+
+
+def root_operands(inputs, row):
+    require(isinstance(inputs['roots'], list) and 0 < len(inputs['roots']) <= 8,
+            'invalid generated scope count')
+    checkout = canonical(row['checkout'])
+    outputs = [canonical(o['path']) for o in row['outputs'] if o['kind'] == 'build-cache']
+    result = {}
+    for entry in inputs['roots']:
+        known = {'path', 'host_manifest_sha256'}
+        require(isinstance(entry, dict) and set(entry) in (known | {'catalog'}, known | {'keeper'})
+                and digest_string(entry['host_manifest_sha256']), 'invalid generated scope or host enrollment digest')
+        root = canonical(entry['path'])
+        parents = [p for p in outputs if p.parent == checkout and p.name.startswith('build.')
+                   and (root == p or (p / 'build') in root.parents)]
+        require(len(parents) == 1 and not any(overlap(root, x) for x in result),
+                'generated scopes are unowned or overlap')
+        require(not MARKERS.intersection(root.relative_to(parents[0]).parts), 'nested repository scope')
+        result[root] = (parents[0], entry)
+    return result
+
+
+def reference_dirs(inputs, roots):
+    values = {}
+    for key in FIELDS[1:]:
+        refs = inputs[key]
+        require(isinstance(refs, list) and len(refs) <= 8 and (refs or key == 'reference_stores'),
+                'invalid compact reference or registry directories')
+        dirs = [canonical(r) for r in refs]
+        require(len(set(dirs)) == len(dirs) and all(r.is_dir() and not any(overlap(r, root) for root in roots)
+                                                  for r in dirs), 'unsafe reference directory')
+        values[key] = refs
+    require(all(any(Path(s).is_relative_to(r) for r in values['reference_roots'])
+                for s in values['reference_stores']), 'reference stores outside reference roots')
+    return values
+
+
+def relative(value, base):
+    r = Path(value)
+    require(not r.is_absolute() and str(r) == value and '..' not in r.parts and not MARKERS.intersection(r.parts)
+            and len(r.parts) <= MAX_DEPTH, 'unsafe catalog-relative name')
+    return base / r
+
+
+def has_repo_marker(path):
+    return any(os.path.lexists(path / name) for name in MARKERS)
+
+
+def check_chain(path, root, device):
+    for p in (path, *path.parents):
+        if not p.is_relative_to(root):
+            break
+        directory(p, device)
+        require(not has_repo_marker(p), 'generated selection crosses a nested repository')
+
+
+def live_file(path, device):
+    s = canonical(path).lstat()
+    require(stat.S_ISREG(s.st_mode) and s.st_uid == os.geteuid() and s.st_dev == device
+            and s.st_nlink == 1, 'generated file is linked, foreign, or untrusted')
+    return file_id(s)
+
+
+def catalog_scope(budget, ref, run, row, binding, root, parent, accepted):
+    catalog_path = file_ref(ref)
+    require(accepted.get(catalog_path) == ref, 'native catalog is not an accepted original')
+    doc, digest = metadata(budget, catalog_path)
+    shape(doc, ('schema','run','admission_id','admission_sha256','registry_generation',
+                'root','directories','files'), 'invalid native catalog')
+    require(digest == ref['sha256'] and doc['schema'] == 1 and doc['run'] == str(run)
+            and doc['admission_id'] == row['id'] and doc['admission_sha256'] == binding['admission_sha256']
+            and type(doc['registry_generation']) is int and doc['registry_generation'] == binding['registry_generation']
+            and doc['root'] == str(root), 'native catalog producer, generation or scope differs')
+    dirs, files = {}, {}
+    device = row['volume_device']
+    for key in ('directories', 'files'):
+        require(isinstance(doc[key], list) and 0 < len(doc[key]) <= MAX_ITEMS, 'empty or oversized native catalog')
+    for entry in doc['directories']:
+        budget.tick(items=1)
+        shape(entry, ('path','identity'), 'invalid catalog directory')
+        p = relative(entry['path'], root)
+        require(p not in dirs and not has_repo_marker(p)
+                and (p == root or p.is_relative_to(parent / 'build')), 'unexpected or duplicate catalog directory')
+        dirs[p] = directory(p, device, entry['identity'])
+    require(root in dirs and all(p == root or p.parent in dirs for p in dirs), 'incomplete catalog ancestry')
+    for entry in doc['files']:
+        budget.tick(items=1)
+        shape(entry, ('path','identity','sha256'), 'invalid catalog generated file')
+        p = relative(entry['path'], root)
+        require(p.parent in dirs and p not in files and p not in dirs and p.is_relative_to(parent / 'build')
+                and digest_string(entry['sha256']), 'unexpected or duplicate catalog file')
+        ident = live_file(p, device)
+        require(ident == entry['identity'], 'catalog file identity changed')
+        files[p] = ident
+    return dirs, files, {}
+
+
+def keeper_scope(budget, spec, root, parent, device, remembered):
+    shape(spec, ('path','identity'), 'invalid independent keeper')
+    keep = canonical(spec['path'])
+    directory(keep, expected=spec['identity'])
+    require(not overlap(keep,parent), 'keeper is not independent of the declared output')
+    current = root / 'build' if root == parent else root
+    held = keep / 'build' if root == parent else keep
+    require(current.is_dir() and held.is_dir(), 'selected generated working or keeper directory missing')
+    dirs, files, keepers = {}, {}, {}
+
+    def walk(target, peer, depth):
+        budget.tick(items=1)
+        require(depth <= MAX_DEPTH, 'keeper walk exceeds depth limit')
+        directory(target, device)
+        directory(peer)
+        if has_repo_marker(target) or has_repo_marker(peer):
+            return
+        with os.scandir(target) as entries:
+            for entry in entries:
+                budget.tick(items=1)
+                a, b = Path(entry.path), peer / entry.name
+                if entry.name in MARKERS or entry.is_symlink():
+                    continue
+                try:
+                    other = b.lstat()
+                    before = entry.stat(follow_symlinks=False)
+                except FileNotFoundError:
+                    continue
+                if stat.S_ISDIR(before.st_mode) and stat.S_ISDIR(other.st_mode):
+                    walk(a,b,depth+1)
+                    continue
+                if not (stat.S_ISREG(before.st_mode) and stat.S_ISREG(other.st_mode)
+                        and before.st_dev == device and before.st_uid == os.geteuid() and before.st_nlink == 1
+                        and other.st_nlink == 1 and before.st_mode == other.st_mode
+                        and before.st_size == other.st_size and not os.path.samestat(before,other)):
+                    continue
+                old, old_id, _ = budget.read(a)
+                copy, copy_id, _ = budget.read(b)
+                require(old_id == file_id(before) and copy_id == file_id(other)
+                        and old_id == file_id(a.lstat()), 'candidate or keeper changed during comparison')
+                if old == copy:
+                    files[a] = old_id
+                    keepers[a] = {'path':str(b),'sha256':copy}
+                    remembered[b] = (copy,copy_id)
+                    for folder in (a.parent,*a.parent.parents):
+                        if not folder.is_relative_to(root):
+                            break
+                        dirs[folder] = directory(folder,device)
+    check_chain(current, root, device)
+    walk(current,held,0)
+    require(files, 'no independent same-relative generated file matches')
+    return dirs, files, keepers
+
+
+def make_roots(budget, run, row, binding, operands, accepted, remembered):
+    compiled, kept_files = [], {}
+    roots_only = set(operands)
+    for root, (parent, spec) in sorted(operands.items()):
+        device = row['volume_device']
+        host = directory(parent, device)
+        check_chain(root,parent,device)
+        if 'catalog' in spec:
+            dirs, files, keepers = catalog_scope(budget,spec['catalog'],run,row,binding,root,parent,accepted)
+        else:
+            dirs, files, keepers = keeper_scope(budget,spec['keeper'],root,parent,device,remembered)
+        require(not any(overlap(file_ref(ref), r) for ref in keepers.values() for r in roots_only),
+                'keeper overlaps another generated scope')
+        kept_files.update({str(k):v for k,v in keepers.items()})
+        record = dict(path=str(root), host_manifest_sha256=spec['host_manifest_sha256'],
+                      directories=[dict(path=str(p),identity=v) for p,v in sorted(dirs.items())],
+                      files=[dict(path=str(p),identity=v) for p,v in sorted(files.items())])
+        if root != parent:
+            record['host_scope'] = dict(path=str(parent),identity=host)
+        compiled.append(record)
+    require(sum(len(r['directories'])+len(r['files']) for r in compiled) <= MAX_ITEMS,
+            'compiled generated scope exceeds item limit')
+    return compiled, kept_files
+
+
+def fsync_dir(path):
+    fd = os.open(path,os.O_DIRECTORY | os.O_RDONLY | OPEN)
+    try:
+        os.fsync(fd)
+    finally:
+        os.close(fd)
+
+
+def publish(path, contents, budget):
+    # Single no-replace commit for the config and both receipts. No path in the
+    # original build or proof is edited, and an interrupted stage is not reused.
+    stage = Path(tempfile.mkdtemp(prefix='.build-tree-custody-',dir=path.parent))
+    try:
+        for name,payload in contents.items():
+            require(len(payload) <= MAX_META, 'compiled custody metadata exceeds limit')
+            budget.tick(size=len(payload))
+            fd = os.open(stage/name,os.O_WRONLY | os.O_CREAT | os.O_EXCL | OPEN,0o400)
+            with os.fdopen(fd,'wb') as stream:
+                stream.write(payload)
+                stream.flush()
+                os.fsync(stream.fileno())
+        fsync_dir(stage)
+        rename = getattr(ctypes.CDLL(None,use_errno=True),'renameat2',None)
+        require(rename is not None, 'atomic no-replace custody publication unavailable')
+        rename.argtypes = (ctypes.c_int,ctypes.c_char_p,ctypes.c_int,ctypes.c_char_p,ctypes.c_uint)
+        rename.restype = ctypes.c_int
+        if rename(-100,os.fsencode(stage),-100,os.fsencode(path),1):
+            e = ctypes.get_errno()
+            if e != errno.EEXIST:
+                raise OSError(e,os.strerror(e))
+        fsync_dir(path.parent)
+    finally:
+        if stage.is_dir():
+            for name in contents:
+                child = stage/name
+                if child.exists():
+                    child.unlink()
+            stage.rmdir()
+
+
+def validate_saved(doc, binding, operands, refs):
+    shape(doc, ('schema','binding','selected','keeper_files'), 'invalid compiled custody snapshot')
+    require(doc['schema'] == 1 and doc['binding'] == binding, 'compiled custody belongs to different accepted inputs')
+    selected = doc['selected']
+    shape(selected,FIELDS,'invalid compiled selection')
+    require(all(selected[k] == v for k,v in refs.items()) and isinstance(selected['roots'],list)
+            and len(selected['roots']) == len(operands), 'compiled selection differs')
+    kept = doc['keeper_files']
+    require(isinstance(kept,dict), 'invalid compiled keepers')
+    expected_keepers = set()
+    seen = set()
+    for spec in selected['roots']:
+        root = canonical(spec['path'])
+        require(root in operands and root not in seen, 'compiled scope not in original inputs')
+        seen.add(root)
+        parent, wanted = operands[root]
+        require(spec['host_manifest_sha256'] == wanted['host_manifest_sha256']
+                and ((root == parent and 'host_scope' not in spec) or
+                     (root != parent and spec['host_scope']['path'] == str(parent))),
+                'compiled host enrollment differs')
+        # Existing repository markers can change without changing a directory
+        # inode. Absent generated directories remain a journal question.
+        for item in spec['directories']:
+            p = canonical(item['path'])
+            require(p.is_relative_to(root) and not has_repo_marker(p),
+                    'generated selection crosses a nested repository')
+        if 'keeper' not in wanted:
+            continue
+        keep = canonical(wanted['keeper']['path'])
+        directory(keep, expected=wanted['keeper']['identity'])
+        for item in spec['files']:
+            p = canonical(item['path'])
+            require(p.is_relative_to(root) and p.is_relative_to(parent/'build') and str(p) in kept
+                    and file_ref(kept[str(p)]) == keep / p.relative_to(root), 'compiled keeper scope differs')
+            expected_keepers.add(str(p))
+    require(set(kept) == expected_keepers, 'compiled keepers differ')
+    return selected, kept
+
+
+def compiled_receipts(row, selected, keepers, source, delivered):
+    combined = dict(source)
+    for ref in keepers.values():
+        path = file_ref(ref)
+        require(combined.get(path,ref) == ref, 'conflicting independent keeper hashes')
+        combined[path] = ref
+    return {
+        'source-custody.json': encoded(dict(result='PASS',source=row['source'],
+                                            evidence=[combined[p] for p in sorted(combined)])),
+        'preserved-result.json': encoded(dict(result='PASS',admission_id=row['id'],
+                                               selection_sha256=sha(encoded(selected)),
+                                               evidence=[delivered[p] for p in sorted(delivered)])),
+    }
+
+
+def compile_config(run, row, proof, inputs):
+    """Runpy entrypoint. Caller owns registry serialization and retirement."""
+    run = canonical(run)
+    directory(run)
+    budget = Budget()
+    binding, accepted_path = ownership(budget,run,row,proof,inputs)
+    shape(inputs, ('schema',*FIELDS,'source_evidence','deliverable_evidence'), 'invalid compact custody inputs')
+    require(inputs['schema'] == 1, 'unsupported compact custody schema')
+    operands = root_operands(inputs,row)
+    refs = reference_dirs(inputs,operands)
+    source = evidence_list(inputs['source_evidence'])
+    delivered = evidence_list(inputs['deliverable_evidence'])
+    accepted = evidence_list(proof['evidence'])
+    require(not set(source).intersection(delivered)
+            and all(accepted.get(p) == v for p,v in (*source.items(),*delivered.items())),
+            'source and independent deliverable must be distinct accepted evidence')
+    require(not any(overlap(p,root) for root in operands for p in (*accepted,accepted_path,run)),
+            'original or independent evidence overlaps generated scope')
+    for _, (parent,spec) in operands.items():
+        if 'catalog' in spec:
+            p = file_ref(spec['catalog'])
+            require(accepted.get(p) == spec['catalog'], 'native catalog is not in original evidence')
+        else:
+            keep = canonical(spec['keeper']['path'])
+            require(not any(overlap(keep,r) for r in operands) and not overlap(keep,parent),
+                    'keeper overlaps generated output')
+    remembered = {}
+    for ref in accepted.values():
+        check_evidence(budget,ref,remembered)
+    final = run/SNAPSHOT
+    if not os.path.lexists(final):
+        roots, keepers = make_roots(budget,run,row,binding,operands,accepted,remembered)
+        selected = dict(roots=roots,**refs)
+        receipts = compiled_receipts(row,selected,keepers,source,delivered)
+        payload = encoded(dict(schema=1,binding=binding,selected=selected,keeper_files=keepers))
+        publish(final,{'snapshot.json':payload,**receipts},budget)
+    # Retry from the immutable selection. Engine journaling is the authority
+    # for absent or changed generated paths, so never re-inventory them here.
+    directory(final)
+    cached, _ = metadata(budget, final/'snapshot.json')
+    selected, keepers = validate_saved(cached,binding,operands,refs)
+    for ref in keepers.values():
+        check_evidence(budget,ref,remembered)
+    receipts = compiled_receipts(row,selected,keepers,source,delivered)
+    references = {}
+    for name, expected in receipts.items():
+        f = final/name
+        digest,_,raw = budget.read(f,metadata=True,trusted=True)
+        require(raw == expected,'published custody receipt changed')
+        references[name.removesuffix('.json').replace('-','_')] = dict(path=str(f),sha256=digest)
+    return dict(schema=1,**selected,**references)
+
+
+def main():
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument('--run', type=Path, required=True)
+    parser.add_argument('--acceptance', type=Path, required=True)
+    args = parser.parse_args()
+    try:
+        budget = Budget()
+        row, _ = metadata(budget,canonical(args.run)/'admission-consumed.json')
+        proof, digest = metadata(budget,canonical(args.acceptance))
+        require(digest == row['evidence_sha256'], 'supplied acceptance is not the original')
+        print(encoded(compile_config(args.run,row,proof,proof['build_tree_inputs'])).decode())
+    except (KeyError, TypeError, ValueError, OSError, RuntimeError) as error:
+        print(json.dumps(dict(status='held',reason=str(error))),flush=True)
+        return 2
+    return 0
+
+
+if __name__ == '__main__':
+    raise SystemExit(main())

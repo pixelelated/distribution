@@ -1,0 +1,256 @@
+#!/usr/bin/python3 -IBS
+# SPDX-License-Identifier: GPL-2.0-or-later
+"""Disposable real watcher, leases, readback, consumption and cycle controls."""
+import hashlib
+import json
+import os
+from pathlib import Path
+import runpy
+import shlex
+import shutil
+import subprocess
+import tempfile
+import time
+import unittest
+
+
+HERE = Path(__file__).resolve().parent
+SOURCE = HERE.parents[1]
+TOOLS = HERE.relative_to(SOURCE)
+FIXTURE = runpy.run_path(str(HERE / 'admission-test-fixture.py'))
+STATE_FIXTURE = runpy.run_path(str(SOURCE / 'tools/pixelelated-state-check-test'))
+PYTHON = '/usr/bin/python3'
+
+
+def sha(path):
+    return hashlib.sha256(path.read_bytes()).hexdigest()
+
+
+class Lifecycle(unittest.TestCase):
+    def setUp(self):
+        self.addCleanup(os.umask, os.umask(0o077))
+        temp = tempfile.TemporaryDirectory(prefix='pix493-readback-')
+        self.addCleanup(temp.cleanup)
+        self.base = Path(temp.name)
+        self.checkout = self.base / 'checkout'
+        folder = self.checkout / TOOLS
+        folder.mkdir(parents=True)
+        (self.checkout / 'scripts').mkdir()
+        self.home = self.base / 'home'
+        self.home.mkdir(mode=0o700)
+        self.env = {'PATH': '/usr/bin:/bin', 'HOME': str(self.home), 'LC_ALL': 'C',
+                    'XDG_CONFIG_HOME': str(self.home / 'config'), 'XDG_STATE_HOME': str(self.home / 'state')}
+        for name in ('watch-build', 'watch-job', 'pixelelated-state-check'):
+            shutil.copy2(SOURCE / 'tools' / name, self.checkout / 'tools' / name)
+        for name in ('build-retention-cycle', 'build-tree-retention', 'build-private-readback.py'):
+            shutil.copy2(HERE / name, folder / name)
+        shutil.copy2(SOURCE / 'Makefile', self.checkout / 'Makefile')
+        self.cycle = folder / 'build-retention-cycle'
+        self.tool = folder / 'build-admission'
+
+    def call(self, command, expected=0):
+        result = subprocess.run(command, cwd=self.checkout, env=self.env,
+                                stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True, timeout=20)
+        self.assertEqual(result.returncode, expected, result.stdout[-700:] + result.stderr[-1500:])
+        return result
+
+    def new_run(self, *, invalid_digest=False, invalid_image=False, bind_receipt=True, enrolled=True):
+        self.keeper = self.base / 'keeper.tar'
+        # Exercise the actual GNU long-name record used by release names with
+        # versions, and the actual subprocess FD route for listing and cat.
+        top = self.base / ('release-' + 'q' * 86)
+        (top / 'target').mkdir(parents=True)
+        fixture = self.base / 'image-tree'
+        fixture.mkdir()
+        STATE_FIXTURE['clean'](fixture, runtime=False)
+        if invalid_image:
+            (fixture / 'usr/config/system/configs/system.cfg').unlink()
+        self.call(['/usr/bin/mksquashfs', str(fixture), str(top / 'target/SYSTEM'),
+                   '-noappend', '-processors', '1', '-no-progress'])
+        (top / 'target/KERNEL').write_bytes(b'fixture kernel')
+        self.call(['/usr/bin/tar', 'cf', str(self.keeper), '-C', str(self.base), top.name])
+        original_archive_sha = sha(self.keeper)
+        def configure(plan):
+            plan['inputs'] = [str(self.keeper)]
+            plan['outputs'] = [dict(path=str(self.checkout / 'qa-results'), issue=493, kind='qa-scratch',
+                                    release_when='terminal acceptance retains compact original QA results')]
+            if enrolled:
+                plan['private_readback'] = dict(archive=str(self.keeper), sha256=(
+                    '0' * 64 if invalid_digest else original_archive_sha))
+        (self.checkout / '.build-runs').mkdir(mode=0o700)
+        helper, plan, receipt = FIXTURE['prepare_fixture'](
+            self.checkout, SOURCE, configure, prepare=False, registry_scope=self.base)
+        self.call([PYTHON, '-I', '-B', str(self.tool), 'prepare',
+                   '--plan', str(plan), '--output', str(receipt)])
+        installation = self.call([PYTHON, '-I', '-B', str(self.cycle), 'install',
+                                  '--checkout', str(self.checkout)])
+        installed = json.loads(installation.stdout)
+        self.assertFalse(installed['activated'])
+        service = Path(installed['service']).read_text()
+        self.periodic = shlex.split(next(line.removeprefix('ExecStart=') for line in service.splitlines()
+                                         if line.startswith('ExecStart=')))
+        self.plan = plan
+        expected = 2 if invalid_digest or invalid_image or not enrolled else 0
+        self.start_reader(receipt, '0' * 64 if invalid_digest else original_archive_sha, expected)
+        self.row = json.loads((self.run / 'admission.json').read_bytes())
+        self.assertEqual(self.row['registry'], str(helper.registry_for(self.checkout)))
+        self.assertFalse(self.log.exists())
+        if not enrolled:
+            self.assertFalse(self.target.parent.exists())
+            self.assertFalse(self.receipt.exists())
+            return 0
+        self.assertTrue(self.target.is_file())
+        if not invalid_digest:
+            self.assertEqual(sha(self.target), sha(top / 'target/SYSTEM'))
+            self.assertEqual(json.loads(self.receipt.read_bytes())['archive_sha256'], original_archive_sha)
+        self.accept(expected, bind_receipt)
+        return self.target.stat().st_blocks * 512
+
+    def start_reader(self, receipt, archive_sha, expected):
+        runs = self.checkout / '.build-runs'
+        before = set(runs.iterdir())
+        reader = self.checkout / 'tools/pixelelated-state-check'
+        call = self.call([str(self.checkout / 'tools/watch-build'), '--interval', '1', '--admission',
+                          str(receipt), '--', str(reader), '--payload', str(self.keeper),
+                          '--private-readback', archive_sha], expected)
+        self.assertEqual(json.loads(call.stdout)['status'], 'error' if expected else 'pass')
+        self.run, = {path for path in set(runs.iterdir()) - before if path.is_dir()}
+        self.log = self.run / 'build-tree-retention-after-consume.log'
+        self.receipt = self.run / 'private-readback.json'
+        self.target = self.run / 'private-readback/SYSTEM'
+
+    def accept(self, expected, bind_receipt=True):
+        originals = [self.run / 'build.log', self.run / 'runner-result.json']
+        if bind_receipt and self.receipt.exists():
+            originals.append(self.receipt)
+        self.acceptance = self.base / (self.run.name + '-acceptance.json')
+        self.acceptance.write_text(json.dumps(dict(
+            run=str(self.run), evidence=[dict(path=str(p), sha256=sha(p)) for p in originals],
+            disposition='failed-investigated' if expected else 'qualified',
+            outputs=self.row['outputs'], expected_rc=expected)))
+        self.consume_argv = [PYTHON, '-I', '-B', str(self.tool), 'consume',
+                             '--run', str(self.run), '--evidence', str(self.acceptance)]
+        self.originals = {p: p.read_bytes() for p in [*originals, self.acceptance]}
+
+    def consume(self):
+        self.call(self.consume_argv)
+        deadline = time.monotonic() + 10
+        while time.monotonic() < deadline:
+            value = self.log.read_text() if self.log.exists() else ''
+            lines = value.splitlines()
+            if len(lines) == 2 and lines[1].startswith('build retention after consumption: sweep exit '):
+                self.assertTrue(all(p.read_bytes() == original for p, original in self.originals.items()))
+                self.assertEqual(json.loads((self.run / 'admission-consumed.json').read_text())['state'],
+                                 'consumed')
+                return json.loads(lines[0])
+            time.sleep(.025)
+        self.fail(f'no after-consume terminal result: {value}')
+
+    def cycle_report(self, expected=0):
+        replies = self.call(self.periodic, expected).stdout.splitlines()
+        self.assertEqual(len(replies), 2, replies)
+        self.assertEqual(json.loads(replies[-1])['attempted'][0]['status'], expected)
+        return json.loads(replies[0])
+
+    def hold(self, report, reason):
+        self.assertEqual(report['status'], 'held', report)
+        self.assertEqual(report['verified_unlinked_bytes'], 0, report)
+        self.assertIn(reason, report['results'][0]['reason'])
+        self.assertTrue(self.target.is_file())
+        self.assertFalse((self.run / 'private-readback-intent.json').exists())
+
+    def test_after_consume_unlinks_and_periodic_is_idempotent(self):
+        allocated = self.new_run()
+        archive_sha = sha(self.keeper)
+        self.assertGreater(allocated, 0)
+        answer = self.consume()
+        self.assertEqual(answer['status'], 'retired', answer)
+        self.assertEqual(answer['verified_unlinked_bytes'], allocated)
+        print(json.dumps(dict(case='after-consume', known_fixture=True,
+                    **{key: answer[key] for key in ('available_before_bytes', 'available_after_bytes',
+                                                      'measured_net_bytes', 'verified_unlinked_bytes')})))
+        self.assertFalse(self.target.exists())
+        self.assertEqual(sha(self.keeper), archive_sha)
+        result = self.run / 'private-readback-result.json'
+        original = result.read_bytes()
+        self.assertEqual(json.loads(original)['status'], 'retired')
+        self.assertEqual(self.cycle_report()['verified_unlinked_bytes'], 0)
+        self.assertEqual(result.read_bytes(), original)
+
+    def test_second_run_can_retire_with_prior_consumed_originals_held(self):
+        allocated = self.new_run()
+        self.assertEqual(self.consume()['verified_unlinked_bytes'], allocated)
+        previous_receipt, previous_bytes = self.receipt, self.receipt.read_bytes()
+        next_admission = self.base / 'next-admission.json'
+        self.call([PYTHON, '-I', '-B', str(self.tool), 'prepare',
+                   '--plan', str(self.plan), '--output', str(next_admission)])
+        self.start_reader(next_admission, sha(self.keeper), 0)
+        self.accept(0)
+        self.assertEqual(self.consume()['verified_unlinked_bytes'], allocated)
+        self.assertEqual(previous_receipt.read_bytes(), previous_bytes)
+        self.assertFalse(self.target.exists())
+
+    def test_actual_open_read_descriptor_is_busy_then_periodic_recovers(self):
+        allocated = self.new_run()
+        with self.target.open('rb') as reader:
+            self.hold(self.consume(), 'kernel lease refused')
+            self.assertTrue(reader.read(4))
+        report = self.cycle_report()
+        self.assertEqual(report['verified_unlinked_bytes'], allocated)
+        print(json.dumps(dict(case='periodic-after-busy', known_fixture=True,
+                    **{key: report[key] for key in ('available_before_bytes', 'available_after_bytes',
+                                                      'measured_net_bytes', 'verified_unlinked_bytes')})))
+        self.assertFalse(self.target.exists())
+
+    def test_current_pinned_archive_changed_holds(self):
+        self.new_run()
+        with self.keeper.open('ab') as writer:
+            writer.write(b'changed custody')
+        self.hold(self.consume(), 'archive custody changed')
+
+    def test_queued_consumer_reference_holds(self):
+        self.new_run()
+        helper = FIXTURE['load'](self.tool)
+        with helper.registry(self.row['registry']) as ledger:
+            ledger['queued'] = {'downstream': dict(device=self.row['volume_device'],
+                expires=time.time() + 600, prebuild_pending=True,
+                scope=dict(checkout=str(self.checkout), protected=[str(self.target)], outputs=[]))}
+        self.hold(self.consume(), 'overlapping path')
+
+    def test_readback_without_producer_admission_never_creates_stage(self):
+        self.new_run(enrolled=False)
+
+    def test_unbound_receipt_holds(self):
+        self.new_run(bind_receipt=False)
+        self.hold(self.consume(), 'did not bind the producer receipt')
+
+    def test_bad_digest_partial_remains_without_receipt(self):
+        self.new_run(invalid_digest=True)
+        self.assertFalse(self.receipt.exists())
+        self.hold(self.consume(), 'no durable producer receipt')
+
+    def test_investigated_qa_failure_preserves_error_and_can_release_copy(self):
+        allocated = self.new_run(invalid_image=True)
+        self.assertEqual(self.consume()['verified_unlinked_bytes'], allocated)
+        original = json.loads((self.run / 'runner-result.json').read_bytes())
+        self.assertEqual(original['runner_rc'], 2)
+        self.assertFalse(self.target.exists())
+
+    def test_absent_after_prior_intent_is_unconfirmed_never_credited(self):
+        self.new_run()
+        journal = self.run / 'private-readback-intent.json'
+        journal.write_text(json.dumps(dict(schema=1, receipt_sha256=sha(self.receipt),
+            acceptance_sha256=sha(self.acceptance), path=str(self.target),
+            identity=json.loads(self.receipt.read_bytes())['leaf'])))
+        journal.chmod(0o400)
+        self.target.unlink()  # Model loss between the intent and the result in owned scratch.
+        answer = self.consume()
+        self.assertEqual(answer['status'], 'partial', answer)
+        self.assertEqual(answer['verified_unlinked_bytes'], 0)
+        result = self.run / 'private-readback-result.json'
+        self.assertEqual(json.loads(result.read_bytes())['status'], 'absent_unconfirmed')
+        self.assertEqual(self.cycle_report(expected=1)['verified_unlinked_bytes'], 0)
+
+
+if __name__ == '__main__':
+    unittest.main(verbosity=2)

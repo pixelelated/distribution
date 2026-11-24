@@ -1,0 +1,737 @@
+#!/usr/bin/env python3
+# SPDX-License-Identifier: GPL-2.0-or-later
+"""Isolated build lifecycle and generated user-unit controls. No live user manager."""
+import json
+import os
+from pathlib import Path
+import runpy
+import shlex
+import shutil
+import stat
+import subprocess
+import tempfile
+import time
+import unittest
+from unittest.mock import patch
+
+
+HERE = Path(__file__).resolve().parent
+ROOT = HERE.parents[1]
+CYCLE = 'build-retention-cycle'
+NAME = 'pixelelated-build-tree-retention'
+PYTHON = '/usr/bin/python3'
+HELPER = runpy.run_path(str(HERE / 'admission-test-fixture.py'))
+
+# Replace the deletion engine only, never the installed cycle or the
+# watch-build/admission entrypoints. Capture actual argv, caller environment
+# and lock state so the fixture can distinguish delivery from custody.
+ENGINE = '''#!/usr/bin/python3
+import fcntl, json, os, sys
+from contextlib import contextmanager
+from pathlib import Path
+
+def registry_routes(root):
+    base = Path.home()
+    alternate = base / 'filesystem-registry'
+    return base / 'canonical-registry', [alternate] if alternate.exists() else [], []
+
+@contextmanager
+def locked_registry(root):
+    with (root / 'lock').open('rb') as lock:
+        fcntl.flock(lock, fcntl.LOCK_EX | fcntl.LOCK_NB)
+        yield json.loads((root / 'jobs.json').read_text())
+
+
+if __name__ == '__main__':
+    base = Path.home()
+    argv = sys.argv[1:]
+    assert argv[0] == 'sweep' and argv[1] == '--checkout'
+    fixture = json.loads((base / 'scenario.json').read_text())
+    assert os.environ['XDG_STATE_HOME'] == fixture['state_home']
+    event = {'argv': argv, 'engine': str(Path(__file__).resolve()),
+             'schema': 1, 'status': fixture['status']}
+    primary, alternate, _ = registry_routes(Path(argv[2]))
+    for route in [primary, *alternate]:
+        if route.is_dir():
+            with locked_registry(route):
+                pass
+    if '--run' in argv:
+        assert len(argv) == 5 and argv[3] == '--run'
+        run = Path(argv[4])
+        assert run.parent.parent == Path(argv[2])
+        original = json.loads((run / 'admission.json').read_text())
+        with (Path(original['registry']) / 'lock').open('rb') as lock:
+            fcntl.flock(lock, fcntl.LOCK_EX | fcntl.LOCK_NB)
+            row = json.loads((Path(original['registry']) / 'jobs.json').read_text())['jobs'][original['id']]
+            assert row == json.loads((run / 'admission-consumed.json').read_text())
+        with (run.parent / 'active.lock').open('rb') as lock:
+            fcntl.flock(lock, fcntl.LOCK_EX | fcntl.LOCK_NB)
+        result = json.loads((run / 'runner-result.json').read_text())
+        event.update(registry_state=row['state'], original_result=result)
+    elif fixture.get('abandoned'):
+        run = Path(fixture['abandoned'])
+        assert not (run / 'admission-consumed.json').exists()
+        event['abandoned'] = str(run)
+    print(json.dumps(event), flush=True)
+    sys.exit(fixture['status'])
+'''
+
+
+class CycleTests(unittest.TestCase):
+    def setUp(self):
+        tmp = tempfile.TemporaryDirectory(prefix='pix493-cycle-')
+        self.addCleanup(tmp.cleanup)
+        self.base = Path(tmp.name)
+        self.home = self.base / 'home'
+        self.home.mkdir(mode=0o700)
+        self.config = self.home / 'config'
+        self.state = self.home / 'build-state'
+        self.env = {'PATH': '/usr/bin:/bin', 'HOME': str(self.home), 'LC_ALL': 'C',
+                    'XDG_CONFIG_HOME': str(self.config), 'XDG_STATE_HOME': str(self.state)}
+        self.canonical = self.base / 'canonical repo'
+        folder = self.canonical / 'tools/host-maintenance'
+        folder.mkdir(parents=True)
+        self.engine = folder / 'build-tree-retention'
+        self.engine.write_text(ENGINE)
+        self.engine.chmod(0o755)
+        self.cycle = folder / CYCLE
+        shutil.copy2(HERE / CYCLE, self.cycle)
+        self.scenario(0)
+        self.install_cmd = [PYTHON, '-I', '-B', str(self.cycle), 'install',
+                            '--checkout', str(self.canonical)]
+        installation = self.call(self.install_cmd)
+        self.assertEqual(installation.returncode, 0, installation.stderr)
+        self.installed = json.loads(installation.stdout)
+        self.settings = Path(self.installed['settings'])
+        self.service = Path(self.installed['service'])
+        self.timer = Path(self.installed['timer'])
+        line = next(line for line in self.service.read_text().splitlines() if line.startswith('ExecStart='))
+        self.service_argv = shlex.split(line.removeprefix('ExecStart='))
+
+    def call(self, argv, cwd=None, env=None):
+        return subprocess.run(argv, cwd=cwd or self.base, env=env or self.env,
+                              capture_output=True, text=True, timeout=15)
+
+    def scenario(self, status, **extra):
+        data = {'status': status, 'state_home': str(self.state), **extra}
+        (self.home / 'scenario.json').write_text(json.dumps(data))
+
+    def new_build(self, command_status):
+        checkout = self.base / 'frozen build'
+        (checkout / 'tools').mkdir(parents=True)
+        (checkout / 'scripts').mkdir()
+        for name in ('watch-build', 'watch-job'):
+            shutil.copy2(ROOT / 'tools' / name, checkout / 'tools' / name)
+        # The operational derivative can be a sparse checkout.
+        makefile = ROOT / 'Makefile'
+        if makefile.is_file():
+            shutil.copy2(makefile, checkout / 'Makefile')
+        else:
+            (checkout / 'Makefile').write_bytes(subprocess.check_output(
+                ['/usr/bin/git', '-C', str(ROOT), 'show', 'HEAD:Makefile'], timeout=5))
+        admission_tool, _, receipt = HELPER['prepare_fixture'](checkout, ROOT)
+        shutil.copy2(HERE / CYCLE, checkout / 'tools/host-maintenance' / CYCLE)
+        wrong_engine = checkout / 'tools/host-maintenance/build-tree-retention'
+        wrong_engine.write_text('#!/bin/sh\nexit 99\n')
+        wrong_engine.chmod(0o755)
+        command = [str(checkout / 'tools/watch-build'), '--interval', '1', '--admission',
+                   str(receipt), '--', '/bin/sh', '-c', f'exit {command_status}']
+        result = self.call(command, cwd=checkout)
+        self.assertEqual(result.returncode, command_status, result.stderr)
+        run = next(item for item in (checkout / '.build-runs').iterdir() if item.is_dir())
+        trigger = run / 'build-tree-retention-after-consume.log'
+        self.assertFalse(trigger.exists(), 'terminal status alone cannot trigger retirement')
+        proof = checkout / 'acceptance.json'
+        disposition = 'qualified' if command_status == 0 else 'failed-investigated'
+        admission_tool.write(proof, {
+            'run': str(run), 'disposition': disposition, 'expected_rc': command_status,
+            'outputs': admission_tool.read(run / 'admission.json')['outputs'],
+            'evidence': [{'path': str(run / 'build.log'),
+                          'sha256': admission_tool.digest(run / 'build.log')}],
+        })
+        consume = [PYTHON, '-I', '-B', str(checkout / 'tools/host-maintenance/build-admission'),
+                   'consume', '--run', str(run), '--evidence', str(proof)]
+        return run, trigger, proof, consume
+
+    def targeted_result(self, trigger, wanted):
+        deadline = time.monotonic() + 10
+        while time.monotonic() < deadline:
+            raw = trigger.read_text() if trigger.exists() else ''
+            if 'sweep exit' in raw:
+                rows = raw.splitlines()
+                self.assertEqual(len(rows), 2, raw)
+                self.assertIn(f'sweep exit {wanted}', rows[1])
+                return json.loads(rows[0])
+            time.sleep(0.025)
+        self.fail('no targeted sweep terminal result: ' + raw)
+
+    def add_registry(self, name, jobs, queue=None):
+        folder = self.home / name
+        folder.mkdir()
+        (folder / 'lock').touch()
+        (folder / 'jobs.json').write_text(json.dumps({'jobs': jobs, 'queued': queue or {}}))
+
+    def cycle_result(self, result, expected):
+        self.assertEqual(result.returncode, expected, result.stderr)
+        records = [json.loads(line) for line in result.stdout.splitlines()]
+        return records[:-1], records[-1]
+
+    def test_install_idempotent_partial_and_timer_invocation(self):
+        self.assertFalse(self.installed['activated'])
+        self.assertIn('OnCalendar=*:0/15\n', self.timer.read_text())
+        self.assertIn('Persistent=true\n', self.timer.read_text())
+        self.assertIn('TimeoutStartSec=235s\n', self.service.read_text())
+        self.assertIn('SuccessExitStatus=1\n', self.service.read_text())
+        originals = {path: path.read_bytes() for path in (self.settings, self.service, self.timer)}
+        for path in originals:
+            self.assertEqual(stat.S_IMODE(path.stat().st_mode), 0o600)
+        self.assertEqual(self.call(self.install_cmd).returncode, 0)
+        self.assertEqual({path: path.read_bytes() for path in originals}, originals)
+
+        prior_inode = self.service.stat().st_ino
+        self.timer.unlink()
+        self.assertEqual(self.call(self.install_cmd).returncode, 0)
+        self.assertEqual(self.service.stat().st_ino, prior_inode)
+        self.assertEqual({path: path.read_bytes() for path in originals}, originals)
+
+        env = dict(self.env, XDG_CONFIG_HOME='/ignored/new-config', XDG_STATE_HOME='/ignored/new-state')
+        records, summary = self.cycle_result(self.call(self.service_argv, env=env), 0)
+        self.assertEqual(records[0]['argv'], ['sweep', '--checkout', str(self.canonical)])
+        self.assertEqual(summary['known_checkouts'], 1)
+
+    def test_install_conflicts_leave_missing_unit_uncreated(self):
+        self.timer.unlink()
+        self.service.write_bytes(b'different')
+        self.assertEqual(self.call(self.install_cmd).returncode, 2)
+        self.assertFalse(self.timer.exists())
+        self.assertEqual(self.service.read_bytes(), b'different')
+        self.service.unlink()
+        self.service.symlink_to(self.settings)
+        self.assertEqual(self.call(self.install_cmd).returncode, 2)
+        self.assertFalse(self.timer.exists())
+        self.assertTrue(self.service.is_symlink())
+
+    def test_cycle_preserves_hold_and_integration_status(self):
+        for exit_code in (1, 2):
+            self.scenario(exit_code)
+            records, summary = self.cycle_result(self.call(self.service_argv), exit_code)
+            self.assertEqual(records[0]['status'], exit_code)
+            self.assertEqual(summary['attempted'][0]['status'], exit_code)
+
+    def test_periodic_reaches_abandoned_work_without_enrollment(self):
+        run = self.base / 'legacy/.build-runs/interrupted'
+        run.mkdir(parents=True)
+        (run / 'prior-original.log').write_bytes(b'interrupted original\n')
+        self.scenario(1, abandoned=str(run))
+        self.add_registry('filesystem-registry', {'interrupted': {
+            'checkout': str(run.parent.parent), 'volume_device': run.stat().st_dev}})
+        records, summary = self.cycle_result(self.call(self.service_argv), 1)
+        self.assertEqual(summary['known_checkouts'], 2)
+        self.assertEqual(records[-1]['abandoned'], str(run))
+        self.assertEqual(records[-1]['argv'][2], str(run.parent.parent))
+        self.assertEqual((run / 'prior-original.log').read_bytes(), b'interrupted original\n')
+        self.assertFalse((run / 'admission-consumed.json').exists())
+
+    def test_two_registry_rotation_same_volume_and_canonical_engine(self):
+        private = [self.base / f'owned producer {index}' for index in range(6)]
+        for directory in private:
+            directory.mkdir()
+        foreign = self.base / 'different device row'
+        foreign.mkdir()
+        device = self.canonical.stat().st_dev
+        row = lambda checkout, dev=device: {'checkout': str(checkout), 'volume_device': dev}
+        self.add_registry('canonical-registry',
+                          {'one': row(private[0]), 'two': row(private[1]), 'foreign': row(foreign, device + 1)},
+                          {'queued': {'scope': {'checkout': str(private[2])}, 'device': device}})
+        self.add_registry('filesystem-registry', {str(i): row(p) for i, p in enumerate(private[1:]) if p != private[2]})
+        expected = sorted(map(str, [self.canonical, *private]))
+        first, summary = self.cycle_result(self.call(self.service_argv), 1)
+        self.assertEqual(summary['known_checkouts'], 7)
+        self.assertEqual(summary['deferred_count'], 3)
+        self.assertIn('Unregistered checkouts', summary['inventory_scope'])
+        self.assertEqual([row['argv'][2] for row in first], expected[:4])
+        later, _ = self.cycle_result(self.call(self.service_argv), 1)
+        self.assertEqual([row['argv'][2] for row in later], expected[4:] + expected[:1])
+        self.assertEqual({row['engine'] for row in first + later}, {str(self.engine)})
+
+    def test_terminal_success_and_maintenance_failure_are_independent(self):
+        run, trigger, proof, consume = self.new_build(0)
+        self.scenario(2)
+        raw = proof.read_bytes()
+        bad = dict(json.loads(raw), expected_rc=14)
+        proof.write_text(json.dumps(bad))
+        self.assertEqual(self.call(consume).returncode, 2)
+        self.assertFalse(trigger.exists(), 'refused consumption cannot trigger maintenance')
+        proof.write_bytes(raw)
+        before = (run / 'runner-result.json').read_bytes()
+        result = self.call(consume)
+        self.assertEqual(result.returncode, 0, result.stderr)
+        self.assertEqual(len(result.stdout.splitlines()), 1, result.stdout)
+        event = self.targeted_result(trigger, 2)
+        self.assertEqual(event['engine'], str(self.engine))
+        self.assertEqual(event['registry_state'], 'consumed')
+        self.assertEqual(event['original_result'], json.loads(before))
+        self.assertEqual((run / 'runner-result.json').read_bytes(), before)
+        log = trigger.read_bytes()
+        replay = self.call(consume)
+        self.assertEqual(replay.returncode, 0, replay.stderr)
+        self.assertEqual(trigger.read_bytes(), log)
+
+    def test_consumed_build_failure_stays_failed(self):
+        run, trigger, _, consume = self.new_build(37)
+        self.scenario(1)
+        result = self.call(consume)
+        self.assertEqual(result.returncode, 0, result.stderr)
+        event = self.targeted_result(trigger, 1)
+        self.assertEqual(event['engine'], str(self.engine))
+        self.assertEqual(event['original_result']['runner_rc'], 37)
+        self.assertEqual((run / 'build.rc').read_text(), '37\n')
+
+    def test_missing_canonical_engine_preserves_consumption(self):
+        run, trigger, _, consume = self.new_build(0)
+        self.engine.rename(self.engine.with_suffix('.unavailable'))
+        result = self.call(consume)
+        self.assertEqual(result.returncode, 0, result.stderr)
+        deadline = time.monotonic() + 5
+        while time.monotonic() < deadline:
+            if trigger.exists() and 'FileNotFoundError' not in trigger.read_text():
+                if 'build-retention-cycle:' in trigger.read_text():
+                    break
+            time.sleep(0.025)
+        else:
+            self.fail('missing engine error was not retained')
+        self.assertIn('build-tree-retention', trigger.read_text())
+        self.assertTrue((run / 'admission-consumed.json').is_file())
+
+    def test_engine_timeout_uses_finite_process_bound(self):
+        cycle = runpy.run_path(str(self.cycle))
+        with patch.object(subprocess, 'run', side_effect=subprocess.TimeoutExpired('fixture', 205)) as call:
+            with self.assertRaises(subprocess.TimeoutExpired):
+                cycle['sweep'](self.canonical, self.state, self.canonical)
+        self.assertEqual(call.call_args.kwargs['timeout'], 205)
+
+
+
+TREE_TESTS = runpy.run_path(str(HERE / 'test-build-tree-retention'))
+CYCLE_GLOBALS = runpy.run_path(str(HERE / CYCLE))['prebuild_review'].__globals__
+
+
+class PrebuildTests(unittest.TestCase):
+    def setUp(self):
+        TREE_TESTS['Controls'].setUp(self)
+        # Discovery must use the fixture's Git registry, even when this suite
+        # runs in a production checkout with its own live admission history.
+        supplier = self.checkout / 'tools/host-maintenance/build-retention-cycle'
+        self.enterContext(patch.dict(CYCLE_GLOBALS, __file__=str(supplier),
+                                     load_prebuild_engine=lambda _: TREE_TESTS['G']))
+
+    references = TREE_TESTS['Controls'].references
+    host = TREE_TESTS['Controls'].host
+    terminal = TREE_TESTS['Controls'].terminal
+
+    def pending(self, *paths):
+        admit = CYCLE_GLOBALS['scope_paths'](paths)
+        self.ledger['queued']['future'] = dict(
+            scope=dict(checkout=str(self.checkout), protected=sorted(map(str, admit)), outputs=[]),
+            device=self.checkout.stat().st_dev, expires=time.time() + 880, prebuild_pending=True)
+        self.sync()
+
+    def sync(self):
+        TREE_TESTS['dump'](self.registry / 'jobs.json', self.ledger)
+
+    def review(self, paths=(), retire=False, reserved=0, need=2000):
+        return CYCLE_GLOBALS['prebuild_review'](self.checkout, self.base, need, reserved, paths, retire=retire)
+
+    def test_fit_skips_registry_inventory_and_engine(self):
+        with patch.dict(CYCLE_GLOBALS, available_on=lambda *_: 2048,
+                        prebuild_inventory=lambda *a: self.fail('unexpected inventory'),
+                        prebuild_attempt=lambda *a: self.fail('unexpected engine')):
+            r = self.review(retire=True, reserved=48)
+        self.assertEqual((r['status'], r['shortfall_bytes'], r['measured_reclaimed_bytes']), ('fits', 0, 0))
+        self.assertEqual(r['candidates'], [])
+
+    def test_fit_includes_retained_size_without_discovery_or_retirement(self):
+        run = self.checkout / '.build-runs' / 'earlier nested build'
+        run.mkdir(parents=True)
+        selected = CYCLE_GLOBALS['volume_identity'](self.checkout)
+        index, doc = CYCLE_GLOBALS['inventory_paths'](selected)
+        index.parent.mkdir(parents=True)
+        st = run.stat()
+        entry = dict(path=str(run), identity=CYCLE_GLOBALS['directory_identity'](st),
+                     mtime_ns=st.st_mtime_ns, ctime_ns=st.st_ctime_ns, allocated_bytes=43_000_000_000,
+                     reason='previous identified measurement')
+        TREE_TESTS['dump'](doc, dict(schema=1, volume=list(selected), observed_epoch=time.time(), entries=[entry]))
+        TREE_TESTS['dump'](index, dict(schema=1, sha256=TREE_TESTS['ref'](doc)['sha256']))
+        with patch.dict(CYCLE_GLOBALS, available_on=lambda *_: 4096,
+                        load_prebuild_engine=lambda *a: self.fail('unexpected engine'),
+                        prebuild_inventory=lambda *a: self.fail('unexpected discovery'),
+                        prebuild_attempt=lambda *a: self.fail('unexpected retirement')):
+            result = self.review(retire=True)
+            exact = CYCLE_GLOBALS['prebuild_last_sizes'](self.base, [str(run)])
+            other = CYCLE_GLOBALS['prebuild_last_sizes'](self.base, [str(self.root)])
+            run.rename(run.with_name('retired name'))
+            stale = self.review(retire=True)
+        self.assertEqual(result['status'], 'fits')
+        self.assertEqual(result['measured_reclaimed_bytes'], 0)
+        self.assertEqual(result['attempts'], [])
+        self.assertEqual(result['candidates'], exact['candidates'])
+        self.assertEqual(result['candidates'][0]['allocated_bytes'], 43_000_000_000)
+        self.assertEqual(other['candidates'], [])
+        self.assertEqual(stale['status'], 'fits')
+        self.assertEqual(stale['candidates'], [])
+        self.assertTrue(stale['omissions'])
+
+    def test_ranked_refusal_then_real_guarded_removal_and_replay(self):
+        big_run, big, _, _, _ = self.terminal(keep_inside=True, rc=37)
+        # A second accepted leaf provides a distinct smaller fallback.
+        small_root = self.checkout / 'build.small'
+        small_root.mkdir()
+        small_run, small, _, _, _ = self.terminal('small', root=small_root)
+        small_blocks = small.stat().st_blocks * 512
+        self.assertGreater(small_blocks, 0)
+        # A legacy ranking hint can make the large held group sort first
+        # without becoming part of the reclaim accounting.
+        key = CYCLE_GLOBALS['volume_identity'](self.checkout)
+        index, document = CYCLE_GLOBALS['inventory_paths'](key)
+        index.parent.mkdir(parents=True)
+        live = big_run.stat()
+        TREE_TESTS['dump'](document, dict(schema=1, volume=list(key), observed_epoch=time.time(), entries=[
+            dict(path=str(big_run), identity=CYCLE_GLOBALS['directory_identity'](live),
+                 allocated_bytes=small_blocks * 10, mtime_ns=live.st_mtime_ns, ctime_ns=live.st_ctime_ns,
+                 reason='prior scoped measurement')]))
+        TREE_TESTS['dump'](index, dict(schema=1, sha256=TREE_TESTS['ref'](document)['sha256']))
+        protected = self.base / 'next-copy'
+        self.pending(protected)
+        calls = []
+        engine = TREE_TESTS['G']
+
+        def invoke(_supplier, checkout, run):
+            calls.append(run)
+            report = engine['sweep'](checkout, run)
+            return dict(report, returncode=int(report['status'] in ('held', 'partial')))
+
+        def space(*_):
+            return 1024 + (0 if small.exists() else small_blocks)
+
+        with patch.dict(CYCLE_GLOBALS, available_on=space, prebuild_attempt=invoke):
+            preview = self.review([protected])
+            self.assertEqual([r['run'] for r in preview['candidates']], [str(big_run), str(small_run)])
+            self.assertEqual(preview['attempts'], [])
+            actual = self.review([protected], retire=True)
+            replay = self.review([protected], retire=True, need=space() + 1)
+        self.assertEqual(calls[:2], [big_run, small_run])
+        self.assertEqual([x['status'] for x in actual['attempts']], ['held', 'retired'])
+        self.assertEqual(actual['status'], 'fits')
+        self.assertEqual(actual['measured_reclaimed_bytes'], small_blocks)
+        self.assertEqual(replay['measured_reclaimed_bytes'], 0)
+        self.assertTrue(big.is_file())
+        self.assertFalse(small.exists())
+        self.assertEqual(json.loads((big_run / 'runner-result.json').read_text())['runner_rc'], 37)
+        self.assertTrue((small_run / 'admission-consumed.json').is_file())
+
+    def test_historical_nested_hint_is_reported_without_ownership(self):
+        legacy = self.checkout / '.build-runs' / 'large aborted copy'
+        (legacy / 'checkout').mkdir(parents=True)
+        selected = CYCLE_GLOBALS['volume_identity'](self.checkout)
+        index, doc = CYCLE_GLOBALS['inventory_paths'](selected)
+        index.parent.mkdir(parents=True)
+        info = legacy.stat()
+        identity = CYCLE_GLOBALS['directory_identity'](info)
+        entry = dict(path=str(legacy), identity=identity, ctime_ns=info.st_ctime_ns, mtime_ns=info.st_mtime_ns,
+                     allocated_bytes=14_000_000_000, reason='legacy original run held')
+        TREE_TESTS['dump'](doc, dict(schema=1, volume=list(selected), observed_epoch=time.time(), entries=[entry]))
+        TREE_TESTS['dump'](index, dict(schema=1, sha256=TREE_TESTS['ref'](doc)['sha256']))
+        with patch.dict(CYCLE_GLOBALS, available_on=lambda *_: 1024):
+            report = self.review()
+            legacy.rename(legacy.with_name('moved'))
+            (legacy / 'checkout').mkdir(parents=True)
+            stale = self.review()
+        row = report['candidates'][0]
+        self.assertEqual((row['run'], row['allocated_bytes'], row['status']), (str(legacy), 14_000_000_000, 'held'))
+        self.assertEqual(report['measured_reclaimed_bytes'], 0)
+        self.assertTrue(any('identity changed' in item['reason'] for item in stale['omissions']))
+        self.assertTrue(all(row['allocated_bytes'] is None for row in stale['candidates']))
+
+    def test_overlapping_claims_and_hardlinks_cannot_multiply_bytes(self):
+        run, leaf, row, config, proof = self.terminal()
+        second_name = 'second'
+        second = run.with_name(second_name)
+        second.mkdir()
+        original = json.loads((run / 'admission.json').read_text())
+        original.update(id=second_name, run=str(second))
+        TREE_TESTS['dump'](second / 'admission.json', original)
+        copied = json.loads(proof.read_text())
+        copied['run'] = str(second)
+        second_proof = proof.with_name('second.json')
+        TREE_TESTS['dump'](second_proof, copied)
+        another = dict(row, id=second_name, run=str(second), retained_evidence=[str(second_proof)],
+                       evidence_sha256=TREE_TESTS['ref'](second_proof)['sha256'])
+        self.ledger['jobs'][second_name] = another
+        TREE_TESTS['dump'](second / 'admission-consumed.json', another)
+        self.sync()
+        with patch.dict(CYCLE_GLOBALS, available_on=lambda *_: 1024):
+            r = self.review()
+            leaf.with_name('other-name.o').hardlink_to(leaf)
+            linked = self.review()
+        blocks = leaf.stat().st_blocks * 512
+        self.assertEqual([x['observed_final_link_bytes'] for x in r['candidates']], [blocks, blocks])
+        self.assertEqual(sum(x['unique_observed_bytes'] for x in r['candidates']), blocks)
+        self.assertEqual(sum(x['unique_observed_bytes'] for x in linked['candidates']), 0)
+        self.assertEqual(linked['measured_reclaimed_bytes'], 0)
+
+    def test_foreign_reservation_missing_scope_and_unbound_request_hold(self):
+        _, leaf, _, _, _ = self.terminal()
+        protected = self.base / 'future'
+        self.pending(protected)
+        active = dict(self.ledger['jobs']['one'], id='live', state='running', required_bytes=5120)
+        active.pop('retention_scope')
+        self.ledger['jobs']['live'] = active
+        self.sync()
+        with patch.dict(CYCLE_GLOBALS, available_on=lambda *_: 1024,
+                        prebuild_attempt=lambda *a: self.fail('unverified removal')):
+            r = self.review([protected], retire=True)
+            del self.ledger['jobs']['live']
+            self.sync()
+            unbound = self.review([self.base / 'other wanted path'], retire=True)
+        self.assertEqual(r['observed_reserved_bytes'], 5120)
+        self.assertTrue(any('authoritative input scope' in x['reason'] for x in r['omissions']))
+        self.assertEqual(r['attempts'], [])
+        self.assertIn('pending protection', unbound['attempts'][0]['reasons'][0])
+        self.assertTrue(leaf.is_file())
+
+    def test_untransitioned_filesystem_registry_is_observed_and_blocks_action(self):
+        _, leaf, _, _, _ = self.terminal()
+        wanted = self.base / 'wanted'
+        self.pending(wanted)
+        device, fsid = CYCLE_GLOBALS['volume_identity'](self.checkout)
+        old = self.routes / 'pixelelated' / 'build-admission' / f'{device:x}-{fsid:x}'
+        old.mkdir(parents=True)
+        (old / 'lock').touch()
+        ledger = old / 'jobs.json'
+        TREE_TESTS['dump'](ledger, dict(schema=1, generation=9, jobs={}, queued={}))
+        original = ledger.read_bytes()
+        with patch.dict(CYCLE_GLOBALS, available_on=lambda *_: 1024,
+                        prebuild_attempt=lambda *a: self.fail('legacy interval was ignored')):
+            r = self.review([wanted], retire=True)
+        self.assertEqual(r['attempts'], [])
+        self.assertEqual(r['observed_reserved_bytes'], 0)
+        self.assertTrue(any('unobservable prepare interval' in item['reason'] for item in r['omissions']))
+        self.assertEqual(ledger.read_bytes(), original)
+        self.assertTrue(leaf.exists())
+
+    def test_stale_hint_digest_cannot_rank_nor_authorize_candidates(self):
+        run = self.checkout / '.build-runs' / 'manual'
+        (run / 'checkout').mkdir(parents=True)
+        identity = CYCLE_GLOBALS['volume_identity'](self.checkout)
+        index, doc = CYCLE_GLOBALS['inventory_paths'](identity)
+        index.parent.mkdir(parents=True)
+        TREE_TESTS['dump'](doc, dict(schema=1, volume=list(identity), observed_epoch=time.time(), entries=[]))
+        TREE_TESTS['dump'](index, dict(schema=1, sha256='e' * 64))
+        with patch.dict(CYCLE_GLOBALS, available_on=lambda *_: 1024,
+                        prebuild_attempt=lambda *a: self.fail('unbound hint was acted on')):
+            r = self.review(retire=True)
+        self.assertEqual(r['attempts'], [])
+        self.assertIsNone(r['candidates'][0]['allocated_bytes'])
+        self.assertTrue(any('misbound' in item['reason'] for item in r['omissions']))
+
+    def test_next_workload_and_live_queue_outweigh_rank(self):
+        run, leaf, _, _, _ = self.terminal()
+        self.pending(self.base / 'future')
+        self.ledger['queued']['another'] = dict(
+            scope=dict(checkout=str(self.checkout), protected=[str(leaf)], outputs=[]),
+            device=self.checkout.stat().st_dev, expires=time.time() + 840)
+        self.ledger['queued']['expired'] = dict(
+            scope=dict(checkout=str(self.checkout), protected=[], outputs=[]),
+            device=self.checkout.stat().st_dev, expires=time.time() - 10)
+        self.sync()
+        with patch.dict(CYCLE_GLOBALS, available_on=lambda *_: 1024,
+                        prebuild_attempt=lambda *a: self.fail('protected removal')):
+            r = self.review([self.base / 'future'], retire=True)
+        self.assertEqual(r['candidates'][0]['run'], str(run))
+        self.assertIn('overlaps', r['candidates'][0]['reason'])
+        self.assertEqual(r['attempts'], [])
+        self.assertTrue(any('expired preparation' in item['reason'] for item in r['candidates']))
+        self.assertTrue(leaf.is_file())
+
+
+class FullCollectionTests(unittest.TestCase):
+    def test_coverage_and_capacity_are_independent(self):
+        module = runpy.run_path(str(HERE / CYCLE))
+        full = module['full_sweep']
+        with tempfile.TemporaryDirectory() as folder:
+            root = Path(folder)
+            settings = root / 'settings.json'
+            snapshot = dict(checkouts=[], held_routes=[], runs={}, image_selection=dict(status='none', keeper=None))
+            with patch.dict(os.environ, XDG_STATE_HOME=str(root)), patch.dict(
+                    full.__globals__, discovery=lambda *args, **kwargs: snapshot, available_on=lambda *_: 1024,
+                    engine_observation=lambda *_: self.fail('empty fixture called the engine')):
+                report, rc = full(root, settings)
+                self.assertEqual((rc, report['status'], report['outcome']['backlog']), (1, 'held', 'open'))
+                follow = report['outcome']['follow_through']
+                self.assertEqual((follow['next']['code'], follow['external_candidates']), ('size-inventory', 0))
+                self.assertEqual(report['known_checkouts'], 0)
+                report, rc = full(root, settings, 1024)
+                self.assertEqual((rc, report['status'], report['outcome']['backlog']),
+                                 (0, 'target-met', 'unassessed'))
+                self.assertEqual((report['attempts'], report['measured_reclaimed_bytes']), ([], 0))
+                selected = module['volume_identity'](root)
+                index, inventory = module['inventory_paths'](selected)
+                index.parent.mkdir(parents=True)
+                raw = json.dumps(dict(schema=1, volume=list(selected), entries=[], observed_epoch=time.time()))
+                inventory.write_text(raw)
+                index.write_text(json.dumps(dict(schema=1, sha256=module['hashlib'].sha256(raw.encode()).hexdigest())))
+                inventory.chmod(0o600)
+                index.chmod(0o600)
+                report, rc = full(root, settings)
+                self.assertEqual((rc, report['status'], report['outcome']['backlog']), (0, 'settled', 'disposed'))
+                self.assertEqual((report['attempts'], report['measured_reclaimed_bytes']), ([], 0))
+
+    def test_missed_target_continues_largest_exact_ordinary_run_once(self):
+        module = runpy.run_path(str(HERE / CYCLE))
+        full = module['full_sweep']
+        with tempfile.TemporaryDirectory() as folder:
+            root = Path(folder)
+            owner, other = root / 'producer', root / 'other'
+            owner.mkdir()
+            other.mkdir()
+            run = str(owner / '.build-runs' / 'exact')
+            output = str(owner / 'build.high')
+            smaller_run = str(other / '.build-runs' / 'other')
+            smaller = str(other / 'build.low')
+            snapshot = dict(checkouts=[str(owner), str(other)], held_routes=[], runs={
+                str(owner): [run], str(other): [smaller_run]}, image_selection=dict(status='none', keeper=None))
+            hints = {Path(output): dict(allocated_bytes=9000), Path(smaller): dict(allocated_bytes=8000)}
+            observed, available = [], 100
+            def observe(supplier, checkout, selected_run=None):
+                nonlocal available
+                observed.append((checkout, selected_run))
+                chosen_run, target = (run, output) if checkout == owner else (smaller_run, smaller)
+                if selected_run:
+                    self.assertEqual(selected_run, Path(run))
+                    status, reason, amount = 'retired', None, 20
+                else:
+                    status, reason, amount = 'partial', 'per-sweep operation bound reached', 10
+                available += amount
+                return int(status != 'retired'), dict(status=status, verified_unlinked_bytes=amount,
+                    results=[dict(run=chosen_run, status=status,
+                                  roots=[dict(root=target, status=status, reason=reason)])])
+            with patch.dict(full.__globals__, discovery=lambda *a, **kw: snapshot, retained_hints=lambda *a: hints,
+                            engine_observation=observe, available_on=lambda *_: available):
+                report, rc = full(root, root / 'settings.json', 1000)
+            self.assertEqual(observed, [(owner, None), (other, None), (owner, Path(run))])
+            self.assertEqual((rc, report['status'], report['outcome']['shortfall_bytes']), (1, 'held', 860))
+            self.assertEqual(report['measured_reclaimed_bytes'], 40)
+            self.assertEqual(report['outcome']['progress'], 'verified-unlink')
+            self.assertEqual(report['operator_continuation']['run'], run)
+            self.assertEqual(report['outcome']['follow_through']['next']['path'], smaller)
+
+    def test_noop_checkout_needs_disposition_for_ranked_path(self):
+        finish = runpy.run_path(str(HERE / CYCLE))['finish_full']
+        path = '/fixture/checkout/build.ranked'
+        report = dict(schema=1, target_available_bytes=None, available_bytes=20, known_checkouts=1,
+                      attempts=[dict(checkout='/fixture/checkout', ranked_bytes=10, status='noop', returncode=0)],
+                      omissions=[], ranked_paths=[dict(path=path, checkout='/fixture/checkout', allocated_bytes=10)])
+        result, rc = finish(report)
+        self.assertEqual(rc, 1)
+        self.assertEqual(result['outcome']['follow_through']['next']['path'], path)
+        report['image_selection'] = dict(status='completed', keeper=dict(protected_paths=[path]))
+        result, rc = finish(report)
+        self.assertEqual((rc, result['outcome']['backlog']), (0, 'disposed'))
+
+    def test_only_exact_privileged_observation_escalates(self):
+        finish = runpy.run_path(str(HERE / CYCLE))['finish_full']
+        root = '/fixture/checkout/build.needs-host-use'
+        leaf = dict(root=root, status='held', reason='trusted tree-use check held: producer-not-installed')
+        run = '/fixture/checkout/.build-runs/one'
+        report = dict(schema=1, target_available_bytes=None, available_bytes=20, known_checkouts=1, omissions=[],
+            attempts=[dict(checkout='/fixture/checkout', ranked_bytes=10, status='held', returncode=1,
+                           results=[dict(run=run, status='held', roots=[leaf])])])
+        result, rc = finish(report)
+        external = result['outcome']['follow_through']['next']
+        self.assertEqual((rc, external['kind'], external['owner']), (1, 'external', 'Serval storage administrator'))
+        self.assertEqual(external['privileged_operation']['operand'], root)
+        self.assertEqual(external['privileged_operation']['reporter'], '/usr/local/libexec/pixelelated/host-in-use-report')
+        leaf['reason'] = 'trusted tree-use check held: producer-unavailable'
+        result, rc = finish(report)
+        follow = result['outcome']['follow_through']
+        self.assertEqual((rc, follow['next']['kind'], follow['external_candidates']), (1, 'ordinary', 0))
+
+    @unittest.skipUnless(os.environ.get('PIXELELATED_TEST_FULL_ORIGINALS'), 'saved Serval and steward fixtures not bound')
+    def test_readback_saved_full_originals(self):
+        finish = runpy.run_path(str(HERE / CYCLE))['finish_full']
+        full_path, missing_path = json.loads(os.environ['PIXELELATED_TEST_FULL_ORIGINALS'])
+        full = json.loads(Path(full_path).read_bytes())
+        self.assertEqual((full['visited_checkouts'], full['verified_unlinked_bytes']), (53, 0))
+        self.assertEqual(sum(row.get('reason') == 'checkout is shared or owned by another account'
+                             for row in full['attempts']), 51)
+        result, rc = finish(full)
+        outcome = result['outcome']
+        follow = outcome['follow_through']
+        self.assertEqual((rc, outcome['goal'], outcome['complete'], outcome['backlog']),
+                         (1, 'superseded-build-backlog', False, 'open'))
+        self.assertEqual((follow['next']['code'], follow['next']['kind'], follow['external_candidates']),
+                         ('checkout-ownership', 'ordinary', 0))
+        self.assertEqual(follow['next']['ranked_bytes'], 158979473408)
+        self.assertTrue(follow['next']['ranked_path'].endswith(
+            'm7-signin-sm8550-build-20261025-01/build.pixelelated-SM8550.aarch64'))
+        self.assertIn('legacy-admission', {item['code'] for item in follow['alternatives']})
+        self.assertIsNone(follow['next']['privileged_operation'])
+        print(json.dumps(dict(fixture=full_path, rc=rc, outcome=outcome), sort_keys=True))
+        missing = json.loads(Path(missing_path).read_bytes())
+        self.assertEqual((missing['exit_code'], missing['report']['known_checkouts']), (0, 0))
+        result, rc = finish(missing['report'])
+        outcome = result['outcome']
+        self.assertEqual((rc, outcome['complete'], outcome['backlog']), (1, False, 'open'))
+        follow = outcome['follow_through']
+        self.assertEqual((follow['next']['code'], follow['next']['kind'], follow['external_candidates']),
+                         ('size-inventory', 'ordinary', 0))
+        print(json.dumps(dict(fixture=missing_path, rc=rc, outcome=outcome), sort_keys=True))
+
+    def test_full_pass_uses_rank_skips_hold_and_leaves_rotation_cursor(self):
+        module = runpy.run_path(str(HERE/CYCLE))
+        full = module['full_sweep']
+        g = full.__globals__
+        with tempfile.TemporaryDirectory() as folder:
+            root = Path(folder)
+            settings = root/'settings.json'
+            cursor = settings.with_name('build-retention.cursor')
+            cursor.write_text('"old"\n')
+            owners = [root/str(i) for i in range(6)]
+            for p in owners: p.mkdir(mode=0o700)
+            loose = owners[3]/'disposable'
+            loose.write_bytes(b'A'*65536)
+            keeper = owners[3]/'firmware'
+            keeper.write_bytes(b'preserve')
+            allocated = loose.stat().st_blocks*512
+            visited = []
+            def observe(supplier, owner, run=None):
+                visited.append(owner)
+                if owner == owners[3] and loose.is_file():
+                    loose.unlink()
+                    return 0,dict(status='retired',verified_unlinked_bytes=allocated)
+                return 1,dict(status='held',reason='protected input',verified_unlinked_bytes=0)
+            data={'checkouts':list(map(str,owners)),'held_routes':[],'runs':{},
+                  'image_selection':dict(status='none',keeper=None)}
+            hints={owners[5]/'build.big':dict(allocated_bytes=900),owners[3]/'build.small':dict(allocated_bytes=600)}
+            def available(*_): return 100 if loose.exists() else 100+allocated
+            with patch.dict(g,dict(discovery=lambda *a,**kw:data, retained_hints=lambda *a:hints,
+                                    engine_observation=observe,available_on=available)):
+                report,rc=full(root,settings)
+                self.assertEqual((report['visited_checkouts'],rc),(6,1))
+                self.assertEqual(visited[:2],[owners[5],owners[3]])
+                self.assertEqual(len(report['ranked_paths']),2)
+                self.assertEqual(report['measured_reclaimed_bytes'],allocated)
+                self.assertEqual(keeper.read_bytes(),b'preserve')
+                self.assertEqual(cursor.read_text(),'"old"\n')
+                visited.clear()
+                report,rc=full(root,settings,100)
+                self.assertEqual((visited,rc,report['status']),([],0,'target-met'))
+                with (root/'build-retention.lock').open('rb') as held:
+                    import fcntl
+                    fcntl.flock(held,fcntl.LOCK_EX)
+                    report,rc=full(root,settings)
+                self.assertEqual((rc,report['reason']),(1,'checkout sweep already active'))
+
+
+if __name__ == '__main__':
+    unittest.main(verbosity=2)

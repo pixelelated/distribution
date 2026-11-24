@@ -81,6 +81,17 @@ if compgen -G "${TARGET_IMG}/${IMAGE_NAME}.*" >/dev/null ||
   die "Build identity already exists in target; choose a new BUILD_TIMESTAMP"
 fi
 
+case "${1:-}" in
+  release|mkimage|noobs)
+    image_keeper() {
+      python3 -I -B "${ROOT}/tools/host-maintenance/os-image-keeper" "$1" "${ROOT}" \
+        "${RASTERATOPS_BUILD_RUN}" "$2" "${IMAGE_NAME}" "${PROJECT}" "${DEVICE:-${PROJECT}}" \
+        "${TARGET_ARCH}" "${BUILD}" "${TARGET_IMG}" "${SOURCES}"
+    }
+    image_keeper start "$1" || die "Could not bind the watched image producer"
+  ;;
+esac
+
 echo "${IMAGE_NAME}" >${BUILD}/BUILD_FILENAME
 
 # Setup fakeroot
@@ -479,3 +490,7 @@ fi
 
 rm -f ${TARGET_IMG}/*.kernel
 rm -f ${TARGET_IMG}/*.system
+
+case "${1:-}" in
+  release|mkimage|noobs) image_keeper finish "$1" || die "Could not bind the watched image output" ;;
+esac

@@ -133,7 +133,75 @@ vanishes mid-command and everything afterwards fails for an unrelated-looking
 reason. Detach it instead (`git switch --detach`) if you only need its branch
 freed; the tool refuses this case outright.
 
+## Check build-volume headroom before copying or launching
+
+Before staging a substantial cache or starting a build, use the shared admission
+and retention tools to compare the measured peak for that stage, the host reserve
+and existing reservations with usable bytes on the destination volume. Reuse the
+project's same-volume inventory, including old runs inside active checkouts'
+`.build-runs` directories. Refresh changed entries. When space is tight, review
+the largest generated sets first and continue past any individual hold.
+
+Record each new generated root, its build owner and its release condition when
+planning it. Protect the current seed, queued inputs, source changes, retained
+deliverables and failure evidence. Count shared blocks once. Use the existing
+guarded retirement and completion paths for eligible outputs, and remeasure
+space before admission. If capacity still falls short, report the missing bytes
+and identify the retained groups, their owners and what releases each hold.
+Routine completion and scheduled cleanup continue once the next build fits.
+See D-INFRA-032 and #493.
+
+Judge cleanup against the request (D-INFRA-034, #493). For a capacity request,
+measure available bytes on the requested volume and compare them with the
+requested target. A target already met can finish with zero unlinks. For a
+whole-backlog request, account for superseded build outputs across the known
+inventory. Record each retirement, independently protected input or result, or
+specific remaining hold with its size, owner and release condition. Incomplete
+inventory keeps the backlog open, even when the admission registry is empty.
+Use the build budget only when it is the requested capacity target.
+
+When a sweep holds, recovers zero against an unmet goal, or finishes partway,
+use its saved report to act on the largest addressable generated set. Check
+who can write it, its aliases and real consumers. Reconcile our own checkout
+modes, registry and inventory under OS ownership. If a specific observation
+or operation needs another owner's access, name the operand, action, and
+owner and continue with the other eligible sets. Report production recovery
+from actual before/after measurements and keep fixture results separate.
+Repeat a held scan when material evidence changes.
+
 ## Review retention after qualification
+
+Keep one local pixelelated OS build across all targets (D-INFRA-033, #493).
+During image production, keep the build in flight and its inputs. While idle,
+keep the most recent OS build. Use the same producer and admission records for
+manual, scheduled, post-build and pre-build cleanup. Verify the producer,
+checkout and revision. Associate later packaging of the same image with that
+producer. Package-only rebuilds and QA sessions leave the OS selection intact.
+
+Record the owner of each working directory when creating it. Old generated
+directories may be retired immediately under the normal use and custody checks. A future cold rebuild is acceptable. Separate active or queued inputs, unique
+source edits, Git objects, licences and compact results before releasing the
+old directory. GitHub is the intended home for earlier deliverables. When a
+required release asset is missing there, protect the specific local deliverable
+and track its disposition separately. Publication has its own authority.
+
+Use the shared [build retention lifecycle](../../tools/host-maintenance/build-retention-cycle.md) and [custody format](../../tools/host-maintenance/build-tree-custody.md) for the build account and the installer. A hold or a timer invocation credits zero bytes. Count recovery from an actual unlink receipt and a fresh free-space measurement.
+
+Use normal build completion and a recurring recovery sweep for terminal,
+interrupted and historical builds. Reconcile old holds against actual active
+or immediately queued consumers and their transitive dependencies. An exception
+names the files or tree still needed, the consumer or missing evidence, the
+accountable owner and the event that releases the hold. Protect current source
+worktrees, unique uncommitted files, shared sources and retained results.
+Verify current use, file identities and ownership before removal. If coverage
+is incomplete, keep the affected files and record what would establish safety.
+
+For qualifying files, the ordinary build account records the intended removal,
+unlinks the exact members and verifies which were removed. Record allocated
+bytes separately from the measured change in free space. Preserve the original
+result and reconcile an interrupted cleanup against its journal before continuing.
+A successful qualifying run needs no per-batch maintainer decision. Installing
+a privileged reader or changing host access still requires administrator authority.
 
 A successful build followed by its required QA triggers a **retention review**
 (D-INFRA-018, #461). Before the next build, compare available space with its
@@ -174,8 +242,19 @@ then verify removal, retained inputs and actual free space. A retention review
 never extends an earlier batch's deletion scope. #461 delivered the read-only planner and first later batch. #493 owns remaining
 classification and lifecycle enforcement. `tools/host-maintenance/build-admission`
 now requires current measured capacity/retention before launches and retains
-output ownership through original-result consumption; automatic deletion is
-not implemented. Follow its guide; admission does not extend cleanup authority.
+output ownership through original-result consumption; retirement follows the declared lifecycle and D-INFRA-025.
+Follow the admission guide for the status and limits of the installed workflow.
+
+Use the build account's ownership records and reports for recurring storage
+checks. When a decision needs visibility that account lacks, coordinate one
+administrator-owned, read-only integration for the reviewed scope. Have the
+coordinator invoke it unattended, consume its original result and continue
+the dependent work. Hold on a busy file, incomplete visibility or a stale
+selection. An administrator decides whether to grant new access. Each
+retirement still follows its own output conditions, and capacity is measured
+again before admission. Keep host and process evidence in private operational
+storage. See [retention reporting](../../tools/host-maintenance/retention-report.md)
+and D-INFRA-024 (#493).
 
 ### Retain the record; give a large runtime artifact a reason to stay
 

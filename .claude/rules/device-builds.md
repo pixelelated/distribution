@@ -100,8 +100,16 @@ building. VM-specific behavior must remain scoped to GENERIC_X64; never import
 an old VM-only branch's shared concessions into a handheld image.
 
 ```bash
-git worktree add -b build/<run-name> ../rocknix.worktrees/<run-name> <verified-commit>
+tools/fork-worktree add-build <run-name> <verified-commit>
 ```
+
+For a disposable shared-object clone inside a private run, use
+`tools/fork-worktree clone-build /absolute/private-run/checkout /absolute/source-checkout`.
+Both routes reserve a new owner-only checkout before Git populates it. Preserve
+the clone's source object store for its lifetime. Create new cache roots under
+the build account's ownership and preserve their private root permissions across
+seed copies. Check the checkout and cache root modes before admitting a new
+disposable build. Existing frozen checkouts keep their recorded identities.
 
 The earlier shared `devices` / `test/qa-integration` distribution-build recipe
 is historical. EmulationStation's separate repository still uses its own
@@ -456,6 +464,13 @@ image and package targets, direct `scripts/build_distro`, `scripts/image`,
 the relative run marker crosses the mount, and nested scripts reuse the run.
 Interactive `docker-shell` and non-build helpers keep their normal behavior;
 building from that shell arms a monitor inside that container.
+
+Across all targets retain one local OS build (D-INFRA-033, #493). Identify the
+running image producer from admission and watcher evidence. While idle, keep
+the most recent OS build and associate its boot media with it. Protect queued
+inputs and preserve independent source and results when retiring older working
+directories. The same choice applies before copying or launching, at completion
+and during manual or scheduled cleanup. See [worktree retention](worktrees.md).
 
 Each top-level run prints its private `.build-runs/<id>/` directory and keeps
 the combined log, runner/command/watcher PIDs, atomic `build.rc`, heartbeat
