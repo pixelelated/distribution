@@ -1,13 +1,14 @@
 # Lane models and account handoff
 
-D-WORKFLOW-198 applies to the OS and codebase-renovation workspaces. Choose a harness and role when a lane is created or reopened. Keep the same worktree, task owner, permissions and native thread on an account switch. Each workspace manager continues to own its workers.
+D-WORKFLOW-198 applies to the OS and codebase-renovation workspaces; D-WORKFLOW-200 (Max, 2026-11-24) sets which harness and model each role runs. Choose the role when a lane is created or reopened; it selects the harness and tier. Keep the same worktree, task owner, permissions and native thread on an account switch. Each workspace manager continues to own its workers.
 
-| Harness and purpose | Explicit model | Reasoning and permissions |
+| Role (`--role`) | Harness and model | Reasoning and permissions |
 | --- | --- | --- |
-| Codex coordinator, including the one-on-one steward | `gpt-6.2-astra` | `xhigh`, workspace-write, on-request, automatic approval review |
-| Codex worker | `gpt-6.2-sol` | Same effort and review settings |
-| Claude Code, selected Fable tier | `claude-fable-5-2` | `xhigh` for interactive lanes, existing native permissions |
-| Claude Code, selected Opus tier | `claude-opus-5-5` | Same interactive settings |
+| One-on-one steward (`steward`) | Claude Code, latest Fable: `claude-fable-5-2` | `xhigh`, existing native permissions |
+| OS work coordinator (`coordinator`) | Claude Code, latest Opus: `claude-opus-5-5` | `xhigh`, existing native permissions |
+| Worker (`worker`) | Codex, latest GPT Sol: `gpt-6.2-sol` | `xhigh`, workspace-write, on-request, automatic approval review |
+
+Max, 2026-11-24: *"the one-on-ones should be running the latest Fable, and the work coordinator runs the latest Opus, and the worker lanes run GPT Soul on the latest"*. `tools/herdr-lane` refuses a Codex coordinator or steward. A Claude worker departs from the policy and needs an explicit `--tier`. When a newer Fable, Opus or GPT Sol ships, update the launcher's model table and this one together.
 
 Retain any narrower approved profile, specific writable roots, or managed restrictions. The launcher encodes the two workspaces' standard Codex profile. When the original lane requires different limits, inspect its effective profile and retain them before starting it. Claude Code uses its own permission system. Its native default inherits settings; pass an explicit permission mode only when it matches the lane's established policy. Check active permission rules, including project and managed rules. Keep separately authorized device and publication actions within their existing scope.
 
@@ -16,13 +17,13 @@ Retain any narrower approved profile, specific writable roots, or managed restri
 Use `tools/herdr-lane` from canonical `next`, including when the worktree assigned to the lane is on an older branch. Both commands print argv by default. On a user-authorized launch, run the same command with `--apply` from the intended Herdr session. `fresh` creates an unfocused tab and starts the native client in its returned pane. `resume` reuses the original pane at its shell prompt. It checks the UUID and saved worktree in the selected harness's transcript store before starting the client. Native thread IDs are harness-specific. A deliberate harness change needs a fresh thread and the outgoing conversation's project handoff.
 
 ```sh
-tools/herdr-lane fresh --workspace w4 --name os-worker --cwd "$worktree" --harness codex --role worker
-tools/herdr-lane resume --workspace w4 --pane "$original_pane" --session "$thread" --name os-coordinator --cwd "$worktree" --harness codex --role coordinator
-tools/herdr-lane fresh --workspace wN --name renovation-worker --cwd "$worktree" --harness claude --role worker --tier opus
-tools/herdr-lane resume --workspace wN --pane "$original_pane" --session "$thread" --name renovation-coordinator --cwd "$worktree" --harness claude --role coordinator --tier fable
+tools/herdr-lane fresh --workspace w4 --name os-worker --cwd "$worktree" --role worker
+tools/herdr-lane resume --workspace w4 --pane "$original_pane" --session "$thread" --name os-coordinator --cwd "$worktree" --role coordinator
+tools/herdr-lane fresh --workspace wN --name renovation-worker --cwd "$worktree" --role worker
+tools/herdr-lane fresh --workspace w4 --name one-on-one --cwd "$worktree" --role steward
 ```
 
-The examples use different roles and tiers to show the inputs. Preserve the actual Claude tier selected for the work. Retain the returned workspace, pane, native UUID, role, cwd and start result in operational records. On timeout or identity mismatch, inspect the original pane and process before repeating any action.
+The role supplies the harness and tier; pass `--harness` or `--tier` only to record a deliberate, named departure from D-WORKFLOW-200. Retain the returned workspace, pane, native UUID, role, cwd and start result in operational records. On timeout or identity mismatch, inspect the original pane and process before repeating any action.
 
 ## User-initiated account handoff
 

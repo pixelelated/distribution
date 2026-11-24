@@ -65,29 +65,45 @@ class Contracts(unittest.TestCase):
         f.write_text(json.dumps(row) + "\n")
 
     def test_matrix(self):
-        for harness, tier, model in (("codex", None, None), ("claude", "opus", "claude-opus-5-5"),
-                                     ("claude", "fable", "claude-fable-5-2")):
-            for role in ("coordinator", "worker"):
-                for resume in (False, True):
-                    with self.subTest(harness=harness, tier=tier, role=role, resume=resume):
-                        self.args.harness, self.args.tier, self.args.role = harness, tier, role
-                        self.args.session = self.args.pane = None
-                        if resume:
-                            self.pin()
-                        self.calls.clear()
-                        result = self.run_launch()
-                        argv = result["native_argv"]
-                        self.assertEqual(result["pane"], "wN:pA")
-                        self.assertEqual(sid in argv, resume)
-                        self.assertEqual(any(c[:2] == ("tab", "create") for c in self.calls), not resume)
-                        if harness == "codex":
-                            self.assertIn("gpt-6.2-astra" if role == "coordinator" else "gpt-6.2-sol", argv)
-                            for v in ('model_reasoning_effort="xhigh"', 'approvals_reviewer="auto_review"',
-                                      "workspace-write", "on-request"):
-                                self.assertIn(v, argv)
-                        else:
-                            self.assertEqual(argv[:4], ["--model", model, "--effort", "xhigh"])
-                            self.assertNotIn("--permission-mode", argv)
+        cases = (("worker", None, None, "codex", "gpt-6.2-sol"),
+                 ("worker", "codex", None, "codex", "gpt-6.2-sol"),
+                 ("coordinator", None, None, "claude", "claude-opus-5-5"),
+                 ("coordinator", "claude", None, "claude", "claude-opus-5-5"),
+                 ("steward", None, None, "claude", "claude-fable-5-2"),
+                 ("worker", "claude", "opus", "claude", "claude-opus-5-5"))
+        for role, harness, tier, expected, model in cases:
+            for resume in (False, True):
+                with self.subTest(role=role, harness=harness, tier=tier, resume=resume):
+                    self.args.role, self.args.harness, self.args.tier = role, harness, tier
+                    self.args.session = self.args.pane = None
+                    if resume:
+                        self.args.harness = expected
+                        self.pin()
+                        self.args.harness, self.args.tier = harness, tier
+                    self.calls.clear()
+                    result = self.run_launch()
+                    argv = result["native_argv"]
+                    self.assertEqual(self.args.harness, expected)
+                    self.assertEqual(result["pane"], "wN:pA")
+                    self.assertEqual(sid in argv, resume)
+                    self.assertEqual(any(c[:2] == ("tab", "create") for c in self.calls), not resume)
+                    if expected == "codex":
+                        self.assertIn(model, argv)
+                        self.assertNotIn("gpt-6.2-astra", argv)
+                        for v in ('model_reasoning_effort="xhigh"', 'approvals_reviewer="auto_review"',
+                                  "workspace-write", "on-request"):
+                            self.assertIn(v, argv)
+                    else:
+                        self.assertEqual(argv[:4], ["--model", model, "--effort", "xhigh"])
+                        self.assertNotIn("--permission-mode", argv)
+
+    def test_codex_coordinator_refused(self):
+        for role in ("coordinator", "steward"):
+            with self.subTest(role=role):
+                self.args.role, self.args.harness, self.args.tier = role, "codex", None
+                with self.assertRaisesRegex(ValueError, "D-WORKFLOW-200"):
+                    self.run_launch()
+        self.assertFalse(any(c[:2] == ("agent", "start") for c in self.calls))
 
     def test_refuse_wrong_worktree_and_active_thread(self):
         self.pin(self.cwd.parent)
@@ -100,7 +116,7 @@ class Contracts(unittest.TestCase):
         self.assertFalse(any(c[:2] == ("agent", "start") for c in self.calls))
 
     def test_missing_tier_and_wrong_pane(self):
-        self.args.harness = "claude"
+        self.args.harness, self.args.role = "claude", "worker"
         with self.assertRaisesRegex(ValueError, "tier"):
             self.run_launch()
         self.args.tier = "opus"
@@ -110,10 +126,21 @@ class Contracts(unittest.TestCase):
             self.run_launch()
 
     def test_cli_dry_run(self):
+        p = subprocess.run([str(tool), "fresh", "--name", "example", "--role", "worker",
+                            "--workspace", "w4", "--cwd", str(self.cwd)],
+                           capture_output=True, text=True, check=True)
+        start = json.loads(p.stdout)["start"]
+        self.assertEqual(start[:3], ["herdr", "agent", "start"])
+        self.assertIn("gpt-6.2-sol", start)
+        p = subprocess.run([str(tool), "fresh", "--name", "example", "--role", "coordinator",
+                            "--workspace", "w4", "--cwd", str(self.cwd)],
+                           capture_output=True, text=True, check=True)
+        self.assertIn("claude-opus-5-5", json.loads(p.stdout)["start"])
         p = subprocess.run([str(tool), "fresh", "--name", "example", "--role", "coordinator",
                             "--workspace", "w4", "--cwd", str(self.cwd), "--harness", "codex"],
-                           capture_output=True, text=True, check=True)
-        self.assertEqual(json.loads(p.stdout)["start"][:3], ["herdr", "agent", "start"])
+                           capture_output=True, text=True)
+        self.assertNotEqual(p.returncode, 0)
+        self.assertIn("D-WORKFLOW-200", p.stderr)
         self.assertEqual(module.stores()["claude"], self.env["CLAUDE_CONFIG_DIR"])
 
 

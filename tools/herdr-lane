@@ -9,8 +9,12 @@ import sys
 from pathlib import Path
 from uuid import UUID
 
-CODEX = {"coordinator": "gpt-6.2-astra", "worker": "gpt-6.2-sol"}
+CODEX = {"worker": "gpt-6.2-sol"}
 CLAUDE = {"fable": "claude-fable-5-2", "opus": "claude-opus-5-5"}
+# D-WORKFLOW-200: the role selects the harness and Claude tier. The one-on-one
+# steward runs the latest Fable, the work coordinator the latest Opus, and
+# workers Codex on the latest GPT Sol. Codex no longer runs coordinators.
+ROLES = {"steward": ("claude", "fable"), "coordinator": ("claude", "opus"), "worker": ("codex", None)}
 
 
 def stores():
@@ -20,9 +24,16 @@ def stores():
 
 
 def native(args):
+    harness, tier = ROLES[args.role]
+    if args.harness is None:
+        args.harness = harness
+    if args.harness == "codex" and args.role != "worker":
+        raise ValueError(f"the {args.role} runs Claude Code (D-WORKFLOW-200); Codex runs workers only")
     if args.harness == "claude":
         if args.tier is None:
-            raise ValueError("choose the lane's existing Claude tier with --tier")
+            args.tier = tier
+        if args.tier is None:
+            raise ValueError("a Claude worker departs from D-WORKFLOW-200; name its existing tier with --tier")
         argv = ["--model", CLAUDE[args.tier], "--effort", "xhigh"]
         if args.permission_mode:
             argv += ["--permission-mode", args.permission_mode]
@@ -122,9 +133,9 @@ def main():
         s = subs.add_parser(action)
         for key in ("name", "workspace", "cwd"):
             s.add_argument("--" + key, required=True)
-        s.add_argument("--harness", required=True, choices=("codex", "claude"))
-        s.add_argument("--role", required=True, choices=CODEX)
-        s.add_argument("--tier", choices=CLAUDE, help="preserve the selected Claude seat")
+        s.add_argument("--harness", choices=("codex", "claude"), help="default follows the role (D-WORKFLOW-200)")
+        s.add_argument("--role", required=True, choices=ROLES)
+        s.add_argument("--tier", choices=CLAUDE, help="default follows the role: steward fable, coordinator opus")
         s.add_argument("--permission-mode", choices=("manual", "plan", "acceptEdits", "auto"),
                        help="only if already approved for this Claude lane; default inherits settings")
         s.add_argument("--apply", action="store_true", help="create/start once; default prints argv")

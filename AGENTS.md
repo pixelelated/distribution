@@ -24,11 +24,12 @@ path when working in a session with an older skill catalog. `tools/rules-check`
 verifies the shared entry points and regenerates the rule list from the rule
 files' front matter (D-WORKFLOW-045, D-WORKFLOW-199).
 
-**Lane models and account handoff:** For both workspaces, Codex coordinators use
-`gpt-6.2-astra`, workers use `gpt-6.2-sol`, and both use `xhigh`. Preserve
-the selected Claude tier with Fable 5.2 or Opus 5.5. Before opening a tab or
-resuming a thread, read `docs/lane-models-and-account-handoff.md` and use
-`tools/herdr-lane` on canonical `next` (D-WORKFLOW-198).
+**Lane models and account handoff:** The one-on-one steward runs Claude Code on
+the latest Fable (`claude-fable-5-2`), the OS work coordinator Claude Code on the
+latest Opus (`claude-opus-5-5`), and worker lanes Codex on the latest GPT Sol
+(`gpt-6.2-sol`), all at `xhigh` (D-WORKFLOW-200, refining D-WORKFLOW-198). Before
+opening a tab or resuming a thread, read `docs/lane-models-and-account-handoff.md`
+and use `tools/herdr-lane` on canonical `next`; its role selects the harness and tier.
 
 **Build directory lifetime.** Keep a full working directory while its build is active.
 Save required images, exact source and evidence independently. The ordinary build
