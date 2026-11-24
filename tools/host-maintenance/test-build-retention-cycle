@@ -578,7 +578,8 @@ class FullCollectionTests(unittest.TestCase):
                     loose.unlink()
                     return 0,dict(status='retired',verified_unlinked_bytes=allocated)
                 return 1,dict(status='held',reason='protected input',verified_unlinked_bytes=0)
-            data={'checkouts':list(map(str,owners)),'held_routes':[],'runs':{}}
+            data={'checkouts':list(map(str,owners)),'held_routes':[],'runs':{},
+                  'image_selection':dict(status='none',keeper=None)}
             hints={owners[5]/'build.big':dict(allocated_bytes=900),owners[3]/'build.small':dict(allocated_bytes=600)}
             def available(*_): return 100 if loose.exists() else 100+allocated
             with patch.dict(g,dict(discovery=lambda *a,**kw:data, retained_hints=lambda *a:hints,
@@ -586,6 +587,7 @@ class FullCollectionTests(unittest.TestCase):
                 report,rc=full(root,settings)
                 self.assertEqual((report['visited_checkouts'],rc),(6,1))
                 self.assertEqual(visited[:2],[owners[5],owners[3]])
+                self.assertEqual(len(report['ranked_paths']),2)
                 self.assertEqual(report['measured_reclaimed_bytes'],allocated)
                 self.assertEqual(keeper.read_bytes(),b'preserve')
                 self.assertEqual(cursor.read_text(),'"old"\n')

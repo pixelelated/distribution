@@ -202,10 +202,12 @@ so those tests fit a VM and carry no production host-use or reclamation claim.
 ## Run cleanup on demand
 
 The build account can run `tools/host-maintenance/build-retention-cycle full`
-from the installed checkout. It snapshots the registered build checkouts on this
-volume, ranks them with the retained size inventory, skips held scopes, and
-invokes the same retirement engine used after builds and by the scheduled
-service. A competing sweep holds the existing cycle lock. Each engine call
+from the installed checkout. It selects the project image from the existing
+admission ledgers, then ranks the known directories on this volume using
+verified inventory entries. It joins nested output paths to their declaring
+checkout and checks known Git worktrees with ranked build profiles. Each
+eligible checkout uses the same retirement engine as completion and the
+scheduled service. The report identifies held paths and the inputs they overlap. A competing sweep holds the existing cycle lock. Each engine call
 retains its normal deadline and use checks. The full pass leaves the timer
 cursor intact. Unknown owners and incomplete discovery remain visible.
 
@@ -308,3 +310,34 @@ binding may improve actual capacity while reporting zero verified reclaim.
 No ranked estimate, pending delete, or recorded allocation is credited as
 free space. The ordinary admission locks, original one-use behavior, and
 periodic reconciliation stay in effect.
+
+### Single local OS image generation
+
+The image keeper uses the actual image stage of a watched release, mkimage or
+noobs invocation. Its admitted build, target and source locations are joined to
+the original watcher and artifact identity. The same selector ranks all supplied
+project registries across targets and volumes. One actual active generation
+takes precedence. When idle, the newest successful completed generation wins.
+Two active generations, an unclassified newer legacy firmware producer, or
+changed original evidence hold retirement. Package runs and QA copies do not
+supply image-stage records.
+
+The ordinary, periodic, completion and prebuild guarded routes consult this
+policy under their existing effect locks. Queue inputs, other owners and
+original source/result custody remain independently protected. The selector
+adds no release or deletion authority.
+
+For a read-only report use:
+
+    tools/host-maintenance/build-tree-retention keeper --checkout /absolute/project/checkout
+
+An owner-reviewed legacy migration can be checked with the keeper command's
+--migration argument. For ongoing use the selected authority stores the
+validated immutable document as os-image-history.json in its admission
+registry, owned by the ordinary build account with mode 0600. The two legacy
+roles are a successful full producer and independently joined same-image media.
+The media does not supply a separate generation or change completion rank.
+Read-only reporting accepts unsealed legacy rows. Effect routes still require
+the existing registry and custody admission. Full-pass callers can use
+select_os_keeper(ledgers, effect_volume_device) in build-tree-retention and
+apply the reported keeper.protected_paths to their own locked operands.

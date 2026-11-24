@@ -51,6 +51,11 @@ class Controls(unittest.TestCase):
         self.enterContext(patch.dict(os.environ,XDG_STATE_HOME=str(self.routes)))
         self.enterContext(patch.dict(A,registry_state_roots=lambda:[str(self.routes)]))
         self.registry=A['registry_for'](self.checkout)
+        lookup = A['registry_for']
+        # A checkout-local test must never acquire the installed project's live ledger.
+        def fixture_registry(checkout):
+            return self.registry if checkout == SRC else lookup(checkout)
+        self.enterContext(patch.dict(A, registry_for=fixture_registry))
         self.registry.mkdir(mode=0o700)
         (self.registry/'lock').touch()
         self.ledger=dict(schema=1,generation=1,jobs={},queued={})
@@ -155,6 +160,31 @@ class Controls(unittest.TestCase):
         self.assertTrue((self.keepers/'one-deliverable').is_file())
         self.assertEqual(self.finish()['verified_unlinked_bytes'],0)
         self.assertEqual(self.observations,1)
+
+    def test_new_keeper_pin_during_authenticated_readback_blocks_actual_unlink(self):
+        run,leaf,_,_,_=self.terminal()
+        report={'status':'none','keeper':None}
+        observed=[]
+
+        def keeper_under_effect_lock(ledgers, device):
+            with (self.registry/'lock').open() as held:
+                with self.assertRaises(BlockingIOError):
+                    G['fcntl'].flock(held,G['fcntl'].LOCK_EX|G['fcntl'].LOCK_NB)
+            observed.append(report['status'])
+            return report
+
+        def host_stages_current_keeper(manifest, key):
+            report.update(status='active',keeper=dict(admission_id='new',protected_paths=[str(leaf)]))
+            return self.host(manifest,key)
+
+        with patch.dict(G,select_os_keeper=keeper_under_effect_lock), patch.dict(R,read_host_use=host_stages_current_keeper):
+            result=self.finish(run,expected='held')
+        self.assertEqual(observed,['none','active'])
+        self.assertEqual(result['verified_unlinked_bytes'],0)
+        self.assertTrue(leaf.is_file())
+        self.assertIn('single OS image keeper new protects',result['results'][0]['roots'][0]['reason'])
+        self.assertEqual(self.finish(run)['status'],'retired')
+        self.assertFalse(leaf.exists())
 
     def test_shared_checkout_is_reported_without_traversal(self):
         marker = self.checkout / 'kept'

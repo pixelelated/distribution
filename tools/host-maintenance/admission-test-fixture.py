@@ -61,6 +61,7 @@ def prepare_fixture(root, source, configure=None, *, prepare=True, registry_scop
         body = before + binding.encode() + marker + after
     admission.write_bytes(body)
     (folder/'retention-report').write_bytes((suppliers/'retention-report').read_bytes())
+    (folder/'os-image-keeper').write_bytes((suppliers/'os-image-keeper').read_bytes())
     kept=root/'kept';kept.mkdir();(kept/'measurement.json').write_text('{"synthetic_required_bytes":1048576}\n')
     for args in [['init','-q'],['add','tools','scripts','Makefile'],['-c','user.name=Fixture','-c','user.email=fixture@example.invalid','commit','-qm','Synthetic admission fixture']]:
         subprocess.run(['git',*args],cwd=root,check=True,stdout=subprocess.DEVNULL,stderr=subprocess.PIPE)

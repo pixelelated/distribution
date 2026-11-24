@@ -473,7 +473,7 @@ def prepare(plan_path, output):
                         del queued[ident]
 
 
-def admit(receipt_path, root, run, environment, docker=False):
+def admit(receipt_path, root, run, environment, docker=False, *, image_receipts=False):
     receipt_path = Path(receipt_path).resolve(strict=True)
     receipt = read(receipt_path)
     require(receipt['schema'] == 1 and receipt['tool_sha256'] == digest(__file__), 'admission schema/tool changed')
@@ -525,10 +525,11 @@ def admit(receipt_path, root, run, environment, docker=False):
     with capacity_registries(state) as ledgers:
         point = verify_capacity(ledgers)
         require_capacity(point, review)
-        return register_run(ledgers[primary], state, receipt, receipt_path, plan, run, environment, point)
+        return register_run(ledgers[primary], state, receipt, receipt_path, plan, run, environment,
+                            point, image_receipts=image_receipts)
 
 
-def register_run(jobs, state, receipt, receipt_path, plan, run, environment, point):
+def register_run(jobs, state, receipt, receipt_path, plan, run, environment, point, *, image_receipts=False):
     uid = os.geteuid()
     account = pwd.getpwuid(uid).pw_name
     row = dict(state, id=receipt['id'], state='running', run=str(run), admitted=utc(),
@@ -537,6 +538,8 @@ def register_run(jobs, state, receipt, receipt_path, plan, run, environment, poi
                submission_owner=environment.get('PIXELELATED_SUBMISSION_OWNER'),
                pid_namespace=os.stat('/proc/self/ns/pid').st_ino,
                runner_start=Path('/proc/self/stat').read_text().rsplit(')', 1)[1].split()[19])
+    if image_receipts:
+        row['image_receipts'] = 1
     row['output_ownership'] = [dict(output, owner=output.get('owner', account), uid=uid, disposition='held')
                                for output in state['outputs']]
     write(run / 'admission.json', row, exclusive=True)
@@ -568,8 +571,22 @@ def nested(root, run, environment):
 
 
 def finish(run, command_code, monitor_code, runner_code):
-    write(run / 'runner-result.json', {'utc': utc(), 'command_rc': command_code,
-                                      'monitor_rc': monitor_code, 'runner_rc': runner_code}, exclusive=True)
+    def publish():
+        write(run / 'runner-result.json', {'utc': utc(), 'command_rc': command_code,
+                                          'monitor_rc': monitor_code, 'runner_rc': runner_code}, exclusive=True)
+
+    original = run / 'admission.json'
+    if not original.is_file():
+        publish()  # record-only or admission refused before the command
+        return
+    row = read(original)
+    if row.get('image_receipts') != 1:
+        publish()
+        return
+    # Serialize a watched generation's terminal publication with retirement.
+    with registry(row['registry'], writeback=False) as jobs:
+        require(jobs['jobs'][row['id']] == row, 'watched original admission changed before finish')
+        publish()
 
 
 def exited(pid):
@@ -1034,6 +1051,13 @@ def retire_generated(run, row, proof, evidence_path, consumed):
                     pending[name] = progress
             if pending:
                 check_registry_ownership(row)
+                keeper = runpy.run_path(str(Path(__file__).with_name('os-image-keeper')))
+
+                def check_keeper():
+                    selection = keeper['select_os_keeper']({reservation: jobs}, row['volume_device'])
+                    keeper['protect_os_keeper'](selection, pending)
+
+                check_keeper()
                 check_registered_use(jobs, row, pending)
                 cfg = row['retire_on_consume']
                 reader = retirement_reader()
@@ -1057,6 +1081,7 @@ def retire_generated(run, row, proof, evidence_path, consumed):
                 def before_unlink():
                     nonlocal invalidated
                     check_registry_ownership(row)
+                    check_keeper()
                     if not invalidated:
                         # Invalidate outstanding capacity receipts durably before any unlink.
                         jobs['generation'] += 1

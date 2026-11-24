@@ -1,0 +1,434 @@
+#!/usr/bin/env python3
+# SPDX-License-Identifier: GPL-2.0-or-later
+"""Bind the local image generation to original admission and producer records."""
+
+import argparse
+from datetime import datetime
+import hashlib
+import json
+import os
+from pathlib import Path
+import re
+import stat
+import sys
+
+MAX_RECORD = 1024 * 1024
+IMAGE_NAME = re.compile(r'[A-Za-z0-9][A-Za-z0-9.+_-]{0,250}')
+MODES = {'release', 'mkimage', 'noobs'}
+RECORD = 'os-image-history.json'
+
+
+def require(condition, message):
+    if not condition:
+        raise ValueError(message)
+
+
+def path(value):
+    result = Path(value)
+    require(result.is_absolute() and '..' not in result.parts and str(result) == value,
+            'noncanonical image keeper path')
+    return result
+
+
+def raw(p, limit=MAX_RECORD):
+    fd = os.open(p, os.O_RDONLY | os.O_NOFOLLOW | os.O_NONBLOCK)
+    def identity(info):
+        return info.st_dev, info.st_ino, info.st_mode, info.st_uid, info.st_nlink, info.st_size, info.st_mtime_ns, info.st_ctime_ns
+
+    with os.fdopen(fd, 'rb') as src:
+        info = os.fstat(src.fileno())
+        require(stat.S_ISREG(info.st_mode) and info.st_uid == os.geteuid()
+                and info.st_nlink == 1 and info.st_size <= limit, 'unverified keeper record: ' + str(p))
+        data = src.read(limit + 1)
+        require(len(data) == info.st_size
+                and identity(p.lstat()) == identity(os.fstat(src.fileno())) == identity(info),
+                'keeper record changed during read: ' + str(p))
+    return data
+
+
+def document(p):
+    return json.loads(raw(p))
+
+
+def time_key(value):
+    when = datetime.fromisoformat(value)
+    require(when.tzinfo is not None, 'image completion lacks a timezone')
+    return when
+
+
+def sha(data):
+    return hashlib.sha256(data).hexdigest()
+
+
+def receipt(ref):
+    file = path(ref['path'])
+    content = raw(file)
+    require(sha(content) == ref['sha256'], 'image keeper record changed: ' + str(file))
+    return file, json.loads(content)
+
+
+def present(p):
+    return os.path.lexists(p)
+
+
+def write(p, value):
+    with p.open('x') as stream:
+        json.dump(value, stream, sort_keys=True)
+        stream.flush()
+        os.fsync(stream.fileno())
+
+
+def bind_admission(route, identifier, row):
+    run, checkout = path(row['run']), path(row['checkout'])
+    require(row['id'] == identifier and row['registry'] == str(route)
+            and run.parent == checkout / '.build-runs' and run.resolve(strict=True) == run,
+            'image producer registry or run identity differs')
+    original = document(run / 'admission.json')
+    require(original['state'] == 'running' and
+            all(key == 'state' or row.get(key) == value for key, value in original.items()),
+            'image producer differs from original admission')
+    return run, original
+
+
+def runner_live(row):
+    require(Path('/proc/self/ns/pid').stat().st_ino == row['pid_namespace'],
+            'keeper requires the original host PID namespace')
+    pid = row['runner_pid']
+    require(type(pid) is int and pid > 0, 'invalid first image watcher PID')
+    try:
+        fields = (Path('/proc') / str(pid) / 'stat').read_text().rsplit(')', 1)[1].split()
+    except FileNotFoundError:
+        return False
+    return fields[0] != 'Z' and fields[19] == str(row['runner_start'])
+
+
+def finish_result(run, row):
+    result = document(run / 'runner-result.json')
+    require(all(type(result[k]) is int for k in ('command_rc', 'monitor_rc', 'runner_rc'))
+            and int(raw(run / 'build.rc', 128)) == result['command_rc']
+            and raw(run / 'build.status', 65536).startswith(b'state:       finished\n')
+            and time_key(result['utc']) >= time_key(row['admitted']),
+            'image watcher original is incomplete or inconsistent')
+    if row['state'] == 'consumed':
+        require(document(run / 'admission-consumed.json') == row
+                and row['original_result'] == result and not runner_live(row),
+                'image watcher consumption does not bind the retired producer')
+    return result
+
+
+def success(result):
+    return all(type(result[k]) is int and result[k] == 0
+               for k in ('command_rc', 'monitor_rc', 'runner_rc'))
+
+
+def hardware_matches(row, identity):
+    return (identity['schema'] == 1 and identity['name'] == 'pixelelated'
+            and identity['build_commit'] == row['source']['head']
+            and IMAGE_NAME.fullmatch(identity['image_name'])
+            and any(p['DEVICE'] == identity['device'] and p['ARCH'] == identity['arch']
+                    for p in row['profiles']))
+
+
+def output_scope(row):
+    return [path(item['path']) for item in row['outputs']]
+
+
+def under(p, roots):
+    return any(p.is_relative_to(root) for root in roots)
+
+
+def pin_paths(row, run):
+    pins = set(output_scope(row)) | {path(row['checkout']) / '.git', run}
+    if row.get('image_receipts') == 1:
+        pins.add(path(row['registry']).parent)
+    if row.get('submission_owner'):
+        pins.add(path(row['submission_owner']))
+    scope = row.get('retention_scope')
+    if scope is not None:
+        require(scope['checkout'] == row['checkout']
+                and set(scope['outputs']) == set(map(str, output_scope(row))),
+                'original keeper retention scope changed')
+        pins.update(map(path, scope['protected']))
+    pins.update(map(path, row.get('retained_evidence') or []))
+    return pins
+
+
+def payload(file):
+    item = file.lstat()
+    require(stat.S_ISREG(item.st_mode) and item.st_size > 0 and item.st_uid == os.geteuid()
+            and file.resolve(strict=True) == file, 'missing or unverified image output: ' + str(file))
+    return [item.st_dev, item.st_ino, item.st_mode, item.st_size, item.st_mtime_ns, item.st_ctime_ns]
+
+
+def started_image(row, event, key):
+    require(set(event) == {'schema', 'admission_id', 'profile', 'mode', 'image_name', 'build_root', 'target_root', 'sources_root'}
+            and event['schema'] == 1 and event['admission_id'] == row['id']
+            and event['image_name'] == key and IMAGE_NAME.fullmatch(key)
+            and event['mode'] in MODES and event['profile'] in row['profiles'],
+            'invalid tracked image producer')
+    roots = output_scope(row)
+    build, target, sources = (path(event[k]) for k in ('build_root', 'target_root', 'sources_root'))
+    require(under(build, roots) and under(target, roots), 'image producer is outside admitted outputs')
+    input_roots = [path(row['checkout']) / 'sources', *map(path, row['retention_scope']['protected'])]
+    require(under(sources, input_roots), 'image source repository is outside admitted inputs')
+    return build, target, sources
+
+
+def producer_evidence(run, row):
+    folder = run / 'os-images'
+    if not present(folder):
+        return {}
+    st = folder.lstat()
+    require(stat.S_ISDIR(st.st_mode) and st.st_uid == os.geteuid() and not st.st_mode & 0o022,
+            'unverified image producer evidence directory')
+    names = set()
+    for entry in folder.iterdir():
+        require(len(names) < 64 and entry.suffix in ('.started', '.finished')
+                and IMAGE_NAME.fullmatch(entry.stem), 'unverified image producer evidence membership')
+        names.add(entry.name)
+    values = {}
+    for name in sorted(names):
+        if name.endswith('.finished'):
+            require(name.removesuffix('.finished')+'.started' in names, 'image finish has no matching start')
+            continue
+        p = folder / name
+        event = document(p)
+        values[p.stem] = (event, started_image(row, event, p.stem), folder/(p.stem+'.finished'))
+    return values
+
+
+def verify_image_output(row, event, roots, finished):
+    require(set(finished) == {'schema', 'started', 'artifact', 'identity_sha256', 'checksum_sha256'}
+            and finished['schema'] == 1 and finished['started'] == sha(json.dumps(event, sort_keys=True).encode()),
+            'image finish does not bind to its start')
+    target = roots[1]
+    stem = event['image_name']
+    identity_file = target / (stem+'.identity.json')
+    content = raw(identity_file)
+    identity = json.loads(content)
+    require(sha(content) == finished['identity_sha256'] and hardware_matches(row, identity)
+            and identity['image_name'] == stem and identity['device'] == event['profile']['DEVICE']
+            and identity['arch'] == event['profile']['ARCH'], 'watcher and image output identity disagree')
+    artifact = target / (stem+'.tar')
+    require(payload(artifact) == finished['artifact'], 'image output identity changed')
+    checksum = target / (stem+'.tar.sha256')
+    checksum_bytes = raw(checksum, 1024)
+    require(sha(checksum_bytes) == finished['checksum_sha256']
+            and re.fullmatch(rb'[0-9a-f]{64}  ' + re.escape(artifact.name.encode()) + rb'\n', checksum_bytes),
+            'image output checksum has a different operand')
+    return identity, {identity_file, artifact, checksum}
+
+
+def witness(action, root, relative, mode, basename, project, device, arch, build, target, sources):
+    run = root / relative
+    require(run.parent == root / '.build-runs' and run.resolve(strict=True) == run,
+            'image producer is outside its original watcher')
+    row = document(run / 'admission.json')
+    require(row['image_receipts'] == 1 and row['state'] == 'running'
+            and (root == Path(row['checkout']) or root == Path(row['container_checkout']))
+            and path(row['run']).name == run.name, 'image script has no matching watched admission')
+
+    def physical(value):
+        operand = Path(value)
+        if not operand.is_absolute():
+            operand = root / operand
+        operand = operand.resolve()
+        if operand.is_relative_to(root):
+            return path(row['checkout']) / operand.relative_to(root)
+        return operand
+
+    event = dict(schema=1, admission_id=row['id'], mode=mode, image_name=basename,
+                 profile=dict(PROJECT=project, DEVICE=device, ARCH=arch), build_root=str(physical(build)),
+                 target_root=str(physical(target)), sources_root=str(physical(sources)))
+    started_image(row, event, basename)
+    folder = run / 'os-images'
+    first, last = folder / (basename+'.started'), folder / (basename+'.finished')
+    if action == 'start':
+        folder.mkdir(mode=0o700, exist_ok=True)
+        require(not present(first) and not present(last), 'duplicate image producer')
+        # Publish a complete first record. Concurrent cleanup treats a pending
+        # name or a changing observation as ambiguity and refuses effects.
+        temp = folder / (basename+'.pending')
+        write(temp, event)
+        os.rename(temp, first)
+    else:
+        require(document(first) == event and not present(last), 'image end differs from start')
+        native_target = Path(target)
+        record = dict(schema=1, started=sha(json.dumps(event, sort_keys=True).encode()),
+                      artifact=payload(native_target/(basename+'.tar')),
+                      identity_sha256=sha(raw(native_target/(basename+'.identity.json'))),
+                      checksum_sha256=sha(raw(native_target/(basename+'.tar.sha256'), 1024)))
+        temp = folder / (basename+'.pending')
+        write(temp, record)
+        os.rename(temp, last)
+
+
+def history_files(ledgers, supplied):
+    available = [route / RECORD for route in ledgers if present(route / RECORD)]
+    require(len(available) + (supplied is not None) <= 1, 'ambiguous image migration sources')
+    if supplied is None and available:
+        supplied = available[0]
+        info = supplied.lstat()
+        require(not info.st_mode & 0o022, 'shared local image migration record')
+    return supplied
+
+
+def migrated_image(data, rows):
+    require(data['schema'] == 1 and data['producer'] not in data['media']
+            and len(data['media']) == len(set(data['media'])) <= 8
+            and set(data['originals']) == {data['producer'], *data['media']},
+            'invalid exact image migration')
+    anchor, identity, done, pins = None, data['identity'], None, set()
+    accepted_inputs = []
+    for ident in (data['producer'], *data['media']):
+        route, row = rows[ident]
+        run, _ = bind_admission(route, ident, row)
+        result = finish_result(run, row)
+        require(success(result) and row['state'] == 'consumed' and hardware_matches(row, identity),
+                'migrated original is not a completed image generation')
+        original = data['originals'][ident]
+        acceptance, proof = receipt(original['acceptance'])
+        witness_file, witness_data = receipt(original['witness'])
+        require(sha(raw(acceptance)) == row['evidence_sha256']
+                and proof['run'] == str(run) and proof['expected_rc'] == 0 and proof['disposition'] == 'qualified'
+                and proof['outputs'] == row['outputs']
+                and any(record == original['witness'] for record in proof['evidence']),
+                'migration lacks an independently accepted producer witness')
+        if anchor is None:
+            anchor, done, release = row, result['utc'], witness_data
+            require(witness_data['identity'] == identity and witness_data['packaging_target'] == 'release',
+                    'legacy release identity or packaging proof differs')
+        else:
+            require(row['checkout'] == anchor['checkout'] and row['source'] == anchor['source']
+                    and row['profiles'] == anchor['profiles']
+                    and witness_data['release_identity'] == identity
+                    and witness_data['payloads'] == release['payloads']
+                    and original['joins_producer'] == data['producer'], 'boot media belongs to a different image')
+            require(any(ref == data['originals'][data['producer']]['acceptance'] for ref in proof['evidence'])
+                    and any(ref['path'] == str(Path(anchor['run'])/'admission-consumed.json')
+                            and sha(raw(path(ref['path']))) == ref['sha256'] for ref in proof['evidence']),
+                    'boot media has no original full-producer join')
+        pins.update(pin_paths(row, run) | {acceptance, witness_file})
+        pins.update(path(ref['path']) for ref in proof['evidence'])
+        accepted_inputs.extend(proof['evidence'])
+    require(0 < len(data['inputs']) <= 8, 'legacy producer input evidence missing')
+    for ref in data['inputs']:
+        require(ref in accepted_inputs, 'legacy producer input witness was not accepted')
+        file, witness_data = receipt(ref)
+        pins.add(file)
+        # Host-source side of the watched private mounts. Guest paths are not
+        # necessarily real host inputs. Boot media pins its own run and results.
+        pins.update(path(m['Source']) for m in witness_data['mounts'] if m.get('Type', 'bind') == 'bind')
+    return dict(admission_id=anchor['id'], checkout=anchor['checkout'], run=anchor['run'],
+                volume_device=anchor['volume_device'], source=anchor['source']['head'],
+                completed=done, media=data['media'],
+                image_identities=[identity], protected_paths=sorted(map(str, pins)))
+
+
+def select_os_keeper(ledgers, volume_device, migration=None):
+    """Select across all supplied project ledgers. Device scopes effects only."""
+    rows = {}
+    historical, completed, active = [], [], []
+    try:
+        require(type(volume_device) is int, 'unverified image keeper effect volume')
+        for route, ledger in ledgers.items():
+            for ident, row in ledger['jobs'].items():
+                require(ident not in rows, 'duplicate image producer across registries')
+                rows[ident] = route, row
+        require(len(rows) <= 4096, 'image producer mailboxes exceed review bound')
+        migration = history_files(ledgers, migration)
+        covered = set()
+        if migration is not None:
+            contents = document(migration)
+            migrated = migrated_image(contents, rows)
+            covered = {contents['producer'], *contents['media']}
+            completed.append((time_key(migrated['completed']), migrated, None, None))
+        for ident, (route, row) in rows.items():
+            if ident in covered:
+                continue
+            if row.get('image_receipts') != 1:
+                if any(o['kind'] == 'firmware' for o in row['outputs']):
+                    if row['state'] != 'consumed':
+                        raise ValueError('unclassified live firmware producer: '+ident)
+                    legacy = row['original_result']
+                    require(all(type(legacy[k]) is int for k in ('command_rc', 'monitor_rc', 'runner_rc')),
+                            'unclassified original firmware outcome')
+                    if success(legacy):
+                        historical.append((time_key(legacy['utc']), ident))
+                continue
+            run = path(row['run'])
+            events = producer_evidence(run, row)
+            if not events:
+                continue  # ordinary package/recording runs have no image-stage event
+            run, _ = bind_admission(route, ident, row)
+            pins = pin_paths(row, run)
+            for _, paths, _ in events.values():
+                pins.update(paths)
+            choice = dict(admission_id=ident, checkout=row['checkout'], run=row['run'],
+                          volume_device=row['volume_device'], source=row['source']['head'],
+                          media=[], image_identities=[],
+                          protected_paths=sorted(map(str, pins)))
+            if not present(run/'runner-result.json'):
+                require(row['state'] == 'running' and runner_live(row)
+                        and int(raw(run/'build.pid', 128)) == row['runner_pid']
+                        and not present(run/'build.rc'), 'incomplete live image producer: '+ident)
+                active.append(choice)
+                continue
+            result = finish_result(run, row)
+            if success(result):
+                completed.append((time_key(result['utc']), dict(choice, completed=result['utc']), row, events))
+        require(len(active) <= 1, 'multiple live image generations')
+        if active:
+            return dict(status='active', keeper=active[0])
+        ranked = sorted(completed, key=lambda item: item[0], reverse=True)
+        newest = ranked[0][0] if ranked else None
+        require(not any(newest is None or when >= newest for when, _ in historical),
+                'newest legacy firmware producer needs an exact original image migration')
+        require(len(ranked) < 2 or newest > ranked[1][0], 'ambiguous latest completed image generation')
+        if not ranked:
+            return dict(status='none', keeper=None)
+        _, keeper, row, events = ranked[0]
+        if row is not None:
+            pins = set(map(path, keeper['protected_paths']))
+            for event, paths, finished in events.values():
+                identity, artifacts = verify_image_output(row, event, paths, document(finished))
+                pins.update(artifacts)
+                keeper['image_identities'].append(identity)
+            keeper['protected_paths'] = sorted(map(str, pins))
+        return dict(status='completed', keeper=keeper)
+    except (OSError, ValueError, KeyError, IndexError, TypeError) as error:
+        return dict(status='held', keeper=None, reason=str(error))
+
+
+def protect_os_keeper(selection, targets):
+    require(selection['status'] != 'held', 'OS image keeper unresolved: '+selection.get('reason', ''))
+    keeper = selection['keeper']
+    if keeper is None:
+        return
+    targets = tuple(map(Path, targets))
+    locations = [(target, target.resolve()) for target in targets]
+    for item in keeper['protected_paths']:
+        protected = path(item)
+        actual = protected.resolve()
+        for target, resolved in locations:
+            require(not any(t.is_relative_to(p) or p.is_relative_to(t) for t in (target, resolved)
+                            for p in (protected, actual)),
+                    'single OS image keeper '+keeper['admission_id']+' protects '+str(target))
+
+
+def main():
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument('action', choices=['start', 'finish'])
+    parser.add_argument('root', type=Path)
+    for key in ('relative', 'mode', 'basename', 'project', 'device', 'arch', 'build', 'target', 'sources'):
+        parser.add_argument(key)
+    args = vars(parser.parse_args())
+    witness(**args)
+
+
+if __name__ == '__main__':
+    try:
+        main()
+    except (OSError, ValueError, KeyError, TypeError) as error:
+        print('os-image-keeper: '+str(error), file=sys.stderr)
+        sys.exit(2)
