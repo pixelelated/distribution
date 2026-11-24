@@ -153,12 +153,19 @@ See D-INFRA-032 and #493.
 
 ## Review retention after qualification
 
-D-INFRA-025 and D-INFRA-030 set a lifetime for generated working directories.
-Keep the full directory by default only while its build is underway. Record
-ownership when creating a private checkout or build root. Before releasing its
-working files, retain required images, exact source including local changes,
-inputs, licences and original build or failure evidence outside the directory.
-Verify those retained materials are usable for their intended purpose.
+Keep one local pixelelated OS build across all targets (D-INFRA-033, #493).
+During image production, keep the build in flight and its inputs. While idle,
+keep the most recent OS build. Use the same producer and admission records for
+manual, scheduled, post-build and pre-build cleanup. Verify the producer,
+checkout and revision. Associate later packaging of the same image with that
+producer. Package-only rebuilds and QA sessions leave the OS selection intact.
+
+Record the owner of each working directory when creating it. Old generated
+directories may be retired immediately under the normal use and custody checks. A future cold rebuild is acceptable. Separate active or queued inputs, unique
+source edits, Git objects, licences and compact results before releasing the
+old directory. GitHub is the intended home for earlier deliverables. When a
+required release asset is missing there, protect the specific local deliverable
+and track its disposition separately. Publication has its own authority.
 
 Use the shared [build retention lifecycle](../../tools/host-maintenance/build-retention-cycle.md) and [custody format](../../tools/host-maintenance/build-tree-custody.md) for the build account and the installer. A hold or a timer invocation credits zero bytes. Count recovery from an actual unlink receipt and a fresh free-space measurement.
 

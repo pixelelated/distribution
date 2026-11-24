@@ -465,6 +465,13 @@ the relative run marker crosses the mount, and nested scripts reuse the run.
 Interactive `docker-shell` and non-build helpers keep their normal behavior;
 building from that shell arms a monitor inside that container.
 
+Across all targets retain one local OS build (D-INFRA-033, #493). Identify the
+running image producer from admission and watcher evidence. While idle, keep
+the most recent OS build and associate its boot media with it. Protect queued
+inputs and preserve independent source and results when retiring older working
+directories. The same choice applies before copying or launching, at completion
+and during manual or scheduled cleanup. See [worktree retention](worktrees.md).
+
 Each top-level run prints its private `.build-runs/<id>/` directory and keeps
 the combined log, runner/command/watcher PIDs, atomic `build.rc`, heartbeat
 and run-owned `watch-job` copy. The runner holds one build lock per worktree,
