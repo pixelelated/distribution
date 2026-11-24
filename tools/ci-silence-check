@@ -1,0 +1,223 @@
+#!/usr/bin/env python3
+"""ci-silence-check -- has GitHub stopped running the fork's checks? (#1450, #1446)
+
+Nothing told anyone that GitHub Actions stopped on 2026-10-29: a run that
+never starts sends no mail, and the fork's checks were red so often that a
+missing run looked like every other day. This asks GitHub four things and
+answers each with a verdict line:
+
+  head     the newest push of the branch, when it was pushed, and how many
+           check suites GitHub created for its head. None after --grace-min
+           minutes is FAIL: GitHub did not check that push.
+  runs     the newest workflow run in the repository. None in the last
+           --idle-hours hours is FAIL: the scheduled checks have stopped.
+  guards   the newest completed "fork record checks" run on the branch: did a
+           guard fail (FAIL, act on it), or is only a record owed (OWED, the
+           ceremonies' CI red, D-WORKFLOW-028)? A red result means act only
+           when a guard is red.
+  records  OWED or ok, as above; never a failure by itself.
+
+Exit 0 when nothing failed (a head inside its grace period reads "pending"),
+1 on any FAIL, 2 when GitHub could not be read: a check that cannot run has
+not passed (engineering-practices.md, "Guards must fail closed").
+
+  tools/ci-silence-check                       # next on pixelelated/distribution
+  tools/ci-silence-check --require-suite       # no grace: rc-preflight's form
+  tools/ci-silence-check --json                # one JSON object on stdout
+  tools/ci-silence-check --record DIR          # also save every reply read
+  tools/ci-silence-check --replay DIR --now T  # answer from saved replies
+
+Reads go through `gh api` with the active login; no write is made.
+"""
+import argparse
+import datetime as dt
+import json
+import os
+import subprocess
+import sys
+
+RECORD_STEPS = ("ceremonies are not overdue",
+                "every open acceptance checkbox is agent-verifiable")
+RECORD_JOBS = ("records",)
+WORKFLOW = "fork-checks.yml"
+
+
+class Unreadable(Exception):
+    pass
+
+
+def parse_ts(s):
+    return dt.datetime.strptime(s, "%Y-%m-%dT%H:%M:%SZ").replace(tzinfo=dt.timezone.utc)
+
+
+def fmt_age(seconds):
+    seconds = int(seconds)
+    if seconds < 3600:
+        return "%dm" % (seconds // 60)
+    if seconds < 86400 * 2:
+        return "%dh%02dm" % (seconds // 3600, seconds % 3600 // 60)
+    return "%dd%02dh" % (seconds // 86400, seconds % 86400 // 3600)
+
+
+class GitHub:
+    def __init__(self, record=None, replay=None):
+        self.record, self.replay = record, replay
+        if record:
+            os.makedirs(record, exist_ok=True)
+
+    @staticmethod
+    def _name(path):
+        return "".join(c if c.isalnum() else "_" for c in path)[:150] + ".json"
+
+    def get(self, path):
+        if self.replay:
+            f = os.path.join(self.replay, self._name(path))
+            try:
+                with open(f) as fh:
+                    return json.load(fh)
+            except (OSError, ValueError) as e:
+                raise Unreadable("no recorded reply for %s (%s)" % (path, e))
+        try:
+            p = subprocess.run(["gh", "api", path], capture_output=True, text=True, timeout=60)
+        except (OSError, subprocess.TimeoutExpired) as e:
+            raise Unreadable("%s: %s" % (path, e))
+        if p.returncode != 0:
+            last = (p.stderr or p.stdout).strip().splitlines()
+            raise Unreadable("%s: %s" % (path, last[-1] if last else "gh exited %d" % p.returncode))
+        try:
+            data = json.loads(p.stdout)
+        except ValueError as e:
+            raise Unreadable("%s: unreadable JSON (%s)" % (path, e))
+        if self.record:
+            with open(os.path.join(self.record, self._name(path)), "w") as fh:
+                json.dump(data, fh, indent=1)
+        return data
+
+
+def classify(gh, repo, run):
+    """Return (guards, records, detail) for one completed run of fork-checks."""
+    jobs = gh.get("repos/%s/actions/runs/%d/jobs?per_page=100" % (repo, run["id"])).get("jobs", [])
+    if not jobs:
+        return "FAIL", "unknown", "run %d has no jobs (conclusion %s)" % (run["id"], run.get("conclusion"))
+    guards, records, failed = "ok", "ok", []
+    for job in jobs:
+        if job.get("conclusion") in ("success", "skipped", "neutral"):
+            continue
+        if job.get("name") in RECORD_JOBS:
+            records = "OWED"
+            failed.append("records job")
+            continue
+        steps = [s for s in job.get("steps", []) if s.get("conclusion") == "failure"]
+        if not steps:
+            guards = "FAIL"
+            failed.append("job %s %s" % (job.get("name"), job.get("conclusion")))
+        for s in steps:
+            if s.get("name") in RECORD_STEPS:
+                records = "OWED"
+            else:
+                guards = "FAIL"
+            failed.append("step '%s'" % s.get("name"))
+    return guards, records, "run %d (%s): %s" % (run["id"], run.get("created_at"),
+                                                ", ".join(failed) or "all green")
+
+
+def check(gh, repo, branch, now, grace_min, idle_hours, require_suite):
+    out = {"repo": repo, "branch": branch, "now": now.strftime("%Y-%m-%dT%H:%M:%SZ"), "lines": []}
+    fail = False
+
+    def line(item, verdict, text):
+        out["lines"].append({"item": item, "verdict": verdict, "text": text})
+
+    # head: the newest push and its check suites
+    pushes = gh.get("repos/%s/activity?ref=refs/heads/%s&activity_type=push&per_page=1" % (repo, branch))
+    head = gh.get("repos/%s/branches/%s" % (repo, branch))["commit"]["sha"]
+    if pushes:
+        pushed, after = parse_ts(pushes[0]["timestamp"]), pushes[0]["after"]
+        if after != head:
+            raise Unreadable("newest push names %s but %s's head is %s" % (after[:10], branch, head[:10]))
+    else:
+        raise Unreadable("no push of %s in the activity list" % branch)
+    suites = gh.get("repos/%s/commits/%s/check-suites" % (repo, head))
+    n = suites.get("total_count")
+    if not isinstance(n, int):
+        raise Unreadable("check-suites reply has no total_count")
+    age = (now - pushed).total_seconds()
+    out.update(head=head, pushed=pushes[0]["timestamp"], suites=n)
+    text = "%s pushed %s (%s ago): %d check suite(s)" % (head[:10], pushes[0]["timestamp"], fmt_age(age), n)
+    if n > 0:
+        line("head", "PASS", text)
+    elif require_suite or age > grace_min * 60:
+        line("head", "FAIL", text + " -- GitHub did not check this push")
+        fail = True
+    else:
+        line("head", "pending", text + " -- inside the %d-minute grace" % grace_min)
+
+    # runs: anything at all lately
+    runs = gh.get("repos/%s/actions/runs?per_page=1" % repo)
+    wr = runs.get("workflow_runs")
+    if not isinstance(wr, list):
+        raise Unreadable("runs reply has no workflow_runs")
+    if not wr:
+        line("runs", "FAIL", "the repository has no workflow run at all")
+        fail = True
+    else:
+        newest = parse_ts(wr[0]["created_at"])
+        idle = (now - newest).total_seconds()
+        out["newest_run"] = wr[0]["created_at"]
+        text = "newest run %s (%s ago), %s" % (wr[0]["created_at"], fmt_age(idle), wr[0].get("name"))
+        if idle > idle_hours * 3600:
+            line("runs", "FAIL", text + " -- nothing has run in %d hours" % idle_hours)
+            fail = True
+        else:
+            line("runs", "PASS", text)
+
+    # guards and records: the newest completed run of the fork's checks
+    fr = gh.get("repos/%s/actions/workflows/%s/runs?branch=%s&status=completed&per_page=1"
+                % (repo, WORKFLOW, branch)).get("workflow_runs")
+    if not isinstance(fr, list):
+        raise Unreadable("%s runs reply has no workflow_runs" % WORKFLOW)
+    if not fr:
+        line("guards", "FAIL", "no completed %s run on %s" % (WORKFLOW, branch))
+        fail = True
+    else:
+        guards, records, detail = classify(gh, repo, fr[0])
+        line("guards", "PASS" if guards == "ok" else "FAIL",
+             detail + ("" if guards == "ok" else " -- a guard is red: act on it"))
+        line("records", records, "a record is owed (ceremonies.md)" if records == "OWED" else "nothing owed")
+        fail = fail or guards != "ok"
+    out["verdict"] = "FAIL" if fail else "PASS"
+    return out, (1 if fail else 0)
+
+
+def main():
+    a = argparse.ArgumentParser(description=__doc__.split("\n")[0])
+    a.add_argument("--repo", default="pixelelated/distribution")
+    a.add_argument("--branch", default="next")
+    a.add_argument("--grace-min", type=int, default=10)
+    a.add_argument("--idle-hours", type=int, default=26)
+    a.add_argument("--require-suite", action="store_true", help="no grace: the head must already have a suite")
+    a.add_argument("--json", action="store_true")
+    a.add_argument("--record", metavar="DIR")
+    a.add_argument("--replay", metavar="DIR")
+    a.add_argument("--now", metavar="YYYY-MM-DDTHH:MM:SSZ")
+    o = a.parse_args()
+    now = parse_ts(o.now) if o.now else dt.datetime.now(dt.timezone.utc).replace(microsecond=0)
+    gh = GitHub(record=o.record, replay=o.replay)
+    try:
+        out, rc = check(gh, o.repo, o.branch, now, o.grace_min, o.idle_hours, o.require_suite)
+    except (Unreadable, KeyError, TypeError, ValueError) as e:
+        out, rc = {"repo": o.repo, "branch": o.branch, "verdict": "CANNOT", "error": str(e), "lines": []}, 2
+    if o.json:
+        print(json.dumps(out))
+    else:
+        for l in out["lines"]:
+            print("  %-8s %-7s %s" % (l["item"], l["verdict"], l["text"]))
+        if rc == 2:
+            print("ci-silence-check: CANNOT read GitHub -- %s" % out["error"])
+        else:
+            print("ci-silence-check: %s/%s -- %s" % (o.repo, o.branch, out["verdict"]))
+    return rc
+
+
+if __name__ == "__main__":
+    sys.exit(main())

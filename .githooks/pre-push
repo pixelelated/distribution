@@ -156,6 +156,7 @@ PERSONAL_PATTERNS=(
   'tools/archaeology'
   'tools/work-log-index'
   'tools/ceremony-check'
+  'tools/ci-silence-check'
   'tools/es-syntax-check'
   'tools/png-blackout'
   'tools/fork-newdrive'
@@ -349,6 +350,24 @@ while read -r local_ref local_sha remote_ref remote_sha; do
       elif [ -n "$gate_out" ]; then
         printf '%s\n' "$gate_out" | sed 's/^/  ⚠ pre-push: /' >&2
       fi
+    fi
+    # Did GitHub check the head this push replaces? (#1450, #1446) GitHub
+    # sends nothing when a run never starts: Actions stopped on 2026-10-29
+    # and nobody noticed for 26 days. This warns and never refuses, because
+    # an outage on GitHub's side must not stop the record being pushed;
+    # tools/rc-preflight's ci item is where a candidate is refused.
+    if [ -x "$hooks_root/tools/ci-silence-check" ]; then
+      ci_out="$(timeout 90 "$hooks_root/tools/ci-silence-check" --branch next 2>&1)"; ci_rc=$?
+      if [ "$ci_rc" = 0 ]; then
+        printf '%s\n' "$ci_out" | tail -1 | sed 's/^/  pre-push: /' >&2
+      else
+        {
+          echo "⚠ pre-push: GitHub's checks on next are silent, red or unreadable (exit $ci_rc; #1446, #1450):"
+          printf '%s\n' "$ci_out" | sed 's/^/    /'
+        } >&2
+      fi
+    else
+      echo "⚠ pre-push: tools/ci-silence-check is missing, so nothing asked GitHub whether it checked the last push (#1450)." >&2
     fi
   fi
 

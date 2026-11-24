@@ -106,6 +106,18 @@ register lint and `ceremony-check` on every push of `next` and daily, so a
 ceremony owed shows as a red badge until its artifact exists. `fork-*`
 workflows never reach an upstream PR (`fork-workflow.md`).
 
+## When the CI itself goes quiet (#1450)
+
+A CI-red ceremony works only while the CI runs. GitHub stopped starting the fork's workflows on 2026-10-29 and sent nothing. Because the record checks were red on most days by design, a missing run looked like every other day, and the stop was found 26 days later (#1446). Max, 2026-11-24: *"why'd this go unnoticed? How can we have better alerts about when we have problems like this pop up?"*
+
+`tools/ci-silence-check` asks GitHub four things:
+- whether the newest push of `next` got a check suite (FAIL after a 10-minute grace);
+- whether anything ran in the last 26 hours;
+- whether the newest completed fork record checks run is red because of a **guard**, which is FAIL and means act;
+- or red only because a **record is owed**: an audit, a futro or a checkbox sweep from the table above. That is OWED, never a failure by itself.
+
+When GitHub cannot be read it exits 2, which is not a pass. The push guard prints its verdict for the head a push of `next` replaces. It warns but does not refuse, because an outage on GitHub's side must not stop the record from being pushed.
+
 ## Execution discipline
 
 The delivery, futro and mini-retro skills consume settled outputs from the
