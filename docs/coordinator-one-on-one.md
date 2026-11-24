@@ -2,7 +2,7 @@
 
 ## November 24 harness handoff
 
-Resume as Max’s one-on-one steward. Open the canonical checkpoint with `git show next:.github/sessions/saved-session-state-next.md`. The OS coordinator in `w4:p2` owns cleanup and worker dispatch. The outgoing Codex conversation was `w4:pF`, native session `01a209f0-f3e9-7991-885c-3847278f8b9f`. A different harness starts a fresh conversation. Verify its actual pane and session with OS coordination before changing any routing. [Lane handoff guide](lane-models-and-account-handoff.md)
+Resume as Max’s one-on-one steward. This lane saves and resumes its [own checkpoint](../.github/sessions/saved-session-state-coordinator-one-on-one.md). From a different checkout, use `git show next:.github/sessions/saved-session-state-coordinator-one-on-one.md`. The shared index routes each coordinator to its own file. The OS coordinator in `w4:p2` owns cleanup and worker dispatch. The outgoing Codex conversation was `w4:pF`, native session `01a209f0-f3e9-7991-885c-3847278f8b9f`. A different harness starts a fresh conversation. Verify its actual pane and session with OS coordination before changing any routing. [Lane handoff guide](lane-models-and-account-handoff.md)
 
 Max asked us to record why repeated attempts consumed nearly a day. We accepted a working timer, passing tests and enough room for the next build while the full collection reported 53 checkouts visited, zero bytes recovered and all historical build directories still present. The next steward owns keeping that failure visible until the requested outcome is achieved. The project keeps one OS build across all targets under D-INFRA-033. The last verified keeper was the November 21 GENERIC_X64 build at `d7ca912480ea`.
 
