@@ -148,17 +148,31 @@ deliverables and failure evidence. Count shared blocks once. Use the existing
 guarded retirement and completion paths for eligible outputs, and remeasure
 space before admission. If capacity still falls short, report the missing bytes
 and identify the retained groups, their owners and what releases each hold.
-Routine completion and scheduled cleanup continue once the next build fits.
+Fitting the next build is never where cleanup stops (D-INFRA-036).
 See D-INFRA-032 and #493.
 
-Judge cleanup against the request (D-INFRA-034, #493). For a capacity request,
-measure available bytes on the requested volume and compare them with the
-requested target. A target already met can finish with zero unlinks. For a
-whole-backlog request, account for superseded build outputs across the known
-inventory. Record each retirement, independently protected input or result, or
-specific remaining hold with its size, owner and release condition. Incomplete
-inventory keeps the backlog open, even when the admission registry is empty.
-Use the build budget only when it is the requested capacity target.
+**The measure is maximum free space with at most one build on the drive**
+(D-INFRA-036, refining D-INFRA-033/034; Max, 2026-11-24: *"We want to remove
+leftovers and not just scrape by with enough space to do the next build."*).
+Keep the build in progress, or else the most recent build only while it is not
+yet on GitHub; keep source in Git, unique edits as patches, the shared download
+cache and compact records (receipts, logs, hashes). Everything else a build or
+test generated is a leftover and is removed: other `build.*` roots, earlier
+images and update tars, per-checkout `sources/` and compiler caches, finished QA
+disks, scratch and staging copies. Moving bytes elsewhere on the volume is not
+recovery. An empty directory, root-owned Docker mount stubs included, is
+removed, never preserved. One specific item may stay when it is named with its
+size, reason, owner and release event; a class never stays. A pass that frees
+nothing while leftovers remain has failed. Follow the
+[`build-cleanup` skill](../skills/build-cleanup/SKILL.md).
+
+**The use check is pixelelated use only** (D-INFRA-035). A leftover is in use
+when a pixelelated build, QA guest, build container or worker lane has a working
+directory, open file or mount under it. Other projects' services on the host are
+out of scope: never inspect, stop or wait on them, never cite them as a hold,
+and never ask for a host outage to clean up. When a cleanup tool's own limit or
+permission guard stops a directory that passes the use check, fix or replace the
+tool in the same pass instead of recording a hold.
 
 When a sweep holds, recovers zero against an unmet goal, or finishes partway,
 use its saved report to act on the largest addressable generated set. Check
@@ -235,8 +249,8 @@ from the current working set; a capacity margin is not measured peak use.
 
 The next cleanup report names exact proposed removals, protected identities,
 dependency checks, preservation cost, expected net recovery and next-build
-headroom. Inspect active host processes and container mounts before execution;
-unreadable or unclassified dependencies prevent a removal proposal. Use the
+headroom. Apply the pixelelated use check above before execution (D-INFRA-035);
+another project's processes and containers are not a dependency. Use the
 standard guarded worktree helper and watched owner for an authorized batch,
 then verify removal, retained inputs and actual free space. A retention review
 never extends an earlier batch's deletion scope. #461 delivered the read-only planner and first later batch. #493 owns remaining
