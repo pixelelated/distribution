@@ -403,3 +403,28 @@ measurements directly around the eviction. Record any partial effect before
 considering another action. Attribute at most the independently verified
 released allocation to a positive free-space delta. This route retires cache
 entries. The surrounding generated profile needs its own disposition.
+
+## Verify coverage before using whole-profile retirement
+
+Check that the ordinary producer declared the disposable generation and that
+the collector can consume that same declaration after completion. Retain the
+actual source, user edits, accepted deliverables and original result outside
+the selected scope. A cold rebuild may replace obsolete compiler output.
+Preserving a second complete profile, starting a replacement build or
+constructing a catalog by hand for a test is unnecessary for that purpose.
+
+Use recorded counts and link information from the real profile before asking
+for host observation. Check all three bounds: custody compilation, the
+retirement engine and the enrolled host reader. A successful small
+opted-in fixture proves only that layout, its entry count and its link types.
+Count literal symlinks without following them. Identify hardlinks with names
+outside the selected generation and account for blocks only once.
+
+For the October SM8550 run, the prior counts were 870,240 names for ARM and
+3,617,361 descendants in the AArch64 comparison. The deployed compact compiler
+allows at most 8,192 items, the effect inventory 65,536, and the host reader
+200,000 entries per pass. The host index also refuses a hardlink with an
+unaccounted-for name outside the root. The two original producer receipts
+lack an ordinary accepted whole-profile declaration. Selecting the newer
+image or freeing sufficient space does not satisfy any of those requirements.
+Keep these generations open under their exact scoped retirement operation.
