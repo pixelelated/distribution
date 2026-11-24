@@ -2,11 +2,28 @@
 
 ## Start here
 
-Saved 2026-11-24T19:28Z on `feature/conflict-resolution` in the pixelelated distribution repository. Resume this file for the **OS work coordinator**, the sole dispatcher for M7. Since November 24 that role runs in **Claude Code on the latest Opus** (`claude-opus-5-5`) in Herdr pane `w4:p2`; session `b19c3b8c-1c4f-4a57-8765-0b8fe1f11ae9` (D-WORKFLOW-200). The one-on-one steward runs Claude Code on the latest Fable in `w4:pF` (session `2032b6b6-3946-42d0-ab2c-cfb5469deeea`); worker lanes run Codex on `gpt-6.2-sol`. The daily operations worktree is `/workspace/repos/rocknix.worktrees/conflict-resolution`; the primary checkout `/workspace/repos/rocknix` carries local `next`. pixelelated builds an immutable Linux gaming OS. This worktree's rules lag `next`: read them with `git show next:<path>` (`AGENTS.md`, `.claude/rules/worktrees.md`, `.claude/rules/device-builds.md`, `.claude/skills/build-cleanup/SKILL.md`).
+Saved 2026-11-24T22:56Z on `feature/conflict-resolution` in the pixelelated distribution repository. Resume this file for the **OS work coordinator**, the sole dispatcher for M7. Since November 24 that role runs in **Claude Code on the latest Opus** (`claude-opus-5-5`) in Herdr pane `w4:p2`; session `b19c3b8c-1c4f-4a57-8765-0b8fe1f11ae9` (D-WORKFLOW-200). The one-on-one steward runs Claude Code on the latest Fable in `w4:pF` (session `2032b6b6-3946-42d0-ab2c-cfb5469deeea`); worker lanes run Codex on `gpt-6.2-sol`. The daily operations worktree is `/workspace/repos/rocknix.worktrees/conflict-resolution`; the primary checkout `/workspace/repos/rocknix` carries local `next`. pixelelated builds an immutable Linux gaming OS. This worktree's rules lag `next`: read them with `git show next:<path>` (`AGENTS.md`, `.claude/rules/worktrees.md`, `.claude/rules/device-builds.md`, `.claude/skills/build-cleanup/SKILL.md`).
 
 Read the [M7 milestone](https://github.com/pixelelated/distribution/milestone/7) (body updated 12:29Z), [#555](https://github.com/pixelelated/distribution/issues/555) (build qualification; 12:30Z comment), [#1441](https://github.com/pixelelated/distribution/issues/1441) (the H700 recipe failure) and [#1442](https://github.com/pixelelated/distribution/issues/1442) (the two-ABI admission refusal). Decisions made this session, all on local `next`: D-INFRA-035 to D-INFRA-043 and D-WORKFLOW-200. Also read [#1448](https://github.com/pixelelated/distribution/issues/1448) (the SM8550 fex-emu stop).
 
 ## Current focus
+
+**0. Latest (2026-11-24T22:56Z; supersedes the running/next parts of items 1, 2 and 4 below).**
+- **SM8550 of `0a3e979e50` is accepted.** Run `20261124T184914Z-84d3f121`, rc 0; record `m7-sm8550-0a3e979e-owner-20261124/ACCEPTANCE.json`; #1448 criteria 1–3 ticked.
+  - Its build roots were removed (+183.41 GB, `REMOVAL-build-roots.json`).
+  - Kept: `m7-sm8550-0a3e979e-20261124/target/` and `kept/emulationstation-m7-20261110-0d852e5d1106/emulationstation` (sha256 `edcb8d26…`).
+- **The PC cold build of `0a3e979e50` is running.** Started 22:54:54Z: run `20261124T225454Z-289bae16` in `/workspace/repos/rocknix.worktrees/m7-pc-0a3e979e-20261124` (branch `build/m7-pc-0a3e979e-20261124`), owner `conflict-resolution/.build-runs/m7-pc-0a3e979e-owner-20261124/`, watcher pid 1774390, job 1774384.
+  - Consume it from `build.rc`, `runner-result.json`, `submit-01/launcher-result.json` and `tool-wrapper.rc`, then check process cleanup, the identity file and both hashes.
+  - Then remove its build root, keeping `target/` and the unstripped ES binary.
+  - Then H700 cold from the final head, last; then `tools/rc-preflight --only build-set` over the three `target/` folders.
+- **Batch 6 is done** (D-INFRA-044): rc 0, +489.74 GB, outcome on #493.
+  - 26.6 GB remains in `/workspace/tmp` outside the keep set: 11 git object stores and 2 held entries (`batch6-left-not-keep.txt`).
+  - Removing those deletes more than batch 6 did, so it goes to the one-on-one first.
+  - `KEEP-named-items.json` now names the set's final head in its release events.
+- **CI (#1446, #1450).** Max set Actions budgets at about 22:37Z; a push at 22:38Z still got no check suite, so the budgets did not restore CI. Owner-only pages remain unread (Actions policy, audit log, payment).
+  - #1450 (Max's *"why'd this go unnoticed?"*) has `tools/ci-silence-check` on local `next`, uncommitted at 2026-11-24T22:56Z: done and proven on recorded replies.
+  - Still to do: the push-guard line (edited, not yet committed), the `rc-preflight` `ci` item with its register row and `release-candidates.md` text, the daily timer through `tools/coordinator-escalation`, and the guards/records split of `fork-checks.yml`.
+  - Note: `0a3e979e50` is not on GitHub at all (`check-suites` answers 404), so the M7 head has never been checked by CI.
 
 **1. The SM8550 cold build of `0a3e979e50` is running (#555, #1448).** `0a3e979e50` = `ace312b0d2` with `fex-emu`'s fork patch `0006` deleted. Upstream's `0003` in the November 18 tree already carries its change, so `0006` stopped the first SM8550 run at `[706/736]` unpack. Kept as `refs/m7/candidate-0a3e979e`. **Image heads (D-INFRA-043, #1449, reverses D-INFRA-042):** the whole M7 set comes from one commit with one build ID, now `0a3e979e50`. Max at about 19:21Z: *"make sure we institutionalize it and store that as our preference"*. SM8550 continues; the PC is rebuilt cold from `0a3e979e50`; H700 is rebuilt cold from the final head last. If a fix moves the head again, the not-yet-built targets take the new head and the built ones are rebuilt last. `ace312b0d2` stays `refs/m7/candidate-ace312b0`.
 
