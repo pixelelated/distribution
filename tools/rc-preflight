@@ -13,6 +13,7 @@
 #   tools/rc-preflight --only proxy-schema   # quick, offline pin-note check
 #   tools/rc-preflight --tree <wt> --only build-set --build-set <target> ...
 #                                            # step 2: one commit across the set
+#   tools/rc-preflight --tree <wt> --only ci # did GitHub check this head? (#1450)
 #
 # D-WORKFLOW-168 (#344): owner-only engineering testing and public publication
 # have separate readiness lists. This tool retains the RC checks below; it
@@ -60,6 +61,12 @@
 #                  preference, so we don't run into the same question in the
 #                  future"); two commits, a dirty build or another commit is a
 #                  finding; a dir with no identity file cannot be answered
+#   ci             tools/ci-silence-check --sha <HEAD>: the tree's HEAD is on
+#                  GitHub with a check suite, something ran in 26 hours, and
+#                  the commit's newest fork record checks run has no red guard
+#                  (a record owed is noted, not a finding); no candidate is cut
+#                  on a head GitHub never checked (#1450, #1446, D-WORKFLOW-202).
+#                  `--only ci` runs it alone
 #
 # A finding is accepted for this candidate by a line in
 # docs/releases/rc-accept.txt naming it and a decided register row:
@@ -191,6 +198,32 @@ def check_build_set(r, tree, dirs):
         r.add("FAIL", item, "%s -- %s" % (", ".join(problems), desc))
     else:
         r.add("PASS", item, "%d image(s), one commit %s -- %s" % (len(seen), head[:10], desc))
+
+
+def check_ci(r, tree):
+    """The tree's HEAD is on GitHub and its checks ran (#1450, D-WORKFLOW-202)."""
+    item = "ci"
+    rc, out, _ = run(["git", "-C", tree, "rev-parse", "HEAD"])
+    head = (out or "").strip()
+    if rc != 0 or not re.fullmatch(r"[0-9a-f]{40}", head):
+        r.add("CANNOT", item, "the tree's HEAD could not be read (%s)" % tree)
+        return
+    rc, out, err = run([os.path.join(ROOT, "tools", "ci-silence-check"), "--sha", head, "--json"], timeout=300)
+    try:
+        j = json.loads(out)
+        lines = j["lines"]
+    except (ValueError, TypeError, KeyError):
+        r.add("CANNOT", item, "ci-silence-check did not answer (rc %s): %s" % (rc, (err or out or "").strip()[-200:]))
+        return
+    if rc == 2 or j.get("verdict") == "CANNOT":
+        r.add("CANNOT", item, "GitHub could not be read: %s" % str(j.get("error"))[:200])
+    elif rc == 1:
+        r.add("FAIL", item, "; ".join("%s %s" % (l["item"], l["text"]) for l in lines if l["verdict"] == "FAIL")[:300])
+    elif rc == 0:
+        owed = [l["text"] for l in lines if l["verdict"] == "OWED"]
+        r.add("PASS", item, "%s has %s check suite(s)%s" % (head[:10], j.get("suites"), "; a record is owed" if owed else ""))
+    else:
+        r.add("CANNOT", item, "ci-silence-check exited %s" % rc)
 
 
 def check_proxy_schema(r, tree):
@@ -403,7 +436,7 @@ def main():
     ap.add_argument("--es", default=os.path.expanduser("~/Development/emulationstation-next"))
     ap.add_argument("--no-fetch", action="store_true")
     ap.add_argument("--allow-unchecked", action="append", default=[], choices=["device-facts"])
-    ap.add_argument("--only", choices=["proxy-schema", "build-set"], help="run only the named offline check; not an RC verdict")
+    ap.add_argument("--only", choices=["proxy-schema", "build-set", "ci"], help="run only the named check; not an RC verdict")
     ap.add_argument("--build-set", action="append", default=[], metavar="TARGET_DIR",
                     help="a target/ directory of one image of the build set (repeat for each)")
     a = ap.parse_args()
@@ -416,7 +449,9 @@ def main():
     r = Report()
     if a.only == "build-set" or a.build_set:
         check_build_set(r, tree, [os.path.abspath(d) for d in a.build_set])
-    if a.only != "build-set":
+    if a.only == "ci":
+        check_ci(r, tree)
+    if a.only not in ("build-set", "ci"):
         check_proxy_schema(r, tree)
     if a.only:
         # Deliberately no MAY BE CUT verdict for a scoped source check.
@@ -449,6 +484,7 @@ def main():
                        ["git", "-C", a.es, "fetch", "-q", "rocknix", "master"], fetch)
     check_bugs(r, acc)
     check_already_written(r)
+    check_ci(r, tree)
     check_tool(r, "checkboxes", [os.path.join(ROOT, "tools", "box-check"), "--quiet"], "open checkboxes that are not agent-verifiable")
     check_tool(r, "catalog", [os.path.join(ROOT, "tools", "release-catalog"), "--check"], "docs/releases/catalog.md is stale")
     if "device-facts" in a.allow_unchecked:

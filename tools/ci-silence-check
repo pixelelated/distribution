@@ -8,13 +8,15 @@ answers each with a verdict line:
 
   head     the newest push of the branch, when it was pushed, and how many
            check suites GitHub created for its head. None after --grace-min
-           minutes is FAIL: GitHub did not check that push.
+           minutes is FAIL: GitHub did not check that push. With --sha, one
+           commit instead, with no grace: not on GitHub, or on it with no
+           suite, is FAIL (rc-preflight's ci item).
   runs     the newest workflow run in the repository. None in the last
            --idle-hours hours is FAIL: the scheduled checks have stopped.
-  guards   the newest completed "fork record checks" run on the branch: did a
-           guard fail (FAIL, act on it), or is only a record owed (OWED, the
-           ceremonies' CI red, D-WORKFLOW-028)? A red result means act only
-           when a guard is red.
+  guards   the newest completed "fork record checks" run (on the branch, or
+           for the --sha commit): did a guard fail (FAIL, act on it), or is
+           only a record owed (OWED, the ceremonies' CI red, D-WORKFLOW-028)?
+           A red result means act only when a guard is red.
   records  OWED or ok, as above; never a failure by itself.
 
 Exit 0 when nothing failed (a head inside its grace period reads "pending"),
@@ -22,7 +24,8 @@ Exit 0 when nothing failed (a head inside its grace period reads "pending"),
 not passed (engineering-practices.md, "Guards must fail closed").
 
   tools/ci-silence-check                       # next on pixelelated/distribution
-  tools/ci-silence-check --require-suite       # no grace: rc-preflight's form
+  tools/ci-silence-check --require-suite       # no grace for the branch head
+  tools/ci-silence-check --sha <40-hex>        # one commit, no grace
   tools/ci-silence-check --json                # one JSON object on stdout
   tools/ci-silence-check --record DIR          # also save every reply read
   tools/ci-silence-check --replay DIR --now T  # answer from saved replies
@@ -33,6 +36,7 @@ import argparse
 import datetime as dt
 import json
 import os
+import re
 import subprocess
 import sys
 
@@ -44,6 +48,10 @@ WORKFLOW = "fork-checks.yml"
 
 class Unreadable(Exception):
     pass
+
+
+class Missing(Unreadable):
+    """GitHub answered, and the commit is not there (HTTP 404/422 on a commits path)."""
 
 
 def parse_ts(s):
@@ -69,28 +77,38 @@ class GitHub:
     def _name(path):
         return "".join(c if c.isalnum() else "_" for c in path)[:150] + ".json"
 
+    def _save(self, path, data):
+        if self.record:
+            with open(os.path.join(self.record, self._name(path)), "w") as fh:
+                json.dump(data, fh, indent=1)
+
     def get(self, path):
         if self.replay:
             f = os.path.join(self.replay, self._name(path))
             try:
                 with open(f) as fh:
-                    return json.load(fh)
+                    data = json.load(fh)
             except (OSError, ValueError) as e:
                 raise Unreadable("no recorded reply for %s (%s)" % (path, e))
+            if isinstance(data, dict) and "__missing__" in data:
+                raise Missing(data["__missing__"])
+            return data
         try:
             p = subprocess.run(["gh", "api", path], capture_output=True, text=True, timeout=60)
         except (OSError, subprocess.TimeoutExpired) as e:
             raise Unreadable("%s: %s" % (path, e))
         if p.returncode != 0:
             last = (p.stderr or p.stdout).strip().splitlines()
-            raise Unreadable("%s: %s" % (path, last[-1] if last else "gh exited %d" % p.returncode))
+            msg = "%s: %s" % (path, last[-1] if last else "gh exited %d" % p.returncode)
+            if "/commits/" in path and ("(HTTP 422)" in msg or "(HTTP 404)" in msg):
+                self._save(path, {"__missing__": msg})
+                raise Missing(msg)
+            raise Unreadable(msg)
         try:
             data = json.loads(p.stdout)
         except ValueError as e:
             raise Unreadable("%s: unreadable JSON (%s)" % (path, e))
-        if self.record:
-            with open(os.path.join(self.record, self._name(path)), "w") as fh:
-                json.dump(data, fh, indent=1)
+        self._save(path, data)
         return data
 
 
@@ -121,48 +139,63 @@ def classify(gh, repo, run):
                                                 ", ".join(failed) or "all green")
 
 
-def check(gh, repo, branch, now, grace_min, idle_hours, require_suite):
-    out = {"repo": repo, "branch": branch, "now": now.strftime("%Y-%m-%dT%H:%M:%SZ"), "lines": []}
+def check(gh, repo, branch, now, grace_min, idle_hours, require_suite, sha=None):
+    out = {"repo": repo, "branch": branch, "sha": sha, "now": now.strftime("%Y-%m-%dT%H:%M:%SZ"), "lines": []}
     fail = False
 
     def line(item, verdict, text):
         out["lines"].append({"item": item, "verdict": verdict, "text": text})
 
-    # head: the newest push and its check suites
-    pushes = gh.get("repos/%s/activity?ref=refs/heads/%s&activity_type=push&per_page=1" % (repo, branch))
-    head = gh.get("repos/%s/branches/%s" % (repo, branch))["commit"]["sha"]
-    if pushes:
+    if sha:
+        # One commit, rc-preflight's form: it must be on GitHub and checked; no grace.
+        out["head"] = sha
+        try:
+            n = gh.get("repos/%s/commits/%s/check-suites" % (repo, sha)).get("total_count")
+            if not isinstance(n, int):
+                raise Unreadable("check-suites reply has no total_count")
+        except Missing:
+            n = None
+        out["suites"] = n
+        if n is None:
+            line("head", "FAIL", "%s is not on GitHub -- push it so the fork's checks run on it" % sha[:10])
+            fail = True
+        elif n == 0:
+            line("head", "FAIL", "%s is on GitHub with 0 check suites -- GitHub never checked it" % sha[:10])
+            fail = True
+        else:
+            line("head", "PASS", "%s: %d check suite(s)" % (sha[:10], n))
+    else:
+        # The newest push of the branch, from the repository activity list.
+        pushes = gh.get("repos/%s/activity?ref=refs/heads/%s&activity_type=push&per_page=1" % (repo, branch))
+        head = gh.get("repos/%s/branches/%s" % (repo, branch))["commit"]["sha"]
+        if not pushes:
+            raise Unreadable("no push of %s in the activity list" % branch)
         pushed, after = parse_ts(pushes[0]["timestamp"]), pushes[0]["after"]
         if after != head:
             raise Unreadable("newest push names %s but %s's head is %s" % (after[:10], branch, head[:10]))
-    else:
-        raise Unreadable("no push of %s in the activity list" % branch)
-    suites = gh.get("repos/%s/commits/%s/check-suites" % (repo, head))
-    n = suites.get("total_count")
-    if not isinstance(n, int):
-        raise Unreadable("check-suites reply has no total_count")
-    age = (now - pushed).total_seconds()
-    out.update(head=head, pushed=pushes[0]["timestamp"], suites=n)
-    text = "%s pushed %s (%s ago): %d check suite(s)" % (head[:10], pushes[0]["timestamp"], fmt_age(age), n)
-    if n > 0:
-        line("head", "PASS", text)
-    elif require_suite or age > grace_min * 60:
-        line("head", "FAIL", text + " -- GitHub did not check this push")
-        fail = True
-    else:
-        line("head", "pending", text + " -- inside the %d-minute grace" % grace_min)
+        n = gh.get("repos/%s/commits/%s/check-suites" % (repo, head)).get("total_count")
+        if not isinstance(n, int):
+            raise Unreadable("check-suites reply has no total_count")
+        age = (now - pushed).total_seconds()
+        out.update(head=head, pushed=pushes[0]["timestamp"], suites=n)
+        text = "%s pushed %s (%s ago): %d check suite(s)" % (head[:10], pushes[0]["timestamp"], fmt_age(age), n)
+        if n > 0:
+            line("head", "PASS", text)
+        elif require_suite or age > grace_min * 60:
+            line("head", "FAIL", text + " -- GitHub did not check this push")
+            fail = True
+        else:
+            line("head", "pending", text + " -- inside the %d-minute grace" % grace_min)
 
     # runs: anything at all lately
-    runs = gh.get("repos/%s/actions/runs?per_page=1" % repo)
-    wr = runs.get("workflow_runs")
+    wr = gh.get("repos/%s/actions/runs?per_page=1" % repo).get("workflow_runs")
     if not isinstance(wr, list):
         raise Unreadable("runs reply has no workflow_runs")
     if not wr:
         line("runs", "FAIL", "the repository has no workflow run at all")
         fail = True
     else:
-        newest = parse_ts(wr[0]["created_at"])
-        idle = (now - newest).total_seconds()
+        idle = (now - parse_ts(wr[0]["created_at"])).total_seconds()
         out["newest_run"] = wr[0]["created_at"]
         text = "newest run %s (%s ago), %s" % (wr[0]["created_at"], fmt_age(idle), wr[0].get("name"))
         if idle > idle_hours * 3600:
@@ -172,12 +205,13 @@ def check(gh, repo, branch, now, grace_min, idle_hours, require_suite):
             line("runs", "PASS", text)
 
     # guards and records: the newest completed run of the fork's checks
-    fr = gh.get("repos/%s/actions/workflows/%s/runs?branch=%s&status=completed&per_page=1"
-                % (repo, WORKFLOW, branch)).get("workflow_runs")
+    sel = ("head_sha=%s" % sha) if sha else ("branch=%s" % branch)
+    fr = gh.get("repos/%s/actions/workflows/%s/runs?%s&status=completed&per_page=1"
+                % (repo, WORKFLOW, sel)).get("workflow_runs")
     if not isinstance(fr, list):
         raise Unreadable("%s runs reply has no workflow_runs" % WORKFLOW)
     if not fr:
-        line("guards", "FAIL", "no completed %s run on %s" % (WORKFLOW, branch))
+        line("guards", "FAIL", "no completed %s run for %s" % (WORKFLOW, sha[:10] if sha else branch))
         fail = True
     else:
         guards, records, detail = classify(gh, repo, fr[0])
@@ -193,29 +227,33 @@ def main():
     a = argparse.ArgumentParser(description=__doc__.split("\n")[0])
     a.add_argument("--repo", default="pixelelated/distribution")
     a.add_argument("--branch", default="next")
+    a.add_argument("--sha", metavar="COMMIT", help="check this full 40-hex commit instead of the branch head; no grace")
     a.add_argument("--grace-min", type=int, default=10)
     a.add_argument("--idle-hours", type=int, default=26)
-    a.add_argument("--require-suite", action="store_true", help="no grace: the head must already have a suite")
+    a.add_argument("--require-suite", action="store_true", help="no grace: the branch head must already have a suite")
     a.add_argument("--json", action="store_true")
     a.add_argument("--record", metavar="DIR")
     a.add_argument("--replay", metavar="DIR")
     a.add_argument("--now", metavar="YYYY-MM-DDTHH:MM:SSZ")
     o = a.parse_args()
-    now = parse_ts(o.now) if o.now else dt.datetime.now(dt.timezone.utc).replace(microsecond=0)
     gh = GitHub(record=o.record, replay=o.replay)
     try:
-        out, rc = check(gh, o.repo, o.branch, now, o.grace_min, o.idle_hours, o.require_suite)
+        now = parse_ts(o.now) if o.now else dt.datetime.now(dt.timezone.utc).replace(microsecond=0)
+        if o.sha is not None and not re.fullmatch(r"[0-9a-f]{40}", o.sha):
+            raise Unreadable("--sha needs a full 40-hex commit, not %r" % o.sha)
+        out, rc = check(gh, o.repo, o.branch, now, o.grace_min, o.idle_hours, o.require_suite, o.sha)
     except (Unreadable, KeyError, TypeError, ValueError) as e:
-        out, rc = {"repo": o.repo, "branch": o.branch, "verdict": "CANNOT", "error": str(e), "lines": []}, 2
+        out, rc = {"repo": o.repo, "branch": o.branch, "sha": o.sha, "verdict": "CANNOT", "error": str(e), "lines": []}, 2
     if o.json:
         print(json.dumps(out))
     else:
         for l in out["lines"]:
             print("  %-8s %-7s %s" % (l["item"], l["verdict"], l["text"]))
+        what = o.sha[:10] if o.sha else o.branch
         if rc == 2:
             print("ci-silence-check: CANNOT read GitHub -- %s" % out["error"])
         else:
-            print("ci-silence-check: %s/%s -- %s" % (o.repo, o.branch, out["verdict"]))
+            print("ci-silence-check: %s %s -- %s" % (o.repo, what, out["verdict"]))
     return rc
 
 

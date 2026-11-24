@@ -34,7 +34,12 @@ it has its artifact.
    ships monthly, and a candidate called with a known bump outstanding costs
    a round. `tools/rc-preflight --tree <build worktree>` (#271) is the check:
    one verdict per item, exit 1 on a finding no register row accepts, exit 2
-   on an item it could not answer. An acceptance is a line in
+   on an item it could not answer. Its `ci` item fails a tree whose HEAD
+   GitHub never checked: the head is on GitHub with a check suite, something
+   ran in the last 26 hours, and the fork's record checks on that commit
+   have no red guard. A record owed is noted, not a finding (#1450,
+   D-WORKFLOW-202). GitHub stopped running the fork's checks on 2026-10-29
+   and nothing noticed for 26 days (#1446). An acceptance is a line in
    `docs/releases/rc-accept.txt` citing a decided row. The device facts have
    no tool yet (#270): read them by hand and say so with `--allow-unchecked
    device-facts`. Its verdict line is quoted on the round's issue and in the
