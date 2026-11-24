@@ -86,6 +86,6 @@ On November 23 and 24 a full sweep visited 53 checkouts and freed 0 bytes. 107 G
 
 Say which directories are gone, the free bytes before and after, and what is left that is not in the keep set, with the reason for each. Nothing else.
 
-## Open question for Max
+## The warm base (D-INFRA-037)
 
-Once the most recent build is on GitHub it no longer has to stay. Whether to keep it anyway as a warm base for the next build is Max's call.
+The most recent build stays as the warm base for the next one. Once it is on GitHub it is removable whenever space is needed, without asking Max again.
