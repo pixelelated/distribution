@@ -211,13 +211,43 @@ scheduled service. The report identifies held paths and the inputs they overlap.
 retains its normal deadline and use checks. The full pass leaves the timer
 cursor intact. Unknown owners and incomplete discovery remain visible.
 
-Use `full --target-bytes N` to stop when ordinary available bytes reach N.
-Include the proposed stage's peak, reserve and other reservations when choosing
-N. The result gives actual free space and separately counts verified newly
-unlinked bytes. Admission still rechecks current capacity and protections.
-Use this path for an outstanding shortage on the agent's own initiative. The
-ordinary preparation hook continues to protect a pending build and use the
-same guarded engine for its immediate, bounded shortage attempts.
+Use `full --target-bytes N` for a measured capacity goal. Include the proposed
+stage's peak, reserve and other reservations in N. Exit 0 means measured
+ordinary availability reached N. An already satisfied target returns before
+discovery and reports the backlog as unassessed. A later successful capacity
+result can still leave the backlog open. Verified unlinks, measured reclaimed
+space and actual availability are separate fields. Admission still rechecks
+current capacity and protections.
+
+Use `full` without a target for the discovered superseded-build backlog. Exit 0
+requires complete scoped coverage and terminal dispositions. A known empty
+scope can settle with zero unlinks. Missing or incomplete inventory, an
+unvisited checkout, an unresolved ranked path, or an unresolved guard keeps the
+backlog open. A ranked path needs a matching verified retirement or coverage
+by an exact retained image keeper path. A visit, a checkout-level no-op and
+a build budget cannot settle a ranked path. Scope outside the inventory
+continues to be disclosed by the report.
+
+On a miss or incomplete backlog, stdout's `outcome` identifies the goal,
+shortfall, backlog state and progress. The short stderr follow-through gives
+the next owner and evidence-backed action. The JSON keeps the largest
+reported hold, the highest-ranked ordinary action and up to three distinct
+alternative remedies. These counts describe overlapping scope and action
+records. Ranking never credits potential free bytes. The full pass already
+tries independent ranked checkouts. If its leading ordinary action is an
+operation or observation limit on an exact registered run, it can issue one
+bounded targeted continuation through the same engine. A zero-result or
+partially productive pass still exits 1 if its stated goal is open.
+
+Treat shared-checkout diagnostics, legacy routing and incomplete inventory
+as OS work. Examine the selected generated path's writer, alias and retained
+input facts before choosing the next guarded scope. Escalate only a recorded
+missing privileged operation with its exact operand and owner. For example,
+an observed missing reviewed host-use reporter for an exact enrolled root
+identifies the fixed reporter path and the storage administrator. A generic
+ownership, permission or producer availability reason stays an OS diagnosis.
+The ordinary preparation hook, periodic cycle and after-consume routes keep
+their existing budgets and guards.
 
 ## Before copying or launching a build
 

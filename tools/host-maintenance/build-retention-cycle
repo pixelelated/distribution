@@ -1171,6 +1171,226 @@ def prebuild_review(checkout, volume, required_bytes, reserved_bytes, protected_
     return report
 
 
+# These are existing engine diagnostics. An unknown diagnostic is preserved
+# verbatim and assigned for investigation, never interpreted as permission.
+FULL_ACTIONS = {
+    'checkout is shared or owned by another account': (
+        'checkout-ownership', 'ordinary', 'OS cleanup operator',
+        'Examine the ranked generated path’s writers, aliases and retained inputs. Identify the exact '
+        'owned scope or the specific blocked operation before choosing a guarded retirement route.'),
+    'legacy filesystem-keyed admission has an unobservable prepare interval': (
+        'legacy-admission', 'ordinary', 'OS admission registry owner',
+        'Reconcile the original filesystem-keyed ledger with the Git-common queue and verify '
+        'the supported sealed or queue-visible route for this checkout before retirement.'),
+    'mixed admission registries lack one verified canonical authority': (
+        'mixed-admission', 'ordinary', 'OS admission registry owner',
+        'Identify and verify one authoritative queue and its locked archived peers for this checkout.'),
+    'unknown build directory has no owned registry scope': (
+        'unowned-output', 'ordinary', 'OS coordinator',
+        'Bind the exact generated scope to the original producer, retained results and verified '
+        'dependency custody using the existing adoption route.'),
+    'no unique declaring admission or registered Git build checkout': (
+        'unowned-output', 'ordinary', 'OS coordinator',
+        'Identify the declaring admission and independent custody for this ranked path, '
+        'or record the exact accountable reason to retain it.'),
+    'checkout sweep already active': (
+        'cycle-lock', 'ordinary', 'OS cleanup operator',
+        'Wait for the active sweep to finish and consume its result before deciding on a guarded continuation.'),
+    'admission registry is busy': (
+        'registry-lock', 'ordinary', 'OS cleanup operator',
+        'Consume the current registry holder’s terminal result, then recheck this exact scope.'),
+    'per-sweep run bound reached': (
+        'run-bound', 'ordinary', 'OS cleanup operator',
+        'Continue only the undisposed registered runs through the existing targeted guarded sweep.'),
+    'per-sweep operation bound reached': (
+        'operation-bound', 'ordinary', 'OS cleanup operator',
+        'Use the existing guarded continuation for this scope and verify the new receipts.'),
+    'per-sweep observation time bound reached': (
+        'observation-bound', 'ordinary', 'OS cleanup operator',
+        'Use a fresh bounded guarded observation for the exact remaining scope.'),
+    'retained size was ranked without an exact disposition': (
+        'ranked-scope', 'ordinary', 'OS coordinator',
+        'Match this exact path to retired custody or record its required keeper and release condition.'),
+    'unvisited checkout remains': (
+        'unvisited-checkout', 'ordinary', 'OS cleanup operator',
+        'Recheck the byte requirement, then continue the ranked undisposed checkout through the guarded route.'),
+    'contains or overlaps retained image inputs': (
+        'image-custody', 'ordinary', 'OS image keeper owner',
+        'Preserve the exact retained image inputs and distinguish any independent generated paths before retirement.'),
+    'no retained size inventory for the selected volume': (
+        'size-inventory', 'ordinary', 'OS coordinator',
+        'Supply the current verified inventory for this volume and reconcile any omitted historical scope.'),
+    'previous removal unconfirmed': (
+        'unconfirmed-removal', 'ordinary', 'OS coordinator',
+        'Reconcile the original intent and independent custody for this scope. Credit zero bytes without verified removal.'),
+}
+
+
+def full_followthrough(report):
+    """Derive actions from the receipts already obtained by the guarded pass."""
+    holds, retired, keeper = {}, set(), set()
+    ranked = report.get('ranked_paths', [])
+    ranks, largest_paths = {}, {}
+    for row in sorted(ranked, key=lambda r: (-r['allocated_bytes'],r['path'])):
+        if row['checkout'] and row['checkout'] not in ranks:
+            ranks[row['checkout']] = row['allocated_bytes']
+            largest_paths[row['checkout']] = row['path']
+    for row in report['attempts']:
+        ranks.setdefault(row['checkout'], row['ranked_bytes'])
+    image = report.get('image_selection', {})
+    if image.get('status') in ('active', 'completed'):
+        keeper.update((image.get('keeper') or {}).get('protected_paths', []))
+
+    def add(reason, *, path=None, checkout=None, run=None, rank=None, omission=False):
+        default = ('scope-omission', 'ordinary', 'OS coordinator',
+                   'Resolve the named inventory or registry visibility failure and recheck the omitted scope.')
+        if not omission:
+            default = ('unresolved-guard', 'ordinary', 'OS coordinator',
+                       'Resolve the reported guard against the original ownership, custody and use evidence '
+                       'for this scope before selecting another attempt.')
+        code, kind, owner, action = FULL_ACTIONS.get(reason, default)
+        privileged = None
+        # This exact native diagnostic comes from lstat of the fixed, root-owned
+        # producer route. A generic permission, ownership or unavailable reason
+        # has no evidence of a necessary privileged operation.
+        if reason == 'trusted tree-use check held: producer-not-installed' and path and run:
+            code, kind, owner = 'host-use-producer-missing', 'external', 'Serval storage administrator'
+            privileged = dict(operation='restore-reviewed-fixed-host-use-reporter',
+                              reporter='/usr/local/libexec/pixelelated/host-in-use-report', operand=path)
+            action = 'Restore the reviewed fixed host-use reporter and provide a current receipt for the exact enrolled root.'
+        key = (reason, path, checkout, run)
+        holds[key] = dict(code=code, kind=kind, reason=reason, owner=owner, action=action,
+                          path=path, checkout=checkout, run=run, privileged_operation=privileged,
+                          ranked_path=path if rank is not None else largest_paths.get(checkout),
+                          ranked_bytes=rank if rank is not None else ranks.get(checkout))
+
+    if report.get('reason'):
+        add(report['reason'])
+    for item in report['omissions']:
+        add(item['reason'], path=item.get('path') or item.get('registry'), omission=True)
+    for row in report.get('ranked_without_registered_owner', []):
+        if not any(Path(row['path']).is_relative_to(root) for root in keeper):
+            add(row['reason'], path=row['path'], rank=row['allocated_bytes'])
+
+    # A checkout-wide pass may leave a bounded tail. Consider the exact
+    # later results for that tail, but keep other original refusals intact.
+    targeted = {(row['checkout'], row['run']):row for row in report['attempts'] if row.get('run')}
+    for attempt in report['attempts']:
+        checkout, run = attempt['checkout'], attempt.get('run')
+        if run and targeted[checkout, run] is not attempt:
+            continue
+        blocked = attempt['status'] in ('held', 'partial', 'error') or attempt.get('returncode', 0) != 0
+        explained = False
+        for row in attempt.get('results', []):
+            row_run = row.get('run') or run
+            if not run and row_run and (checkout, row_run) in targeted:
+                explained = True
+                continue
+            roots = row.get('roots')
+            for root in roots if isinstance(roots, list) else ():
+                if root['status'] == 'retired' and attempt['status'] in ('retired', 'partial'):
+                    retired.add(root['root'])
+                elif root['status'] in ('held', 'partial', 'error'):
+                    reason = root.get('reason') or 'guard left a root without a terminal disposition'
+                    add(reason, path=root['root'], checkout=checkout, run=row_run)
+                    explained = True
+            if row['status'] in ('held', 'partial', 'error') and not (
+                    isinstance(roots, list) and any(r['status'] in ('held', 'partial', 'error') for r in roots)):
+                reason = row.get('reason') or 'guard left a run without a terminal disposition'
+                if (not run and reason == 'per-sweep run bound reached'
+                        and row.get('runs', 0) > 0
+                        and row['runs'] == sum(owner == checkout for owner, _ in targeted)):
+                    explained = True
+                    continue
+                add(reason, checkout=checkout, run=row_run)
+                explained = True
+        if blocked and (attempt.get('reason') or not explained):
+            add(attempt.get('reason') or 'guard did not give a terminal disposition',
+                checkout=checkout, run=run)
+
+    unresolved_paths = 0
+    held_checkouts = {row['checkout'] for row in holds.values() if row['checkout']}
+    reported_paths = {row['path'] for row in holds.values()}
+    for row in ranked:
+        path = Path(row['path'])
+        if any(path.is_relative_to(root) for root in retired | keeper):
+            continue
+        unresolved_paths += 1
+        if row['checkout'] not in held_checkouts and row['path'] not in reported_paths:
+            add('retained size was ranked without an exact disposition', path=row['path'],
+                checkout=row['checkout'], rank=row['allocated_bytes'])
+    if not report.get('reason'):
+        for checkout in report.get('unvisited', []):
+            add('unvisited checkout remains', checkout=checkout)
+    if report.get('unvisited_checkouts', 0) and not report.get('unvisited') and not report.get('reason'):
+        add('unvisited checkout remains')
+
+    def order(row):
+        return (-(row['ranked_bytes'] or 0), row['path'] or row['checkout'] or '',
+                row['run'] or '', row['reason'])
+
+    ordered = sorted(holds.values(), key=order)
+    ordinary = [row for row in ordered if row['kind'] == 'ordinary']
+    primary = (ordinary or ordered or [None])[0]
+    alternatives = []
+    if primary:
+        # Show independent remedies before listing many variants of one refusal.
+        seen = {primary['code']}
+        for row in ordered:
+            if row['code'] not in seen:
+                alternatives.append(row)
+                seen.add(row['code'])
+                if len(alternatives) == 3:
+                    break
+    return dict(unresolved_ranked_paths=unresolved_paths, hold_count=len(ordered),
+                ordinary_candidates=len(ordinary), external_candidates=len(ordered) - len(ordinary),
+                largest_hold=ordered[0] if ordered else None, next=primary, alternatives=alternatives)
+
+
+def finish_full(report):
+    """Report completion against the requested goal, with no new host reads."""
+    target = report['target_available_bytes']
+    available = report['available_bytes']
+    backlog_assessed = 'known_checkouts' in report
+    follow = full_followthrough(report)
+    backlog_complete = backlog_assessed and follow['hold_count'] == 0
+    shortfall = None if target is None else max(0, target - available)
+    complete = backlog_complete if target is None else shortfall == 0
+    verified = report.setdefault('verified_unlinked_bytes', 0)
+    report.setdefault('measured_net_change_bytes', available - report.get('initial_available_bytes', available))
+    if target is None:
+        summary = ('Scoped superseded-build backlog disposed.' if complete
+                   else f'Superseded-build backlog still open. {verified} verified unlinked bytes.')
+    elif complete:
+        summary = f'Available capacity target met: {available} of {target} bytes.'
+    else:
+        summary = f'Available capacity target missed by {shortfall} bytes. {verified} verified unlinked bytes.'
+    if not complete and follow['next'] is None:
+        follow['next'] = dict(code='capacity-shortfall', kind='ordinary', path=None, checkout=None, run=None,
+                              reason='no further guarded retirement candidate in the observed scope',
+                              owner='OS coordinator',
+                              action='Qualify an independent capacity source or resize the proposed work to '
+                                     'measured availability, then verify the chosen byte target.',
+                              ranked_path=None, ranked_bytes=None, privileged_operation=None)
+    if not complete:
+        next_step = follow['next']
+        scope = next_step['path'] or next_step['run'] or next_step['ranked_path'] or next_step['checkout']
+        summary += f" {next_step['reason']}" + (f" at {scope}." if scope else '.')
+        summary += f" {next_step['owner']} — {next_step['action']}"
+        if follow['alternatives']:
+            summary += f" Alternative: {follow['alternatives'][0]['owner']} — {follow['alternatives'][0]['action']}"
+    report['outcome'] = dict(
+        goal='superseded-build-backlog' if target is None else 'available-bytes',
+        complete=complete, shortfall_bytes=shortfall,
+        status=(('disposed' if complete else 'partial' if verified else 'incomplete') if target is None
+                else ('target-met' if complete else 'target-missed')),
+        backlog=('disposed' if backlog_complete else 'open' if backlog_assessed else 'unassessed'),
+        progress='verified-unlink' if verified else 'no-verified-unlink',
+        follow_through=follow if not complete else None, summary=summary)
+    report['status'] = ('held' if not complete else 'settled' if target is None else 'target-met')
+    return report, int(not complete)
+
+
 def full_sweep(root, settings, target=None):
     """Visit every discovered checkout, with one native effect authority per attempt."""
     if target is not None and target < 0:
@@ -1183,6 +1403,10 @@ def full_sweep(root, settings, target=None):
                   inventory_scope=('Registered admission checkouts and known Git worktrees with a verified '
                                    'ranked build profile. Nested paths are joined to declared outputs. '
                                    'Unmatched ranked paths are reported individually.'))
+    if target is not None and start >= target:
+        result.update(available_bytes=start, measured_net_change_bytes=0, visited_checkouts=0,
+                      verified_unlinked_bytes=0, measured_reclaimed_bytes=0)
+        return finish_full(result)
     cursor_lock = settings.with_name('build-retention.lock')
     fd = os.open(cursor_lock, os.O_RDWR | os.O_NOFOLLOW | os.O_CREAT | os.O_NONBLOCK, 0o600)
     with os.fdopen(fd, 'rb') as lock:
@@ -1192,12 +1416,18 @@ def full_sweep(root, settings, target=None):
         except BlockingIOError:
             result.update(status='held', reason='checkout sweep already active',
                           available_bytes=available_on(root, selected), measured_reclaimed_bytes=0)
-            return result, 1
+            return finish_full(result)
         inventory = discovery(root, include_runs=True)
         omissions.extend(inventory['held_routes'])
         checkouts = set(inventory['checkouts'])
         ranks = {c:0 for c in checkouts}
-        hints = retained_hints(selected, lambda p: (str(p) in checkouts or str(p.parent) in checkouts or str(p/'checkout') in checkouts or p.is_relative_to(root.with_name(root.name+'.worktrees'))), ReviewBudget(seconds=10), omissions)
+        try:
+            hints = retained_hints(selected, lambda p: (str(p) in checkouts or str(p.parent) in checkouts
+                or str(p/'checkout') in checkouts or p.is_relative_to(root.with_name(root.name+'.worktrees'))),
+                ReviewBudget(seconds=10), omissions)
+        except ReviewLimit as error:
+            omissions.append(dict(reason=str(error)))
+            hints = {}
         unregistered = []
         reviewed = []
         image = inventory['image_selection']
@@ -1225,9 +1455,9 @@ def full_sweep(root, settings, target=None):
                       ranked_without_registered_owner=unregistered, ranked_paths=reviewed, image_selection=image)
         if image['status'] == 'held':
             result.update(status='held', reason=image['reason'], available_bytes=available_on(root, selected),
-                          visited_checkouts=0, unvisited_checkouts=len(checkouts), verified_unlinked_bytes=0,
-                          measured_reclaimed_bytes=0)
-            return result, 1
+                          visited_checkouts=0, unvisited_checkouts=len(checkouts), unvisited=sorted(checkouts),
+                          verified_unlinked_bytes=0, measured_reclaimed_bytes=0)
+            return finish_full(result)
         verified, measured = 0, 0
         visited = []
         def attempt(checkout, run=None):
@@ -1239,6 +1469,9 @@ def full_sweep(root, settings, target=None):
             try:
                 same_volume(checkout, selected[0], selected[1])
                 rc, report = engine_observation(root, checkout, run)
+                expected_rc = {'retired':0, 'noop':0, 'held':1, 'partial':1, 'error':2}
+                if rc != expected_rc[report['status']]:
+                    raise ValueError('guarded engine exit status disagrees with reported disposition')
                 amount = report.get('verified_unlinked_bytes', 0)
                 detail.update(status=report['status'], returncode=rc, verified_unlinked_bytes=amount)
                 if 'reason' in report:
@@ -1272,14 +1505,20 @@ def full_sweep(root, settings, target=None):
                         break
                     attempt(Path(name),Path(run))
         after = available_on(root, selected)
-        pending = any(x['status'] in ('held','partial','error') for x in attempts)
-        incomplete = bool(inventory['held_routes'] or unregistered or pending)
-        satisfied = target is not None and after>=target
-        result.update(status='target-met' if satisfied else ('held' if incomplete or target is not None else 'settled'),
-                      visited_checkouts=len(visited), unvisited_checkouts=len(checkouts)-len(visited),
+        unvisited = sorted(checkouts - set(visited))
+        result.update(unvisited=unvisited, unvisited_checkouts=len(unvisited))
+        if target is None or after < target:
+            continuation = full_followthrough(result)['next']
+            if (continuation and continuation['code'] in ('operation-bound', 'observation-bound')
+                    and continuation['run'] in inventory['runs'].get(continuation['checkout'], [])):
+                owner, run = continuation['checkout'], continuation['run']
+                result['operator_continuation'] = dict(checkout=owner, run=run, reason=continuation['reason'])
+                attempt(Path(owner), Path(run))
+                after = available_on(root, selected)
+        result.update(visited_checkouts=len(visited), unvisited_checkouts=len(unvisited), unvisited=unvisited,
                       verified_unlinked_bytes=verified, measured_reclaimed_bytes=min(measured,max(0,after-start)),
                       available_bytes=after, measured_net_change_bytes=after-start)
-    return result, int(result['status']=='held')
+    return finish_full(result)
 
 
 
@@ -1317,6 +1556,7 @@ def main():
         os.environ['XDG_STATE_HOME'] = str(state_home)
         report, rc = full_sweep(root, settings_path, args.target_bytes)
         print(json.dumps(report, sort_keys=True))
+        print(report['outcome']['summary'], file=sys.stderr)
         return rc
     if args.run is None:
         return reconcile(root, state_home, settings_path)
