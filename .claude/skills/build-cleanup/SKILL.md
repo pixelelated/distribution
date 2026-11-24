@@ -88,4 +88,4 @@ Say which directories are gone, the free bytes before and after, and what is lef
 
 ## The warm base (D-INFRA-037)
 
-The most recent build stays as the warm base for the next one. Once it is on GitHub it is removable whenever space is needed, without asking Max again.
+The most recent build stays as the warm base for the next one. Once it is on GitHub it is removable whenever space is needed, without asking Max again. The warm base is a convenience, never a dependency: when there is any doubt that it is current for every package, the next build is cold (D-INFRA-040), so removing it never blocks a build.

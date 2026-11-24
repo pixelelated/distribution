@@ -117,8 +117,17 @@ integration branch; do not confuse it with this distribution build source.
 Keep a running build's tracked inputs frozen. Build roots are per-device and
 architecture (`build.pixelelated-H700.arm`, `build.pixelelated-H700.aarch64`, …).
 
-A warm cache is reusable after its accepted source/output provenance and the
-changed package/dependency scope are checked. If the predecessor still needs its
+**Build cold whenever a warm root's currency is in any doubt (D-INFRA-040).**
+Max, 2026-11-24: *"this is one of the advantages of doing a cold build: we can just
+start fresh and make sure everything's building correctly. We're rarely in a hurry, so
+we should take advantage of our ability to create high-quality builds."* Build quality
+comes before build time. A warm root is a convenience used only when it is established
+current for every package; it is never a reason to accept a questionable build, and no
+build depends on one (the kept build is a removable warm base, D-INFRA-037). A cold
+build is the preferred route, not a fallback.
+
+A warm cache is reusable only after its accepted source/output provenance and the
+changed package/dependency scope are checked and found current. If the predecessor still needs its
 cache, make an independent copy and verify contents and inode separation. If all
 old cache consumers have finished or been explicitly rebound, the existing
 admitted atomic ownership-transfer route may move the stopped cache on the same
@@ -568,7 +577,7 @@ So, before a cold build:
   artifact reserve before starting. The accepted October 2026 H700 roots used
   about138 GB together and SM8550 about183 GB; a generic90 GB estimate is not
   a capacity gate. Recheck available space between sequential target builds.
-- **Time:** hours for a first build of a device; minutes once its root is warm.
+- **Time:** hours for a cold build of a device; minutes for a warm rebuild whose root is established current. Time is not a reason to choose warm (D-INFRA-040).
 - Build sequentially. Parallel device builds contend for CPU and the sources
   cache, and a failure part-way is harder to attribute.
 
