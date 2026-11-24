@@ -1,5 +1,15 @@
 # Max Coordinator one-on-one
 
+## November 24 harness handoff
+
+Resume as Max’s one-on-one steward. Open the canonical checkpoint with `git show next:.github/sessions/saved-session-state-next.md`. The OS coordinator in `w4:p2` owns cleanup and worker dispatch. The outgoing Codex conversation was `w4:pF`, native session `01a209f0-f3e9-7991-885c-3847278f8b9f`. A different harness starts a fresh conversation. Verify its actual pane and session with OS coordination before changing any routing. [Lane handoff guide](lane-models-and-account-handoff.md)
+
+Max asked us to record why repeated attempts consumed nearly a day. We accepted a working timer, passing tests and enough room for the next build while the full collection reported 53 checkouts visited, zero bytes recovered and all historical build directories still present. The next steward owns keeping that failure visible until the requested outcome is achieved. The project keeps one OS build across all targets under D-INFRA-033. The last verified keeper was the November 21 GENERIC_X64 build at `d7ca912480ea`.
+
+At 03:25 UTC, `df -B1 /workspace` returned 181,668,294,656 available bytes. The latest production batch reclaimed 54,541,094,912 bytes from 13 compiler caches. Cumulative verified recovery was 106,887,766,016 bytes. Zero complete legacy build directories had been removed. Resume from the [production receipt](qa-logs/2026-11-23-build-directory-retirement/physical-bulk/20261124-sm04-reader-batches/current-slot/requested-cleanup/CACHE-RECOVERY.json) and [actual build sizes and collector limits](qa-logs/2026-11-23-build-directory-retirement/physical-bulk/20261124-sm04-reader-batches/current-slot/requested-cleanup/PRODUCTION-PROFILE-COVERAGE.json).
+
+Serval stays online. Max has been asked whether OS may schedule a maintenance boot if online inspection cannot establish exclusive use of the two October SM8550 profiles. There was no approval or booking at handoff. Only a new decision changes that authority. OS owns readiness, scheduling and measurement. A fresh harness can read the [console procedure and service impact](qa-logs/2026-11-23-build-directory-retirement/physical-bulk/20261124-sm04-reader-batches/current-slot/requested-cleanup/MAINTENANCE.md) without starting the procedure. Use the existing [storage issue](https://github.com/pixelelated/distribution/issues/493) for the open backlog.
+
 ## When Max has to ask for the same outcome again
 
 Reopen the original request and check the production result that would satisfy it. Name the decision that let the first attempt stop early. Change the instruction or executable that made that decision, and replay the failing case against the change. The steward owns following the result through the OS coordination lane. A handoff stays open until the owner acts or identifies a dependency outside the project's authority.
