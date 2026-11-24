@@ -23,7 +23,7 @@ Load the canonical session state, reconcile it with current evidence and the liv
 
 Default path: `.github/sessions/saved-session-state-{branch}.md` where `{branch}` is the current git branch (with `/` → `-`).
 
-**In this repository (D-WORKFLOW-133):** the canonical stash is `.github/sessions/saved-session-state-next.md` on `next`, and a working branch's own file is a pointer to it. Read the canonical one; from a worktree that has not merged `next` since, `git show next:.github/sessions/saved-session-state-next.md`.
+**Shared coordinator worktree (D-WORKFLOW-133, D-WORKFLOW-186).** On local `next`, `.github/sessions/saved-session-state-next.md` and the shared `saved-session-state-feature-conflict-resolution.md` are two-role selectors. Use the explicitly requested role or verified lane identity. Open `saved-session-state-coordinator-one-on-one.md` for the steward or `saved-session-state-os-coordination.md` for OS work coordination. In a stale checkout use `git show next:.github/sessions/<role-filename>`. If the role is unknown, ask which conversation to resume. If its file is missing, report the missing role and recover from that role’s archive. A harness switch, checkout name or timestamp cannot assign the other conversation. Ordinary branches retain the branch-specific lookup and fallback below.
 
 If not found, try in this order:
 
