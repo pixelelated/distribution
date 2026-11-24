@@ -146,6 +146,24 @@ the engine-reported held and measured available bytes. The isolated lifecycle
 tests exercise the actual admission/watcher/installed cycle with a fake engine,
 so those tests fit a VM and carry no production host-use or reclamation claim.
 
+## Run cleanup on demand
+
+The build account can run `tools/host-maintenance/build-retention-cycle full`
+from the installed checkout. It snapshots the registered build checkouts on this
+volume, ranks them with the retained size inventory, skips held scopes, and
+invokes the same retirement engine used after builds and by the scheduled
+service. A competing sweep holds the existing cycle lock. Each engine call
+retains its normal deadline and use checks. The full pass leaves the timer
+cursor intact. Unknown owners and incomplete discovery remain visible.
+
+Use `full --target-bytes N` to stop when ordinary available bytes reach N.
+Include the proposed stage's peak, reserve and other reservations when choosing
+N. The result gives actual free space and separately counts verified newly
+unlinked bytes. Admission still rechecks current capacity and protections.
+Use this path for an outstanding shortage on the agent's own initiative. The
+ordinary preparation hook continues to protect a pending build and use the
+same guarded engine for its immediate, bounded shortage attempts.
+
 ## Before copying or launching a build
 
 Call the existing cycle module from the normal admission or private-copy
