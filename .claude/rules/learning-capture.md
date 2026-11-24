@@ -61,10 +61,15 @@ through the exercise of being detailed and walking a new agent through what
 they need in order to pick up where you currently are, and make sure we have
 all of the armatures in place to support that."*
 
-- **One canonical stash, on `next`:** `.github/sessions/saved-session-state-next.md`,
-  written with the `session-stash` skill, the previous copy archived under
-  `.github/sessions/archived/`. A working branch's own
-  `saved-session-state-<branch>.md` is a pointer to it, so a session started
+- **Coordinator handoffs on local `next`.** The shared `saved-session-state-next.md`
+  and `saved-session-state-feature-conflict-resolution.md` in `.github/sessions/`
+  link to both roles. For a coordinator stash, archive and replace only the
+  identified role’s file: `saved-session-state-coordinator-one-on-one.md` for
+  Max’s steward or `saved-session-state-os-coordination.md` for OS. Integrate
+  the owned paths by content and preserve both selectors and the peer handoff.
+  A resume reads the chosen role. Ask when role identity is ambiguous.
+  Other branches keep branch-specific stashes. Project discovery starts at
+  the shared selector on `next`, so a session started
   anywhere reaches the same file. `AGENTS.md`, shared with Claude Code through
   `CLAUDE.md`, names it near the top. Until 2026-10-02 the copy on `next` was from July.
 - **Written for a stranger.** It opens with *Start here*: what the project is,

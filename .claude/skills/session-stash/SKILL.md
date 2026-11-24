@@ -29,7 +29,11 @@ Default path: `.github/sessions/saved-session-state-{branch}.md`
 
 If the repo has a different convention (look for an existing `sessions/`, `handoff/`, or `.agent-state/` directory), prefer that.
 
-**In this repository (D-WORKFLOW-133, `.claude/rules/learning-capture.md` § 4):** write the full stash to `.github/sessions/saved-session-state-next.md` (committed on the working branch and integrated into `next` using the recorded safe strategy), opening with a **Start here** section for an agent new to the project; leave a pointer at each working branch's own path; then prove it by giving an agent with no context only the repository and asking it to resume.
+**Shared coordinator worktree (D-WORKFLOW-133, D-WORKFLOW-186).** Resolve the conversation’s role from the explicit handoff or verified lane identity. The shared branch, current harness and most recent edit cannot select a role. In `.github/sessions/`, Max’s one-on-one steward owns `saved-session-state-coordinator-one-on-one.md`. The OS work coordinator owns `saved-session-state-os-coordination.md`. Ask which role is being saved if the available context leaves it ambiguous.
+
+Write a complete **Start here** handoff in the identified role’s file. Before replacing it, archive its previous contents under `archived/` with the role and UTC timestamp. Preserve the peer’s file and both two-role selectors, `saved-session-state-next.md` and `saved-session-state-feature-conflict-resolution.md`. Commit only the owned handoff and archive on the working branch and integrate those paths by content into local `next`. Verify both selectors still lead to both roles. Coordinate the fresh repository-only read with its existing owner.
+
+Other branches keep the branch-specific stash and archive workflow above.
 
 ### Shed inherited `main` state on feature branches
 
