@@ -56,8 +56,16 @@ it has its artifact.
 1. **A clean baseline.** The current tree built and green before the bumps,
    so that a failure after them is theirs and not the tree's
    (`device-builds.md` § After rebasing onto upstream, `tools/build-preflight`).
-2. **The candidate's build**, with the bumps and merges in: GENERIC_X64 and
-   H700 from one synced head, so they share a BUILD_ID.
+2. **The candidate's build**, with the bumps and merges in: the whole build
+   set (GENERIC_X64, H700 and SM8550 for the Retroid Pocket Nova) from one
+   head, so every image shares one BUILD_ID (D-INFRA-043). A fix that moves
+   the head part-way through moves the set. Targets not yet built use the new
+   head, and images already built are rebuilt cold from the final head, last.
+   That an image's contents are unchanged is no reason to keep two IDs (Max,
+   2026-11-24: *"store that as our preference, so we don't run into the same
+   question in the future"*). Nothing in step 3 or later starts on a set until
+   `tools/rc-preflight --only build-set --build-set <target> ...` passes over
+   every image's `target/` (`device-builds.md` § One build set, one commit).
 3. **Every test passes on the VM**: `tools/vm-qa` with every suite and
    `frame-diff` against the accepted baseline; the upgrade rehearsal from the
    previous device build (`tools/vm-upgrade-rehearsal`); and each bumped

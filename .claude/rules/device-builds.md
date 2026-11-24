@@ -139,6 +139,43 @@ generated files. Never hardlink mutable caches. Retire superseded payloads after
 their immediate verification dependency ends; keep compact receipts and required
 corresponding-source inputs (D-INFRA-022).
 
+## One build set, one commit (D-INFRA-043)
+
+A **build set** is the images built together for one round of qualification.
+For a release candidate it is GENERIC_X64, H700 and SM8550 (the Retroid Pocket
+Nova), plus any other target the round names. **Every image in a set comes from
+one commit and reports one build ID.** Max, 2026-11-24, choosing that over a set
+whose H700 and SM8550 images differed only in a package H700 never builds: *"make
+sure we institutionalize it and store that as our preference, so we don't run
+into the same question in the future but already have a solution ready to go."*
+
+The rule, applied by the coordinator without asking:
+
+- **Choose the set's head once, and record it.** Every launch in the set names
+  that commit. The image's `*.identity.json` (`build_commit`, `dirty`) is what
+  says which commit it came from.
+- **A fix that moves the head part-way through moves the whole set.** The
+  targets not yet built are built from the new head.
+- **Images already built from an earlier head are rebuilt cold from the final
+  head, last**, after the other targets have built. A further fix found on the
+  way then costs no second rebuild of the same target.
+- **No device testing, qualification sign-off or candidate designation starts
+  on a set whose images disagree.** VM checks of an image whose head later moves
+  are run again on its rebuild.
+- **"Its contents are provably unchanged" is recorded, never a reason to keep two
+  build IDs.** On 2026-11-24 the H700 image of `ace312b0d2` could not contain the
+  `fex-emu` fix that moved the head to `0a3e979e50`. It is rebuilt anyway, because
+  every later record would otherwise carry the caveat.
+- **The check:** `tools/rc-preflight --only build-set --build-set <target> ...`
+  reads every image's identity. It fails on two commits, on a dirty build, or on a
+  commit other than the tree's HEAD.
+
+**Keep the head still.** Both of 2026-11-24's head moves came hours into a cold
+handheld build of a tree only the PC had built: a recipe path (#1441) and a patch
+that no longer applied (#1448). Before the set's first build, replay every
+target's patches against their pinned sources without compiling (#1448). The
+build route records the set's head and lists what to rebuild when it moves (#1445).
+
 ## The build command
 
 Use the canonical `make docker-<DEVICE>` target rather than a hand-rolled

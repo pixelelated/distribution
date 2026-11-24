@@ -11,6 +11,8 @@
 #   tools/rc-preflight --no-fetch            # the remotes as last fetched (said so)
 #   tools/rc-preflight --allow-unchecked device-facts
 #   tools/rc-preflight --only proxy-schema   # quick, offline pin-note check
+#   tools/rc-preflight --tree <wt> --only build-set --build-set <target> ...
+#                                            # step 2: one commit across the set
 #
 # D-WORKFLOW-168 (#344): owner-only engineering testing and public publication
 # have separate readiness lists. This tool retains the RC checks below; it
@@ -51,6 +53,13 @@
 #   ceremonies     tools/ceremony-check --gate refuses: a finding; owed only
 #                  at the CI level (an audit, a futro): noted, not a finding,
 #                  since the upstream audit is step 6 of the same procedure
+#   build set      only with --build-set <target dir> (repeatable): every
+#                  *.identity.json in those dirs names one build_commit, is not
+#                  dirty, and that commit is the tree's HEAD (step 2,
+#                  D-INFRA-043, #1449; Max, 2026-11-24: "store that as our
+#                  preference, so we don't run into the same question in the
+#                  future"); two commits, a dirty build or another commit is a
+#                  finding; a dir with no identity file cannot be answered
 #
 # A finding is accepted for this candidate by a line in
 # docs/releases/rc-accept.txt naming it and a decided register row:
@@ -133,6 +142,55 @@ class Report:
     def add(self, verdict, item, text):
         self.rows.append((verdict, item, text))
         print("%-9s %-24s %s" % (verdict, item, text), flush=True)
+
+
+def check_build_set(r, tree, dirs):
+    """Every image of one build set from one clean commit, the tree's HEAD (D-INFRA-043)."""
+    item = "build set"
+    rc, out, _ = run(["git", "-C", tree, "rev-parse", "HEAD"])
+    head = (out or "").strip()
+    if rc != 0 or not re.fullmatch(r"[0-9a-f]{40}", head):
+        r.add("CANNOT", item, "the tree's HEAD could not be read (%s)" % tree)
+        return
+    if not dirs:
+        r.add("CANNOT", item, "no --build-set target directories given")
+        return
+    seen = []
+    for d in dirs:
+        try:
+            names = sorted(n for n in os.listdir(d) if n.endswith(".identity.json"))
+        except OSError as exc:
+            r.add("CANNOT", item, "%s: %s" % (d, exc))
+            return
+        if not names:
+            r.add("CANNOT", item, "no *.identity.json in %s" % d)
+            return
+        for n in names:
+            f = os.path.join(d, n)
+            try:
+                j = json.load(open(f, encoding="utf-8"))
+            except (OSError, ValueError) as exc:
+                r.add("CANNOT", item, "%s unreadable: %s" % (f, exc))
+                return
+            commit = j.get("build_commit") if isinstance(j, dict) else None
+            if not isinstance(commit, str) or not re.fullmatch(r"[0-9a-f]{40}", commit):
+                r.add("CANNOT", item, "%s names no 40-hex build_commit" % f)
+                return
+            seen.append((j.get("device", "?"), j.get("arch", "?"), commit, j.get("dirty")))
+    desc = "; ".join("%s.%s %s%s" % (dev, arch, c[:10], "" if dirty == "no" else " dirty=%s" % dirty)
+                     for dev, arch, c, dirty in seen)
+    commits = sorted({s[2] for s in seen})
+    problems = []
+    if len(commits) > 1:
+        problems.append("%d build commits" % len(commits))
+    if any(s[3] != "no" for s in seen):
+        problems.append("a build not recorded clean")
+    if head not in commits or len(commits) > 1:
+        problems.append("the tree's HEAD is %s" % head[:10])
+    if problems:
+        r.add("FAIL", item, "%s -- %s" % (", ".join(problems), desc))
+    else:
+        r.add("PASS", item, "%d image(s), one commit %s -- %s" % (len(seen), head[:10], desc))
 
 
 def check_proxy_schema(r, tree):
@@ -345,7 +403,9 @@ def main():
     ap.add_argument("--es", default=os.path.expanduser("~/Development/emulationstation-next"))
     ap.add_argument("--no-fetch", action="store_true")
     ap.add_argument("--allow-unchecked", action="append", default=[], choices=["device-facts"])
-    ap.add_argument("--only", choices=["proxy-schema"], help="run only the named offline check; not an RC verdict")
+    ap.add_argument("--only", choices=["proxy-schema", "build-set"], help="run only the named offline check; not an RC verdict")
+    ap.add_argument("--build-set", action="append", default=[], metavar="TARGET_DIR",
+                    help="a target/ directory of one image of the build set (repeat for each)")
     a = ap.parse_args()
     tree = os.path.abspath(a.tree)
     fetch = not a.no_fetch
@@ -354,7 +414,10 @@ def main():
     print("rc-preflight: %s at %s (%s)" % (tree, head, branch), flush=True)
 
     r = Report()
-    check_proxy_schema(r, tree)
+    if a.only == "build-set" or a.build_set:
+        check_build_set(r, tree, [os.path.abspath(d) for d in a.build_set])
+    if a.only != "build-set":
+        check_proxy_schema(r, tree)
     if a.only:
         # Deliberately no MAY BE CUT verdict for a scoped source check.
         return 2 if any(row[0] == "CANNOT" for row in r.rows) else int(any(row[0] == "FAIL" for row in r.rows))
