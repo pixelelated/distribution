@@ -15,6 +15,49 @@ D-WORKFLOW-194 clarification (November 18): Keep each update scoped to its subje
 
 Keep operational ACKs/receipts out of the human conversation; preserve meaningful outcome and actual blocker reporting.
 
+## Max speaks in one place: the one-on-one
+
+Max, 2026-11-24, relayed by the steward: *"If there are issues that need to
+propagate to tabs like OS work coordination, everything should be able to come
+from here. That must be one of our rules if it isn't already."* D-WORKFLOW-201
+(#1447) refines D-WORKFLOW-186 (#1436). That decision gave the Max Coordinator
+one-on-one his questions, decisions and action items, and made OS work
+coordination the sole worker dispatcher. Until this section it reached `next`
+only as a register row. The one instruction here that said where to ask him,
+the build-cleanup skill, named the lane running the command.
+
+- **Max speaks in one place.** He asks, decides and answers in the one-on-one,
+  and never has to open another tab to keep work moving. The coordinators'
+  checkpoints in `.github/sessions/` name its pane and session. If he does write
+  in another tab, his words stand. That lane passes them to the steward so the
+  agenda holds them.
+- **A lane sends its question to the one-on-one, never to Max in its own tab.**
+  This covers every question, decision or blocked command for Max. It includes
+  a device action's per-action yes (D-QA-015) and a command the harness refused.
+  Send it with `herdr agent prompt` to the steward's pane. Write it to stand on
+  its own: what stopped, what it means, the choice and your recommendation
+  (D-WORKFLOW-190). Send stopped work there without being asked (D-WORKFLOW-187).
+  Max reads that pane as conversation, so send only material content
+  (D-WORKFLOW-194).
+- **The steward relays his exact words once, with their scope.** It records them
+  in the one-on-one agenda, `docs/coordinator-one-on-one.md`, where the
+  receiving lane can check the quotation. Until #1447 brings the agenda to
+  `next`, it is on `feature/conflict-resolution` in the shared worktree. A
+  decision also gets its register row and issue the same session (D-QA-012).
+- **The receiving lane acts on the relay and reports the outcome** in its own
+  record, which the steward reads. It does not ask Max to say it again.
+- **The harness's own review is a platform control, and a relay does not change
+  it.** No lane answers an approval dialog or works around a refusal. Send a
+  refused command to the one-on-one with exactly what it removes and what
+  stays. On Max's relayed answer, submit that same command again and nothing
+  broader. If the review refuses it again, send that refusal back to the
+  one-on-one unchanged.
+
+  On 2026-11-24 the OS lane ran in auto mode. Both of its refusals came back to
+  the session as plain denials, with no dialog waiting in its pane. The review
+  then allowed batch 1's relaunch at 04:31 UTC, which followed the steward's
+  04:29 relay of Max's words.
+
 ## Change stays inside the fork's lanes
 
 Maintainer, 2026-09-22, when a rule made for the fork's pages (D-UI-078)

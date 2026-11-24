@@ -31,6 +31,13 @@ latest Opus (`claude-opus-5-5`), and worker lanes Codex on the latest GPT Sol
 opening a tab or resuming a thread, read `docs/lane-models-and-account-handoff.md`
 and use `tools/herdr-lane` on canonical `next`; its role selects the harness and tier.
 
+**Communication lanes:** Max speaks in one place, the Max Coordinator one-on-one.
+A lane with a question, a decision or a blocked command for Max sends it there,
+written to stand on its own, and never asks him in its own tab. The steward relays
+his exact words once, and the lane acts on the relay. OS work coordination is the
+sole worker dispatcher. See `engineering-practices.md` § "Max speaks in one place"
+(D-WORKFLOW-186, D-WORKFLOW-201).
+
 **Build directory lifetime.** Keep a full working directory while its build is active.
 Save required images, exact source and evidence independently. The ordinary build
 lifecycle and recurring cleanup retire verified generated files from finished,
