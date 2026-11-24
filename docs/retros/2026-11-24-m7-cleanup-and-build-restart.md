@@ -21,7 +21,8 @@
 - **Five launches to get two builds running** (#1445). The PC build was refused by the frozen line's build-owner reservation, then by the EmulationStation custody root, then broken by CMake toolchain files that the previous attempt had written at the host path. H700 was then refused at the Docker entry for two ABIs (#1442). Each showed up at launch or in the first packages, and no preflight caught any of them. The working route existed only in a register row, a checkpoint and a transcript.
 - **A recipe failure 2 h 17 m into a cold build** (#1441). The cost is the whole ARM pass and most of aarch64, because the failure is in install, near the end.
 - **The session's shell stopped for about two hours.** `/tmp` is a 31 GB tmpfs, so it holds RAM, not disk. It filled at about 10:07 and every Bash call failed with ENOSPC. The next attempt, at 12:23, worked. The H700 waiter armed before the outage still delivered the 12:22 failure. What filled it is unknown; 13 GB was in use at 12:23, about 12 GB of it session scratch.
-- **`next` had not been pushed since November 18.** CI on `origin/next` has failed the issue-citation check since `9a51171c34`, a commit that cannot be reworded. Six more uncited commits, plus this retro's own absence, held 48 commits and every November 24 decision on one machine (#1444).
+- **`next` had not been pushed since November 18.** The push guard's issue-citation check fails on `9a51171c34`, already on `origin/next`, which cannot be reworded. Six more uncited commits, plus this retro's own absence, held 48 commits and every November 24 decision on one machine (#1444).
+- **No GitHub Actions workflow has run on the fork since 2026-10-29** (correction, 12:55 UTC). This retro first said CI on `origin/next` had been red since November 18. It had not run at all: neither the November 18 push nor the 12:48 push started a run. The fork's CI guards, including the new DISTRO step, are not running until that is resolved ([#1446](https://github.com/pixelelated/distribution/issues/1446)).
 - **A timestamp ahead of the clock.** The 12:35 note to the steward was written at 12:32. Recorded memory says to read `date -u` for a heading; that was skipped once more.
 
 ## What did we discover?
@@ -30,7 +31,8 @@
 - **A retention reason must name the artifact the test actually reads.** The November 21 keeper's 118 GB build root was protected "for the upgrade check". The check's own record (`pix-m7-pc-20261124-up-01/records/image-create-overlay.json`) shows its old guest was backed by `m7-generic-post-release-boot-owner-20261122-03/boot-output/reader.raw`, not the build root. The steward found it from the other side.
 - **Generated build files capture the container path.** A root created at one path cannot be reused at another, so every M7 device build mounts its checkout at the EmulationStation custody root (`DOCKER_WORK_DIR`).
 - **`build-admission`'s two profile checks disagree for two-ABI builds** (#1442): `admit()` lets unset keys pass and fills them only for one profile, while `nested()` demands an exact match.
-- **The issue-citation gate had no route for a commit that reached history uncited** (#1444). One such commit made CI red on `origin/next` for six days without anyone acting on it.
+- **The issue-citation gate had no route for a commit that reached history uncited** (#1444). One such commit, already pushed, held every later push of `next` for six days.
+- **A guard in CI is only a guard while CI runs.** The fork's workflows have not run since October 29, and nothing reported it; the record check, the wordlist check and the new DISTRO step were all silent (#1446).
 - **D-WORKFLOW-199 had no issue.** Max's request went straight to a register row and a commit, so its issue (#1443) was filed after the fact.
 
 ## What adjustments are needed?
