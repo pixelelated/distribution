@@ -119,6 +119,12 @@ upstream history and older feature commits inherited by a later merge; it
 fails closed when required history is missing. `--issues-only` runs this
 check by itself. The fork CI fetches upstream's history for that comparison;
 this does not merge or advance the distribution's frozen ancestry (#367).
+A commit that reached history without a citation, and can no longer be
+reworded, gets one line in `docs/issue-citations.txt`
+(`<full sha> #N <reason>`), which the check also reads. File the owning
+issue first if none exists. A malformed line, or one naming anything but a
+commit, fails the check (#1444). Citing in the message stays the rule; the
+record is for commits already pushed or buried under later work.
 
 **What no tool checks yet.** A citation does not prove that its issue existed
 before the work or owns that work. Logging friction when it happens, recording

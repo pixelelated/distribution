@@ -1,0 +1,13 @@
+# Late issue citations for fork commits on next (#1444, D-WORKFLOW-132).
+# One line per commit that reached history without a #N in its message:
+#   <full 40-hex sha> #N <why this issue owns it>
+# tools/ceremony-check reads this file; a malformed line, or one naming
+# anything but a commit, fails the check. Prefer citing in the message:
+# this record is for commits that can no longer be reworded.
+931a0d83a6e924a4b184687ba1cd09d7bfdd9ce9 #493 build retention, one local OS build (D-INFRA-033)
+eddb32c5c5d36dbf654549cad0b851c921ec808f #493 build retention, private readback copies retired on the normal cycle
+7bed137b544faeb80bc289ba0225f28ce7f31904 #493 build retention, complete on-demand cleanup pass
+85ac616c74cb6fdb5b50b0b6b80c0cec5d0a7d20 #493 D-INFRA-033 rules and register row
+6ee8c7610e869ccfb31ccf39a3caa0fbc5e45b84 #493 fork-worktree disposable build checkouts for the cleanup and builds
+f1f27a570dbbca03a1d453f0b8f6961a4ce300b9 #1443 D-WORKFLOW-199, shared Codex and Claude guidance (issue filed after the fact)
+9a51171c34abcb7fd58a8c4f9a89dd484239fcdd #1437 D-WORKFLOW-194 update scoping and the M7 source progress record (already on origin/next)

@@ -31,7 +31,8 @@
 #   weekly    docs/work-logs/<yyyy_mm>-work_logs/<yyyy>-W<ww>-summary.md
 #   monthly   docs/work-logs/<yyyy_mm>-work_logs/SUMMARY.md
 #   index     tools/work-log-index --check
-#   issues    fork commits on next after D-WORKFLOW-132 cite an issue
+#   issues    fork commits on next after D-WORKFLOW-132 cite an issue, in the message or
+#             in docs/issue-citations.txt (`<full sha> #N <reason>`, a late citation, #1444)
 #   hygiene   no issue closed as completed since the clock carries an open checkbox (audit #258 P-03; CI red)
 #   register  tools/register-check
 #   rules     tools/rules-check --quiet (the instruction files, D-WORKFLOW-045)
@@ -62,6 +63,10 @@ WEEKLY_GRACE_DAYS = 2              # the week's summary by Tuesday
 MONTHLY_GRACE_DAYS = 3             # the month's summary by the 3rd
 GUARD_FROM = 52                    # blindspot entries from this number on must name a guard
 ISSUE_BASELINE = 'bf121ce8766258c06765d230d7a18efd23809ef1'  # D-WORKFLOW-132, #367
+# A commit already pushed cannot be reworded, so an issue found for it later is
+# recorded here (#1444). CEREMONY_ISSUES_REF and CEREMONY_CITATIONS move the
+# check onto a constructed history and record, for proving it fires.
+LATE_CITATIONS = os.environ.get('CEREMONY_CITATIONS') or os.path.join(ROOT, 'docs', 'issue-citations.txt')
 
 
 def sh(cmd, timeout=120):
@@ -168,8 +173,38 @@ def last_marker(days, word, folder):
     return best
 
 
-def issue_coverage(ref='next', baseline=ISSUE_BASELINE, upstream='upstream/next'):
+def late_citations(path=LATE_CITATIONS):
+    """Return (True, {sha: '#N'}) or (False, why). No file means no late
+    citations; an unreadable file, a malformed line or a line naming anything
+    but a commit fails the check rather than being skipped."""
+    if not os.path.exists(path):
+        return True, {}
+    try:
+        with open(path, encoding='utf-8') as f:
+            lines = f.read().splitlines()
+    except (OSError, UnicodeDecodeError) as e:
+        return False, 'cannot read %s: %s' % (path, e)
+    cited = {}
+    for n, line in enumerate(lines, 1):
+        s = line.strip()
+        if not s or re.match(r'#(?![0-9])', s):
+            continue  # blank, or a comment: '#' not followed by a digit
+        m = re.fullmatch(r'([0-9a-f]{40}) (#[1-9][0-9]*) \S.*', s)
+        if not m:
+            return False, '%s:%d is not "<full sha> #N <reason>"' % (path, n)
+        rc, kind, _ = sh(['git', 'cat-file', '-t', m.group(1)])
+        if rc or kind.strip() != 'commit':
+            return False, '%s:%d names no commit in this repository' % (path, n)
+        cited[m.group(1)] = m.group(2)
+    return True, cited
+
+
+def issue_coverage(ref=None, baseline=ISSUE_BASELINE, upstream='upstream/next'):
     """Check post-adoption fork commits, including merge messages; fail closed."""
+    ref = ref or os.environ.get('CEREMONY_ISSUES_REF') or 'next'
+    ok_late, late = late_citations()
+    if not ok_late:
+        return False, late
     for name in (ref, baseline, upstream):
         rc, _, _ = sh(['git', 'rev-parse', '--verify', name + '^{commit}'])
         if rc:
@@ -193,11 +228,13 @@ def issue_coverage(ref='next', baseline=ISSUE_BASELINE, upstream='upstream/next'
         if int(fields[i + 1]) < int(adopted):
             continue  # old feature history merged later predates the policy
         checked += 1
-        if not re.search(r'#[1-9][0-9]*\b', fields[i + 2]):
-            missing.append(fields[i].strip()[:12])
+        sha = fields[i].strip()
+        if not re.search(r'#[1-9][0-9]*\b', fields[i + 2]) and sha not in late:
+            missing.append(sha[:12])
     if missing:
         return False, 'fork commits without an issue citation: ' + ', '.join(missing)
-    return True, '%d post-adoption fork commits on %s cite an issue' % (checked, ref)
+    return True, '%d post-adoption fork commits on %s cite an issue (%d by late citation)' % (
+        checked, ref, sum(1 for s in late if s in text))
 
 
 def main():
