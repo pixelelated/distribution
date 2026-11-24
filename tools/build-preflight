@@ -105,7 +105,9 @@ if [ "$swap_total" -gt 0 ] && [ "$swap_free" -lt $(( swap_total / 5 )) ]; then
     verdict=1
 fi
 
-guests=$(pgrep -f 'qemu-system-x86_64' 2>/dev/null)
+# Anchored to argv[0]: an unanchored -f pattern matched the shell that launched
+# this check whenever its command line mentioned the emulator (#1448).
+guests=$(pgrep -f '^([^ ]*/)?qemu-system-x86_64( |$)' 2>/dev/null)
 if [ -n "$guests" ]; then
     say "  QA guests running:"
     for p in $guests; do
