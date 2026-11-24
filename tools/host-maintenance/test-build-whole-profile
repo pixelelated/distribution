@@ -1,0 +1,301 @@
+#!/usr/bin/python3 -IBS
+"""Actual watched producer, capture, consumption and engine on disposable profiles."""
+import base64
+import hashlib
+import json
+import os
+from pathlib import Path
+import runpy
+import shutil
+import subprocess
+import tempfile
+import time
+import unittest
+from unittest.mock import patch
+
+HERE = Path(__file__).resolve().parent
+SOURCE = HERE.parents[1]
+FIXTURE = runpy.run_path(str(HERE/'admission-test-fixture.py'))
+
+
+def write(path, value):
+    path.write_text(json.dumps(value)+'\n')
+
+
+def ref(path):
+    return dict(path=str(path),sha256=hashlib.sha256(path.read_bytes()).hexdigest())
+
+
+class WholeProfile(unittest.TestCase):
+    def setUp(self):
+        self.addCleanup(os.umask,os.umask(0o077))
+        temp=tempfile.TemporaryDirectory(prefix='pix-whole-profile-')
+        self.addCleanup(temp.cleanup)
+        self.private=Path(temp.name)
+        self.checkout=self.private/'checkout'
+        self.checkout.mkdir()
+        self.tools=self.checkout/'tools'
+        self.helpers=self.tools/'host-maintenance'
+        self.helpers.mkdir(parents=True)
+        (self.checkout/'scripts').mkdir()
+        (self.checkout/'Makefile').write_text('fixture:\n')
+        for name in ('watch-build','watch-job'):
+            shutil.copy2(SOURCE/'tools'/name,self.tools/name)
+        for name in ('build-tree-retention','os-image-keeper','build-tree-custody',
+                     'host-in-use-report','build-retention-cycle'):
+            shutil.copy2(HERE/name,self.helpers/name)
+        self.profile=self.checkout/'build.pixelelated-GENERIC_X64.x86_64'
+        self.sibling=self.checkout/'retained-work'
+        self.sibling.mkdir()
+        (self.sibling/'existing').write_bytes(b'unique sibling')
+        self.source=self.checkout/'scripts/source-input'
+        self.source.write_bytes(b'tracked reproducibility input')
+        self.firmware=self.checkout/'fixture-release.img.gz'
+        self.firmware.write_bytes(b'independent accepted deliverable')
+        self.evidence=self.private/'evidence'
+        self.evidence.mkdir()
+        self.refs=self.private/'refs'
+        self.refs.mkdir()
+        writer=self.checkout/'scripts'/'synthetic-image'
+        writer.write_text("""import sys
+from pathlib import Path
+root, source = map(Path,sys.argv[1:])
+for name in ('build/pkg/material.o','.stamps/pkg/build_target','toolchain/bin/tool',
+             '.sysroot/usr/lib/generated','image/system/generated','BUILD_FILENAME'):
+ p=root/name
+ p.parent.mkdir(parents=True,exist_ok=True)
+ p.write_bytes(('generated: '+name).encode()*300)
+(root/'toolchain/empty').mkdir()
+(root/'toolchain/source-link').symlink_to(source)
+(root/'toolchain/missing-link').symlink_to('../missing-at-capture')
+""")
+
+        def outputs(plan):
+            plan['outputs'][0]['path']=str(self.profile)
+        self.admission, plan, ticket=FIXTURE['prepare_fixture'](self.checkout,SOURCE,outputs,prepare=False)
+        self.plan=plan
+        self.ticket=ticket
+        self.env=dict(PATH='/usr/bin:/bin',HOME=str(self.checkout),LC_ALL='C',
+                      XDG_CONFIG_HOME=str(self.checkout/'config'),XDG_STATE_HOME=str(self.checkout/'state'))
+        self.enterContext(patch.dict(os.environ,self.env))
+        for directory in self.admission.registry_state_roots():
+            Path(directory).mkdir(exist_ok=True)
+        self.admission.prepare(plan,ticket)
+        result=subprocess.run([str(self.tools/'watch-build'),'--interval','1','--admission',str(ticket),
+                               '--','/usr/bin/python3',str(writer),str(self.profile),str(self.source)],
+                              env=self.env,cwd=self.checkout,capture_output=True,timeout=12)
+        self.assertEqual(result.returncode,0,result.stderr)
+        print('WATCHER ORIGINAL',result.returncode,result.stderr.decode().strip(),flush=True)
+        self.run=next(p for p in (self.checkout/'.build-runs').iterdir() if p.is_dir())
+        self.route=self.admission.registry_for(self.checkout)
+        self.code=runpy.run_path(str(self.helpers/'build-tree-retention'))
+        self.g=self.code['sweep'].__globals__
+        self.reader=self.g['READER']
+        self.host_status='clear'
+        self.mounts=[]
+        self.original_reader=runpy.run_path(str(self.helpers/'host-in-use-report'))
+        self.observations=[]
+        self.enterContext(patch.dict(self.reader,read_host_use=self.host,
+                                    inventory=lambda *args,**kwargs:
+                                        dict(errors=[],references=[],container_mounts=self.mounts)))
+
+    def capture(self):
+        args=['/usr/bin/python3','-I','-B',str(self.helpers/'build-tree-custody'),
+              '--run',str(self.run),'--capture-profile',str(self.profile),
+              '--private-root',str(self.private),'--catalog-output',str(self.evidence/'catalog.json')]
+        observed=subprocess.run(args,capture_output=True,timeout=8,
+                                env=self.env,cwd=self.checkout,text=True)
+        result=json.loads(observed.stdout)
+        print('COLLECTOR ORIGINAL',observed.returncode,result,flush=True)
+        return observed.returncode,result
+
+    def accept(self, collected, protected_inside=None):
+        row=json.loads((self.run/'admission.json').read_bytes())
+        source=ref(self.source)
+        deliverable=ref(self.firmware)
+        inputs=dict(schema=1,roots=[dict(path=str(self.profile),host_manifest_sha256='e'*64,
+                                        catalog=collected['catalog'],whole_profile=collected['whole_profile'])],
+                    reference_roots=[str(self.refs)],reference_stores=[str(self.refs)],
+                    registry_state_roots=self.admission.registry_state_roots(),
+                    source_evidence=[source],deliverable_evidence=[deliverable])
+        proof=dict(run=str(self.run),expected_rc=0,disposition='qualified',outputs=row['outputs'],
+                   evidence=[source,deliverable,collected['catalog'],ref(self.run/'runner-result.json')],
+                   build_tree_inputs=inputs)
+        if protected_inside:
+            proof['evidence'].append(ref(protected_inside))
+        accept=self.evidence/'acceptance.json'
+        write(accept,proof)
+        consumption=subprocess.run(['/usr/bin/python3','-I','-B',str(self.helpers/'build-admission'),
+                                    'consume','--run',str(self.run),'--evidence',str(accept)],
+                                   env=self.env,cwd=self.checkout,capture_output=True,timeout=10,text=True)
+        self.assertEqual(consumption.returncode,0,consumption.stderr)
+        original=json.loads((self.run/'admission-consumed.json').read_bytes())
+        self.assertEqual(original['state'],'consumed')
+        self.assertIn(original['id'],consumption.stdout)
+        print('CONSUMER ORIGINAL',consumption.returncode,consumption.stdout.strip(),flush=True)
+
+    def host(self,manifest,key):
+        # Run the actual tree indexer against the disposable mount namespace
+        # and feed a bounded authenticated-report fixture to the real parser.
+        enrollment=dict(path=str(self.profile),identity=self.g['tree_identity'](self.profile.lstat()))
+        self.original_reader['enroll_trees']([enrollment],set())
+        self.assertEqual(enrollment['selection_sha256'],key)
+        # tree_snapshot checks index membership, hardlink closure and mount
+        # identity. Model the deployed ext4 table row while indexing the
+        # actual fixture members on tmpfs. No privileged monitor is installed.
+        st=self.profile.stat()
+        table=[(st.st_dev,Path('/'),Path('/'),b'ext4',None,b'')]
+        _, entries=self.original_reader['tree_snapshot'](enrollment,table,[200000,64*1024**2])
+        self.observations.append(len(entries))
+        ns=time.time_ns()
+        status=self.host_status
+        hits=dict(argument=1 if status=='busy' else 0,descriptor=0,executable=0,mapping=0,bind_mount=0)
+        raw=dict(schema=1,status=status,scan_complete=True,manifest_sha256=manifest,
+                 started_at_ns=ns,finished_at_ns=ns,expires_at=ns//10**9+300,reason=None,
+                 tasks_scanned=2,mount_views_scanned=1,
+                 batches=[dict(selection_sha256=key,files=1,status=status,reason=None,matches=hits)],
+                 tree_scope=self.g['POLICY'],tree_selections=[key])
+        result=self.reader['validate_host_use'](raw,self.reader['HOST_USE_EXIT'][status],manifest,key,ns,ns)
+        result['original_stdout_base64']=base64.b64encode(self.g['encoded'](raw)).decode()
+        return result
+
+    def sweep(self,targeted=True):
+        result=self.code['sweep'](self.checkout,self.run if targeted else None)
+        print('ENGINE ORIGINAL',json.dumps(result,sort_keys=True),flush=True)
+        return result
+
+    def assert_retained(self):
+        self.assertEqual((self.sibling/'existing').read_bytes(),b'unique sibling')
+        self.assertEqual(self.source.read_bytes(),b'tracked reproducibility input')
+        self.assertEqual(self.firmware.read_bytes(),b'independent accepted deliverable')
+        self.assertTrue((self.checkout/'.git/HEAD').is_file())
+        self.assertTrue((self.run/'admission-consumed.json').is_file())
+
+    def test_end_to_end_full_cycle_and_hold_then_retire_complete_profile(self):
+        rc,collected=self.capture()
+        self.assertEqual(rc,0,collected)
+        self.assertEqual(collected['files'],8)
+        self.accept(collected)
+        before=sum(x.lstat().st_blocks*512 for x in self.profile.rglob('*') if x.is_symlink() or x.is_file())
+        self.host_status='busy'
+        held=self.sweep()
+        self.assertEqual(held['verified_unlinked_bytes'],0)
+        self.assertIn('trusted tree-use check held',held['results'][0]['roots'][0]['reason'])
+        self.host_status='clear'
+        cycle=runpy.run_path(str(self.helpers/'build-retention-cycle'))
+        # The installed cycle invokes this ordinary engine; replace only its
+        # subprocess transport so the same isolated host observations apply.
+        def observe(root,checkout,run):
+            self.assertEqual(checkout,self.checkout)
+            record=self.code['sweep'](checkout,run)
+            return int(record['status'] in ('held','partial')),record
+        settings=self.private/'scheduled-settings.json'
+        # Feed the full operator the real extent and identity of the one
+        # generated profile in this isolated volume inventory.
+        volume = cycle['volume_identity'](self.checkout)
+        index, inventory = cycle['inventory_paths'](volume)
+        index.parent.mkdir(parents=True, exist_ok=True)
+        st = self.profile.lstat()
+        members = [self.profile, *self.profile.rglob('*')]
+        extent = sum(member.lstat().st_blocks * 512 for member in members)
+        entry = dict(path=str(self.profile), identity=cycle['directory_identity'](st),
+                     allocated_bytes=extent, mtime_ns=st.st_mtime_ns, ctime_ns=st.st_ctime_ns,
+                     reason='Generated by the completed fixture producer')
+        write(inventory, dict(schema=1, volume=list(volume), observed_epoch=time.time(), entries=[entry]))
+        write(index, dict(schema=1, sha256=ref(inventory)['sha256']))
+        cg=cycle['full_sweep'].__globals__
+        with patch.dict(cg,engine_observation=observe):
+            report,rc=cycle['full_sweep'](self.checkout,settings)
+        print('FULL ORIGINAL',rc,json.dumps(report,sort_keys=True),flush=True)
+        self.assertEqual(rc,0)
+        self.assertEqual(report['omissions'],[])
+        self.assertEqual(report['verified_unlinked_bytes'],before)
+        self.assertFalse(self.profile.exists())
+        self.assert_retained()
+        self.assertEqual(self.sweep()['verified_unlinked_bytes'],0)
+        self.assertGreater(max(self.observations),8)
+        self.profile.mkdir()
+        replacement=self.profile/'unique-replacement'
+        replacement.write_bytes(b'new unowned data')
+        rebound=self.sweep()
+        self.assertEqual(rebound['verified_unlinked_bytes'],0)
+        self.assertEqual(replacement.read_bytes(),b'new unowned data')
+
+    def test_restart_after_real_unlink_never_credits_unconfirmed_absence(self):
+        rc,collected=self.capture()
+        self.assertEqual(rc,0,collected)
+        self.accept(collected)
+        selected=self.profile/'.stamps/pkg/build_target'
+        before=selected.stat().st_blocks*512
+        journal=self.g['Journal']
+        append=journal.append
+        def fail_receipt(obj,key,state):
+            if key==str(selected) and state=='retired':
+                raise OSError('fixture interruption before unlink receipt')
+            return append(obj,key,state)
+        with patch.object(journal,'append',fail_receipt),patch.dict(self.g,MAX_OPERATIONS=1):
+            interrupted=self.sweep()
+        self.assertEqual(interrupted['verified_unlinked_bytes'],0)
+        self.assertFalse(selected.exists())
+        continued=self.sweep()
+        self.assertEqual(continued['status'],'partial')
+        self.assertEqual(continued['results'][0]['unconfirmed_bytes'],before)
+        self.assertFalse(self.profile.exists())
+        self.assert_retained()
+        self.assertEqual(self.sweep()['verified_unlinked_bytes'],0)
+
+    def test_unknown_source_and_queue_image_ownership_holds(self):
+        rc,collected=self.capture()
+        self.assertEqual(rc,0,collected)
+        self.accept(collected)
+        unknown=self.profile/'user-probe.c'
+        unknown.write_bytes(b'unique unlisted material')
+        self.assertIn('unlisted member',self.sweep()['results'][0]['reason'])
+        self.assertTrue(unknown.is_file())
+        unknown.unlink()
+        self.ticket.unlink()
+        self.admission.prepare(self.plan,self.ticket)
+        self.assertIn('another registered owner or input',self.sweep()['results'][0]['reason'])
+        with self.admission.registry(self.route) as data:
+            data['queued'].clear()  # Only this entirely synthetic registry.
+        keeper=dict(status='completed',keeper=dict(admission_id='fixture-image',
+                    protected_paths=[str(self.profile)]))
+        with patch.dict(self.g,select_os_keeper=lambda *_:keeper):
+            self.assertIn('single OS image keeper',self.sweep()['results'][0]['reason'])
+        self.assertTrue((self.profile/'BUILD_FILENAME').is_file())
+        self.assert_retained()
+
+    def test_private_ancestor_is_distinguished_from_shared_checkout(self):
+        self.checkout.chmod(0o775)
+        result=self.sweep()
+        self.assertIn('effective writer and alias exclusion not established',result['reason'])
+        self.assertEqual(result['private_ancestor']['path'],str(self.private))
+        self.private.chmod(0o755)
+        self.addCleanup(self.private.chmod,0o700)
+        result=self.sweep()
+        self.assertEqual(result['reason'],'checkout is shared or owned by another account')
+        self.assertNotIn('private_ancestor',result)
+
+    def test_collector_refuses_embedded_git_firmware_hidden_alias_and_permissions(self):
+        marks=self.profile/'image/system/.git'
+        marks.write_text('independent source repository')
+        self.assertEqual(self.capture()[0],2)
+        marks.unlink()
+        image=self.profile/'image/system/unique.img.gz'
+        image.write_bytes(b'firmware with no independent custody')
+        self.assertEqual(self.capture()[0],2)
+        image.unlink()
+        link=self.private/'elsewhere-inode'
+        os.link(self.profile/'BUILD_FILENAME',link)
+        self.assertEqual(self.capture()[0],2)
+        link.unlink()
+        awkward=self.profile/'toolchain'
+        awkward.chmod(0o550)
+        self.assertEqual(self.capture()[0],2)
+        self.assertEqual(awkward.stat().st_mode&0o777,0o550)
+        awkward.chmod(0o700)
+        self.assertEqual(self.capture()[0],0)
+
+
+if __name__=='__main__':
+    unittest.main(verbosity=2)

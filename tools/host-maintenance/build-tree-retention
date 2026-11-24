@@ -69,11 +69,12 @@ def hex_digest(value):
     return isinstance(value, str) and re.fullmatch('[a-f0-9]{64}', value)
 
 
-def path(value):
+def path(value, *, literal_link=False):
     p = Path(value)
     require(p.anchor == '/' and str(p) == value and '..' not in p.parts and p != Path('/'),
             'noncanonical evidence or output path')
-    require(p.resolve() == p, 'symbolic link in evidence or output path')
+    checked = p.parent if literal_link else p
+    require(checked.resolve() == checked, 'symbolic link in evidence or output path')
     return p
 
 
@@ -288,16 +289,20 @@ def load_scope(checkout, row, config, proof, own_records, state_roots):
         parents = [p for p in owned if p.parent == checkout and p.name.startswith('build.')
                    and (root == p or root.is_relative_to(p / 'build'))]
         base_keys = {'path', 'host_manifest_sha256', 'directories', 'files'}
-        require(len(parents) == 1 and root not in roots and set(spec) in (base_keys,base_keys | {'host_scope'}),
+        whole = 'whole_profile' in spec
+        require(len(parents) == 1 and root not in roots
+                and set(spec) - {'whole_profile'} in (base_keys,base_keys | {'host_scope'}),
                 'tree is outside the admitted generated output roots')
         parent = parents[0]
+        require(not whole or (root == parent and root.name != 'build.'),
+                'whole profile must be an exact admitted build root')
         require(root != parent or 'host_scope' not in spec, 'full generated root already binds host scope')
         require(hex_digest(spec['host_manifest_sha256']), 'tree host enrollment digest missing')
         dirs = {}
         for entry in spec['directories']:
             p = path(entry['path'])
             require(p not in dirs and (p == root or root in p.parents)
-                    and (p == parent or p.is_relative_to(parent / 'build'))
+                    and (whole or p == parent or p.is_relative_to(parent / 'build'))
                     and not set(SOURCE_MARKERS).intersection(p.relative_to(parent).parts),
                     'directory is outside admitted generated working files')
             info = entry['identity']
@@ -306,15 +311,22 @@ def load_scope(checkout, row, config, proof, own_records, state_roots):
         require(root in dirs and all(p == root or p.parent in dirs for p in dirs), 'directory custody is incomplete')
         files = {}
         for entry in spec['files']:
-            p = path(entry['path'])
+            literal = whole and 'target' in entry
+            require(set(entry) == ({'path','identity','target'} if literal else {'path','identity'}),
+                    'invalid generated member record')
+            p = path(entry['path'], literal_link=literal)
             require(p not in files and p.parent in dirs and p not in dirs
-                    and p.is_relative_to(parent / 'build') and p.name not in SOURCE_MARKERS,
+                    and (whole or p.is_relative_to(parent / 'build')) and p.name not in SOURCE_MARKERS,
                     'file is outside admitted generated working files')
             info = entry['identity']
             require(set(info) == set(ADMISSION['retirement_identity'](checkout.lstat()))
                     and all(type(value) is int and value >= 0 for value in info.values())
                     and info['device'] == device and info['uid'] == uid and info['links'] == 1
-                    and info['inode'] > 0 and stat.S_ISREG(info['mode']), 'file identity or final-link ownership unverified')
+                    and info['inode'] > 0
+                    and (stat.S_ISLNK(info['mode']) if literal else stat.S_ISREG(info['mode'])),
+                    'file identity or final-link ownership unverified')
+            require(not literal or isinstance(entry['target'], str) and '\x00' not in entry['target'],
+                    'invalid literal generated link')
             files[p] = info
         total += len(dirs) + len(files)
         require(total <= MAX_ITEMS, 'generated identity inventory exceeds sweep bound')
@@ -489,7 +501,55 @@ def pin_ancestors(checkout, remaining, directories):
     return identities
 
 
-def retire_root(checkout, root, spec, refs, stores, journal, recheck, operations, deadline):
+def whole_profile_members(root, spec, literals, journal, deadline, custody):
+    # Validate the complete surviving namespace without following links.
+    dirs, files, _, _ = spec
+    states = journal.states
+    observed = set()
+    final = ('retired', 'absent_unconfirmed')
+    identity = ADMISSION['retirement_identity']
+
+    def visit(p, parent=None):
+        require(time.monotonic() < deadline, 'whole-profile census exceeds sweep deadline')
+        custody['profile_member'](root, p)
+        require(states.get(str(p)) not in final and p.name not in SOURCE_MARKERS,
+                'settled or source member is present in whole profile: '+str(p))
+        if p not in dirs:
+            require(p in files, 'unlisted member in whole profile: '+str(p))
+            actual = os.stat(p.name, dir_fd=parent, follow_symlinks=False)
+            require(identity(actual) == files[p], 'whole-profile leaf identity changed: '+str(p))
+            if p in literals:
+                require(os.readlink(p.name, dir_fd=parent) == literals[p],
+                        'whole-profile symbolic link target changed: '+str(p))
+            observed.add(p)
+            return
+        flags = os.O_RDONLY | os.O_DIRECTORY | OPEN
+        fd = os.open(p if parent is None else p.name, flags, dir_fd=parent)
+        try:
+            before = os.fstat(fd)
+            require(tree_identity(before) == dirs[p] and before.st_mode & 0o700 == 0o700,
+                    'whole-profile directory changed or is not owner-writable: '+str(p))
+            custody['no_acl'](fd)
+            observed.add(p)
+            with os.scandir(fd) as children:
+                for child in children:
+                    visit(p/child.name, fd)
+            require(identity(before) == identity(os.fstat(fd))
+                    == identity(os.stat(p if parent is None else p.name, dir_fd=parent, follow_symlinks=False)),
+                    'whole-profile directory changed during census: '+str(p))
+        finally:
+            os.close(fd)
+
+    custody['local_profile_mounts'](root)
+    if os.path.lexists(root):
+        visit(root)
+    for p in (dirs.keys() | files.keys()) - observed:
+        require(states.get(str(p)) in (*final,'intent'),
+                'whole-profile member absent without durable intent: '+str(p))
+
+
+def retire_root(checkout, root, spec, refs, stores, journal, recheck, operations, deadline,
+                whole=None):
     dirs, files, manifest, key = spec
     remaining = [p for p in (*files,*dirs) if journal.states.get(str(p)) not in ('retired','absent_unconfirmed')]
     if not remaining:
@@ -512,15 +572,27 @@ def retire_root(checkout, root, spec, refs, stores, journal, recheck, operations
     observed = clear_tree(READER['read_host_use'](manifest,key),manifest,key)
     known_references(root, refs, stores)
     tracked(checkout, root)
+    if whole is not None:
+        custody, _, literals = whole
+        whole_profile_members(root, spec, literals, journal, deadline, custody)
 
     def before(target):
         require(time.monotonic()<deadline,'sweep mutation deadline exceeded')
         clear_tree(observed,manifest,key)
         recheck()
+        if whole is not None:
+            custody, (private_operand, pins), _ = whole
+            require(custody['whole_private'](checkout, private_operand, dirs[root]['device']) == pins,
+                    'whole-profile private ancestry changed')
+            custody['local_profile_mounts'](root)
         for directory in retirement_chain(checkout, target):
             expected = pinned[directory]
             verify_ancestor(directory, expected, expected['device'],
                             allow_checkout=directory == checkout)
+            if whole is not None and directory.is_relative_to(root):
+                with custody['opened_dir'](directory) as fd:
+                    require(tree_identity(os.fstat(fd)) == expected, 'whole-profile parent changed')
+                    custody['no_acl'](fd)
 
     pending_files = sorted(p for p in remaining if p in files)
     pending_dirs = sorted((p for p in remaining if p in dirs), key=lambda p: (-len(p.parts),str(p)))
@@ -639,6 +711,17 @@ def run_sweep(checkout, run, row, owning, authority, ledgers, verify_routes, sta
     journal = Journal(run,dict(schema=1,admission_id=row['id'],selection_sha256=selection,
                               acceptance_sha256=row['evidence_sha256']),allowed)
     before_states = dict(journal.states)
+    whole_profiles = {}
+    for spec in config['roots']:
+        if 'whole_profile' not in spec:
+            continue
+        root = path(spec['path'])
+        custody = runpy.run_path(str(TOOLS/'build-tree-custody'))
+        operand = spec['whole_profile']
+        ancestry = custody['whole_private'](checkout, operand, row['volume_device'])
+        literals = {Path(item['path']):item['target'] for item in spec['files'] if 'target' in item}
+        whole_profile_members(root, roots[root], literals, journal, deadline, custody)
+        whole_profiles[root] = custody, (operand, ancestry), literals
     changed = False
 
     def before():
@@ -662,7 +745,8 @@ def run_sweep(checkout, run, row, owning, authority, ledgers, verify_routes, sta
         if len(order)>1:
             advance_cursor(cursor,selection,str(root))
         try:
-            items.append(retire_root(checkout,root,roots[root],refs,stores,journal,before,operations,deadline))
+            items.append(retire_root(checkout,root,roots[root],refs,stores,journal,before,operations,deadline,
+                                     whole_profiles.get(root)))
         except HOLD_ERRORS as error:
             items.append(dict(root=str(root),status='held',reason=str(error)))
     files = {str(p): info['allocated_bytes'] for _, f, _, _ in roots.values() for p,info in f.items()}
@@ -864,6 +948,25 @@ def project_registry():
     return ADMISSION['registry_for'](PROJECT)
 
 
+def private_ancestor_context(checkout, info):
+    # A private pathname boundary is informative, never mutation authority.
+    for ancestor in checkout.parents:
+        st = ancestor.lstat()
+        if st.st_dev != info.st_dev or st.st_uid != os.geteuid() or st.st_mode & 0o022:
+            break
+        if st.st_mode & 0o777 != 0o700:
+            continue
+        fd = os.open(ancestor, os.O_RDONLY | os.O_DIRECTORY | OPEN)
+        try:
+            if (tree_identity(os.fstat(fd)) == tree_identity(st) == tree_identity(ancestor.lstat())
+                    and not {'system.posix_acl_access','system.posix_acl_default'}.intersection(os.listxattr(fd))):
+                return dict(path=str(ancestor), identity=tree_identity(st),
+                            layout='private pathname ancestor; checkout alias and prior writer exclusion unproved')
+        finally:
+            os.close(fd)
+    return None
+
+
 def sweep(checkout, only=None):
     deadline=time.monotonic()+SWEEP_SECONDS
     require(os.getuid()==os.geteuid()!=0,'sweep requires the ordinary build account')
@@ -872,9 +975,20 @@ def sweep(checkout, only=None):
     checkout = path(str(checkout))
     mode = checkout.lstat()
     if stat.S_ISDIR(mode.st_mode) and (mode.st_uid != os.geteuid() or mode.st_mode & 0o022):
-        return dict(schema=1, status='held', checkout=str(checkout),
-                    reason='checkout is shared or owned by another account',
-                    verified_unlinked_bytes=0, results=[])
+        context = None
+        if mode.st_uid == os.geteuid():
+            try:
+                context = private_ancestor_context(checkout, mode)
+            except OSError:
+                pass  # An unreadable ancestor cannot establish a private boundary.
+        reason = ('checkout is writable by group or others under a private pathname ancestor; '
+                  'effective writer and alias exclusion not established' if context else
+                  'checkout is shared or owned by another account')
+        result = dict(schema=1, status='held', checkout=str(checkout), reason=reason,
+                      verified_unlinked_bytes=0, results=[])
+        if context:
+            result['private_ancestor'] = context
+        return result
     checkout=private_directory(checkout)
     if only is not None:
         only=path(str(only))

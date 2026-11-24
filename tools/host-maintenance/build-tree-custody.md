@@ -20,7 +20,7 @@ check.
 | `source_evidence`, `deliverable_evidence` | Separate nonempty lists of exact `{path,sha256}` references already in the original completion proof's `evidence`. Keep source, regeneration inputs and retained deliverables outside all selected roots. |
 
 A root is a declared `build.*` direct child of the checkout, or a directory
-below its `build/` working area. Even for a whole-profile root, discovery is
+below its `build/` working area. Selections without an explicit whole_profile operand stay
 limited to the working area. For a nested root, the compiled `host_scope`
 binds the exact admitted `build.*` parent to its device, inode, owner and mode.
 The engine validates live enrollment, registered use and current namespace
@@ -74,3 +74,62 @@ An interrupted unpublished staging directory supplies no custody.
 
 Run `python3 -I -B tools/host-maintenance/test-build-tree-custody` for
 disposable producer, engine-interface and recovery checks.
+
+## Complete private profiles
+
+A direct admitted build-cache root can carry an explicit whole_profile operand.
+Its value has path and identity fields for a same-filesystem private ancestor
+owned by the build account. The identity uses device, inode, uid and mode.
+The checkout and its chain to the ancestor must remain owner-writable,
+non-shared and free of explicit access and default ACLs. A private pathname
+boundary offers useful diagnostic evidence when the checkout is group writable.
+It does not establish that earlier descriptors, mounts or aliases cannot reach
+that checkout. Such a checkout still needs separate owner disposition.
+
+The opt-in producer command runs after the original watcher has recorded its
+terminal result and before the ordinary acceptance and consume step:
+
+    python3 -I -B tools/host-maintenance/build-tree-custody \
+      --run /absolute/checkout/.build-runs/RUN \
+      --capture-profile /absolute/checkout/build.PROFILE \
+      --private-root /absolute/private-owner-root \
+      --catalog-output /absolute/private-owner-root/evidence/profile-catalog.json
+
+The output reports a programmatically collected catalog reference and the
+whole_profile operand. Add both to the corresponding root declaration with
+the existing host_manifest_sha256 field. Include the catalog reference in
+the original acceptance evidence. Independently qualified source custody
+and deliverables must live outside the selected profile and be present in
+that same original acceptance. Review the original source requirements and
+retained results before acceptance. Do not mark a unique local input as
+generated simply because capture found it in the profile.
+
+Then consume that original acceptance through the ordinary command:
+
+    python3 -I -B tools/host-maintenance/build-admission consume \
+      --run /absolute/checkout/.build-runs/RUN \
+      --evidence /absolute/private-owner-root/evidence/acceptance.json
+
+The watcher, Makefile and image build scripts do not automatically invoke the
+capture command. With valid original acceptance or exact legacy adoption,
+the ordinary targeted tree engine and periodic/full cycle share the same
+effect path. The capture command copies no build payloads. A previously
+retained independent keeper may also be chosen when supplied by accepted
+custody. Whole-profile claims through either route require complete named
+membership, including empty directories and top-level generated entries.
+A symbolic-link catalog entry uses path, identity and target. Its literal
+target is compared and the unlink never follows it. Hardlinked regular files
+and multiply linked symlinks still require a separate owner route.
+
+The effect requires a fresh authenticated host tree observation and current
+incoming-reference checks. It checks complete surviving names and exact
+identities before any effect and after host observation. Tracked sources,
+embedded repositories, source or deliverable overlaps, conventional
+source/result directories and identified firmware or disk payloads hold.
+An unlisted name, changed inode, mount, unsafe mode or uncertain dependency
+also holds. The existing bounded per-name intent and receipt journal keeps
+the original enrolled path. On restart a known absent name after intent is
+unconfirmed, contributes zero verified bytes and cannot license a replacement
+inode. Ordinary custody, 65,536 effect member and 200,000 enrolled-reader
+entry bounds still apply. Completed or refused custody of a smaller
+subtree supplies no authority to remove the enclosing generation.
