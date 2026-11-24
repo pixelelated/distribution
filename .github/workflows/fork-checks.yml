@@ -42,6 +42,18 @@ jobs:
           python3 docs/qa-logs/2026-10-03-watch-job/test-watch-job.py tools/watch-job
           python3 tools/host-maintenance/test-build-monitor
           python3 tools/host-maintenance/test-build-admission
+      - name: recipes name build roots from DISTRONAME, never DISTRO (#497, #1441)
+        # DISTRO stays ROCKNIX as the configuration namespace; the roots are
+        # build.pixelelated-*. git grep exits 1 for no match, 0 for a match and
+        # 128 when it cannot run, so only 1 passes.
+        run: |
+          set +e
+          hits=$(git grep -nE 'build\.\$\{?DISTRO\}?-' -- packages projects scripts config)
+          rc=$?
+          set -e
+          [ "$rc" -eq 1 ] && { echo "no recipe names a build root with DISTRO"; exit 0; }
+          [ "$rc" -eq 0 ] && { printf '%s\n' "$hits"; echo "build roots are named from DISTRONAME, not DISTRO, which stays ROCKNIX (#497, #1441)"; }
+          exit 1
       - name: VM launch failures cannot report a guest as running
         run: |
           ./tools/vm-pair-test
