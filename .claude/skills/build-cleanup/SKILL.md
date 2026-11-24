@@ -77,6 +77,7 @@ Each of these stopped the cleanup on November 23 and 24, 2026:
 | "Cannot prove no container on the host uses it" | A proof about another project's services | Check pixelelated use only |
 | "Keep until a same-target successor" | A condition older than the one-build decision | Withdrawn by D-INFRA-033 |
 | The batch failed moving an empty `sources/` to a keep directory | Preserving something that held nothing | Do not preserve leftovers |
+| "Keep the keeper's build root for the upgrade check" (118 GB) | A reason that named the wrong artifact: the check booted its old guest from a prepared disk elsewhere | Read the consumer's own record of what it opened (its overlay or argv record) and keep only that |
 
 ## Why this skill exists
 
