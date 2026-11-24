@@ -212,13 +212,25 @@ def current(plan):
     require(isinstance(profiles, list) and profiles, 'explicit build profiles required')
     for profile in profiles:
         require(set(profile) == {'PROJECT', 'DEVICE', 'ARCH'} and all(isinstance(v, str) and v for v in profile.values()), 'invalid build profile')
+    private_readback = {}
+    if 'private_readback' in plan:
+        selected = plan['private_readback']
+        require(isinstance(selected, dict) and set(selected) == {'archive', 'sha256'}
+                and isinstance(selected['archive'], str) and selected['archive'] in retained_inputs
+                and isinstance(selected['sha256'], str) and re.fullmatch('[0-9a-f]{64}', selected['sha256'])
+                and not retirement, 'invalid private readback admission')
+        keeper = Path(selected['archive'])
+        require(keeper.suffix == '.tar' and stat.S_ISREG(path_identity(keeper)['mode'])
+                and not any(overlap(keeper, output) for output in (*seen, root / '.build-runs')),
+                'private readback keeper must be a protected release tar outside generated outputs')
+        private_readback['private_readback'] = selected
     return {'checkout': str(root), 'source': source_state(root), 'profiles': profiles,
             'volume': str(volume), 'volume_device': volume_id['device'],
             'required_bytes': need, 'available_bytes': available_bytes(volume),
             'retention_plan_sha256': digest(retention_plan), 'retention_report_sha256': digest(report_path),
             'outputs': holds, 'registry': str(registry_for(root)),
             'retention_scope': scope, 'retire_on_consume': retirement,
-            'container_checkout': plan.get('container_checkout', str(root))}
+            'container_checkout': plan.get('container_checkout', str(root)), **private_readback}
 
 
 def fixed_state(state):
@@ -461,7 +473,7 @@ def prepare(plan_path, output):
                         del queued[ident]
 
 
-def admit(receipt_path, root, run, environment, docker=False):
+def admit(receipt_path, root, run, environment, docker=False, *, image_receipts=False):
     receipt_path = Path(receipt_path).resolve(strict=True)
     receipt = read(receipt_path)
     require(receipt['schema'] == 1 and receipt['tool_sha256'] == digest(__file__), 'admission schema/tool changed')
@@ -513,10 +525,11 @@ def admit(receipt_path, root, run, environment, docker=False):
     with capacity_registries(state) as ledgers:
         point = verify_capacity(ledgers)
         require_capacity(point, review)
-        return register_run(ledgers[primary], state, receipt, receipt_path, plan, run, environment, point)
+        return register_run(ledgers[primary], state, receipt, receipt_path, plan, run, environment,
+                            point, image_receipts=image_receipts)
 
 
-def register_run(jobs, state, receipt, receipt_path, plan, run, environment, point):
+def register_run(jobs, state, receipt, receipt_path, plan, run, environment, point, *, image_receipts=False):
     uid = os.geteuid()
     account = pwd.getpwuid(uid).pw_name
     row = dict(state, id=receipt['id'], state='running', run=str(run), admitted=utc(),
@@ -525,6 +538,8 @@ def register_run(jobs, state, receipt, receipt_path, plan, run, environment, poi
                submission_owner=environment.get('PIXELELATED_SUBMISSION_OWNER'),
                pid_namespace=os.stat('/proc/self/ns/pid').st_ino,
                runner_start=Path('/proc/self/stat').read_text().rsplit(')', 1)[1].split()[19])
+    if image_receipts:
+        row['image_receipts'] = 1
     row['output_ownership'] = [dict(output, owner=output.get('owner', account), uid=uid, disposition='held')
                                for output in state['outputs']]
     write(run / 'admission.json', row, exclusive=True)
@@ -556,8 +571,22 @@ def nested(root, run, environment):
 
 
 def finish(run, command_code, monitor_code, runner_code):
-    write(run / 'runner-result.json', {'utc': utc(), 'command_rc': command_code,
-                                      'monitor_rc': monitor_code, 'runner_rc': runner_code}, exclusive=True)
+    def publish():
+        write(run / 'runner-result.json', {'utc': utc(), 'command_rc': command_code,
+                                          'monitor_rc': monitor_code, 'runner_rc': runner_code}, exclusive=True)
+
+    original = run / 'admission.json'
+    if not original.is_file():
+        publish()  # record-only or admission refused before the command
+        return
+    row = read(original)
+    if row.get('image_receipts') != 1:
+        publish()
+        return
+    # Serialize a watched generation's terminal publication with retirement.
+    with registry(row['registry'], writeback=False) as jobs:
+        require(jobs['jobs'][row['id']] == row, 'watched original admission changed before finish')
+        publish()
 
 
 def exited(pid):
@@ -1022,6 +1051,13 @@ def retire_generated(run, row, proof, evidence_path, consumed):
                     pending[name] = progress
             if pending:
                 check_registry_ownership(row)
+                keeper = runpy.run_path(str(Path(__file__).with_name('os-image-keeper')))
+
+                def check_keeper():
+                    selection = keeper['select_os_keeper']({reservation: jobs}, row['volume_device'])
+                    keeper['protect_os_keeper'](selection, pending)
+
+                check_keeper()
                 check_registered_use(jobs, row, pending)
                 cfg = row['retire_on_consume']
                 reader = retirement_reader()
@@ -1045,6 +1081,7 @@ def retire_generated(run, row, proof, evidence_path, consumed):
                 def before_unlink():
                     nonlocal invalidated
                     check_registry_ownership(row)
+                    check_keeper()
                     if not invalidated:
                         # Invalidate outstanding capacity receipts durably before any unlink.
                         jobs['generation'] += 1

@@ -97,7 +97,7 @@ def sweep(canonical_checkout, state_home, checkout, run=None, timeout=SWEEP_TIME
     return result
 
 
-def discovery(root):
+def discovery(root, include_runs=False):
     # Reuse the canonical engine's read-only routing and lock checks. The
     # snapshots select checkouts only and confer no authority to remove files.
     helpers = runpy.run_path(str(engine(root)))
@@ -108,10 +108,15 @@ def discovery(root):
     device = root.stat().st_dev
     filesystem = os.statvfs(root).f_fsid
     registered = {str(root)}
+    runs = {}
+    outputs = {}
     held_routes = []
-    for route in sorted(set(alternate)):
-        try:
-            with helpers['locked_registry'](route) as registry:
+    with contextlib.ExitStack() as locks:
+        ledgers = {}
+        for route in sorted(set(alternate)):
+            try:
+                registry = locks.enter_context(helpers['locked_registry'](route))
+                ledgers[route] = registry
                 queue = registry.get('queued', {})
                 if not isinstance(queue, dict):
                     raise ValueError('queue metadata is not an object')
@@ -128,13 +133,30 @@ def discovery(root):
                         if not isinstance(checkout, str) or not checkout.startswith('/') or len(checkout) > MAX_PATH:
                             raise ValueError('invalid registered checkout path')
                         registered.add(checkout)
+                        if include_runs and kind=='job' and row.get('state')=='consumed':
+                            run = Path(row['run'])
+                            for output in row.get('outputs', []):
+                                outputs.setdefault(output['path'], set()).add(checkout)
+                            if run.parent == Path(checkout)/'.build-runs':
+                                runs.setdefault(checkout, set()).add(str(run))
                         if len(registered) > MAX_CHECKOUTS:
                             raise ValueError('registered checkout count exceeds the finite discovery bound')
-        except (OSError, ValueError, KeyError, TypeError) as error:
-            held_routes.append({'registry': str(route), 'reason': str(error)})
+            except (OSError, ValueError, KeyError, TypeError) as error:
+                held_routes.append({'registry': str(route), 'reason': str(error)})
+        if include_runs:
+            image_selection = (dict(status='held', keeper=None, reason='image registry snapshot incomplete')
+                               if held_routes else helpers['select_os_keeper'](ledgers, device))
     if len(registered) > MAX_CHECKOUTS:
         raise ValueError('registered checkout count exceeds the finite discovery bound')
-    return {'checkouts': sorted(registered), 'device': device, 'filesystem': filesystem, 'held_routes': held_routes}
+    report = {'checkouts': sorted(registered), 'device': device, 'filesystem': filesystem, 'held_routes': held_routes}
+    if include_runs:
+        report['runs'] = {k:sorted(v) for k,v in runs.items()}
+        report['output_owners'] = {k:sorted(v) for k,v in outputs.items()}
+        report['image_selection'] = image_selection
+        git = subprocess.run(['git', '-C', str(root), 'worktree', 'list', '--porcelain', '-z'],
+                             capture_output=True, timeout=10, check=True)
+        report['git_worktrees'] = [os.fsdecode(v[9:]) for v in git.stdout.split(b'\0') if v.startswith(b'worktree ')]
+    return report
 
 
 def same_volume(path, device, filesystem):
@@ -852,6 +874,12 @@ def prebuild_inventory(checkout, supplier, selected, helpers, protected):
     omissions = list(route_holds)
     rows, live, queues, reserved, holds = prebuild_records(ledgers, selected, budget, helpers)
     omissions.extend(holds)
+    keeper = helpers['select_os_keeper'](ledgers, selected[0])
+    keeper_held = keeper['status'] == 'held'
+    if keeper_held:
+        omissions.append(dict(reason='OS image keeper unresolved: '+keeper['reason']))
+    elif keeper['keeper'] is not None:
+        live.update(scope_paths(keeper['keeper']['protected_paths'], budget))
     anchors = checkout_anchors(checkout, supplier, primaries, ledgers)
     owners, registered, eligible, nested_owners = {checkout}, set(), [], {}
     for row in rows.values():
@@ -962,7 +990,7 @@ def prebuild_inventory(checkout, supplier, selected, helpers, protected):
         objects = live_objects.get(item.get('admission_id'), {})
         item['unique_observed_bytes'] = sum(n for key, n in objects.items() if key not in seen)
         seen.update(objects)
-    return candidates, omissions, reserved, bool(route_holds or holds) or not ledgers
+    return candidates, omissions, reserved, bool(route_holds or holds) or keeper_held or not ledgers
 
 
 
@@ -978,8 +1006,10 @@ def pending_covers(ledgers, owner, protected, helpers):
     return False
 
 
-def prebuild_attempt(supplier, owner, run):
-    command = [str(engine(supplier)), 'sweep', '--checkout', str(owner), '--run', str(run)]
+def engine_observation(supplier, owner, run=None):
+    command = [str(engine(supplier)), 'sweep', '--checkout', str(owner)]
+    if run is not None:
+        command.extend(['--run', str(run)])
     with tempfile.TemporaryFile() as output:
         result = subprocess.run(command, stdin=subprocess.DEVNULL, stdout=output,
                                 timeout=SWEEP_TIMEOUT)
@@ -993,14 +1023,22 @@ def prebuild_attempt(supplier, owner, run):
     amount = record.get('verified_unlinked_bytes', 0)
     if type(amount) is not int or amount < 0:
         raise ValueError('unverified guarded engine accounting')
-    if amount and (record['status'] not in ('retired', 'partial') or record['checkout'] != str(owner) or len(record['results']) != 1
-                   or record['results'][0]['run'] != str(run)
-                   or record['results'][0]['verified_unlinked_bytes'] != amount):
-        raise ValueError('guarded engine accounting belongs to another owner')
+    if amount:
+        parts = record['results']
+        if (record['status'] not in ('retired','partial') or record.get('checkout')!=str(owner)
+                or sum(row.get('verified_unlinked_bytes',0) for row in parts)!=amount
+                or (run is not None and (len(parts)!=1 or parts[0].get('run')!=str(run)))):
+            raise ValueError('guarded engine accounting belongs to another owner')
+    return result.returncode, record
+
+
+def prebuild_attempt(supplier, owner, run):
+    rc, record = engine_observation(supplier, owner, run)
+    amount = record.get('verified_unlinked_bytes', 0)
     reasons = [x['reason'] for x in record.get('results', []) if x.get('reason')]
     if record.get('reason'):
         reasons.insert(0, record['reason'])
-    return dict(status=record['status'], returncode=result.returncode, verified_unlinked_bytes=amount,
+    return dict(status=record['status'], returncode=rc, verified_unlinked_bytes=amount,
                 reasons=reasons[:8])
 
 
@@ -1010,6 +1048,11 @@ def guarded_candidate(item, checkout, supplier, selected, helpers, offered, rese
     rows, live, _, reserved, holds = prebuild_records(ledgers, selected, budget, helpers)
     if omissions or holds:
         raise ValueError('registry visibility or live protection is incomplete')
+    keeper = helpers['select_os_keeper'](ledgers, selected[0])
+    if keeper['status'] == 'held':
+        raise ValueError('OS image keeper unresolved: '+keeper['reason'])
+    if keeper['keeper'] is not None:
+        live.update(scope_paths(keeper['keeper']['protected_paths'], budget))
     if reserved > reserved_bytes:
         raise ValueError('same-volume reservations exceed the caller capacity snapshot')
     owner, run = Path(item['checkout']), Path(item['run'])
@@ -1128,6 +1171,118 @@ def prebuild_review(checkout, volume, required_bytes, reserved_bytes, protected_
     return report
 
 
+def full_sweep(root, settings, target=None):
+    """Visit every discovered checkout, with one native effect authority per attempt."""
+    if target is not None and target < 0:
+        raise ValueError('target must be nonnegative available bytes')
+    selected = volume_identity(root)
+    start = available_on(root, selected)
+    attempts, omissions = [], []
+    result = dict(schema=1, target_available_bytes=target, initial_available_bytes=start,
+                  attempts=attempts, omissions=omissions,
+                  inventory_scope=('Registered admission checkouts and known Git worktrees with a verified '
+                                   'ranked build profile. Nested paths are joined to declared outputs. '
+                                   'Unmatched ranked paths are reported individually.'))
+    cursor_lock = settings.with_name('build-retention.lock')
+    fd = os.open(cursor_lock, os.O_RDWR | os.O_NOFOLLOW | os.O_CREAT | os.O_NONBLOCK, 0o600)
+    with os.fdopen(fd, 'rb') as lock:
+        check_private(os.fstat(lock.fileno()), cursor_lock)
+        try:
+            fcntl.flock(lock, fcntl.LOCK_EX | fcntl.LOCK_NB)
+        except BlockingIOError:
+            result.update(status='held', reason='checkout sweep already active',
+                          available_bytes=available_on(root, selected), measured_reclaimed_bytes=0)
+            return result, 1
+        inventory = discovery(root, include_runs=True)
+        omissions.extend(inventory['held_routes'])
+        checkouts = set(inventory['checkouts'])
+        ranks = {c:0 for c in checkouts}
+        hints = retained_hints(selected, lambda p: (str(p) in checkouts or str(p.parent) in checkouts or str(p/'checkout') in checkouts or p.is_relative_to(root.with_name(root.name+'.worktrees'))), ReviewBudget(seconds=10), omissions)
+        unregistered = []
+        reviewed = []
+        image = inventory['image_selection']
+        protected = {Path(p) for p in (image.get('keeper') or {}).get('protected_paths', [])}
+        git_worktrees = set(inventory.get('git_worktrees', []))
+        for path, hint in hints.items():
+            candidates = (path, path/'checkout', path.parent)
+            owner = next((str(k) for k in candidates if str(k) in checkouts), None)
+            output_owners = inventory.get('output_owners', {}).get(str(path), [])
+            if owner is None and len(output_owners) == 1:
+                owner = output_owners[0]
+            if owner is None and path.name.startswith('build.') and str(path.parent) in git_worktrees:
+                owner = str(path.parent)
+                checkouts.add(owner)
+            overlaps = sorted(str(p) for p in protected if path == p or p in path.parents or path in p.parents)
+            if owner is None:
+                reason = ('contains or overlaps retained image inputs' if overlaps else
+                          'no unique declaring admission or registered Git build checkout')
+                unregistered.append(dict(hint, reason=reason, declared_owners=output_owners))
+            else:
+                ranks[owner] = max(ranks.get(owner, 0), hint['allocated_bytes'])
+            reviewed.append(dict(path=str(path), checkout=owner, allocated_bytes=hint['allocated_bytes'],
+                                 keeper_overlap=overlaps))
+        result.update(known_checkouts=len(checkouts), registered_checkouts=len(inventory['checkouts']),
+                      ranked_without_registered_owner=unregistered, ranked_paths=reviewed, image_selection=image)
+        if image['status'] == 'held':
+            result.update(status='held', reason=image['reason'], available_bytes=available_on(root, selected),
+                          visited_checkouts=0, unvisited_checkouts=len(checkouts), verified_unlinked_bytes=0,
+                          measured_reclaimed_bytes=0)
+            return result, 1
+        verified, measured = 0, 0
+        visited = []
+        def attempt(checkout, run=None):
+            nonlocal verified, measured
+            first = available_on(root, selected)
+            detail = dict(checkout=str(checkout), ranked_bytes=ranks[str(checkout)])
+            if run is not None:
+                detail['run'] = str(run)
+            try:
+                same_volume(checkout, selected[0], selected[1])
+                rc, report = engine_observation(root, checkout, run)
+                amount = report.get('verified_unlinked_bytes', 0)
+                detail.update(status=report['status'], returncode=rc, verified_unlinked_bytes=amount)
+                if 'reason' in report:
+                    detail['reason'] = report['reason']
+                detail['results'] = report.get('results', [])
+            except (ValueError, OSError, RuntimeError, subprocess.SubprocessError) as error:
+                amount = 0
+                detail.update(status='held', reason=str(error), verified_unlinked_bytes=0)
+            last = available_on(root, selected)
+            verified += amount
+            measured += min(amount, max(0, last-first))
+            detail.update(before_bytes=first, after_bytes=last)
+            attempts.append(detail)
+            return detail
+        for name in sorted(checkouts, key=lambda value:(-ranks[value],value)):
+            if target is not None and available_on(root, selected) >= target:
+                break
+            visited.append(name)
+            first = attempt(Path(name))
+            rows = first.get('results', [])
+            if any(row.get('reason')=='per-sweep run bound reached' for row in rows):
+                # A checkout-wide ownership hold applies to every run in it.
+                if any('unobservable prepare' in row.get('reason','') or
+                       'mixed admission' in row.get('reason','') for row in rows if row.get('reason')):
+                    continue
+                seen = {r.get('run') for r in rows}
+                for run in inventory['runs'].get(name, []):
+                    if run in seen:
+                        continue
+                    if target is not None and available_on(root, selected)>=target:
+                        break
+                    attempt(Path(name),Path(run))
+        after = available_on(root, selected)
+        pending = any(x['status'] in ('held','partial','error') for x in attempts)
+        incomplete = bool(inventory['held_routes'] or unregistered or pending)
+        satisfied = target is not None and after>=target
+        result.update(status='target-met' if satisfied else ('held' if incomplete or target is not None else 'settled'),
+                      visited_checkouts=len(visited), unvisited_checkouts=len(checkouts)-len(visited),
+                      verified_unlinked_bytes=verified, measured_reclaimed_bytes=min(measured,max(0,after-start)),
+                      available_bytes=after, measured_net_change_bytes=after-start)
+    return result, int(result['status']=='held')
+
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     actions = parser.add_subparsers(dest='action', required=True)
@@ -1136,6 +1291,9 @@ def main():
     cycle = actions.add_parser('sweep', help='run one bounded checkout sweep')
     cycle.add_argument('--settings', type=Path)
     cycle.add_argument('--run', type=Path)
+    full = actions.add_parser('full', help='collect eligible output across all registered checkouts')
+    full.add_argument('--settings', type=Path)
+    full.add_argument('--target-bytes', type=int, help='stop when this much space is available')
     discover = actions.add_parser('discover', help='read the registered checkout scope under the existing locks')
     discover.add_argument('--settings', required=True, type=Path)
     args = parser.parse_args()
@@ -1155,6 +1313,11 @@ def main():
         os.environ['XDG_STATE_HOME'] = str(state_home)
         print(json.dumps(discovery(root), sort_keys=True))
         return 0
+    if args.action == 'full':
+        os.environ['XDG_STATE_HOME'] = str(state_home)
+        report, rc = full_sweep(root, settings_path, args.target_bytes)
+        print(json.dumps(report, sort_keys=True))
+        return rc
     if args.run is None:
         return reconcile(root, state_home, settings_path)
     run = checked_run(args.run)

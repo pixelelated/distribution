@@ -1,0 +1,176 @@
+#!/usr/bin/python3 -IBS
+"""Exercise the watched image keeper with synthetic artifacts only."""
+import hashlib
+import json
+import os
+from pathlib import Path
+import runpy
+import shutil
+import subprocess
+import tempfile
+import time
+
+TOOLS = Path(__file__).resolve().parent
+ROOT = TOOLS.parents[1]
+K = runpy.run_path(str(TOOLS/'os-image-keeper'))
+FIXTURE = runpy.run_path(str(TOOLS/'admission-test-fixture.py'))
+
+
+def demand(test, message, detail=None):
+    assert test, (message, detail)
+    print('PASS '+message, flush=True)
+
+
+def main():
+    os.umask(0o077)
+    with tempfile.TemporaryDirectory(prefix='pix-os-keeper-') as tmp:
+        checkout = Path(tmp)
+        tools = checkout/'tools'
+        tools.mkdir()
+        (tools/'host-maintenance').mkdir()
+        (checkout/'scripts').mkdir()
+        for name in ('watch-build','watch-job'):
+            shutil.copy2(ROOT/'tools'/name, tools/name)
+        (checkout/'Makefile').write_text('fixture:\n')
+        child = checkout/'scripts/synthetic-image'
+        child.write_text("""#!/usr/bin/python3
+import hashlib,json,os
+from pathlib import Path
+import subprocess,sys,time
+root=Path.cwd()
+device,arch,slot,hold=sys.argv[1:]
+run=os.environ["RASTERATOPS_BUILD_RUN"]
+build=root/("build."+slot); target=root/("target."+slot)
+source=root/"sources"
+stem="pixelelated-"+device+"-"+slot
+tool=root/"tools/host-maintenance/os-image-keeper"
+args=[str(root),run,"release",stem,"ROCKNIX",device,arch,str(build),str(target),str(source)]
+subprocess.run(["/usr/bin/python3","-I","-B",str(tool),"start",*args],check=True)
+stop=time.monotonic()+12
+while hold=="hold" and not (root/"release-image").exists():
+ if time.monotonic()>stop:sys.exit(89)
+ time.sleep(.01)
+target.mkdir(exist_ok=True)
+tar=target/(stem+".tar")
+tar.write_bytes(b"a tiny synthetic OS image")
+(target/(stem+".tar.sha256")).write_text(hashlib.sha256(tar.read_bytes()).hexdigest()+"  "+tar.name+"\\n")
+revision=subprocess.check_output(["git","rev-parse","HEAD"],text=True).strip()
+(target/(stem+".identity.json")).write_text(json.dumps(dict(schema=1,name="pixelelated",build_commit=revision,image_name=stem,device=device,arch=arch)))
+subprocess.run(["/usr/bin/python3","-I","-B",str(tool),"finish",*args],check=True)
+""")
+        env = dict(PATH='/usr/bin:/bin',HOME=str(checkout),LC_ALL='C',XDG_STATE_HOME=str(checkout/'state'))
+        chosen = ['GENERIC_X64','x86_64','pc']
+        (checkout/'sources').mkdir()
+
+        def configure(plan):
+            device, arch, slot = chosen
+            plan['profiles'] = [dict(PROJECT='ROCKNIX',DEVICE=device,ARCH=arch)]
+            plan['outputs'] = [
+                dict(path=str(checkout/('build.'+slot)),issue=493,kind='build-cache',release_when='fixture'),
+                dict(path=str(checkout/('target.'+slot)),issue=493,kind='firmware',release_when='fixture'),
+            ]
+
+        admission, plan, receipt = FIXTURE['prepare_fixture'](checkout, ROOT, configure, prepare=False)
+        route = admission.registry_for(checkout)
+        device = checkout.stat().st_dev
+
+        def read_ledger():
+            f = route/'jobs.json'
+            return {route: json.loads(f.read_bytes())} if f.exists() else {}
+
+        def select():
+            return K['select_os_keeper'](read_ledger(),device)
+
+        def command(override=None):
+            receipt.unlink(missing_ok=True)
+            spec=json.loads(plan.read_bytes());configure(spec); plan.write_text(json.dumps(spec))
+            admission.prepare(plan,receipt)
+            return [str(tools/'watch-build'),'--interval','1','--admission',str(receipt),'--',
+                    *(override or ['/usr/bin/python3',str(child),*chosen,'hold'])]
+
+        def run_to_marker(cmd):
+            original = subprocess.Popen(cmd,cwd=checkout,env=env,stdout=subprocess.PIPE,stderr=subprocess.PIPE)
+            until=time.monotonic()+8
+            try:
+                while time.monotonic()<until and original.poll() is None:
+                    selected=select()
+                    if selected['status']=='active':
+                        return original,selected
+                    time.sleep(.02)
+                (checkout/'release-image').touch()
+                out,err=original.communicate(timeout=14)
+                raise AssertionError((original.returncode,out,err,select()))
+            except BaseException:
+                if original.poll() is None:
+                    (checkout/'release-image').touch()
+                    original.communicate(timeout=14)
+                raise
+
+        def finish(original):
+            (checkout/'release-image').touch()
+            out,err=original.communicate(timeout=10)
+            (checkout/'release-image').unlink()
+            assert original.returncode==0,(out,err)
+            selected=select()
+            assert selected['status']=='completed',selected
+            print('WATCHER original',original.returncode,err.decode().strip(),flush=True)
+            return selected
+
+        demand(select()['status']=='none','idle without a completed image')
+        first, active = run_to_marker(command())
+        try:
+            demand(active['keeper']['image_identities']==[] and str(checkout/'build.pc') in active['keeper']['protected_paths'],
+                   'ordinary watched GENERIC stage selects the actual active producer')
+        finally:
+            old=finish(first)
+        demand(old['keeper']['image_identities'][0]['device']=='GENERIC_X64','watcher original selects completed GENERIC')
+        chosen[:] = ['H700','aarch64','h700']
+        second, active = run_to_marker(command())
+        try:
+            demand(active['keeper']['admission_id']!=old['keeper']['admission_id']
+                   and str(checkout/'build.pc') not in active['keeper']['protected_paths'],
+                   'cross-target active switch has no old warm keeper')
+            ledger=read_ledger()
+            row=ledger[route]['jobs'][active['keeper']['admission_id']]
+            changed={**row,'runner_start':'0'}
+            ledger[route]['jobs'][row['id']]=changed
+            demand(K['select_os_keeper'](ledger,device)['status']=='held','changed original watcher identity refuses')
+        finally:
+            latest=finish(second)
+        demand(latest['keeper']['image_identities'][0]['device']=='H700','newest completion across targets wins')
+        (checkout/'target.pc').rename(checkout/'retired-fixture-target')
+        demand(select()['keeper']==latest['keeper'],'old product paths can be absent after keeper moves')
+        chosen[:] = ['H700','aarch64','package']
+        result=subprocess.run(command(['/usr/bin/true']),cwd=checkout,env=env,capture_output=True,timeout=10)
+        demand(result.returncode==0 and select()['keeper']==latest['keeper'],
+               'subsequent package-only watcher with a firmware declaration is ignored',result.stderr)
+        selected=latest['keeper']
+        current=Path(selected['run'])
+        # Two original receipt rows report different allocator devices. No
+        # second mount is necessary to exercise selection across those rows.
+        migrated=read_ledger()
+        migrated_row=migrated[route]['jobs'][selected['admission_id']]
+        receipt_path=current/'admission.json'
+        original=receipt_path.read_bytes()
+        try:
+            migrated_row['volume_device']=device+1
+            receipt_path.write_text(json.dumps(migrated_row))
+            across=K['select_os_keeper'](migrated,device)
+            demand(across['keeper']['admission_id']==selected['admission_id']
+                   and across['keeper']['volume_device']==device+1,
+                   'newer original on a different registered volume wins project-wide',across)
+        finally:
+            receipt_path.write_bytes(original)
+        sidecar=next((checkout/'target.h700').glob('*.identity.json'))
+        raw=sidecar.read_bytes()
+        sidecar.write_bytes(raw+b'\n')
+        demand(select()['status']=='held','changed selected image identity holds rather than falling back')
+        sidecar.write_bytes(raw)
+        ledger=read_ledger()
+        duplicate={route:ledger[route],checkout/'duplicate':ledger[route]}
+        demand(K['select_os_keeper'](duplicate,device)['status']=='held','overlapping registry identity is ambiguous')
+        assert not (current/'build-tree-retirement.jsonl').exists()
+
+
+if __name__=='__main__':
+    main()

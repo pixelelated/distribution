@@ -21,8 +21,11 @@ import sys
 import time
 
 TOOLS = Path(__file__).resolve().parent
+PROJECT = TOOLS.parents[1]
 ADMISSION = runpy.run_path(str(TOOLS / 'build-admission'))
 READER = runpy.run_path(str(TOOLS / 'retention-report'))
+KEEPER = runpy.run_path(str(TOOLS / 'os-image-keeper'))
+select_os_keeper = KEEPER['select_os_keeper']
 MAX_INPUT = 32 * 1024**2
 MAX_LOG = 64 * 1024**2
 MAX_ITEMS = 65536
@@ -199,7 +202,7 @@ def file_ref(ref):
     return value
 
 
-def acceptance(run, row):
+def acceptance(run, row, *, readback=False):
     consumed, digest = json_file(run / 'admission-consumed.json')
     require(consumed == row and row['state'] == 'consumed', 'original consumption missing or changed')
     original, _ = json_file(run / 'admission.json')
@@ -228,7 +231,7 @@ def acceptance(run, row):
         ADMISSION['exited'](launcher['pid'])
 
     adopted_path = run / 'build-tree-adoption.json'
-    adopted = adopted_path.exists()
+    adopted = not readback and adopted_path.exists()
     if adopted:
         require(private_directory(run) == run, 'legacy adoption directory changed')
         s = adopted_path.lstat()
@@ -257,6 +260,8 @@ def acceptance(run, row):
             and proof['expected_rc'] == result['runner_rc']
             and proof['disposition'] == ('qualified' if result['runner_rc'] == 0 else 'failed-investigated'),
             'original acceptance outcome differs')
+    if readback:
+        return proof
     if not adopted and 'build_tree_inputs' in proof:
         require(config is None, 'ambiguous generated tree custody')
         # The producer records compact inputs in the original acceptance. The
@@ -624,6 +629,12 @@ def run_sweep(checkout, run, row, owning, authority, ledgers, verify_routes, sta
     targets = list(roots)
     check_peers(ledgers,row,targets,peers)
     verify_routes()
+
+    def check_keeper():
+        selection = select_os_keeper(ledgers, row['volume_device'])
+        KEEPER['protect_os_keeper'](selection, targets)
+
+    check_keeper()
     allowed = {str(p) for dirs, files, _, _ in roots.values() for p in (*dirs,*files)}
     journal = Journal(run,dict(schema=1,admission_id=row['id'],selection_sha256=selection,
                               acceptance_sha256=row['evidence_sha256']),allowed)
@@ -633,6 +644,7 @@ def run_sweep(checkout, run, row, owning, authority, ledgers, verify_routes, sta
     def before():
         nonlocal changed
         verify_routes()
+        check_keeper()
         if not changed:
             registered = ledgers[authority]
             registered['generation'] += 1
@@ -663,6 +675,41 @@ def run_sweep(checkout, run, row, owning, authority, ledgers, verify_routes, sta
              'partial' if retired or uncertain or any(x['status']=='partial' for x in items) else 'held')
     return dict(run=str(run),status=status,roots=items,verified_unlinked_bytes=new,
                 recorded_unlinked_bytes=retired,unconfirmed_bytes=uncertain,held_bytes=pending)
+
+
+def private_readback_sweep(checkout, run, row, owning, authority, ledgers, verify_routes, operations, deadline):
+    require(row['checkout'] == str(checkout) and row['run'] == str(run)
+            and row['registry'] == str(owning) and row['volume_device'] == checkout.stat().st_dev,
+            'private readback producer run, volume or registry differs')
+    require(os.path.lexists(run / 'private-readback.json'), 'private reconstruction has no durable producer receipt')
+    reader = runpy.run_path(str(TOOLS / 'build-private-readback.py'))
+    proof = acceptance(run, row, readback=True)
+    require(not row.get('retire_on_consume')
+            and not any(key in proof for key in ('build_tree', 'build_tree_inputs'))
+            and not os.path.lexists(run / 'build-tree-adoption.json'), 'mixed retirement declarations')
+    target = run / reader['STAGE'] / reader['LEAF']
+
+    def check_references():
+        verify_routes()
+        check_peers(ledgers, row, [target], [])
+        KEEPER['protect_os_keeper'](select_os_keeper(ledgers, row['volume_device']), [target])
+
+    check_references()
+
+    def before_unlink():
+        check_references()
+        # As with tree retirement, fence any outstanding capacity receipts.
+        registry = ledgers[authority]
+        registry['generation'] += 1
+        ADMISSION['durable'](authority / 'jobs.json', registry)
+        verify_routes()
+        operations[0] -= 1
+
+    status, amount = reader['retire'](run, row, proof, deadline, before_unlink, ADMISSION)
+    result = dict(run=str(run), kind=reader['POLICY'], status=status, verified_unlinked_bytes=amount)
+    if status == 'absent_unconfirmed':
+        result.update(status='partial', reason='absence after intent has no verified unlink receipt')
+    return result
 
 
 def discover(checkout, jobs, only):
@@ -813,6 +860,10 @@ def choose_runs(checkout, candidates, only):
     return rotate(candidates,cursor,str(checkout),lambda item:str(item[0]))[:MAX_RUNS]
 
 
+def project_registry():
+    return ADMISSION['registry_for'](PROJECT)
+
+
 def sweep(checkout, only=None):
     deadline=time.monotonic()+SWEEP_SECONDS
     require(os.getuid()==os.geteuid()!=0,'sweep requires the ordinary build account')
@@ -833,8 +884,10 @@ def sweep(checkout, only=None):
     require(top==str(checkout),'checkout is not the Git top-level')
     natural, alternate, state_roots=registry_routes(checkout)
     routes=set(alternate)
-    if (natural/'jobs.json').exists():
-        routes.add(natural)
+    project = project_registry()
+    for route in (natural, project):
+        if (route/'jobs.json').exists():
+            routes.add(route)
     for legacy in alternate:
         hint,_=json_file(legacy/'jobs.json')
         if hint['schema']==2:
@@ -870,6 +923,9 @@ def sweep(checkout, only=None):
                 require(registry_routes(checkout)==(natural,alternate,state_roots)
                         and checkout.stat().st_dev==device and os.statvfs(checkout).f_fsid==fsid,
                         'registry ownership changed')
+                require(project == project_registry()
+                        and ((project/'jobs.json').exists()) == (project in routes),
+                        'project image keeper registry changed')
                 require(all(sealed_authority(p,ledgers[p],device,fsid)==authority for p in histories),
                         'sealed authority changed')
 
@@ -879,7 +935,8 @@ def sweep(checkout, only=None):
                     untouched['active or not authoritatively consumed']+=1
                 elif not run.is_dir():
                     untouched['retained terminal run metadata unavailable']+=1
-                elif (run/'build-tree-adoption.json').is_file() or row.get('retained_evidence'):
+                elif ('private_readback' in row or (run/'build-tree-adoption.json').is_file()
+                      or row.get('retained_evidence')):
                     candidates.append((run,row,route))
                 else:
                     untouched['owned tree has no accepted custody or legacy adoption']+=1
@@ -893,8 +950,13 @@ def sweep(checkout, only=None):
                     owner=private_directory(run.parent)
                     if only is None and len(candidates)>1:
                         advance_cursor(owner/'build-tree-retention-cursor.json',str(checkout),str(run))
-                    results.append(run_sweep(checkout,private_directory(run),row,route,authority,ledgers,
-                                             verify_routes,state_roots,operations,deadline))
+                    if 'private_readback' in row:
+                        results.append(private_readback_sweep(
+                            checkout, private_directory(run), row, route, authority, ledgers,
+                            verify_routes, operations, deadline))
+                    else:
+                        results.append(run_sweep(checkout,private_directory(run),row,route,authority,ledgers,
+                                                 verify_routes,state_roots,operations,deadline))
                 except HOLD_ERRORS as error:
                     results.append(dict(run=str(run),status='held',reason=str(error)))
             remaining=len(candidates)-attempted
@@ -916,12 +978,29 @@ def sweep(checkout, only=None):
                 verified_unlinked_bytes=verified)
 
 
+def keeper_report(checkout, migration=None):
+    checkout = path(str(checkout))
+    natural, alternate, _ = registry_routes(checkout)
+    project = project_registry()
+    routes = {route for route in (natural, project, *alternate) if (route/'jobs.json').is_file()}
+    for route in alternate:
+        ledger, _ = json_file(route/'jobs.json')
+        if ledger['schema'] == 2:
+            routes.add(path(ledger['tree_retirement_bridge']['canonical_registry']))
+    with ExitStack() as stack:
+        ledgers = {route: stack.enter_context(locked_registry(route)) for route in sorted(routes)}
+        return select_os_keeper(ledgers, checkout.stat().st_dev, migration)
+
+
 def main():
     parser=argparse.ArgumentParser(description=__doc__)
     commands=parser.add_subparsers(dest='command',required=True)
     normal=commands.add_parser('sweep')
     normal.add_argument('--checkout',required=True,type=Path)
     normal.add_argument('--run',type=Path)
+    keeper = commands.add_parser('keeper')
+    keeper.add_argument('--checkout',required=True,type=Path)
+    keeper.add_argument('--migration',type=Path,help='read-only check of exact migration operands')
     bridge=commands.add_parser('seal-legacy')
     bridge.add_argument('--checkout',required=True,type=Path)
     bridge.add_argument('--legacy-caller',required=True,type=Path)
@@ -940,6 +1019,8 @@ def main():
     try:
         if args.command=='sweep':
             report=sweep(args.checkout,args.run)
+        elif args.command=='keeper':
+            report=keeper_report(args.checkout,args.migration)
         elif args.command=='seal-legacy':
             report=seal_legacy(args.checkout,args.legacy_caller,args.original_sha256)
         else:

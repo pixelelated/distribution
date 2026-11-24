@@ -554,5 +554,52 @@ class PrebuildTests(unittest.TestCase):
         self.assertTrue(leaf.is_file())
 
 
+class FullCollectionTests(unittest.TestCase):
+    def test_full_pass_uses_rank_skips_hold_and_leaves_rotation_cursor(self):
+        module = runpy.run_path(str(HERE/CYCLE))
+        full = module['full_sweep']
+        g = full.__globals__
+        with tempfile.TemporaryDirectory() as folder:
+            root = Path(folder)
+            settings = root/'settings.json'
+            cursor = settings.with_name('build-retention.cursor')
+            cursor.write_text('"old"\n')
+            owners = [root/str(i) for i in range(6)]
+            for p in owners: p.mkdir(mode=0o700)
+            loose = owners[3]/'disposable'
+            loose.write_bytes(b'A'*65536)
+            keeper = owners[3]/'firmware'
+            keeper.write_bytes(b'preserve')
+            allocated = loose.stat().st_blocks*512
+            visited = []
+            def observe(supplier, owner, run=None):
+                visited.append(owner)
+                if owner == owners[3] and loose.is_file():
+                    loose.unlink()
+                    return 0,dict(status='retired',verified_unlinked_bytes=allocated)
+                return 1,dict(status='held',reason='protected input',verified_unlinked_bytes=0)
+            data={'checkouts':list(map(str,owners)),'held_routes':[],'runs':{},
+                  'image_selection':dict(status='none',keeper=None)}
+            hints={owners[5]/'build.big':dict(allocated_bytes=900),owners[3]/'build.small':dict(allocated_bytes=600)}
+            def available(*_): return 100 if loose.exists() else 100+allocated
+            with patch.dict(g,dict(discovery=lambda *a,**kw:data, retained_hints=lambda *a:hints,
+                                    engine_observation=observe,available_on=available)):
+                report,rc=full(root,settings)
+                self.assertEqual((report['visited_checkouts'],rc),(6,1))
+                self.assertEqual(visited[:2],[owners[5],owners[3]])
+                self.assertEqual(len(report['ranked_paths']),2)
+                self.assertEqual(report['measured_reclaimed_bytes'],allocated)
+                self.assertEqual(keeper.read_bytes(),b'preserve')
+                self.assertEqual(cursor.read_text(),'"old"\n')
+                visited.clear()
+                report,rc=full(root,settings,100)
+                self.assertEqual((visited,rc,report['status']),([],0,'target-met'))
+                with (root/'build-retention.lock').open('rb') as held:
+                    import fcntl
+                    fcntl.flock(held,fcntl.LOCK_EX)
+                    report,rc=full(root,settings)
+                self.assertEqual((rc,report['reason']),(1,'checkout sweep already active'))
+
+
 if __name__ == '__main__':
     unittest.main(verbosity=2)

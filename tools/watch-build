@@ -161,7 +161,7 @@ def main():
     code = 125
     try:
         if not args.record_only:
-            guard.admit(receipt, root, run, environment, docker=args.docker)
+            guard.admit(receipt, root, run, environment, docker=args.docker, image_receipts=True)
         child = subprocess.Popen(command, env=environment, stdout=subprocess.PIPE,
                                  stderr=subprocess.STDOUT, start_new_session=True,
                                  preexec_fn=lambda: os.umask(build_umask))
