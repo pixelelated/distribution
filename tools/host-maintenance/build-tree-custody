@@ -2,6 +2,7 @@
 # SPDX-License-Identifier: GPL-2.0-or-later
 """Compile immutable retirement custody from one already accepted build proof."""
 import argparse
+from contextlib import contextmanager
 import ctypes
 import errno
 import hashlib
@@ -10,6 +11,7 @@ import os
 from pathlib import Path
 import re
 import stat
+import subprocess
 import tempfile
 import time
 
@@ -21,7 +23,7 @@ MAX_DEPTH = 48
 SNAPSHOT = 'build-tree-custody'
 OPEN = os.O_NOFOLLOW | os.O_NONBLOCK | os.O_CLOEXEC
 FIELDS = ('roots', 'reference_roots', 'reference_stores', 'registry_state_roots')
-MARKERS = {'.git', '.gitmodules'}
+MARKERS = {'.git', '.gitmodules', '.hg', '.svn', '.bzr'}
 
 
 def require(ok, reason):
@@ -74,6 +76,74 @@ def directory(p, device=None, expected=None):
             and not s.st_mode & 0o022 and (device is None or s.st_dev == device)
             and (expected is None or actual == expected), 'custody directory identity or ownership changed')
     return actual
+
+
+def profile_member(root, member):
+    rel = member.relative_to(root)
+    require(len(rel.parts) <= MAX_DEPTH and not MARKERS.intersection(rel.parts),
+            'embedded repository or excessive profile nesting: '+str(member))
+    require(not rel.parts or rel.parts[0] not in {'sources', 'source', 'target', 'release', 'evidence', 'storage'},
+            'possible unique source, result or firmware directory: '+str(member))
+    require(not member.name.endswith(('.img', '.img.gz', '.qcow2', '.vhdx')),
+            'firmware or disk payload needs separate custody: '+str(member))
+
+
+def local_profile_mounts(root):
+    # A same-device bind also has a distinct mountinfo record.
+    with Path('/proc/self/mountinfo').open('rb') as mounts:
+        raw = mounts.read(4 * 1024**2 + 1)
+    require(len(raw) <= 4 * 1024**2, 'local mount view exceeds whole-profile bound')
+    for line in raw.splitlines():
+        mount = Path(os.fsdecode(re.sub(rb'\\([0-7]{3})',
+                    lambda m: bytes([int(m[1], 8)]), line.split()[4])))
+        require(not mount.is_relative_to(root), 'mount inside the whole profile: '+str(mount))
+
+
+def no_acl(fd):
+    require(not {'system.posix_acl_access', 'system.posix_acl_default'}.intersection(os.listxattr(fd)),
+            'explicit access or default ACL blocks whole-profile custody')
+
+
+def whole_private(checkout, operand, device):
+    shape(operand, ('path', 'identity'), 'whole profile needs an explicit private root')
+    anchor = canonical(operand['path'])
+    require(checkout.is_relative_to(anchor), 'checkout is outside its declared private root')
+    chain = (anchor, *(p for p in reversed(checkout.parents) if p != anchor and p.is_relative_to(anchor)))
+    if checkout != anchor:
+        chain += (checkout,)
+    result = {}
+    for folder in chain:
+        with opened_dir(folder) as fd:
+            info = os.fstat(fd)
+            expected = dir_id(info)
+            require(directory(folder, device, expected) == expected
+                    and (info.st_mode & 0o700) == 0o700, 'whole-profile ancestor is not privately writable')
+            no_acl(fd)
+            if folder == anchor:
+                require(expected == operand['identity'] and not info.st_mode & 0o077,
+                        'whole-profile private root identity or mode changed')
+            result[folder] = expected
+    return result
+
+
+@contextmanager
+def opened_dir(folder):
+    fd = os.open(folder, os.O_RDONLY | os.O_DIRECTORY | OPEN)
+    try:
+        yield fd
+    finally:
+        os.close(fd)
+
+
+def link_observation(p):
+    canonical(str(p.parent))
+    before = p.lstat()
+    require(stat.S_ISLNK(before.st_mode) and before.st_uid == os.geteuid() and before.st_nlink == 1,
+            'unsafe or multiply linked symbolic link')
+    target = os.readlink(p)
+    identity = file_id(before)
+    require(file_id(p.lstat()) == identity, 'literal symbolic link changed')
+    return identity, target
 
 
 class Budget:
@@ -210,7 +280,7 @@ def root_operands(inputs, row):
     result = {}
     for entry in inputs['roots']:
         known = {'path', 'host_manifest_sha256'}
-        require(isinstance(entry, dict) and set(entry) in (known | {'catalog'}, known | {'keeper'})
+        require(isinstance(entry, dict) and set(entry) - {'whole_profile'} in (known | {'catalog'}, known | {'keeper'})
                 and digest_string(entry['host_manifest_sha256']), 'invalid generated scope or host enrollment digest')
         root = canonical(entry['path'])
         parents = [p for p in outputs if p.parent == checkout and p.name.startswith('build.')
@@ -218,6 +288,9 @@ def root_operands(inputs, row):
         require(len(parents) == 1 and not any(overlap(root, x) for x in result),
                 'generated scopes are unowned or overlap')
         require(not MARKERS.intersection(root.relative_to(parents[0]).parts), 'nested repository scope')
+        if 'whole_profile' in entry:
+            require(root == parents[0] and root.name != 'build.', 'whole profile must be an exact admitted build root')
+            whole_private(checkout, entry['whole_profile'], row['volume_device'])
         result[root] = (parents[0], entry)
     return result
 
@@ -263,7 +336,7 @@ def live_file(path, device):
     return file_id(s)
 
 
-def catalog_scope(budget, ref, run, row, binding, root, parent, accepted):
+def catalog_scope(budget, ref, run, row, binding, root, parent, accepted, *, whole=False):
     catalog_path = file_ref(ref)
     require(accepted.get(catalog_path) == ref, 'native catalog is not an accepted original')
     doc, digest = metadata(budget, catalog_path)
@@ -276,34 +349,42 @@ def catalog_scope(budget, ref, run, row, binding, root, parent, accepted):
     dirs, files = {}, {}
     device = row['volume_device']
     for key in ('directories', 'files'):
-        require(isinstance(doc[key], list) and 0 < len(doc[key]) <= MAX_ITEMS, 'empty or oversized native catalog')
+        minimum = 0 if whole and key == 'files' else 1
+        require(isinstance(doc[key], list) and minimum <= len(doc[key]) <= MAX_ITEMS, 'empty or oversized native catalog')
     for entry in doc['directories']:
         budget.tick(items=1)
         shape(entry, ('path','identity'), 'invalid catalog directory')
         p = relative(entry['path'], root)
         require(p not in dirs and not has_repo_marker(p)
-                and (p == root or p.is_relative_to(parent / 'build')), 'unexpected or duplicate catalog directory')
+                and (whole or p == root or p.is_relative_to(parent / 'build')), 'unexpected or duplicate catalog directory')
         dirs[p] = directory(p, device, entry['identity'])
     require(root in dirs and all(p == root or p.parent in dirs for p in dirs), 'incomplete catalog ancestry')
     for entry in doc['files']:
         budget.tick(items=1)
-        shape(entry, ('path','identity','sha256'), 'invalid catalog generated file')
+        literal = whole and 'target' in entry
+        shape(entry, ('path','identity','target' if literal else 'sha256'), 'invalid catalog generated file')
         p = relative(entry['path'], root)
-        require(p.parent in dirs and p not in files and p not in dirs and p.is_relative_to(parent / 'build')
-                and digest_string(entry['sha256']), 'unexpected or duplicate catalog file')
-        ident = live_file(p, device)
+        require(p.parent in dirs and p not in files and p not in dirs
+                and (whole or p.is_relative_to(parent / 'build')), 'unexpected or duplicate catalog file')
+        if literal:
+            ident, target = link_observation(p)
+            require(target == entry['target'] and ident['device'] == device, 'catalog literal symbolic link differs')
+            files[p] = dict(identity=ident, target=target)
+        else:
+            require(digest_string(entry['sha256']), 'catalog generated hash missing')
+            ident = live_file(p, device)
+            files[p] = dict(identity=ident)
         require(ident == entry['identity'], 'catalog file identity changed')
-        files[p] = ident
     return dirs, files, {}
 
 
-def keeper_scope(budget, spec, root, parent, device, remembered):
+def keeper_scope(budget, spec, root, parent, device, remembered, *, whole=False):
     shape(spec, ('path','identity'), 'invalid independent keeper')
     keep = canonical(spec['path'])
     directory(keep, expected=spec['identity'])
     require(not overlap(keep,parent), 'keeper is not independent of the declared output')
-    current = root / 'build' if root == parent else root
-    held = keep / 'build' if root == parent else keep
+    current = root / 'build' if root == parent and not whole else root
+    held = keep / 'build' if root == parent and not whole else keep
     require(current.is_dir() and held.is_dir(), 'selected generated working or keeper directory missing')
     dirs, files, keepers = {}, {}, {}
 
@@ -313,17 +394,29 @@ def keeper_scope(budget, spec, root, parent, device, remembered):
         directory(target, device)
         directory(peer)
         if has_repo_marker(target) or has_repo_marker(peer):
+            require(not whole, 'nested repository in whole profile or independent keeper')
             return
+        if whole:
+            dirs[target] = directory(target, device)
         with os.scandir(target) as entries:
             for entry in entries:
                 budget.tick(items=1)
                 a, b = Path(entry.path), peer / entry.name
-                if entry.name in MARKERS or entry.is_symlink():
+                if entry.name in MARKERS or entry.is_symlink() and not whole:
                     continue
                 try:
                     other = b.lstat()
                     before = entry.stat(follow_symlinks=False)
                 except FileNotFoundError:
+                    require(not whole, 'whole-profile member has no independent keeper: '+str(a))
+                    continue
+                if whole and stat.S_ISLNK(before.st_mode):
+                    left, target_text = link_observation(a)
+                    right, keeper_text = link_observation(b)
+                    require(left['device'] == device and target_text == keeper_text
+                            and not os.path.samestat(before, other), 'whole-profile literal symbolic link differs')
+                    files[a] = dict(identity=left, target=target_text)
+                    keepers[a] = dict(path=str(b), target=target_text)
                     continue
                 if stat.S_ISDIR(before.st_mode) and stat.S_ISDIR(other.st_mode):
                     walk(a,b,depth+1)
@@ -332,13 +425,15 @@ def keeper_scope(budget, spec, root, parent, device, remembered):
                         and before.st_dev == device and before.st_uid == os.geteuid() and before.st_nlink == 1
                         and other.st_nlink == 1 and before.st_mode == other.st_mode
                         and before.st_size == other.st_size and not os.path.samestat(before,other)):
+                    require(not whole, 'whole-profile member is special, shared or not independently kept: '+str(a))
                     continue
                 old, old_id, _ = budget.read(a)
                 copy, copy_id, _ = budget.read(b)
                 require(old_id == file_id(before) and copy_id == file_id(other)
                         and old_id == file_id(a.lstat()), 'candidate or keeper changed during comparison')
+                require(not whole or old == copy, 'whole-profile independent keeper bytes differ: '+str(a))
                 if old == copy:
-                    files[a] = old_id
+                    files[a] = dict(identity=old_id)
                     keepers[a] = {'path':str(b),'sha256':copy}
                     remembered[b] = (copy,copy_id)
                     for folder in (a.parent,*a.parent.parents):
@@ -347,7 +442,7 @@ def keeper_scope(budget, spec, root, parent, device, remembered):
                         dirs[folder] = directory(folder,device)
     check_chain(current, root, device)
     walk(current,held,0)
-    require(files, 'no independent same-relative generated file matches')
+    require(whole or files, 'no independent same-relative generated file matches')
     return dirs, files, keepers
 
 
@@ -358,16 +453,19 @@ def make_roots(budget, run, row, binding, operands, accepted, remembered):
         device = row['volume_device']
         host = directory(parent, device)
         check_chain(root,parent,device)
+        whole = 'whole_profile' in spec
         if 'catalog' in spec:
-            dirs, files, keepers = catalog_scope(budget,spec['catalog'],run,row,binding,root,parent,accepted)
+            dirs, files, keepers = catalog_scope(budget,spec['catalog'],run,row,binding,root,parent,accepted,whole=whole)
         else:
-            dirs, files, keepers = keeper_scope(budget,spec['keeper'],root,parent,device,remembered)
-        require(not any(overlap(file_ref(ref), r) for ref in keepers.values() for r in roots_only),
+            dirs, files, keepers = keeper_scope(budget,spec['keeper'],root,parent,device,remembered,whole=whole)
+        require(not any(overlap(Path(ref['path']), r) for ref in keepers.values() for r in roots_only),
                 'keeper overlaps another generated scope')
         kept_files.update({str(k):v for k,v in keepers.items()})
         record = dict(path=str(root), host_manifest_sha256=spec['host_manifest_sha256'],
                       directories=[dict(path=str(p),identity=v) for p,v in sorted(dirs.items())],
-                      files=[dict(path=str(p),identity=v) for p,v in sorted(files.items())])
+                      files=[dict(path=str(p),**v) for p,v in sorted(files.items())])
+        if whole:
+            record['whole_profile'] = spec['whole_profile']
         if root != parent:
             record['host_scope'] = dict(path=str(parent),identity=host)
         compiled.append(record)
@@ -433,6 +531,7 @@ def validate_saved(doc, binding, operands, refs):
         seen.add(root)
         parent, wanted = operands[root]
         require(spec['host_manifest_sha256'] == wanted['host_manifest_sha256']
+                and spec.get('whole_profile') == wanted.get('whole_profile')
                 and ((root == parent and 'host_scope' not in spec) or
                      (root != parent and spec['host_scope']['path'] == str(parent))),
                 'compiled host enrollment differs')
@@ -447,9 +546,17 @@ def validate_saved(doc, binding, operands, refs):
         keep = canonical(wanted['keeper']['path'])
         directory(keep, expected=wanted['keeper']['identity'])
         for item in spec['files']:
-            p = canonical(item['path'])
-            require(p.is_relative_to(root) and p.is_relative_to(parent/'build') and str(p) in kept
-                    and file_ref(kept[str(p)]) == keep / p.relative_to(root), 'compiled keeper scope differs')
+            literal = 'target' in item
+            p = Path(item['path']) if literal else canonical(item['path'])
+            require(str(p) == item['path'] and '..' not in p.parts and p.is_relative_to(root)
+                    and ('whole_profile' in wanted or p.is_relative_to(parent/'build'))
+                    and str(p) in kept, 'compiled keeper scope differs')
+            ref = kept[str(p)]
+            require(ref['path'] == str(keep / p.relative_to(root))
+                    and (not literal or ref == dict(path=ref['path'], target=item['target'])),
+                    'compiled keeper operand differs')
+            if not literal:
+                file_ref(ref)
             expected_keepers.add(str(p))
     require(set(kept) == expected_keepers, 'compiled keepers differ')
     return selected, kept
@@ -458,6 +565,8 @@ def validate_saved(doc, binding, operands, refs):
 def compiled_receipts(row, selected, keepers, source, delivered):
     combined = dict(source)
     for ref in keepers.values():
+        if 'target' in ref:
+            continue  # Literal keeper observations have no file contents to hash.
         path = file_ref(ref)
         require(combined.get(path,ref) == ref, 'conflicting independent keeper hashes')
         combined[path] = ref
@@ -512,7 +621,12 @@ def compile_config(run, row, proof, inputs):
     cached, _ = metadata(budget, final/'snapshot.json')
     selected, keepers = validate_saved(cached,binding,operands,refs)
     for ref in keepers.values():
-        check_evidence(budget,ref,remembered)
+        if 'target' in ref:
+            budget.tick(items=1)
+            _, target = link_observation(Path(ref['path']))
+            require(target == ref['target'], 'independent literal symbolic link changed')
+        else:
+            check_evidence(budget,ref,remembered)
     receipts = compiled_receipts(row,selected,keepers,source,delivered)
     references = {}
     for name, expected in receipts.items():
@@ -523,18 +637,111 @@ def compile_config(run, row, proof, inputs):
     return dict(schema=1,**selected,**references)
 
 
+def capture_profile(run, root, private_root, output):
+    """Collect an exact original-generation manifest before accepting retirement."""
+    run, root, private_root, output = map(canonical, map(str, (run, root, private_root, output)))
+    budget = Budget()
+    row, admitted_sha = metadata(budget,run/'admission.json')
+    receipt, receipt_sha = metadata(budget,run/'admission-input.json')
+    checkout = canonical(row['checkout'])
+    require(run == canonical(row['run']) and run.parent == checkout/'.build-runs'
+            and row['state'] == 'running' and row['id'] == receipt['id']
+            and receipt_sha == row['receipt_sha256']
+            and type(receipt['registry_generation']) is int, 'unverified original producer or registration')
+    device = row['volume_device']
+    result, _ = metadata(budget,run/'runner-result.json')
+    _, _, build_status = budget.read(run/'build.status',metadata=True,trusted=True)
+    _, _, build_rc = budget.read(run/'build.rc',metadata=True,trusted=True)
+    require(type(result['monitor_rc']) is int and result['monitor_rc'] == 0
+            and type(result['command_rc']) is int and type(result['runner_rc']) is int
+            and build_status.startswith(b'state:       finished\n') and int(build_rc) == result['command_rc'],
+            'whole-profile capture requires original terminal watcher results')
+    require(root.parent == checkout and root.name.startswith('build.') and root.name != 'build.'
+            and any(item['kind'] == 'build-cache' and item['path'] == str(root) for item in row['outputs'])
+            and not overlap(output, root), 'capture scope or destination outside admitted custody')
+    directory(output.parent)
+    operand = dict(path=str(private_root),identity=directory(private_root,device))
+    roots = whole_private(checkout,operand,device)
+    local_profile_mounts(root)
+    tracked = subprocess.run(['/usr/bin/git','--no-optional-locks','-C',str(checkout),
+                             'ls-files','-z','--',root.name], stdout=subprocess.PIPE,
+                             stderr=subprocess.PIPE,check=True,timeout=5)
+    require(not tracked.stdout, 'tracked source inside generated profile')
+    directories, files = [], []
+
+    def visit(folder):
+        budget.tick(items=1)
+        profile_member(root,folder)
+        require(not has_repo_marker(folder), 'embedded repository in generated profile')
+        with opened_dir(folder) as fd:
+            before = os.fstat(fd)
+            require(directory(folder,device) == dir_id(before) and before.st_mode & 0o700 == 0o700,
+                    'profile directory changed or is not owner-writable')
+            no_acl(fd)
+            directories.append(dict(path=str(folder.relative_to(root)),identity=dir_id(before)))
+            with os.scandir(fd) as entries:
+                for item in entries:
+                    budget.tick(items=1)
+                    member = folder/item.name
+                    profile_member(root,member)
+                    info = item.stat(follow_symlinks=False)
+                    if stat.S_ISDIR(info.st_mode):
+                        visit(member)
+                        continue
+                    if stat.S_ISLNK(info.st_mode):
+                        identity, target = link_observation(member)
+                        evidence = dict(target=target)
+                    else:
+                        identity = live_file(member,device)
+                        digest, observed, _ = budget.read(member)
+                        require(identity == observed, 'generated leaf changed during capture')
+                        evidence = dict(sha256=digest)
+                    require(identity == file_id(info) and identity['device'] == device,
+                            'generated leaf redirected during capture')
+                    files.append(dict(path=str(member.relative_to(root)),identity=identity,**evidence))
+            require(file_id(before) == file_id(os.fstat(fd)) == file_id(folder.lstat()),
+                    'generation changed while cataloguing')
+    visit(root)
+    require(roots == whole_private(checkout,operand,device), 'capture private boundary changed')
+    local_profile_mounts(root)
+    value = dict(schema=1,run=str(run),admission_id=row['id'],admission_sha256=admitted_sha,
+                 registry_generation=receipt['registry_generation'],root=str(root),
+                 directories=sorted(directories,key=lambda item:item['path']),
+                 files=sorted(files,key=lambda item:item['path']))
+    raw = encoded(value)
+    require(len(raw) <= MAX_META, 'whole-profile catalog exceeds metadata bound')
+    with tempfile.NamedTemporaryFile(dir=output.parent,prefix='.whole-profile-') as writer:
+        writer.write(raw)
+        writer.flush()
+        os.fsync(writer.fileno())
+        os.link(writer.name, output)  # Exclusive publication of complete bytes.
+    fsync_dir(output.parent)
+    return dict(status='captured',directories=len(directories),files=len(files),
+                catalog=dict(path=str(output),sha256=sha(raw)),whole_profile=operand)
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--run', type=Path, required=True)
-    parser.add_argument('--acceptance', type=Path, required=True)
+    mode = parser.add_mutually_exclusive_group(required=True)
+    mode.add_argument('--acceptance',type=Path)
+    mode.add_argument('--capture-profile',type=Path,help='capture one complete admitted build-cache')
+    parser.add_argument('--private-root',type=Path)
+    parser.add_argument('--catalog-output',type=Path)
     args = parser.parse_args()
     try:
+        if args.capture_profile is not None:
+            require(args.private_root is not None and args.catalog_output is not None,
+                    'capture requires a private root and an exclusive catalog output')
+            print(encoded(capture_profile(args.run,args.capture_profile,args.private_root,args.catalog_output)).decode())
+            return 0
+        require(args.private_root is None and args.catalog_output is None,'capture operands with acceptance')
         budget = Budget()
         row, _ = metadata(budget,canonical(args.run)/'admission-consumed.json')
         proof, digest = metadata(budget,canonical(args.acceptance))
         require(digest == row['evidence_sha256'], 'supplied acceptance is not the original')
         print(encoded(compile_config(args.run,row,proof,proof['build_tree_inputs'])).decode())
-    except (KeyError, TypeError, ValueError, OSError, RuntimeError) as error:
+    except (KeyError, TypeError, ValueError, OSError, RuntimeError, subprocess.SubprocessError) as error:
         print(json.dumps(dict(status='held',reason=str(error))),flush=True)
         return 2
     return 0
