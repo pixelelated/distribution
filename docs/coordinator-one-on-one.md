@@ -1,5 +1,17 @@
 # Max Coordinator one-on-one
 
+## When Max has to ask for the same outcome again
+
+Reopen the original request and check the production result that would satisfy it. Name the decision that let the first attempt stop early. Change the instruction or executable that made that decision, and replay the failing case against the change. The steward owns following the result through the OS coordination lane. A handoff stays open until the owner acts or identifies a dependency outside the project's authority.
+
+For build-drive cleanup, use these steps on every restart:
+
+1. Identify which build to keep across targets. Keep the in-flight OS build if one exists, otherwise the latest completed OS build. Record usable bytes on the build mount with `df -B1 /workspace`. For a request to clear old builds, also track which superseded build directories still exist. Reaching the next build's staging budget closes only a request for that amount of headroom.
+2. Use the installed `tools/host-maintenance/build-retention-cycle full` for on-demand collection. Credit a removal when the named production output is gone and the filesystem measurement supports the reported recovery. Record partial recovery and remaining directories separately. When reporting a hold, distinguish an observed consumer from a check that could not determine use.
+3. When a pass leaves the requested outcome unmet, use its existing report. In the same turn, take the largest authorized remaining group that can be released, or take the action that addresses the hold on that group. If every remaining route requires another owner, name the exact operation, who can perform it and how its result will unblock removal. Retry a held operation when its inputs, access or implementation change. The steward follows up with the owner. Max decides only an actual change of scope or a privilege only Max can grant.
+
+The November 24 regression case is a full pass over 53 checkout paths, zero recovered bytes, 51 ownership/permissions holds, and two legacy build-preparation holds. Enough room for the next staging step was already available. The correct disposition is **bulk cleanup still open**. A later run with only the keeper and its required inputs left can finish with zero bytes recovered. [Production sweep](qa-logs/2026-11-23-build-directory-retirement/physical-bulk/20261124-sm04-reader-batches/current-slot/FULL-ONE-BUILD.json) · [Reclaimed bytes and retained build](qa-logs/2026-11-23-build-directory-retirement/physical-bulk/20261124-sm04-reader-batches/current-slot/ROLLOUT.json).
+
 ## Start here for the November 23 one-on-one restart
 
 **Saved** 2026-11-23T19:38:54Z
