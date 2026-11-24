@@ -12,6 +12,8 @@ For build-drive cleanup, use these steps on every restart:
 
 The November 24 regression case is a full pass over 53 checkout paths, zero recovered bytes, 51 ownership/permissions holds, and two legacy build-preparation holds. Enough room for the next staging step was already available. The correct disposition is **bulk cleanup still open**. A later run with only the keeper and its required inputs left can finish with zero bytes recovered. [Production sweep](qa-logs/2026-11-23-build-directory-retirement/physical-bulk/20261124-sm04-reader-batches/current-slot/FULL-ONE-BUILD.json) · [Reclaimed bytes and retained build](qa-logs/2026-11-23-build-directory-retirement/physical-bulk/20261124-sm04-reader-batches/current-slot/ROLLOUT.json).
 
+All 51 checkout directories belonged to the build account. Group write permission on the checkout caused the engine to stop before inspecting the generated children. OS coordination used ccache's own eviction on 13 verified obsolete compiler caches. The production measurements credited 54,541,094,912 bytes and the drive reached 181.68 GB available. The canonical shared rule is D-INFRA-034 (`a08c784790`), and the full cleanup command (`f2ac58f3cd`) now distinguishes a missed cleanup goal, an already met capacity target and a completed backlog. For a similar hold, use the compiler-cache procedure in `tools/host-maintenance/build-retention-cycle.md` on `next` and check the remaining whole profiles separately. [Cache removal receipts](qa-logs/2026-11-23-build-directory-retirement/physical-bulk/20261124-sm04-reader-batches/current-slot/requested-cleanup/).
+
 ## Start here for the November 23 one-on-one restart
 
 **Saved** 2026-11-23T19:38:54Z
