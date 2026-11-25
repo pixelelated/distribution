@@ -2,23 +2,22 @@
 
 ## Start here
 
-Saved 2026-11-25T04:16Z on `feature/conflict-resolution` in the pixelelated distribution repository. Resume this file for the **OS work coordinator**, the sole dispatcher for M7. Since November 24 that role runs in **Claude Code on the latest Opus** (`claude-opus-5-5`) in Herdr pane `w4:p2`; session `b19c3b8c-1c4f-4a57-8765-0b8fe1f11ae9` (D-WORKFLOW-200). The one-on-one steward runs Claude Code on the latest Fable in `w4:pF` (session `2032b6b6-3946-42d0-ab2c-cfb5469deeea`); worker lanes run Codex on `gpt-6.2-sol`. The daily operations worktree is `/workspace/repos/rocknix.worktrees/conflict-resolution`; the primary checkout `/workspace/repos/rocknix` carries local `next`. pixelelated builds an immutable Linux gaming OS. This worktree's rules lag `next`: read them with `git show next:<path>` (`AGENTS.md`, `.claude/rules/worktrees.md`, `.claude/rules/device-builds.md`, `.claude/skills/build-cleanup/SKILL.md`).
+Saved 2026-11-25T05:27Z on `feature/conflict-resolution` in the pixelelated distribution repository. Resume this file for the **OS work coordinator**, the sole dispatcher for M7. Since November 24 that role runs in **Claude Code on the latest Opus** (`claude-opus-5-5`) in Herdr pane `w4:p2`; session `b19c3b8c-1c4f-4a57-8765-0b8fe1f11ae9` (D-WORKFLOW-200). The one-on-one steward runs Claude Code on the latest Fable in `w4:pF` (session `2032b6b6-3946-42d0-ab2c-cfb5469deeea`); worker lanes run Codex on `gpt-6.2-sol`. The daily operations worktree is `/workspace/repos/rocknix.worktrees/conflict-resolution`; the primary checkout `/workspace/repos/rocknix` carries local `next`. pixelelated builds an immutable Linux gaming OS. This worktree's rules lag `next`: read them with `git show next:<path>` (`AGENTS.md`, `.claude/rules/worktrees.md`, `.claude/rules/device-builds.md`, `.claude/skills/build-cleanup/SKILL.md`).
 
 Read the [M7 milestone](https://github.com/pixelelated/distribution/milestone/7) (body updated 12:29Z), [#555](https://github.com/pixelelated/distribution/issues/555) (build qualification; 12:30Z comment), [#1441](https://github.com/pixelelated/distribution/issues/1441) (the H700 recipe failure) and [#1442](https://github.com/pixelelated/distribution/issues/1442) (the two-ABI admission refusal). Decisions made this session, all on local `next`: D-INFRA-035 to D-INFRA-043 and D-WORKFLOW-200. Also read [#1448](https://github.com/pixelelated/distribution/issues/1448) (the SM8550 fex-emu stop).
 
 ## Current focus
 
-**00. Newer (2026-11-25T04:16Z).**
-- **H700 of `0a3e979e50` is running: the set's last image.**
-  - Started 02:04:06Z as run `20261125T020406Z-f7a619db` in `/workspace/repos/rocknix.worktrees/m7-h700-0a3e979e-20261125` (branch `build/m7-h700-0a3e979e-20261125`), with owner `conflict-resolution/.build-runs/m7-h700-0a3e979e-owner-20261125/`.
-  - Watcher 3012000, job 3011996, `make` 3012100, launcher 3011991.
-  - The memory log is the owner's `memory-watch.log`.
-  - Consume it like PC: `build.rc`, `runner-result.json`, `submit-01/launcher-result.json`, `tool-wrapper.rc`, process cleanup, the identity file, `os-release` and the hashes. Write `ACCEPTANCE.json`.
-  - Then run `tools/rc-preflight --only build-set --build-set <SM8550 target> --build-set <PC target> --build-set <H700 target>` and quote it on #555.
-- **PC of `0a3e979e50` is accepted** (`m7-pc-0a3e979e-owner-20261124/ACCEPTANCE.json`, #555).
-  - Its root was removed (+128.4 GB).
-  - Kept: `m7-pc-0a3e979e-20261124/target/` and `kept/emulationstation-m7-20261110-0d852e5d1106/emulationstation`.
-  - The `ee74f157` PC `target/` is a named keep item whose release event ("the PC image of the set's final head exists") holds once H700 confirms the head. Remove it then.
+**00. Newer (2026-11-25T05:27Z).**
+- **The M7 build set is built and passes on one commit (D-INFRA-043).** `tools/rc-preflight --only build-set` PASS at 05:20:42Z: SM8550, GENERIC_X64 and H700 all `0a3e979e50`. Quoted on #555 (`issuecomment-7153693555`); #1449's "The M7 set passes" checkbox ticked.
+  - **H700 accepted:** run `20261125T020406Z-f7a619db` (02:04:06Z to 05:18:02Z), all result channels 0, owners exited, DDR3 `b4ff5ad3…`, DDR4 `7ae4d351…`, tar `cb705521…`. Record `m7-h700-0a3e979e-owner-20261125/ACCEPTANCE.json` and `RC-PREFLIGHT-build-set.txt`.
+  - H700 roots removed at 05:23Z (+147.10 GB, `REMOVAL-build-roots.json`). Kept: `m7-h700-0a3e979e-20261125/target/` and `kept/emulationstation-m7-20261110-0d852e5d1106/emulationstation` (`62b84880…`). Logs compacted to `.zst`, the PC console log included.
+  - The `ee74f157` PC worktree is gone (+7.90 GB, 05:25Z); its records are in `conflict-resolution/.build-runs/m7-pc-ee74f157-records-20261124/`.
+- **The PC VM checks run in pB (`w4:pB`), observed working from 05:26:31Z.**
+  - Dispatch: `/workspace/tmp/rocknix-session/dispatch-pB-pcqual-0a3e979e.txt`.
+  - The checks: (1) a clean first boot; (2a) an upgrade from `672a7c995f`; (2b) an upgrade from `d7ca912480ea`; (3) the Smart mGBA default.
+  - A harness waiter (`b42w51fwu`) watches pB's status while this session is connected.
+  - On pB's RESULT.json: release the November 5 folder (`/workspace/tmp/pix-m7-029-spa-final-boot-root-20261105`) and the keeper's `boot-output`, both named keep items released by "the PC upgrade check on the PC image of the set's final head passes". Then H700 and SM8550 qualification; no handheld action without Max's per-action yes.
 - **CI is back (#1446 closed).** Max re-enabled workflows at about 02:58Z. The first runs on `next` (`d5d8e07350`) were the wordlist check in 53 s, green (`45537101984`), and the record checks (`45537101977`), red only for the audit and futro owed. `tools/ci-silence-check` passes live.
   - #1441 is closed. #1450 waits only on criterion 4, the daily timer, which needs #1451.
   - Branches that have not merged `next` keep the old four-minute scan; the one-line fix is on #1446. The M6 lane is not messaged.
