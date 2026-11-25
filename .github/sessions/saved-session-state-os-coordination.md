@@ -93,11 +93,11 @@ Read the [M7 milestone](https://github.com/pixelelated/distribution/milestone/7)
               - **Fix in the candidate, bound to its image bytes:** #607/#608/#610 (Steam installer `162e4272…`), #618 and #629. The binding notes are on each issue.
               - **Two guest sessions cover most of the rest:** a GENERIC guest with the Steam overlay (#607, #610), and the candidate's PC image (#618, #629, #609, #1427).
               - **#608's ticks wait for its records on `next` (#1458).**
-            - **Next:** read #1115 and #1111 against the candidate (#1111 against D-CLOUD-175/178/179); then item 2.
+            - **14:30Z: item 1 done.** #1115's fix is in the candidate. #1111's work is in it in a later form, with 25 criteria open and a plan needed (#555 `7165375768`).
+         2. **Done 14:33Z: the unplaced bugs by origin** (#555 `7165449383`; `docs/qa-logs/2026-11-25-m7-bug-triage/origin-final.json`). 204 of 207 are M6 renovation findings. #1457, #1456 and #1012 were placed in M7.P5. Open bugs: 541, with **M7 17** and **M6 524** (320 under M6, 204 unplaced). #1012's accepted fix `af16f3391c` is unmerged on `origin/fix/m6-1012-ttp-runner`.
             - Note: `0a3e979e50` is not on `next`'s line (393 commits ahead), so the source round builds on the candidate's line.
             - **#1458 filed (14:16Z):** about 95,000 QA record files (2.1 GB) in ten worktrees are on no branch. Not started. Do not remove those worktrees before its inventory exists.
-         2. Classify the 205 unplaced bugs by origin.
-         3. Read the 14 behind and 8 unknown packages, one line each.
+         3. **Next (owner OS):** read the 14 behind and 8 unknown packages, one line each.
          4. Find the ES pin commit's history.
          5. Read the device facts by hand.
          6. Then the two questions for Max, queued behind the RG SP copy and the October images.

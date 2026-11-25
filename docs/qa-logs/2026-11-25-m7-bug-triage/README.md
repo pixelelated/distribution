@@ -33,3 +33,21 @@ candidate's page.
 timeline from October 25. It was written then but never committed; it sat
 untracked in the `m7-player-setup` worktree. It is carried here unchanged, and
 its `SHA256SUMS` verifies.
+
+## Where the unplaced bugs come from (item 2)
+
+`origin.py` reads each open, unplaced bug's body for the issue or audit that
+filed it: a phrase such as "found by" or "from", or else its first issue
+reference. It was run on `gh issue list --search "is:open label:bug
+no:milestone"` at about 14:31 UTC: 207 bugs, 124 matched by phrase, 82 by
+first reference, 1 with none. `origin-final.json` follows chained bugs to
+their root, and has one manual correction: #1392 is T38's (#685). Its pattern
+first matched #470. 204 come from M6's codebase renovation; #1457, #1456 and
+#1012 came from M7 work and were placed in M7.P5 the same hour. The table is
+on #555 (`7165449383`).
+
+## Untracked QA records (#1458)
+
+`untracked_qalogs.py` is the read-only count behind #1458.
+`untracked-qalogs-counts.json` holds its per-worktree totals without the
+folder lists.
