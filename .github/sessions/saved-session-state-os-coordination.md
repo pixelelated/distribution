@@ -51,7 +51,10 @@ Read the [M7 milestone](https://github.com/pixelelated/distribution/milestone/7)
   - Matched to the RG35XX SP's build: image `988c0ba5`, `CUSTOM_VERSION=0.0.1`, options `2cf98cb3`, ES `72494bc72e`.
   - Processes: job pid 2339622, `make` 2339651, `watch-job` 2339623. A harness waiter (task `brnquief0`) reports on `launcher-result.json` or job exit; it dies with the session.
   - Consume it from `submit-01/launcher-result.json`, `tool-wrapper.rc`, the run's `build.rc`, the identity file and the image hashes. Then remove the build root and keep the img.gz and tar as named keep items until #1455 passes.
-  - Criterion 3: second pass posted (`7161171907`). Open: save and save-state layouts from October 7.
+  - Criterion 3: the list is complete after the third pass (`7161615211`: save layouts, and the widened cloud rules that `cloud_sync_helper` merges on every backup). It stays open until the items are seeded or argued absent in the rehearsal.
+  - **Criterion 4, first run (owner OS, started 11:51:08Z):** `tools/vm-upgrade-rehearsal`, unchanged, with its own seeds (sha256 `894021ab…`), from `/workspace/tmp/rocknix-session/rehearsal-start-43d0bc3bf4/…img.gz` (a link to the keep item) to the candidate's PC tar, expecting `0a3e979e50`.
+    - Detached: console and rc in `/workspace/tmp/rocknix-session/rehearsal-43d0bc3bf4-to-0a3e979e50-01/`. Harness waiter `bq57mt5gg`. Its records are under `/workspace/artifacts/rocknix-images/qa-0a3e979e50-upgrade-from-43d0bc3bf4-*`.
+    - Then add criterion 3's seeds as a second run. Editing the tool waits for the first run's rc.
 - **The code audit (RC step 4) is blocked, not started.** Exact blockers:
   - step 3 is incomplete: #1455's rehearsal (above), RECORD.txt and the catalog;
   - step 0 fails on `0a3e979e50`: `bugs FAIL` with 542 open bugs without a disposition (full read; the tool alone shows 300), `packages CANNOT` (14 BEHIND and 8 UNKNOWN on the full freshness output, `FRESHNESS-full-20261125.txt`; the tool's message shows only its last line, #1456), and `base: emulationstation CANNOT` (the pin is a tarball tag).
