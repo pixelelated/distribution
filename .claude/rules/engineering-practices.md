@@ -34,7 +34,12 @@ the build-cleanup skill, named the lane running the command.
 - **A lane sends its question to the one-on-one, never to Max in its own tab.**
   This covers every question, decision or blocked command for Max. It includes
   a device action's per-action yes (D-QA-015) and a command the harness refused.
-  Send it with `herdr agent prompt` to the steward's pane. Write it to stand on
+  Send it with `herdr agent prompt` to the steward's pane, addressed by pane ID
+  once `herdr agent get <pane>` names the session the checkpoint pins. Never
+  send it by a messaging session name. On 2026-11-24 a refusal sent to a session
+  called "Max one-on-one coordinator" reached a different session and sat for
+  75 minutes (#1447). Receipt is the pane's status changing after the send, not
+  the send tool's confirmation. Write it to stand on
   its own: what stopped, what it means, the choice and your recommendation
   (D-WORKFLOW-190). Send stopped work there without being asked (D-WORKFLOW-187).
   Max reads that pane as conversation, so send only material content
