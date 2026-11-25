@@ -31,19 +31,25 @@ the build-cleanup skill, named the lane running the command.
   checkpoints in `.github/sessions/` name its pane and session. If he does write
   in another tab, his words stand. That lane passes them to the steward so the
   agenda holds them.
-- **A lane sends its question to the one-on-one, never to Max in its own tab.**
-  This covers every question, decision or blocked command for Max. It includes
-  a device action's per-action yes (D-QA-015) and a command the harness refused.
-  Send it with `herdr agent prompt` to the steward's pane, addressed by pane ID
-  once `herdr agent get <pane>` names the session the checkpoint pins. Never
-  send it by a messaging session name. On 2026-11-24 a refusal sent to a session
-  called "Max one-on-one coordinator" reached a different session and sat for
-  75 minutes (#1447). Receipt is the pane's status changing after the send, not
-  the send tool's confirmation. Write it to stand on
-  its own: what stopped, what it means, the choice and your recommendation
-  (D-WORKFLOW-190). Send stopped work there without being asked (D-WORKFLOW-187).
-  Max reads that pane as conversation, so send only material content
-  (D-WORKFLOW-194).
+- **A lane's question for Max goes to the steward's inbox: never to Max in its
+  own tab, and never into the one-on-one pane (D-WORKFLOW-205, #1453).** This
+  covers every question, decision or blocked command for Max. It includes a
+  device action's per-action yes (D-QA-015) and a command the harness refused.
+  Write it as one file in `/workspace/tmp/rocknix-session/steward-inbox/`
+  (mode 700, outside every tree), named `<UTC time>-<slug>.md`, for example
+  `20261125T0540Z-pc-checks.md`. Its first line is `NEEDS MAX`, `STOPPED WORK`
+  or `INFORMATION`. Write it to stand on its own in plain terms: what stopped,
+  what it means, the choice and your recommendation (D-WORKFLOW-190). Write
+  stopped work there without being asked (D-WORKFLOW-187). The steward reads
+  the folder at every turn and puts to Max, in its own words, only what he
+  needs. Nothing wakes a closed steward session, so a `NEEDS MAX` or
+  `STOPPED WORK` file also goes on its issue. No lane runs `herdr agent prompt`
+  on the one-on-one pane, messages the steward's session, or aims
+  `tools/coordinator-escalation` at it. Max, 2026-11-25, after two notices
+  arrived there as pasted text: *"there shouldn't be things coming from OS
+  Work Coordination into here. That should be in your own OS Work Coordination
+  tab. [...] it muddles the feed here when I'm seeing anything beyond our
+  one-on-one."* Until then this bullet said to prompt the pane by ID (#1447).
 - **The steward relays his exact words once, with their scope.** It records them
   in the one-on-one agenda, `docs/coordinator-one-on-one.md`, where the
   receiving lane can check the quotation. Until #1447 brings the agenda to
@@ -52,11 +58,11 @@ the build-cleanup skill, named the lane running the command.
 - **The receiving lane acts on the relay and reports the outcome** in its own
   record, which the steward reads. It does not ask Max to say it again.
 - **The harness's own review is a platform control, and a relay does not change
-  it.** No lane answers an approval dialog or works around a refusal. Send a
-  refused command to the one-on-one with exactly what it removes and what
-  stays. On Max's relayed answer, submit that same command again and nothing
-  broader. If the review refuses it again, send that refusal back to the
-  one-on-one unchanged.
+  it.** No lane answers an approval dialog or works around a refusal. Write a
+  refused command to the steward's inbox as a `NEEDS MAX` file, and on its
+  issue, with exactly what it removes and what stays. On Max's relayed answer,
+  submit that same command again and nothing broader. If the review refuses it
+  again, write that refusal to the inbox unchanged.
 
   On 2026-11-24 the OS lane ran in auto mode. Both of its refusals came back to
   the session as plain denials, with no dialog waiting in its pane. The review

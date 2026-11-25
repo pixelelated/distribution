@@ -60,7 +60,7 @@ The inventory shows the keep set and nothing else, and `df -B1 /workspace` was r
 7. **Measure again** and write one receipt: the paths removed and the bytes before and after.
 8. **Repeat** until the inventory is the keep set.
 
-A destructive command may be stopped by the harness's own review. That is a real boundary: no lane answers its dialog or works around it. Send the question to Max in the one-on-one, once, saying exactly what is removed and what stays, and never ask him in the lane's own tab (D-WORKFLOW-201, `engineering-practices.md` § "Max speaks in one place"). On his relayed yes, submit exactly that command again. If it is refused a second time, send that refusal back to the one-on-one unchanged.
+A destructive command may be stopped by the harness's own review. That is a real boundary: no lane answers its dialog or works around it. Write the question for Max once, as a `NEEDS MAX` file in the steward's inbox and on the issue, saying exactly what is removed and what stays. Never ask him in the lane's own tab, and never send it into the one-on-one pane (D-WORKFLOW-201, D-WORKFLOW-205, `engineering-practices.md` § "Max speaks in one place"). On his relayed yes, submit exactly that command again. If it is refused a second time, write that refusal to the inbox unchanged.
 
 ## When a pass holds
 
