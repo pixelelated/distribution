@@ -12,6 +12,7 @@
 #   tools/work-log-index            # print the index
 #   tools/work-log-index --write    # write docs/work-logs/INDEX.md
 #   tools/work-log-index --check    # exit 1 when INDEX.md is not what --write would produce
+#   tools/work-log-index --times A..B   # exit 1 when a commit adds a timed line ahead of itself
 #
 # Regenerate after appending an entry; the pre-push guard warns when a
 # work-log change is pushed without the index.
@@ -85,7 +86,55 @@ def render(days):
     return '\n'.join(out).rstrip('\n') + '\n'
 
 
+def times(rng):
+    """--times RANGE: a timed line a commit adds -- a work-log heading or a
+    friction-log line dated that commit's own UTC day -- may not carry a time
+    after the commit (2026-11-25: 23 lines were written ahead of the clock in
+    one day, by both coordinators; the time is taken from `date -u` in the
+    command that writes the line, and this is what catches it when it is not).
+    Exit 1 on a line ahead, 2 when git cannot answer."""
+    import subprocess
+
+    def git(*a):
+        r = subprocess.run(['git', '-C', ROOT] + list(a), capture_output=True, text=True)
+        if r.returncode != 0:
+            print('work-log-index --times: cannot run: git %s: %s' % (' '.join(a), r.stderr.strip()))
+            sys.exit(2)
+        return r.stdout
+    head = re.compile(r'^\+## (\d\d:\d\d) UTC')
+    fric = re.compile(r'^\+- (\d{4}-\d\d-\d\d) (\d\d:\d\d) UTC --')
+    path = re.compile(r'^\+\+\+ b/(.*)$')
+    ahead = 0
+    for c in git('rev-list', '--reverse', rng).split():
+        when = datetime.datetime.fromtimestamp(int(git('show', '-s', '--format=%ct', c)), datetime.timezone.utc)
+        day, hm = when.strftime('%Y-%m-%d'), when.strftime('%H:%M')
+        cur = None
+        for line in git('show', '--format=', '--unified=0', c, '--', 'docs/work-logs', 'docs/friction-log.md').splitlines():
+            m = path.match(line)
+            if m:
+                cur = m.group(1)
+                continue
+            if not cur:
+                continue
+            m = head.match(line)
+            if m and cur.endswith('-work_log.md') and os.path.basename(cur)[:10].replace('_', '-') == day and m.group(1) > hm:
+                ahead += 1
+                print('AHEAD %s %s: heading says %s UTC, committed %s UTC' % (c[:10], cur, m.group(1), hm))
+            m = fric.match(line)
+            if m and m.group(1) == day and m.group(2) > hm:
+                ahead += 1
+                print('AHEAD %s %s: line says %s UTC, committed %s UTC' % (c[:10], cur, m.group(2), hm))
+    print('work-log-index --times: %s -- %d line(s) ahead of their commit' % ('FAIL' if ahead else 'PASS', ahead))
+    return 1 if ahead else 0
+
+
 def main():
+    if '--times' in sys.argv:
+        i = sys.argv.index('--times')
+        if i + 1 >= len(sys.argv):
+            print('work-log-index --times: cannot run: a commit range is required')
+            return 2
+        return times(sys.argv[i + 1])
     text = render(entries())
     if '--write' in sys.argv:
         open(OUT, 'w', encoding='utf-8').write(text)

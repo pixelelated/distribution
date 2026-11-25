@@ -338,6 +338,21 @@ while read -r local_ref local_sha remote_ref remote_sha; do
        && ! git diff --name-only "$range" -- 'docs/work-logs/INDEX.md' 2>/dev/null | grep -q .; then
       echo "⚠ pre-push: this push changes work logs without docs/work-logs/INDEX.md -- run tools/work-log-index --write and amend." >&2
     fi
+    # A timed line written ahead of the clock is a claim about when, made
+    # without looking (2026-11-25: 23 such lines in one day). The pushed
+    # commits' added work-log headings and friction lines are checked against
+    # each commit's own time; a check that cannot run refuses.
+    if [ "$whole" = 0 ]; then
+      if ! times_out="$("$hooks_root/tools/work-log-index" --times "$range" 2>&1)"; then
+        {
+          echo "✗ pre-push: refusing to push next: a timed line is ahead of its commit, or the check could not run."
+          printf '%s\n' "$times_out" | sed 's/^/    /'
+          echo "  Take the time from \`date -u\` in the command that writes the line, correct the line, then push again."
+        } >&2
+        status=1
+        continue
+      fi
+    fi
     if [ ! -x "$hooks_root/tools/ceremony-check" ]; then
       # A gate that cannot run has not passed (engineering-practices.md).
       echo "✗ pre-push: refusing to push next: $hooks_root/tools/ceremony-check is missing or not executable, so the ceremony gate cannot run." >&2

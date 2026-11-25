@@ -1,6 +1,6 @@
 # M6's bugs for the M7 call: the list behind the question (2026-11-25, OS coordinator)
 
-Made before the question goes to Max, at the steward's request. Read 2026-11-25 ~17:15 UTC from the tracker:
+Made before the question goes to Max, at the steward's request. Read 2026-11-25 at 17:00 UTC from the tracker:
 540 open `bug` issues; 320 under M6, 204 with no milestone (the 524), 16 under M7.
 
 **Method, and its limits.** Shipped or not: by the paths each body cites (about 407 of the 524 cite code
