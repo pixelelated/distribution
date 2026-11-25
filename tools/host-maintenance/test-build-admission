@@ -49,13 +49,21 @@ with tempfile.TemporaryDirectory(prefix='pix493-admission-') as tmp:
     def runlog(d):
         logs=sorted((d/'.build-runs').glob('*/build.log'))
         return logs[-1].read_text(errors='replace') if logs else ''
-    d,m,p,r,e=fixture('two-abi-unset',configure=two);jobs=(m.registry_for(d)/'jobs.json').read_bytes();a=run(d,e);log=runlog(d)
-    check(a.returncode!=0 and not (d/'compiler-started').exists() and 'export one admitted profile' in log
-          and 'PROJECT=ROCKNIX DEVICE=H700 ARCH=aarch64' in log and (m.registry_for(d)/'jobs.json').read_bytes()==jobs
-          and not list((d/'.build-runs').glob('*/admission.json')),
-          'two-profile admission with no profile exported is refused at launch, naming what to export (#1442)')
-    d,m,p,r,e=fixture('two-abi-exported',configure=two);a=run(d,dict(e,PROJECT='ROCKNIX',DEVICE='H700',ARCH='aarch64'))
-    check(a.returncode==0 and (d/'compiler-started').exists(),'two-profile admission starts with one admitted profile exported (#1442)')
+    def admitted(d,m,r,env,docker):
+        run_=d/'.build-runs'/('admit-docker' if docker else 'admit-native');run_.mkdir(parents=True)
+        try:m.admit(r,d,run_,env,docker=docker);return True,'',run_
+        except ValueError as error:return False,str(error),run_
+    d,m,p,r,e=fixture('two-abi-docker-unset',configure=two);jobs=(m.registry_for(d)/'jobs.json').read_bytes()
+    ok,why,run_=admitted(d,m,r,dict(e),True)
+    check(not ok and 'export one admitted profile' in why and 'PROJECT=ROCKNIX DEVICE=H700 ARCH=aarch64' in why
+          and (m.registry_for(d)/'jobs.json').read_bytes()==jobs and not (run_/'admission.json').exists(),
+          'Docker launch of a two-profile admission with no profile exported is refused at admit, naming what to export (#1442)')
+    d,m,p,r,e=fixture('two-abi-docker-exported',configure=two)
+    ok,why,run_=admitted(d,m,r,dict(e,PROJECT='ROCKNIX',DEVICE='H700',ARCH='aarch64'),True)
+    check(ok,'Docker launch of a two-profile admission with one admitted profile exported is admitted (#1442) '+why)
+    d,m,p,r,e=fixture('two-abi-native-unset',configure=two)
+    ok,why,run_=admitted(d,m,r,dict(e),False)
+    check(ok,'native launch of a two-profile admission needs nothing exported: each pass sets its profile (#1442) '+why)
     d,m,p,r,e=fixture('two-abi-outside',configure=two);a=run(d,dict(e,PROJECT='ROCKNIX',DEVICE='SM8550',ARCH='aarch64'))
     check(a.returncode!=0 and not (d/'compiler-started').exists() and 'build profile is outside admission' in runlog(d),
           'a profile outside a two-profile admission is refused at launch (#1442)')

@@ -7,3 +7,16 @@ PASS nested entry accepts an admitted profile of a two-profile admission (#1442)
 PASS nested entry still refuses a profile outside the admission (#1442)
 ## the same test against the unfixed build-admission (efa76a2400), in a throwaway worktree
 AssertionError: two-profile admission with no profile exported is refused at launch, naming what to export (#1442)
+
+## Correction, 15:51 UTC: the refusal is Docker-only (553e0f9850 broke CI's native dual-ABI case, run 45648370288)
+PASS Docker launch of a two-profile admission with no profile exported is refused at admit, naming what to export (#1442)
+PASS Docker launch of a two-profile admission with one admitted profile exported is admitted (#1442) 
+PASS native launch of a two-profile admission needs nothing exported: each pass sets its profile (#1442) 
+PASS a profile outside a two-profile admission is refused at launch (#1442)
+PASS nested entry accepts an admitted profile of a two-profile admission (#1442)
+PASS nested entry still refuses a profile outside the admission (#1442)
+test-build-admission: 98 checks PASS
+PASS: native dual-ABI target shares one admitted run
+test-build-monitor: rc 0
+unfixed tool (efa76a2400) with this test:
+AssertionError: Docker launch of a two-profile admission with no profile exported is refused at admit, naming what to export (#1442)
