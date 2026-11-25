@@ -380,7 +380,10 @@ def check_bugs(r, acc):
 # that day predate it; #280's missing answer is #288.
 ALREADY_WRITTEN_SINCE = "2026-09-26T02:45:00Z"
 CODE_TRACE_RE = re.compile(r"^\s*(?:#+\s*|\*\*|[-*]\s*)?code trace\b", re.I | re.M)
-ALREADY_WRITTEN_RE = re.compile(r"^\s*(?:[-*]\s*)?(?:\*\*)?already written(?:\*\*)?\s*[:.]", re.I | re.M)
+# A numbered item ("6. **Already written:**") counts too: three traces on
+# 2026-11-25 wrote it that way and read as missing, as #366 and #1154 had
+# that morning for other shapes (#555).
+ALREADY_WRITTEN_RE = re.compile(r"^\s*(?:(?:[-*]|\d+[.)])\s*)?(?:\*\*)?already written(?:\*\*)?\s*[:.]", re.I | re.M)
 
 
 def issue_text(number):
