@@ -2,22 +2,22 @@
 
 ## Start here
 
-Saved 2026-11-25T05:27Z on `feature/conflict-resolution` in the pixelelated distribution repository. Resume this file for the **OS work coordinator**, the sole dispatcher for M7. Since November 24 that role runs in **Claude Code on the latest Opus** (`claude-opus-5-5`) in Herdr pane `w4:p2`; session `b19c3b8c-1c4f-4a57-8765-0b8fe1f11ae9` (D-WORKFLOW-200). The one-on-one steward runs Claude Code on the latest Fable in `w4:pF` (session `2032b6b6-3946-42d0-ab2c-cfb5469deeea`); worker lanes run Codex on `gpt-6.2-sol`. The daily operations worktree is `/workspace/repos/rocknix.worktrees/conflict-resolution`; the primary checkout `/workspace/repos/rocknix` carries local `next`. pixelelated builds an immutable Linux gaming OS. This worktree's rules lag `next`: read them with `git show next:<path>` (`AGENTS.md`, `.claude/rules/worktrees.md`, `.claude/rules/device-builds.md`, `.claude/skills/build-cleanup/SKILL.md`).
+Saved 2026-11-25T06:09Z on `feature/conflict-resolution` in the pixelelated distribution repository. Resume this file for the **OS work coordinator**, the sole dispatcher for M7. Since November 24 that role runs in **Claude Code on the latest Opus** (`claude-opus-5-5`) in Herdr pane `w4:p2`; session `b19c3b8c-1c4f-4a57-8765-0b8fe1f11ae9` (D-WORKFLOW-200). The one-on-one steward runs Claude Code on the latest Fable in `w4:pF` (session `2032b6b6-3946-42d0-ab2c-cfb5469deeea`); worker lanes run Codex on `gpt-6.2-sol`. The daily operations worktree is `/workspace/repos/rocknix.worktrees/conflict-resolution`; the primary checkout `/workspace/repos/rocknix` carries local `next`. pixelelated builds an immutable Linux gaming OS. This worktree's rules lag `next`: read them with `git show next:<path>` (`AGENTS.md`, `.claude/rules/worktrees.md`, `.claude/rules/device-builds.md`, `.claude/skills/build-cleanup/SKILL.md`).
 
 Read the [M7 milestone](https://github.com/pixelelated/distribution/milestone/7) (body updated 12:29Z), [#555](https://github.com/pixelelated/distribution/issues/555) (build qualification; 12:30Z comment), [#1441](https://github.com/pixelelated/distribution/issues/1441) (the H700 recipe failure) and [#1442](https://github.com/pixelelated/distribution/issues/1442) (the two-ABI admission refusal). Decisions made this session, all on local `next`: D-INFRA-035 to D-INFRA-043 and D-WORKFLOW-200. Also read [#1448](https://github.com/pixelelated/distribution/issues/1448) (the SM8550 fex-emu stop).
 
 ## Current focus
 
-**00. Newer (2026-11-25T05:27Z).**
+**00. Newer (2026-11-25T06:09Z).**
 - **The M7 build set is built and passes on one commit (D-INFRA-043).** `tools/rc-preflight --only build-set` PASS at 05:20:42Z: SM8550, GENERIC_X64 and H700 all `0a3e979e50`. Quoted on #555 (`issuecomment-7153693555`); #1449's "The M7 set passes" checkbox ticked.
   - **H700 accepted:** run `20261125T020406Z-f7a619db` (02:04:06Z to 05:18:02Z), all result channels 0, owners exited, DDR3 `b4ff5ad3…`, DDR4 `7ae4d351…`, tar `cb705521…`. Record `m7-h700-0a3e979e-owner-20261125/ACCEPTANCE.json` and `RC-PREFLIGHT-build-set.txt`.
   - H700 roots removed at 05:23Z (+147.10 GB, `REMOVAL-build-roots.json`). Kept: `m7-h700-0a3e979e-20261125/target/` and `kept/emulationstation-m7-20261110-0d852e5d1106/emulationstation` (`62b84880…`). Logs compacted to `.zst`, the PC console log included.
   - The `ee74f157` PC worktree is gone (+7.90 GB, 05:25Z); its records are in `conflict-resolution/.build-runs/m7-pc-ee74f157-records-20261124/`.
-- **The PC VM checks run in pB (`w4:pB`), observed working from 05:26:31Z.**
-  - Dispatch: `/workspace/tmp/rocknix-session/dispatch-pB-pcqual-0a3e979e.txt`.
-  - The checks: (1) a clean first boot; (2a) an upgrade from `672a7c995f`; (2b) an upgrade from `d7ca912480ea`; (3) the Smart mGBA default.
-  - A harness waiter (`b42w51fwu`) watches pB's status while this session is connected.
-  - On pB's RESULT.json: release the November 5 folder (`/workspace/tmp/pix-m7-029-spa-final-boot-root-20261105`) and the keeper's `boot-output`, both named keep items released by "the PC upgrade check on the PC image of the set's final head passes". Then H700 and SM8550 qualification; no handheld action without Max's per-action yes.
+- **The PC image of `0a3e979e50` passes its VM checks** (pB, `RESULT.json` sha256 `06283f88…`, manifest of 2,018 members verified; #555 `issuecomment-7154478975`). Checks 1 (294/294), 2a (from `672a7c995f`), 2b (from `d7ca912480ea`, the WebDAV leg on its third case) and 3 (Smart mGBA) PASS.
+  - The two upgrade-start images were released and removed at 06:06Z (+12.88 GB). `KEEP-named-items.json` now holds the 13-04 store and `root02` only.
+  - Nine small November 5 receipts were lost to a `find -size -1M` filter: `released-upgrade-starts/nov5-672a7c995f/LOST-RECEIPTS.md`; the lesson is in `engineering-practices.md`.
+  - Open checkboxes on #1423, #1427 and #1433 are to be read against pB's receipts before any tick.
+- **Next (this lane): the host-side readback of the H700 (DDR3, DDR4, tar) and SM8550 images**, in #555's acceptance shape: installed helpers, ES, proxy, rclone and version metadata, ARM handoff, no retired migration. Then the device steps, as one `NEEDS MAX` inbox file naming each action (D-QA-015, D-WORKFLOW-205).
 - **The shared Codex weekly allowance is 85% used, reset 2026-11-30T06:35:50Z.** Every Codex lane on the account draws on it, another project's included. Overnight, 12 of 14 points went while only that project's lanes ran. Read it from `~/.codex/sessions/**/rollout-*.jsonl` (`rate_limits.primary.used_percent`).
   - Order: no other M7 Codex dispatch until pB reports. The H700/SM8550 qualification preparation runs in this lane.
   - The steward has the finding (sent into `w4:pF` at 05:33:43Z, before D-WORKFLOW-205 stopped pane delivery). Only Max can add allowance.

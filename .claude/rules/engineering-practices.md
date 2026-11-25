@@ -575,6 +575,15 @@ for it.
 Two more shapes, the fourth and fifth instances of blindspot 22 (a probe
 that cannot report absence), promoted here on 2026-09-06:
 
+- **Two counts from the same filter cannot disagree.** A copy step checked
+  "copied equals found" passes when both are 0, so it needs a floor from
+  something the filter did not choose (the files the listing showed, more than
+  zero). On 2026-11-25 a keep-the-receipts step used `find -size -1M`, which
+  rounds every size up to whole MiB and matches only empty files. It copied 0 of
+  11 receipts, compared 0 with 0, and the folder went (#493). Give sizes in
+  bytes (`-size -1048576c`). `pgrep -x` compares the 15-character `comm`, so a
+  longer name such as `qemu-system-x86_64` never matches: the same script's
+  guest check was one that could not fire.
 - **A missing tool is a failing guard.** `comm … | wc -l` on the image's
   busybox — which has no `comm` — read 0, and 0 meant "nothing differs".
   A count built on a command that may not exist must fail loudly when it
