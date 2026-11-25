@@ -62,7 +62,7 @@ Read the [M7 milestone](https://github.com/pixelelated/distribution/milestone/7)
     - Then add criterion 3's seeds as a second run. Editing the tool waits for the first run's rc.
 - **The code audit (RC step 4) is blocked, not started.** Exact blockers:
   - step 3 is incomplete: #1455's rehearsal (above), RECORD.txt and the catalog;
-  - step 0 fails on `0a3e979e50`: `bugs FAIL` with 542 open bugs without a disposition (full read; the tool alone shows 300), `packages CANNOT` (14 BEHIND and 8 UNKNOWN on the full freshness output, `FRESHNESS-full-20261125.txt`; the tool's message shows only its last line, #1456), and `base: emulationstation CANNOT` (the pin is a tarball tag).
+  - step 0 fails on `0a3e979e50`: `bugs FAIL` with 542 open bugs without a disposition (full read; the tool alone shows 300), `packages CANNOT` (corrected 14:38Z: the candidate's own run shows 7 BEHIND, 6 PINNED and 2 UNKNOWN, `FRESHNESS-candidate-20261125.txt`; the morning's `FRESHNESS-full-20261125.txt` was `next`'s list, #1460; the tool's message shows only its last line, #1456), and `base: emulationstation CANNOT` (the pin is a tarball tag).
   - **Full step 0 (09:25Z): `CANNOT ANSWER`, rc 2** (#555 `7158351275`; `m7-pc-0a3e979e-owner-20261124/RC-PREFLIGHT-full-20261125.txt`).
     - **Read over the whole tracker at 11:06-11:15Z** (#555 `7160824879`; the 09:25 comment corrected). `box-check` and `rc-preflight` cap their lists at 300 (#941, #956: M6 bugs, M6's fix). A harness runs their own code with the limit raised and refuses short lists: `m7-pc-0a3e979e-owner-20261124/STEP0-FULLREAD-20261125/fullread.py`. Re-run it, not the bare tool, wherever step 0 is quoted, until #941 and #956 land.
       - **checkboxes PASS:** 949 issues, 2,324 open checkboxes, 0 fail.
@@ -77,7 +77,7 @@ Read the [M7 milestone](https://github.com/pixelelated/distribution/milestone/7)
        - **Step 0 left:**
          - bugs: 542, a scope question for Max;
          - ci: publication, Max's;
-         - packages: 14 BEHIND and 8 UNKNOWN (#555 `7161344224` lists them); bump in one source round, or a pin with a row;
+         - packages: **corrected 14:38Z.** The morning's "14 BEHIND and 8 UNKNOWN" were `next`'s rows (#1460). The candidate's own run (`FRESHNESS-candidate-20261125.txt`) reads 7 BEHIND, 6 PINNED and 2 UNKNOWN (#555 `7165597605`). Bump the six small ones in the source round; raofflineproxy needs a bump with `ra-offline-test`, or a pin with a row; spirv-headers needs only a `PKG_SITE`; AetherSX2 follows upstream (#1459);
          - ES base: the tarball tag;
          - device facts: by hand (#270).
        - **Futro done (11:40Z):** `docs/futros/2026-11-25-m7-rc-step0.md` (`325ec1e693`), summary on #555 `7161344224`. The milestone body now carries step 0 and the audit's blockers (read back 11:40Z). `0a3e979e50` is an engineering build qualified ahead of step 0; the release candidate is whatever head passes it.
@@ -97,7 +97,7 @@ Read the [M7 milestone](https://github.com/pixelelated/distribution/milestone/7)
          2. **Done 14:33Z: the unplaced bugs by origin** (#555 `7165449383`; `docs/qa-logs/2026-11-25-m7-bug-triage/origin-final.json`). 204 of 207 are M6 renovation findings. #1457, #1456 and #1012 were placed in M7.P5. Open bugs: 541, with **M7 17** and **M6 524** (320 under M6, 204 unplaced). #1012's accepted fix `af16f3391c` is unmerged on `origin/fix/m6-1012-ttp-runner`.
             - Note: `0a3e979e50` is not on `next`'s line (393 commits ahead), so the source round builds on the candidate's line.
             - **#1458 filed (14:16Z):** about 95,000 QA record files (2.1 GB) in ten worktrees are on no branch. Not started. Do not remove those worktrees before its inventory exists.
-         3. **Next (owner OS):** read the 14 behind and 8 unknown packages, one line each.
+         3. **Done 14:38Z: the packages, one line each** (#555 `7165597605`). The morning's list was `next`'s (#1460, filed). On the candidate: 7 behind, 6 pinned with reasons, and 2 unknown read by hand. #1459 filed: the SM8550 image ships AetherSX2's proprietary binary, which ROCKNIX withdrew over licensing; upstream's October 18 deletion was undone by a delete/modify merge. **Open M7 bugs: 19** (17 plus #1459 and #1460).
          4. Find the ES pin commit's history.
          5. Read the device facts by hand.
          6. Then the two questions for Max, queued behind the RG SP copy and the October images.
