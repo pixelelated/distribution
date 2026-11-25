@@ -98,9 +98,22 @@ Read the [M7 milestone](https://github.com/pixelelated/distribution/milestone/7)
             - Note: `0a3e979e50` is not on `next`'s line (393 commits ahead), so the source round builds on the candidate's line.
             - **#1458 filed (14:16Z):** about 95,000 QA record files (2.1 GB) in ten worktrees are on no branch. Not started. Do not remove those worktrees before its inventory exists.
          3. **Done 14:38Z: the packages, one line each** (#555 `7165597605`). The morning's list was `next`'s (#1460, filed). On the candidate: 7 behind, 6 pinned with reasons, and 2 unknown read by hand. #1459 filed: the SM8550 image ships AetherSX2's proprietary binary, which ROCKNIX withdrew over licensing; upstream's October 18 deletion was undone by a delete/modify merge. **Open M7 bugs: 19** (17 plus #1459 and #1460).
-         4. Find the ES pin commit's history.
-         5. Read the device facts by hand.
-         6. Then the two questions for Max, queued behind the RG SP copy and the October images.
+         4. **Done 14:42Z: the ES pin's history** (#555 `7165685123`). The pin is a computed tree, nearest commit `16dbac5211` plus 73 fork sources and the pugixml bundle. Its base is 20 commits behind ROCKNIX's ES master, including SM8550 hardware suspend. Fix in the source round: commit the tree over `16dbac5211`, then merge ROCKNIX's 20.
+         5. **Done 14:49Z: the device facts** (#555 `7165866109`).
+            - The central device log misses all October lane updates (**#1461**). **The RG35XX SP was at `bcc866f1` on 2026-10-25**, not `43d0bc3bf4`, and Max's manual install that day is unrecorded.
+            - #1455 criteria 2 and 4 are unticked. Do not run the step-5 plan or the rehearsal from `43d0bc3bf4` until criterion 1's read.
+            - The October-images NEEDS MAX was corrected in place: the `bcc866f1` H700 entry `71ff97b8…` is in the batch, with a keep option.
+            - `device-facts.md` boot rows updated. All three handhelds were offline at 14:43Z.
+         6. **Next (owner OS):** the questions for Max as NEEDS MAX notes, queued behind the RG SP copy and the October images:
+            - whether M6's 524 findings count at the M7 call (#555 `7165449383` has the groups);
+            - whether to publish the head (`0a3e979e50` is not on GitHub);
+            - mGBA Smart on updated handhelds (already written, `20261125T1415Z`).
+         7. **Then the source round on the candidate's line.** Contents:
+            - the upstream merge (246 commits; take upstream's AetherSX2, #1459; check for undone deletions);
+            - the six small bumps; the raofflineproxy decision; spirv-headers `PKG_SITE`;
+            - the ES commit plus ROCKNIX's 20; #1422's quirk arrives with the merge;
+            - the tool fixes #1456, #1460 and #1442;
+            - #1012's runner fix onto `next`.
        - **The restart questions must name the bootloader writes** (corrected #555 `7154797416` at 11:15Z):
          - RG SP (H700): the update rewrites the card's u-boot at 8 KiB, chosen by `vdd-dram`, plus the device trees and `dtb.img`.
          - Nova (SM8550): `updateabl` flashes OpenABL 1.2 to the internal `abl_a` and `abl_b` partitions whenever they differ, and keeps no backup.

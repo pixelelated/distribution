@@ -1,0 +1,5 @@
+73 16dbac5211eea7e70db7394372033be2be7df829 2026-10-15 GuiWifi: cancel scan worker on normal frontend exit
+73 d0d92dda6bf90f20f965fba3b10b315e8d1e3146 2026-10-30 es-app: the game list is read uncached, written temp-and-rename, never written over a file that did not parse, and its recovery folder is cleared only by the save that folded it in
+73 dd638965ff8c58502fba4488af4e75db6838fe49 2026-10-23 emulationstation: stream S1, the command and the state file
+73 dd86d7ce20a5ebdeb0bc4601f7254ffe96da2dae 2026-10-30 es-app: a game list the cloud restored while EmulationStation runs is merged at the next save, field by field
+74 4fc77caaa687b804612396f3df3a0cb4e166a2ec 2026-11-01 fix: T36 stage E S1: a font's new glyph atlas joins its list only once the glyph fits, so a failed allocation leaves no freed pointer behind (Refs #683, #1359)
