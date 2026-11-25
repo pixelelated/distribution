@@ -104,11 +104,11 @@ Read the [M7 milestone](https://github.com/pixelelated/distribution/milestone/7)
             - #1455 criteria 2 and 4 are unticked. Do not run the step-5 plan or the rehearsal from `43d0bc3bf4` until criterion 1's read.
             - The October-images NEEDS MAX was corrected in place: the `bcc866f1` H700 entry `71ff97b8…` is in the batch, with a keep option.
             - `device-facts.md` boot rows updated. All three handhelds were offline at 14:43Z.
-         6. **Next (owner OS):** the questions for Max as NEEDS MAX notes, queued behind the RG SP copy and the October images:
+         6. **Done 14:53Z: the questions for Max are written as NEEDS MAX** (`20261125T1451Z-m6-bugs-at-the-m7-call.md`, `20261125T1451Z-publish-the-candidate-head.md`; mGBA `20261125T1415Z`). Queue: RG SP copy, October images, mGBA, M6 bugs, publishing. Each was written as:
             - whether M6's 524 findings count at the M7 call (#555 `7165449383` has the groups);
             - whether to publish the head (`0a3e979e50` is not on GitHub);
             - mGBA Smart on updated handhelds (already written, `20261125T1415Z`).
-         7. **Then the source round on the candidate's line.** Contents:
+         7. **Next (owner OS): the source round on the candidate's line.** Start with what no pending answer changes. Contents:
             - the upstream merge (246 commits; take upstream's AetherSX2, #1459; check for undone deletions);
             - the six small bumps; the raofflineproxy decision; spirv-headers `PKG_SITE`;
             - the ES commit plus ROCKNIX's 20; #1422's quirk arrives with the merge;
