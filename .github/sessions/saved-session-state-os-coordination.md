@@ -2,13 +2,13 @@
 
 ## Start here
 
-Saved 2026-11-25T03:11Z on `feature/conflict-resolution` in the pixelelated distribution repository. Resume this file for the **OS work coordinator**, the sole dispatcher for M7. Since November 24 that role runs in **Claude Code on the latest Opus** (`claude-opus-5-5`) in Herdr pane `w4:p2`; session `b19c3b8c-1c4f-4a57-8765-0b8fe1f11ae9` (D-WORKFLOW-200). The one-on-one steward runs Claude Code on the latest Fable in `w4:pF` (session `2032b6b6-3946-42d0-ab2c-cfb5469deeea`); worker lanes run Codex on `gpt-6.2-sol`. The daily operations worktree is `/workspace/repos/rocknix.worktrees/conflict-resolution`; the primary checkout `/workspace/repos/rocknix` carries local `next`. pixelelated builds an immutable Linux gaming OS. This worktree's rules lag `next`: read them with `git show next:<path>` (`AGENTS.md`, `.claude/rules/worktrees.md`, `.claude/rules/device-builds.md`, `.claude/skills/build-cleanup/SKILL.md`).
+Saved 2026-11-25T03:09Z on `feature/conflict-resolution` in the pixelelated distribution repository. Resume this file for the **OS work coordinator**, the sole dispatcher for M7. Since November 24 that role runs in **Claude Code on the latest Opus** (`claude-opus-5-5`) in Herdr pane `w4:p2`; session `b19c3b8c-1c4f-4a57-8765-0b8fe1f11ae9` (D-WORKFLOW-200). The one-on-one steward runs Claude Code on the latest Fable in `w4:pF` (session `2032b6b6-3946-42d0-ab2c-cfb5469deeea`); worker lanes run Codex on `gpt-6.2-sol`. The daily operations worktree is `/workspace/repos/rocknix.worktrees/conflict-resolution`; the primary checkout `/workspace/repos/rocknix` carries local `next`. pixelelated builds an immutable Linux gaming OS. This worktree's rules lag `next`: read them with `git show next:<path>` (`AGENTS.md`, `.claude/rules/worktrees.md`, `.claude/rules/device-builds.md`, `.claude/skills/build-cleanup/SKILL.md`).
 
 Read the [M7 milestone](https://github.com/pixelelated/distribution/milestone/7) (body updated 12:29Z), [#555](https://github.com/pixelelated/distribution/issues/555) (build qualification; 12:30Z comment), [#1441](https://github.com/pixelelated/distribution/issues/1441) (the H700 recipe failure) and [#1442](https://github.com/pixelelated/distribution/issues/1442) (the two-ABI admission refusal). Decisions made this session, all on local `next`: D-INFRA-035 to D-INFRA-043 and D-WORKFLOW-200. Also read [#1448](https://github.com/pixelelated/distribution/issues/1448) (the SM8550 fex-emu stop).
 
 ## Current focus
 
-**00. Newer (2026-11-25T03:11Z).**
+**00. Newer (2026-11-25T03:09Z).**
 - **H700 of `0a3e979e50` is running: the set's last image.**
   - Started 02:04:06Z as run `20261125T020406Z-f7a619db` in `/workspace/repos/rocknix.worktrees/m7-h700-0a3e979e-20261125` (branch `build/m7-h700-0a3e979e-20261125`), with owner `conflict-resolution/.build-runs/m7-h700-0a3e979e-owner-20261125/`.
   - Watcher 3012000, job 3011996, `make` 3012100, launcher 3011991.
