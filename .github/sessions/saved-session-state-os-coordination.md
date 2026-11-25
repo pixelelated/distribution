@@ -11,6 +11,7 @@ Read the [M7 milestone](https://github.com/pixelelated/distribution/milestone/7)
 **000. Newest (2026-11-25T08:47Z; supersedes the #1450, #1451 and allowance lines of item 00).**
 - **11:17Z:** the step-0 items were read over the whole tracker after the steward's 11:03 note, and the Nova's bootloader claim was corrected. Both are under "The code audit" below. Max had not answered the RG SP copy as of 11:03Z.
 - **11:29Z:** all 27 code traces are posted and checked, and #1455's build is at 636/642, waiter `brnquief0`.
+- **11:40Z:** the futro is done, and its packages finding is corrected on #555. #1456 filed: `rc-preflight` hides BEHIND rows when the freshness tool exits 2.
 - **Still waiting on Max for the RG SP copy.** It was put to him at 06:27:52Z; he had not answered by the steward's 08:29Z note. Nothing has run on any device. On a relayed yes, the plan in item 00 stands.
 - **The steward's 08:29Z note (D-WORKFLOW-195):** move what needs no device, no Max and no Codex allowance. The allowance read 88% used at 08:08Z (reset 2026-11-30T06:35:50Z), and another lane is still drawing on it, so this lane dispatched nobody and did the work itself:
   - **#1454 criterion 1 ticked** (comment `7157175665`). The cause:
@@ -46,7 +47,7 @@ Read the [M7 milestone](https://github.com/pixelelated/distribution/milestone/7)
   - Meanwhile: #1455 criterion 3 (what the October 7 scripts wrote that the candidate reads differently).
 - **The code audit (RC step 4) is blocked, not started.** Exact blockers:
   - step 3 is incomplete: #1455's rehearsal (above), RECORD.txt and the catalog;
-  - step 0 fails on `0a3e979e50`: `bugs FAIL` with 542 open bugs without a disposition (full read; the tool alone shows 300), `packages CANNOT` (rclone 1.75.2 against 1.76.0), and `base: emulationstation CANNOT` (the pin is a tarball tag).
+  - step 0 fails on `0a3e979e50`: `bugs FAIL` with 542 open bugs without a disposition (full read; the tool alone shows 300), `packages CANNOT` (14 BEHIND and 8 UNKNOWN on the full freshness output, `FRESHNESS-full-20261125.txt`; the tool's message shows only its last line, #1456), and `base: emulationstation CANNOT` (the pin is a tarball tag).
   - **Full step 0 (09:25Z): `CANNOT ANSWER`, rc 2** (#555 `7158351275`; `m7-pc-0a3e979e-owner-20261124/RC-PREFLIGHT-full-20261125.txt`).
     - **Read over the whole tracker at 11:06-11:15Z** (#555 `7160824879`; the 09:25 comment corrected). `box-check` and `rc-preflight` cap their lists at 300 (#941, #956: M6 bugs, M6's fix). A harness runs their own code with the limit raised and refuses short lists: `m7-pc-0a3e979e-owner-20261124/STEP0-FULLREAD-20261125/fullread.py`. Re-run it, not the bare tool, wherever step 0 is quoted, until #941 and #956 land.
       - **checkboxes PASS:** 949 issues, 2,324 open checkboxes, 0 fail.
@@ -61,10 +62,17 @@ Read the [M7 milestone](https://github.com/pixelelated/distribution/milestone/7)
        - **Step 0 left:**
          - bugs: 542, a scope question for Max;
          - ci: publication, Max's;
-         - packages: rclone 1.76.0, a bump with three rebuilds, or a row;
+         - packages: 14 BEHIND and 8 UNKNOWN (#555 `7161344224` lists them); bump in one source round, or a pin with a row;
          - ES base: the tarball tag;
          - device facts: by hand (#270).
-       - **Next (owner OS):** the step-0 plan with a futro, then the two questions in plain terms.
+       - **Futro done (11:40Z):** `docs/futros/2026-11-25-m7-rc-step0.md` (`325ec1e693`), summary on #555 `7161344224`. The milestone body now carries step 0 and the audit's blockers (read back 11:40Z). `0a3e979e50` is an engineering build qualified ahead of step 0; the release candidate is whatever head passes it.
+       - **Next (owner OS), in order, from the futro's adjustments:**
+         1. Triage the 17 open M7 bugs. Device observations (#1422, #1423, #1110, #840, #1113) get the harness question, then a VM plan or a class move with the reason in the issue (D-QA-051).
+         2. Classify the 205 unplaced bugs by origin.
+         3. Read the 14 behind and 8 unknown packages, one line each.
+         4. Find the ES pin commit's history.
+         5. Read the device facts by hand.
+         6. Then the two questions for Max, queued behind the RG SP copy and the October images.
        - **The restart questions must name the bootloader writes** (corrected #555 `7154797416` at 11:15Z):
          - RG SP (H700): the update rewrites the card's u-boot at 8 KiB, chosen by `vdd-dram`, plus the device trees and `dtb.img`.
          - Nova (SM8550): `updateabl` flashes OpenABL 1.2 to the internal `abl_a` and `abl_b` partitions whenever they differ, and keeps no backup.
