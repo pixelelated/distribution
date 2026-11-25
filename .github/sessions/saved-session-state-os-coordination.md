@@ -13,6 +13,10 @@ Read the [M7 milestone](https://github.com/pixelelated/distribution/milestone/7)
 - **11:29Z:** all 27 code traces are posted and checked, and #1455's build is at 636/642, waiter `brnquief0`.
 - **11:40Z:** the futro is done, and its packages finding is corrected on #555. #1456 filed: `rc-preflight` hides BEHIND rows when the freshness tool exits 2.
 - **11:50Z:** #1455's starting image is built, identified and kept, its build root is removed (111.6 GB recovered), and criterion 2 is ticked.
+- **12:05Z:**
+  - #1455 criterion 4 ticked: run 3, 40 PASS, 0 FAIL (`7161896592`); the tool's seeds are in `adaad9dc49`. Criterion 3 is open for its item-by-item argument; criteria 1 and 5 remain.
+  - #1457 filed: upstream `post-update` resets an opt-in to `system.suspend.dpms`.
+  - The RG SP note is restated in place on the steward's request: recommend copying now, with wait equally fine, and the reasons are the GCC 16 rebuild and games frozen during sleep. The steward has put it to Max again.
 - **Still waiting on Max for the RG SP copy.** It was put to him at 06:27:52Z; he had not answered by the steward's 08:29Z note. Nothing has run on any device. On a relayed yes, the plan in item 00 stands.
 - **The steward's 08:29Z note (D-WORKFLOW-195):** move what needs no device, no Max and no Codex allowance. The allowance read 88% used at 08:08Z (reset 2026-11-30T06:35:50Z), and another lane is still drawing on it, so this lane dispatched nobody and did the work itself:
   - **#1454 criterion 1 ticked** (comment `7157175665`). The cause:
