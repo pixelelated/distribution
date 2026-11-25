@@ -2,20 +2,20 @@
 
 ## Start here
 
-Saved 2026-11-25T00:56Z on `feature/conflict-resolution` in the pixelelated distribution repository. Resume this file for the **OS work coordinator**, the sole dispatcher for M7. Since November 24 that role runs in **Claude Code on the latest Opus** (`claude-opus-5-5`) in Herdr pane `w4:p2`; session `b19c3b8c-1c4f-4a57-8765-0b8fe1f11ae9` (D-WORKFLOW-200). The one-on-one steward runs Claude Code on the latest Fable in `w4:pF` (session `2032b6b6-3946-42d0-ab2c-cfb5469deeea`); worker lanes run Codex on `gpt-6.2-sol`. The daily operations worktree is `/workspace/repos/rocknix.worktrees/conflict-resolution`; the primary checkout `/workspace/repos/rocknix` carries local `next`. pixelelated builds an immutable Linux gaming OS. This worktree's rules lag `next`: read them with `git show next:<path>` (`AGENTS.md`, `.claude/rules/worktrees.md`, `.claude/rules/device-builds.md`, `.claude/skills/build-cleanup/SKILL.md`).
+Saved 2026-11-25T01:07Z on `feature/conflict-resolution` in the pixelelated distribution repository. Resume this file for the **OS work coordinator**, the sole dispatcher for M7. Since November 24 that role runs in **Claude Code on the latest Opus** (`claude-opus-5-5`) in Herdr pane `w4:p2`; session `b19c3b8c-1c4f-4a57-8765-0b8fe1f11ae9` (D-WORKFLOW-200). The one-on-one steward runs Claude Code on the latest Fable in `w4:pF` (session `2032b6b6-3946-42d0-ab2c-cfb5469deeea`); worker lanes run Codex on `gpt-6.2-sol`. The daily operations worktree is `/workspace/repos/rocknix.worktrees/conflict-resolution`; the primary checkout `/workspace/repos/rocknix` carries local `next`. pixelelated builds an immutable Linux gaming OS. This worktree's rules lag `next`: read them with `git show next:<path>` (`AGENTS.md`, `.claude/rules/worktrees.md`, `.claude/rules/device-builds.md`, `.claude/skills/build-cleanup/SKILL.md`).
 
 Read the [M7 milestone](https://github.com/pixelelated/distribution/milestone/7) (body updated 12:29Z), [#555](https://github.com/pixelelated/distribution/issues/555) (build qualification; 12:30Z comment), [#1441](https://github.com/pixelelated/distribution/issues/1441) (the H700 recipe failure) and [#1442](https://github.com/pixelelated/distribution/issues/1442) (the two-ABI admission refusal). Decisions made this session, all on local `next`: D-INFRA-035 to D-INFRA-043 and D-WORKFLOW-200. Also read [#1448](https://github.com/pixelelated/distribution/issues/1448) (the SM8550 fex-emu stop).
 
 ## Current focus
 
-**00. Newer (2026-11-25T00:56Z).**
+**00. Newer (2026-11-25T01:07Z).**
 - **Deliver to the steward by pane, never by session name (#1447).**
   - The 23:33Z refusal of batch 6's leftovers went by `SendMessage` to "Max one-on-one coordinator" [72a4cd], which is a different session. The steward found it at 00:47Z.
   - Until #1451 re-pins `tools/coordinator-escalation`, send with `herdr agent prompt w4:pF`. Before the send, `herdr agent get w4:pF` must show session `2032b6b6-3946-42d0-ab2c-cfb5469deeea`.
   - Receipt is the pane's `agent_status` or `completion_seq` changing, not the send tool's confirmation.
   - #493's comment and the 23:33 log entry are corrected.
-- **The leftovers removal waits on Max.** The steward checked the disposition (00:47–00:51Z) and is putting exactly the `would_remove` list in `REFUSAL-leftovers.json` to him. Run nothing until his exact words are relayed. Then submit that same command, and nothing broader.
-- **The PC build was at 611/655 at 00:52Z** with no memory pressure. Its waiter and memory log are still armed.
+- **Batch 6's ten leftovers are removed (D-INFRA-045).** Max said *"1. Yes."* at about 01:02Z. The same command ran at 01:04Z: rc 0, +26.26 GB, records in `leftovers-20261124/`, outcome on #493. Kept and named in `KEEP-named-items.json`: the 13-04 store (its two borrowers) and `root02` (held by `ssh`). The empty materialization05 `archive.git` under `/workspace/artifacts` is a leftover for that pass. This is not a standing yes.
+- **The PC build was at 641/655 at 01:05Z** with no memory pressure. Its waiter and memory log are still armed.
 - **CI is still silent.** Six pushes since the budgets, all with 0 suites; recorded on #1446 at 00:54Z.
 
 **0. Latest (2026-11-24T23:05Z; supersedes the running/next parts of items 1, 2 and 4 below).**
