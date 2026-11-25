@@ -28,21 +28,30 @@ if [ "${1:-}" = --stdin ]; then
 fi
 
 TREE="${1:-$(cd "$(dirname "$(readlink -f "$0")")/.." && pwd)}"
-list="$(mktemp)" || exit 2
-trap 'rm -f "${list}"' EXIT
+list="$(mktemp)" && files="$(mktemp)" && matched="$(mktemp)" || exit 2
+trap 'rm -f "${list}" "${files}" "${matched}"' EXIT
 git -C "${TREE}" ls-files -z > "${list}" || { echo "forbidden-terms-check: git ls-files failed in ${TREE}" >&2; exit 2; }
-hits=0; scanned=0
+scanned=0
 while IFS= read -r -d '' f; do
   p="${TREE}/${f}"
   [ -f "${p}" ] && [ ! -L "${p}" ] || continue        # a submodule, a symlink, a path deleted but tracked
-  scanned=$((scanned + 1))
-  out="$(grep -a -i -n -E -e "${FORBIDDEN_PATTERNS}" -- "${p}" 2>&1)"; rc=$?
+  scanned=$((scanned + 1)); printf '%s\0' "${f}"
+done < "${list}" > "${files}"
+# One grep per batch of files, not per file: forking ~60,000 greps took 3 min 50 s of
+# each 4.5-minute CI run, and that volume is what made GitHub pause this fork's
+# workflows (#1446). A batch only names which files match; each of those (normally
+# none) is read again below for its line numbers. Any grep error stops with 2.
+export FORBIDDEN_PATTERNS
+( cd "${TREE}" && xargs -0 -r sh -c 'grep -a -i -l -Z -E -e "${FORBIDDEN_PATTERNS}" -- "$@"; rc=$?; [ "${rc}" -le 1 ] || exit 255' sh ) < "${files}" > "${matched}"; rc=$?
+[ "${rc}" -eq 0 ] || { echo "forbidden-terms-check: grep failed scanning ${TREE} (xargs rc ${rc})" >&2; exit 2; }
+hits=0
+while IFS= read -r -d '' f; do
+  out="$(grep -a -i -n -E -e "${FORBIDDEN_PATTERNS}" -- "${TREE}/${f}" 2>&1)"; rc=$?
   case "${rc}" in
-    1) ;;
     0) while IFS= read -r ln; do echo "${f}:${ln%%:*}"; hits=$((hits + 1)); done <<< "${out}" ;;
     *) echo "forbidden-terms-check: grep failed on ${f} (rc ${rc})" >&2; exit 2 ;;
   esac
-done < "${list}"
+done < "${matched}"
 if [ "${hits}" -gt 0 ]; then
   echo "forbidden-terms-check: ${hits} hit(s) in ${scanned} tracked files (path:line above; the words are never printed)"
   exit 1

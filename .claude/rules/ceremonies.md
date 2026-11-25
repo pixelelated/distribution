@@ -110,11 +110,14 @@ workflows never reach an upstream PR (`fork-workflow.md`).
 
 A CI-red ceremony works only while the CI runs. GitHub stopped starting the fork's workflows on 2026-10-29 and sent nothing. Because the record checks were red on most days by design, a missing run looked like every other day, and the stop was found 26 days later (#1446). Max, 2026-11-24: *"why'd this go unnoticed? How can we have better alerts about when we have problems like this pop up?"*
 
-`tools/ci-silence-check` asks GitHub four things:
+`tools/ci-silence-check` asks GitHub five things:
 - whether the newest push of `next` got a check suite (FAIL after a 10-minute grace);
-- whether anything ran in the last 26 hours;
+- whether the fork's own `fork-checks.yml` ran in the last 26 hours (upstream's scheduled workflows start daily on the fork and fail or skip, so they do not count);
+- whether the repository's public Actions page carries GitHub's pause banner. The cause of #1446 was there and nowhere else: *"Workflows are not currently being run on this fork due to the scale of GitHub Actions usage. A repository maintainer can choose to re-enable these."* The API does not expose it, so the tool fetches the page signed out;
 - whether the newest completed fork record checks run is red because of a **guard**, which is FAIL and means act;
 - or red only because a **record is owed**: an audit, a futro or a checkbox sweep from the table above. That is OWED, never a failure by itself.
+
+The volume behind the pause was the fork's own wordlist check: 988 of the last 1,000 October runs. It runs on every push of every branch (D-WORKFLOW-061), so its cost per run is what is kept small. Its tree scan greps in batches, not once per file, and its checkout is treeless.
 
 `fork-checks.yml` runs the two kinds as separate jobs, `guards` and `records`, so the run itself shows which kind of red it is. When GitHub cannot be read it exits 2, which is not a pass. The push guard prints its verdict for the head a push of `next` replaces. It warns but does not refuse, because an outage on GitHub's side must not stop the record from being pushed.
 

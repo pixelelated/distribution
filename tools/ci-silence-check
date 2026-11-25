@@ -11,8 +11,18 @@ answers each with a verdict line:
            minutes is FAIL: GitHub did not check that push. With --sha, one
            commit instead, with no grace: not on GitHub, or on it with no
            suite, is FAIL (rc-preflight's ci item).
-  runs     the newest workflow run in the repository. None in the last
+  runs     the newest run of the fork's own checks (fork-checks.yml, which
+           runs daily and on every push of next). None in the last
            --idle-hours hours is FAIL: the scheduled checks have stopped.
+           Upstream's scheduled workflows are not counted: on the fork they
+           start daily and fail or skip, which would read as activity.
+  pause    the repository's public Actions page, fetched signed out. GitHub
+           pauses workflows on a fork with heavy use and says so only in a
+           banner there ("Workflows are not currently being run on this
+           fork due to the scale of GitHub Actions usage. A repository
+           maintainer can choose to re-enable these.", #1446); the API does
+           not expose it. The banner is FAIL; a page that is not the
+           repository's Actions page is CANNOT.
   guards   the newest completed "fork record checks" run (on the branch, or
            for the --sha commit): did a guard fail (FAIL, act on it), or is
            only a record owed (OWED, the ceremonies' CI red, D-WORKFLOW-028)?
@@ -30,20 +40,26 @@ not passed (engineering-practices.md, "Guards must fail closed").
   tools/ci-silence-check --record DIR          # also save every reply read
   tools/ci-silence-check --replay DIR --now T  # answer from saved replies
 
-Reads go through `gh api` with the active login; no write is made.
+Reads go through `gh api` with the active login, and one signed-out fetch of
+the Actions page; no write is made.
 """
 import argparse
 import datetime as dt
+import html as htmllib
 import json
 import os
 import re
 import subprocess
 import sys
+import urllib.error
+import urllib.request
 
 RECORD_STEPS = ("ceremonies are not overdue",
                 "every open acceptance checkbox is agent-verifiable")
 RECORD_JOBS = ("records",)
 WORKFLOW = "fork-checks.yml"
+# The banner's text node, and the wording GitHub used on 2026-11-25 (#1446).
+PAUSE = re.compile(r"[^<>]*(?:not currently being run|re-enable these)[^<>]*", re.I)
 
 
 class Unreadable(Exception):
@@ -110,6 +126,34 @@ class GitHub:
             raise Unreadable("%s: unreadable JSON (%s)" % (path, e))
         self._save(path, data)
         return data
+
+    def page(self, url):
+        """A public page, fetched signed out; recorded and replayed as .html."""
+        name = self._name(url)[:-len(".json")] + ".html"
+        if self.replay:
+            try:
+                with open(os.path.join(self.replay, name), encoding="utf-8", errors="replace") as fh:
+                    return fh.read()
+            except OSError as e:
+                raise Unreadable("no recorded page for %s (%s)" % (url, e))
+        req = urllib.request.Request(url, headers={"User-Agent": "ci-silence-check"})
+        try:
+            with urllib.request.urlopen(req, timeout=30) as r:
+                text = r.read(8 * 1024 * 1024).decode("utf-8", "replace")
+        except (OSError, ValueError) as e:      # URLError and HTTPError are OSErrors
+            raise Unreadable("%s: %s" % (url, e))
+        if self.record:
+            with open(os.path.join(self.record, name), "w", encoding="utf-8") as fh:
+                fh.write(text)
+        return text
+
+
+def pause_banner(page, repo):
+    """The pause banner's sentence, or None; Unreadable if this is not the Actions page."""
+    if ("/%s/actions" % repo) not in page:
+        raise Unreadable("the page fetched is not %s's Actions page" % repo)
+    m = PAUSE.search(page)
+    return " ".join(htmllib.unescape(m.group(0)).split()) if m else None
 
 
 def classify(gh, repo, run):
@@ -187,22 +231,33 @@ def check(gh, repo, branch, now, grace_min, idle_hours, require_suite, sha=None)
         else:
             line("head", "pending", text + " -- inside the %d-minute grace" % grace_min)
 
-    # runs: anything at all lately
-    wr = gh.get("repos/%s/actions/runs?per_page=1" % repo).get("workflow_runs")
+    # runs: has the fork's own daily check run lately? (upstream's scheduled
+    # workflows start daily on the fork and fail or skip, so they do not count)
+    wr = gh.get("repos/%s/actions/workflows/%s/runs?per_page=1" % (repo, WORKFLOW)).get("workflow_runs")
     if not isinstance(wr, list):
-        raise Unreadable("runs reply has no workflow_runs")
+        raise Unreadable("%s runs reply has no workflow_runs" % WORKFLOW)
     if not wr:
-        line("runs", "FAIL", "the repository has no workflow run at all")
+        line("runs", "FAIL", "%s has never run" % WORKFLOW)
         fail = True
     else:
         idle = (now - parse_ts(wr[0]["created_at"])).total_seconds()
         out["newest_run"] = wr[0]["created_at"]
-        text = "newest run %s (%s ago), %s" % (wr[0]["created_at"], fmt_age(idle), wr[0].get("name"))
+        text = "newest %s run %s (%s ago, %s)" % (WORKFLOW, wr[0]["created_at"], fmt_age(idle), wr[0].get("event"))
         if idle > idle_hours * 3600:
-            line("runs", "FAIL", text + " -- nothing has run in %d hours" % idle_hours)
+            line("runs", "FAIL", text + " -- the fork's checks have not run in %d hours" % idle_hours)
             fail = True
         else:
             line("runs", "PASS", text)
+
+    # pause: GitHub's banner on the public Actions page, which the API does not show
+    url = "https://github.com/%s/actions" % repo
+    banner = pause_banner(gh.page(url), repo)
+    out["pause_banner"] = banner
+    if banner:
+        line("pause", "FAIL", "%s says: \"%s\" -- an owner re-enables workflows there" % (url, banner))
+        fail = True
+    else:
+        line("pause", "PASS", "no pause banner on %s" % url)
 
     # guards and records: the newest completed run of the fork's checks
     sel = ("head_sha=%s" % sha) if sha else ("branch=%s" % branch)

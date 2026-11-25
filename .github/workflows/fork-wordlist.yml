@@ -5,6 +5,16 @@
 # tools/forbidden-terms-check exits 2 and this job is red, which is the point.
 # The local half is .githooks/ (pre-commit, commit-msg, pre-push).
 # Fork-only (`fork-*`): never part of an upstream PR.
+#
+# Cost (#1446): GitHub paused this fork's workflows in October 2026 "due to the
+# scale of GitHub Actions usage", and 988 of the last 1,000 runs were this job.
+# The tree scan forked one grep per tracked file (3 min 50 s of a 4.5-minute
+# run); tools/forbidden-terms-check now greps in batches (about 4 s for
+# 133,376 files). The checkout is treeless: the message step reads only commit
+# objects, and the tree check reads only the checked-out files. Superseded runs
+# are deliberately NOT cancelled: each run checks only its own push's messages
+# (before..after), so cancelling one would leave that range unchecked, and
+# narrowing what is checked is the maintainer's call (D-WORKFLOW-061).
 name: fork wordlist check
 
 on:
@@ -24,6 +34,7 @@ jobs:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 0
+          filter: tree:0
       - name: the tree carries no listed word
         run: ./tools/forbidden-terms-check
       - name: no pushed commit message carries a listed word

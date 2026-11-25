@@ -154,7 +154,7 @@ both lists and to this table, or it is invisible.**
 | `report_writer.py` | bounded exclusive report publication, fsync and exact readback | `device-builds.md` |
 | `host-maintenance/` | fixed-target swap helper, narrow administrator installer and isolated guard tests | `device-builds.md` |
 | `archaeology` | what the record already says about a question -- the registers, the work logs, the rules, `git log`, the issues -- before anything is called pending or new | `decision-register.md` |
-| `ci-silence-check` | has GitHub stopped checking the fork: the newest push of `next` has a check suite, something ran in 26 hours, and the newest fork-checks run separates a red guard (act) from a record owed; fails closed when GitHub cannot be read (#1450, #1446) | `ceremonies.md` |
+| `ci-silence-check` | has GitHub stopped checking the fork: the newest push of `next` has a check suite, the fork's own checks ran in 26 hours, the public Actions page carries no pause banner, and the newest fork-checks run separates a red guard (act) from a record owed; fails closed when GitHub cannot be read (#1450, #1446) | `ceremonies.md` |
 | `ceremony-check` | which ceremony is owed (a friction entry's issue, a retro, a weekly or monthly summary, the index, a blindspot's guard, an audit, a futro) and whether the push guard refuses | `ceremonies.md` |
 | `frame-diff` | did this build change any walk frame it did not mean to -- the boxes against the last accepted cut, the masks, the claims | `generic-x64-vm-testing.md` |
 | `work-log-index` | the day, week and month table of contents over the work logs, regenerated after every entry | `learning-capture.md` |
