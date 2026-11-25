@@ -45,8 +45,15 @@ Read the [M7 milestone](https://github.com/pixelelated/distribution/milestone/7)
 - **The code audit (RC step 4) is blocked, not started.** Exact blockers:
   - step 3 is incomplete: #1455's rehearsal (above), RECORD.txt and the catalog;
   - step 0 fails on `0a3e979e50`: `bugs FAIL` with 300 open bugs without a disposition (the tool's cap), `packages CANNOT` (rclone 1.75.2 against 1.76.0), and `base: emulationstation CANNOT` (the pin is a tarball tag).
-  - The full preflight is running in the background (task `bi4oh99cq`) into `/workspace/tmp/rocknix-session/rc-preflight-0a3e979e-20261125-full.txt`.
-  - **Next check:** that output. Then plan the step-0 dispositions (the largest RC item) and a futro before the audit.
+  - **Full step 0 (09:25Z): `CANNOT ANSWER`, rc 2** (#555 `7158351275`; `m7-pc-0a3e979e-owner-20261124/RC-PREFLIGHT-full-20261125.txt`).
+    - bugs FAIL: 542 open (320 M6, 205 no milestone, 17 M7). No register rule settles whether M6's findings count at an M7 call: a scope question to prepare.
+    - already-written FAIL: #366 and #1154 lack the line; 27 bugs closed since 09-26 lack a code trace.
+    - ci FAIL: `0a3e979e50` is not on GitHub. Pushing it is publication, separately governed: a decision to prepare.
+    - CANNOT: rclone 1.76.0, the ES pin (tarball tag), device facts (#270).
+  - **Next in the OS lane:**
+    1. The two record-keeping items (traces) can move now.
+    2. A plan for step 0, with a futro.
+    3. The two decisions in plain terms, queued behind the RG SP question and the October images.
 - **The largest unblocked M7 item is the owed code audit** (release-candidates step 4, D-WORKFLOW-062; `ceremony-check` keeps CI red for it and for the futro). It runs through the Facilitator on OpenRouter, not Codex. Plan it with the futro before starting.
 
 **00. Newer (2026-11-25T06:27Z).**
