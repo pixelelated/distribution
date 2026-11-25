@@ -67,7 +67,7 @@ Read the [M7 milestone](https://github.com/pixelelated/distribution/milestone/7)
          - device facts: by hand (#270).
        - **Futro done (11:40Z):** `docs/futros/2026-11-25-m7-rc-step0.md` (`325ec1e693`), summary on #555 `7161344224`. The milestone body now carries step 0 and the audit's blockers (read back 11:40Z). `0a3e979e50` is an engineering build qualified ahead of step 0; the release candidate is whatever head passes it.
        - **Next (owner OS), in order, from the futro's adjustments:**
-         1. Triage the 17 open M7 bugs. Device observations (#1422, #1423, #1110, #840, #1113) get the harness question, then a VM plan or a class move with the reason in the issue (D-QA-051).
+         1. **Started 11:42Z (owner OS): triage the 17 open M7 bugs.** The first-pass table is on #555 `7161398226`. Proposals: #1110 keep an eye on; #840 and #1422 split, with the physical part an open item to test; #1423 and #1113 likely closable. Nothing has been moved yet. Read each issue to its end, then move it with the reason. Note: `0a3e979e50` is not on `next`'s line (393 commits ahead), so the source round builds on the candidate's line.
          2. Classify the 205 unplaced bugs by origin.
          3. Read the 14 behind and 8 unknown packages, one line each.
          4. Find the ES pin commit's history.
