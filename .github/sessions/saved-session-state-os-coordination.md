@@ -51,7 +51,9 @@ Read the [M7 milestone](https://github.com/pixelelated/distribution/milestone/7)
     - ci FAIL: `0a3e979e50` is not on GitHub. Pushing it is publication, separately governed: a decision to prepare.
     - CANNOT: rclone 1.76.0, the ES pin (tarball tag), device facts (#270).
   - **Next in the OS lane:**
-    1. The two record-keeping items (traces) can move now.
+    1. Record-keeping. #366 and #1154 are done (09:29Z): both traces had the line, but formatted so the pattern missed it (mid-line, and in backticks). Fixed with no words changed, and noted on each issue.
+       - **Selected next, owner OS:** code traces for the 27 M7 bugs closed as completed since 2026-09-26 with none. The full list is in `m7-pc-0a3e979e-owner-20261124/UNTRACED-bugs-20261125.txt`; the tool itself truncates at about 200 characters. Product bugs first: #526, #320, #578, #479, #584, #592, #564, #582, #599, #600, #602, #1117, #1114. Then the QA-tooling ones, whose `Already written` is "nothing on devices".
+       - The tool also listed #47 (closed 2026-09-20); check why before tracing it.
     2. A plan for step 0, with a futro.
     3. The two decisions in plain terms, queued behind the RG SP question and the October images.
 - **The largest unblocked M7 item is the owed code audit** (release-candidates step 4, D-WORKFLOW-062; `ceremony-check` keeps CI red for it and for the futro). It runs through the Facilitator on OpenRouter, not Codex. Plan it with the futro before starting.
