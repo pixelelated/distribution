@@ -10,6 +10,7 @@ Read the [M7 milestone](https://github.com/pixelelated/distribution/milestone/7)
 
 **000. Newest (2026-11-25T08:47Z; supersedes the #1450, #1451 and allowance lines of item 00).**
 - **11:17Z:** the step-0 items were read over the whole tracker after the steward's 11:03 note, and the Nova's bootloader claim was corrected. Both are under "The code audit" below. Max had not answered the RG SP copy as of 11:03Z.
+- **11:29Z:** all 27 code traces are posted and checked, and #1455's build is at 636/642, waiter `brnquief0`.
 - **Still waiting on Max for the RG SP copy.** It was put to him at 06:27:52Z; he had not answered by the steward's 08:29Z note. Nothing has run on any device. On a relayed yes, the plan in item 00 stands.
 - **The steward's 08:29Z note (D-WORKFLOW-195):** move what needs no device, no Max and no Codex allowance. The allowance read 88% used at 08:08Z (reset 2026-11-30T06:35:50Z), and another lane is still drawing on it, so this lane dispatched nobody and did the work itself:
   - **#1454 criterion 1 ticked** (comment `7157175665`). The cause:
@@ -55,9 +56,15 @@ Read the [M7 milestone](https://github.com/pixelelated/distribution/milestone/7)
     - CANNOT: rclone 1.76.0, the ES pin (tarball tag), device facts (#270).
   - **Next in the OS lane:**
     1. Record-keeping. #366 and #1154 are done (09:29Z): both traces had the line, but formatted so the pattern missed it (mid-line, and in backticks). Fixed with no words changed, and noted on each issue.
-       - **In progress (owner OS, started 09:33Z): 9 of 27 traces posted by 11:17Z.** #526, #320, #578, #479, #584, #592, #564, #582 and #600; comment IDs are in the 11:17 work-log entry.
-         - **Left (18):** #418 #420 #451 #454 #455 #477 #478 #480 #481 #482 #495 #525 #527 #536 #599 #602 #1114 #1117. Next: #602, #599, #1117, #1114, then the QA-tooling ones.
-         - The "#47" was "#477" cut short by my display.
+       - **Done 11:28Z: all 27 traces posted.** Checked by `rc-preflight`'s own patterns, 27/27 with the #1455 control false (#555 `7161110545`; `STEP0-FULLREAD-20261125/traced27-check.txt`). Step 0's already-written item is answered on both sides.
+       - The candidate's own `pixelelated-state-check` passes on the H700 and SM8550 update tars (`m7-h700-0a3e979e-owner-20261125/STATE-CHECK-20261125/`).
+       - **Step 0 left:**
+         - bugs: 542, a scope question for Max;
+         - ci: publication, Max's;
+         - packages: rclone 1.76.0, a bump with three rebuilds, or a row;
+         - ES base: the tarball tag;
+         - device facts: by hand (#270).
+       - **Next (owner OS):** the step-0 plan with a futro, then the two questions in plain terms.
        - **The restart questions must name the bootloader writes** (corrected #555 `7154797416` at 11:15Z):
          - RG SP (H700): the update rewrites the card's u-boot at 8 KiB, chosen by `vdd-dram`, plus the device trees and `dtb.img`.
          - Nova (SM8550): `updateabl` flashes OpenABL 1.2 to the internal `abl_a` and `abl_b` partitions whenever they differ, and keeps no backup.
