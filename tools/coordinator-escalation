@@ -1,0 +1,400 @@
+#!/usr/bin/env python3
+"""Durable human-facing stopped-work escalation; invoked by the existing monitor timer.
+
+No worker dispatch or authority grant. Separate state/lock from operational ACKs.
+--record accepts a prepared incident JSON; --receipt records observed stewardship,
+publication or resolution with an evidence reference. --tick detects blocked
+tracking records and sends at most one concise notice to the pinned human lane.
+"""
+import argparse
+import fcntl
+import hashlib
+import json
+import math
+import os
+import re
+from pathlib import Path
+import subprocess
+import tempfile
+import time
+
+LIMIT = 2 * 1024 * 1024
+FIELDS = ('work', 'observed_at', 'cause', 'impact', 'owner', 'needed_action',
+          'next_update', 'evidence')
+HUMAN_KINDS = {'new_stoppage', 'changed_blocker', 'outcome', 'decision', 'requested_status'}
+LOCAL_KINDS = {'operational', 'unchanged'}
+# This catches known transport/accounting leakage, not all jargon or poor prose.
+INTERNAL_TEXT = re.compile(
+    r'\b(?:ACK|UNSENT|user_facing|next_check_at|completion_seq)\b|'
+    r'\bw\d+:p[\w]+\b|\b[0-9a-f]{32,}\b|'
+    r'/(?:workspace|tmp|home)/|\b(?:docs|tools)/|'
+    r'\b(?:incident|event|session)\s+(?:ID|key)\b|'
+    r'\b(?:consume (?:this|the) incident|consumed once|report consumption|record (?:the )?receipts?)\b|'
+    r'\b(?:consumption|publication|delivery|update) receipt\b|user.facing publication|'
+    r'\b(?:no reply|reply.only|notification only|not a worker assignment)\b', re.I)
+
+
+def external_blocker_key(pane, session, work_id, blocker_id):
+    if (not isinstance(work_id, str) or not work_id.strip() or len(work_id) > 1024 or
+            not isinstance(blocker_id, str) or not re.fullmatch(r'[A-Za-z0-9][A-Za-z0-9._-]{0,127}', blocker_id)):
+        raise ValueError('external blocker requires a work ID and a bounded dependency ID')
+    return key(pane, session, ['external-blocker-v1', work_id, blocker_id])
+
+
+def material_key(row):
+    """Deadlines, evidence paths and reworded messages do not make new outcomes."""
+    s = row['spec']
+    if s.get('notice_kind', 'new_stoppage') == 'new_stoppage' and row.get('external_blocker_key'):
+        return row['external_blocker_key']
+    if s.get('blocker_id') and s.get('notice_kind', 'new_stoppage') == 'new_stoppage':
+        return external_blocker_key(s['pane'], s['session'], s.get('work_id'), s['blocker_id'])
+    values = [s.get(k, '') for k in ('pane', 'session', 'work', 'cause', 'impact', 'needed_action')]
+    if 'blocker_id' in s:
+        values.append(external_blocker_key(s['pane'], s['session'], s.get('work_id'), s['blocker_id']))
+    return hashlib.sha256(json.dumps([' '.join(v.split()).casefold() for v in values]).encode()).hexdigest()
+
+
+def read(path):
+    with Path(path).open('rb') as f:
+        raw = f.read(LIMIT + 1)
+    if len(raw) > LIMIT:
+        raise ValueError('input/state exceeds bounded size')
+    return json.loads(raw)
+
+
+def save(path, value):
+    raw = (json.dumps(value, indent=2) + '\n').encode()
+    if len(raw) > LIMIT:
+        raise ValueError('state limit; reconcile retained history, do not discard')
+    fd, tmp = tempfile.mkstemp(prefix='.escalation-', dir=path.parent)
+    try:
+        with os.fdopen(fd, 'wb') as f:
+            f.write(raw); f.flush(); os.fsync(f.fileno())
+        os.replace(tmp, path)
+        fd = os.open(path.parent, os.O_RDONLY | os.O_DIRECTORY)
+        try: os.fsync(fd)
+        finally: os.close(fd)
+    finally:
+        if os.path.exists(tmp): os.unlink(tmp)
+
+
+def key(pane, session, cause):
+    return hashlib.sha256(json.dumps([pane, session, cause]).encode()).hexdigest()
+
+
+def register(state, spec, now):
+    for field in ('pane', 'session', *FIELDS):
+        if not isinstance(spec.get(field), str) or not spec[field].strip() or len(spec[field]) > 4096:
+            raise ValueError('missing or unbounded incident field: ' + field)
+    kind = spec.get('notice_kind', 'new_stoppage')
+    if kind not in HUMAN_KINDS | LOCAL_KINDS:
+        raise ValueError('unknown notice kind')
+    if kind == 'requested_status' and not spec.get('request_evidence'):
+        raise ValueError('requested status needs the actual user request evidence')
+    if 'human_message' in spec and (not isinstance(spec['human_message'], str) or
+                                   not spec['human_message'].strip() or len(spec['human_message']) > 2000):
+        raise ValueError('human message must be nonempty and bounded')
+    ident = key(spec['pane'], spec['session'], spec['cause'])
+    if kind == 'new_stoppage' and 'blocker_id' in spec:
+        ident = external_blocker_key(spec['pane'], spec['session'], spec.get('work_id'), spec['blocker_id'])
+        linked = next((i for i, r in state['incidents'].items() if r.get('external_blocker_key') == ident), None)
+        if linked:
+            return linked
+    elif kind == 'requested_status':
+        ident = key(spec['pane'], spec['session'], 'requested_status:' + spec['request_evidence'])
+    elif kind in ('changed_blocker', 'outcome', 'decision'):
+        ident = material_key({'spec': spec})
+    existing = state['incidents'].get(ident)
+    if existing:
+        # Repeated operational checks never create another human notice.
+        if existing['spec'] != spec:
+            raise ValueError('incident already recorded; preserve it and reconcile explicitly')
+        return ident
+    if len(state['incidents']) >= 128:
+        raise ValueError('incident limit; archive explicitly before adding more')
+    state['incidents'][ident] = dict(spec=spec, created_at=now, delivery='pending',
+        attempt=None, consumed=None, user_facing=None, resolved=None, alerts={})
+    if kind in ('changed_blocker', 'decision') and 'blocker_id' in spec:
+        state['incidents'][ident]['external_blocker_key'] = external_blocker_key(
+            spec['pane'], spec['session'], spec.get('work_id'), spec['blocker_id'])
+    return ident
+
+
+def detect(state, monitor, config, now):
+    def recorded(pane, session, cause):
+        return any(r['spec']['pane'] == pane and r['spec']['session'] == session and
+                   r['spec']['cause'] == cause and r['spec'].get('notice_kind') not in LOCAL_KINDS
+                   for r in state['incidents'].values())
+    pins = dict(config['workers'], **{config['root_pane']: config['root_session']})
+    for pane, row in monitor.get('recovery', {}).get('tracking', {}).items():
+        if pins.get(pane) != row.get('session'):
+            continue
+        age_start = row.get('no_progress_since')
+        obligation = row.get('obligation_id') or row.get('work_id') or str(age_start)
+        exhausted_handoff = any(event.get('kind') == 'root-continuation' and
+            event.get('pane') == pane and event.get('session') == row['session'] and
+            event.get('token') == obligation and event.get('resolved_at') is None and
+            event.get('budget_exhausted') is True
+            for event in monitor.get('recovery', {}).get('events', {}).values())
+        stale_preparation = (pane == config['root_pane'] and
+            row.get('wait_kind') == 'preparation' and
+            row.get('disposition') in ('working', 'selected-not-started', 'blocked') and
+            type(age_start) in (int, float) and math.isfinite(age_start) and
+            (now - age_start >= config.get('preparation_stale_seconds', 1800) or exhausted_handoff))
+        if stale_preparation:
+            # Stable obligation identity; neither a new deadline nor Herdr activity
+            # resets it. This is visibility, not another dispatcher or authority gate.
+            obligation = row.get('obligation_id') or row.get('work_id') or str(age_start)
+            cause = 'Coordinator-owned preparation has no new prerequisite outcome: ' + obligation
+            ident = key(pane, row['session'], cause)
+            if not recorded(pane, row['session'], cause):
+                register(state, dict(pane=pane, session=row['session'],
+                    work=row.get('work_id') or 'Coordinator-owned preparation',
+                    observed_at=str(now) + ' (detection epoch; progress age begins ' + str(age_start) + ')',
+                    cause=cause,
+                    impact='The successor has not advanced despite its working label; this is unfinished coordinator work, not evidence Max owes approval.',
+                    owner='OS work coordinator ' + pane,
+                    needed_action='Continue the next authorized action in the active turn or identify an evidenced external limit. ' + row.get('next_action', ''),
+                    next_update='Report the actual outcome or concrete limit within30 minutes; do not defer preparation to that report.',
+                    evidence=row.get('evidence') or config['monitor_state']), now)
+            continue
+        if row.get('disposition') != 'blocked':
+            continue
+        cause = row.get('blocked_on') or 'Recorded blocker has no cause; coordinator must clarify.'
+        binding = {}
+        if row.get('wait_kind') == 'external' and row.get('blocker_id'):
+            binding = dict(work_id=row.get('work_id'), blocker_id=row['blocker_id'])
+            ident = external_blocker_key(pane, row['session'], **binding)
+            if ident in state['incidents'] or any(r.get('external_blocker_key') == ident
+                                                   for r in state['incidents'].values()):
+                continue
+        elif recorded(pane, row['session'], cause):
+            continue
+        register(state, dict(pane=pane, session=row['session'],
+            work='Planned work recorded blocked on ' + pane,
+            observed_at=str(row.get('recorded_at', now)) + ' (monitor record epoch; not inferred stop time)',
+            cause=cause,
+            impact='The selected step cannot proceed; completed/idle lanes are not assumed blocked.',
+            owner='OS work coordinator ' + config['root_pane'],
+            needed_action='Coordinator must prepare a concrete request or resolve the dependency. '
+                          'Preparation stays with the coordinator; this notice asks Max for no unprepared approval. '
+                          'Recorded next action: ' + row.get('next_action', 'not supplied'),
+            next_update='Coordinator update within 30 minutes or on a dependency change, whichever is first.',
+            evidence=row.get('evidence') or config['monitor_state'], **binding), now)
+
+
+def notice(ident, row, config):
+    """The prompt is visible to Max. Never put steward instructions in it."""
+    s = row['spec']
+    kind = s.get('notice_kind', 'new_stoppage')
+    if kind in LOCAL_KINDS:
+        return None
+    if kind not in HUMAN_KINDS:
+        raise ValueError('unknown notice kind')
+    if 'human_message' in s:
+        message = s['human_message']
+        if INTERNAL_TEXT.search(message):
+            raise ValueError('human message contains operational accounting; rewrite for Max')
+        return message
+    if kind != 'new_stoppage':
+        raise ValueError('material updates need a prepared human_message')
+    # Automatic detection must still expose a genuine stop when no explanation
+    # has been prepared. Raw ledger text is retained locally, never forwarded.
+    if s['cause'].startswith('Coordinator-owned preparation has no new prerequisite outcome:'):
+        cause = 'The coordinator has not finished the preparation needed for the next step.'
+    else:
+        cause = 'A blocking dependency has been recorded. The coordinator is still preparing its explanation and solution.'
+    observed = time.strftime('%Y-%m-%d %H:%M UTC', time.gmtime(row['created_at']))
+    project = config.get('project_name', 'Planned work')
+    if not isinstance(project, str) or len(project) > 120 or INTERNAL_TEXT.search(project):
+        project = 'Planned work'
+    return (f'{project} is stopped (observed {observed}). {cause}\n\n'
+            'The next planned result is delayed. OS coordination owns resolving this and continuing independent work. '
+            'No decision is being asked of you yet. The next update will explain a meaningful outcome, '
+            'a changed blocker, or a concrete decision needed from you.')
+
+
+def alert(row, reason, config, call, persist, now):
+    if reason in row['alerts']:
+        return
+    row['alerts'][reason] = dict(at=now, status='intent-not-receipt')
+    persist()
+    try:
+        r = call([config['herdr'], 'notification', 'show', 'Stopped-work escalation needs attention',
+                  '--body', reason + '; inspect ' + config['state'], '--sound', 'none'])
+        row['alerts'][reason].update(status='submitted-local-not-seen' if r.returncode == 0
+                                    else 'local-delivery-unconfirmed', rc=r.returncode)
+    except Exception as error:
+        row['alerts'][reason].update(status='local-delivery-unconfirmed', error=str(error)[:512])
+    persist()
+
+
+def deliver(state, config, call, persist, now):
+    for ident, row in state['incidents'].items():
+        if row['resolved'] or row.get('same_blocker_as') or row['delivery'] == 'suppressed-local':
+            continue
+        if row['delivery'] in ('intent', 'submitted', 'unconfirmed'):
+            at = row['attempt']['at']
+            if not row['consumed'] and now - at >= 300:
+                alert(row, 'Human-lane consumption unconfirmed; do not blindly resend', config, call, persist, now)
+            elif row['consumed'] and not row['user_facing'] and now-row['consumed']['at'] >= 300:
+                alert(row, 'Consumed by steward but user-facing publication unconfirmed', config, call, persist, now)
+            elif row['user_facing'] and not row.get('update') and now-at >= 1800:
+                alert(row, 'Unresolved stopped work needs the promised coordinator update', config, call, persist, now)
+            continue
+        try:
+            message = notice(ident, row, config)
+        except ValueError as error:
+            row.update(delivery='needs-human-rewrite', last_error=dict(at=now, detail=str(error)))
+            persist()
+            alert(row, 'Human notice needs plain-language preparation; inspect operational evidence', config, call, persist, now)
+            continue
+        duplicate = next((other_id for other_id, other in state['incidents'].items()
+            if other_id != ident and other.get('attempt') and
+            material_key(other) == material_key(row)), None)
+        if message is None or (duplicate and row['spec'].get('notice_kind') != 'requested_status'):
+            row.update(delivery='suppressed-local', suppression='operational/unchanged' if message is None
+                       else 'same material state already attempted', duplicate_of=duplicate)
+            persist()
+            continue
+        # Before any prompt, fresh exact target identity/readiness. No UI input.
+        try:
+            r = call([config['herdr'], 'agent', 'get', config['human_pane']])
+            if r.returncode:
+                raise RuntimeError('human-lane lookup failed: ' + r.stderr[:512])
+            a = json.loads(r.stdout)['result']['agent']
+            if a.get('agent_session', {}).get('value') != config['human_session']:
+                raise RuntimeError('human-lane identity unavailable or changed')
+            if a.get('agent_status') not in ('idle', 'done'):
+                raise RuntimeError('human lane not available: ' + a.get('agent_status', 'unknown'))
+        except Exception as error:
+            row.update(delivery='unavailable', last_error=dict(at=now, detail=str(error)[:512]))
+            persist()
+            alert(row, str(error)[:512], config, call, persist, now)
+            return  # Retry lookup next tick; no prompt was attempted.
+        row.update(delivery='intent', attempt=dict(at=now, target=config['human_pane'],
+                   session=config['human_session']))
+        persist()  # Crash/timeout after intent is ambiguous, never blindly resend.
+        try:
+            r = call([config['herdr'], 'agent', 'prompt', config['human_pane'], message])
+            row['attempt'].update(rc=r.returncode, response=r.stdout[-2048:], error=r.stderr[-512:])
+            row['delivery'] = 'submitted' if r.returncode == 0 else 'unconfirmed'
+        except Exception as error:
+            row['delivery'] = 'unconfirmed'
+            row['attempt']['error'] = str(error)[:512]
+        persist()
+        if row['delivery'] == 'unconfirmed':
+            alert(row, 'Human notice delivery unconfirmed; inspect before resending', config, call, persist, now)
+        return  # One human notice per existing scheduled tick.
+
+
+def receipt(state, ident, stage, actor, evidence, config, now, update_id=None):
+    if actor not in (config['root_session'], config['human_session']):
+        raise ValueError('receipt actor must be pinned coordinator or human steward')
+    if not evidence or len(evidence) > 4096:
+        raise ValueError('receipt needs retained observation evidence')
+    row = state['incidents'][ident]
+    if stage in ('consumed','user_facing') and row['attempt'] is None:
+        raise ValueError('cannot acknowledge an unattempted notice')
+    if stage == 'user_facing' and row['consumed'] is None:
+        raise ValueError('record steward consumption before publication')
+    if stage == 'update' and row['user_facing'] is None:
+        raise ValueError('follow-up receipt requires prior user-facing publication')
+    if update_id is not None:
+        if stage != 'update' or not update_id.strip() or len(update_id) > 128:
+            raise ValueError('bounded identity only allowed for update receipts')
+        existing = row.get('updates', {}).get(update_id)
+        if existing:
+            if existing['actor'] != actor or existing['evidence'] != evidence:
+                raise ValueError('conflicting named update; retain original')
+            return
+        if update_id in row.get('followups', {}) or len(row.get('updates', {})) >= 128:
+            raise ValueError('update identity already consumed or update limit reached')
+        row.setdefault('updates', {})[update_id] = dict(at=now, actor=actor, evidence=evidence)
+        return
+    if row.get(stage):
+        if row[stage]['evidence'] != evidence or row[stage]['actor'] != actor:
+            raise ValueError('conflicting receipt; retain original')
+        return
+    row[stage] = dict(at=now, actor=actor, evidence=evidence)
+
+
+def followup_receipt(state, ident, spec, config, now):
+    """Append observed follow-up receipts; never dispatch or resolve work."""
+    row = state['incidents'][ident]
+    update_id = spec.get('update_id')
+    if not isinstance(update_id, str) or not update_id.strip() or len(update_id) > 128:
+        raise ValueError('bounded update identity required')
+    submission = row.get('updates', {}).get(update_id, row.get('update'))
+    if not submission or spec.get('submission_evidence') != submission['evidence']:
+        raise ValueError('follow-up must reference the recorded update submission')
+    for stage in ('consumed', 'user_facing'):
+        event = spec.get(stage)
+        if not isinstance(event, dict) or event.get('actor') != config['human_session']:
+            raise ValueError('follow-up receipt must be attributed to pinned human steward')
+        for field in ('observed_at', 'evidence'):
+            value = event.get(field)
+            if not isinstance(value, str) or not value.strip() or len(value) > 4096:
+                raise ValueError('follow-up needs bounded observation and evidence')
+    deadline = spec.get('next_update')
+    if not isinstance(deadline, str) or not deadline.strip() or len(deadline) > 128:
+        raise ValueError('follow-up needs explicit next-update obligation')
+    existing = row.get('followups', {}).get(update_id)
+    if existing:
+        if existing['spec'] != spec:
+            raise ValueError('conflicting follow-up receipt; retain original')
+        return
+    if len(row.get('followups', {})) >= 128:
+        raise ValueError('follow-up limit; archive explicitly')
+    row.setdefault('followups', {})[update_id] = dict(recorded_at=now, spec=spec)
+
+
+def main():
+    p=argparse.ArgumentParser(description=__doc__)
+    p.add_argument('--config', type=Path, required=True)
+    m=p.add_mutually_exclusive_group(required=True)
+    m.add_argument('--tick',action='store_true');m.add_argument('--status',action='store_true')
+    m.add_argument('--record',type=Path);m.add_argument('--receipt',choices=['consumed','user_facing','update','resolved'])
+    m.add_argument('--followup', type=Path, help='Record separate steward follow-up consumption/publication; no dispatch')
+    p.add_argument('--incident');p.add_argument('--actor-session');p.add_argument('--evidence')
+    p.add_argument('--update-id', help='Stable identity for a distinct update submission receipt')
+    a=p.parse_args();c=read(a.config);path=Path(c['state']);now=time.time()
+    with path.with_suffix('.lock').open('a') as lock:
+        try: fcntl.flock(lock,fcntl.LOCK_EX|fcntl.LOCK_NB)
+        except BlockingIOError:
+            raise SystemExit('escalation lock busy; no action or receipt recorded')
+        s=read(path) if path.exists() else dict(schema='human-escalation-v1',incidents={})
+        persist=lambda:save(path,s)
+        if a.status:
+            print(json.dumps(s,indent=2));return
+        if a.record:
+            spec=read(a.record)
+            pins=dict(c['workers'],**{c['root_pane']:c['root_session']})
+            if pins.get(spec.get('pane'))!=spec.get('session'):
+                raise ValueError('incident source identity not pinned')
+            print(register(s,spec,now));persist();return
+        if a.receipt:
+            receipt(s,a.incident,a.receipt,a.actor_session,a.evidence,c,now,a.update_id);persist();print('receipt recorded');return
+        if a.followup:
+            followup_receipt(s,a.incident,read(a.followup),c,now);persist();print('follow-up receipts recorded');return
+        deadline=time.monotonic()+13
+        def call(argv):
+            remaining=deadline-time.monotonic()
+            if remaining<=0:raise TimeoutError('human escalation tick deadline')
+            return subprocess.run(argv,text=True,capture_output=True,timeout=min(4,remaining),
+                env=dict(os.environ,**c.get('environment',{})))
+        try:
+            monitor=read(c['monitor_state']);detect(s,monitor,c,now)
+            s['checked_at']=now;s['monitor_observed_at']=monitor.get('checked_at');persist()
+            deliver(s,c,call,persist,now)
+            s['last_tick']='complete';persist()
+        except Exception as error:
+            s['last_tick']='unconfirmed';s['last_error']=dict(at=now,detail=str(error)[:1024]);persist()
+            # Errors remain visible to the existing service journal, never success.
+            raise
+        print(json.dumps(dict(checked_at=now,unresolved=sum(not r['resolved'] and not r.get('same_blocker_as')
+                                                            for r in s['incidents'].values()),
+                              authority='notification only; no worker or runtime dispatch')))
+
+
+if __name__=='__main__':main()

@@ -1,0 +1,43 @@
+#!/usr/bin/env python3
+"""Check declared assignment scope against the current project priority queue."""
+import argparse
+import hashlib
+import json
+from pathlib import Path
+import sys
+
+p = argparse.ArgumentParser(description=__doc__)
+p.add_argument('--priority', required=True)
+p.add_argument('--kind', required=True)
+p.add_argument('--input-milestone', required=True)
+p.add_argument('--output-milestone', required=True)
+a = p.parse_args()
+path = Path(__file__).resolve().parent.parent / 'docs/current-priorities.json'
+try:
+    raw = path.read_bytes()
+    queue = json.loads(raw)
+    if queue['schema'] != 'project-priorities-v1':
+        raise ValueError('unsupported priority schema')
+    item = queue['priorities'].get(a.priority)
+    failures = []
+    if item is None:
+        failures.append('unknown priority')
+    else:
+        if item['status'] != 'active':
+            failures.append('priority is ' + item['status'])
+        if a.kind not in item['allowed_kinds']:
+            failures.append('work kind outside priority scope')
+        if a.input_milestone not in item['allowed_input_milestones']:
+            failures.append('input milestone outside priority scope')
+        if a.output_milestone != item['output_milestone']:
+            failures.append('output milestone outside priority scope')
+    print(json.dumps({'status': 'REFUSE' if failures else 'DECLARED_SCOPE_MATCH',
+                      'priority': a.priority, 'revision': queue['revision'],
+                      'priority_sha256': hashlib.sha256(raw).hexdigest(),
+                      'kind': a.kind, 'input_milestone': a.input_milestone,
+                      'output_milestone': a.output_milestone,
+                      'failures': failures, 'authority_granted': False}))
+    sys.exit(1 if failures else 0)
+except (OSError, ValueError, KeyError, TypeError) as e:
+    print(json.dumps({'status': 'REFUSE', 'error': str(e), 'authority_granted': False}))
+    sys.exit(2)

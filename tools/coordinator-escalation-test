@@ -1,0 +1,295 @@
+#!/usr/bin/env python3
+"""Synthetic fixtures only: no Herdr, worker prompts, source payloads or runtime."""
+import copy
+import importlib.machinery
+import importlib.util
+from pathlib import Path
+import subprocess
+import tempfile
+import unittest
+
+loader=importlib.machinery.SourceFileLoader('escalation',str(Path(__file__).with_name('coordinator-escalation')))
+spec=importlib.util.spec_from_loader(loader.name,loader);e=importlib.util.module_from_spec(spec);loader.exec_module(e)
+
+class Escalation(unittest.TestCase):
+    def setUp(self):
+        self.c=dict(root_pane='root',root_session='r',workers={'worker':'w'},human_pane='human',
+                    human_session='h',herdr='herdr',state='/fixture/state',monitor_state='/fixture/monitor')
+        self.s=dict(schema='human-escalation-v1',incidents={})
+        self.m={'recovery':{'tracking':{'root':dict(pane='root',session='r',disposition='blocked',
+              blocked_on='actual refusal',recorded_at=1,next_action='prepare request',evidence='/evidence')}}}
+        self.calls=[];self.saved=[]
+    def persist(self):self.saved.append(copy.deepcopy(self.s))
+    def call(self,argv):
+        self.calls.append(argv)
+        if argv[1:3]==['agent','get']:
+            return subprocess.CompletedProcess(argv,0,'{"result":{"agent":{"agent_session":{"value":"h"},"agent_status":"idle"}}}','')
+        return subprocess.CompletedProcess(argv,0,'accepted','')
+    def detect(self):
+        e.detect(self.s,self.m,self.c,10);return next(iter(self.s['incidents']))
+    def deliver(self,now=10,call=None):e.deliver(self.s,self.c,call or self.call,self.persist,now)
+    def prompts(self):return [a[-1] for a in self.calls if a[1:3]==['agent','prompt']]
+    def test_visible_prompt_is_for_max_not_steward_accounting(self):
+        i=self.detect();self.deliver()
+        text=self.prompts()[0]
+        self.assertIn('is stopped',text);self.assertIn('OS coordination owns',text)
+        self.assertIn('No decision is being asked',text)
+        self.assertNotIn(i,text);self.assertNotIn('/fixture',text)
+        self.assertNotIn('Report consumption',text);self.assertNotIn('present a concise',text)
+        self.assertFalse(e.INTERNAL_TEXT.search(text))
+    def test_operational_and_unchanged_followups_never_prompt(self):
+        for kind in ('operational','unchanged'):
+            i=self.detect();row=self.s['incidents'][i]
+            row['spec'].update(notice_kind=kind,human_message='Report consumption and user_facing publication separately; ACK this incident ID.')
+            self.deliver();self.deliver(100)
+            self.assertEqual(self.prompts(),[]);self.assertIsNone(row['attempt'])
+            self.assertEqual(row['delivery'],'suppressed-local');self.assertIsNone(row['resolved'])
+            self.s['incidents'].clear()
+    def test_mislabeled_operational_text_is_held_for_rewrite(self):
+        i=self.detect();self.s['incidents'][i]['spec'].update(notice_kind='changed_blocker',
+            human_message='CONSUMPTION receipt: w4:pF consumed once. Report consumption separately.')
+        self.deliver();self.assertEqual(self.prompts(),[])
+        self.assertEqual(self.s['incidents'][i]['delivery'],'needs-human-rewrite')
+        self.assertTrue(self.s['incidents'][i]['alerts'])
+    def test_real_stoppage_and_changed_outcome_deliver_once(self):
+        old=self.detect();self.s['incidents'][old]['spec']['human_message']=(
+            'M7 source assembly has stopped because its execution was rejected. OS coordination owns the next step. '
+            'The candidate build cannot begin. A bounded execution decision is being prepared; no action is needed from you yet.')
+        self.deliver()
+        new=copy.deepcopy(self.s['incidents'][old]['spec']);new.update(
+            cause='Source assembly completed',impact='Candidate sources are ready for build preparation',
+            needed_action='Coordinator continues build preparation',notice_kind='outcome',
+            human_message='M7 source assembly completed. The candidate sources are ready, and OS coordination is preparing the build. No decision is needed from you.')
+        ident=e.register(self.s,new,20);self.deliver(20);self.deliver(30)
+        self.assertEqual(len(self.prompts()),2);self.assertIn('assembly completed',self.prompts()[1])
+        self.assertIsNone(self.s['incidents'][old]['resolved'])
+        self.assertIsNone(self.s['incidents'][ident]['consumed'])
+    def test_cosmetic_record_changes_do_not_replenish_delivery(self):
+        old=self.detect();self.deliver()
+        new=copy.deepcopy(self.s['incidents'][old]['spec']);new.update(cause=' ACTUAL   REFUSAL ',
+            observed_at='later',next_update='later again',evidence='/reread',notice_kind='changed_blocker',
+            human_message='Work is still waiting on the same decision.')
+        ident=e.register(self.s,new,20);self.deliver(20)
+        self.assertEqual(len(self.prompts()),1);self.assertEqual(self.s['incidents'][ident]['duplicate_of'],old)
+    def test_user_requested_status_remains_answerable(self):
+        old=self.detect();self.deliver();new=copy.deepcopy(self.s['incidents'][old]['spec'])
+        new.update(notice_kind='requested_status',human_message='Source assembly is still waiting on the execution decision.')
+        with self.assertRaises(ValueError):e.register(self.s,new,20)
+        new['request_evidence']='/retained-user-status-question';e.register(self.s,new,20);self.deliver(20)
+        self.assertEqual(len(self.prompts()),2)
+    def test_changed_action_with_same_cause_delivers_without_new_auto_incident(self):
+        old=self.detect();self.deliver();s=copy.deepcopy(self.s['incidents'][old]['spec'])
+        s.update(notice_kind='decision',needed_action='Approve one bounded source assembly check',
+                 human_message='May we run one isolated source assembly check? I recommend proceeding so candidate build preparation can continue.')
+        ident=e.register(self.s,s,20);self.detect();self.deliver(20)
+        self.assertEqual(len(self.s['incidents']),2);self.assertEqual(len(self.prompts()),2)
+        self.assertIsNone(self.s['incidents'][old]['resolved'])
+        self.assertNotEqual(old,ident)
+    def test_stopped_work_fields_and_preparation_owner(self):
+        i=self.detect();r=self.s['incidents'][i];self.assertEqual(r['delivery'],'pending')
+        self.assertTrue(all(r['spec'][k] for k in e.FIELDS));self.assertIn('no unprepared approval',r['spec']['needed_action'])
+    def test_idle_and_completed_are_not_stopped(self):
+        for d in ['complete','idle-no-authorized-work','working','selected-not-started']:
+            self.m['recovery']['tracking']['root']['disposition']=d;e.detect(self.s,self.m,self.c,10)
+        self.assertEqual(self.s['incidents'],{})
+    def test_stale_working_preparation_escalates_without_blocked_label(self):
+        row=self.m['recovery']['tracking']['root']
+        row.update(disposition='working',wait_kind='preparation',no_progress_since=1,obligation_id='collector',next_check_at=99999)
+        e.detect(self.s,self.m,self.c,1802)
+        self.assertEqual(len(self.s['incidents']),1)
+        incident=next(iter(self.s['incidents'].values()))
+        self.assertIn('not evidence Max owes approval',incident['spec']['impact'])
+        row.update(selection_id='renamed',recorded_at=2000,next_check_at=999999)
+        e.detect(self.s,self.m,self.c,2001);self.assertEqual(len(self.s['incidents']),1)
+    def test_recent_preparation_idle_and_complete_do_not_escalate(self):
+        row=self.m['recovery']['tracking']['root']
+        row.update(disposition='working',wait_kind='preparation',no_progress_since=100)
+        e.detect(self.s,self.m,self.c,200)
+        for disposition in ('complete','idle-no-authorized-work'):
+            row['disposition']=disposition;e.detect(self.s,self.m,self.c,5000)
+        self.assertFalse(self.s['incidents'])
+    def test_exhausted_root_handoff_escalates_before_stale_deadline_once(self):
+        row=self.m['recovery']['tracking']['root']
+        row.update(disposition='working',wait_kind='preparation',no_progress_since=1,obligation_id='same')
+        self.m['recovery']['events']={'e':dict(kind='root-continuation',pane='root',session='r',token='same',resolved_at=None,budget_exhausted=True)}
+        e.detect(self.s,self.m,self.c,100);self.assertEqual(len(self.s['incidents']),1)
+        e.detect(self.s,self.m,self.c,1900);self.assertEqual(len(self.s['incidents']),1)
+    def test_new_preparation_outcome_resets_detection_but_not_old_incident(self):
+        row=self.m['recovery']['tracking']['root']
+        row.update(disposition='working',wait_kind='preparation',no_progress_since=1,obligation_id='first')
+        e.detect(self.s,self.m,self.c,1802)
+        row.update(no_progress_since=1803,obligation_id='second')
+        e.detect(self.s,self.m,self.c,1804)
+        self.assertEqual(len(self.s['incidents']),1)
+        self.assertIsNone(next(iter(self.s['incidents'].values()))['resolved'])
+    def test_monitor_ack_and_retracking_do_not_consume_human(self):
+        i=self.detect();self.deliver();self.m.update(consumed=[{'disposition':'complete'}],pending={})
+        self.m['recovery']['tracking']['root'].update(selection_id='fresh-check',recorded_at=100)
+        e.detect(self.s,self.m,self.c,100);self.assertEqual(len(self.s['incidents']),1)
+        self.assertIsNone(self.s['incidents'][i]['consumed']);self.assertIsNone(self.s['incidents'][i]['resolved'])
+    def test_intent_saved_before_submission_and_no_repeat(self):
+        self.detect();self.deliver();self.assertTrue(any(next(iter(s['incidents'].values()))['delivery']=='intent' for s in self.saved))
+        self.deliver(100);self.assertEqual(sum(a[1:3]==['agent','prompt'] for a in self.calls),1)
+    def test_failed_send_not_replayed(self):
+        i=self.detect()
+        def fail(a):
+            if a[1:3]==['agent','prompt']:
+                self.calls.append(a);return subprocess.CompletedProcess(a,1,'','connection lost')
+            return self.call(a)
+        self.deliver(call=fail);self.deliver(100,fail)
+        self.assertEqual(self.s['incidents'][i]['delivery'],'unconfirmed')
+        self.assertEqual(sum(a[1:3]==['agent','prompt'] for a in self.calls),1)
+    def test_timeout_and_crash_intent_not_replayed(self):
+        i=self.detect()
+        def fail(a):
+            if a[1:3]==['agent','prompt']:raise TimeoutError('uncertain')
+            return self.call(a)
+        self.deliver(call=fail);self.assertEqual(self.s['incidents'][i]['delivery'],'unconfirmed')
+        self.s['incidents'][i]['delivery']='intent';self.calls=[];self.deliver(20)
+        self.assertEqual(self.calls,[])
+    def test_wrong_session_and_blocked_ui_no_prompt(self):
+        self.detect()
+        for session,status in [('other','idle'),('h','blocked')]:
+            def wrong(a):
+                if a[1:3]==['agent','get']:
+                    return subprocess.CompletedProcess(a,0,'{"result":{"agent":{"agent_session":{"value":"'+session+'"},"agent_status":"'+status+'"}}}','')
+                return self.call(a)
+            self.deliver(call=wrong)
+        self.assertFalse(any(a[1:3]==['agent','prompt'] for a in self.calls))
+    def test_unavailable_then_available_can_deliver_once(self):
+        i=self.detect()
+        def unavailable(a):
+            if a[1:3]==['agent','get']:raise RuntimeError('unavailable')
+            return self.call(a)
+        self.deliver(call=unavailable);self.assertEqual(self.s['incidents'][i]['delivery'],'unavailable')
+        self.deliver(20);self.assertEqual(self.s['incidents'][i]['delivery'],'submitted')
+    def test_receipts_separate_and_resumption_durable(self):
+        i=self.detect();self.deliver();e.receipt(self.s,i,'consumed','h','/steward-read',self.c,20)
+        self.assertIsNone(self.s['incidents'][i]['user_facing']);self.assertIsNone(self.s['incidents'][i]['resolved'])
+        with tempfile.TemporaryDirectory() as t:
+            p=Path(t)/'state.json';e.save(p,self.s);self.s=e.read(p)
+        self.deliver(30);self.assertEqual(sum(a[1:3]==['agent','prompt'] for a in self.calls),1)
+        e.receipt(self.s,i,'user_facing','r','/rendered-final',self.c,40)
+        self.assertIsNone(self.s['incidents'][i]['resolved'])
+    def test_no_false_receipt_or_conflicting_overwrite(self):
+        i=self.detect()
+        with self.assertRaises(ValueError):e.receipt(self.s,i,'consumed','h','/e',self.c,20)
+        self.deliver()
+        with self.assertRaises(ValueError):e.receipt(self.s,i,'user_facing','h','/e',self.c,20)
+        with self.assertRaises(ValueError):e.receipt(self.s,i,'consumed','other','/e',self.c,20)
+        e.receipt(self.s,i,'consumed','h','/e',self.c,20)
+        with self.assertRaises(ValueError):e.receipt(self.s,i,'consumed','h','/different',self.c,21)
+    def test_missing_consumption_alert_is_deduplicated(self):
+        self.detect();self.deliver();self.deliver(400);self.deliver(500)
+        self.assertEqual(sum(a[1:3]==['notification','show'] for a in self.calls),1)
+    def test_monitor_disposition_change_does_not_erase_unresolved_incident(self):
+        i=self.detect();self.m['recovery']['tracking']['root']['disposition']='working'
+        e.detect(self.s,self.m,self.c,20);self.assertIsNone(self.s['incidents'][i]['resolved'])
+    def test_changed_cause_new_incident_old_preserved(self):
+        old=self.detect();self.m['recovery']['tracking']['root']['blocked_on']='different dependency'
+        self.detect();self.assertEqual(len(self.s['incidents']),2);self.assertIn(old,self.s['incidents'])
+
+    def test_external_rechecks_share_one_attempt_across_wording_and_progress(self):
+        track = self.m['recovery']['tracking']['root']
+        track.update(work_id='pc-build', wait_kind='external', blocker_id='host-use-15')
+        canonical = self.detect()
+        self.deliver()
+        for at, cause in enumerate(('Waiting for the administrator', 'Protected readback still outstanding'), 20):
+            track.update(selection_id=str(at), obligation_id=str(at), blocked_on=cause, next_action='Recheck',
+                         evidence='check-' + str(at), next_check_at=at+120)
+            e.detect(self.s,self.m,self.c,at)
+            self.deliver(at)
+        self.assertEqual(list(self.s['incidents']),[canonical]);self.assertEqual(len(self.prompts()),1)
+        # A new dependency can have identical text. A separately prepared operator action also delivers.
+        track['blocker_id']='replacement-volume'
+        self.detect();self.deliver(30)
+        decision=dict(self.s['incidents'][canonical]['spec'], notice_kind='decision',
+                      needed_action='Select the replacement volume',
+                      human_message='Which of the two available volumes may we use for the build?')
+        e.register(self.s,decision,31);self.deliver(31);self.deliver(32)
+        self.assertEqual(len(self.prompts()),3)
+        self.assertIsNone(self.s['incidents'][canonical]['resolved'])
+
+    def test_linked_legacy_attempt_and_its_receipts_survive_reconnect(self):
+        old=self.detect();self.deliver()
+        canonical=self.s['incidents'][old]
+        canonical['delivery']='unconfirmed'
+        original=copy.deepcopy(canonical['attempt'])
+        track=self.m['recovery']['tracking']['root']
+        track.update(work_id='release',wait_kind='external',blocker_id='admin-use-check')
+        canonical['external_blocker_key']=e.external_blocker_key('root','r','release','admin-use-check')
+        alias=copy.deepcopy(canonical);alias.pop('external_blocker_key');alias['same_blocker_as']=old
+        self.s['incidents']['legacy-second']=alias
+        track.update(blocked_on='New wording only')
+        self.calls.clear()
+        for at in (20,22):
+            e.detect(self.s,self.m,self.c,at);self.deliver(at)
+        self.assertEqual(self.calls,[]);self.assertEqual(len(self.s['incidents']),2)
+        self.assertEqual(canonical['attempt'],original);self.assertIsNone(canonical['consumed'])
+        track['session']='unpinned';track['blocker_id']='different'
+        self.detect();self.deliver(25);self.assertEqual(self.calls,[])
+
+    def test_prepared_operator_action_covers_the_matching_detected_wait(self):
+        track=self.m['recovery']['tracking']['root']
+        track.update(work_id='release',wait_kind='external',blocker_id='admin-check')
+        prepared=dict(pane='root',session='r',work='release',work_id='release',blocker_id='admin-check',
+                      cause='Access to the records is restricted',impact='Build admission is on hold',
+                      needed_action='Use the administrator account for the read-only check',owner='administrator',
+                      observed_at='10',next_update='on readback',evidence='handoff',notice_kind='changed_blocker',
+                      human_message='The build is waiting for the administrator to verify which disks are in use.')
+        ident=e.register(self.s,prepared,10)
+        self.detect();self.deliver();self.detect();self.deliver(20)
+        self.assertEqual(list(self.s['incidents']),[ident]);self.assertEqual(self.prompts(),[prepared['human_message']])
+    def test_update_deadline_runs_from_notice_not_late_receipt(self):
+        i=self.detect();self.deliver()
+        e.receipt(self.s,i,'consumed','h','/consume',self.c,1000)
+        e.receipt(self.s,i,'user_facing','h','/publish',self.c,1500)
+        self.deliver(1810)
+        self.assertIn('Unresolved stopped work needs the promised coordinator update',self.s['incidents'][i]['alerts'])
+    def test_fulfilled_update_suppresses_stale_alert_not_blocker(self):
+        i=self.detect();self.deliver()
+        with self.assertRaises(ValueError):e.receipt(self.s,i,'update','r','/early',self.c,20)
+        e.receipt(self.s,i,'consumed','h','/consume',self.c,20)
+        e.receipt(self.s,i,'user_facing','h','/publish',self.c,30)
+        e.receipt(self.s,i,'update','r','/follow-up-publication',self.c,1700)
+        self.deliver(1900)
+        self.assertNotIn('Unresolved stopped work needs the promised coordinator update',self.s['incidents'][i]['alerts'])
+        self.assertIsNone(self.s['incidents'][i]['resolved'])
+    def test_followup_receipts_preserve_originals_and_are_idempotent(self):
+        i=self.detect();self.deliver()
+        e.receipt(self.s,i,'consumed','h','/original-read',self.c,20)
+        e.receipt(self.s,i,'user_facing','h','/original-publication',self.c,30)
+        e.receipt(self.s,i,'update','r','/update-submission',self.c,40)
+        before=copy.deepcopy(self.s['incidents'][i]);calls=len(self.calls)
+        spec=dict(update_id='late-2240',submission_evidence='/update-submission',
+                  consumed=dict(actor='h',observed_at='22:42 UTC',evidence='/read'),
+                  user_facing=dict(actor='h',observed_at='after consumption; exact time unknown',evidence='/publication'),
+                  next_update='23:10 UTC')
+        e.followup_receipt(self.s,i,spec,self.c,50)
+        saved=copy.deepcopy(self.s)
+        e.followup_receipt(self.s,i,spec,self.c,60)
+        self.assertEqual(saved,self.s);self.assertEqual(len(self.calls),calls)
+        for field in ('consumed','user_facing','update','resolved','spec'):
+            self.assertEqual(self.s['incidents'][i][field],before[field])
+        with tempfile.TemporaryDirectory() as t:
+            p=Path(t)/'state';e.save(p,self.s);self.assertEqual(e.read(p),self.s)
+        for change in (dict(next_update='different'),dict(submission_evidence='/wrong'),
+                       dict(consumed=None),dict(user_facing=dict(actor='other'))):
+            with self.assertRaises(ValueError):e.followup_receipt(self.s,i,dict(spec,**change),self.c,70)
+        self.assertEqual(saved,self.s)
+        e.receipt(self.s,i,'update','r','/second-submission',self.c,80,update_id='late-2310')
+        second=dict(spec,update_id='late-2310',submission_evidence='/second-submission',next_update='23:40 UTC')
+        e.followup_receipt(self.s,i,second,self.c,90)
+        self.assertEqual(self.s['incidents'][i]['followups']['late-2240'],saved['incidents'][i]['followups']['late-2240'])
+        self.assertEqual(self.s['incidents'][i]['update'],before['update'])
+        with self.assertRaises(ValueError):e.receipt(self.s,i,'update','r','/wrong',self.c,100,update_id='late-2310')
+        with self.assertRaises(ValueError):e.followup_receipt(self.s,i,dict(second,submission_evidence='/update-submission'),self.c,100)
+        self.assertIsNone(self.s['incidents'][i]['resolved'])
+    def test_pending_prepared_request_is_used(self):
+        cause=self.m['recovery']['tracking']['root']['blocked_on']
+        s=dict(pane='root',session='r',**{k:k for k in e.FIELDS});s['cause']=cause;s['needed_action']='Approve only exact retention request for four hours after each owner acknowledges.'
+        s.update(notice_kind='decision',human_message='May we keep the test inputs unchanged for four hours so the candidate check can finish? I recommend this bounded preservation; it does not start a build.')
+        i=e.register(self.s,s,1);self.detect();self.deliver();self.assertEqual(s['human_message'],self.calls[1][-1])
+        self.assertEqual(self.s['incidents'][i]['spec'],s)
+
+if __name__=='__main__':unittest.main(verbosity=2)

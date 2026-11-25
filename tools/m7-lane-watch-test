@@ -1,0 +1,135 @@
+#!/usr/bin/env python3
+"""Host-only isolated coordination checks; no workload or real worker invocation."""
+import copy, importlib.machinery, importlib.util, pathlib, types, unittest
+from unittest.mock import patch
+loader=importlib.machinery.SourceFileLoader('watch',str(pathlib.Path(__file__).with_name('m7-lane-watch')))
+spec=importlib.util.spec_from_loader(loader.name,loader);w=importlib.util.module_from_spec(spec);loader.exec_module(w)
+class Tests(unittest.TestCase):
+ def setUp(self):
+  self.c={'root_pane':'r','root_session':'rs','workers':{'w':'ws'},'observer_mode':'persistent','expires_at':None,'interval_seconds':120}
+  self.s={'seen':{},'pending':{},'attempts':[]};w.recovery(self.c,self.s,10)
+  self.patches=[patch.object(w,'history_load',return_value=({},[])),patch.object(w,'history_seed'),patch.object(w,'history_selections')]
+  for p in self.patches:p.start();self.addCleanup(p.stop)
+ def track(self,at,**kw):
+  v=dict(root_session='rs',pane='r',worker_session='rs',selection_id=str(at),disposition='blocked',next_owner='root',next_action='prepare',evidence='record',next_check_at=at+10,blocked_on='root preparation',start_evidence=None,completion=None,work_id=None,progress_evidence=None,wait_kind='preparation');v.update(kw)
+  return w.track(self.c,self.s,types.SimpleNamespace(**v),at)
+ def agents(self,status='idle'):
+  return [{'pane_id':'r','agent_session':{'value':'rs'},'agent_status':status}, {'pane_id':'w','agent_session':{'value':'ws'},'agent_status':'idle','completion_seq':1}]
+ def test_same_work_new_record_keeps_age_event_and_budget(self):
+  self.track(11);w.refresh(self.c,self.s,self.agents(),22)
+  e=next(e for e in self.s['recovery']['events'].values() if e['kind']=='next-check');e['notices']=2
+  with self.assertRaisesRegex(ValueError,'ROOT_PREPARATION_NOT_CONTINUED'):self.track(23)
+  w.refresh(self.c,self.s,self.agents(),34)
+  t=self.s['recovery']['tracking']['r'];self.assertEqual(t['no_progress_since'],11);self.assertEqual(t['obligation_id'],'11');self.assertEqual(e['notices'],2);self.assertIsNone(e['resolved_at'])
+ def test_agent_activity_does_not_resolve_selected_work(self):
+  self.track(11,disposition='selected-not-started',blocked_on=None);w.refresh(self.c,self.s,self.agents(),22);w.refresh(self.c,self.s,self.agents('working'),23)
+  es=list(self.s['recovery']['events'].values());self.assertTrue(any(e['kind']=='selected-not-started' and e['resolved_at'] is None for e in es))
+ def test_idle_health_no_agent_notice(self):
+  self.track(11,disposition='idle-no-authorized-work',blocked_on=None);w.refresh(self.c,self.s,self.agents(),1000)
+  self.assertEqual(w.due_events(self.c,self.s,1000),[])
+ def test_preparation_not_hidden_by_future_check(self):
+  self.track(11);w.refresh(self.c,self.s,self.agents(),22)
+  with self.assertRaisesRegex(ValueError,'ROOT_PREPARATION_NOT_CONTINUED'):self.track(23,next_check_at=10000)
+  self.assertTrue(w.available(self.c,self.s,self.agents()[0],24));self.assertTrue(w.due_events(self.c,self.s,24))
+ def test_actual_external_wait_preserved(self):
+  self.track(11,wait_kind='external',blocked_on='owner decision');w.refresh(self.c,self.s,self.agents(),22);self.track(23,wait_kind='external',blocked_on='owner decision',next_check_at=1000);self.assertEqual(w.due_events(self.c,self.s,24),[])
+  a=self.agents();a[1]['completion_seq']=2;w.refresh(self.c,self.s,a,25);self.assertTrue(w.available(self.c,self.s,a[0],25));self.assertTrue(any(e['kind']=='completion' for e in w.due_events(self.c,self.s,25)))
+ def test_external_dependency_survives_prerequisite_progress_and_rewording(self):
+  opts=dict(wait_kind='external', work_id='release', blocked_on='Admin check pending')
+  self.track(11, **opts)
+  row=self.s['recovery']['tracking']['r'];identity=row['blocker_id']
+  self.track(12, next_action='Check again after release', **opts)
+  self.assertEqual(self.s['recovery']['tracking']['r']['blocker_id'],identity)
+  opts.update(blocked_on='Awaiting authenticated check')
+  with self.assertRaisesRegex(ValueError,'reuse --blocker-id'):
+   self.track(13, **opts)
+  self.track(14, blocker_id=identity, progress_evidence='producer-qualified', **opts)
+  current=self.s['recovery']['tracking']['r']
+  self.assertEqual(current['blocker_id'],identity);self.assertNotEqual(current['obligation_id'],row['obligation_id'])
+  with self.assertRaisesRegex(ValueError,'selection id conflict'):
+   self.track(14,blocker_id='different-limit',**opts)
+  self.track(15,blocker_id='different-limit',**opts)
+  self.assertEqual(self.s['recovery']['tracking']['r']['blocker_id'],'different-limit')
+ def test_blocker_identity_does_not_cross_completion_or_apply_to_preparation(self):
+  with self.assertRaisesRegex(ValueError,'external blocked'):
+   self.track(11,blocker_id='admin-check')
+  self.track(12,wait_kind='external',blocker_id='admin-check')
+  self.track(13,disposition='complete',blocked_on=None)
+  self.track(14,wait_kind='external')
+  self.assertNotEqual(self.s['recovery']['tracking']['r']['blocker_id'],'admin-check')
+ def test_progress_requires_evidence_not_new_work_id(self):
+  self.track(11)
+  with self.assertRaisesRegex(ValueError,'ROOT_PREPARATION_NOT_CONTINUED'):self.track(12,work_id='renamed')
+  self.assertEqual(self.s['recovery']['tracking']['r']['no_progress_since'],11)
+  self.track(13,disposition='working',blocked_on=None,start_evidence='observed host readiness',progress_evidence='host observation.json');self.assertEqual(self.s['recovery']['tracking']['r']['no_progress_since'],13)
+ def test_repeated_progress_evidence_cannot_refill_budget(self):
+  self.track(11,progress_evidence='host-observation.json');w.refresh(self.c,self.s,self.agents(),22)
+  e=next(e for e in self.s['recovery']['events'].values() if e['kind']=='next-check');e['notices']=3
+  with self.assertRaisesRegex(ValueError,'ROOT_PREPARATION_NOT_CONTINUED'):self.track(23,progress_evidence='host-observation.json',work_id='renamed')
+  w.refresh(self.c,self.s,self.agents(),34)
+  t=self.s['recovery']['tracking']['r'];self.assertEqual(t['no_progress_since'],11);self.assertEqual(t['obligation_id'],'11');self.assertIsNone(e['resolved_at']);self.assertEqual(e['notices'],3)
+ def test_ack_independent(self):
+  self.track(11);w.refresh(self.c,self.s,self.agents(),22);e=next(iter(self.s['recovery']['events'].values()))
+  a=types.SimpleNamespace(root_session='rs',event_key=e['key'],disposition='blocked',next_owner='root',next_action='prepare',evidence='receipt')
+  w.ack_event(self.c,self.s,a,23);self.assertIsNone(e['resolved_at']);self.assertEqual(self.s['recovery']['tracking']['r']['no_progress_since'],11)
+ def test_working_preparation_cannot_defer_after_ack(self):
+  self.track(11,disposition='working',blocked_on=None,start_evidence='source copy',progress_evidence='copy.json')
+  w.refresh(self.c,self.s,self.agents(),22);e=next(iter(self.s['recovery']['events'].values()))
+  w.ack_event(self.c,self.s,types.SimpleNamespace(root_session='rs',event_key=e['key'],disposition='working',next_owner='root',next_action='continue',evidence='readback'),23)
+  with self.assertRaisesRegex(ValueError,'ROOT_PREPARATION_NOT_CONTINUED'):
+   self.track(24,disposition='working',blocked_on=None,start_evidence='source copy')
+  self.assertEqual(self.s['recovery']['tracking']['r']['next_check_at'],21)
+ def test_new_prerequisite_outcome_can_continue(self):
+  self.track(11,progress_evidence='first.json')
+  self.track(23,progress_evidence='second.json')
+  self.assertEqual(self.s['recovery']['tracking']['r']['no_progress_since'],23)
+ def test_preparation_can_record_real_external_dependency(self):
+  self.track(11)
+  self.track(23,wait_kind='external',blocked_on='named owner refused exact action')
+  self.assertEqual(self.s['recovery']['tracking']['r']['no_progress_since'],11)
+ def test_event_hints_exact_panes_no_steward(self):
+  request=w.subscription_request(self.c);self.assertEqual([s['pane_id'] for s in request['params']['subscriptions']],['r','w'])
+  self.assertTrue(w.event_relevant(self.c,{'event':'pane.agent_status_changed','data':{'pane_id':'w'}}));self.assertFalse(w.event_relevant(self.c,{'event':'pane.agent_status_changed','data':{'pane_id':'w4:pF'}}))
+ def test_completion_reconnect_dedup(self):
+  a=self.agents();w.refresh(self.c,self.s,a,11);a[1]['completion_seq']=2;w.refresh(self.c,self.s,a,12);w.refresh(self.c,self.s,a,13)
+  self.assertEqual(len([e for e in self.s['recovery']['events'].values() if e['kind']=='completion']),1)
+ def test_changed_identity_never_adopted(self):
+  a=self.agents();w.refresh(self.c,self.s,a,11);a[1]['agent_session']['value']='other';a[1]['completion_seq']=2;w.refresh(self.c,self.s,a,12)
+  self.assertFalse(any(e['kind']=='completion' for e in self.s['recovery']['events'].values()));self.assertFalse(w.can_notify(self.c,dict(a[0],agent_session={'value':'other'})))
+ def test_progress_then_finished_root_ignores_future_report_and_other_cooldown(self):
+  self.track(11,disposition='working',blocked_on=None,start_evidence='copy',progress_evidence='new-result',next_check_at=10000)
+  w.refresh(self.c,self.s,self.agents('working'),12)
+  self.s['recovery']['last_notice_at']=12
+  w.refresh(self.c,self.s,self.agents('done'),13)
+  due=w.due_events(self.c,self.s,13);self.assertEqual([e['kind'] for e in due],['root-continuation'])
+  self.assertEqual(self.s['recovery']['tracking']['r']['next_check_at'],10000)
+ def test_finished_root_external_idle_complete_busy_and_wrong_session(self):
+  for disposition,wait in [('blocked','external'),('idle-no-authorized-work','none'),('complete','none')]:
+   self.setUp();self.track(11,disposition=disposition,wait_kind=wait,blocked_on='supplier' if disposition=='blocked' else None,next_check_at=10000)
+   w.refresh(self.c,self.s,self.agents('done'),12);self.assertFalse(any(e['kind']=='root-continuation' for e in w.due_events(self.c,self.s,12)))
+  self.setUp();self.track(11,next_check_at=10000)
+  for status in ('working','blocked','unknown'):
+   w.refresh(self.c,self.s,self.agents(status),12);self.assertFalse(any(e['kind']=='root-continuation' for e in self.s['recovery']['events'].values()))
+  a=self.agents('done');a[0]['agent_session']['value']='different';w.refresh(self.c,self.s,a,13)
+  self.assertFalse(any(e['kind']=='root-continuation' for e in self.s['recovery']['events'].values()))
+ def test_reconnect_and_new_completion_preserve_finite_continuation_budget(self):
+  self.track(11,next_check_at=10000);a=self.agents('done');a[0]['completion_seq']=5
+  w.refresh(self.c,self.s,a,12);e=w.due_events(self.c,self.s,12)[0];e['notices']=3;e['last_attempt_at']=12
+  for at,seq in ((13,5),(700,6),(1400,7)):
+   a[0]['completion_seq']=seq;w.refresh(self.c,self.s,a,at)
+   self.assertEqual(len([x for x in self.s['recovery']['events'].values() if x['kind']=='root-continuation']),1)
+   self.assertEqual(e['notices'],3);self.assertEqual(w.due_events(self.c,self.s,at),[])
+  self.assertEqual(self.s['recovery']['tracking']['r']['no_progress_since'],11)
+ def test_continuation_ack_is_not_resolution_or_new_budget(self):
+  self.track(11,next_check_at=10000);w.refresh(self.c,self.s,self.agents('done'),12);e=w.due_events(self.c,self.s,12)[0];e['notices']=1;e['last_attempt_at']=12
+  w.ack_event(self.c,self.s,types.SimpleNamespace(root_session='rs',event_key=e['key'],disposition='working',next_owner='root',next_action='continue',evidence='receipt'),13)
+  self.assertIsNone(e['resolved_at']);self.assertEqual(e['notices'],1);self.assertEqual(w.due_events(self.c,self.s,14),[])
+  self.track(15,wait_kind='external',blocked_on='named supplier',next_check_at=10000)
+  self.assertEqual(w.due_events(self.c,self.s,1000),[])
+ def test_scheduled_reminder_and_root_handoff_share_budget(self):
+  self.track(11);w.refresh(self.c,self.s,self.agents('working'),22)
+  e=next(x for x in self.s['recovery']['events'].values() if x['kind']=='next-check');e['notices']=2;e['last_attempt_at']=22
+  w.refresh(self.c,self.s,self.agents('done'),23);r=next(x for x in self.s['recovery']['events'].values() if x['kind']=='root-continuation')
+  self.assertEqual(r['notices'],2);self.assertEqual(w.due_events(self.c,self.s,23),[])
+  self.assertEqual([x['kind'] for x in w.due_events(self.c,self.s,700)],['root-continuation'])
+if __name__=='__main__':unittest.main(verbosity=2)

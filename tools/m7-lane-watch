@@ -1,0 +1,1215 @@
+#!/usr/bin/env python3
+"""One bounded Herdr status check; schedule externally. Never dispatches worker tasks."""
+import argparse
+import contextlib
+import fcntl
+import json
+import hashlib
+import math
+import os
+from pathlib import Path
+import re
+import subprocess
+import stat
+import socket
+import select
+import sys
+import time
+
+
+def write(path, value):
+    tmp = path.with_suffix('.tmp')
+    with tmp.open('w') as out:
+        json.dump(value, out, indent=2)
+        out.write('\n')
+        out.flush()
+        os.fsync(out.fileno())
+    os.replace(tmp, path)
+
+
+def identity(agent):
+    return agent.get('agent_session', {}).get('value')
+
+
+def observe(config, state, agents):
+    current = {a['pane_id']: a for a in agents}
+    for pane, session in config['workers'].items():
+        a = current.get(pane, {})
+        row = {'status': a.get('agent_status', 'missing'), 'session': identity(a),
+               'completion': a.get('completion_seq')}
+        previous = state['seen'].get(pane)
+        reason = None
+        if previous is not None and row != previous:
+            if row['session'] != session:
+                reason = 'session changed or pane unavailable; inspect before reuse'
+            elif row['status'] in ('blocked', 'unknown'):
+                reason = 'needs inspection; no permission or retry inferred'
+            elif (row['completion'] is not None and row['completion'] != previous['completion']) or (
+                    previous['status'] == 'working' and row['status'] in ('idle', 'done')):
+                reason = 'work returned; consume the result and select the next authorized step'
+        if reason:
+            state['pending'][pane] = {'reason': reason, **row}
+        state['seen'][pane] = row
+    return current.get(config['root_pane'])
+
+
+def can_notify(config, root):
+    return bool(root and identity(root) == config['root_session'] and
+                root.get('agent_status') in ('idle', 'done'))
+
+
+def completion_id(pane, row):
+    session, completion = row.get('session'), row.get('completion')
+    if isinstance(session, str) and session and type(completion) is int and completion >= 0:
+        return pane, session, completion
+    return None
+
+
+def completion_event(row):
+    return row.get('kind') == 'completion' or (
+        row.get('kind') is None and row.get('status') in ('idle', 'done'))
+
+
+def events(state):
+    for pane, row in state['pending'].items():
+        yield pane, row, 'PENDING_NOTIFICATION'
+    for attempt in state['attempts']:
+        delivery = attempt['status']
+        if delivery != 'SUBMITTED_NOT_RECEIPT':
+            delivery = 'DELIVERY_UNCONFIRMED'
+        for pane, row in attempt['events'].items():
+            yield pane, row, delivery
+    for pane, row in state['seen'].items():
+        if completion_id(pane, row) is not None:
+            yield pane, row, 'OBSERVED_NO_NOTIFICATION'
+    # A newer seen row must not make an older retained completion impossible to ACK.
+    # Non-completion obligations deliberately do not join the completion ACK namespace.
+    for row in state.get('recovery', {}).get('events', {}).values():
+        if row.get('kind') == 'completion':
+            yield row['pane'], row, 'RECOVERY_COMPLETION'
+
+
+def acknowledged(state, pane, event):
+    key = completion_id(pane, event)
+    return completion_event(event) and key is not None and any(
+        row.get('schema') == 'lane-watch-ack-v1' and completion_id(row.get('pane'), row) == key
+        for row in state.get('consumed', []))
+
+
+def attempted(state, pane, event):
+    key = completion_id(pane, event)
+    return any(
+        (completion_id(p, row) == key if key is not None else p == pane and row == event)
+        for attempt in state['attempts'] for p, row in attempt['events'].items())
+
+
+def root_observation(config, root):
+    session = identity(root or {})
+    status = (root or {}).get('agent_status', 'missing')
+    if session != config['root_session']:
+        availability = 'ROOT_IDENTITY_UNCONFIRMED' if session is None else 'ROOT_SESSION_CHANGED'
+    elif status in ('idle', 'done'):
+        availability = 'AVAILABLE_FOR_NOTIFICATION_NOT_ACKNOWLEDGED'
+    elif status == 'working':
+        availability = 'ROOT_BUSY'
+    elif status == 'blocked':
+        availability = 'ROOT_BLOCKED'
+    else:
+        availability = 'ROOT_UNAVAILABLE'
+    return dict(at=time.time(), session=session, status=status, availability=availability)
+
+
+def continuation_status(config, state):
+    outstanding = {}
+    for pane, event, delivery in events(state):
+        if acknowledged(state, pane, event):
+            continue
+        key = completion_id(pane, event) or (pane, event.get('session'),
+            event.get('completion'), event.get('status'), event.get('reason'))
+        row = outstanding.setdefault(key, dict(pane=pane, event=event, delivery=[]))
+        if delivery not in row['delivery']:
+            row['delivery'].append(delivery)
+    consumed = state.get('consumed', [])
+    return dict(status='EXPIRED' if time.time() >= expiry(config) else state.get('status', 'UNOBSERVED'),
+        checked_at=state.get('checked_at'),
+        last_error=state.get('last_error'),
+        root_last_observed=state.get('root_observation'),
+        root_observation_limit='Saved observation only; missing means UNKNOWN, not availability',
+        unconsumed_events=list(outstanding.values()),
+        acknowledged=[r for r in consumed if r.get('schema') == 'lane-watch-ack-v1'],
+        legacy_consumed=[r for r in consumed if r.get('schema') != 'lane-watch-ack-v1'],
+        legacy_limit='Historical only; missing session never becomes an exact acknowledgment',
+        authority='Metadata only; no task dispatch, runtime grant or restart recovery')
+
+
+def acknowledge(config, state, args):
+    required = ('root_session', 'pane', 'worker_session', 'disposition',
+                'next_owner', 'next_action', 'evidence')
+    if any(not getattr(args, k) or not getattr(args, k).strip() for k in required):
+        raise ValueError('ack requires root/worker identity, disposition, next owner/action and evidence reference')
+    if args.root_session != config['root_session']:
+        raise ValueError('wrong pinned root session')
+    if config['workers'].get(args.pane) != args.worker_session:
+        raise ValueError('wrong pinned worker session')
+    if type(args.completion) is not int or args.completion < 0:
+        raise ValueError('ack requires an exact completion sequence')
+    if args.disposition == 'blocked' and not (args.blocked_on and args.blocked_on.strip()):
+        raise ValueError('blocked disposition requires --blocked-on; next-owner owns that dependency')
+    if args.disposition == 'working' and not (args.start_evidence and args.start_evidence.strip()):
+        raise ValueError('working disposition requires actual --start-evidence, not submission alone')
+    if args.blocked_on is not None and args.disposition != 'blocked':
+        raise ValueError('--blocked-on belongs only to a blocked disposition')
+    if args.start_evidence is not None and args.disposition != 'working':
+        raise ValueError('--start-evidence belongs only to a working disposition')
+    record = dict(schema='lane-watch-ack-v1', pane=args.pane, session=args.worker_session,
+        completion=args.completion, root_session=args.root_session, disposition=args.disposition,
+        next_owner=args.next_owner, next_action=args.next_action, evidence=args.evidence,
+        blocked_on=args.blocked_on, start_evidence=args.start_evidence)
+    key = completion_id(args.pane, record)
+    for old in state.get('consumed', []):
+        if old.get('schema') == 'lane-watch-ack-v1' and completion_id(old.get('pane'), old) == key:
+            if {k: old.get(k) for k in record} != record:
+                raise ValueError('conflicting acknowledgment; preserve the original and reconcile in the ledger')
+            return 'ALREADY_ACKNOWLEDGED', False
+    if not any(completion_event(event) and completion_id(pane, event) == key for pane, event, _ in events(state)):
+        raise ValueError('completion identity is not present in retained observations/attempts')
+    state.setdefault('consumed', []).append(dict(record, at=time.time()))
+    state['pending'] = {p: e for p, e in state['pending'].items()
+                        if e.get('status') not in ('idle', 'done') or completion_id(p, e) != key}
+    return 'ACKNOWLEDGED_NOT_DISPATCHED', True
+
+
+# v2 is additive: v1 seen/pending/attempts/consumed are never reinterpreted as ACKs.
+DEFAULTS = dict(cooldown_seconds=600, ack_age_seconds=600,
+                selected_start_seconds=300, inactivity_seconds=600,
+                expiry_warning_seconds=900, max_notices_per_event=3)
+STATE_BYTES = 4 * 1024 * 1024
+EVENT_LIMIT = 256
+NOTICE_LIMIT = 64
+TRACK_LIMIT = 128
+HISTORY_LIMIT = 64
+HISTORY_BYTES = 8 * 1024 * 1024
+HISTORY_IO_BYTES = 32 * 1024 * 1024
+SELECTION_FIELDS = ('pane', 'session', 'root_session', 'selection_id', 'disposition',
+    'next_owner', 'next_action', 'evidence', 'next_check_at', 'blocked_on',
+    'start_evidence', 'source_completion')
+
+
+def history_identity(s):
+    return tuple(getattr(s, k) for k in ('st_dev', 'st_ino', 'st_mode', 'st_nlink',
+        'st_uid', 'st_gid', 'st_size', 'st_mtime_ns', 'st_ctime_ns'))
+
+
+@contextlib.contextmanager
+def history_fd(path, flags, audit, mode=0o600):
+    fd = os.open(path, flags | os.O_NOFOLLOW, mode)
+    primary = None
+    try:
+        yield fd
+    except BaseException as error:
+        primary = error
+        raise
+    finally:
+        try:
+            os.close(fd)  # Exactly once, including an ambiguous close failure.
+        except OSError as error:
+            audit['close_errors'].append(dict(path=str(path), type=type(error).__name__,
+                                             detail=str(error)[:512]))
+            if primary is None:
+                raise
+
+
+def history_guard(audit):
+    if time.monotonic() >= audit['deadline']:
+        raise ValueError('HISTORY_DEADLINE')
+
+
+def history_read(path, audit, limit=STATE_BYTES):
+    history_guard(audit)
+    before = os.lstat(path)
+    if not stat.S_ISREG(before.st_mode) or before.st_nlink != 1:
+        raise ValueError('HISTORY_REGULAR_SINGLE_LINK_REQUIRED')
+    if before.st_size > limit or audit['read_bytes'] + before.st_size + 1 > HISTORY_IO_BYTES:
+        raise ValueError('HISTORY_READ_LIMIT')
+    with history_fd(path, os.O_RDONLY, audit) as fd:
+        if history_identity(os.fstat(fd)) != history_identity(before):
+            raise ValueError('HISTORY_OPEN_IDENTITY_CHANGED')
+        chunks = []; size = 0
+        while True:
+            history_guard(audit)
+            data = os.read(fd, min(65536, limit + 1 - size))
+            audit['read_bytes'] += len(data); size += len(data)
+            if size > limit or audit['read_bytes'] > HISTORY_IO_BYTES:
+                raise ValueError('HISTORY_READ_LIMIT')
+            if not data:
+                break
+            chunks.append(data)
+        if history_identity(os.fstat(fd)) != history_identity(before):
+            raise ValueError('HISTORY_DESCRIPTOR_CHANGED')
+    if history_identity(os.lstat(path)) != history_identity(before):
+        raise ValueError('HISTORY_PATH_CHANGED')
+    return b''.join(chunks), history_identity(before)
+
+
+def history_rows(config, rows):
+    if not isinstance(rows, list) or len(rows) > 2 * TRACK_LIMIT:
+        raise ValueError('HISTORY_ROW_LIMIT_OR_SHAPE')
+    for row in rows:
+        if (not isinstance(row, dict) or any(k not in row for k in SELECTION_FIELDS)
+                or row['root_session'] != config['root_session']):
+            raise ValueError('HISTORY_ROW_IDENTITY_OR_FIELDS')
+        for key in ('pane', 'session', 'selection_id'):
+            if not isinstance(row[key], str) or not 0 < len(row[key]) <= 1024:
+                raise ValueError('HISTORY_ROW_KEY')
+    return rows
+
+
+def history_load(config, state, audit):
+    h = state['recovery'].get('disposition_history', dict(
+        schema='lane-watch-disposition-history-v1', root_session=config['root_session'], archives=[], imports=[]))
+    if (h.get('schema') != 'lane-watch-disposition-history-v1'
+            or h.get('root_session') != config['root_session']
+            or not isinstance(h.get('archives'), list) or not isinstance(h.get('imports'), list)
+            or len(h['archives']) > HISTORY_LIMIT or len(h['imports']) > 1):
+        raise ValueError('HISTORY_INDEX_REFUSED')
+    rows = []; total = 0; names = set(); imports = []
+    for index, ref in enumerate(h['archives']):
+        if (set(ref) != {'name', 'sha256', 'bytes', 'rows'}
+                or not re.fullmatch(r'dispositions-[0-9a-f]{64}\.json', ref['name'])
+                or ref['name'] in names or type(ref['bytes']) is not int
+                or not 0 < ref['bytes'] <= STATE_BYTES or type(ref['rows']) is not int
+                or not 0 <= ref['rows'] <= 2 * TRACK_LIMIT
+                or ref['name'] != 'dispositions-' + ref['sha256'] + '.json'):
+            raise ValueError('HISTORY_ARCHIVE_REFERENCE_REFUSED')
+        names.add(ref['name']); total += ref['bytes']
+        if total > HISTORY_BYTES:
+            raise ValueError('HISTORY_ARCHIVE_BYTES_LIMIT')
+        raw, _ = history_read(Path(config['_config_path']).parent / ref['name'], audit)
+        if len(raw) != ref['bytes'] or hashlib.sha256(raw).hexdigest() != ref['sha256']:
+            raise ValueError('HISTORY_ARCHIVE_CONTENT_CHANGED')
+        archive = json.loads(raw)
+        if (archive.get('schema') != 'lane-watch-disposition-archive-v1'
+                or archive.get('root_session') != config['root_session']
+                or archive.get('prior_archives') != h['archives'][:index]
+                or not isinstance(archive.get('imported'), list)):
+            raise ValueError('HISTORY_ARCHIVE_IDENTITY')
+        for seed in archive['imported']:
+            if seed not in imports:
+                imports.append(seed)
+        part = history_rows(config, archive['dispositions'])
+        if len(part) != ref['rows']:
+            raise ValueError('HISTORY_ARCHIVE_COUNT')
+        rows.extend(part)
+    if imports != h['imports']:
+        raise ValueError('HISTORY_IMPORT_INDEX_UNAUTHENTICATED')
+    return h, rows
+
+
+def history_selections(config, rows):
+    selected = {}
+    for row in rows:
+        history_rows(config, [row])
+        key = (row['pane'], row['selection_id'])
+        value = {k: row[k] for k in SELECTION_FIELDS}
+        value['blocker_id'] = row.get('blocker_id')
+        if key in selected and selected[key] != value:
+            raise ValueError('selection id conflict in retained history')
+        selected[key] = value
+    return selected
+
+
+def history_seed(config, history):
+    seed = config.get('disposition_history_seed')
+    if seed is not None and seed not in history['imports']:
+        raise ValueError('HISTORY_SEED_IMPORT_REQUIRED_BEFORE_TRACK')
+
+
+def history_sync_directory(base, audit):
+    history_guard(audit)
+    with history_fd(base, os.O_RDONLY | os.O_DIRECTORY, audit) as fd:
+        os.fsync(fd)
+
+
+def history_create(path, raw, audit, mode):
+    history_guard(audit)
+    with history_fd(path, os.O_WRONLY | os.O_CREAT | os.O_EXCL, audit, mode) as fd:
+        offset = 0
+        while offset < len(raw):
+            history_guard(audit)
+            n = os.write(fd, raw[offset:offset + 65536])
+            if n <= 0:
+                raise OSError('history write made no progress')
+            offset += n
+        os.fsync(fd)
+    observed, _ = history_read(path, audit)
+    if observed != raw:
+        raise ValueError('HISTORY_PUBLICATION_READBACK')
+
+
+def history_ack_provenance(config, state, audit):
+    """Reconstruct retained producers' provenance only; never create explicit history rows."""
+    r = state['recovery']; delay = policy(config)['selected_start_seconds']; derived = {}
+    for ack in state.get('consumed', []):
+        history_guard(audit)
+        if (ack.get('schema') != 'lane-watch-ack-v1'
+                or ack.get('root_session') != config['root_session']
+                or config['workers'].get(ack.get('pane')) != ack.get('session')
+                or type(ack.get('completion')) is not int or ack['completion'] < 0):
+            continue
+        origins = [('legacy-ack-', 'MIGRATION_DEFAULT_NOT_PRIOR_ROOT_TIMESTAMP', r['installed_at'])]
+        if ack.get('disposition') != 'complete' and finite(ack.get('at')):
+            origins.append(('ack-', 'ACK_DEFAULT_CHECK_NOT_DISPATCH', ack['at']))
+        for prefix, origin, at in origins:
+            if not finite(at):
+                continue
+            expected = dict(ack, selection_id=prefix+str(ack['completion']), recorded_at=at,
+                next_check_at=at+delay, baseline=None, observed_start=None, schedule_origin=origin)
+            if prefix == 'ack-':
+                expected['source_completion'] = ack['completion']
+            key = (ack['pane'], expected['selection_id'])
+            if key in derived and derived[key] != expected:
+                raise ValueError('HISTORY_ACK_PROVENANCE_CONFLICT')
+            derived[key] = expected
+    return derived
+
+
+def history_derived_tracking(row, expected):
+    if expected is None:
+        return False
+    # These two observations can legitimately change after production. All copied ACK
+    # fields, derived times/origin and the exact field set must otherwise match.
+    return row == dict(expected, baseline=row.get('baseline'), observed_start=row.get('observed_start'))
+
+
+def history_derived_event(config, event, expected, linked=False):
+    if expected is None or event.get('session') != expected['session']:
+        return False
+    if linked:
+        return (expected.get('schedule_origin') == 'ACK_DEFAULT_CHECK_NOT_DISPATCH'
+            and event.get('kind') == 'completion' and event.get('completion') == expected['completion']
+            and event.get('key') == event_key(config, 'completion', expected['pane'],
+                                              expected['session'], expected['completion'])
+            and event.get('disposition_recorded') == dict(selection_id=expected['selection_id'],
+                evidence=expected['evidence'], at=expected['recorded_at']))
+    kind = 'selected-not-started' if expected['disposition'] == 'selected-not-started' else 'next-check'
+    due = expected['next_check_at']
+    if event.get('ack'):
+        if not finite(event.get('ack_at')) or event['ack'].get('root_session') != config['root_session']:
+            return False
+        due = event['ack_at'] + policy(config)['cooldown_seconds']
+    return (expected['disposition'] != 'complete' and event.get('kind') == kind
+        and event.get('token') == expected['selection_id']
+        and event.get('key') == event_key(config, kind, expected['pane'], expected['session'], expected['selection_id'])
+        and event.get('reason') == 'Recorded '+expected['disposition']+' needs its scheduled check; inspect the ledger, do not dispatch automatically'
+        and finite(event.get('created_at')) and event['created_at'] >= expected['next_check_at']
+        and event.get('due_at') == due)
+
+
+def archive_dispositions(config, state_path, import_path, import_sha256, audit):
+    """Called only under the existing exclusive nonblocking state lock; no CLI delivery."""
+    audit['phase'] = 'read-state'
+    original, identity_before = history_read(state_path, audit)
+    state = json.loads(original); r = state['recovery']
+    if r['schema'] != 'lane-watch-recovery-v2' or r['root_session'] != config['root_session']:
+        raise ValueError('HISTORY_ROOT_IDENTITY')
+    rows = history_rows(config, r['dispositions'])
+    history, archived = history_load(config, state, audit)
+    imports = list(history['imports']); imported = []
+    if import_path is not None:
+        audit['phase'] = 'read-explicit-import'
+        raw, _ = history_read(import_path, audit)
+        seed = dict(path=str(import_path), bytes=len(raw), sha256=hashlib.sha256(raw).hexdigest())
+        if seed['sha256'] != import_sha256 or seed != config.get('disposition_history_seed'):
+            raise ValueError('HISTORY_IMPORT_NOT_EXACT_SELECTED_SEED')
+        imported = history_rows(config, json.loads(raw))
+        if seed in imports:
+            raise ValueError('HISTORY_SEED_ALREADY_IMPORTED_NO_REPEAT')
+        if imports:
+            raise ValueError('HISTORY_IMPORT_LIMIT')
+        imports.append(seed)
+    history_seed(config, dict(history, imports=imports))
+    history_selections(config, archived + imported + rows)
+    available_rows = {(x['pane'], x['selection_id']): x for x in archived + imported + rows}
+    derived = history_ack_provenance(config, state, audit)
+    keep = {(x['pane'], x['selection_id']) for x in rows[-64:]}
+    for row in r['tracking'].values():
+        key = (row['pane'], row['selection_id'])
+        if key in available_rows or not history_derived_tracking(row, derived.get(key)):
+            keep.add(key)
+    for event in r['events'].values():
+        if event.get('resolved_at') is None:
+            if event['kind'] in ('selected-not-started', 'next-check'):
+                key = (event['pane'], event['token'])
+                if key in available_rows or not history_derived_event(config, event, derived.get(key)):
+                    keep.add(key)
+            linked = event.get('disposition_recorded')
+            if linked:
+                key = (event['pane'], linked['selection_id'])
+                if key in available_rows or not history_derived_event(config, event, derived.get(key), linked=True):
+                    keep.add(key)
+    # A needed older row may have been archived by an earlier explicit reconciliation.
+    missing = keep - set(available_rows)
+    if missing:
+        raise ValueError('HISTORY_REQUIRED_REFERENCE_MISSING')
+    retained = [x for x in rows if (x['pane'], x['selection_id']) in keep]
+    active_keys = {(x['pane'], x['selection_id']) for x in retained}
+    retained.extend(available_rows[k] for k in sorted(keep - active_keys))
+    if len(retained) >= TRACK_LIMIT:
+        raise ValueError('HISTORY_CURRENT_UNRESOLVED_CAPACITY_NO_PRUNE')
+    if retained == rows and not imported:
+        return dict(status='HISTORY_ALREADY_WITHIN_RETENTION_NO_CHANGE', retained=len(rows))
+    if len(history['archives']) >= HISTORY_LIMIT:
+        raise ValueError('HISTORY_ARCHIVE_LIMIT_NO_DROP')
+    archive = dict(schema='lane-watch-disposition-archive-v1', root_session=config['root_session'],
+        at=time.time(), prior_archives=history['archives'], imported=imports,
+        state_before_sha256=hashlib.sha256(original).hexdigest(), dispositions=imported + rows)
+    raw = (json.dumps(archive, indent=2) + '\n').encode()
+    if len(raw) > STATE_BYTES or sum(x['bytes'] for x in history['archives']) + len(raw) > HISTORY_BYTES:
+        raise ValueError('HISTORY_ARCHIVE_BYTES_LIMIT_NO_DROP')
+    sha = hashlib.sha256(raw).hexdigest()
+    ref = dict(name='dispositions-' + sha + '.json', sha256=sha, bytes=len(raw), rows=len(imported + rows))
+    r['dispositions'] = retained
+    r['disposition_history'] = dict(history, archives=history['archives'] + [ref], imports=imports)
+    new = (json.dumps(state, indent=2) + '\n').encode()
+    if len(new) > STATE_BYTES:
+        raise ValueError('STATE_LIMIT_NO_HISTORY_REPLACEMENT')
+    audit.update(phase='publish-archive', archive=ref)
+    base = state_path.parent
+    history_create(base / ref['name'], raw, audit, 0o400)
+    history_sync_directory(base, audit)
+    audit.update(archive_durable=True, phase='stage-state')
+    tmp = base / 'state.dispositions.tmp'  # Exclusive; ambiguous/failed leftovers require disposition.
+    history_create(tmp, new, audit, 0o600)
+    current, current_identity = history_read(state_path, audit)
+    if current != original or current_identity != identity_before:
+        raise ValueError('HISTORY_STATE_PREIMAGE_CHANGED')
+    history_guard(audit)
+    audit['phase'] = 'replace-state'
+    os.replace(tmp, state_path)
+    audit.update(state_replaced=True, phase='sync-state-directory')
+    history_sync_directory(base, audit)
+    final, _ = history_read(state_path, audit)
+    if final != new:
+        raise ValueError('HISTORY_FINAL_STATE_READBACK')
+    history_guard(audit)
+    return dict(status='HISTORY_ARCHIVED_NOT_DISPATCHED', archive=ref,
+        before=len(rows), retained=len(retained), imported=len(imported),
+        before_sha256=hashlib.sha256(original).hexdigest(), after_sha256=hashlib.sha256(new).hexdigest(),
+        other_state_fields_unchanged=True, no_delivery_or_consumption_reset=True)
+
+
+def finite(value):
+    return type(value) in (int, float) and math.isfinite(value)
+
+
+def expiry(config):
+    mode = config.get('observer_mode', 'finite')
+    if mode == 'persistent':
+        if config.get('expires_at') is not None:
+            raise ValueError('persistent mode requires explicit null/absent expires_at')
+        return math.inf
+    if mode != 'finite' or not finite(config.get('expires_at')):
+        raise ValueError('explicit finite expiry or persistent observer mode required')
+    return config['expires_at']
+
+
+def policy(config):
+    p = dict(DEFAULTS, **config.get('recovery', {}))
+    if set(p) != set(DEFAULTS):
+        raise ValueError('unknown recovery policy field')
+    for k, value in p.items():
+        lo, hi = (1, 3) if k == 'max_notices_per_event' else (120, 86400)
+        if type(value) is not int or not lo <= value <= hi:
+            raise ValueError('invalid bounded recovery policy: ' + k)
+    expiry(config)
+    if config.get('interval_seconds', 120) != 120:
+        raise ValueError('selected observer cadence is 120 seconds')
+    return p
+
+
+def event_key(config, kind, pane, session, token):
+    raw = json.dumps([config['root_session'], kind, pane, session, token],
+                     separators=(',', ':'), ensure_ascii=True).encode()
+    return hashlib.sha256(raw).hexdigest()
+
+
+def legacy_attempt_key(attempt):
+    # Status/response may finish after an intent; they are not a second attempt.
+    raw=json.dumps([attempt.get('at'),attempt.get('events')],sort_keys=True,
+                   separators=(',', ':'),ensure_ascii=True).encode()
+    return hashlib.sha256(raw).hexdigest()
+
+
+def import_late_legacy(config,state,at):
+    """Same-lock rolling09 overlap only. Import each retained old-source attempt once."""
+    r=state['recovery'];known=r['legacy_attempt_ids']
+    # Carry recorded attempts across timers, including ACKed/already-imported events.
+    times=[a['at'] for a in state['attempts'] if finite(a.get('at'))]
+    if r['last_notice_at'] is not None:times.append(r['last_notice_at'])
+    if times:r['last_notice_at']=max(times)
+    for attempt in state['attempts']:
+        key=legacy_attempt_key(attempt)
+        if key in known:continue
+        if len(known)>=128:raise ValueError('LEGACY_OVERLAP_IMPORT_LIMIT_RECONCILE')
+        for pane,row in attempt.get('events',{}).items():
+            if acknowledged(state,pane,row) and row.get('status') in ('idle','done'):continue
+            kind='completion' if completion_id(pane,row) and row.get('status') in ('idle','done') else 'lane-status'
+            token=row.get('completion') if kind=='completion' else [row.get('status'),row.get('reason')]
+            e=new_event(config,state,kind,pane,row,token,row.get('reason','late legacy notification attempt'),at)
+            e['notices']+=1
+            observed=attempt['at'] if finite(attempt.get('at')) else at
+            e['last_attempt_at']=max(e['last_attempt_at'] or observed,observed)
+            e['legacy_delivery']='Late old-monitor attempt imported once; submission is not ACK'
+            if observed<at-3600:e['historical_review_only']='Old retained attempt; reconcile history without automatic replay'
+        known.append(key)
+
+
+def new_event(config, state, kind, pane, row, token, reason, at, due=None):
+    r = state['recovery']; key = event_key(config, kind, pane, row.get('session'), token)
+    if key in r['events']:
+        return r['events'][key]
+    if len(r['events']) >= EVENT_LIMIT:
+        closed = next((k for k, e in r['events'].items() if e.get('resolved_at') is not None), None)
+        if closed is None:
+            raise ValueError('EVENT_LIMIT_UNRESOLVED_REQUIRES_RECONCILIATION')
+        del r['events'][closed]
+        r['closed_events_compacted'] = r.get('closed_events_compacted', 0) + 1
+    e = dict(key=key, kind=kind, pane=pane, session=row.get('session'),
+             completion=row.get('completion'), token=token, reason=reason,
+             created_at=at, due_at=at if due is None else due, notices=0,
+             last_attempt_at=None, resolved_at=None, resolution=None)
+    r['events'][key] = e
+    return e
+
+
+def recovery(config, state, at):
+    policy(config)
+    if 'recovery' not in state:
+        state['recovery'] = dict(schema='lane-watch-recovery-v2', root_session=config['root_session'],
+            installed_at=at, last_clock=at, events={}, notices=[], tracking={}, dispositions=[],
+            root_idle_since=None, last_notice_at=None, local_alerts=[], last_local_alert_at=None,
+            unavailable_since=None,legacy_attempt_ids=[legacy_attempt_key(a) for a in state['attempts']])
+        # Only real pending/attempted events migrate. An old idle baseline is not new work.
+        for pane, row, delivery in list(events(state)):
+            if delivery == 'OBSERVED_NO_NOTIFICATION' or acknowledged(state, pane, row):
+                continue
+            kind = 'completion' if completion_id(pane, row) and completion_event(row) else 'lane-status'
+            token = row.get('completion') if kind == 'completion' else [row.get('status'), row.get('reason')]
+            e = new_event(config, state, kind, pane, row, token,
+                          row.get('reason', 'unacknowledged retained event'), at)
+            prior = [a for a in state['attempts'] if any(
+                (completion_id(p, x) == completion_id(pane, row) if kind == 'completion'
+                 else p == pane and x == row) for p, x in a.get('events', {}).items())]
+            if prior:
+                e['notices'] = len(prior)
+                times = [a['at'] for a in prior if finite(a.get('at'))]
+                e['last_attempt_at'] = max(times) if times else at
+                e['legacy_delivery'] = 'Attempt evidence only; no receipt/ACK inferred'
+                if times and max(times)<at-3600:
+                    e['historical_review_only']='Older than migration hour; preserve unresolved history without replaying old notices. Root may reconcile with exact ACK or a new --track record.'
+        # Preserve old acknowledgments; migrate unfinished dispositions as attributed defaults.
+        for ack in state.get('consumed', []):
+            if ack.get('schema') != 'lane-watch-ack-v1' or ack.get('root_session') != config['root_session']:
+                continue
+            pane = ack.get('pane')
+            if config['workers'].get(pane) != ack.get('session'):
+                continue
+            state['recovery']['tracking'][pane] = dict(ack,
+                selection_id='legacy-ack-' + str(ack['completion']), recorded_at=at,
+                next_check_at=at + policy(config)['selected_start_seconds'],
+                baseline=state['seen'].get(pane), observed_start=None,
+                schedule_origin='MIGRATION_DEFAULT_NOT_PRIOR_ROOT_TIMESTAMP')
+    r = state['recovery']
+    if r.get('schema') != 'lane-watch-recovery-v2' or r.get('root_session') != config['root_session']:
+        raise ValueError('RECOVERY_IDENTITY_REBIND_REQUIRED_NO_DELIVERY')
+    if not finite(at) or at < r['last_clock']:
+        raise ValueError('CLOCK_REGRESSION_NO_DELIVERY')
+    r['last_clock'] = at
+    return r
+
+
+def resolve(e, at, reason):
+    if e.get('resolved_at') is None:
+        e.update(resolved_at=at, resolution=reason)
+
+
+def root_preparation(config, tracking):
+    return bool(tracking and tracking.get('session') == config['root_session'] and
+                tracking.get('wait_kind') == 'preparation' and
+                tracking.get('disposition') in ('working', 'selected-not-started', 'blocked'))
+
+
+def refresh(config, state, agents, at):
+    r = recovery(config, state, at); p = policy(config)
+    import_late_legacy(config,state,at)
+    # Existing --ack callers can record a selected successor without a separate --track.
+    # Derive a separately visible default check, never replace a newer explicit plan and
+    # never let a completion ACK erase an existing continuation obligation.
+    for ack in state.get('consumed', []):
+        if (ack.get('schema')!='lane-watch-ack-v1' or ack.get('root_session')!=config['root_session']
+                or ack.get('disposition')=='complete' or not finite(ack.get('at'))):continue
+        pane=ack.get('pane');t=r['tracking'].get(pane)
+        if config['workers'].get(pane)!=ack.get('session') or (t and t['recorded_at']>=ack['at']):continue
+        r['tracking'][pane]=dict(ack,selection_id='ack-'+str(ack['completion']),recorded_at=ack['at'],
+            next_check_at=ack['at']+p['selected_start_seconds'],baseline=state['seen'].get(pane),
+            observed_start=None,source_completion=ack['completion'],schedule_origin='ACK_DEFAULT_CHECK_NOT_DISPATCH')
+    previous = dict(state['seen'])
+    root = observe(config, state, agents)
+    current = {a['pane_id']: a for a in agents}
+    for pane, row in state['pending'].items():
+        kind = 'completion' if (completion_id(pane, row) and row.get('session') == config['workers'][pane]
+                                 and row.get('status') in ('idle','done')) else 'lane-status'
+        token = row.get('completion') if kind == 'completion' else [row.get('status'), row.get('reason')]
+        e = new_event(config, state, kind, pane, row, token, row['reason'], at)
+        e.pop('historical_review_only',None)  # A newly observed transition is current evidence.
+        if kind == 'completion' and acknowledged(state, pane, row):
+            resolve(e, at, 'EXACT_COMPLETION_ACK')
+    # Entries now have stable keys; clearing pending does not discard them or their attempts.
+    state['pending'] = {}
+    for e in r['events'].values():
+        if e['kind']=='expiry-warning' and e['token']!=expiry(config):
+            resolve(e,at,'EXPLICIT_OBSERVER_LIFETIME_SELECTION_CHANGED')
+        if e['kind'] == 'completion' and acknowledged(state, e['pane'], e):
+            resolve(e, at, 'EXACT_COMPLETION_ACK')
+        t=r['tracking'].get(e['pane'])
+        if e['kind']=='completion' and t and t.get('source_completion')==e['completion'] and t['session']==e['session']:
+            e['disposition_recorded']=dict(selection_id=t['selection_id'],evidence=t['evidence'],at=t['recorded_at'])
+            e['reason']='Exact completion ACK is unrecorded but a linked disposition exists; reconcile ACK publication, do not repeat work'
+    for pane, t in r['tracking'].items():
+        a = current.get(pane, {}); row = dict(session=identity(a), completion=a.get('completion_seq'))
+        if row['session'] != t['session']:
+            continue  # Pinned identity handling is separate; do not claim work or reuse a lane.
+        prev = previous.get(pane, t.get('baseline') or {})
+        if (t.get('observed_start') is None and a.get('agent_status') == 'working'
+                and prev.get('status') in ('idle', 'done') and at >= t['recorded_at']):
+            t['observed_start'] = dict(at=at, session=row['session'], status='working',
+                                      limit='Herdr activity observed; not workload START or ACK')
+        kind = 'selected-not-started' if t['disposition'] == 'selected-not-started' else 'next-check'
+        token = t.get('obligation_id', t['selection_id'])
+        key = event_key(config, kind, pane, row['session'], token)
+        if t['disposition'] in ('complete', 'idle-no-authorized-work'):
+            continue
+        if at >= t['next_check_at']:
+            new_event(config, state, kind, pane, row, token,
+                      'Recorded ' + t['disposition'] + ' needs its scheduled check; inspect the ledger, do not dispatch automatically',
+                      at, t['next_check_at'])
+    state['root_observation'] = root_observation(config, root)
+    state['root_observation']['at'] = at
+    availability = state['root_observation']['availability']
+    if availability in ('ROOT_BLOCKED','ROOT_UNAVAILABLE','ROOT_IDENTITY_UNCONFIRMED','ROOT_SESSION_CHANGED'):
+        if r['unavailable_since'] is None:r['unavailable_since']=at
+    else:r['unavailable_since']=None
+    if availability == 'AVAILABLE_FOR_NOTIFICATION_NOT_ACKNOWLEDGED':
+        if r['root_idle_since'] is None:r['root_idle_since'] = at
+    else:
+        for e in r['events'].values():
+            if e['kind'] == 'coordinator-idle':resolve(e, at, 'IDLE_INTERVAL_ENDED_NOT_ACK')
+        r['root_idle_since'] = None
+    if availability == 'ROOT_BUSY':
+        for n in r['notices']:
+            if n.get('root_activity_observed') is None and at > n['at']:
+                n['root_activity_observed'] = dict(at=at, session=identity(root), status='working', ack=False)
+    root_plan = r['tracking'].get(config['root_pane'])
+    # A completed root turn is a handoff even after genuine prerequisite progress.
+    # Reconnect snapshots recover it too. Key by the unchanged work obligation,
+    # never by completion sequence: another empty turn cannot refill its budget.
+    if can_notify(config, root) and root_preparation(config, root_plan):
+        continuation = new_event(config, state, 'root-continuation', config['root_pane'],
+                  dict(session=config['root_session'], completion=root.get('completion_seq')),
+                  root_plan.get('obligation_id', root_plan['selection_id']),
+                  'Coordinator turn ended with owned preparation unfinished; continue the next '
+                  'already-authorized action now or identify its concrete external limit. '
+                  'The future report deadline is not a work-start deadline', at)
+        for prior in r['events'].values():
+            if (prior['pane'] == config['root_pane'] and prior['token'] == continuation['token']
+                    and prior['kind'] in ('next-check', 'selected-not-started')):
+                continuation['notices'] = max(continuation['notices'], prior['notices'])
+                if prior['last_attempt_at'] is not None:
+                    continuation['last_attempt_at'] = max(continuation['last_attempt_at'] or 0, prior['last_attempt_at'])
+    deferred = root_plan is not None and (root_plan['disposition'] == 'idle-no-authorized-work' or (root_plan.get('wait_kind') == 'external' and root_plan['next_check_at'] > at))
+    workers_working = any(identity(current.get(pane, {})) == session and
+                          current.get(pane, {}).get('agent_status') == 'working'
+                          for pane, session in config['workers'].items())
+    other_obligation=any(e['resolved_at'] is None and not e.get('historical_review_only') and e['kind']!='coordinator-idle' for e in r['events'].values())
+    if (r['root_idle_since'] is not None and at-r['root_idle_since'] >= p['inactivity_seconds']
+            and not deferred and not workers_working and not other_obligation):
+        new_event(config, state, 'coordinator-idle', config['root_pane'],
+                  dict(session=config['root_session']), r['root_idle_since'],
+                  'Coordinator idle with no observed worker activity; record the next action or explicit hold/next-check', at)
+    if expiry(config) != math.inf and at >= expiry(config)-p['expiry_warning_seconds']:
+        new_event(config, state, 'expiry-warning', config['root_pane'],
+                  dict(session=config['root_session']), expiry(config),
+                  'Finite observer expiry approaching; select renewal/persistent mode or explicitly close monitoring', at)
+    return root
+
+
+def due_events(config, state, at):
+    r = recovery(config, state, at); p = policy(config)
+    global_cooldown = r['last_notice_at'] is not None and at-r['last_notice_at'] < p['cooldown_seconds']
+    due = []
+    for e in r['events'].values():
+        t = r['tracking'].get(e['pane'], {})
+        if e['kind'] in ('next-check', 'selected-not-started') and any(
+                other['kind'] == 'root-continuation' and other['pane'] == e['pane'] and
+                other['token'] == e['token'] and other['resolved_at'] is None and
+                root_preparation(config, t) for other in r['events'].values()):
+            continue  # Same obligation has one wakeup budget and delivery path.
+        if e['kind'] == 'root-continuation' and not root_preparation(config, t):
+            continue
+        if global_cooldown and not (e['kind'] == 'root-continuation' and e['notices'] == 0):
+            continue  # An unrelated notice must not delay the first unfinished-turn handoff.
+        if e['kind'] == 'next-check' and (t.get('disposition') == 'idle-no-authorized-work' or
+                (t.get('wait_kind') == 'external' and t.get('next_check_at', 0) > at)):
+            continue  # Health observation continues; unchanged intentional idle needs no agent wakeup.
+        if e.get('historical_review_only') or e['resolved_at'] is not None or e['notices'] >= p['max_notices_per_event'] or at < e['due_at']:
+            continue
+        if e['last_attempt_at'] is not None and at-e['last_attempt_at'] < max(p['cooldown_seconds'], p['ack_age_seconds']):
+            continue
+        due.append(e)
+    return sorted(due, key=lambda e: (e['due_at'], e['key']))[:8]
+
+
+def available(config, state, root, at):
+    # External waiting can defer its own scheduled check, never an independent return.
+    return can_notify(config, root)
+
+
+def track(config, state, args, at):
+    r = recovery(config, state, at)
+    for field in ('root_session', 'pane', 'worker_session', 'selection_id', 'disposition', 'next_owner', 'next_action', 'evidence'):
+        value = getattr(args, field, None)
+        if not isinstance(value, str) or not value.strip() or len(value) > 1024:
+            raise ValueError('track requires bounded ' + field)
+    pinned = config['root_session'] if args.pane == config['root_pane'] else config['workers'].get(args.pane)
+    if args.root_session != config['root_session'] or args.worker_session != pinned:
+        raise ValueError('wrong exact track session')
+    if not finite(args.next_check_at) or not at < args.next_check_at <= expiry(config):
+        raise ValueError('track requires a future next-check within selected finite expiry, if any')
+    if args.disposition == 'working' and not args.start_evidence:
+        raise ValueError('working requires explicit start evidence; submission alone is not start')
+    if args.disposition == 'blocked' and not args.blocked_on:
+        raise ValueError('blocked requires dependency/owner')
+    if args.start_evidence and args.disposition != 'working':raise ValueError('start evidence only for working')
+    if args.blocked_on and args.disposition != 'blocked':raise ValueError('blocked-on only for blocked')
+    if args.completion is not None:
+        if type(args.completion) is not int or args.completion<0 or not any(
+            completion_id(p,e)==(args.pane,args.worker_session,args.completion) for p,e,_ in events(state)):
+            raise ValueError('linked source completion is not in retained observations')
+    record = dict(pane=args.pane,session=args.worker_session,root_session=args.root_session,
+        selection_id=args.selection_id,disposition=args.disposition,next_owner=args.next_owner,
+        next_action=args.next_action,evidence=args.evidence,next_check_at=args.next_check_at,
+        blocked_on=args.blocked_on,start_evidence=args.start_evidence,source_completion=args.completion)
+    blocker_id = getattr(args, 'blocker_id', None)
+    external = args.disposition == 'blocked' and getattr(args, 'wait_kind', None) in (None, 'external')
+    if blocker_id is not None and (not external or not re.fullmatch(r'[a-zA-Z0-9][a-zA-Z0-9._-]{0,127}', blocker_id)):
+        raise ValueError('--blocker-id needs an external blocked disposition and a bounded identifier')
+    audit = dict(deadline=time.monotonic() + 10, read_bytes=0, close_errors=[])
+    try:
+        history, archived = history_load(config, state, audit)
+        history_seed(config, history)
+        history_selections(config, archived + r['dispositions'])
+    except Exception as error:
+        error.history_diagnostics = audit
+        raise
+    for old in r['dispositions'] + archived:
+        if old['pane']==args.pane and old['selection_id']==args.selection_id:
+            if (any(old[k]!=v for k,v in record.items()) or
+                    (blocker_id is not None and old.get('blocker_id') != blocker_id)):
+                raise ValueError('selection id conflict; use an explicit new record id')
+            return 'ALREADY_TRACKED', False
+    if len(r['dispositions']) >= TRACK_LIMIT:raise ValueError('DISPOSITION_HISTORY_LIMIT_RECONCILE')
+    previous = r['tracking'].get(args.pane)
+    supplied_progress = getattr(args, 'progress_evidence', None)
+    already_consumed = bool(supplied_progress and any(
+        old['pane'] == args.pane and supplied_progress in (old.get('progress_evidence'), old.get('last_progress_evidence'))
+        for old in r['dispositions'] + archived))
+    progress = None if already_consumed else supplied_progress
+    wait_kind = getattr(args, 'wait_kind', None) or ('external' if args.disposition == 'blocked' else 'preparation')
+    if wait_kind not in ('external', 'preparation', 'none'):
+        raise ValueError('wait-kind must be external, preparation or none')
+    if (previous and args.pane == config['root_pane'] and
+            previous.get('wait_kind') == 'preparation' and wait_kind == 'preparation' and
+            previous['disposition'] != 'complete' and args.disposition != 'complete' and
+            not progress and args.next_check_at > previous['next_check_at']):
+        raise ValueError('ROOT_PREPARATION_NOT_CONTINUED: an ACK or unchanged evidence cannot '
+                         'extend this obligation; perform the next authorized action or record '
+                         'a concrete external dependency. Original state/deadline retained.')
+    # A new record ID, next check, receipt, or Herdr activity is not progress.
+    # Evidence is an accountable coordinator assertion, never inferred from activity.
+    record.update(work_id=getattr(args, 'work_id', None) or
+                  (previous or {}).get('work_id', (previous or {}).get('selection_id', args.selection_id)),
+                  wait_kind=wait_kind, progress_evidence=progress, repeated_progress_evidence=supplied_progress if already_consumed else None)
+    if external:
+        if (blocker_id is None and previous and previous.get('blocker_id') and
+                previous['work_id'] == record['work_id']):
+            if previous['blocked_on'] != args.blocked_on:
+                raise ValueError('External cause reworded or changed: reuse --blocker-id for the same '
+                                 'dependency, or name the new dependency. Previous record retained.')
+            blocker_id = previous['blocker_id']
+        if blocker_id is None and (not previous or previous.get('disposition') != 'blocked' or
+                previous.get('wait_kind') != 'external' or previous.get('work_id') != record['work_id']):
+            # A new external wait has a stable identity even if its writer supplies none.
+            blocker_id = hashlib.sha256(args.selection_id.encode()).hexdigest()
+        if blocker_id is not None:
+            record['blocker_id'] = blocker_id
+    unchanged = previous is not None and not progress and previous['disposition'] != 'complete'
+    record['obligation_id'] = previous.get('obligation_id', previous['selection_id']) if unchanged else args.selection_id
+    record['no_progress_since'] = previous.get('no_progress_since', previous['recorded_at']) if unchanged else at
+    record['last_progress_evidence'] = progress or (previous or {}).get('last_progress_evidence')
+    if progress or args.disposition == 'complete':
+        for e in r['events'].values():
+            if e['pane']==args.pane and e['kind'] in ('selected-not-started','next-check','coordinator-idle','root-continuation'):
+                resolve(e, at, 'EVIDENCED_PROGRESS' if progress else 'EXPLICIT_WORK_CLOSED')
+    record.update(recorded_at=at,baseline=state['seen'].get(args.pane),observed_start=None,schedule_origin='EXPLICIT_ROOT_RECORD')
+    r['dispositions'].append(dict(record));r['tracking'][args.pane]=record
+    return 'TRACKED_NOT_DISPATCHED', True
+
+
+def ack_event(config, state, args, at):
+    r = recovery(config,state,at)
+    if args.root_session != config['root_session']:raise ValueError('wrong pinned root session')
+    e = r['events'].get(args.event_key)
+    if e is None:raise ValueError('unknown exact event key')
+    if e['kind']=='completion':raise ValueError('completion uses existing exact --ack semantics')
+    for field in ('disposition','next_owner','next_action','evidence'):
+        v=getattr(args,field,None)
+        if not isinstance(v,str) or not v.strip() or len(v)>1024:raise ValueError('ack-event requires '+field)
+    record=dict(root_session=args.root_session,disposition=args.disposition,next_owner=args.next_owner,next_action=args.next_action,evidence=args.evidence)
+    if e.get('ack'):
+        if e['ack']!=record:raise ValueError('conflicting event acknowledgment')
+        return 'ALREADY_ACKNOWLEDGED',False
+    e['ack']=record;e['ack_at']=at
+    if e['kind'] in ('selected-not-started','next-check','coordinator-idle','root-continuation'):
+        # A notification ACK is not progress. Only observation or a new explicit disposition
+        # resolves the linked obligation. Preserve its finite notice budget across this ACK.
+        e['due_at']=at+policy(config)['cooldown_seconds']
+    else:resolve(e,at,'EXACT_EVENT_ACK')
+    return 'EVENT_ACKNOWLEDGED_NOT_DISPATCHED',True
+
+
+def local_alert(config,state,call,kind,token,body,at):
+    """One local-client notification per stable incident; never a dialog bypass or receipt."""
+    r=recovery(config,state,at);key=event_key(config,'local-'+kind,config['root_pane'],config['root_session'],token)
+    if any(x['key']==key for x in r['local_alerts']):return None
+    if r['last_local_alert_at'] is not None and at-r['last_local_alert_at']<policy(config)['cooldown_seconds']:
+        r['local_alert_deferred']=dict(key=key,kind=kind,at=at,next_eligible_at=r['last_local_alert_at']+policy(config)['cooldown_seconds'],
+                                      limit='No delivery; a stopped timer cannot retry this warning')
+        return None
+    if len(r['local_alerts'])>=128:
+        state['local_alert_limit']='EXHAUSTED_NO_AUTOMATIC_RESET';return None
+    row=dict(key=key,kind=kind,at=at,status='INTENT_NOT_RECEIPT',rc=None,stdout=None,stderr=None)
+    r['local_alerts'].append(row);r['last_local_alert_at']=at
+    return row, [config['herdr'],'notification','show','M7 coordination needs attention',
+                 '--body',body+' Observer only; no workload/task dispatch. State: '+str(Path(config['_config_path']).parent/'state.json'),
+                 '--sound','none']
+
+
+def status_view(config,state):
+    value=continuation_status(config,state);r=state.get('recovery',{})
+    value.update(observer_mode=config.get('observer_mode','finite'),expires_at=config.get('expires_at'),
+        recovery=r,limits=policy(config),
+        recovery_limit='Submission, observed root activity, explicit ACK and worker start are separate. No automatic dispatch or workload authority.')
+    return value
+
+
+def subscription_request(config):
+    return dict(id='m7-completion-subscription', method='events.subscribe', params=dict(
+        subscriptions=[dict(type='pane.agent_status_changed', pane_id=p)
+                       for p in [config['root_pane'], *config['workers']]]))
+
+
+def event_relevant(config, message):
+    return (message.get('event') == 'pane.agent_status_changed' and
+            message.get('data', {}).get('pane_id') in {config['root_pane'], *config['workers']})
+
+
+def listen(config, config_path):
+    """One connection in the existing observer service; snapshots recover lost events.
+
+    Events are hints, not identity/authority. The existing tick rechecks sessions,
+    locks the existing ledger, deduplicates completion IDs and owns all delivery.
+    """
+    if os.environ.get('HERDR_ENV') != '1':
+        raise ValueError('HERDR_ENV required')
+    base = config_path.parent
+    with (base/'listener.lock').open('a') as singleton:
+        fcntl.flock(singleton, fcntl.LOCK_EX | fcntl.LOCK_NB)
+        def health(**fields):
+            with (base/'lock').open('a') as lock:
+                fcntl.flock(lock, fcntl.LOCK_EX)
+                path = base/'state.json'
+                state = json.loads(path.read_text())
+                state.setdefault('event_listener', {}).update(at=time.time(), **fields)
+                write(path, state)
+        def tick(reason, human=False):
+            if human and config.get('human_tick'):
+                r = subprocess.run(config['human_tick'], timeout=30, capture_output=True, text=True)
+                health(human_tick_rc=r.returncode)
+            r = subprocess.run([sys.executable, str(Path(__file__).resolve()), '--config', str(config_path)],
+                               timeout=35, capture_output=True, text=True)
+            health(last_tick_reason=reason, last_tick_at=time.time(), last_tick_rc=r.returncode,
+                   last_tick_output=r.stdout[-2048:], last_tick_error=r.stderr[-1024:])
+            state = json.loads((base/'state.json').read_text())
+            if state.get('status') in ('PINNED_SESSION_CHANGED_STOPPED','PINNED_ROOT_CHANGED_AT_RECHECK','EXPIRED'):
+                raise SystemExit('observer identity/lifetime ended; no adoption')
+        interval = config.get('interval_seconds', 120)
+        last_health = 0.0
+        while time.time() < expiry(config):
+            try:
+                with socket.socket(socket.AF_UNIX, socket.SOCK_STREAM) as conn:
+                    conn.settimeout(5)
+                    conn.connect(config['environment']['HERDR_SOCKET_PATH'])
+                    conn.sendall((json.dumps(subscription_request(config))+'\n').encode())
+                    buffer = b''
+                    while b'\n' not in buffer:
+                        part = conn.recv(65536)
+                        if not part: raise ConnectionError('EOF before subscription acknowledgment')
+                        buffer += part
+                        if len(buffer)>65536: raise ValueError('subscription frame too large')
+                    first, buffer = buffer.split(b'\n',1)
+                    response = json.loads(first)
+                    if response.get('result',{}).get('type') != 'subscription_started':
+                        raise ValueError('subscription rejected: '+str(response)[:512])
+                    health(status='SUBSCRIBED', connected_at=time.time(), subscription=response)
+                    tick('connect/reconnect reconciliation', human=True)
+                    last_health = time.monotonic()
+                    while True:
+                        relevant = False
+                        while b'\n' in buffer:
+                            line, buffer = buffer.split(b'\n',1)
+                            message = json.loads(line)
+                            if event_relevant(config, message):
+                                relevant = True
+                                health(last_event=message, last_event_at=time.time())
+                        if relevant:
+                            tick('pane.agent_status_changed')
+                        delay = max(0, interval-(time.monotonic()-last_health))
+                        readable,_,_ = select.select([conn],[],[],delay)
+                        if readable:
+                            part = conn.recv(65536)
+                            if not part: raise ConnectionError('subscription EOF')
+                            buffer += part
+                            if len(buffer)>65536: raise ValueError('event frame too large')
+                        if time.monotonic()-last_health >= interval:
+                            tick('scheduled health/recovery', human=True)
+                            last_health = time.monotonic()
+            except (OSError, ValueError, subprocess.TimeoutExpired) as error:
+                health(status='DISCONNECTED_RECOVERY_PENDING', error=str(error)[:1024])
+                # Existing timer also recovers a dead observer. No agent invocation here.
+                time.sleep(15)
+
+
+def main():
+    parser=argparse.ArgumentParser(description=__doc__)
+    parser.add_argument('--config',type=Path,required=True)
+    mode=parser.add_mutually_exclusive_group()
+    mode.add_argument('--listen',action='store_true',help='Completion events plus scheduled health in the existing observer')
+    mode.add_argument('--continuation-status',action='store_true')
+    mode.add_argument('--ack',action='store_true')
+    mode.add_argument('--track',action='store_true',help='Record a disposition/next-check only; never submit work')
+    mode.add_argument('--ack-event',action='store_true',help='Acknowledge one non-completion recovery key')
+    mode.add_argument('--archive-dispositions',action='store_true',help='Explicit lossless history reconciliation under the same lock; no notifications')
+    parser.add_argument('--import-history',type=Path)
+    parser.add_argument('--import-sha256')
+    for name in ('root-session','pane','worker-session','selection-id','event-key','next-owner','next-action','evidence','blocked-on','start-evidence','work-id','progress-evidence','wait-kind'):
+        parser.add_argument('--'+name)
+    parser.add_argument('--completion',type=int)
+    parser.add_argument('--next-check-at',type=float)
+    parser.add_argument('--disposition',choices=('selected-not-started','working','blocked','idle-no-authorized-work','complete'))
+    parser.add_argument('--blocker-id', help='Stable identity of this external dependency occurrence for human notices')
+    args=parser.parse_args()
+    if args.blocker_id is not None and not args.track:
+        parser.error('--blocker-id belongs to --track')
+    record_fields=('root_session','pane','worker_session','selection_id','event_key','next_owner','next_action','evidence','blocked_on','start_evidence','completion','next_check_at','disposition','work_id','progress_evidence','wait_kind')
+    if args.archive_dispositions:
+        if not args.root_session or any(getattr(args,k) is not None for k in record_fields if k != 'root_session'):
+            parser.error('archive requires only exact --root-session and optional explicit import pair')
+        if bool(args.import_history) != bool(args.import_sha256):
+            parser.error('history import requires both exact path and SHA256')
+    elif args.import_history is not None or args.import_sha256 is not None:
+        parser.error('history import belongs only to --archive-dispositions')
+    if not (args.ack or args.track or args.ack_event or args.archive_dispositions) and any(getattr(args,k) is not None for k in record_fields):
+        parser.error('record fields require --ack, --track or --ack-event')
+    if args.ack and any(getattr(args,k) is not None for k in ('selection_id','event_key','next_check_at')):parser.error('use --track for follow-through after a completion ACK')
+    if args.track and args.event_key is not None:parser.error('track uses a selected record id, not an event ACK')
+    if args.ack_event and any(getattr(args,k) is not None for k in ('pane','worker_session','selection_id','completion','next_check_at','blocked_on','start_evidence')):parser.error('ack-event uses its retained exact key; use --track for a new disposition')
+    config=json.loads(args.config.read_text());config['_config_path']=str(args.config);policy(config)
+    base=args.config.parent;state_path=base/'state.json'
+    if args.listen:
+        listen(config, args.config)
+        return
+    def read_state():
+        if not state_path.exists():return dict(seen={},pending={},attempts=[])
+        with state_path.open('rb') as f:data=f.read(STATE_BYTES+1)
+        if len(data)>STATE_BYTES:raise ValueError('STATE_LIMIT_NO_DELIVERY')
+        return json.loads(data)
+    def save(state):
+        if len(json.dumps(state).encode())>STATE_BYTES:raise ValueError('STATE_LIMIT_NO_DELIVERY')
+        write(state_path,state)
+    if args.archive_dispositions:
+        audit = dict(phase='lock', deadline=time.monotonic()+10, read_bytes=0,
+                     close_errors=[], archive_durable=False, state_replaced=False)
+        try:
+            if args.root_session != config['root_session']:
+                raise ValueError('wrong pinned root session')
+            with history_fd(base/'lock', os.O_RDWR | os.O_CREAT, audit) as lock:
+                fcntl.flock(lock, fcntl.LOCK_EX | fcntl.LOCK_NB)
+                result = archive_dispositions(config, state_path, args.import_history, args.import_sha256, audit)
+        except Exception as error:
+            error.history_diagnostics = audit
+            try:
+                print(json.dumps(dict(status='HISTORY_RECONCILIATION_UNCONFIRMED',
+                    error_type=type(error).__name__, error=str(error)[:1024], diagnostics=audit,
+                    limit='No rollback or retry; inspect retained archive/temp/state if publication was partial.')))
+            except Exception as secondary:
+                audit['diagnostic_publication_error'] = dict(type=type(secondary).__name__, detail=str(secondary)[:512])
+            raise
+        print(json.dumps(dict(result, diagnostics=audit)));return
+    if args.continuation_status:
+        print(json.dumps(status_view(config,read_state())));return
+    with (base/'lock').open('a') as lock:
+        try:fcntl.flock(lock,fcntl.LOCK_EX|fcntl.LOCK_NB)
+        except BlockingIOError:
+            if args.ack or args.track or args.ack_event:
+                print(json.dumps(dict(status='ACK_OR_DISPOSITION_PUBLICATION_BUSY_NOT_RECORDED',pane=args.pane,completion=args.completion,event_key=args.event_key,action_status='UNKNOWN_NOT_REDISPATCH_PERMISSION')))
+                parser.error('state lock busy; record NOT written')
+            print(json.dumps(dict(status='LOCK_BUSY_NO_CALL')));return
+        state=read_state()
+        if args.ack or args.track or args.ack_event:
+            try:
+                if args.ack:result,changed=acknowledge(config,state,args)
+                elif args.track:result,changed=track(config,state,args,time.time())
+                else:result,changed=ack_event(config,state,args,time.time())
+            except ValueError as e:
+                if hasattr(e, 'history_diagnostics'):
+                    try:
+                        diagnostic = json.dumps(dict(status='HISTORY_READ_REFUSED', diagnostics=e.history_diagnostics))
+                        if len(diagnostic.encode()) > 16384:
+                            raise ValueError('HISTORY_DIAGNOSTIC_LIMIT')
+                        print(diagnostic)
+                    except Exception as secondary:
+                        e.history_diagnostics['diagnostic_publication_error'] = dict(
+                            type=type(secondary).__name__, detail=str(secondary)[:512])
+                    raise  # Preserve the actual history refusal object; no diagnostic fallback.
+                parser.error(str(e))
+            if changed:
+                try:save(state)
+                except Exception as error:
+                    print(json.dumps(dict(status='ACK_OR_DISPOSITION_PUBLICATION_UNCONFIRMED',error_type=type(error).__name__,pane=args.pane,completion=args.completion,action_status='UNKNOWN_NOT_REDISPATCH_PERMISSION')))
+                    raise
+            print(json.dumps(dict(status=result)));return
+        deadline=time.monotonic()+27
+        env=dict(os.environ,**config['environment']);env['HERDR_ENV']='1'
+        def call(argv):
+            left=deadline-time.monotonic()
+            if left<=0:raise ValueError('TICK_DEADLINE_NO_CALL')
+            return subprocess.run(argv,env=env,text=True,capture_output=True,timeout=min(8,left))
+        def stop_timer(status):
+            unit=config['timer_unit']
+            if not re.fullmatch(r'pixelelated-m7-lane-watch-[0-9-]+\.timer',unit):raise ValueError('unexpected timer identity')
+            state['status']=status;save(state)
+            result=call(['/usr/bin/systemctl','--user','stop',unit])
+            state['timer_stop']=dict(at=time.time(),rc=result.returncode,stderr=result.stderr[-2048:]);save(state)
+        def alert(kind,token,body):
+            planned=local_alert(config,state,call,kind,token,body,time.time())
+            if planned is None:return
+            row,argv=planned;row['argv']=argv;save(state)
+            try:
+                result=call(argv)
+                row.update(rc=result.returncode,stdout=result.stdout,stderr=result.stderr,
+                           status='SUBMITTED_LOCAL_CLIENT_RECEIPT_UNPROVED' if result.returncode==0 else 'LOCAL_DELIVERY_UNCONFIRMED')
+            except Exception as error:
+                row.update(status='LOCAL_DELIVERY_UNCONFIRMED',error_type=type(error).__name__,error=str(error)[:2048])
+            save(state)
+        try:
+            now=time.time();r=recovery(config,state,now);state['checked_at']=now
+            if now>=expiry(config):
+                stop_timer('EXPIRED');alert('terminated',['expiry',expiry(config)],'Finite monitor expired and its timer stop was attempted; monitoring is not renewed.');return
+            result=call([config['herdr'],'agent','list'])
+            if result.returncode:raise RuntimeError(result.stderr[:2048])
+            agents=json.loads(result.stdout)['result']['agents']
+            if time.time()>=expiry(config):
+                stop_timer('EXPIRED');alert('terminated',['expiry',expiry(config)],'Finite monitor expired during observation; timer stop attempted.');return
+            root=refresh(config,state,agents,time.time());state['status']='OBSERVED'
+            r['observation_failure_since']=None
+            actual={a['pane_id']:identity(a) for a in agents}
+            if len(actual)!=len(agents):raise ValueError('DUPLICATE_PANE_OBSERVATION_NO_DELIVERY')
+            pins=dict(config['workers'],**{config['root_pane']:config['root_session']})
+            mismatches={k:actual[k] for k,v in pins.items() if actual.get(k) is not None and actual[k]!=v}
+            if mismatches:
+                state['identity_mismatches']=mismatches;stop_timer('PINNED_SESSION_CHANGED_STOPPED')
+                alert('terminated',['identity',mismatches],'Pinned session identity changed; observer timer stop attempted. Inspect/rebind explicitly; no lane was adopted.');return
+            due=due_events(config,state,time.time())
+            for e in r['events'].values():
+                e['budget_exhausted']=(e['resolved_at'] is None and e['notices']>=policy(config)['max_notices_per_event']
+                        and not (e['kind']=='root-continuation' and not root_preparation(config,r['tracking'].get(e['pane'])))
+                        and not (e['kind']=='next-check' and r['tracking'].get(e['pane'],{}).get('disposition')=='idle-no-authorized-work'))
+            state['status']='RECOVERY_BUDGET_EXHAUSTED' if any(e['budget_exhausted'] for e in r['events'].values()) else 'OBSERVED'
+            save(state)
+            exhausted=[e['key'] for e in r['events'].values() if e['budget_exhausted'] and
+                       (e['last_attempt_at'] is None or time.time()-e['last_attempt_at']>=policy(config)['ack_age_seconds'])]
+            if exhausted:alert('budget',sorted(exhausted),'Finite coordination reminder budget exhausted. Reconcile ACK publication and lane dispositions; task delivery/consumption is not inferred.')
+            elif due and r['unavailable_since'] is not None:
+                alert('root-unavailable',r['unavailable_since'],'Exact coordinator is unavailable/blocked; pending coordination needs attention. This local-client alert does not bypass its dialog.')
+            if not due or not available(config,state,root,time.time()):return
+            result=call([config['herdr'],'agent','get',config['root_pane']])
+            if result.returncode:raise RuntimeError(result.stderr[:2048])
+            root=json.loads(result.stdout)['result']['agent'];now=time.time();recovery(config,state,now)
+            state['root_observation']=root_observation(config,root)
+            if identity(root or {}) not in (None,config['root_session']):
+                stop_timer('PINNED_ROOT_CHANGED_AT_RECHECK');alert('terminated',['root',identity(root)],'Root changed at recheck; timer stop attempted without prompting or adoption.');return
+            if now>=expiry(config):
+                stop_timer('EXPIRED');alert('terminated',['expiry',expiry(config)],'Finite monitor expired at recheck; timer stop attempted.');return
+            if not available(config,state,root,now):
+                state['status']='ROOT_RECHECK_UNAVAILABLE';save(state)
+                if state['root_observation']['availability'] in ('ROOT_BLOCKED','ROOT_UNAVAILABLE','ROOT_IDENTITY_UNCONFIRMED'):
+                    if r['unavailable_since'] is None:r['unavailable_since']=now
+                    alert('root-unavailable',r['unavailable_since'],'Coordinator became unavailable at the exact pre-delivery check; no agent prompt was sent.')
+                return
+            if len(r['notices'])>=NOTICE_LIMIT:
+                removable=next((i for i,n in enumerate(r['notices']) if all(k not in r['events'] or r['events'][k]['resolved_at'] is not None for k in n['keys'])),None)
+                if removable is None:state['status']='NOTICE_HISTORY_UNACKNOWLEDGED_LIMIT';save(state);return
+                del r['notices'][removable];r['closed_notices_compacted']=r.get('closed_notices_compacted',0)+1
+            notice=dict(at=now,root_session=config['root_session'],keys=[e['key'] for e in due],
+                        status='ATTEMPT_INTENT_NOT_RECEIPT',rc=None,root_activity_observed=None)
+            r['notices'].append(notice);r['last_notice_at']=now
+            for e in due:e['notices']+=1;e['last_attempt_at']=now
+            save(state)  # Reserve once before a possibly ambiguous prompt; no immediate resend.
+            now=time.time();recovery(config,state,now)
+            if now>=expiry(config) or time.monotonic()>=deadline:
+                notice['status']='NO_CALL_EXPIRED_AFTER_PERSISTENCE';save(state);return
+            message=('M7 coordination reminder (not a task dispatch): '+ '; '.join(
+                e['pane']+' ['+e['key']+']: '+e['reason'] for e in due)+
+                '. Earlier notices may have delivered or been consumed despite failed ACK publication. Reconcile bookkeeping/continuation; never replay a task. Record exact ACK and separate disposition/next-check. '
+                'For root-owned preparation, continue the next already-authorized action in this turn; '
+                'an ACK or later timestamp is not completion. A real external dependency needs its '
+                'cause and owner; do not turn an internal field into a new human approval gate. '
+                'No runtime/device approval, worker retry or restart is granted. State: '+str(state_path))
+            result=call([config['herdr'],'agent','prompt',config['root_pane'],message])
+            notice.update(rc=result.returncode,response=result.stdout[-4096:],stderr=result.stderr[-2048:],
+                          status='SUBMITTED_NOT_RECEIPT' if result.returncode==0 else 'DELIVERY_UNCONFIRMED')
+            save(state)
+        except Exception as error:
+            state['status']='OBSERVATION_OR_DELIVERY_UNCONFIRMED'
+            state['last_error']=dict(at=time.time(),type=type(error).__name__,detail=str(error)[:2048])
+            save(state)
+            # Do not attempt another Herdr call after a clock/identity/bounds refusal.
+            if isinstance(error,(subprocess.TimeoutExpired,RuntimeError)) and 'recovery' in state:
+                if r.get('observation_failure_since') is None:r['observation_failure_since']=time.time()
+                try:alert('observation-unconfirmed',r['observation_failure_since'],'Observer CLI result is unconfirmed. No retry/workload was issued; inspect retained state.')
+                except Exception as secondary:
+                    state['alert_publication_error']=dict(type=type(secondary).__name__,detail=str(secondary)[:1024])
+                    try:save(state)
+                    except Exception:pass
+            raise
+        finally:
+            print(json.dumps(dict(status=state.get('status'),observer_mode=config.get('observer_mode','finite'),
+                next_tick_not_before=time.time()+120,root=state.get('root_observation'),
+                recovery_events=len(state.get('recovery',{}).get('events',{})),
+                authority='Observer only; no worker/runtime dispatch')))
+
+
+if __name__ == '__main__':
+    main()
+
+
