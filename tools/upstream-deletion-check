@@ -1,0 +1,90 @@
+#!/usr/bin/env python3
+"""upstream-deletion-check -- did a merge keep a file upstream deleted? (#1459)
+
+Lists every file upstream deleted between two upstream refs that is still
+present at a tree's head, and says for each whether a kept-deletions file
+gives a reason. A merge resolves a modify/delete conflict silently in the
+fork's favour as often as not; the October candidate carried fifteen
+AetherSX2 files ROCKNIX had withdrawn over licensing, and nothing said so.
+
+  tools/upstream-deletion-check --old-base <ref> [--new-base upstream/next]
+                                [--head HEAD] [--tree .] [--kept FILE]
+
+The kept file holds one line per accepted file or glob:
+`<path or glob> -- <reason>`; blank lines and `#` comments are ignored. A
+reason is required. Default: docs/releases/upstream-deletions-kept.txt in
+the tree, if it exists.
+
+Exit 0: every kept file has a reason. Exit 1: a file was kept without one.
+Exit 2: the check could not run (a ref that does not resolve, an unreadable
+kept file, a malformed line) -- not a pass.
+"""
+import argparse
+import fnmatch
+import os
+import subprocess
+import sys
+
+KEPT_DEFAULT = "docs/releases/upstream-deletions-kept.txt"
+
+
+def git(tree, *args):
+    r = subprocess.run(["git", "-C", tree, *args], capture_output=True, text=True)
+    if r.returncode != 0:
+        print(f"upstream-deletion-check: cannot run: git {' '.join(args)}: {r.stderr.strip()}", file=sys.stderr)
+        sys.exit(2)
+    return r.stdout
+
+
+def main():
+    ap = argparse.ArgumentParser(description=__doc__.split("\n\n")[0])
+    ap.add_argument("--tree", default=".")
+    ap.add_argument("--old-base", required=True, help="the upstream ref the tree was last merged with")
+    ap.add_argument("--new-base", default="upstream/next")
+    ap.add_argument("--head", default="HEAD")
+    ap.add_argument("--kept", help=f"kept-deletions file (default: {KEPT_DEFAULT} in the tree)")
+    a = ap.parse_args()
+
+    old, new, head = (git(a.tree, "rev-parse", "--verify", r + "^{commit}").strip() for r in (a.old_base, a.new_base, a.head))
+    deleted = [p for p in git(a.tree, "diff", "--no-renames", "--name-only", "--diff-filter=D", "-z", old, new).split("\0") if p]
+    present = set(p for p in git(a.tree, "ls-tree", "-r", "--name-only", "-z", head).split("\0") if p)
+
+    kept_path = a.kept or os.path.join(a.tree, KEPT_DEFAULT)
+    rules = []
+    if a.kept or os.path.exists(kept_path):
+        try:
+            with open(kept_path, encoding="utf-8") as f:
+                for n, line in enumerate(f, 1):
+                    line = line.strip()
+                    if not line or line.startswith("#"):
+                        continue
+                    pattern, sep, reason = line.partition(" -- ")
+                    if not sep or not pattern.strip() or not reason.strip():
+                        print(f"upstream-deletion-check: cannot run: {kept_path}:{n}: want '<path or glob> -- <reason>'", file=sys.stderr)
+                        sys.exit(2)
+                    rules.append((pattern.strip(), reason.strip()))
+        except OSError as e:
+            print(f"upstream-deletion-check: cannot run: {kept_path}: {e}", file=sys.stderr)
+            sys.exit(2)
+
+    kept = sorted(p for p in deleted if p in present)
+    failing = 0
+    print(f"# upstream deleted {len(deleted)} file(s) between {old[:10]} and {new[:10]}; "
+          f"{len(kept)} still present at {head[:10]}")
+    for p in kept:
+        reason = next((r for g, r in rules if fnmatch.fnmatchcase(p, g)), None)
+        if reason:
+            print(f"KEPT  {p} -- {reason}")
+        else:
+            failing += 1
+            print(f"FAIL  {p} -- kept with no reason")
+    unused = [g for g, _ in rules if not any(fnmatch.fnmatchcase(p, g) for p in kept)]
+    for g in unused:
+        print(f"note  {g} -- names no kept file in this window")
+    print(f"upstream-deletion-check: {'FAIL' if failing else 'PASS'} -- "
+          f"{len(kept) - failing} kept with a reason, {failing} without")
+    sys.exit(1 if failing else 0)
+
+
+if __name__ == "__main__":
+    main()
