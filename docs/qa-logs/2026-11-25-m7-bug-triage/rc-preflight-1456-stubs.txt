@@ -1,0 +1,10 @@
+# #1456 stubs, 2026-11-25. Stub A: one BEHIND (not accepted), one UNKNOWN, exit 2.
+## at 325ec1e693 (the old check_packages; identical through 7287c7a730), given --only packages
+CANNOT    packages                 fork-package-freshness did not answer (rc 2): ['stubunknown 2.0 - UNKNOWN: no resolver']
+## at 7c73bad693 (fixed-at)
+CANNOT    packages                 head 7c73bad693 base c445081a59: unknown to fork-package-freshness: stubunknown
+FAIL      packages                 head 7c73bad693 base c445081a59: 1 behind, 1 unknown; not accepted: stubbehind BEHIND
+## Stub B: crashes (exit 2, no rows), at 7c73bad693
+CANNOT    packages                 head 7c73bad693 base c445081a59: fork-package-freshness printed no package rows (rc 2): boom: resolver crashed
+## Stub C (#1460): a listed package with no recipe, at 7c73bad693
+CANNOT    packages                 head 7c73bad693 base c445081a59: the package list does not match the tree; no recipe for opus
