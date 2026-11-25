@@ -4,7 +4,7 @@
 #
 # time-to-play - the two numbers a player feels, measured on one VM guest.
 #
-#   tools/time-to-play --port 10025 --identity /tmp/rocknix-vm-pair/qa-key \
+#   tools/time-to-play --port 10025 --identity .qa-scratch/vm-pair/qa-key \
 #       --monitor /tmp/rocknix-qemu-monitor-c.sock --backend sftp \
 #       --repeat 5 --out /tmp/ttp
 #
@@ -122,6 +122,7 @@ vq = importlib.util.module_from_spec(_spec)
 _loader.exec_module(vq)
 
 ROM = "/storage/roms/nes/Probe.nes"
+CELLS = ("launch", "exit", "g2g", "startup", "offline", "bounds")
 RETROARCH_CFG = "/storage/.config/retroarch/retroarch.cfg"
 # Busybox pgrep -x compares the whole argv and RetroArch's argv[0] is its
 # full path, so -x never matches it (generic-x64-vm-testing.md). The bracket
@@ -155,7 +156,10 @@ class Guest:
 
     def __init__(self, host, port, key):
         self.host, self.port, self.key = host, str(port), key
-        self.cp = "/tmp/ttp-cm-%d" % os.getpid()
+        # The ssh master's socket under the user's runtime directory, never a
+        # fixed /tmp name (D-INFRA-031); a unix socket path is capped at 107 bytes.
+        self.cp = os.path.join(os.environ.get("XDG_RUNTIME_DIR") or tempfile.gettempdir(),
+                               "ttp-cm-%d" % os.getpid())
 
     def _opts(self, master=True):
         o = ["-o", "StrictHostKeyChecking=no", "-o", "UserKnownHostsFile=/dev/null",
@@ -185,8 +189,12 @@ class Guest:
         """scp's exit status: a copy that failed is said by the caller, never
         assumed done (a missing directory on a fresh guest made the conf
         copy fail silently, and two comparisons timed syncs to nowhere)."""
-        return subprocess.run(["scp", "-q", "-P", self.port] + self._opts() + [local, self.host + ":" + remote],
-                              capture_output=True).returncode
+        # Bounded like every ssh here (#976): a copy that never ends is a failed one.
+        try:
+            return subprocess.run(["scp", "-q", "-P", self.port] + self._opts() + [local, self.host + ":" + remote],
+                                  capture_output=True, timeout=120).returncode
+        except subprocess.TimeoutExpired:
+            return 124
 
     def drop_master(self):
         subprocess.run(["ssh", "-O", "exit", "-o", "ControlPath=" + self.cp,
@@ -389,23 +397,45 @@ def reboot_guest(g):
             break
         time.sleep(2)
     time.sleep(12)
+    install_helpers(g)
 
 
 def install_helpers(g):
-    g.sh('cat > /tmp/ttp-kill <<"H"\n'
+    """/tmp is a tmpfs, so after every reboot as well as once at the start
+    (#983, G-14): the startup cell's reboots wiped it, and every later kill
+    did nothing."""
+    rc, out = g.sh('cat > /tmp/ttp-kill <<"H"\n'
          '#!/bin/bash\n'
          'DEBUG=false; log() { :; }\n'
          'eval "$(sed -n "/^execute_kill()/,/^}/p" /usr/bin/input_sense)"\n'
          'execute_kill\n'
          'H\n'
          'chmod +x /tmp/ttp-kill; echo ok')
+    if rc != 0 or out != "ok":
+        raise RuntimeError("the kill helper could not be installed on the guest (rc %d)" % rc)
 
 
 # --------------------------------------------------------------------------
 # the payload
 
 
-def seed_payload(g, jitter, kind="full"):
+SEEDED = set()
+
+
+def seed_paths(rom, kind):
+    """The saves seed_payload writes for this ROM: its states under
+    savestates/<system>/ and its battery save beside it (#983, G-13)."""
+    system = os.path.basename(os.path.dirname(rom))
+    stem = os.path.splitext(os.path.basename(rom))[0]
+    srm = os.path.join(os.path.dirname(rom), stem + ".srm")
+    if kind == "srm":
+        return [srm]
+    d = "/storage/roms/savestates/%s/%s" % (system, stem)
+    return [d + ".state.auto", d + ".state.auto.png", d + ".state1", d + ".state1.png",
+            d + ".state2", d + ".state2.png", srm]
+
+
+def seed_payload(g, jitter, kind="full", rom=ROM):
     """The saves the exit sync has to move, with fresh mtimes.
 
     Sizes are jittered by the repeat index because WebDAV with vendor=other
@@ -414,24 +444,14 @@ def seed_payload(g, jitter, kind="full"):
     uploaded' and the repeat would measure an empty transfer (#53's shape).
     Everything written here is inside cloud_sync-rules.txt's allowlist:
     /savestates/** wholesale, and *.srm by extension."""
-    if kind == "srm":
-        script = (
-            'set -e; mkdir -p /storage/roms/nes\n'
-            'dd if=/dev/urandom of=/storage/roms/nes/Probe.srm bs=1024 count=%d 2>/dev/null\n'
-            'du -k /storage/roms/nes/Probe.srm | cut -f1\n' % (8 + jitter))
-    else:
-        script = (
-            'set -e; d=/storage/roms/savestates/nes; mkdir -p "$d" /storage/roms/nes\n'
-            'dd if=/dev/urandom of="$d/Probe.state.auto"  bs=1024 count=%d 2>/dev/null\n'
-            'dd if=/dev/urandom of="$d/Probe.state.auto.png" bs=1024 count=%d 2>/dev/null\n'
-            'dd if=/dev/urandom of="$d/Probe.state1"      bs=1024 count=%d 2>/dev/null\n'
-            'dd if=/dev/urandom of="$d/Probe.state1.png"  bs=1024 count=%d 2>/dev/null\n'
-            'dd if=/dev/urandom of="$d/Probe.state2"      bs=1024 count=%d 2>/dev/null\n'
-            'dd if=/dev/urandom of="$d/Probe.state2.png"  bs=1024 count=%d 2>/dev/null\n'
-            'dd if=/dev/urandom of=/storage/roms/nes/Probe.srm bs=1024 count=%d 2>/dev/null\n'
-            'du -ck "$d" /storage/roms/nes/Probe.srm | tail -1 | cut -f1\n'
-            % (180 + jitter, 18 + jitter, 181 + jitter, 17 + jitter,
-               179 + jitter, 19 + jitter, 8 + jitter))
+    paths = seed_paths(rom, kind)
+    sizes = [8 + jitter] if kind == "srm" else [180 + jitter, 18 + jitter, 181 + jitter, 17 + jitter,
+                                                  179 + jitter, 19 + jitter, 8 + jitter]
+    script = "set -e; mkdir -p %s\n" % " ".join(sorted({os.path.dirname(p) for p in paths}))
+    script += "".join("dd if=/dev/urandom of=%s bs=1024 count=%d 2>/dev/null\n" % (p, n)
+                      for p, n in zip(paths, sizes))
+    script += "du -ck %s | tail -1 | cut -f1\n" % " ".join(paths)
+    SEEDED.update(paths)
     return g.sh(script, timeout=60)[1]
 
 
@@ -515,8 +535,20 @@ def measure_launch(g, fr, tag, budget=45.0, rom=ROM):
     existed and when it had burnt enough CPU to be drawing. The process poll
     is a thread so that a 15 ms SSH round trip does not sit between two
     screendumps."""
-    base = fr.rest()
     result = {"tag": tag}
+    # A launch is measured from no RetroArch (#967): one still running from an
+    # earlier cell is ended through the guest's own helper first, and the row
+    # says so, or the number would be a launch over a game.
+    if g.retroarch() is not None:
+        result["retroarch_was_running"] = True
+        result["ended_with_kill_rc"] = g.kill_game()
+        for _ in range(40):
+            if g.retroarch() is None:
+                break
+            time.sleep(0.25)
+        else:
+            result["retroarch_still_running"] = True
+    base = fr.rest()
     ra = {"seen": None, "ticks200": None, "pid": None}
     stop = threading.Event()
     t0 = [None]
@@ -638,6 +670,13 @@ def wait_drawing(g, budget=60):
     return False
 
 
+def stamp_completed(st):
+    """A sync's stamp says it completed: rc 0, or rclone's 9 (nothing to
+    transfer), and its token read. A failing sync's stamp is an outcome, not
+    a timing (#967, D-QA-062)."""
+    return bool(st) and st.get("rc") in ("0", "9") and bool(st.get("token"))
+
+
 def parse_stamp(line):
     parts = (line or "").split()
     out = {"raw": line}
@@ -697,7 +736,7 @@ def measure_exit(g, fr, tag, rest_ref, relaunch=False, budget=150.0,
     epoch0 = g.sh("date +%s")[1]
     th = None
     t0 = time.monotonic()
-    g.kill_game()
+    result["kill_rc"] = g.kill_game()
     if ssh_poll:
         th = threading.Thread(target=poll, daemon=True)
         th.start()
@@ -739,9 +778,11 @@ def measure_exit(g, fr, tag, rest_ref, relaunch=False, budget=150.0,
         # thumb answers, and so does this cell: A once, half a second after
         # the relaunch went -- from this thread, which owns the monitor
         # socket -- so the number measured is still exit to the next first
-        # frame, the one press included. With no sync in flight the launch
-        # has gone ahead and the A lands in the game, harmlessly.
-        if (relaunch and marks["relaunched"] is not None and marks["answered"] is None
+        # frame, the one press included. A sent input is not proof that a
+        # question was visible or answered. Once the next emulator has been
+        # observed, do not send this answer into the game (#1012).
+        if (relaunch and marks["ra2"] is None
+                and marks["relaunched"] is not None and marks["answered"] is None
                 and time.monotonic() - marks["relaunched"] >= 0.5):
             fr.mon.sendkey("x")
             marks["answered"] = time.monotonic()
@@ -754,17 +795,26 @@ def measure_exit(g, fr, tag, rest_ref, relaunch=False, budget=150.0,
     stop.set()
     if th is not None:
         th.join(timeout=8)
-    if marks["stamp"] is None and ssh_poll:
+    # A game-to-game repeat may reach the next frame before a sync writes
+    # its outcome. Wait for a new stamp, bounded (#967); its absence does
+    # not prove that STOP IT AND PLAY was selected (#1012).
+    wait_until = time.monotonic() + (30 if relaunch else 0)
+    while marks["stamp"] is None and ssh_poll:
         after = g.stamp("exit")
+        result["stamp_readback_after"] = after
         if after and after != before:
             marks["stamp"] = time.monotonic()
             result["stamp_after"] = after
+            break
+        if time.monotonic() >= wait_until:
+            break
+        time.sleep(0.5)
     result.update({
         "t_emulator_gone": None if marks["gone"] is None else round(marks["gone"] - t0, 3),
         "t_sync_stamp": None if marks["stamp"] is None else round(marks["stamp"] - t0, 3),
         "t_card_gone": None if card_gone is None else round(card_gone - t0, 3),
         "t_relaunch_sent": None if marks["relaunched"] is None else round(marks["relaunched"] - t0, 3),
-        "t_question_answered": None if marks["answered"] is None else round(marks["answered"] - t0, 3),
+        "t_answer_input_sent": None if marks["answered"] is None else round(marks["answered"] - t0, 3),
         "t_retroarch2_seen": None if marks["ra2"] is None else round(marks["ra2"] - t0, 3),
         "t_second_game_frame": None if game2 is None else round(game2 - t0, 3),
         "frames": series,
@@ -901,8 +951,9 @@ def read_routes(g):
     is why this keeps the line rather than a gateway: a route re-added by
     hand came back without its src or its metric, and the next condition
     then measured a guest that was not the one the online run measured."""
-    return {"v4": g.sh("ip -4 route show default | head -1")[1],
-            "v6": g.sh("ip -6 route show default | head -1")[1]}
+    # Every default route of each family, not the first (#983, G-16).
+    return {"v4": [l for l in g.sh("ip -4 route show default")[1].splitlines() if l.strip()],
+            "v6": [l for l in g.sh("ip -6 route show default")[1].splitlines() if l.strip()]}
 
 
 # Every default route, not the first one. `ip route del default` deletes ONE
@@ -920,10 +971,10 @@ def normalise_routes(g, routes):
     cmds = ["ip route del blackhole 10.0.2.2/32 2>/dev/null",
             "ip link set eth0 up 2>/dev/null",
             "sleep 1", DEL_DEFAULTS]
-    if routes.get("v4"):
-        cmds.append("ip -4 route add %s" % routes["v4"])
-    if routes.get("v6"):
-        cmds.append("ip -6 route add %s" % routes["v6"])
+    for line in routes.get("v4") or []:
+        cmds.append("ip -4 route add %s" % line)
+    for line in routes.get("v6") or []:
+        cmds.append("ip -6 route add %s" % line)
     cmds.append("true")
     g.sh("; ".join(cmds))
     return g.sh("ip -4 route show default | head -1; ip -6 route show default | head -1")[1]
@@ -987,13 +1038,15 @@ def main():
         epilog=__doc__)
     ap.add_argument("--host", default="root@127.0.0.1")
     ap.add_argument("--port", default="10022", help="the guest's forwarded SSH port")
-    ap.add_argument("--identity", default="/tmp/rocknix-vm-pair/qa-key")
+    # vm-pair's key, where vm-pair keeps it for this checkout (D-INFRA-031).
+    pair_dir = os.environ.get("VM_PAIR_DIR") or os.path.join(os.path.dirname(HERE), ".qa-scratch", "vm-pair")
+    ap.add_argument("--identity", default=os.path.join(pair_dir, "qa-key"))
     ap.add_argument("--monitor", required=True, help="the guest's QEMU monitor socket")
     ap.add_argument("--backend", default=os.environ.get("CLOUD_QA_BACKEND", "webdav"),
                     help="which QA cloud the guest's remote points at")
     ap.add_argument("--repeat", type=int, default=5)
     ap.add_argument("--out", required=True)
-    ap.add_argument("--only", default="launch,exit,g2g,startup,offline,bounds",
+    ap.add_argument("--only", default=",".join(CELLS),
                     help="cells to run: launch,exit,g2g,startup,offline,bounds")
     ap.add_argument("--label", default="", help="the host state these numbers were taken under")
     ap.add_argument("--payload", default="full", choices=("full", "srm"),
@@ -1019,6 +1072,15 @@ def main():
         args.only = "launch,exit,g2g"
 
     only = [c.strip() for c in args.only.split(",") if c.strip()]
+    # A run that would measure nothing is a usage error, never a pass (#967,
+    # D-QA-062): --repeat 0 printed every cell empty and exited 0 (P8).
+    if args.repeat < 1:
+        ap.error("--repeat must be at least 1, not %d" % args.repeat)
+    unknown = [c for c in only if c not in CELLS]
+    if unknown:
+        ap.error("--only names no cell called %s (the cells: %s)" % (", ".join(unknown), ", ".join(CELLS)))
+    if not only:
+        ap.error("--only names no cell")
     out = os.path.abspath(args.out)
     os.makedirs(out, exist_ok=True)
     frames_dir = os.path.join(out, "frames")
@@ -1038,51 +1100,15 @@ def main():
     # reboot with the file at 1, stamp `completed`).
     saved_startup = g.sh(". /etc/profile; get_setting cloudsaves.startup")[1]
     saved_gameexit = g.sh(". /etc/profile; get_setting cloudsaves.gameexit")[1]
-    g.sh(". /etc/profile; set_setting cloudsaves.gameexit 1; set_setting cloudsaves.startup 0", timeout=120)
-    settings_changed = (saved_gameexit != "1") or (saved_startup not in ("0", ""))
-    # Before the helpers: a seeded ROM costs a reboot, and /tmp is a tmpfs.
-    made = {"rom": False}
-    rom, made["rom"] = ensure_rom(g, args.rom, out)
-    if made["rom"] or settings_changed:
-        reboot_guest(g)
-    install_helpers(g)
-
-    build = g.sh('sed -n "s/^BUILD_ID=//p" /etc/os-release')[1].strip('"')[:10]
-    report = {
-        "build": build, "backend": args.backend, "port": args.port,
-        "repeat": args.repeat, "payload": args.payload,
-        "host_state": args.label or "(not stated)",
-        "started": time.strftime("%Y-%m-%d %H:%M UTC", time.gmtime()),
-        "rom": rom, "rom_seeded": made["rom"],
-        "interface_rebooted": bool(made["rom"] or settings_changed),
-        "settings_before": {"gameexit": saved_gameexit, "startup": saved_startup},
-        "cells": {},
-    }
-
     # Everything this cell changes on the guest, and the value to put back.
+    # restore() and the signal handlers exist before the first change, and
+    # every change below runs under them (#983, G-15): a run stopped part-way
+    # through its setup used to leave the guest on the run's settings.
     saved_conf = os.path.join(out, "rclone.conf.saved")
     saved_cloud = os.path.join(out, "cloud_sync.conf.saved")
-    subprocess.run(["scp", "-q", "-P", g.port] + g._opts() +
-                   [g.host + ":" + RCLONE_CONF, saved_conf], capture_output=True)
-    subprocess.run(["scp", "-q", "-P", g.port] + g._opts() +
-                   [g.host + ":" + CLOUD_CONF, saved_cloud], capture_output=True)
-    # A QEMU guest has no Vulkan. On the vulkan the GENERIC_X64 profile
-    # shipped until a5a03bd9fa, RetroArch exists for a fifth of a second and
-    # never draws, the exit sync never runs, and every headline number below
-    # is a dash -- which is what the runner's first dispatch of this cell
-    # reported as a PASS (2026-09-12). The profile ships gl now, and the boot
-    # quirk 092-retroarch-surface moves a cfg still on vulkan to gl while the
-    # image has no Vulkan driver; the swap stays, for a guest whose cfg says
-    # otherwise. The exit test has always swapped the driver for its run.
     saved_vd = ""
     saved_gs = ""
-    if args.vm:
-        saved_vd = g.sh('grep -E "^video_driver" ' + RETROARCH_CFG)[1].strip()
-        g.sh("sed -i 's/^video_driver = .*/video_driver = \"gl\"/' " + RETROARCH_CFG)
-        # The surface check reads RetroArch's GPU screenshot (surface_check):
-        # on for the run, put back after it.
-        saved_gs = g.sh('grep -E "^video_gpu_screenshot" ' + RETROARCH_CFG)[1].strip()
-        g.sh("grep -q '^video_gpu_screenshot' %s && sed -i 's/^video_gpu_screenshot = .*/video_gpu_screenshot = \"true\"/' %s || echo 'video_gpu_screenshot = \"true\"' >> %s" % (RETROARCH_CFG, RETROARCH_CFG, RETROARCH_CFG))
+    made = {"rom": False}
     fixtures = []
 
     def restore():
@@ -1090,13 +1116,20 @@ def main():
             f.down()
         # Put back as found, and said when it could not be: a restore that
         # fails leaves the guest on the run's settings.
-        if os.path.exists(saved_conf) and os.path.getsize(saved_conf) > 0:
-            if g.put(saved_conf, RCLONE_CONF) != 0:
-                print("time-to-play: could not put the guest's rclone.conf back", file=sys.stderr)
-            g.sh("chmod 600 " + RCLONE_CONF)
-        if os.path.exists(saved_cloud) and os.path.getsize(saved_cloud) > 0:
-            if g.put(saved_cloud, CLOUD_CONF) != 0:
-                print("time-to-play: could not put the guest's cloud_sync.conf back", file=sys.stderr)
+        # A saved copy goes back whatever its size; a file the guest did not
+        # have is removed, by its marker, since the run wrote one (#983, G-16).
+        for saved, path in ((saved_conf, RCLONE_CONF), (saved_cloud, CLOUD_CONF)):
+            if os.path.exists(saved):
+                if g.put(saved, path) != 0:
+                    print("time-to-play: could not put the guest's %s back" % path, file=sys.stderr)
+                if path == RCLONE_CONF:
+                    g.sh("chmod 600 " + RCLONE_CONF)
+            elif os.path.exists(saved + ".absent"):
+                if g.sh("rm -f " + path)[0] != 0:
+                    print("time-to-play: could not remove the %s this run wrote" % path, file=sys.stderr)
+        # The saves this run seeded, so the guest does not carry them on.
+        if SEEDED:
+            g.sh("rm -f " + " ".join(sorted(SEEDED)))
         g.sh("ip route show default | grep -q . || ip route add default via 10.0.2.2 dev eth0 2>/dev/null; "
              "ip route del blackhole 10.0.2.2/32 2>/dev/null; true")
         g.sh(". /etc/profile; set_setting cloudsaves.startup %s; set_setting cloudsaves.gameexit %s"
@@ -1121,7 +1154,59 @@ def main():
     signal.signal(signal.SIGINT, on_signal)
     signal.signal(signal.SIGTERM, on_signal)
 
-    fr = Frames(args.monitor, frames_dir)
+    try:
+        # The backups first, each one's status read: a copy that failed is a
+        # run that could not put the guest back, so it stops here (#983).
+        for path, saved in ((RCLONE_CONF, saved_conf), (CLOUD_CONF, saved_cloud)):
+            if g.sh("test -e %s && echo y" % path)[1] != "y":
+                open(saved + ".absent", "w").close()
+                continue
+            try:
+                r = subprocess.run(["scp", "-q", "-P", g.port] + g._opts() + [g.host + ":" + path, saved],
+                                   capture_output=True, timeout=120)
+            except subprocess.TimeoutExpired:
+                sys.exit("time-to-play: backing up the guest's %s ran past 120 s; nothing was changed" % path)
+            if r.returncode != 0 or not os.path.exists(saved):
+                sys.exit("time-to-play: could not back up the guest's %s (scp %d); nothing was changed"
+                         % (path, r.returncode))
+        g.sh(". /etc/profile; set_setting cloudsaves.gameexit 1; set_setting cloudsaves.startup 0", timeout=120)
+        settings_changed = (saved_gameexit != "1") or (saved_startup not in ("0", ""))
+        # Before the helpers: a seeded ROM costs a reboot, and /tmp is a tmpfs.
+        rom, made["rom"] = ensure_rom(g, args.rom, out)
+        if made["rom"] or settings_changed:
+            reboot_guest(g)
+        install_helpers(g)
+        # A QEMU guest has no Vulkan. On the vulkan the GENERIC_X64 profile
+        # shipped until a5a03bd9fa, RetroArch exists for a fifth of a second and
+        # never draws, the exit sync never runs, and every headline number below
+        # is a dash -- which is what the runner's first dispatch of this cell
+        # reported as a PASS (2026-09-12). The profile ships gl now, and the boot
+        # quirk 092-retroarch-surface moves a cfg still on vulkan to gl while the
+        # image has no Vulkan driver; the swap stays, for a guest whose cfg says
+        # otherwise. The exit test has always swapped the driver for its run.
+        if args.vm:
+            saved_vd = g.sh('grep -E "^video_driver" ' + RETROARCH_CFG)[1].strip()
+            g.sh("sed -i 's/^video_driver = .*/video_driver = \"gl\"/' " + RETROARCH_CFG)
+            # The surface check reads RetroArch's GPU screenshot (surface_check):
+            # on for the run, put back after it.
+            saved_gs = g.sh('grep -E "^video_gpu_screenshot" ' + RETROARCH_CFG)[1].strip()
+            g.sh("grep -q '^video_gpu_screenshot' %s && sed -i 's/^video_gpu_screenshot = .*/video_gpu_screenshot = \"true\"/' %s || echo 'video_gpu_screenshot = \"true\"' >> %s" % (RETROARCH_CFG, RETROARCH_CFG, RETROARCH_CFG))
+        build = g.sh('sed -n "s/^BUILD_ID=//p" /etc/os-release')[1].strip('"')[:10]
+        report = {
+            "build": build, "backend": args.backend, "port": args.port,
+            "repeat": args.repeat, "payload": args.payload,
+            "host_state": args.label or "(not stated)",
+            "started": time.strftime("%Y-%m-%d %H:%M UTC", time.gmtime()),
+            "rom": rom, "rom_seeded": made["rom"],
+            "interface_rebooted": bool(made["rom"] or settings_changed),
+            "settings_before": {"gameexit": saved_gameexit, "startup": saved_startup},
+            "cells": {},
+        }
+
+        fr = Frames(args.monitor, frames_dir)
+    except BaseException:
+        restore()
+        raise
     try:
         # The harness's own cost, reported beside the numbers rather than
         # subtracted from them: the POST that starts a launch goes over the
@@ -1183,7 +1268,7 @@ def main():
 
         def cycle(tag, relaunch, jitter, keep_frames=False):
             """One whole online cycle: seed, launch, play, exit."""
-            size = seed_payload(g, jitter, args.payload)
+            size = seed_payload(g, jitter, args.payload, rom)
             # The screen the launch started from IS the screen the card
             # will have to leave, so it is the one to compare against. It
             # used to be re-taken after the game had started, which made
@@ -1209,6 +1294,11 @@ def main():
             L, E = [], []
             for i in range(args.repeat):
                 a, b = cycle("r%d" % (i + 1), False, i, keep_frames=(i == 0))
+                # The online exit sync is timed only on a completed stamp: a
+                # failing sync's row keeps its token and is not a measurement.
+                if b.get("t_sync_stamp") is not None and not stamp_completed(b.get("stamp")):
+                    b["t_sync_stamp_unmeasured"] = b.pop("t_sync_stamp")
+                    b["t_sync_stamp"] = None
                 L.append(a)
                 E.append(b)
                 settle_sync(g)
@@ -1294,7 +1384,8 @@ EXIT_SYNC_BUDGET_S = 3.0
 
 def over_budget(report):
     out = []
-    rows = [r for r in (report["cells"].get("exit") or []) if r.get("t_sync_stamp") is not None]
+    rows = [r for r in (report["cells"].get("exit") or [])
+            if r.get("t_sync_stamp") is not None and stamp_completed(r.get("stamp"))]
     if rows:
         med = statistics.median(r["t_sync_stamp"] for r in rows)
         if med > EXIT_SYNC_BUDGET_S:
@@ -1317,6 +1408,11 @@ def headline_missing(report):
         out.append("RetroArch drew into a %s surface under a %s panel, by %s: the frames are scaled (#263)" % (surf.get("surface"), surf.get("panel"), surf.get("source")))
     elif report.get("cells", {}).get("launch") and surf.get("surface") is None:
         out.append("RetroArch's surface size could not be read from the guest's exec.log (#263)")
+    elif report.get("cells", {}).get("launch") and surf.get("scaled") is None:
+        # A surface read with no panel to compare it against is not qualified
+        # (#983, G-11): scaled stayed None and the frames passed unexamined.
+        out.append("RetroArch's %s surface could not be compared with the panel (%s): the frames are not qualified (#263)"
+                   % (surf.get("surface"), surf.get("panel") or "the panel's screendump did not arrive"))
     # The online cells time a sync that reaches a cloud. On a guest whose cloud
     # is not set up -- a lone --only run on a fresh pair, 2026-09-25 -- the sync
     # ends at once with YOUR CLOUD STORAGE ISN'T SET UP YET, and its stamp
@@ -1324,11 +1420,56 @@ def headline_missing(report):
     if (report.get("cells", {}).get("exit") or report.get("cells", {}).get("g2g")) and report.get("remote_reachable") != "yes":
         out.append("the exit sync had no cloud to reach (rclone lsd qa-cloud: %s): its stamp times a sync that did nothing"
                    % (report.get("remote_reachable") or "not checked"))
+    cells = report.get("cells", {})
+    # Every cell that ran is judged (D-QA-062): one that ran and produced no
+    # number fails the run, named -- --repeat 0 ran three cells of nothing.
     for cell, field, what in checks:
-        rows = report["cells"].get(cell) or []
+        if cell not in cells:
+            continue
+        rows = cells.get(cell) or []
+        if not rows:
+            out.append("the %s cell ran and produced no number" % cell)
+            continue
         n = sum(1 for r in rows if r.get(field) is None)
         if n:
             out.append("%s missing in %d of %d %s repeat(s)" % (what, n, len(rows), cell))
+    # A kill the helper did not carry out is a cycle that measured nothing. It
+    # is judged by its effect: execute_kill ends in `killall <every emulator>`,
+    # which exits 1 whenever one of the names has no process, so the status
+    # alone fails a kill that worked (the stage-E cycle: 1, with RetroArch gone
+    # in 0.16 s). The status is kept on the row.
+    for cell in ("exit", "g2g"):
+        for r in cells.get(cell) or []:
+            if r.get("kill_rc") not in (None, 0) and r.get("t_emulator_gone") is None:
+                out.append("the kill helper exited %s and RetroArch did not go in a %s repeat" % (r["kill_rc"], cell))
+    # The exit sync is a timing only when its stamp completed; a failing
+    # stamp is named by its token.
+    for r in cells.get("exit") or []:
+        st = r.get("stamp") or {}
+        if (r.get("t_sync_stamp") is not None or r.get("t_sync_stamp_unmeasured") is not None) and not stamp_completed(st):
+            out.append("an exit sync's stamp did not complete (rc %s, %s): not a measurement"
+                       % (st.get("rc", "-"), st.get("token") or "no token"))
+    # The next game's frame is judged with the stamp that says what the launch
+    # did to the sync; a row without it is a frame with no account.
+    for r in cells.get("g2g") or []:
+        if not (r.get("stamp") or {}).get("token"):
+            out.append("a game-to-game row has no exit sync stamp")
+    if "startup" in cells:
+        st = cells.get("startup") or {}
+        if not st:
+            out.append("the startup cell ran and produced no number")
+        for arm, field in (("boot", "t_startup_stamp"), ("boot-launch", "t_game_frame_after_launch")):
+            e = st.get(arm)
+            if st and (not e or e.get("error") or e.get(field) is None):
+                out.append("the startup cell's %s arm has no %s%s" % (arm, field, (" (%s)" % e["error"]) if e and e.get("error") else ""))
+    if "conditions" in cells:
+        conds = cells.get("conditions") or {}
+        if not conds:
+            out.append("the offline and bounds cells ran and produced no number")
+        for cond, e in conds.items():
+            ex = (e or {}).get("exit") or {}
+            if ex.get("t_sync_stamp") is None or not (ex.get("stamp") or {}).get("token"):
+                out.append("the %s condition has no exit sync outcome and time" % cond)
     return out
 
 
@@ -1336,7 +1477,7 @@ def measure_startup(g, fr, args, out, rom=ROM):
     """Boot to the startup card's end, and a launch pressed while it runs."""
     res = {}
     g.sh(". /etc/profile; set_setting cloudsaves.startup 1", timeout=180)
-    seed_payload(g, 3, args.payload)
+    seed_payload(g, 3, args.payload, rom)
     for arm, launch_during in (("boot", False), ("boot-launch", True)):
         before = g.stamp("startup")
         t0 = time.monotonic()
@@ -1349,6 +1490,7 @@ def measure_startup(g, fr, args, out, rom=ROM):
             res[arm] = entry
             continue
         entry["t_ssh_back"] = round(time.monotonic() - t0, 2)
+        install_helpers(g)
         # EmulationStation, then the stamp the startup sync writes
         es = None
         launched = None
@@ -1389,7 +1531,7 @@ def measure_startup(g, fr, args, out, rom=ROM):
         entry["exit_stamp"] = parse_stamp(g.stamp("exit"))
         if launch_during:
             wait_drawing(g, budget=40)
-            g.kill_game()
+            entry["kill_rc"] = g.kill_game()
             time.sleep(10)
         res[arm] = entry
     g.sh(". /etc/profile; set_setting cloudsaves.startup 0", timeout=180)
@@ -1432,7 +1574,7 @@ def run_condition(g, fr, cond, args, tool, fixtures, rom=ROM, routes=None):
         }[cond]
         set_conf(g, live)
 
-    seed_payload(g, 7, args.payload)
+    seed_payload(g, 7, args.payload, rom)
     entry["routes_before"] = g.sh("ip -4 route show")[1]
     L, rest_ref = measure_launch(g, fr, "cond-%s-launch" % cond, rom=rom)
     entry["launch"] = {k: L[k] for k in ("t_left_carousel", "t_retroarch_seen",
@@ -1552,15 +1694,15 @@ def render(r):
         for x in G:
             t = x.get("stamp", {}).get("token", "?")
             toks[t] = toks.get(t, 0) + 1
-        lines.append("## Game to game, with the exit sync in flight\n")
+        lines.append("## Game to game, on immediate relaunch\n")
         lines.append(md_table(
             ["from execute_kill to", "median / mean / max", "n"],
             [["the emulator gone", fmt(stats([x["t_emulator_gone"] for x in G])), len(G)],
              ["the relaunch sent", fmt(stats([x["t_relaunch_sent"] for x in G])), len(G)],
-             ["the question answered (STOP IT AND PLAY, D-CLOUD-130)", fmt(stats([x.get("t_question_answered") for x in G])), len(G)],
+             ["answer input sent (dialog not verified)", fmt(stats([x.get("t_answer_input_sent", x.get("t_question_answered")) for x in G])), len(G)],
              ["**the next game's first frame**", "**%s**" % fmt(stats([x["t_second_game_frame"] for x in G])), len(G)],
              ["the exit sync's stamp", fmt(stats([x["t_sync_stamp"] for x in G])), len(G)]]))
-        lines.append("What the launch did to the sync, from the stamp's token: %s.\n"
+        lines.append("Observed new exit-sync stamp token(s): %s.\n"
                      % ", ".join("`%s` x%d" % (k, v) for k, v in toks.items()))
     if S:
         rows = []
