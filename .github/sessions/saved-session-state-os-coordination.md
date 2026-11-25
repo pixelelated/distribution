@@ -108,7 +108,7 @@ Read the [M7 milestone](https://github.com/pixelelated/distribution/milestone/7)
             - whether M6's 524 findings count at the M7 call (#555 `7165449383` has the groups);
             - whether to publish the head (`0a3e979e50` is not on GitHub);
             - mGBA Smart on updated handhelds (already written, `20261125T1415Z`).
-         7. **In progress (owner OS): the source round, #1462.** The plan is on the issue. The merge dry run is on #1462 `7165993025`: 15 conflicts, 2 unapplied upstream deletions, 24 older ones to decide. **Next:** the merge in a new worktree, `build/m7-rc-round-20261125` from `0a3e979e50`. Start with what no pending answer changes. Contents:
+         7. **In progress (owner OS): the source round, #1462.** The plan is on the issue. The merge dry run is on #1462 `7165993025`: 15 conflicts, 2 unapplied upstream deletions, 24 older ones to decide. **Step 1 done: merge `f207c4ccd3`, local only,** on `build/m7-rc-round-20261125`, worktree `rocknix.worktrees/m7-rc-round-20261125` (#1462 `7166118617`). Unpushed until Max answers on publication. **Next:** replay the patches of the 20 bumped packages (RetroArch 15 on `f726f0955a`, batteryplus 1) with `/workspace/tmp/rocknix-session/patch-replay-sm8550.sh <worktree> <workdir> <pkg>...`, after fetching their new tarballs into the cache; decide the 6 older kept upstream deletions; check GENERIC_X64's kernel config on 7.2; then the small bumps. Contents:
             - the upstream merge (246 commits; take upstream's AetherSX2, #1459; check for undone deletions);
             - the six small bumps; the raofflineproxy decision; spirv-headers `PKG_SITE`;
             - the ES commit plus ROCKNIX's 20; #1422's quirk arrives with the merge;
