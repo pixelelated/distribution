@@ -89,7 +89,11 @@ Read the [M7 milestone](https://github.com/pixelelated/distribution/milestone/7)
               - #1423 stays a bug: Smart does not reach upgraded handhelds, a fifth checkbox added, NEEDS MAX `20261125T1415Z-mgba-smart-on-updated-handhelds.md` queued;
               - #1422 stays a bug: ROCKNIX #3481 is not in the candidate or `next`.
             - **Open M7 bugs: 14.**
-            - **Next:** read the twelve remaining to their ends (#1454, #1448, #1442, #1427, #1115, #1111, #629, #618, #610, #609, #608, #607), and record for each the VM run or change that closes it on the candidate's line.
+            - **14:28Z:** all 14 now have a closing path (#555 `7165324411`).
+              - **Fix in the candidate, bound to its image bytes:** #607/#608/#610 (Steam installer `162e4272…`), #618 and #629. The binding notes are on each issue.
+              - **Two guest sessions cover most of the rest:** a GENERIC guest with the Steam overlay (#607, #610), and the candidate's PC image (#618, #629, #609, #1427).
+              - **#608's ticks wait for its records on `next` (#1458).**
+            - **Next:** read #1115 and #1111 against the candidate (#1111 against D-CLOUD-175/178/179); then item 2.
             - Note: `0a3e979e50` is not on `next`'s line (393 commits ahead), so the source round builds on the candidate's line.
             - **#1458 filed (14:16Z):** about 95,000 QA record files (2.1 GB) in ten worktrees are on no branch. Not started. Do not remove those worktrees before its inventory exists.
          2. Classify the 205 unplaced bugs by origin.
