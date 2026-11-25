@@ -36,6 +36,17 @@ Read the [M7 milestone](https://github.com/pixelelated/distribution/milestone/7)
   - **#1427 and #1423: nothing tickable from the run;** notes `7157851519` and `7157852103` say what it covers.
     - #1427 needs an installed COPY TO FREE SLOT run on the candidate image, and the ES-pin check for criterion 1.
     - #1423 needs the Nova case on a per-action yes.
+- **#1455: started (owner OS coordinator).** Cold GENERIC_X64 build of `43d0bc3bf4`, run `20261125T091159Z-3c44fe1c`, at 09:11:59Z.
+  - Worktree `m7-pc-43d0bc3b-20261125`, owner `conflict-resolution/.build-runs/m7-pc-43d0bc3b-owner-20261125/`.
+  - Matched to the RG35XX SP's build: image `988c0ba5`, `CUSTOM_VERSION=0.0.1`, options `2cf98cb3`, ES `72494bc72e`.
+  - Processes: job pid 2339622, `make` 2339651, `watch-job` 2339623. A harness waiter (task `brnquief0`) reports on `launcher-result.json` or job exit; it dies with the session.
+  - Consume it from `submit-01/launcher-result.json`, `tool-wrapper.rc`, the run's `build.rc`, the identity file and the image hashes. Then remove the build root and keep the img.gz and tar as named keep items until #1455 passes.
+  - Meanwhile: #1455 criterion 3 (what the October 7 scripts wrote that the candidate reads differently).
+- **The code audit (RC step 4) is blocked, not started.** Exact blockers:
+  - step 3 is incomplete: #1455's rehearsal (above), RECORD.txt and the catalog;
+  - step 0 fails on `0a3e979e50`: `bugs FAIL` with 300 open bugs without a disposition (the tool's cap), `packages CANNOT` (rclone 1.75.2 against 1.76.0), and `base: emulationstation CANNOT` (the pin is a tarball tag).
+  - The full preflight is running in the background (task `bi4oh99cq`) into `/workspace/tmp/rocknix-session/rc-preflight-0a3e979e-20261125-full.txt`.
+  - **Next check:** that output. Then plan the step-0 dispositions (the largest RC item) and a futro before the audit.
 - **The largest unblocked M7 item is the owed code audit** (release-candidates step 4, D-WORKFLOW-062; `ceremony-check` keeps CI red for it and for the futro). It runs through the Facilitator on OpenRouter, not Codex. Plan it with the futro before starting.
 
 **00. Newer (2026-11-25T06:27Z).**
