@@ -1,0 +1,21 @@
+test_closed_browser_can_reopen (__main__.PhoneStatus.test_closed_browser_can_reopen) ... ok
+test_confirmed_success_survives_broker_teardown_without_more_requests (__main__.PhoneStatus.test_confirmed_success_survives_broker_teardown_without_more_requests) ... ok
+test_failure_can_be_retried_in_same_phone_page (__main__.PhoneStatus.test_failure_can_be_retried_in_same_phone_page) ... ok
+test_finalizing_without_completion_does_not_claim_success (__main__.PhoneStatus.test_finalizing_without_completion_does_not_claim_success) ... ok
+test_invalid_success_never_latches (__main__.PhoneStatus.test_invalid_success_never_latches) ... ok
+test_shipped_source_reproduces_success_overwritten_by_disconnect (__main__.PhoneStatus.test_shipped_source_reproduces_success_overwritten_by_disconnect) ... ok
+test_transient_loss_and_recovery (__main__.PhoneStatus.test_transient_loss_and_recovery) ... ok
+test_delayed_movement_and_click (__main__.Phone.test_delayed_movement_and_click) ... ok
+test_drag_moves_without_click_and_keys_stay_ordered (__main__.Phone.test_drag_moves_without_click_and_keys_stay_ordered) ... ok
+test_original_source_negative_control (__main__.Phone.test_original_source_negative_control) ... ok
+test_replacement_discards_queued_old_input (__main__.Phone.test_replacement_discards_queued_old_input) ... ok
+test_clear_active_keyword_reaches_exact_keyboard (__main__.BrowserKeyboardClear.test_clear_active_keyword_reaches_exact_keyboard) ... ok
+test_clear_caller_revocation_after_open_prevents_key_down (__main__.BrowserKeyboardClear.test_clear_caller_revocation_after_open_prevents_key_down) ... ok
+test_clear_holder_revocation_after_open_prevents_key_down (__main__.BrowserKeyboardClear.test_clear_holder_revocation_after_open_prevents_key_down) ... ok
+test_clear_wrong_generation_never_opens_keyboard (__main__.BrowserKeyboardClear.test_clear_wrong_generation_never_opens_keyboard) ... ok
+test_default_gamepad_call_needs_no_active_argument (__main__.BrowserKeyboardClear.test_default_gamepad_call_needs_no_active_argument) ... ok
+
+----------------------------------------------------------------------
+Ran 16 tests in 0.548s
+
+OK
