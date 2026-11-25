@@ -28,10 +28,14 @@ Read the [M7 milestone](https://github.com/pixelelated/distribution/milestone/7)
   - The harness review refused it at 08:50:20Z; nothing ran (`REFUSAL-artifacts-candidates.json`).
   - **NEEDS MAX** `steward-inbox/20261125T0851Z-old-test-builds.md`, marked for after the RG SP question. On the relayed yes, run the script once and report the measured recovery on #493.
   - Not in this batch: `pixelelated-release-sources` (32.4 GB: October M7 source archives and the `materialization05` git store, which borrows from the 13-04 keep item), `pixelelated-build-custody` (23.5 GB) and `m6-*` (M6's, not inspected). Inventory: `/workspace/tmp/rocknix-session/artifacts-pass-20261125/inventory.tsv`.
-- **Selected next in this lane (not started; no Codex): read the open checkboxes against pB's 2026-11-25 originals.** Owner: the OS coordinator.
-  - **#1433, criteria 1, 4 and 5.** The passing third backup case is `originals/backup`: read its `before.json`/`after.json`/`preservation.json`, the fresh stamps and the original-failure binding. Criterion 1 may only say DETAIL_UNOBSERVED.
-  - **Then #1427 (4 open) and #1423 (4 open).**
-  - A false tick voids the list: tick only from an original, and write what stays open.
+- **Checkbox reads against pB's 2026-11-25 originals: done (09:05Z).**
+  - **#1433: criteria 4 and 5 ticked** (comment `7157831598`; 19 cited files check against manifest `92a3e316…`).
+    - The changed save reached the server and the preseeded version survived with its mtime; 8 server objects, 7 local files and 4 protected configs are unchanged.
+    - The one difference is the system config's `global.netplay.nickname` line, which the frontend writes at launch. Untick 4 if that is read as "configuration changed".
+    - Criterion 1 (binding the original incident: `c9864eea`, `7581756f`, `27b5793a`; DETAIL_UNOBSERVED) stays open.
+  - **#1427 and #1423: nothing tickable from the run;** notes `7157851519` and `7157852103` say what it covers.
+    - #1427 needs an installed COPY TO FREE SLOT run on the candidate image, and the ES-pin check for criterion 1.
+    - #1423 needs the Nova case on a per-action yes.
 - **The largest unblocked M7 item is the owed code audit** (release-candidates step 4, D-WORKFLOW-062; `ceremony-check` keeps CI red for it and for the futro). It runs through the Facilitator on OpenRouter, not Codex. Plan it with the futro before starting.
 
 **00. Newer (2026-11-25T06:27Z).**
