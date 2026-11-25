@@ -100,9 +100,9 @@ PROXY_PKG = "projects/ROCKNIX/packages/network/raofflineproxy"
 STATES = ("CURRENT", "PINNED", "BEHIND", "INHERITED", "LOCAL", "UNKNOWN")
 
 
-def run(cmd, cwd=None, timeout=600):
+def run(cmd, cwd=None, timeout=600, env=None):
     try:
-        p = subprocess.run(cmd, cwd=cwd, capture_output=True, text=True, timeout=timeout)
+        p = subprocess.run(cmd, cwd=cwd, capture_output=True, text=True, timeout=timeout, env=env)
         return p.returncode, p.stdout, p.stderr
     except (OSError, subprocess.TimeoutExpired) as exc:
         return None, "", str(exc)
@@ -256,14 +256,25 @@ def check_proxy_schema(r, tree):
 
 
 def check_packages(r, tree, acc):
+    """The tree's own fork-introduced packages: its HEAD against its merge-base
+    with upstream/next, recipes read from the tree (#1460). Every row is read,
+    so a BEHIND is reported beside an UNKNOWN, by name (#1456)."""
     tool = os.path.join(tree, "tools", "fork-package-freshness")
     if not os.access(tool, os.X_OK):
         tool = os.path.join(ROOT, "tools", "fork-package-freshness")
-    rc, out, err = run([tool], cwd=tree, timeout=900)
-    if rc is None or rc == 2:
-        r.add("CANNOT", "packages", "fork-package-freshness did not answer (rc %s): %s" % (rc, (err or out).strip().splitlines()[-1:] or ""))
+    rc, head, _ = run(["git", "-C", tree, "rev-parse", "HEAD"])
+    rc2, base, _ = run(["git", "-C", tree, "merge-base", "HEAD", "upstream/next"])
+    head, base = (head or "").strip(), (base or "").strip()
+    if rc != 0 or rc2 != 0 or not re.fullmatch(r"[0-9a-f]{40}", head) or not re.fullmatch(r"[0-9a-f]{40}", base):
+        r.add("CANNOT", "packages", "the tree's HEAD or its merge-base with upstream/next could not be read")
         return
-    counts, findings = {}, []
+    where = "head %s base %s" % (head[:10], base[:10])
+    env = dict(os.environ, FRESHNESS_ROOT=tree, FRESHNESS_HEAD=head, FRESHNESS_BASE=base)
+    rc, out, err = run([tool], cwd=tree, timeout=900, env=env)
+    if rc is None or rc not in (0, 1, 2):
+        r.add("CANNOT", "packages", "fork-package-freshness did not run (%s): %s" % (rc, (err or out).strip().splitlines()[-1:] or ""))
+        return
+    counts, findings, unknown, missing = {}, [], [], []
     for line in out.splitlines():
         m = re.match(r"^(\S+)\s+.*?\b(%s)\b" % "|".join(STATES), line)
         if not m:
@@ -271,22 +282,28 @@ def check_packages(r, tree, acc):
         name, state = m.group(1), m.group(2)
         counts[state] = counts.get(state, 0) + 1
         if state in ("PINNED", "BEHIND"):
-            rid = acc.get(("package", name))
-            findings.append((name, state, rid))
+            findings.append((name, state, acc.get(("package", name))))
+        elif state == "UNKNOWN":
+            (missing if "no package.mk in the working tree" in line else unknown).append(name)
     if not counts:
-        r.add("CANNOT", "packages", "fork-package-freshness printed no package rows")
+        r.add("CANNOT", "packages", "%s: fork-package-freshness printed no package rows (rc %s): %s"
+              % (where, rc, ((err or out).strip().splitlines() or [""])[-1][:160]))
         return
-    if counts.get("UNKNOWN"):
-        r.add("CANNOT", "packages", "%d package(s) UNKNOWN to fork-package-freshness" % counts["UNKNOWN"])
+    if missing:
+        # A listed package with no recipe here means the list is some other
+        # tree's (the 2026-11-25 rows were next's, #1460), not that it is unknown.
+        r.add("CANNOT", "packages", "%s: the package list does not match the tree; no recipe for %s" % (where, ", ".join(missing)))
         return
     open_ = [f for f in findings if not f[2]]
     summary = ", ".join("%d %s" % (v, k.lower()) for k, v in sorted(counts.items()))
     accepted = ", ".join("%s (%s)" % (n, rid) for n, _, rid in findings if rid)
+    if unknown:
+        r.add("CANNOT", "packages", "%s: unknown to fork-package-freshness: %s" % (where, ", ".join(unknown)))
     if open_:
-        r.add("FAIL", "packages", "%s; not accepted: %s%s" % (summary, ", ".join("%s %s" % (n, s) for n, s, _ in open_),
-                                                             "; accepted: " + accepted if accepted else ""))
-    else:
-        r.add("PASS", "packages", summary + ("; accepted: " + accepted if accepted else ""))
+        r.add("FAIL", "packages", "%s: %s; not accepted: %s%s" % (where, summary, ", ".join("%s %s" % (n, st) for n, st, _ in open_),
+                                                                 "; accepted: " + accepted if accepted else ""))
+    elif not unknown:
+        r.add("PASS", "packages", "%s: %s%s" % (where, summary, "; accepted: " + accepted if accepted else ""))
 
 
 def commits_behind(repo, base, target):
@@ -436,7 +453,7 @@ def main():
     ap.add_argument("--es", default=os.path.expanduser("~/Development/emulationstation-next"))
     ap.add_argument("--no-fetch", action="store_true")
     ap.add_argument("--allow-unchecked", action="append", default=[], choices=["device-facts"])
-    ap.add_argument("--only", choices=["proxy-schema", "build-set", "ci"], help="run only the named check; not an RC verdict")
+    ap.add_argument("--only", choices=["proxy-schema", "build-set", "ci", "packages"], help="run only the named check; not an RC verdict")
     ap.add_argument("--build-set", action="append", default=[], metavar="TARGET_DIR",
                     help="a target/ directory of one image of the build set (repeat for each)")
     a = ap.parse_args()
@@ -451,7 +468,9 @@ def main():
         check_build_set(r, tree, [os.path.abspath(d) for d in a.build_set])
     if a.only == "ci":
         check_ci(r, tree)
-    if a.only not in ("build-set", "ci"):
+    if a.only == "packages":
+        check_packages(r, tree, acceptances(decided_ids())[0])
+    if a.only not in ("build-set", "ci", "packages"):
         check_proxy_schema(r, tree)
     if a.only:
         # Deliberately no MAY BE CUT verdict for a scoped source check.

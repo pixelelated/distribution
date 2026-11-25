@@ -38,7 +38,9 @@
 # upstream's generic recipe (INHERITED); one with no PKG_URL is ours (LOCAL).
 set -uo pipefail
 
-ROOT=$(cd "$(dirname "$0")/.." && pwd)
+# FRESHNESS_ROOT: the working tree whose recipes are read (rc-preflight
+# --tree passes it with FRESHNESS_HEAD and FRESHNESS_BASE, #1460).
+ROOT=${FRESHNESS_ROOT:-$(cd "$(dirname "$0")/.." && pwd)}
 HEAD_REF=${FRESHNESS_HEAD:-next}
 BASE_REF=${FRESHNESS_BASE:-upstream/next}
 EXTRA_PACKAGES="projects/ROCKNIX/packages/network/rclone"
@@ -95,6 +97,8 @@ packages() {
 if [ "${1:-}" = "--list" ]; then packages; exit 0; fi
 
 rc=0
+# Say which list this is: a list from the wrong head looks like findings (#1460).
+echo "# head $(git -C "$ROOT" rev-parse --short "$HEAD_REF" 2>/dev/null || echo "$HEAD_REF?") base $(git -C "$ROOT" rev-parse --short "$BASE_REF" 2>/dev/null || echo "$BASE_REF?") tree $ROOT"
 printf '%-26s %-14s %-14s %s\n' PACKAGE RECIPE LATEST VERDICT
 while read -r d; do
     name=$(basename "$d")

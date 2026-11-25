@@ -1,0 +1,17 @@
+# rc-preflight --only packages, before and after the #1460/#1456 fix (2026-11-25)
+
+## new tool, the round's head
+rc-preflight: /workspace/repos/rocknix.worktrees/m7-rc-round-20261125 at 27e7850bd6 (build/m7-rc-round-20261125)
+FAIL      packages                 head 27e7850bd6 base 0f4806b59b: 1 behind, 15 current, 4 inherited, 2 local, 7 pinned; not accepted: raofflineproxy BEHIND; accepted: gamescope-glm (D-WORKFLOW-077), gamescope-stb (D-WORKFLOW-077), mangohud-vulkan-headers (D-WORKFLOW-077), mangohud-vulkan-utility-libraries (D-WORKFLOW-077), spirv-headers (D-WORKFLOW-147), raofflineproxy-libchdr (D-RA-037), raofflineproxy-rcheevos (D-RA-029)
+rc=1
+
+## new tool, the candidate 0a3e979e50
+rc-preflight: /workspace/repos/rocknix.worktrees/m7-pc-0a3e979e-20261124 at 0a3e979e50 (build/m7-pc-0a3e979e-20261124)
+CANNOT    packages                 head 0a3e979e50 base cefc14339a: unknown to fork-package-freshness: aethersx2-sa, spirv-headers
+FAIL      packages                 head 0a3e979e50 base cefc14339a: 7 behind, 9 current, 4 inherited, 2 local, 6 pinned, 2 unknown; not accepted: brotli BEHIND, ruby BEHIND, glib-networking BEHIND, libsoup BEHIND, webkitgtk BEHIND, raofflineproxy BEHIND, rclone BEHIND; accepted: gamescope-glm (D-WORKFLOW-077), gamescope-stb (D-WORKFLOW-077), mangohud-vulkan-headers (D-WORKFLOW-077), mangohud-vulkan-utility-libraries (D-WORKFLOW-077), raofflineproxy-libchdr (D-RA-037), raofflineproxy-rcheevos (D-RA-029)
+rc=2
+
+## old check_packages (next before the fix, given the same --only entry), the candidate
+rc-preflight: /workspace/repos/rocknix.worktrees/m7-pc-0a3e979e-20261124 at 0a3e979e50 (build/m7-pc-0a3e979e-20261124)
+CANNOT    packages                 fork-package-freshness did not answer (rc 2): ['rclone                     1.75.2         1.76.0         BEHIND']
+rc=2
