@@ -70,6 +70,128 @@ the build-cleanup skill, named the lane running the command.
   then allowed batch 1's relaunch at 04:31 UTC, which followed the steward's
   04:29 relay of Max's words.
 
+## Parallel work must close the progress loop
+
+The coordinator owns each completion through a concrete next action, not just a
+notification (D-WORKFLOW-183, #1434; extends D-WORKFLOW-143/149). At every useful
+checkpoint, consume new returns once, advance authorized runnable work, and
+record the next owner plus observed start or exact blocker and next check. Saving
+a checkpoint or acknowledging a return is not a reason to pause.
+The return acknowledgment and its successor obligation are separate: the latter
+remains until observed start or an explicit revised or closed disposition.
+
+Distinguish returned/unconsumed, selected/not started, observed working, blocked,
+and intentionally idle with no useful authorized task. Keep independent lanes
+moving while a dependency is unresolved; do not manufacture work to make every
+tab look busy. The coordinator handles routine engineering decisions within
+existing authority instead of asking the maintainer for repeated generic approval.
+
+The progress monitor must cover worker events, coordinator follow-through, and
+its own health/expiry. Prompt submission is not receipt, consumption, or task
+start. Bound reminders by exact session/event, cooldown and notification budget;
+reconcile ambiguous delivery before further notification. Reminders never
+dispatch workloads, approve dialogs, bypass usage limits, or renew runtime grants.
+Name an owner for observer renewal and report unavailable delivery honestly.
+
+Review completion-to-consumption, selection-to-start, observer gaps and duplicate
+dispatches through the existing retrospective/work-log loop. Missing timestamps
+remain unknown. Validate the next real cycle as well as synthetic controls; one
+passing cycle is not proof the problem is permanently solved. Operational details
+and current implementation limits: `docs/coordination-continuity.md`.
+
+D-WORKFLOW-189: consume a return into an actual authorized action or a concrete
+supported blocker in the same active turn. Preserve work identity, original
+no-progress age and reminder budget across unchanged checks, repeated evidence,
+ACKs and agent activity. Distinguish root-owned preparation from an external wait.
+Use supported completion events through the existing locked observer; retain
+scheduled snapshots for recovery and suppress agent wakeups for unchanged idle
+state. Worker source-only scope and empty internal fields do not establish a new
+human approval gate. Resolve the actual governing boundary and finish readiness;
+notification improvements are not a prerequisite for candidate work.
+
+D-WORKFLOW-195: a blocked execution branch does not establish an empty ready
+backlog. In the same active coordination turn, inspect the current milestone
+order and open acceptance gaps beyond the completed assignments. Resolve
+coordinator-owned prerequisites; escalate only genuine consequential decisions.
+For each higher-priority unavailable candidate, record the exact dependency and
+owner, then select the highest useful independent source/test/preparation task
+within existing authority. Read its full criteria, retain priority-check evidence,
+reuse a pinned available lane with disjoint writes, observe its actual start, and
+consume its useful return. No repeated accepted reviews or artificial tests count.
+Keep the blocked branch and its spent budget intact. An active priority label is
+not evidence of an executing owner; verify actual M6/M7 activity separately and
+preserve their scope boundary. Use the existing ledger/checkpoint, not a new
+queue or gate. Human updates go to the steward's inbox (D-WORKFLOW-194, D-WORKFLOW-205).
+
+## Stopped work reaches the steward's inbox unasked
+
+D-WORKFLOW-187 (#1437), routed by D-WORKFLOW-205 (#1453): when a planned step
+stops on a blocker, write a `STOPPED WORK` file to the steward's inbox without
+waiting to be asked, and put the same on its issue. Say what stopped, when it was
+observed, its cause and impact, the owner, the exact action needed and when the
+next update comes. If a decision request is not ready, the preparation stays the
+coordinator's and the file says so. An expired proposal is not a live question.
+Keep independent authorized work moving; a completed or deliberately idle lane is
+not stopped because it is quiet. `tools/coordinator-escalation` writes such files
+and keeps them apart from routine monitor ACKs: an ACK never consumes or resolves
+an escalation, and a written notice does not prove Max read it (#1451).
+
+## Approval is for a decision, readiness is the coordinator's work
+
+D-WORKFLOW-184 (#1434): before asking the maintainer, identify the concrete
+decision that existing authorization does not settle. Routine private source
+preparation, reviews, fixes and bounded checks within the agreed scope proceed
+under coordinator judgment. Do not turn an internal selection, admission or
+START record into a new human permission step. The coordinator supplies that
+record after checking its actual prerequisites; approval never makes a missing
+identity, capacity observation or cleanup receipt true.
+
+Record authorization and readiness separately. An explicit approval persists
+within its scope across handoffs and resumes. When it arrives, reconcile stale
+approval blockers and verify the next authorized work started. A reminder is
+not authorization; an expired resource lease is not renewed by a saved
+approval. A one-use attempt remains one-use; failure does not silently
+authorize a retry.
+
+Escalate a material scope/effect change, unresolved consequential choice, or an
+actual enforcement rejection that cannot be resolved safely within authority.
+Prepare the concrete result first and explain the exact decision and reason.
+Never bypass a sandbox or automatic review, answer its approval UI, or describe
+repository policy as a change to platform enforcement. After the required user
+decision resolves a rejection's stated condition, use it for the authorized next
+step rather than asking the same question again.
+
+Arrange required source lifetime with the original bounded handoff. Preserve
+coordinator-owned artifacts within existing authority without another generic
+yes, and prepare independent work before starting finite windows. A durable
+snapshot can remove repeated supplier timing dependencies only when its creation
+and storage are already authorized. This does not grant copy, renewal, runtime
+or cleanup authority or bind a foreign owner. Measure avoided delay in the
+existing retrospective instead of adding another approval procedure.
+
+## Understandable decisions and effective escalation
+
+D-WORKFLOW-190 extends D-WORKFLOW-184/187/189; it adds no dispatcher or approval
+framework. A human question must stand on its own: the product outcome, proposed
+practical action, meaningful choice, consequence/tradeoff, recommendation and
+specific reason existing coordinator authority cannot settle it. Link technical
+proof; do not make the user interpret worker names, file counts or hashes.
+
+First distinguish routine technical arrangements from a governing user limit or
+actual platform refusal. Quote that boundary accurately, including its scope.
+Worker assignment exclusions, internal null fields and coordinator-authored
+proposals do not establish a human gate. If no consequential human choice is
+established, keep preparation with the coordinator and continue authorized work.
+A withdrawn or unintelligible question is not an external wait or tacit approval.
+Preserve real limits; do not route around a refusal or renew a spent commitment.
+
+When an outcome stops, promptly say what stopped, its impact, observation time,
+owner, whether a user action is actually ready, and the next update—even while
+preparing a solution—as a `STOPPED WORK` file in the steward's inbox (D-WORKFLOW-205). Sent/consumed receipts establish transport events, not
+understanding or effective escalation. Preserve late updates and unresolved
+state; never use receipt bookkeeping to dismiss the user's report of poor
+visibility. Apply this through the existing handoff and retrospective process.
+
 ## Change stays inside the fork's lanes
 
 Maintainer, 2026-09-22, when a rule made for the fork's pages (D-UI-078)

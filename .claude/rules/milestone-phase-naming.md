@@ -14,6 +14,16 @@ D-WORKFLOW-139, #388.
 
 ## Sources of truth
 
+- **Current cross-milestone priorities:** read `docs/current-priorities.md` and its
+  JSON queue before scheduling (D-WORKFLOW-185, #1435). Milestone bodies carry the
+  corresponding IDs/revision and phase plans. Keep chronology in linked work logs,
+  not an ever-growing current queue. A technical handoff never silently adds a
+  dependency or authorizes another milestone's recommendations. Before dispatch,
+  retain `tools/priority-check` output for declared input/output scope; verify the
+  actual assignment matches it. Update all affected plans and owners on a priority
+  change. M7 stabilization and M6 parallel assessment remain separate; the M6 final
+  gap review follows M7 completion, and recommendation integration follows that.
+
 - A named milestone uses `M{N}: {title}`, for example
   `M7: pixelelated 0.0.1`. Read `M` from that **name**, never from the GitHub
   ordinal/URL. The explicit initial assignment of M7 is recorded in

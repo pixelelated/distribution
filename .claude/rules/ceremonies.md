@@ -123,6 +123,22 @@ The volume behind the pause was the fork's own wordlist check: 988 of the last 1
 
 ## Execution discipline
 
+Recurring approval or handoff stalls trigger a focused mini-retro at the next
+useful checkpoint, even when a delivery phase has not ended (D-WORKFLOW-184,
+#1434). Name this an incident/process review, not product phase completion.
+Use the retained timeline, prior decisions and actual artifacts; distinguish
+missing guidance from undiscovered or bypassed guidance. Give every adjustment
+an owner, changed rule/tool/issue, and next real outcome that could disprove it.
+Review that outcome at the next relevant return and in the weekly summary.
+
+Before the next consequential delivery step, use a proportionate futro to
+check remaining assumptions and likely failure paths. Reuse accepted source
+reviews and existing plans. Run dependent ceremony stages serially, while
+independent authorized preparation continues in other lanes. These focused
+reviews add no generic human approval, duplicate audit or new build gate;
+the established calendar and push checks above still apply. A written lesson
+is implementation evidence, not evidence that recurring delays improved.
+
 The delivery, futro and mini-retro skills consume settled outputs from the
 preceding stage. Run their stages serially under one orchestrator; another
 session must not mutate the same scope concurrently. Delegation within a stage

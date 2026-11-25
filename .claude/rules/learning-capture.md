@@ -89,6 +89,32 @@ all of the armatures in place to support that."*
   historical feature commits merely to update rules. On
   2026-10-02 the session's own worktree had 17 of 29 rules stale (#367).
 
+## Close the learning loop, including the process itself
+
+For recurring friction, use the existing issue and work log to retain a short
+trace: observed effect and original feedback; expected versus actual outcome;
+proposed cause and alternatives; reusable scope and counterexamples; deliberate
+change; verification; and the next real encounter that could disprove the fix.
+Repeated notices about one incident are not independent confirmations. Record
+what was knowable at the time rather than judging old work by a later rule.
+
+Before adding instructions, distinguish absent guidance, guidance that was hard
+to find, and known guidance bypassed under load. The first two need text or routing
+changes. The third needs a change at the existing tool, test or handoff boundary
+that prevents or exposes the omission; a stronger reminder alone is not a fix.
+Prefer the smallest effective change and reuse the current tracker and mechanisms.
+
+Step back to name other in-scope places with the same failure shape, without
+launching an unbounded audit. Check whether the remedy itself adds serial work,
+duplicate reviews or unnecessary user decisions. Remove or narrow those costs
+when they protect no concrete boundary. Keep genuine authority and custody limits.
+
+Implementation passing is separate from the intended outcome improving. Record
+both, along with remaining uncertainty. Link the next observation back to the
+original entry; narrow or retire an ineffective remedy instead of rewriting the
+history or declaring success from a saved document. Coordination applies this
+through `docs/coordination-continuity.md` and #1434, not a new build gate.
+
 ## Notes
 
 - These work logs and the personal instruction files are **personal artifacts** — they live on

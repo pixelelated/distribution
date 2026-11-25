@@ -30,11 +30,24 @@ The live milestone body orders phases; follow
 On resume, reuse the recorded kickoff, retro and audit receipts for this scope;
 verify their evidence and finish the current phase before starting another.
 Existing authorization remains effective: confirmation steps below apply only
-when the decision or action has not already been authorized. Readiness reviews
+when the decision or action has not already been authorized. Internal readiness,
+admission and START records are coordinator work, not new human approval steps
+(D-WORKFLOW-184). For recurring coordination friction, use a focused incident
+review and next-step futro without declaring the product phase complete or
+pausing independent authorized work. Record the next real outcome that could
+disprove the process fix; documentation alone does not close the learning loop. Readiness reviews
 and closed audit issues do not close product acceptance criteria. Update the
 milestone's current/next work and evidence before handing off.
 
 ## Core principle: retros are actionable artifacts
+
+For a recurring coordination stall, compare the prior remedy with the retained
+failed turn. Reproduce its ACK/disposition behavior through the existing tools,
+including a working label with unfinished preparation. Separate documented,
+tested, deployed and real outcome evidence; identify where known guidance was
+not applied. A new reminder or evidence filename does not establish improvement.
+Keep the next actual handoff and weekly counterexample check in the same tracker;
+do not make the retrospective a gate on independent authorized preparation.
 
 Every finding MUST produce at least one of: a code change already made, an
 issue body / AC edit, a new follow-up issue, a doc / runbook edit, a skill /

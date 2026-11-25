@@ -39,6 +39,11 @@ words once, and the lane acts on the relay. OS work coordination is the sole wor
 dispatcher. See `engineering-practices.md` § "Max speaks in one place"
 (D-WORKFLOW-186, D-WORKFLOW-201, D-WORKFLOW-205).
 
+**Before scheduling work:** read `docs/current-priorities.md` and its JSON queue.
+Assignments cite a priority ID/revision and retain `tools/priority-check` output.
+M7 stabilizes the current candidate; M6 assesses in parallel for the next major
+build. Technical handoffs do not change that sequence (D-WORKFLOW-185, #1435).
+
 **Build directory lifetime.** Keep a full working directory while its build is active.
 Save required images, exact source and evidence independently. The ordinary build
 lifecycle and recurring cleanup retire verified generated files from finished,
@@ -233,6 +238,13 @@ No Conventional Commits. Scope by package or device, matching history:
 
 These are the maintainer's calls, each recorded in `docs/decision-register.md` by ID.
 They are not style; each one exists because its absence cost somebody an evening.
+
+- **The coordinator closes each progress loop.** Consume returned work once and
+  select the next authorized action in the same active turn. Record its owner and
+  observed start, or its exact blocker and next check. Monitor coordinator
+  follow-through and observer expiry as well as worker completion. A prompt or
+  saved checkpoint is not progress; do not replay tasks or invent busywork.
+  See `engineering-practices.md`, `docs/coordination-continuity.md`, D-WORKFLOW-183/184.
 
 - **A handheld is a person's device and its cloud is their data.** Nothing runs on one
   without a per-action yes: not a reboot, not a game launch, not injected input, not a

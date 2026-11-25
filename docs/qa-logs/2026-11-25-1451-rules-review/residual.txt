@@ -1,0 +1,235 @@
+##### .claude/rules/ceremonies.md: 1 worktree-only lines in 1 runs
+--- worktree 33-33
+  + | Issue ownership citation | fork commits on `next` after `bf121ce876` cite `#N`; upstream and pre-adoption history excluded (D-WORKFLOW-132) | every new fork commit, including merges | refuses a push |
+##### .claude/rules/device-builds.md: 31 worktree-only lines in 10 runs
+--- worktree 103-103
+  + git worktree add -b build/<run-name> ../rocknix.worktrees/<run-name> <verified-commit>
+--- worktree 112-117
+  + A warm cache is reusable after its accepted source/output provenance and the
+  + changed package/dependency scope are checked. Make independent copies, verify
+  + their contents and inode separation, and preserve the container path expected
+  + by generated files. Never hardlink a mutable cache to its accepted predecessor.
+  + Retire superseded payloads after their immediate verification dependency ends;
+  + keep compact receipts and required corresponding-source inputs (D-INFRA-022).
+--- worktree 448-448
+  + need no extra flag. An ad-hoc build command uses `tools/watch-build -- COMMAND`.
+--- worktree 521-521
+  + - **Time:** hours for a first build of a device; minutes once its root is warm.
+--- worktree 533-538
+  + ScreenScraper on fork builds**: since #64 (2026-09-05) the package sets
+  + `SCREENSCRAPER_RUNTIME_DEV_LOGIN`, the scraper is always built, and the
+  + developer pair is typed on the device under the scraper's ACCOUNTS tab beside the
+  + account (DEVELOPER ID / DEVELOPER PASSWORD, held back from settings backups).
+  + So the options file is for RetroAchievements, TheGamesDB and HfsDB only, and
+  + a fork image never needs to carry a ScreenScraper key.
+--- worktree 544-544
+  + git is not. The guards, each proven against a constructed violation:
+--- worktree 552-557
+  + - `tools/fork-publish-release` looks at the build root's ES binary; if it
+  +   contains `devpassword=` or an `&y=KEY`, it publishes only to a **private**
+  +   repo and refuses a public or unknown one (D-INFRA-007). It cannot strip a
+  +   key from a built binary; rebuild with the keys commented out.
+  +   `FORK_ALLOW_EMBEDDED_CREDENTIALS=yes` overrides it, for accounts created for
+  +   the fork and nothing else.
+--- worktree 564-564
+  + anything anyone else can download is built without them.
+--- worktree 575-579
+  + `tools/fork-publish-release <DEVICE> prerelease` works unchanged for handhelds:
+  + the `case` in it adds VM artifacts only for `GENERIC_X64` and `AMD64`, so a
+  + handheld publishes just `.img.gz` + `.sha256` under a tag like
+  + `dev-rk3566-<yyyymmdd>` — which is what you want for something flashed to a
+  + card.
+--- worktree 581-583
+  + **Re-publishing the same day replaces assets under an unchanged tag**, which has
+  + already cost a QA cycle once (blindspot register entry 2). Post the new sha256
+  + when you do it, and prefer a fresh date.
+##### .claude/rules/engineering-practices.md: 64 worktree-only lines in 5 runs
+--- worktree 63-63
+  + queue or gate. Human updates follow D-WORKFLOW-194.
+--- worktree 65-65
+  + ## Separate direct conversation from worker traffic
+--- worktree 67-104
+  + D-WORKFLOW-186 (#1436): use Max Coordinator one-on-one for the maintainer's
+  + primary conversation, priorities, questions and action items; use OS work
+  + coordination for worker traffic and monitor reminders. Keep the latter as the
+  + sole dispatcher. Record and relay user decisions once with their scope and
+  + reference, then verify consumption; routine authorized work needs no human
+  + relay. Send concise material outcomes and actionable changes to the one-on-one,
+  + not repetitive operational notices. Identities, agenda and handoff protocol:
+  + `docs/coordinator-one-on-one.md` and `docs/coordination-continuity.md`.
+  + 
+  + D-WORKFLOW-194: prompts to the one-on-one pane are visible human chat. Send only
+  + material outcomes, new/changed blockers and understandable decisions, written for
+  + Max. Actual user-requested status still gets an answer. Keep internal ACK/receipt
+  + instructions, identifiers and unchanged follow-ups in operational evidence, even
+  + when a routine report deadline arrives. Use `tools/coordinator-escalation` for
+  + human delivery; do not bypass it with ad-hoc prompts or ask the steward to ACK a
+  + completion in chat. The steward reads shared artifacts. Preserve real stoppage
+  + escalation, separate receipts, exact pins and finite budgets. See the human-visible
+  + delivery boundary in `docs/coordination-continuity.md`; this grants no runtime.
+  + 
+  + D-WORKFLOW-194 communication clarification (November 18): Keep each update scoped to its subject. Group facts only when their relationship is established and relevant, and explain that relationship explicitly. In a reque
+  + 
+  + ## Stopped work must reach the maintainer
+  + 
+  + D-WORKFLOW-187 (#1437): when a planned step stops on a blocker, send an
+  + actionable escalation to the one-on-one lane without waiting to be asked.
+  + Include stopped work, observation time, cause/impact, owner, exact needed action
+  + and next update. If the decision request is not ready, preparation remains
+  + coordinator-owned and visible. An expired proposal is not a live user question.
+  + Continue independent authorized work; completed or deliberately idle lanes are
+  + not stopped work merely because they are quiet.
+  + 
+  + Use `tools/coordinator-escalation` with the existing monitor timer and pinned
+  + human-lane identity. Routine monitor ACKs cannot consume or resolve a human
+  + escalation. Persist intent before sending; separate submission, steward
+  + consumption, user-facing publication and explicit resolution. Preserve unresolved
+  + incidents across continuation. Inspect ambiguous delivery rather than replaying
+  + it; surface unavailable delivery. A published notice does not prove Max read it.
+  + Mechanism and receipt commands: `docs/coordination-continuity.md`.
+--- worktree 382-382
+  + followed by the standard `watch-build` arguments. If the frozen worktree
+--- worktree 907-929
+  + 
+  + ## Understandable decisions and effective escalation
+  + 
+  + D-WORKFLOW-190 extends D-WORKFLOW-184/187/189; it adds no dispatcher or approval
+  + framework. A human question must stand on its own: the product outcome, proposed
+  + practical action, meaningful choice, consequence/tradeoff, recommendation and
+  + specific reason existing coordinator authority cannot settle it. Link technical
+  + proof; do not make the user interpret worker names, file counts or hashes.
+  + 
+  + First distinguish routine technical arrangements from a governing user limit or
+  + actual platform refusal. Quote that boundary accurately, including its scope.
+  + Worker assignment exclusions, internal null fields and coordinator-authored
+  + proposals do not establish a human gate. If no consequential human choice is
+  + established, keep preparation with the coordinator and continue authorized work.
+  + A withdrawn or unintelligible question is not an external wait or tacit approval.
+  + Preserve real limits; do not route around a refusal or renew a spent commitment.
+  + 
+  + When an outcome stops, promptly say what stopped, its impact, observation time,
+  + owner, whether a user action is actually ready, and the next update—even while
+  + preparing a solution. Sent/consumed receipts establish transport events, not
+  + understanding or effective escalation. Preserve late updates and unresolved
+  + state; never use receipt bookkeeping to dismiss the user's report of poor
+  + visibility. Apply this through the existing handoff and retrospective process.
+##### .claude/rules/es-code-traps.md: 0 worktree-only lines in 0 runs
+##### .claude/rules/fork-workflow.md: 1 worktree-only lines in 1 runs
+--- worktree 33-33
+  + - **Fork-only tools** — `tools/fork-publish-release`, `tools/cloud-test-backend`, `tools/cloud-round-trip`, `tools/cloud-save-integrity`, `tools/cloud-save-integrity-test`, `tools/cloud-capture-stamp-test`, `tools/wait-l
+##### .claude/rules/generic-x64-vm-testing.md: 1 worktree-only lines in 1 runs
+--- worktree 59-59
+  + Image lands at `target/ROCKNIX-GENERIC_X64.x86_64-<date>.img.gz`. To re-image after a
+##### .claude/rules/instruction-files.md: 6 worktree-only lines in 5 runs
+--- worktree 160-161
+  + | `coordinator-escalation` | planned work stopped: deliver an actionable human notice independently of routine monitor ACKs | `engineering-practices.md` |
+  + | `coordinator-escalation-test` | controlled stopped-work, delivery-failure, identity and receipt-state checks | `engineering-practices.md` |
+--- worktree 169-169
+  + | `vm-upgrade-rehearsal` | boot the previous image in a guest, seed a player's state, update in place, check every piece survived | `upgrade-and-install.md` |
+--- worktree 174-174
+  + | `fork-publish-release` | publish an image, refusing to publish embedded credentials | `device-builds.md` |
+--- worktree 177-177
+  + | `vm-pair`, `vm-serial`, `vm-visual-qa`, `vm-walks/` | bring guests up, drive them, capture frames, walk the interface | `generic-x64-vm-testing.md` |
+--- worktree 203-203
+  + | `rc-preflight` | may this tree be cut as a release candidate: packages current, the bases level with ROCKNIX, no bug without a disposition, the record clean -- or each finding accepted by a register row (#271, D-WORKFL
+##### .claude/rules/issue-tracking.md: 0 worktree-only lines in 0 runs
+##### .claude/rules/learning-capture.md: 0 worktree-only lines in 0 runs
+##### .claude/rules/milestone-phase-naming.md: 0 worktree-only lines in 0 runs
+##### .claude/rules/packaging-and-patches.md: 1 worktree-only lines in 1 runs
+--- worktree 107-107
+  + `sources/`, and images in `target/ROCKNIX-<DEVICE>.<ARCH>-<timestamp>.tar` —
+##### .claude/rules/rclone-cloud-sync.md: 7 worktree-only lines in 3 runs
+--- worktree 267-268
+  + - **Single remote only:** operations use `rclone listremotes | head -1` — the first
+  +   configured remote. Don't assume multi-remote support without adding it deliberately.
+--- worktree 654-657
+  + - **The remote name is asserted, not assumed.** Every script picks its remote
+  +   with `rclone listremotes | head -1`, so a remote sorting earlier would aim
+  +   the tests at a real account. The driver refuses if the first remote is not
+  +   the test one.
+--- worktree 684-684
+  + the single-remote assumption, and `cloud_sync_cleanup_duplicates.sh`. `RSYNCRMDIR` is now
+##### .claude/rules/release-candidates.md: 4 worktree-only lines in 3 runs
+--- worktree 37-37
+  +    on an item it could not answer. An acceptance is a line in
+--- worktree 59-60
+  + 2. **The candidate's build**, with the bumps and merges in: GENERIC_X64 and
+  +    H700 from one synced head, so they share a BUILD_ID.
+--- worktree 74-74
+  +    by Fable 5.2 and GPT-6 Astra (D-QA-048), both through the council's
+##### .claude/rules/worktrees.md: 4 worktree-only lines in 2 runs
+--- worktree 155-156
+  + headroom. Inspect active host processes and container mounts before execution;
+  + unreadable or unclassified dependencies prevent a removal proposal. Use the
+--- worktree 159-160
+  + never extends an earlier batch's deletion scope. #461 tracks the repeatable
+  + planner and first later batch; automatic cleanup is not implemented.
+##### .claude/skills/build-cleanup/SKILL.md: 2 worktree-only lines in 2 runs
+--- worktree 63-63
+  + A destructive command may be stopped by the harness's own review. That is a real boundary. Ask Max once, in the lane that runs the command, saying exactly what is removed and what stays. Never work around it.
+--- worktree 91-91
+  + The most recent build stays as the warm base for the next one. Once it is on GitHub it is removable whenever space is needed, without asking Max again.
+##### .claude/skills/futro/SKILL.md: 0 worktree-only lines in 0 runs
+##### .claude/skills/herdr-project-coordination/SKILL.md: 0 worktree-only lines in 0 runs
+##### .claude/skills/herdr-project-coordination/agents/openai.yaml: 0 worktree-only lines in 0 runs
+##### .claude/skills/mini-retro/SKILL.md: 0 worktree-only lines in 0 runs
+##### AGENTS.md: 22 worktree-only lines in 5 runs
+--- worktree 15-27
+  + **Communication lanes:** Max Coordinator one-on-one is the primary direct
+  + conversation with Max; OS work coordination owns worker dispatch and monitor
+  + traffic. Read `docs/coordinator-one-on-one.md` for the agenda and lane identities,
+  + and `docs/coordination-continuity.md` for decision relay (D-WORKFLOW-186, #1436).
+  + Stopped work must be escalated proactively with owner, actionable request and
+  + next update; `tools/coordinator-escalation` keeps human delivery separate from
+  + monitor ACKs (D-WORKFLOW-187, #1437).
+  + 
+  + **Before scheduling work:** read `docs/current-priorities.md` and its JSON queue.
+  + Assignments cite a priority ID/revision and retain `tools/priority-check` output.
+  + M7 stabilizes the current candidate; M6 assesses in parallel for the next major
+  + build. Technical handoffs do not change that sequence (D-WORKFLOW-185, #1435).
+  + 
+--- worktree 40-44
+  + **Lane models and account handoff:** For both workspaces, Codex coordinators use
+  + `gpt-6.2-astra`, workers use `gpt-6.2-sol`, and both use `xhigh`. Preserve
+  + the selected Claude tier with Fable 5.2 or Opus 5.5. Before opening a tab or
+  + resuming a thread, read `docs/lane-models-and-account-handoff.md` and use
+  + `tools/herdr-lane` on canonical `next` (D-WORKFLOW-198).
+--- worktree 50-50
+  + invocation and remaining boundaries. No repeated generic user approval is needed;
+--- worktree 121-121
+  + commands reuse it. For an ad-hoc command use `tools/watch-build -- COMMAND`.
+--- worktree 350-351
+  +   in `RCLONEOPTS`; `--delete-excluded` is catastrophic on a `sync`-mode restore; single
+  +   remote only; a new config option goes in BOTH `cloud_sync.conf` and
+##### docs/decision-register.md: 18 worktree-only lines in 13 runs
+--- worktree 670-670
+  + | D-WORKFLOW-183 | 2026-11-14 | **Close each authorized parallel-work handoff through observed next work or an explicit dependency and next check; supervise coordinator follow-through and monitor health, not only worker 
+--- worktree 672-672
+  + | D-WORKFLOW-184 | 2026-11-15 | **Eliminate rubber-stamp approval relays: the coordinator decides routine work within existing authorization, keeps authorization separate from actual readiness, and reconciles a granted d
+--- worktree 674-674
+  + | D-WORKFLOW-185 | 2026-11-16 | **M7 stabilizes the current candidate while M6 independently assesses the full codebase and produces a punchlist for the following major build. M6 recommendations are not M7 integration in
+--- worktree 676-676
+  + | D-WORKFLOW-186 | 2026-11-16 | **Separate the primary, slower-moving Max Coordinator one-on-one conversation from OS work coordination worker/monitor traffic.** The former owns direct questions, priorities, decisions an
+--- worktree 678-678
+  + | D-WORKFLOW-187 | 2026-11-16 | **When planned work stops, proactively escalate a concise actionable notice to Max in the one-on-one lane.** Name stopped work, observation time, cause/impact, accountable owner, exact nee
+--- worktree 680-680
+  + | D-WORKFLOW-188 | 2026-11-16 | **Max approves the exact prepared two-owner retention request once: four hours from each original P8/PD acknowledgment, only the actual common window and named owned inputs.** No foreign/s
+--- worktree 682-682
+  + | D-WORKFLOW-189 | 2026-11-17 | **Completion and approval consumption must produce actual authorized next work or a concrete supported blocker in the same active turn. Use completion events through the existing observer;
+--- worktree 684-684
+  + | D-WORKFLOW-190 | 2026-11-17 | **Human decisions must be understandable and consequential: explain the stopped product outcome, practical action, choice, consequence, recommendation and actual boundary requiring Max.** 
+--- worktree 686-686
+  + | D-WORKFLOW-191 | 2026-11-17 | **The coordinator actively resolves prerequisites and verifies continued work; a scheduled report, ACK or plan rename is not enough.** Extends D-WORKFLOW-184/189/190. Distinguish required 
+--- worktree 688-688
+  + | D-WORKFLOW-192 | 2026-11-17 | **Complete a focused RCA of the retention/never-started incident and its successor recurrence; test controls against the known failed turn.** Extends D-WORKFLOW-184/189/191: known rules we
+--- worktree 695-695
+  + | D-LAUNCH-008 | 2026-11-22 | Use Smart interframe blending as the distribution default for the mGBA libretro core wherever the core offers it. A saved core or game option takes precedence, including Off. Max asked “can 
+--- worktree 699-699
+  + 
+--- worktree 716-721
+  + | D-WORKFLOW-193 | 2026-11-17 | **A finished coordinator turn with unfinished owned preparation creates an immediate bounded continuation obligation, even after real progress and before a future report deadline.** Extend
+  + 
+  + | D-WORKFLOW-194 | 2026-11-17 | **Treat every prompt to the human lane as visible conversation: only material outcomes, new/changed blockers and understandable decisions belong there; answer actual requested status.** Ex
+  + 
+  + | D-WORKFLOW-195 | 2026-11-17 | **A blocked branch requires current ordered backlog selection and observed independent progress, not blanket waiting.** Extend D-WORKFLOW-184/189/193/194: resolve coordinator-owned prerequ
+  + 

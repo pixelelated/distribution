@@ -30,7 +30,12 @@ The live milestone body orders phases; follow
 On resume, reuse the recorded kickoff, retro and audit receipts for this scope;
 verify their evidence and finish the current phase before starting another.
 Existing authorization remains effective: confirmation steps below apply only
-when the decision or action has not already been authorized. Readiness reviews
+when the decision or action has not already been authorized. Internal readiness,
+admission and START records are coordinator work, not new human approval steps
+(D-WORKFLOW-184). For recurring coordination friction, use a focused incident
+review and next-step futro without declaring the product phase complete or
+pausing independent authorized work. Record the next real outcome that could
+disprove the process fix; documentation alone does not close the learning loop. Readiness reviews
 and closed audit issues do not close product acceptance criteria. Update the
 milestone's current/next work and evidence before handing off.
 
