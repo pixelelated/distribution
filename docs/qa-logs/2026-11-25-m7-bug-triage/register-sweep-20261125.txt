@@ -1,0 +1,438 @@
+sources read: 406 (301 refs)
+
+area      next max  highest anywhere  next free  where the highest is
+CLOUD          184               193        194  ref:origin/feature/m6-doctrine-reference-686
+INFRA           46                46         47  ref:next
+LAUNCH           8                 8          9  ref:next
+NET             16                18         19  ref:build/m7-h700-0a3e979e-20261125
+QA              60                64         65  ref:build/m7-h700-0a3e979e-20261125
+RA              48                52         53  ref:origin/feature/m6-cloud-sync-core-663
+ROADMAP          0                 3          4  ref:build/m7-h700-0a3e979e-20261125
+SYS             13                13         14  ref:build/devices
+UI             127               137        138  ref:origin/feature/m6-doctrine-reference-686
+WORKFLOW       205               237        238  ref:origin/feature/m6-renovation-plan-346
+
+IDs absent from next: 81
+D-CLOUD-185 D-CLOUD-186 D-CLOUD-187 D-CLOUD-188 D-CLOUD-189 D-CLOUD-190 D-CLOUD-191 D-CLOUD-192 D-CLOUD-193 D-INFRA-026 D-INFRA-027 D-INFRA-028 D-INFRA-029 D-INFRA-1419 D-NET-017 D-NET-018 D-QA-061 D-QA-062 D-QA-063 D-QA-064 D-RA-049 D-RA-050 D-RA-051 D-RA-052 D-ROADMAP-001 D-ROADMAP-002 D-ROADMAP-003 D-UI-128 D-UI-129 D-UI-130 D-UI-131 D-UI-132 D-UI-133 D-UI-134 D-UI-135 D-UI-136 D-UI-137 D-WORKFLOW-171 D-WORKFLOW-172 D-WORKFLOW-173 D-WORKFLOW-174 D-WORKFLOW-175 D-WORKFLOW-176 D-WORKFLOW-177 D-WORKFLOW-178 D-WORKFLOW-179 D-WORKFLOW-180 D-WORKFLOW-181 D-WORKFLOW-182 D-WORKFLOW-206 D-WORKFLOW-207 D-WORKFLOW-208 D-WORKFLOW-209 D-WORKFLOW-210 D-WORKFLOW-211 D-WORKFLOW-212 D-WORKFLOW-213 D-WORKFLOW-214 D-WORKFLOW-215 D-WORKFLOW-216 D-WORKFLOW-217 D-WORKFLOW-218 D-WORKFLOW-219 D-WORKFLOW-220 D-WORKFLOW-221 D-WORKFLOW-222 D-WORKFLOW-223 D-WORKFLOW-224 D-WORKFLOW-225 D-WORKFLOW-226 D-WORKFLOW-227 D-WORKFLOW-228 D-WORKFLOW-229 D-WORKFLOW-230 D-WORKFLOW-231 D-WORKFLOW-232 D-WORKFLOW-233 D-WORKFLOW-234 D-WORKFLOW-235 D-WORKFLOW-236 D-WORKFLOW-237
+
+IDs with more than one date or text: 67
+
+D-CLOUD-068 (on next)
+  2026-09-08 332 sources [next], sha256 d9b145a59e9c, 3370 chars, e.g. ref:audit/129, ref:build/device-flashing
+      **The device id is seeded from a validated hardware address or nothing; a stored id ending in the shared constant `ee5013fc56` is healed once, and the folders w
+  2026-09-08  37 sources, sha256 8532fd1637fd, 3372 chars, e.g. ref:origin/feature/m6-cloud-harness-660, ref:origin/feature/m6-cloud-setup-content-664
+      **The device id is seeded from a validated hardware address or nothing; a stored id ending in the shared constant `ee5013fc56` is healed once, and the folders w
+
+D-CLOUD-072 (on next)
+  2026-09-09 328 sources [next], sha256 292ee4c6f850, 1426 chars, e.g. ref:audit/129, ref:build/device-flashing
+      **EmulationStation owns the startup saves sync and shows it (refines D-CLOUD-038, D-CLOUD-064; delivers #94).** The autostart keeps only the `cloud_capture --fu
+  2026-09-09  37 sources, sha256 3b8e8546b843, 1431 chars, e.g. ref:origin/feature/m6-cloud-harness-660, ref:origin/feature/m6-cloud-setup-content-664
+      **EmulationStation owns the startup saves sync and shows it (refines D-CLOUD-038, D-CLOUD-064; delivers #94).** The autostart keeps only the `cloud_capture --fu
+
+D-CLOUD-090 (on next)
+  2026-09-11 316 sources [next], sha256 ab4b3323583d, 729 chars, e.g. ref:audit/129, ref:build/device-flashing
+      **A cloud_backup phase that did not run says SKIPPED in the summary, with the reason after the dash, and a settings-only run that found nothing to send leaves t
+  2026-09-11   2 sources, sha256 a9d4ac070393, 1049 chars, e.g. ref:feature/lock-outlives-run, worktree:lock-outlives-run
+      **The cloud-sync transfer lock is held by the script's own shell and by nothing it starts.** `exec 9>/var/run/cloud_sync.lock` carries no close-on-exec, so rclo
+
+D-CLOUD-159 (on next)
+  2026-10-01 221 sources [next], sha256 d5fc8b79d95e, 918 chars, e.g. ref:build/m7-composed-20261018-01, ref:build/m7-composed-20261018-02
+      **The `/Rasteratops` default (D-CLOUD-158) is part of the baseline brand transition: it lands with the identity change (#337, the plan's P2) as a visible-identi
+  2026-10-01  10 sources, sha256 5ac4a5154cd0, 920 chars, e.g. ref:build/devices, ref:build/generic-x64
+      **The `/Rasteratops` default (D-CLOUD-158) is part of the baseline brand transition: it lands with the identity change (#337, the plan's P2) as a visible-identi
+
+D-CLOUD-185 (not on next)
+  2026-10-25  28 sources, sha256 70493e51c4f2, 986 chars, e.g. ref:build/m7-h700-0a3e979e-20261125, ref:build/m7-h700-ace312b0-20261124
+      **A newly created cloud connection starts with the standard category folder defaults, including after full removal and re-addition of the same provider/name; it
+  2026-10-26  23 sources, sha256 826ee3211300, 1426 chars, e.g. ref:origin/feature/m6-cloud-setup-content-664, ref:origin/feature/m6-cloud-sync-core-663
+      **A player-editable rclone option string (`RCLONE_NET_OPTS`, `RCLONEOPTS`) reaches rclone only through an allowlist of checked flags, in every script that reads
+
+D-CLOUD-186 (not on next)
+  2026-10-25  28 sources, sha256 7ce002573d73, 1042 chars, e.g. ref:build/m7-h700-0a3e979e-20261125, ref:build/m7-h700-ace312b0-20261124
+      **Cloud folder choices belong to the saved connection, with the affected connection explicit in the UI; the first successfully added connection after an empty c
+  2026-10-27  19 sources, sha256 33e18daf9013, 488 chars, e.g. ref:origin/feature/m6-cloud-sync-core-663, ref:origin/feature/m6-doctrine-reference-686
+      **The settings lock covers both stores.** D-CLOUD-079's sentence that EmulationStation's writers take the settings lock around the read-modify-write described `
+
+D-CLOUD-187 (not on next)
+  2026-10-27  15 sources, sha256 150d384dee95, 1127 chars, e.g. ref:origin/feature/m6-cloud-sync-core-663, ref:origin/feature/m6-doctrine-reference-686
+      **A game list the cloud restored while EmulationStation runs is merged at the next save, never overwritten.** At the pin `16dbac5211`, `Gamelist.cpp:413` reads 
+  2026-10-25   1 sources, sha256 a540433151a7, 730 chars, e.g. worktree:m7-player-setup
+      **Provide an explicit CHECK CLOUD SETUP action with connection/path-bound and feature-specific readiness.** Reuse bounded read-only local/backend checks, identi
+
+D-INFRA-008 (on next)
+  2026-09-05 396 sources [next], sha256 be6ffb7a6bc8, 646 chars, e.g. ref:audit/129, ref:build/device-flashing
+      **The device-flashing documentation targets the maintainer's own bench — the private owned-device list in `device-builds.md` and `docs/device-flashing-runbook.m
+  2026-09-11  25 sources, sha256 c7553ca4684c, 717 chars, e.g. ref:audit/129, ref:feature/audit-fixes
+      **A credential never crosses a script boundary: `cloud_setup --info` prints `PASSWORD_SET=1|0`, and the page that must show or pre-fill the root password reads 
+
+D-INFRA-010 (on next)
+  2026-09-11 259 sources [next], sha256 c7553ca4684c, 717 chars, e.g. ref:build/device-flashing, ref:build/devices
+      **A credential never crosses a script boundary: `cloud_setup --info` prints `PASSWORD_SET=1|0`, and the page that must show or pre-fill the root password reads 
+  2026-09-11  37 sources, sha256 22aa030c98c5, 718 chars, e.g. ref:origin/feature/m6-cloud-harness-660, ref:origin/feature/m6-cloud-setup-content-664
+      **A credential never crosses a script boundary: `cloud_setup --info` prints `PASSWORD_SET=1\|0`, and the page that must show or pre-fill the root password reads
+  2026-09-12   4 sources, sha256 80c15ed1b3c9, 965 chars, e.g. ref:feature/rules-shape, ref:feature/rules-sweep
+      **The credential-boundary decision of 2026-09-11 -- `cloud_setup --info` prints `PASSWORD_SET=1\|0` and never the value, and the page that must show or pre-fill
+
+D-INFRA-024 (on next)
+  2026-11-22   4 sources [next], sha256 68eafd75af48, 379 chars, e.g. ref:next, ref:origin
+      Automate recurring read-only storage checks and consume the results in the build workflow. Use existing ownership evidence first. Limit any administrator integr
+  2026-10-21   1 sources, sha256 593a63370c59, 754 chars, e.g. worktree:m7-player-setup
+      **Track increasing build-host swap to 32 GiB and a separate review of memory/swap admission guards.** Owner: "Let's make sure we have a task to review the guard
+
+D-INFRA-025 (on next)
+  2026-10-22  49 sources, sha256 49dd4b4f7c4e, 1185 chars, e.g. ref:origin/feature/m6-build-engine-652, ref:origin/feature/m6-build-engine-upstream-tools-653
+      **The renovation lane works from a fresh clone of `pixelelated/distribution` at `/workspace/repos/pixelelated/distribution`, with its worktrees under `/workspac
+  2026-11-22   4 sources [next], sha256 6382b2482183, 426 chars, e.g. ref:next, ref:origin
+      Automatically retire declared, reproducible generated build outputs once verified supersession, retained regeneration inputs, current identity, protected depend
+  2026-10-23   1 sources, sha256 2c1ba817550d, 657 chars, e.g. worktree:m7-player-setup
+      **Complete the next playable H700 and SM8550 builds before resizing build-host swap to32GiB.** Owner: “Sounds good. After we have these next playable builds cre
+
+D-INFRA-026 (not on next)
+  2026-10-22  49 sources, sha256 701d8b420f70, 1260 chars, e.g. ref:origin/feature/m6-build-engine-652, ref:origin/feature/m6-build-engine-upstream-tools-653
+      **The M7 lane and the legacy checkout move to the pixelelated layout after the current release candidate is complete, not before: the cutover is the first item 
+  2026-10-31  27 sources, sha256 9d1eacfef5c3, 653 chars, e.g. ref:build/m7-h700-0a3e979e-20261125, ref:build/m7-h700-ace312b0-20261124
+      **Implement one standing M7 functional-QA VM slot that does not require a model or shared coordinator acknowledgment.** Owner: “I thought we had a dedicated VM?
+
+D-INFRA-030 (on next)
+  2026-10-24  38 sources, sha256 803e729016fd, 906 chars, e.g. ref:origin/feature/m6-cloud-harness-660, ref:origin/feature/m6-cloud-setup-content-664
+      **`tools/fork-newdrive`, the one-time 2026-09-04 migration of the build estate to `/workspace`, is retired: removed from the tree with its index row and persona
+  2026-11-23   4 sources [next], sha256 7be78f266f85, 395 chars, e.g. ref:next, ref:origin
+      **Keep a full working directory by default only while its build is active.** Extend D-INFRA-025 to regular cleanup of verified generated trees, private copies a
+
+D-INFRA-031 (on next)
+  2026-10-24  36 sources, sha256 33dbacdbfb7c, 1215 chars, e.g. ref:origin/feature/m6-cloud-harness-660, ref:origin/feature/m6-cloud-setup-content-664
+      **The VM harness's host state belongs to the checkout that runs it: `VM_PAIR_DIR` defaults to the tool's own checkout's gitignored `.qa-scratch/vm-pair`, the QA
+  2026-11-23   4 sources [next], sha256 824a0917320c, 263 chars, e.g. ref:next, ref:origin
+      **Correct the identifier of the November 23 build-directory decision to D-INFRA-030.** The earlier label was already used in the October 31 M7 VM decision. The 
+
+D-INFRA-032 (on next)
+  2026-11-23   4 sources [next], sha256 5818813cd669, 403 chars, e.g. ref:next, ref:origin
+      Check the destination volume before a substantial build copy or launch. Reuse the largest-first project output inventory, including nested build runs. Reconcile
+  2026-10-25   1 sources, sha256 93f0e6fcb10d, 908 chars, e.g. worktree:m7-player-setup
+      **Treat host swap occupancy as telemetry, not an independent refusal, in the new M7 input/build harness successors.** Repeated zero-guest preparation stops exha
+
+D-LAUNCH-008 (on next)
+  2026-11-22   3 sources [next], sha256 f84790430005, 442 chars, e.g. ref:next, ref:origin
+      Use Smart interframe blending as the distribution default for the mGBA libretro core wherever the core offers it. A saved core or game option takes precedence, 
+  2026-11-22   1 sources, sha256 251d28b1d5cb, 239 chars, e.g. worktree:conflict-resolution
+      Use Smart interframe blending as the distribution default for the mGBA libretro core wherever the core offers it. A saved core or game option takes precedence, 
+
+D-QA-061 (not on next)
+  2026-10-24  36 sources, sha256 23053470bd63, 783 chars, e.g. ref:origin/feature/m6-cloud-harness-660, ref:origin/feature/m6-cloud-setup-content-664
+      **`vm-qa` exits 3 when no suite failed and at least one was skipped, 1 when any suite failed, 2 on a usage error, and 0 only when every selected suite ran and p
+  2026-10-18   2 sources, sha256 be7c680e83ed, 855 chars, e.g. ref:feature/m7-audit-integration-603, worktree:m7-player-setup
+      **Use VM evidence for portable correctness and bounded pressure controls, and target hardware evidence for graphics, CPU/shared-memory and thermal performance c
+
+D-RA-006 (on next)
+  2026-09-14 223 sources [next], sha256 5b848b4a7120, 1033 chars, e.g. ref:build/device-flashing, ref:build/devices
+      **Open:** the `ra-offline` runner suite spends the one cheap achievement the QA account can reach (Tobu Tobu Girl Deluxe's Potato-tan Secret, from the game's me
+  2026-09-14  34 sources, sha256 4ff7fbe28191, 639 chars, e.g. ref:feature/build10-fixes, ref:feature/build11-flash
+      **Open:** the `ra-offline` runner suite spends the one cheap achievement the QA account can reach (Tobu Tobu Girl Deluxe's Potato-tan Secret, from the game's me
+
+D-RA-013 (on next)
+  2026-09-14 280 sources [next], sha256 2632f681106d, 1105 chars, e.g. ref:build/device-flashing, ref:build/devices
+      **The offline cache follows the interface's own game index. The scan and the top-up read the index where it exists (games with a `cheevosId`, their hashes reuse
+  2026-09-14   3 sources, sha256 b17b537e0c2b, 1356 chars, e.g. ref:feature/round-notes-rc5, ref:origin/feature/round-notes-rc5
+      **Open:** how the startup game index (INDEX NEW GAMES AT STARTUP, which identifies games -- id and hash -- and touches no offline data) relates to the offline c
+
+D-RA-034 (on next)
+  2026-09-27 244 sources [next], sha256 cc84ab10471e, 445 chars, e.g. ref:build/devices, ref:build/generic-x64
+      **Settled by D-RA-035 the same day** (moved from the open table 2026-09-28, keeping its ID): the question was ***What the offline achievements' top-up does at t
+  2026-09-27   3 sources, sha256 d787976225db, 1123 chars, e.g. ref:build/device-flashing, ref:feature/rc-device-fixes
+      **What the offline achievements' top-up does at the link's return, and what the player sees of it.** Today (D-UI-102 in the build under proof): at every link re
+
+D-RA-049 (not on next)
+  2026-10-26  21 sources, sha256 901296d4f273, 997 chars, e.g. ref:origin/feature/m6-cloud-sync-core-663, ref:origin/feature/m6-doctrine-reference-686
+      **The offline achievements proxy's files are private: the service runs with `UMask=0077` and the control script with `umask 077`, and an idempotent, non-destruc
+  2026-10-20   1 sources, sha256 1af46b870f1a, 865 chars, e.g. worktree:m7-player-setup
+      **Select only upstream PR243's bounded ZIP streaming for the next candidate, retaining the original temporary-file placement.** The native VM proves raw/ZIP has
+
+D-RA-050 (not on next)
+  2026-10-21  28 sources, sha256 5712712c7a14, 874 chars, e.g. ref:build/m7-h700-0a3e979e-20261125, ref:build/m7-h700-ace312b0-20261124
+      **Use one durable, pending-award-preserving stop/resume mechanism for explicit disable/re-enable and transparent browser pause/resume.** Refines D-WORKFLOW-174:
+  2026-10-26  21 sources, sha256 108e0cfee0ad, 1022 chars, e.g. ref:origin/feature/m6-cloud-sync-core-663, ref:origin/feature/m6-doctrine-reference-686
+      **The proxy's offline login answers only a request that presents the configured account's credential: the cached session token, or the password whose salted has
+
+D-SYS-010 (on next)
+  2026-09-28 196 sources [next], sha256 da9b6cb3a7e2, 435 chars, e.g. ref:build/devices, ref:build/generic-x64
+      **The restore mark records whether the ROMs folder was a mount** (`roms-mounted=yes|no|unknown` as its last line). At boot a `no` mark is judged by its folders 
+  2026-09-28  37 sources, sha256 0eebad321e0b, 437 chars, e.g. ref:origin/feature/m6-cloud-harness-660, ref:origin/feature/m6-cloud-setup-content-664
+      **The restore mark records whether the ROMs folder was a mount** (`roms-mounted=yes\|no\|unknown` as its last line). At boot a `no` mark is judged by its folder
+
+D-UI-024 (on next)
+  2026-09-06 359 sources [next], sha256 d3a0862df0f5, 823 chars, e.g. ref:audit/129, ref:build/device-flashing
+      **The cloud transfer page is seven fitted lines under its title: the ROM, its transfer, the system being copied, that system's files and bytes, the bar, elapsed
+  2026-09-06  37 sources, sha256 e19e4f4be14a, 825 chars, e.g. ref:origin/feature/m6-cloud-harness-660, ref:origin/feature/m6-cloud-setup-content-664
+      **The cloud transfer page is seven fitted lines under its title: the ROM, its transfer, the system being copied, that system's files and bytes, the bar, elapsed
+
+D-UI-083 (on next)
+  2026-09-23 223 sources [next], sha256 f6c85816a2e2, 933 chars, e.g. ref:build/device-flashing, ref:build/devices
+      **The incremental-save modes mean what Batocera's do (follows D-UI-057): INCREMENT PER SAVE is RetroArch's `savestate_auto_index` -- a new slot on every save, t
+  2026-09-23  37 sources, sha256 9f1d2d40f12b, 935 chars, e.g. ref:origin/feature/m6-cloud-harness-660, ref:origin/feature/m6-cloud-setup-content-664
+      **The incremental-save modes mean what Batocera's do (follows D-UI-057): INCREMENT PER SAVE is RetroArch's `savestate_auto_index` -- a new slot on every save, t
+
+D-UI-128 (not on next)
+  2026-10-27  17 sources, sha256 4ab06f9a69cd, 1149 chars, e.g. ref:origin/feature/m6-cloud-sync-core-663, ref:origin/feature/m6-doctrine-reference-686
+      **A settings page closed from the top saves what BACK would have saved.** At the pin `16dbac5211`, START (offered as CLOSE on every settings page) and a click o
+  2026-10-20   1 sources, sha256 cb0c22672183, 545 chars, e.g. worktree:m7-player-setup
+      **Sign-in waiting and retry dialogs place the cancel/exit action on the left and the affirmative action on the right, with labels naming their actual effect.** 
+
+D-UI-129 (not on next)
+  2026-10-27  17 sources, sha256 3cb668ecae3d, 745 chars, e.g. ref:origin/feature/m6-cloud-sync-core-663, ref:origin/feature/m6-doctrine-reference-686
+      **`SKIPPED - <reason>` admits a player's own cancel of a run they started.** D-UI-028/030 set the sentinels at rclone's 69 and 75 and the launch cancel; the scr
+  2026-10-23   1 sources, sha256 0b5a1c94b54c, 662 chars, e.g. worktree:m7-player-setup
+      **Refine the sign-in performance notice and browser launch feedback after first H700 playtesting.** Move the existing non-focusable notice below both typing cho
+
+D-UI-130 (not on next)
+  2026-10-30  13 sources, sha256 444b4b82d194, 744 chars, e.g. ref:origin/feature/m6-cloud-sync-core-663, ref:origin/feature/m6-doctrine-reference-686
+      **`TextComponent` measures its automatic height at the width it draws at.** `TextComponent.cpp:338` sizes the wrapped text at `getSize().x()` and `:350` draws a
+  2026-10-23   1 sources, sha256 38504a0a00bb, 833 chars, e.g. worktree:m7-player-setup
+      **Cloud sign-in explains local finalization, preserves connection-management context, and reports actual control/window state.** Provider authorization is disti
+
+D-UI-131 (not on next)
+  2026-10-30  13 sources, sha256 2df9b9f76325, 717 chars, e.g. ref:origin/feature/m6-cloud-sync-core-663, ref:origin/feature/m6-doctrine-reference-686
+      **A two-line menu row's shares are computed from its two fonts and sum to 1.** `MultiLineMenuEntry.cpp:74-75` at the pin sets `th*0.9/h` and `sh*1.1/h`, which i
+  2026-10-24   1 sources, sha256 2f1e3ede72f2, 643 chars, e.g. worktree:m7-player-setup
+      **Cloud setup names the action, scope and actual result.** Separate existing connections from ADD A NEW CONNECTION; name the methods LINK FROM THIS DEVICE and L
+
+D-UI-132 (not on next)
+  2026-10-30  13 sources, sha256 b81822aacd02, 714 chars, e.g. ref:origin/feature/m6-cloud-sync-core-663, ref:origin/feature/m6-doctrine-reference-686
+      **The menu row's horizontal inset is a screen fraction, not 10 px.** `ComponentList.cpp:11` and `:491-494` at the pin give `rowInset()` as `TOTAL_HORIZONTAL_PAD
+  2026-10-24   1 sources, sha256 be01e6316e9b, 526 chars, e.g. worktree:m7-player-setup
+      **Phone controls describe their target and preserve context.** Use Clear selected text field; retire an unconfirmed-clear message after verified different field
+
+D-UI-133 (not on next)
+  2026-10-30  13 sources, sha256 fc2bd6f5413f, 656 chars, e.g. ref:origin/feature/m6-cloud-sync-core-663, ref:origin/feature/m6-doctrine-reference-686
+      **A help-icon key is an identifier and never goes through `_()`.** `ComponentList.cpp:568` at the pin wraps the `up/down` icon key in `_()`, so a catalog that t
+  2026-10-25   1 sources, sha256 3f3c54c5ad46, 633 chars, e.g. worktree:m7-player-setup
+      **Separate available cloud connections from connection status and new-link actions.** Add an AVAILABLE CONNECTIONS section above saved connection rows, with bre
+
+D-UI-134 (not on next)
+  2026-10-31  11 sources, sha256 288f87fa511b, 963 chars, e.g. ref:origin/feature/m6-doctrine-reference-686, ref:origin/feature/m6-doctrine-skills-685
+      **A toast waits as long as any card is up, then shows in the order things happened; a re-queued toast returns whole.** Refines D-UI-093 (one floating surface at
+  2026-10-25   1 sources, sha256 33dfb18126fd, 750 chars, e.g. worktree:m7-player-setup
+      **Make cloud-folder results and instructions map clearly to saves, settings, ROMs, BIOS files, and game content; name a multi-folder editor action CHANGE CLOUD 
+
+D-UI-135 (not on next)
+  2026-10-31  11 sources, sha256 f7c11c7b1dc8, 905 chars, e.g. ref:origin/feature/m6-doctrine-reference-686, ref:origin/feature/m6-doctrine-skills-685
+      **One constant name has one meaning: the keyboard's key inset is its own constant, and `BUTTON_GRID_HORIZ_PADDING` is defined once.** T35's PL-11 (#682) found `
+  2026-10-25   1 sources, sha256 3cea869ba986, 805 chars, e.g. worktree:m7-player-setup
+      **Make the multi-folder editor explicit and offer an intentional return to pixelelated defaults.** Title the editor SET CLOUD FOLDER LOCATIONS, name the file ca
+
+D-UI-136 (not on next)
+  2026-10-31  11 sources, sha256 26d5e56750e4, 940 chars, e.g. ref:origin/feature/m6-doctrine-reference-686, ref:origin/feature/m6-doctrine-skills-685
+      **CLEAR in a text popup empties the field and keeps the popup open; only OK commits.** T35's PL-12 (#682) found CLEAR and the keyboard's `x` committing an empty
+  2026-10-25   1 sources, sha256 7450aff64e89, 504 chars, e.g. worktree:m7-player-setup
+      **Name the settings archive location SETTINGS BACKUP FOLDER and its check category SETTINGS BACKUPS.** Apply explicit backup wording to editor/results/instructi
+
+D-WORKFLOW-002 (on next)
+  2026-08-29 244 sources [next], sha256 c2da10779b88, 319 chars, e.g. ref:build/devices, ref:build/generic-x64
+      **Adopt from an external instruction estate only where a local failure earned it.** Two of its 41 instruction cards were taken; `git-safety` was rejected becaus
+  2026-08-29 162 sources, sha256 9cde058a8f7c, 308 chars, e.g. ref:audit/129, ref:build/device-flashing
+      (text withheld: not cleared by forbidden-terms-check)
+
+D-WORKFLOW-015 (on next)
+  2026-09-13 260 sources [next], sha256 b99973c5a13d, 878 chars, e.g. ref:build/device-flashing, ref:build/devices
+      **Every punch-list item an audit produces is fixed, at every severity -- high, medium, and low alike. Severity orders the work and never excuses an item; two re
+  2026-09-13  36 sources, sha256 c36e17686031, 878 chars, e.g. ref:feature/audit-151-tools, ref:feature/build10-fixes
+      **Every punch-list item an audit produces is fixed, at every severity -- high, medium, and low alike. Severity orders the work and never excuses an item; two re
+
+D-WORKFLOW-175 (not on next)
+  2026-11-07  14 sources, sha256 1e83caa887a9, 758 chars, e.g. ref:build/m7-h700-0a3e979e-20261125, ref:build/m7-h700-ace312b0-20261124
+      **Complete M7 in this order: criterion/tracker reconciliation, current corresponding-source delivery, historical evidence custody, then the qualified GitHub pub
+  2026-10-20   1 sources, sha256 d29fe7f70615, 854 chars, e.g. worktree:m7-player-setup
+      **Use a measured page-load timeline to select the next browser experiment.** After the proxy comparison, the owner asks that network, script execution, layout/r
+
+D-WORKFLOW-176 (not on next)
+  2026-11-08  14 sources, sha256 8ff73eb750bc, 652 chars, e.g. ref:build/m7-h700-0a3e979e-20261125, ref:build/m7-h700-ace312b0-20261124
+      **Keep historical evidence local and outside Git in the short term; later retain it securely in project-managed storage and reference it from GitHub.** Resolves
+  2026-10-20   1 sources, sha256 6b1087e8c578, 952 chars, e.g. worktree:m7-player-setup
+      **Prefer the current engine for this candidate and later upstream stable uptake if a targeted experiment demonstrates that pending WebKit fixes help.** The owne
+
+D-WORKFLOW-177 (not on next)
+  2026-11-10  14 sources, sha256 b3cfaac75a7b, 1042 chars, e.g. ref:build/m7-h700-0a3e979e-20261125, ref:build/m7-h700-ace312b0-20261124
+      **Include rebasing onto ROCKNIX stable20261101 at `cefc14339a4ae18c02bb69888f27835e50664b60` in M7 and the next candidate.** The maintainer: "Let's continue wor
+  2026-10-21   1 sources, sha256 52c484c7dea4, 915 chars, e.g. worktree:m7-player-setup
+      **Keep Dropbox usability open until a working H700/1 GiB linking path is verified; test actual upstream-fix benefit rather than substitute component applicabili
+
+D-WORKFLOW-178 (not on next)
+  2026-11-10  14 sources, sha256 bf5b9845ac1a, 779 chars, e.g. ref:build/m7-h700-0a3e979e-20261125, ref:build/m7-h700-ace312b0-20261124
+      **For the selected November managed-launch path, use an explicit exact-template declaration and a launch-bound retirement result before automatic post-exit writ
+  2026-10-22   1 sources, sha256 8a9fd926f57b, 952 chars, e.g. worktree:m7-player-setup
+      **Keep an exact latest-stable WebKitGTK pin, use GTK4 only when the complete product is ready, carry forward safe temporary achievements pause, and add a concis
+
+D-WORKFLOW-179 (not on next)
+  2026-11-10  14 sources, sha256 33c4a7461b7f, 863 chars, e.g. ref:build/m7-h700-0a3e979e-20261125, ref:build/m7-h700-ace312b0-20261124
+      **Prepare the reviewed restored ES source as one local uncompressed tar with manifest logical modes, full pinned pugixml contents, and an explicit local source 
+  2026-10-22   1 sources, sha256 decc081825f1, 744 chars, e.g. worktree:m7-player-setup
+      **Prioritize usable slow sign-in after safe achievements pause; keep emergency system protection distinct from short diagnostic cutoffs.** Refines D-WORKFLOW-17
+
+D-WORKFLOW-180 (not on next)
+  2026-11-11  14 sources, sha256 af31a5510727, 624 chars, e.g. ref:build/m7-h700-0a3e979e-20261125, ref:build/m7-h700-ace312b0-20261124
+      **M6 owns the code audit; M7 owns build delivery and its execution review, cleanup evidence and completion decisions.** Shared-host capacity coordination does n
+  2026-10-22   1 sources, sha256 ed6c312e2bca, 582 chars, e.g. worktree:m7-player-setup
+      **Select Gemini 4 Argon as the explicit alternative independent reviewer for the frozen M7 corrective audit.** Under #638, preserve Fable failures and investiga
+
+D-WORKFLOW-181 (not on next)
+  2026-10-22  49 sources, sha256 924f6a3d6dfb, 2010 chars, e.g. ref:origin/feature/m6-build-engine-652, ref:origin/feature/m6-build-engine-upstream-tools-653
+      **The whole-codebase review widens into a renovation program under its own milestone, M6: modernize the code, hold it to the standards and best practices the ru
+  2026-11-11   2 sources, sha256 421c0dd7cc37, 784 chars, e.g. ref:feature/m7-owner-feedback-20261025, worktree:m7-owner-feedback-20261025
+      **Use an explicit finite evidence boundary for the proposed November acquisition caller.** Commit all operational tool originals through the terminal RETURN-ass
+  2026-10-24   1 sources, sha256 560b8bb5c160, 910 chars, e.g. worktree:m7-player-setup
+      **Treat sign-in termination timers as hypotheses to measure, and first compare a threefold browser-status observation budget while retaining crash, memory, owne
+
+D-WORKFLOW-182 (not on next)
+  2026-10-22  49 sources, sha256 421e0f41d4f4, 1699 chars, e.g. ref:origin/feature/m6-build-engine-652, ref:origin/feature/m6-build-engine-upstream-tools-653
+      **The renovation does not wait for a release candidate, and a candidate does not wait for the renovation beyond D-WORKFLOW-102's gates: M6.P1 starts now, in a w
+  2026-11-12   1 sources, sha256 70fe3fd4ab44, 988 chars, e.g. worktree:m7-owner-feedback-20261025
+      **Workers execute routine implementation, build/merge and isolated disposable-VM validation; the coordinator approves their bounded requests and coordinates res
+  2026-10-24   1 sources, sha256 3d51605b6f77, 782 chars, e.g. worktree:m7-player-setup
+      **Finish the private0.0.1 build with the current supported browser and shared achievements pause/resume, a minimally invasive finite finalization budget, workin
+
+D-WORKFLOW-183 (on next)
+  2026-10-22  49 sources, sha256 306dc9a8b421, 1108 chars, e.g. ref:origin/feature/m6-build-engine-652, ref:origin/feature/m6-build-engine-upstream-tools-653
+      **The renovation program runs as one coordinator lane and one session per worktree: `feature/m6-renovation-plan-346` coordinates (plans, writes briefs, accepts 
+  2026-11-14   9 sources [next], sha256 b1d64a2a3148, 704 chars, e.g. ref:feature/standing-build-authority-20261117, ref:infra/nov19-model-defaults
+      **Close each authorized parallel-work handoff through observed next work or an explicit dependency and next check; supervise coordinator follow-through and moni
+  2026-10-25   1 sources, sha256 8a7c8ba7b516, 747 chars, e.g. worktree:m7-player-setup
+      **Use a32MiB emergency memory floor for the next H700 Dropbox trial and treat exhausted pure status-read batches as unknown, retrying within the original absolu
+
+D-WORKFLOW-184 (on next)
+  2026-10-22  49 sources, sha256 076848694156, 1152 chars, e.g. ref:origin/feature/m6-build-engine-652, ref:origin/feature/m6-build-engine-upstream-tools-653
+      **The review-depth defaults of `docs/reviews/plan-for-the-plan.md` § 6c stand: Local (the executor alone; the lint and the counts are the check) for a dead-end 
+  2026-11-15   9 sources [next], sha256 dbaaed384765, 806 chars, e.g. ref:feature/standing-build-authority-20261117, ref:infra/nov19-model-defaults
+      **Eliminate rubber-stamp approval relays: the coordinator decides routine work within existing authorization, keeps authorization separate from actual readiness
+  2026-10-25   1 sources, sha256 d12bfd3c1266, 825 chars, e.g. worktree:m7-player-setup
+      **Use one five-minute deadline shared by all post-authorization sign-in finalization stages; no hidden shorter stage timeout.** Owner explicitly rejects the ret
+
+D-WORKFLOW-185 (on next)
+  2026-10-23  49 sources, sha256 5995f03bc301, 2517 chars, e.g. ref:origin/feature/m6-build-engine-652, ref:origin/feature/m6-build-engine-upstream-tools-653
+      **The renovation order's shipped-device set is H700 and SM8550. GENERIC_X64 is the test image: built, read as the VM every proof runs on (T19), never shipped. E
+  2026-11-16   9 sources [next], sha256 37b5305bcafb, 977 chars, e.g. ref:feature/standing-build-authority-20261117, ref:infra/nov19-model-defaults
+      **M7 stabilizes the current candidate while M6 independently assesses the full codebase and produces a punchlist for the following major build. M6 recommendatio
+
+D-WORKFLOW-186 (on next)
+  2026-10-23  49 sources, sha256 ca90d9dccff3, 1978 chars, e.g. ref:origin/feature/m6-build-engine-652, ref:origin/feature/m6-build-engine-upstream-tools-653
+      **The renovation's value is weighed on the build process and its tooling before any device target: the order reads the build engine, the package-currency table,
+  2026-11-16   9 sources [next], sha256 acb4b0cfa285, 599 chars, e.g. ref:feature/standing-build-authority-20261117, ref:infra/nov19-model-defaults
+      **Separate the primary, slower-moving Max Coordinator one-on-one conversation from OS work coordination worker/monitor traffic.** The former owns direct questio
+
+D-WORKFLOW-187 (on next)
+  2026-10-23  49 sources, sha256 e21226e0b5dd, 1884 chars, e.g. ref:origin/feature/m6-build-engine-652, ref:origin/feature/m6-build-engine-upstream-tools-653
+      **The renovation gates no release. M6 is an audit, assessment and renovation of the codebase: it decides what is read, in what order and at what depth, never wh
+  2026-11-16   9 sources [next], sha256 4fffab574ccb, 843 chars, e.g. ref:feature/standing-build-authority-20261117, ref:infra/nov19-model-defaults
+      **When planned work stops, proactively escalate a concise actionable notice to Max in the one-on-one lane.** Name stopped work, observation time, cause/impact, 
+
+D-WORKFLOW-188 (on next)
+  2026-10-23  49 sources, sha256 b8e49ded864e, 2805 chars, e.g. ref:origin/feature/m6-build-engine-652, ref:origin/feature/m6-build-engine-upstream-tools-653
+      **The renovation order is `docs/reviews/order.md`'s fourth version (`eb4763e3cc`, ledgers `00ca350666`): 46 slices, T1 to T46, whose membership `tools/renovatio
+  2026-11-16   9 sources [next], sha256 ec3c2380dfa7, 891 chars, e.g. ref:feature/standing-build-authority-20261117, ref:infra/nov19-model-defaults
+      **Max approves the exact prepared two-owner retention request once: four hours from each original P8/PD acknowledgment, only the actual common window and named 
+
+D-WORKFLOW-189 (on next)
+  2026-10-23  49 sources, sha256 737d89aa4a61, 1840 chars, e.g. ref:origin/feature/m6-build-engine-652, ref:origin/feature/m6-build-engine-upstream-tools-653
+      **Planning stays in the coordinator lane: the division of work, the meta work, the definition of work items (the slice issues and their acceptance criteria, the
+  2026-11-17   9 sources [next], sha256 03cc79a2e42f, 844 chars, e.g. ref:feature/standing-build-authority-20261117, ref:infra/nov19-model-defaults
+      **Completion and approval consumption must produce actual authorized next work or a concrete supported blocker in the same active turn. Use completion events th
+
+D-WORKFLOW-190 (on next)
+  2026-10-23  48 sources, sha256 8e2b419e7367, 1748 chars, e.g. ref:origin/feature/m6-build-engine-652, ref:origin/feature/m6-build-engine-upstream-tools-653
+      **Slices run beside each other when the plan's condition holds (different areas, no shared path; plan § 6 "P2 onward" and § 8): T2 (#649, the interface's launch
+  2026-11-17   9 sources [next], sha256 bfd28877fc24, 733 chars, e.g. ref:feature/standing-build-authority-20261117, ref:infra/nov19-model-defaults
+      **Human decisions must be understandable and consequential: explain the stopped product outcome, practical action, choice, consequence, recommendation and actua
+
+D-WORKFLOW-191 (on next)
+  2026-11-17   3 sources [next], sha256 fc9b5ca169b5, 865 chars, e.g. ref:next, ref:origin
+      **The coordinator actively resolves prerequisites and verifies continued work; a scheduled report, ACK or plan rename is not enough.** Extends D-WORKFLOW-184/18
+  2026-11-17   1 sources, sha256 07c4750e13e8, 714 chars, e.g. worktree:conflict-resolution
+      **The coordinator actively resolves prerequisites and verifies continued work; a scheduled report, ACK or plan rename is not enough.** Extends D-WORKFLOW-184/18
+
+D-WORKFLOW-192 (on next)
+  2026-10-23  46 sources, sha256 28ae0ecb2c07, 1502 chars, e.g. ref:origin/feature/m6-build-engine-652, ref:origin/feature/m6-build-engine-upstream-tools-653
+      **The netplay seam between the interface and the launcher: the mode and the relay session travel on the launch line in RetroArch's own words, `--netplaymode spe
+  2026-11-17   3 sources [next], sha256 29f905cf9352, 880 chars, e.g. ref:next, ref:origin
+      **Complete a focused RCA of the retention/never-started incident and its successor recurrence; test controls against the known failed turn.** Extends D-WORKFLOW
+  2026-11-17   1 sources, sha256 93e41149a9c7, 729 chars, e.g. worktree:conflict-resolution
+      **Complete a focused RCA of the retention/never-started incident and its successor recurrence; test controls against the known failed turn.** Extends D-WORKFLOW
+
+D-WORKFLOW-193 (on next)
+  2026-10-24  44 sources, sha256 d1cd8dac94c0, 636 chars, e.g. ref:origin/feature/m6-build-engine-upstream-tools-653, ref:origin/feature/m6-cloud-harness-660
+      **An archive recipe without `PKG_SHA256` fails its fetch, and the fetch verifies TLS.** `scripts/get_archive` drops `--no-check-certificate` and dies when the r
+  2026-11-17   3 sources [next], sha256 5a2b93d1d657, 978 chars, e.g. ref:next, ref:origin
+      **A finished coordinator turn with unfinished owned preparation creates an immediate bounded continuation obligation, even after real progress and before a futu
+  2026-11-17   1 sources, sha256 e3842cce6130, 827 chars, e.g. worktree:conflict-resolution
+      **A finished coordinator turn with unfinished owned preparation creates an immediate bounded continuation obligation, even after real progress and before a futu
+
+D-WORKFLOW-194 (on next)
+  2026-10-24  44 sources, sha256 1927de140b12, 626 chars, e.g. ref:origin/feature/m6-build-engine-upstream-tools-653, ref:origin/feature/m6-cloud-harness-660
+      **Refines D-WORKFLOW-193's count, not its decision.** The archive versions without a `PKG_SHA256` were **five, in four recipes** (`atf` 2.12.0; `rkbin` 74213af1
+  2026-11-17   9 sources [next], sha256 b170d8000e55, 711 chars, e.g. ref:feature/standing-build-authority-20261117, ref:infra/nov19-model-defaults
+      **Treat every prompt to the human lane as visible conversation: only material outcomes, new/changed blockers and understandable decisions belong there; answer a
+
+D-WORKFLOW-195 (on next)
+  2026-10-24  41 sources, sha256 0d42d566fbd6, 949 chars, e.g. ref:origin/feature/m6-cloud-harness-660, ref:origin/feature/m6-cloud-setup-content-664
+      **An Extended seat whose answer the model's output ceiling cuts on the packet is run again on a trimmed packet for that seat -- the same model, effort and provi
+  2026-11-17   3 sources [next], sha256 f27bdab3a48b, 881 chars, e.g. ref:next, ref:origin
+      **A blocked branch requires current ordered backlog selection and observed independent progress, not blanket waiting.** Extend D-WORKFLOW-184/189/193/194: resol
+  2026-11-17   1 sources, sha256 681ac7ec6c7a, 730 chars, e.g. worktree:conflict-resolution
+      **A blocked branch requires current ordered backlog selection and observed independent progress, not blanket waiting.** Extend D-WORKFLOW-184/189/193/194: resol
+
+D-WORKFLOW-196 (on next)
+  2026-10-24  41 sources, sha256 066186c32d0c, 741 chars, e.g. ref:origin/feature/m6-cloud-harness-660, ref:origin/feature/m6-cloud-setup-content-664
+      **An empty `PKG_SHA256=""` is a missing checksum, and D-WORKFLOW-194's count of archive versions without one becomes six: `libfmt` 9.1.0, in the override branch
+  2026-11-17   9 sources [next], sha256 401f7bff4c1a, 700 chars, e.g. ref:feature/standing-build-authority-20261117, ref:infra/nov19-model-defaults
+      **Standing authorization for routine host source preparation/assembly, package/OS builds and isolated tests within existing resource, admission and worktree rul
+
+D-WORKFLOW-197 (on next)
+  2026-10-24  40 sources, sha256 6f635a886245, 854 chars, e.g. ref:origin/feature/m6-cloud-harness-660, ref:origin/feature/m6-cloud-setup-content-664
+      **D-WORKFLOW-196's six archive versions without a checksum are seven: `simple-http-server` 0.8.0's `x86_64` and `arm` branches set `PKG_URL` per `ARCH` in a `ca
+  2026-11-18   9 sources [next], sha256 45a6f710a2cf, 691 chars, e.g. ref:feature/standing-build-authority-20261117, ref:infra/nov19-model-defaults
+      **Implement all five execution-efficiency changes through existing tools and guidance.** Verify narrow effective executor permissions and the actual prepare/run
+
+D-WORKFLOW-198 (on next)
+  2026-10-24  40 sources, sha256 a5070e961e02, 883 chars, e.g. ref:origin/feature/m6-cloud-harness-660, ref:origin/feature/m6-cloud-setup-content-664
+      **At the base merge, a modify/delete conflict on a ROCKNIX override the fork edited is resolved by keeping the fork's copy when upstream's deletion would move a
+  2026-11-19   6 sources [next], sha256 f6298c9b85d8, 428 chars, e.g. ref:infra/nov19-model-defaults, ref:next
+      Use GPT-6.2 Astra for Codex coordinators and GPT-6.2 Sol for workers, both at extra-high reasoning. Preserve Claude seat tier with Fable 5.2 or Opus 5.5. Make n
+
+D-WORKFLOW-199 (on next)
+  2026-10-24  40 sources, sha256 caa4931e5195, 1095 chars, e.g. ref:origin/feature/m6-cloud-harness-660, ref:origin/feature/m6-cloud-setup-content-664
+      **D-WORKFLOW-198's coupled set is a triple: at the base merge the fork's `projects/ROCKNIX/packages/graphics/spirv-headers/package.mk` is kept with its `glslang
+  2026-11-23   4 sources [next], sha256 12a2fce524a3, 486 chars, e.g. ref:next, ref:origin
+      **Codex and Claude Code share the project's instructions and skill bundles.** Codex reads `AGENTS.md` directly and Claude Code imports it through `CLAUDE.md`. B
+
+D-WORKFLOW-200 (on next)
+  2026-10-24  38 sources, sha256 ff9d6a7707d0, 933 chars, e.g. ref:origin/feature/m6-cloud-harness-660, ref:origin/feature/m6-cloud-setup-content-664
+      **The push guard's coverage contract: every commit a push makes reachable from a remote ref, every message and every tag annotation is scanned, and no fallback 
+  2026-11-24   3 sources [next], sha256 87dfa70c950f, 911 chars, e.g. ref:next, ref:origin
+      **Each lane role runs one harness and model: the one-on-one steward Claude Code on the latest Fable, the OS work coordinator Claude Code on the latest Opus, and
+
+D-WORKFLOW-201 (on next)
+  2026-10-24  38 sources, sha256 4062c5791a85, 818 chars, e.g. ref:origin/feature/m6-cloud-harness-660, ref:origin/feature/m6-cloud-setup-content-664
+      **`tools/fork-worktree remove` runs `git worktree remove` without `--force` unless the user gave `--force`, and gives it only after the tool's own build-output 
+  2026-11-24   3 sources [next], sha256 8b93af74ef64, 1138 chars, e.g. ref:next, ref:origin
+      **Max speaks in one place: the one-on-one.** A lane with a question, a decision or a blocked command for Max sends it to the one-on-one, written to stand on its
+
+D-WORKFLOW-202 (on next)
+  2026-10-24  38 sources, sha256 6e4b46f4d78a, 668 chars, e.g. ref:origin/feature/m6-cloud-harness-660, ref:origin/feature/m6-cloud-setup-content-664
+      **Every check step of `fork-checks.yml` runs whether or not an earlier step failed (`if: always()`; the job still fails on any failure), the three watcher contr
+  2026-11-24   3 sources [next], sha256 b21f18474471, 1130 chars, e.g. ref:next, ref:origin
+      **No release candidate is cut on a head GitHub never checked, and a red check means act.** `tools/rc-preflight`'s `ci` item (`tools/ci-silence-check --sha <HEAD
+
+D-WORKFLOW-203 (on next)
+  2026-10-24  37 sources, sha256 65663d346721, 1073 chars, e.g. ref:origin/feature/m6-cloud-harness-660, ref:origin/feature/m6-cloud-setup-content-664
+      **Clerical (D-WORKFLOW-013's exception, widened to shape): six decided rows had an unescaped `\|` inside their Decision cell (D-UI-024, D-CLOUD-068, D-CLOUD-072
+  2026-11-25   3 sources [next], sha256 fe3ec855a0e4, 1531 chars, e.g. ref:next, ref:origin
+      **Alerts are triaged by kind: a build finishing or failing goes by email; something broken goes to Sentry or, without it, an open-source monitoring tool, possib
+
+D-WORKFLOW-204 (on next)
+  2026-10-24  37 sources, sha256 1bbfcb87999e, 789 chars, e.g. ref:origin/feature/m6-cloud-harness-660, ref:origin/feature/m6-cloud-setup-content-664
+      **`tools/renovation-status` reads a slice in one of seven states: the survey's five (`unreviewed`, `reading`, `remediating`, `closed`, `drifted`) and two T10's 
+  2026-11-25   3 sources [next], sha256 602d5dd318f5, 927 chars, e.g. ref:next, ref:origin
+      Refines D-WORKFLOW-203. **The Apache Software Foundation tool Max meant is SkyWalking, and build-result emails are sent from the build account's Hostinger mailb
+
+D-WORKFLOW-205 (on next)
+  2026-10-24  37 sources, sha256 f0c8c25f0aa1, 542 chars, e.g. ref:origin/feature/m6-cloud-harness-660, ref:origin/feature/m6-cloud-setup-content-664
+      **D-WORKFLOW-202 refined: the fork CI's check steps run under `if: ${{ !cancelled() }}`, not `always()`.** The row's intent -- every verdict shown on a red day,
+  2026-11-25   3 sources [next], sha256 37d1a18b614c, 1548 chars, e.g. ref:next, ref:origin
+      Reverses the pane delivery of #1447 and the pane transport D-WORKFLOW-187 and D-WORKFLOW-194 assumed; D-WORKFLOW-201 stands. **No lane sends anything into the o
