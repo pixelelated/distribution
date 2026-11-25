@@ -8,6 +8,24 @@ Read the [M7 milestone](https://github.com/pixelelated/distribution/milestone/7)
 
 ## Current focus
 
+**000. Newest (2026-11-25T08:47Z; supersedes the #1450, #1451 and allowance lines of item 00).**
+- **Still waiting on Max for the RG SP copy.** It was put to him at 06:27:52Z; he had not answered by the steward's 08:29Z note. Nothing has run on any device. On a relayed yes, the plan in item 00 stands.
+- **The steward's 08:29Z note (D-WORKFLOW-195):** move what needs no device, no Max and no Codex allowance. The allowance read 88% used at 08:08Z (reset 2026-11-30T06:35:50Z), and another lane is still drawing on it, so this lane dispatched nobody and did the work itself:
+  - **#1454 criterion 1 ticked** (comment `7157175665`). The cause:
+    - the second review's 10 s window (`RECHECK_REVIEW`, `visible_quit.py:151`), against ordinary approvals of 5.9 to 14.2 s;
+    - triggered by the menu clock's minute changing between preview and check;
+    - made worse because `CLOCK_TEXT` knows only four renders from Nov 21, and the quit dialog masks nothing.
+  - **#1454 criteria 2 to 4 wait.** That is the fix, two VM proofs (about 12 Codex points) and the tool into the tree. The tool's only copies are pB's `/workspace/tmp/pix-m7-pc-20261125-backup-0{1,2,3}/code/`. **Keep those folders** until criterion 4. Owner: pB, on the next affordable dispatch or after the reset. It must close before the next PC VM run or any RC call.
+  - **#1451 criteria 2 and 4 ticked** (`cc89bb4453`, `acbfe010e8`). The escalation tool writes only to the inbox and refuses a pane config (35 tests; the old tool fails 24). The coordination rules (D-WORKFLOW-183/184/185/187/189/190/195) are on `next`. Five decided rows that had never been committed (D-WORKFLOW-191/192/193/195, D-LAUNCH-008) are appended. Record: `docs/qa-logs/2026-11-25-1451-rules-review/REVIEW.md`. Criterion 3, the agenda, stays held for the steward.
+  - **#1450 criterion 4 reworded and held under D-WORKFLOW-203.** It is no longer blocked by #1451. A CI silence is "something broken", which goes to #1452's monitoring tool, and nothing is built before #1452's inputs.
+  - **#1449 criterion 5** waits on #1445, the one-command build route: a multi-hour tool whose proof is a real build launch, and no build is planned before the device step and the code audit.
+- **`/workspace/artifacts` pass: first batch prepared and refused (#493 `7157556001`).** It retires the 46 October candidate images (70,587,789,508 B, 19 store entries), keeping each entry's records plus a `RETIRED.json`.
+  - Script: `conflict-resolution/docs/qa-logs/2026-11-23-build-directory-retirement/physical-bulk/20261125-artifacts-candidates/retire-candidate-images.sh` (sha256 `4a7eab82…`, floor exactly 46).
+  - The harness review refused it at 08:50:20Z; nothing ran (`REFUSAL-artifacts-candidates.json`).
+  - **NEEDS MAX** `steward-inbox/20261125T0851Z-old-test-builds.md`, marked for after the RG SP question. On the relayed yes, run the script once and report the measured recovery on #493.
+  - Not in this batch: `pixelelated-release-sources` (32.4 GB: October M7 source archives and the `materialization05` git store, which borrows from the 13-04 keep item), `pixelelated-build-custody` (23.5 GB) and `m6-*` (M6's, not inspected). Inventory: `/workspace/tmp/rocknix-session/artifacts-pass-20261125/inventory.tsv`.
+- **The largest unblocked M7 item is the owed code audit** (release-candidates step 4, D-WORKFLOW-062; `ceremony-check` keeps CI red for it and for the futro). It runs through the Facilitator on OpenRouter, not Codex. Plan it with the futro before starting.
+
 **00. Newer (2026-11-25T06:27Z).**
 - **The M7 build set is built and passes on one commit (D-INFRA-043).** `tools/rc-preflight --only build-set` PASS at 05:20:42Z: SM8550, GENERIC_X64 and H700 all `0a3e979e50`. Quoted on #555 (`issuecomment-7153693555`); #1449's "The M7 set passes" checkbox ticked.
   - **H700 accepted:** run `20261125T020406Z-f7a619db` (02:04:06Z to 05:18:02Z), all result channels 0, owners exited, DDR3 `b4ff5ad3…`, DDR4 `7ae4d351…`, tar `cb705521…`. Record `m7-h700-0a3e979e-owner-20261125/ACCEPTANCE.json` and `RC-PREFLIGHT-build-set.txt`.
