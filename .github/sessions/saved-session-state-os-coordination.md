@@ -9,6 +9,7 @@ Read the [M7 milestone](https://github.com/pixelelated/distribution/milestone/7)
 ## Current focus
 
 **000. Newest (2026-11-25T08:47Z; supersedes the #1450, #1451 and allowance lines of item 00).**
+- **14:22Z:** the M7 bug triage resumed after a stop at the 12:06Z turn end. Five moves were made with reasons (item 1 under "Next (owner OS)" below), and #1458 was filed. A third NEEDS MAX (mGBA Smart on updated handhelds) is queued behind the RG SP copy and the October images. Max had not written since about 06:13Z, per the steward's 14:06Z note.
 - **11:17Z:** the step-0 items were read over the whole tracker after the steward's 11:03 note, and the Nova's bootloader claim was corrected. Both are under "The code audit" below. Max had not answered the RG SP copy as of 11:03Z.
 - **11:29Z:** all 27 code traces are posted and checked, and #1455's build is at 636/642, waiter `brnquief0`.
 - **11:40Z:** the futro is done, and its packages finding is corrected on #555. #1456 filed: `rc-preflight` hides BEHIND rows when the freshness tool exits 2.
@@ -81,7 +82,16 @@ Read the [M7 milestone](https://github.com/pixelelated/distribution/milestone/7)
          - device facts: by hand (#270).
        - **Futro done (11:40Z):** `docs/futros/2026-11-25-m7-rc-step0.md` (`325ec1e693`), summary on #555 `7161344224`. The milestone body now carries step 0 and the audit's blockers (read back 11:40Z). `0a3e979e50` is an engineering build qualified ahead of step 0; the release candidate is whatever head passes it.
        - **Next (owner OS), in order, from the futro's adjustments:**
-         1. **Started 11:42Z (owner OS): triage the 17 open M7 bugs.** The first-pass table is on #555 `7161398226`. Proposals: #1110 keep an eye on; #840 and #1422 split, with the physical part an open item to test; #1423 and #1113 likely closable. Nothing has been moved yet. Read each issue to its end, then move it with the reason. Note: `0a3e979e50` is not on `next`'s line (393 commits ahead), so the source round builds on the candidate's line.
+         1. **In progress (owner OS; started 11:42Z, stopped at the 12:06Z turn end with no blocker, resumed 14:06Z on the steward's note): triage the open M7 bugs.**
+            - **The five proposals are done (14:21Z, #555 `7165142510`):**
+              - #1110 and #840 moved to keep an eye on and retitled "Monitor…";
+              - #1113 closed as completed: trace and the 16 controls re-run on the candidate's bytes, open item on #277;
+              - #1423 stays a bug: Smart does not reach upgraded handhelds, a fifth checkbox added, NEEDS MAX `20261125T1415Z-mgba-smart-on-updated-handhelds.md` queued;
+              - #1422 stays a bug: ROCKNIX #3481 is not in the candidate or `next`.
+            - **Open M7 bugs: 14.**
+            - **Next:** read the twelve remaining to their ends (#1454, #1448, #1442, #1427, #1115, #1111, #629, #618, #610, #609, #608, #607), and record for each the VM run or change that closes it on the candidate's line.
+            - Note: `0a3e979e50` is not on `next`'s line (393 commits ahead), so the source round builds on the candidate's line.
+            - **#1458 filed (14:16Z):** about 95,000 QA record files (2.1 GB) in ten worktrees are on no branch. Not started. Do not remove those worktrees before its inventory exists.
          2. Classify the 205 unplaced bugs by origin.
          3. Read the 14 behind and 8 unknown packages, one line each.
          4. Find the ES pin commit's history.
