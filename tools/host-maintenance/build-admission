@@ -501,6 +501,17 @@ def admit(receipt_path, root, run, environment, docker=False, *, image_receipts=
                 for p in state['profiles']), 'build profile is outside admission')
     if len(state['profiles']) == 1:
         environment.update(state['profiles'][0])
+    else:
+        # nested() at the Docker entry needs every key to equal one admitted
+        # profile, and with several this cannot choose; a two-ABI build
+        # launched with none exported was refused there, after admission
+        # (#1442). Refuse now, before anything is recorded, and say what to export.
+        keys = list(dict.fromkeys(k for p in state['profiles'] for k in p))  # the plan's own order
+        unset = [k for k in keys if not environment.get(k)]
+        require(not unset, 'this admission has %d build profiles and %s %s not set; export one admitted '
+                'profile before launching: %s' % (len(state['profiles']), ', '.join(unset),
+                'is' if len(unset) == 1 else 'are',
+                ' or '.join(' '.join('%s=%s' % (k, p[k]) for k in keys if k in p) for p in state['profiles'])))
     primary = Path(state['registry'])
 
     def verify_capacity(ledgers):

@@ -10,7 +10,7 @@ def check(ok,label):
     assert ok,label;checks.append(label);print('PASS '+label,flush=True)
 with tempfile.TemporaryDirectory(prefix='pix493-admission-') as tmp:
     base=Path(tmp)
-    def fixture(name, *, prepare=True):
+    def fixture(name, *, prepare=True, configure=None):
         d=base/name;d.mkdir();(d/'tools').mkdir();(d/'scripts').mkdir()
         for x in ['watch-build','watch-job']:shutil.copy2(root/'tools'/x,d/'tools'/x)
         makefile = root / 'Makefile'
@@ -19,7 +19,7 @@ with tempfile.TemporaryDirectory(prefix='pix493-admission-') as tmp:
         else:
             (d / 'Makefile').write_bytes(subprocess.check_output(
                 ['git', '--no-lazy-fetch', '-C', str(root), 'show', 'HEAD:Makefile']))
-        mod,plan,receipt=helper.prepare_fixture(d,root,prepare=prepare,registry_scope=d)
+        mod,plan,receipt=helper.prepare_fixture(d,root,configure=configure,prepare=prepare,registry_scope=d)
         env={'PATH':os.environ['PATH'],'HOME':str(d),'LC_ALL':'C','PIXELELATED_BUILD_ADMISSION':str(receipt),
              'XDG_STATE_HOME':str(d/'state')}
         return d,mod,plan,receipt,env
@@ -43,6 +43,32 @@ with tempfile.TemporaryDirectory(prefix='pix493-admission-') as tmp:
     for name,mutate in mutations.items():
         d,m,p,r,e=fixture(name.replace(' ','-'));mutate(d,m,p,r,e);a=run(d,e)
         check(a.returncode!=0 and not (d/'compiler-started').exists(),name+' blocks payload')
+    # #1442: a two-ABI admission (a handheld's arm and aarch64 passes).
+    two=lambda ap:ap.update(profiles=[{'PROJECT':'ROCKNIX','DEVICE':'H700','ARCH':'arm'},
+                                      {'PROJECT':'ROCKNIX','DEVICE':'H700','ARCH':'aarch64'}])
+    def runlog(d):
+        logs=sorted((d/'.build-runs').glob('*/build.log'))
+        return logs[-1].read_text(errors='replace') if logs else ''
+    d,m,p,r,e=fixture('two-abi-unset',configure=two);jobs=(m.registry_for(d)/'jobs.json').read_bytes();a=run(d,e);log=runlog(d)
+    check(a.returncode!=0 and not (d/'compiler-started').exists() and 'export one admitted profile' in log
+          and 'PROJECT=ROCKNIX DEVICE=H700 ARCH=aarch64' in log and (m.registry_for(d)/'jobs.json').read_bytes()==jobs
+          and not list((d/'.build-runs').glob('*/admission.json')),
+          'two-profile admission with no profile exported is refused at launch, naming what to export (#1442)')
+    d,m,p,r,e=fixture('two-abi-exported',configure=two);a=run(d,dict(e,PROJECT='ROCKNIX',DEVICE='H700',ARCH='aarch64'))
+    check(a.returncode==0 and (d/'compiler-started').exists(),'two-profile admission starts with one admitted profile exported (#1442)')
+    d,m,p,r,e=fixture('two-abi-outside',configure=two);a=run(d,dict(e,PROJECT='ROCKNIX',DEVICE='SM8550',ARCH='aarch64'))
+    check(a.returncode!=0 and not (d/'compiler-started').exists() and 'build profile is outside admission' in runlog(d),
+          'a profile outside a two-profile admission is refused at launch (#1442)')
+    d,m,p,r,e=fixture('two-abi-nested',configure=two)
+    nrun=d/'.build-runs/two-abi-nested';nrun.mkdir(parents=True)
+    m.write(nrun/'admission.json',{'source':m.source_state(d),'profiles':m.read(p)['profiles']})
+    inside=dict(PROJECT='ROCKNIX',DEVICE='H700',ARCH='arm')
+    try:m.nested(d,nrun,inside);ok=True
+    except ValueError:ok=False
+    check(ok,'nested entry accepts an admitted profile of a two-profile admission (#1442)')
+    try:m.nested(d,nrun,dict(inside,DEVICE='SM8550'));ok=False
+    except ValueError as error:ok='nested profile is outside admission' in str(error)
+    check(ok,'nested entry still refuses a profile outside the admission (#1442)')
     d,m,p,r,e=fixture('capacity')
     real = m.os.statvfs
     def refused(operation, diagnostic):

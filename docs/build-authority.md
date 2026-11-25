@@ -42,6 +42,23 @@ merely pointing to a nested selection file can lose the scope at that boundary.
 Admission and START records implement this authorization; they are not another
 request for Max's permission. No record may claim a process started before it did.
 
+### Launching a two-ABI device build under admission (#1442)
+
+A handheld build runs two passes, `arm` and `aarch64`, so its admission
+declares two profiles (for example `ROCKNIX/H700/arm` and
+`ROCKNIX/H700/aarch64`). Export one of them for the outer launch:
+
+```bash
+PROJECT=ROCKNIX DEVICE=H700 ARCH=aarch64 make docker-H700
+```
+
+The device's make target sets each pass's own profile inside the container,
+so both passes still match an admitted profile. Launched with none exported,
+`build-admission` refuses at once and names the profiles to export. Until
+2026-11-25 it let the launch through and the Docker entry refused it later,
+with "nested profile is outside admission". A single-profile build, such as
+GENERIC_X64, needs nothing exported: admission fills its one profile in.
+
 Preserve original attempts, refusals and one-use budgets. An actual enforcement
 refusal is not overridden by this document. Inspect its stated reason and exact
 submitted authority, retain the originals, and use only the review system's

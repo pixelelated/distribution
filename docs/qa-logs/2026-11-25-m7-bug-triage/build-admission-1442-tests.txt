@@ -1,0 +1,9 @@
+# #1442 admission tests, 2026-11-25
+## fixed tool (this commit): tools/host-maintenance/test-build-admission
+PASS two-profile admission with no profile exported is refused at launch, naming what to export (#1442)
+PASS two-profile admission starts with one admitted profile exported (#1442)
+PASS a profile outside a two-profile admission is refused at launch (#1442)
+PASS nested entry accepts an admitted profile of a two-profile admission (#1442)
+PASS nested entry still refuses a profile outside the admission (#1442)
+## the same test against the unfixed build-admission (efa76a2400), in a throwaway worktree
+AssertionError: two-profile admission with no profile exported is refused at launch, naming what to export (#1442)
