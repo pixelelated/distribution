@@ -1,0 +1,66 @@
+retroarch: FAIL projects/ROCKNIX/packages/emulators/libretro/retroarch/patches/0011-video-thread-wrapper-serialise-posters.patch
+    patching file gfx/video_thread_wrapper.h
+    Hunk #1 FAILED at 173.
+    1 out of 1 hunk FAILED -- saving rejects to file gfx/video_thread_wrapper.h.rej
+    patching file gfx/video_thread_wrapper.c
+    Hunk #1 FAILED at 93.
+    Hunk #2 FAILED at 697.
+    Hunk #3 FAILED at 863.
+    3 out of 3 hunks FAILED -- saving rejects to file gfx/video_thread_wrapper.c.rej
+retroarch: FAIL projects/ROCKNIX/packages/emulators/libretro/retroarch/patches/0012-cheevos-cmd.patch
+    patching file cheevos/cheevos.c
+    Hunk #2 succeeded at 513 (offset 54 lines).
+    patching file configuration.c
+    Hunk #1 FAILED at 1523.
+    1 out of 1 hunk FAILED -- saving rejects to file configuration.c.rej
+    patching file configuration.h
+    Hunk #1 succeeded at 1327 with fuzz 1 (offset 856 lines).
+retroarch: FAIL projects/ROCKNIX/packages/emulators/libretro/retroarch/patches/0013-cheevos-offline-proxy-toast.patch
+    patching file cheevos/cheevos.c
+    Hunk #1 succeeded at 1803 with fuzz 2 (offset 261 lines).
+    patching file cheevos/cheevos_client.c
+    Hunk #1 succeeded at 248 (offset 5 lines).
+    Hunk #2 succeeded at 292 (offset 5 lines).
+    patching file cheevos/cheevos_locals.h
+    Hunk #1 succeeded at 145 with fuzz 1 (offset 21 lines).
+    patching file intl/msg_hash_fr.h
+retroarch: FAIL projects/ROCKNIX/packages/emulators/libretro/retroarch/patches/0014-widgets-backdrop-follows-the-font.patch
+    patching file gfx/gfx_widgets.c
+    Hunk #1 succeeded at 218 (offset 29 lines).
+    Hunk #2 succeeded at 1334 with fuzz 1 (offset 414 lines).
+    Hunk #3 succeeded at 1449 (offset 420 lines).
+    Hunk #4 FAILED at 1079.
+    Hunk #5 FAILED at 1159.
+    Hunk #6 FAILED at 2281.
+    3 out of 6 hunks FAILED -- saving rejects to file gfx/gfx_widgets.c.rej
+retroarch: FAIL projects/ROCKNIX/packages/emulators/libretro/retroarch/patches/0015-video-thread-wrapper-run-a-command-once.patch
+    patching file gfx/video_thread_wrapper.c
+    Hunk #1 FAILED at 431.
+    Hunk #2 FAILED at 441.
+    2 out of 2 hunks FAILED -- saving rejects to file gfx/video_thread_wrapper.c.rej
+retroarch: FAIL projects/ROCKNIX/packages/emulators/libretro/retroarch/patches/0016-widgets-message-queue-floor.patch
+    patching file gfx/gfx_widgets.c
+    Hunk #1 succeeded at 56 with fuzz 2 (offset 12 lines).
+    Hunk #2 FAILED at 894.
+    Hunk #3 succeeded at 1404 with fuzz 1 (offset 419 lines).
+    Hunk #4 FAILED at 1011.
+    2 out of 4 hunks FAILED -- saving rejects to file gfx/gfx_widgets.c.rej
+retroarch: FAIL projects/ROCKNIX/packages/emulators/libretro/retroarch/patches/0017-widgets-sharp-font-sizes.patch
+    patching file gfx/gfx_widgets.c
+    Hunk #1 succeeded at 33 with fuzz 2 (offset 4 lines).
+    Hunk #2 FAILED at 55.
+    Hunk #3 FAILED at 896.
+    Hunk #4 succeeded at 1405 with fuzz 1 (offset 418 lines).
+    Hunk #5 FAILED at 1011.
+    3 out of 5 hunks FAILED -- saving rejects to file gfx/gfx_widgets.c.rej
+retroarch: FAIL projects/ROCKNIX/packages/emulators/libretro/retroarch/patches/0018-auto-slot-survives-content-load.patch
+    patching file command.c
+    Hunk #1 succeeded at 6839 (offset 4936 lines).
+    Hunk #2 succeeded at 6883 with fuzz 1 (offset 4936 lines).
+    patching file command.h
+    Hunk #1 succeeded at 476 (offset 76 lines).
+    patching file configuration.c
+    Hunk #1 succeeded at 7275 (offset 3301 lines).
+    Hunk #2 succeeded at 7319 (offset 3301 lines).
+batteryplus: APPLIED 1 patch(es) from tar batteryplus-99e10723da851f15c572ba547316a2442859debe.tar.gz
+replay: 2 package(s), 15 patch application(s), 1 failing package(s)
