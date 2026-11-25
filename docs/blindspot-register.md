@@ -1196,3 +1196,33 @@ nested calls reuse one private run. `.github/workflows/fork-checks.yml` runs
 lifecycle and entrypoint controls, including buffered-output and removed-hook
 failing controls. A suspected stall is no-log activity, not proof that a
 linker is hung; recorded status still does not deliver a notification.
+
+
+## 77. A ported patch dropped a hunk because the symbol it touched was gone, while the behaviour had moved (2026-11-25)
+
+Porting RetroArch's fork series from its old base to f726f0955a, two hunks
+were dropped because the name they were anchored to no longer appeared where
+it had been, and in both cases the behaviour they changed had moved, not
+gone. 0014's XMB scale fallback: `gfx_widgets_get_scale_factor()` became
+`gfx_widgets_scale_factor()` with the XMB branch inline, and the fallback was
+dropped with the old function. 0018's runtime-log guard: f726 stopped
+setting `entry_state_slot` in runtime_file.c and instead sets `state_slot`
+from the log in runloop.c's `runloop_runtime_log_init()`. The port note
+said "the override they guarded is gone" on the strength of
+`entry_state_slot`'s name, so a launch's Auto slot was again replaced at
+content load. Both were found only when the scripts suite's checks were read
+against the source for #1465, after a first reading had called those checks
+stale for naming a function that was gone (#1465, 2026-11-25). Blindspot
+51's family: a name taken for a behaviour, here in a port note.
+
+What would have caught it at port time: for each dropped hunk, search the
+new base for the hunk's *effect* (here: what writes `state_slot` from the
+runtime log; what chooses the XMB scale), and write in the port note where
+it went or show that nothing does it any more.
+
+**Guard:** `tools/last-good-scripts-test` follows the behaviour, not the
+name. F-RW-07 searches whichever of `gfx_widgets_get_scale_factor` or
+`gfx_widgets_scale_factor` the tree has for the XMB fallback. The 0018 case
+checks the guard wherever the tree applies the runtime log's slot
+(runtime_file.c before f726, runloop.c from it) and fails when it finds no
+such restore at all. Both fail against the round's first port.
