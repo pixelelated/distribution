@@ -18,6 +18,11 @@ Read the [M7 milestone](https://github.com/pixelelated/distribution/milestone/7)
   - The checks: (1) a clean first boot; (2a) an upgrade from `672a7c995f`; (2b) an upgrade from `d7ca912480ea`; (3) the Smart mGBA default.
   - A harness waiter (`b42w51fwu`) watches pB's status while this session is connected.
   - On pB's RESULT.json: release the November 5 folder (`/workspace/tmp/pix-m7-029-spa-final-boot-root-20261105`) and the keeper's `boot-output`, both named keep items released by "the PC upgrade check on the PC image of the set's final head passes". Then H700 and SM8550 qualification; no handheld action without Max's per-action yes.
+- **The shared Codex weekly allowance is 85% used, reset 2026-11-30T06:35:50Z.** Every Codex lane on the account draws on it, another project's included. Overnight, 12 of 14 points went while only that project's lanes ran. Read it from `~/.codex/sessions/**/rollout-*.jsonl` (`rate_limits.primary.used_percent`).
+  - Order: no other M7 Codex dispatch until pB reports. The H700/SM8550 qualification preparation runs in this lane.
+  - The one-on-one has the finding (05:33:43Z); only Max can add allowance.
+- **Never stage `docs/coordinator-one-on-one.md`** (the steward's agenda, with their uncommitted edits) on any branch until the steward says so. #1451 criterion 3 is held for that; criteria 2 and 4 are this lane's.
+- **#1451 criterion 1 is committed locally as `4badc4e6c0`** (the five coordination tools, tests 31/21 OK). Push it with the next material batch, then tick it.
 - **CI is back (#1446 closed).** Max re-enabled workflows at about 02:58Z. The first runs on `next` (`d5d8e07350`) were the wordlist check in 53 s, green (`45537101984`), and the record checks (`45537101977`), red only for the audit and futro owed. `tools/ci-silence-check` passes live.
   - #1441 is closed. #1450 waits only on criterion 4, the daily timer, which needs #1451.
   - Branches that have not merged `next` keep the old four-minute scan; the one-line fix is on #1446. The M6 lane is not messaged.
