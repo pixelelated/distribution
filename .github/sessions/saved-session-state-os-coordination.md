@@ -9,6 +9,7 @@ Read the [M7 milestone](https://github.com/pixelelated/distribution/milestone/7)
 ## Current focus
 
 **000. Newest (2026-11-25T08:47Z; supersedes the #1450, #1451 and allowance lines of item 00).**
+- **11:17Z:** the step-0 items were read over the whole tracker after the steward's 11:03 note, and the Nova's bootloader claim was corrected. Both are under "The code audit" below. Max had not answered the RG SP copy as of 11:03Z.
 - **Still waiting on Max for the RG SP copy.** It was put to him at 06:27:52Z; he had not answered by the steward's 08:29Z note. Nothing has run on any device. On a relayed yes, the plan in item 00 stands.
 - **The steward's 08:29Z note (D-WORKFLOW-195):** move what needs no device, no Max and no Codex allowance. The allowance read 88% used at 08:08Z (reset 2026-11-30T06:35:50Z), and another lane is still drawing on it, so this lane dispatched nobody and did the work itself:
   - **#1454 criterion 1 ticked** (comment `7157175665`). The cause:
@@ -44,16 +45,22 @@ Read the [M7 milestone](https://github.com/pixelelated/distribution/milestone/7)
   - Meanwhile: #1455 criterion 3 (what the October 7 scripts wrote that the candidate reads differently).
 - **The code audit (RC step 4) is blocked, not started.** Exact blockers:
   - step 3 is incomplete: #1455's rehearsal (above), RECORD.txt and the catalog;
-  - step 0 fails on `0a3e979e50`: `bugs FAIL` with 300 open bugs without a disposition (the tool's cap), `packages CANNOT` (rclone 1.75.2 against 1.76.0), and `base: emulationstation CANNOT` (the pin is a tarball tag).
+  - step 0 fails on `0a3e979e50`: `bugs FAIL` with 542 open bugs without a disposition (full read; the tool alone shows 300), `packages CANNOT` (rclone 1.75.2 against 1.76.0), and `base: emulationstation CANNOT` (the pin is a tarball tag).
   - **Full step 0 (09:25Z): `CANNOT ANSWER`, rc 2** (#555 `7158351275`; `m7-pc-0a3e979e-owner-20261124/RC-PREFLIGHT-full-20261125.txt`).
-    - bugs FAIL: 542 open (320 M6, 205 no milestone, 17 M7). No register rule settles whether M6's findings count at an M7 call: a scope question to prepare.
-    - already-written FAIL: #366 and #1154 lack the line; 27 bugs closed since 09-26 lack a code trace.
+    - **Read over the whole tracker at 11:06-11:15Z** (#555 `7160824879`; the 09:25 comment corrected). `box-check` and `rc-preflight` cap their lists at 300 (#941, #956: M6 bugs, M6's fix). A harness runs their own code with the limit raised and refuses short lists: `m7-pc-0a3e979e-owner-20261124/STEP0-FULLREAD-20261125/fullread.py`. Re-run it, not the bare tool, wherever step 0 is quoted, until #941 and #956 land.
+      - **checkboxes PASS:** 949 issues, 2,324 open checkboxes, 0 fail.
+      - **bugs FAIL:** 542 open (320 M6, 205 no milestone, 17 M7). No register rule settles whether M6's findings count at an M7 call: a scope question to prepare.
+      - **already-written FAIL, closed side only:** every open bug's trace has its line. #366 and #1154 were fixed at 09:29Z.
     - ci FAIL: `0a3e979e50` is not on GitHub. Pushing it is publication, separately governed: a decision to prepare.
     - CANNOT: rclone 1.76.0, the ES pin (tarball tag), device facts (#270).
   - **Next in the OS lane:**
     1. Record-keeping. #366 and #1154 are done (09:29Z): both traces had the line, but formatted so the pattern missed it (mid-line, and in backticks). Fixed with no words changed, and noted on each issue.
-       - **Started 09:33Z (owner OS): 2 of 27 traces posted, #526 (`7158469163`) and #320 (`7158500070`).** Code traces for the 27 M7 bugs closed as completed since 2026-09-26 with none. The full list is in `m7-pc-0a3e979e-owner-20261124/UNTRACED-bugs-20261125.txt`; the tool itself truncates at about 200 characters. Product bugs next: #578, #479, #584, #592, #564, #582, #599, #600, #602, #1117, #1114. Then the QA-tooling ones, whose `Already written` is "nothing on devices".
-       - The tool also listed #47 (closed 2026-09-20); check why before tracing it.
+       - **In progress (owner OS, started 09:33Z): 9 of 27 traces posted by 11:17Z.** #526, #320, #578, #479, #584, #592, #564, #582 and #600; comment IDs are in the 11:17 work-log entry.
+         - **Left (18):** #418 #420 #451 #454 #455 #477 #478 #480 #481 #482 #495 #525 #527 #536 #599 #602 #1114 #1117. Next: #602, #599, #1117, #1114, then the QA-tooling ones.
+         - The "#47" was "#477" cut short by my display.
+       - **The restart questions must name the bootloader writes** (corrected #555 `7154797416` at 11:15Z):
+         - RG SP (H700): the update rewrites the card's u-boot at 8 KiB, chosen by `vdd-dram`, plus the device trees and `dtb.img`.
+         - Nova (SM8550): `updateabl` flashes OpenABL 1.2 to the internal `abl_a` and `abl_b` partitions whenever they differ, and keeps no backup.
     2. A plan for step 0, with a futro.
     3. The two decisions in plain terms, queued behind the RG SP question and the October images.
 - **The largest unblocked M7 item is the owed code audit** (release-candidates step 4, D-WORKFLOW-062; `ceremony-check` keeps CI red for it and for the futro). It runs through the Facilitator on OpenRouter, not Codex. Plan it with the futro before starting.
