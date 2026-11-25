@@ -188,10 +188,12 @@ both lists and to this table, or it is invisible.**
 | `cloud-save-integrity`, `cloud-save-integrity-test` | bounded offline save-byte/container verification and synthetic corruption controls | `rclone-cloud-sync.md`, `docs/cloud-save-integrity.md` |
 | `settings-modes-test` | do shell settings and recovery writers preserve private modes and refuse failed staging with the image applets (#421) | `generic-x64-vm-testing.md` |
 | `melonds-upgrade-test` | does post-update preserve melonDS settings while adding missing hotkeys, including absent-package and failed-write controls (#526) | `upgrade-and-install.md` |
+| `mgba-interframe-once-test` | does mGBA's saved Off become Smart once at a start, an Off set later stay, and a restored pre-switch backup's Off switch again, with the image's busybox and a failing control (D-LAUNCH-009/010, #1423) | `upgrade-and-install.md` |
 | `emulator-exit-test`, `wait-lock-test`, `last-good-scripts-test` | the exit hotkey, the lock's patience, the scripts under busybox | `generic-x64-vm-testing.md` |
 | `time-to-play` | interface to a game's first frame, and game to game | `time-to-play.md` |
 | `ra-offline-test` | an achievement earned offline survives to the server | `generic-x64-vm-testing.md` |
 | `ra-ui-test` | installed reconnect cards with local success/refusal fixtures and full-panel frames | `generic-x64-vm-testing.md` |
+| `ra-auto-slot-test` | on a QA guest, through ES's launch with the runtime log at slot 3: does a launch not from the auto save load .state3 on F4 (the restore is live) and one from the auto save load .state.auto (RetroArch 0018's guard) (#1465) | `generic-x64-vm-testing.md` |
 | `ra-candidate-games` | which homebrew titles have cheap achievements, and does a ROM carry its set | `generic-x64-vm-testing.md` |
 | `retroarch-wrapper-test` | does the threaded video wrapper run a posted command exactly once | `engineering-practices.md` |
 | `es-menu-map-check` | does `docs/es-menu-map.md` still describe the menus that ship | `es-native-ui.md` |
@@ -217,6 +219,7 @@ both lists and to this table, or it is invisible.**
 | `rocknix-info-test` | full-script optional hardware readings, conversions and quirk success/failure controls | `generic-x64-vm-testing.md` |
 | `raofflineproxy-installed-native-test` | run unchanged upstream format tests against verified installed modules/library, without product overlays | `generic-x64-vm-testing.md` |
 | `raofflineproxy-consent-test` | exercise installed reporting consent with synthetic state, actual loopback HTTP and restart controls | `generic-x64-vm-testing.md` |
+| `raofflineproxy-toggle-test` | on a QA guest, does the installed ctl's enable record hardcore and turn it off, disable put it back, and both stay harmless twice, with the guest's own values restored (#1465, #1466) | `generic-x64-vm-testing.md` |
 | `rasteratops-cloud-layout-test` | prove numbered layout transitions, partial-state recovery and missing-remote refusal | `rclone-cloud-sync.md` |
 | `pixelelated-content-scope-test` | prove selected-library boundaries, bounded root refusal and scan-result binding with synthetic real-rclone controls | `rclone-cloud-sync.md` |
 | `pixelelated-cloud-folder-test` | retired implicit-seeding/derived-pointer contract; refuses execution; current host coverage is `pixelelated-cloud-validator-test` | `rclone-cloud-sync.md` |
