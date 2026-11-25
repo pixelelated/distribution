@@ -123,6 +123,57 @@ RACFG=/storage/.config/retroarch/retroarch.cfg
 ssha "sed -i -e 's/^video_fullscreen_x = .*/video_fullscreen_x = \"1024\"/' -e 's/^video_fullscreen_y = .*/video_fullscreen_y = \"768\"/' -e 's/^video_driver = .*/video_driver = \"vulkan\"/' $RACFG; sync" >>"$LOG" 2>&1
 check "RetroArch cfg seeded before the update" "$(ssha "grep -E '^(video_fullscreen_x|video_fullscreen_y|video_driver) = ' $RACFG | sort | tr '\n' ' '")" 'video_driver = "vulkan" video_fullscreen_x = "1024" video_fullscreen_y = "768" '
 
+say "seed what older builds left that the new one reads differently (#1455 criterion 3)"
+# Shapes an October 2026 build wrote, written here by the fixture so the
+# checks do not depend on which build the previous image is: the retired
+# cloud move's record (interrupted at its saves stage) and the cloud's
+# layout marker; the dropped LAYOUT_KEEP key; legacy and missing system.cfg
+# keys; an ES collection list saved under the old spaced default; and the
+# rules file with a rule of the owner's own above the catch-all. ES is
+# stopped first so it cannot rewrite es_settings.cfg from memory on the
+# way down. The marker is only left alone here: the new build reads it for
+# the default folder namespace, and this fixture's folder is custom.
+SYSCFG=/storage/.config/system/configs/system.cfg
+ESCFG=/storage/.config/emulationstation/es_settings.cfg
+RULES=/storage/.config/cloud_sync-rules.txt
+MIGREC=/storage/.config/cloud-layout-migration.json
+OWNER_RULE='+ /rehearsal-owner/*.sav'
+cat > "$OUT/seed-older-state.sh" <<'SEED'
+#!/bin/bash
+set -u
+REM=$1 CONF=$2 SYSCFG=$3 ESCFG=$4 RULES=$5 MIGREC=$6 OWNER_RULE=$7
+printf '%s\n' '{"schema":1,"step":1,"from":1,"to":2,"remote":"rehearsal:","fingerprint":"0000","fingerprint_format":"rclone-json-v1","source":{"saves":"/ROCKNIX/Saves","backups":"/ROCKNIX/Backups","content":"/ROCKNIX","discarded":"/ROCKNIX/Saves-replaced"},"configured":{"saves":"/ROCKNIX/Saves","backups":"/ROCKNIX/Backups","content":"/ROCKNIX"},"stage":"saves"}' > "$MIGREC"
+printf 'layout=2\n' | rclone rcat "${REM}Rehearsal/.layout"
+sed -i '/^LAYOUT_KEEP=/d' "$CONF" && printf 'LAYOUT_KEEP="1"\n' >> "$CONF"
+sed -i -E '/retroachievements[.]sound/d; /^rocknix[.]sway[.]hide_cursor=/d; /^ngpc[.]inte[r]?gerscale=/d; /^wifi[.]country=/d' "$SYSCFG"
+printf 'global.retroachievements.soundenable=1\nnes.retroachievements.soundenable=0\nngpc.intergerscale=1\n' >> "$SYSCFG"
+systemctl stop essway
+mkdir -p "${ESCFG%/*}"
+[ -s "$ESCFG" ] || printf '<?xml version="1.0"?>\n<config>\n</config>\n' > "$ESCFG"
+sed -i '/name="CollectionSystemsAuto"/d' "$ESCFG"
+awk '/<\/config>/ { print "\t<string name=\"CollectionSystemsAuto\" value=\"favorites\" />" } { print }' "$ESCFG" > "$ESCFG.seed" && mv -f "$ESCFG.seed" "$ESCFG"
+[ -s "$RULES" ] || cp /usr/config/cloud_sync-rules.txt "$RULES"
+{ printf '%s\n' "$OWNER_RULE"; cat "$RULES"; } > "$RULES.seed" && mv -f "$RULES.seed" "$RULES"
+sync
+SEED
+./tools/vm-pair scp a "$OUT/seed-older-state.sh" /tmp/ 2>>"$LOG" || { say "seed scp FAILED"; fail=1; }
+ssha "bash /tmp/seed-older-state.sh '$REM0' '$CONFPATH' '$SYSCFG' '$ESCFG' '$RULES' '$MIGREC' '$OWNER_RULE'" >>"$LOG" 2>&1
+MIGREC0=$(ssha "sha256sum $MIGREC 2>/dev/null | cut -d' ' -f1")
+ssha "cat $SYSCFG" > "$OUT/system.cfg-before" 2>>"$LOG"
+check "older-state seeds in place before the update" "$(ssha "[ -n \"\$(rclone cat ${REM0}Rehearsal/.layout 2>/dev/null)\" ] && echo layout; grep -c '^LAYOUT_KEEP=\"1\"\$' $CONFPATH; grep -c 'retroachievements[.]soundenable=' $SYSCFG; grep -c 'CollectionSystemsAuto\" value=\"favorites\"' $ESCFG; head -1 $RULES" | tr '\n' '|')" "layout|1|2|1|$OWNER_RULE|"
+check "the seeded migration record is readable before the update" "$([ ${#MIGREC0} = 64 ] && echo yes)" "yes"
+# Each check below that expects the update to change something is first
+# read before the update: a value that already matches would make the check
+# unable to fail, which is said (NOTE), not passed over in silence.
+discrim(){ if [ "$2" = "$3" ]; then echo "NOTE $1: already true before the update, so this previous image does not exercise it" | tee -a "$LOG"; fi; }
+SOUND_READ="grep -E '^(global|nes)[.]retroachievements[.]sound=' $SYSCFG | sort | tr '\n' ' '"
+SOUND_WANT='global.retroachievements.sound=xbox360-achievement nes.retroachievements.sound=none '
+CURSOR_READ="grep -c '^rocknix[.]sway[.]hide_cursor=1\$' $SYSCFG"
+RULES_READ="grep -cxF '+ /psp/PSP/SAVEDATA/**' $RULES"
+discrim "legacy soundenable migrated" "$(ssha "$SOUND_READ")" "$SOUND_WANT"
+discrim "missing hide_cursor appended" "$(ssha "$CURSOR_READ")" "1"
+discrim "new default save rules merged" "$(ssha "$RULES_READ")" "1"
+
 say "stage $(basename "$NEW") and reboot guest a"
 # The pair's key and port come from vm-pair, not from literals here (they
 # were, and a pair on other settings would have gone unrehearsed -- audit
@@ -156,6 +207,28 @@ check "update queue empty" "$(ssha 'ls /storage/.update | wc -l')" "0"
 check "retired quirk files taken back after the update (#307 PL-019)" "$(ssha "cd /storage && ls $RETIRED 2>/dev/null | wc -l; [ -L .config/system.d/emergency.target ] && echo masked || echo unmasked" | tr '\n' ' ')" "0 unmasked "
 check "and the owner's file beside them kept" "$(ssha 'cat /storage/.config/tmpfiles.d/50-rehearsal-owner.conf')" "# the owner's own (vm-upgrade-rehearsal)"
 check "RetroArch fullscreen size set by hand kept, driver moved to gl (#307 PL-034, #308 claude F-VM-11)" "$(ssha "grep -E '^(video_fullscreen_x|video_fullscreen_y|video_driver) = ' $RACFG | sort | tr '\n' ' '")" 'video_driver = "gl" video_fullscreen_x = "1024" video_fullscreen_y = "768" '
+# --- what older builds left (#1455 criterion 3) ---
+check "retired cloud move's record left untouched" "$(ssha "sha256sum $MIGREC 2>/dev/null | cut -d' ' -f1")" "$MIGREC0"
+check "cloud layout marker left as it was" "$(ssha "rclone cat ${REM0}Rehearsal/.layout 2>/dev/null")" "layout=2"
+check "dropped LAYOUT_KEEP kept as the owner's line" "$(ssha "grep -c '^LAYOUT_KEEP=\"1\"\$' $CONFPATH")" "1"
+ssha "cat $SYSCFG" > "$OUT/system.cfg-after" 2>>"$LOG"
+# Blank lines carry no setting and are left out of both sides (post-update's
+# append writes one). With -x an empty pattern matches only empty lines, so
+# the comparison can still fail: a constructed before/after missing one line
+# reads 1 (2026-11-25).
+# One removal is upstream's on purpose: post-update deletes
+# system.suspend.dpms on every update (104a4d14ff), which loses an owner's
+# opt-in (#1457). It is named here rather than counted, and only it.
+check "every system.cfg line from before the update kept (but system.suspend.dpms, #1457)" "$([ -s "$OUT/system.cfg-before" ] && [ -s "$OUT/system.cfg-after" ] && grep -vxF -f <(grep -v '^[[:space:]]*$' "$OUT/system.cfg-after") <(grep -v -e '^[[:space:]]*$' -e '^system[.]suspend[.]dpms=' "$OUT/system.cfg-before") | wc -l)" "0"
+check "legacy soundenable migrated, the old keys kept" "$(ssha "$SOUND_READ")" "$SOUND_WANT"
+check "missing hide_cursor appended" "$(ssha "$CURSOR_READ")" "1"
+check "ES collection list saved under the old default kept" "$(ssha "grep -c 'CollectionSystemsAuto\" value=\"favorites\"' $ESCFG")" "1"
+echo "system.cfg after: ngpc.integerscale $(grep -c '^ngpc[.]integerscale=' "$OUT/system.cfg-after"), wifi.country $(grep -c '^wifi[.]country=' "$OUT/system.cfg-after") (no merge of new defaults is expected)" | tee -a "$LOG"
+say "a saves backup on the updated guest, over the older state"
+BKRC=$(ssha 'cloud_backup --saves-only >/dev/null 2>&1; echo $?'); echo "cloud_backup --saves-only rc: $BKRC" | tee -a "$LOG"
+check "saves backup completes on the updated guest" "$BKRC" "0"
+check "new default save rules merged" "$(ssha "$RULES_READ")" "1"
+check "owner's rule kept, ahead of the catch-all" "$(ssha "awk -v r='$OWNER_RULE' '\$0==r{o=NR} \$0==\"- /**\"{c=NR} END{if (o && c && o<c) print \"ahead\"; else print \"missing-or-after\"}' $RULES")" "ahead"
 # --- release checks: assertions about one release's defects, not about the
 # upgrade path. Each names its issue; drop it when the issue's cause is gone
 # upstream (audit #258 PL-030 asked that a generic tool label these).
