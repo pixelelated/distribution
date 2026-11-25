@@ -12,6 +12,7 @@ Read the [M7 milestone](https://github.com/pixelelated/distribution/milestone/7)
 - **11:17Z:** the step-0 items were read over the whole tracker after the steward's 11:03 note, and the Nova's bootloader claim was corrected. Both are under "The code audit" below. Max had not answered the RG SP copy as of 11:03Z.
 - **11:29Z:** all 27 code traces are posted and checked, and #1455's build is at 636/642, waiter `brnquief0`.
 - **11:40Z:** the futro is done, and its packages finding is corrected on #555. #1456 filed: `rc-preflight` hides BEHIND rows when the freshness tool exits 2.
+- **11:50Z:** #1455's starting image is built, identified and kept, its build root is removed (111.6 GB recovered), and criterion 2 is ticked.
 - **Still waiting on Max for the RG SP copy.** It was put to him at 06:27:52Z; he had not answered by the steward's 08:29Z note. Nothing has run on any device. On a relayed yes, the plan in item 00 stands.
 - **The steward's 08:29Z note (D-WORKFLOW-195):** move what needs no device, no Max and no Codex allowance. The allowance read 88% used at 08:08Z (reset 2026-11-30T06:35:50Z), and another lane is still drawing on it, so this lane dispatched nobody and did the work itself:
   - **#1454 criterion 1 ticked** (comment `7157175665`). The cause:
@@ -39,12 +40,18 @@ Read the [M7 milestone](https://github.com/pixelelated/distribution/milestone/7)
   - **#1427 and #1423: nothing tickable from the run;** notes `7157851519` and `7157852103` say what it covers.
     - #1427 needs an installed COPY TO FREE SLOT run on the candidate image, and the ES-pin check for criterion 1.
     - #1423 needs the Nova case on a per-action yes.
-- **#1455: started (owner OS coordinator).** Cold GENERIC_X64 build of `43d0bc3bf4`, run `20261125T091159Z-3c44fe1c`, at 09:11:59Z.
+- **#1455: the starting image is built and accepted (11:50Z); criterion 2 is ticked** (`7161551945`). Cold GENERIC_X64 build of `43d0bc3bf4`, run `20261125T091159Z-3c44fe1c`, 09:11:59Z to 11:45:37Z. All three result channels were 0, and the processes had gone. `/etc/os-release` names `43d0bc3bf47fd858…` and builder `988c0ba5`.
+  - **Keep items** until #1455's rehearsal passes:
+    - `m7-pc-43d0bc3b-20261125/target/` img.gz `fdcfa903…` and tar `2a539a8b…`, 4,147,167,630 B together;
+    - `owner/keep/emulationstation-72494bc72e.unstripped`.
+  - **Removed:** the build root and the empty `sources/` stub. Recovered 111.6 GB, measured. Receipt: `owner/ACCEPTANCE.json`.
+  - **Next:** criterion 3's save and save-state layouts; add the seeds to the rehearsal; then `tools/vm-upgrade-rehearsal` against the candidate's PC tar (criterion 4).
+  - Historical (the run while it was live):
   - Worktree `m7-pc-43d0bc3b-20261125`, owner `conflict-resolution/.build-runs/m7-pc-43d0bc3b-owner-20261125/`.
   - Matched to the RG35XX SP's build: image `988c0ba5`, `CUSTOM_VERSION=0.0.1`, options `2cf98cb3`, ES `72494bc72e`.
   - Processes: job pid 2339622, `make` 2339651, `watch-job` 2339623. A harness waiter (task `brnquief0`) reports on `launcher-result.json` or job exit; it dies with the session.
   - Consume it from `submit-01/launcher-result.json`, `tool-wrapper.rc`, the run's `build.rc`, the identity file and the image hashes. Then remove the build root and keep the img.gz and tar as named keep items until #1455 passes.
-  - Meanwhile: #1455 criterion 3 (what the October 7 scripts wrote that the candidate reads differently).
+  - Criterion 3: second pass posted (`7161171907`). Open: save and save-state layouts from October 7.
 - **The code audit (RC step 4) is blocked, not started.** Exact blockers:
   - step 3 is incomplete: #1455's rehearsal (above), RECORD.txt and the catalog;
   - step 0 fails on `0a3e979e50`: `bugs FAIL` with 542 open bugs without a disposition (full read; the tool alone shows 300), `packages CANNOT` (14 BEHIND and 8 UNKNOWN on the full freshness output, `FRESHNESS-full-20261125.txt`; the tool's message shows only its last line, #1456), and `base: emulationstation CANNOT` (the pin is a tarball tag).
