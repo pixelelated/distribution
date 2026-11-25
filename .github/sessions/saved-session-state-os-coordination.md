@@ -20,7 +20,11 @@ Read the [M7 milestone](https://github.com/pixelelated/distribution/milestone/7)
   - **#1450 criterion 4 reworded and held under D-WORKFLOW-203.** It is no longer blocked by #1451. A CI silence is "something broken", which goes to #1452's monitoring tool, and nothing is built before #1452's inputs.
   - **#1449 criterion 5** waits on #1445, the one-command build route: a multi-hour tool whose proof is a real build launch, and no build is planned before the device step and the code audit.
 - **`/workspace/artifacts` pass: first batch prepared and refused (#493 `7157556001`).** It retires the 46 October candidate images (70,587,789,508 B, 19 store entries), keeping each entry's records plus a `RETIRED.json`.
-  - Script: `conflict-resolution/docs/qa-logs/2026-11-23-build-directory-retirement/physical-bulk/20261125-artifacts-candidates/retire-candidate-images.sh` (sha256 `4a7eab82…`, floor exactly 46).
+  - Script: `conflict-resolution/docs/qa-logs/2026-11-23-build-directory-retirement/physical-bulk/20261125-artifacts-candidates/retire-candidate-images.sh`, **sha256 `e076737b…`** (floor exactly 46). This is the batch Max's yes must name.
+    - The revision refused at 08:50 was `4cd6b903…`; `4a7eab82…` was the floor fix.
+    - `e076737b…` corrects its wording: the RG35XX SP runs H700 `43d0bc3bf4` of 2026-10-07 by the device action log. Its images left the store on 2026-10-12, entry `d89b067a…`, so none is in the batch.
+    - #493 correction comment `7157700039`.
+  - **#1455 filed:** rehearse the RC's upgrade from the RG35XX SP's October 7 build on the VM. Needs a PC image of `43d0bc3bf4`, the old state listed and seeded, and `release-candidates.md` step 3 naming the device's own build.
   - The harness review refused it at 08:50:20Z; nothing ran (`REFUSAL-artifacts-candidates.json`).
   - **NEEDS MAX** `steward-inbox/20261125T0851Z-old-test-builds.md`, marked for after the RG SP question. On the relayed yes, run the script once and report the measured recovery on #493.
   - Not in this batch: `pixelelated-release-sources` (32.4 GB: October M7 source archives and the `materialization05` git store, which borrows from the 13-04 keep item), `pixelelated-build-custody` (23.5 GB) and `m6-*` (M6's, not inspected). Inventory: `/workspace/tmp/rocknix-session/artifacts-pass-20261125/inventory.tsv`.
