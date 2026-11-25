@@ -2,13 +2,13 @@
 
 ## Start here
 
-Saved 2026-11-25T03:56Z on `feature/conflict-resolution` in the pixelelated distribution repository. Resume this file for the **OS work coordinator**, the sole dispatcher for M7. Since November 24 that role runs in **Claude Code on the latest Opus** (`claude-opus-5-5`) in Herdr pane `w4:p2`; session `b19c3b8c-1c4f-4a57-8765-0b8fe1f11ae9` (D-WORKFLOW-200). The one-on-one steward runs Claude Code on the latest Fable in `w4:pF` (session `2032b6b6-3946-42d0-ab2c-cfb5469deeea`); worker lanes run Codex on `gpt-6.2-sol`. The daily operations worktree is `/workspace/repos/rocknix.worktrees/conflict-resolution`; the primary checkout `/workspace/repos/rocknix` carries local `next`. pixelelated builds an immutable Linux gaming OS. This worktree's rules lag `next`: read them with `git show next:<path>` (`AGENTS.md`, `.claude/rules/worktrees.md`, `.claude/rules/device-builds.md`, `.claude/skills/build-cleanup/SKILL.md`).
+Saved 2026-11-25T04:16Z on `feature/conflict-resolution` in the pixelelated distribution repository. Resume this file for the **OS work coordinator**, the sole dispatcher for M7. Since November 24 that role runs in **Claude Code on the latest Opus** (`claude-opus-5-5`) in Herdr pane `w4:p2`; session `b19c3b8c-1c4f-4a57-8765-0b8fe1f11ae9` (D-WORKFLOW-200). The one-on-one steward runs Claude Code on the latest Fable in `w4:pF` (session `2032b6b6-3946-42d0-ab2c-cfb5469deeea`); worker lanes run Codex on `gpt-6.2-sol`. The daily operations worktree is `/workspace/repos/rocknix.worktrees/conflict-resolution`; the primary checkout `/workspace/repos/rocknix` carries local `next`. pixelelated builds an immutable Linux gaming OS. This worktree's rules lag `next`: read them with `git show next:<path>` (`AGENTS.md`, `.claude/rules/worktrees.md`, `.claude/rules/device-builds.md`, `.claude/skills/build-cleanup/SKILL.md`).
 
 Read the [M7 milestone](https://github.com/pixelelated/distribution/milestone/7) (body updated 12:29Z), [#555](https://github.com/pixelelated/distribution/issues/555) (build qualification; 12:30Z comment), [#1441](https://github.com/pixelelated/distribution/issues/1441) (the H700 recipe failure) and [#1442](https://github.com/pixelelated/distribution/issues/1442) (the two-ABI admission refusal). Decisions made this session, all on local `next`: D-INFRA-035 to D-INFRA-043 and D-WORKFLOW-200. Also read [#1448](https://github.com/pixelelated/distribution/issues/1448) (the SM8550 fex-emu stop).
 
 ## Current focus
 
-**00. Newer (2026-11-25T03:56Z).**
+**00. Newer (2026-11-25T04:16Z).**
 - **H700 of `0a3e979e50` is running: the set's last image.**
   - Started 02:04:06Z as run `20261125T020406Z-f7a619db` in `/workspace/repos/rocknix.worktrees/m7-h700-0a3e979e-20261125` (branch `build/m7-h700-0a3e979e-20261125`), with owner `conflict-resolution/.build-runs/m7-h700-0a3e979e-owner-20261125/`.
   - Watcher 3012000, job 3011996, `make` 3012100, launcher 3011991.
@@ -24,6 +24,8 @@ Read the [M7 milestone](https://github.com/pixelelated/distribution/milestone/7)
   - Branches that have not merged `next` keep the old four-minute scan; the one-line fix is on #1446. The M6 lane is not messaged.
   - Owed: the code audit and the futro (`ceremony-check`). They keep `fork record checks` red by design.
 - **The /tmp scratch removal is done (D-INFRA-046).** Max said yes at about 03:53Z. 267 entries were removed in two passes: the second for two read-only evidence folders, kept in `20261125-tmp-m7/kept-records/`. 4.85 GB of `/tmp` was freed. Outcome on #493.
+- **Alerts (#1452, D-WORKFLOW-203/204): scoped, not built.** Build results go by email from the build account's Hostinger mailbox, sent by the finished build's watcher; breakage goes to SkyWalking or another open-source tool over OTLP; everything else waits for the watcher agent. It waits on a refreshed mailbox credential and a destination address from Max. The address goes in a private file only, never the tree, tracker or commits.
+- **Push cadence:** each push of `next` is two workflow runs. Batch records into one push per material outcome, and mirror this checkpoint to the feature branch only at a handoff.
 - **Deliver to the steward by pane, never by session name (#1447).** Run `herdr agent get w4:pF` (session `2032b6b6-3946-42d0-ab2c-cfb5469deeea`), then `herdr agent prompt w4:pF`. Take receipt from the pane's status changing.
 - **Batch 6's ten leftovers are removed (D-INFRA-045)**, +26.26 GB. The 13-04 store and `root02` are named keep items.
 
