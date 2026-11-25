@@ -1,6 +1,10 @@
 #!/usr/bin/env python3
-"""Synthetic fixtures only: no Herdr, worker prompts, source payloads or runtime."""
+"""Synthetic fixtures only: no Herdr, worker prompts, source payloads or runtime.
+Human notices land as files in a temporary private inbox (D-WORKFLOW-205)."""
 import copy
+import json
+import os
+import re
 import importlib.machinery
 import importlib.util
 from pathlib import Path
@@ -13,12 +17,18 @@ spec=importlib.util.spec_from_loader(loader.name,loader);e=importlib.util.module
 
 class Escalation(unittest.TestCase):
     def setUp(self):
-        self.c=dict(root_pane='root',root_session='r',workers={'worker':'w'},human_pane='human',
-                    human_session='h',herdr='herdr',state='/fixture/state',monitor_state='/fixture/monitor')
+        self.tmp=tempfile.TemporaryDirectory();self.addCleanup(self.cleanup)
+        self.inbox=Path(self.tmp.name)/'inbox';self.inbox.mkdir();os.chmod(self.inbox,0o700)
+        self.c=dict(root_pane='root',root_session='r',workers={'worker':'w'},
+                    human_session='h',herdr='herdr',state='/fixture/state',monitor_state='/fixture/monitor',
+                    inbox=str(self.inbox))
         self.s=dict(schema='human-escalation-v1',incidents={})
         self.m={'recovery':{'tracking':{'root':dict(pane='root',session='r',disposition='blocked',
               blocked_on='actual refusal',recorded_at=1,next_action='prepare request',evidence='/evidence')}}}
         self.calls=[];self.saved=[]
+    def cleanup(self):
+        if self.inbox.exists():os.chmod(self.inbox,0o700)
+        self.tmp.cleanup()
     def persist(self):self.saved.append(copy.deepcopy(self.s))
     def call(self,argv):
         self.calls.append(argv)
@@ -28,7 +38,14 @@ class Escalation(unittest.TestCase):
     def detect(self):
         e.detect(self.s,self.m,self.c,10);return next(iter(self.s['incidents']))
     def deliver(self,now=10,call=None):e.deliver(self.s,self.c,call or self.call,self.persist,now)
-    def prompts(self):return [a[-1] for a in self.calls if a[1:3]==['agent','prompt']]
+    def files(self):return sorted(p.name for p in self.inbox.iterdir()) if self.inbox.exists() else []
+    def prompts(self):
+        """Delivered notice bodies in delivery order; every inbox file belongs to one attempt."""
+        rows=sorted((r for r in self.s['incidents'].values() if (r.get('attempt') or {}).get('file')),
+                    key=lambda r:r['attempt']['at'])
+        self.assertEqual(sorted(r['attempt']['file'] for r in rows),self.files())
+        self.assertFalse(any(a[1:3]==['agent','prompt'] for a in self.calls))
+        return [(self.inbox/r['attempt']['file']).read_text().split('\n',2)[2].strip() for r in rows]
     def test_visible_prompt_is_for_max_not_steward_accounting(self):
         i=self.detect();self.deliver()
         text=self.prompts()[0]
@@ -129,46 +146,80 @@ class Escalation(unittest.TestCase):
         self.assertIsNone(self.s['incidents'][i]['consumed']);self.assertIsNone(self.s['incidents'][i]['resolved'])
     def test_intent_saved_before_submission_and_no_repeat(self):
         self.detect();self.deliver();self.assertTrue(any(next(iter(s['incidents'].values()))['delivery']=='intent' for s in self.saved))
-        self.deliver(100);self.assertEqual(sum(a[1:3]==['agent','prompt'] for a in self.calls),1)
-    def test_failed_send_not_replayed(self):
-        i=self.detect()
-        def fail(a):
-            if a[1:3]==['agent','prompt']:
-                self.calls.append(a);return subprocess.CompletedProcess(a,1,'','connection lost')
-            return self.call(a)
-        self.deliver(call=fail);self.deliver(100,fail)
+        self.deliver(100);self.assertEqual(len(self.prompts()),1);self.assertEqual(len(self.files()),1)
+    def test_failed_write_not_replayed(self):
+        i=self.detect();os.chmod(self.inbox,0o500)
+        self.deliver();self.deliver(100)
         self.assertEqual(self.s['incidents'][i]['delivery'],'unconfirmed')
-        self.assertEqual(sum(a[1:3]==['agent','prompt'] for a in self.calls),1)
+        self.assertIn('Permission',self.s['incidents'][i]['attempt']['error'])
+        os.chmod(self.inbox,0o700);self.deliver(200)
+        self.assertEqual(self.files(),[]);self.assertEqual(self.calls,[])
     def test_timeout_and_crash_intent_not_replayed(self):
-        i=self.detect()
-        def fail(a):
-            if a[1:3]==['agent','prompt']:raise TimeoutError('uncertain')
-            return self.call(a)
-        self.deliver(call=fail);self.assertEqual(self.s['incidents'][i]['delivery'],'unconfirmed')
-        self.s['incidents'][i]['delivery']='intent';self.calls=[];self.deliver(20)
-        self.assertEqual(self.calls,[])
-    def test_wrong_session_and_blocked_ui_no_prompt(self):
-        self.detect()
-        for session,status in [('other','idle'),('h','blocked')]:
-            def wrong(a):
-                if a[1:3]==['agent','get']:
-                    return subprocess.CompletedProcess(a,0,'{"result":{"agent":{"agent_session":{"value":"'+session+'"},"agent_status":"'+status+'"}}}','')
-                return self.call(a)
-            self.deliver(call=wrong)
-        self.assertFalse(any(a[1:3]==['agent','prompt'] for a in self.calls))
+        i=self.detect();real=e.inbox_write
+        def fail(*a):raise TimeoutError('uncertain')
+        e.inbox_write=fail
+        try:self.deliver()
+        finally:e.inbox_write=real
+        self.assertEqual(self.s['incidents'][i]['delivery'],'unconfirmed')
+        self.s['incidents'][i]['delivery']='intent';self.deliver(20)
+        self.assertEqual(self.files(),[]);self.assertEqual(self.calls,[])
+    def test_config_naming_a_human_pane_is_refused(self):
+        i=self.detect();self.c['human_pane']='w4:pF'
+        with self.assertRaises(ValueError):e.check_config(self.c)
+        self.deliver();self.deliver(20)
+        self.assertEqual(self.s['incidents'][i]['delivery'],'unavailable')
+        self.assertIn('human pane',self.s['incidents'][i]['last_error']['detail'])
+        self.assertEqual(self.files(),[]);self.assertEqual(self.calls,[])
+        with tempfile.TemporaryDirectory() as t:
+            cfg=Path(t)/'config.json';cfg.write_text(json.dumps(dict(self.c,state=str(Path(t)/'state.json'))))
+            r=subprocess.run([str(Path(__file__).with_name('coordinator-escalation')),'--config',str(cfg),'--status'],
+                             capture_output=True,text=True,timeout=20)
+            self.assertNotEqual(r.returncode,0);self.assertIn('human pane',r.stderr)
+            self.assertFalse((Path(t)/'state.json').exists())
+    def test_no_inbox_means_human_delivery_is_off(self):
+        i=self.detect();del self.c['inbox']
+        self.deliver();self.assertEqual(self.s['incidents'][i]['delivery'],'unavailable')
+        self.assertIn('off',self.s['incidents'][i]['last_error']['detail'])
+        self.assertEqual(self.files(),[]);self.assertEqual(self.calls,[])
+    def test_inbox_must_be_private_and_not_a_link(self):
+        i=self.detect();os.chmod(self.inbox,0o755);self.deliver()
+        self.assertEqual(self.s['incidents'][i]['delivery'],'unavailable');self.assertEqual(self.files(),[])
+        os.chmod(self.inbox,0o700);link=Path(self.tmp.name)/'link';link.symlink_to(self.inbox)
+        self.c['inbox']=str(link);self.deliver(20)
+        self.assertEqual(self.s['incidents'][i]['delivery'],'unavailable');self.assertEqual(self.files(),[])
+        self.c['inbox']=str(self.inbox);self.deliver(30)
+        self.assertEqual(self.s['incidents'][i]['delivery'],'submitted');self.assertEqual(len(self.files()),1)
+    def test_inbox_file_names_its_class_first_and_is_private(self):
+        expected={'new_stoppage':'STOPPED WORK','changed_blocker':'STOPPED WORK','decision':'NEEDS MAX',
+                  'outcome':'INFORMATION','requested_status':'INFORMATION'}
+        base=dict(pane='root',session='r',**{k:k for k in e.FIELDS})
+        for n,(kind,cls) in enumerate(expected.items()):
+            spec=dict(base,cause='cause '+kind,notice_kind=kind,slug='case-'+str(n),
+                      human_message='The build is waiting on case '+str(n)+'.')
+            if kind=='requested_status':spec['request_evidence']='/asked'
+            ident=e.register(self.s,spec,100+n);self.deliver(100+n)
+            row=self.s['incidents'][ident];f=self.inbox/row['attempt']['file']
+            self.assertRegex(f.name,r'^19700101T0001Z-case-'+str(n)+r'\.md$')
+            self.assertEqual(f.read_text().split('\n')[0],cls);self.assertEqual(row['attempt']['notice_class'],cls)
+            self.assertEqual(f.stat().st_mode&0o777,0o600)
+        self.assertEqual(len(self.prompts()),5);self.assertEqual(self.calls,[])
+    def test_existing_inbox_file_is_never_overwritten(self):
+        i=self.detect();first=self.inbox/'19700101T0000Z-new-stoppage.md';first.write_text('NEEDS MAX\n\nthe steward wrote this\n')
+        self.deliver()
+        self.assertEqual(first.read_text(),'NEEDS MAX\n\nthe steward wrote this\n')
+        self.assertEqual(self.s['incidents'][i]['attempt']['file'],'19700101T0000Z-new-stoppage-2.md')
+        with self.assertRaises(ValueError):e.inbox_write(self.inbox,dict(spec=dict(slug='../escape')),'x',0)
     def test_unavailable_then_available_can_deliver_once(self):
-        i=self.detect()
-        def unavailable(a):
-            if a[1:3]==['agent','get']:raise RuntimeError('unavailable')
-            return self.call(a)
-        self.deliver(call=unavailable);self.assertEqual(self.s['incidents'][i]['delivery'],'unavailable')
-        self.deliver(20);self.assertEqual(self.s['incidents'][i]['delivery'],'submitted')
+        i=self.detect();moved=Path(self.tmp.name)/'moved';self.inbox.rename(moved)
+        self.deliver();self.assertEqual(self.s['incidents'][i]['delivery'],'unavailable')
+        moved.rename(self.inbox);self.deliver(20);self.deliver(30)
+        self.assertEqual(self.s['incidents'][i]['delivery'],'submitted');self.assertEqual(len(self.files()),1)
     def test_receipts_separate_and_resumption_durable(self):
         i=self.detect();self.deliver();e.receipt(self.s,i,'consumed','h','/steward-read',self.c,20)
         self.assertIsNone(self.s['incidents'][i]['user_facing']);self.assertIsNone(self.s['incidents'][i]['resolved'])
         with tempfile.TemporaryDirectory() as t:
             p=Path(t)/'state.json';e.save(p,self.s);self.s=e.read(p)
-        self.deliver(30);self.assertEqual(sum(a[1:3]==['agent','prompt'] for a in self.calls),1)
+        self.deliver(30);self.assertEqual(len(self.prompts()),1)
         e.receipt(self.s,i,'user_facing','r','/rendered-final',self.c,40)
         self.assertIsNone(self.s['incidents'][i]['resolved'])
     def test_no_false_receipt_or_conflicting_overwrite(self):
@@ -180,7 +231,11 @@ class Escalation(unittest.TestCase):
         e.receipt(self.s,i,'consumed','h','/e',self.c,20)
         with self.assertRaises(ValueError):e.receipt(self.s,i,'consumed','h','/different',self.c,21)
     def test_missing_consumption_alert_is_deduplicated(self):
-        self.detect();self.deliver();self.deliver(400);self.deliver(500)
+        i=self.detect();self.deliver();self.deliver(400);self.deliver(500)
+        self.assertEqual(self.calls,[])
+        self.assertEqual([a['status'] for a in self.s['incidents'][i]['alerts'].values()],['recorded-only'])
+        self.c['local_alerts']=True;self.s['incidents'][i]['alerts'].clear()
+        self.deliver(600);self.deliver(700)
         self.assertEqual(sum(a[1:3]==['notification','show'] for a in self.calls),1)
     def test_monitor_disposition_change_does_not_erase_unresolved_incident(self):
         i=self.detect();self.m['recovery']['tracking']['root']['disposition']='working'
@@ -289,7 +344,7 @@ class Escalation(unittest.TestCase):
         cause=self.m['recovery']['tracking']['root']['blocked_on']
         s=dict(pane='root',session='r',**{k:k for k in e.FIELDS});s['cause']=cause;s['needed_action']='Approve only exact retention request for four hours after each owner acknowledges.'
         s.update(notice_kind='decision',human_message='May we keep the test inputs unchanged for four hours so the candidate check can finish? I recommend this bounded preservation; it does not start a build.')
-        i=e.register(self.s,s,1);self.detect();self.deliver();self.assertEqual(s['human_message'],self.calls[1][-1])
+        i=e.register(self.s,s,1);self.detect();self.deliver();self.assertEqual([s['human_message']],self.prompts())
         self.assertEqual(self.s['incidents'][i]['spec'],s)
 
 if __name__=='__main__':unittest.main(verbosity=2)

@@ -44,8 +44,9 @@ the build-cleanup skill, named the lane running the command.
   the folder at every turn and puts to Max, in its own words, only what he
   needs. Nothing wakes a closed steward session, so a `NEEDS MAX` or
   `STOPPED WORK` file also goes on its issue. No lane runs `herdr agent prompt`
-  on the one-on-one pane, messages the steward's session, or aims
-  `tools/coordinator-escalation` at it. Max, 2026-11-25, after two notices
+  on the one-on-one pane or messages the steward's session.
+  `tools/coordinator-escalation` writes its notices as inbox files of this
+  shape and refuses a config that names a pane (#1451). Max, 2026-11-25, after two notices
   arrived there as pasted text: *"there shouldn't be things coming from OS
   Work Coordination into here. That should be in your own OS Work Coordination
   tab. [...] it muddles the feed here when I'm seeing anything beyond our
