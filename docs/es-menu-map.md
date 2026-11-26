@@ -343,6 +343,8 @@ flowchart TD
     VERIFY -->|verified, the active connection| FOLDERSEL[CLOUD FOLDERS for saves and settings]
     VERIFY -->|verified, another connection| ESAVED[CONNECTION SAVED<br/><i>YOUR CURRENT CONNECTION HAS NOT CHANGED. …</i>]
     RENEW -->|back on EDIT CONNECTION's form, or back from what follows it| DETAIL
+    RENEW -->|SIGN IN AGAIN: back from HOW DO YOU WANT TO TYPE? or the sign-in page; the session is cancelled| DETAIL
+    RENEW -->|SIGN IN AGAIN: a declined retry| CONN
     ESAVED -->|back| DETAIL
     LIST -->|key-based provider| FORM[provider form<br/>NAME · REQUIRED · OPTIONAL · FINISH: CONNECT<br/><i>labels in the player's words, D-UI-038</i>]
     LIST -->|S3| SUB[compatible service] --> FORM

@@ -1,0 +1,59 @@
+es-untranslated: upstream base 1e0e53678 (merge base of HEAD with rocknix/master)
+es-untranslated: 857 fork string(s) in the source, 857 with French, 0 without
+es-untranslated: 56 upstream string(s) not in upstream's catalogue and without French (upstream's, not counted):
+  es-app/src/guis/GuiMenu.cpp:1777	SCALING AND SHARPENING
+  es-app/src/guis/GuiMenu.cpp:1783	RENDER RESOLUTION
+  es-app/src/guis/GuiMenu.cpp:1790	MATCH EMULATOR
+  es-app/src/guis/GuiMenu.cpp:1791	EMULATOR + DISPLAY
+  es-app/src/guis/GuiMenu.cpp:1792	0.25X ORIGINAL
+  es-app/src/guis/GuiMenu.cpp:1792	0.5X ORIGINAL
+  es-app/src/guis/GuiMenu.cpp:1792	0.75X ORIGINAL
+  es-app/src/guis/GuiMenu.cpp:1792	1X ORIGINAL
+  es-app/src/guis/GuiMenu.cpp:1792	2X ORIGINAL
+  es-app/src/guis/GuiMenu.cpp:1792	3X ORIGINAL
+  es-app/src/guis/GuiMenu.cpp:1792	4X ORIGINAL
+  es-app/src/guis/GuiMenu.cpp:1792	5X ORIGINAL
+  es-app/src/guis/GuiMenu.cpp:1792	6X ORIGINAL
+  es-app/src/guis/GuiMenu.cpp:1792	8X ORIGINAL
+  es-app/src/guis/GuiMenu.cpp:1794	DISPLAY ONLY
+  es-app/src/guis/GuiMenu.cpp:1795	100% OF SCREEN
+  es-app/src/guis/GuiMenu.cpp:1795	140% OF SCREEN
+  es-app/src/guis/GuiMenu.cpp:1795	200% OF SCREEN
+  es-app/src/guis/GuiMenu.cpp:1795	25% OF SCREEN
+  es-app/src/guis/GuiMenu.cpp:1795	300% OF SCREEN
+  es-app/src/guis/GuiMenu.cpp:1795	33% OF SCREEN
+  es-app/src/guis/GuiMenu.cpp:1795	40% OF SCREEN
+  es-app/src/guis/GuiMenu.cpp:1795	400% OF SCREEN
+  es-app/src/guis/GuiMenu.cpp:1795	50% OF SCREEN
+  es-app/src/guis/GuiMenu.cpp:1795	59% OF SCREEN
+  es-app/src/guis/GuiMenu.cpp:1795	67% OF SCREEN
+  es-app/src/guis/GuiMenu.cpp:1795	77% OF SCREEN
+  es-app/src/guis/GuiMenu.cpp:1800	Multiples set the emulator's resolution and the display scales it to the screen; percentages only size the window.
+  es-app/src/guis/GuiMenu.cpp:1818	EDGE-AWARE
+  es-app/src/guis/GuiMenu.cpp:1818	NEAREST
+  es-app/src/guis/GuiMenu.cpp:1818	SCALING FILTER
+  es-app/src/guis/GuiMenu.cpp:1818	SMOOTH
+  es-app/src/guis/GuiMenu.cpp:1818	Used when the render resolution differs from the screen.
+  es-app/src/guis/GuiMenu.cpp:1819	EDGE STRENGTH
+  es-app/src/guis/GuiMenu.cpp:1819	HIGH
+  es-app/src/guis/GuiMenu.cpp:1819	How strongly the edge-aware filter follows edges.
+  es-app/src/guis/GuiMenu.cpp:1819	LOW
+  es-app/src/guis/GuiMenu.cpp:1819	MAXIMUM
+  es-app/src/guis/GuiMenu.cpp:1820	SHARPENING
+  es-app/src/guis/GuiMenu.cpp:1820	Sharpens the image on the display, scaled or not.
+  es-app/src/guis/GuiMenu.cpp:2147	Hide the cursor after a short period of inactivity.
+  es-app/src/guis/GuiMenu.cpp:2148	HIDE CURSOR
+  es-app/src/guis/GuiMenu.cpp:2651	FAKE SUSPEND
+  es-app/src/guis/GuiMenu.cpp:3629	HIDE_CURSOR
+  es-app/src/guis/GuiMenu.cpp:519	RESET BATTERY FUEL GAUGE
+  es-app/src/guis/GuiMenu.cpp:520	WARNING: THE PMIC FUEL GAUGE WILL BE RESET AND THE SYSTEM WILL POWER OFF!\n\nLEAVE THE CHARGER UNPLUGGED AND POWER THE DEVICE BACK ON AFTER A FEW SECONDS. THE BATTERY LEVEL IS RE-ESTIMATED FROM THE RESTING BATTERY VOLTAGE AND BECOMES ACCURATE AGAIN AFTER A FULL CHARGE.\n\nRESET FUEL GAUGE AND POWER OFF?
+  es-app/src/guis/GuiMenu.cpp:528	CALIBRATE DISPLAY REFRESH RATE
+  es-app/src/guis/GuiMenu.cpp:529	THE DISPLAY WILL SWITCH BETWEEN 120 HZ AND 60 HZ WHILE ITS REFRESH RATE IS MEASURED. THIS TAKES ABOUT A MINUTE.\n\nCALIBRATE THE DISPLAY?
+  es-app/src/guis/GuiMenu.cpp:537	RESET BATTERYPLUS CALIBRATION
+  es-app/src/guis/GuiMenu.cpp:749	ZRAM SWAP
+  es-app/src/guis/GuiMenu.cpp:753	Compresses unused memory so bigger games fit in RAM.
+  es-app/src/guis/GuiMenu.cpp:753	ENABLE ZRAM
+  es-app/src/guis/GuiMenu.cpp:759	Recompresses idle memory with zstd every 10 minutes to save more space. Off uses only lz4, which is faster but saves less.
+  es-app/src/guis/GuiMenu.cpp:759	ZSTD COMPRESSION
+  es-app/src/guis/GuiMenu.cpp:761	ZRAM SIZE
+  es-app/src/guis/GuiMenu.cpp:764	Swap space, as a percent of total RAM. Compressed, it never takes more than half of RAM.
