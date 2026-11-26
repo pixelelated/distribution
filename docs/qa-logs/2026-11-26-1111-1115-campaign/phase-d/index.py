@@ -81,6 +81,8 @@ SCREENS = {
             "CONNECTION SAVED (YOUR CURRENT CONNECTION HAS NOT CHANGED...), then back to the connection's page; the section's hash unchanged", ["1483 c2", "1111 C08"]),
     "s29": ("SIGN IN AGAIN on an OAuth-tier connection (qa-oauth, type dropbox, no sign-in), then back from the choice page; no typing method is chosen, so nothing reaches the provider",
             "on build 14 back skips the connection's page to MANAGE CLOUD CONNECTIONS (#1486, before the fix); from build 15 it returns to the connection's page", ["1486 c1", "1486 c2"]),
+    "s30": ("LINK FROM THIS DEVICE, AMAZON S3 AND COMPATIBLE, its first service, the form and its lower half; nothing submitted",
+            "from build 15 the mapped row labels read in French in French (#1485); in English as before", ["1485 c1"]),
     "s24": ("LINK FROM THIS DEVICE, WEBDAV, then back on the provider form",
             "where the add-a-connection wizard lands on back, unchanged by #1483", ["1483 c3"]),
 }

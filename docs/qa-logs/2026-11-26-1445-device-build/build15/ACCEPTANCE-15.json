@@ -1,0 +1,39 @@
+{
+ "record": "ACCEPTANCE",
+ "written_utc": "2026-11-26T21:48Z",
+ "issue": [
+  1485,
+  1486,
+  1488,
+  1445
+ ],
+ "run": "/workspace/repos/rocknix.worktrees/m7-round-x64-20261125/.build-runs/20261126T214408Z-b2e64750",
+ "disposition": "qualified",
+ "expected_rc": 0,
+ "outputs": [
+  {
+   "path": "/workspace/repos/rocknix.worktrees/m7-round-x64-20261125/build.pixelelated-GENERIC_X64.x86_64",
+   "issue": 1445,
+   "kind": "build-cache",
+   "owner": "OS work coordinator",
+   "release_when": "the next build of the set starts, or its images are on GitHub (D-INFRA-033/036/037)"
+  },
+  {
+   "path": "/workspace/repos/rocknix.worktrees/m7-round-x64-20261125/target",
+   "issue": 1445,
+   "kind": "firmware",
+   "owner": "OS work coordinator",
+   "release_when": "its images are on GitHub, or a newer build of the set supersedes it (D-INFRA-036/037)"
+  }
+ ],
+ "evidence": [
+  {
+   "path": "/workspace/repos/rocknix.worktrees/conflict-resolution/.build-runs/m7-round-x64-15-owner/acceptance/image-reads-15.txt",
+   "sha256": "819183d4c4bdd874e65351ca5e86f32524032326ac59dda833fc95da78ba59dd"
+  }
+ ],
+ "head": "90b95f7259c107d17a90e73b6d62999a06eb56c0",
+ "admission": "7caabb6592ea4c29865874f13d8031d5",
+ "scope": "build-level acceptance of the round's GENERIC_X64 engineering image at 90b95f7259: rc 0, processes exited, checksums verified, BUILD_ID = head, EmulationStation from route m7-20261126-3817c3c0b12f (ES 334ee42b8: #1485, #1486, #1488), the French catalog carrying the provider labels. Supersedes build 14's image. device-build named the build's own run directory (#1445). Not a VM qualification.",
+ "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T214410Z.g90b95f7259c1-from-ROCKNIX"
+}

@@ -1,0 +1,33 @@
+{
+  "set": "m7-round-x64",
+  "head": "90b95f7259c107d17a90e73b6d62999a06eb56c0",
+  "builds": {
+    "GENERIC_X64": {
+      "run": "/workspace/repos/rocknix.worktrees/conflict-resolution/.build-runs/m7-round-x64-15-owner/submit-01",
+      "run_dir": "/workspace/repos/rocknix.worktrees/m7-round-x64-20261125/.build-runs/20261126T214408Z-b2e64750",
+      "worktree": "/workspace/repos/rocknix.worktrees/m7-round-x64-20261125",
+      "at": "2026-11-26T21:44:09Z"
+    }
+  },
+  "replays": {
+    "GENERIC_X64": "2026-11-26T21:44:02Z"
+  },
+  "moves": [
+    {
+      "at": "2026-11-26T19:27:50Z",
+      "from": "bc81894fa826e118d43f19ce9d3e5e94709ea4c5",
+      "to": "ed61fe8e5922f3106cb35230fed0027f4f7fc431",
+      "rebuild": [
+        "GENERIC_X64"
+      ]
+    },
+    {
+      "at": "2026-11-26T21:43:12Z",
+      "from": "ed61fe8e5922f3106cb35230fed0027f4f7fc431",
+      "to": "90b95f7259c107d17a90e73b6d62999a06eb56c0",
+      "rebuild": [
+        "GENERIC_X64"
+      ]
+    }
+  ]
+}

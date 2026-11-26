@@ -171,7 +171,12 @@ arm_s29() { S 'python3 /storage/m7-qa-d/conn.py add-oauth; cloud_remote list | c
 # read before this put back cancels anything. ES logs its cancel at Info, which the image does not keep.
 put_s29() { S 'echo "oauth status: $(/usr/bin/cloud_oauth status 2>/dev/null)"; echo "brokers running: $(pgrep -c -f "cloud_oauth serv[e]")"; /usr/bin/cloud_oauth cancel >/dev/null 2>&1; python3 /storage/m7-qa-d/conn.py remove-oauth; cloud_remote list | cut -f1,2'; }
 
-SCREENS="s01 s02 s03 s04 s05 s06 s07 s08 s09 s10 s11 s12 s13 s14 s15 s16 s17 s18 s19 s20 s21 s22 s23 s24 s25 s26 s27 s28 s29"
+# s30: LINK FROM THIS DEVICE, AMAZON S3 AND COMPATIBLE, its first service, then the form and its lower half (#1485:
+# the key-pair labels). Nothing is submitted; back leaves each page.
+steps_s30() { hub; down 9; open; down 1; open; echo "shot providers"; down 11; echo "shot s3-row"; open; echo "shot s3-services"; open; echo "shot s3-form"; down 6; echo "shot s3-form-lower"; back; echo "shot after-back"; }
+arm_s30() { :; }; put_s30() { :; }
+
+SCREENS="s01 s02 s03 s04 s05 s06 s07 s08 s09 s10 s11 s12 s13 s14 s15 s16 s17 s18 s19 s20 s21 s22 s23 s24 s25 s26 s27 s28 s29 s30"
 [ -n "$only" ] && SCREENS=${only//,/ }
 
 log "== #1111/#1115 phase D at $res, $(date -u +%FT%TZ)"
