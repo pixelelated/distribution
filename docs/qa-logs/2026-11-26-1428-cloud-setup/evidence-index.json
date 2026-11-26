@@ -701,6 +701,81 @@
     "observed": "as expected",
     "date": "2026-11-26"
    }
+  },
+  {
+   "flow_id": "cloud-failure-branches",
+   "branch_id": "c5-badauth-check",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud-settings",
+   "trigger": "CHECK CLOUD SETUP with a wrong password",
+   "expected_state": "the same CONNECTION CHECK sentence; the local rows unaffected",
+   "source": {
+    "es": "d87891f24 (local m7/rc-round-es-20261125)",
+    "distribution": "30e6ff3db9 (local build/m7-rc-round-20261125)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T115211Z.g30e6ff3db9ac-from-ROCKNIX",
+    "walks": "suite-1428.txt criterion-5 walks, round 3913767bf2; runs qa-30e6ff3db9-webdav-a-20261126-1339 (none), -1342 (offline: url to the dead port 9011), -1344 (a wrong obscured password)"
+   },
+   "locale": "en",
+   "width": 1280,
+   "height": 800,
+   "frame": "frames/1280-en-c5-badauth-check.png",
+   "sha256": "1983d974051e30b8a3dad029b6a6c3214ff1a6201c422b101f1d1e60e35220e5",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "as expected",
+    "date": "2026-11-26"
+   }
+  },
+  {
+   "flow_id": "cloud-failure-branches",
+   "branch_id": "c5-none-selected-answer",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud-settings",
+   "trigger": "SAVES and SETTINGS BACKUPS off, then CHECK CLOUD FOLDERS",
+   "expected_state": "CHOOSE AT LEAST ONE ITEM TO CHECK. (witness identical)",
+   "source": {
+    "es": "d87891f24 (local m7/rc-round-es-20261125)",
+    "distribution": "30e6ff3db9 (local build/m7-rc-round-20261125)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T115211Z.g30e6ff3db9ac-from-ROCKNIX",
+    "walks": "suite-1428.txt criterion-5 walks, round 3913767bf2; runs qa-30e6ff3db9-webdav-a-20261126-1339 (none), -1342 (offline: url to the dead port 9011), -1344 (a wrong obscured password)"
+   },
+   "locale": "en",
+   "width": 1280,
+   "height": 800,
+   "frame": "frames/1280-en-c5-none-selected-answer.png",
+   "sha256": "24abc92e1623a277930e925abce87aeb0791c34ed0cee76a2338e158a86c53a1",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "as expected",
+    "date": "2026-11-26"
+   }
+  },
+  {
+   "flow_id": "cloud-failure-branches",
+   "branch_id": "c5-offline-check",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud-settings",
+   "trigger": "CHECK CLOUD SETUP with the WebDAV address on a dead port",
+   "expected_state": "CONNECTION CHECK: COULD NOT REACH THIS CONNECTION. CHECK WI-FI OR SIGN-IN UNDER MANAGE CLOUD CONNECTIONS.",
+   "source": {
+    "es": "d87891f24 (local m7/rc-round-es-20261125)",
+    "distribution": "30e6ff3db9 (local build/m7-rc-round-20261125)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T115211Z.g30e6ff3db9ac-from-ROCKNIX",
+    "walks": "suite-1428.txt criterion-5 walks, round 3913767bf2; runs qa-30e6ff3db9-webdav-a-20261126-1339 (none), -1342 (offline: url to the dead port 9011), -1344 (a wrong obscured password)"
+   },
+   "locale": "en",
+   "width": 1280,
+   "height": 800,
+   "frame": "frames/1280-en-c5-offline-check.png",
+   "sha256": "f4538bd9e496b1ca5b0566d247cf0f2d5e8f8ae9c3a3b65ff5a33e87818c2016",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "as expected",
+    "date": "2026-11-26"
+   }
   }
  ]
 }
