@@ -1,0 +1,22 @@
+ok   no capture: the launch goes on
+  log: launch: the last game's saves were recorded first
+ok   a quick capture: the launch goes on after it, no spinner
+ok   a quick capture: the exit sync is left as it was
+  log: launch: waiting for the last game's saves to be recorded
+ok   a slow capture: the launch waits behind the spinner
+ok   a slow capture: the exit sync is not taken while the launch is not certain
+ok   a slow capture: nothing launches while it records
+ok   a slow capture: the game starts once, after it
+ok   a slow capture: the launch that goes owns the exit sync
+  log: launch: waiting for the last game's saves to be recorded
+  log: launch: the last game's capture did not finish within 10 s; the game was not started
+ok   still recording at the bound: the game does not start under it
+ok   still recording at the bound: the launch says why
+ok   still recording at the bound: the exit sync stays the capture's
+ok   still recording at the bound: no launch is left waiting on it
+  log: launch: waiting for the last game's saves to be recorded
+ok   the next launch waits for it again
+ok   ... and starts once it is done
+  log: launch: the last game's capture has run 200 s and is taken as hung; the game starts
+ok   a hung capture: the launch goes on
+launch-capture-gate: PASS

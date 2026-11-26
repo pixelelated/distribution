@@ -1,0 +1,19 @@
+ok   no capture: the launch goes on
+FAIL a quick capture: the launch goes on after it, no spinner
+ok   a quick capture: the exit sync is left as it was
+FAIL a slow capture: the launch waits behind the spinner
+ok   a slow capture: the exit sync is not taken while the launch is not certain
+ok   a slow capture: nothing launches while it records
+FAIL a slow capture: the game starts once, after it
+FAIL a slow capture: the exit sync is claimed for the launch, which takes it when its game starts (PL-009)
+FAIL still recording at the bound: the game does not start under it
+FAIL still recording at the bound: the launch says why
+ok   still recording at the bound: the exit sync stays the capture's
+ok   still recording at the bound: no launch is left waiting on it
+FAIL the next launch waits for it again
+FAIL ... and starts once it is done
+ok   a hung capture: the launch goes on
+ok   managed, no capture: the launch goes on
+ok   managed, a quick capture: the launch goes on after it, no spinner
+FAIL managed, a slow capture: the launch waits behind the spinner
+launch-capture-gate: FAIL

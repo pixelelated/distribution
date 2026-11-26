@@ -181,22 +181,27 @@ for f in "${FILES[@]}"; do
     fail=1
   fi
 done
-# #1484: GuiMenu.cpp holds the cloud wizard's page replacement, and its
-# lifetime test (the ES tree's tests/cloud-oauth-lifetime.py: the shipped
-# functions with host g++ and AddressSanitizer) stopped compiling for six
-# weeks because nothing ran it. So whenever GuiMenu.cpp is checked, the test
-# runs against that file; a tree without the test says so and goes on.
+# #1484, #1488: the ES tree's host tests (tests/*.py: shipped functions
+# compiled with host g++ and sanitizers, or reads of the source) went stale
+# for six weeks, three of fifteen, because nothing ran them. So every tree a
+# checked file lives in has all of its tests run once, each against that
+# tree's own sources; a failing one fails the check. A tree without tests/
+# says so and goes on.
+declare -A tested
 for f in "${FILES[@]}"; do
-  abs=$(readlink -f "$f"); [ "$(basename "$abs")" = GuiMenu.cpp ] || continue
-  wt=${abs%/es-app/*}; lt="$wt/tests/cloud-oauth-lifetime.py"
-  if [ ! -f "$lt" ]; then echo "  (no tests/cloud-oauth-lifetime.py in $wt)"; continue; fi
-  if out=$(cd "$wt" && timeout 300 python3 "$lt" "$abs" 2>&1); then
-    echo "  OK      lifetime test, $(printf '%s\n' "$out" | grep -c '^PASS') routes ($lt)"
-  else
-    echo "  FAIL    lifetime test ($lt)"
-    printf '%s\n' "$out" | grep -E '^FAIL|ERROR: AddressSanitizer|error:' | head -8 | sed 's/^/          /'
-    fail=1
-  fi
+  abs=$(readlink -f "$f"); wt=${abs%/es-app/*}; [ "$wt" = "$abs" ] && wt=${abs%/es-core/*}
+  [ -n "${tested[$wt]:-}" ] && continue; tested[$wt]=1
+  tests=("$wt"/tests/*.py)
+  if [ ! -e "${tests[0]}" ]; then echo "  (no tests/*.py in $wt)"; continue; fi
+  for lt in "${tests[@]}"; do
+    if out=$(cd "$wt" && timeout 300 python3 "$lt" 2>&1); then
+      echo "  OK      test $(basename "$lt")"
+    else
+      echo "  FAIL    test $(basename "$lt") ($lt)"
+      printf '%s\n' "$out" | grep -E '^FAIL|ERROR: AddressSanitizer|error:|Error' | head -8 | sed 's/^/          /'
+      fail=1
+    fi
+  done
 done
 [ "${cannot:-0}" = 0 ] || { echo "CANNOT RUN"; exit 2; }
 [ "$fail" = 0 ] && echo "PASS" || { echo "FAIL"; exit 1; }

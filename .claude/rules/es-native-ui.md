@@ -363,9 +363,10 @@ citation of "`es-native-ui.md` § Conventions" resolves.
   after it was closed and crashed on selection (2026-09-05). The ES repo's
   `python3 tests/cloud-oauth-lifetime.py` checks those transitions with
   AddressSanitizer; it complements, rather than replaces, device UI testing.
-  `tools/es-syntax-check` runs it whenever `GuiMenu.cpp` is checked: it
-  stopped compiling when the composed M7 source changed the functions it
-  extracts, and nothing noticed for six weeks (#1484).
+  `tools/es-syntax-check` runs it, and every other `tests/*.py` of the tree
+  a checked file lives in, against that tree's sources: three of the
+  fifteen had stopped running when the composed M7 source changed the code
+  they read, and nothing noticed for six weeks (#1484, #1488).
 
 ## Reusable precedents
 
