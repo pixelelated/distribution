@@ -8,7 +8,18 @@ Read the [M7 milestone](https://github.com/pixelelated/distribution/milestone/7)
 
 ## Current focus
 
-**0000000000000. Newest (2026-11-26T13:00Z): #1428 criteria 1 and 3 ticked with frames; the rest of #1428 is fixtures and receipts.**
+**00000000000000. Newest (2026-11-26T13:45Z): #1428 has 5 of 6 criteria ticked; criterion 5 (branch receipts) is next.**
+- Packet `docs/qa-logs/2026-11-26-1428-cloud-setup/` (`beace1b194`, 28 reviewed frames, `criterion-2-witness.txt`). Round head `9bcd94fc08` (local): the WALK_SUITE check, the -unchanged-/-witnessed- witness, the folder-action legs, the two-connection fixture. Image unchanged: build 11, `30e6ff3db9`.
+- **Next (owner OS), criterion 5:**
+  - **no selection:** SAVES and SETTINGS off, then CHECK or CREATE;
+  - **offline:** the guest's rclone.conf url port moved to a dead port in a walk pre-hook;
+  - **authentication failure:** a wrong `pass` via `rclone obscure` on the guest;
+  - **empty selection:** NO FILES FOUND, already in the frames;
+  - **retained state:** checks after a creation.
+  Each is a walk in suite-1428 with frames, plus the witness where it applies.
+- For review on #1428 (not changed): GAME CONTENT shares the ROMS path; FR PARAMÈTRES and RÉGLAGES; after creation no "created" sentence.
+
+**0000000000000. (2026-11-26T13:00Z): #1428 criteria 1 and 3 ticked with frames; the rest of #1428 is fixtures and receipts.**
 - **#1428's walks:** `tools/vm-walks/suite-1428.txt` (round `b1938d2adf`) is run with `WALK_SUITE=tools/vm-walks/suite-1428.txt tools/vm-qa <img> --only walks`, with `VM_RES=640x480` for the small panel. It reaches CLOUD FOLDER ACTIONS, CHECK CLOUD SETUP and MANAGE CLOUD CONNECTIONS in EN and FR. Runs `qa-30e6ff3db9-webdav-a-20261126-1231` (1280) and `-1240` (640) both PASS.
 - **Packet:** `docs/qa-logs/2026-11-26-1428-cloud-setup/` (`78bf131b67`, 11 reviewed frames); #1428 `issuecomment-7192562887`.
 - **Left on #1428, owner OS:**
