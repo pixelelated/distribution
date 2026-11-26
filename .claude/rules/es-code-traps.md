@@ -252,3 +252,23 @@ position with the final size and leave room for the help bar. Non-selectable
 instruction rows cannot be reached by cursor scrolling: verify the last line
 and both bottom buttons in actual640×480 and1280×800 frames, in each changed locale.
 A successful walk or syntax check cannot establish that those rows are visible.
+
+## A setsid group is not the whole command (2026-11-26, #1476)
+
+The cloud pages start every script as `setsid sh -c ...` and used to stop it
+with `kill(-pid, ...)`, the process group the shell leads. A coreutils
+`timeout` moves itself and its command into a group of their own, and the
+automatic sync runs rclone as `timeout -k 3 <left> rclone copy ...`. So
+STOP IT AND PLAY's SIGTERM and SIGKILL missed rclone, its `--progress` held
+the pipe, `pclose` waited for rclone's own network timeout, and the launch
+gave up at twenty seconds without starting the game. Read on a guest from
+`/proc/<pid>/stat`: rclone and timeout in group 3569, session 3333; the
+shell's group, 3333, gone.
+
+Both stayed in the session, which `setpgid` does not leave. So a stop goes
+through `Utils::ProcessSession::signalSession` (ES `95febae8e`): the group,
+then every process still in the session that has left it. Anything new
+that signals a command it started under `setsid` uses it, and a script that
+calls `setsid` again would escape even that -- say so where it does. The
+guard is `tools/time-to-play --only g2g-midsync`, whose exit runs against a
+stalled endpoint so the stop is the only way out.
