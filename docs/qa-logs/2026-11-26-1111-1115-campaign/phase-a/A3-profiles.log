@@ -1,0 +1,30 @@
+test_absent_and_explicit_content_root_are_distinct (__main__.Policy.test_absent_and_explicit_content_root_are_distinct) ... ok
+test_add_switch_renew_remove_readd_keeps_other_account (__main__.Policy.test_add_switch_renew_remove_readd_keeps_other_account) ... ok
+test_changed_provider_requires_explicit_reset (__main__.Policy.test_changed_provider_requires_explicit_reset) ... ok
+test_defaults_projection_preserves_unrelated_settings_and_no_eval (__main__.Policy.test_defaults_projection_preserves_unrelated_settings_and_no_eval) ... ok
+test_empty_account_list_never_inherits_old_global_paths (__main__.Policy.test_empty_account_list_never_inherits_old_global_paths) ... ok
+test_empty_or_invalid_selection_never_falls_back (__main__.Policy.test_empty_or_invalid_selection_never_falls_back) ... ok
+test_external_import_requires_review_and_new_names_get_defaults (__main__.Policy.test_external_import_requires_review_and_new_names_get_defaults) ... ok
+test_invalid_paths_refuse_without_changing_state (__main__.Policy.test_invalid_paths_refuse_without_changing_state) ... ok
+test_literals_match_first_assignment_and_shell_reader_grammar (__main__.Policy.test_literals_match_first_assignment_and_shell_reader_grammar) ... ok
+test_malformed_metadata_does_not_trigger_legacy_reseeding (__main__.Policy.test_malformed_metadata_does_not_trigger_legacy_reseeding) ... ok
+test_stale_editor_cannot_write_other_account_or_older_paths (__main__.Policy.test_stale_editor_cannot_write_other_account_or_older_paths) ... ok
+test_unicode_spaces_apostrophes_and_relative_locations (__main__.Policy.test_unicode_spaces_apostrophes_and_relative_locations) ... ok
+test_upgrade_preserves_all_legacy_accounts_and_explicit_root (__main__.Policy.test_upgrade_preserves_all_legacy_accounts_and_explicit_root) ... ok
+test_callback_that_never_commits_cannot_report_success (__main__.Transactions.test_callback_that_never_commits_cannot_report_success) ... ok
+test_cancellation_and_failed_success_record_restore_every_byte (__main__.Transactions.test_cancellation_and_failed_success_record_restore_every_byte) ... ok
+test_crash_after_each_publication_write_recovers_in_fresh_process (__main__.Transactions.test_crash_after_each_publication_write_recovers_in_fresh_process) ... ok
+test_final_journal_write_and_cleanup_errors_undo_reported_failure (__main__.Transactions.test_final_journal_write_and_cleanup_errors_undo_reported_failure) ... ok
+test_first_install_failure_restores_absence_not_empty_files (__main__.Transactions.test_first_install_failure_restores_absence_not_empty_files) ... ok
+test_outside_write_before_callback_commit_is_inert (__main__.Transactions.test_outside_write_before_callback_commit_is_inert) ... ok
+test_pending_and_malformed_journal_refuse_all_use (__main__.Transactions.test_pending_and_malformed_journal_refuse_all_use) ... ok
+test_pending_credential_bytes_remain_device_only (__main__.Transactions.test_pending_credential_bytes_remain_device_only) ... ok
+test_recovery_never_overwrites_an_outside_writer (__main__.Transactions.test_recovery_never_overwrites_an_outside_writer) ... ok
+test_success_publishes_complete_private_set (__main__.Transactions.test_success_publishes_complete_private_set) ... ok
+test_symlink_fifo_and_oversized_files_are_not_read (__main__.Transactions.test_symlink_fifo_and_oversized_files_are_not_read) ... ok
+test_write_errors_before_and_after_replace_roll_back_whole_set (__main__.Transactions.test_write_errors_before_and_after_replace_roll_back_whole_set) ... ok
+
+----------------------------------------------------------------------
+Ran 25 tests in 0.466s
+
+OK

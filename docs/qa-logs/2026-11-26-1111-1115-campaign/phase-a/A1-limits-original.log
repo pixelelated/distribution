@@ -1,0 +1,284 @@
+EEEEFEFF.FFFFFFFFEFFEEEEE..E.
+======================================================================
+ERROR: test_accessible_bios_limit_preserves_saves (__main__.CategoryResults.test_accessible_bios_limit_preserves_saves)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/repos/rocknix.worktrees/m7-rc-round-20261125/tools/cloud-validator-limits-test", line 197, in test_accessible_bios_limit_preserves_saves
+    self.assertEqual((saves['state'],saves['access'],saves['inspection']), ('present','accessible','complete'))
+                                     ~~~~~^^^^^^^^^^
+KeyError: 'access'
+
+======================================================================
+ERROR: test_bucket_limit_remains_unconfirmed (__main__.CategoryResults.test_bucket_limit_remains_unconfirmed)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/repos/rocknix.worktrees/m7-rc-round-20261125/tools/cloud-validator-limits-test", line 220, in test_bucket_limit_remains_unconfirmed
+    self.assertEqual(result['categories'][0]['access'],'unknown')
+                     ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+KeyError: 'access'
+
+======================================================================
+ERROR: test_completed_empty_bucket_is_not_fabricated (__main__.CategoryResults.test_completed_empty_bucket_is_not_fabricated)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/repos/rocknix.worktrees/m7-rc-round-20261125/tools/cloud-validator-limits-test", line 226, in test_completed_empty_bucket_is_not_fabricated
+    self.assertEqual(result['categories'][0]['access'],'unknown')
+                     ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+KeyError: 'access'
+
+======================================================================
+ERROR: test_deep_uninspected_folder_retains_access (__main__.CategoryResults.test_deep_uninspected_folder_retains_access)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/repos/rocknix.worktrees/m7-rc-round-20261125/tools/cloud-validator-limits-test", line 232, in test_deep_uninspected_folder_retains_access
+    self.assertEqual(result['categories'][0]['access'],'accessible')
+                     ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+KeyError: 'access'
+
+======================================================================
+ERROR: test_total_expiry_does_not_replace_scan_reason (__main__.CategoryResults.test_total_expiry_does_not_replace_scan_reason)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/repos/rocknix.worktrees/m7-rc-round-20261125/tools/cloud-validator-limits-test", line 215, in test_total_expiry_does_not_replace_scan_reason
+    self.assertEqual(row['access_detail'],'total-time-limit')
+                     ~~~^^^^^^^^^^^^^^^^^
+KeyError: 'access_detail'
+
+======================================================================
+ERROR: test_bucket_stat_is_not_presence (__main__.MetadataContract.test_bucket_stat_is_not_presence)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/repos/rocknix.worktrees/m7-rc-round-20261125/tools/cloud-validator-limits-test", line 136, in test_bucket_stat_is_not_presence
+    self.assertEqual(v.directory_access('qa:', '/chosen', time.monotonic()+25, {}),
+                     ^^^^^^^^^^^^^^^^^^
+AttributeError: module 'validator' has no attribute 'directory_access'
+
+======================================================================
+ERROR: test_invalid_stat_and_regular_file (__main__.MetadataContract.test_invalid_stat_and_regular_file) (payload=b'{}')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/repos/rocknix.worktrees/m7-rc-round-20261125/tools/cloud-validator-limits-test", line 158, in test_invalid_stat_and_regular_file
+    v.directory_access('qa:', '/chosen', time.monotonic()+25, {})
+    ^^^^^^^^^^^^^^^^^^
+AttributeError: module 'validator' has no attribute 'directory_access'
+
+======================================================================
+ERROR: test_invalid_stat_and_regular_file (__main__.MetadataContract.test_invalid_stat_and_regular_file) (payload=b'[]')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/repos/rocknix.worktrees/m7-rc-round-20261125/tools/cloud-validator-limits-test", line 158, in test_invalid_stat_and_regular_file
+    v.directory_access('qa:', '/chosen', time.monotonic()+25, {})
+    ^^^^^^^^^^^^^^^^^^
+AttributeError: module 'validator' has no attribute 'directory_access'
+
+======================================================================
+ERROR: test_invalid_stat_and_regular_file (__main__.MetadataContract.test_invalid_stat_and_regular_file) (payload=b'{"IsDir":1}')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/repos/rocknix.worktrees/m7-rc-round-20261125/tools/cloud-validator-limits-test", line 158, in test_invalid_stat_and_regular_file
+    v.directory_access('qa:', '/chosen', time.monotonic()+25, {})
+    ^^^^^^^^^^^^^^^^^^
+AttributeError: module 'validator' has no attribute 'directory_access'
+
+======================================================================
+ERROR: test_invalid_stat_and_regular_file (__main__.MetadataContract.test_invalid_stat_and_regular_file) (payload=b'no json')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/repos/rocknix.worktrees/m7-rc-round-20261125/tools/cloud-validator-limits-test", line 158, in test_invalid_stat_and_regular_file
+    v.directory_access('qa:', '/chosen', time.monotonic()+25, {})
+    ^^^^^^^^^^^^^^^^^^
+AttributeError: module 'validator' has no attribute 'directory_access'
+
+======================================================================
+ERROR: test_invalid_stat_and_regular_file (__main__.MetadataContract.test_invalid_stat_and_regular_file)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/repos/rocknix.worktrees/m7-rc-round-20261125/tools/cloud-validator-limits-test", line 161, in test_invalid_stat_and_regular_file
+    self.assertEqual(v.directory_access('qa:', '/chosen', time.monotonic()+25, {})[0], 'not-directory')
+                     ^^^^^^^^^^^^^^^^^^
+AttributeError: module 'validator' has no attribute 'directory_access'
+
+======================================================================
+ERROR: test_stat_only_exact_folder_and_cached (__main__.MetadataContract.test_stat_only_exact_folder_and_cached)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/repos/rocknix.worktrees/m7-rc-round-20261125/tools/cloud-validator-limits-test", line 146, in test_stat_only_exact_folder_and_cached
+    self.assertEqual(v.directory_access('qa:', '/chosen', time.monotonic()+25, cache),
+                     ^^^^^^^^^^^^^^^^^^
+AttributeError: module 'validator' has no attribute 'directory_access'
+
+======================================================================
+FAIL: test_shared_path_failed_listing_only_once (__main__.CategoryResults.test_shared_path_failed_listing_only_once)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/repos/rocknix.worktrees/m7-rc-round-20261125/tools/cloud-validator-limits-test", line 207, in test_shared_path_failed_listing_only_once
+    self.assertEqual(calls.count(('qa:','/chosen/Content/ROMs',3)),1)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 2 != 1
+
+======================================================================
+FAIL: test_byte_limit (__main__.CommandLimits.test_byte_limit)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/repos/rocknix.worktrees/m7-rc-round-20261125/tools/cloud-validator-limits-test", line 62, in test_byte_limit
+    self.run_limit('import sys; sys.stdout.write("x"*2200000)', 'byte-limit',
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                   limit=2*1024*1024, seconds=3)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/repos/rocknix.worktrees/m7-rc-round-20261125/tools/cloud-validator-limits-test", line 48, in run_limit
+    self.assertEqual(str(got.exception), reason)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'time-or-listing-limit' != 'byte-limit'
+- time-or-listing-limit
++ byte-limit
+
+
+======================================================================
+FAIL: test_cancel_reaps_running_child (__main__.CommandLimits.test_cancel_reaps_running_child)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/repos/rocknix.worktrees/m7-rc-round-20261125/tools/cloud-validator-limits-test", line 89, in test_cancel_reaps_running_child
+    self.assertTrue(pidfile.exists())
+    ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+AssertionError: False is not true
+
+======================================================================
+FAIL: test_expired_starts_nothing (__main__.CommandLimits.test_expired_starts_nothing)
+----------------------------------------------------------------------
+validator.Unreadable: time-limit
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/workspace/repos/rocknix.worktrees/m7-rc-round-20261125/tools/cloud-validator-limits-test", line 67, in test_expired_starts_nothing
+    with self.assertRaisesRegex(v.Unreadable, '^total-time-limit$'):
+         ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: "^total-time-limit$" does not match "time-limit"
+
+======================================================================
+FAIL: test_request_timeout (__main__.CommandLimits.test_request_timeout)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/repos/rocknix.worktrees/m7-rc-round-20261125/tools/cloud-validator-limits-test", line 53, in test_request_timeout
+    self.run_limit('import time; time.sleep(2)', 'request-time-limit')
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/repos/rocknix.worktrees/m7-rc-round-20261125/tools/cloud-validator-limits-test", line 48, in run_limit
+    self.assertEqual(str(got.exception), reason)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'time-or-listing-limit' != 'request-time-limit'
+- time-or-listing-limit
++ request-time-limit
+
+
+======================================================================
+FAIL: test_stdout_closed_but_child_alive (__main__.CommandLimits.test_stdout_closed_but_child_alive)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/repos/rocknix.worktrees/m7-rc-round-20261125/tools/cloud-validator-limits-test", line 59, in test_stdout_closed_but_child_alive
+    self.run_limit('import os,time; os.close(1); time.sleep(2)', 'request-time-limit')
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/repos/rocknix.worktrees/m7-rc-round-20261125/tools/cloud-validator-limits-test", line 48, in run_limit
+    self.assertEqual(str(got.exception), reason)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'time-or-listing-limit' != 'request-time-limit'
+- time-or-listing-limit
++ request-time-limit
+
+
+======================================================================
+FAIL: test_total_timeout (__main__.CommandLimits.test_total_timeout)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/repos/rocknix.worktrees/m7-rc-round-20261125/tools/cloud-validator-limits-test", line 56, in test_total_timeout
+    self.run_limit('import time; time.sleep(2)', 'total-time-limit', total=.05, seconds=2)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/repos/rocknix.worktrees/m7-rc-round-20261125/tools/cloud-validator-limits-test", line 48, in run_limit
+    self.assertEqual(str(got.exception), reason)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'time-or-listing-limit' != 'total-time-limit'
+- time-or-listing-limit
++ total-time-limit
+
+
+======================================================================
+FAIL: test_backend_errors_not_guessed_as_auth (__main__.MetadataContract.test_backend_errors_not_guessed_as_auth) (rc=5)
+----------------------------------------------------------------------
+validator.Unreadable: listing-failed
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/workspace/repos/rocknix.worktrees/m7-rc-round-20261125/tools/cloud-validator-limits-test", line 124, in test_backend_errors_not_guessed_as_auth
+    with self.subTest(rc=rc), self.assertRaisesRegex(v.Unreadable, '^'+reason+'$'):
+                              ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: "^backend-temporary-error$" does not match "listing-failed"
+
+======================================================================
+FAIL: test_backend_errors_not_guessed_as_auth (__main__.MetadataContract.test_backend_errors_not_guessed_as_auth) (rc=7)
+----------------------------------------------------------------------
+validator.Unreadable: listing-failed
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/workspace/repos/rocknix.worktrees/m7-rc-round-20261125/tools/cloud-validator-limits-test", line 124, in test_backend_errors_not_guessed_as_auth
+    with self.subTest(rc=rc), self.assertRaisesRegex(v.Unreadable, '^'+reason+'$'):
+                              ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: "^backend-fatal-error$" does not match "listing-failed"
+
+======================================================================
+FAIL: test_backend_errors_not_guessed_as_auth (__main__.MetadataContract.test_backend_errors_not_guessed_as_auth) (rc=10)
+----------------------------------------------------------------------
+validator.Unreadable: listing-failed
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/workspace/repos/rocknix.worktrees/m7-rc-round-20261125/tools/cloud-validator-limits-test", line 124, in test_backend_errors_not_guessed_as_auth
+    with self.subTest(rc=rc), self.assertRaisesRegex(v.Unreadable, '^'+reason+'$'):
+                              ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: "^request-time-limit$" does not match "listing-failed"
+
+======================================================================
+FAIL: test_backend_errors_not_guessed_as_auth (__main__.MetadataContract.test_backend_errors_not_guessed_as_auth) (rc=1)
+----------------------------------------------------------------------
+validator.Unreadable: listing-failed
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/workspace/repos/rocknix.worktrees/m7-rc-round-20261125/tools/cloud-validator-limits-test", line 124, in test_backend_errors_not_guessed_as_auth
+    with self.subTest(rc=rc), self.assertRaisesRegex(v.Unreadable, '^'+reason+'$'):
+                              ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: "^backend-error$" does not match "listing-failed"
+
+======================================================================
+FAIL: test_entry_limit (__main__.MetadataContract.test_entry_limit)
+----------------------------------------------------------------------
+validator.Unreadable: listing-limit
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/workspace/repos/rocknix.worktrees/m7-rc-round-20261125/tools/cloud-validator-limits-test", line 108, in test_entry_limit
+    with self.assertRaisesRegex(v.Unreadable, '^entry-limit$'):
+         ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: "^entry-limit$" does not match "listing-limit"
+
+======================================================================
+FAIL: test_invalid_shape_not_limit (__main__.MetadataContract.test_invalid_shape_not_limit)
+----------------------------------------------------------------------
+validator.Unreadable: listing-limit
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/workspace/repos/rocknix.worktrees/m7-rc-round-20261125/tools/cloud-validator-limits-test", line 112, in test_invalid_shape_not_limit
+    with self.assertRaisesRegex(v.Unreadable, '^invalid-listing$'):
+         ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: "^invalid-listing$" does not match "listing-limit"
+
+----------------------------------------------------------------------
+Ran 22 tests in 0.250s
+
+FAILED (failures=13, errors=12)

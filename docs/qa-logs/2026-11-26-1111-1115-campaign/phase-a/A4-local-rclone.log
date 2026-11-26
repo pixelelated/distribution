@@ -1,0 +1,42 @@
+PASS populated-read-only
+PASS content-transfer-exclusions
+PASS flat-rom-payload-location
+PASS ordinary-progress-allowlist
+PASS missing-selected-only
+PASS empty-and-notes
+PASS empty-path-based
+PASS bucket-empty-prefix-uncertainty
+PASS content-misplaced-progress-preserved
+PASS provider-failure-not-empty
+PASS partial-failed-listing
+PASS entry-limit
+PASS byte-limit
+PASS accessible-bios-limited-inspection
+PASS malformed-listing
+PASS context-binding-local-only
+PASS transfer-context-folder-profile-and-recovery
+PASS info-independent-paths
+PASS stale-configuration-refused
+PASS invalid-input-refused
+PASS invalid-paths-refused
+PASS deeper-than-bound-not-empty
+PASS content-location-selected-only
+PASS independent-pointer-selection
+Traceback (most recent call last):
+  File "/workspace/repos/rocknix.worktrees/m7-rc-round-20261125/tools/pixelelated-cloud-validator-test", line 403, in <module>
+    if __name__=='__main__':main()
+                            ~~~~^^
+  File "/workspace/repos/rocknix.worktrees/m7-rc-round-20261125/tools/pixelelated-cloud-validator-test", line 313, in main
+    case('explicit-category-seeding',seeds)
+    ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/repos/rocknix.worktrees/m7-rc-round-20261125/tools/pixelelated-cloud-validator-test", line 71, in case
+    work(f)
+    ~~~~^^^
+  File "/workspace/repos/rocknix.worktrees/m7-rc-round-20261125/tools/pixelelated-cloud-validator-test", line 306, in seeds
+    r=f.run('cloud_setup','--seed-folders','settings');require(r.returncode==0,r.stdout)
+                                                       ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/repos/rocknix.worktrees/m7-rc-round-20261125/tools/rasteratops-cloud-layout-test", line 158, in require
+    raise AssertionError(message)
+AssertionError: >>> why FOLDER_SEED_REFUSAL_V1=review-settings
+Choose which cloud folders to create.
+
