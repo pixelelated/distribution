@@ -8,7 +8,21 @@ Read the [M7 milestone](https://github.com/pixelelated/distribution/milestone/7)
 
 ## Current focus
 
-**0000000000. Newest (2026-11-26T09:58Z): build 9 RUNNING (round `bfff87f94c`, #1474's ES change); standard run 5 was 15 of 16, its one failure my test assumption, now fixed.**
+**00000000000. Newest (2026-11-26T11:41Z): the round's image `59c278448b` (build 10) passes the standard vm-qa run, all 16, empty list; #1474, #1475, #1476, #1012 closed.**
+- **Round** `/workspace/repos/rocknix.worktrees/m7-rc-round-20261125` (branch `build/m7-rc-round-20261125`, local) at head `59c278448b`.
+  - Build 10: `ACCEPTANCE-10.json`, admission consumed, image in `m7-round-x64-20261125/target/`.
+  - ES route `m7-20261126-d70f76225b96` = ES `95febae8e` on the local branch `m7/rc-round-es-20261125`. The supplier is `.build-runs/m7-rc-round-20261126-02-es/inputs/es`. The writer is `/workspace/tmp/rocknix-session/es-route-20261126.py`, and the launcher template is `/workspace/tmp/rocknix-session/round-build-10.sh`.
+- **Standard run 7** `qa-59c278448b-webdav-a-20261126-1108`: VERDICT PASS; `rc-preflight --only vm-qa` PASS with the tree head equal to the image's (#1465 `issuecomment-7191014301`). Run 6 on build 9 had passed too. #1465 checkbox 3 waits for the round's final head.
+- **Closed today:**
+  - #1474 (the offline switch's sentences, 640x480 packet `docs/qa-logs/2026-11-26-1474-offline-toggle/`);
+  - #1475 (es-syntax-check vs a copied build root; French duplicate);
+  - #1476 (STOP IT AND PLAY over a stalled sync: `timeout` moved rclone out of the signalled group; the fix `Utils::ProcessSession::signalSession`; rule `es-code-traps.md` § A setsid group);
+  - #1012 (time-to-play g2g; new `--only g2g-midsync` cell, round `70663ad96d`).
+- **Filed for Max:** #1477 (the launch question outlives a finished sync; KEEP WAITING then launches nothing). The steward inbox has it in plain words (`20261126T1109Z-stop-it-and-play.md`).
+- **Round-only tools not yet on `next`:** `vm-pair` VM_RES, `vm-walks/offline-toggle-outcomes`, time-to-play `g2g-midsync`, and the PL-021 scripts test change. They land with the round.
+- **Next (owner OS):** #1428's copy and layout work (ES, large); the RC step 0 items in the M7 body. The remaining open M7 bugs sit under #1470's proposed plan, awaiting Max, or need Codex, which stays paused for Max's fast-mode decision. No guests, no build.
+
+**0000000000. (2026-11-26T09:58Z): build 9 RUNNING (round `bfff87f94c`, #1474's ES change); standard run 5 was 15 of 16, its one failure my test assumption, now fixed.**
 - **#1428's unchanged save is fixed at its source** (round `2ef63929b7`; run 8 accepted, `ACCEPTANCE-8.json`). The cloud-folder walks pass on run 8 and the known-failures list is **empty** (round `7ea797a710`). Standard run 5 on run 8 (`qa-2ef63929b7-webdav-a-20261126-0908`): 15 PASS. `scripts` FAILED 2 PL-021 checks: `aeb70574ad` published the profile with an unchanged save, which the fix now makes write nothing. Test adapted (round `bfff87f94c`), scripts suite PASSED on the round tree (`/workspace/tmp/rocknix-session/scripts-1428-0941Z/`). #1465 `issuecomment-7188357291`.
 - **Build 9 RUNNING since 09:52Z**: run `/workspace/repos/rocknix.worktrees/m7-round-x64-20261125/.build-runs/20261126T095159Z-e89b6147`, owner `m7-round-x64-owner-20261125/submit-09`, admission `admission-9.json`. The harness waiter `btji17z60` watches `build.rc` (expires 12:52Z). Launcher `/workspace/tmp/rocknix-session/round-build-9.sh`; the owner dir must exist before submit.
 - **#1474** (ES `2f6c01fd7`; round route `m7-20261126-42eb8b8664b6`, `742443200b`, written by `/workspace/tmp/rocknix-session/es-route-20261126.py`, which reproduces the Nov 25 tar byte for byte): the switch says once why a change did not take. **Next (owner OS), after build 9:**
