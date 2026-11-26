@@ -93,6 +93,10 @@ SCREENS = {
             "from build 15 the mapped row labels read in French in French (#1485); in English as before", ["1485 c1"]),
     "s31": ("a working copy of qa-cloud added to rclone.conf as qa-ext outside the interface, after the profile store exists; then USE THIS CONNECTION on QA-EXT",
             "from build 16: the hub, CHECK CLOUD SETUP and MANAGE CLOUD CONNECTIONS read CLOUD CONNECTIONS CHANGED, QA-EXT reads NOT CHECKED YET, and USE THIS CONNECTION checks it and adds it (IN USE)", ["1489 c1", "1489 c2"]),
+    "s32": ("#1489's state (qa-ext added behind the module) with SYNC SAVES DURING STARTUP on, then a reboot: ES's own startup sync refuses",
+            "the hub's SYNC SAVES DURING STARTUP row reads COULDN'T FINISH with YOUR CLOUD CONNECTIONS CHANGED. CHECK THEM IN MANAGE CLOUD CONNECTIONS (#1492), in French in French; one line under the row (#1493)", ["1492 c1", "1492 c2", "1493 c3"]),
+    "s33": ("qa-cloud's url moved to a port nothing answers, behind the module; then CHECK CLOUD SETUP",
+            "CONNECTION CHECK reads COULDN'T REACH THIS CONNECTION. CHECK WI-FI OR SIGN IN AGAIN. on one line (#1493)", ["1493 c1", "1493 c3"]),
     "s24": ("LINK FROM THIS DEVICE, WEBDAV, then back on the provider form",
             "where the add-a-connection wizard lands on back, unchanged by #1483", ["1483 c3"]),
 }

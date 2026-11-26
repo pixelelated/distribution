@@ -8,6 +8,22 @@ Read the [M7 milestone](https://github.com/pixelelated/distribution/milestone/7)
 
 ## Current focus
 
+**000000000000000000000. Newest (2026-11-26T23:24Z): #1489 and #1490 closed on build 16; #1492 and #1493 filed and fixed; build 17 accepted; build 18 (`4753d00e8e`) running; H700 waits for its proof.**
+- **D-CLOUD-194 is decided** (Max: today's behaviour for 0.0.1; #1491 holds the next-release proof). His last clause is the word to keep going toward the handheld build. It is not a yes to any copy, reboot or other action on a handheld or in its cloud.
+- **Build 16** (`fc3e489f8a`, route 07): accepted. Phase D s31/s30/s24 plus a rerun (`-r2/`, the store dumped, s20) closed #1489 and #1490 with code traces (next `3445abddf5`).
+- **#1492** (#1489's sibling): a transfer refused in that state said CHOOSE A CONNECTION. Fixed in round `a09786c37c` (`selection_reason`; host suite 54/54).
+  - Found with it: the card's why table never matched a sentence ending in a full stop. Fixed in ES `992d36e98` (unit 193/193).
+- **#1493:** three rows at three lines at 640x480. Proposed words in ES `4ef2a8dac`; the unreachable line reuses the dialog's sentence.
+- **Build 17** (`7c2d063194`, route 08): accepted, owner `.build-runs/m7-round-x64-17-owner`.
+- **Build 18** (`4753d00e8e`, route 09, ES `4ef2a8dac`) is running: run `20261126T231913Z-2a7b4ce1`, pid 2811954, waiter armed.
+  - **Next:** image reads and ACCEPTANCE-18; then phase D `--only s31,s32,s33,s13 --lang en,fr` into `build18-640x480`. s32 is new (the reboot's startup sync in #1489's state, the hub's startup row) and so is s33 (unreachable on the setup check).
+  - **Then:** review, close #1492/#1493, add build18 to index.py and the README.
+- **Then H700 cold** from the same head: `tools/device-build --device H700 --commit <head> --set m7-round-x64 --name m7-round-h700-<N> --es-supplier <route dir>`.
+  - Its one-build step removes the x64 root (D-INFRA-033/036/040: accepted, cold builds preferred). That is why #1492/#1493 go first.
+  - SM8550 after H700.
+- **Corrected to the steward** (inbox 22:59, 23:03): the candidate is level with ROCKNIX (`0f4806b59b` merged), and ES with ROCKNIX's master. The preflight's 300 cap is M6's #956.
+- **Step 0 on the round** (`rc-preflight`, 22:50): base distribution PASS, packages PASS. ES and CI wait on publication; bugs wait on Max's scope question (M7 body); the code audit is owed.
+
 **00000000000000000000. Newest (2026-11-26T22:13Z): build 15 (`90b95f7259`) built and accepted; #1445, #1485 and #1486 closed; standard run 12 on build 15 running; #1490's fix is on the ES round, awaiting build 16.**
 - **Run 11 on build 14:** PASS; `rc-preflight --only vm-qa` PASS; recorded on #1465.
 - **Build 15:**
