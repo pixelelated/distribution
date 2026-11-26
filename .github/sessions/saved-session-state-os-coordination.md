@@ -8,7 +8,7 @@ Read the [M7 milestone](https://github.com/pixelelated/distribution/milestone/7)
 
 ## Current focus
 
-**00000000000000. Newest (2026-11-26T13:45Z): #1428 has 5 of 6 criteria ticked; criterion 5 (branch receipts) is next.**
+**00000000000000. Newest (2026-11-26T13:37Z): #1428 has 5 of 6 criteria ticked; criterion 5 (branch receipts) is next.**
 - Packet `docs/qa-logs/2026-11-26-1428-cloud-setup/` (`beace1b194`, 28 reviewed frames, `criterion-2-witness.txt`). Round head `9bcd94fc08` (local): the WALK_SUITE check, the -unchanged-/-witnessed- witness, the folder-action legs, the two-connection fixture. Image unchanged: build 11, `30e6ff3db9`.
 - **Next (owner OS), criterion 5:**
   - **no selection:** SAVES and SETTINGS off, then CHECK or CREATE;
