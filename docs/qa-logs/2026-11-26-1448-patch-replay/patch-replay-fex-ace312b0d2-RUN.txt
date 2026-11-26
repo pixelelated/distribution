@@ -1,0 +1,9 @@
+tree /workspace/tmp/rocknix-session/patch-replay-trees/ace312b0d2 (not a git tree)
+device ROCKNIX/SM8550 arch aarch64
+sources /workspace/cache/rocknix-sources
+packages 1
+started 2026-11-26T14:29:42Z
+finished 2026-11-26T14:29:43Z
+packages 1, verdicts 1: 0 OK (0 patch applications), 1 PATCH-FAIL, 0 CANNOT-CHECK
+  PATCH-FAIL	fex-emu	(common) projects/ROCKNIX/packages/compat/fex-emu/patches/0006-guest-thunks-exclude-rebased-system-headers.patch
+patch-replay: /workspace/tmp/rocknix-session/patch-replay-trees/ace312b0d2 (not a git tree) SM8550/aarch64 -- A PATCH DOES NOT APPLY
