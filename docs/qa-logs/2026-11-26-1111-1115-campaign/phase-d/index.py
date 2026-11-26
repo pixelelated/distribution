@@ -13,6 +13,10 @@ SOURCES = {
                 "distribution": "bc81894fa826e118d43f19ce9d3e5e94709ea4c5 (local build/m7-rc-round-20261125, build 13)",
                 "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T161646Z.gbc81894fa826-from-ROCKNIX",
                 "walk": "docs/qa-logs/2026-11-26-1111-1115-campaign/phase-d/phase-d.sh"},
+    "build15": {"es": "334ee42b8 (local m7/rc-round-es-20261125; route m7-20261126-3817c3c0b12f)",
+                "distribution": "90b95f7259c107d17a90e73b6d62999a06eb56c0 (local build/m7-rc-round-20261125, build 15)",
+                "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T214410Z.g90b95f7259c1-from-ROCKNIX",
+                "walk": "docs/qa-logs/2026-11-26-1111-1115-campaign/phase-d/phase-d.sh"},
     "build14": {"es": "6cdcb7a64 (local m7/rc-round-es-20261125; route m7-20261126-552f3815e4b4)",
                 "distribution": "ed61fe8e5922f3106cb35230fed0027f4f7fc431 (local build/m7-rc-round-20261125, build 14)",
                 "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T192845Z.ged61fe8e5922-from-ROCKNIX",
@@ -98,6 +102,8 @@ FAILED = {"1280x800/fr/s13": "walk rc 3: the key up after the setup check was no
           "640x480-more/en/s19": "walk went astray: back on EDIT CONNECTION returned to the list (#1483), and the next presses removed qa-two; no edit was saved",
           "640x480-more/fr/s19": "walk went astray: back on EDIT CONNECTION returned to the list (#1483), and the next presses removed qa-two; no edit was saved"}
 FAILED.update({f"build14/640x480/{lang}/s19": "arm failed: adding qa-two could not be verified right after s15 (s19.arm.log); the walk ran on regardless, opened MEGA's form and pressed CONNECT. The driver now skips the walk of a screen whose arm failed" for lang in ("en", "fr")})
+FAILED["build15/640x480/fr/s29"] = ("walk went astray: the English pass had left a profile store, so qa-oauth added behind it read as review-folders (#1489); "
+                                      "the extra row moved the cursor to qa-cloud and the walk opened its EDIT form (nothing saved). Redone alone in build15-640x480-b")
 # A reviewed screen whose frames show a defect says what was seen, not "as expected".
 OBSERVED = {k: v for lang in ("en", "fr") for k, v in (
     (f"build14/640x480/{lang}/s15", "connections page as #1482 asks (ADD A CONNECTION...); the setup check reads SETUP COULD NOT BE READ because this arm moves only rclone.conf and leaves a profile store naming qa-cloud, an inconsistent store, not a fresh device. s25 (fresh) and s26 (all removed) are the faithful cases"),
@@ -106,13 +112,17 @@ OBSERVED = {k: v for lang in ("en", "fr") for k, v in (
     ("build14/640x480-d/en/s15", "s15 first after seeding: no profile store yet, so setup-info reads no-connections and both pages read ADD A CONNECTION BEFORE USING CLOUD TOOLS."),
     ("build14/640x480-d/fr/s15", "the English pass left a profile store naming qa-cloud: the setup check reads RÉGLAGES ILLISIBLES (an inconsistent store; see s25/s26 for the faithful cases)"),
     (f"build14/640x480-oauth/{lang}/s29", "before the fix: back from the choice page lands on MANAGE CLOUD CONNECTIONS, not qa-oauth's page (#1486)"),
+    (f"build15/640x480/{lang}/s30", "the S3 form's mapped labels" + (" in French (#1485); SERVER SIDE ENCRYPTION and SSE KMS KEY ID are unmapped and keep rclone's names; the subtitle AMAZON S3 AND COMPATIBLE is #1490" if lang == "fr" else "")),
+    (f"build15/640x480/{lang}/s24", "back on the WebDAV form lands on the provider chooser" + ("; the form's labels in French (#1485)" if lang == "fr" else "")),
+    ("build15/640x480/en/s29", "after the fix: back from the choice page returns to CLOUD CONNECTION qa-oauth (#1486); oauth status idle"),
+    ("build15/640x480-b/fr/s29", "after the fix: back from the choice page returns to CONNEXION AU CLOUD qa-oauth (#1486); oauth status idle"),
     (f"build14/640x480/{lang}/s24", "back on the WebDAV form lands on the provider chooser with WEBDAV focused" + ("; the form's row labels are English in French (#1485)" if lang == "fr" else "")),
     (f"640x480-more/{lang}/s20", "defect, build 13: the hub reads NO CONNECTION SELECTED and CLOUD FOLDERS asks to choose a connection for an unreadable setup; the setup check and connections page name it. Fixed in ES 6cdcb7a64 (#1111 C11)"),
     (f"640x480-more/{lang}/s22-b", "defect, build 13: a selection emptied while CLOUD FOLDERS is open gives COULDN'T CHECK YOUR FOLDERS. CHECK YOUR CONNECTION; not the stale wording, but it names a connection fault. Fixed in ES 6cdcb7a64 (#1111 C10, C20)"))}
 entries = []
 import sys
 SKIP = set(sys.argv[sys.argv.index("--skip") + 1:]) if "--skip" in sys.argv else set()   # a run still writing
-for res_dir in sorted(d for d in HERE.glob("build1[34]-*") if d.name not in SKIP):
+for res_dir in sorted(d for d in HERE.glob("build1[345]-*") if d.name not in SKIP):
     build, _, run = res_dir.name.partition("-")            # build13|build14, <res>[-extra|-root|-more]
     run = run if build == "build13" else f"{build}/{run}"  # build 13 keys stay as reviewed.txt has them
     res = run.split("/")[-1].split("-")[0]; w, h = (int(v) for v in res.split("x"))

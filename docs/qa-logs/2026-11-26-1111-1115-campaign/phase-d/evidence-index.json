@@ -16559,6 +16559,2070 @@
     "observed": "before the fix: back from the choice page lands on MANAGE CLOUD CONNECTIONS, not qa-oauth's page (#1486)",
     "date": "2026-11-26"
    }
+  },
+  {
+   "flow_id": "cloud-folders-and-connections",
+   "branch_id": "build15/640x480/en/s19/01-cloud-hub",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud",
+   "criteria": [
+    "1111 C03",
+    "1111 C06",
+    "1111 C08"
+   ],
+   "trigger": "EDIT CONNECTION on qa-two after its endpoint stopped answering: backed out of, then SAVE CONNECTION, UPDATE CONNECTION",
+   "expected_state": "backing out changes nothing; the update re-verifies, fails with THE CONNECTION COULDN'T BE SAVED. and its reason, and the section is kept byte for byte (two-hash before and after in s19.arm.log)",
+   "source": {
+    "es": "334ee42b8 (local m7/rc-round-es-20261125; route m7-20261126-3817c3c0b12f)",
+    "distribution": "90b95f7259c107d17a90e73b6d62999a06eb56c0 (local build/m7-rc-round-20261125, build 15)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T214410Z.g90b95f7259c1-from-ROCKNIX",
+    "walk": "docs/qa-logs/2026-11-26-1111-1115-campaign/phase-d/phase-d.sh"
+   },
+   "locale": "en",
+   "width": 640,
+   "height": 480,
+   "frame": "build15-640x480/en/s19/01-cloud-hub.png",
+   "sha256": "11eb5b99c8d7ca60a236ad8b38ef852cbfb9df8ce1490edc46f195ecf54a8945",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "as expected",
+    "date": "2026-11-26"
+   }
+  },
+  {
+   "flow_id": "cloud-folders-and-connections",
+   "branch_id": "build15/640x480/en/s19/02-connections-two",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud",
+   "criteria": [
+    "1111 C03",
+    "1111 C06",
+    "1111 C08"
+   ],
+   "trigger": "EDIT CONNECTION on qa-two after its endpoint stopped answering: backed out of, then SAVE CONNECTION, UPDATE CONNECTION",
+   "expected_state": "backing out changes nothing; the update re-verifies, fails with THE CONNECTION COULDN'T BE SAVED. and its reason, and the section is kept byte for byte (two-hash before and after in s19.arm.log)",
+   "source": {
+    "es": "334ee42b8 (local m7/rc-round-es-20261125; route m7-20261126-3817c3c0b12f)",
+    "distribution": "90b95f7259c107d17a90e73b6d62999a06eb56c0 (local build/m7-rc-round-20261125, build 15)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T214410Z.g90b95f7259c1-from-ROCKNIX",
+    "walk": "docs/qa-logs/2026-11-26-1111-1115-campaign/phase-d/phase-d.sh"
+   },
+   "locale": "en",
+   "width": 640,
+   "height": 480,
+   "frame": "build15-640x480/en/s19/02-connections-two.png",
+   "sha256": "1991ebb51a8218aafdd7d7e3dc731c6294ef4bd8090b06ff2541a89826fe5466",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "as expected",
+    "date": "2026-11-26"
+   }
+  },
+  {
+   "flow_id": "cloud-folders-and-connections",
+   "branch_id": "build15/640x480/en/s19/03-two-focused",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud",
+   "criteria": [
+    "1111 C03",
+    "1111 C06",
+    "1111 C08"
+   ],
+   "trigger": "EDIT CONNECTION on qa-two after its endpoint stopped answering: backed out of, then SAVE CONNECTION, UPDATE CONNECTION",
+   "expected_state": "backing out changes nothing; the update re-verifies, fails with THE CONNECTION COULDN'T BE SAVED. and its reason, and the section is kept byte for byte (two-hash before and after in s19.arm.log)",
+   "source": {
+    "es": "334ee42b8 (local m7/rc-round-es-20261125; route m7-20261126-3817c3c0b12f)",
+    "distribution": "90b95f7259c107d17a90e73b6d62999a06eb56c0 (local build/m7-rc-round-20261125, build 15)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T214410Z.g90b95f7259c1-from-ROCKNIX",
+    "walk": "docs/qa-logs/2026-11-26-1111-1115-campaign/phase-d/phase-d.sh"
+   },
+   "locale": "en",
+   "width": 640,
+   "height": 480,
+   "frame": "build15-640x480/en/s19/03-two-focused.png",
+   "sha256": "0f566faa0c5243248b3b85f58127a8b86bef744dcf9b8cdaf3570a949efce616",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "as expected",
+    "date": "2026-11-26"
+   }
+  },
+  {
+   "flow_id": "cloud-folders-and-connections",
+   "branch_id": "build15/640x480/en/s19/04-connection-two",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud",
+   "criteria": [
+    "1111 C03",
+    "1111 C06",
+    "1111 C08"
+   ],
+   "trigger": "EDIT CONNECTION on qa-two after its endpoint stopped answering: backed out of, then SAVE CONNECTION, UPDATE CONNECTION",
+   "expected_state": "backing out changes nothing; the update re-verifies, fails with THE CONNECTION COULDN'T BE SAVED. and its reason, and the section is kept byte for byte (two-hash before and after in s19.arm.log)",
+   "source": {
+    "es": "334ee42b8 (local m7/rc-round-es-20261125; route m7-20261126-3817c3c0b12f)",
+    "distribution": "90b95f7259c107d17a90e73b6d62999a06eb56c0 (local build/m7-rc-round-20261125, build 15)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T214410Z.g90b95f7259c1-from-ROCKNIX",
+    "walk": "docs/qa-logs/2026-11-26-1111-1115-campaign/phase-d/phase-d.sh"
+   },
+   "locale": "en",
+   "width": 640,
+   "height": 480,
+   "frame": "build15-640x480/en/s19/04-connection-two.png",
+   "sha256": "4f121a9c8b7955ac1807aa7b923f5eb7fa30b9422b79975a4a4fc1a570b2c03d",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "as expected",
+    "date": "2026-11-26"
+   }
+  },
+  {
+   "flow_id": "cloud-folders-and-connections",
+   "branch_id": "build15/640x480/en/s19/05-edit-row",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud",
+   "criteria": [
+    "1111 C03",
+    "1111 C06",
+    "1111 C08"
+   ],
+   "trigger": "EDIT CONNECTION on qa-two after its endpoint stopped answering: backed out of, then SAVE CONNECTION, UPDATE CONNECTION",
+   "expected_state": "backing out changes nothing; the update re-verifies, fails with THE CONNECTION COULDN'T BE SAVED. and its reason, and the section is kept byte for byte (two-hash before and after in s19.arm.log)",
+   "source": {
+    "es": "334ee42b8 (local m7/rc-round-es-20261125; route m7-20261126-3817c3c0b12f)",
+    "distribution": "90b95f7259c107d17a90e73b6d62999a06eb56c0 (local build/m7-rc-round-20261125, build 15)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T214410Z.g90b95f7259c1-from-ROCKNIX",
+    "walk": "docs/qa-logs/2026-11-26-1111-1115-campaign/phase-d/phase-d.sh"
+   },
+   "locale": "en",
+   "width": 640,
+   "height": 480,
+   "frame": "build15-640x480/en/s19/05-edit-row.png",
+   "sha256": "53bca1b69192dd25455828f38c71101b4109a8b4e50e2dcdad008e17736362ef",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "as expected",
+    "date": "2026-11-26"
+   }
+  },
+  {
+   "flow_id": "cloud-folders-and-connections",
+   "branch_id": "build15/640x480/en/s19/06-edit-form",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud",
+   "criteria": [
+    "1111 C03",
+    "1111 C06",
+    "1111 C08"
+   ],
+   "trigger": "EDIT CONNECTION on qa-two after its endpoint stopped answering: backed out of, then SAVE CONNECTION, UPDATE CONNECTION",
+   "expected_state": "backing out changes nothing; the update re-verifies, fails with THE CONNECTION COULDN'T BE SAVED. and its reason, and the section is kept byte for byte (two-hash before and after in s19.arm.log)",
+   "source": {
+    "es": "334ee42b8 (local m7/rc-round-es-20261125; route m7-20261126-3817c3c0b12f)",
+    "distribution": "90b95f7259c107d17a90e73b6d62999a06eb56c0 (local build/m7-rc-round-20261125, build 15)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T214410Z.g90b95f7259c1-from-ROCKNIX",
+    "walk": "docs/qa-logs/2026-11-26-1111-1115-campaign/phase-d/phase-d.sh"
+   },
+   "locale": "en",
+   "width": 640,
+   "height": 480,
+   "frame": "build15-640x480/en/s19/06-edit-form.png",
+   "sha256": "bc2ba3320472c27ff294c86dbc65e5c4739f0234901b1271886dfe867f9820ed",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "as expected",
+    "date": "2026-11-26"
+   }
+  },
+  {
+   "flow_id": "cloud-folders-and-connections",
+   "branch_id": "build15/640x480/en/s19/07-after-cancel",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud",
+   "criteria": [
+    "1111 C03",
+    "1111 C06",
+    "1111 C08"
+   ],
+   "trigger": "EDIT CONNECTION on qa-two after its endpoint stopped answering: backed out of, then SAVE CONNECTION, UPDATE CONNECTION",
+   "expected_state": "backing out changes nothing; the update re-verifies, fails with THE CONNECTION COULDN'T BE SAVED. and its reason, and the section is kept byte for byte (two-hash before and after in s19.arm.log)",
+   "source": {
+    "es": "334ee42b8 (local m7/rc-round-es-20261125; route m7-20261126-3817c3c0b12f)",
+    "distribution": "90b95f7259c107d17a90e73b6d62999a06eb56c0 (local build/m7-rc-round-20261125, build 15)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T214410Z.g90b95f7259c1-from-ROCKNIX",
+    "walk": "docs/qa-logs/2026-11-26-1111-1115-campaign/phase-d/phase-d.sh"
+   },
+   "locale": "en",
+   "width": 640,
+   "height": 480,
+   "frame": "build15-640x480/en/s19/07-after-cancel.png",
+   "sha256": "53bca1b69192dd25455828f38c71101b4109a8b4e50e2dcdad008e17736362ef",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "as expected",
+    "date": "2026-11-26"
+   }
+  },
+  {
+   "flow_id": "cloud-folders-and-connections",
+   "branch_id": "build15/640x480/en/s19/08-edit-form-again",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud",
+   "criteria": [
+    "1111 C03",
+    "1111 C06",
+    "1111 C08"
+   ],
+   "trigger": "EDIT CONNECTION on qa-two after its endpoint stopped answering: backed out of, then SAVE CONNECTION, UPDATE CONNECTION",
+   "expected_state": "backing out changes nothing; the update re-verifies, fails with THE CONNECTION COULDN'T BE SAVED. and its reason, and the section is kept byte for byte (two-hash before and after in s19.arm.log)",
+   "source": {
+    "es": "334ee42b8 (local m7/rc-round-es-20261125; route m7-20261126-3817c3c0b12f)",
+    "distribution": "90b95f7259c107d17a90e73b6d62999a06eb56c0 (local build/m7-rc-round-20261125, build 15)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T214410Z.g90b95f7259c1-from-ROCKNIX",
+    "walk": "docs/qa-logs/2026-11-26-1111-1115-campaign/phase-d/phase-d.sh"
+   },
+   "locale": "en",
+   "width": 640,
+   "height": 480,
+   "frame": "build15-640x480/en/s19/08-edit-form-again.png",
+   "sha256": "bc2ba3320472c27ff294c86dbc65e5c4739f0234901b1271886dfe867f9820ed",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "as expected",
+    "date": "2026-11-26"
+   }
+  },
+  {
+   "flow_id": "cloud-folders-and-connections",
+   "branch_id": "build15/640x480/en/s19/09-save-row",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud",
+   "criteria": [
+    "1111 C03",
+    "1111 C06",
+    "1111 C08"
+   ],
+   "trigger": "EDIT CONNECTION on qa-two after its endpoint stopped answering: backed out of, then SAVE CONNECTION, UPDATE CONNECTION",
+   "expected_state": "backing out changes nothing; the update re-verifies, fails with THE CONNECTION COULDN'T BE SAVED. and its reason, and the section is kept byte for byte (two-hash before and after in s19.arm.log)",
+   "source": {
+    "es": "334ee42b8 (local m7/rc-round-es-20261125; route m7-20261126-3817c3c0b12f)",
+    "distribution": "90b95f7259c107d17a90e73b6d62999a06eb56c0 (local build/m7-rc-round-20261125, build 15)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T214410Z.g90b95f7259c1-from-ROCKNIX",
+    "walk": "docs/qa-logs/2026-11-26-1111-1115-campaign/phase-d/phase-d.sh"
+   },
+   "locale": "en",
+   "width": 640,
+   "height": 480,
+   "frame": "build15-640x480/en/s19/09-save-row.png",
+   "sha256": "4a34bb33709db94afeb657c24455ad717ff5409e5c6ae6becad4e0a5af5ba463",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "as expected",
+    "date": "2026-11-26"
+   }
+  },
+  {
+   "flow_id": "cloud-folders-and-connections",
+   "branch_id": "build15/640x480/en/s19/10-update-confirm",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud",
+   "criteria": [
+    "1111 C03",
+    "1111 C06",
+    "1111 C08"
+   ],
+   "trigger": "EDIT CONNECTION on qa-two after its endpoint stopped answering: backed out of, then SAVE CONNECTION, UPDATE CONNECTION",
+   "expected_state": "backing out changes nothing; the update re-verifies, fails with THE CONNECTION COULDN'T BE SAVED. and its reason, and the section is kept byte for byte (two-hash before and after in s19.arm.log)",
+   "source": {
+    "es": "334ee42b8 (local m7/rc-round-es-20261125; route m7-20261126-3817c3c0b12f)",
+    "distribution": "90b95f7259c107d17a90e73b6d62999a06eb56c0 (local build/m7-rc-round-20261125, build 15)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T214410Z.g90b95f7259c1-from-ROCKNIX",
+    "walk": "docs/qa-logs/2026-11-26-1111-1115-campaign/phase-d/phase-d.sh"
+   },
+   "locale": "en",
+   "width": 640,
+   "height": 480,
+   "frame": "build15-640x480/en/s19/10-update-confirm.png",
+   "sha256": "edb10b864299c85dacade77b7821e03a632bab35a9083f9278a037573bd289f1",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "as expected",
+    "date": "2026-11-26"
+   }
+  },
+  {
+   "flow_id": "cloud-folders-and-connections",
+   "branch_id": "build15/640x480/en/s19/11-update-failed",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud",
+   "criteria": [
+    "1111 C03",
+    "1111 C06",
+    "1111 C08"
+   ],
+   "trigger": "EDIT CONNECTION on qa-two after its endpoint stopped answering: backed out of, then SAVE CONNECTION, UPDATE CONNECTION",
+   "expected_state": "backing out changes nothing; the update re-verifies, fails with THE CONNECTION COULDN'T BE SAVED. and its reason, and the section is kept byte for byte (two-hash before and after in s19.arm.log)",
+   "source": {
+    "es": "334ee42b8 (local m7/rc-round-es-20261125; route m7-20261126-3817c3c0b12f)",
+    "distribution": "90b95f7259c107d17a90e73b6d62999a06eb56c0 (local build/m7-rc-round-20261125, build 15)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T214410Z.g90b95f7259c1-from-ROCKNIX",
+    "walk": "docs/qa-logs/2026-11-26-1111-1115-campaign/phase-d/phase-d.sh"
+   },
+   "locale": "en",
+   "width": 640,
+   "height": 480,
+   "frame": "build15-640x480/en/s19/11-update-failed.png",
+   "sha256": "b68b1497f18cfd93cd4da55e326c08917e52bd94eeeff7b52d0f1464e6300b69",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "as expected",
+    "date": "2026-11-26"
+   }
+  },
+  {
+   "flow_id": "cloud-folders-and-connections",
+   "branch_id": "build15/640x480/en/s19/12-after-failure-ok",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud",
+   "criteria": [
+    "1111 C03",
+    "1111 C06",
+    "1111 C08"
+   ],
+   "trigger": "EDIT CONNECTION on qa-two after its endpoint stopped answering: backed out of, then SAVE CONNECTION, UPDATE CONNECTION",
+   "expected_state": "backing out changes nothing; the update re-verifies, fails with THE CONNECTION COULDN'T BE SAVED. and its reason, and the section is kept byte for byte (two-hash before and after in s19.arm.log)",
+   "source": {
+    "es": "334ee42b8 (local m7/rc-round-es-20261125; route m7-20261126-3817c3c0b12f)",
+    "distribution": "90b95f7259c107d17a90e73b6d62999a06eb56c0 (local build/m7-rc-round-20261125, build 15)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T214410Z.g90b95f7259c1-from-ROCKNIX",
+    "walk": "docs/qa-logs/2026-11-26-1111-1115-campaign/phase-d/phase-d.sh"
+   },
+   "locale": "en",
+   "width": 640,
+   "height": 480,
+   "frame": "build15-640x480/en/s19/12-after-failure-ok.png",
+   "sha256": "4a34bb33709db94afeb657c24455ad717ff5409e5c6ae6becad4e0a5af5ba463",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "as expected",
+    "date": "2026-11-26"
+   }
+  },
+  {
+   "flow_id": "cloud-folders-and-connections",
+   "branch_id": "build15/640x480/en/s19/13-after-failure-back",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud",
+   "criteria": [
+    "1111 C03",
+    "1111 C06",
+    "1111 C08"
+   ],
+   "trigger": "EDIT CONNECTION on qa-two after its endpoint stopped answering: backed out of, then SAVE CONNECTION, UPDATE CONNECTION",
+   "expected_state": "backing out changes nothing; the update re-verifies, fails with THE CONNECTION COULDN'T BE SAVED. and its reason, and the section is kept byte for byte (two-hash before and after in s19.arm.log)",
+   "source": {
+    "es": "334ee42b8 (local m7/rc-round-es-20261125; route m7-20261126-3817c3c0b12f)",
+    "distribution": "90b95f7259c107d17a90e73b6d62999a06eb56c0 (local build/m7-rc-round-20261125, build 15)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T214410Z.g90b95f7259c1-from-ROCKNIX",
+    "walk": "docs/qa-logs/2026-11-26-1111-1115-campaign/phase-d/phase-d.sh"
+   },
+   "locale": "en",
+   "width": 640,
+   "height": 480,
+   "frame": "build15-640x480/en/s19/13-after-failure-back.png",
+   "sha256": "53bca1b69192dd25455828f38c71101b4109a8b4e50e2dcdad008e17736362ef",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "as expected",
+    "date": "2026-11-26"
+   }
+  },
+  {
+   "flow_id": "cloud-folders-and-connections",
+   "branch_id": "build15/640x480/en/s24/01-cloud-hub",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud",
+   "criteria": [
+    "1483 c3"
+   ],
+   "trigger": "LINK FROM THIS DEVICE, WEBDAV, then back on the provider form",
+   "expected_state": "where the add-a-connection wizard lands on back, unchanged by #1483",
+   "source": {
+    "es": "334ee42b8 (local m7/rc-round-es-20261125; route m7-20261126-3817c3c0b12f)",
+    "distribution": "90b95f7259c107d17a90e73b6d62999a06eb56c0 (local build/m7-rc-round-20261125, build 15)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T214410Z.g90b95f7259c1-from-ROCKNIX",
+    "walk": "docs/qa-logs/2026-11-26-1111-1115-campaign/phase-d/phase-d.sh"
+   },
+   "locale": "en",
+   "width": 640,
+   "height": 480,
+   "frame": "build15-640x480/en/s24/01-cloud-hub.png",
+   "sha256": "11eb5b99c8d7ca60a236ad8b38ef852cbfb9df8ce1490edc46f195ecf54a8945",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "back on the WebDAV form lands on the provider chooser",
+    "date": "2026-11-26"
+   }
+  },
+  {
+   "flow_id": "cloud-folders-and-connections",
+   "branch_id": "build15/640x480/en/s24/02-link-row",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud",
+   "criteria": [
+    "1483 c3"
+   ],
+   "trigger": "LINK FROM THIS DEVICE, WEBDAV, then back on the provider form",
+   "expected_state": "where the add-a-connection wizard lands on back, unchanged by #1483",
+   "source": {
+    "es": "334ee42b8 (local m7/rc-round-es-20261125; route m7-20261126-3817c3c0b12f)",
+    "distribution": "90b95f7259c107d17a90e73b6d62999a06eb56c0 (local build/m7-rc-round-20261125, build 15)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T214410Z.g90b95f7259c1-from-ROCKNIX",
+    "walk": "docs/qa-logs/2026-11-26-1111-1115-campaign/phase-d/phase-d.sh"
+   },
+   "locale": "en",
+   "width": 640,
+   "height": 480,
+   "frame": "build15-640x480/en/s24/02-link-row.png",
+   "sha256": "61c74b594e22c74b78d08762c6c8aaa195d2fecd1b75ccf89d7d8dc6ece9cf95",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "back on the WebDAV form lands on the provider chooser",
+    "date": "2026-11-26"
+   }
+  },
+  {
+   "flow_id": "cloud-folders-and-connections",
+   "branch_id": "build15/640x480/en/s24/03-providers",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud",
+   "criteria": [
+    "1483 c3"
+   ],
+   "trigger": "LINK FROM THIS DEVICE, WEBDAV, then back on the provider form",
+   "expected_state": "where the add-a-connection wizard lands on back, unchanged by #1483",
+   "source": {
+    "es": "334ee42b8 (local m7/rc-round-es-20261125; route m7-20261126-3817c3c0b12f)",
+    "distribution": "90b95f7259c107d17a90e73b6d62999a06eb56c0 (local build/m7-rc-round-20261125, build 15)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T214410Z.g90b95f7259c1-from-ROCKNIX",
+    "walk": "docs/qa-logs/2026-11-26-1111-1115-campaign/phase-d/phase-d.sh"
+   },
+   "locale": "en",
+   "width": 640,
+   "height": 480,
+   "frame": "build15-640x480/en/s24/03-providers.png",
+   "sha256": "29be06ed27dcf12e024a542c4d2570893845fb00c5a292e6d0bde184eb9eeeab",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "back on the WebDAV form lands on the provider chooser",
+    "date": "2026-11-26"
+   }
+  },
+  {
+   "flow_id": "cloud-folders-and-connections",
+   "branch_id": "build15/640x480/en/s24/04-webdav-row",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud",
+   "criteria": [
+    "1483 c3"
+   ],
+   "trigger": "LINK FROM THIS DEVICE, WEBDAV, then back on the provider form",
+   "expected_state": "where the add-a-connection wizard lands on back, unchanged by #1483",
+   "source": {
+    "es": "334ee42b8 (local m7/rc-round-es-20261125; route m7-20261126-3817c3c0b12f)",
+    "distribution": "90b95f7259c107d17a90e73b6d62999a06eb56c0 (local build/m7-rc-round-20261125, build 15)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T214410Z.g90b95f7259c1-from-ROCKNIX",
+    "walk": "docs/qa-logs/2026-11-26-1111-1115-campaign/phase-d/phase-d.sh"
+   },
+   "locale": "en",
+   "width": 640,
+   "height": 480,
+   "frame": "build15-640x480/en/s24/04-webdav-row.png",
+   "sha256": "000ce386ecb8cb1ea93233c054c222f0af5ec18f52858d4f199f8c6497e817ec",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "back on the WebDAV form lands on the provider chooser",
+    "date": "2026-11-26"
+   }
+  },
+  {
+   "flow_id": "cloud-folders-and-connections",
+   "branch_id": "build15/640x480/en/s24/05-webdav-form",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud",
+   "criteria": [
+    "1483 c3"
+   ],
+   "trigger": "LINK FROM THIS DEVICE, WEBDAV, then back on the provider form",
+   "expected_state": "where the add-a-connection wizard lands on back, unchanged by #1483",
+   "source": {
+    "es": "334ee42b8 (local m7/rc-round-es-20261125; route m7-20261126-3817c3c0b12f)",
+    "distribution": "90b95f7259c107d17a90e73b6d62999a06eb56c0 (local build/m7-rc-round-20261125, build 15)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T214410Z.g90b95f7259c1-from-ROCKNIX",
+    "walk": "docs/qa-logs/2026-11-26-1111-1115-campaign/phase-d/phase-d.sh"
+   },
+   "locale": "en",
+   "width": 640,
+   "height": 480,
+   "frame": "build15-640x480/en/s24/05-webdav-form.png",
+   "sha256": "4d9dcae49dd33734f70c203d9699dbbe1b06794331b36b772cb005467ef3ae53",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "back on the WebDAV form lands on the provider chooser",
+    "date": "2026-11-26"
+   }
+  },
+  {
+   "flow_id": "cloud-folders-and-connections",
+   "branch_id": "build15/640x480/en/s24/06-after-back",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud",
+   "criteria": [
+    "1483 c3"
+   ],
+   "trigger": "LINK FROM THIS DEVICE, WEBDAV, then back on the provider form",
+   "expected_state": "where the add-a-connection wizard lands on back, unchanged by #1483",
+   "source": {
+    "es": "334ee42b8 (local m7/rc-round-es-20261125; route m7-20261126-3817c3c0b12f)",
+    "distribution": "90b95f7259c107d17a90e73b6d62999a06eb56c0 (local build/m7-rc-round-20261125, build 15)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T214410Z.g90b95f7259c1-from-ROCKNIX",
+    "walk": "docs/qa-logs/2026-11-26-1111-1115-campaign/phase-d/phase-d.sh"
+   },
+   "locale": "en",
+   "width": 640,
+   "height": 480,
+   "frame": "build15-640x480/en/s24/06-after-back.png",
+   "sha256": "000ce386ecb8cb1ea93233c054c222f0af5ec18f52858d4f199f8c6497e817ec",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "back on the WebDAV form lands on the provider chooser",
+    "date": "2026-11-26"
+   }
+  },
+  {
+   "flow_id": "cloud-folders-and-connections",
+   "branch_id": "build15/640x480/en/s29/01-cloud-hub",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud",
+   "criteria": [
+    "1486 c1",
+    "1486 c2"
+   ],
+   "trigger": "SIGN IN AGAIN on an OAuth-tier connection (qa-oauth, type dropbox, no sign-in), then back from the choice page; no typing method is chosen, so nothing reaches the provider",
+   "expected_state": "on build 14 back skips the connection's page to MANAGE CLOUD CONNECTIONS (#1486, before the fix); from build 15 it returns to the connection's page",
+   "source": {
+    "es": "334ee42b8 (local m7/rc-round-es-20261125; route m7-20261126-3817c3c0b12f)",
+    "distribution": "90b95f7259c107d17a90e73b6d62999a06eb56c0 (local build/m7-rc-round-20261125, build 15)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T214410Z.g90b95f7259c1-from-ROCKNIX",
+    "walk": "docs/qa-logs/2026-11-26-1111-1115-campaign/phase-d/phase-d.sh"
+   },
+   "locale": "en",
+   "width": 640,
+   "height": 480,
+   "frame": "build15-640x480/en/s29/01-cloud-hub.png",
+   "sha256": "11eb5b99c8d7ca60a236ad8b38ef852cbfb9df8ce1490edc46f195ecf54a8945",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "after the fix: back from the choice page returns to CLOUD CONNECTION qa-oauth (#1486); oauth status idle",
+    "date": "2026-11-26"
+   }
+  },
+  {
+   "flow_id": "cloud-folders-and-connections",
+   "branch_id": "build15/640x480/en/s29/02-connections-oauth",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud",
+   "criteria": [
+    "1486 c1",
+    "1486 c2"
+   ],
+   "trigger": "SIGN IN AGAIN on an OAuth-tier connection (qa-oauth, type dropbox, no sign-in), then back from the choice page; no typing method is chosen, so nothing reaches the provider",
+   "expected_state": "on build 14 back skips the connection's page to MANAGE CLOUD CONNECTIONS (#1486, before the fix); from build 15 it returns to the connection's page",
+   "source": {
+    "es": "334ee42b8 (local m7/rc-round-es-20261125; route m7-20261126-3817c3c0b12f)",
+    "distribution": "90b95f7259c107d17a90e73b6d62999a06eb56c0 (local build/m7-rc-round-20261125, build 15)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T214410Z.g90b95f7259c1-from-ROCKNIX",
+    "walk": "docs/qa-logs/2026-11-26-1111-1115-campaign/phase-d/phase-d.sh"
+   },
+   "locale": "en",
+   "width": 640,
+   "height": 480,
+   "frame": "build15-640x480/en/s29/02-connections-oauth.png",
+   "sha256": "85d1136bdca29f0e2ac222f914cfd7b790de6fe7e7986ca4c0d02a670b9353e0",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "after the fix: back from the choice page returns to CLOUD CONNECTION qa-oauth (#1486); oauth status idle",
+    "date": "2026-11-26"
+   }
+  },
+  {
+   "flow_id": "cloud-folders-and-connections",
+   "branch_id": "build15/640x480/en/s29/03-oauth-page",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud",
+   "criteria": [
+    "1486 c1",
+    "1486 c2"
+   ],
+   "trigger": "SIGN IN AGAIN on an OAuth-tier connection (qa-oauth, type dropbox, no sign-in), then back from the choice page; no typing method is chosen, so nothing reaches the provider",
+   "expected_state": "on build 14 back skips the connection's page to MANAGE CLOUD CONNECTIONS (#1486, before the fix); from build 15 it returns to the connection's page",
+   "source": {
+    "es": "334ee42b8 (local m7/rc-round-es-20261125; route m7-20261126-3817c3c0b12f)",
+    "distribution": "90b95f7259c107d17a90e73b6d62999a06eb56c0 (local build/m7-rc-round-20261125, build 15)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T214410Z.g90b95f7259c1-from-ROCKNIX",
+    "walk": "docs/qa-logs/2026-11-26-1111-1115-campaign/phase-d/phase-d.sh"
+   },
+   "locale": "en",
+   "width": 640,
+   "height": 480,
+   "frame": "build15-640x480/en/s29/03-oauth-page.png",
+   "sha256": "fb3b6d215d7fc0720b01ad6aba41901d1199aaaff6e65f9bc5b36704a9933d8d",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "after the fix: back from the choice page returns to CLOUD CONNECTION qa-oauth (#1486); oauth status idle",
+    "date": "2026-11-26"
+   }
+  },
+  {
+   "flow_id": "cloud-folders-and-connections",
+   "branch_id": "build15/640x480/en/s29/04-signin-row",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud",
+   "criteria": [
+    "1486 c1",
+    "1486 c2"
+   ],
+   "trigger": "SIGN IN AGAIN on an OAuth-tier connection (qa-oauth, type dropbox, no sign-in), then back from the choice page; no typing method is chosen, so nothing reaches the provider",
+   "expected_state": "on build 14 back skips the connection's page to MANAGE CLOUD CONNECTIONS (#1486, before the fix); from build 15 it returns to the connection's page",
+   "source": {
+    "es": "334ee42b8 (local m7/rc-round-es-20261125; route m7-20261126-3817c3c0b12f)",
+    "distribution": "90b95f7259c107d17a90e73b6d62999a06eb56c0 (local build/m7-rc-round-20261125, build 15)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T214410Z.g90b95f7259c1-from-ROCKNIX",
+    "walk": "docs/qa-logs/2026-11-26-1111-1115-campaign/phase-d/phase-d.sh"
+   },
+   "locale": "en",
+   "width": 640,
+   "height": 480,
+   "frame": "build15-640x480/en/s29/04-signin-row.png",
+   "sha256": "67cb1a701d8908b29ef28ba4be43e5851d837fac1e35b1828cfad245c48d9a4d",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "after the fix: back from the choice page returns to CLOUD CONNECTION qa-oauth (#1486); oauth status idle",
+    "date": "2026-11-26"
+   }
+  },
+  {
+   "flow_id": "cloud-folders-and-connections",
+   "branch_id": "build15/640x480/en/s29/05-signin-confirm",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud",
+   "criteria": [
+    "1486 c1",
+    "1486 c2"
+   ],
+   "trigger": "SIGN IN AGAIN on an OAuth-tier connection (qa-oauth, type dropbox, no sign-in), then back from the choice page; no typing method is chosen, so nothing reaches the provider",
+   "expected_state": "on build 14 back skips the connection's page to MANAGE CLOUD CONNECTIONS (#1486, before the fix); from build 15 it returns to the connection's page",
+   "source": {
+    "es": "334ee42b8 (local m7/rc-round-es-20261125; route m7-20261126-3817c3c0b12f)",
+    "distribution": "90b95f7259c107d17a90e73b6d62999a06eb56c0 (local build/m7-rc-round-20261125, build 15)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T214410Z.g90b95f7259c1-from-ROCKNIX",
+    "walk": "docs/qa-logs/2026-11-26-1111-1115-campaign/phase-d/phase-d.sh"
+   },
+   "locale": "en",
+   "width": 640,
+   "height": 480,
+   "frame": "build15-640x480/en/s29/05-signin-confirm.png",
+   "sha256": "31d5b5220c866eb334f3616aa41956bb613096ba946f5cf560ced074d2854e3a",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "after the fix: back from the choice page returns to CLOUD CONNECTION qa-oauth (#1486); oauth status idle",
+    "date": "2026-11-26"
+   }
+  },
+  {
+   "flow_id": "cloud-folders-and-connections",
+   "branch_id": "build15/640x480/en/s29/06-choice",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud",
+   "criteria": [
+    "1486 c1",
+    "1486 c2"
+   ],
+   "trigger": "SIGN IN AGAIN on an OAuth-tier connection (qa-oauth, type dropbox, no sign-in), then back from the choice page; no typing method is chosen, so nothing reaches the provider",
+   "expected_state": "on build 14 back skips the connection's page to MANAGE CLOUD CONNECTIONS (#1486, before the fix); from build 15 it returns to the connection's page",
+   "source": {
+    "es": "334ee42b8 (local m7/rc-round-es-20261125; route m7-20261126-3817c3c0b12f)",
+    "distribution": "90b95f7259c107d17a90e73b6d62999a06eb56c0 (local build/m7-rc-round-20261125, build 15)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T214410Z.g90b95f7259c1-from-ROCKNIX",
+    "walk": "docs/qa-logs/2026-11-26-1111-1115-campaign/phase-d/phase-d.sh"
+   },
+   "locale": "en",
+   "width": 640,
+   "height": 480,
+   "frame": "build15-640x480/en/s29/06-choice.png",
+   "sha256": "3e5e39f99fa16c6484d8738dd4fda37383383567099a55883e261b3f2c3e8b18",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "after the fix: back from the choice page returns to CLOUD CONNECTION qa-oauth (#1486); oauth status idle",
+    "date": "2026-11-26"
+   }
+  },
+  {
+   "flow_id": "cloud-folders-and-connections",
+   "branch_id": "build15/640x480/en/s29/07-after-back",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud",
+   "criteria": [
+    "1486 c1",
+    "1486 c2"
+   ],
+   "trigger": "SIGN IN AGAIN on an OAuth-tier connection (qa-oauth, type dropbox, no sign-in), then back from the choice page; no typing method is chosen, so nothing reaches the provider",
+   "expected_state": "on build 14 back skips the connection's page to MANAGE CLOUD CONNECTIONS (#1486, before the fix); from build 15 it returns to the connection's page",
+   "source": {
+    "es": "334ee42b8 (local m7/rc-round-es-20261125; route m7-20261126-3817c3c0b12f)",
+    "distribution": "90b95f7259c107d17a90e73b6d62999a06eb56c0 (local build/m7-rc-round-20261125, build 15)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T214410Z.g90b95f7259c1-from-ROCKNIX",
+    "walk": "docs/qa-logs/2026-11-26-1111-1115-campaign/phase-d/phase-d.sh"
+   },
+   "locale": "en",
+   "width": 640,
+   "height": 480,
+   "frame": "build15-640x480/en/s29/07-after-back.png",
+   "sha256": "67cb1a701d8908b29ef28ba4be43e5851d837fac1e35b1828cfad245c48d9a4d",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "after the fix: back from the choice page returns to CLOUD CONNECTION qa-oauth (#1486); oauth status idle",
+    "date": "2026-11-26"
+   }
+  },
+  {
+   "flow_id": "cloud-folders-and-connections",
+   "branch_id": "build15/640x480/en/s30/01-cloud-hub",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud",
+   "criteria": [
+    "1485 c1"
+   ],
+   "trigger": "LINK FROM THIS DEVICE, AMAZON S3 AND COMPATIBLE, its first service, the form and its lower half; nothing submitted",
+   "expected_state": "from build 15 the mapped row labels read in French in French (#1485); in English as before",
+   "source": {
+    "es": "334ee42b8 (local m7/rc-round-es-20261125; route m7-20261126-3817c3c0b12f)",
+    "distribution": "90b95f7259c107d17a90e73b6d62999a06eb56c0 (local build/m7-rc-round-20261125, build 15)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T214410Z.g90b95f7259c1-from-ROCKNIX",
+    "walk": "docs/qa-logs/2026-11-26-1111-1115-campaign/phase-d/phase-d.sh"
+   },
+   "locale": "en",
+   "width": 640,
+   "height": 480,
+   "frame": "build15-640x480/en/s30/01-cloud-hub.png",
+   "sha256": "11eb5b99c8d7ca60a236ad8b38ef852cbfb9df8ce1490edc46f195ecf54a8945",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "the S3 form's mapped labels",
+    "date": "2026-11-26"
+   }
+  },
+  {
+   "flow_id": "cloud-folders-and-connections",
+   "branch_id": "build15/640x480/en/s30/02-providers",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud",
+   "criteria": [
+    "1485 c1"
+   ],
+   "trigger": "LINK FROM THIS DEVICE, AMAZON S3 AND COMPATIBLE, its first service, the form and its lower half; nothing submitted",
+   "expected_state": "from build 15 the mapped row labels read in French in French (#1485); in English as before",
+   "source": {
+    "es": "334ee42b8 (local m7/rc-round-es-20261125; route m7-20261126-3817c3c0b12f)",
+    "distribution": "90b95f7259c107d17a90e73b6d62999a06eb56c0 (local build/m7-rc-round-20261125, build 15)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T214410Z.g90b95f7259c1-from-ROCKNIX",
+    "walk": "docs/qa-logs/2026-11-26-1111-1115-campaign/phase-d/phase-d.sh"
+   },
+   "locale": "en",
+   "width": 640,
+   "height": 480,
+   "frame": "build15-640x480/en/s30/02-providers.png",
+   "sha256": "29be06ed27dcf12e024a542c4d2570893845fb00c5a292e6d0bde184eb9eeeab",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "the S3 form's mapped labels",
+    "date": "2026-11-26"
+   }
+  },
+  {
+   "flow_id": "cloud-folders-and-connections",
+   "branch_id": "build15/640x480/en/s30/03-s3-row",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud",
+   "criteria": [
+    "1485 c1"
+   ],
+   "trigger": "LINK FROM THIS DEVICE, AMAZON S3 AND COMPATIBLE, its first service, the form and its lower half; nothing submitted",
+   "expected_state": "from build 15 the mapped row labels read in French in French (#1485); in English as before",
+   "source": {
+    "es": "334ee42b8 (local m7/rc-round-es-20261125; route m7-20261126-3817c3c0b12f)",
+    "distribution": "90b95f7259c107d17a90e73b6d62999a06eb56c0 (local build/m7-rc-round-20261125, build 15)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T214410Z.g90b95f7259c1-from-ROCKNIX",
+    "walk": "docs/qa-logs/2026-11-26-1111-1115-campaign/phase-d/phase-d.sh"
+   },
+   "locale": "en",
+   "width": 640,
+   "height": 480,
+   "frame": "build15-640x480/en/s30/03-s3-row.png",
+   "sha256": "ec2a283562cd8b712b991c1850922c56fd9e4225c298b71c7e3f065502d1daea",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "the S3 form's mapped labels",
+    "date": "2026-11-26"
+   }
+  },
+  {
+   "flow_id": "cloud-folders-and-connections",
+   "branch_id": "build15/640x480/en/s30/04-s3-services",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud",
+   "criteria": [
+    "1485 c1"
+   ],
+   "trigger": "LINK FROM THIS DEVICE, AMAZON S3 AND COMPATIBLE, its first service, the form and its lower half; nothing submitted",
+   "expected_state": "from build 15 the mapped row labels read in French in French (#1485); in English as before",
+   "source": {
+    "es": "334ee42b8 (local m7/rc-round-es-20261125; route m7-20261126-3817c3c0b12f)",
+    "distribution": "90b95f7259c107d17a90e73b6d62999a06eb56c0 (local build/m7-rc-round-20261125, build 15)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T214410Z.g90b95f7259c1-from-ROCKNIX",
+    "walk": "docs/qa-logs/2026-11-26-1111-1115-campaign/phase-d/phase-d.sh"
+   },
+   "locale": "en",
+   "width": 640,
+   "height": 480,
+   "frame": "build15-640x480/en/s30/04-s3-services.png",
+   "sha256": "b1917d18b4a48239a2bc781e47fcf7e1ba62ef93af1a75be43162ff58ad3ac70",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "the S3 form's mapped labels",
+    "date": "2026-11-26"
+   }
+  },
+  {
+   "flow_id": "cloud-folders-and-connections",
+   "branch_id": "build15/640x480/en/s30/05-s3-form",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud",
+   "criteria": [
+    "1485 c1"
+   ],
+   "trigger": "LINK FROM THIS DEVICE, AMAZON S3 AND COMPATIBLE, its first service, the form and its lower half; nothing submitted",
+   "expected_state": "from build 15 the mapped row labels read in French in French (#1485); in English as before",
+   "source": {
+    "es": "334ee42b8 (local m7/rc-round-es-20261125; route m7-20261126-3817c3c0b12f)",
+    "distribution": "90b95f7259c107d17a90e73b6d62999a06eb56c0 (local build/m7-rc-round-20261125, build 15)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T214410Z.g90b95f7259c1-from-ROCKNIX",
+    "walk": "docs/qa-logs/2026-11-26-1111-1115-campaign/phase-d/phase-d.sh"
+   },
+   "locale": "en",
+   "width": 640,
+   "height": 480,
+   "frame": "build15-640x480/en/s30/05-s3-form.png",
+   "sha256": "b1ffb2abf06a4588c5f3bbf181c069948fdae8f0d237c8d76e9c282db28c4f05",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "the S3 form's mapped labels",
+    "date": "2026-11-26"
+   }
+  },
+  {
+   "flow_id": "cloud-folders-and-connections",
+   "branch_id": "build15/640x480/en/s30/06-s3-form-lower",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud",
+   "criteria": [
+    "1485 c1"
+   ],
+   "trigger": "LINK FROM THIS DEVICE, AMAZON S3 AND COMPATIBLE, its first service, the form and its lower half; nothing submitted",
+   "expected_state": "from build 15 the mapped row labels read in French in French (#1485); in English as before",
+   "source": {
+    "es": "334ee42b8 (local m7/rc-round-es-20261125; route m7-20261126-3817c3c0b12f)",
+    "distribution": "90b95f7259c107d17a90e73b6d62999a06eb56c0 (local build/m7-rc-round-20261125, build 15)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T214410Z.g90b95f7259c1-from-ROCKNIX",
+    "walk": "docs/qa-logs/2026-11-26-1111-1115-campaign/phase-d/phase-d.sh"
+   },
+   "locale": "en",
+   "width": 640,
+   "height": 480,
+   "frame": "build15-640x480/en/s30/06-s3-form-lower.png",
+   "sha256": "5a2a9d272b5526f7a428a3d87dc618d6c0637050588fc3429d074ff43f537962",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "the S3 form's mapped labels",
+    "date": "2026-11-26"
+   }
+  },
+  {
+   "flow_id": "cloud-folders-and-connections",
+   "branch_id": "build15/640x480/en/s30/07-after-back",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud",
+   "criteria": [
+    "1485 c1"
+   ],
+   "trigger": "LINK FROM THIS DEVICE, AMAZON S3 AND COMPATIBLE, its first service, the form and its lower half; nothing submitted",
+   "expected_state": "from build 15 the mapped row labels read in French in French (#1485); in English as before",
+   "source": {
+    "es": "334ee42b8 (local m7/rc-round-es-20261125; route m7-20261126-3817c3c0b12f)",
+    "distribution": "90b95f7259c107d17a90e73b6d62999a06eb56c0 (local build/m7-rc-round-20261125, build 15)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T214410Z.g90b95f7259c1-from-ROCKNIX",
+    "walk": "docs/qa-logs/2026-11-26-1111-1115-campaign/phase-d/phase-d.sh"
+   },
+   "locale": "en",
+   "width": 640,
+   "height": 480,
+   "frame": "build15-640x480/en/s30/07-after-back.png",
+   "sha256": "b1917d18b4a48239a2bc781e47fcf7e1ba62ef93af1a75be43162ff58ad3ac70",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "the S3 form's mapped labels",
+    "date": "2026-11-26"
+   }
+  },
+  {
+   "flow_id": "cloud-folders-and-connections",
+   "branch_id": "build15/640x480/fr/s19/01-cloud-hub",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud",
+   "criteria": [
+    "1111 C03",
+    "1111 C06",
+    "1111 C08"
+   ],
+   "trigger": "EDIT CONNECTION on qa-two after its endpoint stopped answering: backed out of, then SAVE CONNECTION, UPDATE CONNECTION",
+   "expected_state": "backing out changes nothing; the update re-verifies, fails with THE CONNECTION COULDN'T BE SAVED. and its reason, and the section is kept byte for byte (two-hash before and after in s19.arm.log)",
+   "source": {
+    "es": "334ee42b8 (local m7/rc-round-es-20261125; route m7-20261126-3817c3c0b12f)",
+    "distribution": "90b95f7259c107d17a90e73b6d62999a06eb56c0 (local build/m7-rc-round-20261125, build 15)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T214410Z.g90b95f7259c1-from-ROCKNIX",
+    "walk": "docs/qa-logs/2026-11-26-1111-1115-campaign/phase-d/phase-d.sh"
+   },
+   "locale": "fr",
+   "width": 640,
+   "height": 480,
+   "frame": "build15-640x480/fr/s19/01-cloud-hub.png",
+   "sha256": "6720f9bb3a014af5cd480c42dcefbf4fd36c3cf00019528c77f47eb003061a94",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "as expected",
+    "date": "2026-11-26"
+   }
+  },
+  {
+   "flow_id": "cloud-folders-and-connections",
+   "branch_id": "build15/640x480/fr/s19/02-connections-two",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud",
+   "criteria": [
+    "1111 C03",
+    "1111 C06",
+    "1111 C08"
+   ],
+   "trigger": "EDIT CONNECTION on qa-two after its endpoint stopped answering: backed out of, then SAVE CONNECTION, UPDATE CONNECTION",
+   "expected_state": "backing out changes nothing; the update re-verifies, fails with THE CONNECTION COULDN'T BE SAVED. and its reason, and the section is kept byte for byte (two-hash before and after in s19.arm.log)",
+   "source": {
+    "es": "334ee42b8 (local m7/rc-round-es-20261125; route m7-20261126-3817c3c0b12f)",
+    "distribution": "90b95f7259c107d17a90e73b6d62999a06eb56c0 (local build/m7-rc-round-20261125, build 15)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T214410Z.g90b95f7259c1-from-ROCKNIX",
+    "walk": "docs/qa-logs/2026-11-26-1111-1115-campaign/phase-d/phase-d.sh"
+   },
+   "locale": "fr",
+   "width": 640,
+   "height": 480,
+   "frame": "build15-640x480/fr/s19/02-connections-two.png",
+   "sha256": "6a3799a98db3c196363869aaf92d1424e3e5e4bc045d3653610ee43652a5cb63",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "as expected",
+    "date": "2026-11-26"
+   }
+  },
+  {
+   "flow_id": "cloud-folders-and-connections",
+   "branch_id": "build15/640x480/fr/s19/03-two-focused",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud",
+   "criteria": [
+    "1111 C03",
+    "1111 C06",
+    "1111 C08"
+   ],
+   "trigger": "EDIT CONNECTION on qa-two after its endpoint stopped answering: backed out of, then SAVE CONNECTION, UPDATE CONNECTION",
+   "expected_state": "backing out changes nothing; the update re-verifies, fails with THE CONNECTION COULDN'T BE SAVED. and its reason, and the section is kept byte for byte (two-hash before and after in s19.arm.log)",
+   "source": {
+    "es": "334ee42b8 (local m7/rc-round-es-20261125; route m7-20261126-3817c3c0b12f)",
+    "distribution": "90b95f7259c107d17a90e73b6d62999a06eb56c0 (local build/m7-rc-round-20261125, build 15)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T214410Z.g90b95f7259c1-from-ROCKNIX",
+    "walk": "docs/qa-logs/2026-11-26-1111-1115-campaign/phase-d/phase-d.sh"
+   },
+   "locale": "fr",
+   "width": 640,
+   "height": 480,
+   "frame": "build15-640x480/fr/s19/03-two-focused.png",
+   "sha256": "6e1bc67f220da154473b1c2a5835597cdebeee8da7b2951ff5d1963b7e3f6bf6",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "as expected",
+    "date": "2026-11-26"
+   }
+  },
+  {
+   "flow_id": "cloud-folders-and-connections",
+   "branch_id": "build15/640x480/fr/s19/04-connection-two",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud",
+   "criteria": [
+    "1111 C03",
+    "1111 C06",
+    "1111 C08"
+   ],
+   "trigger": "EDIT CONNECTION on qa-two after its endpoint stopped answering: backed out of, then SAVE CONNECTION, UPDATE CONNECTION",
+   "expected_state": "backing out changes nothing; the update re-verifies, fails with THE CONNECTION COULDN'T BE SAVED. and its reason, and the section is kept byte for byte (two-hash before and after in s19.arm.log)",
+   "source": {
+    "es": "334ee42b8 (local m7/rc-round-es-20261125; route m7-20261126-3817c3c0b12f)",
+    "distribution": "90b95f7259c107d17a90e73b6d62999a06eb56c0 (local build/m7-rc-round-20261125, build 15)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T214410Z.g90b95f7259c1-from-ROCKNIX",
+    "walk": "docs/qa-logs/2026-11-26-1111-1115-campaign/phase-d/phase-d.sh"
+   },
+   "locale": "fr",
+   "width": 640,
+   "height": 480,
+   "frame": "build15-640x480/fr/s19/04-connection-two.png",
+   "sha256": "6683db8a3920403d9504cf74574468ae06d4f6c5552468d4f3a09918d638ce09",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "as expected",
+    "date": "2026-11-26"
+   }
+  },
+  {
+   "flow_id": "cloud-folders-and-connections",
+   "branch_id": "build15/640x480/fr/s19/05-edit-row",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud",
+   "criteria": [
+    "1111 C03",
+    "1111 C06",
+    "1111 C08"
+   ],
+   "trigger": "EDIT CONNECTION on qa-two after its endpoint stopped answering: backed out of, then SAVE CONNECTION, UPDATE CONNECTION",
+   "expected_state": "backing out changes nothing; the update re-verifies, fails with THE CONNECTION COULDN'T BE SAVED. and its reason, and the section is kept byte for byte (two-hash before and after in s19.arm.log)",
+   "source": {
+    "es": "334ee42b8 (local m7/rc-round-es-20261125; route m7-20261126-3817c3c0b12f)",
+    "distribution": "90b95f7259c107d17a90e73b6d62999a06eb56c0 (local build/m7-rc-round-20261125, build 15)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T214410Z.g90b95f7259c1-from-ROCKNIX",
+    "walk": "docs/qa-logs/2026-11-26-1111-1115-campaign/phase-d/phase-d.sh"
+   },
+   "locale": "fr",
+   "width": 640,
+   "height": 480,
+   "frame": "build15-640x480/fr/s19/05-edit-row.png",
+   "sha256": "5eac3f3ebc57968a9cf645975c744b66aaa7684af1339dd34c38e0a5a80d403e",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "as expected",
+    "date": "2026-11-26"
+   }
+  },
+  {
+   "flow_id": "cloud-folders-and-connections",
+   "branch_id": "build15/640x480/fr/s19/06-edit-form",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud",
+   "criteria": [
+    "1111 C03",
+    "1111 C06",
+    "1111 C08"
+   ],
+   "trigger": "EDIT CONNECTION on qa-two after its endpoint stopped answering: backed out of, then SAVE CONNECTION, UPDATE CONNECTION",
+   "expected_state": "backing out changes nothing; the update re-verifies, fails with THE CONNECTION COULDN'T BE SAVED. and its reason, and the section is kept byte for byte (two-hash before and after in s19.arm.log)",
+   "source": {
+    "es": "334ee42b8 (local m7/rc-round-es-20261125; route m7-20261126-3817c3c0b12f)",
+    "distribution": "90b95f7259c107d17a90e73b6d62999a06eb56c0 (local build/m7-rc-round-20261125, build 15)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T214410Z.g90b95f7259c1-from-ROCKNIX",
+    "walk": "docs/qa-logs/2026-11-26-1111-1115-campaign/phase-d/phase-d.sh"
+   },
+   "locale": "fr",
+   "width": 640,
+   "height": 480,
+   "frame": "build15-640x480/fr/s19/06-edit-form.png",
+   "sha256": "8f0792adceac1055498fe89385445bec1c3505d2a049932470c919670712b007",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "as expected",
+    "date": "2026-11-26"
+   }
+  },
+  {
+   "flow_id": "cloud-folders-and-connections",
+   "branch_id": "build15/640x480/fr/s19/07-after-cancel",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud",
+   "criteria": [
+    "1111 C03",
+    "1111 C06",
+    "1111 C08"
+   ],
+   "trigger": "EDIT CONNECTION on qa-two after its endpoint stopped answering: backed out of, then SAVE CONNECTION, UPDATE CONNECTION",
+   "expected_state": "backing out changes nothing; the update re-verifies, fails with THE CONNECTION COULDN'T BE SAVED. and its reason, and the section is kept byte for byte (two-hash before and after in s19.arm.log)",
+   "source": {
+    "es": "334ee42b8 (local m7/rc-round-es-20261125; route m7-20261126-3817c3c0b12f)",
+    "distribution": "90b95f7259c107d17a90e73b6d62999a06eb56c0 (local build/m7-rc-round-20261125, build 15)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T214410Z.g90b95f7259c1-from-ROCKNIX",
+    "walk": "docs/qa-logs/2026-11-26-1111-1115-campaign/phase-d/phase-d.sh"
+   },
+   "locale": "fr",
+   "width": 640,
+   "height": 480,
+   "frame": "build15-640x480/fr/s19/07-after-cancel.png",
+   "sha256": "5eac3f3ebc57968a9cf645975c744b66aaa7684af1339dd34c38e0a5a80d403e",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "as expected",
+    "date": "2026-11-26"
+   }
+  },
+  {
+   "flow_id": "cloud-folders-and-connections",
+   "branch_id": "build15/640x480/fr/s19/08-edit-form-again",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud",
+   "criteria": [
+    "1111 C03",
+    "1111 C06",
+    "1111 C08"
+   ],
+   "trigger": "EDIT CONNECTION on qa-two after its endpoint stopped answering: backed out of, then SAVE CONNECTION, UPDATE CONNECTION",
+   "expected_state": "backing out changes nothing; the update re-verifies, fails with THE CONNECTION COULDN'T BE SAVED. and its reason, and the section is kept byte for byte (two-hash before and after in s19.arm.log)",
+   "source": {
+    "es": "334ee42b8 (local m7/rc-round-es-20261125; route m7-20261126-3817c3c0b12f)",
+    "distribution": "90b95f7259c107d17a90e73b6d62999a06eb56c0 (local build/m7-rc-round-20261125, build 15)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T214410Z.g90b95f7259c1-from-ROCKNIX",
+    "walk": "docs/qa-logs/2026-11-26-1111-1115-campaign/phase-d/phase-d.sh"
+   },
+   "locale": "fr",
+   "width": 640,
+   "height": 480,
+   "frame": "build15-640x480/fr/s19/08-edit-form-again.png",
+   "sha256": "8f0792adceac1055498fe89385445bec1c3505d2a049932470c919670712b007",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "as expected",
+    "date": "2026-11-26"
+   }
+  },
+  {
+   "flow_id": "cloud-folders-and-connections",
+   "branch_id": "build15/640x480/fr/s19/09-save-row",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud",
+   "criteria": [
+    "1111 C03",
+    "1111 C06",
+    "1111 C08"
+   ],
+   "trigger": "EDIT CONNECTION on qa-two after its endpoint stopped answering: backed out of, then SAVE CONNECTION, UPDATE CONNECTION",
+   "expected_state": "backing out changes nothing; the update re-verifies, fails with THE CONNECTION COULDN'T BE SAVED. and its reason, and the section is kept byte for byte (two-hash before and after in s19.arm.log)",
+   "source": {
+    "es": "334ee42b8 (local m7/rc-round-es-20261125; route m7-20261126-3817c3c0b12f)",
+    "distribution": "90b95f7259c107d17a90e73b6d62999a06eb56c0 (local build/m7-rc-round-20261125, build 15)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T214410Z.g90b95f7259c1-from-ROCKNIX",
+    "walk": "docs/qa-logs/2026-11-26-1111-1115-campaign/phase-d/phase-d.sh"
+   },
+   "locale": "fr",
+   "width": 640,
+   "height": 480,
+   "frame": "build15-640x480/fr/s19/09-save-row.png",
+   "sha256": "bec66093331d3e3d4f17c795eb5a614abadd72a85032c30df7355c0903fdc3d5",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "as expected",
+    "date": "2026-11-26"
+   }
+  },
+  {
+   "flow_id": "cloud-folders-and-connections",
+   "branch_id": "build15/640x480/fr/s19/10-update-confirm",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud",
+   "criteria": [
+    "1111 C03",
+    "1111 C06",
+    "1111 C08"
+   ],
+   "trigger": "EDIT CONNECTION on qa-two after its endpoint stopped answering: backed out of, then SAVE CONNECTION, UPDATE CONNECTION",
+   "expected_state": "backing out changes nothing; the update re-verifies, fails with THE CONNECTION COULDN'T BE SAVED. and its reason, and the section is kept byte for byte (two-hash before and after in s19.arm.log)",
+   "source": {
+    "es": "334ee42b8 (local m7/rc-round-es-20261125; route m7-20261126-3817c3c0b12f)",
+    "distribution": "90b95f7259c107d17a90e73b6d62999a06eb56c0 (local build/m7-rc-round-20261125, build 15)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T214410Z.g90b95f7259c1-from-ROCKNIX",
+    "walk": "docs/qa-logs/2026-11-26-1111-1115-campaign/phase-d/phase-d.sh"
+   },
+   "locale": "fr",
+   "width": 640,
+   "height": 480,
+   "frame": "build15-640x480/fr/s19/10-update-confirm.png",
+   "sha256": "c80006b1088d9de701d229b75b9454e20437bfec07c6495c9e1a3b246d4a3170",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "as expected",
+    "date": "2026-11-26"
+   }
+  },
+  {
+   "flow_id": "cloud-folders-and-connections",
+   "branch_id": "build15/640x480/fr/s19/11-update-failed",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud",
+   "criteria": [
+    "1111 C03",
+    "1111 C06",
+    "1111 C08"
+   ],
+   "trigger": "EDIT CONNECTION on qa-two after its endpoint stopped answering: backed out of, then SAVE CONNECTION, UPDATE CONNECTION",
+   "expected_state": "backing out changes nothing; the update re-verifies, fails with THE CONNECTION COULDN'T BE SAVED. and its reason, and the section is kept byte for byte (two-hash before and after in s19.arm.log)",
+   "source": {
+    "es": "334ee42b8 (local m7/rc-round-es-20261125; route m7-20261126-3817c3c0b12f)",
+    "distribution": "90b95f7259c107d17a90e73b6d62999a06eb56c0 (local build/m7-rc-round-20261125, build 15)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T214410Z.g90b95f7259c1-from-ROCKNIX",
+    "walk": "docs/qa-logs/2026-11-26-1111-1115-campaign/phase-d/phase-d.sh"
+   },
+   "locale": "fr",
+   "width": 640,
+   "height": 480,
+   "frame": "build15-640x480/fr/s19/11-update-failed.png",
+   "sha256": "d48597465354a77b12a99a229d24dd14f75a973d9873e9b42bc436ccda8b15c5",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "as expected",
+    "date": "2026-11-26"
+   }
+  },
+  {
+   "flow_id": "cloud-folders-and-connections",
+   "branch_id": "build15/640x480/fr/s19/12-after-failure-ok",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud",
+   "criteria": [
+    "1111 C03",
+    "1111 C06",
+    "1111 C08"
+   ],
+   "trigger": "EDIT CONNECTION on qa-two after its endpoint stopped answering: backed out of, then SAVE CONNECTION, UPDATE CONNECTION",
+   "expected_state": "backing out changes nothing; the update re-verifies, fails with THE CONNECTION COULDN'T BE SAVED. and its reason, and the section is kept byte for byte (two-hash before and after in s19.arm.log)",
+   "source": {
+    "es": "334ee42b8 (local m7/rc-round-es-20261125; route m7-20261126-3817c3c0b12f)",
+    "distribution": "90b95f7259c107d17a90e73b6d62999a06eb56c0 (local build/m7-rc-round-20261125, build 15)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T214410Z.g90b95f7259c1-from-ROCKNIX",
+    "walk": "docs/qa-logs/2026-11-26-1111-1115-campaign/phase-d/phase-d.sh"
+   },
+   "locale": "fr",
+   "width": 640,
+   "height": 480,
+   "frame": "build15-640x480/fr/s19/12-after-failure-ok.png",
+   "sha256": "bec66093331d3e3d4f17c795eb5a614abadd72a85032c30df7355c0903fdc3d5",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "as expected",
+    "date": "2026-11-26"
+   }
+  },
+  {
+   "flow_id": "cloud-folders-and-connections",
+   "branch_id": "build15/640x480/fr/s19/13-after-failure-back",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud",
+   "criteria": [
+    "1111 C03",
+    "1111 C06",
+    "1111 C08"
+   ],
+   "trigger": "EDIT CONNECTION on qa-two after its endpoint stopped answering: backed out of, then SAVE CONNECTION, UPDATE CONNECTION",
+   "expected_state": "backing out changes nothing; the update re-verifies, fails with THE CONNECTION COULDN'T BE SAVED. and its reason, and the section is kept byte for byte (two-hash before and after in s19.arm.log)",
+   "source": {
+    "es": "334ee42b8 (local m7/rc-round-es-20261125; route m7-20261126-3817c3c0b12f)",
+    "distribution": "90b95f7259c107d17a90e73b6d62999a06eb56c0 (local build/m7-rc-round-20261125, build 15)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T214410Z.g90b95f7259c1-from-ROCKNIX",
+    "walk": "docs/qa-logs/2026-11-26-1111-1115-campaign/phase-d/phase-d.sh"
+   },
+   "locale": "fr",
+   "width": 640,
+   "height": 480,
+   "frame": "build15-640x480/fr/s19/13-after-failure-back.png",
+   "sha256": "5eac3f3ebc57968a9cf645975c744b66aaa7684af1339dd34c38e0a5a80d403e",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "as expected",
+    "date": "2026-11-26"
+   }
+  },
+  {
+   "flow_id": "cloud-folders-and-connections",
+   "branch_id": "build15/640x480/fr/s24/01-cloud-hub",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud",
+   "criteria": [
+    "1483 c3"
+   ],
+   "trigger": "LINK FROM THIS DEVICE, WEBDAV, then back on the provider form",
+   "expected_state": "where the add-a-connection wizard lands on back, unchanged by #1483",
+   "source": {
+    "es": "334ee42b8 (local m7/rc-round-es-20261125; route m7-20261126-3817c3c0b12f)",
+    "distribution": "90b95f7259c107d17a90e73b6d62999a06eb56c0 (local build/m7-rc-round-20261125, build 15)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T214410Z.g90b95f7259c1-from-ROCKNIX",
+    "walk": "docs/qa-logs/2026-11-26-1111-1115-campaign/phase-d/phase-d.sh"
+   },
+   "locale": "fr",
+   "width": 640,
+   "height": 480,
+   "frame": "build15-640x480/fr/s24/01-cloud-hub.png",
+   "sha256": "6720f9bb3a014af5cd480c42dcefbf4fd36c3cf00019528c77f47eb003061a94",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "back on the WebDAV form lands on the provider chooser; the form's labels in French (#1485)",
+    "date": "2026-11-26"
+   }
+  },
+  {
+   "flow_id": "cloud-folders-and-connections",
+   "branch_id": "build15/640x480/fr/s24/02-link-row",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud",
+   "criteria": [
+    "1483 c3"
+   ],
+   "trigger": "LINK FROM THIS DEVICE, WEBDAV, then back on the provider form",
+   "expected_state": "where the add-a-connection wizard lands on back, unchanged by #1483",
+   "source": {
+    "es": "334ee42b8 (local m7/rc-round-es-20261125; route m7-20261126-3817c3c0b12f)",
+    "distribution": "90b95f7259c107d17a90e73b6d62999a06eb56c0 (local build/m7-rc-round-20261125, build 15)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T214410Z.g90b95f7259c1-from-ROCKNIX",
+    "walk": "docs/qa-logs/2026-11-26-1111-1115-campaign/phase-d/phase-d.sh"
+   },
+   "locale": "fr",
+   "width": 640,
+   "height": 480,
+   "frame": "build15-640x480/fr/s24/02-link-row.png",
+   "sha256": "ac35cce2c6da86687261a1bbb699f73b19a7a7bb63d2aa0d3d6e886ab9eb115c",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "back on the WebDAV form lands on the provider chooser; the form's labels in French (#1485)",
+    "date": "2026-11-26"
+   }
+  },
+  {
+   "flow_id": "cloud-folders-and-connections",
+   "branch_id": "build15/640x480/fr/s24/03-providers",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud",
+   "criteria": [
+    "1483 c3"
+   ],
+   "trigger": "LINK FROM THIS DEVICE, WEBDAV, then back on the provider form",
+   "expected_state": "where the add-a-connection wizard lands on back, unchanged by #1483",
+   "source": {
+    "es": "334ee42b8 (local m7/rc-round-es-20261125; route m7-20261126-3817c3c0b12f)",
+    "distribution": "90b95f7259c107d17a90e73b6d62999a06eb56c0 (local build/m7-rc-round-20261125, build 15)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T214410Z.g90b95f7259c1-from-ROCKNIX",
+    "walk": "docs/qa-logs/2026-11-26-1111-1115-campaign/phase-d/phase-d.sh"
+   },
+   "locale": "fr",
+   "width": 640,
+   "height": 480,
+   "frame": "build15-640x480/fr/s24/03-providers.png",
+   "sha256": "6ac94960c64f828e582c0f52fd7c620116861e3952b6f60bdeaa577048367f49",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "back on the WebDAV form lands on the provider chooser; the form's labels in French (#1485)",
+    "date": "2026-11-26"
+   }
+  },
+  {
+   "flow_id": "cloud-folders-and-connections",
+   "branch_id": "build15/640x480/fr/s24/04-webdav-row",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud",
+   "criteria": [
+    "1483 c3"
+   ],
+   "trigger": "LINK FROM THIS DEVICE, WEBDAV, then back on the provider form",
+   "expected_state": "where the add-a-connection wizard lands on back, unchanged by #1483",
+   "source": {
+    "es": "334ee42b8 (local m7/rc-round-es-20261125; route m7-20261126-3817c3c0b12f)",
+    "distribution": "90b95f7259c107d17a90e73b6d62999a06eb56c0 (local build/m7-rc-round-20261125, build 15)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T214410Z.g90b95f7259c1-from-ROCKNIX",
+    "walk": "docs/qa-logs/2026-11-26-1111-1115-campaign/phase-d/phase-d.sh"
+   },
+   "locale": "fr",
+   "width": 640,
+   "height": 480,
+   "frame": "build15-640x480/fr/s24/04-webdav-row.png",
+   "sha256": "aeca5ec5813d3ea8f1b60b2f17057c57d2da25278ea6bff6a13df137de8c5559",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "back on the WebDAV form lands on the provider chooser; the form's labels in French (#1485)",
+    "date": "2026-11-26"
+   }
+  },
+  {
+   "flow_id": "cloud-folders-and-connections",
+   "branch_id": "build15/640x480/fr/s24/05-webdav-form",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud",
+   "criteria": [
+    "1483 c3"
+   ],
+   "trigger": "LINK FROM THIS DEVICE, WEBDAV, then back on the provider form",
+   "expected_state": "where the add-a-connection wizard lands on back, unchanged by #1483",
+   "source": {
+    "es": "334ee42b8 (local m7/rc-round-es-20261125; route m7-20261126-3817c3c0b12f)",
+    "distribution": "90b95f7259c107d17a90e73b6d62999a06eb56c0 (local build/m7-rc-round-20261125, build 15)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T214410Z.g90b95f7259c1-from-ROCKNIX",
+    "walk": "docs/qa-logs/2026-11-26-1111-1115-campaign/phase-d/phase-d.sh"
+   },
+   "locale": "fr",
+   "width": 640,
+   "height": 480,
+   "frame": "build15-640x480/fr/s24/05-webdav-form.png",
+   "sha256": "1e84a01a4254116169c9c1d6cf8dc77c6b7a89885bad37abab8b1a8d20890a47",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "back on the WebDAV form lands on the provider chooser; the form's labels in French (#1485)",
+    "date": "2026-11-26"
+   }
+  },
+  {
+   "flow_id": "cloud-folders-and-connections",
+   "branch_id": "build15/640x480/fr/s24/06-after-back",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud",
+   "criteria": [
+    "1483 c3"
+   ],
+   "trigger": "LINK FROM THIS DEVICE, WEBDAV, then back on the provider form",
+   "expected_state": "where the add-a-connection wizard lands on back, unchanged by #1483",
+   "source": {
+    "es": "334ee42b8 (local m7/rc-round-es-20261125; route m7-20261126-3817c3c0b12f)",
+    "distribution": "90b95f7259c107d17a90e73b6d62999a06eb56c0 (local build/m7-rc-round-20261125, build 15)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T214410Z.g90b95f7259c1-from-ROCKNIX",
+    "walk": "docs/qa-logs/2026-11-26-1111-1115-campaign/phase-d/phase-d.sh"
+   },
+   "locale": "fr",
+   "width": 640,
+   "height": 480,
+   "frame": "build15-640x480/fr/s24/06-after-back.png",
+   "sha256": "aeca5ec5813d3ea8f1b60b2f17057c57d2da25278ea6bff6a13df137de8c5559",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "back on the WebDAV form lands on the provider chooser; the form's labels in French (#1485)",
+    "date": "2026-11-26"
+   }
+  },
+  {
+   "flow_id": "cloud-folders-and-connections",
+   "branch_id": "build15/640x480/fr/s29/01-cloud-hub",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud",
+   "criteria": [
+    "1486 c1",
+    "1486 c2"
+   ],
+   "trigger": "SIGN IN AGAIN on an OAuth-tier connection (qa-oauth, type dropbox, no sign-in), then back from the choice page; no typing method is chosen, so nothing reaches the provider",
+   "expected_state": "on build 14 back skips the connection's page to MANAGE CLOUD CONNECTIONS (#1486, before the fix); from build 15 it returns to the connection's page",
+   "source": {
+    "es": "334ee42b8 (local m7/rc-round-es-20261125; route m7-20261126-3817c3c0b12f)",
+    "distribution": "90b95f7259c107d17a90e73b6d62999a06eb56c0 (local build/m7-rc-round-20261125, build 15)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T214410Z.g90b95f7259c1-from-ROCKNIX",
+    "walk": "docs/qa-logs/2026-11-26-1111-1115-campaign/phase-d/phase-d.sh"
+   },
+   "locale": "fr",
+   "width": 640,
+   "height": 480,
+   "frame": "build15-640x480/fr/s29/01-cloud-hub.png",
+   "sha256": "473ea7f897c32ce864826049f5cc7fc22e16b7ca0c65e3770d9c7d9636224123",
+   "status": "walk-failed",
+   "note": "walk went astray: the English pass had left a profile store, so qa-oauth added behind it read as review-folders (#1489); the extra row moved the cursor to qa-cloud and the walk opened its EDIT form (nothing saved). Redone alone in build15-640x480-b"
+  },
+  {
+   "flow_id": "cloud-folders-and-connections",
+   "branch_id": "build15/640x480/fr/s29/02-connections-oauth",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud",
+   "criteria": [
+    "1486 c1",
+    "1486 c2"
+   ],
+   "trigger": "SIGN IN AGAIN on an OAuth-tier connection (qa-oauth, type dropbox, no sign-in), then back from the choice page; no typing method is chosen, so nothing reaches the provider",
+   "expected_state": "on build 14 back skips the connection's page to MANAGE CLOUD CONNECTIONS (#1486, before the fix); from build 15 it returns to the connection's page",
+   "source": {
+    "es": "334ee42b8 (local m7/rc-round-es-20261125; route m7-20261126-3817c3c0b12f)",
+    "distribution": "90b95f7259c107d17a90e73b6d62999a06eb56c0 (local build/m7-rc-round-20261125, build 15)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T214410Z.g90b95f7259c1-from-ROCKNIX",
+    "walk": "docs/qa-logs/2026-11-26-1111-1115-campaign/phase-d/phase-d.sh"
+   },
+   "locale": "fr",
+   "width": 640,
+   "height": 480,
+   "frame": "build15-640x480/fr/s29/02-connections-oauth.png",
+   "sha256": "1a9ebb0f09f8b9e88425552339370bfeb361300cbec925b8e32bb2f0191807e8",
+   "status": "walk-failed",
+   "note": "walk went astray: the English pass had left a profile store, so qa-oauth added behind it read as review-folders (#1489); the extra row moved the cursor to qa-cloud and the walk opened its EDIT form (nothing saved). Redone alone in build15-640x480-b"
+  },
+  {
+   "flow_id": "cloud-folders-and-connections",
+   "branch_id": "build15/640x480/fr/s29/03-oauth-page",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud",
+   "criteria": [
+    "1486 c1",
+    "1486 c2"
+   ],
+   "trigger": "SIGN IN AGAIN on an OAuth-tier connection (qa-oauth, type dropbox, no sign-in), then back from the choice page; no typing method is chosen, so nothing reaches the provider",
+   "expected_state": "on build 14 back skips the connection's page to MANAGE CLOUD CONNECTIONS (#1486, before the fix); from build 15 it returns to the connection's page",
+   "source": {
+    "es": "334ee42b8 (local m7/rc-round-es-20261125; route m7-20261126-3817c3c0b12f)",
+    "distribution": "90b95f7259c107d17a90e73b6d62999a06eb56c0 (local build/m7-rc-round-20261125, build 15)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T214410Z.g90b95f7259c1-from-ROCKNIX",
+    "walk": "docs/qa-logs/2026-11-26-1111-1115-campaign/phase-d/phase-d.sh"
+   },
+   "locale": "fr",
+   "width": 640,
+   "height": 480,
+   "frame": "build15-640x480/fr/s29/03-oauth-page.png",
+   "sha256": "7a17f12233b827404f12f035ddcf7946a9c94eed2ca3c1a0d67b9b4751e18a13",
+   "status": "walk-failed",
+   "note": "walk went astray: the English pass had left a profile store, so qa-oauth added behind it read as review-folders (#1489); the extra row moved the cursor to qa-cloud and the walk opened its EDIT form (nothing saved). Redone alone in build15-640x480-b"
+  },
+  {
+   "flow_id": "cloud-folders-and-connections",
+   "branch_id": "build15/640x480/fr/s29/04-signin-row",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud",
+   "criteria": [
+    "1486 c1",
+    "1486 c2"
+   ],
+   "trigger": "SIGN IN AGAIN on an OAuth-tier connection (qa-oauth, type dropbox, no sign-in), then back from the choice page; no typing method is chosen, so nothing reaches the provider",
+   "expected_state": "on build 14 back skips the connection's page to MANAGE CLOUD CONNECTIONS (#1486, before the fix); from build 15 it returns to the connection's page",
+   "source": {
+    "es": "334ee42b8 (local m7/rc-round-es-20261125; route m7-20261126-3817c3c0b12f)",
+    "distribution": "90b95f7259c107d17a90e73b6d62999a06eb56c0 (local build/m7-rc-round-20261125, build 15)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T214410Z.g90b95f7259c1-from-ROCKNIX",
+    "walk": "docs/qa-logs/2026-11-26-1111-1115-campaign/phase-d/phase-d.sh"
+   },
+   "locale": "fr",
+   "width": 640,
+   "height": 480,
+   "frame": "build15-640x480/fr/s29/04-signin-row.png",
+   "sha256": "a77f5eb81568db9de88b4c1e9225c1310df9387f5b775c81d59db24aa5be3a83",
+   "status": "walk-failed",
+   "note": "walk went astray: the English pass had left a profile store, so qa-oauth added behind it read as review-folders (#1489); the extra row moved the cursor to qa-cloud and the walk opened its EDIT form (nothing saved). Redone alone in build15-640x480-b"
+  },
+  {
+   "flow_id": "cloud-folders-and-connections",
+   "branch_id": "build15/640x480/fr/s29/05-signin-confirm",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud",
+   "criteria": [
+    "1486 c1",
+    "1486 c2"
+   ],
+   "trigger": "SIGN IN AGAIN on an OAuth-tier connection (qa-oauth, type dropbox, no sign-in), then back from the choice page; no typing method is chosen, so nothing reaches the provider",
+   "expected_state": "on build 14 back skips the connection's page to MANAGE CLOUD CONNECTIONS (#1486, before the fix); from build 15 it returns to the connection's page",
+   "source": {
+    "es": "334ee42b8 (local m7/rc-round-es-20261125; route m7-20261126-3817c3c0b12f)",
+    "distribution": "90b95f7259c107d17a90e73b6d62999a06eb56c0 (local build/m7-rc-round-20261125, build 15)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T214410Z.g90b95f7259c1-from-ROCKNIX",
+    "walk": "docs/qa-logs/2026-11-26-1111-1115-campaign/phase-d/phase-d.sh"
+   },
+   "locale": "fr",
+   "width": 640,
+   "height": 480,
+   "frame": "build15-640x480/fr/s29/05-signin-confirm.png",
+   "sha256": "81747b523f39577862d4596f47c4b5bedde1952cccd135950b92684a3b376cc7",
+   "status": "walk-failed",
+   "note": "walk went astray: the English pass had left a profile store, so qa-oauth added behind it read as review-folders (#1489); the extra row moved the cursor to qa-cloud and the walk opened its EDIT form (nothing saved). Redone alone in build15-640x480-b"
+  },
+  {
+   "flow_id": "cloud-folders-and-connections",
+   "branch_id": "build15/640x480/fr/s29/06-stuck-after-x",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud",
+   "criteria": [
+    "1486 c1",
+    "1486 c2"
+   ],
+   "trigger": "SIGN IN AGAIN on an OAuth-tier connection (qa-oauth, type dropbox, no sign-in), then back from the choice page; no typing method is chosen, so nothing reaches the provider",
+   "expected_state": "on build 14 back skips the connection's page to MANAGE CLOUD CONNECTIONS (#1486, before the fix); from build 15 it returns to the connection's page",
+   "source": {
+    "es": "334ee42b8 (local m7/rc-round-es-20261125; route m7-20261126-3817c3c0b12f)",
+    "distribution": "90b95f7259c107d17a90e73b6d62999a06eb56c0 (local build/m7-rc-round-20261125, build 15)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T214410Z.g90b95f7259c1-from-ROCKNIX",
+    "walk": "docs/qa-logs/2026-11-26-1111-1115-campaign/phase-d/phase-d.sh"
+   },
+   "locale": "fr",
+   "width": 640,
+   "height": 480,
+   "frame": "build15-640x480/fr/s29/06-stuck-after-x.png",
+   "sha256": "81747b523f39577862d4596f47c4b5bedde1952cccd135950b92684a3b376cc7",
+   "status": "walk-failed",
+   "note": "walk went astray: the English pass had left a profile store, so qa-oauth added behind it read as review-folders (#1489); the extra row moved the cursor to qa-cloud and the walk opened its EDIT form (nothing saved). Redone alone in build15-640x480-b"
+  },
+  {
+   "flow_id": "cloud-folders-and-connections",
+   "branch_id": "build15/640x480/fr/s30/01-cloud-hub",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud",
+   "criteria": [
+    "1485 c1"
+   ],
+   "trigger": "LINK FROM THIS DEVICE, AMAZON S3 AND COMPATIBLE, its first service, the form and its lower half; nothing submitted",
+   "expected_state": "from build 15 the mapped row labels read in French in French (#1485); in English as before",
+   "source": {
+    "es": "334ee42b8 (local m7/rc-round-es-20261125; route m7-20261126-3817c3c0b12f)",
+    "distribution": "90b95f7259c107d17a90e73b6d62999a06eb56c0 (local build/m7-rc-round-20261125, build 15)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T214410Z.g90b95f7259c1-from-ROCKNIX",
+    "walk": "docs/qa-logs/2026-11-26-1111-1115-campaign/phase-d/phase-d.sh"
+   },
+   "locale": "fr",
+   "width": 640,
+   "height": 480,
+   "frame": "build15-640x480/fr/s30/01-cloud-hub.png",
+   "sha256": "6720f9bb3a014af5cd480c42dcefbf4fd36c3cf00019528c77f47eb003061a94",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "the S3 form's mapped labels in French (#1485); SERVER SIDE ENCRYPTION and SSE KMS KEY ID are unmapped and keep rclone's names; the subtitle AMAZON S3 AND COMPATIBLE is #1490",
+    "date": "2026-11-26"
+   }
+  },
+  {
+   "flow_id": "cloud-folders-and-connections",
+   "branch_id": "build15/640x480/fr/s30/02-providers",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud",
+   "criteria": [
+    "1485 c1"
+   ],
+   "trigger": "LINK FROM THIS DEVICE, AMAZON S3 AND COMPATIBLE, its first service, the form and its lower half; nothing submitted",
+   "expected_state": "from build 15 the mapped row labels read in French in French (#1485); in English as before",
+   "source": {
+    "es": "334ee42b8 (local m7/rc-round-es-20261125; route m7-20261126-3817c3c0b12f)",
+    "distribution": "90b95f7259c107d17a90e73b6d62999a06eb56c0 (local build/m7-rc-round-20261125, build 15)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T214410Z.g90b95f7259c1-from-ROCKNIX",
+    "walk": "docs/qa-logs/2026-11-26-1111-1115-campaign/phase-d/phase-d.sh"
+   },
+   "locale": "fr",
+   "width": 640,
+   "height": 480,
+   "frame": "build15-640x480/fr/s30/02-providers.png",
+   "sha256": "6ac94960c64f828e582c0f52fd7c620116861e3952b6f60bdeaa577048367f49",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "the S3 form's mapped labels in French (#1485); SERVER SIDE ENCRYPTION and SSE KMS KEY ID are unmapped and keep rclone's names; the subtitle AMAZON S3 AND COMPATIBLE is #1490",
+    "date": "2026-11-26"
+   }
+  },
+  {
+   "flow_id": "cloud-folders-and-connections",
+   "branch_id": "build15/640x480/fr/s30/03-s3-row",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud",
+   "criteria": [
+    "1485 c1"
+   ],
+   "trigger": "LINK FROM THIS DEVICE, AMAZON S3 AND COMPATIBLE, its first service, the form and its lower half; nothing submitted",
+   "expected_state": "from build 15 the mapped row labels read in French in French (#1485); in English as before",
+   "source": {
+    "es": "334ee42b8 (local m7/rc-round-es-20261125; route m7-20261126-3817c3c0b12f)",
+    "distribution": "90b95f7259c107d17a90e73b6d62999a06eb56c0 (local build/m7-rc-round-20261125, build 15)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T214410Z.g90b95f7259c1-from-ROCKNIX",
+    "walk": "docs/qa-logs/2026-11-26-1111-1115-campaign/phase-d/phase-d.sh"
+   },
+   "locale": "fr",
+   "width": 640,
+   "height": 480,
+   "frame": "build15-640x480/fr/s30/03-s3-row.png",
+   "sha256": "ff733ce540e5fddf67587d444b72853f3f489ce89134020d277dfd179e29bce6",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "the S3 form's mapped labels in French (#1485); SERVER SIDE ENCRYPTION and SSE KMS KEY ID are unmapped and keep rclone's names; the subtitle AMAZON S3 AND COMPATIBLE is #1490",
+    "date": "2026-11-26"
+   }
+  },
+  {
+   "flow_id": "cloud-folders-and-connections",
+   "branch_id": "build15/640x480/fr/s30/04-s3-services",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud",
+   "criteria": [
+    "1485 c1"
+   ],
+   "trigger": "LINK FROM THIS DEVICE, AMAZON S3 AND COMPATIBLE, its first service, the form and its lower half; nothing submitted",
+   "expected_state": "from build 15 the mapped row labels read in French in French (#1485); in English as before",
+   "source": {
+    "es": "334ee42b8 (local m7/rc-round-es-20261125; route m7-20261126-3817c3c0b12f)",
+    "distribution": "90b95f7259c107d17a90e73b6d62999a06eb56c0 (local build/m7-rc-round-20261125, build 15)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T214410Z.g90b95f7259c1-from-ROCKNIX",
+    "walk": "docs/qa-logs/2026-11-26-1111-1115-campaign/phase-d/phase-d.sh"
+   },
+   "locale": "fr",
+   "width": 640,
+   "height": 480,
+   "frame": "build15-640x480/fr/s30/04-s3-services.png",
+   "sha256": "db6b64ee81e51ef20a16638b0a463f974c506db0086b01ae277b79c83f0b7b65",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "the S3 form's mapped labels in French (#1485); SERVER SIDE ENCRYPTION and SSE KMS KEY ID are unmapped and keep rclone's names; the subtitle AMAZON S3 AND COMPATIBLE is #1490",
+    "date": "2026-11-26"
+   }
+  },
+  {
+   "flow_id": "cloud-folders-and-connections",
+   "branch_id": "build15/640x480/fr/s30/05-s3-form",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud",
+   "criteria": [
+    "1485 c1"
+   ],
+   "trigger": "LINK FROM THIS DEVICE, AMAZON S3 AND COMPATIBLE, its first service, the form and its lower half; nothing submitted",
+   "expected_state": "from build 15 the mapped row labels read in French in French (#1485); in English as before",
+   "source": {
+    "es": "334ee42b8 (local m7/rc-round-es-20261125; route m7-20261126-3817c3c0b12f)",
+    "distribution": "90b95f7259c107d17a90e73b6d62999a06eb56c0 (local build/m7-rc-round-20261125, build 15)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T214410Z.g90b95f7259c1-from-ROCKNIX",
+    "walk": "docs/qa-logs/2026-11-26-1111-1115-campaign/phase-d/phase-d.sh"
+   },
+   "locale": "fr",
+   "width": 640,
+   "height": 480,
+   "frame": "build15-640x480/fr/s30/05-s3-form.png",
+   "sha256": "c6dd781ce4b24c95836e19a7137fb64e745a6cf5fa783d91e5258f9e4813c94a",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "the S3 form's mapped labels in French (#1485); SERVER SIDE ENCRYPTION and SSE KMS KEY ID are unmapped and keep rclone's names; the subtitle AMAZON S3 AND COMPATIBLE is #1490",
+    "date": "2026-11-26"
+   }
+  },
+  {
+   "flow_id": "cloud-folders-and-connections",
+   "branch_id": "build15/640x480/fr/s30/06-s3-form-lower",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud",
+   "criteria": [
+    "1485 c1"
+   ],
+   "trigger": "LINK FROM THIS DEVICE, AMAZON S3 AND COMPATIBLE, its first service, the form and its lower half; nothing submitted",
+   "expected_state": "from build 15 the mapped row labels read in French in French (#1485); in English as before",
+   "source": {
+    "es": "334ee42b8 (local m7/rc-round-es-20261125; route m7-20261126-3817c3c0b12f)",
+    "distribution": "90b95f7259c107d17a90e73b6d62999a06eb56c0 (local build/m7-rc-round-20261125, build 15)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T214410Z.g90b95f7259c1-from-ROCKNIX",
+    "walk": "docs/qa-logs/2026-11-26-1111-1115-campaign/phase-d/phase-d.sh"
+   },
+   "locale": "fr",
+   "width": 640,
+   "height": 480,
+   "frame": "build15-640x480/fr/s30/06-s3-form-lower.png",
+   "sha256": "96c02db0c893a18ba249866a715d1ecc8e0ae2e56d44f08f2166dc7b08b3689c",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "the S3 form's mapped labels in French (#1485); SERVER SIDE ENCRYPTION and SSE KMS KEY ID are unmapped and keep rclone's names; the subtitle AMAZON S3 AND COMPATIBLE is #1490",
+    "date": "2026-11-26"
+   }
+  },
+  {
+   "flow_id": "cloud-folders-and-connections",
+   "branch_id": "build15/640x480/fr/s30/07-after-back",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud",
+   "criteria": [
+    "1485 c1"
+   ],
+   "trigger": "LINK FROM THIS DEVICE, AMAZON S3 AND COMPATIBLE, its first service, the form and its lower half; nothing submitted",
+   "expected_state": "from build 15 the mapped row labels read in French in French (#1485); in English as before",
+   "source": {
+    "es": "334ee42b8 (local m7/rc-round-es-20261125; route m7-20261126-3817c3c0b12f)",
+    "distribution": "90b95f7259c107d17a90e73b6d62999a06eb56c0 (local build/m7-rc-round-20261125, build 15)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T214410Z.g90b95f7259c1-from-ROCKNIX",
+    "walk": "docs/qa-logs/2026-11-26-1111-1115-campaign/phase-d/phase-d.sh"
+   },
+   "locale": "fr",
+   "width": 640,
+   "height": 480,
+   "frame": "build15-640x480/fr/s30/07-after-back.png",
+   "sha256": "db6b64ee81e51ef20a16638b0a463f974c506db0086b01ae277b79c83f0b7b65",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "the S3 form's mapped labels in French (#1485); SERVER SIDE ENCRYPTION and SSE KMS KEY ID are unmapped and keep rclone's names; the subtitle AMAZON S3 AND COMPATIBLE is #1490",
+    "date": "2026-11-26"
+   }
+  },
+  {
+   "flow_id": "cloud-folders-and-connections",
+   "branch_id": "build15/640x480-b/fr/s29/01-cloud-hub",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud",
+   "criteria": [
+    "1486 c1",
+    "1486 c2"
+   ],
+   "trigger": "SIGN IN AGAIN on an OAuth-tier connection (qa-oauth, type dropbox, no sign-in), then back from the choice page; no typing method is chosen, so nothing reaches the provider",
+   "expected_state": "on build 14 back skips the connection's page to MANAGE CLOUD CONNECTIONS (#1486, before the fix); from build 15 it returns to the connection's page",
+   "source": {
+    "es": "334ee42b8 (local m7/rc-round-es-20261125; route m7-20261126-3817c3c0b12f)",
+    "distribution": "90b95f7259c107d17a90e73b6d62999a06eb56c0 (local build/m7-rc-round-20261125, build 15)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T214410Z.g90b95f7259c1-from-ROCKNIX",
+    "walk": "docs/qa-logs/2026-11-26-1111-1115-campaign/phase-d/phase-d.sh"
+   },
+   "locale": "fr",
+   "width": 640,
+   "height": 480,
+   "frame": "build15-640x480-b/fr/s29/01-cloud-hub.png",
+   "sha256": "6720f9bb3a014af5cd480c42dcefbf4fd36c3cf00019528c77f47eb003061a94",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "after the fix: back from the choice page returns to CONNEXION AU CLOUD qa-oauth (#1486); oauth status idle",
+    "date": "2026-11-26"
+   }
+  },
+  {
+   "flow_id": "cloud-folders-and-connections",
+   "branch_id": "build15/640x480-b/fr/s29/02-connections-oauth",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud",
+   "criteria": [
+    "1486 c1",
+    "1486 c2"
+   ],
+   "trigger": "SIGN IN AGAIN on an OAuth-tier connection (qa-oauth, type dropbox, no sign-in), then back from the choice page; no typing method is chosen, so nothing reaches the provider",
+   "expected_state": "on build 14 back skips the connection's page to MANAGE CLOUD CONNECTIONS (#1486, before the fix); from build 15 it returns to the connection's page",
+   "source": {
+    "es": "334ee42b8 (local m7/rc-round-es-20261125; route m7-20261126-3817c3c0b12f)",
+    "distribution": "90b95f7259c107d17a90e73b6d62999a06eb56c0 (local build/m7-rc-round-20261125, build 15)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T214410Z.g90b95f7259c1-from-ROCKNIX",
+    "walk": "docs/qa-logs/2026-11-26-1111-1115-campaign/phase-d/phase-d.sh"
+   },
+   "locale": "fr",
+   "width": 640,
+   "height": 480,
+   "frame": "build15-640x480-b/fr/s29/02-connections-oauth.png",
+   "sha256": "f3930720570075bf7d5060bc65f8cb363d63e8bb243d54e3edf6ca1ce5962392",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "after the fix: back from the choice page returns to CONNEXION AU CLOUD qa-oauth (#1486); oauth status idle",
+    "date": "2026-11-26"
+   }
+  },
+  {
+   "flow_id": "cloud-folders-and-connections",
+   "branch_id": "build15/640x480-b/fr/s29/03-oauth-page",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud",
+   "criteria": [
+    "1486 c1",
+    "1486 c2"
+   ],
+   "trigger": "SIGN IN AGAIN on an OAuth-tier connection (qa-oauth, type dropbox, no sign-in), then back from the choice page; no typing method is chosen, so nothing reaches the provider",
+   "expected_state": "on build 14 back skips the connection's page to MANAGE CLOUD CONNECTIONS (#1486, before the fix); from build 15 it returns to the connection's page",
+   "source": {
+    "es": "334ee42b8 (local m7/rc-round-es-20261125; route m7-20261126-3817c3c0b12f)",
+    "distribution": "90b95f7259c107d17a90e73b6d62999a06eb56c0 (local build/m7-rc-round-20261125, build 15)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T214410Z.g90b95f7259c1-from-ROCKNIX",
+    "walk": "docs/qa-logs/2026-11-26-1111-1115-campaign/phase-d/phase-d.sh"
+   },
+   "locale": "fr",
+   "width": 640,
+   "height": 480,
+   "frame": "build15-640x480-b/fr/s29/03-oauth-page.png",
+   "sha256": "9226c25edd6aa1aaebe9ab6cea5dec056149ee355dbe34dc270c97870de81a5c",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "after the fix: back from the choice page returns to CONNEXION AU CLOUD qa-oauth (#1486); oauth status idle",
+    "date": "2026-11-26"
+   }
+  },
+  {
+   "flow_id": "cloud-folders-and-connections",
+   "branch_id": "build15/640x480-b/fr/s29/04-signin-row",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud",
+   "criteria": [
+    "1486 c1",
+    "1486 c2"
+   ],
+   "trigger": "SIGN IN AGAIN on an OAuth-tier connection (qa-oauth, type dropbox, no sign-in), then back from the choice page; no typing method is chosen, so nothing reaches the provider",
+   "expected_state": "on build 14 back skips the connection's page to MANAGE CLOUD CONNECTIONS (#1486, before the fix); from build 15 it returns to the connection's page",
+   "source": {
+    "es": "334ee42b8 (local m7/rc-round-es-20261125; route m7-20261126-3817c3c0b12f)",
+    "distribution": "90b95f7259c107d17a90e73b6d62999a06eb56c0 (local build/m7-rc-round-20261125, build 15)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T214410Z.g90b95f7259c1-from-ROCKNIX",
+    "walk": "docs/qa-logs/2026-11-26-1111-1115-campaign/phase-d/phase-d.sh"
+   },
+   "locale": "fr",
+   "width": 640,
+   "height": 480,
+   "frame": "build15-640x480-b/fr/s29/04-signin-row.png",
+   "sha256": "3f66d62e699bcc5d30dabc374ba6f8d3802d67db3aadefa888bb01c2952c90a8",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "after the fix: back from the choice page returns to CONNEXION AU CLOUD qa-oauth (#1486); oauth status idle",
+    "date": "2026-11-26"
+   }
+  },
+  {
+   "flow_id": "cloud-folders-and-connections",
+   "branch_id": "build15/640x480-b/fr/s29/05-signin-confirm",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud",
+   "criteria": [
+    "1486 c1",
+    "1486 c2"
+   ],
+   "trigger": "SIGN IN AGAIN on an OAuth-tier connection (qa-oauth, type dropbox, no sign-in), then back from the choice page; no typing method is chosen, so nothing reaches the provider",
+   "expected_state": "on build 14 back skips the connection's page to MANAGE CLOUD CONNECTIONS (#1486, before the fix); from build 15 it returns to the connection's page",
+   "source": {
+    "es": "334ee42b8 (local m7/rc-round-es-20261125; route m7-20261126-3817c3c0b12f)",
+    "distribution": "90b95f7259c107d17a90e73b6d62999a06eb56c0 (local build/m7-rc-round-20261125, build 15)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T214410Z.g90b95f7259c1-from-ROCKNIX",
+    "walk": "docs/qa-logs/2026-11-26-1111-1115-campaign/phase-d/phase-d.sh"
+   },
+   "locale": "fr",
+   "width": 640,
+   "height": 480,
+   "frame": "build15-640x480-b/fr/s29/05-signin-confirm.png",
+   "sha256": "52145748dc83285094c23251970dbac99ccef68267d3eb86904f9c8714d99c6b",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "after the fix: back from the choice page returns to CONNEXION AU CLOUD qa-oauth (#1486); oauth status idle",
+    "date": "2026-11-26"
+   }
+  },
+  {
+   "flow_id": "cloud-folders-and-connections",
+   "branch_id": "build15/640x480-b/fr/s29/06-choice",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud",
+   "criteria": [
+    "1486 c1",
+    "1486 c2"
+   ],
+   "trigger": "SIGN IN AGAIN on an OAuth-tier connection (qa-oauth, type dropbox, no sign-in), then back from the choice page; no typing method is chosen, so nothing reaches the provider",
+   "expected_state": "on build 14 back skips the connection's page to MANAGE CLOUD CONNECTIONS (#1486, before the fix); from build 15 it returns to the connection's page",
+   "source": {
+    "es": "334ee42b8 (local m7/rc-round-es-20261125; route m7-20261126-3817c3c0b12f)",
+    "distribution": "90b95f7259c107d17a90e73b6d62999a06eb56c0 (local build/m7-rc-round-20261125, build 15)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T214410Z.g90b95f7259c1-from-ROCKNIX",
+    "walk": "docs/qa-logs/2026-11-26-1111-1115-campaign/phase-d/phase-d.sh"
+   },
+   "locale": "fr",
+   "width": 640,
+   "height": 480,
+   "frame": "build15-640x480-b/fr/s29/06-choice.png",
+   "sha256": "fa4a1c1b594bfbec70f1f429cf03aed964a04199d686e5ad7f40056f1a65071d",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "after the fix: back from the choice page returns to CONNEXION AU CLOUD qa-oauth (#1486); oauth status idle",
+    "date": "2026-11-26"
+   }
+  },
+  {
+   "flow_id": "cloud-folders-and-connections",
+   "branch_id": "build15/640x480-b/fr/s29/07-after-back",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud",
+   "criteria": [
+    "1486 c1",
+    "1486 c2"
+   ],
+   "trigger": "SIGN IN AGAIN on an OAuth-tier connection (qa-oauth, type dropbox, no sign-in), then back from the choice page; no typing method is chosen, so nothing reaches the provider",
+   "expected_state": "on build 14 back skips the connection's page to MANAGE CLOUD CONNECTIONS (#1486, before the fix); from build 15 it returns to the connection's page",
+   "source": {
+    "es": "334ee42b8 (local m7/rc-round-es-20261125; route m7-20261126-3817c3c0b12f)",
+    "distribution": "90b95f7259c107d17a90e73b6d62999a06eb56c0 (local build/m7-rc-round-20261125, build 15)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T214410Z.g90b95f7259c1-from-ROCKNIX",
+    "walk": "docs/qa-logs/2026-11-26-1111-1115-campaign/phase-d/phase-d.sh"
+   },
+   "locale": "fr",
+   "width": 640,
+   "height": 480,
+   "frame": "build15-640x480-b/fr/s29/07-after-back.png",
+   "sha256": "3f66d62e699bcc5d30dabc374ba6f8d3802d67db3aadefa888bb01c2952c90a8",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "after the fix: back from the choice page returns to CONNEXION AU CLOUD qa-oauth (#1486); oauth status idle",
+    "date": "2026-11-26"
+   }
   }
  ]
 }

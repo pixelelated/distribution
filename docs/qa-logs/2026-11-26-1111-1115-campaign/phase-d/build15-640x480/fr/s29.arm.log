@@ -1,0 +1,27 @@
+arm:
+STATE=unavailable CONNECTION= SECTIONS=qa-cloud,qa-oauth SYNC=unknown/unknown
+STATE=review-folders
+qa-cloud	webdav
+qa-oauth	dropbox
+put back:
+oauth status: idle
+pgrep: invalid option -- 'c'
+brokers running: 
+BusyBox v1.38.0 (2026-11-25 17:08:04 UTC) multi-call binary.
+
+Usage: pgrep [-flanovx] [-s SID|-P PPID|PATTERN]
+
+Display process(es) selected by regex PATTERN
+
+	-l	Show command name too
+	-a	Show command line too
+	-f	Match against entire command line
+	-n	Show the newest process only
+	-o	Show the oldest process only
+	-v	Negate the match
+	-x	Match whole name (not substring)
+	-s	Match session ID (0 for current)
+	-P	Match parent process ID
+STATE=selected CONNECTION=qa-cloud SECTIONS=qa-cloud SYNC=off/off
+STATE=active
+qa-cloud	webdav

@@ -169,7 +169,7 @@ steps_s29() { hub; down 9; open; echo "shot connections-oauth"; down 1; open; ec
 arm_s29() { S 'python3 /storage/m7-qa-d/conn.py add-oauth; cloud_remote list | cut -f1,2'; }
 # The witness that back left the sign-in: the broker's own status (cancelled) and no broker running,
 # read before this put back cancels anything. ES logs its cancel at Info, which the image does not keep.
-put_s29() { S 'echo "oauth status: $(/usr/bin/cloud_oauth status 2>/dev/null)"; echo "brokers running: $(pgrep -c -f "cloud_oauth serv[e]")"; /usr/bin/cloud_oauth cancel >/dev/null 2>&1; python3 /storage/m7-qa-d/conn.py remove-oauth; cloud_remote list | cut -f1,2'; }
+put_s29() { S 'echo "oauth status: $(/usr/bin/cloud_oauth status 2>/dev/null)"; echo "brokers running: $(pgrep -f "cloud_oauth serv[e]" | wc -l)"; /usr/bin/cloud_oauth cancel >/dev/null 2>&1; python3 /storage/m7-qa-d/conn.py remove-oauth; cloud_remote list | cut -f1,2'; }
 
 # s30: LINK FROM THIS DEVICE, AMAZON S3 AND COMPATIBLE, its first service, then the form and its lower half (#1485:
 # the key-pair labels). Nothing is submitted; back leaves each page.

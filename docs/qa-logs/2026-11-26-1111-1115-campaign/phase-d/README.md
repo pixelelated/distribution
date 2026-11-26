@@ -89,3 +89,20 @@ Nothing on hand explains the failure, so it is **#1487**, keep an eye on, with w
 **A completed edit (s28, `-d/`):** CONNECTION SAVED, and back returns to the connection's page (#1483). That is now in the menu map.
 
 **1280x800 (`build14-1280x800/`):** s25 in EN and FR. Both pages read ADD A CONNECTION BEFORE USING CLOUD TOOLS. / AJOUTEZ UNE CONNEXION AVANT D’UTILISER LES OUTILS CLOUD. (#1482 c1). The first attempt's arm assumed a profile store that does not exist before a first folder action; the new guard skipped its walk. s25 and s26 now save and restore only the files that exist, and the attempt's directory, which held only that arm log, was replaced by the rerun.
+
+## Build 15: the provider labels and SIGN IN AGAIN
+
+Build 15 is `90b95f7259`, with ES `334ee42b8` and route `m7-20261126-3817c3c0b12f`. It carries #1485 (the provider form's labels translated), #1486 (back from SIGN IN AGAIN) and the repaired host tests (#1488). All frames are at 640x480, in EN and FR, in `build15-640x480/`; the French s29 rerun is in `-b/`.
+
+| Screen | What the frames show | Criteria |
+| --- | --- | --- |
+| s24 | Back on the WebDAV form lands on the provider chooser. In French the form reads ADRESSE DU SERVEUR, TYPE DE SERVEUR, NOM D'UTILISATEUR, MOT DE PASSE, JETON D'ACCÈS. | #1485 c1; #1483 c3 |
+| s30 | The S3 form and its lower half. In French: CLÉS DU SYSTÈME, IDENTIFIANT DE CLÉ D'ACCÈS, CLÉ D'ACCÈS SECRÈTE, RÉGION, ADRESSE DU POINT D'ACCÈS, EMPLACEMENT, AUTORISATIONS D'ACCÈS, CLASSE DE STOCKAGE, VERROUILLAGE D'OBJETS DU BUCKET. SERVER SIDE ENCRYPTION and SSE KMS KEY ID are unmapped and keep rclone's names, as D-UI-038 says. The subtitle AMAZON S3 AND COMPATIBLE is #1490. | #1485 c1, c4 |
+| s29 | SIGN IN AGAIN, then back from the choice page, returns to the connection's page. The broker reports `idle` afterwards. In English this is `build15-640x480/`; in French, `-b/`. | #1486 c2 |
+| s19 | Back on EDIT CONNECTION and a failed save, unchanged from build 14. | #1483 |
+
+**The first French s29 went astray.** The English pass had left a profile store, so qa-oauth, added behind it, read as review-folders. The extra row moved the cursor to qa-cloud, and the walk opened its EDIT form; nothing was saved. That state is #1489. The screen was redone alone, as the first of its pass.
+
+**#1486's before frames** are on build 14 (`build14-640x480-oauth/`): back from the choice page landed on MANAGE CLOUD CONNECTIONS.
+
+**Witness fix:** the broker count in s29's put back used `pgrep -c`, which the guest's busybox lacks. It now pipes to `wc -l`.
