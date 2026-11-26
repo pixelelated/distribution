@@ -1,0 +1,29 @@
+#!/usr/bin/env bash
+# Run only the prepared, hashed owner under the existing functional VM slot.
+set -euo pipefail
+set -o noclobber
+umask 077
+owner=$(realpath -e -- "$1")
+checkout=$(python3 -I -B -c '
+import hashlib,json,sys
+from pathlib import Path
+p=Path(sys.argv[1])
+raw=(p/"config.json").read_bytes()
+assert hashlib.sha256(raw).hexdigest()==(p/"config.sha256").read_text().strip()
+c=json.loads(raw)
+assert c["owner"]==str(p) and c["tools"]["slot"]==c["checkout"]+"/tools/host-maintenance/m7-functional-slot"
+print(c["checkout"])
+' "$owner")
+hm="$checkout/tools/host-maintenance"
+test -f "$owner/slot-inputs.json"
+test ! -e "$owner/slot"
+cd -- "$checkout"
+"$hm/retention-report" --plan "$owner/retention-plan.json" --output "$owner/retention-report.json" >"$owner/retention-original.stdout" 2>"$owner/retention-original.stderr"
+"$hm/build-admission" prepare --plan "$owner/admission-plan.json" --output "$owner/admission.json" >"$owner/admission-original.stdout" 2>"$owner/admission-original.stderr"
+slot="$hm/m7-functional-slot"
+"$slot" request --owner "$owner" --checkout "$checkout" --seconds 1800 --minimum-available-mib 24576 --bindings "$owner/slot-inputs.json" --admission "$owner/admission.json" -- "$checkout/tools/watch-build" --admission "$owner/admission.json" -- /usr/bin/python3 -I -B "$owner/code/owner.py" --owner "$owner" >"$owner/slot-request-original.stdout" 2>"$owner/slot-request-original.stderr"
+rc=0
+"$slot" submit --request "$owner/slot/request.json" >"$owner/slot-submit-original.stdout" 2>"$owner/slot-submit-original.stderr" || rc=$?
+printf '%s\n' "$rc" >"$owner/slot-submit-original.rc"
+cat "$owner/slot-submit-original.stdout" "$owner/slot-submit-original.stderr"
+exit "$rc"

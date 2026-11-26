@@ -153,6 +153,7 @@ both lists and to this table, or it is invisible.**
 | `report-lifecycle-probe.py` | opt-in harmless child, real report writer and retirement preflight | `device-builds.md` |
 | `report_writer.py` | bounded exclusive report publication, fsync and exact readback | `device-builds.md` |
 | `host-maintenance/` | fixed-target swap helper, narrow administrator installer and isolated guard tests | `device-builds.md` |
+| `game-exit-qa/` | does an ordinary game exit back up the changed save on the GENERIC_X64 guest; its frame review ignores the menu clock and the Ozone focus outline, and any other change still needs a second review within 20 s (#1454, #1433) | `generic-x64-vm-testing.md` |
 | `archaeology` | what the record already says about a question -- the registers, the work logs, the rules, `git log`, the issues -- before anything is called pending or new | `decision-register.md` |
 | `ci-silence-check` | has GitHub stopped checking the fork: the newest push of `next` has a check suite, the fork's own checks ran in 26 hours, the public Actions page carries no pause banner, and the newest fork-checks run separates a red guard (act) from a record owed; fails closed when GitHub cannot be read (#1450, #1446) | `ceremonies.md` |
 | `ceremony-check` | which ceremony is owed (a friction entry's issue, a retro, a weekly or monthly summary, the index, a blindspot's guard, an audit, a futro) and whether the push guard refuses | `ceremonies.md` |

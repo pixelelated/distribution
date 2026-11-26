@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+# Publish one hash-bound response after reviewing the requested capture(s).
+set -eu
+umask 077
+owner=$(realpath -e -- "$1")
+while IFS=$'\t' read -r step kind view extra; do
+    [[ "$step" =~ ^0[1-5]$ && "$kind" =~ ^(request|recheck)$ && -n "$view" && -z "$extra" ]] || exit 2
+    python3 -I -B "$owner/code/visible_quit.py" "$owner/records/1433-menu-$step-$kind.json" "$view" || exit $?
+    if [[ "$view" == boundary || "$view" == same-quit-confirmation ]]; then exit 0; fi
+done
