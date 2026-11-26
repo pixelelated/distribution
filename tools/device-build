@@ -94,8 +94,12 @@ def sha256(path):
 
 
 def size(path):
+    # du exits 1 when any entry is unreadable (another user's files under
+    # /tmp) and still prints its total of what it could read; take that total.
+    # Build 13's launch read /tmp as -1 bytes ("-0.0 GiB") without this.
     r = subprocess.run(['du', '-sb', str(path)], capture_output=True, text=True)
-    return int(r.stdout.split()[0]) if r.returncode == 0 and r.stdout else -1
+    first = r.stdout.split()
+    return int(first[0]) if first and first[0].isdigit() else -1
 
 
 def tool(worktree, name):
