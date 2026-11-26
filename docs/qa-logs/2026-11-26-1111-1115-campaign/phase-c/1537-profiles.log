@@ -1,0 +1,75 @@
+=== 15:37:30 backend: running: webdav /home/max/.cache/rocknix-cloud-qa/data port 9010 (21 files)
+up: webdav already serving /home/max/.cache/rocknix-cloud-qa/data on port 9010
+=== 15:37:30 pair up from pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261124T225455Z.g0a3e979e506a-from-ROCKNIX.img.gz
+up: a (pid 3401624, ssh :10022, serial /tmp/rocknix-qemu-serial.sock, mac 52:54:00:52:4E:58)
+up: b (pid 3401651, ssh :10023, serial /tmp/rocknix-qemu-serial-b.sock, mac 52:54:00:52:4E:59)
+ready: a on 0a3e979e50 over ssh :10022 (answered after 0s)
+ready: b on 0a3e979e50 over ssh :10023 (answered after 0s)
+old build id: 0a3e979e506a01b8803f69a6804b3720f8438baf
+PASS old build id read
+PASS storage ready in boot 594325aa-4a4d-4bfb-bdb2-2e0233f70657 after 1 poll(s)
+=== 15:38:16 seed state on guest a
+ff2fb4941739099a0da11972dc81874b915c8cceeefa4d72c5ba510db2b2f2a3  savestates/nes/Rehearsal.state.auto
+5b8f823e963dc635c365262c1707da5f73343872534214a6c24744f218b09b5c  savestates/nes/Rehearsal.state1
+4377eda94004623a6bcdcc59ff174a787b9b6f8b368a22f084416a93ce6da930  savestates/nes/Rehearsal.state2
+1ae05ed385d1321827bd89d055027f094923f46a50090e06a659b7d300a597ab  nes/Rehearsal.srm
+PASS four seeded files exist
+PASS set_setting is a function on the guest
+PASS setting reads back before the update
+PASS DPMS opt-in reads back before the update
+=== 15:38:17 link the local WebDAV backend
+PASS backend gave an rclone.conf
+remote: qa-cloud:
+PASS guest sees one remote
+OK /Rehearsal/Saves
+saves remote before: SAVES_REMOTE="/Rehearsal/Saves" (/storage/.config/cloud_sync.conf)
+PASS saves remote set before the update
+PASS rclone (previous) lists the remote
+=== 15:38:19 seed a second connection with its own folders (#1111)
+seeded, selection back on qa-cloud
+connections before: STATE=active REHEARSAL_TWO	alias	saved	 qa-cloud	webdav	active	 
+PASS second connection seeded beside the QA remote (#1111)
+PASS selection back on the QA remote after seeding (#1111)
+=== 15:38:20 a settings backup
+2026_11_26-103819-GENERIC-X64-ROCKNIX_SETTINGS.tar.gz
+backups before: 1
+=== 15:38:20 seed what the retired GENERIC_X64 quirks left in /storage (#307 PL-019)
+PASS retired quirk files seeded before the update
+=== 15:38:20 seed a RetroArch cfg an owner changed, on a vulkan-era cfg (#307 PL-034, #308 claude F-VM-11)
+PASS RetroArch cfg seeded before the update
+active selection before the update: 24e675e15a779e5d9f7fbd013ac4d8a5dbbf11edd06cee0731f3dee64476bb86  /storage/.config/rclone/active-connection
+=== 15:38:21 seed mGBA's saved interframe blending at OFF, as every earlier RetroArch wrote it (D-LAUNCH-009, #1423)
+PASS mGBA options seeded at OFF before the update
+=== 15:38:21 stage pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T140833Z.ga069abd23615-from-ROCKNIX.tar and reboot guest a
+total 2106932
+drwxr-xr-x    2 root     root          4096 Nov 26 10:38 .
+drwxr-xr-x   21 root     root          4096 Nov 26 10:38 ..
+-rw-r--r--    1 root     root     2157486080 Nov 26 10:38 pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T140833Z.ga069abd23615-from-ROCKNIX.tar
+=== 15:39:25 guest a back after 3 polls
+PASS new build id is a069abd236
+PASS storage ready in boot 04de744d-9e8b-485e-8fc8-7dc5c815b79e after 1 poll(s)
+PASS saves and save states byte-identical
+PASS marker file kept
+PASS setting kept
+PASS DPMS opt-in kept through the update (#1457)
+PASS active rclone remote kept
+PASS active selection bytes/presence kept
+PASS rclone (new) lists the remote
+PASS saves remote kept
+PASS cloud conf gained the new defaults, kept the old values
+PASS saved connections kept, the same list and selection (#1111 C05)
+PASS connection profiles kept byte for byte (#1111 C05/C09)
+PASS backup archive kept
+PASS update queue empty
+PASS retired quirk files taken back after the update (#307 PL-019)
+PASS and the owner's file beside them kept
+PASS RetroArch fullscreen size set by hand kept, driver moved to gl (#307 PL-034, #308 claude F-VM-11)
+PASS mGBA's saved OFF became mix_smart, its other options kept, and a game's OFF left alone (D-LAUNCH-009, #1423)
+PASS the second connection's own folders kept, selection put back (#1111 C05)
+PASS release check #226: one libcairo.so.2.* (pango's fetched cairo is gone)
+PASS release check #226: libcairo.so.2 is a link to that one file (#226 box 1; the seat's G-10 under #258)
+rclone after: rclone v1.76.0
+=== 15:39:28 pair down
+down: owned QEMU exited (pid 3401624)
+down: owned QEMU exited (pid 3401651)
+=== 15:39:29 RESULT PASS

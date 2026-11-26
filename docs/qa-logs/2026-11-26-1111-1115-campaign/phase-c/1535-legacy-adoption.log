@@ -1,0 +1,70 @@
+=== 15:35:25 backend: running: webdav /home/max/.cache/rocknix-cloud-qa/data port 9010 (21 files)
+up: webdav already serving /home/max/.cache/rocknix-cloud-qa/data on port 9010
+=== 15:35:25 pair up from pixelelated-GENERIC_X64.x86_64-0.0.1-from-ROCKNIX.img.gz
+up: a (pid 3389006, ssh :10022, serial /tmp/rocknix-qemu-serial.sock, mac 52:54:00:52:4E:58)
+up: b (pid 3389036, ssh :10023, serial /tmp/rocknix-qemu-serial-b.sock, mac 52:54:00:52:4E:59)
+ready: a on 43d0bc3bf4 over ssh :10022 (answered after 0s)
+ready: b on 43d0bc3bf4 over ssh :10023 (answered after 0s)
+old build id: 43d0bc3bf47fd858ba8d5c55fbdf52535a0db2aa
+PASS old build id read
+PASS storage ready in boot 39fae6fc-6b69-4bc3-aa92-70a80279dd0e after 1 poll(s)
+=== 15:36:08 seed state on guest a
+a3d0100ea36c941d6673f4497b25e8a2ea4e2a076e2e5a017aa216195654150d  savestates/nes/Rehearsal.state.auto
+a07e4cd2c078c01c43f6b0223d84980f0f052016b56e913d5b9f69bd617186d3  savestates/nes/Rehearsal.state1
+6f2986738e6907d4dfe7950196b21b4a1d941c8a47e103b11fd69f59678b9c9a  savestates/nes/Rehearsal.state2
+cc13d25055ee16f6679398cb95128f8d445db5ee82f9e46eb20a165fdebe06de  nes/Rehearsal.srm
+PASS four seeded files exist
+PASS set_setting is a function on the guest
+PASS setting reads back before the update
+PASS DPMS opt-in reads back before the update
+=== 15:36:08 link the local WebDAV backend
+PASS backend gave an rclone.conf
+remote: qa-cloud:
+PASS guest sees one remote
+OK /Rehearsal/Saves
+saves remote before: SAVES_REMOTE="/Rehearsal/Saves" (/storage/.config/cloud_sync.conf)
+PASS saves remote set before the update
+PASS rclone (previous) lists the remote
+=== 15:36:11 the previous image has no connection profiles: the update's adoption of its folders is checked instead (#1111 C02)
+=== 15:36:11 a settings backup
+2026_11_26-103609-GENERIC-X64-ROCKNIX_SETTINGS.tar.gz
+backups before: 1
+=== 15:36:11 seed what the retired GENERIC_X64 quirks left in /storage (#307 PL-019)
+PASS retired quirk files seeded before the update
+=== 15:36:11 seed a RetroArch cfg an owner changed, on a vulkan-era cfg (#307 PL-034, #308 claude F-VM-11)
+PASS RetroArch cfg seeded before the update
+active selection before the update: absent
+=== 15:36:11 seed mGBA's saved interframe blending at OFF, as every earlier RetroArch wrote it (D-LAUNCH-009, #1423)
+PASS mGBA options seeded at OFF before the update
+=== 15:36:12 stage pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T140833Z.ga069abd23615-from-ROCKNIX.tar and reboot guest a
+total 2106932
+drwxr-xr-x    2 root     root          4096 Nov 26 10:36 .
+drwxr-xr-x   20 root     root          4096 Nov 26 10:35 ..
+-rw-r--r--    1 root     root     2157486080 Nov 26 10:36 pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T140833Z.ga069abd23615-from-ROCKNIX.tar
+kex_exchange_identification: read: Connection reset by peer
+=== 15:37:16 guest a back after 3 polls
+PASS new build id is a069abd236
+PASS storage ready in boot 62702c40-0979-41bc-bf5f-3549459b980a after 1 poll(s)
+PASS saves and save states byte-identical
+PASS marker file kept
+PASS setting kept
+PASS DPMS opt-in kept through the update (#1457)
+PASS active rclone remote kept
+PASS active selection bytes/presence kept
+PASS rclone (new) lists the remote
+PASS saves remote kept
+PASS cloud conf gained the new defaults, kept the old values
+PASS the old saves folder adopted by the existing connection (#1111 C02)
+PASS backup archive kept
+PASS update queue empty
+PASS retired quirk files taken back after the update (#307 PL-019)
+PASS and the owner's file beside them kept
+PASS RetroArch fullscreen size set by hand kept, driver moved to gl (#307 PL-034, #308 claude F-VM-11)
+PASS mGBA's saved OFF became mix_smart, its other options kept, and a game's OFF left alone (D-LAUNCH-009, #1423)
+PASS release check #226: one libcairo.so.2.* (pango's fetched cairo is gone)
+PASS release check #226: libcairo.so.2 is a link to that one file (#226 box 1; the seat's G-10 under #258)
+rclone after: rclone v1.76.0
+=== 15:37:19 pair down
+down: owned QEMU exited (pid 3389006)
+down: owned QEMU exited (pid 3389036)
+=== 15:37:20 RESULT PASS
