@@ -1,6 +1,6 @@
 # #1428: the cloud setup pages, EN and FR, at 640x480 and 1280x800
 
-Proof packet for [#1428](https://github.com/pixelelated/distribution/issues/1428), 2026-11-26. The frame index is `evidence-index.json` (schema 1, 11 reviewed entries).
+Proof packet for [#1428](https://github.com/pixelelated/distribution/issues/1428), 2026-11-26. The frame index is `evidence-index.json` (schema 1, 16 reviewed entries).
 
 **Source:** EmulationStation `d87891f24` (local) in the round `30e6ff3db9`, image `…g30e6ff3db9ac`.
 
@@ -10,12 +10,12 @@ Proof packet for [#1428](https://github.com/pixelelated/distribution/issues/1428
 | --- | --- |
 | 1. Category switches: purpose and cloud destination before action | CLOUD FOLDERS opens with WHAT THESE CHOICES DO ("choosing alone changes nothing") and NO BACKUP OR RESTORE. Each switch names its folder (IN YOUR CLOUD: /pixelelated/…). Each action says what it does: CHECK CLOUD FOLDERS creates nothing; CREATE CLOUD FOLDERS creates folders and setup notes in your cloud. The text fits in EN and FR at both sizes. |
 | 3. The overall check includes the connection, and its outcomes stay separate | The hub has CHECK CLOUD SETUP and no peer CHECK CONNECTION. `cloudCheckSetup` (`GuiMenu.cpp` ~7430) runs `cloud_setup --check '<connection>:'`, then `cloud_setup --validate-folders saves,settings`, both bound to one `config_id`. The result page shows CONNECTION / PROVIDER / CONNECTION CHECK apart from ON THIS DEVICE, AUTOMATIC SAVE SYNC and CLOUD FOLDER CHECKS. |
+| 6. The transfer entries: direction and next step at the hub, selection before any transfer | The hub (EN and FR) reads BACK UP TO CLOUD / CHOOSE CONTENT FROM THIS DEVICE TO BACK UP. and RESTORE FROM CLOUD / CHOOSE CONTENT TO RESTORE TO THIS DEVICE. Pressing either opens a page titled as its row (ES `d87891f24`) that asks WHAT WOULD YOU LIKE TO BACK UP? / RESTORE? and transfers nothing until its own BACK UP / RESTORE button, whose existing confirmation and preview follow. Frames at 640x480 (EN and FR) and 1280x800 (FR here, EN in standard run 8), from runs `…-1254` and `…-1259`. |
 
 **Not covered here:**
 - criterion 2 (before and after fixture manifests);
 - criterion 4 (two saved connections, two on one provider);
 - criterion 5 (the branch receipts);
-- the last criterion (the hub's transfer entries in FR and at 640x480).
 
 **Seen, for review:**
 - GAME CONTENT names the same folder as ROMS (`/pixelelated/Content/ROMs`).

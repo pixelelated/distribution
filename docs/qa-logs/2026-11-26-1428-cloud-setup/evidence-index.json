@@ -276,6 +276,131 @@
     "observed": "as expected; text fits",
     "date": "2026-11-26"
    }
+  },
+  {
+   "flow_id": "cloud-transfer-entry",
+   "branch_id": "cloud-hub",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud-settings",
+   "trigger": "the CLOUD hub from GAME SETTINGS",
+   "expected_state": "BACK UP AND RESTORE CONTENT: BACK UP TO CLOUD / RESTORE FROM CLOUD with their CHOOSE ... lines, in the locale",
+   "source": {
+    "es": "d87891f24 (local m7/rc-round-es-20261125)",
+    "distribution": "30e6ff3db9 (local build/m7-rc-round-20261125)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T115211Z.g30e6ff3db9ac-from-ROCKNIX",
+    "walks": "WALK_SUITE=tools/vm-walks/suite-1428.txt tools/vm-qa --only walks --walk back-up-page-en,restore-page-en,back-up-page-fr,restore-page-fr, round 480d15f515; runs qa-30e6ff3db9-webdav-a-20261126-1254 (1280x800) and -1259 (640x480, VM_RES)"
+   },
+   "locale": "fr",
+   "width": 640,
+   "height": 480,
+   "frame": "frames/640-fr-cloud-hub.png",
+   "sha256": "6720f9bb3a014af5cd480c42dcefbf4fd36c3cf00019528c77f47eb003061a94",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "as expected; text fits",
+    "date": "2026-11-26"
+   }
+  },
+  {
+   "flow_id": "cloud-transfer-entry",
+   "branch_id": "back-up-page",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud-settings",
+   "trigger": "A on BACK UP TO CLOUD (after the cloud scan)",
+   "expected_state": "page titled as the row; WHAT WOULD YOU LIKE TO BACK UP?; the four categories; BACK and BACK UP buttons; nothing transferred",
+   "source": {
+    "es": "d87891f24 (local m7/rc-round-es-20261125)",
+    "distribution": "30e6ff3db9 (local build/m7-rc-round-20261125)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T115211Z.g30e6ff3db9ac-from-ROCKNIX",
+    "walks": "WALK_SUITE=tools/vm-walks/suite-1428.txt tools/vm-qa --only walks --walk back-up-page-en,restore-page-en,back-up-page-fr,restore-page-fr, round 480d15f515; runs qa-30e6ff3db9-webdav-a-20261126-1254 (1280x800) and -1259 (640x480, VM_RES)"
+   },
+   "locale": "fr",
+   "width": 640,
+   "height": 480,
+   "frame": "frames/640-fr-back-up-page.png",
+   "sha256": "b9f3834b469b6d03b04d7414c664668b4e61f80d57ce0e186fefc5157cf598d8",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "as expected; text fits",
+    "date": "2026-11-26"
+   }
+  },
+  {
+   "flow_id": "cloud-transfer-entry",
+   "branch_id": "restore-page",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud-settings",
+   "trigger": "A on RESTORE FROM CLOUD (after the cloud scan)",
+   "expected_state": "page titled as the row; WHAT WOULD YOU LIKE TO RESTORE?; SETTINGS dimmed with no backup from this device; BACK and RESTORE buttons; nothing transferred",
+   "source": {
+    "es": "d87891f24 (local m7/rc-round-es-20261125)",
+    "distribution": "30e6ff3db9 (local build/m7-rc-round-20261125)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T115211Z.g30e6ff3db9ac-from-ROCKNIX",
+    "walks": "WALK_SUITE=tools/vm-walks/suite-1428.txt tools/vm-qa --only walks --walk back-up-page-en,restore-page-en,back-up-page-fr,restore-page-fr, round 480d15f515; runs qa-30e6ff3db9-webdav-a-20261126-1254 (1280x800) and -1259 (640x480, VM_RES)"
+   },
+   "locale": "en",
+   "width": 640,
+   "height": 480,
+   "frame": "frames/640-en-restore-page.png",
+   "sha256": "ef1db5237a51be44c7b1018a546b04f290eac35e370244da0d4878fcee4d79f0",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "as expected; text fits",
+    "date": "2026-11-26"
+   }
+  },
+  {
+   "flow_id": "cloud-transfer-entry",
+   "branch_id": "restore-page",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud-settings",
+   "trigger": "A on RESTORE FROM CLOUD (after the cloud scan)",
+   "expected_state": "page titled as the row; WHAT WOULD YOU LIKE TO RESTORE?; SETTINGS dimmed with no backup from this device; BACK and RESTORE buttons; nothing transferred",
+   "source": {
+    "es": "d87891f24 (local m7/rc-round-es-20261125)",
+    "distribution": "30e6ff3db9 (local build/m7-rc-round-20261125)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T115211Z.g30e6ff3db9ac-from-ROCKNIX",
+    "walks": "WALK_SUITE=tools/vm-walks/suite-1428.txt tools/vm-qa --only walks --walk back-up-page-en,restore-page-en,back-up-page-fr,restore-page-fr, round 480d15f515; runs qa-30e6ff3db9-webdav-a-20261126-1254 (1280x800) and -1259 (640x480, VM_RES)"
+   },
+   "locale": "fr",
+   "width": 640,
+   "height": 480,
+   "frame": "frames/640-fr-restore-page.png",
+   "sha256": "6365c5198ca54824ca90a424bc4180e0031083b6c6da146a0c8550425f8d7e01",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "as expected; text fits",
+    "date": "2026-11-26"
+   }
+  },
+  {
+   "flow_id": "cloud-transfer-entry",
+   "branch_id": "restore-page",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud-settings",
+   "trigger": "A on RESTORE FROM CLOUD (after the cloud scan)",
+   "expected_state": "page titled as the row; WHAT WOULD YOU LIKE TO RESTORE?; SETTINGS dimmed with no backup from this device; BACK and RESTORE buttons; nothing transferred",
+   "source": {
+    "es": "d87891f24 (local m7/rc-round-es-20261125)",
+    "distribution": "30e6ff3db9 (local build/m7-rc-round-20261125)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T115211Z.g30e6ff3db9ac-from-ROCKNIX",
+    "walks": "WALK_SUITE=tools/vm-walks/suite-1428.txt tools/vm-qa --only walks --walk back-up-page-en,restore-page-en,back-up-page-fr,restore-page-fr, round 480d15f515; runs qa-30e6ff3db9-webdav-a-20261126-1254 (1280x800) and -1259 (640x480, VM_RES)"
+   },
+   "locale": "fr",
+   "width": 1280,
+   "height": 800,
+   "frame": "frames/1280-fr-restore-page.png",
+   "sha256": "6780e30e943952eeff6bfe6b04705d903b49b6158465e91e7ca3d0a9d91ba1a5",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "as expected; text fits",
+    "date": "2026-11-26"
+   }
   }
  ]
 }
