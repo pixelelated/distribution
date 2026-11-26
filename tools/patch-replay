@@ -1,0 +1,140 @@
+#!/bin/bash
+# SPDX-License-Identifier: GPL-2.0
+# Copyright (C) 2026-present ROCKNIX (https://github.com/ROCKNIX)
+#
+# patch-replay -- does every package's patch set still apply, for one device,
+# before a build starts? (#1448 criterion 4, #1445; D-INFRA-043)
+#
+#   tools/patch-replay --tree <worktree> --device SM8550 --arch aarch64
+#       [--project ROCKNIX] [--plan <build.log | plan>] [--packages "a b"]
+#       [-j N] [--out DIR] [--keep]
+#
+# The build's own scripts/unpack runs for each package, one at a time per
+# worker, in a scratch build root of its own (BUILD_DIR) with the shared
+# source cache (SOURCES_DIR): the same extraction, post_unpack and pre_patch
+# hooks, patch order (common, arch, PKG_PATCH_DIRS, version, project, device)
+# and @TARGET_CPU@/@DEVICE@ substitution the build uses, under the LC_ALL=C
+# config/options exports. Nothing is copied from scripts/unpack, so nothing
+# here can drift from it. The scratch root is deleted when the package's
+# verdict is written (--keep leaves it).
+#
+# Which packages: every one with a .patch file this device can reach --
+# under a recipe's patches/ (packages/, projects/<P>/packages/,
+# projects/<P>/devices/<D>/packages/), projects/<P>/patches/<pkg>/ and
+# projects/<P>/devices/<D>/patches/<pkg>/. That is a superset of the build's
+# plan; --plan narrows it to the packages a build log or plan names
+# ("[DONE] build fex-emu:host", "install fex-emu:target", "build pkg:target"),
+# and --packages names them outright. The plan itself cannot be generated on
+# the host: emulationstation's recipe dies outside its exact build root by
+# design (its source-custody check), so pkgjson drops it and genbuildplan
+# refuses.
+#
+# Per package: OK (unpacked, N patches applied), PATCH-FAIL (a patch did not
+# apply -- the build would stop there), or CANNOT-CHECK (the recipe did not
+# load, the source is not in the cache and could not be fetched, a hook
+# failed, ...), with the log under <out>/logs/.
+#
+# Exit 0: every package OK. 1: a patch does not apply. 2: no PATCH-FAIL, but
+# a package could not be checked, or the run could not start -- never a pass.
+#
+# Writes: <out> (default /workspace/tmp/rocknix-session/patch-replay-<device>-<arch>-<UTC>);
+# a source missing from the cache is fetched into it by scripts/get, as a
+# build would. The tree is read, never written.
+set -uo pipefail
+tree= device= arch= project=ROCKNIX plan= packages= jobs=4 out= keep=0
+usage() { sed -n '5,9p' "$0" | sed 's/^# \{0,1\}//' >&2; exit 2; }
+while [ "$#" -gt 0 ]; do
+    case "$1" in
+        --tree) tree=${2:-}; shift 2 ;;
+        --device) device=${2:-}; shift 2 ;;
+        --arch) arch=${2:-}; shift 2 ;;
+        --project) project=${2:-}; shift 2 ;;
+        --plan) plan=${2:-}; shift 2 ;;
+        --packages) packages=${2:-}; shift 2 ;;
+        -j) jobs=${2:-}; shift 2 ;;
+        --out) out=${2:-}; shift 2 ;;
+        --keep) keep=1; shift ;;
+        -h|--help) sed -n '5,45p' "$0" | sed 's/^# \{0,1\}//'; exit 0 ;;
+        *) echo "patch-replay: unknown argument $1" >&2; usage ;;
+    esac
+done
+[ -n "$tree" ] && [ -n "$device" ] && [ -n "$arch" ] || usage
+[[ $jobs =~ ^[1-9][0-9]?$ ]] || { echo "patch-replay: -j wants 1-99" >&2; exit 2; }
+tree=$(cd "$tree" 2>/dev/null && pwd) || { echo "patch-replay: no tree $tree" >&2; exit 2; }
+[ -x "$tree/scripts/unpack" ] && [ -f "$tree/config/options" ] || { echo "patch-replay: $tree has no scripts/unpack or config/options" >&2; exit 2; }
+[ -f "$tree/projects/$project/devices/$device/options" ] || { echo "patch-replay: no device $project/$device in $tree" >&2; exit 2; }
+[ -z "$plan" ] || [ -r "$plan" ] || { echo "patch-replay: cannot read plan $plan" >&2; exit 2; }
+SOURCES_DIR=${SOURCES_DIR:-/workspace/cache/rocknix-sources}
+[ -d "$SOURCES_DIR" ] || { echo "patch-replay: no source cache $SOURCES_DIR" >&2; exit 2; }
+out=${out:-/workspace/tmp/rocknix-session/patch-replay-$device-$arch-$(date -u +%Y%m%dT%H%M%SZ)}
+! [ -e "$out" ] || { echo "patch-replay: $out exists" >&2; exit 2; }
+mkdir -p "$out/logs" "$out/work" "$out/verdicts" || exit 2
+out=$(cd "$out" && pwd)
+
+# The packages with patches this device can reach, by directory name.
+scan() {
+    local p=projects/$project
+    ( cd "$tree" && find packages "$p/packages" "$p/devices/$device/packages" -path '*/patches/*' -name '*.patch' 2>/dev/null |
+          sed -E 's#/patches/.*##; s#.*/##'
+      cd "$tree" && find "$p/patches" "$p/devices/$device/patches" -mindepth 2 -name '*.patch' 2>/dev/null |
+          sed -E "s#^($p/devices/$device|$p)/patches/##; s#/.*##" ) | LC_ALL=C sort -u
+}
+if [ -n "$packages" ]; then
+    printf '%s\n' $packages | LC_ALL=C sort -u > "$out/packages.txt"
+else
+    scan > "$out/scanned.txt"
+    if [ -n "$plan" ]; then
+        { grep -a -o -E '(build|install|unpack) [A-Za-z0-9_.+-]+:(target|host|init|bootstrap)' "$plan" || true; } |
+            sed -E 's/^[a-z]+ //; s/:.*//' | LC_ALL=C sort -u > "$out/planned.txt"
+        [ -s "$out/planned.txt" ] || { echo "patch-replay: $plan names no package" >&2; exit 2; }
+        LC_ALL=C comm -12 "$out/scanned.txt" "$out/planned.txt" > "$out/packages.txt"
+        LC_ALL=C comm -23 "$out/scanned.txt" "$out/planned.txt" > "$out/not-planned.txt"
+    else
+        cp "$out/scanned.txt" "$out/packages.txt"
+    fi
+fi
+n=$(grep -c . "$out/packages.txt")
+[ "$n" -gt 0 ] || { echo "patch-replay: no package to replay" >&2; exit 2; }
+head_id=$(git -C "$tree" rev-parse --short=10 HEAD 2>/dev/null || echo "not a git tree")
+{ echo "tree $tree ($head_id)"; echo "device $project/$device arch $arch"; echo "sources $SOURCES_DIR"
+  echo "packages $n${plan:+ (from the plan $plan)}"; echo "started $(date -u +%FT%TZ)"; } | tee "$out/RUN.txt"
+
+# One package: the build's unpack in a scratch root, then its verdict.
+one() {
+    local pkg=$1 work=$out/work/$1 logf=$out/logs/$1.log rc verdict detail applied
+    mkdir -p "$work"
+    ( cd "$tree" && env BUILD_DIR="$work" SOURCES_DIR="$SOURCES_DIR" PROJECT="$project" DEVICE="$device" ARCH="$arch" \
+          timeout 1800 scripts/unpack "$pkg" ) > "$logf" 2>&1
+    rc=$?
+    applied=$(sed 's/\x1b\[[0-9;]*m//g' "$logf" | grep -c 'APPLY PATCH')
+    if [ "$rc" = 0 ]; then
+        verdict=OK; detail="$applied patch(es) applied"
+    elif grep -a -q -E 'Hunk #[0-9]+ FAILED|can.t find file to patch|patch does not apply|error: patch failed|Reversed \(or previously applied\) patch detected|No file to patch' "$logf"; then
+        verdict=PATCH-FAIL
+        detail=$(sed 's/\x1b\[[0-9;]*m//g' "$logf" | grep 'APPLY PATCH' | tail -1 | sed -E 's/.*APPLY PATCH +//; s/ +/ /g')
+    else
+        verdict=CANNOT-CHECK
+        detail="rc $rc: $(sed 's/\x1b\[[0-9;]*m//g' "$logf" | grep -v '^\s*$' | tail -1 | cut -c1-160)"
+    fi
+    printf '%s\t%s\t%s\n' "$verdict" "$pkg" "$detail" > "$out/verdicts/$pkg"
+    printf '%-12s %s -- %s\n' "$verdict" "$pkg" "$detail"
+    [ "$keep" = 1 ] || rm -rf "${work:?}"
+}
+export -f one
+export out tree project device arch SOURCES_DIR keep
+xargs -a "$out/packages.txt" -P "$jobs" -I{} bash -c 'one "$@"' _ {} | tee "$out/progress.txt"
+
+# The verdicts, read from the files the workers wrote, not from their output.
+cat "$out"/verdicts/* 2>/dev/null | LC_ALL=C sort -k1,1 -k2,2 > "$out/RESULT.tsv"
+got=$(grep -c . "$out/RESULT.tsv"); ok=$(grep -c '^OK	' "$out/RESULT.tsv")
+pf=$(grep -c '^PATCH-FAIL	' "$out/RESULT.tsv"); cc=$(grep -c '^CANNOT-CHECK	' "$out/RESULT.tsv")
+patches=$(awk -F'\t' '$1 == "OK" {split($3, a, " "); s += a[1]} END {print s + 0}' "$out/RESULT.tsv")
+{ echo "finished $(date -u +%FT%TZ)"
+  echo "packages $n, verdicts $got: $ok OK ($patches patch applications), $pf PATCH-FAIL, $cc CANNOT-CHECK"
+  grep -v '^OK	' "$out/RESULT.tsv" | sed 's/^/  /'
+} | tee -a "$out/RUN.txt"
+if [ "$got" != "$n" ]; then echo "patch-replay: $((n - got)) package(s) left no verdict -- not a pass" | tee -a "$out/RUN.txt"; exit 2; fi
+[ "$pf" = 0 ] || { echo "patch-replay: $tree ($head_id) $device/$arch -- A PATCH DOES NOT APPLY" | tee -a "$out/RUN.txt"; exit 1; }
+[ "$cc" = 0 ] || { echo "patch-replay: $tree ($head_id) $device/$arch -- NOT ALL CHECKED" | tee -a "$out/RUN.txt"; exit 2; }
+echo "patch-replay: $tree ($head_id) $device/$arch -- EVERY PATCH APPLIES" | tee -a "$out/RUN.txt"
+exit 0

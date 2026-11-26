@@ -176,6 +176,28 @@ that no longer applied (#1448). Before the set's first build, replay every
 target's patches against their pinned sources without compiling (#1448). The
 build route records the set's head and lists what to rebuild when it moves (#1445).
 
+## Before a build set: every patch still applies
+
+A patch that no longer applies stops a cold build at that package's
+unpack, which can be hours in: `fex-emu`'s `0006` stopped the SM8550 build
+of `ace312b0d2` at package 706 of 736 after two hours and forty-five
+minutes, once a merge had taken upstream's newer `0003` (#1448). So before
+a build set's first build (D-INFRA-043), replay the patches of the frozen
+tree for each device and arch the set builds:
+
+```bash
+tools/patch-replay --tree <build worktree> --device SM8550 --arch aarch64 \
+    --plan <the last build of that device's console.log>
+```
+
+It runs the build's own `scripts/unpack` for each package that has patches,
+in a scratch build root (`BUILD_DIR`) with the shared source cache, so the
+order, hooks and substitutions are the build's and cannot drift. Exit 1 is
+a patch that does not apply; exit 2 is a package it could not check, which
+is not a pass. `--plan` narrows the scan to the packages a previous build
+log names; the plan cannot be generated on the host, because
+emulationstation's recipe refuses to load outside its exact build root.
+
 ## The build command
 
 Use the canonical `make docker-<DEVICE>` target rather than a hand-rolled
