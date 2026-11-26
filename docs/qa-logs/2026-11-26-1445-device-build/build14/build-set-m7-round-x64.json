@@ -1,0 +1,27 @@
+{
+  "set": "m7-round-x64",
+  "head": "ed61fe8e5922f3106cb35230fed0027f4f7fc431",
+  "builds": {
+    "GENERIC_X64": {
+      "run": "/workspace/repos/rocknix.worktrees/conflict-resolution/.build-runs/m7-round-x64-14-owner/submit-01",
+      "run_dir": "/workspace/repos/rocknix.worktrees/m7-round-x64-20261125/.build-runs/20261126T192842Z-d162c1da",
+      "worktree": "/workspace/repos/rocknix.worktrees/m7-round-x64-20261125",
+      "at": "2026-11-26T19:28:42Z",
+      "run_dir_printed": "/workspace/repos/rocknix.worktrees/m7-round-x64-20261125/.build-runs/20261126T192837Z-32b9acb5",
+      "note": "run_dir_printed was the retention report run (REPORT_COMPLETE in 5 s); device-build fixed to accept only a new run directory (OS coordinator, 2026-11-26)"
+    }
+  },
+  "replays": {
+    "GENERIC_X64": "2026-11-26T19:28:37Z"
+  },
+  "moves": [
+    {
+      "at": "2026-11-26T19:27:50Z",
+      "from": "bc81894fa826e118d43f19ce9d3e5e94709ea4c5",
+      "to": "ed61fe8e5922f3106cb35230fed0027f4f7fc431",
+      "rebuild": [
+        "GENERIC_X64"
+      ]
+    }
+  ]
+}

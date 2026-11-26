@@ -93,7 +93,7 @@ arm_s14() { :; }; put_s14() { :; }
 
 # s15: no saved connection at all (C12's empty state). Up twice from the hub's
 # top wraps to its last row, MANAGE CLOUD CONNECTIONS (#1428's legs).
-steps_s15() { hub; echo "shot hub-no-connections"; down 3; echo "shot hub-no-connections-lower"; echo "key up"; echo "wait-for-change 4"; echo "key up"; echo "wait-for-change 4"; echo "key up"; echo "wait-for-change 4"; echo "key up"; echo "wait-for-change 4"; echo "key up"; echo "wait-for-change 4"; echo settle; echo "shot hub-last-row"; open; echo "shot connections-none"; }
+steps_s15() { hub; echo "shot hub-no-connections"; down 3; echo "shot hub-no-connections-lower"; echo "key up"; echo "wait-for-change 4"; echo "key up"; echo "wait-for-change 4"; echo "key up"; echo "wait-for-change 4"; echo "key up"; echo "wait-for-change 4"; echo "key up"; echo "wait-for-change 4"; echo settle; echo "shot hub-last-row"; open; echo "shot connections-none"; back; echo "key up"; echo "wait-for-change 4"; echo settle; open; echo "wait 20"; echo "settle 60 3"; echo "shot setup-check-none"; }
 arm_s15() { S 'mv /storage/.config/rclone/rclone.conf /storage/m7-qa-d/rclone.conf.saved && rm -f /storage/.config/rclone/active-connection; cloud_remote setup-info | grep -E "^STATE="'; }
 put_s15() { S 'mv /storage/m7-qa-d/rclone.conf.saved /storage/.config/rclone/rclone.conf && chmod 600 /storage/.config/rclone/rclone.conf && cloud_remote select qa-cloud; cloud_remote setup-info | grep -E "^STATE="'; }
 # s16: CLOUD SETUP CHECK to the foot of the page (C18's entry point there)
@@ -114,7 +114,10 @@ steps_s18() { to_two; down 6; echo "shot remove-row"; open; echo "shot remove-co
 arm_s18() { S 'python3 /storage/m7-qa-d/conn.py add-two'; }
 put_s18() { S 'python3 /storage/m7-qa-d/conn.py state; python3 /storage/m7-qa-d/conn.py repair'; }
 # s19: EDIT CONNECTION on a connection whose endpoint stopped answering: backed out of (cancel), then saved, which re-verifies and fails; the section is kept byte for byte (#1111 C03, C06, C08)
-steps_s19() { to_two; down 5; echo "shot edit-row"; open; echo "shot edit-form"; back; echo "shot after-cancel"; open; echo "key up"; echo "wait-for-change 4"; echo "key up"; echo "wait-for-change 4"; echo settle; echo "shot save-row"; open; echo "shot update-confirm"; echo "key x"; echo "wait-for-change 120 1"; echo "settle 120 3"; echo "shot update-failed"; echo "key x"; echo "wait-for-change 10"; echo settle; echo "shot after-failure-ok"; back; echo "shot after-failure-back"; }
+# From build 14 (ES 274d3716b, #1483) back on the form returns to the connection
+# page with the cursor on EDIT CONNECTION. On build 13 it returned to the list,
+# and this walk then removed qa-two (640x480-more/*/s19, indexed walk-failed).
+steps_s19() { to_two; down 5; echo "shot edit-row"; open; echo "shot edit-form"; back; echo "shot after-cancel"; open; echo "shot edit-form-again"; echo "key up"; echo "wait-for-change 4"; echo "key up"; echo "wait-for-change 4"; echo settle; echo "shot save-row"; open; echo "shot update-confirm"; echo "key x"; echo "wait-for-change 120 1"; echo "settle 120 3"; echo "shot update-failed"; echo "key x"; echo "wait-for-change 10"; echo settle; echo "shot after-failure-ok"; back; echo "shot after-failure-back"; }
 arm_s19() { S 'python3 /storage/m7-qa-d/conn.py add-two >/dev/null && python3 /storage/m7-qa-d/conn.py break-two'; }
 put_s19() { S 'python3 /storage/m7-qa-d/conn.py two-hash; python3 /storage/m7-qa-d/conn.py repair'; }
 # s20: an unreadable setup (a line before rclone.conf's first section): the hub, CHECK CLOUD SETUP, MANAGE CLOUD CONNECTIONS and CLOUD FOLDER ACTIONS (#1111 C11)
@@ -132,10 +135,16 @@ mid_s22() { S ': > /storage/.config/rclone/active-connection; cloud_remote setup
 steps2_s22() { steps2_s21; }
 put_s22() { put_s04; }
 arm_s21() { :; }; arm_s22() { :; }
+# s23: a connection saved but none selected: MANAGE CLOUD CONNECTIONS and CHECK CLOUD SETUP still say CHOOSE (#1482 criterion 3)
+steps_s23() { hub; down 9; open; echo "shot connections-unselected"; back; echo "key up"; echo "wait-for-change 4"; echo settle; open; echo "wait 20"; echo "settle 60 3"; echo "shot setup-check-unselected"; }
+arm_s23() { arm_s04; }; put_s23() { put_s04; }
+# s24: LINK FROM THIS DEVICE, WEBDAV, then back on its form: where the add-a-connection wizard lands (#1483 criterion 3)
+steps_s24() { hub; down 9; open; down 1; echo "shot link-row"; open; echo "shot providers"; down 8; echo "shot webdav-row"; open; echo "shot webdav-form"; back; echo "shot after-back"; }
+arm_s24() { :; }; put_s24() { :; }
 arm_s17() { S "$(ctx); cloud_remote set-folder saves / \$c && cloud_remote folder-context | jq -c .paths"; }
 put_s17() { put_s02; }
 
-SCREENS="s01 s02 s03 s04 s05 s06 s07 s08 s09 s10 s11 s12 s13 s14 s15 s16 s17 s18 s19 s20 s21 s22"
+SCREENS="s01 s02 s03 s04 s05 s06 s07 s08 s09 s10 s11 s12 s13 s14 s15 s16 s17 s18 s19 s20 s21 s22 s23 s24"
 [ -n "$only" ] && SCREENS=${only//,/ }
 
 log "== #1111/#1115 phase D at $res, $(date -u +%FT%TZ)"

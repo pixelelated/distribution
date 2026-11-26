@@ -1,0 +1,39 @@
+{
+ "record": "ACCEPTANCE",
+ "written_utc": "2026-11-26T19:33Z",
+ "issue": [
+  1111,
+  1482,
+  1483,
+  1445
+ ],
+ "run": "/workspace/repos/rocknix.worktrees/m7-round-x64-20261125/.build-runs/20261126T192842Z-d162c1da",
+ "disposition": "qualified",
+ "expected_rc": 0,
+ "outputs": [
+  {
+   "path": "/workspace/repos/rocknix.worktrees/m7-round-x64-20261125/build.pixelelated-GENERIC_X64.x86_64",
+   "issue": 1445,
+   "kind": "build-cache",
+   "owner": "OS work coordinator",
+   "release_when": "the next build of the set starts, or its images are on GitHub (D-INFRA-033/036/037)"
+  },
+  {
+   "path": "/workspace/repos/rocknix.worktrees/m7-round-x64-20261125/target",
+   "issue": 1445,
+   "kind": "firmware",
+   "owner": "OS work coordinator",
+   "release_when": "its images are on GitHub, or a newer build of the set supersedes it (D-INFRA-036/037)"
+  }
+ ],
+ "evidence": [
+  {
+   "path": "/workspace/repos/rocknix.worktrees/conflict-resolution/.build-runs/m7-round-x64-14-owner/acceptance/image-reads-14.txt",
+   "sha256": "d16f445b7fe53a3a8f7f405f01d1d2b530d905fb18582801956f69a20ae553c2"
+  }
+ ],
+ "head": "ed61fe8e5922f3106cb35230fed0027f4f7fc431",
+ "admission": "76f3e5ba3dc045e086b5da1903835fff",
+ "scope": "build-level acceptance of the round's GENERIC_X64 engineering image at ed61fe8e59: rc 0 everywhere, processes exited, checksums verified, os-release BUILD_ID = head, EmulationStation rebuilt from route m7-20261126-552f3815e4b4 (ES 6cdcb7a64: #1482, #1483, #1111's unreadable-setup naming). Supersedes build 13's image. Not a VM qualification: the standard run and phase D's build 14 screens follow. device-build printed the retention report's run directory; the build's is the run above (#1445).",
+ "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T192845Z.ged61fe8e5922-from-ROCKNIX"
+}

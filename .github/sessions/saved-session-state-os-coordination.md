@@ -8,6 +8,25 @@ Read the [M7 milestone](https://github.com/pixelelated/distribution/milestone/7)
 
 ## Current focus
 
+**000000000000000000. Newest (2026-11-26T19:35Z): after the host restart (18:27Z), phase D on build 13 is done, build 14 (`ed61fe8e59`) is built and accepted with three fixes, and its phase D screens are running.**
+- **The restart** wiped every guest, waiter and the QA WebDAV backend (`tools/cloud-test-backend up` from the round tree brings it back). No build was in flight.
+- **Closed:** #1480 (with the amended root clause: saves can never be the cloud root) and #1115 (phases A, B and D, with the code trace).
+- **Filed and fixed on the ES round:**
+  - #1482, `7ff5f6b77`: no saved connection now asks to add one.
+  - #1483, `274d3716b`: back on EDIT CONNECTION returns to the connection.
+  - #1111 C10/C11/C20, `6cdcb7a64`: an unreadable setup is named.
+  - #1484, `b80e59646`: the page-lifetime test compiles again. `tools/es-syntax-check` now runs it.
+- **Build 14:**
+  - route 05 (`m7-20261126-552f3815e4b4`, supplier `.build-runs/m7-rc-round-20261126-05-es/`);
+  - owner `.build-runs/m7-round-x64-14-owner` (ACCEPTANCE-14, admission consumed);
+  - run `m7-round-x64-20261125/.build-runs/20261126T192842Z-d162c1da`;
+  - image `…20261126T192845Z.ged61fe8e5922…`.
+- **Running:** phase D on build 14, s04, s05, s15, s19, s20, s22, s23 and s24 at 640x480 EN/FR. Runner `/workspace/tmp/rocknix-session/phase-d-b14.sh`, pid 558003; rc file `phase-d-b14.rc`; harness waiter armed.
+  - When it ends: review, tick #1482, #1483 and #1111's C03/C08/C11, commit `build14-640x480/`, then run standard run 11 on build 14 and `rc-preflight --only vm-qa`.
+- **#1111 next:** post the criteria comment (draft `/workspace/tmp/rocknix-session/issues/1111-ticks.md`). C15 waits on D-CLOUD-194, and C24's French half on #1478.
+- **#1463:** the 2026-11-03 direction stands (M7 keeps its numbers, M6 rekeys). Fresh reservations are on `next` (`d53880bc00`), and the sweep reads reservations and open rows. M6's confirmation was asked through the steward (inbox 19:34Z). Still to do: land M7's off-`next` rows by content (criterion 1).
+- **#1445:** build 14 printed the wrong run directory; it is fixed. Criterion 1 waits on the next launch.
+
 **00000000000000000. Newest (2026-11-26T16:25Z): build 13 (`bc81894fa8`) launched and accepted through `tools/device-build`; standard run 10 running; #1481 closed; #1480 fixed and awaiting its frames.**
 - **Build 13** carries ES `c0fd03e1b` (#1480's hub fix; route `m7-20261126-16a1ec4e624a`, supplier `.build-runs/m7-rc-round-20261126-04-es/`).
   - It was the first real launch of `tools/device-build`. Owner `.build-runs/m7-round-x64-13-owner`; run `20261126T161644Z-7f89045d`, rc 0, accepted (`ACCEPTANCE-13.json`), admission consumed. Set file `.build-runs/build-sets/m7-round-x64.json`.

@@ -8,6 +8,16 @@
 import hashlib, json, pathlib
 
 HERE = pathlib.Path(__file__).resolve().parent
+SOURCES = {
+    "build13": {"es": "c0fd03e1b (local m7/rc-round-es-20261125; route m7-20261126-16a1ec4e624a)",
+                "distribution": "bc81894fa826e118d43f19ce9d3e5e94709ea4c5 (local build/m7-rc-round-20261125, build 13)",
+                "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T161646Z.gbc81894fa826-from-ROCKNIX",
+                "walk": "docs/qa-logs/2026-11-26-1111-1115-campaign/phase-d/phase-d.sh"},
+    "build14": {"es": "6cdcb7a64 (local m7/rc-round-es-20261125; route m7-20261126-552f3815e4b4)",
+                "distribution": "ed61fe8e5922f3106cb35230fed0027f4f7fc431 (local build/m7-rc-round-20261125, build 14)",
+                "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T192845Z.ged61fe8e5922-from-ROCKNIX",
+                "walk": "docs/qa-logs/2026-11-26-1111-1115-campaign/phase-d/phase-d.sh"},
+}
 SOURCE = {"es": "c0fd03e1b (local m7/rc-round-es-20261125; route m7-20261126-16a1ec4e624a)",
           "distribution": "bc81894fa826e118d43f19ce9d3e5e94709ea4c5 (local build/m7-rc-round-20261125, build 13)",
           "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T161646Z.gbc81894fa826-from-ROCKNIX",
@@ -39,7 +49,7 @@ SCREENS = {
     "s12": ("the WebDAV URL pointed at a dead port", "COULDN'T FINISH; each folder COULDN'T READ THIS FOLDER", ["1115 C04"]),
     "s13": ("CHECK CLOUD SETUP", "CLOUD SETUP CHECK: the connection, CLOUD ANSWERED..., the local folders, the sync switches, the folder checks", ["1111 C18"]),
     "s14": ("MANAGE CLOUD CONNECTIONS, LINK FROM A COMPUTER", "CLOUD STORAGE SETUP with CHANGE CLOUD FOLDER LOCATIONS and the saves path", ["1111 C18"]),
-    "s15": ("no saved connection (rclone.conf moved aside)", "the hub and MANAGE CLOUD CONNECTIONS with nothing saved", ["1111 C12"]),
+    "s15": ("no saved connection (rclone.conf moved aside)", "the hub, MANAGE CLOUD CONNECTIONS and (from build 14) CHECK CLOUD SETUP with nothing saved; from build 14 the line is ADD A CONNECTION BEFORE USING CLOUD TOOLS.", ["1111 C12", "1482 c1", "1482 c2"]),
     "s16": ("CHECK CLOUD SETUP, to the bottom of the page", "CHANGE CLOUD FOLDER LOCATIONS, CHECK OTHER CLOUD FOLDERS, MANAGE CLOUD CONNECTIONS", ["1111 C18"]),
     "s17": ("cloud_remote set-folder saves / (refused by the profile module: Choose a separate folder for saves or settings backups.)",
             "the hub's line and the editor unchanged at /pixelelated/Saves: a saves folder at the cloud root cannot be set",
@@ -59,6 +69,10 @@ SCREENS = {
     "s22": ("the selection emptied while CLOUD FOLDERS is open, then CHECK CLOUD FOLDERS",
             "not the stale wording: the no-selection case is told apart from a changed context",
             ["1111 C11"]),
+    "s23": ("a connection saved but the selection emptied: MANAGE CLOUD CONNECTIONS and CHECK CLOUD SETUP",
+            "both pages still read CHOOSE A CONNECTION BEFORE USING CLOUD TOOLS. (#1482 leaves this case as it was)", ["1482 c3", "1111 C10"]),
+    "s24": ("LINK FROM THIS DEVICE, WEBDAV, then back on the provider form",
+            "where the add-a-connection wizard lands on back, unchanged by #1483", ["1483 c3"]),
 }
 reviewed = set()
 rf = HERE / "reviewed.txt"
@@ -78,9 +92,10 @@ OBSERVED = {k: v for lang in ("en", "fr") for k, v in (
 entries = []
 import sys
 SKIP = set(sys.argv[sys.argv.index("--skip") + 1:]) if "--skip" in sys.argv else set()   # a run still writing
-for res_dir in sorted(d for d in HERE.glob("build13-*") if d.name not in SKIP):
-    run = res_dir.name.removeprefix("build13-")          # <res>, <res>-extra, <res>-root
-    res = run.split("-")[0]; w, h = (int(v) for v in res.split("x"))
+for res_dir in sorted(d for d in HERE.glob("build1[34]-*") if d.name not in SKIP):
+    build, _, run = res_dir.name.partition("-")            # build13|build14, <res>[-extra|-root|-more]
+    run = run if build == "build13" else f"{build}/{run}"  # build 13 keys stay as reviewed.txt has them
+    res = run.split("/")[-1].split("-")[0]; w, h = (int(v) for v in res.split("x"))
     for lang_dir in sorted(p for p in res_dir.iterdir() if p.is_dir()):
         # <sNN>-b/ holds the second walk of a screen that changes state part-way.
         for scr_dir in sorted(p for p in lang_dir.iterdir() if p.is_dir() and p.name.split("-")[0] in SCREENS):
@@ -90,7 +105,7 @@ for res_dir in sorted(d for d in HERE.glob("build13-*") if d.name not in SKIP):
             for frame in sorted(scr_dir.glob("*.png")):
                 entries.append({"flow_id": "cloud-folders-and-connections", "branch_id": f"{key}/{frame.stem}",
                                 "document": "docs/es-menu-map.md", "anchor": "cloud", "criteria": criteria,
-                                "trigger": trigger, "expected_state": expected, "source": SOURCE,
+                                "trigger": trigger, "expected_state": expected, "source": SOURCES[build],
                                 "locale": lang_dir.name, "width": w, "height": h,
                                 "frame": str(frame.relative_to(HERE)), "sha256": hashlib.sha256(frame.read_bytes()).hexdigest(),
                                 "status": status,
