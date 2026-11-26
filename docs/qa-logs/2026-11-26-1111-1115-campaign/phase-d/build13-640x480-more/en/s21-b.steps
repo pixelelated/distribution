@@ -1,0 +1,23 @@
+settle
+key down
+wait-for-change 4
+key down
+wait-for-change 4
+key down
+wait-for-change 4
+key down
+wait-for-change 4
+key down
+wait-for-change 4
+key down
+wait-for-change 4
+settle
+shot check-after-change
+key x
+wait-for-change 20 1
+settle
+shot check-refused
+key x
+wait-for-change 10
+settle
+shot after-ok

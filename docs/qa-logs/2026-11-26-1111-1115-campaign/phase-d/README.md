@@ -34,6 +34,11 @@ OS coordinator, 2026-11-26.
 | s15 | no saved connection (`rclone.conf` moved aside, then put back) | The hub keeps CHECK CLOUD SETUP and MANAGE CLOUD CONNECTIONS and hides the connection and folder rows; the content rows are dimmed. MANAGE CLOUD CONNECTIONS: NO CONNECTION IN USE, then ADD A NEW CONNECTION. Its line, CHOOSE A CONNECTION BEFORE USING CLOUD TOOLS., asks for a choice with nothing to choose: **#1482**, fixed on the ES round in `7ff5f6b77` for the next build. | C12 |
 | s16 | CHECK CLOUD SETUP to the foot of the page | WHAT THIS CHECK COVERS, then CHANGE CLOUD FOLDER LOCATIONS, CHECK OTHER CLOUD FOLDERS and MANAGE CLOUD CONNECTIONS | C18 |
 | s17 | `cloud_remote set-folder saves /` | **Refused** by the profile module: "Choose a separate folder for saves or settings backups." (`cloud_connection_profiles.py` never accepts `''` or `/` for saves; `s17.arm.log`). The hub and the editor stay at `/pixelelated/Saves`. So a saves folder at the cloud root cannot occur, and #1480's root clause is answered by the code, not a frame. | #1480 c1 |
+| s18 | a second connection (qa-two) removed from its own page | The confirmation says the cloud files stay. CANCEL leaves the page as it was. REMOVE CONNECTION leaves QA-CLOUD alone and IN USE; the restore's state line confirms qa-two was gone. | #1111 C01, C08 |
+| s19 | EDIT CONNECTION on qa-two with its endpoint dead, backed out of, then saved | **Not usable on build 13.** Back on the form returns to MANAGE CLOUD CONNECTIONS, not the connection's page. The walk assumed otherwise, and its next presses removed qa-two. That return is **#1483**, fixed in ES `274d3716b`; the screen is redone on build 14. Indexed `walk-failed`. | #1111 C03, C08 |
+| s20 | a line before `rclone.conf`'s first section (an unreadable setup) | CLOUD SETUP CHECK: SETUP COULD NOT BE READ. MANAGE CLOUD CONNECTIONS: CONNECTIONS UNAVAILABLE. **But the hub reads NO CONNECTION SELECTED, and the editor and CLOUD FOLDERS ask the player to choose a connection:** an unreadable setup read as no selection. Fixed in ES `6cdcb7a64`. | #1111 C11 |
+| s21 | the saves folder changed while CLOUD FOLDERS is open, then CHECK CLOUD FOLDERS | THE CLOUD CHECK IS NO LONGER CURRENT. REOPEN CLOUD FOLDERS AND CHECK AGAIN.: the stale wording, for the change of context. Frames in `s21/` and, after the change, `s21-b/`. | #1111 C11, C14 |
+| s22 | the selection emptied while CLOUD FOLDERS is open, then CHECK CLOUD FOLDERS | Not the stale wording, but COULDN'T CHECK YOUR FOLDERS. CHECK YOUR CONNECTION, THEN TRY AGAIN., which points at a connection fault when the known cause is no selection. Fixed in ES `6cdcb7a64`: it names the case (CHOOSE A CONNECTION BEFORE USING CLOUD TOOLS.). | #1111 C10, C11, C20 |
 
 ## The runs
 
@@ -44,6 +49,7 @@ OS coordinator, 2026-11-26.
 | `build13-640x480-extra/` | 640x480 | s15, s16 | every walk ran |
 | `build13-1280x800-extra/` | 1280x800 | s13 (the FR rerun, EN again), s15, s16 | every walk ran |
 | `build13-640x480-root/` | 640x480 | s17 | every walk ran; the arm was refused, as the screen now expects (`ARM_REFUSED`) |
+| `build13-640x480-more/` | 640x480 | s18–s22 | Every walk ran. s19's path is wrong, as above. The first attempt was cut off by the host restart at 18:27 UTC; its three empty frames were deleted. The second went astray in s18/s19 by reusing the shared connections walk; it was stopped by its process groups, the guests were taken down, and it was rerun. |
 
 Each run used its own fresh guest. `RESULT.txt` in each directory carries the guest's `BUILD_ID` and every arm and restore line. At 1280x800 the menus are a centred panel over the carousel, not full screen, and nothing overruns in either language.
 

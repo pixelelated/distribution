@@ -446,7 +446,12 @@ def main():
         n += 1
     submit = owner / f'submit-{n:02d}'
     submit.mkdir()
-    started = time.time() - 2
+    # Run directories that exist before the submission: the retention report
+    # above runs under watch-build too, and its directory is written within
+    # seconds of the submit, so a time filter picked it as the build's
+    # (build 14, 2026-11-26). Only a new name can be the build's run.
+    runs = wt / '.build-runs'
+    existing = {d.name for d in runs.glob('*')} if runs.is_dir() else set()
     env = dict(os.environ, **exports)
     say(f'submit make docker-{a.device} from {wt}')
     sh([str(tool(wt, 'watch-build-submit')), '--owner', str(submit), '--', '--admission', str(owner / 'admission.json'),
@@ -462,7 +467,7 @@ def main():
     # watched from here (#1445 criterion 1). Not finding it is said, not hidden.
     run_dir = None
     for _ in range(60):
-        fresh = [d for d in (wt / '.build-runs').glob('*') if d.is_dir() and d.stat().st_mtime >= started
+        fresh = [d for d in runs.glob('*') if d.is_dir() and d.name not in existing
                  and (d / 'build.status').exists()]
         if fresh:
             run_dir = max(fresh, key=lambda d: d.stat().st_mtime)

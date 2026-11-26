@@ -66,7 +66,15 @@ if rf.exists():
     reviewed = {l.strip() for l in rf.read_text().splitlines() if l.strip() and not l.startswith("#")}
 # A walk that did not finish keeps its frame as the record of the failure; it
 # is never "reviewed", and it names the run that redid the screen.
-FAILED = {"1280x800/fr/s13": "walk rc 3: the key up after the setup check was not seen; redone in build13-1280x800-extra"}
+FAILED = {"1280x800/fr/s13": "walk rc 3: the key up after the setup check was not seen; redone in build13-1280x800-extra",
+          # The walk assumed back on EDIT CONNECTION returns to the connection page; on build 13 it returns to
+          # the list (#1483), so the next presses opened the page again and removed qa-two. Redone on build 14.
+          "640x480-more/en/s19": "walk went astray: back on EDIT CONNECTION returned to the list (#1483), and the next presses removed qa-two; no edit was saved",
+          "640x480-more/fr/s19": "walk went astray: back on EDIT CONNECTION returned to the list (#1483), and the next presses removed qa-two; no edit was saved"}
+# A reviewed screen whose frames show a defect says what was seen, not "as expected".
+OBSERVED = {k: v for lang in ("en", "fr") for k, v in (
+    (f"640x480-more/{lang}/s20", "defect, build 13: the hub reads NO CONNECTION SELECTED and CLOUD FOLDERS asks to choose a connection for an unreadable setup; the setup check and connections page name it. Fixed in ES 6cdcb7a64 (#1111 C11)"),
+    (f"640x480-more/{lang}/s22-b", "defect, build 13: a selection emptied while CLOUD FOLDERS is open gives COULDN'T CHECK YOUR FOLDERS. CHECK YOUR CONNECTION; not the stale wording, but it names a connection fault. Fixed in ES 6cdcb7a64 (#1111 C10, C20)"))}
 entries = []
 import sys
 SKIP = set(sys.argv[sys.argv.index("--skip") + 1:]) if "--skip" in sys.argv else set()   # a run still writing
@@ -87,7 +95,7 @@ for res_dir in sorted(d for d in HERE.glob("build13-*") if d.name not in SKIP):
                                 "frame": str(frame.relative_to(HERE)), "sha256": hashlib.sha256(frame.read_bytes()).hexdigest(),
                                 "status": status,
                                 **({"note": FAILED[key]} if key in FAILED else {}),
-                                **({"review": {"reviewer": "OS coordinator (claude-opus-5-5)", "observed": "as expected", "date": "2026-11-26"}}
+                                **({"review": {"reviewer": "OS coordinator (claude-opus-5-5)", "observed": OBSERVED.get(key, "as expected"), "date": "2026-11-26"}}
                                    if status == "reviewed" else {})})
 (HERE / "evidence-index.json").write_text(json.dumps({"schema_version": 1, "issue": [1111, 1115, 1480], "entries": entries}, indent=1) + "\n")
 print(f"{len(entries)} frames, {sum(e['status'] == 'reviewed' for e in entries)} reviewed")

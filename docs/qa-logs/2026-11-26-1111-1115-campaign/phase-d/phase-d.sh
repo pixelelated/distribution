@@ -106,7 +106,10 @@ arm_s16() { :; }; put_s16() { :; }
 ARM_REFUSED="s17"
 steps_s17() { hub; down 6; echo "shot hub-saves-root"; open; echo "shot editor-saves-root"; }
 # s18: removing a connection that is not in use: the confirmation, CANCEL, then REMOVE CONNECTION (#1111 C01, C08)
-to_two() { hub; cat "$W/to-manage-cloud-connections.steps"; echo "shot connections-two"; down 1; open; echo "shot connection-two"; }
+# The shared to-manage-cloud-connections walk ends after six downs, which land
+# wherever the list length puts them (with two connections, on QA-TWO), so go
+# to the list as s09 does: the page opens on the first connection.
+to_two() { hub; down 9; open; echo "shot connections-two"; down 1; echo "shot two-focused"; open; echo "shot connection-two"; }
 steps_s18() { to_two; down 6; echo "shot remove-row"; open; echo "shot remove-confirm"; back; echo "shot after-cancel"; open; echo "shot remove-confirm-again"; echo "key x"; echo "wait-for-change 60 1"; echo "settle 60 3"; echo "shot after-remove"; }
 arm_s18() { S 'python3 /storage/m7-qa-d/conn.py add-two'; }
 put_s18() { S 'python3 /storage/m7-qa-d/conn.py state; python3 /storage/m7-qa-d/conn.py repair'; }
@@ -192,6 +195,10 @@ for lang in ${langs//,/ }; do
             rc=$?; [ "$rc" = 0 ] || { log "   walk rc $rc (see $lang/$s-b.log)"; failed=1; }
         fi
         { echo "put back:"; "put_$s" 2>&1; } >> "$out/$lang/$s.arm.log"
+        # A walk that went astray can leave a form, a keyboard or a game list
+        # open that the reset below does not close, and every later screen
+        # then starts in the wrong place (s19 -> s20, 2026-11-26): reboot.
+        [ "$rc" = 0 ] || reboot_guest || die "the guest did not come back after $lang $s"
         echo -e "wake\ndismiss-dialogs" | timeout 120 "$round/tools/vm-visual-qa" --monitor "$MON" run - --outdir "$out/$lang/$s-reset" > /dev/null 2>&1
         rm -rf "${out:?}/$lang/$s-reset"
     done

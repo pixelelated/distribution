@@ -8288,6 +8288,2002 @@
   },
   {
    "flow_id": "cloud-folders-and-connections",
+   "branch_id": "640x480-more/en/s18/01-cloud-hub",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud",
+   "criteria": [
+    "1111 C01",
+    "1111 C08"
+   ],
+   "trigger": "a second connection (qa-two) removed from its own page: REMOVE CONNECTION, CANCEL, then REMOVE CONNECTION",
+   "expected_state": "the confirmation says cloud files stay and what an active connection needs; CANCEL leaves the page; after removal QA-CLOUD alone, still IN USE",
+   "source": {
+    "es": "c0fd03e1b (local m7/rc-round-es-20261125; route m7-20261126-16a1ec4e624a)",
+    "distribution": "bc81894fa826e118d43f19ce9d3e5e94709ea4c5 (local build/m7-rc-round-20261125, build 13)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T161646Z.gbc81894fa826-from-ROCKNIX",
+    "walk": "docs/qa-logs/2026-11-26-1111-1115-campaign/phase-d/phase-d.sh"
+   },
+   "locale": "en",
+   "width": 640,
+   "height": 480,
+   "frame": "build13-640x480-more/en/s18/01-cloud-hub.png",
+   "sha256": "11eb5b99c8d7ca60a236ad8b38ef852cbfb9df8ce1490edc46f195ecf54a8945",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "as expected",
+    "date": "2026-11-26"
+   }
+  },
+  {
+   "flow_id": "cloud-folders-and-connections",
+   "branch_id": "640x480-more/en/s18/02-connections-two",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud",
+   "criteria": [
+    "1111 C01",
+    "1111 C08"
+   ],
+   "trigger": "a second connection (qa-two) removed from its own page: REMOVE CONNECTION, CANCEL, then REMOVE CONNECTION",
+   "expected_state": "the confirmation says cloud files stay and what an active connection needs; CANCEL leaves the page; after removal QA-CLOUD alone, still IN USE",
+   "source": {
+    "es": "c0fd03e1b (local m7/rc-round-es-20261125; route m7-20261126-16a1ec4e624a)",
+    "distribution": "bc81894fa826e118d43f19ce9d3e5e94709ea4c5 (local build/m7-rc-round-20261125, build 13)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T161646Z.gbc81894fa826-from-ROCKNIX",
+    "walk": "docs/qa-logs/2026-11-26-1111-1115-campaign/phase-d/phase-d.sh"
+   },
+   "locale": "en",
+   "width": 640,
+   "height": 480,
+   "frame": "build13-640x480-more/en/s18/02-connections-two.png",
+   "sha256": "1991ebb51a8218aafdd7d7e3dc731c6294ef4bd8090b06ff2541a89826fe5466",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "as expected",
+    "date": "2026-11-26"
+   }
+  },
+  {
+   "flow_id": "cloud-folders-and-connections",
+   "branch_id": "640x480-more/en/s18/03-two-focused",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud",
+   "criteria": [
+    "1111 C01",
+    "1111 C08"
+   ],
+   "trigger": "a second connection (qa-two) removed from its own page: REMOVE CONNECTION, CANCEL, then REMOVE CONNECTION",
+   "expected_state": "the confirmation says cloud files stay and what an active connection needs; CANCEL leaves the page; after removal QA-CLOUD alone, still IN USE",
+   "source": {
+    "es": "c0fd03e1b (local m7/rc-round-es-20261125; route m7-20261126-16a1ec4e624a)",
+    "distribution": "bc81894fa826e118d43f19ce9d3e5e94709ea4c5 (local build/m7-rc-round-20261125, build 13)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T161646Z.gbc81894fa826-from-ROCKNIX",
+    "walk": "docs/qa-logs/2026-11-26-1111-1115-campaign/phase-d/phase-d.sh"
+   },
+   "locale": "en",
+   "width": 640,
+   "height": 480,
+   "frame": "build13-640x480-more/en/s18/03-two-focused.png",
+   "sha256": "0f566faa0c5243248b3b85f58127a8b86bef744dcf9b8cdaf3570a949efce616",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "as expected",
+    "date": "2026-11-26"
+   }
+  },
+  {
+   "flow_id": "cloud-folders-and-connections",
+   "branch_id": "640x480-more/en/s18/04-connection-two",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud",
+   "criteria": [
+    "1111 C01",
+    "1111 C08"
+   ],
+   "trigger": "a second connection (qa-two) removed from its own page: REMOVE CONNECTION, CANCEL, then REMOVE CONNECTION",
+   "expected_state": "the confirmation says cloud files stay and what an active connection needs; CANCEL leaves the page; after removal QA-CLOUD alone, still IN USE",
+   "source": {
+    "es": "c0fd03e1b (local m7/rc-round-es-20261125; route m7-20261126-16a1ec4e624a)",
+    "distribution": "bc81894fa826e118d43f19ce9d3e5e94709ea4c5 (local build/m7-rc-round-20261125, build 13)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T161646Z.gbc81894fa826-from-ROCKNIX",
+    "walk": "docs/qa-logs/2026-11-26-1111-1115-campaign/phase-d/phase-d.sh"
+   },
+   "locale": "en",
+   "width": 640,
+   "height": 480,
+   "frame": "build13-640x480-more/en/s18/04-connection-two.png",
+   "sha256": "4f121a9c8b7955ac1807aa7b923f5eb7fa30b9422b79975a4a4fc1a570b2c03d",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "as expected",
+    "date": "2026-11-26"
+   }
+  },
+  {
+   "flow_id": "cloud-folders-and-connections",
+   "branch_id": "640x480-more/en/s18/05-remove-row",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud",
+   "criteria": [
+    "1111 C01",
+    "1111 C08"
+   ],
+   "trigger": "a second connection (qa-two) removed from its own page: REMOVE CONNECTION, CANCEL, then REMOVE CONNECTION",
+   "expected_state": "the confirmation says cloud files stay and what an active connection needs; CANCEL leaves the page; after removal QA-CLOUD alone, still IN USE",
+   "source": {
+    "es": "c0fd03e1b (local m7/rc-round-es-20261125; route m7-20261126-16a1ec4e624a)",
+    "distribution": "bc81894fa826e118d43f19ce9d3e5e94709ea4c5 (local build/m7-rc-round-20261125, build 13)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T161646Z.gbc81894fa826-from-ROCKNIX",
+    "walk": "docs/qa-logs/2026-11-26-1111-1115-campaign/phase-d/phase-d.sh"
+   },
+   "locale": "en",
+   "width": 640,
+   "height": 480,
+   "frame": "build13-640x480-more/en/s18/05-remove-row.png",
+   "sha256": "8bd4c76117c71ab85e53e7d266ef95794b9d4af68bdc201451973e6cd5ee6040",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "as expected",
+    "date": "2026-11-26"
+   }
+  },
+  {
+   "flow_id": "cloud-folders-and-connections",
+   "branch_id": "640x480-more/en/s18/06-remove-confirm",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud",
+   "criteria": [
+    "1111 C01",
+    "1111 C08"
+   ],
+   "trigger": "a second connection (qa-two) removed from its own page: REMOVE CONNECTION, CANCEL, then REMOVE CONNECTION",
+   "expected_state": "the confirmation says cloud files stay and what an active connection needs; CANCEL leaves the page; after removal QA-CLOUD alone, still IN USE",
+   "source": {
+    "es": "c0fd03e1b (local m7/rc-round-es-20261125; route m7-20261126-16a1ec4e624a)",
+    "distribution": "bc81894fa826e118d43f19ce9d3e5e94709ea4c5 (local build/m7-rc-round-20261125, build 13)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T161646Z.gbc81894fa826-from-ROCKNIX",
+    "walk": "docs/qa-logs/2026-11-26-1111-1115-campaign/phase-d/phase-d.sh"
+   },
+   "locale": "en",
+   "width": 640,
+   "height": 480,
+   "frame": "build13-640x480-more/en/s18/06-remove-confirm.png",
+   "sha256": "0ba9530ebbc0610a88e62e9a0e043f14f8d787a3ba053dea27978ea2bd907e94",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "as expected",
+    "date": "2026-11-26"
+   }
+  },
+  {
+   "flow_id": "cloud-folders-and-connections",
+   "branch_id": "640x480-more/en/s18/07-after-cancel",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud",
+   "criteria": [
+    "1111 C01",
+    "1111 C08"
+   ],
+   "trigger": "a second connection (qa-two) removed from its own page: REMOVE CONNECTION, CANCEL, then REMOVE CONNECTION",
+   "expected_state": "the confirmation says cloud files stay and what an active connection needs; CANCEL leaves the page; after removal QA-CLOUD alone, still IN USE",
+   "source": {
+    "es": "c0fd03e1b (local m7/rc-round-es-20261125; route m7-20261126-16a1ec4e624a)",
+    "distribution": "bc81894fa826e118d43f19ce9d3e5e94709ea4c5 (local build/m7-rc-round-20261125, build 13)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T161646Z.gbc81894fa826-from-ROCKNIX",
+    "walk": "docs/qa-logs/2026-11-26-1111-1115-campaign/phase-d/phase-d.sh"
+   },
+   "locale": "en",
+   "width": 640,
+   "height": 480,
+   "frame": "build13-640x480-more/en/s18/07-after-cancel.png",
+   "sha256": "8bd4c76117c71ab85e53e7d266ef95794b9d4af68bdc201451973e6cd5ee6040",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "as expected",
+    "date": "2026-11-26"
+   }
+  },
+  {
+   "flow_id": "cloud-folders-and-connections",
+   "branch_id": "640x480-more/en/s18/08-remove-confirm-again",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud",
+   "criteria": [
+    "1111 C01",
+    "1111 C08"
+   ],
+   "trigger": "a second connection (qa-two) removed from its own page: REMOVE CONNECTION, CANCEL, then REMOVE CONNECTION",
+   "expected_state": "the confirmation says cloud files stay and what an active connection needs; CANCEL leaves the page; after removal QA-CLOUD alone, still IN USE",
+   "source": {
+    "es": "c0fd03e1b (local m7/rc-round-es-20261125; route m7-20261126-16a1ec4e624a)",
+    "distribution": "bc81894fa826e118d43f19ce9d3e5e94709ea4c5 (local build/m7-rc-round-20261125, build 13)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T161646Z.gbc81894fa826-from-ROCKNIX",
+    "walk": "docs/qa-logs/2026-11-26-1111-1115-campaign/phase-d/phase-d.sh"
+   },
+   "locale": "en",
+   "width": 640,
+   "height": 480,
+   "frame": "build13-640x480-more/en/s18/08-remove-confirm-again.png",
+   "sha256": "0ba9530ebbc0610a88e62e9a0e043f14f8d787a3ba053dea27978ea2bd907e94",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "as expected",
+    "date": "2026-11-26"
+   }
+  },
+  {
+   "flow_id": "cloud-folders-and-connections",
+   "branch_id": "640x480-more/en/s18/09-after-remove",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud",
+   "criteria": [
+    "1111 C01",
+    "1111 C08"
+   ],
+   "trigger": "a second connection (qa-two) removed from its own page: REMOVE CONNECTION, CANCEL, then REMOVE CONNECTION",
+   "expected_state": "the confirmation says cloud files stay and what an active connection needs; CANCEL leaves the page; after removal QA-CLOUD alone, still IN USE",
+   "source": {
+    "es": "c0fd03e1b (local m7/rc-round-es-20261125; route m7-20261126-16a1ec4e624a)",
+    "distribution": "bc81894fa826e118d43f19ce9d3e5e94709ea4c5 (local build/m7-rc-round-20261125, build 13)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T161646Z.gbc81894fa826-from-ROCKNIX",
+    "walk": "docs/qa-logs/2026-11-26-1111-1115-campaign/phase-d/phase-d.sh"
+   },
+   "locale": "en",
+   "width": 640,
+   "height": 480,
+   "frame": "build13-640x480-more/en/s18/09-after-remove.png",
+   "sha256": "f50c03ec5241ef5e06c0943525c7482592ff5ccae752cae87adfdaf692892fa6",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "as expected",
+    "date": "2026-11-26"
+   }
+  },
+  {
+   "flow_id": "cloud-folders-and-connections",
+   "branch_id": "640x480-more/en/s19/01-cloud-hub",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud",
+   "criteria": [
+    "1111 C03",
+    "1111 C06",
+    "1111 C08"
+   ],
+   "trigger": "EDIT CONNECTION on qa-two after its endpoint stopped answering: backed out of, then SAVE CONNECTION, UPDATE CONNECTION",
+   "expected_state": "backing out changes nothing; the update re-verifies, fails with THE CONNECTION COULDN'T BE SAVED. and its reason, and the section is kept byte for byte (two-hash before and after in s19.arm.log)",
+   "source": {
+    "es": "c0fd03e1b (local m7/rc-round-es-20261125; route m7-20261126-16a1ec4e624a)",
+    "distribution": "bc81894fa826e118d43f19ce9d3e5e94709ea4c5 (local build/m7-rc-round-20261125, build 13)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T161646Z.gbc81894fa826-from-ROCKNIX",
+    "walk": "docs/qa-logs/2026-11-26-1111-1115-campaign/phase-d/phase-d.sh"
+   },
+   "locale": "en",
+   "width": 640,
+   "height": 480,
+   "frame": "build13-640x480-more/en/s19/01-cloud-hub.png",
+   "sha256": "11eb5b99c8d7ca60a236ad8b38ef852cbfb9df8ce1490edc46f195ecf54a8945",
+   "status": "walk-failed",
+   "note": "walk went astray: back on EDIT CONNECTION returned to the list (#1483), and the next presses removed qa-two; no edit was saved"
+  },
+  {
+   "flow_id": "cloud-folders-and-connections",
+   "branch_id": "640x480-more/en/s19/02-connections-two",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud",
+   "criteria": [
+    "1111 C03",
+    "1111 C06",
+    "1111 C08"
+   ],
+   "trigger": "EDIT CONNECTION on qa-two after its endpoint stopped answering: backed out of, then SAVE CONNECTION, UPDATE CONNECTION",
+   "expected_state": "backing out changes nothing; the update re-verifies, fails with THE CONNECTION COULDN'T BE SAVED. and its reason, and the section is kept byte for byte (two-hash before and after in s19.arm.log)",
+   "source": {
+    "es": "c0fd03e1b (local m7/rc-round-es-20261125; route m7-20261126-16a1ec4e624a)",
+    "distribution": "bc81894fa826e118d43f19ce9d3e5e94709ea4c5 (local build/m7-rc-round-20261125, build 13)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T161646Z.gbc81894fa826-from-ROCKNIX",
+    "walk": "docs/qa-logs/2026-11-26-1111-1115-campaign/phase-d/phase-d.sh"
+   },
+   "locale": "en",
+   "width": 640,
+   "height": 480,
+   "frame": "build13-640x480-more/en/s19/02-connections-two.png",
+   "sha256": "1991ebb51a8218aafdd7d7e3dc731c6294ef4bd8090b06ff2541a89826fe5466",
+   "status": "walk-failed",
+   "note": "walk went astray: back on EDIT CONNECTION returned to the list (#1483), and the next presses removed qa-two; no edit was saved"
+  },
+  {
+   "flow_id": "cloud-folders-and-connections",
+   "branch_id": "640x480-more/en/s19/03-two-focused",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud",
+   "criteria": [
+    "1111 C03",
+    "1111 C06",
+    "1111 C08"
+   ],
+   "trigger": "EDIT CONNECTION on qa-two after its endpoint stopped answering: backed out of, then SAVE CONNECTION, UPDATE CONNECTION",
+   "expected_state": "backing out changes nothing; the update re-verifies, fails with THE CONNECTION COULDN'T BE SAVED. and its reason, and the section is kept byte for byte (two-hash before and after in s19.arm.log)",
+   "source": {
+    "es": "c0fd03e1b (local m7/rc-round-es-20261125; route m7-20261126-16a1ec4e624a)",
+    "distribution": "bc81894fa826e118d43f19ce9d3e5e94709ea4c5 (local build/m7-rc-round-20261125, build 13)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T161646Z.gbc81894fa826-from-ROCKNIX",
+    "walk": "docs/qa-logs/2026-11-26-1111-1115-campaign/phase-d/phase-d.sh"
+   },
+   "locale": "en",
+   "width": 640,
+   "height": 480,
+   "frame": "build13-640x480-more/en/s19/03-two-focused.png",
+   "sha256": "0f566faa0c5243248b3b85f58127a8b86bef744dcf9b8cdaf3570a949efce616",
+   "status": "walk-failed",
+   "note": "walk went astray: back on EDIT CONNECTION returned to the list (#1483), and the next presses removed qa-two; no edit was saved"
+  },
+  {
+   "flow_id": "cloud-folders-and-connections",
+   "branch_id": "640x480-more/en/s19/04-connection-two",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud",
+   "criteria": [
+    "1111 C03",
+    "1111 C06",
+    "1111 C08"
+   ],
+   "trigger": "EDIT CONNECTION on qa-two after its endpoint stopped answering: backed out of, then SAVE CONNECTION, UPDATE CONNECTION",
+   "expected_state": "backing out changes nothing; the update re-verifies, fails with THE CONNECTION COULDN'T BE SAVED. and its reason, and the section is kept byte for byte (two-hash before and after in s19.arm.log)",
+   "source": {
+    "es": "c0fd03e1b (local m7/rc-round-es-20261125; route m7-20261126-16a1ec4e624a)",
+    "distribution": "bc81894fa826e118d43f19ce9d3e5e94709ea4c5 (local build/m7-rc-round-20261125, build 13)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T161646Z.gbc81894fa826-from-ROCKNIX",
+    "walk": "docs/qa-logs/2026-11-26-1111-1115-campaign/phase-d/phase-d.sh"
+   },
+   "locale": "en",
+   "width": 640,
+   "height": 480,
+   "frame": "build13-640x480-more/en/s19/04-connection-two.png",
+   "sha256": "4f121a9c8b7955ac1807aa7b923f5eb7fa30b9422b79975a4a4fc1a570b2c03d",
+   "status": "walk-failed",
+   "note": "walk went astray: back on EDIT CONNECTION returned to the list (#1483), and the next presses removed qa-two; no edit was saved"
+  },
+  {
+   "flow_id": "cloud-folders-and-connections",
+   "branch_id": "640x480-more/en/s19/05-edit-row",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud",
+   "criteria": [
+    "1111 C03",
+    "1111 C06",
+    "1111 C08"
+   ],
+   "trigger": "EDIT CONNECTION on qa-two after its endpoint stopped answering: backed out of, then SAVE CONNECTION, UPDATE CONNECTION",
+   "expected_state": "backing out changes nothing; the update re-verifies, fails with THE CONNECTION COULDN'T BE SAVED. and its reason, and the section is kept byte for byte (two-hash before and after in s19.arm.log)",
+   "source": {
+    "es": "c0fd03e1b (local m7/rc-round-es-20261125; route m7-20261126-16a1ec4e624a)",
+    "distribution": "bc81894fa826e118d43f19ce9d3e5e94709ea4c5 (local build/m7-rc-round-20261125, build 13)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T161646Z.gbc81894fa826-from-ROCKNIX",
+    "walk": "docs/qa-logs/2026-11-26-1111-1115-campaign/phase-d/phase-d.sh"
+   },
+   "locale": "en",
+   "width": 640,
+   "height": 480,
+   "frame": "build13-640x480-more/en/s19/05-edit-row.png",
+   "sha256": "53bca1b69192dd25455828f38c71101b4109a8b4e50e2dcdad008e17736362ef",
+   "status": "walk-failed",
+   "note": "walk went astray: back on EDIT CONNECTION returned to the list (#1483), and the next presses removed qa-two; no edit was saved"
+  },
+  {
+   "flow_id": "cloud-folders-and-connections",
+   "branch_id": "640x480-more/en/s19/06-edit-form",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud",
+   "criteria": [
+    "1111 C03",
+    "1111 C06",
+    "1111 C08"
+   ],
+   "trigger": "EDIT CONNECTION on qa-two after its endpoint stopped answering: backed out of, then SAVE CONNECTION, UPDATE CONNECTION",
+   "expected_state": "backing out changes nothing; the update re-verifies, fails with THE CONNECTION COULDN'T BE SAVED. and its reason, and the section is kept byte for byte (two-hash before and after in s19.arm.log)",
+   "source": {
+    "es": "c0fd03e1b (local m7/rc-round-es-20261125; route m7-20261126-16a1ec4e624a)",
+    "distribution": "bc81894fa826e118d43f19ce9d3e5e94709ea4c5 (local build/m7-rc-round-20261125, build 13)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T161646Z.gbc81894fa826-from-ROCKNIX",
+    "walk": "docs/qa-logs/2026-11-26-1111-1115-campaign/phase-d/phase-d.sh"
+   },
+   "locale": "en",
+   "width": 640,
+   "height": 480,
+   "frame": "build13-640x480-more/en/s19/06-edit-form.png",
+   "sha256": "bc2ba3320472c27ff294c86dbc65e5c4739f0234901b1271886dfe867f9820ed",
+   "status": "walk-failed",
+   "note": "walk went astray: back on EDIT CONNECTION returned to the list (#1483), and the next presses removed qa-two; no edit was saved"
+  },
+  {
+   "flow_id": "cloud-folders-and-connections",
+   "branch_id": "640x480-more/en/s19/07-after-cancel",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud",
+   "criteria": [
+    "1111 C03",
+    "1111 C06",
+    "1111 C08"
+   ],
+   "trigger": "EDIT CONNECTION on qa-two after its endpoint stopped answering: backed out of, then SAVE CONNECTION, UPDATE CONNECTION",
+   "expected_state": "backing out changes nothing; the update re-verifies, fails with THE CONNECTION COULDN'T BE SAVED. and its reason, and the section is kept byte for byte (two-hash before and after in s19.arm.log)",
+   "source": {
+    "es": "c0fd03e1b (local m7/rc-round-es-20261125; route m7-20261126-16a1ec4e624a)",
+    "distribution": "bc81894fa826e118d43f19ce9d3e5e94709ea4c5 (local build/m7-rc-round-20261125, build 13)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T161646Z.gbc81894fa826-from-ROCKNIX",
+    "walk": "docs/qa-logs/2026-11-26-1111-1115-campaign/phase-d/phase-d.sh"
+   },
+   "locale": "en",
+   "width": 640,
+   "height": 480,
+   "frame": "build13-640x480-more/en/s19/07-after-cancel.png",
+   "sha256": "0f566faa0c5243248b3b85f58127a8b86bef744dcf9b8cdaf3570a949efce616",
+   "status": "walk-failed",
+   "note": "walk went astray: back on EDIT CONNECTION returned to the list (#1483), and the next presses removed qa-two; no edit was saved"
+  },
+  {
+   "flow_id": "cloud-folders-and-connections",
+   "branch_id": "640x480-more/en/s19/08-save-row",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud",
+   "criteria": [
+    "1111 C03",
+    "1111 C06",
+    "1111 C08"
+   ],
+   "trigger": "EDIT CONNECTION on qa-two after its endpoint stopped answering: backed out of, then SAVE CONNECTION, UPDATE CONNECTION",
+   "expected_state": "backing out changes nothing; the update re-verifies, fails with THE CONNECTION COULDN'T BE SAVED. and its reason, and the section is kept byte for byte (two-hash before and after in s19.arm.log)",
+   "source": {
+    "es": "c0fd03e1b (local m7/rc-round-es-20261125; route m7-20261126-16a1ec4e624a)",
+    "distribution": "bc81894fa826e118d43f19ce9d3e5e94709ea4c5 (local build/m7-rc-round-20261125, build 13)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T161646Z.gbc81894fa826-from-ROCKNIX",
+    "walk": "docs/qa-logs/2026-11-26-1111-1115-campaign/phase-d/phase-d.sh"
+   },
+   "locale": "en",
+   "width": 640,
+   "height": 480,
+   "frame": "build13-640x480-more/en/s19/08-save-row.png",
+   "sha256": "8bd4c76117c71ab85e53e7d266ef95794b9d4af68bdc201451973e6cd5ee6040",
+   "status": "walk-failed",
+   "note": "walk went astray: back on EDIT CONNECTION returned to the list (#1483), and the next presses removed qa-two; no edit was saved"
+  },
+  {
+   "flow_id": "cloud-folders-and-connections",
+   "branch_id": "640x480-more/en/s19/09-update-confirm",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud",
+   "criteria": [
+    "1111 C03",
+    "1111 C06",
+    "1111 C08"
+   ],
+   "trigger": "EDIT CONNECTION on qa-two after its endpoint stopped answering: backed out of, then SAVE CONNECTION, UPDATE CONNECTION",
+   "expected_state": "backing out changes nothing; the update re-verifies, fails with THE CONNECTION COULDN'T BE SAVED. and its reason, and the section is kept byte for byte (two-hash before and after in s19.arm.log)",
+   "source": {
+    "es": "c0fd03e1b (local m7/rc-round-es-20261125; route m7-20261126-16a1ec4e624a)",
+    "distribution": "bc81894fa826e118d43f19ce9d3e5e94709ea4c5 (local build/m7-rc-round-20261125, build 13)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T161646Z.gbc81894fa826-from-ROCKNIX",
+    "walk": "docs/qa-logs/2026-11-26-1111-1115-campaign/phase-d/phase-d.sh"
+   },
+   "locale": "en",
+   "width": 640,
+   "height": 480,
+   "frame": "build13-640x480-more/en/s19/09-update-confirm.png",
+   "sha256": "0ba9530ebbc0610a88e62e9a0e043f14f8d787a3ba053dea27978ea2bd907e94",
+   "status": "walk-failed",
+   "note": "walk went astray: back on EDIT CONNECTION returned to the list (#1483), and the next presses removed qa-two; no edit was saved"
+  },
+  {
+   "flow_id": "cloud-folders-and-connections",
+   "branch_id": "640x480-more/en/s19/10-update-failed",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud",
+   "criteria": [
+    "1111 C03",
+    "1111 C06",
+    "1111 C08"
+   ],
+   "trigger": "EDIT CONNECTION on qa-two after its endpoint stopped answering: backed out of, then SAVE CONNECTION, UPDATE CONNECTION",
+   "expected_state": "backing out changes nothing; the update re-verifies, fails with THE CONNECTION COULDN'T BE SAVED. and its reason, and the section is kept byte for byte (two-hash before and after in s19.arm.log)",
+   "source": {
+    "es": "c0fd03e1b (local m7/rc-round-es-20261125; route m7-20261126-16a1ec4e624a)",
+    "distribution": "bc81894fa826e118d43f19ce9d3e5e94709ea4c5 (local build/m7-rc-round-20261125, build 13)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T161646Z.gbc81894fa826-from-ROCKNIX",
+    "walk": "docs/qa-logs/2026-11-26-1111-1115-campaign/phase-d/phase-d.sh"
+   },
+   "locale": "en",
+   "width": 640,
+   "height": 480,
+   "frame": "build13-640x480-more/en/s19/10-update-failed.png",
+   "sha256": "f50c03ec5241ef5e06c0943525c7482592ff5ccae752cae87adfdaf692892fa6",
+   "status": "walk-failed",
+   "note": "walk went astray: back on EDIT CONNECTION returned to the list (#1483), and the next presses removed qa-two; no edit was saved"
+  },
+  {
+   "flow_id": "cloud-folders-and-connections",
+   "branch_id": "640x480-more/en/s19/11-after-failure-ok",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud",
+   "criteria": [
+    "1111 C03",
+    "1111 C06",
+    "1111 C08"
+   ],
+   "trigger": "EDIT CONNECTION on qa-two after its endpoint stopped answering: backed out of, then SAVE CONNECTION, UPDATE CONNECTION",
+   "expected_state": "backing out changes nothing; the update re-verifies, fails with THE CONNECTION COULDN'T BE SAVED. and its reason, and the section is kept byte for byte (two-hash before and after in s19.arm.log)",
+   "source": {
+    "es": "c0fd03e1b (local m7/rc-round-es-20261125; route m7-20261126-16a1ec4e624a)",
+    "distribution": "bc81894fa826e118d43f19ce9d3e5e94709ea4c5 (local build/m7-rc-round-20261125, build 13)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T161646Z.gbc81894fa826-from-ROCKNIX",
+    "walk": "docs/qa-logs/2026-11-26-1111-1115-campaign/phase-d/phase-d.sh"
+   },
+   "locale": "en",
+   "width": 640,
+   "height": 480,
+   "frame": "build13-640x480-more/en/s19/11-after-failure-ok.png",
+   "sha256": "cf21bd07eebc88654d33dddb74c7f8f84f488adfa3b463b458f424c7dcd5dd4c",
+   "status": "walk-failed",
+   "note": "walk went astray: back on EDIT CONNECTION returned to the list (#1483), and the next presses removed qa-two; no edit was saved"
+  },
+  {
+   "flow_id": "cloud-folders-and-connections",
+   "branch_id": "640x480-more/en/s19/12-after-failure-back",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud",
+   "criteria": [
+    "1111 C03",
+    "1111 C06",
+    "1111 C08"
+   ],
+   "trigger": "EDIT CONNECTION on qa-two after its endpoint stopped answering: backed out of, then SAVE CONNECTION, UPDATE CONNECTION",
+   "expected_state": "backing out changes nothing; the update re-verifies, fails with THE CONNECTION COULDN'T BE SAVED. and its reason, and the section is kept byte for byte (two-hash before and after in s19.arm.log)",
+   "source": {
+    "es": "c0fd03e1b (local m7/rc-round-es-20261125; route m7-20261126-16a1ec4e624a)",
+    "distribution": "bc81894fa826e118d43f19ce9d3e5e94709ea4c5 (local build/m7-rc-round-20261125, build 13)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T161646Z.gbc81894fa826-from-ROCKNIX",
+    "walk": "docs/qa-logs/2026-11-26-1111-1115-campaign/phase-d/phase-d.sh"
+   },
+   "locale": "en",
+   "width": 640,
+   "height": 480,
+   "frame": "build13-640x480-more/en/s19/12-after-failure-back.png",
+   "sha256": "f50c03ec5241ef5e06c0943525c7482592ff5ccae752cae87adfdaf692892fa6",
+   "status": "walk-failed",
+   "note": "walk went astray: back on EDIT CONNECTION returned to the list (#1483), and the next presses removed qa-two; no edit was saved"
+  },
+  {
+   "flow_id": "cloud-folders-and-connections",
+   "branch_id": "640x480-more/en/s20/01-cloud-hub",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud",
+   "criteria": [
+    "1111 C11"
+   ],
+   "trigger": "a line before rclone.conf's first section (an unreadable setup)",
+   "expected_state": "each page says the setup could not be read rather than no selection or a connection failure",
+   "source": {
+    "es": "c0fd03e1b (local m7/rc-round-es-20261125; route m7-20261126-16a1ec4e624a)",
+    "distribution": "bc81894fa826e118d43f19ce9d3e5e94709ea4c5 (local build/m7-rc-round-20261125, build 13)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T161646Z.gbc81894fa826-from-ROCKNIX",
+    "walk": "docs/qa-logs/2026-11-26-1111-1115-campaign/phase-d/phase-d.sh"
+   },
+   "locale": "en",
+   "width": 640,
+   "height": 480,
+   "frame": "build13-640x480-more/en/s20/01-cloud-hub.png",
+   "sha256": "ae47886dcf7be523b0d0b20a6c17eab906e49977167e6553192ec15c7ddc1ff8",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "defect, build 13: the hub reads NO CONNECTION SELECTED and CLOUD FOLDERS asks to choose a connection for an unreadable setup; the setup check and connections page name it. Fixed in ES 6cdcb7a64 (#1111 C11)",
+    "date": "2026-11-26"
+   }
+  },
+  {
+   "flow_id": "cloud-folders-and-connections",
+   "branch_id": "640x480-more/en/s20/02-hub-unreadable",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud",
+   "criteria": [
+    "1111 C11"
+   ],
+   "trigger": "a line before rclone.conf's first section (an unreadable setup)",
+   "expected_state": "each page says the setup could not be read rather than no selection or a connection failure",
+   "source": {
+    "es": "c0fd03e1b (local m7/rc-round-es-20261125; route m7-20261126-16a1ec4e624a)",
+    "distribution": "bc81894fa826e118d43f19ce9d3e5e94709ea4c5 (local build/m7-rc-round-20261125, build 13)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T161646Z.gbc81894fa826-from-ROCKNIX",
+    "walk": "docs/qa-logs/2026-11-26-1111-1115-campaign/phase-d/phase-d.sh"
+   },
+   "locale": "en",
+   "width": 640,
+   "height": 480,
+   "frame": "build13-640x480-more/en/s20/02-hub-unreadable.png",
+   "sha256": "37d6be22decd54a1159b0fade9570b57931e994bea8b202406e92f48221fbab3",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "defect, build 13: the hub reads NO CONNECTION SELECTED and CLOUD FOLDERS asks to choose a connection for an unreadable setup; the setup check and connections page name it. Fixed in ES 6cdcb7a64 (#1111 C11)",
+    "date": "2026-11-26"
+   }
+  },
+  {
+   "flow_id": "cloud-folders-and-connections",
+   "branch_id": "640x480-more/en/s20/03-setup-check-unreadable",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud",
+   "criteria": [
+    "1111 C11"
+   ],
+   "trigger": "a line before rclone.conf's first section (an unreadable setup)",
+   "expected_state": "each page says the setup could not be read rather than no selection or a connection failure",
+   "source": {
+    "es": "c0fd03e1b (local m7/rc-round-es-20261125; route m7-20261126-16a1ec4e624a)",
+    "distribution": "bc81894fa826e118d43f19ce9d3e5e94709ea4c5 (local build/m7-rc-round-20261125, build 13)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T161646Z.gbc81894fa826-from-ROCKNIX",
+    "walk": "docs/qa-logs/2026-11-26-1111-1115-campaign/phase-d/phase-d.sh"
+   },
+   "locale": "en",
+   "width": 640,
+   "height": 480,
+   "frame": "build13-640x480-more/en/s20/03-setup-check-unreadable.png",
+   "sha256": "5bfc470a24571204b34cfef7c7642f906f73bfaf09d63ae3284d21c40059267b",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "defect, build 13: the hub reads NO CONNECTION SELECTED and CLOUD FOLDERS asks to choose a connection for an unreadable setup; the setup check and connections page name it. Fixed in ES 6cdcb7a64 (#1111 C11)",
+    "date": "2026-11-26"
+   }
+  },
+  {
+   "flow_id": "cloud-folders-and-connections",
+   "branch_id": "640x480-more/en/s20/04-connections-unreadable",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud",
+   "criteria": [
+    "1111 C11"
+   ],
+   "trigger": "a line before rclone.conf's first section (an unreadable setup)",
+   "expected_state": "each page says the setup could not be read rather than no selection or a connection failure",
+   "source": {
+    "es": "c0fd03e1b (local m7/rc-round-es-20261125; route m7-20261126-16a1ec4e624a)",
+    "distribution": "bc81894fa826e118d43f19ce9d3e5e94709ea4c5 (local build/m7-rc-round-20261125, build 13)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T161646Z.gbc81894fa826-from-ROCKNIX",
+    "walk": "docs/qa-logs/2026-11-26-1111-1115-campaign/phase-d/phase-d.sh"
+   },
+   "locale": "en",
+   "width": 640,
+   "height": 480,
+   "frame": "build13-640x480-more/en/s20/04-connections-unreadable.png",
+   "sha256": "9fde9b3297d7bbacff23cf3ae4cb9b6e0106af55350ba9273f0c33cdef8d64c0",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "defect, build 13: the hub reads NO CONNECTION SELECTED and CLOUD FOLDERS asks to choose a connection for an unreadable setup; the setup check and connections page name it. Fixed in ES 6cdcb7a64 (#1111 C11)",
+    "date": "2026-11-26"
+   }
+  },
+  {
+   "flow_id": "cloud-folders-and-connections",
+   "branch_id": "640x480-more/en/s20/05-folder-actions-unreadable",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud",
+   "criteria": [
+    "1111 C11"
+   ],
+   "trigger": "a line before rclone.conf's first section (an unreadable setup)",
+   "expected_state": "each page says the setup could not be read rather than no selection or a connection failure",
+   "source": {
+    "es": "c0fd03e1b (local m7/rc-round-es-20261125; route m7-20261126-16a1ec4e624a)",
+    "distribution": "bc81894fa826e118d43f19ce9d3e5e94709ea4c5 (local build/m7-rc-round-20261125, build 13)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T161646Z.gbc81894fa826-from-ROCKNIX",
+    "walk": "docs/qa-logs/2026-11-26-1111-1115-campaign/phase-d/phase-d.sh"
+   },
+   "locale": "en",
+   "width": 640,
+   "height": 480,
+   "frame": "build13-640x480-more/en/s20/05-folder-actions-unreadable.png",
+   "sha256": "6f043a4f26316ba6f9b905e12ac9c69cf330e48874a5967a30f3310c05a41ccf",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "defect, build 13: the hub reads NO CONNECTION SELECTED and CLOUD FOLDERS asks to choose a connection for an unreadable setup; the setup check and connections page name it. Fixed in ES 6cdcb7a64 (#1111 C11)",
+    "date": "2026-11-26"
+   }
+  },
+  {
+   "flow_id": "cloud-folders-and-connections",
+   "branch_id": "640x480-more/en/s21/01-cloud-hub",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud",
+   "criteria": [
+    "1111 C11",
+    "1111 C14"
+   ],
+   "trigger": "the saves folder changed while CLOUD FOLDERS is open, then CHECK CLOUD FOLDERS",
+   "expected_state": "THE CLOUD CHECK IS NO LONGER CURRENT. REOPEN CLOUD FOLDERS AND CHECK AGAIN.: the stale wording, for the context change only",
+   "source": {
+    "es": "c0fd03e1b (local m7/rc-round-es-20261125; route m7-20261126-16a1ec4e624a)",
+    "distribution": "bc81894fa826e118d43f19ce9d3e5e94709ea4c5 (local build/m7-rc-round-20261125, build 13)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T161646Z.gbc81894fa826-from-ROCKNIX",
+    "walk": "docs/qa-logs/2026-11-26-1111-1115-campaign/phase-d/phase-d.sh"
+   },
+   "locale": "en",
+   "width": 640,
+   "height": 480,
+   "frame": "build13-640x480-more/en/s21/01-cloud-hub.png",
+   "sha256": "11eb5b99c8d7ca60a236ad8b38ef852cbfb9df8ce1490edc46f195ecf54a8945",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "as expected",
+    "date": "2026-11-26"
+   }
+  },
+  {
+   "flow_id": "cloud-folders-and-connections",
+   "branch_id": "640x480-more/en/s21/02-folders-before-change",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud",
+   "criteria": [
+    "1111 C11",
+    "1111 C14"
+   ],
+   "trigger": "the saves folder changed while CLOUD FOLDERS is open, then CHECK CLOUD FOLDERS",
+   "expected_state": "THE CLOUD CHECK IS NO LONGER CURRENT. REOPEN CLOUD FOLDERS AND CHECK AGAIN.: the stale wording, for the context change only",
+   "source": {
+    "es": "c0fd03e1b (local m7/rc-round-es-20261125; route m7-20261126-16a1ec4e624a)",
+    "distribution": "bc81894fa826e118d43f19ce9d3e5e94709ea4c5 (local build/m7-rc-round-20261125, build 13)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T161646Z.gbc81894fa826-from-ROCKNIX",
+    "walk": "docs/qa-logs/2026-11-26-1111-1115-campaign/phase-d/phase-d.sh"
+   },
+   "locale": "en",
+   "width": 640,
+   "height": 480,
+   "frame": "build13-640x480-more/en/s21/02-folders-before-change.png",
+   "sha256": "71c8d14acb81087b901d9332a643340b0140b21d2cfeaadb508d85f560901834",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "as expected",
+    "date": "2026-11-26"
+   }
+  },
+  {
+   "flow_id": "cloud-folders-and-connections",
+   "branch_id": "640x480-more/en/s21-b/01-check-after-change",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud",
+   "criteria": [
+    "1111 C11",
+    "1111 C14"
+   ],
+   "trigger": "the saves folder changed while CLOUD FOLDERS is open, then CHECK CLOUD FOLDERS",
+   "expected_state": "THE CLOUD CHECK IS NO LONGER CURRENT. REOPEN CLOUD FOLDERS AND CHECK AGAIN.: the stale wording, for the context change only",
+   "source": {
+    "es": "c0fd03e1b (local m7/rc-round-es-20261125; route m7-20261126-16a1ec4e624a)",
+    "distribution": "bc81894fa826e118d43f19ce9d3e5e94709ea4c5 (local build/m7-rc-round-20261125, build 13)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T161646Z.gbc81894fa826-from-ROCKNIX",
+    "walk": "docs/qa-logs/2026-11-26-1111-1115-campaign/phase-d/phase-d.sh"
+   },
+   "locale": "en",
+   "width": 640,
+   "height": 480,
+   "frame": "build13-640x480-more/en/s21-b/01-check-after-change.png",
+   "sha256": "5414d3ca6e67ec6b357489774ff794042065093720a615b7ba2ca39b76eb21d5",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "as expected",
+    "date": "2026-11-26"
+   }
+  },
+  {
+   "flow_id": "cloud-folders-and-connections",
+   "branch_id": "640x480-more/en/s21-b/02-check-refused",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud",
+   "criteria": [
+    "1111 C11",
+    "1111 C14"
+   ],
+   "trigger": "the saves folder changed while CLOUD FOLDERS is open, then CHECK CLOUD FOLDERS",
+   "expected_state": "THE CLOUD CHECK IS NO LONGER CURRENT. REOPEN CLOUD FOLDERS AND CHECK AGAIN.: the stale wording, for the context change only",
+   "source": {
+    "es": "c0fd03e1b (local m7/rc-round-es-20261125; route m7-20261126-16a1ec4e624a)",
+    "distribution": "bc81894fa826e118d43f19ce9d3e5e94709ea4c5 (local build/m7-rc-round-20261125, build 13)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T161646Z.gbc81894fa826-from-ROCKNIX",
+    "walk": "docs/qa-logs/2026-11-26-1111-1115-campaign/phase-d/phase-d.sh"
+   },
+   "locale": "en",
+   "width": 640,
+   "height": 480,
+   "frame": "build13-640x480-more/en/s21-b/02-check-refused.png",
+   "sha256": "47fd93f981ca8183892a2a2853ab365d7ed4a999a5c09636a70108f7ecb44f49",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "as expected",
+    "date": "2026-11-26"
+   }
+  },
+  {
+   "flow_id": "cloud-folders-and-connections",
+   "branch_id": "640x480-more/en/s21-b/03-after-ok",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud",
+   "criteria": [
+    "1111 C11",
+    "1111 C14"
+   ],
+   "trigger": "the saves folder changed while CLOUD FOLDERS is open, then CHECK CLOUD FOLDERS",
+   "expected_state": "THE CLOUD CHECK IS NO LONGER CURRENT. REOPEN CLOUD FOLDERS AND CHECK AGAIN.: the stale wording, for the context change only",
+   "source": {
+    "es": "c0fd03e1b (local m7/rc-round-es-20261125; route m7-20261126-16a1ec4e624a)",
+    "distribution": "bc81894fa826e118d43f19ce9d3e5e94709ea4c5 (local build/m7-rc-round-20261125, build 13)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T161646Z.gbc81894fa826-from-ROCKNIX",
+    "walk": "docs/qa-logs/2026-11-26-1111-1115-campaign/phase-d/phase-d.sh"
+   },
+   "locale": "en",
+   "width": 640,
+   "height": 480,
+   "frame": "build13-640x480-more/en/s21-b/03-after-ok.png",
+   "sha256": "5414d3ca6e67ec6b357489774ff794042065093720a615b7ba2ca39b76eb21d5",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "as expected",
+    "date": "2026-11-26"
+   }
+  },
+  {
+   "flow_id": "cloud-folders-and-connections",
+   "branch_id": "640x480-more/en/s22/01-cloud-hub",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud",
+   "criteria": [
+    "1111 C11"
+   ],
+   "trigger": "the selection emptied while CLOUD FOLDERS is open, then CHECK CLOUD FOLDERS",
+   "expected_state": "not the stale wording: the no-selection case is told apart from a changed context",
+   "source": {
+    "es": "c0fd03e1b (local m7/rc-round-es-20261125; route m7-20261126-16a1ec4e624a)",
+    "distribution": "bc81894fa826e118d43f19ce9d3e5e94709ea4c5 (local build/m7-rc-round-20261125, build 13)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T161646Z.gbc81894fa826-from-ROCKNIX",
+    "walk": "docs/qa-logs/2026-11-26-1111-1115-campaign/phase-d/phase-d.sh"
+   },
+   "locale": "en",
+   "width": 640,
+   "height": 480,
+   "frame": "build13-640x480-more/en/s22/01-cloud-hub.png",
+   "sha256": "11eb5b99c8d7ca60a236ad8b38ef852cbfb9df8ce1490edc46f195ecf54a8945",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "as expected",
+    "date": "2026-11-26"
+   }
+  },
+  {
+   "flow_id": "cloud-folders-and-connections",
+   "branch_id": "640x480-more/en/s22/02-folders-before-change",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud",
+   "criteria": [
+    "1111 C11"
+   ],
+   "trigger": "the selection emptied while CLOUD FOLDERS is open, then CHECK CLOUD FOLDERS",
+   "expected_state": "not the stale wording: the no-selection case is told apart from a changed context",
+   "source": {
+    "es": "c0fd03e1b (local m7/rc-round-es-20261125; route m7-20261126-16a1ec4e624a)",
+    "distribution": "bc81894fa826e118d43f19ce9d3e5e94709ea4c5 (local build/m7-rc-round-20261125, build 13)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T161646Z.gbc81894fa826-from-ROCKNIX",
+    "walk": "docs/qa-logs/2026-11-26-1111-1115-campaign/phase-d/phase-d.sh"
+   },
+   "locale": "en",
+   "width": 640,
+   "height": 480,
+   "frame": "build13-640x480-more/en/s22/02-folders-before-change.png",
+   "sha256": "71c8d14acb81087b901d9332a643340b0140b21d2cfeaadb508d85f560901834",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "as expected",
+    "date": "2026-11-26"
+   }
+  },
+  {
+   "flow_id": "cloud-folders-and-connections",
+   "branch_id": "640x480-more/en/s22-b/01-check-after-change",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud",
+   "criteria": [
+    "1111 C11"
+   ],
+   "trigger": "the selection emptied while CLOUD FOLDERS is open, then CHECK CLOUD FOLDERS",
+   "expected_state": "not the stale wording: the no-selection case is told apart from a changed context",
+   "source": {
+    "es": "c0fd03e1b (local m7/rc-round-es-20261125; route m7-20261126-16a1ec4e624a)",
+    "distribution": "bc81894fa826e118d43f19ce9d3e5e94709ea4c5 (local build/m7-rc-round-20261125, build 13)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T161646Z.gbc81894fa826-from-ROCKNIX",
+    "walk": "docs/qa-logs/2026-11-26-1111-1115-campaign/phase-d/phase-d.sh"
+   },
+   "locale": "en",
+   "width": 640,
+   "height": 480,
+   "frame": "build13-640x480-more/en/s22-b/01-check-after-change.png",
+   "sha256": "5414d3ca6e67ec6b357489774ff794042065093720a615b7ba2ca39b76eb21d5",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "defect, build 13: a selection emptied while CLOUD FOLDERS is open gives COULDN'T CHECK YOUR FOLDERS. CHECK YOUR CONNECTION; not the stale wording, but it names a connection fault. Fixed in ES 6cdcb7a64 (#1111 C10, C20)",
+    "date": "2026-11-26"
+   }
+  },
+  {
+   "flow_id": "cloud-folders-and-connections",
+   "branch_id": "640x480-more/en/s22-b/02-check-refused",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud",
+   "criteria": [
+    "1111 C11"
+   ],
+   "trigger": "the selection emptied while CLOUD FOLDERS is open, then CHECK CLOUD FOLDERS",
+   "expected_state": "not the stale wording: the no-selection case is told apart from a changed context",
+   "source": {
+    "es": "c0fd03e1b (local m7/rc-round-es-20261125; route m7-20261126-16a1ec4e624a)",
+    "distribution": "bc81894fa826e118d43f19ce9d3e5e94709ea4c5 (local build/m7-rc-round-20261125, build 13)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T161646Z.gbc81894fa826-from-ROCKNIX",
+    "walk": "docs/qa-logs/2026-11-26-1111-1115-campaign/phase-d/phase-d.sh"
+   },
+   "locale": "en",
+   "width": 640,
+   "height": 480,
+   "frame": "build13-640x480-more/en/s22-b/02-check-refused.png",
+   "sha256": "1f02aec209462b7a9a56e715e60ea7a14674b1c7df70bf6d3b2f077424eeeab9",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "defect, build 13: a selection emptied while CLOUD FOLDERS is open gives COULDN'T CHECK YOUR FOLDERS. CHECK YOUR CONNECTION; not the stale wording, but it names a connection fault. Fixed in ES 6cdcb7a64 (#1111 C10, C20)",
+    "date": "2026-11-26"
+   }
+  },
+  {
+   "flow_id": "cloud-folders-and-connections",
+   "branch_id": "640x480-more/en/s22-b/03-after-ok",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud",
+   "criteria": [
+    "1111 C11"
+   ],
+   "trigger": "the selection emptied while CLOUD FOLDERS is open, then CHECK CLOUD FOLDERS",
+   "expected_state": "not the stale wording: the no-selection case is told apart from a changed context",
+   "source": {
+    "es": "c0fd03e1b (local m7/rc-round-es-20261125; route m7-20261126-16a1ec4e624a)",
+    "distribution": "bc81894fa826e118d43f19ce9d3e5e94709ea4c5 (local build/m7-rc-round-20261125, build 13)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T161646Z.gbc81894fa826-from-ROCKNIX",
+    "walk": "docs/qa-logs/2026-11-26-1111-1115-campaign/phase-d/phase-d.sh"
+   },
+   "locale": "en",
+   "width": 640,
+   "height": 480,
+   "frame": "build13-640x480-more/en/s22-b/03-after-ok.png",
+   "sha256": "5414d3ca6e67ec6b357489774ff794042065093720a615b7ba2ca39b76eb21d5",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "defect, build 13: a selection emptied while CLOUD FOLDERS is open gives COULDN'T CHECK YOUR FOLDERS. CHECK YOUR CONNECTION; not the stale wording, but it names a connection fault. Fixed in ES 6cdcb7a64 (#1111 C10, C20)",
+    "date": "2026-11-26"
+   }
+  },
+  {
+   "flow_id": "cloud-folders-and-connections",
+   "branch_id": "640x480-more/fr/s18/01-cloud-hub",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud",
+   "criteria": [
+    "1111 C01",
+    "1111 C08"
+   ],
+   "trigger": "a second connection (qa-two) removed from its own page: REMOVE CONNECTION, CANCEL, then REMOVE CONNECTION",
+   "expected_state": "the confirmation says cloud files stay and what an active connection needs; CANCEL leaves the page; after removal QA-CLOUD alone, still IN USE",
+   "source": {
+    "es": "c0fd03e1b (local m7/rc-round-es-20261125; route m7-20261126-16a1ec4e624a)",
+    "distribution": "bc81894fa826e118d43f19ce9d3e5e94709ea4c5 (local build/m7-rc-round-20261125, build 13)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T161646Z.gbc81894fa826-from-ROCKNIX",
+    "walk": "docs/qa-logs/2026-11-26-1111-1115-campaign/phase-d/phase-d.sh"
+   },
+   "locale": "fr",
+   "width": 640,
+   "height": 480,
+   "frame": "build13-640x480-more/fr/s18/01-cloud-hub.png",
+   "sha256": "6720f9bb3a014af5cd480c42dcefbf4fd36c3cf00019528c77f47eb003061a94",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "as expected",
+    "date": "2026-11-26"
+   }
+  },
+  {
+   "flow_id": "cloud-folders-and-connections",
+   "branch_id": "640x480-more/fr/s18/02-connections-two",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud",
+   "criteria": [
+    "1111 C01",
+    "1111 C08"
+   ],
+   "trigger": "a second connection (qa-two) removed from its own page: REMOVE CONNECTION, CANCEL, then REMOVE CONNECTION",
+   "expected_state": "the confirmation says cloud files stay and what an active connection needs; CANCEL leaves the page; after removal QA-CLOUD alone, still IN USE",
+   "source": {
+    "es": "c0fd03e1b (local m7/rc-round-es-20261125; route m7-20261126-16a1ec4e624a)",
+    "distribution": "bc81894fa826e118d43f19ce9d3e5e94709ea4c5 (local build/m7-rc-round-20261125, build 13)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T161646Z.gbc81894fa826-from-ROCKNIX",
+    "walk": "docs/qa-logs/2026-11-26-1111-1115-campaign/phase-d/phase-d.sh"
+   },
+   "locale": "fr",
+   "width": 640,
+   "height": 480,
+   "frame": "build13-640x480-more/fr/s18/02-connections-two.png",
+   "sha256": "6a3799a98db3c196363869aaf92d1424e3e5e4bc045d3653610ee43652a5cb63",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "as expected",
+    "date": "2026-11-26"
+   }
+  },
+  {
+   "flow_id": "cloud-folders-and-connections",
+   "branch_id": "640x480-more/fr/s18/03-two-focused",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud",
+   "criteria": [
+    "1111 C01",
+    "1111 C08"
+   ],
+   "trigger": "a second connection (qa-two) removed from its own page: REMOVE CONNECTION, CANCEL, then REMOVE CONNECTION",
+   "expected_state": "the confirmation says cloud files stay and what an active connection needs; CANCEL leaves the page; after removal QA-CLOUD alone, still IN USE",
+   "source": {
+    "es": "c0fd03e1b (local m7/rc-round-es-20261125; route m7-20261126-16a1ec4e624a)",
+    "distribution": "bc81894fa826e118d43f19ce9d3e5e94709ea4c5 (local build/m7-rc-round-20261125, build 13)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T161646Z.gbc81894fa826-from-ROCKNIX",
+    "walk": "docs/qa-logs/2026-11-26-1111-1115-campaign/phase-d/phase-d.sh"
+   },
+   "locale": "fr",
+   "width": 640,
+   "height": 480,
+   "frame": "build13-640x480-more/fr/s18/03-two-focused.png",
+   "sha256": "6e1bc67f220da154473b1c2a5835597cdebeee8da7b2951ff5d1963b7e3f6bf6",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "as expected",
+    "date": "2026-11-26"
+   }
+  },
+  {
+   "flow_id": "cloud-folders-and-connections",
+   "branch_id": "640x480-more/fr/s18/04-connection-two",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud",
+   "criteria": [
+    "1111 C01",
+    "1111 C08"
+   ],
+   "trigger": "a second connection (qa-two) removed from its own page: REMOVE CONNECTION, CANCEL, then REMOVE CONNECTION",
+   "expected_state": "the confirmation says cloud files stay and what an active connection needs; CANCEL leaves the page; after removal QA-CLOUD alone, still IN USE",
+   "source": {
+    "es": "c0fd03e1b (local m7/rc-round-es-20261125; route m7-20261126-16a1ec4e624a)",
+    "distribution": "bc81894fa826e118d43f19ce9d3e5e94709ea4c5 (local build/m7-rc-round-20261125, build 13)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T161646Z.gbc81894fa826-from-ROCKNIX",
+    "walk": "docs/qa-logs/2026-11-26-1111-1115-campaign/phase-d/phase-d.sh"
+   },
+   "locale": "fr",
+   "width": 640,
+   "height": 480,
+   "frame": "build13-640x480-more/fr/s18/04-connection-two.png",
+   "sha256": "6683db8a3920403d9504cf74574468ae06d4f6c5552468d4f3a09918d638ce09",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "as expected",
+    "date": "2026-11-26"
+   }
+  },
+  {
+   "flow_id": "cloud-folders-and-connections",
+   "branch_id": "640x480-more/fr/s18/05-remove-row",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud",
+   "criteria": [
+    "1111 C01",
+    "1111 C08"
+   ],
+   "trigger": "a second connection (qa-two) removed from its own page: REMOVE CONNECTION, CANCEL, then REMOVE CONNECTION",
+   "expected_state": "the confirmation says cloud files stay and what an active connection needs; CANCEL leaves the page; after removal QA-CLOUD alone, still IN USE",
+   "source": {
+    "es": "c0fd03e1b (local m7/rc-round-es-20261125; route m7-20261126-16a1ec4e624a)",
+    "distribution": "bc81894fa826e118d43f19ce9d3e5e94709ea4c5 (local build/m7-rc-round-20261125, build 13)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T161646Z.gbc81894fa826-from-ROCKNIX",
+    "walk": "docs/qa-logs/2026-11-26-1111-1115-campaign/phase-d/phase-d.sh"
+   },
+   "locale": "fr",
+   "width": 640,
+   "height": 480,
+   "frame": "build13-640x480-more/fr/s18/05-remove-row.png",
+   "sha256": "8fc39050fbd32721ff2ead1e2bace5af08e90e609685832cf4c4a8de77c93f67",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "as expected",
+    "date": "2026-11-26"
+   }
+  },
+  {
+   "flow_id": "cloud-folders-and-connections",
+   "branch_id": "640x480-more/fr/s18/06-remove-confirm",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud",
+   "criteria": [
+    "1111 C01",
+    "1111 C08"
+   ],
+   "trigger": "a second connection (qa-two) removed from its own page: REMOVE CONNECTION, CANCEL, then REMOVE CONNECTION",
+   "expected_state": "the confirmation says cloud files stay and what an active connection needs; CANCEL leaves the page; after removal QA-CLOUD alone, still IN USE",
+   "source": {
+    "es": "c0fd03e1b (local m7/rc-round-es-20261125; route m7-20261126-16a1ec4e624a)",
+    "distribution": "bc81894fa826e118d43f19ce9d3e5e94709ea4c5 (local build/m7-rc-round-20261125, build 13)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T161646Z.gbc81894fa826-from-ROCKNIX",
+    "walk": "docs/qa-logs/2026-11-26-1111-1115-campaign/phase-d/phase-d.sh"
+   },
+   "locale": "fr",
+   "width": 640,
+   "height": 480,
+   "frame": "build13-640x480-more/fr/s18/06-remove-confirm.png",
+   "sha256": "4cdf8a1f70a77d6d99ab04de81b587ee753d8e10a6acc2f11817f082b8b76368",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "as expected",
+    "date": "2026-11-26"
+   }
+  },
+  {
+   "flow_id": "cloud-folders-and-connections",
+   "branch_id": "640x480-more/fr/s18/07-after-cancel",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud",
+   "criteria": [
+    "1111 C01",
+    "1111 C08"
+   ],
+   "trigger": "a second connection (qa-two) removed from its own page: REMOVE CONNECTION, CANCEL, then REMOVE CONNECTION",
+   "expected_state": "the confirmation says cloud files stay and what an active connection needs; CANCEL leaves the page; after removal QA-CLOUD alone, still IN USE",
+   "source": {
+    "es": "c0fd03e1b (local m7/rc-round-es-20261125; route m7-20261126-16a1ec4e624a)",
+    "distribution": "bc81894fa826e118d43f19ce9d3e5e94709ea4c5 (local build/m7-rc-round-20261125, build 13)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T161646Z.gbc81894fa826-from-ROCKNIX",
+    "walk": "docs/qa-logs/2026-11-26-1111-1115-campaign/phase-d/phase-d.sh"
+   },
+   "locale": "fr",
+   "width": 640,
+   "height": 480,
+   "frame": "build13-640x480-more/fr/s18/07-after-cancel.png",
+   "sha256": "8fc39050fbd32721ff2ead1e2bace5af08e90e609685832cf4c4a8de77c93f67",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "as expected",
+    "date": "2026-11-26"
+   }
+  },
+  {
+   "flow_id": "cloud-folders-and-connections",
+   "branch_id": "640x480-more/fr/s18/08-remove-confirm-again",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud",
+   "criteria": [
+    "1111 C01",
+    "1111 C08"
+   ],
+   "trigger": "a second connection (qa-two) removed from its own page: REMOVE CONNECTION, CANCEL, then REMOVE CONNECTION",
+   "expected_state": "the confirmation says cloud files stay and what an active connection needs; CANCEL leaves the page; after removal QA-CLOUD alone, still IN USE",
+   "source": {
+    "es": "c0fd03e1b (local m7/rc-round-es-20261125; route m7-20261126-16a1ec4e624a)",
+    "distribution": "bc81894fa826e118d43f19ce9d3e5e94709ea4c5 (local build/m7-rc-round-20261125, build 13)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T161646Z.gbc81894fa826-from-ROCKNIX",
+    "walk": "docs/qa-logs/2026-11-26-1111-1115-campaign/phase-d/phase-d.sh"
+   },
+   "locale": "fr",
+   "width": 640,
+   "height": 480,
+   "frame": "build13-640x480-more/fr/s18/08-remove-confirm-again.png",
+   "sha256": "4cdf8a1f70a77d6d99ab04de81b587ee753d8e10a6acc2f11817f082b8b76368",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "as expected",
+    "date": "2026-11-26"
+   }
+  },
+  {
+   "flow_id": "cloud-folders-and-connections",
+   "branch_id": "640x480-more/fr/s18/09-after-remove",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud",
+   "criteria": [
+    "1111 C01",
+    "1111 C08"
+   ],
+   "trigger": "a second connection (qa-two) removed from its own page: REMOVE CONNECTION, CANCEL, then REMOVE CONNECTION",
+   "expected_state": "the confirmation says cloud files stay and what an active connection needs; CANCEL leaves the page; after removal QA-CLOUD alone, still IN USE",
+   "source": {
+    "es": "c0fd03e1b (local m7/rc-round-es-20261125; route m7-20261126-16a1ec4e624a)",
+    "distribution": "bc81894fa826e118d43f19ce9d3e5e94709ea4c5 (local build/m7-rc-round-20261125, build 13)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T161646Z.gbc81894fa826-from-ROCKNIX",
+    "walk": "docs/qa-logs/2026-11-26-1111-1115-campaign/phase-d/phase-d.sh"
+   },
+   "locale": "fr",
+   "width": 640,
+   "height": 480,
+   "frame": "build13-640x480-more/fr/s18/09-after-remove.png",
+   "sha256": "d0ad7a0f8fec0c50d8adbaba73bb46574bf1b7fc262e52c4bf77d8857df5830a",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "as expected",
+    "date": "2026-11-26"
+   }
+  },
+  {
+   "flow_id": "cloud-folders-and-connections",
+   "branch_id": "640x480-more/fr/s19/01-cloud-hub",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud",
+   "criteria": [
+    "1111 C03",
+    "1111 C06",
+    "1111 C08"
+   ],
+   "trigger": "EDIT CONNECTION on qa-two after its endpoint stopped answering: backed out of, then SAVE CONNECTION, UPDATE CONNECTION",
+   "expected_state": "backing out changes nothing; the update re-verifies, fails with THE CONNECTION COULDN'T BE SAVED. and its reason, and the section is kept byte for byte (two-hash before and after in s19.arm.log)",
+   "source": {
+    "es": "c0fd03e1b (local m7/rc-round-es-20261125; route m7-20261126-16a1ec4e624a)",
+    "distribution": "bc81894fa826e118d43f19ce9d3e5e94709ea4c5 (local build/m7-rc-round-20261125, build 13)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T161646Z.gbc81894fa826-from-ROCKNIX",
+    "walk": "docs/qa-logs/2026-11-26-1111-1115-campaign/phase-d/phase-d.sh"
+   },
+   "locale": "fr",
+   "width": 640,
+   "height": 480,
+   "frame": "build13-640x480-more/fr/s19/01-cloud-hub.png",
+   "sha256": "6720f9bb3a014af5cd480c42dcefbf4fd36c3cf00019528c77f47eb003061a94",
+   "status": "walk-failed",
+   "note": "walk went astray: back on EDIT CONNECTION returned to the list (#1483), and the next presses removed qa-two; no edit was saved"
+  },
+  {
+   "flow_id": "cloud-folders-and-connections",
+   "branch_id": "640x480-more/fr/s19/02-connections-two",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud",
+   "criteria": [
+    "1111 C03",
+    "1111 C06",
+    "1111 C08"
+   ],
+   "trigger": "EDIT CONNECTION on qa-two after its endpoint stopped answering: backed out of, then SAVE CONNECTION, UPDATE CONNECTION",
+   "expected_state": "backing out changes nothing; the update re-verifies, fails with THE CONNECTION COULDN'T BE SAVED. and its reason, and the section is kept byte for byte (two-hash before and after in s19.arm.log)",
+   "source": {
+    "es": "c0fd03e1b (local m7/rc-round-es-20261125; route m7-20261126-16a1ec4e624a)",
+    "distribution": "bc81894fa826e118d43f19ce9d3e5e94709ea4c5 (local build/m7-rc-round-20261125, build 13)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T161646Z.gbc81894fa826-from-ROCKNIX",
+    "walk": "docs/qa-logs/2026-11-26-1111-1115-campaign/phase-d/phase-d.sh"
+   },
+   "locale": "fr",
+   "width": 640,
+   "height": 480,
+   "frame": "build13-640x480-more/fr/s19/02-connections-two.png",
+   "sha256": "6a3799a98db3c196363869aaf92d1424e3e5e4bc045d3653610ee43652a5cb63",
+   "status": "walk-failed",
+   "note": "walk went astray: back on EDIT CONNECTION returned to the list (#1483), and the next presses removed qa-two; no edit was saved"
+  },
+  {
+   "flow_id": "cloud-folders-and-connections",
+   "branch_id": "640x480-more/fr/s19/03-two-focused",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud",
+   "criteria": [
+    "1111 C03",
+    "1111 C06",
+    "1111 C08"
+   ],
+   "trigger": "EDIT CONNECTION on qa-two after its endpoint stopped answering: backed out of, then SAVE CONNECTION, UPDATE CONNECTION",
+   "expected_state": "backing out changes nothing; the update re-verifies, fails with THE CONNECTION COULDN'T BE SAVED. and its reason, and the section is kept byte for byte (two-hash before and after in s19.arm.log)",
+   "source": {
+    "es": "c0fd03e1b (local m7/rc-round-es-20261125; route m7-20261126-16a1ec4e624a)",
+    "distribution": "bc81894fa826e118d43f19ce9d3e5e94709ea4c5 (local build/m7-rc-round-20261125, build 13)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T161646Z.gbc81894fa826-from-ROCKNIX",
+    "walk": "docs/qa-logs/2026-11-26-1111-1115-campaign/phase-d/phase-d.sh"
+   },
+   "locale": "fr",
+   "width": 640,
+   "height": 480,
+   "frame": "build13-640x480-more/fr/s19/03-two-focused.png",
+   "sha256": "6e1bc67f220da154473b1c2a5835597cdebeee8da7b2951ff5d1963b7e3f6bf6",
+   "status": "walk-failed",
+   "note": "walk went astray: back on EDIT CONNECTION returned to the list (#1483), and the next presses removed qa-two; no edit was saved"
+  },
+  {
+   "flow_id": "cloud-folders-and-connections",
+   "branch_id": "640x480-more/fr/s19/04-connection-two",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud",
+   "criteria": [
+    "1111 C03",
+    "1111 C06",
+    "1111 C08"
+   ],
+   "trigger": "EDIT CONNECTION on qa-two after its endpoint stopped answering: backed out of, then SAVE CONNECTION, UPDATE CONNECTION",
+   "expected_state": "backing out changes nothing; the update re-verifies, fails with THE CONNECTION COULDN'T BE SAVED. and its reason, and the section is kept byte for byte (two-hash before and after in s19.arm.log)",
+   "source": {
+    "es": "c0fd03e1b (local m7/rc-round-es-20261125; route m7-20261126-16a1ec4e624a)",
+    "distribution": "bc81894fa826e118d43f19ce9d3e5e94709ea4c5 (local build/m7-rc-round-20261125, build 13)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T161646Z.gbc81894fa826-from-ROCKNIX",
+    "walk": "docs/qa-logs/2026-11-26-1111-1115-campaign/phase-d/phase-d.sh"
+   },
+   "locale": "fr",
+   "width": 640,
+   "height": 480,
+   "frame": "build13-640x480-more/fr/s19/04-connection-two.png",
+   "sha256": "6683db8a3920403d9504cf74574468ae06d4f6c5552468d4f3a09918d638ce09",
+   "status": "walk-failed",
+   "note": "walk went astray: back on EDIT CONNECTION returned to the list (#1483), and the next presses removed qa-two; no edit was saved"
+  },
+  {
+   "flow_id": "cloud-folders-and-connections",
+   "branch_id": "640x480-more/fr/s19/05-edit-row",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud",
+   "criteria": [
+    "1111 C03",
+    "1111 C06",
+    "1111 C08"
+   ],
+   "trigger": "EDIT CONNECTION on qa-two after its endpoint stopped answering: backed out of, then SAVE CONNECTION, UPDATE CONNECTION",
+   "expected_state": "backing out changes nothing; the update re-verifies, fails with THE CONNECTION COULDN'T BE SAVED. and its reason, and the section is kept byte for byte (two-hash before and after in s19.arm.log)",
+   "source": {
+    "es": "c0fd03e1b (local m7/rc-round-es-20261125; route m7-20261126-16a1ec4e624a)",
+    "distribution": "bc81894fa826e118d43f19ce9d3e5e94709ea4c5 (local build/m7-rc-round-20261125, build 13)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T161646Z.gbc81894fa826-from-ROCKNIX",
+    "walk": "docs/qa-logs/2026-11-26-1111-1115-campaign/phase-d/phase-d.sh"
+   },
+   "locale": "fr",
+   "width": 640,
+   "height": 480,
+   "frame": "build13-640x480-more/fr/s19/05-edit-row.png",
+   "sha256": "5eac3f3ebc57968a9cf645975c744b66aaa7684af1339dd34c38e0a5a80d403e",
+   "status": "walk-failed",
+   "note": "walk went astray: back on EDIT CONNECTION returned to the list (#1483), and the next presses removed qa-two; no edit was saved"
+  },
+  {
+   "flow_id": "cloud-folders-and-connections",
+   "branch_id": "640x480-more/fr/s19/06-edit-form",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud",
+   "criteria": [
+    "1111 C03",
+    "1111 C06",
+    "1111 C08"
+   ],
+   "trigger": "EDIT CONNECTION on qa-two after its endpoint stopped answering: backed out of, then SAVE CONNECTION, UPDATE CONNECTION",
+   "expected_state": "backing out changes nothing; the update re-verifies, fails with THE CONNECTION COULDN'T BE SAVED. and its reason, and the section is kept byte for byte (two-hash before and after in s19.arm.log)",
+   "source": {
+    "es": "c0fd03e1b (local m7/rc-round-es-20261125; route m7-20261126-16a1ec4e624a)",
+    "distribution": "bc81894fa826e118d43f19ce9d3e5e94709ea4c5 (local build/m7-rc-round-20261125, build 13)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T161646Z.gbc81894fa826-from-ROCKNIX",
+    "walk": "docs/qa-logs/2026-11-26-1111-1115-campaign/phase-d/phase-d.sh"
+   },
+   "locale": "fr",
+   "width": 640,
+   "height": 480,
+   "frame": "build13-640x480-more/fr/s19/06-edit-form.png",
+   "sha256": "14935027215cc37b64481778312c7612466e9212d63a4578f4d24b6269088b02",
+   "status": "walk-failed",
+   "note": "walk went astray: back on EDIT CONNECTION returned to the list (#1483), and the next presses removed qa-two; no edit was saved"
+  },
+  {
+   "flow_id": "cloud-folders-and-connections",
+   "branch_id": "640x480-more/fr/s19/07-after-cancel",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud",
+   "criteria": [
+    "1111 C03",
+    "1111 C06",
+    "1111 C08"
+   ],
+   "trigger": "EDIT CONNECTION on qa-two after its endpoint stopped answering: backed out of, then SAVE CONNECTION, UPDATE CONNECTION",
+   "expected_state": "backing out changes nothing; the update re-verifies, fails with THE CONNECTION COULDN'T BE SAVED. and its reason, and the section is kept byte for byte (two-hash before and after in s19.arm.log)",
+   "source": {
+    "es": "c0fd03e1b (local m7/rc-round-es-20261125; route m7-20261126-16a1ec4e624a)",
+    "distribution": "bc81894fa826e118d43f19ce9d3e5e94709ea4c5 (local build/m7-rc-round-20261125, build 13)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T161646Z.gbc81894fa826-from-ROCKNIX",
+    "walk": "docs/qa-logs/2026-11-26-1111-1115-campaign/phase-d/phase-d.sh"
+   },
+   "locale": "fr",
+   "width": 640,
+   "height": 480,
+   "frame": "build13-640x480-more/fr/s19/07-after-cancel.png",
+   "sha256": "6e1bc67f220da154473b1c2a5835597cdebeee8da7b2951ff5d1963b7e3f6bf6",
+   "status": "walk-failed",
+   "note": "walk went astray: back on EDIT CONNECTION returned to the list (#1483), and the next presses removed qa-two; no edit was saved"
+  },
+  {
+   "flow_id": "cloud-folders-and-connections",
+   "branch_id": "640x480-more/fr/s19/08-save-row",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud",
+   "criteria": [
+    "1111 C03",
+    "1111 C06",
+    "1111 C08"
+   ],
+   "trigger": "EDIT CONNECTION on qa-two after its endpoint stopped answering: backed out of, then SAVE CONNECTION, UPDATE CONNECTION",
+   "expected_state": "backing out changes nothing; the update re-verifies, fails with THE CONNECTION COULDN'T BE SAVED. and its reason, and the section is kept byte for byte (two-hash before and after in s19.arm.log)",
+   "source": {
+    "es": "c0fd03e1b (local m7/rc-round-es-20261125; route m7-20261126-16a1ec4e624a)",
+    "distribution": "bc81894fa826e118d43f19ce9d3e5e94709ea4c5 (local build/m7-rc-round-20261125, build 13)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T161646Z.gbc81894fa826-from-ROCKNIX",
+    "walk": "docs/qa-logs/2026-11-26-1111-1115-campaign/phase-d/phase-d.sh"
+   },
+   "locale": "fr",
+   "width": 640,
+   "height": 480,
+   "frame": "build13-640x480-more/fr/s19/08-save-row.png",
+   "sha256": "8fc39050fbd32721ff2ead1e2bace5af08e90e609685832cf4c4a8de77c93f67",
+   "status": "walk-failed",
+   "note": "walk went astray: back on EDIT CONNECTION returned to the list (#1483), and the next presses removed qa-two; no edit was saved"
+  },
+  {
+   "flow_id": "cloud-folders-and-connections",
+   "branch_id": "640x480-more/fr/s19/09-update-confirm",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud",
+   "criteria": [
+    "1111 C03",
+    "1111 C06",
+    "1111 C08"
+   ],
+   "trigger": "EDIT CONNECTION on qa-two after its endpoint stopped answering: backed out of, then SAVE CONNECTION, UPDATE CONNECTION",
+   "expected_state": "backing out changes nothing; the update re-verifies, fails with THE CONNECTION COULDN'T BE SAVED. and its reason, and the section is kept byte for byte (two-hash before and after in s19.arm.log)",
+   "source": {
+    "es": "c0fd03e1b (local m7/rc-round-es-20261125; route m7-20261126-16a1ec4e624a)",
+    "distribution": "bc81894fa826e118d43f19ce9d3e5e94709ea4c5 (local build/m7-rc-round-20261125, build 13)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T161646Z.gbc81894fa826-from-ROCKNIX",
+    "walk": "docs/qa-logs/2026-11-26-1111-1115-campaign/phase-d/phase-d.sh"
+   },
+   "locale": "fr",
+   "width": 640,
+   "height": 480,
+   "frame": "build13-640x480-more/fr/s19/09-update-confirm.png",
+   "sha256": "4cdf8a1f70a77d6d99ab04de81b587ee753d8e10a6acc2f11817f082b8b76368",
+   "status": "walk-failed",
+   "note": "walk went astray: back on EDIT CONNECTION returned to the list (#1483), and the next presses removed qa-two; no edit was saved"
+  },
+  {
+   "flow_id": "cloud-folders-and-connections",
+   "branch_id": "640x480-more/fr/s19/10-update-failed",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud",
+   "criteria": [
+    "1111 C03",
+    "1111 C06",
+    "1111 C08"
+   ],
+   "trigger": "EDIT CONNECTION on qa-two after its endpoint stopped answering: backed out of, then SAVE CONNECTION, UPDATE CONNECTION",
+   "expected_state": "backing out changes nothing; the update re-verifies, fails with THE CONNECTION COULDN'T BE SAVED. and its reason, and the section is kept byte for byte (two-hash before and after in s19.arm.log)",
+   "source": {
+    "es": "c0fd03e1b (local m7/rc-round-es-20261125; route m7-20261126-16a1ec4e624a)",
+    "distribution": "bc81894fa826e118d43f19ce9d3e5e94709ea4c5 (local build/m7-rc-round-20261125, build 13)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T161646Z.gbc81894fa826-from-ROCKNIX",
+    "walk": "docs/qa-logs/2026-11-26-1111-1115-campaign/phase-d/phase-d.sh"
+   },
+   "locale": "fr",
+   "width": 640,
+   "height": 480,
+   "frame": "build13-640x480-more/fr/s19/10-update-failed.png",
+   "sha256": "d0ad7a0f8fec0c50d8adbaba73bb46574bf1b7fc262e52c4bf77d8857df5830a",
+   "status": "walk-failed",
+   "note": "walk went astray: back on EDIT CONNECTION returned to the list (#1483), and the next presses removed qa-two; no edit was saved"
+  },
+  {
+   "flow_id": "cloud-folders-and-connections",
+   "branch_id": "640x480-more/fr/s19/11-after-failure-ok",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud",
+   "criteria": [
+    "1111 C03",
+    "1111 C06",
+    "1111 C08"
+   ],
+   "trigger": "EDIT CONNECTION on qa-two after its endpoint stopped answering: backed out of, then SAVE CONNECTION, UPDATE CONNECTION",
+   "expected_state": "backing out changes nothing; the update re-verifies, fails with THE CONNECTION COULDN'T BE SAVED. and its reason, and the section is kept byte for byte (two-hash before and after in s19.arm.log)",
+   "source": {
+    "es": "c0fd03e1b (local m7/rc-round-es-20261125; route m7-20261126-16a1ec4e624a)",
+    "distribution": "bc81894fa826e118d43f19ce9d3e5e94709ea4c5 (local build/m7-rc-round-20261125, build 13)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T161646Z.gbc81894fa826-from-ROCKNIX",
+    "walk": "docs/qa-logs/2026-11-26-1111-1115-campaign/phase-d/phase-d.sh"
+   },
+   "locale": "fr",
+   "width": 640,
+   "height": 480,
+   "frame": "build13-640x480-more/fr/s19/11-after-failure-ok.png",
+   "sha256": "7a17f12233b827404f12f035ddcf7946a9c94eed2ca3c1a0d67b9b4751e18a13",
+   "status": "walk-failed",
+   "note": "walk went astray: back on EDIT CONNECTION returned to the list (#1483), and the next presses removed qa-two; no edit was saved"
+  },
+  {
+   "flow_id": "cloud-folders-and-connections",
+   "branch_id": "640x480-more/fr/s19/12-after-failure-back",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud",
+   "criteria": [
+    "1111 C03",
+    "1111 C06",
+    "1111 C08"
+   ],
+   "trigger": "EDIT CONNECTION on qa-two after its endpoint stopped answering: backed out of, then SAVE CONNECTION, UPDATE CONNECTION",
+   "expected_state": "backing out changes nothing; the update re-verifies, fails with THE CONNECTION COULDN'T BE SAVED. and its reason, and the section is kept byte for byte (two-hash before and after in s19.arm.log)",
+   "source": {
+    "es": "c0fd03e1b (local m7/rc-round-es-20261125; route m7-20261126-16a1ec4e624a)",
+    "distribution": "bc81894fa826e118d43f19ce9d3e5e94709ea4c5 (local build/m7-rc-round-20261125, build 13)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T161646Z.gbc81894fa826-from-ROCKNIX",
+    "walk": "docs/qa-logs/2026-11-26-1111-1115-campaign/phase-d/phase-d.sh"
+   },
+   "locale": "fr",
+   "width": 640,
+   "height": 480,
+   "frame": "build13-640x480-more/fr/s19/12-after-failure-back.png",
+   "sha256": "d0ad7a0f8fec0c50d8adbaba73bb46574bf1b7fc262e52c4bf77d8857df5830a",
+   "status": "walk-failed",
+   "note": "walk went astray: back on EDIT CONNECTION returned to the list (#1483), and the next presses removed qa-two; no edit was saved"
+  },
+  {
+   "flow_id": "cloud-folders-and-connections",
+   "branch_id": "640x480-more/fr/s20/01-cloud-hub",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud",
+   "criteria": [
+    "1111 C11"
+   ],
+   "trigger": "a line before rclone.conf's first section (an unreadable setup)",
+   "expected_state": "each page says the setup could not be read rather than no selection or a connection failure",
+   "source": {
+    "es": "c0fd03e1b (local m7/rc-round-es-20261125; route m7-20261126-16a1ec4e624a)",
+    "distribution": "bc81894fa826e118d43f19ce9d3e5e94709ea4c5 (local build/m7-rc-round-20261125, build 13)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T161646Z.gbc81894fa826-from-ROCKNIX",
+    "walk": "docs/qa-logs/2026-11-26-1111-1115-campaign/phase-d/phase-d.sh"
+   },
+   "locale": "fr",
+   "width": 640,
+   "height": 480,
+   "frame": "build13-640x480-more/fr/s20/01-cloud-hub.png",
+   "sha256": "e297b8ad6ab28dc1e8ad0330e3942f4ecc08831e5637f529ae0e8b665a0a25ee",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "defect, build 13: the hub reads NO CONNECTION SELECTED and CLOUD FOLDERS asks to choose a connection for an unreadable setup; the setup check and connections page name it. Fixed in ES 6cdcb7a64 (#1111 C11)",
+    "date": "2026-11-26"
+   }
+  },
+  {
+   "flow_id": "cloud-folders-and-connections",
+   "branch_id": "640x480-more/fr/s20/02-hub-unreadable",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud",
+   "criteria": [
+    "1111 C11"
+   ],
+   "trigger": "a line before rclone.conf's first section (an unreadable setup)",
+   "expected_state": "each page says the setup could not be read rather than no selection or a connection failure",
+   "source": {
+    "es": "c0fd03e1b (local m7/rc-round-es-20261125; route m7-20261126-16a1ec4e624a)",
+    "distribution": "bc81894fa826e118d43f19ce9d3e5e94709ea4c5 (local build/m7-rc-round-20261125, build 13)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T161646Z.gbc81894fa826-from-ROCKNIX",
+    "walk": "docs/qa-logs/2026-11-26-1111-1115-campaign/phase-d/phase-d.sh"
+   },
+   "locale": "fr",
+   "width": 640,
+   "height": 480,
+   "frame": "build13-640x480-more/fr/s20/02-hub-unreadable.png",
+   "sha256": "2e4c636d72de45e86185e92f6c893f67c5a5592af7f11642d408e61fc37f642f",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "defect, build 13: the hub reads NO CONNECTION SELECTED and CLOUD FOLDERS asks to choose a connection for an unreadable setup; the setup check and connections page name it. Fixed in ES 6cdcb7a64 (#1111 C11)",
+    "date": "2026-11-26"
+   }
+  },
+  {
+   "flow_id": "cloud-folders-and-connections",
+   "branch_id": "640x480-more/fr/s20/03-setup-check-unreadable",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud",
+   "criteria": [
+    "1111 C11"
+   ],
+   "trigger": "a line before rclone.conf's first section (an unreadable setup)",
+   "expected_state": "each page says the setup could not be read rather than no selection or a connection failure",
+   "source": {
+    "es": "c0fd03e1b (local m7/rc-round-es-20261125; route m7-20261126-16a1ec4e624a)",
+    "distribution": "bc81894fa826e118d43f19ce9d3e5e94709ea4c5 (local build/m7-rc-round-20261125, build 13)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T161646Z.gbc81894fa826-from-ROCKNIX",
+    "walk": "docs/qa-logs/2026-11-26-1111-1115-campaign/phase-d/phase-d.sh"
+   },
+   "locale": "fr",
+   "width": 640,
+   "height": 480,
+   "frame": "build13-640x480-more/fr/s20/03-setup-check-unreadable.png",
+   "sha256": "9d3a6745754faf75e3e8dad32dc135213212b290519915ee0bb2627cb852be74",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "defect, build 13: the hub reads NO CONNECTION SELECTED and CLOUD FOLDERS asks to choose a connection for an unreadable setup; the setup check and connections page name it. Fixed in ES 6cdcb7a64 (#1111 C11)",
+    "date": "2026-11-26"
+   }
+  },
+  {
+   "flow_id": "cloud-folders-and-connections",
+   "branch_id": "640x480-more/fr/s20/04-connections-unreadable",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud",
+   "criteria": [
+    "1111 C11"
+   ],
+   "trigger": "a line before rclone.conf's first section (an unreadable setup)",
+   "expected_state": "each page says the setup could not be read rather than no selection or a connection failure",
+   "source": {
+    "es": "c0fd03e1b (local m7/rc-round-es-20261125; route m7-20261126-16a1ec4e624a)",
+    "distribution": "bc81894fa826e118d43f19ce9d3e5e94709ea4c5 (local build/m7-rc-round-20261125, build 13)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T161646Z.gbc81894fa826-from-ROCKNIX",
+    "walk": "docs/qa-logs/2026-11-26-1111-1115-campaign/phase-d/phase-d.sh"
+   },
+   "locale": "fr",
+   "width": 640,
+   "height": 480,
+   "frame": "build13-640x480-more/fr/s20/04-connections-unreadable.png",
+   "sha256": "ae8927f867a762a9faf47aa03d02241ab7dd6618ac0ab54f0526952c8ca7c633",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "defect, build 13: the hub reads NO CONNECTION SELECTED and CLOUD FOLDERS asks to choose a connection for an unreadable setup; the setup check and connections page name it. Fixed in ES 6cdcb7a64 (#1111 C11)",
+    "date": "2026-11-26"
+   }
+  },
+  {
+   "flow_id": "cloud-folders-and-connections",
+   "branch_id": "640x480-more/fr/s20/05-folder-actions-unreadable",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud",
+   "criteria": [
+    "1111 C11"
+   ],
+   "trigger": "a line before rclone.conf's first section (an unreadable setup)",
+   "expected_state": "each page says the setup could not be read rather than no selection or a connection failure",
+   "source": {
+    "es": "c0fd03e1b (local m7/rc-round-es-20261125; route m7-20261126-16a1ec4e624a)",
+    "distribution": "bc81894fa826e118d43f19ce9d3e5e94709ea4c5 (local build/m7-rc-round-20261125, build 13)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T161646Z.gbc81894fa826-from-ROCKNIX",
+    "walk": "docs/qa-logs/2026-11-26-1111-1115-campaign/phase-d/phase-d.sh"
+   },
+   "locale": "fr",
+   "width": 640,
+   "height": 480,
+   "frame": "build13-640x480-more/fr/s20/05-folder-actions-unreadable.png",
+   "sha256": "55acd38b8b7ec6e97ab2a26f8377463a08627b880e49558a870f128ef517e847",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "defect, build 13: the hub reads NO CONNECTION SELECTED and CLOUD FOLDERS asks to choose a connection for an unreadable setup; the setup check and connections page name it. Fixed in ES 6cdcb7a64 (#1111 C11)",
+    "date": "2026-11-26"
+   }
+  },
+  {
+   "flow_id": "cloud-folders-and-connections",
+   "branch_id": "640x480-more/fr/s21/01-cloud-hub",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud",
+   "criteria": [
+    "1111 C11",
+    "1111 C14"
+   ],
+   "trigger": "the saves folder changed while CLOUD FOLDERS is open, then CHECK CLOUD FOLDERS",
+   "expected_state": "THE CLOUD CHECK IS NO LONGER CURRENT. REOPEN CLOUD FOLDERS AND CHECK AGAIN.: the stale wording, for the context change only",
+   "source": {
+    "es": "c0fd03e1b (local m7/rc-round-es-20261125; route m7-20261126-16a1ec4e624a)",
+    "distribution": "bc81894fa826e118d43f19ce9d3e5e94709ea4c5 (local build/m7-rc-round-20261125, build 13)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T161646Z.gbc81894fa826-from-ROCKNIX",
+    "walk": "docs/qa-logs/2026-11-26-1111-1115-campaign/phase-d/phase-d.sh"
+   },
+   "locale": "fr",
+   "width": 640,
+   "height": 480,
+   "frame": "build13-640x480-more/fr/s21/01-cloud-hub.png",
+   "sha256": "6720f9bb3a014af5cd480c42dcefbf4fd36c3cf00019528c77f47eb003061a94",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "as expected",
+    "date": "2026-11-26"
+   }
+  },
+  {
+   "flow_id": "cloud-folders-and-connections",
+   "branch_id": "640x480-more/fr/s21/02-folders-before-change",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud",
+   "criteria": [
+    "1111 C11",
+    "1111 C14"
+   ],
+   "trigger": "the saves folder changed while CLOUD FOLDERS is open, then CHECK CLOUD FOLDERS",
+   "expected_state": "THE CLOUD CHECK IS NO LONGER CURRENT. REOPEN CLOUD FOLDERS AND CHECK AGAIN.: the stale wording, for the context change only",
+   "source": {
+    "es": "c0fd03e1b (local m7/rc-round-es-20261125; route m7-20261126-16a1ec4e624a)",
+    "distribution": "bc81894fa826e118d43f19ce9d3e5e94709ea4c5 (local build/m7-rc-round-20261125, build 13)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T161646Z.gbc81894fa826-from-ROCKNIX",
+    "walk": "docs/qa-logs/2026-11-26-1111-1115-campaign/phase-d/phase-d.sh"
+   },
+   "locale": "fr",
+   "width": 640,
+   "height": 480,
+   "frame": "build13-640x480-more/fr/s21/02-folders-before-change.png",
+   "sha256": "cae231b61dbb69cbce4f48e20a5f3c7256d8f46bb753484e830e1fce290d7b54",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "as expected",
+    "date": "2026-11-26"
+   }
+  },
+  {
+   "flow_id": "cloud-folders-and-connections",
+   "branch_id": "640x480-more/fr/s21-b/01-check-after-change",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud",
+   "criteria": [
+    "1111 C11",
+    "1111 C14"
+   ],
+   "trigger": "the saves folder changed while CLOUD FOLDERS is open, then CHECK CLOUD FOLDERS",
+   "expected_state": "THE CLOUD CHECK IS NO LONGER CURRENT. REOPEN CLOUD FOLDERS AND CHECK AGAIN.: the stale wording, for the context change only",
+   "source": {
+    "es": "c0fd03e1b (local m7/rc-round-es-20261125; route m7-20261126-16a1ec4e624a)",
+    "distribution": "bc81894fa826e118d43f19ce9d3e5e94709ea4c5 (local build/m7-rc-round-20261125, build 13)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T161646Z.gbc81894fa826-from-ROCKNIX",
+    "walk": "docs/qa-logs/2026-11-26-1111-1115-campaign/phase-d/phase-d.sh"
+   },
+   "locale": "fr",
+   "width": 640,
+   "height": 480,
+   "frame": "build13-640x480-more/fr/s21-b/01-check-after-change.png",
+   "sha256": "e5a1927968c8a2772954f318df09727776d0bcbe3456b8dd0dcddefddaab166f",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "as expected",
+    "date": "2026-11-26"
+   }
+  },
+  {
+   "flow_id": "cloud-folders-and-connections",
+   "branch_id": "640x480-more/fr/s21-b/02-check-refused",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud",
+   "criteria": [
+    "1111 C11",
+    "1111 C14"
+   ],
+   "trigger": "the saves folder changed while CLOUD FOLDERS is open, then CHECK CLOUD FOLDERS",
+   "expected_state": "THE CLOUD CHECK IS NO LONGER CURRENT. REOPEN CLOUD FOLDERS AND CHECK AGAIN.: the stale wording, for the context change only",
+   "source": {
+    "es": "c0fd03e1b (local m7/rc-round-es-20261125; route m7-20261126-16a1ec4e624a)",
+    "distribution": "bc81894fa826e118d43f19ce9d3e5e94709ea4c5 (local build/m7-rc-round-20261125, build 13)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T161646Z.gbc81894fa826-from-ROCKNIX",
+    "walk": "docs/qa-logs/2026-11-26-1111-1115-campaign/phase-d/phase-d.sh"
+   },
+   "locale": "fr",
+   "width": 640,
+   "height": 480,
+   "frame": "build13-640x480-more/fr/s21-b/02-check-refused.png",
+   "sha256": "53b147f00baa5f37b9222b7fdaa0fc2ab5cd1b42ccdd16428795747ac95b1a9c",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "as expected",
+    "date": "2026-11-26"
+   }
+  },
+  {
+   "flow_id": "cloud-folders-and-connections",
+   "branch_id": "640x480-more/fr/s21-b/03-after-ok",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud",
+   "criteria": [
+    "1111 C11",
+    "1111 C14"
+   ],
+   "trigger": "the saves folder changed while CLOUD FOLDERS is open, then CHECK CLOUD FOLDERS",
+   "expected_state": "THE CLOUD CHECK IS NO LONGER CURRENT. REOPEN CLOUD FOLDERS AND CHECK AGAIN.: the stale wording, for the context change only",
+   "source": {
+    "es": "c0fd03e1b (local m7/rc-round-es-20261125; route m7-20261126-16a1ec4e624a)",
+    "distribution": "bc81894fa826e118d43f19ce9d3e5e94709ea4c5 (local build/m7-rc-round-20261125, build 13)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T161646Z.gbc81894fa826-from-ROCKNIX",
+    "walk": "docs/qa-logs/2026-11-26-1111-1115-campaign/phase-d/phase-d.sh"
+   },
+   "locale": "fr",
+   "width": 640,
+   "height": 480,
+   "frame": "build13-640x480-more/fr/s21-b/03-after-ok.png",
+   "sha256": "e5a1927968c8a2772954f318df09727776d0bcbe3456b8dd0dcddefddaab166f",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "as expected",
+    "date": "2026-11-26"
+   }
+  },
+  {
+   "flow_id": "cloud-folders-and-connections",
+   "branch_id": "640x480-more/fr/s22/01-cloud-hub",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud",
+   "criteria": [
+    "1111 C11"
+   ],
+   "trigger": "the selection emptied while CLOUD FOLDERS is open, then CHECK CLOUD FOLDERS",
+   "expected_state": "not the stale wording: the no-selection case is told apart from a changed context",
+   "source": {
+    "es": "c0fd03e1b (local m7/rc-round-es-20261125; route m7-20261126-16a1ec4e624a)",
+    "distribution": "bc81894fa826e118d43f19ce9d3e5e94709ea4c5 (local build/m7-rc-round-20261125, build 13)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T161646Z.gbc81894fa826-from-ROCKNIX",
+    "walk": "docs/qa-logs/2026-11-26-1111-1115-campaign/phase-d/phase-d.sh"
+   },
+   "locale": "fr",
+   "width": 640,
+   "height": 480,
+   "frame": "build13-640x480-more/fr/s22/01-cloud-hub.png",
+   "sha256": "6720f9bb3a014af5cd480c42dcefbf4fd36c3cf00019528c77f47eb003061a94",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "as expected",
+    "date": "2026-11-26"
+   }
+  },
+  {
+   "flow_id": "cloud-folders-and-connections",
+   "branch_id": "640x480-more/fr/s22/02-folders-before-change",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud",
+   "criteria": [
+    "1111 C11"
+   ],
+   "trigger": "the selection emptied while CLOUD FOLDERS is open, then CHECK CLOUD FOLDERS",
+   "expected_state": "not the stale wording: the no-selection case is told apart from a changed context",
+   "source": {
+    "es": "c0fd03e1b (local m7/rc-round-es-20261125; route m7-20261126-16a1ec4e624a)",
+    "distribution": "bc81894fa826e118d43f19ce9d3e5e94709ea4c5 (local build/m7-rc-round-20261125, build 13)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T161646Z.gbc81894fa826-from-ROCKNIX",
+    "walk": "docs/qa-logs/2026-11-26-1111-1115-campaign/phase-d/phase-d.sh"
+   },
+   "locale": "fr",
+   "width": 640,
+   "height": 480,
+   "frame": "build13-640x480-more/fr/s22/02-folders-before-change.png",
+   "sha256": "cae231b61dbb69cbce4f48e20a5f3c7256d8f46bb753484e830e1fce290d7b54",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "as expected",
+    "date": "2026-11-26"
+   }
+  },
+  {
+   "flow_id": "cloud-folders-and-connections",
+   "branch_id": "640x480-more/fr/s22-b/01-check-after-change",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud",
+   "criteria": [
+    "1111 C11"
+   ],
+   "trigger": "the selection emptied while CLOUD FOLDERS is open, then CHECK CLOUD FOLDERS",
+   "expected_state": "not the stale wording: the no-selection case is told apart from a changed context",
+   "source": {
+    "es": "c0fd03e1b (local m7/rc-round-es-20261125; route m7-20261126-16a1ec4e624a)",
+    "distribution": "bc81894fa826e118d43f19ce9d3e5e94709ea4c5 (local build/m7-rc-round-20261125, build 13)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T161646Z.gbc81894fa826-from-ROCKNIX",
+    "walk": "docs/qa-logs/2026-11-26-1111-1115-campaign/phase-d/phase-d.sh"
+   },
+   "locale": "fr",
+   "width": 640,
+   "height": 480,
+   "frame": "build13-640x480-more/fr/s22-b/01-check-after-change.png",
+   "sha256": "e5a1927968c8a2772954f318df09727776d0bcbe3456b8dd0dcddefddaab166f",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "defect, build 13: a selection emptied while CLOUD FOLDERS is open gives COULDN'T CHECK YOUR FOLDERS. CHECK YOUR CONNECTION; not the stale wording, but it names a connection fault. Fixed in ES 6cdcb7a64 (#1111 C10, C20)",
+    "date": "2026-11-26"
+   }
+  },
+  {
+   "flow_id": "cloud-folders-and-connections",
+   "branch_id": "640x480-more/fr/s22-b/02-check-refused",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud",
+   "criteria": [
+    "1111 C11"
+   ],
+   "trigger": "the selection emptied while CLOUD FOLDERS is open, then CHECK CLOUD FOLDERS",
+   "expected_state": "not the stale wording: the no-selection case is told apart from a changed context",
+   "source": {
+    "es": "c0fd03e1b (local m7/rc-round-es-20261125; route m7-20261126-16a1ec4e624a)",
+    "distribution": "bc81894fa826e118d43f19ce9d3e5e94709ea4c5 (local build/m7-rc-round-20261125, build 13)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T161646Z.gbc81894fa826-from-ROCKNIX",
+    "walk": "docs/qa-logs/2026-11-26-1111-1115-campaign/phase-d/phase-d.sh"
+   },
+   "locale": "fr",
+   "width": 640,
+   "height": 480,
+   "frame": "build13-640x480-more/fr/s22-b/02-check-refused.png",
+   "sha256": "d9e6a3a085aed86a2fc9b3c0fa12f653cfd7f791ca3a14452013f1537a31ff3f",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "defect, build 13: a selection emptied while CLOUD FOLDERS is open gives COULDN'T CHECK YOUR FOLDERS. CHECK YOUR CONNECTION; not the stale wording, but it names a connection fault. Fixed in ES 6cdcb7a64 (#1111 C10, C20)",
+    "date": "2026-11-26"
+   }
+  },
+  {
+   "flow_id": "cloud-folders-and-connections",
+   "branch_id": "640x480-more/fr/s22-b/03-after-ok",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud",
+   "criteria": [
+    "1111 C11"
+   ],
+   "trigger": "the selection emptied while CLOUD FOLDERS is open, then CHECK CLOUD FOLDERS",
+   "expected_state": "not the stale wording: the no-selection case is told apart from a changed context",
+   "source": {
+    "es": "c0fd03e1b (local m7/rc-round-es-20261125; route m7-20261126-16a1ec4e624a)",
+    "distribution": "bc81894fa826e118d43f19ce9d3e5e94709ea4c5 (local build/m7-rc-round-20261125, build 13)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T161646Z.gbc81894fa826-from-ROCKNIX",
+    "walk": "docs/qa-logs/2026-11-26-1111-1115-campaign/phase-d/phase-d.sh"
+   },
+   "locale": "fr",
+   "width": 640,
+   "height": 480,
+   "frame": "build13-640x480-more/fr/s22-b/03-after-ok.png",
+   "sha256": "e5a1927968c8a2772954f318df09727776d0bcbe3456b8dd0dcddefddaab166f",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "defect, build 13: a selection emptied while CLOUD FOLDERS is open gives COULDN'T CHECK YOUR FOLDERS. CHECK YOUR CONNECTION; not the stale wording, but it names a connection fault. Fixed in ES 6cdcb7a64 (#1111 C10, C20)",
+    "date": "2026-11-26"
+   }
+  },
+  {
+   "flow_id": "cloud-folders-and-connections",
    "branch_id": "640x480-root/en/s17/01-cloud-hub",
    "document": "docs/es-menu-map.md",
    "anchor": "cloud",

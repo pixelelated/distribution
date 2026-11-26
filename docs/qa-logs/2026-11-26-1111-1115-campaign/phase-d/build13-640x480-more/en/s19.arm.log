@@ -1,0 +1,7 @@
+arm:
+TWO=cc2b0368c07488bb74eb868841ce8c2d1d07336034f54748fc687e7c18d18914
+STATE=selected CONNECTION=qa-cloud SECTIONS=qa-cloud,qa-two SYNC=off/off
+put back:
+TWO=absent
+STATE=selected CONNECTION=qa-cloud SECTIONS=qa-cloud SYNC=off/off
+STATE=selected CONNECTION=qa-cloud SECTIONS=qa-cloud SYNC=off/off
