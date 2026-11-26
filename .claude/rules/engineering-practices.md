@@ -340,6 +340,12 @@ provider hash is correct. Remote rollback does not roll back client settings.
 `tools/cloud-save-integrity` and its companion controls implement the offline
 checks; their input manifest still needs a successful, scoped collector.
 
+## One definition of passing, and a failing check is right until shown wrong
+
+D-QA-065 (#1469, #1470). Max, 2026-11-26: *"Do we have work defined to improve these tests to make them more reliable and trustworthy? If not, we should create them."* `tools/vm-qa` ends with one line: `VERDICT: PASS` when every suite asked for ran and passed, `VERDICT: FAIL` otherwise. There is no middle verdict, and a suite that could not run fails. `docs/qa/vm-qa-known-failures.txt` names a failing suite's open issue beside it, so the unlisted failures stand out, but it never excuses one. A listed suite that passes is reported as stale, and the list is empty when a build is called a release candidate.
+
+A failing check is treated as right until a run or a reading of the source shows it wrong. A harness fix says which, in its commit. On 2026-11-25, two checks called stale for naming a function that had moved were real regressions (blindspot 77). And a run expected to have "one failure" let seven failing suites look almost normal.
+
 ## A failure you find is yours to fix
 
 Finding a defect creates an obligation to deal with it, not merely to record
