@@ -1,0 +1,32 @@
+#!/bin/bash
+# SPDX-License-Identifier: GPL-2.0
+# Copyright (C) 2026-present ROCKNIX (https://github.com/ROCKNIX)
+#
+# work-log-entry -- append an entry to today's work log with its heading's
+# time read from the clock as it is written, then refresh the index.
+#
+#   tools/work-log-entry "<title naming its issues, e.g. (#1111)>" < body.md
+#
+# A heading's time was typed by hand and ran ahead of the clock four times
+# on 2026-11-26 alone (and on earlier days), though the rule says to read it
+# from `date -u`: a rule broken that often moves up a stage, to a tool
+# (working-principles.md). The day file and its month folder are made when
+# missing. The title must cite an issue (#N), as the ceremony check expects
+# of the work it records. Exit 0 appended, 2 refused (nothing written).
+set -uo pipefail
+ROOT=$(cd "$(dirname "$0")/.." && pwd)
+title=${1:-}
+[ -n "$title" ] || { echo 'usage: work-log-entry "<title (#N)>" < body.md' >&2; exit 2; }
+[[ $title =~ \#[0-9]+ ]] || { echo "work-log-entry: the title names no issue (#N)" >&2; exit 2; }
+[ -t 0 ] && { echo "work-log-entry: the body comes on stdin" >&2; exit 2; }
+body=$(cat) || exit 2
+[ -n "${body//[[:space:]]/}" ] || { echo "work-log-entry: the body is empty" >&2; exit 2; }
+# One reading of the clock for the file, the day and the heading, so an entry
+# written across midnight lands in the day its heading names.
+read -r month day date hm < <(date -u '+%Y_%m %Y_%m_%d %Y-%m-%d %H:%M')
+file=$ROOT/docs/work-logs/${month}-work_logs/${day}-work_log.md
+mkdir -p "$(dirname "$file")" || exit 2
+[ -f "$file" ] || printf '# Work log — %s\n' "$date" > "$file" || exit 2
+printf '\n## %s UTC — %s\n\n%s\n' "$hm" "$title" "$body" >> "$file" || exit 2
+"$ROOT/tools/work-log-index" --write >/dev/null || { echo "work-log-entry: appended, but the index did not refresh" >&2; exit 2; }
+echo "${file#$ROOT/}: ## $hm UTC — $title"

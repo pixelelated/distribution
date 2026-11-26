@@ -161,6 +161,7 @@ both lists and to this table, or it is invisible.**
 | `ceremony-check` | which ceremony is owed (a friction entry's issue, a retro, a weekly or monthly summary, the index, a blindspot's guard, an audit, a futro) and whether the push guard refuses | `ceremonies.md` |
 | `test-drive-check`, `test-drive-check-test` | does a fork commit that changes a product path a test drives (`docs/qa/test-drives.txt`) change that test or name the run that covers it; a gate line of `ceremony-check` (D-QA-066, #1468) | `engineering-practices.md`, `ceremonies.md` |
 | `frame-diff` | did this build change any walk frame it did not mean to -- the boxes against the last accepted cut, the masks, the claims | `generic-x64-vm-testing.md` |
+| `work-log-entry` | append today's work-log entry with its heading's time read from the clock as it is written; refuses a title naming no issue (#1464) | `learning-capture.md` |
 | `work-log-index` | the day, week and month table of contents over the work logs, regenerated after every entry | `learning-capture.md` |
 | `coordinator-escalation` | planned work stopped: write an actionable notice to the steward's inbox (never a pane), independently of routine monitor ACKs | `engineering-practices.md` |
 | `coordinator-escalation-test` | controlled stopped-work, inbox-file, pane-refusal, delivery-failure and receipt-state checks | `engineering-practices.md` |

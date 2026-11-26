@@ -33,6 +33,9 @@ Append a timestamped entry to the day's work log:
 - A day file holds **multiple** entries; head each with a timestamp
   (e.g. `## 19:04 UTC — <title>`). **Append, don't overwrite.**
 - Keep entries concise: what was learned/decided, why, and any follow-ups (issue links).
+- `tools/work-log-entry "<title (#N)>" < body.md` appends the entry with its
+  heading's time read from the clock as it is written, and refreshes the
+  index; a time typed by hand ran ahead of the clock again and again (#1464).
 - Then `tools/work-log-index --write`. `docs/work-logs/INDEX.md` is the
   day/week/month table of contents over the day files -- the view the
   maintainer asked for on 2026-09-23 (*"so we know what's happened a day, a
