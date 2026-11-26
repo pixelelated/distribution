@@ -8,7 +8,26 @@ Read the [M7 milestone](https://github.com/pixelelated/distribution/milestone/7)
 
 ## Current focus
 
-**000000000000000. Newest (2026-11-26T14:04Z): #1428 closed; the M7 critical path is Max's answers.**
+**0000000000000000. Newest (2026-11-26T15:19Z): #1457, #1427 and #1479 closed; run 9 PASS on build 12; the #1111/#1115 campaign is under way.**
+- **Build 12** (`a069abd236`, #1457's post-update fix): standard run 9 `VERDICT: PASS` (`qa-a069abd236-webdav-a-20261126-1416`), and `rc-preflight --only vm-qa` PASS. The round head is now `18169f5efe` (local): build 12 plus #1479's test fix, tools only.
+- **Closed:**
+  - #1457: control and fix rehearsals.
+  - #1427: `docs/qa-logs/2026-11-26-1427-free-slot/`, an installed proof on build 12.
+  - #1479: the validator test's stale seeding, fixed on the round.
+- **The #1111/#1115 campaign:** `docs/qa-logs/2026-11-26-1111-1115-campaign/PLAN.md`.
+  - Phase A is done (host suites with the image's rclone 1.76.0), and #1115 C01 is ticked.
+  - **Next:** phase B, a driver porting the October installed-component checks to a plain `vm-pair` guest from build 12 (the cases are listed in the plan). Then C (upgrade from `43d0bc3b` onto build 12), then D (EN/FR 640/1280 frames).
+  - D-CLOUD-194 (C15, a renewal keeping a folder check) is open and went to the steward's inbox (`20261126T1519Z-one-decision-and-1427.md`).
+- **`tools/patch-replay` (#1448 c4, on `next`)** on the round head:
+  - Every patch applies for x64, H700 aarch64, H700 arm and SM8550 aarch64.
+  - SM8550 arm is running in the runner `/workspace/tmp/rocknix-session/patch-replay-round-20261126T1432Z/` (pid 2654557, harness waiter on its `rc`), slowed by `scripts/get`'s fetch lock while ppsspp-sa's `ffmpeg` submodule clones into the shared cache.
+- **`tools/device-build` (#1445), not committed yet.** It sits in the primary checkout's working tree (`tools/device-build`, plus the pre-push, fork-workflow, instruction-files and device-builds edits).
+  - The dry runs and refusals were seen: `/workspace/tmp/rocknix-session/device-build-dryruns/`.
+  - The failing-step real run is in the background. Its owner is `.build-runs/m7-test-1445-refusal-owner`, and the test set file is `.build-runs/build-sets/test-1445-refusal.json`, removed once its result is recorded. It is held by the same fetch lock, and is expected to stop at the retention report.
+  - Commit the tool once that run's result is read.
+- **Waiting on Max:** unchanged: #1477, #1478, publication, the 300 bugs, and fast mode. D-CLOUD-194 is added to that list.
+
+**000000000000000. (2026-11-26T14:04Z): #1428 closed; the M7 critical path is Max's answers.**
 - **Closed today:** #1474, #1475, #1476, #1012, #1428 (packet `docs/qa-logs/2026-11-26-1428-cloud-setup/`, 33 frames). Round head `6dbc78398e` (local) = build 11 (`30e6ff3db9`, standard run 8 PASS) plus tools only.
 - **Waiting on Max:**
   - #1477: the launch question outlives a finished sync; KEEP WAITING launches nothing.
