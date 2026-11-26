@@ -71,6 +71,10 @@ SCREENS = {
             ["1111 C11"]),
     "s23": ("a connection saved but the selection emptied: MANAGE CLOUD CONNECTIONS and CHECK CLOUD SETUP",
             "both pages still read CHOOSE A CONNECTION BEFORE USING CLOUD TOOLS. (#1482 leaves this case as it was)", ["1482 c3", "1111 C10"]),
+    "s25": ("a fresh device: no rclone.conf and no folder-profiles.json (both restored after)",
+            "setup-info STATE=no-connections; CHECK CLOUD SETUP and MANAGE CLOUD CONNECTIONS read ADD A CONNECTION BEFORE USING CLOUD TOOLS.", ["1482 c1", "1482 c2", "1111 C12"]),
+    "s26": ("every connection removed through cloud_connections.remove (all files restored after)",
+            "setup-info STATE=no-connections; the same two pages read ADD A CONNECTION BEFORE USING CLOUD TOOLS.", ["1482 c1", "1482 c2", "1111 C01", "1111 C12"]),
     "s24": ("LINK FROM THIS DEVICE, WEBDAV, then back on the provider form",
             "where the add-a-connection wizard lands on back, unchanged by #1483", ["1483 c3"]),
 }
@@ -85,8 +89,13 @@ FAILED = {"1280x800/fr/s13": "walk rc 3: the key up after the setup check was no
           # the list (#1483), so the next presses opened the page again and removed qa-two. Redone on build 14.
           "640x480-more/en/s19": "walk went astray: back on EDIT CONNECTION returned to the list (#1483), and the next presses removed qa-two; no edit was saved",
           "640x480-more/fr/s19": "walk went astray: back on EDIT CONNECTION returned to the list (#1483), and the next presses removed qa-two; no edit was saved"}
+FAILED.update({f"build14/640x480/{lang}/s19": "arm failed: adding qa-two could not be verified right after s15 (s19.arm.log); the walk ran on regardless, opened MEGA's form and pressed CONNECT. The driver now skips the walk of a screen whose arm failed" for lang in ("en", "fr")})
 # A reviewed screen whose frames show a defect says what was seen, not "as expected".
 OBSERVED = {k: v for lang in ("en", "fr") for k, v in (
+    (f"build14/640x480/{lang}/s15", "connections page as #1482 asks (ADD A CONNECTION...); the setup check reads SETUP COULD NOT BE READ because this arm moves only rclone.conf and leaves a profile store naming qa-cloud, an inconsistent store, not a fresh device. s25 (fresh) and s26 (all removed) are the faithful cases"),
+    ("build14/640x480-c/fr/s19", "back on the edit form returns to CONNEXION AU CLOUD; the failed save ends in LA CONNEXION N'A PAS PU ÊTRE ENREGISTRÉE and the section is kept; the form's row labels are English (#1485)"),
+    ("build14/640x480-b/en/s19", "back on the edit form returns to CLOUD CONNECTION qa-two; the failed save ends in THE CONNECTION COULDN'T BE SAVED and the section is kept byte for byte"),
+    (f"build14/640x480/{lang}/s24", "back on the WebDAV form lands on the provider chooser with WEBDAV focused" + ("; the form's row labels are English in French (#1485)" if lang == "fr" else "")),
     (f"640x480-more/{lang}/s20", "defect, build 13: the hub reads NO CONNECTION SELECTED and CLOUD FOLDERS asks to choose a connection for an unreadable setup; the setup check and connections page name it. Fixed in ES 6cdcb7a64 (#1111 C11)"),
     (f"640x480-more/{lang}/s22-b", "defect, build 13: a selection emptied while CLOUD FOLDERS is open gives COULDN'T CHECK YOUR FOLDERS. CHECK YOUR CONNECTION; not the stale wording, but it names a connection fault. Fixed in ES 6cdcb7a64 (#1111 C10, C20)"))}
 entries = []

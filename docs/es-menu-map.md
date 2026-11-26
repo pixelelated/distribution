@@ -301,11 +301,11 @@ flowchart TD
     SM --> GE[SYNC SAVES WHEN EXITING A GAME<br/><i>AFTER LAST GAME - outcome</i>]
 
     HUB --> CSS[CLOUD STORAGE SETUP]
-    CSS --> CT[ACTIVE CONNECTION: name, provider<br/><i>CHANGE CONNECTION OR MANAGE SAVED CONNECTIONS.</i> . a connection whose folders need review: ACTIVE CONNECTION: name<br/><i>CONFIRM THIS CONNECTION'S FOLDER LOCATIONS BEFORE USING CLOUD TOOLS.</i> . none selected: NO CONNECTION SELECTED]
+    CSS --> CT[ACTIVE CONNECTION: name, provider<br/><i>CHANGE CONNECTION OR MANAGE SAVED CONNECTIONS.</i> . a connection whose folders need review: ACTIVE CONNECTION: name<br/><i>CONFIRM THIS CONNECTION'S FOLDER LOCATIONS BEFORE USING CLOUD TOOLS.</i> . none selected: NO CONNECTION SELECTED . setup unreadable: SETUP COULD NOT BE READ<br/><i>YOUR CLOUD CONNECTIONS COULDN'T BE READ. TRY AGAIN.</i>]
     CSS --> CFA[CLOUD FOLDER ACTIONS<br/><i>CHOOSE CLOUD FOLDERS TO CHECK OR CREATE.</i>]
     CSS --> CCS[CHECK CLOUD SETUP<br/><i>CHECK YOUR CONNECTION, SAVE FOLDERS, AND AUTOMATIC SYNC SETTINGS.</i><br/>results include a CONNECTION CHECK row]
     CSS --> MCC[MANAGE CLOUD CONNECTIONS<br/><i>ADD, CHOOSE, OR MANAGE YOUR CONNECTIONS.</i>]
-    CSS --> FOLDER[CHANGE CLOUD FOLDER LOCATIONS<br/><i>YOUR SAVES ARE IN: path, CLOUD ROOT for a root path</i> . no folder context: <i>CHOOSE A CONNECTION IN MANAGE CLOUD CONNECTIONS BEFORE CHANGING ITS FOLDERS.</i>] --> PATHS[SET CLOUD FOLDER LOCATIONS<br/>SAVES FOLDER · SETTINGS BACKUP FOLDER · ROMS, BIOS, AND GAME CONTENT FOLDER]
+    CSS --> FOLDER[CHANGE CLOUD FOLDER LOCATIONS<br/><i>YOUR SAVES ARE IN: path, CLOUD ROOT for a root path</i> . no folder context: <i>CHOOSE A CONNECTION IN MANAGE CLOUD CONNECTIONS BEFORE CHANGING ITS FOLDERS.</i> . setup unreadable: <i>YOUR FOLDER LOCATIONS CAN'T BE SHOWN RIGHT NOW.</i>] --> PATHS[SET CLOUD FOLDER LOCATIONS<br/>SAVES FOLDER · SETTINGS BACKUP FOLDER · ROMS, BIOS, AND GAME CONTENT FOLDER]
     PATHS --> KB[keyboard for the selected path<br/>changes only that pointer; moves no files]
     KB -->|unchanged value: no probe or write| PATHS
     KB -->|accepted changed value| PATHS
@@ -314,6 +314,9 @@ flowchart TD
     PATHS -->|Back when opened from the hub| HUB
     CSS --> CHECK[CHECK CLOUD FOLDERS] --> CATEGORIES[CLOUD FOLDERS<br/>SAVES · SETTINGS · ROMS · BIOS · GAME CONTENT]
     CATEGORIES --> VALIDATE[CHECK FOLDERS] --> FINDINGS[CLOUD FOLDER CHECK<br/>category state and expected path]
+    CATEGORIES -->|no folder context when opened| CUNAVAIL[FOLDER LOCATIONS UNAVAILABLE<br/><i>CHOOSE A CONNECTION AND CHECK ITS FOLDER LOCATIONS BEFORE CHECKING FOLDERS.</i> . setup unreadable: <i>YOUR CLOUD CONNECTIONS COULDN'T BE READ. TRY AGAIN.</i><br/>MANAGE CLOUD CONNECTIONS]
+    VALIDATE -->|locations or connection changed since the page opened| STALE[THE CLOUD CHECK IS NO LONGER CURRENT. REOPEN CLOUD FOLDERS AND CHECK AGAIN.]
+    VALIDATE -->|selection lost since the page opened| LOST[the case named: ADD or CHOOSE A CONNECTION BEFORE USING CLOUD TOOLS, or YOUR CLOUD CONNECTIONS COULDN'T BE READ]
     FINDINGS --> HELP[SEE INSTRUCTIONS] --> LOCAL[CLOUD FOLDER INSTRUCTIONS<br/>local guidance; no unpublished QR link]
     CATEGORIES --> CREATE[CREATE FOLDERS] --> CONFIRM[confirm selected categories<br/>creates folders and setup notes only]
     CONFIRM --> SEED[CREATING CLOUD FOLDERS<br/>cancellable progress and outcome]
@@ -329,6 +332,8 @@ flowchart TD
     SAVED --> DETAIL[CLOUD CONNECTION]
     DETAIL --> CONNCHECK[CHECK CONNECTION: bounded read of exact saved name]
     CONN -->|saved but none selected| CONNSELECT[CHOOSE A CONNECTION BEFORE USING CLOUD TOOLS]
+    CONN -->|nothing saved: a fresh device, or every connection removed| CONNADD[ADD A CONNECTION BEFORE USING CLOUD TOOLS]
+    CONN -->|connections unreadable| CONNERR[CONNECTIONS UNAVAILABLE<br/><i>YOUR CLOUD CONNECTIONS COULDN'T BE READ. TRY AGAIN.</i>]
     RENEW -->|selected reference missing| CONNMISSING[Choose another under CLOUD CONNECTIONS; existing credentials kept]
     DETAIL --> USE[USE THIS CONNECTION: confirm, keep folder paths]
     DETAIL --> RENEW[SIGN IN AGAIN or EDIT CONNECTION]
@@ -414,8 +419,11 @@ and settings backup folders. Results are bound to the selected configuration.
 
 1. **CONNECTION** and **PROVIDER** identify the selection. REVIEW FOLDER
    LOCATIONS follows if the active paths differ from that connection's saved
-   choices. With no selection or unreadable setup, NO CONNECTION IN USE or
-   SETUP COULD NOT BE READ appears in place of those facts.
+   choices. Without a usable selection one line appears in place of those
+   facts, and it names the case: NO CONNECTION IN USE with ADD A CONNECTION
+   BEFORE USING CLOUD TOOLS. when nothing is saved (#1482), or with CHOOSE A
+   CONNECTION BEFORE USING CLOUD TOOLS. when connections are saved but none
+   is selected; SETUP COULD NOT BE READ when the setup cannot be read.
 2. **CONNECTION CHECK** reports whether the cloud answered, was unreachable,
    or could not be confirmed.
 3. **ON THIS DEVICE** shows LOCAL SAVES FOLDER and then LOCAL SETTINGS BACKUPS,

@@ -94,8 +94,8 @@ arm_s14() { :; }; put_s14() { :; }
 # s15: no saved connection at all (C12's empty state). Up twice from the hub's
 # top wraps to its last row, MANAGE CLOUD CONNECTIONS (#1428's legs).
 steps_s15() { hub; echo "shot hub-no-connections"; down 3; echo "shot hub-no-connections-lower"; echo "key up"; echo "wait-for-change 4"; echo "key up"; echo "wait-for-change 4"; echo "key up"; echo "wait-for-change 4"; echo "key up"; echo "wait-for-change 4"; echo "key up"; echo "wait-for-change 4"; echo settle; echo "shot hub-last-row"; open; echo "shot connections-none"; back; echo "key up"; echo "wait-for-change 4"; echo settle; open; echo "wait 20"; echo "settle 60 3"; echo "shot setup-check-none"; }
-arm_s15() { S 'mv /storage/.config/rclone/rclone.conf /storage/m7-qa-d/rclone.conf.saved && rm -f /storage/.config/rclone/active-connection; cloud_remote setup-info | grep -E "^STATE="'; }
-put_s15() { S 'mv /storage/m7-qa-d/rclone.conf.saved /storage/.config/rclone/rclone.conf && chmod 600 /storage/.config/rclone/rclone.conf && cloud_remote select qa-cloud; cloud_remote setup-info | grep -E "^STATE="'; }
+arm_s15() { S 'cd /storage/.config/rclone && sha256sum rclone.conf folder-profiles.json active-connection ../cloud_sync.conf 2>&1 | cut -c1-16,64- ; cd /; mv /storage/.config/rclone/rclone.conf /storage/m7-qa-d/rclone.conf.saved && rm -f /storage/.config/rclone/active-connection; cloud_remote setup-info | grep -E "^STATE="'; }
+put_s15() { S 'mv /storage/m7-qa-d/rclone.conf.saved /storage/.config/rclone/rclone.conf && chmod 600 /storage/.config/rclone/rclone.conf && cloud_remote select qa-cloud; cloud_remote setup-info | grep -E "^STATE="; cd /storage/.config/rclone && sha256sum rclone.conf folder-profiles.json active-connection ../cloud_sync.conf 2>&1 | cut -c1-16,64- ; cd /;'; }
 # s16: CLOUD SETUP CHECK to the foot of the page (C18's entry point there)
 steps_s16() { hub; down 8; open; echo "wait 20"; echo "settle 60 3"; echo "shot setup-check-top"; echo "key up"; echo "wait-for-change 4"; echo "key up"; echo "wait-for-change 4"; echo settle; echo "shot setup-check-foot"; }
 arm_s16() { :; }; put_s16() { :; }
@@ -141,10 +141,28 @@ arm_s23() { arm_s04; }; put_s23() { put_s04; }
 # s24: LINK FROM THIS DEVICE, WEBDAV, then back on its form: where the add-a-connection wizard lands (#1483 criterion 3)
 steps_s24() { hub; down 9; open; down 1; echo "shot link-row"; open; echo "shot providers"; down 8; echo "shot webdav-row"; open; echo "shot webdav-form"; back; echo "shot after-back"; }
 arm_s24() { :; }; put_s24() { :; }
+# s27 (diagnosis, 2026-11-26): build 14 s19 could not add qa-two right after s15 in both languages, and could on its own.
+# Run after s15: the four files' hashes, the add's own error, a bare listing of qa-cloud, the state. Values never printed.
+steps_s27() { hub; }
+arm_s27() { S 'cd /storage/.config/rclone && sha256sum rclone.conf folder-profiles.json active-connection ../cloud_sync.conf 2>&1 | cut -c1-16,64- ; cd /; python3 /storage/m7-qa-d/conn.py add-two > /tmp/s27-add.out 2>&1; echo "add rc $?"; tail -n 2 /tmp/s27-add.out; rclone lsjson qa-cloud:/ --max-depth 1 2>&1 | head -c 400; echo; cloud_remote setup-info | grep -E "^(STATE|CONNECTION)="'; }
+put_s27() { S 'python3 /storage/m7-qa-d/conn.py repair'; }
+# s28: EDIT CONNECTION saved on a working qa-two: CONNECTION SAVED (it is not the active connection), then back (#1483 criterion 2)
+steps_s28() { to_two; down 5; open; echo "shot edit-form"; echo "key up"; echo "wait-for-change 4"; echo "key up"; echo "wait-for-change 4"; echo settle; echo "shot save-row"; open; echo "shot update-confirm"; echo "key x"; echo "wait-for-change 120 1"; echo "settle 120 3"; echo "shot connection-saved"; back; echo "shot after-saved-back"; }
+arm_s28() { S 'python3 /storage/m7-qa-d/conn.py add-two >/dev/null && python3 /storage/m7-qa-d/conn.py two-hash'; }
+put_s28() { S 'python3 /storage/m7-qa-d/conn.py two-hash; python3 /storage/m7-qa-d/conn.py repair'; }
+# s25: a fresh device: no rclone.conf and no folder-profiles.json (s15 moves only rclone.conf, which leaves a
+# profile store naming qa-cloud: an inconsistent store, read as unavailable). Then the same pages as s15.
+steps_s25() { steps_s15; }
+arm_s25() { S "mkdir -p /storage/m7-qa-d/s25 && cd /storage/.config/rclone && cp -p rclone.conf folder-profiles.json /storage/m7-qa-d/s25/ && cp -p /storage/.config/cloud_sync.conf /storage/m7-qa-d/s25/ && rm -f rclone.conf folder-profiles.json active-connection && cloud_remote setup-info | grep -E '^STATE='"; }
+put_s25() { S "cd /storage/m7-qa-d/s25 && cp -p rclone.conf folder-profiles.json /storage/.config/rclone/ && cp -p cloud_sync.conf /storage/.config/ && chmod 600 /storage/.config/rclone/rclone.conf && cloud_remote select qa-cloud; cloud_remote setup-info | grep -E '^STATE='"; }
+# s26: every connection removed through the module, the player's way to an empty list; every file put back after.
+steps_s26() { steps_s15; }
+arm_s26() { S "mkdir -p /storage/m7-qa-d/s26 && cd /storage/.config/rclone && cp -p rclone.conf folder-profiles.json active-connection /storage/m7-qa-d/s26/ && cp -p /storage/.config/cloud_sync.conf /storage/m7-qa-d/s26/ && python3 -c \"import sys; sys.path.insert(0, '/usr/bin'); import cloud_connections as c; c.remove('qa-cloud')\" && cloud_remote setup-info | grep -E '^STATE='"; }
+put_s26() { S "cd /storage/m7-qa-d/s26 && cp -p rclone.conf folder-profiles.json active-connection /storage/.config/rclone/ && cp -p cloud_sync.conf /storage/.config/ && chmod 600 /storage/.config/rclone/rclone.conf && cloud_remote select qa-cloud; cloud_remote setup-info | grep -E '^STATE='"; }
 arm_s17() { S "$(ctx); cloud_remote set-folder saves / \$c && cloud_remote folder-context | jq -c .paths"; }
 put_s17() { put_s02; }
 
-SCREENS="s01 s02 s03 s04 s05 s06 s07 s08 s09 s10 s11 s12 s13 s14 s15 s16 s17 s18 s19 s20 s21 s22 s23 s24"
+SCREENS="s01 s02 s03 s04 s05 s06 s07 s08 s09 s10 s11 s12 s13 s14 s15 s16 s17 s18 s19 s20 s21 s22 s23 s24 s25 s26 s27 s28"
 [ -n "$only" ] && SCREENS=${only//,/ }
 
 log "== #1111/#1115 phase D at $res, $(date -u +%FT%TZ)"
@@ -187,10 +205,17 @@ for lang in ${langs//,/ }; do
         # refusal (s17's arm was refused before this check existed and the
         # walk ran on regardless).
         echo "arm:" >> "$out/$lang/$s.arm.log"; "arm_$s" >> "$out/$lang/$s.arm.log" 2>&1; arc=$?
+        armok=1
         case " $ARM_REFUSED " in
-            *" $s "*) [ "$arc" != 0 ] || { log "   arm rc 0, but $s expects a refusal"; failed=1; } ;;
-            *) [ "$arc" = 0 ] || { log "   arm rc $arc (see $lang/$s.arm.log)"; failed=1; } ;;
+            *" $s "*) [ "$arc" != 0 ] || { log "   arm rc 0, but $s expects a refusal"; failed=1; armok=0; } ;;
+            *) [ "$arc" = 0 ] || { log "   arm rc $arc (see $lang/$s.arm.log); walk skipped"; failed=1; armok=0; } ;;
         esac
+        # A screen whose state was not set up is not walked: build 14's s19, with
+        # no qa-two, walked into a provider form and pressed CONNECT (2026-11-26).
+        if [ "$armok" = 0 ]; then
+            { echo "put back:"; "put_$s" 2>&1; } >> "$out/$lang/$s.arm.log"
+            continue
+        fi
         "steps_$s" > "$out/$lang/$s.steps"
         timeout 600 "$round/tools/vm-visual-qa" --monitor "$MON" run "$out/$lang/$s.steps" --outdir "$out/$lang/$s" > "$out/$lang/$s.log" 2>&1
         rc=$?; [ "$rc" = 0 ] || { log "   walk rc $rc (see $lang/$s.log)"; failed=1; }

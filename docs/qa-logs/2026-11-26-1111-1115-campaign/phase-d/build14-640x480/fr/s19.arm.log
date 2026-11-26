@@ -1,0 +1,18 @@
+arm:
+Traceback (most recent call last):
+  File "/storage/m7-qa-d/conn.py", line 46, in <module>
+    c.save('qa-two', 'webdav', qa_settings())
+    ~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/bin/cloud_connections.py", line 659, in save
+    stage_run('verify-listing', listing)
+    ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/bin/cloud_connections.py", line 604, in stage_run
+    result = run(args) if finalization is None else finalization.run(stage, args)
+             ~~~^^^^^^
+  File "/usr/bin/cloud_connections.py", line 591, in run
+    raise Refused('The connection could not be verified. Your settings were not changed.', 'command-failed')
+cloud_connections.Refused: The connection could not be verified. Your settings were not changed.
+put back:
+TWO=absent
+STATE=selected CONNECTION=qa-cloud SECTIONS=qa-cloud SYNC=off/off
+STATE=selected CONNECTION=qa-cloud SECTIONS=qa-cloud SYNC=off/off

@@ -54,3 +54,24 @@ OS coordinator, 2026-11-26.
 Each run used its own fresh guest. `RESULT.txt` in each directory carries the guest's `BUILD_ID` and every arm and restore line. At 1280x800 the menus are a centred panel over the carousel, not full screen, and nothing overruns in either language.
 
 **French.** Every fork string has French: `es-untranslated` reports 818 of 818, and nothing overruns at 640x480. One inconsistency stays, as #1478 put it to Max. The settings-backup folder is ARCHIVES DE RÉGLAGES in the editor and the instruction rows, but SAUVEGARDES DES PARAMÈTRES on the results and setup-check pages, beside SAUVEGARDES for saves. #1111 C24's French half waits on that answer.
+
+## Build 14: the fixes
+
+Build 14 is `ed61fe8e59`, with ES `6cdcb7a64`, route `m7-20261126-552f3815e4b4`, and image `…20261126T192845Z.ged61fe8e5922…`. It carries the three fixes the screens above found. Every frame is at 640x480, in EN and FR, and is indexed with build 14's source.
+
+| Screen | Directory | What the frames show | Criteria |
+| --- | --- | --- | --- |
+| s04, s05 | `build14-640x480/` | The hub's no-selection and review lines, unchanged on the changed code. | #1111 C10, C11 |
+| s15 | `build14-640x480/` | MANAGE CLOUD CONNECTIONS with nothing saved: ADD A CONNECTION BEFORE USING CLOUD TOOLS. Its setup check reads SETUP COULD NOT BE READ, because this arm moves only `rclone.conf` and leaves a profile store naming qa-cloud: an inconsistent store, not a fresh device. | #1482 c1 |
+| s25, s26 | `build14-640x480-b/` (EN), `-c/` (FR) | A fresh device, and every connection removed through the module. `setup-info` reads `no-connections`; CLOUD SETUP CHECK and MANAGE CLOUD CONNECTIONS read ADD A CONNECTION BEFORE USING CLOUD TOOLS. | #1482 c1, c2; #1111 C12 |
+| s23 | `build14-640x480/` | Saved but none selected: both pages still read CHOOSE A CONNECTION BEFORE USING CLOUD TOOLS. | #1482 c3; #1111 C10 |
+| s19 | `build14-640x480-b/` (EN), `-c/` (FR) | Back on EDIT CONNECTION's form returns to the connection's page. A save that re-verifies a dead endpoint ends in THE CONNECTION COULDN'T BE SAVED. … YOUR SETTINGS HAVE NOT CHANGED., and the section's hash is the same before and after. | #1483 c1, c2; #1111 C03, C06, C08 |
+| s20 | `build14-640x480/` | An unreadable setup is named on the hub (SETUP COULD NOT BE READ, and the folder row's YOUR FOLDER LOCATIONS CAN'T BE SHOWN RIGHT NOW.), the editor, CLOUD FOLDERS, the setup check and the connections page. | #1111 C11 |
+| s22 | `build14-640x480/` | A selection lost while CLOUD FOLDERS is open: CHOOSE A CONNECTION BEFORE USING CLOUD TOOLS., not a connection fault. | #1111 C10, C11, C20 |
+| s24 | `build14-640x480/` | Back on LINK FROM THIS DEVICE's WebDAV form returns to the provider chooser with WEBDAV focused. In French the form's row labels are English: #1485. | #1483 c3 |
+
+**s19 in `build14-640x480/` is indexed walk-failed.**
+- Run right after s15, its arm could not add qa-two in either language. On its own it could.
+- The driver then walked anyway, opened MEGA's form and pressed CONNECT with empty fields. No account or credential was involved, but the guest tried MEGA's servers.
+- Since then, a screen whose arm failed is not walked.
+- s27 diagnoses the s15 interaction, and s28 shows a completed edit.
