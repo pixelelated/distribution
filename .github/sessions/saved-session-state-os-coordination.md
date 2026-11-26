@@ -8,7 +8,17 @@ Read the [M7 milestone](https://github.com/pixelelated/distribution/milestone/7)
 
 ## Current focus
 
-**00000000000. Newest (2026-11-26T11:41Z): the round's image `59c278448b` (build 10) passes the standard vm-qa run, all 16, empty list; #1474, #1475, #1476, #1012 closed.**
+**000000000000. Newest (2026-11-26T12:30Z): round head `30e6ff3db9` (build 11) passes the standard run; step 0's packages PASS by D-RA-054; #1428's page title done.**
+- **Build 11** (`ACCEPTANCE-11.json`, admission consumed; ES route `m7-20261126-bb3f0838f671` = ES `d87891f24`, supplier `.build-runs/m7-rc-round-20261126-03-es/`; launcher `/workspace/tmp/rocknix-session/round-build-11.sh`).
+  - **Standard run 8** `qa-30e6ff3db9-webdav-a-20261126-1156`: VERDICT PASS, all 16, empty list; `rc-preflight --only vm-qa` PASS, with the tree head equal to the image's.
+- **rc-preflight in full** (round `59c278448b`, #1462 `issuecomment-7191154307`):
+  - PASS: base distribution, packages (raofflineproxy accepted by **D-RA-054**, `next` `06e5fd16a9`), vm-qa, checkboxes, catalog.
+  - Max's: the ES base (a GitHub pin) and `ci` (publication); 300 undispositioned bugs.
+  - Re-run `already written` (one tracker error, transient). H700 and SM8550 builds from the final head are still owed (D-INFRA-043).
+- **#1428:** inventory `issuecomment-7191212924`. The hub copy, the single CHECK CLOUD SETUP and ACTIVE CONNECTION were already in source. The transfer page's title is fixed (ES `d87891f24`, frame in run 8). **Left:** the evidence criteria. They need walks that reach CLOUD FOLDER ACTIONS, CHECK CLOUD SETUP's results and the connection pages, EN/FR at 640x480 (`VM_RES`) and 1280x800, and a two-connection fixture. **Next (owner OS).**
+- No guests, no build. Codex still paused (Max's fast-mode decision). #1477 waits on Max.
+
+**00000000000. (2026-11-26T11:41Z): the round's image `59c278448b` (build 10) passes the standard vm-qa run, all 16, empty list; #1474, #1475, #1476, #1012 closed.**
 - **Round** `/workspace/repos/rocknix.worktrees/m7-rc-round-20261125` (branch `build/m7-rc-round-20261125`, local) at head `59c278448b`.
   - Build 10: `ACCEPTANCE-10.json`, admission consumed, image in `m7-round-x64-20261125/target/`.
   - ES route `m7-20261126-d70f76225b96` = ES `95febae8e` on the local branch `m7/rc-round-es-20261125`. The supplier is `.build-runs/m7-rc-round-20261126-02-es/inputs/es`. The writer is `/workspace/tmp/rocknix-session/es-route-20261126.py`, and the launcher template is `/workspace/tmp/rocknix-session/round-build-10.sh`.
