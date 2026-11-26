@@ -1,0 +1,281 @@
+{
+ "schema_version": 1,
+ "issue": 1428,
+ "entries": [
+  {
+   "flow_id": "cloud-setup",
+   "branch_id": "folder-actions-page",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud-settings",
+   "trigger": "A on CLOUD FOLDER ACTIONS",
+   "expected_state": "CLOUD FOLDERS: WHAT THESE CHOICES DO (choosing alone changes nothing), NO BACKUP OR RESTORE, each category with IN YOUR CLOUD: <path>",
+   "source": {
+    "es": "d87891f24 (local m7/rc-round-es-20261125)",
+    "distribution": "30e6ff3db9 (local build/m7-rc-round-20261125)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T115211Z.g30e6ff3db9ac-from-ROCKNIX",
+    "walks": "WALK_SUITE=tools/vm-walks/suite-1428.txt tools/vm-qa --only walks, round b1938d2adf; runs qa-30e6ff3db9-webdav-a-20261126-1231 (1280x800) and -1240 (640x480, VM_RES)"
+   },
+   "locale": "en",
+   "width": 1280,
+   "height": 800,
+   "frame": "frames/1280-en-folder-actions-page.png",
+   "sha256": "115e6cdcaae596ad8be86a8715b88e63663db0aacae2243d7599b07606952c6e",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "as expected; text fits",
+    "date": "2026-11-26"
+   }
+  },
+  {
+   "flow_id": "cloud-setup",
+   "branch_id": "folder-actions-page-lower",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud-settings",
+   "trigger": "six downs on CLOUD FOLDERS",
+   "expected_state": "ACTIONS FOR SELECTED CLOUD FOLDERS: CHECK CLOUD FOLDERS (nothing is created), CREATE CLOUD FOLDERS (folders and setup notes in your cloud)",
+   "source": {
+    "es": "d87891f24 (local m7/rc-round-es-20261125)",
+    "distribution": "30e6ff3db9 (local build/m7-rc-round-20261125)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T115211Z.g30e6ff3db9ac-from-ROCKNIX",
+    "walks": "WALK_SUITE=tools/vm-walks/suite-1428.txt tools/vm-qa --only walks, round b1938d2adf; runs qa-30e6ff3db9-webdav-a-20261126-1231 (1280x800) and -1240 (640x480, VM_RES)"
+   },
+   "locale": "fr",
+   "width": 1280,
+   "height": 800,
+   "frame": "frames/1280-fr-folder-actions-page-lower.png",
+   "sha256": "68d15786ca00f088c90c5af52cff56deaa5c186eba2135864f31040a1ac63414",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "as expected; text fits",
+    "date": "2026-11-26"
+   }
+  },
+  {
+   "flow_id": "cloud-setup",
+   "branch_id": "check-setup-page-lower",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud-settings",
+   "trigger": "six downs on CLOUD SETUP CHECK",
+   "expected_state": "AUTOMATIC SAVE SYNC and CLOUD FOLDER CHECKS as separate groups",
+   "source": {
+    "es": "d87891f24 (local m7/rc-round-es-20261125)",
+    "distribution": "30e6ff3db9 (local build/m7-rc-round-20261125)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T115211Z.g30e6ff3db9ac-from-ROCKNIX",
+    "walks": "WALK_SUITE=tools/vm-walks/suite-1428.txt tools/vm-qa --only walks, round b1938d2adf; runs qa-30e6ff3db9-webdav-a-20261126-1231 (1280x800) and -1240 (640x480, VM_RES)"
+   },
+   "locale": "en",
+   "width": 640,
+   "height": 480,
+   "frame": "frames/640-en-check-setup-page-lower.png",
+   "sha256": "ce40193626c5a97aec2d0171de7f1edcce5d7bd0ca30774a1831fc92c7d37a5a",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "as expected; text fits",
+    "date": "2026-11-26"
+   }
+  },
+  {
+   "flow_id": "cloud-setup",
+   "branch_id": "check-setup-page",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud-settings",
+   "trigger": "A on CHECK CLOUD SETUP, after the check",
+   "expected_state": "CLOUD SETUP CHECK: CONNECTION, PROVIDER, CONNECTION CHECK, then ON THIS DEVICE",
+   "source": {
+    "es": "d87891f24 (local m7/rc-round-es-20261125)",
+    "distribution": "30e6ff3db9 (local build/m7-rc-round-20261125)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T115211Z.g30e6ff3db9ac-from-ROCKNIX",
+    "walks": "WALK_SUITE=tools/vm-walks/suite-1428.txt tools/vm-qa --only walks, round b1938d2adf; runs qa-30e6ff3db9-webdav-a-20261126-1231 (1280x800) and -1240 (640x480, VM_RES)"
+   },
+   "locale": "en",
+   "width": 640,
+   "height": 480,
+   "frame": "frames/640-en-check-setup-page.png",
+   "sha256": "e665c0f1f207bba4d43ab4608b7d0eb15159460b14565d8e1b5851be8ed955a3",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "as expected; text fits",
+    "date": "2026-11-26"
+   }
+  },
+  {
+   "flow_id": "cloud-setup",
+   "branch_id": "connections-page",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud-settings",
+   "trigger": "A on MANAGE CLOUD CONNECTIONS",
+   "expected_state": "AVAILABLE CONNECTIONS: QA-CLOUD, WEBDAV - IN USE; ADD A NEW CONNECTION",
+   "source": {
+    "es": "d87891f24 (local m7/rc-round-es-20261125)",
+    "distribution": "30e6ff3db9 (local build/m7-rc-round-20261125)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T115211Z.g30e6ff3db9ac-from-ROCKNIX",
+    "walks": "WALK_SUITE=tools/vm-walks/suite-1428.txt tools/vm-qa --only walks, round b1938d2adf; runs qa-30e6ff3db9-webdav-a-20261126-1231 (1280x800) and -1240 (640x480, VM_RES)"
+   },
+   "locale": "en",
+   "width": 640,
+   "height": 480,
+   "frame": "frames/640-en-connections-page.png",
+   "sha256": "f50c03ec5241ef5e06c0943525c7482592ff5ccae752cae87adfdaf692892fa6",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "as expected; text fits",
+    "date": "2026-11-26"
+   }
+  },
+  {
+   "flow_id": "cloud-setup",
+   "branch_id": "folder-actions-page-lower",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud-settings",
+   "trigger": "six downs on CLOUD FOLDERS",
+   "expected_state": "ACTIONS FOR SELECTED CLOUD FOLDERS: CHECK CLOUD FOLDERS (nothing is created), CREATE CLOUD FOLDERS (folders and setup notes in your cloud)",
+   "source": {
+    "es": "d87891f24 (local m7/rc-round-es-20261125)",
+    "distribution": "30e6ff3db9 (local build/m7-rc-round-20261125)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T115211Z.g30e6ff3db9ac-from-ROCKNIX",
+    "walks": "WALK_SUITE=tools/vm-walks/suite-1428.txt tools/vm-qa --only walks, round b1938d2adf; runs qa-30e6ff3db9-webdav-a-20261126-1231 (1280x800) and -1240 (640x480, VM_RES)"
+   },
+   "locale": "en",
+   "width": 640,
+   "height": 480,
+   "frame": "frames/640-en-folder-actions-page-lower.png",
+   "sha256": "5414d3ca6e67ec6b357489774ff794042065093720a615b7ba2ca39b76eb21d5",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "as expected; text fits",
+    "date": "2026-11-26"
+   }
+  },
+  {
+   "flow_id": "cloud-setup",
+   "branch_id": "folder-actions-page",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud-settings",
+   "trigger": "A on CLOUD FOLDER ACTIONS",
+   "expected_state": "CLOUD FOLDERS: WHAT THESE CHOICES DO (choosing alone changes nothing), NO BACKUP OR RESTORE, each category with IN YOUR CLOUD: <path>",
+   "source": {
+    "es": "d87891f24 (local m7/rc-round-es-20261125)",
+    "distribution": "30e6ff3db9 (local build/m7-rc-round-20261125)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T115211Z.g30e6ff3db9ac-from-ROCKNIX",
+    "walks": "WALK_SUITE=tools/vm-walks/suite-1428.txt tools/vm-qa --only walks, round b1938d2adf; runs qa-30e6ff3db9-webdav-a-20261126-1231 (1280x800) and -1240 (640x480, VM_RES)"
+   },
+   "locale": "en",
+   "width": 640,
+   "height": 480,
+   "frame": "frames/640-en-folder-actions-page.png",
+   "sha256": "71c8d14acb81087b901d9332a643340b0140b21d2cfeaadb508d85f560901834",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "as expected; text fits",
+    "date": "2026-11-26"
+   }
+  },
+  {
+   "flow_id": "cloud-setup",
+   "branch_id": "hub-folder-actions-row",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud-settings",
+   "trigger": "seven downs from BACK UP TO CLOUD on the CLOUD hub",
+   "expected_state": "CLOUD STORAGE SETUP rows: ACTIVE CONNECTION: QA-CLOUD (WEBDAV), CHANGE CLOUD FOLDER LOCATIONS, CLOUD FOLDER ACTIONS focused, CHECK CLOUD SETUP, MANAGE CLOUD CONNECTIONS",
+   "source": {
+    "es": "d87891f24 (local m7/rc-round-es-20261125)",
+    "distribution": "30e6ff3db9 (local build/m7-rc-round-20261125)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T115211Z.g30e6ff3db9ac-from-ROCKNIX",
+    "walks": "WALK_SUITE=tools/vm-walks/suite-1428.txt tools/vm-qa --only walks, round b1938d2adf; runs qa-30e6ff3db9-webdav-a-20261126-1231 (1280x800) and -1240 (640x480, VM_RES)"
+   },
+   "locale": "en",
+   "width": 640,
+   "height": 480,
+   "frame": "frames/640-en-hub-folder-actions-row.png",
+   "sha256": "5192bf9edc2f220cfd2d01ddf0d24a173a30a0bad7f612dc4ccac37c76ef476f",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "as expected; text fits",
+    "date": "2026-11-26"
+   }
+  },
+  {
+   "flow_id": "cloud-setup",
+   "branch_id": "check-setup-page",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud-settings",
+   "trigger": "A on CHECK CLOUD SETUP, after the check",
+   "expected_state": "CLOUD SETUP CHECK: CONNECTION, PROVIDER, CONNECTION CHECK, then ON THIS DEVICE",
+   "source": {
+    "es": "d87891f24 (local m7/rc-round-es-20261125)",
+    "distribution": "30e6ff3db9 (local build/m7-rc-round-20261125)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T115211Z.g30e6ff3db9ac-from-ROCKNIX",
+    "walks": "WALK_SUITE=tools/vm-walks/suite-1428.txt tools/vm-qa --only walks, round b1938d2adf; runs qa-30e6ff3db9-webdav-a-20261126-1231 (1280x800) and -1240 (640x480, VM_RES)"
+   },
+   "locale": "fr",
+   "width": 640,
+   "height": 480,
+   "frame": "frames/640-fr-check-setup-page.png",
+   "sha256": "c83e6e8d122c3c629fec24c139ba14ac00bba6a30f16675e164ac310d8eaf93f",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "as expected; text fits",
+    "date": "2026-11-26"
+   }
+  },
+  {
+   "flow_id": "cloud-setup",
+   "branch_id": "folder-actions-page-lower",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud-settings",
+   "trigger": "six downs on CLOUD FOLDERS",
+   "expected_state": "ACTIONS FOR SELECTED CLOUD FOLDERS: CHECK CLOUD FOLDERS (nothing is created), CREATE CLOUD FOLDERS (folders and setup notes in your cloud)",
+   "source": {
+    "es": "d87891f24 (local m7/rc-round-es-20261125)",
+    "distribution": "30e6ff3db9 (local build/m7-rc-round-20261125)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T115211Z.g30e6ff3db9ac-from-ROCKNIX",
+    "walks": "WALK_SUITE=tools/vm-walks/suite-1428.txt tools/vm-qa --only walks, round b1938d2adf; runs qa-30e6ff3db9-webdav-a-20261126-1231 (1280x800) and -1240 (640x480, VM_RES)"
+   },
+   "locale": "fr",
+   "width": 640,
+   "height": 480,
+   "frame": "frames/640-fr-folder-actions-page-lower.png",
+   "sha256": "e5a1927968c8a2772954f318df09727776d0bcbe3456b8dd0dcddefddaab166f",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "as expected; text fits",
+    "date": "2026-11-26"
+   }
+  },
+  {
+   "flow_id": "cloud-setup",
+   "branch_id": "folder-actions-page",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud-settings",
+   "trigger": "A on CLOUD FOLDER ACTIONS",
+   "expected_state": "CLOUD FOLDERS: WHAT THESE CHOICES DO (choosing alone changes nothing), NO BACKUP OR RESTORE, each category with IN YOUR CLOUD: <path>",
+   "source": {
+    "es": "d87891f24 (local m7/rc-round-es-20261125)",
+    "distribution": "30e6ff3db9 (local build/m7-rc-round-20261125)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T115211Z.g30e6ff3db9ac-from-ROCKNIX",
+    "walks": "WALK_SUITE=tools/vm-walks/suite-1428.txt tools/vm-qa --only walks, round b1938d2adf; runs qa-30e6ff3db9-webdav-a-20261126-1231 (1280x800) and -1240 (640x480, VM_RES)"
+   },
+   "locale": "fr",
+   "width": 640,
+   "height": 480,
+   "frame": "frames/640-fr-folder-actions-page.png",
+   "sha256": "cae231b61dbb69cbce4f48e20a5f3c7256d8f46bb753484e830e1fce290d7b54",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "as expected; text fits",
+    "date": "2026-11-26"
+   }
+  }
+ ]
+}
