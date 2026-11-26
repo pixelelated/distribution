@@ -1,0 +1,254 @@
+{
+ "phase": "clean",
+ "status": "FAIL",
+ "checks": [
+  {
+   "name": "disposable-guest",
+   "criteria": "-",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "fresh-no-connections",
+   "criteria": "C01",
+   "pass": true,
+   "detail": "no-connections"
+  },
+  {
+   "name": "fresh-autosync-off",
+   "criteria": "C06",
+   "pass": true,
+   "detail": "{}"
+  },
+  {
+   "name": "first-link-in-use",
+   "criteria": "C01",
+   "pass": true,
+   "detail": "('QA_A', 'selected')"
+  },
+  {
+   "name": "first-link-defaults",
+   "criteria": "C04",
+   "pass": true,
+   "detail": "{'content': '/pixelelated/Content', 'saves': '/pixelelated/Saves', 'settings': '/pixelelated/Backups'}"
+  },
+  {
+   "name": "first-link-sync-off",
+   "criteria": "C06",
+   "pass": true,
+   "detail": "{}"
+  },
+  {
+   "name": "first-link-no-payload-change",
+   "criteria": "C07",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "failed-link-refused",
+   "criteria": "C01,C06",
+   "pass": true,
+   "detail": "The connection could not be verified. Your settings were not changed."
+  },
+  {
+   "name": "failed-link-nothing-kept",
+   "criteria": "C01,C06",
+   "pass": true,
+   "detail": "(['QA_A'], 'QA_A')"
+  },
+  {
+   "name": "failed-link-profile-unchanged",
+   "criteria": "C06",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "custom-folder-projected",
+   "criteria": "C02",
+   "pass": true,
+   "detail": "{'SAVES_REMOTE': '/Custom/Saves', 'SETTINGS_REMOTE': '/pixelelated/Backups', 'CONTENT_REMOTE': '/pixelelated/Content'}"
+  },
+  {
+   "name": "second-link-keeps-selection",
+   "criteria": "C01,C05",
+   "pass": true,
+   "detail": "QA_A"
+  },
+  {
+   "name": "second-link-keeps-active-paths",
+   "criteria": "C05",
+   "pass": true,
+   "detail": "{'content': '/pixelelated/Content', 'saves': '/Custom/Saves', 'settings': '/pixelelated/Backups'}"
+  },
+  {
+   "name": "switch-b-defaults",
+   "criteria": "C02,C04",
+   "pass": true,
+   "detail": "{'content': '/pixelelated/Content', 'saves': '/pixelelated/Saves', 'settings': '/pixelelated/Backups'}"
+  },
+  {
+   "name": "stale-editor-refused",
+   "criteria": "C14,C06",
+   "pass": true,
+   "detail": "The selected connection or its folders changed. Open this page again."
+  },
+  {
+   "name": "switch-a-keeps-its-folders",
+   "criteria": "C02",
+   "pass": true,
+   "detail": "{'content': '/pixelelated/Content', 'saves': '/Custom/Saves', 'settings': '/pixelelated/Backups'}"
+  },
+  {
+   "name": "renewal-keeps-folders",
+   "criteria": "C05",
+   "pass": true,
+   "detail": "{'content': '/pixelelated/Content', 'saves': '/Custom/Saves', 'settings': '/pixelelated/Backups'}"
+  },
+  {
+   "name": "switching-no-payload-change",
+   "criteria": "C07",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "lock-held-for-busy",
+   "criteria": "C06",
+   "pass": true,
+   "detail": "the lock was free"
+  },
+  {
+   "name": "lock-released-after-busy",
+   "criteria": "C06",
+   "pass": true,
+   "detail": "the lock is still held"
+  },
+  {
+   "name": "busy-select-refused",
+   "criteria": "C06",
+   "pass": true,
+   "detail": "A cloud operation is running. Wait for it to finish, then try again."
+  },
+  {
+   "name": "busy-defaults-refused",
+   "criteria": "C06,C22",
+   "pass": true,
+   "detail": "A cloud operation is running. Wait for it to finish, then try again."
+  },
+  {
+   "name": "busy-nothing-changed",
+   "criteria": "C06",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "autosync-select-refused",
+   "criteria": "C06",
+   "pass": true,
+   "detail": "Turn off both automatic save sync options before changing this connection."
+  },
+  {
+   "name": "autosync-remove-refused",
+   "criteria": "C06",
+   "pass": true,
+   "detail": "Turn off both automatic save sync options before changing this connection."
+  },
+  {
+   "name": "autosync-nothing-changed",
+   "criteria": "C06",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "defaults-applied-to-selected",
+   "criteria": "C21",
+   "pass": true,
+   "detail": "{'content': '/pixelelated/Content', 'saves': '/pixelelated/Saves', 'settings': '/pixelelated/Backups'}"
+  },
+  {
+   "name": "defaults-left-other-alone",
+   "criteria": "C21",
+   "pass": true,
+   "detail": "{'content': '/pixelelated/Content', 'saves': '/B/Saves', 'settings': '/pixelelated/Backups'}"
+  },
+  {
+   "name": "defaults-no-cloud-folders-created",
+   "criteria": "C07,C21",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "remove-active-no-fallback",
+   "criteria": "C01",
+   "pass": true,
+   "detail": "('unselected', '')"
+  },
+  {
+   "name": "no-selection-actionable",
+   "criteria": "C10",
+   "pass": true,
+   "detail": "{'error': 'Refused: Choose a connection before using cloud tools.'}"
+  },
+  {
+   "name": "explicit-select-restores-rows",
+   "criteria": "C10",
+   "pass": true,
+   "detail": "{'content': '/pixelelated/Content', 'saves': '/pixelelated/Saves', 'settings': '/pixelelated/Backups'}"
+  },
+  {
+   "name": "remove-all-unselected-or-empty",
+   "criteria": "C01",
+   "pass": true,
+   "detail": "no-connections"
+  },
+  {
+   "name": "readd-same-name-in-use",
+   "criteria": "C01",
+   "pass": true,
+   "detail": "QA_A"
+  },
+  {
+   "name": "readd-same-name-defaults",
+   "criteria": "C04",
+   "pass": true,
+   "detail": "{'content': '/pixelelated/Content', 'saves': '/pixelelated/Saves', 'settings': '/pixelelated/Backups'}"
+  },
+  {
+   "name": "new-name-defaults",
+   "criteria": "C04",
+   "pass": true,
+   "detail": "{'content': '/pixelelated/Content', 'saves': '/pixelelated/Saves', 'settings': '/pixelelated/Backups'}"
+  },
+  {
+   "name": "webdav-link",
+   "criteria": "C04",
+   "pass": false,
+   "detail": "Refused: The connection could not be verified. Your settings were not changed."
+  },
+  {
+   "name": "management-no-payload-change",
+   "criteria": "C07",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "autosync-never-enabled",
+   "criteria": "C06",
+   "pass": false,
+   "detail": "{'cloudsaves.gameexit': '0'}"
+  },
+  {
+   "name": "settings-backup-default",
+   "criteria": "C25",
+   "pass": true,
+   "detail": "{'content': '/pixelelated/Content', 'saves': '/pixelelated/Saves', 'settings': '/pixelelated/Backups'}"
+  },
+  {
+   "name": "no-pending-journal",
+   "criteria": "C22",
+   "pass": true,
+   "detail": ""
+  }
+ ],
+ "build_id": "a069abd23615252c70a097bf7efb2ac6f8414ed9",
+ "rclone": "rclone v1.76.0"
+}

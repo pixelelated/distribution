@@ -1,0 +1,38 @@
+== #1111/#1115 phase B, 2026-11-26T15:26:36Z
+VERSION="0.0.1-dev+20261126T140833Z.ga069abd23615"
+BUILD_ID="a069abd23615252c70a097bf7efb2ac6f8414ed9"
+-- clean
+{"phase": "clean", "status": "FAIL", "failed": [], "error": "Refused: A cloud operation is running. Wait for it to finish, then try again."}
+-- reboot
+   boot id changed
+-- retained
+{"phase": "retained", "status": "FAIL", "failed": [], "error": "FileNotFoundError: [Errno 2] No such file or directory: '/storage/m7-qa/expected-retained.json'"}
+   the WebDAV stanza is removed from the guest
+clean: FAIL, 24 of 24 checks; error Refused: A cloud operation is running. Wait for it to finish, then try again.
+  PASS  disposable-guest [-]
+  PASS  fresh-no-connections [C01]
+  PASS  fresh-autosync-off [C06]
+  PASS  first-link-in-use [C01]
+  PASS  first-link-defaults [C04]
+  PASS  first-link-sync-off [C06]
+  PASS  first-link-no-payload-change [C07]
+  PASS  failed-link-refused [C01,C06]
+  PASS  failed-link-nothing-kept [C01,C06]
+  PASS  failed-link-profile-unchanged [C06]
+  PASS  custom-folder-projected [C02]
+  PASS  second-link-keeps-selection [C01,C05]
+  PASS  second-link-keeps-active-paths [C05]
+  PASS  switch-b-defaults [C02,C04]
+  PASS  stale-editor-refused [C14,C06]
+  PASS  switch-a-keeps-its-folders [C02]
+  PASS  renewal-keeps-folders [C05]
+  PASS  switching-no-payload-change [C07]
+  PASS  busy-select-refused [C06]
+  PASS  busy-defaults-refused [C06,C22]
+  PASS  busy-nothing-changed [C06]
+  PASS  autosync-select-refused [C06]
+  PASS  autosync-remove-refused [C06]
+  PASS  autosync-nothing-changed [C06]
+retained: FAIL, 1 of 1 checks; error FileNotFoundError: [Errno 2] No such file or directory: '/storage/m7-qa/expected-retained.json'
+  PASS  disposable-guest [-]
+FAILED

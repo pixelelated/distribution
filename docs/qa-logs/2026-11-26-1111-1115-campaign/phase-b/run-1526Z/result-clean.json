@@ -1,0 +1,154 @@
+{
+ "phase": "clean",
+ "status": "FAIL",
+ "checks": [
+  {
+   "name": "disposable-guest",
+   "criteria": "-",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "fresh-no-connections",
+   "criteria": "C01",
+   "pass": true,
+   "detail": "no-connections"
+  },
+  {
+   "name": "fresh-autosync-off",
+   "criteria": "C06",
+   "pass": true,
+   "detail": "{}"
+  },
+  {
+   "name": "first-link-in-use",
+   "criteria": "C01",
+   "pass": true,
+   "detail": "('QA_A', 'selected')"
+  },
+  {
+   "name": "first-link-defaults",
+   "criteria": "C04",
+   "pass": true,
+   "detail": "{'content': '/pixelelated/Content', 'saves': '/pixelelated/Saves', 'settings': '/pixelelated/Backups'}"
+  },
+  {
+   "name": "first-link-sync-off",
+   "criteria": "C06",
+   "pass": true,
+   "detail": "{}"
+  },
+  {
+   "name": "first-link-no-payload-change",
+   "criteria": "C07",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "failed-link-refused",
+   "criteria": "C01,C06",
+   "pass": true,
+   "detail": "The connection could not be verified. Your settings were not changed."
+  },
+  {
+   "name": "failed-link-nothing-kept",
+   "criteria": "C01,C06",
+   "pass": true,
+   "detail": "(['QA_A'], 'QA_A')"
+  },
+  {
+   "name": "failed-link-profile-unchanged",
+   "criteria": "C06",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "custom-folder-projected",
+   "criteria": "C02",
+   "pass": true,
+   "detail": "{'SAVES_REMOTE': '/Custom/Saves', 'SETTINGS_REMOTE': '/pixelelated/Backups', 'CONTENT_REMOTE': '/pixelelated/Content'}"
+  },
+  {
+   "name": "second-link-keeps-selection",
+   "criteria": "C01,C05",
+   "pass": true,
+   "detail": "QA_A"
+  },
+  {
+   "name": "second-link-keeps-active-paths",
+   "criteria": "C05",
+   "pass": true,
+   "detail": "{'content': '/pixelelated/Content', 'saves': '/Custom/Saves', 'settings': '/pixelelated/Backups'}"
+  },
+  {
+   "name": "switch-b-defaults",
+   "criteria": "C02,C04",
+   "pass": true,
+   "detail": "{'content': '/pixelelated/Content', 'saves': '/pixelelated/Saves', 'settings': '/pixelelated/Backups'}"
+  },
+  {
+   "name": "stale-editor-refused",
+   "criteria": "C14,C06",
+   "pass": true,
+   "detail": "The selected connection or its folders changed. Open this page again."
+  },
+  {
+   "name": "switch-a-keeps-its-folders",
+   "criteria": "C02",
+   "pass": true,
+   "detail": "{'content': '/pixelelated/Content', 'saves': '/Custom/Saves', 'settings': '/pixelelated/Backups'}"
+  },
+  {
+   "name": "renewal-keeps-folders",
+   "criteria": "C05",
+   "pass": true,
+   "detail": "{'content': '/pixelelated/Content', 'saves': '/Custom/Saves', 'settings': '/pixelelated/Backups'}"
+  },
+  {
+   "name": "switching-no-payload-change",
+   "criteria": "C07",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "busy-select-refused",
+   "criteria": "C06",
+   "pass": true,
+   "detail": "A cloud operation is running. Wait for it to finish, then try again."
+  },
+  {
+   "name": "busy-defaults-refused",
+   "criteria": "C06,C22",
+   "pass": true,
+   "detail": "A cloud operation is running. Wait for it to finish, then try again."
+  },
+  {
+   "name": "busy-nothing-changed",
+   "criteria": "C06",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "autosync-select-refused",
+   "criteria": "C06",
+   "pass": true,
+   "detail": "A cloud operation is running. Wait for it to finish, then try again."
+  },
+  {
+   "name": "autosync-remove-refused",
+   "criteria": "C06",
+   "pass": true,
+   "detail": "A cloud operation is running. Wait for it to finish, then try again."
+  },
+  {
+   "name": "autosync-nothing-changed",
+   "criteria": "C06",
+   "pass": true,
+   "detail": ""
+  }
+ ],
+ "build_id": "a069abd23615252c70a097bf7efb2ac6f8414ed9",
+ "rclone": "rclone v1.76.0",
+ "error": "Refused: A cloud operation is running. Wait for it to finish, then try again.",
+ "traceback": "Traceback (most recent call last):\n  File \"/usr/bin/cloud_connections.py\", line 559, in locked\n    fcntl.flock(handle, fcntl.LOCK_EX | fcntl.LOCK_NB)\n    ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nBlockingIOError: [Errno 11] Resource temporarily unavailable\n\nDuring handling of the above exception, another exception occurred:\n\nTraceback (most recent call last):\n  File \"/storage/m7-qa/guest-b.py\", line 208, in <module>\n    c.select('QA_B')\n    ~~~~~~~~^^^^^^^^\n  File \"/usr/bin/cloud_connections.py\", line 678, in select\n    with locked():\n         ~~~~~~^^\n  File \"/usr/lib/python3.14/contextlib.py\", line 141, in __enter__\n  File \"/usr/bin/cloud_connections.py\", line 561, in locked\n    raise Refused('A cloud operation is running. Wait for it to finish, then try again.',\n                  'cloud-operation-busy' if folder_refusal else 'refused')\ncloud_connections.Refused: A cloud operation is running. Wait for it to finish, then try again.\n"
+}

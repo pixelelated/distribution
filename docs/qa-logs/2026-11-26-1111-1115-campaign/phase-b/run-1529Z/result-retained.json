@@ -1,0 +1,87 @@
+{
+ "phase": "retained",
+ "status": "PASS",
+ "checks": [
+  {
+   "name": "disposable-guest",
+   "criteria": "-",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "retained-selection",
+   "criteria": "C09",
+   "pass": true,
+   "detail": "QA_A"
+  },
+  {
+   "name": "retained-paths",
+   "criteria": "C09",
+   "pass": true,
+   "detail": "{'content': '/pixelelated/Content', 'saves': '/Retained/Saves', 'settings': '/pixelelated/Backups'}"
+  },
+  {
+   "name": "retained-sections",
+   "criteria": "C09",
+   "pass": true,
+   "detail": "['QA_A', 'QA_C']"
+  },
+  {
+   "name": "restored-pointer-needs-review",
+   "criteria": "C10,C11",
+   "pass": true,
+   "detail": "review-folders"
+  },
+  {
+   "name": "explicit-select-repairs-pointer",
+   "criteria": "C10",
+   "pass": true,
+   "detail": "{'SAVES_REMOTE': '/Retained/Saves', 'SETTINGS_REMOTE': '/pixelelated/Backups', 'CONTENT_REMOTE': '/pixelelated/Content'}"
+  },
+  {
+   "name": "validator-bound-to-config",
+   "criteria": "C11,1115C05",
+   "pass": true,
+   "detail": "(0, '{\"schema_version\":1,\"run_id\":\"phaseb01\",\"config_id\":\"b95ed55a5e4a80cbc84384bf07da882c68a3101a64a6510b98b0e77d136d6b29\",\"categories\":[{\"category\":\"saves\",\"state\":\"empty\",\"path\":\"/Retained/Saves\",\"detai')"
+  },
+  {
+   "name": "validator-empty-accessible",
+   "criteria": "1115C02,1115C05",
+   "pass": true,
+   "detail": "{\"schema_version\":1,\"run_id\":\"phaseb01\",\"config_id\":\"b95ed55a5e4a80cbc84384bf07da882c68a3101a64a6510b98b0e77d136d6b29\",\"categories\":[{\"category\":\"saves\",\"state\":\"empty\",\"path\":\"/Retained/Saves\",\"detail\":\"no-recognized-content-in-checked-depth\",\"access\":\"accessible\",\"inspection\":\"complete\",\"phase\":\"i"
+  },
+  {
+   "name": "limited-settings-still-accessible",
+   "criteria": "1115C02",
+   "pass": true,
+   "detail": "{\"category\": \"settings\", \"state\": \"unreadable\", \"path\": \"/pixelelated/Backups\", \"detail\": \"entry-limit\", \"access\": \"accessible\", \"inspection\": \"limited\", \"phase\": \"inspection\", \"access_detail\": \"directory-stat\"}"
+  },
+  {
+   "name": "saves-result-survives-limit",
+   "criteria": "1115C02",
+   "pass": true,
+   "detail": "{\"category\": \"saves\", \"state\": \"present\", \"path\": \"/Retained/Saves\", \"detail\": \"progress-paths-found-not-verified\", \"access\": \"accessible\", \"inspection\": \"complete\", \"phase\": \"inspection\"}"
+  },
+  {
+   "name": "validator-read-only",
+   "criteria": "1115C03",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "retained-end-selection",
+   "criteria": "C09",
+   "pass": true,
+   "detail": "QA_A"
+  },
+  {
+   "name": "no-pending-journal",
+   "criteria": "C22",
+   "pass": true,
+   "detail": ""
+  }
+ ],
+ "build_id": "a069abd23615252c70a097bf7efb2ac6f8414ed9",
+ "rclone": "rclone v1.76.0",
+ "validator_limited_rc": 5
+}

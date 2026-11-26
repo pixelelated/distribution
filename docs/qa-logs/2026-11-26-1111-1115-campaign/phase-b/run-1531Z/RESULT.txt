@@ -1,0 +1,70 @@
+== #1111/#1115 phase B, 2026-11-26T15:31:02Z
+VERSION="0.0.1-dev+20261126T140833Z.ga069abd23615"
+BUILD_ID="a069abd23615252c70a097bf7efb2ac6f8414ed9"
+-- clean
+{"phase": "clean", "status": "PASS", "failed": [], "error": ""}
+-- reboot
+   boot id changed
+-- retained
+{"phase": "retained", "status": "PASS", "failed": [], "error": ""}
+   the WebDAV stanza is removed from the guest
+clean: PASS, 43 of 43 checks
+  PASS  disposable-guest [-]
+  PASS  fresh-no-connections [C01]
+  PASS  fresh-autosync-off [C06]
+  PASS  first-link-in-use [C01]
+  PASS  first-link-defaults [C04]
+  PASS  first-link-sync-off [C06]
+  PASS  first-link-no-payload-change [C07]
+  PASS  failed-link-refused [C01,C06]
+  PASS  failed-link-nothing-kept [C01,C06]
+  PASS  failed-link-profile-unchanged [C06]
+  PASS  custom-folder-projected [C02]
+  PASS  second-link-keeps-selection [C01,C05]
+  PASS  second-link-keeps-active-paths [C05]
+  PASS  switch-b-defaults [C02,C04]
+  PASS  stale-editor-refused [C14,C06]
+  PASS  switch-a-keeps-its-folders [C02]
+  PASS  renewal-keeps-folders [C05]
+  PASS  switching-no-payload-change [C07]
+  PASS  lock-held-for-busy [C06]
+  PASS  lock-released-after-busy [C06]
+  PASS  busy-select-refused [C06]
+  PASS  busy-defaults-refused [C06,C22]
+  PASS  busy-nothing-changed [C06]
+  PASS  autosync-select-refused [C06]
+  PASS  autosync-remove-refused [C06]
+  PASS  autosync-nothing-changed [C06]
+  PASS  defaults-applied-to-selected [C21]
+  PASS  defaults-left-other-alone [C21]
+  PASS  defaults-no-cloud-folders-created [C07,C21]
+  PASS  remove-active-no-fallback [C01]
+  PASS  no-selection-actionable [C10]
+  PASS  explicit-select-restores-rows [C10]
+  PASS  remove-all-unselected-or-empty [C01]
+  PASS  readd-same-name-in-use [C01]
+  PASS  readd-same-name-defaults [C04]
+  PASS  new-name-defaults [C04]
+  PASS  webdav-link [C04]
+  PASS  different-backend-defaults [C04]
+  PASS  deleted-paths-not-reused [C04]
+  PASS  management-no-payload-change [C07]
+  PASS  autosync-never-enabled [C06]
+  PASS  settings-backup-default [C25]
+  PASS  no-pending-journal [C22]
+retained: PASS, 14 of 14 checks
+  PASS  disposable-guest [-]
+  PASS  retained-selection [C09]
+  PASS  retained-paths [C09]
+  PASS  retained-sections [C09]
+  PASS  restored-pointer-needs-review [C10,C11]
+  PASS  explicit-select-repairs-pointer [C10]
+  PASS  validator-bound-to-config [C11,1115C05]
+  PASS  validator-empty-accessible [1115C02,1115C05]
+  PASS  limited-settings-still-accessible [1115C02]
+  PASS  saves-result-survives-limit [1115C02]
+  PASS  validator-read-only [1115C03]
+  PASS  webdav-validator-answers [1115C05]
+  PASS  retained-end-selection [C09]
+  PASS  no-pending-journal [C22]
+PASSED

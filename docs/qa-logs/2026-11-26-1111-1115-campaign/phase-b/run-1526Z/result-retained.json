@@ -1,0 +1,16 @@
+{
+ "phase": "retained",
+ "status": "FAIL",
+ "checks": [
+  {
+   "name": "disposable-guest",
+   "criteria": "-",
+   "pass": true,
+   "detail": ""
+  }
+ ],
+ "build_id": "a069abd23615252c70a097bf7efb2ac6f8414ed9",
+ "rclone": "rclone v1.76.0",
+ "error": "FileNotFoundError: [Errno 2] No such file or directory: '/storage/m7-qa/expected-retained.json'",
+ "traceback": "Traceback (most recent call last):\n  File \"/storage/m7-qa/guest-b.py\", line 265, in <module>\n    exp = json.loads((ROOT / 'expected-retained.json').read_text())\n                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^\n  File \"/usr/lib/python3.14/pathlib/__init__.py\", line 787, in read_text\n  File \"/usr/lib/python3.14/pathlib/__init__.py\", line 771, in open\nFileNotFoundError: [Errno 2] No such file or directory: '/storage/m7-qa/expected-retained.json'\n"
+}
