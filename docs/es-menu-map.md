@@ -276,10 +276,10 @@ flowchart TD
     CS --> ALL[MANAGE CLOUD STORAGE]
 
     ALL --> HUB{{CLOUD}}
-    HUB --> BR[BACKUP AND RESTORE]
-    BR --> BU[BACK UP TO THE CLOUD] --> SCAN[CHECKING YOUR CLOUD<br/>GuiCloudTransfer running cloud_scan: CLOUD FOLDER · SETTINGS BACKUPS · GAME CONTENT<br/>goes on by itself when complete; TRY AGAIN · CLOSE when not, D-CLOUD-167]
-    BR --> RE[RESTORE FROM THE CLOUD] --> SCAN
-    SCAN --> TICK[tick: SAVES · ROMS AND BIOS · GAME CONTENT · SETTINGS<br/>restore: SETTINGS offered as DEVICE, DATE, or dimmed NO SETTINGS BACKUP FROM THIS DEVICE YET, D-CLOUD-162<br/>CONTINUE]
+    HUB --> BR[BACK UP AND RESTORE CONTENT]
+    BR --> BU[BACK UP TO CLOUD<br/><i>CHOOSE CONTENT FROM THIS DEVICE TO BACK UP.</i>] --> SCAN[CHECKING YOUR CLOUD<br/>GuiCloudTransfer running cloud_scan: CLOUD FOLDER · SETTINGS BACKUPS · GAME CONTENT<br/>goes on by itself when complete; TRY AGAIN · CLOSE when not, D-CLOUD-167]
+    BR --> RE[RESTORE FROM CLOUD<br/><i>CHOOSE CONTENT TO RESTORE TO THIS DEVICE.</i>] --> SCAN
+    SCAN --> TICK[page titled as the row, BACK UP TO CLOUD or RESTORE FROM CLOUD, #1428; WHAT WOULD YOU LIKE TO BACK UP? / RESTORE?<br/>tick: SAVES · ROMS AND BIOS · GAME CONTENT · SETTINGS<br/>restore: SETTINGS offered as DEVICE, DATE, or dimmed NO SETTINGS BACKUP FROM THIS DEVICE YET, D-CLOUD-162<br/>CONTINUE]
     TICK -->|ROMS AND BIOS or GAME CONTENT ticked, restore| CSCAN[CHECKING YOUR CLOUD<br/>cloud_scan --content inside the selected library, in the classes ticked; goes on by itself]
     TICK -->|ROMS AND BIOS or GAME CONTENT ticked, backup| CSCAN
     CSCAN -->|nothing matches the chosen categories in the selected folder| EMPTY[scoped empty result<br/>choose another folder or add files from a computer<br/>CLOUD > CHECK CLOUD FOLDERS gives expected locations]
@@ -294,9 +294,11 @@ flowchart TD
     SM --> GE[SYNC SAVES WHEN EXITING A GAME<br/><i>AFTER LAST GAME - outcome</i>]
 
     HUB --> CSS[CLOUD STORAGE SETUP]
-    CSS --> CT[CONNECTED TO … <i>provider label</i>]
-    CSS --> CHK[CHECK CONNECTION] --> CHKD[dialog: answers / does not]
-    CSS --> FOLDER[CHANGE CLOUD FOLDER] --> PATHS[CLOUD FOLDERS<br/>SAVES FOLDER · SETTINGS FOLDER · ROMS, BIOS, AND GAME CONTENT FOLDER]
+    CSS --> CT[ACTIVE CONNECTION: name, provider<br/><i>CHANGE CONNECTION OR MANAGE SAVED CONNECTIONS.</i> . or NO CONNECTION SELECTED]
+    CSS --> CFA[CLOUD FOLDER ACTIONS<br/><i>CHOOSE CLOUD FOLDERS TO CHECK OR CREATE.</i>]
+    CSS --> CCS[CHECK CLOUD SETUP<br/><i>CHECK YOUR CONNECTION, SAVE FOLDERS, AND AUTOMATIC SYNC SETTINGS.</i><br/>results include a CONNECTION CHECK row]
+    CSS --> MCC[MANAGE CLOUD CONNECTIONS<br/><i>ADD, CHOOSE, OR MANAGE YOUR CONNECTIONS.</i>]
+    CSS --> FOLDER[CHANGE CLOUD FOLDER LOCATIONS<br/><i>YOUR SAVES ARE IN: path</i>] --> PATHS[CLOUD FOLDERS<br/>SAVES FOLDER · SETTINGS FOLDER · ROMS, BIOS, AND GAME CONTENT FOLDER]
     PATHS --> KB[keyboard for the selected path<br/>changes only that pointer; moves no files]
     KB -->|unchanged value: no probe or write| PATHS
     KB -->|accepted changed value| PATHS
@@ -344,6 +346,8 @@ flowchart TD
     LINKDONE -->|yes| CATEGORIES
     LINKDONE -->|saved only| CONNSAVED[CONNECTION SAVED<br/>current connection unchanged] -->|choose explicitly under CLOUD CONNECTIONS| SAVED
 ```
+
+**The hub rows above are the shipped M7 composition** (ES `95febae8e`, read 2026-11-26 for #1428), and the transfer page is titled as the row that opens it since ES `d87891f24`. Below the hub rows the CLOUD STORAGE SETUP subtree (the folder editor, the folder actions page, the setup check's results, connection management) is still the older mapping: remapping it from the source, with frames, is #1428's evidence work.
 
 **Category-based cloud setup (#508/#510, D-CLOUD-175/178).** This map describes the replacement
 being qualified, not the accepted firmware built earlier on 2026-10-07.
