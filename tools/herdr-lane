@@ -43,8 +43,15 @@ def native(args):
     if args.tier or args.permission_mode:
         raise ValueError("--tier and --permission-mode apply only to Claude Code")
     argv = ["resume", args.session] if args.session else []
+    # D-WORKFLOW-238: pixelelated Codex lanes run in fast mode, per lane, never
+    # through the shared ~/.codex/config.toml (other projects' lanes read it)
+    # nor the in-session Fast toggle (it saves its choice as that default).
+    # codex-cli 0.172.0's catalog names gpt-6.2-sol's fast tier id "priority"
+    # ("Fast", "2x speed, increased usage"); an unknown tier is dropped without
+    # an error, so the readback is the rollout's thread_settings_applied.
     return argv + ["-C", str(args.cwd), "-m", CODEX[args.role], "-c",
-                   'model_reasoning_effort="xhigh"', "-s", "workspace-write", "-a",
+                   'model_reasoning_effort="xhigh"', "-c", 'service_tier="priority"',
+                   "-s", "workspace-write", "-a",
                    "on-request", "-c", 'approvals_reviewer="auto_review"']
 
 
@@ -122,7 +129,9 @@ def launch(args):
     if args.session and sid != args.session:
         raise ValueError("inspect the launched pane: resumed UUID not confirmed by Herdr")
     return {"pane": pane_id, "cwd": str(args.cwd), "thread": sid, "native_argv": argv,
-            "next": "Read back effective model, effort and permissions before dispatch."}
+            "next": ("Read back effective model, effort and permissions before dispatch; for Codex also "
+                     "the service tier: the rollout's thread_settings_applied must say priority "
+                     "(D-WORKFLOW-238), read after the first turn.")}
 
 
 def main():
