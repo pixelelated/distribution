@@ -401,6 +401,181 @@
     "observed": "as expected; text fits",
     "date": "2026-11-26"
    }
+  },
+  {
+   "flow_id": "cloud-connections",
+   "branch_id": "two-active-connection-action",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud-settings",
+   "trigger": "A on ACTIVE CONNECTION",
+   "expected_state": "MANAGE CLOUD CONNECTIONS: QA-CLOUD WEBDAV - IN USE, QA-TWO WEBDAV",
+   "source": {
+    "es": "d87891f24 (local m7/rc-round-es-20261125)",
+    "distribution": "30e6ff3db9 (local build/m7-rc-round-20261125)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T115211Z.g30e6ff3db9ac-from-ROCKNIX",
+    "walks": "WALK_SUITE=tools/vm-walks/suite-1428.txt VM_RES=640x480 tools/vm-qa --only walks --walk active-connection-two-*,connections-pick-second-two-*, round 4a7690cd07; fixture: the guest's qa-cloud stanza copied as qa-two on the guest; run qa-30e6ff3db9-webdav-a-20261126-1307"
+   },
+   "locale": "en",
+   "width": 640,
+   "height": 480,
+   "frame": "frames/640-en-two-active-connection-action.png",
+   "sha256": "1991ebb51a8218aafdd7d7e3dc731c6294ef4bd8090b06ff2541a89826fe5466",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "as expected; text fits",
+    "date": "2026-11-26"
+   }
+  },
+  {
+   "flow_id": "cloud-connections",
+   "branch_id": "two-after-back-out",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud-settings",
+   "trigger": "B from CLOUD CONNECTION",
+   "expected_state": "the list again, QA-CLOUD still IN USE: the selection unchanged",
+   "source": {
+    "es": "d87891f24 (local m7/rc-round-es-20261125)",
+    "distribution": "30e6ff3db9 (local build/m7-rc-round-20261125)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T115211Z.g30e6ff3db9ac-from-ROCKNIX",
+    "walks": "WALK_SUITE=tools/vm-walks/suite-1428.txt VM_RES=640x480 tools/vm-qa --only walks --walk active-connection-two-*,connections-pick-second-two-*, round 4a7690cd07; fixture: the guest's qa-cloud stanza copied as qa-two on the guest; run qa-30e6ff3db9-webdav-a-20261126-1307"
+   },
+   "locale": "en",
+   "width": 640,
+   "height": 480,
+   "frame": "frames/640-en-two-after-back-out.png",
+   "sha256": "0f566faa0c5243248b3b85f58127a8b86bef744dcf9b8cdaf3570a949efce616",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "as expected; text fits",
+    "date": "2026-11-26"
+   }
+  },
+  {
+   "flow_id": "cloud-connections",
+   "branch_id": "two-connections-two",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud-settings",
+   "trigger": "nine downs and A from the hub",
+   "expected_state": "MANAGE CLOUD CONNECTIONS lists both, QA-CLOUD IN USE",
+   "source": {
+    "es": "d87891f24 (local m7/rc-round-es-20261125)",
+    "distribution": "30e6ff3db9 (local build/m7-rc-round-20261125)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T115211Z.g30e6ff3db9ac-from-ROCKNIX",
+    "walks": "WALK_SUITE=tools/vm-walks/suite-1428.txt VM_RES=640x480 tools/vm-qa --only walks --walk active-connection-two-*,connections-pick-second-two-*, round 4a7690cd07; fixture: the guest's qa-cloud stanza copied as qa-two on the guest; run qa-30e6ff3db9-webdav-a-20261126-1307"
+   },
+   "locale": "en",
+   "width": 640,
+   "height": 480,
+   "frame": "frames/640-en-two-connections-two.png",
+   "sha256": "1991ebb51a8218aafdd7d7e3dc731c6294ef4bd8090b06ff2541a89826fe5466",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "as expected; text fits",
+    "date": "2026-11-26"
+   }
+  },
+  {
+   "flow_id": "cloud-connections",
+   "branch_id": "two-hub-active-connection-row",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud-settings",
+   "trigger": "five downs from BACK UP TO CLOUD, with two saved WebDAV connections",
+   "expected_state": "ACTIVE CONNECTION: QA-CLOUD (WEBDAV), CHANGE CONNECTION OR MANAGE SAVED CONNECTIONS.",
+   "source": {
+    "es": "d87891f24 (local m7/rc-round-es-20261125)",
+    "distribution": "30e6ff3db9 (local build/m7-rc-round-20261125)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T115211Z.g30e6ff3db9ac-from-ROCKNIX",
+    "walks": "WALK_SUITE=tools/vm-walks/suite-1428.txt VM_RES=640x480 tools/vm-qa --only walks --walk active-connection-two-*,connections-pick-second-two-*, round 4a7690cd07; fixture: the guest's qa-cloud stanza copied as qa-two on the guest; run qa-30e6ff3db9-webdav-a-20261126-1307"
+   },
+   "locale": "en",
+   "width": 640,
+   "height": 480,
+   "frame": "frames/640-en-two-hub-active-connection-row.png",
+   "sha256": "c095125477dc66bde9425a88579381a19423209ba8353f6e98da4963e1caf8eb",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "as expected; text fits",
+    "date": "2026-11-26"
+   }
+  },
+  {
+   "flow_id": "cloud-connections",
+   "branch_id": "two-second-connection-offer",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud-settings",
+   "trigger": "A on QA-TWO",
+   "expected_state": "CLOUD CONNECTION: qa-two, WEBDAV; CHANGE CLOUD FOLDER LOCATIONS, CHECK THIS CONNECTION, USE THIS CONNECTION, EDIT, REMOVE",
+   "source": {
+    "es": "d87891f24 (local m7/rc-round-es-20261125)",
+    "distribution": "30e6ff3db9 (local build/m7-rc-round-20261125)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T115211Z.g30e6ff3db9ac-from-ROCKNIX",
+    "walks": "WALK_SUITE=tools/vm-walks/suite-1428.txt VM_RES=640x480 tools/vm-qa --only walks --walk active-connection-two-*,connections-pick-second-two-*, round 4a7690cd07; fixture: the guest's qa-cloud stanza copied as qa-two on the guest; run qa-30e6ff3db9-webdav-a-20261126-1307"
+   },
+   "locale": "en",
+   "width": 640,
+   "height": 480,
+   "frame": "frames/640-en-two-second-connection-offer.png",
+   "sha256": "4f121a9c8b7955ac1807aa7b923f5eb7fa30b9422b79975a4a4fc1a570b2c03d",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "as expected; text fits",
+    "date": "2026-11-26"
+   }
+  },
+  {
+   "flow_id": "cloud-connections",
+   "branch_id": "two-after-back-out",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud-settings",
+   "trigger": "B from CLOUD CONNECTION",
+   "expected_state": "the list again, QA-CLOUD still IN USE: the selection unchanged",
+   "source": {
+    "es": "d87891f24 (local m7/rc-round-es-20261125)",
+    "distribution": "30e6ff3db9 (local build/m7-rc-round-20261125)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T115211Z.g30e6ff3db9ac-from-ROCKNIX",
+    "walks": "WALK_SUITE=tools/vm-walks/suite-1428.txt VM_RES=640x480 tools/vm-qa --only walks --walk active-connection-two-*,connections-pick-second-two-*, round 4a7690cd07; fixture: the guest's qa-cloud stanza copied as qa-two on the guest; run qa-30e6ff3db9-webdav-a-20261126-1307"
+   },
+   "locale": "fr",
+   "width": 640,
+   "height": 480,
+   "frame": "frames/640-fr-two-after-back-out.png",
+   "sha256": "6e1bc67f220da154473b1c2a5835597cdebeee8da7b2951ff5d1963b7e3f6bf6",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "as expected; text fits",
+    "date": "2026-11-26"
+   }
+  },
+  {
+   "flow_id": "cloud-connections",
+   "branch_id": "two-second-connection-offer",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud-settings",
+   "trigger": "A on QA-TWO",
+   "expected_state": "CLOUD CONNECTION: qa-two, WEBDAV; CHANGE CLOUD FOLDER LOCATIONS, CHECK THIS CONNECTION, USE THIS CONNECTION, EDIT, REMOVE",
+   "source": {
+    "es": "d87891f24 (local m7/rc-round-es-20261125)",
+    "distribution": "30e6ff3db9 (local build/m7-rc-round-20261125)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T115211Z.g30e6ff3db9ac-from-ROCKNIX",
+    "walks": "WALK_SUITE=tools/vm-walks/suite-1428.txt VM_RES=640x480 tools/vm-qa --only walks --walk active-connection-two-*,connections-pick-second-two-*, round 4a7690cd07; fixture: the guest's qa-cloud stanza copied as qa-two on the guest; run qa-30e6ff3db9-webdav-a-20261126-1307"
+   },
+   "locale": "fr",
+   "width": 640,
+   "height": 480,
+   "frame": "frames/640-fr-two-second-connection-offer.png",
+   "sha256": "6683db8a3920403d9504cf74574468ae06d4f6c5552468d4f3a09918d638ce09",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "as expected; text fits",
+    "date": "2026-11-26"
+   }
   }
  ]
 }
