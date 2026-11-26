@@ -1,0 +1,97 @@
+{
+ "utc": "2026-11-26T19:32:14Z",
+ "issue": 1463,
+ "reservations": {
+  "D-CLOUD-196": "M6 rekey existing D-CLOUD-185",
+  "D-CLOUD-195": "M6 rekey existing D-CLOUD-186",
+  "D-INFRA-047": "M6 rekey existing D-INFRA-026",
+  "D-RA-055": "M6 rekey existing D-RA-050",
+  "D-CLOUD-197": "M6 rekey existing D-CLOUD-187",
+  "D-QA-067": "M6 rekey existing D-QA-061",
+  "D-RA-056": "M6 rekey existing D-RA-049",
+  "D-UI-138": "M6 rekey existing D-UI-128",
+  "D-UI-139": "M6 rekey existing D-UI-129",
+  "D-UI-140": "M6 rekey existing D-UI-130",
+  "D-UI-141": "M6 rekey existing D-UI-131",
+  "D-UI-142": "M6 rekey existing D-UI-132",
+  "D-UI-143": "M6 rekey existing D-UI-133",
+  "D-UI-144": "M6 rekey existing D-UI-134",
+  "D-UI-145": "M6 rekey existing D-UI-135",
+  "D-UI-146": "M6 rekey existing D-UI-136"
+ },
+ "detail": {
+  "D-CLOUD-196": {
+   "m6_row": "D-CLOUD-185",
+   "status": "agreed 2026-11-03",
+   "replaces_reservation": "D-CLOUD-194",
+   "why": "D-CLOUD-194 was spent on next after the 2026-11-03 reservation"
+  },
+  "D-CLOUD-195": {
+   "m6_row": "D-CLOUD-186",
+   "status": "agreed 2026-11-03",
+   "unchanged_from": "2026-11-03"
+  },
+  "D-INFRA-047": {
+   "m6_row": "D-INFRA-026",
+   "status": "agreed 2026-11-03",
+   "replaces_reservation": "D-INFRA-033",
+   "why": "D-INFRA-033 was spent on next after the 2026-11-03 reservation"
+  },
+  "D-RA-055": {
+   "m6_row": "D-RA-050",
+   "status": "agreed 2026-11-03",
+   "replaces_reservation": "D-RA-053",
+   "why": "D-RA-053 was spent on next after the 2026-11-03 reservation"
+  },
+  "D-CLOUD-197": {
+   "m6_row": "D-CLOUD-187",
+   "status": "offered 2026-11-26; released if M6 declines"
+  },
+  "D-QA-067": {
+   "m6_row": "D-QA-061",
+   "status": "offered 2026-11-26; released if M6 declines"
+  },
+  "D-RA-056": {
+   "m6_row": "D-RA-049",
+   "status": "offered 2026-11-26; released if M6 declines"
+  },
+  "D-UI-138": {
+   "m6_row": "D-UI-128",
+   "status": "offered 2026-11-26; released if M6 declines"
+  },
+  "D-UI-139": {
+   "m6_row": "D-UI-129",
+   "status": "offered 2026-11-26; released if M6 declines"
+  },
+  "D-UI-140": {
+   "m6_row": "D-UI-130",
+   "status": "offered 2026-11-26; released if M6 declines"
+  },
+  "D-UI-141": {
+   "m6_row": "D-UI-131",
+   "status": "offered 2026-11-26; released if M6 declines"
+  },
+  "D-UI-142": {
+   "m6_row": "D-UI-132",
+   "status": "offered 2026-11-26; released if M6 declines"
+  },
+  "D-UI-143": {
+   "m6_row": "D-UI-133",
+   "status": "offered 2026-11-26; released if M6 declines"
+  },
+  "D-UI-144": {
+   "m6_row": "D-UI-134",
+   "status": "offered 2026-11-26; released if M6 declines"
+  },
+  "D-UI-145": {
+   "m6_row": "D-UI-135",
+   "status": "offered 2026-11-26; released if M6 declines"
+  },
+  "D-UI-146": {
+   "m6_row": "D-UI-136",
+   "status": "offered 2026-11-26; released if M6 declines"
+  }
+ },
+ "supersedes": "docs/qa-logs/2026-11-03-m6-id-reservations/reservations.json (candidate line only)",
+ "rule": "M7 keeps its meanings at the collided IDs; M6 rekeys its rows to these numbers when it integrates. No M7 allocation may use a reserved number."
+}

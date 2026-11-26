@@ -22,6 +22,10 @@ import sys
 
 REPO = os.path.abspath(sys.argv[1] if len(sys.argv) > 1 else ".")
 ROW = re.compile(r"^\| (D-([A-Z]+)-(\d+)) \| (\d{4}-\d{2}-\d{2}) \| (.*)$")
+# Any row that starts with an ID holds that ID, an Open decisions row (no
+# date) included: D-CLOUD-194 was reported free while it was the open
+# renewal question on next (2026-11-26).
+HELD = re.compile(r"^\| (D-([A-Z]+)-(\d+)) \|")
 
 
 def git(*args):
@@ -36,6 +40,25 @@ for ref in git("for-each-ref", "--format=%(refname:short)", "refs/heads", "refs/
 for path in sorted(glob.glob(os.path.join(os.path.dirname(REPO), "rocknix.worktrees", "*", "docs", "decision-register.md"))):
     with open(path, errors="replace") as f:
         sources["worktree:" + path.split(os.sep)[-3]] = f.read()
+# ID reservations (docs/qa-logs/*id-reservations*/reservations.json) hold
+# numbers another lane was promised. The 2026-11-03 one lived only on the
+# candidate line, and next spent three of its four numbers (#1463).
+reserved = collections.defaultdict(set)
+def take_reservations(body, where):
+    import json
+    try:
+        data = json.loads(body)
+    except ValueError:
+        print(f"register-sweep: unreadable reservations in {where}", file=sys.stderr); return
+    for rid in data.get("reservations", {}):
+        reserved[rid].add(where)
+for ref in git("for-each-ref", "--format=%(refname:short)", "refs/heads", "refs/remotes").stdout.split():
+    for path in git("ls-tree", "-r", "--name-only", ref, "--", "docs/qa-logs").stdout.split():
+        if "id-reservations" in path and path.endswith("/reservations.json"):
+            take_reservations(git("show", f"{ref}:{path}").stdout, f"ref:{ref}:{path}")
+for path in sorted(glob.glob(os.path.join(os.path.dirname(REPO), "rocknix.worktrees", "*", "docs", "qa-logs", "*id-reservations*", "reservations.json"))):
+    with open(path, errors="replace") as f:
+        take_reservations(f.read(), "worktree:" + path)
 if "ref:next" not in sources:
     sys.exit("register-sweep: cannot read next's register")
 
@@ -53,6 +76,17 @@ for source, body in sources.items():
             highest[area] = (number, source)
         if source == "ref:next":
             on_next[area] = max(on_next[area], number)
+    for line in body.splitlines():
+        m = HELD.match(line)
+        if m and not ROW.match(line):
+            area, number = m.group(2), int(m.group(3))
+            if number < 1000 and number > highest[area][0]:
+                highest[area] = (number, source + " (open row)")
+for rid, wheres in reserved.items():
+    _, area, number = rid.split("-")
+    number = int(number)
+    if number < 1000 and number > highest[area][0]:
+        highest[area] = (number, "reserved: " + sorted(wheres)[0])
 
 next_ids = {rid for rid, vals in texts.items() if any("ref:next" in s for s in vals.values())}
 print(f"sources read: {len(sources)} ({sum(s.startswith('ref:') for s in sources)} refs)")
