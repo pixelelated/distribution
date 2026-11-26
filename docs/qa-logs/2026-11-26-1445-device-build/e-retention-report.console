@@ -1,0 +1,13 @@
+watch-build: recording in /workspace/repos/rocknix.worktrees/m7-round-x64-20261125/.build-runs/20261126T152019Z-8308b5e6
+Traceback (most recent call last):
+  File "/workspace/repos/rocknix.worktrees/m7-round-x64-20261125/tools/host-maintenance/retention-report", line 493, in <module>
+    result = report(plan)
+  File "/workspace/repos/rocknix.worktrees/m7-round-x64-20261125/tools/host-maintenance/retention-report", line 329, in report
+    preserved.append(dict(path=p, identity=identity(p)))
+                                           ~~~~~~~~^^^
+  File "/workspace/repos/rocknix.worktrees/m7-round-x64-20261125/tools/host-maintenance/retention-report", line 29, in identity
+    s = Path(path).lstat()
+  File "/usr/lib/python3.14/pathlib/__init__.py", line 662, in lstat
+    return os.lstat(self)
+           ~~~~~~~~^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/workspace/no-such-path-1445'

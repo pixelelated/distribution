@@ -1,0 +1,24 @@
+15:21:45  DRY RUN: nothing else is running (no make docker-*, no QEMU guest, no vm-qa)
+15:21:45  DRY RUN: set m7-final-dryrun head a069abd236 (/workspace/repos/rocknix.worktrees/conflict-resolution/.build-runs/build-sets/m7-final-dryrun.json)
+15:21:45  DRY RUN: worktree /workspace/repos/rocknix.worktrees/m7-sm8550-a069abd236-20261126 on build/m7-sm8550-a069abd236-20261126 at a069abd236 (fork-worktree add-build)
+15:21:45  DRY RUN: ES supplier /workspace/repos/rocknix.worktrees/conflict-resolution/.build-runs/m7-rc-round-20261126-03-es/inputs/es/emulationstation-m7-20261126-bb3f0838f671.tar sha256 matches the recipe (bf159169aefc4381...)
+15:21:45  DRY RUN: export DOCKER_WORK_DIR=/workspace/repos/rocknix.worktrees/conflict-resolution/.build-runs/m7-candidate-build-20261118-01/checkout
+15:21:45  DRY RUN: export DOCKER_EXTRA_OPTS=-v /workspace/repos/rocknix/.git:/workspace/repos/rocknix/.git -v /workspace/cache/rocknix-sources:/workspace/repos/rocknix.worktrees/conflict-resolution/.build-runs/m7-candidate-build-20261118-01/checkout/sources -v /workspace/repos/rocknix.worktrees/conflict-resolution/.build-runs/m7-rc-round-20261126-03-es/inputs/es:/tmp/pix-m7-es-source-delivery-20261126-03:ro -e TMPDIR=/tmp
+15:21:45  DRY RUN: export PROJECT=ROCKNIX
+15:21:45  DRY RUN: export DEVICE=SM8550
+15:21:45  DRY RUN: export ARCH=aarch64
+15:21:45  DRY RUN: replay plan: the union of 1 build log(s): /workspace/repos/rocknix.worktrees/conflict-resolution/.build-runs/m7-sm8550-0a3e979e-owner-20261124/submit-01/console.log
+15:21:45  DRY RUN: remove /workspace/repos/rocknix.worktrees/m7-rc-round-20261125/build.pixelelated-SM8550.aarch64 (0.0 GiB)
+15:22:05  DRY RUN: remove /workspace/repos/rocknix.worktrees/m7-round-x64-20261125/build.pixelelated-GENERIC_X64.x86_64 (111.2 GiB)
+15:22:05  DRY RUN: keep /workspace/repos/rocknix.worktrees/m7-h700-0a3e979e-20261125/target (3.7 GiB): images not on GitHub; released when they are (D-INFRA-037)
+15:22:05  DRY RUN: keep /workspace/repos/rocknix.worktrees/m7-h700-0a3e979e-20261125/kept (0.2 GiB): images not on GitHub; released when they are (D-INFRA-037)
+15:22:05  DRY RUN: keep /workspace/repos/rocknix.worktrees/m7-pc-0a3e979e-20261124/target (4.0 GiB): images not on GitHub; released when they are (D-INFRA-037)
+15:22:05  DRY RUN: keep /workspace/repos/rocknix.worktrees/m7-pc-0a3e979e-20261124/kept (0.2 GiB): images not on GitHub; released when they are (D-INFRA-037)
+15:22:05  DRY RUN: keep /workspace/repos/rocknix.worktrees/m7-pc-43d0bc3b-20261125/target (3.9 GiB): images not on GitHub; released when they are (D-INFRA-037)
+15:22:05  DRY RUN: keep /workspace/repos/rocknix.worktrees/m7-round-x64-20261125/target (4.0 GiB): images not on GitHub; released when they are (D-INFRA-037)
+15:22:05  DRY RUN: keep /workspace/repos/rocknix.worktrees/m7-sm8550-0a3e979e-20261124/target (3.0 GiB): images not on GitHub; released when they are (D-INFRA-037)
+15:22:05  DRY RUN: keep /workspace/repos/rocknix.worktrees/m7-sm8550-0a3e979e-20261124/kept (0.2 GiB): images not on GitHub; released when they are (D-INFRA-037)
+15:22:05  DRY RUN: owner folder /workspace/repos/rocknix.worktrees/conflict-resolution/.build-runs/m7-sm8550-a069abd236-20261126-owner
+15:22:05  DRY RUN: would run tools/patch-replay for aarch64, arm
+15:22:05  DRY RUN: would write the plans, run the retention report and the admission, then make the removals above, then the swap preflight, then submit `make docker-SM8550` from /workspace/repos/rocknix.worktrees/m7-sm8550-a069abd236-20261126
+15:22:05  DRY RUN: nothing was created or changed

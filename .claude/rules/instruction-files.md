@@ -151,6 +151,7 @@ both lists and to this table, or it is invisible.**
 | --- | --- | --- |
 | `build-preflight` | has the machine the memory for a build; explicit guarded swap reclamation before launch | `device-builds.md` |
 | `patch-replay` | does every package's patch set still apply for one device, before a build starts: the build's own `scripts/unpack` per package in a scratch root (#1448, D-INFRA-043) | `device-builds.md` |
+| `device-build` | one command launches a device build through the admitted Docker route: set head, worktree, patch replay, one-build rule, plans, admission, swap preflight, submission; `--dry-run` creates nothing (#1445) | `device-builds.md` |
 | `report-lifecycle-probe.py` | opt-in harmless child, real report writer and retirement preflight | `device-builds.md` |
 | `report_writer.py` | bounded exclusive report publication, fsync and exact readback | `device-builds.md` |
 | `host-maintenance/` | fixed-target swap helper, narrow administrator installer and isolated guard tests | `device-builds.md` |

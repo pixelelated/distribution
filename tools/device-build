@@ -1,0 +1,460 @@
+#!/usr/bin/env python3
+# SPDX-License-Identifier: GPL-2.0
+# Copyright (C) 2026-present ROCKNIX (https://github.com/ROCKNIX)
+"""device-build -- launch one device build through the admitted Docker route (#1445).
+
+  tools/device-build --device SM8550 --commit <rev> --es-supplier <dir> --set <name>
+      [--name <run-name>] [--worktree <existing build worktree>] [--warm]
+      [--move-set] [--plan-log <console.log> ...] [--owner-root <dir>]
+      [--sources <cache>] [--protect <path> ...] [--dry-run]
+
+One command for what November 24 took a dozen hand-typed steps and five
+launches to get right. In order, each step stopping the command when it fails:
+
+  0  refuse while a build (`make docker-*`), a QEMU guest or vm-qa is running
+  1  the build set's head (D-INFRA-043): the set file records it; another
+     commit is refused unless --move-set, which lists what moving means
+  2  the build worktree on build/<name> at the commit (fork-worktree add-build,
+     or --worktree fast-forwarded); an existing build root is refused unless
+     --warm (the stale-root failure of run 1bfb5a21)
+  3  the inputs: the ES supplier holds the tar the recipe's PKG_URL names, with
+     its PKG_SHA256; the source cache and the primary .git exist
+  4  every package's patches replayed for each arch the device builds
+     (tools/patch-replay), once per set head and device
+  5  the owner folder: retention and admission plans, the retention report,
+     build-admission prepare
+  6  the one-build rule (D-INFRA-033/036), only once admitted: every other
+     build/m7-* worktree's build roots are removed after a use check; its
+     target/ and unstripped EmulationStation binary (copied to kept/) stay,
+     as named items
+  7  /tmp's size, then tools/build-preflight --reclaim-swap, whose whole output
+     is kept and must end READY
+  8  watch-build-submit with the alias mount (DOCKER_WORK_DIR = the ES recipe's
+     custody root), the .git, source-cache and ES mounts, and the profile
+     export a two-ABI device needs (#1442); prints the run directory and PIDs
+
+--dry-run checks and prints every path, mount and export, and creates nothing.
+Only build/m7-* worktrees are ever touched by step 5; M6's and anything else's
+are not read for removal. Exit 0 submitted (or dry run clean), 1 a step
+failed, 2 refused before anything was changed.
+"""
+import argparse, datetime, glob, hashlib, json, os, re, shutil, subprocess, sys
+from pathlib import Path
+
+PRIMARY = Path('/workspace/repos/rocknix')
+WORKTREES = Path('/workspace/repos/rocknix.worktrees')
+OWNER_ROOT = WORKTREES / 'conflict-resolution/.build-runs'
+SOURCES = Path('/workspace/cache/rocknix-sources')
+NEXT_TOOLS = PRIMARY / 'tools'
+GIB = 1 << 30
+# Measured budgets (the owners' retention plans of November 24-26): private
+# outputs, images, margin. FULL-ONE-BUILD.json is the measurement behind them.
+BUDGET = {
+    'GENERIC_X64': (150 * GIB, 8 * GIB, 64 * GIB),
+    'H700': (160 * GIB, 10 * GIB, 64 * GIB),
+    'SM8550': (200 * GIB, 10 * GIB, 64 * GIB),
+}
+ARCHES = {'GENERIC_X64': ['x86_64'], 'H700': ['aarch64', 'arm'], 'SM8550': ['aarch64', 'arm']}
+EVIDENCE = WORKTREES / ('conflict-resolution/docs/qa-logs/2026-11-23-build-directory-retirement/'
+                        'physical-bulk/20261124-sm04-reader-batches/current-slot/FULL-ONE-BUILD.json')
+
+
+class Stop(Exception):
+    def __init__(self, msg, code=1):
+        super().__init__(msg)
+        self.code = code
+
+
+def now():
+    return datetime.datetime.now(datetime.timezone.utc).strftime('%Y-%m-%dT%H:%M:%SZ')
+
+
+def say(msg):
+    print(f'{now()[11:19]}  {msg}', flush=True)
+
+
+def sh(args, cwd=None, out=None, env=None, check=True, timeout=None):
+    if out is None:
+        r = subprocess.run(args, cwd=cwd, env=env, capture_output=True, text=True, timeout=timeout)
+    else:
+        with open(out, 'w') as f:
+            r = subprocess.run(args, cwd=cwd, env=env, stdout=f, stderr=subprocess.STDOUT, text=True, timeout=timeout)
+    if check and r.returncode != 0:
+        tail = (Path(out).read_text()[-1500:] if out else (r.stdout + r.stderr)[-1500:])
+        raise Stop(f'{" ".join(map(str, args[:4]))} exited {r.returncode}:\n{tail}')
+    return r
+
+
+def sha256(path):
+    h = hashlib.sha256()
+    with open(path, 'rb') as f:
+        for block in iter(lambda: f.read(1 << 20), b''):
+            h.update(block)
+    return h.hexdigest()
+
+
+def size(path):
+    r = subprocess.run(['du', '-sb', str(path)], capture_output=True, text=True)
+    return int(r.stdout.split()[0]) if r.returncode == 0 and r.stdout else -1
+
+
+def tool(worktree, name):
+    """The worktree's own copy when it has one (the frozen line's tooling), else next's."""
+    own = Path(worktree) / 'tools' / name
+    return own if own.exists() else NEXT_TOOLS / name
+
+
+def busy():
+    found = []
+    makes = subprocess.run(['ps', '-C', 'make', '-o', 'pid=,args='], capture_output=True, text=True).stdout
+    found += [f'build: {l.strip()}' for l in makes.splitlines() if 'docker-' in l]
+    qemu = subprocess.run(['ps', '-C', 'qemu-system-x86_64', '-o', 'pid='], capture_output=True, text=True).stdout
+    found += [f'QEMU guest pid {p.strip()}' for p in qemu.split()]
+    me = os.getpid()
+    for d in glob.glob('/proc/[0-9]*/cmdline'):
+        try:
+            pid = int(d.split('/')[2])
+            if pid == me:
+                continue
+            argv = Path(d).read_bytes().split(b'\0')
+        except (OSError, ValueError):
+            continue
+        if len(argv) > 1 and argv[0].endswith(b'bash') and argv[1].endswith(b'tools/vm-qa'):
+            found.append(f'vm-qa pid {pid}')
+    return found
+
+
+ES_RECIPE = 'projects/ROCKNIX/packages/ui/emulationstation/package.mk'
+
+
+def recipe_route(mk):
+    url = re.search(r'^PKG_URL="file://(/tmp/[^/"]+)/([^/"]+)"', mk, re.M)
+    want = re.search(r'^PKG_SHA256="([0-9a-f]{64})"', mk, re.M)
+    root = re.search(r'local expected_root="([^"]+)"', mk)
+    if not (url and want and root):
+        raise Stop('the emulationstation recipe has no file:// PKG_URL, PKG_SHA256 or expected_root '
+                   '(not the local custody route this command encodes)', 2)
+    return url.group(1), url.group(2), want.group(1), root.group(1)
+
+
+def m7_build_worktrees(primary):
+    r = sh(['git', '-C', str(primary), 'worktree', 'list', '--porcelain'])
+    rows, path = [], None
+    for line in r.stdout.splitlines():
+        if line.startswith('worktree '):
+            path = line[9:]
+        elif line.startswith('branch refs/heads/build/m7-') and path:
+            rows.append(Path(path))
+    return rows
+
+
+def holders(path):
+    """Pixelelated use of a path: a process with its cwd, root or an open file under it, or a running container mounting it."""
+    p = str(path).rstrip('/') + '/'
+    users = []
+    for d in glob.glob('/proc/[0-9]*'):
+        for link in ['cwd', 'root']:
+            try:
+                t = os.readlink(f'{d}/{link}')
+            except OSError:
+                continue
+            if (t + '/').startswith(p):
+                users.append(f'{d[6:]} {link} {t}')
+        try:
+            for fd in os.listdir(f'{d}/fd'):
+                try:
+                    t = os.readlink(f'{d}/fd/{fd}')
+                except OSError:
+                    continue
+                if t.startswith(p):
+                    users.append(f'{d[6:]} fd {t}')
+                    break
+        except OSError:
+            pass
+    ids = subprocess.run(['docker', 'ps', '-q'], capture_output=True, text=True)
+    if ids.returncode != 0:
+        users.append('docker ps failed: cannot see container mounts')
+    for cid in ids.stdout.split():
+        m = subprocess.run(['docker', 'inspect', '-f', '{{range .Mounts}}{{.Source}}\n{{end}}', cid],
+                           capture_output=True, text=True).stdout
+        for src in m.split():
+            if (src.rstrip('/') + '/').startswith(p) or p.startswith(src.rstrip('/') + '/'):
+                users.append(f'container {cid} mounts {src}')
+    return users
+
+
+def plan_logs(device, owner_root):
+    """Every retained console.log of a build of this device: the union of their packages is the replay's plan."""
+    # The submission record does not name the target; the log names its build
+    # roots (build.<distro>-<DEVICE>.<arch>) from its first packages on.
+    logs, mark = [], re.compile(rb'build\.[a-z]+-' + re.escape(device.encode()) + rb'\.(?:aarch64|arm|x86_64)\b')
+    for log in glob.glob(str(owner_root / '*' / 'submit-*' / 'console.log')):
+        try:
+            if os.path.getsize(log) <= (1 << 20):
+                continue
+            with open(log, 'rb') as f:
+                if mark.search(f.read(8 << 20)):
+                    logs.append(Path(log))
+        except OSError:
+            continue
+    return sorted(logs)
+
+
+def main():
+    ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
+    ap.add_argument('--device', required=True, choices=sorted(BUDGET))
+    ap.add_argument('--commit', required=True)
+    ap.add_argument('--es-supplier', required=True, type=Path)
+    ap.add_argument('--set', required=True, dest='set_name')
+    ap.add_argument('--name')
+    ap.add_argument('--worktree', type=Path)
+    ap.add_argument('--warm', action='store_true')
+    ap.add_argument('--move-set', action='store_true')
+    ap.add_argument('--plan-log', action='append', type=Path, default=[])
+    ap.add_argument('--owner-root', type=Path, default=OWNER_ROOT)
+    ap.add_argument('--sources', type=Path, default=SOURCES, help='the shared download cache')
+    ap.add_argument('--primary', type=Path, default=PRIMARY,
+                    help='the checkout whose .git the container mounts (a worktree\'s .git is a pointer file)')
+    ap.add_argument('--protect', action='append', type=Path, default=[],
+                    help='a further path the retention plan protects (repeatable)')
+    ap.add_argument('--dry-run', action='store_true')
+    a = ap.parse_args()
+    dry = a.dry_run
+    tag = 'DRY RUN: ' if dry else ''
+
+    # 0. nothing else running
+    found = busy()
+    if found:
+        raise Stop('refusing while something else runs:\n  ' + '\n  '.join(found), 2)
+    say(f'{tag}nothing else is running (no make docker-*, no QEMU guest, no vm-qa)')
+    if not (a.primary / '.git').is_dir():
+        raise Stop(f'{a.primary}/.git is missing: the container mounts it, because scripts/image runs git rev-parse', 2)
+
+    # 1. the set's head
+    full = sh(['git', '-C', str(a.primary), 'rev-parse', '--verify', a.commit + '^{commit}']).stdout.strip()
+    short = full[:10]
+    if not re.fullmatch(r'[A-Za-z0-9._-]+', a.set_name):
+        raise Stop('--set wants letters, digits, dot, dash or underscore', 2)
+    set_file = a.owner_root / 'build-sets' / f'{a.set_name}.json'
+    state = json.loads(set_file.read_text()) if set_file.exists() else {'set': a.set_name, 'head': full, 'builds': {}, 'replays': {}, 'moves': []}
+    if state['head'] != full:
+        built = ', '.join(f'{d} ({r["run"]})' for d, r in state['builds'].items()) or 'nothing yet'
+        if not a.move_set:
+            raise Stop(f'set {a.set_name} is at {state["head"][:10]}, not {short}. Moving it means rebuilding '
+                       f'what was built at the old head: {built}. Pass --move-set to move it.', 2)
+        say(f'{tag}moving set {a.set_name} from {state["head"][:10]} to {short}; to rebuild: {built}')
+        state['moves'].append({'at': now(), 'from': state['head'], 'to': full, 'rebuild': list(state['builds'])})
+        state['head'], state['builds'], state['replays'] = full, {}, {}
+    say(f'{tag}set {a.set_name} head {short} ({set_file})')
+
+    # 2. the worktree
+    name = a.name or f'm7-{a.device.lower().replace("_", "-")}-{short}-{datetime.date.today():%Y%m%d}'
+    wt = a.worktree or (WORKTREES / name)
+    if wt.exists():
+        branch = sh(['git', '-C', str(wt), 'branch', '--show-current']).stdout.strip()
+        if not branch.startswith('build/'):
+            raise Stop(f'{wt} is on {branch or "a detached HEAD"}, not a build/* branch', 2)
+        if sh(['git', '-C', str(wt), 'status', '--porcelain', '--untracked-files=no']).stdout.strip():
+            raise Stop(f'{wt} has tracked changes', 2)
+        head = sh(['git', '-C', str(wt), 'rev-parse', 'HEAD']).stdout.strip()
+        if head != full and sh(['git', '-C', str(wt), 'merge-base', '--is-ancestor', head, full], check=False).returncode != 0:
+            raise Stop(f'{wt} is at {head[:10]}, which {short} does not descend from: no fast-forward', 2)
+        say(f'{tag}worktree {wt} on {branch} at {head[:10]}' + ('' if head == full else f', fast-forward to {short}'))
+    else:
+        if a.worktree:
+            raise Stop(f'--worktree {wt} does not exist', 2)
+        say(f'{tag}worktree {wt} on build/{name} at {short} (fork-worktree add-build)')
+    roots = sorted(glob.glob(str(wt / f'build.*-{a.device}.*')))
+    if roots and not a.warm:
+        raise Stop('build roots already exist in the worktree; pass --warm to build on them, or remove them first:\n  '
+                   + '\n  '.join(roots), 2)
+    if roots:
+        say(f'{tag}--warm: building on {", ".join(Path(r).name for r in roots)}')
+
+    # 3. inputs (read from the commit's recipe, so a dry run before the worktree exists checks the same bytes)
+    mount, tar, want, alias = recipe_route(sh(['git', '-C', str(a.primary), 'show', f'{full}:{ES_RECIPE}']).stdout)
+    supplier_tar = a.es_supplier / tar
+    if not supplier_tar.is_file():
+        raise Stop(f'the ES supplier {a.es_supplier} has no {tar} (the recipe mounts it at {mount})', 2)
+    got = sha256(supplier_tar)
+    if got != want:
+        raise Stop(f'{supplier_tar} is {got[:16]}..., the recipe wants {want[:16]}...', 2)
+    for need in (a.sources,):
+        if not need.is_dir():
+            raise Stop(f'{need} is missing', 2)
+    mounts = [f'-v {a.primary}/.git:{a.primary}/.git', f'-v {a.sources}:{alias}/sources', f'-v {a.es_supplier}:{mount}:ro', '-e TMPDIR=/tmp']
+    exports = {'DOCKER_WORK_DIR': alias, 'DOCKER_EXTRA_OPTS': ' '.join(mounts)}
+    if len(ARCHES[a.device]) > 1:
+        exports.update({'PROJECT': 'ROCKNIX', 'DEVICE': a.device, 'ARCH': ARCHES[a.device][0]})
+    say(f'{tag}ES supplier {supplier_tar} sha256 matches the recipe ({want[:16]}...)')
+    for k, v in exports.items():
+        say(f'{tag}export {k}={v}')
+
+    # 4. patch replay, per arch, once per set head and device
+    logs = a.plan_log or plan_logs(a.device, a.owner_root)
+    if not logs:
+        raise Stop(f'no retained console.log of a {a.device} build to plan the replay from; pass --plan-log', 2)
+    say(f'{tag}replay plan: the union of {len(logs)} build log(s): ' + ', '.join(str(l) for l in logs))
+    done = state['replays'].get(a.device)
+
+    # 5. the one-build rule
+    removals, keeps = [], []
+    for other in m7_build_worktrees(a.primary):
+        if other.resolve() == wt.resolve():
+            continue
+        for r in sorted(glob.glob(str(other / 'build.*'))):
+            removals.append(Path(r))
+        for k in ('target', 'kept'):
+            if (other / k).exists():
+                keeps.append(other / k)
+    for r in removals:
+        say(f'{tag}remove {r} ({size(r) / GIB:.1f} GiB)')
+    for k in keeps:
+        say(f'{tag}keep {k} ({size(k) / GIB:.1f} GiB): images not on GitHub; released when they are (D-INFRA-037)')
+    if not removals:
+        say(f'{tag}one-build rule: no other build/m7-* worktree holds a build root')
+
+    owner = a.owner_root / f'{name}-owner'
+    say(f'{tag}owner folder {owner}')
+    if dry:
+        say(f'DRY RUN: would run tools/patch-replay for {", ".join(ARCHES[a.device])}' + (f' (already done at {short}: {done})' if done else ''))
+        say('DRY RUN: would write the plans, run the retention report and the admission, then make the removals above, '
+            f'then the swap preflight, then submit `make docker-{a.device}` from {wt}')
+        say('DRY RUN: nothing was created or changed')
+        return 0
+
+    # From here on, things are made. Each step stops the command when it fails.
+    set_file.parent.mkdir(parents=True, exist_ok=True)
+    set_file.write_text(json.dumps(state, indent=2) + '\n')
+    if not wt.exists():
+        sh([str(NEXT_TOOLS / 'fork-worktree'), 'add-build', name, full], cwd=str(a.primary))
+        if not wt.exists():
+            raise Stop(f'fork-worktree add-build made no {wt}')
+    elif sh(['git', '-C', str(wt), 'rev-parse', 'HEAD']).stdout.strip() != full:
+        sh(['git', '-C', str(wt), 'merge', '-q', '--ff-only', full])
+    if sh(['git', '-C', str(wt), 'rev-parse', 'HEAD']).stdout.strip() != full:
+        raise Stop(f'{wt} is not at {short} after checkout')
+    (wt / 'sources').mkdir(exist_ok=True)   # the mount point, owned by us rather than made by Docker as root
+    owner.mkdir(parents=True, exist_ok=True)
+
+    if not done:
+        for arch in ARCHES[a.device]:
+            plan = owner / f'replay-plan-{arch}.txt'
+            with open(plan, 'w') as f:
+                for log in logs:
+                    with open(log, 'rb') as g:
+                        for m in re.finditer(rb'(?:build|install|unpack) [A-Za-z0-9_.+-]+:(?:target|host|init|bootstrap)', g.read()):
+                            f.write(m.group(0).decode() + '\n')
+            out = owner / f'replay-{arch}'
+            say(f'patch replay {a.device}/{arch} -> {out}')
+            r = sh([str(NEXT_TOOLS / 'patch-replay'), '--tree', str(wt), '--device', a.device, '--arch', arch,
+                    '--plan', str(plan), '-j', '4', '--out', str(out)], out=owner / f'replay-{arch}.console', check=False)
+            if r.returncode != 0:
+                raise Stop(f'patch replay {a.device}/{arch} exited {r.returncode}: see {owner}/replay-{arch}.console')
+        state['replays'][a.device] = now()
+        set_file.write_text(json.dumps(state, indent=2) + '\n')
+
+    stage = f'{name}-build'
+    out_b, img_b, margin_b = BUDGET[a.device]
+    scan = owner / 'empty-retention-scan'
+    scan.mkdir(exist_ok=True)
+    protected = [str(a.es_supplier), str(a.sources)] + [str(k) for k in keeps] + [str(p) for p in a.protect]
+    retention = {
+        'volume': '/workspace', 'scan_roots': [str(scan)], 'reference_stores': [], 'candidates': [],
+        'protected': protected,
+        'builds': [{'name': stage,
+                    'terms_bytes': {'private_build_outputs': out_b, 'firmware_and_target': img_b, 'operating_margin': margin_b},
+                    'basis': f'{a.device} build of {short} for set {a.set_name} (tools/device-build, #1445). Budget from the '
+                             f'owners\' retention plans of November 24-26 and FULL-ONE-BUILD.json.',
+                    'evidence': [{'path': str(EVIDENCE), 'sha256': sha256(EVIDENCE)}]}],
+    }
+    outputs = [{'path': str(wt / f'build.pixelelated-{a.device}.{arch}'), 'issue': 1445, 'kind': 'build-cache',
+                'owner': 'OS work coordinator',
+                'release_when': 'the next build of the set starts, or its images are on GitHub (D-INFRA-033/036/037)'}
+               for arch in ARCHES[a.device]]
+    outputs.append({'path': str(wt / 'target'), 'issue': 1445, 'kind': 'firmware', 'owner': 'OS work coordinator',
+                    'release_when': 'its images are on GitHub, or a newer build of the set supersedes it (D-INFRA-036/037)'})
+    admission_plan = {
+        'checkout': str(wt), 'container_checkout': alias,
+        'retention_plan': str(owner / 'retention-plan.json'), 'retention_report': str(owner / 'retention-report.json'),
+        'stage': stage, 'profiles': [{'PROJECT': 'ROCKNIX', 'DEVICE': a.device, 'ARCH': arch} for arch in ARCHES[a.device]],
+        'outputs': outputs,
+    }
+    for f in ('retention-plan.json', 'admission-plan.json', 'admission.json', 'retention-report.json'):
+        if (owner / f).exists():
+            raise Stop(f'{owner / f} exists: one owner folder per launch; pass a new --name')
+    (owner / 'retention-plan.json').write_text(json.dumps(retention, indent=2) + '\n')
+    (owner / 'admission-plan.json').write_text(json.dumps(admission_plan, indent=2) + '\n')
+
+    say('retention report')
+    sh([str(tool(wt, 'watch-build')), '--record-only', '--', 'python3', '-I', str(tool(wt, 'host-maintenance/retention-report')),
+        '--plan', str(owner / 'retention-plan.json'), '--output', str(owner / 'retention-report.json')],
+       cwd=str(wt), out=owner / 'retention-report.console')
+    if json.loads((owner / 'retention-report.json').read_text()).get('result') != 'REPORT_COMPLETE':
+        raise Stop('the retention report is not REPORT_COMPLETE')
+    say('admission')
+    sh(['python3', '-I', str(tool(wt, 'host-maintenance/build-admission')), 'prepare', '--plan', str(owner / 'admission-plan.json'),
+        '--output', str(owner / 'admission.json')], cwd=str(wt), out=owner / 'admission.console')
+
+    # The one-build rule only once the launch is admitted: a step that fails
+    # before this point leaves every other build as it was.
+    removed = []
+    for r in removals:
+        users = holders(r)
+        if users:
+            raise Stop(f'{r} is in use, not removing it:\n  ' + '\n  '.join(users[:10]))
+        other = r.parent
+        for es in glob.glob(str(r / 'build/emulationstation-*/emulationstation')):
+            kept = other / 'kept' / f'emulationstation-{r.name}'
+            if not kept.exists():
+                kept.parent.mkdir(exist_ok=True)
+                shutil.copy2(es, kept)
+                say(f'kept {kept} (sha256 {sha256(kept)[:16]}...)')
+        before = shutil.disk_usage('/workspace').free
+        sh(['find', str(r), '-type', 'd', '!', '-perm', '-u+w', '-exec', 'chmod', 'u+w', '{}', '+'], check=False)
+        sh(['rm', '-rf', '--one-file-system', str(r)])
+        if r.exists():
+            raise Stop(f'{r} is still there after removal')
+        removed.append({'path': str(r), 'freed_bytes': shutil.disk_usage('/workspace').free - before})
+        say(f'removed {r} (+{removed[-1]["freed_bytes"] / GIB:.1f} GiB free)')
+    (owner / 'REMOVAL.json').write_text(json.dumps({'at': now(), 'removed': removed, 'kept': [str(k) for k in keeps]}, indent=2) + '\n')
+
+    tmp_used = size('/tmp')
+    say(f'/tmp holds {tmp_used / GIB:.1f} GiB (tmpfs pages refill swap after a reclaim)')
+    if tmp_used > 2 * GIB:
+        say('WARNING: /tmp is over 2 GiB; its pages will refill swap within minutes of the reclaim')
+    say('swap preflight with reclamation')
+    sh([str(tool(wt, 'build-preflight')), '--reclaim-swap'], cwd=str(wt), out=owner / 'PREFLIGHT-reclaim-swap.txt')
+    lines = [l for l in (owner / 'PREFLIGHT-reclaim-swap.txt').read_text().splitlines() if l.strip()]
+    if not lines or lines[-1].strip() != 'READY':
+        raise Stop(f'the preflight did not end READY: see {owner}/PREFLIGHT-reclaim-swap.txt')
+
+    found = busy()
+    if found:
+        raise Stop('something started while preparing:\n  ' + '\n  '.join(found))
+    n = 1
+    while (owner / f'submit-{n:02d}').exists():
+        n += 1
+    submit = owner / f'submit-{n:02d}'
+    submit.mkdir()
+    env = dict(os.environ, **exports)
+    say(f'submit make docker-{a.device} from {wt}')
+    sh([str(tool(wt, 'watch-build-submit')), '--owner', str(submit), '--', '--admission', str(owner / 'admission.json'),
+        '--', 'make', f'docker-{a.device}'], cwd=str(wt), env=env, out=owner / f'submit-{n:02d}.console', timeout=120)
+    result = submit / 'launcher-result.json'
+    console = (owner / f'submit-{n:02d}.console').read_text().rstrip().splitlines()
+    print(console[-1] if console else '(the submission printed nothing)')
+    say(f'submitted; owner {submit}' + (f', launcher result {result}' if result.exists() else ''))
+    for pidf in sorted(submit.glob('*pid*.json')):
+        say(f'{pidf.name}: {pidf.read_text().strip()[:200]}')
+    state['builds'][a.device] = {'run': str(submit), 'worktree': str(wt), 'at': now()}
+    set_file.write_text(json.dumps(state, indent=2) + '\n')
+    return 0
+
+
+if __name__ == '__main__':
+    try:
+        sys.exit(main())
+    except Stop as e:
+        print(f'device-build: {e}', file=sys.stderr)
+        sys.exit(e.code)

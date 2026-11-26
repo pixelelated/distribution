@@ -1,0 +1,2 @@
+15:21:45  DRY RUN: nothing else is running (no make docker-*, no QEMU guest, no vm-qa)
+device-build: /workspace/tmp/no-such-checkout/.git is missing: the container mounts it, because scripts/image runs git rev-parse

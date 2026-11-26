@@ -1,0 +1,5 @@
+14:50:49  DRY RUN: nothing else is running (no make docker-*, no QEMU guest, no vm-qa)
+14:50:49  DRY RUN: set m7-final-dryrun head a069abd236 (/workspace/repos/rocknix.worktrees/conflict-resolution/.build-runs/build-sets/m7-final-dryrun.json)
+14:50:49  DRY RUN: worktree /workspace/repos/rocknix.worktrees/m7-round-x64-20261125 on build/m7-round-x64-20261125 at a069abd236
+device-build: build roots already exist in the worktree; pass --warm to build on them, or remove them first:
+  /workspace/repos/rocknix.worktrees/m7-round-x64-20261125/build.pixelelated-GENERIC_X64.x86_64

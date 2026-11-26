@@ -173,8 +173,9 @@ The rule, applied by the coordinator without asking:
 **Keep the head still.** Both of 2026-11-24's head moves came hours into a cold
 handheld build of a tree only the PC had built: a recipe path (#1441) and a patch
 that no longer applied (#1448). Before the set's first build, replay every
-target's patches against their pinned sources without compiling (#1448). The
-build route records the set's head and lists what to rebuild when it moves (#1445).
+target's patches against their pinned sources without compiling (#1448).
+`tools/device-build` records the set's head, refuses another commit without
+`--move-set`, and lists what to rebuild when it moves (#1445).
 
 ## Before a build set: every patch still applies
 
@@ -197,6 +198,36 @@ a patch that does not apply; exit 2 is a package it could not check, which
 is not a pass. `--plan` narrows the scan to the packages a previous build
 log names; the plan cannot be generated on the host, because
 emulationstation's recipe refuses to load outside its exact build root.
+`tools/device-build` runs it for every arch the device builds, once per set
+head, before it submits.
+
+## One command launches a device build (#1445)
+
+The admitted Docker route (D-INFRA-039) was a dozen hand-typed steps, and on
+2026-11-24 it took five launches to reach two running builds, each stopped by
+the route rather than the product. It is one command now:
+
+```bash
+tools/device-build --device SM8550 --commit <set head> --set <set name> \
+    --es-supplier <dir holding the tar the ES recipe's PKG_URL names> [--dry-run]
+```
+
+In order, each step stopping the command when it fails:
+
+1. **Nothing else runs.** It refuses while a `make docker-*`, a QEMU guest or `vm-qa` is running.
+2. **The set's head.** The set file under `.build-runs/build-sets/` records it, and another commit is refused unless `--move-set` is given, which lists what moving means (D-INFRA-043).
+3. **The worktree.** `build/<name>` at the commit, made by `fork-worktree add-build` or fast-forwarded with `--worktree`. An existing build root is refused unless `--warm`.
+4. **The inputs.** The ES supplier must hold the recipe's tar at its `PKG_SHA256`, and the source cache and the primary `.git` must exist.
+5. **The patches.** `tools/patch-replay` for every arch the device builds.
+6. **The plans.** The owner folder's retention and admission plans, the retention report, and `build-admission prepare`.
+7. **The one-build rule** (D-INFRA-033/036), only once the launch is admitted, so a failure before it leaves every other build as it was. Every other `build/m7-*` worktree's `build.*` roots are removed after a use check (processes, open files, container mounts). Its `target/` and an unstripped EmulationStation binary copied to `kept/` stay.
+8. **Swap.** `/tmp`'s size, then `tools/build-preflight --reclaim-swap`, whose whole output is kept and must end `READY`.
+9. **The submission.** `watch-build-submit`, with:
+   - `DOCKER_WORK_DIR` set to the ES recipe's custody root;
+   - the `.git`, source-cache and ES mounts, and `TMPDIR=/tmp`;
+   - for a two-ABI device, the `PROJECT`/`DEVICE`/`ARCH` export (#1442).
+
+`--dry-run` checks and prints every path, mount, export, removal and keep, and creates nothing. The run's completion is read from the owner folder and run directory as before (`engineering-practices.md` § *Submit long agent-owned jobs durably*). The sections below are what the command encodes, and what to read when it refuses.
 
 ## The build command
 

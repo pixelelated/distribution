@@ -1,0 +1,37 @@
+{
+  "volume": "/workspace",
+  "scan_roots": [
+    "/workspace/repos/rocknix.worktrees/conflict-resolution/.build-runs/m7-test-1445-refusal-owner/empty-retention-scan"
+  ],
+  "reference_stores": [],
+  "candidates": [],
+  "protected": [
+    "/workspace/repos/rocknix.worktrees/conflict-resolution/.build-runs/m7-rc-round-20261126-03-es/inputs/es",
+    "/workspace/cache/rocknix-sources",
+    "/workspace/repos/rocknix.worktrees/m7-h700-0a3e979e-20261125/target",
+    "/workspace/repos/rocknix.worktrees/m7-h700-0a3e979e-20261125/kept",
+    "/workspace/repos/rocknix.worktrees/m7-pc-0a3e979e-20261124/target",
+    "/workspace/repos/rocknix.worktrees/m7-pc-0a3e979e-20261124/kept",
+    "/workspace/repos/rocknix.worktrees/m7-pc-43d0bc3b-20261125/target",
+    "/workspace/repos/rocknix.worktrees/m7-sm8550-0a3e979e-20261124/target",
+    "/workspace/repos/rocknix.worktrees/m7-sm8550-0a3e979e-20261124/kept",
+    "/workspace/no-such-path-1445"
+  ],
+  "builds": [
+    {
+      "name": "m7-test-1445-refusal-build",
+      "terms_bytes": {
+        "private_build_outputs": 161061273600,
+        "firmware_and_target": 8589934592,
+        "operating_margin": 68719476736
+      },
+      "basis": "GENERIC_X64 build of a069abd236 for set test-1445-refusal (tools/device-build, #1445). Budget from the owners' retention plans of November 24-26 and FULL-ONE-BUILD.json.",
+      "evidence": [
+        {
+          "path": "/workspace/repos/rocknix.worktrees/conflict-resolution/docs/qa-logs/2026-11-23-build-directory-retirement/physical-bulk/20261124-sm04-reader-batches/current-slot/FULL-ONE-BUILD.json",
+          "sha256": "c99ef0cb6f985cfbc03de3ff16db49dfd2a0c2aabbd3379aa41c55628319836f"
+        }
+      ]
+    }
+  ]
+}
