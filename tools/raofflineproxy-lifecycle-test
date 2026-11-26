@@ -82,12 +82,23 @@ flags() {
 }
 property() { systemctl show "$1" -p "$2" --value; }
 exists() { [ -e "$1" ] || [ -L "$1" ]; }
+owner_stopped() {
+    local owner_pid job state
+    owner_pid=$(property "$owner" MainPID) && job=$(property "$owner" Job) &&
+        state=$(property "$owner" ActiveState) || return 1
+    [ "$owner_pid" = 0 ] && [ -z "$job" ] && [[ $state = inactive || $state = failed ]]
+}
 owner_idle() {
-    local owner_pid job
-    owner_pid=$(property "$owner" MainPID) && job=$(property "$owner" Job) || return 1
-    [ "$owner_pid" = 0 ] && [ -z "$job" ] &&
+    owner_stopped &&
         ! exists "$runtime/transition.json" &&
         ! exists /run/systemd/system/raofflineproxy.service.d/90-lifecycle-owner.conf
+}
+wait_owner_stopped() {
+    local until=$((SECONDS + 40))
+    until owner_stopped; do
+        [ "$SECONDS" -lt "$until" ] || return 1
+        sleep .1
+    done
 }
 current_operation() { jq -er '.id | select(test("^[0-9a-f]{32}$"))' "$pointer"; }
 operation() { "$ctl" operation --operation "$1" --boot "$boot"; }
@@ -119,6 +130,8 @@ fi
 
 work=$(mktemp -d /tmp/raofflineproxy-lifecycle-test.XXXXXX) || cannot_run 'cannot allocate guest scratch space'
 owned_id= pass_pid= fixture_changed=0
+persistent_id= retry_id=
+fault_dir="$config_tmp.qa.${work##*.}"
 
 toggle() {
     local previous current
@@ -158,6 +171,117 @@ restore_scan_lock() {
             rm -f "$scan_lock"
         fi
     )
+}
+
+release_settings_fault() {
+    local inode
+    if [ -s "$work/fault-inode" ]; then
+        inode=$(cat "$work/fault-inode") || return 1
+        if [ "$(stat -c '%d:%i' "$config_tmp" 2>/dev/null)" = "$inode" ]; then
+            rmdir "$config_tmp" || return 1
+        fi
+    fi
+    if exists "$fault_dir"; then
+        rmdir "$fault_dir" || return 1
+    fi
+}
+
+restore_fault_operation() {
+    local id
+    id=$(current_operation 2>/dev/null) || return 0
+    [[ $id = "$persistent_id" || $id = "$retry_id" ]] || return 0
+    wait_owner_stopped || return 1
+    if owner_idle && operation "$id" | jq -e '.terminal == true' >/dev/null; then
+        return 0
+    fi
+
+    # #1467 can leave a dead operation fencing the guest. Clear only this
+    # fixture's records after observing the verdict. Keep its journal intact.
+    python3 - "$boot" "$id" "$enabled_flags" <<'PY' || return 1
+import fcntl
+import os
+import stat
+import subprocess
+import sys
+import time
+
+from raofflineproxy.lifecycle import boot_id, read_record, same_process
+from raofflineproxy.lifecycle_observe import absent, legacy_flags, optional_record, ready, show
+from raofflineproxy.lifecycle_owner import open_lock
+from raofflineproxy.lifecycle_systemd import DROP_PATH, MARKER, OWNER_UNIT, UNIT, marker, need, sha
+from raofflineproxy.quiescence import FILES
+
+boot, token, enabled_flags = sys.argv[1:]
+enabled = dict(zip(('enabled', 'hardcore', 'was'), enabled_flags.split('|')))
+disabled = {'enabled': '0', 'hardcore': enabled['was'], 'was': '-'}
+root = FILES.root
+pointer = root / 'active-owner.json'
+transition_path = root / 'transition.json'
+submit = open_lock(root / 'submit.lock')
+try:
+    fcntl.flock(submit, fcntl.LOCK_EX | fcntl.LOCK_NB)
+    need(boot == boot_id() and read_record(pointer) == {'id': token, 'boot': boot}, 'QA request changed')
+    state = read_record(root / 'owners' / token / 'state.json')
+    request = state['request']
+    need(request['id'] == token and request['boot'] == boot and request['mode'] == 'disable', 'foreign QA request')
+    owner = show(OWNER_UNIT, time.monotonic() + 2)
+    need(absent(owner) and owner['InvocationID'] in ('', state.get('owner_invocation')), 'QA owner is not settled')
+    admission = FILES.acquire(exclusive=True)
+    need(admission is not None, 'QA admission still held')
+    with admission:
+        transition = optional_record(transition_path)
+        if transition is not None:
+            need(transition['boot'] == boot and transition['phase'] in ('stopping', 'restoring')
+                 and transition['nonce'] == state['stop_nonce'] and transition['owner'] == state['controller']
+                 and transition['epoch'] == state['original']['epoch'] and not same_process(transition['owner']),
+                 'transition is not owned by the settled QA request')
+        drop_exists = DROP_PATH.exists() or DROP_PATH.is_symlink()
+        if drop_exists:
+            info = DROP_PATH.lstat()
+            record = state['override']
+            need(stat.S_ISREG(info.st_mode) and (info.st_dev, info.st_ino) == (record['dev'], record['ino'])
+                 and sha(DROP_PATH) == record['sha256'], 'QA override changed')
+
+        unit = show(UNIT, time.monotonic() + 2)
+        service_absent = absent(unit)
+        if not service_absent:
+            epoch = state.get('restored_epoch') or state.get('original', {}).get('epoch')
+            need(epoch is not None and ready(unit, epoch), 'QA cannot attribute the running service')
+        preferences = legacy_flags()
+        current_marker = marker()
+        need(preferences in (enabled, disabled), 'QA preference changed')
+        if preferences == enabled:
+            need(current_marker is not None and current_marker == state.get('marker', current_marker),
+                 'QA enabled marker changed')
+        else:
+            need(service_absent and (current_marker is None or current_marker == state.get('marker')),
+                 'QA cannot attribute the disabled state')
+        if drop_exists:
+            DROP_PATH.unlink()
+        if drop_exists or state.get('override_intent'):
+            subprocess.run(['systemctl', 'daemon-reload'], check=True, timeout=10)
+        if preferences == disabled and current_marker is not None:
+            MARKER.unlink()
+        if transition is not None:
+            transition_path.unlink()
+        pointer.unlink()
+    if owner['ActiveState'] == 'failed':
+        subprocess.run(['systemctl', 'reset-failed', OWNER_UNIT], check=True, timeout=10)
+    # A failed pre-rename commit retains the enabled preference and marker.
+    # Restore service readiness under that preference before normal teardown.
+    if service_absent and preferences == enabled:
+        if unit['ActiveState'] == 'failed':
+            subprocess.run(['systemctl', 'reset-failed', UNIT], check=True, timeout=10)
+        subprocess.run(['systemctl', 'start', UNIT], check=True, timeout=40)
+finally:
+    os.close(submit)
+PY
+    # Teardown uses a verified disabled receipt when restoring absent keys
+    # on an originally inactive guest.
+    if [ "$original_service" = inactive ] && [ "$(property "$unit" ActiveState)" = inactive ] &&
+        [ "$(flags)" != "$original_flags" ]; then
+        toggle disable && [ "$toggle_rc" = 0 ] || return 1
+    fi
 }
 
 restore_original() {
@@ -210,7 +334,9 @@ cleanup() {
     if [ "$(readlink "$config_tmp" 2>/dev/null)" = "$work/block-once" ]; then
         rm -f "$config_tmp" || restored=1
     fi
+    release_settings_fault || restored=1
     restore_scan_lock || restored=1
+    restore_fault_operation || restored=1
     restore_original || restored=1
     if [ "$restored" = 0 ]; then
         rm -rf "$work" || restored=1
@@ -378,6 +504,58 @@ check 'F-RA-18: committed disable retires the marker and service' bash -c '
     [ ! -e "$1" ] && [ ! -L "$1" ] && [ "$(systemctl show "$2" -p MainPID --value)" = 0 ] &&
         [ "$(systemctl show "$2" -p ActiveState --value)" = inactive ]
 ' qa-off "$marker" "$unit"
+
+# #1467 exercises a persistent settings fault after the one-shot control.
+[ "$failed" = 0 ] || exit 1
+toggle enable
+[ "$toggle_rc" = 0 ] && owner_idle || cannot_run '#1467 could not re-enable the fixture'
+[ "$(flags)" = "$enabled_flags" ] || cannot_run '#1467 enabled flags differ from the one-shot control'
+marker_id=$(stat -c '%d:%i' "$marker") || cannot_run '#1467 cannot read the enabled marker identity'
+
+# The writer removes a symlink after failure. An empty directory survives
+# that cleanup and blocks the actual settings temp file for both writes.
+( wait_lock && ! exists "$config_tmp" && mkdir "$fault_dir" &&
+    stat -c '%d:%i' "$fault_dir" > "$work/fault-inode" && mv -T "$fault_dir" "$config_tmp" ) ||
+    cannot_run '#1467 cannot arm the persistent settings fault'
+persistent_id=$(python3 -c 'import secrets; print(secrets.token_hex(16))') || cannot_run '#1467 cannot allocate a request ID'
+"$ctl" toggle disable --operation "$persistent_id" --boot "$boot" > "$work/persistent.out" 2>&1 ||
+    cannot_run '#1467 could not submit the disable with the persistent fault'
+owned_id=$persistent_id
+wait_owner_stopped || cannot_run '#1467 could not observe the end of the owner process and ExecStopPost'
+case_dir="$runtime/owners/$persistent_id"
+both_writes_failed() {
+    jq -se '[.[] | select(.kind == "command-result" and .category == "settings-commit-off") | .original_rc][:2] == [1,1]' \
+        "$case_dir/events.jsonl" >/dev/null
+}
+check '#1467: the settings write and its ExecStopPost retry both fail' both_writes_failed
+
+outcome=$(operation "$persistent_id") || cannot_run '#1467 cannot observe the disable operation'
+phase=$(jq -r '.phase' <<< "$outcome")
+terminal_outcome() { jq -e '.ownership == "current" and .terminal == true' <<< "$outcome" >/dev/null; }
+check "#1467: the double-failure operation has a terminal outcome (phase $phase)" terminal_outcome
+
+current_flags=$(flags) || cannot_run '#1467 cannot read the preference after the double failure'
+current_service=$(property "$unit" ActiveState) || cannot_run '#1467 cannot read the service after the double failure'
+preference_coherent() {
+    case "$current_flags:$current_service" in
+        "$enabled_flags:active") [ "$(stat -c '%d:%i' "$marker")" = "$marker_id" ] && "$ctl" listening --wait 3 ;;
+        "0|$saved_hardcore|-:inactive") ! exists "$marker" ;;
+        *) return 1 ;;
+    esac
+}
+check "#1467: the service and marker agree with the preference after both writes fail ($current_flags, $current_service)" preference_coherent
+
+release_settings_fault && ! exists "$config_tmp" || cannot_run '#1467 cannot remove the settings fault before retry'
+retry_id=$(python3 -c 'import secrets; print(secrets.token_hex(16))') || cannot_run '#1467 cannot allocate a retry ID'
+retry_rc=0
+"$ctl" toggle disable --operation "$retry_id" --boot "$boot" > "$work/retry.out" 2>&1 || retry_rc=$?
+retry_disabled() {
+    [ "$retry_rc" = 0 ] || return 1
+    owned_id=$retry_id
+    wait_owner_stopped && operation "$retry_id" | jq -e '.ownership == "current" and .terminal and .outcome == "disabled"' >/dev/null &&
+        [ "$(flags)" = "0|$saved_hardcore|-" ] && [ "$(property "$unit" ActiveState)" = inactive ] && ! exists "$marker"
+}
+check "#1467: a later disable commits and restores hardcore once writes are possible (submit rc $retry_rc)" retry_disabled
 exit "$failed"
 GUEST
 
