@@ -126,12 +126,26 @@ def launch(args):
             or not agent.get("interactive_ready")):
         raise ValueError("native agent readiness or identity was not verified")
     sid = (agent.get("agent_session") or {}).get("value")
+    unconfirmed = False
     if args.session and sid != args.session:
-        raise ValueError("inspect the launched pane: resumed UUID not confirmed by Herdr")
-    return {"pane": pane_id, "cwd": str(args.cwd), "thread": sid, "native_argv": argv,
+        # Herdr learns a Codex session's id only when its first turn starts
+        # (2026-11-26, #1471): an absent id is unknown, not a match. A different
+        # id is a wrong thread and still refuses.
+        if sid is None and args.harness == "codex":
+            unconfirmed = True
+        else:
+            raise ValueError("inspect the launched pane: resumed UUID not confirmed by Herdr")
+    result = {"pane": pane_id, "cwd": str(args.cwd), "thread": sid, "native_argv": argv,
             "next": ("Read back effective model, effort and permissions before dispatch; for Codex also "
                      "the service tier: the rollout's thread_settings_applied must say priority "
                      "(D-WORKFLOW-238), read after the first turn.")}
+    if unconfirmed:
+        result["thread_unconfirmed"] = (
+            f"Herdr reports no session id until the first turn. Before trusting the lane, confirm that "
+            f"`herdr agent get {pane_id}` names {args.session} and that the rollout "
+            f"~/.codex/sessions/**/rollout-*-{args.session}.jsonl gained this turn's task_started.")
+        print("herdr-lane: resumed thread not yet confirmed by Herdr; see thread_unconfirmed", file=sys.stderr)
+    return result
 
 
 def main():
@@ -159,6 +173,10 @@ def main():
     args.cwd = Path(args.cwd).resolve(strict=True)
     if not args.cwd.is_dir() or args.name.startswith("-") or not args.name.strip():
         p.error("supply a worktree directory and a lane name")
+    # Herdr's own rule, checked before a tab or pane is touched (2026-11-26, #1471).
+    if not re.fullmatch(r"[a-z][a-z0-9_-]{0,31}", args.name):
+        p.error("a lane name starts with a lowercase letter and holds only lowercase letters, "
+                "digits, '-' or '_' (1-32 characters)")
     if not re.fullmatch(r"w[0-9A-Za-z]+", args.workspace):
         p.error("use an exact Herdr workspace ID")
     if args.pane and not re.fullmatch(re.escape(args.workspace) + r":p[0-9A-Za-z]+", args.pane):
