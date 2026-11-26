@@ -8,6 +8,22 @@ Read the [M7 milestone](https://github.com/pixelelated/distribution/milestone/7)
 
 ## Current focus
 
+**00000000000000000000. Newest (2026-11-26T22:13Z): build 15 (`90b95f7259`) built and accepted; #1445, #1485 and #1486 closed; standard run 12 on build 15 running; #1490's fix is on the ES round, awaiting build 16.**
+- **Run 11 on build 14:** PASS; `rc-preflight --only vm-qa` PASS; recorded on #1465.
+- **Build 15:**
+  - route 06 (`m7-20261126-3817c3c0b12f`, ES `334ee42b8`);
+  - owner `.build-runs/m7-round-x64-15-owner` (ACCEPTANCE-15, admission consumed);
+  - run `20261126T214408Z-b2e64750`, the first run `device-build` named correctly (#1445 closed).
+- **Closed today since the last item:** #1485 (the provider form's labels translated, N_ + `--keyword=N_`), #1486 (back from SIGN IN AGAIN), #1488, #1484, #1482, #1483.
+- **Open bugs filed today, on the M7 candidate's path:**
+  - #1489: a connection added outside the interface reads unreadable on the hub and review on the connections page; reconciliation (`import-connections`) is reached only through LINK FROM A COMPUTER's CONTINUE. Next to design and build.
+  - #1490: two provider names. Fixed in ES `1006ab503`, needs build 16 and frames (s24, s30 in FR).
+  - #1487 is keep-an-eye-on.
+- **Running:** standard run 12, `tools/vm-qa` on build 15's image, vm-qa pid 1765028, `/workspace/tmp/rocknix-session/vmqa-standard-12-20261126T2211Z/`, waiter armed.
+  - When it ends: `vm-pair down`; `rc-preflight --only vm-qa --build-set …/m7-round-x64-20261125/target`; a note on #1465.
+  - Then route 07 for ES head plus #1489's fix, build 16, and phase D s24/s30 (FR) plus #1489's screens.
+- **Phase D driver:** s01–s30 are defined. s29 is the OAuth renewal (`conn.py add-oauth`/`remove-oauth`); s30 is the S3 form. A failed arm skips its walk.
+
 **0000000000000000000. Newest (2026-11-26T20:37Z): build 14's fixes are proven and closed; standard run 11 on build 14 is running.**
 - **Closed this stretch:** #1482, #1483, #1484, #1488 (all with code traces and frames on `next`). #1111 has 23 of 25 ticked; C15 waits on D-CLOUD-194 and C24's French half on #1478.
 - **Filed:**
