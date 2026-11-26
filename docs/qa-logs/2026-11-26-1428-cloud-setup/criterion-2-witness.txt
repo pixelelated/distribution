@@ -1,0 +1,11 @@
+# #1428 criterion 2: vm-qa's walk witness before and after (config and rclone conf hashes and modes, cloudsaves.* lines, cloud_setup --validation-context, sha256 of every file under /storage/roms, rclone hashsum of the cloud).
+
+folder-actions-toggle-unchanged-en (run qa-30e6ff3db9-webdav-a-20261126-1325): config.txt identical; paths.json identical; local.txt identical; cloud.txt identical; 
+folder-actions-check-unchanged-en (run qa-30e6ff3db9-webdav-a-20261126-1325): config.txt identical; paths.json identical; local.txt identical; cloud.txt identical; 
+folder-actions-create-cancel-unchanged-en (run qa-30e6ff3db9-webdav-a-20261126-1325): config.txt identical; paths.json identical; local.txt identical; cloud.txt identical; 
+folder-actions-create-witnessed-en (run qa-30e6ff3db9-webdav-a-20261126-1332, YES on the confirmation, default selection SAVES and SETTINGS BACKUPS): config.txt identical; paths.json identical; local.txt identical; 
+  cloud files removed: 0
+  cloud files added:
+    pixelelated/Saves/README.txt
+    pixelelated/Backups/README.txt
+    pixelelated/.layout

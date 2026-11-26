@@ -576,6 +576,131 @@
     "observed": "as expected; text fits",
     "date": "2026-11-26"
    }
+  },
+  {
+   "flow_id": "cloud-folder-actions",
+   "branch_id": "c2-after-cancel",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud-settings",
+   "trigger": "B on the confirmation",
+   "expected_state": "back on CLOUD FOLDERS; nothing created (witness identical)",
+   "source": {
+    "es": "d87891f24 (local m7/rc-round-es-20261125)",
+    "distribution": "30e6ff3db9 (local build/m7-rc-round-20261125)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T115211Z.g30e6ff3db9ac-from-ROCKNIX",
+    "walks": "folder-actions-* walks of tools/vm-walks/suite-1428.txt with vm-qa's walk witness (round 9bcd94fc08, the content that ran), runs qa-30e6ff3db9-webdav-a-20261126-1325 and -1332; criterion-2-witness.txt"
+   },
+   "locale": "en",
+   "width": 1280,
+   "height": 800,
+   "frame": "frames/1280-en-c2-after-cancel.png",
+   "sha256": "72ead5487cbcad2e42cfff3ce680012cc23d36abc98f65796db291c52cbdbcc9",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "as expected",
+    "date": "2026-11-26"
+   }
+  },
+  {
+   "flow_id": "cloud-folder-actions",
+   "branch_id": "c2-check-result",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud-settings",
+   "trigger": "CHECK CLOUD FOLDERS with the default categories",
+   "expected_state": "CLOUD FOLDER CHECK COMPLETED; nothing created (witness identical)",
+   "source": {
+    "es": "d87891f24 (local m7/rc-round-es-20261125)",
+    "distribution": "30e6ff3db9 (local build/m7-rc-round-20261125)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T115211Z.g30e6ff3db9ac-from-ROCKNIX",
+    "walks": "folder-actions-* walks of tools/vm-walks/suite-1428.txt with vm-qa's walk witness (round 9bcd94fc08, the content that ran), runs qa-30e6ff3db9-webdav-a-20261126-1325 and -1332; criterion-2-witness.txt"
+   },
+   "locale": "en",
+   "width": 1280,
+   "height": 800,
+   "frame": "frames/1280-en-c2-check-result.png",
+   "sha256": "fa11426af82551cd0cd66898fd98bf2bfa2bddec4ecb6f452d2486a2bb429196",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "as expected",
+    "date": "2026-11-26"
+   }
+  },
+  {
+   "flow_id": "cloud-folder-actions",
+   "branch_id": "c2-create-confirmation",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud-settings",
+   "trigger": "CREATE CLOUD FOLDERS",
+   "expected_state": "the confirmation: CREATE THE SELECTED FOLDERS AND SETUP NOTES IN YOUR CLOUD? ... AUTOMATIC SYNC WILL NOT CHANGE. YES / NO",
+   "source": {
+    "es": "d87891f24 (local m7/rc-round-es-20261125)",
+    "distribution": "30e6ff3db9 (local build/m7-rc-round-20261125)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T115211Z.g30e6ff3db9ac-from-ROCKNIX",
+    "walks": "folder-actions-* walks of tools/vm-walks/suite-1428.txt with vm-qa's walk witness (round 9bcd94fc08, the content that ran), runs qa-30e6ff3db9-webdav-a-20261126-1325 and -1332; criterion-2-witness.txt"
+   },
+   "locale": "en",
+   "width": 1280,
+   "height": 800,
+   "frame": "frames/1280-en-c2-create-confirmation.png",
+   "sha256": "c9f3f0c8400302211e6103dcd94f888d2f1b2b0ed64974170de62c360e15910b",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "as expected",
+    "date": "2026-11-26"
+   }
+  },
+  {
+   "flow_id": "cloud-folder-actions",
+   "branch_id": "c2-create-result",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud-settings",
+   "trigger": "YES on the confirmation",
+   "expected_state": "CLOUD FOLDER CHECK after creation; the cloud gained only the two READMEs and the .layout marker",
+   "source": {
+    "es": "d87891f24 (local m7/rc-round-es-20261125)",
+    "distribution": "30e6ff3db9 (local build/m7-rc-round-20261125)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T115211Z.g30e6ff3db9ac-from-ROCKNIX",
+    "walks": "folder-actions-* walks of tools/vm-walks/suite-1428.txt with vm-qa's walk witness (round 9bcd94fc08, the content that ran), runs qa-30e6ff3db9-webdav-a-20261126-1325 and -1332; criterion-2-witness.txt"
+   },
+   "locale": "en",
+   "width": 1280,
+   "height": 800,
+   "frame": "frames/1280-en-c2-create-result.png",
+   "sha256": "0e8a2e8db9d7480b26cc5828e96d672febc0ee8c51bdb4725b714b2514927656",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "as expected",
+    "date": "2026-11-26"
+   }
+  },
+  {
+   "flow_id": "cloud-folder-actions",
+   "branch_id": "c2-toggle-roms-and-bios-on",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud-settings",
+   "trigger": "CLOUD FOLDERS, ROMS and BIOS FILES turned on, then B",
+   "expected_state": "both switches on; leaving the page changes nothing (witness identical)",
+   "source": {
+    "es": "d87891f24 (local m7/rc-round-es-20261125)",
+    "distribution": "30e6ff3db9 (local build/m7-rc-round-20261125)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T115211Z.g30e6ff3db9ac-from-ROCKNIX",
+    "walks": "folder-actions-* walks of tools/vm-walks/suite-1428.txt with vm-qa's walk witness (round 9bcd94fc08, the content that ran), runs qa-30e6ff3db9-webdav-a-20261126-1325 and -1332; criterion-2-witness.txt"
+   },
+   "locale": "en",
+   "width": 1280,
+   "height": 800,
+   "frame": "frames/1280-en-c2-toggle-roms-and-bios-on.png",
+   "sha256": "0e78dc2aa47b3e94cad27b44486c13f3fbc394b6e4f99319e8b739f03d9ddbc7",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "as expected",
+    "date": "2026-11-26"
+   }
   }
  ]
 }
