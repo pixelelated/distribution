@@ -1,0 +1,5 @@
+PASS busy: walk rc 0, operation {"phase":"BUSY","terminal":true,"outcome":"busy"}, state 1|active (want busy, 1|active); frames busy-press/
+PASS refused: walk rc 0, operation {"phase":"REFUSED","terminal":true,"outcome":"refused"}, state 1|active (want refused, 1|active); frames refused-press/
+PASS restored: walk rc 0, operation {"phase":"RESTORED","terminal":true,"outcome":"restored"}, state 1|active (want restored, 1|active); frames restored-press/
+PASS took: walk rc 0, operation {"phase":"DISABLED","terminal":true,"outcome":"disabled"}, state 0|inactive (want disabled, 0|inactive); frames took-press/
+PASSED

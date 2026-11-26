@@ -1,0 +1,281 @@
+{
+ "schema_version": 1,
+ "issue": 1474,
+ "entries": [
+  {
+   "flow_id": "offline-achievements-toggle",
+   "branch_id": "busy-1-page",
+   "document": "docs/es-menu-map.md",
+   "anchor": "retroachievements-our-rows",
+   "trigger": "tools/vm-walks/to-offline-achievements from a rebooted guest, proxy on",
+   "expected_state": "OFFLINE ACHIEVEMENTS (BETA) page, switch ON, Current setting: on.",
+   "source": {
+    "es": "2f6c01fd7542b1e1dcf65d89e0f728069775234c (local m7/rc-round-es-20261125)",
+    "distribution": "bfff87f94c1b0ba2dbae789c81aa7b19e4133fe9 (local build/m7-rc-round-20261125)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T095201Z.gbfff87f94c1b-from-ROCKNIX",
+    "walk": "tools/vm-walks/offline-toggle-outcomes at round d74be32a88"
+   },
+   "locale": "en",
+   "width": 640,
+   "height": 480,
+   "frame": "frames/busy-1-page.png",
+   "sha256": "72ed3bc37b0dadfcd4484b6418858ad8de9168867d400a2fb3d5fb60a99c9d49",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "as expected",
+    "date": "2026-11-26"
+   }
+  },
+  {
+   "flow_id": "offline-achievements-toggle",
+   "branch_id": "busy-2-answer",
+   "document": "docs/es-menu-map.md",
+   "anchor": "retroachievements-our-rows",
+   "trigger": "an images pass holds the proxy's admission; A on the switch (off)",
+   "expected_state": "OFFLINE ACHIEVEMENTS ARE STILL ON. GAMES ARE STILL GETTING READY FOR OFFLINE PLAY. TRY AGAIN WHEN THAT FINISHES.",
+   "source": {
+    "es": "2f6c01fd7542b1e1dcf65d89e0f728069775234c (local m7/rc-round-es-20261125)",
+    "distribution": "bfff87f94c1b0ba2dbae789c81aa7b19e4133fe9 (local build/m7-rc-round-20261125)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T095201Z.gbfff87f94c1b-from-ROCKNIX",
+    "walk": "tools/vm-walks/offline-toggle-outcomes at round d74be32a88"
+   },
+   "locale": "en",
+   "width": 640,
+   "height": 480,
+   "frame": "frames/busy-2-answer.png",
+   "sha256": "899d7b8e945d221fcbdbe990d7ed5b5e373534568161b2b9c614c5cdfc88471e",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "as expected",
+    "date": "2026-11-26"
+   }
+  },
+  {
+   "flow_id": "offline-achievements-toggle",
+   "branch_id": "busy-3-after-ok",
+   "document": "docs/es-menu-map.md",
+   "anchor": "retroachievements-our-rows",
+   "trigger": "OK on the dialog",
+   "expected_state": "the dialog gone; the switch ON and Current setting: on.",
+   "source": {
+    "es": "2f6c01fd7542b1e1dcf65d89e0f728069775234c (local m7/rc-round-es-20261125)",
+    "distribution": "bfff87f94c1b0ba2dbae789c81aa7b19e4133fe9 (local build/m7-rc-round-20261125)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T095201Z.gbfff87f94c1b-from-ROCKNIX",
+    "walk": "tools/vm-walks/offline-toggle-outcomes at round d74be32a88"
+   },
+   "locale": "en",
+   "width": 640,
+   "height": 480,
+   "frame": "frames/busy-3-after-ok.png",
+   "sha256": "72ed3bc37b0dadfcd4484b6418858ad8de9168867d400a2fb3d5fb60a99c9d49",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "as expected",
+    "date": "2026-11-26"
+   }
+  },
+  {
+   "flow_id": "offline-achievements-toggle",
+   "branch_id": "refused-1-page",
+   "document": "docs/es-menu-map.md",
+   "anchor": "retroachievements-our-rows",
+   "trigger": "tools/vm-walks/to-offline-achievements from a rebooted guest, proxy on",
+   "expected_state": "OFFLINE ACHIEVEMENTS (BETA) page, switch ON, Current setting: on.",
+   "source": {
+    "es": "2f6c01fd7542b1e1dcf65d89e0f728069775234c (local m7/rc-round-es-20261125)",
+    "distribution": "bfff87f94c1b0ba2dbae789c81aa7b19e4133fe9 (local build/m7-rc-round-20261125)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T095201Z.gbfff87f94c1b-from-ROCKNIX",
+    "walk": "tools/vm-walks/offline-toggle-outcomes at round d74be32a88"
+   },
+   "locale": "en",
+   "width": 640,
+   "height": 480,
+   "frame": "frames/refused-1-page.png",
+   "sha256": "72ed3bc37b0dadfcd4484b6418858ad8de9168867d400a2fb3d5fb60a99c9d49",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "as expected",
+    "date": "2026-11-26"
+   }
+  },
+  {
+   "flow_id": "offline-achievements-toggle",
+   "branch_id": "refused-2-answer",
+   "document": "docs/es-menu-map.md",
+   "anchor": "retroachievements-our-rows",
+   "trigger": "a drop-in on the lifecycle owner unit; A on the switch (off)",
+   "expected_state": "OFFLINE ACHIEVEMENTS ARE STILL ON. THE CHANGE COULDN'T START. TRY AGAIN.",
+   "source": {
+    "es": "2f6c01fd7542b1e1dcf65d89e0f728069775234c (local m7/rc-round-es-20261125)",
+    "distribution": "bfff87f94c1b0ba2dbae789c81aa7b19e4133fe9 (local build/m7-rc-round-20261125)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T095201Z.gbfff87f94c1b-from-ROCKNIX",
+    "walk": "tools/vm-walks/offline-toggle-outcomes at round d74be32a88"
+   },
+   "locale": "en",
+   "width": 640,
+   "height": 480,
+   "frame": "frames/refused-2-answer.png",
+   "sha256": "7d22cb4c9e75fa45271eb15ad61d9ad13d1047977b212bd87a6d3c758f4baea1",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "as expected",
+    "date": "2026-11-26"
+   }
+  },
+  {
+   "flow_id": "offline-achievements-toggle",
+   "branch_id": "refused-3-after-ok",
+   "document": "docs/es-menu-map.md",
+   "anchor": "retroachievements-our-rows",
+   "trigger": "OK on the dialog",
+   "expected_state": "the dialog gone; the switch ON and Current setting: on.",
+   "source": {
+    "es": "2f6c01fd7542b1e1dcf65d89e0f728069775234c (local m7/rc-round-es-20261125)",
+    "distribution": "bfff87f94c1b0ba2dbae789c81aa7b19e4133fe9 (local build/m7-rc-round-20261125)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T095201Z.gbfff87f94c1b-from-ROCKNIX",
+    "walk": "tools/vm-walks/offline-toggle-outcomes at round d74be32a88"
+   },
+   "locale": "en",
+   "width": 640,
+   "height": 480,
+   "frame": "frames/refused-3-after-ok.png",
+   "sha256": "72ed3bc37b0dadfcd4484b6418858ad8de9168867d400a2fb3d5fb60a99c9d49",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "as expected",
+    "date": "2026-11-26"
+   }
+  },
+  {
+   "flow_id": "offline-achievements-toggle",
+   "branch_id": "restored-1-page",
+   "document": "docs/es-menu-map.md",
+   "anchor": "retroachievements-our-rows",
+   "trigger": "tools/vm-walks/to-offline-achievements from a rebooted guest, proxy on",
+   "expected_state": "OFFLINE ACHIEVEMENTS (BETA) page, switch ON, Current setting: on.",
+   "source": {
+    "es": "2f6c01fd7542b1e1dcf65d89e0f728069775234c (local m7/rc-round-es-20261125)",
+    "distribution": "bfff87f94c1b0ba2dbae789c81aa7b19e4133fe9 (local build/m7-rc-round-20261125)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T095201Z.gbfff87f94c1b-from-ROCKNIX",
+    "walk": "tools/vm-walks/offline-toggle-outcomes at round d74be32a88"
+   },
+   "locale": "en",
+   "width": 640,
+   "height": 480,
+   "frame": "frames/restored-1-page.png",
+   "sha256": "72ed3bc37b0dadfcd4484b6418858ad8de9168867d400a2fb3d5fb60a99c9d49",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "as expected",
+    "date": "2026-11-26"
+   }
+  },
+  {
+   "flow_id": "offline-achievements-toggle",
+   "branch_id": "restored-2-answer",
+   "document": "docs/es-menu-map.md",
+   "anchor": "retroachievements-our-rows",
+   "trigger": "a directory at the settings temp path; A on the switch (off)",
+   "expected_state": "OFFLINE ACHIEVEMENTS ARE STILL ON. THE CHANGE COULDN'T BE SAVED. TRY AGAIN.",
+   "source": {
+    "es": "2f6c01fd7542b1e1dcf65d89e0f728069775234c (local m7/rc-round-es-20261125)",
+    "distribution": "bfff87f94c1b0ba2dbae789c81aa7b19e4133fe9 (local build/m7-rc-round-20261125)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T095201Z.gbfff87f94c1b-from-ROCKNIX",
+    "walk": "tools/vm-walks/offline-toggle-outcomes at round d74be32a88"
+   },
+   "locale": "en",
+   "width": 640,
+   "height": 480,
+   "frame": "frames/restored-2-answer.png",
+   "sha256": "b1a965f3bb8f24dcce92e32c6169cba0d0c965aae3b5a17c6745d8a3b5c207da",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "as expected",
+    "date": "2026-11-26"
+   }
+  },
+  {
+   "flow_id": "offline-achievements-toggle",
+   "branch_id": "restored-3-after-ok",
+   "document": "docs/es-menu-map.md",
+   "anchor": "retroachievements-our-rows",
+   "trigger": "OK on the dialog",
+   "expected_state": "the dialog gone; the switch ON and Current setting: on.",
+   "source": {
+    "es": "2f6c01fd7542b1e1dcf65d89e0f728069775234c (local m7/rc-round-es-20261125)",
+    "distribution": "bfff87f94c1b0ba2dbae789c81aa7b19e4133fe9 (local build/m7-rc-round-20261125)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T095201Z.gbfff87f94c1b-from-ROCKNIX",
+    "walk": "tools/vm-walks/offline-toggle-outcomes at round d74be32a88"
+   },
+   "locale": "en",
+   "width": 640,
+   "height": 480,
+   "frame": "frames/restored-3-after-ok.png",
+   "sha256": "72ed3bc37b0dadfcd4484b6418858ad8de9168867d400a2fb3d5fb60a99c9d49",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "as expected",
+    "date": "2026-11-26"
+   }
+  },
+  {
+   "flow_id": "offline-achievements-toggle",
+   "branch_id": "took-1-page",
+   "document": "docs/es-menu-map.md",
+   "anchor": "retroachievements-our-rows",
+   "trigger": "tools/vm-walks/to-offline-achievements from a rebooted guest, proxy on",
+   "expected_state": "OFFLINE ACHIEVEMENTS (BETA) page, switch ON, Current setting: on.",
+   "source": {
+    "es": "2f6c01fd7542b1e1dcf65d89e0f728069775234c (local m7/rc-round-es-20261125)",
+    "distribution": "bfff87f94c1b0ba2dbae789c81aa7b19e4133fe9 (local build/m7-rc-round-20261125)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T095201Z.gbfff87f94c1b-from-ROCKNIX",
+    "walk": "tools/vm-walks/offline-toggle-outcomes at round d74be32a88"
+   },
+   "locale": "en",
+   "width": 640,
+   "height": 480,
+   "frame": "frames/took-1-page.png",
+   "sha256": "72ed3bc37b0dadfcd4484b6418858ad8de9168867d400a2fb3d5fb60a99c9d49",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "as expected",
+    "date": "2026-11-26"
+   }
+  },
+  {
+   "flow_id": "offline-achievements-toggle",
+   "branch_id": "took-2-answer",
+   "document": "docs/es-menu-map.md",
+   "anchor": "retroachievements-our-rows",
+   "trigger": "nothing armed; A on the switch (off)",
+   "expected_state": "no dialog; the switch OFF and Current setting: off.",
+   "source": {
+    "es": "2f6c01fd7542b1e1dcf65d89e0f728069775234c (local m7/rc-round-es-20261125)",
+    "distribution": "bfff87f94c1b0ba2dbae789c81aa7b19e4133fe9 (local build/m7-rc-round-20261125)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T095201Z.gbfff87f94c1b-from-ROCKNIX",
+    "walk": "tools/vm-walks/offline-toggle-outcomes at round d74be32a88"
+   },
+   "locale": "en",
+   "width": 640,
+   "height": 480,
+   "frame": "frames/took-2-answer.png",
+   "sha256": "d65bb0a9de15420f651ca1571c49fcd1ade26e01a3ccbc01c4cbaa79308c6671",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "as expected",
+    "date": "2026-11-26"
+   }
+  }
+ ]
+}

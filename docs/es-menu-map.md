@@ -47,6 +47,7 @@ PNG, determines the baseline. This RC work has not replaced it.
 | [Cloud implementation order](pixelelated/cloud-folder-flow-review.md#m7-implementation-order-and-ownership) | #510 contract, #515 case dispositions, #520 standalone-save coverage and #521 captures with #522/#523 runtime prerequisites, #508 integration, #507 audit and final firmware proof. Ambiguous placement keeps instructions; prospective repair diagrams are not implemented or screenshot-qualified surfaces. |
 | [DuckStation screenshot coverage](pixelelated/cloud-folder-flow-review.md#duckstation-screenshot-coverage) | DS01 default and DS02 custom capture paths; existing hotkey and launchers, no new menu. Source controls and actual rendered-capture proof are separate from firmware inclusion. |
 | [Conflict wizard](conflict-wizard-ia.md) | Conflict decisions and their branch structure. Current cloud setup changes do not change the conflict algorithm or promote its historical wireframes as new screenshots. |
+| [Offline achievements switch, a change that did not take](qa-logs/2026-11-26-1474-offline-toggle/README.md) | #1474: busy, refused, restored and the took control at 640x480, image `bfff87f94c`, with `evidence-index.json`; rolled-back and refused-at-submit by unit test only. |
 | [VM QA ledger](vm-qa-log.md) | Recorded image qualifications, walk results and accepted baseline changes. |
 | [Walk definitions](../tools/vm-walks/) | Repeatable navigation and state fixtures; evidence is the corresponding reviewed run, not the step file alone. |
 
