@@ -1,0 +1,6 @@
+up: a (pid 834204, ssh :10022, serial /tmp/rocknix-qemu-serial.sock, mac 52:54:00:52:4E:58)
+up: b (pid 834309, ssh :10023, serial /tmp/rocknix-qemu-serial-b.sock, mac 52:54:00:52:4E:59)
+ready: a on ed61fe8e59 over ssh :10022 (answered after 0s)
+ready: b on ed61fe8e59 over ssh :10023 (answered after 1s)
+down: owned QEMU exited (pid 834204)
+down: owned QEMU exited (pid 834309)

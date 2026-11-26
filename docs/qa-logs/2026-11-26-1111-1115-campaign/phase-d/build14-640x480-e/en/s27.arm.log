@@ -1,0 +1,15 @@
+arm:
+4f67ab51a09701f1c  rclone.conf
+86c2ddb3e7bbf322e  folder-profiles.json
+24e675e15a779e5d6  active-connection
+a121977066ce805e5  ../cloud_sync.conf
+add rc 0
+STATE=selected CONNECTION=qa-cloud SECTIONS=qa-cloud,qa-two SYNC=off/off
+[
+{"Path":"pixelelated","Name":"pixelelated","Size":-1,"MimeType":"inode/directory","ModTime":"2026-11-26T16:38:55Z","IsDir":true}
+]
+
+STATE=selected
+CONNECTION=qa-cloud
+put back:
+STATE=selected CONNECTION=qa-cloud SECTIONS=qa-cloud SYNC=off/off

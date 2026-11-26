@@ -10492,6 +10492,366 @@
   },
   {
    "flow_id": "cloud-folders-and-connections",
+   "branch_id": "build14/1280x800/en/s25/01-cloud-hub",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud",
+   "criteria": [
+    "1482 c1",
+    "1482 c2",
+    "1111 C12"
+   ],
+   "trigger": "a fresh device: no rclone.conf and no folder-profiles.json (both restored after)",
+   "expected_state": "setup-info STATE=no-connections; CHECK CLOUD SETUP and MANAGE CLOUD CONNECTIONS read ADD A CONNECTION BEFORE USING CLOUD TOOLS.",
+   "source": {
+    "es": "6cdcb7a64 (local m7/rc-round-es-20261125; route m7-20261126-552f3815e4b4)",
+    "distribution": "ed61fe8e5922f3106cb35230fed0027f4f7fc431 (local build/m7-rc-round-20261125, build 14)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T192845Z.ged61fe8e5922-from-ROCKNIX",
+    "walk": "docs/qa-logs/2026-11-26-1111-1115-campaign/phase-d/phase-d.sh"
+   },
+   "locale": "en",
+   "width": 1280,
+   "height": 800,
+   "frame": "build14-1280x800/en/s25/01-cloud-hub.png",
+   "sha256": "a6730b4477de3ee4d7722798fae828b23b0b80996610d418a1d338a2ea825c13",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "as expected",
+    "date": "2026-11-26"
+   }
+  },
+  {
+   "flow_id": "cloud-folders-and-connections",
+   "branch_id": "build14/1280x800/en/s25/02-hub-no-connections",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud",
+   "criteria": [
+    "1482 c1",
+    "1482 c2",
+    "1111 C12"
+   ],
+   "trigger": "a fresh device: no rclone.conf and no folder-profiles.json (both restored after)",
+   "expected_state": "setup-info STATE=no-connections; CHECK CLOUD SETUP and MANAGE CLOUD CONNECTIONS read ADD A CONNECTION BEFORE USING CLOUD TOOLS.",
+   "source": {
+    "es": "6cdcb7a64 (local m7/rc-round-es-20261125; route m7-20261126-552f3815e4b4)",
+    "distribution": "ed61fe8e5922f3106cb35230fed0027f4f7fc431 (local build/m7-rc-round-20261125, build 14)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T192845Z.ged61fe8e5922-from-ROCKNIX",
+    "walk": "docs/qa-logs/2026-11-26-1111-1115-campaign/phase-d/phase-d.sh"
+   },
+   "locale": "en",
+   "width": 1280,
+   "height": 800,
+   "frame": "build14-1280x800/en/s25/02-hub-no-connections.png",
+   "sha256": "a6730b4477de3ee4d7722798fae828b23b0b80996610d418a1d338a2ea825c13",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "as expected",
+    "date": "2026-11-26"
+   }
+  },
+  {
+   "flow_id": "cloud-folders-and-connections",
+   "branch_id": "build14/1280x800/en/s25/03-hub-no-connections-lower",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud",
+   "criteria": [
+    "1482 c1",
+    "1482 c2",
+    "1111 C12"
+   ],
+   "trigger": "a fresh device: no rclone.conf and no folder-profiles.json (both restored after)",
+   "expected_state": "setup-info STATE=no-connections; CHECK CLOUD SETUP and MANAGE CLOUD CONNECTIONS read ADD A CONNECTION BEFORE USING CLOUD TOOLS.",
+   "source": {
+    "es": "6cdcb7a64 (local m7/rc-round-es-20261125; route m7-20261126-552f3815e4b4)",
+    "distribution": "ed61fe8e5922f3106cb35230fed0027f4f7fc431 (local build/m7-rc-round-20261125, build 14)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T192845Z.ged61fe8e5922-from-ROCKNIX",
+    "walk": "docs/qa-logs/2026-11-26-1111-1115-campaign/phase-d/phase-d.sh"
+   },
+   "locale": "en",
+   "width": 1280,
+   "height": 800,
+   "frame": "build14-1280x800/en/s25/03-hub-no-connections-lower.png",
+   "sha256": "f5414148706ca10e95d12d306d886442abef1919314c253b152891483219d5d4",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "as expected",
+    "date": "2026-11-26"
+   }
+  },
+  {
+   "flow_id": "cloud-folders-and-connections",
+   "branch_id": "build14/1280x800/en/s25/04-hub-last-row",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud",
+   "criteria": [
+    "1482 c1",
+    "1482 c2",
+    "1111 C12"
+   ],
+   "trigger": "a fresh device: no rclone.conf and no folder-profiles.json (both restored after)",
+   "expected_state": "setup-info STATE=no-connections; CHECK CLOUD SETUP and MANAGE CLOUD CONNECTIONS read ADD A CONNECTION BEFORE USING CLOUD TOOLS.",
+   "source": {
+    "es": "6cdcb7a64 (local m7/rc-round-es-20261125; route m7-20261126-552f3815e4b4)",
+    "distribution": "ed61fe8e5922f3106cb35230fed0027f4f7fc431 (local build/m7-rc-round-20261125, build 14)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T192845Z.ged61fe8e5922-from-ROCKNIX",
+    "walk": "docs/qa-logs/2026-11-26-1111-1115-campaign/phase-d/phase-d.sh"
+   },
+   "locale": "en",
+   "width": 1280,
+   "height": 800,
+   "frame": "build14-1280x800/en/s25/04-hub-last-row.png",
+   "sha256": "11b310fb7ec8c0a7817c70cb299f2a15805802a5317be06415824c5dd437eec5",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "as expected",
+    "date": "2026-11-26"
+   }
+  },
+  {
+   "flow_id": "cloud-folders-and-connections",
+   "branch_id": "build14/1280x800/en/s25/05-connections-none",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud",
+   "criteria": [
+    "1482 c1",
+    "1482 c2",
+    "1111 C12"
+   ],
+   "trigger": "a fresh device: no rclone.conf and no folder-profiles.json (both restored after)",
+   "expected_state": "setup-info STATE=no-connections; CHECK CLOUD SETUP and MANAGE CLOUD CONNECTIONS read ADD A CONNECTION BEFORE USING CLOUD TOOLS.",
+   "source": {
+    "es": "6cdcb7a64 (local m7/rc-round-es-20261125; route m7-20261126-552f3815e4b4)",
+    "distribution": "ed61fe8e5922f3106cb35230fed0027f4f7fc431 (local build/m7-rc-round-20261125, build 14)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T192845Z.ged61fe8e5922-from-ROCKNIX",
+    "walk": "docs/qa-logs/2026-11-26-1111-1115-campaign/phase-d/phase-d.sh"
+   },
+   "locale": "en",
+   "width": 1280,
+   "height": 800,
+   "frame": "build14-1280x800/en/s25/05-connections-none.png",
+   "sha256": "21b1498521d87a3103f1faccacaca9362a2c7185b1eac7057cfdd9276982aeac",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "as expected",
+    "date": "2026-11-26"
+   }
+  },
+  {
+   "flow_id": "cloud-folders-and-connections",
+   "branch_id": "build14/1280x800/en/s25/06-setup-check-none",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud",
+   "criteria": [
+    "1482 c1",
+    "1482 c2",
+    "1111 C12"
+   ],
+   "trigger": "a fresh device: no rclone.conf and no folder-profiles.json (both restored after)",
+   "expected_state": "setup-info STATE=no-connections; CHECK CLOUD SETUP and MANAGE CLOUD CONNECTIONS read ADD A CONNECTION BEFORE USING CLOUD TOOLS.",
+   "source": {
+    "es": "6cdcb7a64 (local m7/rc-round-es-20261125; route m7-20261126-552f3815e4b4)",
+    "distribution": "ed61fe8e5922f3106cb35230fed0027f4f7fc431 (local build/m7-rc-round-20261125, build 14)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T192845Z.ged61fe8e5922-from-ROCKNIX",
+    "walk": "docs/qa-logs/2026-11-26-1111-1115-campaign/phase-d/phase-d.sh"
+   },
+   "locale": "en",
+   "width": 1280,
+   "height": 800,
+   "frame": "build14-1280x800/en/s25/06-setup-check-none.png",
+   "sha256": "9332462b5fd245784aa794dfd9ebc6aca5e672712e52b61fda700c27c232abce",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "as expected",
+    "date": "2026-11-26"
+   }
+  },
+  {
+   "flow_id": "cloud-folders-and-connections",
+   "branch_id": "build14/1280x800/fr/s25/01-cloud-hub",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud",
+   "criteria": [
+    "1482 c1",
+    "1482 c2",
+    "1111 C12"
+   ],
+   "trigger": "a fresh device: no rclone.conf and no folder-profiles.json (both restored after)",
+   "expected_state": "setup-info STATE=no-connections; CHECK CLOUD SETUP and MANAGE CLOUD CONNECTIONS read ADD A CONNECTION BEFORE USING CLOUD TOOLS.",
+   "source": {
+    "es": "6cdcb7a64 (local m7/rc-round-es-20261125; route m7-20261126-552f3815e4b4)",
+    "distribution": "ed61fe8e5922f3106cb35230fed0027f4f7fc431 (local build/m7-rc-round-20261125, build 14)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T192845Z.ged61fe8e5922-from-ROCKNIX",
+    "walk": "docs/qa-logs/2026-11-26-1111-1115-campaign/phase-d/phase-d.sh"
+   },
+   "locale": "fr",
+   "width": 1280,
+   "height": 800,
+   "frame": "build14-1280x800/fr/s25/01-cloud-hub.png",
+   "sha256": "8c9cbaf43e01938e283352c44cfc015678f3c8d26c3e42ca2de2e2f5579b127d",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "as expected",
+    "date": "2026-11-26"
+   }
+  },
+  {
+   "flow_id": "cloud-folders-and-connections",
+   "branch_id": "build14/1280x800/fr/s25/02-hub-no-connections",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud",
+   "criteria": [
+    "1482 c1",
+    "1482 c2",
+    "1111 C12"
+   ],
+   "trigger": "a fresh device: no rclone.conf and no folder-profiles.json (both restored after)",
+   "expected_state": "setup-info STATE=no-connections; CHECK CLOUD SETUP and MANAGE CLOUD CONNECTIONS read ADD A CONNECTION BEFORE USING CLOUD TOOLS.",
+   "source": {
+    "es": "6cdcb7a64 (local m7/rc-round-es-20261125; route m7-20261126-552f3815e4b4)",
+    "distribution": "ed61fe8e5922f3106cb35230fed0027f4f7fc431 (local build/m7-rc-round-20261125, build 14)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T192845Z.ged61fe8e5922-from-ROCKNIX",
+    "walk": "docs/qa-logs/2026-11-26-1111-1115-campaign/phase-d/phase-d.sh"
+   },
+   "locale": "fr",
+   "width": 1280,
+   "height": 800,
+   "frame": "build14-1280x800/fr/s25/02-hub-no-connections.png",
+   "sha256": "8c9cbaf43e01938e283352c44cfc015678f3c8d26c3e42ca2de2e2f5579b127d",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "as expected",
+    "date": "2026-11-26"
+   }
+  },
+  {
+   "flow_id": "cloud-folders-and-connections",
+   "branch_id": "build14/1280x800/fr/s25/03-hub-no-connections-lower",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud",
+   "criteria": [
+    "1482 c1",
+    "1482 c2",
+    "1111 C12"
+   ],
+   "trigger": "a fresh device: no rclone.conf and no folder-profiles.json (both restored after)",
+   "expected_state": "setup-info STATE=no-connections; CHECK CLOUD SETUP and MANAGE CLOUD CONNECTIONS read ADD A CONNECTION BEFORE USING CLOUD TOOLS.",
+   "source": {
+    "es": "6cdcb7a64 (local m7/rc-round-es-20261125; route m7-20261126-552f3815e4b4)",
+    "distribution": "ed61fe8e5922f3106cb35230fed0027f4f7fc431 (local build/m7-rc-round-20261125, build 14)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T192845Z.ged61fe8e5922-from-ROCKNIX",
+    "walk": "docs/qa-logs/2026-11-26-1111-1115-campaign/phase-d/phase-d.sh"
+   },
+   "locale": "fr",
+   "width": 1280,
+   "height": 800,
+   "frame": "build14-1280x800/fr/s25/03-hub-no-connections-lower.png",
+   "sha256": "bba23669992bc776a268101fe5d80f11d5a6a84c85d351d63210feb1c894f0d6",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "as expected",
+    "date": "2026-11-26"
+   }
+  },
+  {
+   "flow_id": "cloud-folders-and-connections",
+   "branch_id": "build14/1280x800/fr/s25/04-hub-last-row",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud",
+   "criteria": [
+    "1482 c1",
+    "1482 c2",
+    "1111 C12"
+   ],
+   "trigger": "a fresh device: no rclone.conf and no folder-profiles.json (both restored after)",
+   "expected_state": "setup-info STATE=no-connections; CHECK CLOUD SETUP and MANAGE CLOUD CONNECTIONS read ADD A CONNECTION BEFORE USING CLOUD TOOLS.",
+   "source": {
+    "es": "6cdcb7a64 (local m7/rc-round-es-20261125; route m7-20261126-552f3815e4b4)",
+    "distribution": "ed61fe8e5922f3106cb35230fed0027f4f7fc431 (local build/m7-rc-round-20261125, build 14)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T192845Z.ged61fe8e5922-from-ROCKNIX",
+    "walk": "docs/qa-logs/2026-11-26-1111-1115-campaign/phase-d/phase-d.sh"
+   },
+   "locale": "fr",
+   "width": 1280,
+   "height": 800,
+   "frame": "build14-1280x800/fr/s25/04-hub-last-row.png",
+   "sha256": "34733d89b79b734e4c94d65479d090ee63b23f71ead2b7eb7fe7fd0481713cf5",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "as expected",
+    "date": "2026-11-26"
+   }
+  },
+  {
+   "flow_id": "cloud-folders-and-connections",
+   "branch_id": "build14/1280x800/fr/s25/05-connections-none",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud",
+   "criteria": [
+    "1482 c1",
+    "1482 c2",
+    "1111 C12"
+   ],
+   "trigger": "a fresh device: no rclone.conf and no folder-profiles.json (both restored after)",
+   "expected_state": "setup-info STATE=no-connections; CHECK CLOUD SETUP and MANAGE CLOUD CONNECTIONS read ADD A CONNECTION BEFORE USING CLOUD TOOLS.",
+   "source": {
+    "es": "6cdcb7a64 (local m7/rc-round-es-20261125; route m7-20261126-552f3815e4b4)",
+    "distribution": "ed61fe8e5922f3106cb35230fed0027f4f7fc431 (local build/m7-rc-round-20261125, build 14)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T192845Z.ged61fe8e5922-from-ROCKNIX",
+    "walk": "docs/qa-logs/2026-11-26-1111-1115-campaign/phase-d/phase-d.sh"
+   },
+   "locale": "fr",
+   "width": 1280,
+   "height": 800,
+   "frame": "build14-1280x800/fr/s25/05-connections-none.png",
+   "sha256": "79bd7f2f6eccad3f24826990d82faf843a16e8695e2464494e9691fa72dcf037",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "as expected",
+    "date": "2026-11-26"
+   }
+  },
+  {
+   "flow_id": "cloud-folders-and-connections",
+   "branch_id": "build14/1280x800/fr/s25/06-setup-check-none",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud",
+   "criteria": [
+    "1482 c1",
+    "1482 c2",
+    "1111 C12"
+   ],
+   "trigger": "a fresh device: no rclone.conf and no folder-profiles.json (both restored after)",
+   "expected_state": "setup-info STATE=no-connections; CHECK CLOUD SETUP and MANAGE CLOUD CONNECTIONS read ADD A CONNECTION BEFORE USING CLOUD TOOLS.",
+   "source": {
+    "es": "6cdcb7a64 (local m7/rc-round-es-20261125; route m7-20261126-552f3815e4b4)",
+    "distribution": "ed61fe8e5922f3106cb35230fed0027f4f7fc431 (local build/m7-rc-round-20261125, build 14)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T192845Z.ged61fe8e5922-from-ROCKNIX",
+    "walk": "docs/qa-logs/2026-11-26-1111-1115-campaign/phase-d/phase-d.sh"
+   },
+   "locale": "fr",
+   "width": 1280,
+   "height": 800,
+   "frame": "build14-1280x800/fr/s25/06-setup-check-none.png",
+   "sha256": "77bc6a061885d3c0e7097e3bb3b6e324c4733e0d50e55321b9b59a7ef17cd747",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "as expected",
+    "date": "2026-11-26"
+   }
+  },
+  {
+   "flow_id": "cloud-folders-and-connections",
    "branch_id": "build14/640x480/en/s04/01-cloud-hub",
    "document": "docs/es-menu-map.md",
    "anchor": "cloud",
@@ -15399,6 +15759,394 @@
    "height": 480,
    "frame": "build14-640x480-d/fr/s28/09-after-saved-back.png",
    "sha256": "5eac3f3ebc57968a9cf645975c744b66aaa7684af1339dd34c38e0a5a80d403e",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "as expected",
+    "date": "2026-11-26"
+   }
+  },
+  {
+   "flow_id": "cloud-folders-and-connections",
+   "branch_id": "build14/640x480-e/en/s04/01-cloud-hub",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud",
+   "criteria": [
+    "1111 C10",
+    "1111 C11",
+    "1111 C03",
+    "1480 c1"
+   ],
+   "trigger": "an explicit empty selection (active-connection emptied)",
+   "expected_state": "the hub: NO CONNECTION SELECTED, and CHANGE CLOUD FOLDER LOCATIONS gives the choose-a-connection sentence; the editor: FOLDER LOCATIONS UNAVAILABLE with MANAGE CLOUD CONNECTIONS",
+   "source": {
+    "es": "6cdcb7a64 (local m7/rc-round-es-20261125; route m7-20261126-552f3815e4b4)",
+    "distribution": "ed61fe8e5922f3106cb35230fed0027f4f7fc431 (local build/m7-rc-round-20261125, build 14)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T192845Z.ged61fe8e5922-from-ROCKNIX",
+    "walk": "docs/qa-logs/2026-11-26-1111-1115-campaign/phase-d/phase-d.sh"
+   },
+   "locale": "en",
+   "width": 640,
+   "height": 480,
+   "frame": "build14-640x480-e/en/s04/01-cloud-hub.png",
+   "sha256": "ae47886dcf7be523b0d0b20a6c17eab906e49977167e6553192ec15c7ddc1ff8",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "as expected",
+    "date": "2026-11-26"
+   }
+  },
+  {
+   "flow_id": "cloud-folders-and-connections",
+   "branch_id": "build14/640x480-e/en/s04/02-hub-unselected",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud",
+   "criteria": [
+    "1111 C10",
+    "1111 C11",
+    "1111 C03",
+    "1480 c1"
+   ],
+   "trigger": "an explicit empty selection (active-connection emptied)",
+   "expected_state": "the hub: NO CONNECTION SELECTED, and CHANGE CLOUD FOLDER LOCATIONS gives the choose-a-connection sentence; the editor: FOLDER LOCATIONS UNAVAILABLE with MANAGE CLOUD CONNECTIONS",
+   "source": {
+    "es": "6cdcb7a64 (local m7/rc-round-es-20261125; route m7-20261126-552f3815e4b4)",
+    "distribution": "ed61fe8e5922f3106cb35230fed0027f4f7fc431 (local build/m7-rc-round-20261125, build 14)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T192845Z.ged61fe8e5922-from-ROCKNIX",
+    "walk": "docs/qa-logs/2026-11-26-1111-1115-campaign/phase-d/phase-d.sh"
+   },
+   "locale": "en",
+   "width": 640,
+   "height": 480,
+   "frame": "build14-640x480-e/en/s04/02-hub-unselected.png",
+   "sha256": "37d6be22decd54a1159b0fade9570b57931e994bea8b202406e92f48221fbab3",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "as expected",
+    "date": "2026-11-26"
+   }
+  },
+  {
+   "flow_id": "cloud-folders-and-connections",
+   "branch_id": "build14/640x480-e/en/s04/03-editor-unavailable",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud",
+   "criteria": [
+    "1111 C10",
+    "1111 C11",
+    "1111 C03",
+    "1480 c1"
+   ],
+   "trigger": "an explicit empty selection (active-connection emptied)",
+   "expected_state": "the hub: NO CONNECTION SELECTED, and CHANGE CLOUD FOLDER LOCATIONS gives the choose-a-connection sentence; the editor: FOLDER LOCATIONS UNAVAILABLE with MANAGE CLOUD CONNECTIONS",
+   "source": {
+    "es": "6cdcb7a64 (local m7/rc-round-es-20261125; route m7-20261126-552f3815e4b4)",
+    "distribution": "ed61fe8e5922f3106cb35230fed0027f4f7fc431 (local build/m7-rc-round-20261125, build 14)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T192845Z.ged61fe8e5922-from-ROCKNIX",
+    "walk": "docs/qa-logs/2026-11-26-1111-1115-campaign/phase-d/phase-d.sh"
+   },
+   "locale": "en",
+   "width": 640,
+   "height": 480,
+   "frame": "build14-640x480-e/en/s04/03-editor-unavailable.png",
+   "sha256": "ed56159708c2e938818f48eeb41374631222c27c682cd30cf882aa55f1831f0b",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "as expected",
+    "date": "2026-11-26"
+   }
+  },
+  {
+   "flow_id": "cloud-folders-and-connections",
+   "branch_id": "build14/640x480-e/en/s05/01-cloud-hub",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud",
+   "criteria": [
+    "1111 C11",
+    "1480 c2"
+   ],
+   "trigger": "SAVES_REMOTE in cloud_sync.conf changed behind the profile (a restored pointer)",
+   "expected_state": "the hub names the connection with CONFIRM THIS CONNECTION'S FOLDER LOCATIONS...; the editor shows REVIEW FOLDER LOCATIONS",
+   "source": {
+    "es": "6cdcb7a64 (local m7/rc-round-es-20261125; route m7-20261126-552f3815e4b4)",
+    "distribution": "ed61fe8e5922f3106cb35230fed0027f4f7fc431 (local build/m7-rc-round-20261125, build 14)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T192845Z.ged61fe8e5922-from-ROCKNIX",
+    "walk": "docs/qa-logs/2026-11-26-1111-1115-campaign/phase-d/phase-d.sh"
+   },
+   "locale": "en",
+   "width": 640,
+   "height": 480,
+   "frame": "build14-640x480-e/en/s05/01-cloud-hub.png",
+   "sha256": "7fc4c6ca64c9c8ce3d5563c4de53b1a5a5a569903c0421f03d747ad9bb218174",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "as expected",
+    "date": "2026-11-26"
+   }
+  },
+  {
+   "flow_id": "cloud-folders-and-connections",
+   "branch_id": "build14/640x480-e/en/s05/02-hub-review",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud",
+   "criteria": [
+    "1111 C11",
+    "1480 c2"
+   ],
+   "trigger": "SAVES_REMOTE in cloud_sync.conf changed behind the profile (a restored pointer)",
+   "expected_state": "the hub names the connection with CONFIRM THIS CONNECTION'S FOLDER LOCATIONS...; the editor shows REVIEW FOLDER LOCATIONS",
+   "source": {
+    "es": "6cdcb7a64 (local m7/rc-round-es-20261125; route m7-20261126-552f3815e4b4)",
+    "distribution": "ed61fe8e5922f3106cb35230fed0027f4f7fc431 (local build/m7-rc-round-20261125, build 14)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T192845Z.ged61fe8e5922-from-ROCKNIX",
+    "walk": "docs/qa-logs/2026-11-26-1111-1115-campaign/phase-d/phase-d.sh"
+   },
+   "locale": "en",
+   "width": 640,
+   "height": 480,
+   "frame": "build14-640x480-e/en/s05/02-hub-review.png",
+   "sha256": "952b3d2075009db6490a4bf6a4f6bdd92036042052680b1ba36961ad2b28f328",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "as expected",
+    "date": "2026-11-26"
+   }
+  },
+  {
+   "flow_id": "cloud-folders-and-connections",
+   "branch_id": "build14/640x480-e/en/s05/03-editor-review",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud",
+   "criteria": [
+    "1111 C11",
+    "1480 c2"
+   ],
+   "trigger": "SAVES_REMOTE in cloud_sync.conf changed behind the profile (a restored pointer)",
+   "expected_state": "the hub names the connection with CONFIRM THIS CONNECTION'S FOLDER LOCATIONS...; the editor shows REVIEW FOLDER LOCATIONS",
+   "source": {
+    "es": "6cdcb7a64 (local m7/rc-round-es-20261125; route m7-20261126-552f3815e4b4)",
+    "distribution": "ed61fe8e5922f3106cb35230fed0027f4f7fc431 (local build/m7-rc-round-20261125, build 14)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T192845Z.ged61fe8e5922-from-ROCKNIX",
+    "walk": "docs/qa-logs/2026-11-26-1111-1115-campaign/phase-d/phase-d.sh"
+   },
+   "locale": "en",
+   "width": 640,
+   "height": 480,
+   "frame": "build14-640x480-e/en/s05/03-editor-review.png",
+   "sha256": "5f93a9dce2327b65b6b9410972b5a4ec89404646a84a40a65ac240fff30db90e",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "as expected",
+    "date": "2026-11-26"
+   }
+  },
+  {
+   "flow_id": "cloud-folders-and-connections",
+   "branch_id": "build14/640x480-e/en/s15/01-cloud-hub",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud",
+   "criteria": [
+    "1111 C12",
+    "1482 c1",
+    "1482 c2"
+   ],
+   "trigger": "no saved connection (rclone.conf moved aside)",
+   "expected_state": "the hub, MANAGE CLOUD CONNECTIONS and (from build 14) CHECK CLOUD SETUP with nothing saved; from build 14 the line is ADD A CONNECTION BEFORE USING CLOUD TOOLS.",
+   "source": {
+    "es": "6cdcb7a64 (local m7/rc-round-es-20261125; route m7-20261126-552f3815e4b4)",
+    "distribution": "ed61fe8e5922f3106cb35230fed0027f4f7fc431 (local build/m7-rc-round-20261125, build 14)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T192845Z.ged61fe8e5922-from-ROCKNIX",
+    "walk": "docs/qa-logs/2026-11-26-1111-1115-campaign/phase-d/phase-d.sh"
+   },
+   "locale": "en",
+   "width": 640,
+   "height": 480,
+   "frame": "build14-640x480-e/en/s15/01-cloud-hub.png",
+   "sha256": "ef5a5e78b4634b42e14930d19aca6fba8f65a829304385bb0643570f2bff3e50",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "as expected",
+    "date": "2026-11-26"
+   }
+  },
+  {
+   "flow_id": "cloud-folders-and-connections",
+   "branch_id": "build14/640x480-e/en/s15/02-hub-no-connections",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud",
+   "criteria": [
+    "1111 C12",
+    "1482 c1",
+    "1482 c2"
+   ],
+   "trigger": "no saved connection (rclone.conf moved aside)",
+   "expected_state": "the hub, MANAGE CLOUD CONNECTIONS and (from build 14) CHECK CLOUD SETUP with nothing saved; from build 14 the line is ADD A CONNECTION BEFORE USING CLOUD TOOLS.",
+   "source": {
+    "es": "6cdcb7a64 (local m7/rc-round-es-20261125; route m7-20261126-552f3815e4b4)",
+    "distribution": "ed61fe8e5922f3106cb35230fed0027f4f7fc431 (local build/m7-rc-round-20261125, build 14)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T192845Z.ged61fe8e5922-from-ROCKNIX",
+    "walk": "docs/qa-logs/2026-11-26-1111-1115-campaign/phase-d/phase-d.sh"
+   },
+   "locale": "en",
+   "width": 640,
+   "height": 480,
+   "frame": "build14-640x480-e/en/s15/02-hub-no-connections.png",
+   "sha256": "ef5a5e78b4634b42e14930d19aca6fba8f65a829304385bb0643570f2bff3e50",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "as expected",
+    "date": "2026-11-26"
+   }
+  },
+  {
+   "flow_id": "cloud-folders-and-connections",
+   "branch_id": "build14/640x480-e/en/s15/03-hub-no-connections-lower",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud",
+   "criteria": [
+    "1111 C12",
+    "1482 c1",
+    "1482 c2"
+   ],
+   "trigger": "no saved connection (rclone.conf moved aside)",
+   "expected_state": "the hub, MANAGE CLOUD CONNECTIONS and (from build 14) CHECK CLOUD SETUP with nothing saved; from build 14 the line is ADD A CONNECTION BEFORE USING CLOUD TOOLS.",
+   "source": {
+    "es": "6cdcb7a64 (local m7/rc-round-es-20261125; route m7-20261126-552f3815e4b4)",
+    "distribution": "ed61fe8e5922f3106cb35230fed0027f4f7fc431 (local build/m7-rc-round-20261125, build 14)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T192845Z.ged61fe8e5922-from-ROCKNIX",
+    "walk": "docs/qa-logs/2026-11-26-1111-1115-campaign/phase-d/phase-d.sh"
+   },
+   "locale": "en",
+   "width": 640,
+   "height": 480,
+   "frame": "build14-640x480-e/en/s15/03-hub-no-connections-lower.png",
+   "sha256": "46999792943dac19e3e8e0faf65782369710d8d04b6f729f43ce120b51528e62",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "as expected",
+    "date": "2026-11-26"
+   }
+  },
+  {
+   "flow_id": "cloud-folders-and-connections",
+   "branch_id": "build14/640x480-e/en/s15/04-hub-last-row",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud",
+   "criteria": [
+    "1111 C12",
+    "1482 c1",
+    "1482 c2"
+   ],
+   "trigger": "no saved connection (rclone.conf moved aside)",
+   "expected_state": "the hub, MANAGE CLOUD CONNECTIONS and (from build 14) CHECK CLOUD SETUP with nothing saved; from build 14 the line is ADD A CONNECTION BEFORE USING CLOUD TOOLS.",
+   "source": {
+    "es": "6cdcb7a64 (local m7/rc-round-es-20261125; route m7-20261126-552f3815e4b4)",
+    "distribution": "ed61fe8e5922f3106cb35230fed0027f4f7fc431 (local build/m7-rc-round-20261125, build 14)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T192845Z.ged61fe8e5922-from-ROCKNIX",
+    "walk": "docs/qa-logs/2026-11-26-1111-1115-campaign/phase-d/phase-d.sh"
+   },
+   "locale": "en",
+   "width": 640,
+   "height": 480,
+   "frame": "build14-640x480-e/en/s15/04-hub-last-row.png",
+   "sha256": "00987f0ba4eebdb40bc7e2fc6056f18927082c72020b7f8f6c3542dc643e334f",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "as expected",
+    "date": "2026-11-26"
+   }
+  },
+  {
+   "flow_id": "cloud-folders-and-connections",
+   "branch_id": "build14/640x480-e/en/s15/05-connections-none",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud",
+   "criteria": [
+    "1111 C12",
+    "1482 c1",
+    "1482 c2"
+   ],
+   "trigger": "no saved connection (rclone.conf moved aside)",
+   "expected_state": "the hub, MANAGE CLOUD CONNECTIONS and (from build 14) CHECK CLOUD SETUP with nothing saved; from build 14 the line is ADD A CONNECTION BEFORE USING CLOUD TOOLS.",
+   "source": {
+    "es": "6cdcb7a64 (local m7/rc-round-es-20261125; route m7-20261126-552f3815e4b4)",
+    "distribution": "ed61fe8e5922f3106cb35230fed0027f4f7fc431 (local build/m7-rc-round-20261125, build 14)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T192845Z.ged61fe8e5922-from-ROCKNIX",
+    "walk": "docs/qa-logs/2026-11-26-1111-1115-campaign/phase-d/phase-d.sh"
+   },
+   "locale": "en",
+   "width": 640,
+   "height": 480,
+   "frame": "build14-640x480-e/en/s15/05-connections-none.png",
+   "sha256": "2830d5bb3198b66d1b5bfbdcb4747a60dedff73eb1001dd4c1deb899c8bda8f0",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "as expected",
+    "date": "2026-11-26"
+   }
+  },
+  {
+   "flow_id": "cloud-folders-and-connections",
+   "branch_id": "build14/640x480-e/en/s15/06-setup-check-none",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud",
+   "criteria": [
+    "1111 C12",
+    "1482 c1",
+    "1482 c2"
+   ],
+   "trigger": "no saved connection (rclone.conf moved aside)",
+   "expected_state": "the hub, MANAGE CLOUD CONNECTIONS and (from build 14) CHECK CLOUD SETUP with nothing saved; from build 14 the line is ADD A CONNECTION BEFORE USING CLOUD TOOLS.",
+   "source": {
+    "es": "6cdcb7a64 (local m7/rc-round-es-20261125; route m7-20261126-552f3815e4b4)",
+    "distribution": "ed61fe8e5922f3106cb35230fed0027f4f7fc431 (local build/m7-rc-round-20261125, build 14)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T192845Z.ged61fe8e5922-from-ROCKNIX",
+    "walk": "docs/qa-logs/2026-11-26-1111-1115-campaign/phase-d/phase-d.sh"
+   },
+   "locale": "en",
+   "width": 640,
+   "height": 480,
+   "frame": "build14-640x480-e/en/s15/06-setup-check-none.png",
+   "sha256": "5bfc470a24571204b34cfef7c7642f906f73bfaf09d63ae3284d21c40059267b",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "as expected",
+    "date": "2026-11-26"
+   }
+  },
+  {
+   "flow_id": "cloud-folders-and-connections",
+   "branch_id": "build14/640x480-e/en/s27/01-cloud-hub",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud",
+   "criteria": [
+    "1111 C06"
+   ],
+   "trigger": "diagnosis: after s15, the four files' hashes, then adding qa-two, a bare listing of qa-cloud and the state (values never printed)",
+   "expected_state": "add rc and the listing in s27.arm.log; the hub frame only",
+   "source": {
+    "es": "6cdcb7a64 (local m7/rc-round-es-20261125; route m7-20261126-552f3815e4b4)",
+    "distribution": "ed61fe8e5922f3106cb35230fed0027f4f7fc431 (local build/m7-rc-round-20261125, build 14)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T192845Z.ged61fe8e5922-from-ROCKNIX",
+    "walk": "docs/qa-logs/2026-11-26-1111-1115-campaign/phase-d/phase-d.sh"
+   },
+   "locale": "en",
+   "width": 640,
+   "height": 480,
+   "frame": "build14-640x480-e/en/s27/01-cloud-hub.png",
+   "sha256": "11eb5b99c8d7ca60a236ad8b38ef852cbfb9df8ce1490edc46f195ecf54a8945",
    "status": "reviewed",
    "review": {
     "reviewer": "OS coordinator (claude-opus-5-5)",

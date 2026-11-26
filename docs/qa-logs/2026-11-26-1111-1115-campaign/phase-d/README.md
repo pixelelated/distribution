@@ -75,3 +75,17 @@ Build 14 is `ed61fe8e59`, with ES `6cdcb7a64`, route `m7-20261126-552f3815e4b4`,
 - The driver then walked anyway, opened MEGA's form and pressed CONNECT with empty fields. No account or credential was involved, but the guest tried MEGA's servers.
 - Since then, a screen whose arm failed is not walked.
 - s27 diagnoses the s15 interaction, and s28 shows a completed edit.
+
+**The s15 → s19 add failure.** Build 14's first run could not add qa-two right after s15, in either language.
+- **s27** runs the add after s15, with the four files' hashes and a bare listing around it.
+- **It worked every time we tried:**
+  - s15 first (`-d/`, EN);
+  - s15 with a store already present (`-d/`, FR);
+  - the exact failing order, s04, s05, s15, then the add (`-e/`).
+- **Every file hashes the same before and after s15.**
+
+Nothing on hand explains the failure, so it is **#1487**, keep an eye on, with what would turn it into a bug: the staged verification's own rclone error, which the module does not record.
+
+**A completed edit (s28, `-d/`):** CONNECTION SAVED, and back returns to the connection's page (#1483). That is now in the menu map.
+
+**1280x800 (`build14-1280x800/`):** s25 in EN and FR. Both pages read ADD A CONNECTION BEFORE USING CLOUD TOOLS. / AJOUTEZ UNE CONNEXION AVANT D’UTILISER LES OUTILS CLOUD. (#1482 c1). The first attempt's arm assumed a profile store that does not exist before a first folder action; the new guard skipped its walk. s25 and s26 now save and restore only the files that exist, and the attempt's directory, which held only that arm log, was replaced by the rerun.
