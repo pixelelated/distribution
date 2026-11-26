@@ -181,5 +181,22 @@ for f in "${FILES[@]}"; do
     fail=1
   fi
 done
+# #1484: GuiMenu.cpp holds the cloud wizard's page replacement, and its
+# lifetime test (the ES tree's tests/cloud-oauth-lifetime.py: the shipped
+# functions with host g++ and AddressSanitizer) stopped compiling for six
+# weeks because nothing ran it. So whenever GuiMenu.cpp is checked, the test
+# runs against that file; a tree without the test says so and goes on.
+for f in "${FILES[@]}"; do
+  abs=$(readlink -f "$f"); [ "$(basename "$abs")" = GuiMenu.cpp ] || continue
+  wt=${abs%/es-app/*}; lt="$wt/tests/cloud-oauth-lifetime.py"
+  if [ ! -f "$lt" ]; then echo "  (no tests/cloud-oauth-lifetime.py in $wt)"; continue; fi
+  if out=$(cd "$wt" && timeout 300 python3 "$lt" "$abs" 2>&1); then
+    echo "  OK      lifetime test, $(printf '%s\n' "$out" | grep -c '^PASS') routes ($lt)"
+  else
+    echo "  FAIL    lifetime test ($lt)"
+    printf '%s\n' "$out" | grep -E '^FAIL|ERROR: AddressSanitizer|error:' | head -8 | sed 's/^/          /'
+    fail=1
+  fi
+done
 [ "${cannot:-0}" = 0 ] || { echo "CANNOT RUN"; exit 2; }
 [ "$fail" = 0 ] && echo "PASS" || { echo "FAIL"; exit 1; }

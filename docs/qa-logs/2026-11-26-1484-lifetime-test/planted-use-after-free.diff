@@ -1,0 +1,13 @@
+--- /dev/fd/63	2026-11-26 19:24:57.366568995 +0000
++++ /tmp/claude-1000/-workspace-repos-rocknix-worktrees-conflict-resolution/b19c3b8c-1c4f-4a57-8765-0b8fe1f11ae9/scratchpad/GuiMenu-uaf.cpp	2026-11-26 19:24:42.221427140 +0000
+@@ -6739,7 +6739,10 @@
+ 	}
+ 	window->pushGui(s);
+ 	if (prev != nullptr)
++	{
+ 		prev->close();
++		{ volatile size_t n = prev->getTag().size(); (void)n; }
++	}
+ }
+ 
+ // Bottom button row for a wizard page: EXIT SETUP on the left and,

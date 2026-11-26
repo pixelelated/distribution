@@ -1,0 +1,16 @@
+using emulationstation-m7-20261126-16a1ec4e624a
+  (external) /home/max/Development/emulationstation-next.worktrees/m7-rc-round-es-20261125/external from the tree
+  (moved) the build's commands name /workspace/repos/rocknix.worktrees/conflict-resolution/.build-runs/m7-candidate-build-20261118-01/checkout/build.pixelelated-GENERIC_X64.x86_64; read as /workspace/repos/rocknix.worktrees/m7-round-x64-20261125/build.pixelelated-GENERIC_X64.x86_64
+  FAIL    /tmp/claude-1000/-workspace-repos-rocknix-worktrees-conflict-resolution/b19c3b8c-1c4f-4a57-8765-0b8fe1f11ae9/scratchpad/uaf-tree/es-app/src/guis/GuiMenu.cpp
+          /tmp/claude-1000/-workspace-repos-rocknix-worktrees-conflict-resolution/b19c3b8c-1c4f-4a57-8765-0b8fe1f11ae9/scratchpad/uaf-tree/es-app/src/guis/GuiMenu.cpp:78:10: fatal error: GuiLoading.h: No such file or directory
+  FAIL    lifetime test (/tmp/claude-1000/-workspace-repos-rocknix-worktrees-conflict-resolution/b19c3b8c-1c4f-4a57-8765-0b8fe1f11ae9/scratchpad/uaf-tree/tests/cloud-oauth-lifetime.py)
+          FAIL phone
+          ==298590==ERROR: AddressSanitizer: heap-use-after-free on address 0x6fc2bbde0120 at pc 0x5b99449982e9 bp 0x7fff50a207c0 sp 0x7fff50a207b0
+          FAIL keyboard
+          ==298591==ERROR: AddressSanitizer: heap-use-after-free on address 0x6eecc0be0120 at pc 0x5d0c567582e9 bp 0x7ffd41c2ba20 sp 0x7ffd41c2ba10
+          FAIL no-browser
+          ==298592==ERROR: AddressSanitizer: heap-use-after-free on address 0x73c01e5e0120 at pc 0x626cc888e2e9 bp 0x7ffe5dff00f0 sp 0x7ffe5dff00e0
+          FAIL failed-start
+          ==298593==ERROR: AddressSanitizer: heap-use-after-free on address 0x7ad8ac9e0120 at pc 0x60329293e2e9 bp 0x7ffd83471430 sp 0x7ffd83471420
+FAIL
+rc=1

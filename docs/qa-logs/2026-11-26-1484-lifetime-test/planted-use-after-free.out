@@ -1,0 +1,64 @@
+FAIL phone
+=================================================================
+==288670==ERROR: AddressSanitizer: heap-use-after-free on address 0x7863197e0120 at pc 0x6058e9f742e9 bp 0x7ffdc447fb10 sp 0x7ffdc447fb00
+READ of size 8 at 0x7863197e0120 thread T0
+    #0 0x6058e9f742e8 in std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::size() const /usr/include/c++/15/bits/basic_string.h:1165
+    #1 0x6058e9f742e8 in cloudSetupPresent /tmp/cloud-oauth-lifetime-ez73x4rx/lifetime.cpp:117
+    #2 0x6058e9f774c9 in cloudOAuthPresentChoice /tmp/cloud-oauth-lifetime-ez73x4rx/lifetime.cpp:174
+    #3 0x6058e9f774c9 in main /tmp/cloud-oauth-lifetime-ez73x4rx/lifetime.cpp:189
+    #4 0x7bb31a42a600  (/usr/lib/x86_64-linux-gnu/libc.so.6+0x2a600) (BuildId: 9851d79b1f32e900a27f8d0a68e29d750303f0c6)
+    #5 0x7bb31a42a717 in __libc_start_main (/usr/lib/x86_64-linux-gnu/libc.so.6+0x2a717) (BuildId: 9851d79b1f32e900a27f8d0a68e29d750303f0c6)
+    #6 0x6058e9f717a4 in _start (/tmp/cloud-oauth-lifetime-ez73x4rx/lifetime+0x47a4) (BuildId: 77bb070cb9f327625cb93801a6a8895f03d7e241)
+
+0x7863197e0120 is located 48 bytes inside of 104-byte region [0x7863197e00f0,0x7863197e0158)
+freed by thread T0 here:
+    #0 0x7bb31ad2d89f in operator delete(void*, unsigned long) ../../../../src/libsanitizer/asan/asan_new_delete.cpp:190
+    #1 0x6058e9f7a1d6 in GuiSettings::close() /tmp/cloud-oauth-lifetime-ez73x4rx/lifetime.cpp:68
+FAIL keyboard
+=================================================================
+==288671==ERROR: AddressSanitizer: heap-use-after-free on address 0x75c4799e0120 at pc 0x5cbb450872e9 bp 0x7ffc39352360 sp 0x7ffc39352350
+READ of size 8 at 0x75c4799e0120 thread T0
+    #0 0x5cbb450872e8 in std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::size() const /usr/include/c++/15/bits/basic_string.h:1165
+    #1 0x5cbb450872e8 in cloudSetupPresent /tmp/cloud-oauth-lifetime-ez73x4rx/lifetime.cpp:117
+    #2 0x5cbb4508a4c9 in cloudOAuthPresentChoice /tmp/cloud-oauth-lifetime-ez73x4rx/lifetime.cpp:174
+    #3 0x5cbb4508a4c9 in main /tmp/cloud-oauth-lifetime-ez73x4rx/lifetime.cpp:189
+    #4 0x79147a62a600  (/usr/lib/x86_64-linux-gnu/libc.so.6+0x2a600) (BuildId: 9851d79b1f32e900a27f8d0a68e29d750303f0c6)
+    #5 0x79147a62a717 in __libc_start_main (/usr/lib/x86_64-linux-gnu/libc.so.6+0x2a717) (BuildId: 9851d79b1f32e900a27f8d0a68e29d750303f0c6)
+    #6 0x5cbb450847a4 in _start (/tmp/cloud-oauth-lifetime-ez73x4rx/lifetime+0x47a4) (BuildId: 77bb070cb9f327625cb93801a6a8895f03d7e241)
+
+0x75c4799e0120 is located 48 bytes inside of 104-byte region [0x75c4799e00f0,0x75c4799e0158)
+freed by thread T0 here:
+    #0 0x79147af2d89f in operator delete(void*, unsigned long) ../../../../src/libsanitizer/asan/asan_new_delete.cpp:190
+    #1 0x5cbb4508d1d6 in GuiSettings::close() /tmp/cloud-oauth-lifetime-ez73x4rx/lifetime.cpp:68
+FAIL no-browser
+=================================================================
+==288672==ERROR: AddressSanitizer: heap-use-after-free on address 0x71f5cb9e0120 at pc 0x5988a687c2e9 bp 0x7fffbb165d00 sp 0x7fffbb165cf0
+READ of size 8 at 0x71f5cb9e0120 thread T0
+    #0 0x5988a687c2e8 in std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::size() const /usr/include/c++/15/bits/basic_string.h:1165
+    #1 0x5988a687c2e8 in cloudSetupPresent /tmp/cloud-oauth-lifetime-ez73x4rx/lifetime.cpp:117
+    #2 0x5988a687c68b in cloudOAuthShowSignIn /tmp/cloud-oauth-lifetime-ez73x4rx/lifetime.cpp:127
+    #3 0x5988a687d7d8 in cloudOAuthPresentChoice /tmp/cloud-oauth-lifetime-ez73x4rx/lifetime.cpp:138
+    #4 0x5988a687d7d8 in main /tmp/cloud-oauth-lifetime-ez73x4rx/lifetime.cpp:189
+    #5 0x7545cc62a600  (/usr/lib/x86_64-linux-gnu/libc.so.6+0x2a600) (BuildId: 9851d79b1f32e900a27f8d0a68e29d750303f0c6)
+    #6 0x7545cc62a717 in __libc_start_main (/usr/lib/x86_64-linux-gnu/libc.so.6+0x2a717) (BuildId: 9851d79b1f32e900a27f8d0a68e29d750303f0c6)
+    #7 0x5988a68797a4 in _start (/tmp/cloud-oauth-lifetime-ez73x4rx/lifetime+0x47a4) (BuildId: 77bb070cb9f327625cb93801a6a8895f03d7e241)
+
+0x71f5cb9e0120 is located 48 bytes inside of 104-byte region [0x71f5cb9e00f0,0x71f5cb9e0158)
+freed by thread T0 here:
+    #0 0x7545ccf2d89f in operator delete(void*, unsigned long) ../../../../src/libsanitizer/asan/asan_new_delete.cpp:190
+FAIL failed-start
+=================================================================
+==288673==ERROR: AddressSanitizer: heap-use-after-free on address 0x7863f23e0120 at pc 0x63653bd432e9 bp 0x7fff19b82a80 sp 0x7fff19b82a70
+READ of size 8 at 0x7863f23e0120 thread T0
+    #0 0x63653bd432e8 in std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::size() const /usr/include/c++/15/bits/basic_string.h:1165
+    #1 0x63653bd432e8 in cloudSetupPresent /tmp/cloud-oauth-lifetime-ez73x4rx/lifetime.cpp:117
+    #2 0x63653bd4368b in cloudOAuthShowSignIn /tmp/cloud-oauth-lifetime-ez73x4rx/lifetime.cpp:127
+    #3 0x63653bd447d8 in cloudOAuthPresentChoice /tmp/cloud-oauth-lifetime-ez73x4rx/lifetime.cpp:138
+    #4 0x63653bd447d8 in main /tmp/cloud-oauth-lifetime-ez73x4rx/lifetime.cpp:189
+    #5 0x7bb3f302a600  (/usr/lib/x86_64-linux-gnu/libc.so.6+0x2a600) (BuildId: 9851d79b1f32e900a27f8d0a68e29d750303f0c6)
+    #6 0x7bb3f302a717 in __libc_start_main (/usr/lib/x86_64-linux-gnu/libc.so.6+0x2a717) (BuildId: 9851d79b1f32e900a27f8d0a68e29d750303f0c6)
+    #7 0x63653bd407a4 in _start (/tmp/cloud-oauth-lifetime-ez73x4rx/lifetime+0x47a4) (BuildId: 77bb070cb9f327625cb93801a6a8895f03d7e241)
+
+0x7863f23e0120 is located 48 bytes inside of 104-byte region [0x7863f23e00f0,0x7863f23e0158)
+freed by thread T0 here:
+    #0 0x7bb3f392d89f in operator delete(void*, unsigned long) ../../../../src/libsanitizer/asan/asan_new_delete.cpp:190
