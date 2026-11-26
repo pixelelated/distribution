@@ -8,6 +8,10 @@ Read the [M7 milestone](https://github.com/pixelelated/distribution/milestone/7)
 
 ## Current focus
 
+**00000000. Newest (2026-11-26T07:20Z): #1467 fixed and closed (patch 039, D-RA-053); the round's known failures are walks and frame-diff only.**
+- Round head `0067ae0b05` (local); its newest image is run 7 `2fc3f2aad2` (`ACCEPTANCE-7.json`), which carries patch 039. Lifecycle suite 23 PASS; drop-in reproduction PASS. #1474 (bug, M7) filed for ES's silent toggle revert after busy, refused or restored, with proposed words.
+- **#1465 left:** the two cloud-folder walks with #1428's chooser; a reviewed walk baseline for frame-diff; then a standard run that PASSES with an empty list. **Not yet run: a standard vm-qa on run 7's image** (next, owner OS). Codex dispatches still paused pending Max's fast-mode decision.
+
 **0000000. Newest (2026-11-26T07:05Z): Codex dispatches paused pending Max; #1467's fix designed, next to build.**
 - **No Codex dispatch from this workspace until Max decides on fast mode** (steward's request 06:17Z; `steward-notes/for-os/20261126T0617Z-allowance-18-percent.md`). The fast-vs-default measurement (`codex-allowance/ab-20261126T0652Z/`) was inconclusive at about 1.2 M tokens per tier (account 20 to 21 to 21; #1471 `issuecomment-7185019477`). A decisive run is about 10 M tokens per tier, about 8 points; whether to spend that is Max's call via the steward (inbox `20261126T0701Z-tier-measurement-result.md`). Each dispatch's cost is on #1472 (`issuecomment-7184853558`). Account 21% at 07:00Z.
 - **#1467's fix (owner OS, design on #1467 `issuecomment-7184881904`), in the fork's proxy patch series** (`projects/ROCKNIX/packages/network/raofflineproxy/patches/`, next number 039; source as built: `m7-round-x64-20261125/build.pixelelated-GENERIC_X64.x86_64/build/raofflineproxy-40201a2a5d…/linux/raofflineproxy/`):
