@@ -15,9 +15,9 @@ Proof packet for [#1428](https://github.com/pixelelated/distribution/issues/1428
 | 5. Branches, clean and retained state | On both shapes: the retained one (folders in `cloud_sync.conf`, no profile store, as an updated device) and the clean one (a profile store published by the walk's pre-hook, as the setup wizard leaves; a different `config_id`, the same paths). No selection: CHOOSE AT LEAST ONE ITEM TO CHECK., witness identical. Offline (the WebDAV address on a dead port) and a wrong password: COULD NOT REACH THIS CONNECTION. CHECK WI-FI OR SIGN-IN UNDER MANAGE CLOUD CONNECTIONS. Empty selected folders: NO FILES FOUND. Toggle, check and cancel: witness identical on both shapes. Confirmed creation: the same three files added on both, nothing else (`criterion-2-witness.txt`). |
 | 6. The transfer entries: direction and next step at the hub, selection before any transfer | The hub (EN and FR) reads BACK UP TO CLOUD / CHOOSE CONTENT FROM THIS DEVICE TO BACK UP. and RESTORE FROM CLOUD / CHOOSE CONTENT TO RESTORE TO THIS DEVICE. Pressing either opens a page titled as its row (ES `d87891f24`) that asks WHAT WOULD YOU LIKE TO BACK UP? / RESTORE? and transfers nothing until its own BACK UP / RESTORE button, whose existing confirmation and preview follow. Frames at 640x480 (EN and FR) and 1280x800 (FR here, EN in standard run 8), from runs `…-1254` and `…-1259`. |
 
-**Not covered here:**
+**Not covered here:** nothing in the criteria; the release catalogue is written at the candidate's call.
 
-**Seen, for review:**
+**Seen, for review** (filed as their own issue):
 - After a confirmed creation the page shows CLOUD FOLDER CHECK / COMPLETED (SAVES: NO FILES FOUND, since a setup note is not a save) and says nowhere that folders were created.
 - GAME CONTENT names the same folder as ROMS (`/pixelelated/Content/ROMs`).
 - The French page mixes PARAMÈTRES and RÉGLAGES for *settings*.
