@@ -29,9 +29,42 @@ def state():
     return f"STATE={info['STATE']} CONNECTION={info['CONNECTION']} SECTIONS={','.join(cp.sections())} SYNC={info['SYNC_STARTUP']}/{info['SYNC_GAMEEXIT']}"
 
 
+def two_hash():
+    # The witness for "the existing connection was kept": a hash of qa-two's
+    # section, never its values (they hold the account's credentials).
+    import hashlib
+    cp = configparser.RawConfigParser()
+    cp.read_string(c.CONFIG.read_text())
+    if 'qa-two' not in cp.sections():
+        return 'TWO=absent'
+    body = '\n'.join(f'{k}={v}' for k, v in sorted(cp.items('qa-two')))
+    return 'TWO=' + hashlib.sha256(body.encode()).hexdigest()
+
+
 cmd = sys.argv[1]
 if cmd == 'add-two':
     c.save('qa-two', 'webdav', qa_settings())
+elif cmd == 'break-two':
+    # qa-two's endpoint moved to a port nothing answers, written behind the
+    # module as a provider outage would leave it: an edit that re-verifies it
+    # must fail and keep the section as it is (s19).
+    import os, re
+    text = c.CONFIG.read_text()
+    head, sep, rest = text.partition('[qa-two]')
+    if not sep:
+        sys.exit('no qa-two section')
+    nxt = rest.find('\n[')
+    section, tail = (rest, '') if nxt < 0 else (rest[:nxt], rest[nxt:])
+    section, n = re.subn(r'^(url = https?://[^:/\s]+):\d+', r'\g<1>:9011', section, flags=re.M)
+    if n != 1:
+        sys.exit('qa-two url not rewritten')
+    tmp = c.CONFIG.with_suffix('.s19')
+    tmp.write_text(head + sep + section + tail)
+    os.chmod(tmp, 0o600)
+    os.replace(tmp, c.CONFIG)
+    print(two_hash())
+elif cmd == 'two-hash':
+    print(two_hash())
 elif cmd == 'remove-two':
     c.remove('qa-two')
 elif cmd == 'repair':

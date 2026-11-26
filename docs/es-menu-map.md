@@ -301,11 +301,11 @@ flowchart TD
     SM --> GE[SYNC SAVES WHEN EXITING A GAME<br/><i>AFTER LAST GAME - outcome</i>]
 
     HUB --> CSS[CLOUD STORAGE SETUP]
-    CSS --> CT[ACTIVE CONNECTION: name, provider<br/><i>CHANGE CONNECTION OR MANAGE SAVED CONNECTIONS.</i> . or NO CONNECTION SELECTED]
+    CSS --> CT[ACTIVE CONNECTION: name, provider<br/><i>CHANGE CONNECTION OR MANAGE SAVED CONNECTIONS.</i> . a connection whose folders need review: ACTIVE CONNECTION: name<br/><i>CONFIRM THIS CONNECTION'S FOLDER LOCATIONS BEFORE USING CLOUD TOOLS.</i> . none selected: NO CONNECTION SELECTED]
     CSS --> CFA[CLOUD FOLDER ACTIONS<br/><i>CHOOSE CLOUD FOLDERS TO CHECK OR CREATE.</i>]
     CSS --> CCS[CHECK CLOUD SETUP<br/><i>CHECK YOUR CONNECTION, SAVE FOLDERS, AND AUTOMATIC SYNC SETTINGS.</i><br/>results include a CONNECTION CHECK row]
     CSS --> MCC[MANAGE CLOUD CONNECTIONS<br/><i>ADD, CHOOSE, OR MANAGE YOUR CONNECTIONS.</i>]
-    CSS --> FOLDER[CHANGE CLOUD FOLDER LOCATIONS<br/><i>YOUR SAVES ARE IN: path</i>] --> PATHS[CLOUD FOLDERS<br/>SAVES FOLDER · SETTINGS FOLDER · ROMS, BIOS, AND GAME CONTENT FOLDER]
+    CSS --> FOLDER[CHANGE CLOUD FOLDER LOCATIONS<br/><i>YOUR SAVES ARE IN: path, CLOUD ROOT for a root path</i> . no folder context: <i>CHOOSE A CONNECTION IN MANAGE CLOUD CONNECTIONS BEFORE CHANGING ITS FOLDERS.</i>] --> PATHS[SET CLOUD FOLDER LOCATIONS<br/>SAVES FOLDER · SETTINGS BACKUP FOLDER · ROMS, BIOS, AND GAME CONTENT FOLDER]
     PATHS --> KB[keyboard for the selected path<br/>changes only that pointer; moves no files]
     KB -->|unchanged value: no probe or write| PATHS
     KB -->|accepted changed value| PATHS
@@ -403,7 +403,7 @@ on the SET IT UP NOW? prompt from an unconfigured cloud action also opens it.
 If the provider list is empty, PROVIDER LIST UNAVAILABLE is the only row.
 BACK closes the page.
 
-Guest frames and the visual evidence index entry are deferred to #1428.
+No reviewed guest frames of this page exist yet. #1428's packet covers CLOUD SETUP CHECK, the connections page and the folder actions, not this picker.
 
 ### CLOUD SETUP CHECK
 
@@ -438,7 +438,7 @@ and settings backup folders. Results are bound to the selected configuration.
 
 BACK closes the result page.
 
-Guest frames and the visual evidence index entry are deferred to #1428.
+Frames: [#1428's packet](qa-logs/2026-11-26-1428-cloud-setup/README.md) (`check-setup-page`, with its offline and wrong-password branches). Also #1111's [phase D](qa-logs/2026-11-26-1111-1115-campaign/phase-d/README.md), screens s13 and s16 on build 13: the page, and the rows at its foot.
 
 ### SET CLOUD FOLDER LOCATIONS
 
@@ -469,7 +469,13 @@ leaves existing cloud files in place.
 If the folder settings are unavailable, the page shows FOLDER LOCATIONS
 UNAVAILABLE followed by MANAGE CLOUD CONNECTIONS. BACK returns to the caller.
 
-Guest frames and the visual evidence index entry are deferred to #1428.
+**Who owns the locations.** Folder choices belong to each saved connection (D-CLOUD-184).
+- **A new connection,** including a re-added one under a name or provider used before, starts with the three defaults. A removed connection's paths are not reused.
+- **Switching connections and signing in again** keep each connection's own choices.
+- **Updating the OS** keeps them too. A device from before connection profiles has its device-wide folders adopted by its one existing connection.
+- **Linking or removing** never turns automatic sync on, and moves or creates no cloud files (D-CLOUD-175).
+
+The installed proof is #1111's campaign on build 13: [phase B](qa-logs/2026-11-26-1111-1115-campaign/phase-b/README.md) for the scripts, [phase C](qa-logs/2026-11-26-1111-1115-campaign/phase-c/README.md) for the updates, and [phase D](qa-logs/2026-11-26-1111-1115-campaign/phase-d/README.md) for the EN/FR 640x480 and 1280x800 frames of this page and the hub. Its [evidence index](qa-logs/2026-11-26-1111-1115-campaign/phase-d/evidence-index.json) maps each frame to its screen and criteria.
 
 **Dialogs the cloud raises on its own.** A restore against a cloud whose saves
 folder is missing ends COMPLETED and offers to create it (D-CLOUD-085); when a

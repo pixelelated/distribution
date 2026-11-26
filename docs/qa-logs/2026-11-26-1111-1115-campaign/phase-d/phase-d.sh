@@ -87,7 +87,52 @@ put_s12() { S "sed -i 's|^\(url = https\{0,1\}://[^:/]*\):9011|\1:9010|' /storag
 steps_s13() { hub; down 8; open; echo "wait 20"; echo "settle 60 3"; echo "shot setup-check"; down 8; echo "shot setup-check-lower"; }
 arm_s13() { :; }; put_s13() { :; }
 
-SCREENS="s01 s02 s03 s04 s05 s06 s07 s08 s09 s10 s11 s12 s13"
+# s14: LINK FROM A COMPUTER and its CHANGE CLOUD FOLDER LOCATIONS (C18's computer entry point)
+steps_s14() { hub; down 9; open; echo "shot connections"; down 2; echo "shot link-from-computer-row"; open; echo "wait 5"; echo "settle 30 3"; echo "shot computer-setup"; down 8; echo "shot computer-setup-lower"; }
+arm_s14() { :; }; put_s14() { :; }
+
+# s15: no saved connection at all (C12's empty state). Up twice from the hub's
+# top wraps to its last row, MANAGE CLOUD CONNECTIONS (#1428's legs).
+steps_s15() { hub; echo "shot hub-no-connections"; down 3; echo "shot hub-no-connections-lower"; echo "key up"; echo "wait-for-change 4"; echo "key up"; echo "wait-for-change 4"; echo "key up"; echo "wait-for-change 4"; echo "key up"; echo "wait-for-change 4"; echo "key up"; echo "wait-for-change 4"; echo settle; echo "shot hub-last-row"; open; echo "shot connections-none"; }
+arm_s15() { S 'mv /storage/.config/rclone/rclone.conf /storage/m7-qa-d/rclone.conf.saved && rm -f /storage/.config/rclone/active-connection; cloud_remote setup-info | grep -E "^STATE="'; }
+put_s15() { S 'mv /storage/m7-qa-d/rclone.conf.saved /storage/.config/rclone/rclone.conf && chmod 600 /storage/.config/rclone/rclone.conf && cloud_remote select qa-cloud; cloud_remote setup-info | grep -E "^STATE="'; }
+# s16: CLOUD SETUP CHECK to the foot of the page (C18's entry point there)
+steps_s16() { hub; down 8; open; echo "wait 20"; echo "settle 60 3"; echo "shot setup-check-top"; echo "key up"; echo "wait-for-change 4"; echo "key up"; echo "wait-for-change 4"; echo settle; echo "shot setup-check-foot"; }
+arm_s16() { :; }; put_s16() { :; }
+# s17: an attempt to put the saves folder at the cloud root (#1480 criterion 1).
+# The profile module refuses it ("Choose a separate folder for saves or
+# settings backups.", cloud_connection_profiles.py: saves is never '' or '/'),
+# so the frames show the hub and the editor unchanged.
+ARM_REFUSED="s17"
+steps_s17() { hub; down 6; echo "shot hub-saves-root"; open; echo "shot editor-saves-root"; }
+# s18: removing a connection that is not in use: the confirmation, CANCEL, then REMOVE CONNECTION (#1111 C01, C08)
+to_two() { hub; cat "$W/to-manage-cloud-connections.steps"; echo "shot connections-two"; down 1; open; echo "shot connection-two"; }
+steps_s18() { to_two; down 6; echo "shot remove-row"; open; echo "shot remove-confirm"; back; echo "shot after-cancel"; open; echo "shot remove-confirm-again"; echo "key x"; echo "wait-for-change 60 1"; echo "settle 60 3"; echo "shot after-remove"; }
+arm_s18() { S 'python3 /storage/m7-qa-d/conn.py add-two'; }
+put_s18() { S 'python3 /storage/m7-qa-d/conn.py state; python3 /storage/m7-qa-d/conn.py repair'; }
+# s19: EDIT CONNECTION on a connection whose endpoint stopped answering: backed out of (cancel), then saved, which re-verifies and fails; the section is kept byte for byte (#1111 C03, C06, C08)
+steps_s19() { to_two; down 5; echo "shot edit-row"; open; echo "shot edit-form"; back; echo "shot after-cancel"; open; echo "key up"; echo "wait-for-change 4"; echo "key up"; echo "wait-for-change 4"; echo settle; echo "shot save-row"; open; echo "shot update-confirm"; echo "key x"; echo "wait-for-change 120 1"; echo "settle 120 3"; echo "shot update-failed"; echo "key x"; echo "wait-for-change 10"; echo settle; echo "shot after-failure-ok"; back; echo "shot after-failure-back"; }
+arm_s19() { S 'python3 /storage/m7-qa-d/conn.py add-two >/dev/null && python3 /storage/m7-qa-d/conn.py break-two'; }
+put_s19() { S 'python3 /storage/m7-qa-d/conn.py two-hash; python3 /storage/m7-qa-d/conn.py repair'; }
+# s20: an unreadable setup (a line before rclone.conf's first section): the hub, CHECK CLOUD SETUP, MANAGE CLOUD CONNECTIONS and CLOUD FOLDER ACTIONS (#1111 C11)
+steps_s20() { hub; down 5; echo "shot hub-unreadable"; down 3; open; echo "wait 20"; echo "settle 60 3"; echo "shot setup-check-unreadable"; back; down 1; open; echo "shot connections-unreadable"; back; echo "key up"; echo "wait-for-change 4"; echo "key up"; echo "wait-for-change 4"; echo settle; open; echo "shot folder-actions-unreadable"; }
+arm_s20() { S "cp -p /storage/.config/rclone/rclone.conf /storage/m7-qa-d/rclone.conf.s20 && sed -i '1i not a section line' /storage/.config/rclone/rclone.conf && cloud_remote setup-info | grep -E '^STATE='"; }
+put_s20() { S 'mv /storage/m7-qa-d/rclone.conf.s20 /storage/.config/rclone/rclone.conf && chmod 600 /storage/.config/rclone/rclone.conf && cloud_remote select qa-cloud; cloud_remote setup-info | grep -E "^STATE="'; }
+# s21: the folder locations changed while CLOUD FOLDERS is open, then CHECK CLOUD FOLDERS: the stale-check wording (#1111 C11)
+steps_s21() { hub; down 7; open; echo "shot folders-before-change"; }
+mid_s21() { S "$(ctx); cloud_remote set-folder saves /Custom/Saves \$c && cloud_remote folder-context | jq -c .paths"; }
+steps2_s21() { echo settle; down 6; echo "shot check-after-change"; echo "key x"; echo "wait-for-change 20 1"; echo settle; echo "shot check-refused"; echo "key x"; echo "wait-for-change 10"; echo settle; echo "shot after-ok"; }
+put_s21() { put_s02; }
+# s22: the selection emptied while CLOUD FOLDERS is open, then CHECK CLOUD FOLDERS: no selection, not the stale wording (#1111 C11)
+steps_s22() { steps_s21; }
+mid_s22() { S ': > /storage/.config/rclone/active-connection; cloud_remote setup-info | grep -E "^STATE="'; }
+steps2_s22() { steps2_s21; }
+put_s22() { put_s04; }
+arm_s21() { :; }; arm_s22() { :; }
+arm_s17() { S "$(ctx); cloud_remote set-folder saves / \$c && cloud_remote folder-context | jq -c .paths"; }
+put_s17() { put_s02; }
+
+SCREENS="s01 s02 s03 s04 s05 s06 s07 s08 s09 s10 s11 s12 s13 s14 s15 s16 s17 s18 s19 s20 s21 s22"
 [ -n "$only" ] && SCREENS=${only//,/ }
 
 log "== #1111/#1115 phase D at $res, $(date -u +%FT%TZ)"
@@ -125,10 +170,27 @@ for lang in ${langs//,/ }; do
     for s in $SCREENS; do
         log "-- $lang $s"
         clean_state "$s" || { failed=1; continue; }
-        { echo "arm:"; "arm_$s" 2>&1; } >> "$out/$lang/$s.arm.log"
+        # An arm that fails leaves the screen in the wrong state, so its rc is
+        # recorded and fails the run -- unless the screen exists to show the
+        # refusal (s17's arm was refused before this check existed and the
+        # walk ran on regardless).
+        echo "arm:" >> "$out/$lang/$s.arm.log"; "arm_$s" >> "$out/$lang/$s.arm.log" 2>&1; arc=$?
+        case " $ARM_REFUSED " in
+            *" $s "*) [ "$arc" != 0 ] || { log "   arm rc 0, but $s expects a refusal"; failed=1; } ;;
+            *) [ "$arc" = 0 ] || { log "   arm rc $arc (see $lang/$s.arm.log)"; failed=1; } ;;
+        esac
         "steps_$s" > "$out/$lang/$s.steps"
         timeout 600 "$round/tools/vm-visual-qa" --monitor "$MON" run "$out/$lang/$s.steps" --outdir "$out/$lang/$s" > "$out/$lang/$s.log" 2>&1
         rc=$?; [ "$rc" = 0 ] || { log "   walk rc $rc (see $lang/$s.log)"; failed=1; }
+        # A screen that changes state part-way: mid_<s> runs with the first
+        # walk's page still open, then steps2_<s> continues into <s>-b/.
+        if [ "$rc" = 0 ] && declare -F "steps2_$s" >/dev/null; then
+            echo "mid:" >> "$out/$lang/$s.arm.log"; "mid_$s" >> "$out/$lang/$s.arm.log" 2>&1 \
+                || { log "   mid rc $? (see $lang/$s.arm.log)"; failed=1; }
+            "steps2_$s" > "$out/$lang/$s-b.steps"
+            timeout 600 "$round/tools/vm-visual-qa" --monitor "$MON" run "$out/$lang/$s-b.steps" --outdir "$out/$lang/$s-b" > "$out/$lang/$s-b.log" 2>&1
+            rc=$?; [ "$rc" = 0 ] || { log "   walk rc $rc (see $lang/$s-b.log)"; failed=1; }
+        fi
         { echo "put back:"; "put_$s" 2>&1; } >> "$out/$lang/$s.arm.log"
         echo -e "wake\ndismiss-dialogs" | timeout 120 "$round/tools/vm-visual-qa" --monitor "$MON" run - --outdir "$out/$lang/$s-reset" > /dev/null 2>&1
         rm -rf "${out:?}/$lang/$s-reset"
