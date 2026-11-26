@@ -8,6 +8,26 @@ Read the [M7 milestone](https://github.com/pixelelated/distribution/milestone/7)
 
 ## Current focus
 
+**0000000000000000000. Newest (2026-11-26T20:37Z): build 14's fixes are proven and closed; standard run 11 on build 14 is running.**
+- **Closed this stretch:** #1482, #1483, #1484, #1488 (all with code traces and frames on `next`). #1111 has 23 of 25 ticked; C15 waits on D-CLOUD-194 and C24's French half on #1478.
+- **Filed:**
+  - #1485: the provider form's labels are English in French; es-untranslated cannot see them.
+  - #1486: back from SIGN IN AGAIN skips the connection page; a VM route exists.
+  - #1487: keep an eye on; adding qa-two failed twice on build 14 and did not reproduce.
+- **ES round** `m7/rc-round-es-20261125` at `879ab6ce8`: route 05 (`6cdcb7a64`) plus the test fixes. The next route must include `879ab6ce8`.
+- **Tools on `next`:**
+  - `es-syntax-check` runs every ES `tests/*.py` of the checked tree (15 tests, about 26 s);
+  - `device-build` names only a new run directory;
+  - the register sweep reads reservations and open rows.
+- **Phase D driver:**
+  - a failed arm skips its walk;
+  - a failed walk reboots the guest;
+  - s25/s26 save and restore only the files that exist;
+  - screens s01–s28 are defined.
+- **Running:** standard run 11, `tools/vm-qa` on build 14's image from the round tree. vm-qa pid 908694; folder `/workspace/tmp/rocknix-session/vmqa-standard-11-20261126T2028Z/` (`rc` when done); harness waiter armed (3 h).
+  - When it ends: `rc-preflight --only vm-qa --build-set m7-round-x64`, a note on #1465, `vm-pair down`.
+- **Waiting on Max (through the steward):** #1477, #1478, D-CLOUD-194, publication, the bug dispositions, fast mode, the M6 reservation relay (refused by the harness at 19:38Z), and the two proposed sentences in build 14 (steward inbox 20:37Z).
+
 **000000000000000000. Newest (2026-11-26T19:35Z): after the host restart (18:27Z), phase D on build 13 is done, build 14 (`ed61fe8e59`) is built and accepted with three fixes, and its phase D screens are running.**
 - **The restart** wiped every guest, waiter and the QA WebDAV backend (`tools/cloud-test-backend up` from the round tree brings it back). No build was in flight.
 - **Closed:** #1480 (with the amended root clause: saves can never be the cloud root) and #1115 (phases A, B and D, with the code trace).
