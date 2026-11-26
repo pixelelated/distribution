@@ -8,7 +8,19 @@ Read the [M7 milestone](https://github.com/pixelelated/distribution/milestone/7)
 
 ## Current focus
 
-**000000000. Newest (2026-11-26T08:55Z): standard run 4 is 15 of 16 PASS; #1465 checkbox 2 waits only on #1428's question.**
+**0000000000. Newest (2026-11-26T09:58Z): build 9 RUNNING (round `bfff87f94c`, #1474's ES change); standard run 5 was 15 of 16, its one failure my test assumption, now fixed.**
+- **#1428's unchanged save is fixed at its source** (round `2ef63929b7`; run 8 accepted, `ACCEPTANCE-8.json`). The cloud-folder walks pass on run 8 and the known-failures list is **empty** (round `7ea797a710`). Standard run 5 on run 8 (`qa-2ef63929b7-webdav-a-20261126-0908`): 15 PASS. `scripts` FAILED 2 PL-021 checks: `aeb70574ad` published the profile with an unchanged save, which the fix now makes write nothing. Test adapted (round `bfff87f94c`), scripts suite PASSED on the round tree (`/workspace/tmp/rocknix-session/scripts-1428-0941Z/`). #1465 `issuecomment-7188357291`.
+- **Build 9 RUNNING since 09:52Z**: run `/workspace/repos/rocknix.worktrees/m7-round-x64-20261125/.build-runs/20261126T095159Z-e89b6147`, owner `m7-round-x64-owner-20261125/submit-09`, admission `admission-9.json`. The harness waiter `btji17z60` watches `build.rc` (expires 12:52Z). Launcher `/workspace/tmp/rocknix-session/round-build-9.sh`; the owner dir must exist before submit.
+- **#1474** (ES `2f6c01fd7`; round route `m7-20261126-42eb8b8664b6`, `742443200b`, written by `/workspace/tmp/rocknix-session/es-route-20261126.py`, which reproduces the Nov 25 tar byte for byte): the switch says once why a change did not take. **Next (owner OS), after build 9:**
+  1. accept it (`ACCEPTANCE-9.json`, consume);
+  2. on a guest from its image, `tools/vm-walks/offline-toggle-outcomes --port 10022 --identity <qa-key> --monitor <sock> --outdir <dir>` (round `d447c2192d`; busy, refused, restored, and the took control). Read the frames against #1474's sentences.
+  3. then a standard `vm-qa` on build 9's image, the first that can read `VERDICT: PASS` with an empty list;
+  4. then `rc-preflight --only vm-qa --build-set <target>`.
+- **#1475 closed** (es-syntax-check vs a copied build root, `next` `718ec14a8a`; the French duplicate in ES source). Menu map `dbd0d45299`.
+- **#1012:** its open item 2 (STOP IT AND PLAY over a visible exit sync) needs a time-to-play mode that relaunches once the sync holds its lock. Today's runs relaunch before the sync starts (PL-009 claims it), so no question appears. Harness work, after build 9.
+- Codex dispatches still paused (Max's fast-mode decision). Steward inbox `20261126T0952Z-run5-and-build9.md`.
+
+**000000000. (2026-11-26T08:55Z): standard run 4 is 15 of 16 PASS; #1465 checkbox 2 waits only on #1428's question.**
 - Round head `96fe959434` (local), image run 7 `2fc3f2aad2`. Standard run `qa-2fc3f2aad2-webdav-a-20261126-0823`: the only failure is `walks` (known, #1428): `confirm-cloud-folder`'s witness refuses an unchanged SAVES FOLDER save's new `config_id` (#1428 `issuecomment-7186014027`). frame-diff PASSES with claims against the unmoved `d72084ccad` baseline. Known-failures list: one entry.
 - **Next (owner OS):** #1428's design answer decides the last entry: the product stops reconfirming an unchanged save, or the walk's witness compares paths and files but not `config_id`. #1428 is a large ES change (copy, French, frames). Other M7 work by priority: #1474 (the ES sentence, proposed words on the issue); RC step 0 items in the M7 body (14 packages behind, ES pin vs ROCKNIX, device facts); the round's eventual landing on `next` (publication of the candidate is Max's). Codex dispatches still paused pending Max's fast-mode decision.
 - No guests, no build, all lanes idle.
