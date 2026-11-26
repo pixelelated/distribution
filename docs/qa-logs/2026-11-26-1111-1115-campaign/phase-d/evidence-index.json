@@ -3,7 +3,9 @@
  "issue": [
   1111,
   1115,
-  1480
+  1480,
+  1489,
+  1490
  ],
  "entries": [
   {
@@ -18621,6 +18623,2174 @@
    "review": {
     "reviewer": "OS coordinator (claude-opus-5-5)",
     "observed": "after the fix: back from the choice page returns to CONNEXION AU CLOUD qa-oauth (#1486); oauth status idle",
+    "date": "2026-11-26"
+   }
+  },
+  {
+   "flow_id": "cloud-folders-and-connections",
+   "branch_id": "build16/640x480/en/s24/01-cloud-hub",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud",
+   "criteria": [
+    "1483 c3"
+   ],
+   "trigger": "LINK FROM THIS DEVICE, WEBDAV, then back on the provider form",
+   "expected_state": "where the add-a-connection wizard lands on back, unchanged by #1483",
+   "source": {
+    "es": "c8bf10703 (local m7/rc-round-es-20261125; route m7-20261126-29256fe7fb07)",
+    "distribution": "fc3e489f8a0b8064e72a3b879837c87fbc3f5930 (local build/m7-rc-round-20261125, build 16)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T224411Z.gfc3e489f8a0b-from-ROCKNIX",
+    "walk": "docs/qa-logs/2026-11-26-1111-1115-campaign/phase-d/phase-d.sh"
+   },
+   "locale": "en",
+   "width": 640,
+   "height": 480,
+   "frame": "build16-640x480/en/s24/01-cloud-hub.png",
+   "sha256": "11eb5b99c8d7ca60a236ad8b38ef852cbfb9df8ce1490edc46f195ecf54a8945",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "the chooser and back on the WebDAV form",
+    "date": "2026-11-26"
+   }
+  },
+  {
+   "flow_id": "cloud-folders-and-connections",
+   "branch_id": "build16/640x480/en/s24/02-link-row",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud",
+   "criteria": [
+    "1483 c3"
+   ],
+   "trigger": "LINK FROM THIS DEVICE, WEBDAV, then back on the provider form",
+   "expected_state": "where the add-a-connection wizard lands on back, unchanged by #1483",
+   "source": {
+    "es": "c8bf10703 (local m7/rc-round-es-20261125; route m7-20261126-29256fe7fb07)",
+    "distribution": "fc3e489f8a0b8064e72a3b879837c87fbc3f5930 (local build/m7-rc-round-20261125, build 16)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T224411Z.gfc3e489f8a0b-from-ROCKNIX",
+    "walk": "docs/qa-logs/2026-11-26-1111-1115-campaign/phase-d/phase-d.sh"
+   },
+   "locale": "en",
+   "width": 640,
+   "height": 480,
+   "frame": "build16-640x480/en/s24/02-link-row.png",
+   "sha256": "61c74b594e22c74b78d08762c6c8aaa195d2fecd1b75ccf89d7d8dc6ece9cf95",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "the chooser and back on the WebDAV form",
+    "date": "2026-11-26"
+   }
+  },
+  {
+   "flow_id": "cloud-folders-and-connections",
+   "branch_id": "build16/640x480/en/s24/03-providers",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud",
+   "criteria": [
+    "1483 c3"
+   ],
+   "trigger": "LINK FROM THIS DEVICE, WEBDAV, then back on the provider form",
+   "expected_state": "where the add-a-connection wizard lands on back, unchanged by #1483",
+   "source": {
+    "es": "c8bf10703 (local m7/rc-round-es-20261125; route m7-20261126-29256fe7fb07)",
+    "distribution": "fc3e489f8a0b8064e72a3b879837c87fbc3f5930 (local build/m7-rc-round-20261125, build 16)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T224411Z.gfc3e489f8a0b-from-ROCKNIX",
+    "walk": "docs/qa-logs/2026-11-26-1111-1115-campaign/phase-d/phase-d.sh"
+   },
+   "locale": "en",
+   "width": 640,
+   "height": 480,
+   "frame": "build16-640x480/en/s24/03-providers.png",
+   "sha256": "29be06ed27dcf12e024a542c4d2570893845fb00c5a292e6d0bde184eb9eeeab",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "the chooser and back on the WebDAV form",
+    "date": "2026-11-26"
+   }
+  },
+  {
+   "flow_id": "cloud-folders-and-connections",
+   "branch_id": "build16/640x480/en/s24/04-webdav-row",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud",
+   "criteria": [
+    "1483 c3"
+   ],
+   "trigger": "LINK FROM THIS DEVICE, WEBDAV, then back on the provider form",
+   "expected_state": "where the add-a-connection wizard lands on back, unchanged by #1483",
+   "source": {
+    "es": "c8bf10703 (local m7/rc-round-es-20261125; route m7-20261126-29256fe7fb07)",
+    "distribution": "fc3e489f8a0b8064e72a3b879837c87fbc3f5930 (local build/m7-rc-round-20261125, build 16)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T224411Z.gfc3e489f8a0b-from-ROCKNIX",
+    "walk": "docs/qa-logs/2026-11-26-1111-1115-campaign/phase-d/phase-d.sh"
+   },
+   "locale": "en",
+   "width": 640,
+   "height": 480,
+   "frame": "build16-640x480/en/s24/04-webdav-row.png",
+   "sha256": "000ce386ecb8cb1ea93233c054c222f0af5ec18f52858d4f199f8c6497e817ec",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "the chooser and back on the WebDAV form",
+    "date": "2026-11-26"
+   }
+  },
+  {
+   "flow_id": "cloud-folders-and-connections",
+   "branch_id": "build16/640x480/en/s24/05-webdav-form",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud",
+   "criteria": [
+    "1483 c3"
+   ],
+   "trigger": "LINK FROM THIS DEVICE, WEBDAV, then back on the provider form",
+   "expected_state": "where the add-a-connection wizard lands on back, unchanged by #1483",
+   "source": {
+    "es": "c8bf10703 (local m7/rc-round-es-20261125; route m7-20261126-29256fe7fb07)",
+    "distribution": "fc3e489f8a0b8064e72a3b879837c87fbc3f5930 (local build/m7-rc-round-20261125, build 16)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T224411Z.gfc3e489f8a0b-from-ROCKNIX",
+    "walk": "docs/qa-logs/2026-11-26-1111-1115-campaign/phase-d/phase-d.sh"
+   },
+   "locale": "en",
+   "width": 640,
+   "height": 480,
+   "frame": "build16-640x480/en/s24/05-webdav-form.png",
+   "sha256": "4d9dcae49dd33734f70c203d9699dbbe1b06794331b36b772cb005467ef3ae53",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "the chooser and back on the WebDAV form",
+    "date": "2026-11-26"
+   }
+  },
+  {
+   "flow_id": "cloud-folders-and-connections",
+   "branch_id": "build16/640x480/en/s24/06-after-back",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud",
+   "criteria": [
+    "1483 c3"
+   ],
+   "trigger": "LINK FROM THIS DEVICE, WEBDAV, then back on the provider form",
+   "expected_state": "where the add-a-connection wizard lands on back, unchanged by #1483",
+   "source": {
+    "es": "c8bf10703 (local m7/rc-round-es-20261125; route m7-20261126-29256fe7fb07)",
+    "distribution": "fc3e489f8a0b8064e72a3b879837c87fbc3f5930 (local build/m7-rc-round-20261125, build 16)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T224411Z.gfc3e489f8a0b-from-ROCKNIX",
+    "walk": "docs/qa-logs/2026-11-26-1111-1115-campaign/phase-d/phase-d.sh"
+   },
+   "locale": "en",
+   "width": 640,
+   "height": 480,
+   "frame": "build16-640x480/en/s24/06-after-back.png",
+   "sha256": "000ce386ecb8cb1ea93233c054c222f0af5ec18f52858d4f199f8c6497e817ec",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "the chooser and back on the WebDAV form",
+    "date": "2026-11-26"
+   }
+  },
+  {
+   "flow_id": "cloud-folders-and-connections",
+   "branch_id": "build16/640x480/en/s30/01-cloud-hub",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud",
+   "criteria": [
+    "1485 c1"
+   ],
+   "trigger": "LINK FROM THIS DEVICE, AMAZON S3 AND COMPATIBLE, its first service, the form and its lower half; nothing submitted",
+   "expected_state": "from build 15 the mapped row labels read in French in French (#1485); in English as before",
+   "source": {
+    "es": "c8bf10703 (local m7/rc-round-es-20261125; route m7-20261126-29256fe7fb07)",
+    "distribution": "fc3e489f8a0b8064e72a3b879837c87fbc3f5930 (local build/m7-rc-round-20261125, build 16)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T224411Z.gfc3e489f8a0b-from-ROCKNIX",
+    "walk": "docs/qa-logs/2026-11-26-1111-1115-campaign/phase-d/phase-d.sh"
+   },
+   "locale": "en",
+   "width": 640,
+   "height": 480,
+   "frame": "build16-640x480/en/s30/01-cloud-hub.png",
+   "sha256": "11eb5b99c8d7ca60a236ad8b38ef852cbfb9df8ce1490edc46f195ecf54a8945",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "the chooser and the S3 form: WINDOWS SHARE (SMB) and AMAZON S3 AND COMPATIBLE unchanged in English (#1490 c3)",
+    "date": "2026-11-26"
+   }
+  },
+  {
+   "flow_id": "cloud-folders-and-connections",
+   "branch_id": "build16/640x480/en/s30/02-providers",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud",
+   "criteria": [
+    "1485 c1"
+   ],
+   "trigger": "LINK FROM THIS DEVICE, AMAZON S3 AND COMPATIBLE, its first service, the form and its lower half; nothing submitted",
+   "expected_state": "from build 15 the mapped row labels read in French in French (#1485); in English as before",
+   "source": {
+    "es": "c8bf10703 (local m7/rc-round-es-20261125; route m7-20261126-29256fe7fb07)",
+    "distribution": "fc3e489f8a0b8064e72a3b879837c87fbc3f5930 (local build/m7-rc-round-20261125, build 16)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T224411Z.gfc3e489f8a0b-from-ROCKNIX",
+    "walk": "docs/qa-logs/2026-11-26-1111-1115-campaign/phase-d/phase-d.sh"
+   },
+   "locale": "en",
+   "width": 640,
+   "height": 480,
+   "frame": "build16-640x480/en/s30/02-providers.png",
+   "sha256": "29be06ed27dcf12e024a542c4d2570893845fb00c5a292e6d0bde184eb9eeeab",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "the chooser and the S3 form: WINDOWS SHARE (SMB) and AMAZON S3 AND COMPATIBLE unchanged in English (#1490 c3)",
+    "date": "2026-11-26"
+   }
+  },
+  {
+   "flow_id": "cloud-folders-and-connections",
+   "branch_id": "build16/640x480/en/s30/03-s3-row",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud",
+   "criteria": [
+    "1485 c1"
+   ],
+   "trigger": "LINK FROM THIS DEVICE, AMAZON S3 AND COMPATIBLE, its first service, the form and its lower half; nothing submitted",
+   "expected_state": "from build 15 the mapped row labels read in French in French (#1485); in English as before",
+   "source": {
+    "es": "c8bf10703 (local m7/rc-round-es-20261125; route m7-20261126-29256fe7fb07)",
+    "distribution": "fc3e489f8a0b8064e72a3b879837c87fbc3f5930 (local build/m7-rc-round-20261125, build 16)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T224411Z.gfc3e489f8a0b-from-ROCKNIX",
+    "walk": "docs/qa-logs/2026-11-26-1111-1115-campaign/phase-d/phase-d.sh"
+   },
+   "locale": "en",
+   "width": 640,
+   "height": 480,
+   "frame": "build16-640x480/en/s30/03-s3-row.png",
+   "sha256": "ec2a283562cd8b712b991c1850922c56fd9e4225c298b71c7e3f065502d1daea",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "the chooser and the S3 form: WINDOWS SHARE (SMB) and AMAZON S3 AND COMPATIBLE unchanged in English (#1490 c3)",
+    "date": "2026-11-26"
+   }
+  },
+  {
+   "flow_id": "cloud-folders-and-connections",
+   "branch_id": "build16/640x480/en/s30/04-s3-services",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud",
+   "criteria": [
+    "1485 c1"
+   ],
+   "trigger": "LINK FROM THIS DEVICE, AMAZON S3 AND COMPATIBLE, its first service, the form and its lower half; nothing submitted",
+   "expected_state": "from build 15 the mapped row labels read in French in French (#1485); in English as before",
+   "source": {
+    "es": "c8bf10703 (local m7/rc-round-es-20261125; route m7-20261126-29256fe7fb07)",
+    "distribution": "fc3e489f8a0b8064e72a3b879837c87fbc3f5930 (local build/m7-rc-round-20261125, build 16)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T224411Z.gfc3e489f8a0b-from-ROCKNIX",
+    "walk": "docs/qa-logs/2026-11-26-1111-1115-campaign/phase-d/phase-d.sh"
+   },
+   "locale": "en",
+   "width": 640,
+   "height": 480,
+   "frame": "build16-640x480/en/s30/04-s3-services.png",
+   "sha256": "b1917d18b4a48239a2bc781e47fcf7e1ba62ef93af1a75be43162ff58ad3ac70",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "the chooser and the S3 form: WINDOWS SHARE (SMB) and AMAZON S3 AND COMPATIBLE unchanged in English (#1490 c3)",
+    "date": "2026-11-26"
+   }
+  },
+  {
+   "flow_id": "cloud-folders-and-connections",
+   "branch_id": "build16/640x480/en/s30/05-s3-form",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud",
+   "criteria": [
+    "1485 c1"
+   ],
+   "trigger": "LINK FROM THIS DEVICE, AMAZON S3 AND COMPATIBLE, its first service, the form and its lower half; nothing submitted",
+   "expected_state": "from build 15 the mapped row labels read in French in French (#1485); in English as before",
+   "source": {
+    "es": "c8bf10703 (local m7/rc-round-es-20261125; route m7-20261126-29256fe7fb07)",
+    "distribution": "fc3e489f8a0b8064e72a3b879837c87fbc3f5930 (local build/m7-rc-round-20261125, build 16)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T224411Z.gfc3e489f8a0b-from-ROCKNIX",
+    "walk": "docs/qa-logs/2026-11-26-1111-1115-campaign/phase-d/phase-d.sh"
+   },
+   "locale": "en",
+   "width": 640,
+   "height": 480,
+   "frame": "build16-640x480/en/s30/05-s3-form.png",
+   "sha256": "b1ffb2abf06a4588c5f3bbf181c069948fdae8f0d237c8d76e9c282db28c4f05",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "the chooser and the S3 form: WINDOWS SHARE (SMB) and AMAZON S3 AND COMPATIBLE unchanged in English (#1490 c3)",
+    "date": "2026-11-26"
+   }
+  },
+  {
+   "flow_id": "cloud-folders-and-connections",
+   "branch_id": "build16/640x480/en/s30/06-s3-form-lower",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud",
+   "criteria": [
+    "1485 c1"
+   ],
+   "trigger": "LINK FROM THIS DEVICE, AMAZON S3 AND COMPATIBLE, its first service, the form and its lower half; nothing submitted",
+   "expected_state": "from build 15 the mapped row labels read in French in French (#1485); in English as before",
+   "source": {
+    "es": "c8bf10703 (local m7/rc-round-es-20261125; route m7-20261126-29256fe7fb07)",
+    "distribution": "fc3e489f8a0b8064e72a3b879837c87fbc3f5930 (local build/m7-rc-round-20261125, build 16)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T224411Z.gfc3e489f8a0b-from-ROCKNIX",
+    "walk": "docs/qa-logs/2026-11-26-1111-1115-campaign/phase-d/phase-d.sh"
+   },
+   "locale": "en",
+   "width": 640,
+   "height": 480,
+   "frame": "build16-640x480/en/s30/06-s3-form-lower.png",
+   "sha256": "5a2a9d272b5526f7a428a3d87dc618d6c0637050588fc3429d074ff43f537962",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "the chooser and the S3 form: WINDOWS SHARE (SMB) and AMAZON S3 AND COMPATIBLE unchanged in English (#1490 c3)",
+    "date": "2026-11-26"
+   }
+  },
+  {
+   "flow_id": "cloud-folders-and-connections",
+   "branch_id": "build16/640x480/en/s30/07-after-back",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud",
+   "criteria": [
+    "1485 c1"
+   ],
+   "trigger": "LINK FROM THIS DEVICE, AMAZON S3 AND COMPATIBLE, its first service, the form and its lower half; nothing submitted",
+   "expected_state": "from build 15 the mapped row labels read in French in French (#1485); in English as before",
+   "source": {
+    "es": "c8bf10703 (local m7/rc-round-es-20261125; route m7-20261126-29256fe7fb07)",
+    "distribution": "fc3e489f8a0b8064e72a3b879837c87fbc3f5930 (local build/m7-rc-round-20261125, build 16)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T224411Z.gfc3e489f8a0b-from-ROCKNIX",
+    "walk": "docs/qa-logs/2026-11-26-1111-1115-campaign/phase-d/phase-d.sh"
+   },
+   "locale": "en",
+   "width": 640,
+   "height": 480,
+   "frame": "build16-640x480/en/s30/07-after-back.png",
+   "sha256": "b1917d18b4a48239a2bc781e47fcf7e1ba62ef93af1a75be43162ff58ad3ac70",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "the chooser and the S3 form: WINDOWS SHARE (SMB) and AMAZON S3 AND COMPATIBLE unchanged in English (#1490 c3)",
+    "date": "2026-11-26"
+   }
+  },
+  {
+   "flow_id": "cloud-folders-and-connections",
+   "branch_id": "build16/640x480/en/s31/01-cloud-hub",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud",
+   "criteria": [
+    "1489 c1",
+    "1489 c2"
+   ],
+   "trigger": "a working copy of qa-cloud added to rclone.conf as qa-ext outside the interface, after the profile store exists; then USE THIS CONNECTION on QA-EXT",
+   "expected_state": "from build 16: the hub, CHECK CLOUD SETUP and MANAGE CLOUD CONNECTIONS read CLOUD CONNECTIONS CHANGED, QA-EXT reads NOT CHECKED YET, and USE THIS CONNECTION checks it and adds it (IN USE)",
+   "source": {
+    "es": "c8bf10703 (local m7/rc-round-es-20261125; route m7-20261126-29256fe7fb07)",
+    "distribution": "fc3e489f8a0b8064e72a3b879837c87fbc3f5930 (local build/m7-rc-round-20261125, build 16)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T224411Z.gfc3e489f8a0b-from-ROCKNIX",
+    "walk": "docs/qa-logs/2026-11-26-1111-1115-campaign/phase-d/phase-d.sh"
+   },
+   "locale": "en",
+   "width": 640,
+   "height": 480,
+   "frame": "build16-640x480/en/s31/01-cloud-hub.png",
+   "sha256": "cb362460bdc0e02b164962c68843a5ca7596b661d3f5e1297e31b267c3eb6e3a",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "CLOUD CONNECTIONS CHANGED on the hub, the setup check and MANAGE CLOUD CONNECTIONS; QA-EXT reads WEBDAV - NOT CHECKED YET; USE THIS CONNECTION ends with QA-EXT IN USE and the hub's notice gone (#1489)",
+    "date": "2026-11-26"
+   }
+  },
+  {
+   "flow_id": "cloud-folders-and-connections",
+   "branch_id": "build16/640x480/en/s31/02-hub-changed",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud",
+   "criteria": [
+    "1489 c1",
+    "1489 c2"
+   ],
+   "trigger": "a working copy of qa-cloud added to rclone.conf as qa-ext outside the interface, after the profile store exists; then USE THIS CONNECTION on QA-EXT",
+   "expected_state": "from build 16: the hub, CHECK CLOUD SETUP and MANAGE CLOUD CONNECTIONS read CLOUD CONNECTIONS CHANGED, QA-EXT reads NOT CHECKED YET, and USE THIS CONNECTION checks it and adds it (IN USE)",
+   "source": {
+    "es": "c8bf10703 (local m7/rc-round-es-20261125; route m7-20261126-29256fe7fb07)",
+    "distribution": "fc3e489f8a0b8064e72a3b879837c87fbc3f5930 (local build/m7-rc-round-20261125, build 16)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T224411Z.gfc3e489f8a0b-from-ROCKNIX",
+    "walk": "docs/qa-logs/2026-11-26-1111-1115-campaign/phase-d/phase-d.sh"
+   },
+   "locale": "en",
+   "width": 640,
+   "height": 480,
+   "frame": "build16-640x480/en/s31/02-hub-changed.png",
+   "sha256": "4b124a5c898ca21b59c65913a69ee94964dbabec33efc4e1544584e87e56af41",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "CLOUD CONNECTIONS CHANGED on the hub, the setup check and MANAGE CLOUD CONNECTIONS; QA-EXT reads WEBDAV - NOT CHECKED YET; USE THIS CONNECTION ends with QA-EXT IN USE and the hub's notice gone (#1489)",
+    "date": "2026-11-26"
+   }
+  },
+  {
+   "flow_id": "cloud-folders-and-connections",
+   "branch_id": "build16/640x480/en/s31/03-setup-check-changed",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud",
+   "criteria": [
+    "1489 c1",
+    "1489 c2"
+   ],
+   "trigger": "a working copy of qa-cloud added to rclone.conf as qa-ext outside the interface, after the profile store exists; then USE THIS CONNECTION on QA-EXT",
+   "expected_state": "from build 16: the hub, CHECK CLOUD SETUP and MANAGE CLOUD CONNECTIONS read CLOUD CONNECTIONS CHANGED, QA-EXT reads NOT CHECKED YET, and USE THIS CONNECTION checks it and adds it (IN USE)",
+   "source": {
+    "es": "c8bf10703 (local m7/rc-round-es-20261125; route m7-20261126-29256fe7fb07)",
+    "distribution": "fc3e489f8a0b8064e72a3b879837c87fbc3f5930 (local build/m7-rc-round-20261125, build 16)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T224411Z.gfc3e489f8a0b-from-ROCKNIX",
+    "walk": "docs/qa-logs/2026-11-26-1111-1115-campaign/phase-d/phase-d.sh"
+   },
+   "locale": "en",
+   "width": 640,
+   "height": 480,
+   "frame": "build16-640x480/en/s31/03-setup-check-changed.png",
+   "sha256": "e22ad55db0899e85137269d26e33a19712db9d8821f948c80b6321a945ca06ed",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "CLOUD CONNECTIONS CHANGED on the hub, the setup check and MANAGE CLOUD CONNECTIONS; QA-EXT reads WEBDAV - NOT CHECKED YET; USE THIS CONNECTION ends with QA-EXT IN USE and the hub's notice gone (#1489)",
+    "date": "2026-11-26"
+   }
+  },
+  {
+   "flow_id": "cloud-folders-and-connections",
+   "branch_id": "build16/640x480/en/s31/04-connections-changed",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud",
+   "criteria": [
+    "1489 c1",
+    "1489 c2"
+   ],
+   "trigger": "a working copy of qa-cloud added to rclone.conf as qa-ext outside the interface, after the profile store exists; then USE THIS CONNECTION on QA-EXT",
+   "expected_state": "from build 16: the hub, CHECK CLOUD SETUP and MANAGE CLOUD CONNECTIONS read CLOUD CONNECTIONS CHANGED, QA-EXT reads NOT CHECKED YET, and USE THIS CONNECTION checks it and adds it (IN USE)",
+   "source": {
+    "es": "c8bf10703 (local m7/rc-round-es-20261125; route m7-20261126-29256fe7fb07)",
+    "distribution": "fc3e489f8a0b8064e72a3b879837c87fbc3f5930 (local build/m7-rc-round-20261125, build 16)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T224411Z.gfc3e489f8a0b-from-ROCKNIX",
+    "walk": "docs/qa-logs/2026-11-26-1111-1115-campaign/phase-d/phase-d.sh"
+   },
+   "locale": "en",
+   "width": 640,
+   "height": 480,
+   "frame": "build16-640x480/en/s31/04-connections-changed.png",
+   "sha256": "7cd4a987053912fceda01851448e4d4e6e88d7cf78e49d1239547ed2f02ca779",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "CLOUD CONNECTIONS CHANGED on the hub, the setup check and MANAGE CLOUD CONNECTIONS; QA-EXT reads WEBDAV - NOT CHECKED YET; USE THIS CONNECTION ends with QA-EXT IN USE and the hub's notice gone (#1489)",
+    "date": "2026-11-26"
+   }
+  },
+  {
+   "flow_id": "cloud-folders-and-connections",
+   "branch_id": "build16/640x480/en/s31/05-ext-focused",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud",
+   "criteria": [
+    "1489 c1",
+    "1489 c2"
+   ],
+   "trigger": "a working copy of qa-cloud added to rclone.conf as qa-ext outside the interface, after the profile store exists; then USE THIS CONNECTION on QA-EXT",
+   "expected_state": "from build 16: the hub, CHECK CLOUD SETUP and MANAGE CLOUD CONNECTIONS read CLOUD CONNECTIONS CHANGED, QA-EXT reads NOT CHECKED YET, and USE THIS CONNECTION checks it and adds it (IN USE)",
+   "source": {
+    "es": "c8bf10703 (local m7/rc-round-es-20261125; route m7-20261126-29256fe7fb07)",
+    "distribution": "fc3e489f8a0b8064e72a3b879837c87fbc3f5930 (local build/m7-rc-round-20261125, build 16)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T224411Z.gfc3e489f8a0b-from-ROCKNIX",
+    "walk": "docs/qa-logs/2026-11-26-1111-1115-campaign/phase-d/phase-d.sh"
+   },
+   "locale": "en",
+   "width": 640,
+   "height": 480,
+   "frame": "build16-640x480/en/s31/05-ext-focused.png",
+   "sha256": "3cbef00c8870fed01744eb1061b519bd1cbbae9c9d28132d01485b3918ddbf73",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "CLOUD CONNECTIONS CHANGED on the hub, the setup check and MANAGE CLOUD CONNECTIONS; QA-EXT reads WEBDAV - NOT CHECKED YET; USE THIS CONNECTION ends with QA-EXT IN USE and the hub's notice gone (#1489)",
+    "date": "2026-11-26"
+   }
+  },
+  {
+   "flow_id": "cloud-folders-and-connections",
+   "branch_id": "build16/640x480/en/s31/06-ext-page",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud",
+   "criteria": [
+    "1489 c1",
+    "1489 c2"
+   ],
+   "trigger": "a working copy of qa-cloud added to rclone.conf as qa-ext outside the interface, after the profile store exists; then USE THIS CONNECTION on QA-EXT",
+   "expected_state": "from build 16: the hub, CHECK CLOUD SETUP and MANAGE CLOUD CONNECTIONS read CLOUD CONNECTIONS CHANGED, QA-EXT reads NOT CHECKED YET, and USE THIS CONNECTION checks it and adds it (IN USE)",
+   "source": {
+    "es": "c8bf10703 (local m7/rc-round-es-20261125; route m7-20261126-29256fe7fb07)",
+    "distribution": "fc3e489f8a0b8064e72a3b879837c87fbc3f5930 (local build/m7-rc-round-20261125, build 16)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T224411Z.gfc3e489f8a0b-from-ROCKNIX",
+    "walk": "docs/qa-logs/2026-11-26-1111-1115-campaign/phase-d/phase-d.sh"
+   },
+   "locale": "en",
+   "width": 640,
+   "height": 480,
+   "frame": "build16-640x480/en/s31/06-ext-page.png",
+   "sha256": "502aa862b5444838c2105f4a6d214977597e79968264fb903951bac304e469d5",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "CLOUD CONNECTIONS CHANGED on the hub, the setup check and MANAGE CLOUD CONNECTIONS; QA-EXT reads WEBDAV - NOT CHECKED YET; USE THIS CONNECTION ends with QA-EXT IN USE and the hub's notice gone (#1489)",
+    "date": "2026-11-26"
+   }
+  },
+  {
+   "flow_id": "cloud-folders-and-connections",
+   "branch_id": "build16/640x480/en/s31/07-use-row",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud",
+   "criteria": [
+    "1489 c1",
+    "1489 c2"
+   ],
+   "trigger": "a working copy of qa-cloud added to rclone.conf as qa-ext outside the interface, after the profile store exists; then USE THIS CONNECTION on QA-EXT",
+   "expected_state": "from build 16: the hub, CHECK CLOUD SETUP and MANAGE CLOUD CONNECTIONS read CLOUD CONNECTIONS CHANGED, QA-EXT reads NOT CHECKED YET, and USE THIS CONNECTION checks it and adds it (IN USE)",
+   "source": {
+    "es": "c8bf10703 (local m7/rc-round-es-20261125; route m7-20261126-29256fe7fb07)",
+    "distribution": "fc3e489f8a0b8064e72a3b879837c87fbc3f5930 (local build/m7-rc-round-20261125, build 16)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T224411Z.gfc3e489f8a0b-from-ROCKNIX",
+    "walk": "docs/qa-logs/2026-11-26-1111-1115-campaign/phase-d/phase-d.sh"
+   },
+   "locale": "en",
+   "width": 640,
+   "height": 480,
+   "frame": "build16-640x480/en/s31/07-use-row.png",
+   "sha256": "7f85c33f22e862fe8f51282797a495f14dbe334bddb9a964f10686e8aa290423",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "CLOUD CONNECTIONS CHANGED on the hub, the setup check and MANAGE CLOUD CONNECTIONS; QA-EXT reads WEBDAV - NOT CHECKED YET; USE THIS CONNECTION ends with QA-EXT IN USE and the hub's notice gone (#1489)",
+    "date": "2026-11-26"
+   }
+  },
+  {
+   "flow_id": "cloud-folders-and-connections",
+   "branch_id": "build16/640x480/en/s31/08-use-confirm",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud",
+   "criteria": [
+    "1489 c1",
+    "1489 c2"
+   ],
+   "trigger": "a working copy of qa-cloud added to rclone.conf as qa-ext outside the interface, after the profile store exists; then USE THIS CONNECTION on QA-EXT",
+   "expected_state": "from build 16: the hub, CHECK CLOUD SETUP and MANAGE CLOUD CONNECTIONS read CLOUD CONNECTIONS CHANGED, QA-EXT reads NOT CHECKED YET, and USE THIS CONNECTION checks it and adds it (IN USE)",
+   "source": {
+    "es": "c8bf10703 (local m7/rc-round-es-20261125; route m7-20261126-29256fe7fb07)",
+    "distribution": "fc3e489f8a0b8064e72a3b879837c87fbc3f5930 (local build/m7-rc-round-20261125, build 16)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T224411Z.gfc3e489f8a0b-from-ROCKNIX",
+    "walk": "docs/qa-logs/2026-11-26-1111-1115-campaign/phase-d/phase-d.sh"
+   },
+   "locale": "en",
+   "width": 640,
+   "height": 480,
+   "frame": "build16-640x480/en/s31/08-use-confirm.png",
+   "sha256": "f391effcaf6d071b12b58b3388e14fe4ed2e49572441dacc36d1e718b917403b",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "CLOUD CONNECTIONS CHANGED on the hub, the setup check and MANAGE CLOUD CONNECTIONS; QA-EXT reads WEBDAV - NOT CHECKED YET; USE THIS CONNECTION ends with QA-EXT IN USE and the hub's notice gone (#1489)",
+    "date": "2026-11-26"
+   }
+  },
+  {
+   "flow_id": "cloud-folders-and-connections",
+   "branch_id": "build16/640x480/en/s31/09-after-use",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud",
+   "criteria": [
+    "1489 c1",
+    "1489 c2"
+   ],
+   "trigger": "a working copy of qa-cloud added to rclone.conf as qa-ext outside the interface, after the profile store exists; then USE THIS CONNECTION on QA-EXT",
+   "expected_state": "from build 16: the hub, CHECK CLOUD SETUP and MANAGE CLOUD CONNECTIONS read CLOUD CONNECTIONS CHANGED, QA-EXT reads NOT CHECKED YET, and USE THIS CONNECTION checks it and adds it (IN USE)",
+   "source": {
+    "es": "c8bf10703 (local m7/rc-round-es-20261125; route m7-20261126-29256fe7fb07)",
+    "distribution": "fc3e489f8a0b8064e72a3b879837c87fbc3f5930 (local build/m7-rc-round-20261125, build 16)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T224411Z.gfc3e489f8a0b-from-ROCKNIX",
+    "walk": "docs/qa-logs/2026-11-26-1111-1115-campaign/phase-d/phase-d.sh"
+   },
+   "locale": "en",
+   "width": 640,
+   "height": 480,
+   "frame": "build16-640x480/en/s31/09-after-use.png",
+   "sha256": "f7b127b19560ad1780696a543efe43828a792e850aa795f77b525a64da2bcb8c",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "CLOUD CONNECTIONS CHANGED on the hub, the setup check and MANAGE CLOUD CONNECTIONS; QA-EXT reads WEBDAV - NOT CHECKED YET; USE THIS CONNECTION ends with QA-EXT IN USE and the hub's notice gone (#1489)",
+    "date": "2026-11-26"
+   }
+  },
+  {
+   "flow_id": "cloud-folders-and-connections",
+   "branch_id": "build16/640x480/en/s31/10-hub-after",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud",
+   "criteria": [
+    "1489 c1",
+    "1489 c2"
+   ],
+   "trigger": "a working copy of qa-cloud added to rclone.conf as qa-ext outside the interface, after the profile store exists; then USE THIS CONNECTION on QA-EXT",
+   "expected_state": "from build 16: the hub, CHECK CLOUD SETUP and MANAGE CLOUD CONNECTIONS read CLOUD CONNECTIONS CHANGED, QA-EXT reads NOT CHECKED YET, and USE THIS CONNECTION checks it and adds it (IN USE)",
+   "source": {
+    "es": "c8bf10703 (local m7/rc-round-es-20261125; route m7-20261126-29256fe7fb07)",
+    "distribution": "fc3e489f8a0b8064e72a3b879837c87fbc3f5930 (local build/m7-rc-round-20261125, build 16)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T224411Z.gfc3e489f8a0b-from-ROCKNIX",
+    "walk": "docs/qa-logs/2026-11-26-1111-1115-campaign/phase-d/phase-d.sh"
+   },
+   "locale": "en",
+   "width": 640,
+   "height": 480,
+   "frame": "build16-640x480/en/s31/10-hub-after.png",
+   "sha256": "4cadb1e760fb516d2599aad1cdeb80058a6de4aebaa39bd5d9966daf37858494",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "CLOUD CONNECTIONS CHANGED on the hub, the setup check and MANAGE CLOUD CONNECTIONS; QA-EXT reads WEBDAV - NOT CHECKED YET; USE THIS CONNECTION ends with QA-EXT IN USE and the hub's notice gone (#1489)",
+    "date": "2026-11-26"
+   }
+  },
+  {
+   "flow_id": "cloud-folders-and-connections",
+   "branch_id": "build16/640x480/fr/s24/01-cloud-hub",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud",
+   "criteria": [
+    "1483 c3"
+   ],
+   "trigger": "LINK FROM THIS DEVICE, WEBDAV, then back on the provider form",
+   "expected_state": "where the add-a-connection wizard lands on back, unchanged by #1483",
+   "source": {
+    "es": "c8bf10703 (local m7/rc-round-es-20261125; route m7-20261126-29256fe7fb07)",
+    "distribution": "fc3e489f8a0b8064e72a3b879837c87fbc3f5930 (local build/m7-rc-round-20261125, build 16)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T224411Z.gfc3e489f8a0b-from-ROCKNIX",
+    "walk": "docs/qa-logs/2026-11-26-1111-1115-campaign/phase-d/phase-d.sh"
+   },
+   "locale": "fr",
+   "width": 640,
+   "height": 480,
+   "frame": "build16-640x480/fr/s24/01-cloud-hub.png",
+   "sha256": "6720f9bb3a014af5cd480c42dcefbf4fd36c3cf00019528c77f47eb003061a94",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "the chooser and back on the WebDAV form; PARTAGE WINDOWS (SMB) and AMAZON S3 ET COMPATIBLES on the chooser (#1490)",
+    "date": "2026-11-26"
+   }
+  },
+  {
+   "flow_id": "cloud-folders-and-connections",
+   "branch_id": "build16/640x480/fr/s24/02-link-row",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud",
+   "criteria": [
+    "1483 c3"
+   ],
+   "trigger": "LINK FROM THIS DEVICE, WEBDAV, then back on the provider form",
+   "expected_state": "where the add-a-connection wizard lands on back, unchanged by #1483",
+   "source": {
+    "es": "c8bf10703 (local m7/rc-round-es-20261125; route m7-20261126-29256fe7fb07)",
+    "distribution": "fc3e489f8a0b8064e72a3b879837c87fbc3f5930 (local build/m7-rc-round-20261125, build 16)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T224411Z.gfc3e489f8a0b-from-ROCKNIX",
+    "walk": "docs/qa-logs/2026-11-26-1111-1115-campaign/phase-d/phase-d.sh"
+   },
+   "locale": "fr",
+   "width": 640,
+   "height": 480,
+   "frame": "build16-640x480/fr/s24/02-link-row.png",
+   "sha256": "ac35cce2c6da86687261a1bbb699f73b19a7a7bb63d2aa0d3d6e886ab9eb115c",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "the chooser and back on the WebDAV form; PARTAGE WINDOWS (SMB) and AMAZON S3 ET COMPATIBLES on the chooser (#1490)",
+    "date": "2026-11-26"
+   }
+  },
+  {
+   "flow_id": "cloud-folders-and-connections",
+   "branch_id": "build16/640x480/fr/s24/03-providers",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud",
+   "criteria": [
+    "1483 c3"
+   ],
+   "trigger": "LINK FROM THIS DEVICE, WEBDAV, then back on the provider form",
+   "expected_state": "where the add-a-connection wizard lands on back, unchanged by #1483",
+   "source": {
+    "es": "c8bf10703 (local m7/rc-round-es-20261125; route m7-20261126-29256fe7fb07)",
+    "distribution": "fc3e489f8a0b8064e72a3b879837c87fbc3f5930 (local build/m7-rc-round-20261125, build 16)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T224411Z.gfc3e489f8a0b-from-ROCKNIX",
+    "walk": "docs/qa-logs/2026-11-26-1111-1115-campaign/phase-d/phase-d.sh"
+   },
+   "locale": "fr",
+   "width": 640,
+   "height": 480,
+   "frame": "build16-640x480/fr/s24/03-providers.png",
+   "sha256": "94d7fa944e5e11f92906a619c485b43b27a775b03d4bc5ca8fae6624ebd352e8",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "the chooser and back on the WebDAV form; PARTAGE WINDOWS (SMB) and AMAZON S3 ET COMPATIBLES on the chooser (#1490)",
+    "date": "2026-11-26"
+   }
+  },
+  {
+   "flow_id": "cloud-folders-and-connections",
+   "branch_id": "build16/640x480/fr/s24/04-webdav-row",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud",
+   "criteria": [
+    "1483 c3"
+   ],
+   "trigger": "LINK FROM THIS DEVICE, WEBDAV, then back on the provider form",
+   "expected_state": "where the add-a-connection wizard lands on back, unchanged by #1483",
+   "source": {
+    "es": "c8bf10703 (local m7/rc-round-es-20261125; route m7-20261126-29256fe7fb07)",
+    "distribution": "fc3e489f8a0b8064e72a3b879837c87fbc3f5930 (local build/m7-rc-round-20261125, build 16)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T224411Z.gfc3e489f8a0b-from-ROCKNIX",
+    "walk": "docs/qa-logs/2026-11-26-1111-1115-campaign/phase-d/phase-d.sh"
+   },
+   "locale": "fr",
+   "width": 640,
+   "height": 480,
+   "frame": "build16-640x480/fr/s24/04-webdav-row.png",
+   "sha256": "1af6f4be526bc334941160cc8f212cc3cf715b83cbe3cebe0dcbdeae86e59efa",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "the chooser and back on the WebDAV form; PARTAGE WINDOWS (SMB) and AMAZON S3 ET COMPATIBLES on the chooser (#1490)",
+    "date": "2026-11-26"
+   }
+  },
+  {
+   "flow_id": "cloud-folders-and-connections",
+   "branch_id": "build16/640x480/fr/s24/05-webdav-form",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud",
+   "criteria": [
+    "1483 c3"
+   ],
+   "trigger": "LINK FROM THIS DEVICE, WEBDAV, then back on the provider form",
+   "expected_state": "where the add-a-connection wizard lands on back, unchanged by #1483",
+   "source": {
+    "es": "c8bf10703 (local m7/rc-round-es-20261125; route m7-20261126-29256fe7fb07)",
+    "distribution": "fc3e489f8a0b8064e72a3b879837c87fbc3f5930 (local build/m7-rc-round-20261125, build 16)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T224411Z.gfc3e489f8a0b-from-ROCKNIX",
+    "walk": "docs/qa-logs/2026-11-26-1111-1115-campaign/phase-d/phase-d.sh"
+   },
+   "locale": "fr",
+   "width": 640,
+   "height": 480,
+   "frame": "build16-640x480/fr/s24/05-webdav-form.png",
+   "sha256": "1e84a01a4254116169c9c1d6cf8dc77c6b7a89885bad37abab8b1a8d20890a47",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "the chooser and back on the WebDAV form; PARTAGE WINDOWS (SMB) and AMAZON S3 ET COMPATIBLES on the chooser (#1490)",
+    "date": "2026-11-26"
+   }
+  },
+  {
+   "flow_id": "cloud-folders-and-connections",
+   "branch_id": "build16/640x480/fr/s24/06-after-back",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud",
+   "criteria": [
+    "1483 c3"
+   ],
+   "trigger": "LINK FROM THIS DEVICE, WEBDAV, then back on the provider form",
+   "expected_state": "where the add-a-connection wizard lands on back, unchanged by #1483",
+   "source": {
+    "es": "c8bf10703 (local m7/rc-round-es-20261125; route m7-20261126-29256fe7fb07)",
+    "distribution": "fc3e489f8a0b8064e72a3b879837c87fbc3f5930 (local build/m7-rc-round-20261125, build 16)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T224411Z.gfc3e489f8a0b-from-ROCKNIX",
+    "walk": "docs/qa-logs/2026-11-26-1111-1115-campaign/phase-d/phase-d.sh"
+   },
+   "locale": "fr",
+   "width": 640,
+   "height": 480,
+   "frame": "build16-640x480/fr/s24/06-after-back.png",
+   "sha256": "1af6f4be526bc334941160cc8f212cc3cf715b83cbe3cebe0dcbdeae86e59efa",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "the chooser and back on the WebDAV form; PARTAGE WINDOWS (SMB) and AMAZON S3 ET COMPATIBLES on the chooser (#1490)",
+    "date": "2026-11-26"
+   }
+  },
+  {
+   "flow_id": "cloud-folders-and-connections",
+   "branch_id": "build16/640x480/fr/s30/01-cloud-hub",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud",
+   "criteria": [
+    "1485 c1"
+   ],
+   "trigger": "LINK FROM THIS DEVICE, AMAZON S3 AND COMPATIBLE, its first service, the form and its lower half; nothing submitted",
+   "expected_state": "from build 15 the mapped row labels read in French in French (#1485); in English as before",
+   "source": {
+    "es": "c8bf10703 (local m7/rc-round-es-20261125; route m7-20261126-29256fe7fb07)",
+    "distribution": "fc3e489f8a0b8064e72a3b879837c87fbc3f5930 (local build/m7-rc-round-20261125, build 16)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T224411Z.gfc3e489f8a0b-from-ROCKNIX",
+    "walk": "docs/qa-logs/2026-11-26-1111-1115-campaign/phase-d/phase-d.sh"
+   },
+   "locale": "fr",
+   "width": 640,
+   "height": 480,
+   "frame": "build16-640x480/fr/s30/01-cloud-hub.png",
+   "sha256": "6720f9bb3a014af5cd480c42dcefbf4fd36c3cf00019528c77f47eb003061a94",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "the chooser and the S3 form: PARTAGE WINDOWS (SMB) and AMAZON S3 ET COMPATIBLES on the chooser and the S3 subtitle (#1490); brand names unchanged",
+    "date": "2026-11-26"
+   }
+  },
+  {
+   "flow_id": "cloud-folders-and-connections",
+   "branch_id": "build16/640x480/fr/s30/02-providers",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud",
+   "criteria": [
+    "1485 c1"
+   ],
+   "trigger": "LINK FROM THIS DEVICE, AMAZON S3 AND COMPATIBLE, its first service, the form and its lower half; nothing submitted",
+   "expected_state": "from build 15 the mapped row labels read in French in French (#1485); in English as before",
+   "source": {
+    "es": "c8bf10703 (local m7/rc-round-es-20261125; route m7-20261126-29256fe7fb07)",
+    "distribution": "fc3e489f8a0b8064e72a3b879837c87fbc3f5930 (local build/m7-rc-round-20261125, build 16)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T224411Z.gfc3e489f8a0b-from-ROCKNIX",
+    "walk": "docs/qa-logs/2026-11-26-1111-1115-campaign/phase-d/phase-d.sh"
+   },
+   "locale": "fr",
+   "width": 640,
+   "height": 480,
+   "frame": "build16-640x480/fr/s30/02-providers.png",
+   "sha256": "94d7fa944e5e11f92906a619c485b43b27a775b03d4bc5ca8fae6624ebd352e8",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "the chooser and the S3 form: PARTAGE WINDOWS (SMB) and AMAZON S3 ET COMPATIBLES on the chooser and the S3 subtitle (#1490); brand names unchanged",
+    "date": "2026-11-26"
+   }
+  },
+  {
+   "flow_id": "cloud-folders-and-connections",
+   "branch_id": "build16/640x480/fr/s30/03-s3-row",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud",
+   "criteria": [
+    "1485 c1"
+   ],
+   "trigger": "LINK FROM THIS DEVICE, AMAZON S3 AND COMPATIBLE, its first service, the form and its lower half; nothing submitted",
+   "expected_state": "from build 15 the mapped row labels read in French in French (#1485); in English as before",
+   "source": {
+    "es": "c8bf10703 (local m7/rc-round-es-20261125; route m7-20261126-29256fe7fb07)",
+    "distribution": "fc3e489f8a0b8064e72a3b879837c87fbc3f5930 (local build/m7-rc-round-20261125, build 16)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T224411Z.gfc3e489f8a0b-from-ROCKNIX",
+    "walk": "docs/qa-logs/2026-11-26-1111-1115-campaign/phase-d/phase-d.sh"
+   },
+   "locale": "fr",
+   "width": 640,
+   "height": 480,
+   "frame": "build16-640x480/fr/s30/03-s3-row.png",
+   "sha256": "11dfac0907d3df31f4594f9f8da1b602d4b8dc9cdfef67f2521f245c95d2608d",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "the chooser and the S3 form: PARTAGE WINDOWS (SMB) and AMAZON S3 ET COMPATIBLES on the chooser and the S3 subtitle (#1490); brand names unchanged",
+    "date": "2026-11-26"
+   }
+  },
+  {
+   "flow_id": "cloud-folders-and-connections",
+   "branch_id": "build16/640x480/fr/s30/04-s3-services",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud",
+   "criteria": [
+    "1485 c1"
+   ],
+   "trigger": "LINK FROM THIS DEVICE, AMAZON S3 AND COMPATIBLE, its first service, the form and its lower half; nothing submitted",
+   "expected_state": "from build 15 the mapped row labels read in French in French (#1485); in English as before",
+   "source": {
+    "es": "c8bf10703 (local m7/rc-round-es-20261125; route m7-20261126-29256fe7fb07)",
+    "distribution": "fc3e489f8a0b8064e72a3b879837c87fbc3f5930 (local build/m7-rc-round-20261125, build 16)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T224411Z.gfc3e489f8a0b-from-ROCKNIX",
+    "walk": "docs/qa-logs/2026-11-26-1111-1115-campaign/phase-d/phase-d.sh"
+   },
+   "locale": "fr",
+   "width": 640,
+   "height": 480,
+   "frame": "build16-640x480/fr/s30/04-s3-services.png",
+   "sha256": "db6b64ee81e51ef20a16638b0a463f974c506db0086b01ae277b79c83f0b7b65",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "the chooser and the S3 form: PARTAGE WINDOWS (SMB) and AMAZON S3 ET COMPATIBLES on the chooser and the S3 subtitle (#1490); brand names unchanged",
+    "date": "2026-11-26"
+   }
+  },
+  {
+   "flow_id": "cloud-folders-and-connections",
+   "branch_id": "build16/640x480/fr/s30/05-s3-form",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud",
+   "criteria": [
+    "1485 c1"
+   ],
+   "trigger": "LINK FROM THIS DEVICE, AMAZON S3 AND COMPATIBLE, its first service, the form and its lower half; nothing submitted",
+   "expected_state": "from build 15 the mapped row labels read in French in French (#1485); in English as before",
+   "source": {
+    "es": "c8bf10703 (local m7/rc-round-es-20261125; route m7-20261126-29256fe7fb07)",
+    "distribution": "fc3e489f8a0b8064e72a3b879837c87fbc3f5930 (local build/m7-rc-round-20261125, build 16)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T224411Z.gfc3e489f8a0b-from-ROCKNIX",
+    "walk": "docs/qa-logs/2026-11-26-1111-1115-campaign/phase-d/phase-d.sh"
+   },
+   "locale": "fr",
+   "width": 640,
+   "height": 480,
+   "frame": "build16-640x480/fr/s30/05-s3-form.png",
+   "sha256": "89fc1d6e99a6293a96e34254349d69f47fb8e34ba0bdc724b18ff70936158667",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "the chooser and the S3 form: PARTAGE WINDOWS (SMB) and AMAZON S3 ET COMPATIBLES on the chooser and the S3 subtitle (#1490); brand names unchanged",
+    "date": "2026-11-26"
+   }
+  },
+  {
+   "flow_id": "cloud-folders-and-connections",
+   "branch_id": "build16/640x480/fr/s30/06-s3-form-lower",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud",
+   "criteria": [
+    "1485 c1"
+   ],
+   "trigger": "LINK FROM THIS DEVICE, AMAZON S3 AND COMPATIBLE, its first service, the form and its lower half; nothing submitted",
+   "expected_state": "from build 15 the mapped row labels read in French in French (#1485); in English as before",
+   "source": {
+    "es": "c8bf10703 (local m7/rc-round-es-20261125; route m7-20261126-29256fe7fb07)",
+    "distribution": "fc3e489f8a0b8064e72a3b879837c87fbc3f5930 (local build/m7-rc-round-20261125, build 16)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T224411Z.gfc3e489f8a0b-from-ROCKNIX",
+    "walk": "docs/qa-logs/2026-11-26-1111-1115-campaign/phase-d/phase-d.sh"
+   },
+   "locale": "fr",
+   "width": 640,
+   "height": 480,
+   "frame": "build16-640x480/fr/s30/06-s3-form-lower.png",
+   "sha256": "23799867b45f3a78af5c987bdb9333a4bf4f229473d1f3863f02c475bc44ba4a",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "the chooser and the S3 form: PARTAGE WINDOWS (SMB) and AMAZON S3 ET COMPATIBLES on the chooser and the S3 subtitle (#1490); brand names unchanged",
+    "date": "2026-11-26"
+   }
+  },
+  {
+   "flow_id": "cloud-folders-and-connections",
+   "branch_id": "build16/640x480/fr/s30/07-after-back",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud",
+   "criteria": [
+    "1485 c1"
+   ],
+   "trigger": "LINK FROM THIS DEVICE, AMAZON S3 AND COMPATIBLE, its first service, the form and its lower half; nothing submitted",
+   "expected_state": "from build 15 the mapped row labels read in French in French (#1485); in English as before",
+   "source": {
+    "es": "c8bf10703 (local m7/rc-round-es-20261125; route m7-20261126-29256fe7fb07)",
+    "distribution": "fc3e489f8a0b8064e72a3b879837c87fbc3f5930 (local build/m7-rc-round-20261125, build 16)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T224411Z.gfc3e489f8a0b-from-ROCKNIX",
+    "walk": "docs/qa-logs/2026-11-26-1111-1115-campaign/phase-d/phase-d.sh"
+   },
+   "locale": "fr",
+   "width": 640,
+   "height": 480,
+   "frame": "build16-640x480/fr/s30/07-after-back.png",
+   "sha256": "db6b64ee81e51ef20a16638b0a463f974c506db0086b01ae277b79c83f0b7b65",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "the chooser and the S3 form: PARTAGE WINDOWS (SMB) and AMAZON S3 ET COMPATIBLES on the chooser and the S3 subtitle (#1490); brand names unchanged",
+    "date": "2026-11-26"
+   }
+  },
+  {
+   "flow_id": "cloud-folders-and-connections",
+   "branch_id": "build16/640x480/fr/s31/01-cloud-hub",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud",
+   "criteria": [
+    "1489 c1",
+    "1489 c2"
+   ],
+   "trigger": "a working copy of qa-cloud added to rclone.conf as qa-ext outside the interface, after the profile store exists; then USE THIS CONNECTION on QA-EXT",
+   "expected_state": "from build 16: the hub, CHECK CLOUD SETUP and MANAGE CLOUD CONNECTIONS read CLOUD CONNECTIONS CHANGED, QA-EXT reads NOT CHECKED YET, and USE THIS CONNECTION checks it and adds it (IN USE)",
+   "source": {
+    "es": "c8bf10703 (local m7/rc-round-es-20261125; route m7-20261126-29256fe7fb07)",
+    "distribution": "fc3e489f8a0b8064e72a3b879837c87fbc3f5930 (local build/m7-rc-round-20261125, build 16)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T224411Z.gfc3e489f8a0b-from-ROCKNIX",
+    "walk": "docs/qa-logs/2026-11-26-1111-1115-campaign/phase-d/phase-d.sh"
+   },
+   "locale": "fr",
+   "width": 640,
+   "height": 480,
+   "frame": "build16-640x480/fr/s31/01-cloud-hub.png",
+   "sha256": "fcc6ccfc1db75c84bdc778e23fb15c7c9741a77533197f83e65e77c30f90f8a6",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "CONNEXIONS AU CLOUD MODIFI\u00c9ES on the three surfaces; QA-EXT PAS ENCORE V\u00c9RIFI\u00c9E; after UTILISER LA CONNEXION, QA-EXT UTILIS\u00c9 (#1489). The connections page's line wraps to two lines in French (#1493)",
+    "date": "2026-11-26"
+   }
+  },
+  {
+   "flow_id": "cloud-folders-and-connections",
+   "branch_id": "build16/640x480/fr/s31/02-hub-changed",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud",
+   "criteria": [
+    "1489 c1",
+    "1489 c2"
+   ],
+   "trigger": "a working copy of qa-cloud added to rclone.conf as qa-ext outside the interface, after the profile store exists; then USE THIS CONNECTION on QA-EXT",
+   "expected_state": "from build 16: the hub, CHECK CLOUD SETUP and MANAGE CLOUD CONNECTIONS read CLOUD CONNECTIONS CHANGED, QA-EXT reads NOT CHECKED YET, and USE THIS CONNECTION checks it and adds it (IN USE)",
+   "source": {
+    "es": "c8bf10703 (local m7/rc-round-es-20261125; route m7-20261126-29256fe7fb07)",
+    "distribution": "fc3e489f8a0b8064e72a3b879837c87fbc3f5930 (local build/m7-rc-round-20261125, build 16)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T224411Z.gfc3e489f8a0b-from-ROCKNIX",
+    "walk": "docs/qa-logs/2026-11-26-1111-1115-campaign/phase-d/phase-d.sh"
+   },
+   "locale": "fr",
+   "width": 640,
+   "height": 480,
+   "frame": "build16-640x480/fr/s31/02-hub-changed.png",
+   "sha256": "dcea89f2ba607c180c701bd3d9da5b29c5c6fb2f32be01314e1c31cd72033fa3",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "CONNEXIONS AU CLOUD MODIFI\u00c9ES on the three surfaces; QA-EXT PAS ENCORE V\u00c9RIFI\u00c9E; after UTILISER LA CONNEXION, QA-EXT UTILIS\u00c9 (#1489). The connections page's line wraps to two lines in French (#1493)",
+    "date": "2026-11-26"
+   }
+  },
+  {
+   "flow_id": "cloud-folders-and-connections",
+   "branch_id": "build16/640x480/fr/s31/03-setup-check-changed",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud",
+   "criteria": [
+    "1489 c1",
+    "1489 c2"
+   ],
+   "trigger": "a working copy of qa-cloud added to rclone.conf as qa-ext outside the interface, after the profile store exists; then USE THIS CONNECTION on QA-EXT",
+   "expected_state": "from build 16: the hub, CHECK CLOUD SETUP and MANAGE CLOUD CONNECTIONS read CLOUD CONNECTIONS CHANGED, QA-EXT reads NOT CHECKED YET, and USE THIS CONNECTION checks it and adds it (IN USE)",
+   "source": {
+    "es": "c8bf10703 (local m7/rc-round-es-20261125; route m7-20261126-29256fe7fb07)",
+    "distribution": "fc3e489f8a0b8064e72a3b879837c87fbc3f5930 (local build/m7-rc-round-20261125, build 16)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T224411Z.gfc3e489f8a0b-from-ROCKNIX",
+    "walk": "docs/qa-logs/2026-11-26-1111-1115-campaign/phase-d/phase-d.sh"
+   },
+   "locale": "fr",
+   "width": 640,
+   "height": 480,
+   "frame": "build16-640x480/fr/s31/03-setup-check-changed.png",
+   "sha256": "77a8181b519fdd66f080dde3bdbb9e73a88c276f97188859f10fde8f3152f784",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "CONNEXIONS AU CLOUD MODIFI\u00c9ES on the three surfaces; QA-EXT PAS ENCORE V\u00c9RIFI\u00c9E; after UTILISER LA CONNEXION, QA-EXT UTILIS\u00c9 (#1489). The connections page's line wraps to two lines in French (#1493)",
+    "date": "2026-11-26"
+   }
+  },
+  {
+   "flow_id": "cloud-folders-and-connections",
+   "branch_id": "build16/640x480/fr/s31/04-connections-changed",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud",
+   "criteria": [
+    "1489 c1",
+    "1489 c2"
+   ],
+   "trigger": "a working copy of qa-cloud added to rclone.conf as qa-ext outside the interface, after the profile store exists; then USE THIS CONNECTION on QA-EXT",
+   "expected_state": "from build 16: the hub, CHECK CLOUD SETUP and MANAGE CLOUD CONNECTIONS read CLOUD CONNECTIONS CHANGED, QA-EXT reads NOT CHECKED YET, and USE THIS CONNECTION checks it and adds it (IN USE)",
+   "source": {
+    "es": "c8bf10703 (local m7/rc-round-es-20261125; route m7-20261126-29256fe7fb07)",
+    "distribution": "fc3e489f8a0b8064e72a3b879837c87fbc3f5930 (local build/m7-rc-round-20261125, build 16)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T224411Z.gfc3e489f8a0b-from-ROCKNIX",
+    "walk": "docs/qa-logs/2026-11-26-1111-1115-campaign/phase-d/phase-d.sh"
+   },
+   "locale": "fr",
+   "width": 640,
+   "height": 480,
+   "frame": "build16-640x480/fr/s31/04-connections-changed.png",
+   "sha256": "3f61908b968b4a7cd49c828fcaf0ea07ed6f8df04a662801efb09a2a6b417741",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "CONNEXIONS AU CLOUD MODIFI\u00c9ES on the three surfaces; QA-EXT PAS ENCORE V\u00c9RIFI\u00c9E; after UTILISER LA CONNEXION, QA-EXT UTILIS\u00c9 (#1489). The connections page's line wraps to two lines in French (#1493)",
+    "date": "2026-11-26"
+   }
+  },
+  {
+   "flow_id": "cloud-folders-and-connections",
+   "branch_id": "build16/640x480/fr/s31/05-ext-focused",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud",
+   "criteria": [
+    "1489 c1",
+    "1489 c2"
+   ],
+   "trigger": "a working copy of qa-cloud added to rclone.conf as qa-ext outside the interface, after the profile store exists; then USE THIS CONNECTION on QA-EXT",
+   "expected_state": "from build 16: the hub, CHECK CLOUD SETUP and MANAGE CLOUD CONNECTIONS read CLOUD CONNECTIONS CHANGED, QA-EXT reads NOT CHECKED YET, and USE THIS CONNECTION checks it and adds it (IN USE)",
+   "source": {
+    "es": "c8bf10703 (local m7/rc-round-es-20261125; route m7-20261126-29256fe7fb07)",
+    "distribution": "fc3e489f8a0b8064e72a3b879837c87fbc3f5930 (local build/m7-rc-round-20261125, build 16)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T224411Z.gfc3e489f8a0b-from-ROCKNIX",
+    "walk": "docs/qa-logs/2026-11-26-1111-1115-campaign/phase-d/phase-d.sh"
+   },
+   "locale": "fr",
+   "width": 640,
+   "height": 480,
+   "frame": "build16-640x480/fr/s31/05-ext-focused.png",
+   "sha256": "7aa451e187c69f1e8aaaa3e7d695fe6b3d966074b871304eeebdc02a6161e7fb",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "CONNEXIONS AU CLOUD MODIFI\u00c9ES on the three surfaces; QA-EXT PAS ENCORE V\u00c9RIFI\u00c9E; after UTILISER LA CONNEXION, QA-EXT UTILIS\u00c9 (#1489). The connections page's line wraps to two lines in French (#1493)",
+    "date": "2026-11-26"
+   }
+  },
+  {
+   "flow_id": "cloud-folders-and-connections",
+   "branch_id": "build16/640x480/fr/s31/06-ext-page",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud",
+   "criteria": [
+    "1489 c1",
+    "1489 c2"
+   ],
+   "trigger": "a working copy of qa-cloud added to rclone.conf as qa-ext outside the interface, after the profile store exists; then USE THIS CONNECTION on QA-EXT",
+   "expected_state": "from build 16: the hub, CHECK CLOUD SETUP and MANAGE CLOUD CONNECTIONS read CLOUD CONNECTIONS CHANGED, QA-EXT reads NOT CHECKED YET, and USE THIS CONNECTION checks it and adds it (IN USE)",
+   "source": {
+    "es": "c8bf10703 (local m7/rc-round-es-20261125; route m7-20261126-29256fe7fb07)",
+    "distribution": "fc3e489f8a0b8064e72a3b879837c87fbc3f5930 (local build/m7-rc-round-20261125, build 16)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T224411Z.gfc3e489f8a0b-from-ROCKNIX",
+    "walk": "docs/qa-logs/2026-11-26-1111-1115-campaign/phase-d/phase-d.sh"
+   },
+   "locale": "fr",
+   "width": 640,
+   "height": 480,
+   "frame": "build16-640x480/fr/s31/06-ext-page.png",
+   "sha256": "b35d3b0d81b5decd8260882e1989db633d170d336097aa3cea102f23cb1a640e",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "CONNEXIONS AU CLOUD MODIFI\u00c9ES on the three surfaces; QA-EXT PAS ENCORE V\u00c9RIFI\u00c9E; after UTILISER LA CONNEXION, QA-EXT UTILIS\u00c9 (#1489). The connections page's line wraps to two lines in French (#1493)",
+    "date": "2026-11-26"
+   }
+  },
+  {
+   "flow_id": "cloud-folders-and-connections",
+   "branch_id": "build16/640x480/fr/s31/07-use-row",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud",
+   "criteria": [
+    "1489 c1",
+    "1489 c2"
+   ],
+   "trigger": "a working copy of qa-cloud added to rclone.conf as qa-ext outside the interface, after the profile store exists; then USE THIS CONNECTION on QA-EXT",
+   "expected_state": "from build 16: the hub, CHECK CLOUD SETUP and MANAGE CLOUD CONNECTIONS read CLOUD CONNECTIONS CHANGED, QA-EXT reads NOT CHECKED YET, and USE THIS CONNECTION checks it and adds it (IN USE)",
+   "source": {
+    "es": "c8bf10703 (local m7/rc-round-es-20261125; route m7-20261126-29256fe7fb07)",
+    "distribution": "fc3e489f8a0b8064e72a3b879837c87fbc3f5930 (local build/m7-rc-round-20261125, build 16)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T224411Z.gfc3e489f8a0b-from-ROCKNIX",
+    "walk": "docs/qa-logs/2026-11-26-1111-1115-campaign/phase-d/phase-d.sh"
+   },
+   "locale": "fr",
+   "width": 640,
+   "height": 480,
+   "frame": "build16-640x480/fr/s31/07-use-row.png",
+   "sha256": "4bfba728581a63dc78e6dd12c196e3011059ea846c77f81e7f873665ebd3d5c9",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "CONNEXIONS AU CLOUD MODIFI\u00c9ES on the three surfaces; QA-EXT PAS ENCORE V\u00c9RIFI\u00c9E; after UTILISER LA CONNEXION, QA-EXT UTILIS\u00c9 (#1489). The connections page's line wraps to two lines in French (#1493)",
+    "date": "2026-11-26"
+   }
+  },
+  {
+   "flow_id": "cloud-folders-and-connections",
+   "branch_id": "build16/640x480/fr/s31/08-use-confirm",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud",
+   "criteria": [
+    "1489 c1",
+    "1489 c2"
+   ],
+   "trigger": "a working copy of qa-cloud added to rclone.conf as qa-ext outside the interface, after the profile store exists; then USE THIS CONNECTION on QA-EXT",
+   "expected_state": "from build 16: the hub, CHECK CLOUD SETUP and MANAGE CLOUD CONNECTIONS read CLOUD CONNECTIONS CHANGED, QA-EXT reads NOT CHECKED YET, and USE THIS CONNECTION checks it and adds it (IN USE)",
+   "source": {
+    "es": "c8bf10703 (local m7/rc-round-es-20261125; route m7-20261126-29256fe7fb07)",
+    "distribution": "fc3e489f8a0b8064e72a3b879837c87fbc3f5930 (local build/m7-rc-round-20261125, build 16)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T224411Z.gfc3e489f8a0b-from-ROCKNIX",
+    "walk": "docs/qa-logs/2026-11-26-1111-1115-campaign/phase-d/phase-d.sh"
+   },
+   "locale": "fr",
+   "width": 640,
+   "height": 480,
+   "frame": "build16-640x480/fr/s31/08-use-confirm.png",
+   "sha256": "6127c9c074894a5cb6c1d7593e75740d5f9c80c765674cff4c9a2e34057737fd",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "CONNEXIONS AU CLOUD MODIFI\u00c9ES on the three surfaces; QA-EXT PAS ENCORE V\u00c9RIFI\u00c9E; after UTILISER LA CONNEXION, QA-EXT UTILIS\u00c9 (#1489). The connections page's line wraps to two lines in French (#1493)",
+    "date": "2026-11-26"
+   }
+  },
+  {
+   "flow_id": "cloud-folders-and-connections",
+   "branch_id": "build16/640x480/fr/s31/09-after-use",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud",
+   "criteria": [
+    "1489 c1",
+    "1489 c2"
+   ],
+   "trigger": "a working copy of qa-cloud added to rclone.conf as qa-ext outside the interface, after the profile store exists; then USE THIS CONNECTION on QA-EXT",
+   "expected_state": "from build 16: the hub, CHECK CLOUD SETUP and MANAGE CLOUD CONNECTIONS read CLOUD CONNECTIONS CHANGED, QA-EXT reads NOT CHECKED YET, and USE THIS CONNECTION checks it and adds it (IN USE)",
+   "source": {
+    "es": "c8bf10703 (local m7/rc-round-es-20261125; route m7-20261126-29256fe7fb07)",
+    "distribution": "fc3e489f8a0b8064e72a3b879837c87fbc3f5930 (local build/m7-rc-round-20261125, build 16)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T224411Z.gfc3e489f8a0b-from-ROCKNIX",
+    "walk": "docs/qa-logs/2026-11-26-1111-1115-campaign/phase-d/phase-d.sh"
+   },
+   "locale": "fr",
+   "width": 640,
+   "height": 480,
+   "frame": "build16-640x480/fr/s31/09-after-use.png",
+   "sha256": "170b466207276bee249fe350bf681187dca9bfbb2b96401ad76bd453bc9b94a9",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "CONNEXIONS AU CLOUD MODIFI\u00c9ES on the three surfaces; QA-EXT PAS ENCORE V\u00c9RIFI\u00c9E; after UTILISER LA CONNEXION, QA-EXT UTILIS\u00c9 (#1489). The connections page's line wraps to two lines in French (#1493)",
+    "date": "2026-11-26"
+   }
+  },
+  {
+   "flow_id": "cloud-folders-and-connections",
+   "branch_id": "build16/640x480/fr/s31/10-hub-after",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud",
+   "criteria": [
+    "1489 c1",
+    "1489 c2"
+   ],
+   "trigger": "a working copy of qa-cloud added to rclone.conf as qa-ext outside the interface, after the profile store exists; then USE THIS CONNECTION on QA-EXT",
+   "expected_state": "from build 16: the hub, CHECK CLOUD SETUP and MANAGE CLOUD CONNECTIONS read CLOUD CONNECTIONS CHANGED, QA-EXT reads NOT CHECKED YET, and USE THIS CONNECTION checks it and adds it (IN USE)",
+   "source": {
+    "es": "c8bf10703 (local m7/rc-round-es-20261125; route m7-20261126-29256fe7fb07)",
+    "distribution": "fc3e489f8a0b8064e72a3b879837c87fbc3f5930 (local build/m7-rc-round-20261125, build 16)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T224411Z.gfc3e489f8a0b-from-ROCKNIX",
+    "walk": "docs/qa-logs/2026-11-26-1111-1115-campaign/phase-d/phase-d.sh"
+   },
+   "locale": "fr",
+   "width": 640,
+   "height": 480,
+   "frame": "build16-640x480/fr/s31/10-hub-after.png",
+   "sha256": "2bafabb50d6f537a271df07520c1584a763e06b2351ab74311559a5b8a0d9d40",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "CONNEXIONS AU CLOUD MODIFI\u00c9ES on the three surfaces; QA-EXT PAS ENCORE V\u00c9RIFI\u00c9E; after UTILISER LA CONNEXION, QA-EXT UTILIS\u00c9 (#1489). The connections page's line wraps to two lines in French (#1493)",
+    "date": "2026-11-26"
+   }
+  },
+  {
+   "flow_id": "cloud-folders-and-connections",
+   "branch_id": "build16/640x480-r2/en/s20/01-cloud-hub",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud",
+   "criteria": [
+    "1111 C11"
+   ],
+   "trigger": "a line before rclone.conf's first section (an unreadable setup)",
+   "expected_state": "each page says the setup could not be read rather than no selection or a connection failure",
+   "source": {
+    "es": "c8bf10703 (local m7/rc-round-es-20261125; route m7-20261126-29256fe7fb07)",
+    "distribution": "fc3e489f8a0b8064e72a3b879837c87fbc3f5930 (local build/m7-rc-round-20261125, build 16)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T224411Z.gfc3e489f8a0b-from-ROCKNIX",
+    "walk": "docs/qa-logs/2026-11-26-1111-1115-campaign/phase-d/phase-d.sh"
+   },
+   "locale": "en",
+   "width": 640,
+   "height": 480,
+   "frame": "build16-640x480-r2/en/s20/01-cloud-hub.png",
+   "sha256": "25322d30d34a6e5f155c5c508471a51b84baa49f4f16e6ba24094927251aae94",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "a malformed rclone.conf still reads SETUP COULD NOT BE READ / CONNECTIONS UNAVAILABLE on the hub, the setup check, the connections page and CLOUD FOLDERS (#1489 c3)",
+    "date": "2026-11-26"
+   }
+  },
+  {
+   "flow_id": "cloud-folders-and-connections",
+   "branch_id": "build16/640x480-r2/en/s20/02-hub-unreadable",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud",
+   "criteria": [
+    "1111 C11"
+   ],
+   "trigger": "a line before rclone.conf's first section (an unreadable setup)",
+   "expected_state": "each page says the setup could not be read rather than no selection or a connection failure",
+   "source": {
+    "es": "c8bf10703 (local m7/rc-round-es-20261125; route m7-20261126-29256fe7fb07)",
+    "distribution": "fc3e489f8a0b8064e72a3b879837c87fbc3f5930 (local build/m7-rc-round-20261125, build 16)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T224411Z.gfc3e489f8a0b-from-ROCKNIX",
+    "walk": "docs/qa-logs/2026-11-26-1111-1115-campaign/phase-d/phase-d.sh"
+   },
+   "locale": "en",
+   "width": 640,
+   "height": 480,
+   "frame": "build16-640x480-r2/en/s20/02-hub-unreadable.png",
+   "sha256": "86299a2bfdf1b6fbc6643478fdb1c0b62e65098034ad3c543df65487e7b3fb6b",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "a malformed rclone.conf still reads SETUP COULD NOT BE READ / CONNECTIONS UNAVAILABLE on the hub, the setup check, the connections page and CLOUD FOLDERS (#1489 c3)",
+    "date": "2026-11-26"
+   }
+  },
+  {
+   "flow_id": "cloud-folders-and-connections",
+   "branch_id": "build16/640x480-r2/en/s20/03-setup-check-unreadable",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud",
+   "criteria": [
+    "1111 C11"
+   ],
+   "trigger": "a line before rclone.conf's first section (an unreadable setup)",
+   "expected_state": "each page says the setup could not be read rather than no selection or a connection failure",
+   "source": {
+    "es": "c8bf10703 (local m7/rc-round-es-20261125; route m7-20261126-29256fe7fb07)",
+    "distribution": "fc3e489f8a0b8064e72a3b879837c87fbc3f5930 (local build/m7-rc-round-20261125, build 16)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T224411Z.gfc3e489f8a0b-from-ROCKNIX",
+    "walk": "docs/qa-logs/2026-11-26-1111-1115-campaign/phase-d/phase-d.sh"
+   },
+   "locale": "en",
+   "width": 640,
+   "height": 480,
+   "frame": "build16-640x480-r2/en/s20/03-setup-check-unreadable.png",
+   "sha256": "5bfc470a24571204b34cfef7c7642f906f73bfaf09d63ae3284d21c40059267b",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "a malformed rclone.conf still reads SETUP COULD NOT BE READ / CONNECTIONS UNAVAILABLE on the hub, the setup check, the connections page and CLOUD FOLDERS (#1489 c3)",
+    "date": "2026-11-26"
+   }
+  },
+  {
+   "flow_id": "cloud-folders-and-connections",
+   "branch_id": "build16/640x480-r2/en/s20/04-connections-unreadable",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud",
+   "criteria": [
+    "1111 C11"
+   ],
+   "trigger": "a line before rclone.conf's first section (an unreadable setup)",
+   "expected_state": "each page says the setup could not be read rather than no selection or a connection failure",
+   "source": {
+    "es": "c8bf10703 (local m7/rc-round-es-20261125; route m7-20261126-29256fe7fb07)",
+    "distribution": "fc3e489f8a0b8064e72a3b879837c87fbc3f5930 (local build/m7-rc-round-20261125, build 16)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T224411Z.gfc3e489f8a0b-from-ROCKNIX",
+    "walk": "docs/qa-logs/2026-11-26-1111-1115-campaign/phase-d/phase-d.sh"
+   },
+   "locale": "en",
+   "width": 640,
+   "height": 480,
+   "frame": "build16-640x480-r2/en/s20/04-connections-unreadable.png",
+   "sha256": "9fde9b3297d7bbacff23cf3ae4cb9b6e0106af55350ba9273f0c33cdef8d64c0",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "a malformed rclone.conf still reads SETUP COULD NOT BE READ / CONNECTIONS UNAVAILABLE on the hub, the setup check, the connections page and CLOUD FOLDERS (#1489 c3)",
+    "date": "2026-11-26"
+   }
+  },
+  {
+   "flow_id": "cloud-folders-and-connections",
+   "branch_id": "build16/640x480-r2/en/s20/05-folder-actions-unreadable",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud",
+   "criteria": [
+    "1111 C11"
+   ],
+   "trigger": "a line before rclone.conf's first section (an unreadable setup)",
+   "expected_state": "each page says the setup could not be read rather than no selection or a connection failure",
+   "source": {
+    "es": "c8bf10703 (local m7/rc-round-es-20261125; route m7-20261126-29256fe7fb07)",
+    "distribution": "fc3e489f8a0b8064e72a3b879837c87fbc3f5930 (local build/m7-rc-round-20261125, build 16)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T224411Z.gfc3e489f8a0b-from-ROCKNIX",
+    "walk": "docs/qa-logs/2026-11-26-1111-1115-campaign/phase-d/phase-d.sh"
+   },
+   "locale": "en",
+   "width": 640,
+   "height": 480,
+   "frame": "build16-640x480-r2/en/s20/05-folder-actions-unreadable.png",
+   "sha256": "0b748e16cca48fd61995c5f35c1cc578133059104209c66788cef0040cf4981b",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "a malformed rclone.conf still reads SETUP COULD NOT BE READ / CONNECTIONS UNAVAILABLE on the hub, the setup check, the connections page and CLOUD FOLDERS (#1489 c3)",
+    "date": "2026-11-26"
+   }
+  },
+  {
+   "flow_id": "cloud-folders-and-connections",
+   "branch_id": "build16/640x480-r2/en/s31/01-cloud-hub",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud",
+   "criteria": [
+    "1489 c1",
+    "1489 c2"
+   ],
+   "trigger": "a working copy of qa-cloud added to rclone.conf as qa-ext outside the interface, after the profile store exists; then USE THIS CONNECTION on QA-EXT",
+   "expected_state": "from build 16: the hub, CHECK CLOUD SETUP and MANAGE CLOUD CONNECTIONS read CLOUD CONNECTIONS CHANGED, QA-EXT reads NOT CHECKED YET, and USE THIS CONNECTION checks it and adds it (IN USE)",
+   "source": {
+    "es": "c8bf10703 (local m7/rc-round-es-20261125; route m7-20261126-29256fe7fb07)",
+    "distribution": "fc3e489f8a0b8064e72a3b879837c87fbc3f5930 (local build/m7-rc-round-20261125, build 16)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T224411Z.gfc3e489f8a0b-from-ROCKNIX",
+    "walk": "docs/qa-logs/2026-11-26-1111-1115-campaign/phase-d/phase-d.sh"
+   },
+   "locale": "en",
+   "width": 640,
+   "height": 480,
+   "frame": "build16-640x480-r2/en/s31/01-cloud-hub.png",
+   "sha256": "cb362460bdc0e02b164962c68843a5ca7596b661d3f5e1297e31b267c3eb6e3a",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "the same walk as build16/640x480; the arm log carries the store before and after USE: qa-ext added with the standard folders, qa-cloud's unchanged (#1489 c2)",
+    "date": "2026-11-26"
+   }
+  },
+  {
+   "flow_id": "cloud-folders-and-connections",
+   "branch_id": "build16/640x480-r2/en/s31/02-hub-changed",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud",
+   "criteria": [
+    "1489 c1",
+    "1489 c2"
+   ],
+   "trigger": "a working copy of qa-cloud added to rclone.conf as qa-ext outside the interface, after the profile store exists; then USE THIS CONNECTION on QA-EXT",
+   "expected_state": "from build 16: the hub, CHECK CLOUD SETUP and MANAGE CLOUD CONNECTIONS read CLOUD CONNECTIONS CHANGED, QA-EXT reads NOT CHECKED YET, and USE THIS CONNECTION checks it and adds it (IN USE)",
+   "source": {
+    "es": "c8bf10703 (local m7/rc-round-es-20261125; route m7-20261126-29256fe7fb07)",
+    "distribution": "fc3e489f8a0b8064e72a3b879837c87fbc3f5930 (local build/m7-rc-round-20261125, build 16)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T224411Z.gfc3e489f8a0b-from-ROCKNIX",
+    "walk": "docs/qa-logs/2026-11-26-1111-1115-campaign/phase-d/phase-d.sh"
+   },
+   "locale": "en",
+   "width": 640,
+   "height": 480,
+   "frame": "build16-640x480-r2/en/s31/02-hub-changed.png",
+   "sha256": "4b124a5c898ca21b59c65913a69ee94964dbabec33efc4e1544584e87e56af41",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "the same walk as build16/640x480; the arm log carries the store before and after USE: qa-ext added with the standard folders, qa-cloud's unchanged (#1489 c2)",
+    "date": "2026-11-26"
+   }
+  },
+  {
+   "flow_id": "cloud-folders-and-connections",
+   "branch_id": "build16/640x480-r2/en/s31/03-setup-check-changed",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud",
+   "criteria": [
+    "1489 c1",
+    "1489 c2"
+   ],
+   "trigger": "a working copy of qa-cloud added to rclone.conf as qa-ext outside the interface, after the profile store exists; then USE THIS CONNECTION on QA-EXT",
+   "expected_state": "from build 16: the hub, CHECK CLOUD SETUP and MANAGE CLOUD CONNECTIONS read CLOUD CONNECTIONS CHANGED, QA-EXT reads NOT CHECKED YET, and USE THIS CONNECTION checks it and adds it (IN USE)",
+   "source": {
+    "es": "c8bf10703 (local m7/rc-round-es-20261125; route m7-20261126-29256fe7fb07)",
+    "distribution": "fc3e489f8a0b8064e72a3b879837c87fbc3f5930 (local build/m7-rc-round-20261125, build 16)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T224411Z.gfc3e489f8a0b-from-ROCKNIX",
+    "walk": "docs/qa-logs/2026-11-26-1111-1115-campaign/phase-d/phase-d.sh"
+   },
+   "locale": "en",
+   "width": 640,
+   "height": 480,
+   "frame": "build16-640x480-r2/en/s31/03-setup-check-changed.png",
+   "sha256": "e22ad55db0899e85137269d26e33a19712db9d8821f948c80b6321a945ca06ed",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "the same walk as build16/640x480; the arm log carries the store before and after USE: qa-ext added with the standard folders, qa-cloud's unchanged (#1489 c2)",
+    "date": "2026-11-26"
+   }
+  },
+  {
+   "flow_id": "cloud-folders-and-connections",
+   "branch_id": "build16/640x480-r2/en/s31/04-connections-changed",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud",
+   "criteria": [
+    "1489 c1",
+    "1489 c2"
+   ],
+   "trigger": "a working copy of qa-cloud added to rclone.conf as qa-ext outside the interface, after the profile store exists; then USE THIS CONNECTION on QA-EXT",
+   "expected_state": "from build 16: the hub, CHECK CLOUD SETUP and MANAGE CLOUD CONNECTIONS read CLOUD CONNECTIONS CHANGED, QA-EXT reads NOT CHECKED YET, and USE THIS CONNECTION checks it and adds it (IN USE)",
+   "source": {
+    "es": "c8bf10703 (local m7/rc-round-es-20261125; route m7-20261126-29256fe7fb07)",
+    "distribution": "fc3e489f8a0b8064e72a3b879837c87fbc3f5930 (local build/m7-rc-round-20261125, build 16)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T224411Z.gfc3e489f8a0b-from-ROCKNIX",
+    "walk": "docs/qa-logs/2026-11-26-1111-1115-campaign/phase-d/phase-d.sh"
+   },
+   "locale": "en",
+   "width": 640,
+   "height": 480,
+   "frame": "build16-640x480-r2/en/s31/04-connections-changed.png",
+   "sha256": "7cd4a987053912fceda01851448e4d4e6e88d7cf78e49d1239547ed2f02ca779",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "the same walk as build16/640x480; the arm log carries the store before and after USE: qa-ext added with the standard folders, qa-cloud's unchanged (#1489 c2)",
+    "date": "2026-11-26"
+   }
+  },
+  {
+   "flow_id": "cloud-folders-and-connections",
+   "branch_id": "build16/640x480-r2/en/s31/05-ext-focused",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud",
+   "criteria": [
+    "1489 c1",
+    "1489 c2"
+   ],
+   "trigger": "a working copy of qa-cloud added to rclone.conf as qa-ext outside the interface, after the profile store exists; then USE THIS CONNECTION on QA-EXT",
+   "expected_state": "from build 16: the hub, CHECK CLOUD SETUP and MANAGE CLOUD CONNECTIONS read CLOUD CONNECTIONS CHANGED, QA-EXT reads NOT CHECKED YET, and USE THIS CONNECTION checks it and adds it (IN USE)",
+   "source": {
+    "es": "c8bf10703 (local m7/rc-round-es-20261125; route m7-20261126-29256fe7fb07)",
+    "distribution": "fc3e489f8a0b8064e72a3b879837c87fbc3f5930 (local build/m7-rc-round-20261125, build 16)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T224411Z.gfc3e489f8a0b-from-ROCKNIX",
+    "walk": "docs/qa-logs/2026-11-26-1111-1115-campaign/phase-d/phase-d.sh"
+   },
+   "locale": "en",
+   "width": 640,
+   "height": 480,
+   "frame": "build16-640x480-r2/en/s31/05-ext-focused.png",
+   "sha256": "3cbef00c8870fed01744eb1061b519bd1cbbae9c9d28132d01485b3918ddbf73",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "the same walk as build16/640x480; the arm log carries the store before and after USE: qa-ext added with the standard folders, qa-cloud's unchanged (#1489 c2)",
+    "date": "2026-11-26"
+   }
+  },
+  {
+   "flow_id": "cloud-folders-and-connections",
+   "branch_id": "build16/640x480-r2/en/s31/06-ext-page",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud",
+   "criteria": [
+    "1489 c1",
+    "1489 c2"
+   ],
+   "trigger": "a working copy of qa-cloud added to rclone.conf as qa-ext outside the interface, after the profile store exists; then USE THIS CONNECTION on QA-EXT",
+   "expected_state": "from build 16: the hub, CHECK CLOUD SETUP and MANAGE CLOUD CONNECTIONS read CLOUD CONNECTIONS CHANGED, QA-EXT reads NOT CHECKED YET, and USE THIS CONNECTION checks it and adds it (IN USE)",
+   "source": {
+    "es": "c8bf10703 (local m7/rc-round-es-20261125; route m7-20261126-29256fe7fb07)",
+    "distribution": "fc3e489f8a0b8064e72a3b879837c87fbc3f5930 (local build/m7-rc-round-20261125, build 16)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T224411Z.gfc3e489f8a0b-from-ROCKNIX",
+    "walk": "docs/qa-logs/2026-11-26-1111-1115-campaign/phase-d/phase-d.sh"
+   },
+   "locale": "en",
+   "width": 640,
+   "height": 480,
+   "frame": "build16-640x480-r2/en/s31/06-ext-page.png",
+   "sha256": "502aa862b5444838c2105f4a6d214977597e79968264fb903951bac304e469d5",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "the same walk as build16/640x480; the arm log carries the store before and after USE: qa-ext added with the standard folders, qa-cloud's unchanged (#1489 c2)",
+    "date": "2026-11-26"
+   }
+  },
+  {
+   "flow_id": "cloud-folders-and-connections",
+   "branch_id": "build16/640x480-r2/en/s31/07-use-row",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud",
+   "criteria": [
+    "1489 c1",
+    "1489 c2"
+   ],
+   "trigger": "a working copy of qa-cloud added to rclone.conf as qa-ext outside the interface, after the profile store exists; then USE THIS CONNECTION on QA-EXT",
+   "expected_state": "from build 16: the hub, CHECK CLOUD SETUP and MANAGE CLOUD CONNECTIONS read CLOUD CONNECTIONS CHANGED, QA-EXT reads NOT CHECKED YET, and USE THIS CONNECTION checks it and adds it (IN USE)",
+   "source": {
+    "es": "c8bf10703 (local m7/rc-round-es-20261125; route m7-20261126-29256fe7fb07)",
+    "distribution": "fc3e489f8a0b8064e72a3b879837c87fbc3f5930 (local build/m7-rc-round-20261125, build 16)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T224411Z.gfc3e489f8a0b-from-ROCKNIX",
+    "walk": "docs/qa-logs/2026-11-26-1111-1115-campaign/phase-d/phase-d.sh"
+   },
+   "locale": "en",
+   "width": 640,
+   "height": 480,
+   "frame": "build16-640x480-r2/en/s31/07-use-row.png",
+   "sha256": "7f85c33f22e862fe8f51282797a495f14dbe334bddb9a964f10686e8aa290423",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "the same walk as build16/640x480; the arm log carries the store before and after USE: qa-ext added with the standard folders, qa-cloud's unchanged (#1489 c2)",
+    "date": "2026-11-26"
+   }
+  },
+  {
+   "flow_id": "cloud-folders-and-connections",
+   "branch_id": "build16/640x480-r2/en/s31/08-use-confirm",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud",
+   "criteria": [
+    "1489 c1",
+    "1489 c2"
+   ],
+   "trigger": "a working copy of qa-cloud added to rclone.conf as qa-ext outside the interface, after the profile store exists; then USE THIS CONNECTION on QA-EXT",
+   "expected_state": "from build 16: the hub, CHECK CLOUD SETUP and MANAGE CLOUD CONNECTIONS read CLOUD CONNECTIONS CHANGED, QA-EXT reads NOT CHECKED YET, and USE THIS CONNECTION checks it and adds it (IN USE)",
+   "source": {
+    "es": "c8bf10703 (local m7/rc-round-es-20261125; route m7-20261126-29256fe7fb07)",
+    "distribution": "fc3e489f8a0b8064e72a3b879837c87fbc3f5930 (local build/m7-rc-round-20261125, build 16)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T224411Z.gfc3e489f8a0b-from-ROCKNIX",
+    "walk": "docs/qa-logs/2026-11-26-1111-1115-campaign/phase-d/phase-d.sh"
+   },
+   "locale": "en",
+   "width": 640,
+   "height": 480,
+   "frame": "build16-640x480-r2/en/s31/08-use-confirm.png",
+   "sha256": "f391effcaf6d071b12b58b3388e14fe4ed2e49572441dacc36d1e718b917403b",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "the same walk as build16/640x480; the arm log carries the store before and after USE: qa-ext added with the standard folders, qa-cloud's unchanged (#1489 c2)",
+    "date": "2026-11-26"
+   }
+  },
+  {
+   "flow_id": "cloud-folders-and-connections",
+   "branch_id": "build16/640x480-r2/en/s31/09-after-use",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud",
+   "criteria": [
+    "1489 c1",
+    "1489 c2"
+   ],
+   "trigger": "a working copy of qa-cloud added to rclone.conf as qa-ext outside the interface, after the profile store exists; then USE THIS CONNECTION on QA-EXT",
+   "expected_state": "from build 16: the hub, CHECK CLOUD SETUP and MANAGE CLOUD CONNECTIONS read CLOUD CONNECTIONS CHANGED, QA-EXT reads NOT CHECKED YET, and USE THIS CONNECTION checks it and adds it (IN USE)",
+   "source": {
+    "es": "c8bf10703 (local m7/rc-round-es-20261125; route m7-20261126-29256fe7fb07)",
+    "distribution": "fc3e489f8a0b8064e72a3b879837c87fbc3f5930 (local build/m7-rc-round-20261125, build 16)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T224411Z.gfc3e489f8a0b-from-ROCKNIX",
+    "walk": "docs/qa-logs/2026-11-26-1111-1115-campaign/phase-d/phase-d.sh"
+   },
+   "locale": "en",
+   "width": 640,
+   "height": 480,
+   "frame": "build16-640x480-r2/en/s31/09-after-use.png",
+   "sha256": "f7b127b19560ad1780696a543efe43828a792e850aa795f77b525a64da2bcb8c",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "the same walk as build16/640x480; the arm log carries the store before and after USE: qa-ext added with the standard folders, qa-cloud's unchanged (#1489 c2)",
+    "date": "2026-11-26"
+   }
+  },
+  {
+   "flow_id": "cloud-folders-and-connections",
+   "branch_id": "build16/640x480-r2/en/s31/10-hub-after",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud",
+   "criteria": [
+    "1489 c1",
+    "1489 c2"
+   ],
+   "trigger": "a working copy of qa-cloud added to rclone.conf as qa-ext outside the interface, after the profile store exists; then USE THIS CONNECTION on QA-EXT",
+   "expected_state": "from build 16: the hub, CHECK CLOUD SETUP and MANAGE CLOUD CONNECTIONS read CLOUD CONNECTIONS CHANGED, QA-EXT reads NOT CHECKED YET, and USE THIS CONNECTION checks it and adds it (IN USE)",
+   "source": {
+    "es": "c8bf10703 (local m7/rc-round-es-20261125; route m7-20261126-29256fe7fb07)",
+    "distribution": "fc3e489f8a0b8064e72a3b879837c87fbc3f5930 (local build/m7-rc-round-20261125, build 16)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T224411Z.gfc3e489f8a0b-from-ROCKNIX",
+    "walk": "docs/qa-logs/2026-11-26-1111-1115-campaign/phase-d/phase-d.sh"
+   },
+   "locale": "en",
+   "width": 640,
+   "height": 480,
+   "frame": "build16-640x480-r2/en/s31/10-hub-after.png",
+   "sha256": "4cadb1e760fb516d2599aad1cdeb80058a6de4aebaa39bd5d9966daf37858494",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "the same walk as build16/640x480; the arm log carries the store before and after USE: qa-ext added with the standard folders, qa-cloud's unchanged (#1489 c2)",
+    "date": "2026-11-26"
+   }
+  },
+  {
+   "flow_id": "cloud-folders-and-connections",
+   "branch_id": "build16/640x480-r2/fr/s20/01-cloud-hub",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud",
+   "criteria": [
+    "1111 C11"
+   ],
+   "trigger": "a line before rclone.conf's first section (an unreadable setup)",
+   "expected_state": "each page says the setup could not be read rather than no selection or a connection failure",
+   "source": {
+    "es": "c8bf10703 (local m7/rc-round-es-20261125; route m7-20261126-29256fe7fb07)",
+    "distribution": "fc3e489f8a0b8064e72a3b879837c87fbc3f5930 (local build/m7-rc-round-20261125, build 16)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T224411Z.gfc3e489f8a0b-from-ROCKNIX",
+    "walk": "docs/qa-logs/2026-11-26-1111-1115-campaign/phase-d/phase-d.sh"
+   },
+   "locale": "fr",
+   "width": 640,
+   "height": 480,
+   "frame": "build16-640x480-r2/fr/s20/01-cloud-hub.png",
+   "sha256": "473ea7f897c32ce864826049f5cc7fc22e16b7ca0c65e3770d9c7d9636224123",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "a malformed rclone.conf still reads R\u00c9GLAGES ILLISIBLES / CONNEXIONS INDISPONIBLES on the hub, the setup check, the connections page and CLOUD FOLDERS (#1489 c3)",
+    "date": "2026-11-26"
+   }
+  },
+  {
+   "flow_id": "cloud-folders-and-connections",
+   "branch_id": "build16/640x480-r2/fr/s20/02-hub-unreadable",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud",
+   "criteria": [
+    "1111 C11"
+   ],
+   "trigger": "a line before rclone.conf's first section (an unreadable setup)",
+   "expected_state": "each page says the setup could not be read rather than no selection or a connection failure",
+   "source": {
+    "es": "c8bf10703 (local m7/rc-round-es-20261125; route m7-20261126-29256fe7fb07)",
+    "distribution": "fc3e489f8a0b8064e72a3b879837c87fbc3f5930 (local build/m7-rc-round-20261125, build 16)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T224411Z.gfc3e489f8a0b-from-ROCKNIX",
+    "walk": "docs/qa-logs/2026-11-26-1111-1115-campaign/phase-d/phase-d.sh"
+   },
+   "locale": "fr",
+   "width": 640,
+   "height": 480,
+   "frame": "build16-640x480-r2/fr/s20/02-hub-unreadable.png",
+   "sha256": "9c5f07515cc7470bf2a00665db5afce4611a2171e5c73d4df9ee54c3af55467c",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "a malformed rclone.conf still reads R\u00c9GLAGES ILLISIBLES / CONNEXIONS INDISPONIBLES on the hub, the setup check, the connections page and CLOUD FOLDERS (#1489 c3)",
+    "date": "2026-11-26"
+   }
+  },
+  {
+   "flow_id": "cloud-folders-and-connections",
+   "branch_id": "build16/640x480-r2/fr/s20/03-setup-check-unreadable",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud",
+   "criteria": [
+    "1111 C11"
+   ],
+   "trigger": "a line before rclone.conf's first section (an unreadable setup)",
+   "expected_state": "each page says the setup could not be read rather than no selection or a connection failure",
+   "source": {
+    "es": "c8bf10703 (local m7/rc-round-es-20261125; route m7-20261126-29256fe7fb07)",
+    "distribution": "fc3e489f8a0b8064e72a3b879837c87fbc3f5930 (local build/m7-rc-round-20261125, build 16)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T224411Z.gfc3e489f8a0b-from-ROCKNIX",
+    "walk": "docs/qa-logs/2026-11-26-1111-1115-campaign/phase-d/phase-d.sh"
+   },
+   "locale": "fr",
+   "width": 640,
+   "height": 480,
+   "frame": "build16-640x480-r2/fr/s20/03-setup-check-unreadable.png",
+   "sha256": "9d3a6745754faf75e3e8dad32dc135213212b290519915ee0bb2627cb852be74",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "a malformed rclone.conf still reads R\u00c9GLAGES ILLISIBLES / CONNEXIONS INDISPONIBLES on the hub, the setup check, the connections page and CLOUD FOLDERS (#1489 c3)",
+    "date": "2026-11-26"
+   }
+  },
+  {
+   "flow_id": "cloud-folders-and-connections",
+   "branch_id": "build16/640x480-r2/fr/s20/04-connections-unreadable",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud",
+   "criteria": [
+    "1111 C11"
+   ],
+   "trigger": "a line before rclone.conf's first section (an unreadable setup)",
+   "expected_state": "each page says the setup could not be read rather than no selection or a connection failure",
+   "source": {
+    "es": "c8bf10703 (local m7/rc-round-es-20261125; route m7-20261126-29256fe7fb07)",
+    "distribution": "fc3e489f8a0b8064e72a3b879837c87fbc3f5930 (local build/m7-rc-round-20261125, build 16)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T224411Z.gfc3e489f8a0b-from-ROCKNIX",
+    "walk": "docs/qa-logs/2026-11-26-1111-1115-campaign/phase-d/phase-d.sh"
+   },
+   "locale": "fr",
+   "width": 640,
+   "height": 480,
+   "frame": "build16-640x480-r2/fr/s20/04-connections-unreadable.png",
+   "sha256": "ae8927f867a762a9faf47aa03d02241ab7dd6618ac0ab54f0526952c8ca7c633",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "a malformed rclone.conf still reads R\u00c9GLAGES ILLISIBLES / CONNEXIONS INDISPONIBLES on the hub, the setup check, the connections page and CLOUD FOLDERS (#1489 c3)",
+    "date": "2026-11-26"
+   }
+  },
+  {
+   "flow_id": "cloud-folders-and-connections",
+   "branch_id": "build16/640x480-r2/fr/s20/05-folder-actions-unreadable",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud",
+   "criteria": [
+    "1111 C11"
+   ],
+   "trigger": "a line before rclone.conf's first section (an unreadable setup)",
+   "expected_state": "each page says the setup could not be read rather than no selection or a connection failure",
+   "source": {
+    "es": "c8bf10703 (local m7/rc-round-es-20261125; route m7-20261126-29256fe7fb07)",
+    "distribution": "fc3e489f8a0b8064e72a3b879837c87fbc3f5930 (local build/m7-rc-round-20261125, build 16)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T224411Z.gfc3e489f8a0b-from-ROCKNIX",
+    "walk": "docs/qa-logs/2026-11-26-1111-1115-campaign/phase-d/phase-d.sh"
+   },
+   "locale": "fr",
+   "width": 640,
+   "height": 480,
+   "frame": "build16-640x480-r2/fr/s20/05-folder-actions-unreadable.png",
+   "sha256": "f45a1762cfd22d217f89a59576847364a8d05f4f98186fe261ca7007330122e5",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "a malformed rclone.conf still reads R\u00c9GLAGES ILLISIBLES / CONNEXIONS INDISPONIBLES on the hub, the setup check, the connections page and CLOUD FOLDERS (#1489 c3)",
+    "date": "2026-11-26"
+   }
+  },
+  {
+   "flow_id": "cloud-folders-and-connections",
+   "branch_id": "build16/640x480-r2/fr/s31/01-cloud-hub",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud",
+   "criteria": [
+    "1489 c1",
+    "1489 c2"
+   ],
+   "trigger": "a working copy of qa-cloud added to rclone.conf as qa-ext outside the interface, after the profile store exists; then USE THIS CONNECTION on QA-EXT",
+   "expected_state": "from build 16: the hub, CHECK CLOUD SETUP and MANAGE CLOUD CONNECTIONS read CLOUD CONNECTIONS CHANGED, QA-EXT reads NOT CHECKED YET, and USE THIS CONNECTION checks it and adds it (IN USE)",
+   "source": {
+    "es": "c8bf10703 (local m7/rc-round-es-20261125; route m7-20261126-29256fe7fb07)",
+    "distribution": "fc3e489f8a0b8064e72a3b879837c87fbc3f5930 (local build/m7-rc-round-20261125, build 16)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T224411Z.gfc3e489f8a0b-from-ROCKNIX",
+    "walk": "docs/qa-logs/2026-11-26-1111-1115-campaign/phase-d/phase-d.sh"
+   },
+   "locale": "fr",
+   "width": 640,
+   "height": 480,
+   "frame": "build16-640x480-r2/fr/s31/01-cloud-hub.png",
+   "sha256": "fcc6ccfc1db75c84bdc778e23fb15c7c9741a77533197f83e65e77c30f90f8a6",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "the same walk in French; the store before and after USE as in English (#1489 c2)",
+    "date": "2026-11-26"
+   }
+  },
+  {
+   "flow_id": "cloud-folders-and-connections",
+   "branch_id": "build16/640x480-r2/fr/s31/02-hub-changed",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud",
+   "criteria": [
+    "1489 c1",
+    "1489 c2"
+   ],
+   "trigger": "a working copy of qa-cloud added to rclone.conf as qa-ext outside the interface, after the profile store exists; then USE THIS CONNECTION on QA-EXT",
+   "expected_state": "from build 16: the hub, CHECK CLOUD SETUP and MANAGE CLOUD CONNECTIONS read CLOUD CONNECTIONS CHANGED, QA-EXT reads NOT CHECKED YET, and USE THIS CONNECTION checks it and adds it (IN USE)",
+   "source": {
+    "es": "c8bf10703 (local m7/rc-round-es-20261125; route m7-20261126-29256fe7fb07)",
+    "distribution": "fc3e489f8a0b8064e72a3b879837c87fbc3f5930 (local build/m7-rc-round-20261125, build 16)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T224411Z.gfc3e489f8a0b-from-ROCKNIX",
+    "walk": "docs/qa-logs/2026-11-26-1111-1115-campaign/phase-d/phase-d.sh"
+   },
+   "locale": "fr",
+   "width": 640,
+   "height": 480,
+   "frame": "build16-640x480-r2/fr/s31/02-hub-changed.png",
+   "sha256": "dcea89f2ba607c180c701bd3d9da5b29c5c6fb2f32be01314e1c31cd72033fa3",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "the same walk in French; the store before and after USE as in English (#1489 c2)",
+    "date": "2026-11-26"
+   }
+  },
+  {
+   "flow_id": "cloud-folders-and-connections",
+   "branch_id": "build16/640x480-r2/fr/s31/03-setup-check-changed",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud",
+   "criteria": [
+    "1489 c1",
+    "1489 c2"
+   ],
+   "trigger": "a working copy of qa-cloud added to rclone.conf as qa-ext outside the interface, after the profile store exists; then USE THIS CONNECTION on QA-EXT",
+   "expected_state": "from build 16: the hub, CHECK CLOUD SETUP and MANAGE CLOUD CONNECTIONS read CLOUD CONNECTIONS CHANGED, QA-EXT reads NOT CHECKED YET, and USE THIS CONNECTION checks it and adds it (IN USE)",
+   "source": {
+    "es": "c8bf10703 (local m7/rc-round-es-20261125; route m7-20261126-29256fe7fb07)",
+    "distribution": "fc3e489f8a0b8064e72a3b879837c87fbc3f5930 (local build/m7-rc-round-20261125, build 16)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T224411Z.gfc3e489f8a0b-from-ROCKNIX",
+    "walk": "docs/qa-logs/2026-11-26-1111-1115-campaign/phase-d/phase-d.sh"
+   },
+   "locale": "fr",
+   "width": 640,
+   "height": 480,
+   "frame": "build16-640x480-r2/fr/s31/03-setup-check-changed.png",
+   "sha256": "77a8181b519fdd66f080dde3bdbb9e73a88c276f97188859f10fde8f3152f784",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "the same walk in French; the store before and after USE as in English (#1489 c2)",
+    "date": "2026-11-26"
+   }
+  },
+  {
+   "flow_id": "cloud-folders-and-connections",
+   "branch_id": "build16/640x480-r2/fr/s31/04-connections-changed",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud",
+   "criteria": [
+    "1489 c1",
+    "1489 c2"
+   ],
+   "trigger": "a working copy of qa-cloud added to rclone.conf as qa-ext outside the interface, after the profile store exists; then USE THIS CONNECTION on QA-EXT",
+   "expected_state": "from build 16: the hub, CHECK CLOUD SETUP and MANAGE CLOUD CONNECTIONS read CLOUD CONNECTIONS CHANGED, QA-EXT reads NOT CHECKED YET, and USE THIS CONNECTION checks it and adds it (IN USE)",
+   "source": {
+    "es": "c8bf10703 (local m7/rc-round-es-20261125; route m7-20261126-29256fe7fb07)",
+    "distribution": "fc3e489f8a0b8064e72a3b879837c87fbc3f5930 (local build/m7-rc-round-20261125, build 16)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T224411Z.gfc3e489f8a0b-from-ROCKNIX",
+    "walk": "docs/qa-logs/2026-11-26-1111-1115-campaign/phase-d/phase-d.sh"
+   },
+   "locale": "fr",
+   "width": 640,
+   "height": 480,
+   "frame": "build16-640x480-r2/fr/s31/04-connections-changed.png",
+   "sha256": "3f61908b968b4a7cd49c828fcaf0ea07ed6f8df04a662801efb09a2a6b417741",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "the same walk in French; the store before and after USE as in English (#1489 c2)",
+    "date": "2026-11-26"
+   }
+  },
+  {
+   "flow_id": "cloud-folders-and-connections",
+   "branch_id": "build16/640x480-r2/fr/s31/05-ext-focused",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud",
+   "criteria": [
+    "1489 c1",
+    "1489 c2"
+   ],
+   "trigger": "a working copy of qa-cloud added to rclone.conf as qa-ext outside the interface, after the profile store exists; then USE THIS CONNECTION on QA-EXT",
+   "expected_state": "from build 16: the hub, CHECK CLOUD SETUP and MANAGE CLOUD CONNECTIONS read CLOUD CONNECTIONS CHANGED, QA-EXT reads NOT CHECKED YET, and USE THIS CONNECTION checks it and adds it (IN USE)",
+   "source": {
+    "es": "c8bf10703 (local m7/rc-round-es-20261125; route m7-20261126-29256fe7fb07)",
+    "distribution": "fc3e489f8a0b8064e72a3b879837c87fbc3f5930 (local build/m7-rc-round-20261125, build 16)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T224411Z.gfc3e489f8a0b-from-ROCKNIX",
+    "walk": "docs/qa-logs/2026-11-26-1111-1115-campaign/phase-d/phase-d.sh"
+   },
+   "locale": "fr",
+   "width": 640,
+   "height": 480,
+   "frame": "build16-640x480-r2/fr/s31/05-ext-focused.png",
+   "sha256": "7aa451e187c69f1e8aaaa3e7d695fe6b3d966074b871304eeebdc02a6161e7fb",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "the same walk in French; the store before and after USE as in English (#1489 c2)",
+    "date": "2026-11-26"
+   }
+  },
+  {
+   "flow_id": "cloud-folders-and-connections",
+   "branch_id": "build16/640x480-r2/fr/s31/06-ext-page",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud",
+   "criteria": [
+    "1489 c1",
+    "1489 c2"
+   ],
+   "trigger": "a working copy of qa-cloud added to rclone.conf as qa-ext outside the interface, after the profile store exists; then USE THIS CONNECTION on QA-EXT",
+   "expected_state": "from build 16: the hub, CHECK CLOUD SETUP and MANAGE CLOUD CONNECTIONS read CLOUD CONNECTIONS CHANGED, QA-EXT reads NOT CHECKED YET, and USE THIS CONNECTION checks it and adds it (IN USE)",
+   "source": {
+    "es": "c8bf10703 (local m7/rc-round-es-20261125; route m7-20261126-29256fe7fb07)",
+    "distribution": "fc3e489f8a0b8064e72a3b879837c87fbc3f5930 (local build/m7-rc-round-20261125, build 16)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T224411Z.gfc3e489f8a0b-from-ROCKNIX",
+    "walk": "docs/qa-logs/2026-11-26-1111-1115-campaign/phase-d/phase-d.sh"
+   },
+   "locale": "fr",
+   "width": 640,
+   "height": 480,
+   "frame": "build16-640x480-r2/fr/s31/06-ext-page.png",
+   "sha256": "b35d3b0d81b5decd8260882e1989db633d170d336097aa3cea102f23cb1a640e",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "the same walk in French; the store before and after USE as in English (#1489 c2)",
+    "date": "2026-11-26"
+   }
+  },
+  {
+   "flow_id": "cloud-folders-and-connections",
+   "branch_id": "build16/640x480-r2/fr/s31/07-use-row",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud",
+   "criteria": [
+    "1489 c1",
+    "1489 c2"
+   ],
+   "trigger": "a working copy of qa-cloud added to rclone.conf as qa-ext outside the interface, after the profile store exists; then USE THIS CONNECTION on QA-EXT",
+   "expected_state": "from build 16: the hub, CHECK CLOUD SETUP and MANAGE CLOUD CONNECTIONS read CLOUD CONNECTIONS CHANGED, QA-EXT reads NOT CHECKED YET, and USE THIS CONNECTION checks it and adds it (IN USE)",
+   "source": {
+    "es": "c8bf10703 (local m7/rc-round-es-20261125; route m7-20261126-29256fe7fb07)",
+    "distribution": "fc3e489f8a0b8064e72a3b879837c87fbc3f5930 (local build/m7-rc-round-20261125, build 16)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T224411Z.gfc3e489f8a0b-from-ROCKNIX",
+    "walk": "docs/qa-logs/2026-11-26-1111-1115-campaign/phase-d/phase-d.sh"
+   },
+   "locale": "fr",
+   "width": 640,
+   "height": 480,
+   "frame": "build16-640x480-r2/fr/s31/07-use-row.png",
+   "sha256": "4bfba728581a63dc78e6dd12c196e3011059ea846c77f81e7f873665ebd3d5c9",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "the same walk in French; the store before and after USE as in English (#1489 c2)",
+    "date": "2026-11-26"
+   }
+  },
+  {
+   "flow_id": "cloud-folders-and-connections",
+   "branch_id": "build16/640x480-r2/fr/s31/08-use-confirm",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud",
+   "criteria": [
+    "1489 c1",
+    "1489 c2"
+   ],
+   "trigger": "a working copy of qa-cloud added to rclone.conf as qa-ext outside the interface, after the profile store exists; then USE THIS CONNECTION on QA-EXT",
+   "expected_state": "from build 16: the hub, CHECK CLOUD SETUP and MANAGE CLOUD CONNECTIONS read CLOUD CONNECTIONS CHANGED, QA-EXT reads NOT CHECKED YET, and USE THIS CONNECTION checks it and adds it (IN USE)",
+   "source": {
+    "es": "c8bf10703 (local m7/rc-round-es-20261125; route m7-20261126-29256fe7fb07)",
+    "distribution": "fc3e489f8a0b8064e72a3b879837c87fbc3f5930 (local build/m7-rc-round-20261125, build 16)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T224411Z.gfc3e489f8a0b-from-ROCKNIX",
+    "walk": "docs/qa-logs/2026-11-26-1111-1115-campaign/phase-d/phase-d.sh"
+   },
+   "locale": "fr",
+   "width": 640,
+   "height": 480,
+   "frame": "build16-640x480-r2/fr/s31/08-use-confirm.png",
+   "sha256": "6127c9c074894a5cb6c1d7593e75740d5f9c80c765674cff4c9a2e34057737fd",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "the same walk in French; the store before and after USE as in English (#1489 c2)",
+    "date": "2026-11-26"
+   }
+  },
+  {
+   "flow_id": "cloud-folders-and-connections",
+   "branch_id": "build16/640x480-r2/fr/s31/09-after-use",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud",
+   "criteria": [
+    "1489 c1",
+    "1489 c2"
+   ],
+   "trigger": "a working copy of qa-cloud added to rclone.conf as qa-ext outside the interface, after the profile store exists; then USE THIS CONNECTION on QA-EXT",
+   "expected_state": "from build 16: the hub, CHECK CLOUD SETUP and MANAGE CLOUD CONNECTIONS read CLOUD CONNECTIONS CHANGED, QA-EXT reads NOT CHECKED YET, and USE THIS CONNECTION checks it and adds it (IN USE)",
+   "source": {
+    "es": "c8bf10703 (local m7/rc-round-es-20261125; route m7-20261126-29256fe7fb07)",
+    "distribution": "fc3e489f8a0b8064e72a3b879837c87fbc3f5930 (local build/m7-rc-round-20261125, build 16)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T224411Z.gfc3e489f8a0b-from-ROCKNIX",
+    "walk": "docs/qa-logs/2026-11-26-1111-1115-campaign/phase-d/phase-d.sh"
+   },
+   "locale": "fr",
+   "width": 640,
+   "height": 480,
+   "frame": "build16-640x480-r2/fr/s31/09-after-use.png",
+   "sha256": "170b466207276bee249fe350bf681187dca9bfbb2b96401ad76bd453bc9b94a9",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "the same walk in French; the store before and after USE as in English (#1489 c2)",
+    "date": "2026-11-26"
+   }
+  },
+  {
+   "flow_id": "cloud-folders-and-connections",
+   "branch_id": "build16/640x480-r2/fr/s31/10-hub-after",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud",
+   "criteria": [
+    "1489 c1",
+    "1489 c2"
+   ],
+   "trigger": "a working copy of qa-cloud added to rclone.conf as qa-ext outside the interface, after the profile store exists; then USE THIS CONNECTION on QA-EXT",
+   "expected_state": "from build 16: the hub, CHECK CLOUD SETUP and MANAGE CLOUD CONNECTIONS read CLOUD CONNECTIONS CHANGED, QA-EXT reads NOT CHECKED YET, and USE THIS CONNECTION checks it and adds it (IN USE)",
+   "source": {
+    "es": "c8bf10703 (local m7/rc-round-es-20261125; route m7-20261126-29256fe7fb07)",
+    "distribution": "fc3e489f8a0b8064e72a3b879837c87fbc3f5930 (local build/m7-rc-round-20261125, build 16)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T224411Z.gfc3e489f8a0b-from-ROCKNIX",
+    "walk": "docs/qa-logs/2026-11-26-1111-1115-campaign/phase-d/phase-d.sh"
+   },
+   "locale": "fr",
+   "width": 640,
+   "height": 480,
+   "frame": "build16-640x480-r2/fr/s31/10-hub-after.png",
+   "sha256": "2bafabb50d6f537a271df07520c1584a763e06b2351ab74311559a5b8a0d9d40",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "the same walk in French; the store before and after USE as in English (#1489 c2)",
     "date": "2026-11-26"
    }
   }

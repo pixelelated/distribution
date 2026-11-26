@@ -301,11 +301,11 @@ flowchart TD
     SM --> GE[SYNC SAVES WHEN EXITING A GAME<br/><i>AFTER LAST GAME - outcome</i>]
 
     HUB --> CSS[CLOUD STORAGE SETUP]
-    CSS --> CT[ACTIVE CONNECTION: name, provider<br/><i>CHANGE CONNECTION OR MANAGE SAVED CONNECTIONS.</i> . a connection whose folders need review: ACTIVE CONNECTION: name<br/><i>CONFIRM THIS CONNECTION'S FOLDER LOCATIONS BEFORE USING CLOUD TOOLS.</i> . none selected: NO CONNECTION SELECTED . setup unreadable: SETUP COULD NOT BE READ<br/><i>YOUR CLOUD CONNECTIONS COULDN'T BE READ. TRY AGAIN.</i>]
+    CSS --> CT[ACTIVE CONNECTION: name, provider<br/><i>CHANGE CONNECTION OR MANAGE SAVED CONNECTIONS.</i> . a connection whose folders need review: ACTIVE CONNECTION: name<br/><i>CONFIRM THIS CONNECTION'S FOLDER LOCATIONS BEFORE USING CLOUD TOOLS.</i> . none selected: NO CONNECTION SELECTED . setup unreadable: SETUP COULD NOT BE READ<br/><i>YOUR CLOUD CONNECTIONS COULDN'T BE READ. TRY AGAIN.</i> . a connection added outside the interface: CLOUD CONNECTIONS CHANGED<br/><i>CHECK THEM IN MANAGE CLOUD CONNECTIONS.</i>]
     CSS --> CFA[CLOUD FOLDER ACTIONS<br/><i>CHOOSE CLOUD FOLDERS TO CHECK OR CREATE.</i>]
     CSS --> CCS[CHECK CLOUD SETUP<br/><i>CHECK YOUR CONNECTION, SAVE FOLDERS, AND AUTOMATIC SYNC SETTINGS.</i><br/>results include a CONNECTION CHECK row]
     CSS --> MCC[MANAGE CLOUD CONNECTIONS<br/><i>ADD, CHOOSE, OR MANAGE YOUR CONNECTIONS.</i>]
-    CSS --> FOLDER[CHANGE CLOUD FOLDER LOCATIONS<br/><i>YOUR SAVES ARE IN: path, CLOUD ROOT for a root path</i> . no folder context: <i>CHOOSE A CONNECTION IN MANAGE CLOUD CONNECTIONS BEFORE CHANGING ITS FOLDERS.</i> . setup unreadable: <i>YOUR FOLDER LOCATIONS CAN'T BE SHOWN RIGHT NOW.</i>] --> PATHS[SET CLOUD FOLDER LOCATIONS<br/>SAVES FOLDER · SETTINGS BACKUP FOLDER · ROMS, BIOS, AND GAME CONTENT FOLDER]
+    CSS --> FOLDER[CHANGE CLOUD FOLDER LOCATIONS<br/><i>YOUR SAVES ARE IN: path, CLOUD ROOT for a root path</i> . no folder context: <i>CHOOSE A CONNECTION IN MANAGE CLOUD CONNECTIONS BEFORE CHANGING ITS FOLDERS.</i> . setup unreadable, or connections changed outside the interface: <i>YOUR FOLDER LOCATIONS CAN'T BE SHOWN RIGHT NOW.</i>] --> PATHS[SET CLOUD FOLDER LOCATIONS<br/>SAVES FOLDER · SETTINGS BACKUP FOLDER · ROMS, BIOS, AND GAME CONTENT FOLDER]
     PATHS --> KB[keyboard for the selected path<br/>changes only that pointer; moves no files]
     KB -->|unchanged value: no probe or write| PATHS
     KB -->|accepted changed value| PATHS
@@ -314,7 +314,7 @@ flowchart TD
     PATHS -->|Back when opened from the hub| HUB
     CSS --> CHECK[CHECK CLOUD FOLDERS] --> CATEGORIES[CLOUD FOLDERS<br/>SAVES · SETTINGS · ROMS · BIOS · GAME CONTENT]
     CATEGORIES --> VALIDATE[CHECK FOLDERS] --> FINDINGS[CLOUD FOLDER CHECK<br/>category state and expected path]
-    CATEGORIES -->|no folder context when opened| CUNAVAIL[FOLDER LOCATIONS UNAVAILABLE<br/><i>CHOOSE A CONNECTION AND CHECK ITS FOLDER LOCATIONS BEFORE CHECKING FOLDERS.</i> . setup unreadable: <i>YOUR CLOUD CONNECTIONS COULDN'T BE READ. TRY AGAIN.</i><br/>MANAGE CLOUD CONNECTIONS]
+    CATEGORIES -->|no folder context when opened| CUNAVAIL[FOLDER LOCATIONS UNAVAILABLE<br/><i>CHOOSE A CONNECTION AND CHECK ITS FOLDER LOCATIONS BEFORE CHECKING FOLDERS.</i> . setup unreadable: <i>YOUR CLOUD CONNECTIONS COULDN'T BE READ. TRY AGAIN.</i> . connections changed outside the interface: <i>YOUR CLOUD CONNECTIONS CHANGED. CHECK THEM IN MANAGE CLOUD CONNECTIONS.</i><br/>MANAGE CLOUD CONNECTIONS]
     VALIDATE -->|locations or connection changed since the page opened| STALE[THE CLOUD CHECK IS NO LONGER CURRENT. REOPEN CLOUD FOLDERS AND CHECK AGAIN.]
     VALIDATE -->|selection lost since the page opened| LOST[the case named: ADD or CHOOSE A CONNECTION BEFORE USING CLOUD TOOLS, or YOUR CLOUD CONNECTIONS COULDN'T BE READ]
     FINDINGS --> HELP[SEE INSTRUCTIONS] --> LOCAL[CLOUD FOLDER INSTRUCTIONS<br/>local guidance; no unpublished QR link]
@@ -334,8 +334,10 @@ flowchart TD
     CONN -->|saved but none selected| CONNSELECT[CHOOSE A CONNECTION BEFORE USING CLOUD TOOLS]
     CONN -->|nothing saved: a fresh device, or every connection removed| CONNADD[ADD A CONNECTION BEFORE USING CLOUD TOOLS]
     CONN -->|connections unreadable| CONNERR[CONNECTIONS UNAVAILABLE<br/><i>YOUR CLOUD CONNECTIONS COULDN'T BE READ. TRY AGAIN.</i>]
+    CONN -->|a connection added outside the interface, after the folder store exists| CONNCHG[CLOUD CONNECTIONS CHANGED<br/><i>TO CHECK A CONNECTION, OPEN IT AND CHOOSE USE THIS CONNECTION.</i><br/>the new one: name, provider - NOT CHECKED YET]
+    CONNCHG -->|open the new connection| DETAIL
     RENEW -->|selected reference missing| CONNMISSING[Choose another under CLOUD CONNECTIONS; existing credentials kept]
-    DETAIL --> USE[USE THIS CONNECTION: confirm, keep folder paths]
+    DETAIL --> USE[USE THIS CONNECTION: confirm, keep folder paths<br/>a connection NOT CHECKED YET is verified, then added with the standard folders; the others keep theirs]
     DETAIL --> RENEW[SIGN IN AGAIN or EDIT CONNECTION]
     DETAIL --> REMOVE[REMOVE CONNECTION: local settings only]
     RENEW --> VERIFY[Verify staged settings, then save]
@@ -428,7 +430,9 @@ and settings backup folders. Results are bound to the selected configuration.
    facts, and it names the case: NO CONNECTION IN USE with ADD A CONNECTION
    BEFORE USING CLOUD TOOLS. when nothing is saved (#1482), or with CHOOSE A
    CONNECTION BEFORE USING CLOUD TOOLS. when connections are saved but none
-   is selected; SETUP COULD NOT BE READ when the setup cannot be read.
+   is selected; SETUP COULD NOT BE READ when the setup cannot be read; CLOUD
+   CONNECTIONS CHANGED with CHECK THEM IN MANAGE CLOUD CONNECTIONS. when a
+   connection was added outside the interface (#1489).
 2. **CONNECTION CHECK** reports whether the cloud answered, was unreachable,
    or could not be confirmed.
 3. **ON THIS DEVICE** shows LOCAL SAVES FOLDER and then LOCAL SETTINGS BACKUPS,
@@ -451,7 +455,7 @@ and settings backup folders. Results are bound to the selected configuration.
 
 BACK closes the result page.
 
-Frames: [#1428's packet](qa-logs/2026-11-26-1428-cloud-setup/README.md) (`check-setup-page`, with its offline and wrong-password branches). Also #1111's [phase D](qa-logs/2026-11-26-1111-1115-campaign/phase-d/README.md), screens s13 and s16 on build 13: the page, and the rows at its foot.
+Frames: [#1428's packet](qa-logs/2026-11-26-1428-cloud-setup/README.md) (`check-setup-page`, with its offline and wrong-password branches). Also #1111's [phase D](qa-logs/2026-11-26-1111-1115-campaign/phase-d/README.md), screens s13 and s16 on build 13: the page, and the rows at its foot; s31 on build 16: CLOUD CONNECTIONS CHANGED on the hub, this page and MANAGE CLOUD CONNECTIONS, then USE THIS CONNECTION (#1489).
 
 ### SET CLOUD FOLDER LOCATIONS
 

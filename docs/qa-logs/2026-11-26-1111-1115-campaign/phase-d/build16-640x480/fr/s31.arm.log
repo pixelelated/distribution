@@ -1,0 +1,13 @@
+arm:
+STATE=connections-changed CONNECTION= SECTIONS=qa-cloud,qa-ext SYNC=unknown/unknown
+STATE=connections-changed
+qa-cloud	webdav	
+qa-ext	webdav	new
+STATE=connections-changed
+put back:
+STATE=active
+qa-cloud	webdav	saved	
+qa-ext	webdav	active	
+STATE=selected CONNECTION=qa-cloud SECTIONS=qa-cloud SYNC=off/off
+STATE=active
+qa-cloud	webdav

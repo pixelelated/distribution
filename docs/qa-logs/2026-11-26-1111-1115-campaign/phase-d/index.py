@@ -17,6 +17,10 @@ SOURCES = {
                 "distribution": "90b95f7259c107d17a90e73b6d62999a06eb56c0 (local build/m7-rc-round-20261125, build 15)",
                 "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T214410Z.g90b95f7259c1-from-ROCKNIX",
                 "walk": "docs/qa-logs/2026-11-26-1111-1115-campaign/phase-d/phase-d.sh"},
+    "build16": {"es": "c8bf10703 (local m7/rc-round-es-20261125; route m7-20261126-29256fe7fb07)",
+                "distribution": "fc3e489f8a0b8064e72a3b879837c87fbc3f5930 (local build/m7-rc-round-20261125, build 16)",
+                "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T224411Z.gfc3e489f8a0b-from-ROCKNIX",
+                "walk": "docs/qa-logs/2026-11-26-1111-1115-campaign/phase-d/phase-d.sh"},
     "build14": {"es": "6cdcb7a64 (local m7/rc-round-es-20261125; route m7-20261126-552f3815e4b4)",
                 "distribution": "ed61fe8e5922f3106cb35230fed0027f4f7fc431 (local build/m7-rc-round-20261125, build 14)",
                 "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T192845Z.ged61fe8e5922-from-ROCKNIX",
@@ -118,13 +122,20 @@ OBSERVED = {k: v for lang in ("en", "fr") for k, v in (
     (f"build15/640x480/{lang}/s24", "back on the WebDAV form lands on the provider chooser" + ("; the form's labels in French (#1485)" if lang == "fr" else "")),
     ("build15/640x480/en/s29", "after the fix: back from the choice page returns to CLOUD CONNECTION qa-oauth (#1486); oauth status idle"),
     ("build15/640x480-b/fr/s29", "after the fix: back from the choice page returns to CONNEXION AU CLOUD qa-oauth (#1486); oauth status idle"),
+    ("build16/640x480/en/s31", "CLOUD CONNECTIONS CHANGED on the hub, the setup check and MANAGE CLOUD CONNECTIONS; QA-EXT reads WEBDAV - NOT CHECKED YET; USE THIS CONNECTION ends with QA-EXT IN USE and the hub's notice gone (#1489)"),
+    ("build16/640x480/fr/s31", "CONNEXIONS AU CLOUD MODIFIÉES on the three surfaces; QA-EXT PAS ENCORE VÉRIFIÉE; after UTILISER LA CONNEXION, QA-EXT UTILISÉ (#1489). The connections page's line wraps to two lines in French (#1493)"),
+    ("build16/640x480-r2/en/s31", "the same walk as build16/640x480; the arm log carries the store before and after USE: qa-ext added with the standard folders, qa-cloud's unchanged (#1489 c2)"),
+    ("build16/640x480-r2/fr/s31", "the same walk in French; the store before and after USE as in English (#1489 c2)"),
+    (f"build16/640x480/{lang}/s30", "the chooser and the S3 form" + (": PARTAGE WINDOWS (SMB) and AMAZON S3 ET COMPATIBLES on the chooser and the S3 subtitle (#1490); brand names unchanged" if lang == "fr" else ": WINDOWS SHARE (SMB) and AMAZON S3 AND COMPATIBLE unchanged in English (#1490 c3)")),
+    (f"build16/640x480/{lang}/s24", "the chooser and back on the WebDAV form" + ("; PARTAGE WINDOWS (SMB) and AMAZON S3 ET COMPATIBLES on the chooser (#1490)" if lang == "fr" else "")),
+    (f"build16/640x480-r2/{lang}/s20", "a malformed rclone.conf still reads " + ("RÉGLAGES ILLISIBLES / CONNEXIONS INDISPONIBLES" if lang == "fr" else "SETUP COULD NOT BE READ / CONNECTIONS UNAVAILABLE") + " on the hub, the setup check, the connections page and CLOUD FOLDERS (#1489 c3)"),
     (f"build14/640x480/{lang}/s24", "back on the WebDAV form lands on the provider chooser with WEBDAV focused" + ("; the form's row labels are English in French (#1485)" if lang == "fr" else "")),
     (f"640x480-more/{lang}/s20", "defect, build 13: the hub reads NO CONNECTION SELECTED and CLOUD FOLDERS asks to choose a connection for an unreadable setup; the setup check and connections page name it. Fixed in ES 6cdcb7a64 (#1111 C11)"),
     (f"640x480-more/{lang}/s22-b", "defect, build 13: a selection emptied while CLOUD FOLDERS is open gives COULDN'T CHECK YOUR FOLDERS. CHECK YOUR CONNECTION; not the stale wording, but it names a connection fault. Fixed in ES 6cdcb7a64 (#1111 C10, C20)"))}
 entries = []
 import sys
 SKIP = set(sys.argv[sys.argv.index("--skip") + 1:]) if "--skip" in sys.argv else set()   # a run still writing
-for res_dir in sorted(d for d in HERE.glob("build1[345]-*") if d.name not in SKIP):
+for res_dir in sorted(d for d in HERE.glob("build1[3456]-*") if d.name not in SKIP):
     build, _, run = res_dir.name.partition("-")            # build13|build14, <res>[-extra|-root|-more]
     run = run if build == "build13" else f"{build}/{run}"  # build 13 keys stay as reviewed.txt has them
     res = run.split("/")[-1].split("-")[0]; w, h = (int(v) for v in res.split("x"))
@@ -144,5 +155,5 @@ for res_dir in sorted(d for d in HERE.glob("build1[345]-*") if d.name not in SKI
                                 **({"note": FAILED[key]} if key in FAILED else {}),
                                 **({"review": {"reviewer": "OS coordinator (claude-opus-5-5)", "observed": OBSERVED.get(key, "as expected"), "date": "2026-11-26"}}
                                    if status == "reviewed" else {})})
-(HERE / "evidence-index.json").write_text(json.dumps({"schema_version": 1, "issue": [1111, 1115, 1480], "entries": entries}, indent=1) + "\n")
+(HERE / "evidence-index.json").write_text(json.dumps({"schema_version": 1, "issue": [1111, 1115, 1480, 1489, 1490], "entries": entries}, indent=1) + "\n")
 print(f"{len(entries)} frames, {sum(e['status'] == 'reviewed' for e in entries)} reviewed")

@@ -106,3 +106,23 @@ Build 15 is `90b95f7259`, with ES `334ee42b8` and route `m7-20261126-3817c3c0b12
 **#1486's before frames** are on build 14 (`build14-640x480-oauth/`): back from the choice page landed on MANAGE CLOUD CONNECTIONS.
 
 **Witness fix:** the broker count in s29's put back used `pgrep -c`, which the guest's busybox lacks. It now pipes to `wc -l`.
+
+## Build 16: connections changed outside the interface, and two provider names
+
+Build 16 is `fc3e489f8a`, with ES `c8bf10703` and route `m7-20261126-29256fe7fb07`. It carries #1489 (a connection added outside the interface is named, and USE THIS CONNECTION checks it and adds it) and #1490 (two provider names translated). All frames are at 640x480, in EN and FR, in `build16-640x480/`. The rerun with the store dumped before and after USE, and the malformed-config screen, is in `-r2/`.
+
+| Screen | What the frames show | Criteria |
+| --- | --- | --- |
+| s31 | qa-cloud's section copied as qa-ext into rclone.conf behind the module, after the store exists. The hub, CLOUD SETUP CHECK and MANAGE CLOUD CONNECTIONS all read CLOUD CONNECTIONS CHANGED / CONNEXIONS AU CLOUD MODIFIÉES, each with its way out. QA-EXT reads NOT CHECKED YET / PAS ENCORE VÉRIFIÉE. USE THIS CONNECTION confirms, and the list then shows QA-EXT IN USE, with the notice gone. | #1489 c1, c2 |
+| s31 (`-r2/`) | The same walk. Its arm log carries the store before and after USE: qa-ext added with the standard folders (`/pixelelated/Saves`, `/pixelelated/Backups`, `/pixelelated/Content`), qa-cloud's entry unchanged. The host case `test_use_checks_and_adds_an_external_connection` proves custom paths survive. | #1489 c2 |
+| s20 (`-r2/`) | A malformed rclone.conf still reads SETUP COULD NOT BE READ / RÉGLAGES ILLISIBLES on the hub and the setup check, and CONNECTIONS UNAVAILABLE on the connections page and CLOUD FOLDERS. | #1489 c3 |
+| s30, s24 | In French, the chooser's rows and the S3 form's subtitle read PARTAGE WINDOWS (SMB) and AMAZON S3 ET COMPATIBLES. The brand names are unchanged, and the English names are unchanged in English. | #1490 c1, c3 |
+
+**Witnesses from the arm logs:** `setup-info` reads `STATE=connections-changed` before USE, and `cloud_remote list` marks qa-ext `new`. After USE it reads `active` for qa-ext.
+
+**Two findings from the review:**
+
+- **#1492:** a transfer refused in this state said CHOOSE A CONNECTION BEFORE USING CLOUD TOOLS. A connection is chosen. Fixed in build 17.
+- **#1493:** three rows run to three lines at 640x480: the French connections-page line here, the hub's CHECK CLOUD SETUP line in French, and CONNECTION CHECK's not-confirmed line in both languages.
+
+**Driver change:** s31's arm and put back now print the store's profiles (names, providers and paths only; the store holds no credentials).
