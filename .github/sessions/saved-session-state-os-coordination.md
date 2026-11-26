@@ -8,7 +8,20 @@ Read the [M7 milestone](https://github.com/pixelelated/distribution/milestone/7)
 
 ## Current focus
 
-**00000000000000. Newest (2026-11-26T13:37Z): #1428 has 5 of 6 criteria ticked; criterion 5 (branch receipts) is next.**
+**000000000000000. Newest (2026-11-26T14:04Z): #1428 closed; the M7 critical path is Max's answers.**
+- **Closed today:** #1474, #1475, #1476, #1012, #1428 (packet `docs/qa-logs/2026-11-26-1428-cloud-setup/`, 33 frames). Round head `6dbc78398e` (local) = build 11 (`30e6ff3db9`, standard run 8 PASS) plus tools only.
+- **Waiting on Max:**
+  - #1477: the launch question outlives a finished sync; KEEP WAITING launches nothing.
+  - #1478: three cloud-page wording questions.
+  - Publication: the ES pin as a GitHub commit, the round to GitHub for `ci`.
+  - The 300 undispositioned bugs, M6 and unplaced.
+  - Codex fast mode, so lanes stay paused.
+  - #1470's plan shaping.
+- **Then (owner OS):** the final head's build set (x64, H700, SM8550 from one head, D-INFRA-043); rc-preflight in full; the two-lab audit (RC step 4).
+- **Round tools not yet on `next`:** WALK_SUITE, VM_RES, `-unchanged-`/`-witnessed-`, `g2g-midsync`, `offline-toggle-outcomes`, `suite-1428.txt`, the PL-021 test change. They land with the round.
+- No guests, no build. #1465 checkbox 3 waits for the final head.
+
+**00000000000000. (2026-11-26T13:37Z): #1428 has 5 of 6 criteria ticked; criterion 5 (branch receipts) is next.**
 - Packet `docs/qa-logs/2026-11-26-1428-cloud-setup/` (`beace1b194`, 28 reviewed frames, `criterion-2-witness.txt`). Round head `9bcd94fc08` (local): the WALK_SUITE check, the -unchanged-/-witnessed- witness, the folder-action legs, the two-connection fixture. Image unchanged: build 11, `30e6ff3db9`.
 - **Next (owner OS), criterion 5:**
   - **no selection:** SAVES and SETTINGS off, then CHECK or CREATE;
