@@ -176,7 +176,13 @@ put_s29() { S 'echo "oauth status: $(/usr/bin/cloud_oauth status 2>/dev/null)"; 
 steps_s30() { hub; down 9; open; down 1; open; echo "shot providers"; down 11; echo "shot s3-row"; open; echo "shot s3-services"; open; echo "shot s3-form"; down 6; echo "shot s3-form-lower"; back; echo "shot after-back"; }
 arm_s30() { :; }; put_s30() { :; }
 
-SCREENS="s01 s02 s03 s04 s05 s06 s07 s08 s09 s10 s11 s12 s13 s14 s15 s16 s17 s18 s19 s20 s21 s22 s23 s24 s25 s26 s27 s28 s29 s30"
+# s31: a connection added outside the interface once the store exists (#1489): the hub, CHECK CLOUD SETUP and
+# MANAGE CLOUD CONNECTIONS name it; USE THIS CONNECTION on QA-EXT checks it and adds it, then the list and hub.
+steps_s31() { hub; down 5; echo "shot hub-changed"; down 3; open; echo "wait 20"; echo "settle 60 3"; echo "shot setup-check-changed"; back; down 1; open; echo "shot connections-changed"; down 2; echo "shot ext-focused"; open; echo "shot ext-page"; down 4; echo "shot use-row"; open; echo "shot use-confirm"; echo "key x"; echo "wait-for-change 90 1"; echo "settle 90 3"; echo "shot after-use"; back; echo "shot hub-after"; }
+arm_s31() { S 'python3 /storage/m7-qa-d/conn.py add-ext && cloud_remote list | cut -f1,2,5 && cloud_remote setup-info | grep -E "^STATE="'; }
+put_s31() { S 'cloud_remote list | cut -f1,2,3,5; python3 /storage/m7-qa-d/conn.py remove-ext; cloud_remote list | cut -f1,2'; }
+
+SCREENS="s01 s02 s03 s04 s05 s06 s07 s08 s09 s10 s11 s12 s13 s14 s15 s16 s17 s18 s19 s20 s21 s22 s23 s24 s25 s26 s27 s28 s29 s30 s31"
 [ -n "$only" ] && SCREENS=${only//,/ }
 
 log "== #1111/#1115 phase D at $res, $(date -u +%FT%TZ)"

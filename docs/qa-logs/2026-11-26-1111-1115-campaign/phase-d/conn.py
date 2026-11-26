@@ -84,11 +84,47 @@ elif cmd == 'remove-oauth':
         tmp.write_text(head.rstrip('\n') + '\n' + ('' if nxt < 0 else rest[nxt + 1:]))
         os.chmod(tmp, 0o600)
         os.replace(tmp, c.CONFIG)
+elif cmd == 'add-ext':
+    # #1489: once the store exists (a select writes it), qa-cloud's section is
+    # copied as qa-ext straight into rclone.conf, as rclone config over SSH
+    # would add it: the store does not know it. Values are copied, never printed.
+    import os
+    c.select('qa-cloud')
+    text = c.CONFIG.read_text()
+    head, sep, rest = text.partition('[qa-cloud]')
+    if not sep or '[qa-ext]' in text:
+        sys.exit('no qa-cloud, or qa-ext already present')
+    nxt = rest.find('\n[')
+    body = rest if nxt < 0 else rest[:nxt]
+    tmp = c.CONFIG.with_suffix('.s31')
+    tmp.write_text(text.rstrip('\n') + '\n\n[qa-ext]' + body.rstrip('\n') + '\n')
+    os.chmod(tmp, 0o600)
+    os.replace(tmp, c.CONFIG)
+elif cmd == 'remove-ext':
+    # After USE THIS CONNECTION the store knows qa-ext and the module removes
+    # it; if the check never ran, the section is taken out as it was put in.
+    import os
+    if '[qa-ext]' in c.CONFIG.read_text():
+        if c.connections_changed() is None:
+            c.select('qa-cloud')
+            c.remove('qa-ext')
+        else:
+            text = c.CONFIG.read_text()
+            head, sep, rest = text.partition('[qa-ext]')
+            nxt = rest.find('\n[')
+            tmp = c.CONFIG.with_suffix('.s31')
+            tmp.write_text(head.rstrip('\n') + '\n' + ('' if nxt < 0 else rest[nxt + 1:]))
+            os.chmod(tmp, 0o600)
+            os.replace(tmp, c.CONFIG)
+            c.select('qa-cloud')
 elif cmd == 'two-hash':
     print(two_hash())
 elif cmd == 'remove-two':
     c.remove('qa-two')
 elif cmd == 'repair':
+    if '[qa-ext]' in c.CONFIG.read_text():
+        import subprocess
+        subprocess.run([sys.executable, __file__, 'remove-ext'], check=True, stdout=subprocess.DEVNULL)
     if '[qa-oauth]' in c.CONFIG.read_text():
         import subprocess
         subprocess.run([sys.executable, __file__, 'remove-oauth'], check=True, stdout=subprocess.DEVNULL)
