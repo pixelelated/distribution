@@ -14,6 +14,8 @@
 #   tools/rc-preflight --tree <wt> --only build-set --build-set <target> ...
 #                                            # step 2: one commit across the set
 #   tools/rc-preflight --tree <wt> --only ci # did GitHub check this head? (#1450)
+#   tools/rc-preflight --tree <wt> --only vm-qa --build-set <target> ...
+#                                            # step 3: the image's standard run PASSED (#1469)
 #
 # D-WORKFLOW-168 (#344): owner-only engineering testing and public publication
 # have separate readiness lists. This tool retains the RC checks below; it
@@ -67,6 +69,18 @@
 #                  (a record owed is noted, not a finding); no candidate is cut
 #                  on a head GitHub never checked (#1450, #1446, D-WORKFLOW-202).
 #                  `--only ci` runs it alone
+#   vm-qa          only with --build-set (step 3, the call; step 0 comes before
+#                  any image): the newest standard-run report of tools/vm-qa
+#                  for the set's GENERIC_X64 image ($ROCKNIX_ARTIFACTS/
+#                  rocknix-images/qa-<build>-*/report.md) ends "VERDICT: PASS"
+#                  and finished; anything else is a finding, and so is a later
+#                  partial run that failed. A report without the "suites asked
+#                  for" line predates #1469 and reads as a FAIL list only, never
+#                  as a pass (D-QA-065: one definition of passing)
+#   vm-qa known failures  with the item above: every entry of the tree's
+#                  docs/qa/vm-qa-known-failures.txt names an open issue (a
+#                  closed one is a finding, an unread one cannot be answered),
+#                  and the list is empty, as it says it is at the call (#1469)
 #
 # A finding is accepted for this candidate by a line in
 # docs/releases/rc-accept.txt naming it and a decided register row:
@@ -224,6 +238,129 @@ def check_ci(r, tree):
         r.add("PASS", item, "%s has %s check suite(s)%s" % (head[:10], j.get("suites"), "; a record is owed" if owed else ""))
     else:
         r.add("CANNOT", item, "ci-silence-check exited %s" % rc)
+
+
+def vm_qa_images(r, item, dirs):
+    """The GENERIC_X64 build commit named by the build set's identity files, or None."""
+    if not dirs:
+        r.add("CANNOT", item, "the candidate's images are not named (--build-set)")
+        return None
+    commits = set()
+    for d in dirs:
+        try:
+            names = sorted(n for n in os.listdir(d) if n.endswith(".identity.json"))
+        except OSError as exc:
+            r.add("CANNOT", item, "%s: %s" % (d, exc))
+            return None
+        for n in names:
+            try:
+                j = json.load(open(os.path.join(d, n), encoding="utf-8"))
+            except (OSError, ValueError) as exc:
+                r.add("CANNOT", item, "%s unreadable: %s" % (n, exc))
+                return None
+            if isinstance(j, dict) and j.get("device") == "GENERIC_X64":
+                c = j.get("build_commit")
+                if not isinstance(c, str) or not re.fullmatch(r"[0-9a-f]{40}", c):
+                    r.add("CANNOT", item, "%s names no 40-hex build_commit" % n)
+                    return None
+                commits.add(c)
+    if len(commits) != 1:
+        r.add("CANNOT", item, "%s GENERIC_X64 image(s) in the build set; the standard run is on exactly one" % len(commits))
+        return None
+    return commits.pop()
+
+
+def check_vm_qa(r, dirs):
+    """The set's GENERIC_X64 image has a finished standard vm-qa run that PASSED (#1469, D-QA-065)."""
+    item = "vm-qa"
+    commit = vm_qa_images(r, item, dirs)
+    if commit is None:
+        return
+    b10 = commit[:10]
+    root = os.path.join(os.environ.get("ROCKNIX_ARTIFACTS") or "/workspace/artifacts", "rocknix-images")
+    try:
+        runs = [os.path.join(root, n, "report.md") for n in os.listdir(root) if n.startswith("qa-%s-" % b10)]
+    except OSError as exc:
+        r.add("CANNOT", item, "%s: %s" % (root, exc))
+        return
+    runs = sorted((f for f in runs if os.path.isfile(f)), key=os.path.getmtime)
+    standard, later_partial_fail, old = None, [], 0
+    for f in runs:
+        try:
+            text = open(f, encoding="utf-8", errors="replace").read()
+        except OSError as exc:
+            r.add("CANNOT", item, "%s unreadable: %s" % (f, exc))
+            return
+        if not text.startswith("# vm-qa on %s" % b10):
+            continue
+        kind = re.search(r"^suites asked for: .* -- (the standard run|a partial run[^;]*);", text, re.M)
+        if not kind:
+            old += 1  # before #1469: a FAIL list only, never a pass
+            continue
+        verdict = re.search(r"^\*\*VERDICT: (PASS|FAIL)\*\*(.*)$", text, re.M)
+        finished = re.search(r"^finished (.+)$", text, re.M)
+        rel = os.path.relpath(f, root)
+        if kind.group(1) == "the standard run":
+            standard, later_partial_fail = (rel, verdict, finished), []
+        elif not verdict or verdict.group(1) != "PASS" or not finished:
+            later_partial_fail.append(rel)
+    if standard is None:
+        r.add("FAIL", item, "no standard-run report for %s under %s%s" % (
+            b10, root, " (%d older report(s) carry no suites line and read as FAIL lists only)" % old if old else ""))
+        return
+    rel, verdict, finished = standard
+    if not finished or not verdict:
+        r.add("FAIL", item, "%s: the standard run did not finish with a verdict line" % rel)
+    elif verdict.group(1) != "PASS":
+        r.add("FAIL", item, "%s: VERDICT: FAIL%s" % (rel, verdict.group(2)[:200]))
+    elif later_partial_fail:
+        r.add("FAIL", item, "%s passed, but a later partial run did not: %s" % (rel, ", ".join(later_partial_fail)))
+    else:
+        r.add("PASS", item, "%s: VERDICT: PASS, the standard run, finished %s" % (rel, finished.group(1)))
+
+
+def check_known_failures(r, tree):
+    """The known-failures list names open issues only, and is empty at the call (#1469)."""
+    item = "vm-qa known failures"
+    f = os.path.join(tree, "docs", "qa", "vm-qa-known-failures.txt")
+    if not os.path.exists(f):
+        r.add("PASS", item, "no list in the tree")
+        return
+    entries, bad = [], []
+    try:
+        lines = open(f, encoding="utf-8").read().splitlines()
+    except OSError as exc:
+        r.add("CANNOT", item, "%s: %s" % (f, exc))
+        return
+    for line in lines:
+        if line in ("", "#") or line.startswith("# "):
+            continue
+        m = re.fullmatch(r"([a-z0-9-]+) #([0-9]+) .+", line)
+        if m:
+            entries.append((m.group(1), int(m.group(2))))
+        else:
+            bad.append(line[:60])
+    if bad:
+        r.add("FAIL", item, "malformed entries: %s" % "; ".join(bad))
+        return
+    if not entries:
+        r.add("PASS", item, "the list is empty")
+        return
+    closed = []
+    for n in sorted({e[1] for e in entries}):
+        rc, out, err = run(["gh", "api", "repos/pixelelated/distribution/issues/%d" % n, "--jq", ".state"], timeout=120)
+        state = (out or "").strip()
+        if rc != 0 or state not in ("open", "closed"):
+            r.add("CANNOT", item, "the state of #%d could not be read: %s" % (n, ((err or out or "").strip().splitlines() or [""])[-1][:120]))
+            return
+        if state == "closed":
+            closed.append("#%d" % n)
+    names = ", ".join("%s #%d" % e for e in entries)
+    if closed:
+        r.add("FAIL", item, "entries cite closed issues (%s): %s" % (", ".join(closed), names))
+    else:
+        r.add("FAIL", item, "%d %s (%s); the list is empty when a build is called a release candidate" % (
+            len(entries), "entry remains" if len(entries) == 1 else "entries remain", names))
 
 
 def check_proxy_schema(r, tree):
@@ -456,7 +593,7 @@ def main():
     ap.add_argument("--es", default=os.path.expanduser("~/Development/emulationstation-next"))
     ap.add_argument("--no-fetch", action="store_true")
     ap.add_argument("--allow-unchecked", action="append", default=[], choices=["device-facts"])
-    ap.add_argument("--only", choices=["proxy-schema", "build-set", "ci", "packages"], help="run only the named check; not an RC verdict")
+    ap.add_argument("--only", choices=["proxy-schema", "build-set", "ci", "packages", "vm-qa"], help="run only the named check; not an RC verdict")
     ap.add_argument("--build-set", action="append", default=[], metavar="TARGET_DIR",
                     help="a target/ directory of one image of the build set (repeat for each)")
     a = ap.parse_args()
@@ -467,13 +604,16 @@ def main():
     print("rc-preflight: %s at %s (%s)" % (tree, head, branch), flush=True)
 
     r = Report()
-    if a.only == "build-set" or a.build_set:
+    if a.only == "build-set" or (a.build_set and a.only != "vm-qa"):
         check_build_set(r, tree, [os.path.abspath(d) for d in a.build_set])
+    if a.only == "vm-qa" or (a.build_set and not a.only):
+        check_vm_qa(r, [os.path.abspath(d) for d in a.build_set])
+        check_known_failures(r, tree)
     if a.only == "ci":
         check_ci(r, tree)
     if a.only == "packages":
         check_packages(r, tree, acceptances(decided_ids())[0])
-    if a.only not in ("build-set", "ci", "packages"):
+    if a.only not in ("build-set", "ci", "packages", "vm-qa"):
         check_proxy_schema(r, tree)
     if a.only:
         # Deliberately no MAY BE CUT verdict for a scoped source check.
