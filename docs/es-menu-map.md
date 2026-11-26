@@ -339,8 +339,11 @@ flowchart TD
     DETAIL --> RENEW[SIGN IN AGAIN or EDIT CONNECTION]
     DETAIL --> REMOVE[REMOVE CONNECTION: local settings only]
     RENEW --> VERIFY[Verify staged settings, then save]
-    VERIFY -->|failed or cancelled| KEPT[Existing connection kept]
-    VERIFY -->|verified| SAVED
+    VERIFY -->|failed or cancelled| KEPT[Existing connection kept<br/>THE CONNECTION COULDN'T BE SAVED. … YOUR SETTINGS HAVE NOT CHANGED.; OK returns to the form]
+    VERIFY -->|verified, the active connection| FOLDERSEL[CLOUD FOLDERS for saves and settings]
+    VERIFY -->|verified, another connection| ESAVED[CONNECTION SAVED<br/><i>YOUR CURRENT CONNECTION HAS NOT CHANGED. …</i>]
+    RENEW -->|back on EDIT CONNECTION's form, or back from what follows it| DETAIL
+    ESAVED -->|back| DETAIL
     LIST -->|key-based provider| FORM[provider form<br/>NAME · REQUIRED · OPTIONAL · FINISH: CONNECT<br/><i>labels in the player's words, D-UI-038</i>]
     LIST -->|S3| SUB[compatible service] --> FORM
     LIST -->|OAuth provider| ADDNAME[ADD CONNECTION: distinct editable name<br/>existing connections kept]

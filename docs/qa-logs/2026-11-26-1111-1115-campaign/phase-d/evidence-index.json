@@ -14467,6 +14467,944 @@
     "observed": "as expected",
     "date": "2026-11-26"
    }
+  },
+  {
+   "flow_id": "cloud-folders-and-connections",
+   "branch_id": "build14/640x480-d/en/s15/01-cloud-hub",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud",
+   "criteria": [
+    "1111 C12",
+    "1482 c1",
+    "1482 c2"
+   ],
+   "trigger": "no saved connection (rclone.conf moved aside)",
+   "expected_state": "the hub, MANAGE CLOUD CONNECTIONS and (from build 14) CHECK CLOUD SETUP with nothing saved; from build 14 the line is ADD A CONNECTION BEFORE USING CLOUD TOOLS.",
+   "source": {
+    "es": "6cdcb7a64 (local m7/rc-round-es-20261125; route m7-20261126-552f3815e4b4)",
+    "distribution": "ed61fe8e5922f3106cb35230fed0027f4f7fc431 (local build/m7-rc-round-20261125, build 14)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T192845Z.ged61fe8e5922-from-ROCKNIX",
+    "walk": "docs/qa-logs/2026-11-26-1111-1115-campaign/phase-d/phase-d.sh"
+   },
+   "locale": "en",
+   "width": 640,
+   "height": 480,
+   "frame": "build14-640x480-d/en/s15/01-cloud-hub.png",
+   "sha256": "ef5a5e78b4634b42e14930d19aca6fba8f65a829304385bb0643570f2bff3e50",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "s15 first after seeding: no profile store yet, so setup-info reads no-connections and both pages read ADD A CONNECTION BEFORE USING CLOUD TOOLS.",
+    "date": "2026-11-26"
+   }
+  },
+  {
+   "flow_id": "cloud-folders-and-connections",
+   "branch_id": "build14/640x480-d/en/s15/02-hub-no-connections",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud",
+   "criteria": [
+    "1111 C12",
+    "1482 c1",
+    "1482 c2"
+   ],
+   "trigger": "no saved connection (rclone.conf moved aside)",
+   "expected_state": "the hub, MANAGE CLOUD CONNECTIONS and (from build 14) CHECK CLOUD SETUP with nothing saved; from build 14 the line is ADD A CONNECTION BEFORE USING CLOUD TOOLS.",
+   "source": {
+    "es": "6cdcb7a64 (local m7/rc-round-es-20261125; route m7-20261126-552f3815e4b4)",
+    "distribution": "ed61fe8e5922f3106cb35230fed0027f4f7fc431 (local build/m7-rc-round-20261125, build 14)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T192845Z.ged61fe8e5922-from-ROCKNIX",
+    "walk": "docs/qa-logs/2026-11-26-1111-1115-campaign/phase-d/phase-d.sh"
+   },
+   "locale": "en",
+   "width": 640,
+   "height": 480,
+   "frame": "build14-640x480-d/en/s15/02-hub-no-connections.png",
+   "sha256": "ef5a5e78b4634b42e14930d19aca6fba8f65a829304385bb0643570f2bff3e50",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "s15 first after seeding: no profile store yet, so setup-info reads no-connections and both pages read ADD A CONNECTION BEFORE USING CLOUD TOOLS.",
+    "date": "2026-11-26"
+   }
+  },
+  {
+   "flow_id": "cloud-folders-and-connections",
+   "branch_id": "build14/640x480-d/en/s15/03-hub-no-connections-lower",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud",
+   "criteria": [
+    "1111 C12",
+    "1482 c1",
+    "1482 c2"
+   ],
+   "trigger": "no saved connection (rclone.conf moved aside)",
+   "expected_state": "the hub, MANAGE CLOUD CONNECTIONS and (from build 14) CHECK CLOUD SETUP with nothing saved; from build 14 the line is ADD A CONNECTION BEFORE USING CLOUD TOOLS.",
+   "source": {
+    "es": "6cdcb7a64 (local m7/rc-round-es-20261125; route m7-20261126-552f3815e4b4)",
+    "distribution": "ed61fe8e5922f3106cb35230fed0027f4f7fc431 (local build/m7-rc-round-20261125, build 14)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T192845Z.ged61fe8e5922-from-ROCKNIX",
+    "walk": "docs/qa-logs/2026-11-26-1111-1115-campaign/phase-d/phase-d.sh"
+   },
+   "locale": "en",
+   "width": 640,
+   "height": 480,
+   "frame": "build14-640x480-d/en/s15/03-hub-no-connections-lower.png",
+   "sha256": "46999792943dac19e3e8e0faf65782369710d8d04b6f729f43ce120b51528e62",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "s15 first after seeding: no profile store yet, so setup-info reads no-connections and both pages read ADD A CONNECTION BEFORE USING CLOUD TOOLS.",
+    "date": "2026-11-26"
+   }
+  },
+  {
+   "flow_id": "cloud-folders-and-connections",
+   "branch_id": "build14/640x480-d/en/s15/04-hub-last-row",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud",
+   "criteria": [
+    "1111 C12",
+    "1482 c1",
+    "1482 c2"
+   ],
+   "trigger": "no saved connection (rclone.conf moved aside)",
+   "expected_state": "the hub, MANAGE CLOUD CONNECTIONS and (from build 14) CHECK CLOUD SETUP with nothing saved; from build 14 the line is ADD A CONNECTION BEFORE USING CLOUD TOOLS.",
+   "source": {
+    "es": "6cdcb7a64 (local m7/rc-round-es-20261125; route m7-20261126-552f3815e4b4)",
+    "distribution": "ed61fe8e5922f3106cb35230fed0027f4f7fc431 (local build/m7-rc-round-20261125, build 14)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T192845Z.ged61fe8e5922-from-ROCKNIX",
+    "walk": "docs/qa-logs/2026-11-26-1111-1115-campaign/phase-d/phase-d.sh"
+   },
+   "locale": "en",
+   "width": 640,
+   "height": 480,
+   "frame": "build14-640x480-d/en/s15/04-hub-last-row.png",
+   "sha256": "00987f0ba4eebdb40bc7e2fc6056f18927082c72020b7f8f6c3542dc643e334f",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "s15 first after seeding: no profile store yet, so setup-info reads no-connections and both pages read ADD A CONNECTION BEFORE USING CLOUD TOOLS.",
+    "date": "2026-11-26"
+   }
+  },
+  {
+   "flow_id": "cloud-folders-and-connections",
+   "branch_id": "build14/640x480-d/en/s15/05-connections-none",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud",
+   "criteria": [
+    "1111 C12",
+    "1482 c1",
+    "1482 c2"
+   ],
+   "trigger": "no saved connection (rclone.conf moved aside)",
+   "expected_state": "the hub, MANAGE CLOUD CONNECTIONS and (from build 14) CHECK CLOUD SETUP with nothing saved; from build 14 the line is ADD A CONNECTION BEFORE USING CLOUD TOOLS.",
+   "source": {
+    "es": "6cdcb7a64 (local m7/rc-round-es-20261125; route m7-20261126-552f3815e4b4)",
+    "distribution": "ed61fe8e5922f3106cb35230fed0027f4f7fc431 (local build/m7-rc-round-20261125, build 14)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T192845Z.ged61fe8e5922-from-ROCKNIX",
+    "walk": "docs/qa-logs/2026-11-26-1111-1115-campaign/phase-d/phase-d.sh"
+   },
+   "locale": "en",
+   "width": 640,
+   "height": 480,
+   "frame": "build14-640x480-d/en/s15/05-connections-none.png",
+   "sha256": "2830d5bb3198b66d1b5bfbdcb4747a60dedff73eb1001dd4c1deb899c8bda8f0",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "s15 first after seeding: no profile store yet, so setup-info reads no-connections and both pages read ADD A CONNECTION BEFORE USING CLOUD TOOLS.",
+    "date": "2026-11-26"
+   }
+  },
+  {
+   "flow_id": "cloud-folders-and-connections",
+   "branch_id": "build14/640x480-d/en/s15/06-setup-check-none",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud",
+   "criteria": [
+    "1111 C12",
+    "1482 c1",
+    "1482 c2"
+   ],
+   "trigger": "no saved connection (rclone.conf moved aside)",
+   "expected_state": "the hub, MANAGE CLOUD CONNECTIONS and (from build 14) CHECK CLOUD SETUP with nothing saved; from build 14 the line is ADD A CONNECTION BEFORE USING CLOUD TOOLS.",
+   "source": {
+    "es": "6cdcb7a64 (local m7/rc-round-es-20261125; route m7-20261126-552f3815e4b4)",
+    "distribution": "ed61fe8e5922f3106cb35230fed0027f4f7fc431 (local build/m7-rc-round-20261125, build 14)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T192845Z.ged61fe8e5922-from-ROCKNIX",
+    "walk": "docs/qa-logs/2026-11-26-1111-1115-campaign/phase-d/phase-d.sh"
+   },
+   "locale": "en",
+   "width": 640,
+   "height": 480,
+   "frame": "build14-640x480-d/en/s15/06-setup-check-none.png",
+   "sha256": "598a879633c6c9e5c1b4f38d04b2e12a50ca89d2b9936fc3bfe7689f00f718d2",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "s15 first after seeding: no profile store yet, so setup-info reads no-connections and both pages read ADD A CONNECTION BEFORE USING CLOUD TOOLS.",
+    "date": "2026-11-26"
+   }
+  },
+  {
+   "flow_id": "cloud-folders-and-connections",
+   "branch_id": "build14/640x480-d/en/s27/01-cloud-hub",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud",
+   "criteria": [
+    "1111 C06"
+   ],
+   "trigger": "diagnosis: after s15, the four files' hashes, then adding qa-two, a bare listing of qa-cloud and the state (values never printed)",
+   "expected_state": "add rc and the listing in s27.arm.log; the hub frame only",
+   "source": {
+    "es": "6cdcb7a64 (local m7/rc-round-es-20261125; route m7-20261126-552f3815e4b4)",
+    "distribution": "ed61fe8e5922f3106cb35230fed0027f4f7fc431 (local build/m7-rc-round-20261125, build 14)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T192845Z.ged61fe8e5922-from-ROCKNIX",
+    "walk": "docs/qa-logs/2026-11-26-1111-1115-campaign/phase-d/phase-d.sh"
+   },
+   "locale": "en",
+   "width": 640,
+   "height": 480,
+   "frame": "build14-640x480-d/en/s27/01-cloud-hub.png",
+   "sha256": "11eb5b99c8d7ca60a236ad8b38ef852cbfb9df8ce1490edc46f195ecf54a8945",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "as expected",
+    "date": "2026-11-26"
+   }
+  },
+  {
+   "flow_id": "cloud-folders-and-connections",
+   "branch_id": "build14/640x480-d/en/s28/01-cloud-hub",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud",
+   "criteria": [
+    "1483 c2",
+    "1111 C08"
+   ],
+   "trigger": "EDIT CONNECTION saved on a working qa-two, which is not the active connection",
+   "expected_state": "CONNECTION SAVED (YOUR CURRENT CONNECTION HAS NOT CHANGED...), then back to the connection's page; the section's hash unchanged",
+   "source": {
+    "es": "6cdcb7a64 (local m7/rc-round-es-20261125; route m7-20261126-552f3815e4b4)",
+    "distribution": "ed61fe8e5922f3106cb35230fed0027f4f7fc431 (local build/m7-rc-round-20261125, build 14)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T192845Z.ged61fe8e5922-from-ROCKNIX",
+    "walk": "docs/qa-logs/2026-11-26-1111-1115-campaign/phase-d/phase-d.sh"
+   },
+   "locale": "en",
+   "width": 640,
+   "height": 480,
+   "frame": "build14-640x480-d/en/s28/01-cloud-hub.png",
+   "sha256": "11eb5b99c8d7ca60a236ad8b38ef852cbfb9df8ce1490edc46f195ecf54a8945",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "as expected",
+    "date": "2026-11-26"
+   }
+  },
+  {
+   "flow_id": "cloud-folders-and-connections",
+   "branch_id": "build14/640x480-d/en/s28/02-connections-two",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud",
+   "criteria": [
+    "1483 c2",
+    "1111 C08"
+   ],
+   "trigger": "EDIT CONNECTION saved on a working qa-two, which is not the active connection",
+   "expected_state": "CONNECTION SAVED (YOUR CURRENT CONNECTION HAS NOT CHANGED...), then back to the connection's page; the section's hash unchanged",
+   "source": {
+    "es": "6cdcb7a64 (local m7/rc-round-es-20261125; route m7-20261126-552f3815e4b4)",
+    "distribution": "ed61fe8e5922f3106cb35230fed0027f4f7fc431 (local build/m7-rc-round-20261125, build 14)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T192845Z.ged61fe8e5922-from-ROCKNIX",
+    "walk": "docs/qa-logs/2026-11-26-1111-1115-campaign/phase-d/phase-d.sh"
+   },
+   "locale": "en",
+   "width": 640,
+   "height": 480,
+   "frame": "build14-640x480-d/en/s28/02-connections-two.png",
+   "sha256": "1991ebb51a8218aafdd7d7e3dc731c6294ef4bd8090b06ff2541a89826fe5466",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "as expected",
+    "date": "2026-11-26"
+   }
+  },
+  {
+   "flow_id": "cloud-folders-and-connections",
+   "branch_id": "build14/640x480-d/en/s28/03-two-focused",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud",
+   "criteria": [
+    "1483 c2",
+    "1111 C08"
+   ],
+   "trigger": "EDIT CONNECTION saved on a working qa-two, which is not the active connection",
+   "expected_state": "CONNECTION SAVED (YOUR CURRENT CONNECTION HAS NOT CHANGED...), then back to the connection's page; the section's hash unchanged",
+   "source": {
+    "es": "6cdcb7a64 (local m7/rc-round-es-20261125; route m7-20261126-552f3815e4b4)",
+    "distribution": "ed61fe8e5922f3106cb35230fed0027f4f7fc431 (local build/m7-rc-round-20261125, build 14)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T192845Z.ged61fe8e5922-from-ROCKNIX",
+    "walk": "docs/qa-logs/2026-11-26-1111-1115-campaign/phase-d/phase-d.sh"
+   },
+   "locale": "en",
+   "width": 640,
+   "height": 480,
+   "frame": "build14-640x480-d/en/s28/03-two-focused.png",
+   "sha256": "0f566faa0c5243248b3b85f58127a8b86bef744dcf9b8cdaf3570a949efce616",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "as expected",
+    "date": "2026-11-26"
+   }
+  },
+  {
+   "flow_id": "cloud-folders-and-connections",
+   "branch_id": "build14/640x480-d/en/s28/04-connection-two",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud",
+   "criteria": [
+    "1483 c2",
+    "1111 C08"
+   ],
+   "trigger": "EDIT CONNECTION saved on a working qa-two, which is not the active connection",
+   "expected_state": "CONNECTION SAVED (YOUR CURRENT CONNECTION HAS NOT CHANGED...), then back to the connection's page; the section's hash unchanged",
+   "source": {
+    "es": "6cdcb7a64 (local m7/rc-round-es-20261125; route m7-20261126-552f3815e4b4)",
+    "distribution": "ed61fe8e5922f3106cb35230fed0027f4f7fc431 (local build/m7-rc-round-20261125, build 14)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T192845Z.ged61fe8e5922-from-ROCKNIX",
+    "walk": "docs/qa-logs/2026-11-26-1111-1115-campaign/phase-d/phase-d.sh"
+   },
+   "locale": "en",
+   "width": 640,
+   "height": 480,
+   "frame": "build14-640x480-d/en/s28/04-connection-two.png",
+   "sha256": "4f121a9c8b7955ac1807aa7b923f5eb7fa30b9422b79975a4a4fc1a570b2c03d",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "as expected",
+    "date": "2026-11-26"
+   }
+  },
+  {
+   "flow_id": "cloud-folders-and-connections",
+   "branch_id": "build14/640x480-d/en/s28/05-edit-form",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud",
+   "criteria": [
+    "1483 c2",
+    "1111 C08"
+   ],
+   "trigger": "EDIT CONNECTION saved on a working qa-two, which is not the active connection",
+   "expected_state": "CONNECTION SAVED (YOUR CURRENT CONNECTION HAS NOT CHANGED...), then back to the connection's page; the section's hash unchanged",
+   "source": {
+    "es": "6cdcb7a64 (local m7/rc-round-es-20261125; route m7-20261126-552f3815e4b4)",
+    "distribution": "ed61fe8e5922f3106cb35230fed0027f4f7fc431 (local build/m7-rc-round-20261125, build 14)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T192845Z.ged61fe8e5922-from-ROCKNIX",
+    "walk": "docs/qa-logs/2026-11-26-1111-1115-campaign/phase-d/phase-d.sh"
+   },
+   "locale": "en",
+   "width": 640,
+   "height": 480,
+   "frame": "build14-640x480-d/en/s28/05-edit-form.png",
+   "sha256": "bc2ba3320472c27ff294c86dbc65e5c4739f0234901b1271886dfe867f9820ed",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "as expected",
+    "date": "2026-11-26"
+   }
+  },
+  {
+   "flow_id": "cloud-folders-and-connections",
+   "branch_id": "build14/640x480-d/en/s28/06-save-row",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud",
+   "criteria": [
+    "1483 c2",
+    "1111 C08"
+   ],
+   "trigger": "EDIT CONNECTION saved on a working qa-two, which is not the active connection",
+   "expected_state": "CONNECTION SAVED (YOUR CURRENT CONNECTION HAS NOT CHANGED...), then back to the connection's page; the section's hash unchanged",
+   "source": {
+    "es": "6cdcb7a64 (local m7/rc-round-es-20261125; route m7-20261126-552f3815e4b4)",
+    "distribution": "ed61fe8e5922f3106cb35230fed0027f4f7fc431 (local build/m7-rc-round-20261125, build 14)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T192845Z.ged61fe8e5922-from-ROCKNIX",
+    "walk": "docs/qa-logs/2026-11-26-1111-1115-campaign/phase-d/phase-d.sh"
+   },
+   "locale": "en",
+   "width": 640,
+   "height": 480,
+   "frame": "build14-640x480-d/en/s28/06-save-row.png",
+   "sha256": "4a34bb33709db94afeb657c24455ad717ff5409e5c6ae6becad4e0a5af5ba463",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "as expected",
+    "date": "2026-11-26"
+   }
+  },
+  {
+   "flow_id": "cloud-folders-and-connections",
+   "branch_id": "build14/640x480-d/en/s28/07-update-confirm",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud",
+   "criteria": [
+    "1483 c2",
+    "1111 C08"
+   ],
+   "trigger": "EDIT CONNECTION saved on a working qa-two, which is not the active connection",
+   "expected_state": "CONNECTION SAVED (YOUR CURRENT CONNECTION HAS NOT CHANGED...), then back to the connection's page; the section's hash unchanged",
+   "source": {
+    "es": "6cdcb7a64 (local m7/rc-round-es-20261125; route m7-20261126-552f3815e4b4)",
+    "distribution": "ed61fe8e5922f3106cb35230fed0027f4f7fc431 (local build/m7-rc-round-20261125, build 14)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T192845Z.ged61fe8e5922-from-ROCKNIX",
+    "walk": "docs/qa-logs/2026-11-26-1111-1115-campaign/phase-d/phase-d.sh"
+   },
+   "locale": "en",
+   "width": 640,
+   "height": 480,
+   "frame": "build14-640x480-d/en/s28/07-update-confirm.png",
+   "sha256": "edb10b864299c85dacade77b7821e03a632bab35a9083f9278a037573bd289f1",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "as expected",
+    "date": "2026-11-26"
+   }
+  },
+  {
+   "flow_id": "cloud-folders-and-connections",
+   "branch_id": "build14/640x480-d/en/s28/08-connection-saved",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud",
+   "criteria": [
+    "1483 c2",
+    "1111 C08"
+   ],
+   "trigger": "EDIT CONNECTION saved on a working qa-two, which is not the active connection",
+   "expected_state": "CONNECTION SAVED (YOUR CURRENT CONNECTION HAS NOT CHANGED...), then back to the connection's page; the section's hash unchanged",
+   "source": {
+    "es": "6cdcb7a64 (local m7/rc-round-es-20261125; route m7-20261126-552f3815e4b4)",
+    "distribution": "ed61fe8e5922f3106cb35230fed0027f4f7fc431 (local build/m7-rc-round-20261125, build 14)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T192845Z.ged61fe8e5922-from-ROCKNIX",
+    "walk": "docs/qa-logs/2026-11-26-1111-1115-campaign/phase-d/phase-d.sh"
+   },
+   "locale": "en",
+   "width": 640,
+   "height": 480,
+   "frame": "build14-640x480-d/en/s28/08-connection-saved.png",
+   "sha256": "8970425132dd0260be3d2c51f893874f9757828b790442c7f0d4fee809a69471",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "as expected",
+    "date": "2026-11-26"
+   }
+  },
+  {
+   "flow_id": "cloud-folders-and-connections",
+   "branch_id": "build14/640x480-d/en/s28/09-after-saved-back",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud",
+   "criteria": [
+    "1483 c2",
+    "1111 C08"
+   ],
+   "trigger": "EDIT CONNECTION saved on a working qa-two, which is not the active connection",
+   "expected_state": "CONNECTION SAVED (YOUR CURRENT CONNECTION HAS NOT CHANGED...), then back to the connection's page; the section's hash unchanged",
+   "source": {
+    "es": "6cdcb7a64 (local m7/rc-round-es-20261125; route m7-20261126-552f3815e4b4)",
+    "distribution": "ed61fe8e5922f3106cb35230fed0027f4f7fc431 (local build/m7-rc-round-20261125, build 14)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T192845Z.ged61fe8e5922-from-ROCKNIX",
+    "walk": "docs/qa-logs/2026-11-26-1111-1115-campaign/phase-d/phase-d.sh"
+   },
+   "locale": "en",
+   "width": 640,
+   "height": 480,
+   "frame": "build14-640x480-d/en/s28/09-after-saved-back.png",
+   "sha256": "53bca1b69192dd25455828f38c71101b4109a8b4e50e2dcdad008e17736362ef",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "as expected",
+    "date": "2026-11-26"
+   }
+  },
+  {
+   "flow_id": "cloud-folders-and-connections",
+   "branch_id": "build14/640x480-d/fr/s15/01-cloud-hub",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud",
+   "criteria": [
+    "1111 C12",
+    "1482 c1",
+    "1482 c2"
+   ],
+   "trigger": "no saved connection (rclone.conf moved aside)",
+   "expected_state": "the hub, MANAGE CLOUD CONNECTIONS and (from build 14) CHECK CLOUD SETUP with nothing saved; from build 14 the line is ADD A CONNECTION BEFORE USING CLOUD TOOLS.",
+   "source": {
+    "es": "6cdcb7a64 (local m7/rc-round-es-20261125; route m7-20261126-552f3815e4b4)",
+    "distribution": "ed61fe8e5922f3106cb35230fed0027f4f7fc431 (local build/m7-rc-round-20261125, build 14)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T192845Z.ged61fe8e5922-from-ROCKNIX",
+    "walk": "docs/qa-logs/2026-11-26-1111-1115-campaign/phase-d/phase-d.sh"
+   },
+   "locale": "fr",
+   "width": 640,
+   "height": 480,
+   "frame": "build14-640x480-d/fr/s15/01-cloud-hub.png",
+   "sha256": "0b1efa87290a43135288c169f14c29c216e76c1ca84d2d8b8c111dccf65f03eb",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "the English pass left a profile store naming qa-cloud: the setup check reads R\u00c9GLAGES ILLISIBLES (an inconsistent store; see s25/s26 for the faithful cases)",
+    "date": "2026-11-26"
+   }
+  },
+  {
+   "flow_id": "cloud-folders-and-connections",
+   "branch_id": "build14/640x480-d/fr/s15/02-hub-no-connections",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud",
+   "criteria": [
+    "1111 C12",
+    "1482 c1",
+    "1482 c2"
+   ],
+   "trigger": "no saved connection (rclone.conf moved aside)",
+   "expected_state": "the hub, MANAGE CLOUD CONNECTIONS and (from build 14) CHECK CLOUD SETUP with nothing saved; from build 14 the line is ADD A CONNECTION BEFORE USING CLOUD TOOLS.",
+   "source": {
+    "es": "6cdcb7a64 (local m7/rc-round-es-20261125; route m7-20261126-552f3815e4b4)",
+    "distribution": "ed61fe8e5922f3106cb35230fed0027f4f7fc431 (local build/m7-rc-round-20261125, build 14)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T192845Z.ged61fe8e5922-from-ROCKNIX",
+    "walk": "docs/qa-logs/2026-11-26-1111-1115-campaign/phase-d/phase-d.sh"
+   },
+   "locale": "fr",
+   "width": 640,
+   "height": 480,
+   "frame": "build14-640x480-d/fr/s15/02-hub-no-connections.png",
+   "sha256": "0b1efa87290a43135288c169f14c29c216e76c1ca84d2d8b8c111dccf65f03eb",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "the English pass left a profile store naming qa-cloud: the setup check reads R\u00c9GLAGES ILLISIBLES (an inconsistent store; see s25/s26 for the faithful cases)",
+    "date": "2026-11-26"
+   }
+  },
+  {
+   "flow_id": "cloud-folders-and-connections",
+   "branch_id": "build14/640x480-d/fr/s15/03-hub-no-connections-lower",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud",
+   "criteria": [
+    "1111 C12",
+    "1482 c1",
+    "1482 c2"
+   ],
+   "trigger": "no saved connection (rclone.conf moved aside)",
+   "expected_state": "the hub, MANAGE CLOUD CONNECTIONS and (from build 14) CHECK CLOUD SETUP with nothing saved; from build 14 the line is ADD A CONNECTION BEFORE USING CLOUD TOOLS.",
+   "source": {
+    "es": "6cdcb7a64 (local m7/rc-round-es-20261125; route m7-20261126-552f3815e4b4)",
+    "distribution": "ed61fe8e5922f3106cb35230fed0027f4f7fc431 (local build/m7-rc-round-20261125, build 14)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T192845Z.ged61fe8e5922-from-ROCKNIX",
+    "walk": "docs/qa-logs/2026-11-26-1111-1115-campaign/phase-d/phase-d.sh"
+   },
+   "locale": "fr",
+   "width": 640,
+   "height": 480,
+   "frame": "build14-640x480-d/fr/s15/03-hub-no-connections-lower.png",
+   "sha256": "4a7d732665b5ffb66e3a6e11d45a175127396ad75d898f3b7ee74adfbf26131f",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "the English pass left a profile store naming qa-cloud: the setup check reads R\u00c9GLAGES ILLISIBLES (an inconsistent store; see s25/s26 for the faithful cases)",
+    "date": "2026-11-26"
+   }
+  },
+  {
+   "flow_id": "cloud-folders-and-connections",
+   "branch_id": "build14/640x480-d/fr/s15/04-hub-last-row",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud",
+   "criteria": [
+    "1111 C12",
+    "1482 c1",
+    "1482 c2"
+   ],
+   "trigger": "no saved connection (rclone.conf moved aside)",
+   "expected_state": "the hub, MANAGE CLOUD CONNECTIONS and (from build 14) CHECK CLOUD SETUP with nothing saved; from build 14 the line is ADD A CONNECTION BEFORE USING CLOUD TOOLS.",
+   "source": {
+    "es": "6cdcb7a64 (local m7/rc-round-es-20261125; route m7-20261126-552f3815e4b4)",
+    "distribution": "ed61fe8e5922f3106cb35230fed0027f4f7fc431 (local build/m7-rc-round-20261125, build 14)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T192845Z.ged61fe8e5922-from-ROCKNIX",
+    "walk": "docs/qa-logs/2026-11-26-1111-1115-campaign/phase-d/phase-d.sh"
+   },
+   "locale": "fr",
+   "width": 640,
+   "height": 480,
+   "frame": "build14-640x480-d/fr/s15/04-hub-last-row.png",
+   "sha256": "3bf739f781517e524353a419436cc4200f3501aac243ea2be422d38b5c63d4da",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "the English pass left a profile store naming qa-cloud: the setup check reads R\u00c9GLAGES ILLISIBLES (an inconsistent store; see s25/s26 for the faithful cases)",
+    "date": "2026-11-26"
+   }
+  },
+  {
+   "flow_id": "cloud-folders-and-connections",
+   "branch_id": "build14/640x480-d/fr/s15/05-connections-none",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud",
+   "criteria": [
+    "1111 C12",
+    "1482 c1",
+    "1482 c2"
+   ],
+   "trigger": "no saved connection (rclone.conf moved aside)",
+   "expected_state": "the hub, MANAGE CLOUD CONNECTIONS and (from build 14) CHECK CLOUD SETUP with nothing saved; from build 14 the line is ADD A CONNECTION BEFORE USING CLOUD TOOLS.",
+   "source": {
+    "es": "6cdcb7a64 (local m7/rc-round-es-20261125; route m7-20261126-552f3815e4b4)",
+    "distribution": "ed61fe8e5922f3106cb35230fed0027f4f7fc431 (local build/m7-rc-round-20261125, build 14)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T192845Z.ged61fe8e5922-from-ROCKNIX",
+    "walk": "docs/qa-logs/2026-11-26-1111-1115-campaign/phase-d/phase-d.sh"
+   },
+   "locale": "fr",
+   "width": 640,
+   "height": 480,
+   "frame": "build14-640x480-d/fr/s15/05-connections-none.png",
+   "sha256": "523bd2925aed2dad9762ba674c871c52dc67fd3e35f8dd7e03e8a03ad7247820",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "the English pass left a profile store naming qa-cloud: the setup check reads R\u00c9GLAGES ILLISIBLES (an inconsistent store; see s25/s26 for the faithful cases)",
+    "date": "2026-11-26"
+   }
+  },
+  {
+   "flow_id": "cloud-folders-and-connections",
+   "branch_id": "build14/640x480-d/fr/s15/06-setup-check-none",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud",
+   "criteria": [
+    "1111 C12",
+    "1482 c1",
+    "1482 c2"
+   ],
+   "trigger": "no saved connection (rclone.conf moved aside)",
+   "expected_state": "the hub, MANAGE CLOUD CONNECTIONS and (from build 14) CHECK CLOUD SETUP with nothing saved; from build 14 the line is ADD A CONNECTION BEFORE USING CLOUD TOOLS.",
+   "source": {
+    "es": "6cdcb7a64 (local m7/rc-round-es-20261125; route m7-20261126-552f3815e4b4)",
+    "distribution": "ed61fe8e5922f3106cb35230fed0027f4f7fc431 (local build/m7-rc-round-20261125, build 14)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T192845Z.ged61fe8e5922-from-ROCKNIX",
+    "walk": "docs/qa-logs/2026-11-26-1111-1115-campaign/phase-d/phase-d.sh"
+   },
+   "locale": "fr",
+   "width": 640,
+   "height": 480,
+   "frame": "build14-640x480-d/fr/s15/06-setup-check-none.png",
+   "sha256": "9d3a6745754faf75e3e8dad32dc135213212b290519915ee0bb2627cb852be74",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "the English pass left a profile store naming qa-cloud: the setup check reads R\u00c9GLAGES ILLISIBLES (an inconsistent store; see s25/s26 for the faithful cases)",
+    "date": "2026-11-26"
+   }
+  },
+  {
+   "flow_id": "cloud-folders-and-connections",
+   "branch_id": "build14/640x480-d/fr/s27/01-cloud-hub",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud",
+   "criteria": [
+    "1111 C06"
+   ],
+   "trigger": "diagnosis: after s15, the four files' hashes, then adding qa-two, a bare listing of qa-cloud and the state (values never printed)",
+   "expected_state": "add rc and the listing in s27.arm.log; the hub frame only",
+   "source": {
+    "es": "6cdcb7a64 (local m7/rc-round-es-20261125; route m7-20261126-552f3815e4b4)",
+    "distribution": "ed61fe8e5922f3106cb35230fed0027f4f7fc431 (local build/m7-rc-round-20261125, build 14)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T192845Z.ged61fe8e5922-from-ROCKNIX",
+    "walk": "docs/qa-logs/2026-11-26-1111-1115-campaign/phase-d/phase-d.sh"
+   },
+   "locale": "fr",
+   "width": 640,
+   "height": 480,
+   "frame": "build14-640x480-d/fr/s27/01-cloud-hub.png",
+   "sha256": "6720f9bb3a014af5cd480c42dcefbf4fd36c3cf00019528c77f47eb003061a94",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "as expected",
+    "date": "2026-11-26"
+   }
+  },
+  {
+   "flow_id": "cloud-folders-and-connections",
+   "branch_id": "build14/640x480-d/fr/s28/01-cloud-hub",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud",
+   "criteria": [
+    "1483 c2",
+    "1111 C08"
+   ],
+   "trigger": "EDIT CONNECTION saved on a working qa-two, which is not the active connection",
+   "expected_state": "CONNECTION SAVED (YOUR CURRENT CONNECTION HAS NOT CHANGED...), then back to the connection's page; the section's hash unchanged",
+   "source": {
+    "es": "6cdcb7a64 (local m7/rc-round-es-20261125; route m7-20261126-552f3815e4b4)",
+    "distribution": "ed61fe8e5922f3106cb35230fed0027f4f7fc431 (local build/m7-rc-round-20261125, build 14)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T192845Z.ged61fe8e5922-from-ROCKNIX",
+    "walk": "docs/qa-logs/2026-11-26-1111-1115-campaign/phase-d/phase-d.sh"
+   },
+   "locale": "fr",
+   "width": 640,
+   "height": 480,
+   "frame": "build14-640x480-d/fr/s28/01-cloud-hub.png",
+   "sha256": "6720f9bb3a014af5cd480c42dcefbf4fd36c3cf00019528c77f47eb003061a94",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "as expected",
+    "date": "2026-11-26"
+   }
+  },
+  {
+   "flow_id": "cloud-folders-and-connections",
+   "branch_id": "build14/640x480-d/fr/s28/02-connections-two",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud",
+   "criteria": [
+    "1483 c2",
+    "1111 C08"
+   ],
+   "trigger": "EDIT CONNECTION saved on a working qa-two, which is not the active connection",
+   "expected_state": "CONNECTION SAVED (YOUR CURRENT CONNECTION HAS NOT CHANGED...), then back to the connection's page; the section's hash unchanged",
+   "source": {
+    "es": "6cdcb7a64 (local m7/rc-round-es-20261125; route m7-20261126-552f3815e4b4)",
+    "distribution": "ed61fe8e5922f3106cb35230fed0027f4f7fc431 (local build/m7-rc-round-20261125, build 14)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T192845Z.ged61fe8e5922-from-ROCKNIX",
+    "walk": "docs/qa-logs/2026-11-26-1111-1115-campaign/phase-d/phase-d.sh"
+   },
+   "locale": "fr",
+   "width": 640,
+   "height": 480,
+   "frame": "build14-640x480-d/fr/s28/02-connections-two.png",
+   "sha256": "6a3799a98db3c196363869aaf92d1424e3e5e4bc045d3653610ee43652a5cb63",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "as expected",
+    "date": "2026-11-26"
+   }
+  },
+  {
+   "flow_id": "cloud-folders-and-connections",
+   "branch_id": "build14/640x480-d/fr/s28/03-two-focused",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud",
+   "criteria": [
+    "1483 c2",
+    "1111 C08"
+   ],
+   "trigger": "EDIT CONNECTION saved on a working qa-two, which is not the active connection",
+   "expected_state": "CONNECTION SAVED (YOUR CURRENT CONNECTION HAS NOT CHANGED...), then back to the connection's page; the section's hash unchanged",
+   "source": {
+    "es": "6cdcb7a64 (local m7/rc-round-es-20261125; route m7-20261126-552f3815e4b4)",
+    "distribution": "ed61fe8e5922f3106cb35230fed0027f4f7fc431 (local build/m7-rc-round-20261125, build 14)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T192845Z.ged61fe8e5922-from-ROCKNIX",
+    "walk": "docs/qa-logs/2026-11-26-1111-1115-campaign/phase-d/phase-d.sh"
+   },
+   "locale": "fr",
+   "width": 640,
+   "height": 480,
+   "frame": "build14-640x480-d/fr/s28/03-two-focused.png",
+   "sha256": "6e1bc67f220da154473b1c2a5835597cdebeee8da7b2951ff5d1963b7e3f6bf6",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "as expected",
+    "date": "2026-11-26"
+   }
+  },
+  {
+   "flow_id": "cloud-folders-and-connections",
+   "branch_id": "build14/640x480-d/fr/s28/04-connection-two",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud",
+   "criteria": [
+    "1483 c2",
+    "1111 C08"
+   ],
+   "trigger": "EDIT CONNECTION saved on a working qa-two, which is not the active connection",
+   "expected_state": "CONNECTION SAVED (YOUR CURRENT CONNECTION HAS NOT CHANGED...), then back to the connection's page; the section's hash unchanged",
+   "source": {
+    "es": "6cdcb7a64 (local m7/rc-round-es-20261125; route m7-20261126-552f3815e4b4)",
+    "distribution": "ed61fe8e5922f3106cb35230fed0027f4f7fc431 (local build/m7-rc-round-20261125, build 14)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T192845Z.ged61fe8e5922-from-ROCKNIX",
+    "walk": "docs/qa-logs/2026-11-26-1111-1115-campaign/phase-d/phase-d.sh"
+   },
+   "locale": "fr",
+   "width": 640,
+   "height": 480,
+   "frame": "build14-640x480-d/fr/s28/04-connection-two.png",
+   "sha256": "6683db8a3920403d9504cf74574468ae06d4f6c5552468d4f3a09918d638ce09",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "as expected",
+    "date": "2026-11-26"
+   }
+  },
+  {
+   "flow_id": "cloud-folders-and-connections",
+   "branch_id": "build14/640x480-d/fr/s28/05-edit-form",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud",
+   "criteria": [
+    "1483 c2",
+    "1111 C08"
+   ],
+   "trigger": "EDIT CONNECTION saved on a working qa-two, which is not the active connection",
+   "expected_state": "CONNECTION SAVED (YOUR CURRENT CONNECTION HAS NOT CHANGED...), then back to the connection's page; the section's hash unchanged",
+   "source": {
+    "es": "6cdcb7a64 (local m7/rc-round-es-20261125; route m7-20261126-552f3815e4b4)",
+    "distribution": "ed61fe8e5922f3106cb35230fed0027f4f7fc431 (local build/m7-rc-round-20261125, build 14)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T192845Z.ged61fe8e5922-from-ROCKNIX",
+    "walk": "docs/qa-logs/2026-11-26-1111-1115-campaign/phase-d/phase-d.sh"
+   },
+   "locale": "fr",
+   "width": 640,
+   "height": 480,
+   "frame": "build14-640x480-d/fr/s28/05-edit-form.png",
+   "sha256": "14935027215cc37b64481778312c7612466e9212d63a4578f4d24b6269088b02",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "as expected",
+    "date": "2026-11-26"
+   }
+  },
+  {
+   "flow_id": "cloud-folders-and-connections",
+   "branch_id": "build14/640x480-d/fr/s28/06-save-row",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud",
+   "criteria": [
+    "1483 c2",
+    "1111 C08"
+   ],
+   "trigger": "EDIT CONNECTION saved on a working qa-two, which is not the active connection",
+   "expected_state": "CONNECTION SAVED (YOUR CURRENT CONNECTION HAS NOT CHANGED...), then back to the connection's page; the section's hash unchanged",
+   "source": {
+    "es": "6cdcb7a64 (local m7/rc-round-es-20261125; route m7-20261126-552f3815e4b4)",
+    "distribution": "ed61fe8e5922f3106cb35230fed0027f4f7fc431 (local build/m7-rc-round-20261125, build 14)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T192845Z.ged61fe8e5922-from-ROCKNIX",
+    "walk": "docs/qa-logs/2026-11-26-1111-1115-campaign/phase-d/phase-d.sh"
+   },
+   "locale": "fr",
+   "width": 640,
+   "height": 480,
+   "frame": "build14-640x480-d/fr/s28/06-save-row.png",
+   "sha256": "8a4dadc3d1ef8a2d29d9b3a13617763524a4ead3540846a764f9d6f1c0d22df8",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "as expected",
+    "date": "2026-11-26"
+   }
+  },
+  {
+   "flow_id": "cloud-folders-and-connections",
+   "branch_id": "build14/640x480-d/fr/s28/07-update-confirm",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud",
+   "criteria": [
+    "1483 c2",
+    "1111 C08"
+   ],
+   "trigger": "EDIT CONNECTION saved on a working qa-two, which is not the active connection",
+   "expected_state": "CONNECTION SAVED (YOUR CURRENT CONNECTION HAS NOT CHANGED...), then back to the connection's page; the section's hash unchanged",
+   "source": {
+    "es": "6cdcb7a64 (local m7/rc-round-es-20261125; route m7-20261126-552f3815e4b4)",
+    "distribution": "ed61fe8e5922f3106cb35230fed0027f4f7fc431 (local build/m7-rc-round-20261125, build 14)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T192845Z.ged61fe8e5922-from-ROCKNIX",
+    "walk": "docs/qa-logs/2026-11-26-1111-1115-campaign/phase-d/phase-d.sh"
+   },
+   "locale": "fr",
+   "width": 640,
+   "height": 480,
+   "frame": "build14-640x480-d/fr/s28/07-update-confirm.png",
+   "sha256": "228c88d2477bca8677be15a55738a2d0b936ad69db3f276ea0d05ed182fdbae1",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "as expected",
+    "date": "2026-11-26"
+   }
+  },
+  {
+   "flow_id": "cloud-folders-and-connections",
+   "branch_id": "build14/640x480-d/fr/s28/08-connection-saved",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud",
+   "criteria": [
+    "1483 c2",
+    "1111 C08"
+   ],
+   "trigger": "EDIT CONNECTION saved on a working qa-two, which is not the active connection",
+   "expected_state": "CONNECTION SAVED (YOUR CURRENT CONNECTION HAS NOT CHANGED...), then back to the connection's page; the section's hash unchanged",
+   "source": {
+    "es": "6cdcb7a64 (local m7/rc-round-es-20261125; route m7-20261126-552f3815e4b4)",
+    "distribution": "ed61fe8e5922f3106cb35230fed0027f4f7fc431 (local build/m7-rc-round-20261125, build 14)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T192845Z.ged61fe8e5922-from-ROCKNIX",
+    "walk": "docs/qa-logs/2026-11-26-1111-1115-campaign/phase-d/phase-d.sh"
+   },
+   "locale": "fr",
+   "width": 640,
+   "height": 480,
+   "frame": "build14-640x480-d/fr/s28/08-connection-saved.png",
+   "sha256": "67a07a8f91a74487971849e70ecbab4717d1c5b7aa649fc7a1c5c3627ad43410",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "as expected",
+    "date": "2026-11-26"
+   }
+  },
+  {
+   "flow_id": "cloud-folders-and-connections",
+   "branch_id": "build14/640x480-d/fr/s28/09-after-saved-back",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud",
+   "criteria": [
+    "1483 c2",
+    "1111 C08"
+   ],
+   "trigger": "EDIT CONNECTION saved on a working qa-two, which is not the active connection",
+   "expected_state": "CONNECTION SAVED (YOUR CURRENT CONNECTION HAS NOT CHANGED...), then back to the connection's page; the section's hash unchanged",
+   "source": {
+    "es": "6cdcb7a64 (local m7/rc-round-es-20261125; route m7-20261126-552f3815e4b4)",
+    "distribution": "ed61fe8e5922f3106cb35230fed0027f4f7fc431 (local build/m7-rc-round-20261125, build 14)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T192845Z.ged61fe8e5922-from-ROCKNIX",
+    "walk": "docs/qa-logs/2026-11-26-1111-1115-campaign/phase-d/phase-d.sh"
+   },
+   "locale": "fr",
+   "width": 640,
+   "height": 480,
+   "frame": "build14-640x480-d/fr/s28/09-after-saved-back.png",
+   "sha256": "5eac3f3ebc57968a9cf645975c744b66aaa7684af1339dd34c38e0a5a80d403e",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "as expected",
+    "date": "2026-11-26"
+   }
   }
  ]
 }

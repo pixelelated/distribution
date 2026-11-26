@@ -75,6 +75,10 @@ SCREENS = {
             "setup-info STATE=no-connections; CHECK CLOUD SETUP and MANAGE CLOUD CONNECTIONS read ADD A CONNECTION BEFORE USING CLOUD TOOLS.", ["1482 c1", "1482 c2", "1111 C12"]),
     "s26": ("every connection removed through cloud_connections.remove (all files restored after)",
             "setup-info STATE=no-connections; the same two pages read ADD A CONNECTION BEFORE USING CLOUD TOOLS.", ["1482 c1", "1482 c2", "1111 C01", "1111 C12"]),
+    "s27": ("diagnosis: after s15, the four files' hashes, then adding qa-two, a bare listing of qa-cloud and the state (values never printed)",
+            "add rc and the listing in s27.arm.log; the hub frame only", ["1111 C06"]),
+    "s28": ("EDIT CONNECTION saved on a working qa-two, which is not the active connection",
+            "CONNECTION SAVED (YOUR CURRENT CONNECTION HAS NOT CHANGED...), then back to the connection's page; the section's hash unchanged", ["1483 c2", "1111 C08"]),
     "s24": ("LINK FROM THIS DEVICE, WEBDAV, then back on the provider form",
             "where the add-a-connection wizard lands on back, unchanged by #1483", ["1483 c3"]),
 }
@@ -95,6 +99,8 @@ OBSERVED = {k: v for lang in ("en", "fr") for k, v in (
     (f"build14/640x480/{lang}/s15", "connections page as #1482 asks (ADD A CONNECTION...); the setup check reads SETUP COULD NOT BE READ because this arm moves only rclone.conf and leaves a profile store naming qa-cloud, an inconsistent store, not a fresh device. s25 (fresh) and s26 (all removed) are the faithful cases"),
     ("build14/640x480-c/fr/s19", "back on the edit form returns to CONNEXION AU CLOUD; the failed save ends in LA CONNEXION N'A PAS PU ÊTRE ENREGISTRÉE and the section is kept; the form's row labels are English (#1485)"),
     ("build14/640x480-b/en/s19", "back on the edit form returns to CLOUD CONNECTION qa-two; the failed save ends in THE CONNECTION COULDN'T BE SAVED and the section is kept byte for byte"),
+    ("build14/640x480-d/en/s15", "s15 first after seeding: no profile store yet, so setup-info reads no-connections and both pages read ADD A CONNECTION BEFORE USING CLOUD TOOLS."),
+    ("build14/640x480-d/fr/s15", "the English pass left a profile store naming qa-cloud: the setup check reads RÉGLAGES ILLISIBLES (an inconsistent store; see s25/s26 for the faithful cases)"),
     (f"build14/640x480/{lang}/s24", "back on the WebDAV form lands on the provider chooser with WEBDAV focused" + ("; the form's row labels are English in French (#1485)" if lang == "fr" else "")),
     (f"640x480-more/{lang}/s20", "defect, build 13: the hub reads NO CONNECTION SELECTED and CLOUD FOLDERS asks to choose a connection for an unreadable setup; the setup check and connections page name it. Fixed in ES 6cdcb7a64 (#1111 C11)"),
     (f"640x480-more/{lang}/s22-b", "defect, build 13: a selection emptied while CLOUD FOLDERS is open gives COULDN'T CHECK YOUR FOLDERS. CHECK YOUR CONNECTION; not the stale wording, but it names a connection fault. Fixed in ES 6cdcb7a64 (#1111 C10, C20)"))}
