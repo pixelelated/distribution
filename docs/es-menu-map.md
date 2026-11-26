@@ -147,6 +147,18 @@ Two placement rules the existing tree already follows:
 - **Destructive and system-level operations sit behind ADVANCED**, inside SYSTEM
   SETTINGS → SYSTEM MANAGEMENT AND RESET, where every row confirms first.
 
+Two additional ROCKNIX pages are present in the source-round ES `ee098b0ad`.
+
+- **SCALING AND SHARPENING** opens from SYSTEM SETTINGS or the advanced
+  settings for a system or game on devices that expose scanout scaling.
+  RENDER RESOLUTION sets the emulator resolution or display size. Where the
+  hardware exposes sharpening controls, SCALING FILTER, EDGE STRENGTH, and
+  SHARPENING follow. DEFAULT inherits the global setting per system or game.
+- **ZRAM SWAP** opens from the PERFORMANCE group in SYSTEM SETTINGS. ENABLE
+  ZRAM applies the change and rebuilds the page. With ZRAM enabled, ZSTD
+  COMPRESSION selects the compression mode and ZRAM SIZE sets the swap size
+  as a percentage of RAM.
+
 ## Save state manager
 
 A game's long-press menu > SAVE STATES, or before every launch under GAME
@@ -355,6 +367,97 @@ The [flow evidence table](pixelelated/cloud-folder-flow-review.md#implemented-fl
 tracks the happy path and branching cases with their screenshot status.
 Earlier migration rules and frames remain historical evidence under
 #356/#363/#502. Website guide publication remains separate under #511.
+
+The three pages below describe the source-round ES `ee098b0ad` in `GuiMenu.cpp`.
+
+### CHOOSE YOUR CLOUD STORAGE PROVIDER
+
+From CLOUD > MANAGE CLOUD CONNECTIONS > LINK FROM THIS DEVICE. Choosing YES
+on the SET IT UP NOW? prompt from an unconfigured cloud action also opens it.
+
+1. **RECOMMENDED** lists the available entries in this order: DROPBOX, GOOGLE
+   DRIVE, MICROSOFT ONEDRIVE, BOX, PCLOUD, MEGA, PROTON DRIVE, KOOFR, WEBDAV,
+   SSH / SFTP, WINDOWS SHARE (SMB), AMAZON S3 AND COMPATIBLE, BACKBLAZE B2,
+   and STORJ. Selecting a provider that uses browser sign-in opens ADD
+   CONNECTION, where the player names it and starts sign-in. Other choices
+   open the connection form, with a WHICH SERVICE? picker first if the
+   backend has subproviders.
+2. **MORE** contains these rows in order.
+   - **SEARCH PROVIDERS** opens text entry. A nonblank search opens SEARCH
+     RESULTS filtered by provider name or backend ID.
+   - **COMPLETE LIST** lists the available storage providers from rclone.
+   - **LINK FROM A COMPUTER** opens the setup flow for running rclone over SSH.
+
+If the provider list is empty, PROVIDER LIST UNAVAILABLE is the only row.
+BACK closes the page.
+
+Guest frames and the visual evidence index entry are deferred to #1428.
+
+### CLOUD SETUP CHECK
+
+From CHECK CLOUD SETUP in the CLOUD STORAGE SETUP group on CLOUD. It opens
+after CHECKING CLOUD SETUP. The check reads the local setup and, when there
+is a current selection, checks that saved connection and inspects its saves
+and settings backup folders. Results are bound to the selected configuration.
+
+1. **CONNECTION** and **PROVIDER** identify the selection. REVIEW FOLDER
+   LOCATIONS follows if the active paths differ from that connection's saved
+   choices. With no selection or unreadable setup, NO CONNECTION IN USE or
+   SETUP COULD NOT BE READ appears in place of those facts.
+2. **CONNECTION CHECK** reports whether the cloud answered, was unreachable,
+   or could not be confirmed.
+3. **ON THIS DEVICE** shows LOCAL SAVES FOLDER and then LOCAL SETTINGS BACKUPS,
+   each with its path and status. If the local backup folder is missing,
+   SETTINGS BACKUPS explains when it is created and that save sync can proceed.
+4. **AUTOMATIC SAVE SYNC** shows SYNC SAVES DURING STARTUP and SYNC SAVES WHEN
+   EXITING A GAME, in that order. Each is a read-only ON, OFF, or NOT CONFIRMED.
+5. **CLOUD FOLDER CHECKS** shows SAVES, then SETTINGS BACKUPS, with the path and
+   result for each. A limited inspection adds FOLDER ACCESSIBLE or FOLDER
+   ACCESS NOT CONFIRMED with the reason. Each result has its own instructions
+   row, SEE SAVE INSTRUCTIONS or SEE SETTINGS BACKUP INSTRUCTIONS, opening
+   CLOUD FOLDER INSTRUCTIONS. Without a valid result for the current
+   selection, CLOUD FOLDERS NOT CONFIRMED replaces those rows.
+6. **WHAT THIS CHECK COVERS** describes the read-only scope. Write access,
+   file integrity, ROMs, and BIOS files are outside the check.
+7. **CHANGE CLOUD FOLDER LOCATIONS** opens the location editor.
+8. **CHECK OTHER CLOUD FOLDERS** opens CLOUD FOLDERS with ROMS, BIOS FILES,
+   and GAME CONTENT selected.
+9. **MANAGE CLOUD CONNECTIONS** opens the saved connections and link options.
+
+BACK closes the result page.
+
+Guest frames and the visual evidence index entry are deferred to #1428.
+
+### SET CLOUD FOLDER LOCATIONS
+
+From CHANGE CLOUD FOLDER LOCATIONS on CLOUD, CLOUD FOLDERS, CLOUD SETUP CHECK,
+or the computer flow's CLOUD STORAGE SETUP page. The same row on CLOUD
+CONNECTION opens it for the connection in use. A different connection must
+be selected first.
+
+1. **CONNECTION** shows which connection owns the locations.
+2. **REVIEW FOLDER LOCATIONS** appears when confirmation is needed. Editing
+   and saving a location or choosing the defaults can confirm the locations.
+3. **CHOOSE FOLDER LOCATIONS** explains which data the choices apply to.
+4. **SAVES FOLDER** shows and edits the cloud path for saves.
+5. **SETTINGS BACKUP FOLDER** shows and edits the cloud path for settings backups.
+6. **ROMS, BIOS, AND GAME CONTENT FOLDER** shows and edits the shared cloud
+   path for those three categories.
+7. **FOLDER DEFAULTS** contains USE pixelelated DEFAULTS. The confirmation
+   previews `/pixelelated/Saves`, `/pixelelated/Backups`, and `/pixelelated/Content`.
+   YES saves the three paths for this connection. NO returns to the page.
+
+The folder rows display CLOUD ROOT (/) for an empty or root path. Both
+automatic save sync options must be off to edit a path or use the defaults.
+Saving checks the entered path against the connection shown on the page.
+Saving the same path can reconfirm it. Successful saves refresh the page.
+A refusal reports the reason and keeps the saved paths. Changing locations
+leaves existing cloud files in place.
+
+If the folder settings are unavailable, the page shows FOLDER LOCATIONS
+UNAVAILABLE followed by MANAGE CLOUD CONNECTIONS. BACK returns to the caller.
+
+Guest frames and the visual evidence index entry are deferred to #1428.
 
 **Dialogs the cloud raises on its own.** A restore against a cloud whose saves
 folder is missing ends COMPLETED and offers to create it (D-CLOUD-085); when a
