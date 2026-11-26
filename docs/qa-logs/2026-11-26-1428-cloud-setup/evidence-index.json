@@ -776,6 +776,56 @@
     "observed": "as expected",
     "date": "2026-11-26"
    }
+  },
+  {
+   "flow_id": "cloud-failure-branches",
+   "branch_id": "c5-clean-none-selected-answer",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud-settings",
+   "trigger": "clean shape, nothing selected, CHECK CLOUD FOLDERS",
+   "expected_state": "CHOOSE AT LEAST ONE ITEM TO CHECK. (witness identical)",
+   "source": {
+    "es": "d87891f24 (local m7/rc-round-es-20261125)",
+    "distribution": "30e6ff3db9 (local build/m7-rc-round-20261125)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T115211Z.g30e6ff3db9ac-from-ROCKNIX",
+    "walks": "suite-1428.txt *-clean-en walks (profile store published by the pre-hook), round 6dbc78398e; runs qa-30e6ff3db9-webdav-a-20261126-1349 and -1357"
+   },
+   "locale": "en",
+   "width": 1280,
+   "height": 800,
+   "frame": "frames/1280-en-c5-clean-none-selected-answer.png",
+   "sha256": "61a3cafc75edcdca5156a3e0863a146652452ad4c21a09f382bc39c70774ecc9",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "as expected",
+    "date": "2026-11-26"
+   }
+  },
+  {
+   "flow_id": "cloud-failure-branches",
+   "branch_id": "c5-clean-offline-check",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud-settings",
+   "trigger": "CHECK CLOUD SETUP, clean shape, the WebDAV address on a dead port",
+   "expected_state": "COULD NOT REACH THIS CONNECTION. CHECK WI-FI OR SIGN-IN UNDER MANAGE CLOUD CONNECTIONS.",
+   "source": {
+    "es": "d87891f24 (local m7/rc-round-es-20261125)",
+    "distribution": "30e6ff3db9 (local build/m7-rc-round-20261125)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T115211Z.g30e6ff3db9ac-from-ROCKNIX",
+    "walks": "suite-1428.txt *-clean-en walks (profile store published by the pre-hook), round 6dbc78398e; runs qa-30e6ff3db9-webdav-a-20261126-1349 and -1357"
+   },
+   "locale": "en",
+   "width": 1280,
+   "height": 800,
+   "frame": "frames/1280-en-c5-clean-offline-check.png",
+   "sha256": "0cb9d29a16bf45659c20a41bb16af57f17185694b73860b708c35a185350d0b0",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "as expected",
+    "date": "2026-11-26"
+   }
   }
  ]
 }

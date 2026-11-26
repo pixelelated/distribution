@@ -11,3 +11,15 @@ folder-actions-create-witnessed-en (run qa-30e6ff3db9-webdav-a-20261126-1332, YE
     pixelelated/.layout
 
 folder-actions-none-unchanged-en (run qa-30e6ff3db9-webdav-a-20261126-1339, SAVES and SETTINGS BACKUPS off, CHECK): config.txt identical; paths.json identical; local.txt identical; cloud.txt identical; 
+
+## The clean-install shape (a profile store published by the pre-hook; config_id 704af9ae... against the retained 72598929..., the same paths), runs qa-30e6ff3db9-webdav-a-20261126-1349, -1357, -1359
+folder-actions-toggle-unchanged-clean-en: config.txt identical; paths.json identical; local.txt identical; cloud.txt identical; 
+folder-actions-check-unchanged-clean-en: config.txt identical; paths.json identical; local.txt identical; cloud.txt identical; 
+folder-actions-create-cancel-unchanged-clean-en: config.txt identical; paths.json identical; local.txt identical; cloud.txt identical; 
+folder-actions-none-unchanged-clean-en: config.txt identical; paths.json identical; local.txt identical; cloud.txt identical; 
+folder-actions-create-witnessed-clean-en (YES): config.txt identical; paths.json identical; local.txt identical; 
+  cloud files removed: 0
+  cloud files added:
+    pixelelated/Saves/README.txt
+    pixelelated/Backups/README.txt
+    pixelelated/.layout
