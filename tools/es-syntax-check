@@ -130,6 +130,29 @@ for f in "${FILES[@]}"; do
     [ -n "$cmd" ] && echo "  (new)   $f: borrowing the command of $(basename "$sib" .o)"
   fi
   [ -n "$cmd" ] || { echo "  NO-CMD  $f: ninja has no command for $obj and no sibling to borrow from" >&2; fail=1; continue; }
+  # A build root copied from another (a cold build run in a container at
+  # another path, #1475) keeps that path in every command. Its toolchain is
+  # at the same place under this root, so the old prefix is read as this
+  # root's -- only when the named compiler is absent here and this root has
+  # the same one.
+  cc=${cmd%% *}
+  if [ ! -x "$cc" ] && [ "${cc#*/toolchain/bin/}" != "$cc" ]; then
+    old=${cc%%/toolchain/bin/*}
+    if [ "$old" != "$BROOT" ] && [ -x "$BROOT/toolchain/bin/${cc##*/}" ]; then
+      [ -z "${MOVED:-}" ] && echo "  (moved) the build's commands name $old; read as $BROOT"
+      MOVED=1; cmd=${cmd//"$old"/"$BROOT"}
+    fi
+  fi
+  cc=${cmd%% *}
+  # Its compiler may be a ccache wrapper script naming the old path too. A
+  # syntax-only compile needs no cache, so the compiler it wraps is run
+  # directly, read the same way.
+  if [ -n "${MOVED:-}" ] && [ -x "$cc" ] && [ "$(head -c 2 "$cc")" = "#!" ]; then
+    real=$(sed -n 's#^[^ ]*/ccache \([^ ]*\) .*#\1#p' "$cc" | head -1)
+    real=${real//"$old"/"$BROOT"}
+    if [ -n "$real" ] && [ -x "$real" ]; then cmd="$real${cmd#"$cc"}"; cc=$real; fi
+  fi
+  [ -x "$cc" ] || { echo "  NO-CC   $f: the build's compiler $cc is not on this host" >&2; cannot=1; continue; }
   new=$(printf '%s' "$cmd" | sed -E "s#-c [^ ]+\.(cpp|cc|cxx)( |\$)#-c ${abs} #; s# -o [^ ]+\.o# #; s# -MF [^ ]+# #; s# -MD # #; s# -MT [^ ]+# #")
   # The worktree this .cpp lives in: its es-app/src and es-core/src ahead of
   # the build's -I, so every quoted include is the worktree's (the header
@@ -147,7 +170,16 @@ for f in "${FILES[@]}"; do
   if out=$(cd "$BD" && eval "$new" 2>&1); then
     echo "  OK      $f"
   else
-    echo "  FAIL    $f"; printf '%s\n' "$out" | grep -E 'error|note:' | head -12 | sed 's/^/          /'; fail=1
+    echo "  FAIL    $f"
+    # The compiler's errors; when it printed none, whatever it did print
+    # (#1475: a missing program said only that, and the reason was dropped).
+    if printf '%s\n' "$out" | grep -qE 'error|note:'; then
+      printf '%s\n' "$out" | grep -E 'error|note:' | head -12 | sed 's/^/          /'
+    else
+      printf '%s\n' "$out" | tail -5 | sed 's/^/          /'
+    fi
+    fail=1
   fi
 done
+[ "${cannot:-0}" = 0 ] || { echo "CANNOT RUN"; exit 2; }
 [ "$fail" = 0 ] && echo "PASS" || { echo "FAIL"; exit 1; }
