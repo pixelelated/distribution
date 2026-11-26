@@ -1,0 +1,206 @@
+{
+ "schema_version": 1,
+ "issue": 1427,
+ "entries": [
+  {
+   "flow_id": "save-state-manager-copy-to-free-slot",
+   "branch_id": "manager-auto-save-only",
+   "document": "docs/es-menu-map.md",
+   "anchor": "save-state-manager",
+   "trigger": "a real AUTO SAVE is the game's only state; manager opened, right once",
+   "expected_state": "SAVE STATE MANAGER: START NEW GAME and AUTO SAVE (TODAY at 10:03) with the game's thumbnail, AUTO SAVE selected; help bar BACK, DELETE, COPY TO FREE SLOT, LAUNCH.",
+   "source": {
+    "es": "d87891f24e (local m7/rc-round-es-20261125)",
+    "distribution": "a069abd23615252c70a097bf7efb2ac6f8414ed9 (local build/m7-rc-round-20261125, build 12)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T140833Z.ga069abd23615-from-ROCKNIX",
+    "walk": "docs/qa-logs/2026-11-26-1427-free-slot/free-slot-proof.sh"
+   },
+   "locale": "en",
+   "width": 640,
+   "height": 480,
+   "frame": "guest-1502Z/2-manager/05-4-auto-save-tile.png",
+   "sha256": "1d9cd5e264ddcd4455ef8fa82165a5399b1d760277bc82f8b0f0367a85c8f106",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "as expected",
+    "date": "2026-11-26"
+   }
+  },
+  {
+   "flow_id": "save-state-manager-copy-to-free-slot",
+   "branch_id": "copy-refused-lock-held",
+   "document": "docs/es-menu-map.md",
+   "anchor": "save-state-manager",
+   "trigger": "/var/run/cloud_sync.lock held by flock; north on AUTO SAVE",
+   "expected_state": "A SYNC IS ALREADY RUNNING. / WAIT FOR IT TO FINISH, THEN TRY AGAIN. with OK; no new tile, no file.",
+   "source": {
+    "es": "d87891f24e (local m7/rc-round-es-20261125)",
+    "distribution": "a069abd23615252c70a097bf7efb2ac6f8414ed9 (local build/m7-rc-round-20261125, build 12)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T140833Z.ga069abd23615-from-ROCKNIX",
+    "walk": "docs/qa-logs/2026-11-26-1427-free-slot/free-slot-proof.sh"
+   },
+   "locale": "en",
+   "width": 640,
+   "height": 480,
+   "frame": "guest-1502Z/2-locked/01-5-lock-held-answer.png",
+   "sha256": "da69e13ae84446ebf2f2a4ff3839acf7b14e83f1dda9c293530faaf4efbb7fb1",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "as expected",
+    "date": "2026-11-26"
+   }
+  },
+  {
+   "flow_id": "save-state-manager-copy-to-free-slot",
+   "branch_id": "copy-refused-after-ok",
+   "document": "docs/es-menu-map.md",
+   "anchor": "save-state-manager",
+   "trigger": "OK on the refusal",
+   "expected_state": "the manager as before: START NEW GAME, AUTO SAVE only.",
+   "source": {
+    "es": "d87891f24e (local m7/rc-round-es-20261125)",
+    "distribution": "a069abd23615252c70a097bf7efb2ac6f8414ed9 (local build/m7-rc-round-20261125, build 12)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T140833Z.ga069abd23615-from-ROCKNIX",
+    "walk": "docs/qa-logs/2026-11-26-1427-free-slot/free-slot-proof.sh"
+   },
+   "locale": "en",
+   "width": 640,
+   "height": 480,
+   "frame": "guest-1502Z/2-locked/02-6-after-ok.png",
+   "sha256": "1d9cd5e264ddcd4455ef8fa82165a5399b1d760277bc82f8b0f0367a85c8f106",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "as expected",
+    "date": "2026-11-26"
+   }
+  },
+  {
+   "flow_id": "save-state-manager-copy-to-free-slot",
+   "branch_id": "copy-made",
+   "document": "docs/es-menu-map.md",
+   "anchor": "save-state-manager",
+   "trigger": "lock free; north on AUTO SAVE",
+   "expected_state": "toast SAVE STATE COPIED.; a SLOT 0 tile (TODAY at 10:04) beside AUTO SAVE, the cursor on SLOT 0.",
+   "source": {
+    "es": "d87891f24e (local m7/rc-round-es-20261125)",
+    "distribution": "a069abd23615252c70a097bf7efb2ac6f8414ed9 (local build/m7-rc-round-20261125, build 12)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T140833Z.ga069abd23615-from-ROCKNIX",
+    "walk": "docs/qa-logs/2026-11-26-1427-free-slot/free-slot-proof.sh"
+   },
+   "locale": "en",
+   "width": 640,
+   "height": 480,
+   "frame": "guest-1502Z/3-copy/01-7-copy-answer.png",
+   "sha256": "f1c8864145e36cfff7efea392f8b9c807383d1756e4fff7297086d58deb5fdb1",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "as expected",
+    "date": "2026-11-26"
+   }
+  },
+  {
+   "flow_id": "save-state-manager-copy-to-free-slot",
+   "branch_id": "copy-made-settled",
+   "document": "docs/es-menu-map.md",
+   "anchor": "save-state-manager",
+   "trigger": "the same, settled",
+   "expected_state": "as above, nothing moved.",
+   "source": {
+    "es": "d87891f24e (local m7/rc-round-es-20261125)",
+    "distribution": "a069abd23615252c70a097bf7efb2ac6f8414ed9 (local build/m7-rc-round-20261125, build 12)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T140833Z.ga069abd23615-from-ROCKNIX",
+    "walk": "docs/qa-logs/2026-11-26-1427-free-slot/free-slot-proof.sh"
+   },
+   "locale": "en",
+   "width": 640,
+   "height": 480,
+   "frame": "guest-1502Z/3-copy/02-8-copy-settled.png",
+   "sha256": "f1c8864145e36cfff7efea392f8b9c807383d1756e4fff7297086d58deb5fdb1",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "as expected",
+    "date": "2026-11-26"
+   }
+  },
+  {
+   "flow_id": "save-state-manager-copy-to-free-slot",
+   "branch_id": "reopen-after-reboot",
+   "document": "docs/es-menu-map.md",
+   "anchor": "save-state-manager",
+   "trigger": "reboot; manager reopened; right twice",
+   "expected_state": "AUTO SAVE (10:03) and SLOT 0 (10:04), the cursor on SLOT 0.",
+   "source": {
+    "es": "d87891f24e (local m7/rc-round-es-20261125)",
+    "distribution": "a069abd23615252c70a097bf7efb2ac6f8414ed9 (local build/m7-rc-round-20261125, build 12)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T140833Z.ga069abd23615-from-ROCKNIX",
+    "walk": "docs/qa-logs/2026-11-26-1427-free-slot/free-slot-proof.sh"
+   },
+   "locale": "en",
+   "width": 640,
+   "height": 480,
+   "frame": "guest-1502Z/4-reopen/06-5-third-tile.png",
+   "sha256": "c4b4ee1324db1c9d033fc8c0c9dada00f3b3ca59255c12533870f20750c681b7",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "as expected",
+    "date": "2026-11-26"
+   }
+  },
+  {
+   "flow_id": "save-state-manager-copy-to-free-slot",
+   "branch_id": "slot-after-exit",
+   "document": "docs/es-menu-map.md",
+   "anchor": "save-state-manager",
+   "trigger": "a controlled exit replaced the AUTO SAVE; reboot; manager; right twice",
+   "expected_state": "AUTO SAVE now TODAY at 10:06, SLOT 0 still 10:04, the cursor on SLOT 0.",
+   "source": {
+    "es": "d87891f24e (local m7/rc-round-es-20261125)",
+    "distribution": "a069abd23615252c70a097bf7efb2ac6f8414ed9 (local build/m7-rc-round-20261125, build 12)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T140833Z.ga069abd23615-from-ROCKNIX",
+    "walk": "docs/qa-logs/2026-11-26-1427-free-slot/free-slot-proof.sh"
+   },
+   "locale": "en",
+   "width": 640,
+   "height": 480,
+   "frame": "guest-1502Z/6-to-slot/05-4-slot-tile.png",
+   "sha256": "3842d0eb8e77b8945eb182e59feaceb6a461685767bdc0f046afd6f13638e2f7",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "as expected",
+    "date": "2026-11-26"
+   }
+  },
+  {
+   "flow_id": "save-state-manager-copy-to-free-slot",
+   "branch_id": "launch-from-slot",
+   "document": "docs/es-menu-map.md",
+   "anchor": "save-state-manager",
+   "trigger": "A (LAUNCH) on SLOT 0",
+   "expected_state": "the game running; RetroArch's log: Loading state \"/storage/roms/savestates/gb/SlotProbe.state\".",
+   "source": {
+    "es": "d87891f24e (local m7/rc-round-es-20261125)",
+    "distribution": "a069abd23615252c70a097bf7efb2ac6f8414ed9 (local build/m7-rc-round-20261125, build 12)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T140833Z.ga069abd23615-from-ROCKNIX",
+    "walk": "docs/qa-logs/2026-11-26-1427-free-slot/free-slot-proof.sh"
+   },
+   "locale": "en",
+   "width": 640,
+   "height": 480,
+   "frame": "guest-1502Z/6-in-game.png",
+   "sha256": "c54650aa4628c1d68c06ad9ffc4a221ae30e70fcad7392647bb7791011c40220",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "as expected",
+    "date": "2026-11-26"
+   }
+  }
+ ]
+}

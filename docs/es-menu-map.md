@@ -187,6 +187,13 @@ offers INCREMENT PER SAVE and DO NOT INCREMENT; INCREMENT SLOT went with
 Batocera's `001-no-next-slot` patch, under which the launched slot is the
 current slot, never the next free one.
 
+COPY TO FREE SLOT (north) copies the selected state to the first free numbered slot on a background worker, under the transfer lock. Then:
+- **On success:** a SAVE STATE COPIED. toast, with the cursor on the new tile.
+- **On failure:** THE COPY COULDN'T BE MADE. YOUR SAVE STATES ARE AS THEY WERE.
+- **While a sync runs or another process holds the lock:** a refusal that says so.
+
+An AUTO SAVE that is the game's only state copies to the first slot (#1427; it answered nothing before). The [installed proof](qa-logs/2026-11-26-1427-free-slot/README.md) on build 12 covers the refusal, the copy, a reboot, an exit that replaces the auto save, and LAUNCH on the copy, with an [evidence index](qa-logs/2026-11-26-1427-free-slot/evidence-index.json).
+
 Current unchanged RetroArch flow is also bound by [#606 proof](qa-logs/2026-10-15-retroarch606-proof03/README.md): [empty manager](qa-logs/2026-10-15-retroarch606-proof03/frames/manager-before.png), [manual-save notification](qa-logs/2026-10-15-retroarch606-proof03/frames/manual-saved.png) and [numbered plus exit-auto manager](qa-logs/2026-10-15-retroarch606-proof03/frames/manager-after.png). Exact077197/ES16dbac frame index, process/stat/wait records and original fixture/readback limits accompany this nonvisual qualification; no UI behavior changed.
 
 ### Save-state capability guidance (#575)

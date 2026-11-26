@@ -1,0 +1,28 @@
+== #1427 free-slot proof, 2026-11-26T15:02:42Z
+VERSION="0.0.1-dev+20261126T140833Z.ga069abd23615"
+BUILD_ID="a069abd23615252c70a097bf7efb2ac6f8414ed9"
+BUILD_BRANCH="build/m7-round-x64-20261125"
+1. a real AUTO SAVE
+  SlotProbe.state.auto da549ef4c3f17411, thumbnail 4f01636852ef76e2
+2. the transfer lock held: the north press refuses and copies nothing
+  PASS  no SlotProbe.state while the lock is held
+  PASS  the AUTO SAVE unchanged by the refused press
+3. the north press with the lock free
+  PASS  SlotProbe.state (slot 0) exists after the press
+  PASS  the copy has the AUTO SAVE's bytes (da549ef4c3f17411)
+  PASS  the AUTO SAVE unchanged by the copy
+  PASS  the copy's thumbnail has the AUTO SAVE thumbnail's bytes
+  PASS  every control save unchanged
+  PASS  a capture record was written for the copy (3-records.diff)
+4. reboot, reopen: the copy is still there
+  PASS  the copy unchanged after a reboot and a reopen
+5. a controlled exit replaces the AUTO SAVE
+  PASS  the second run started from the AUTO SAVE (Loading state "/storage/roms/savestates/gb/SlotProbe.state.auto" )
+  PASS  the AUTO SAVE was replaced by the exit (edc5d2bfa15d7629)
+  PASS  the copy unchanged by the exit
+  PASS  every control save unchanged
+6. LAUNCH from the copy
+  PASS  RetroArch loaded SlotProbe.state (Loading state "/storage/roms/savestates/gb/SlotProbe.state" )
+  PASS  the copy unchanged after its own session
+  PASS  every control save unchanged
+PASSED
