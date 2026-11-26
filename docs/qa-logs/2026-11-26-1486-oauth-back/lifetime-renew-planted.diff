@@ -1,0 +1,15 @@
+--- /home/max/Development/emulationstation-next.worktrees/m7-rc-round-es-20261125/es-app/src/guis/GuiMenu.cpp	2026-11-26 21:37:05.297896982 +0000
++++ /tmp/claude-1000/-workspace-repos-rocknix-worktrees-conflict-resolution/b19c3b8c-1c4f-4a57-8765-0b8fe1f11ae9/scratchpad/GuiMenu-renew-planted.cpp	2026-11-26 21:37:54.117839296 +0000
+@@ -6740,6 +6740,12 @@
+ 	window->pushGui(s);
+ 	if (prev != nullptr)
+ 		prev->close();
++	else if (window->stack.size() > 2)
++	{
++		auto* below = window->stack[window->stack.size() - 2];
++		below->close();
++		{ volatile size_t n = below->getTag().size(); (void)n; }
++	}
+ }
+ 
+ // Bottom button row for a wizard page: EXIT SETUP on the left and,

@@ -162,7 +162,16 @@ put_s26() { S "cd /storage/.config/rclone && for f in folder-profiles.json activ
 arm_s17() { S "$(ctx); cloud_remote set-folder saves / \$c && cloud_remote folder-context | jq -c .paths"; }
 put_s17() { put_s02; }
 
-SCREENS="s01 s02 s03 s04 s05 s06 s07 s08 s09 s10 s11 s12 s13 s14 s15 s16 s17 s18 s19 s20 s21 s22 s23 s24 s25 s26 s27 s28"
+# s29: SIGN IN AGAIN on an OAuth-tier connection (qa-oauth, type dropbox, no sign-in), then back from the
+# choice page (#1486). SIGN IN only starts the local broker; no typing method is chosen, so nothing reaches
+# the provider. The put back reads the journal for the session's cancel.
+steps_s29() { hub; down 9; open; echo "shot connections-oauth"; down 1; open; echo "shot oauth-page"; down 5; echo "shot signin-row"; open; echo "shot signin-confirm"; echo "key x"; echo "wait-for-change 60 1"; echo "settle 60 3"; echo "shot choice"; back; echo "wait 3"; echo settle; echo "shot after-back"; }
+arm_s29() { S 'python3 /storage/m7-qa-d/conn.py add-oauth; cloud_remote list | cut -f1,2'; }
+# The witness that back left the sign-in: the broker's own status (cancelled) and no broker running,
+# read before this put back cancels anything. ES logs its cancel at Info, which the image does not keep.
+put_s29() { S 'echo "oauth status: $(/usr/bin/cloud_oauth status 2>/dev/null)"; echo "brokers running: $(pgrep -c -f "cloud_oauth serv[e]")"; /usr/bin/cloud_oauth cancel >/dev/null 2>&1; python3 /storage/m7-qa-d/conn.py remove-oauth; cloud_remote list | cut -f1,2'; }
+
+SCREENS="s01 s02 s03 s04 s05 s06 s07 s08 s09 s10 s11 s12 s13 s14 s15 s16 s17 s18 s19 s20 s21 s22 s23 s24 s25 s26 s27 s28 s29"
 [ -n "$only" ] && SCREENS=${only//,/ }
 
 log "== #1111/#1115 phase D at $res, $(date -u +%FT%TZ)"

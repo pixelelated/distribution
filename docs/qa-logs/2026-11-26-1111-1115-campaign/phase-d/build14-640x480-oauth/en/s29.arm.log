@@ -1,0 +1,10 @@
+arm:
+STATE=selected CONNECTION=qa-cloud SECTIONS=qa-cloud,qa-oauth SYNC=off/off
+STATE=active
+qa-cloud	webdav
+qa-oauth	dropbox
+put back:
+0
+STATE=selected CONNECTION=qa-cloud SECTIONS=qa-cloud SYNC=off/off
+STATE=active
+qa-cloud	webdav

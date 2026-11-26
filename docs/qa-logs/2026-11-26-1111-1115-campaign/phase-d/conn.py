@@ -63,11 +63,35 @@ elif cmd == 'break-two':
     os.chmod(tmp, 0o600)
     os.replace(tmp, c.CONFIG)
     print(two_hash())
+elif cmd == 'add-oauth':
+    # An OAuth-tier connection with no sign-in at all: enough for its page
+    # to offer SIGN IN AGAIN (#1486); nothing credential-shaped is written.
+    import os
+    text = c.CONFIG.read_text()
+    if '[qa-oauth]' in text:
+        sys.exit('qa-oauth already present')
+    tmp = c.CONFIG.with_suffix('.s29')
+    tmp.write_text(text.rstrip('\n') + '\n\n[qa-oauth]\ntype = dropbox\n')
+    os.chmod(tmp, 0o600)
+    os.replace(tmp, c.CONFIG)
+elif cmd == 'remove-oauth':
+    import os
+    text = c.CONFIG.read_text()
+    head, sep, rest = text.partition('[qa-oauth]')
+    if sep:
+        nxt = rest.find('\n[')
+        tmp = c.CONFIG.with_suffix('.s29')
+        tmp.write_text(head.rstrip('\n') + '\n' + ('' if nxt < 0 else rest[nxt + 1:]))
+        os.chmod(tmp, 0o600)
+        os.replace(tmp, c.CONFIG)
 elif cmd == 'two-hash':
     print(two_hash())
 elif cmd == 'remove-two':
     c.remove('qa-two')
 elif cmd == 'repair':
+    if '[qa-oauth]' in c.CONFIG.read_text():
+        import subprocess
+        subprocess.run([sys.executable, __file__, 'remove-oauth'], check=True, stdout=subprocess.DEVNULL)
     cp = configparser.RawConfigParser()
     cp.read_string(c.CONFIG.read_text())
     if 'qa-two' in cp.sections():

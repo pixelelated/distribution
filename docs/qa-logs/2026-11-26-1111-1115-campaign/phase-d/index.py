@@ -79,6 +79,8 @@ SCREENS = {
             "add rc and the listing in s27.arm.log; the hub frame only", ["1111 C06"]),
     "s28": ("EDIT CONNECTION saved on a working qa-two, which is not the active connection",
             "CONNECTION SAVED (YOUR CURRENT CONNECTION HAS NOT CHANGED...), then back to the connection's page; the section's hash unchanged", ["1483 c2", "1111 C08"]),
+    "s29": ("SIGN IN AGAIN on an OAuth-tier connection (qa-oauth, type dropbox, no sign-in), then back from the choice page; no typing method is chosen, so nothing reaches the provider",
+            "on build 14 back skips the connection's page to MANAGE CLOUD CONNECTIONS (#1486, before the fix); from build 15 it returns to the connection's page", ["1486 c1", "1486 c2"]),
     "s24": ("LINK FROM THIS DEVICE, WEBDAV, then back on the provider form",
             "where the add-a-connection wizard lands on back, unchanged by #1483", ["1483 c3"]),
 }
@@ -101,6 +103,7 @@ OBSERVED = {k: v for lang in ("en", "fr") for k, v in (
     ("build14/640x480-b/en/s19", "back on the edit form returns to CLOUD CONNECTION qa-two; the failed save ends in THE CONNECTION COULDN'T BE SAVED and the section is kept byte for byte"),
     ("build14/640x480-d/en/s15", "s15 first after seeding: no profile store yet, so setup-info reads no-connections and both pages read ADD A CONNECTION BEFORE USING CLOUD TOOLS."),
     ("build14/640x480-d/fr/s15", "the English pass left a profile store naming qa-cloud: the setup check reads RÉGLAGES ILLISIBLES (an inconsistent store; see s25/s26 for the faithful cases)"),
+    (f"build14/640x480-oauth/{lang}/s29", "before the fix: back from the choice page lands on MANAGE CLOUD CONNECTIONS, not qa-oauth's page (#1486)"),
     (f"build14/640x480/{lang}/s24", "back on the WebDAV form lands on the provider chooser with WEBDAV focused" + ("; the form's row labels are English in French (#1485)" if lang == "fr" else "")),
     (f"640x480-more/{lang}/s20", "defect, build 13: the hub reads NO CONNECTION SELECTED and CLOUD FOLDERS asks to choose a connection for an unreadable setup; the setup check and connections page name it. Fixed in ES 6cdcb7a64 (#1111 C11)"),
     (f"640x480-more/{lang}/s22-b", "defect, build 13: a selection emptied while CLOUD FOLDERS is open gives COULDN'T CHECK YOUR FOLDERS. CHECK YOUR CONNECTION; not the stale wording, but it names a connection fault. Fixed in ES 6cdcb7a64 (#1111 C10, C20)"))}

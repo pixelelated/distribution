@@ -16153,6 +16153,412 @@
     "observed": "as expected",
     "date": "2026-11-26"
    }
+  },
+  {
+   "flow_id": "cloud-folders-and-connections",
+   "branch_id": "build14/640x480-oauth/en/s29/01-cloud-hub",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud",
+   "criteria": [
+    "1486 c1",
+    "1486 c2"
+   ],
+   "trigger": "SIGN IN AGAIN on an OAuth-tier connection (qa-oauth, type dropbox, no sign-in), then back from the choice page; no typing method is chosen, so nothing reaches the provider",
+   "expected_state": "on build 14 back skips the connection's page to MANAGE CLOUD CONNECTIONS (#1486, before the fix); from build 15 it returns to the connection's page",
+   "source": {
+    "es": "6cdcb7a64 (local m7/rc-round-es-20261125; route m7-20261126-552f3815e4b4)",
+    "distribution": "ed61fe8e5922f3106cb35230fed0027f4f7fc431 (local build/m7-rc-round-20261125, build 14)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T192845Z.ged61fe8e5922-from-ROCKNIX",
+    "walk": "docs/qa-logs/2026-11-26-1111-1115-campaign/phase-d/phase-d.sh"
+   },
+   "locale": "en",
+   "width": 640,
+   "height": 480,
+   "frame": "build14-640x480-oauth/en/s29/01-cloud-hub.png",
+   "sha256": "11eb5b99c8d7ca60a236ad8b38ef852cbfb9df8ce1490edc46f195ecf54a8945",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "before the fix: back from the choice page lands on MANAGE CLOUD CONNECTIONS, not qa-oauth's page (#1486)",
+    "date": "2026-11-26"
+   }
+  },
+  {
+   "flow_id": "cloud-folders-and-connections",
+   "branch_id": "build14/640x480-oauth/en/s29/02-connections-oauth",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud",
+   "criteria": [
+    "1486 c1",
+    "1486 c2"
+   ],
+   "trigger": "SIGN IN AGAIN on an OAuth-tier connection (qa-oauth, type dropbox, no sign-in), then back from the choice page; no typing method is chosen, so nothing reaches the provider",
+   "expected_state": "on build 14 back skips the connection's page to MANAGE CLOUD CONNECTIONS (#1486, before the fix); from build 15 it returns to the connection's page",
+   "source": {
+    "es": "6cdcb7a64 (local m7/rc-round-es-20261125; route m7-20261126-552f3815e4b4)",
+    "distribution": "ed61fe8e5922f3106cb35230fed0027f4f7fc431 (local build/m7-rc-round-20261125, build 14)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T192845Z.ged61fe8e5922-from-ROCKNIX",
+    "walk": "docs/qa-logs/2026-11-26-1111-1115-campaign/phase-d/phase-d.sh"
+   },
+   "locale": "en",
+   "width": 640,
+   "height": 480,
+   "frame": "build14-640x480-oauth/en/s29/02-connections-oauth.png",
+   "sha256": "85d1136bdca29f0e2ac222f914cfd7b790de6fe7e7986ca4c0d02a670b9353e0",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "before the fix: back from the choice page lands on MANAGE CLOUD CONNECTIONS, not qa-oauth's page (#1486)",
+    "date": "2026-11-26"
+   }
+  },
+  {
+   "flow_id": "cloud-folders-and-connections",
+   "branch_id": "build14/640x480-oauth/en/s29/03-oauth-page",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud",
+   "criteria": [
+    "1486 c1",
+    "1486 c2"
+   ],
+   "trigger": "SIGN IN AGAIN on an OAuth-tier connection (qa-oauth, type dropbox, no sign-in), then back from the choice page; no typing method is chosen, so nothing reaches the provider",
+   "expected_state": "on build 14 back skips the connection's page to MANAGE CLOUD CONNECTIONS (#1486, before the fix); from build 15 it returns to the connection's page",
+   "source": {
+    "es": "6cdcb7a64 (local m7/rc-round-es-20261125; route m7-20261126-552f3815e4b4)",
+    "distribution": "ed61fe8e5922f3106cb35230fed0027f4f7fc431 (local build/m7-rc-round-20261125, build 14)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T192845Z.ged61fe8e5922-from-ROCKNIX",
+    "walk": "docs/qa-logs/2026-11-26-1111-1115-campaign/phase-d/phase-d.sh"
+   },
+   "locale": "en",
+   "width": 640,
+   "height": 480,
+   "frame": "build14-640x480-oauth/en/s29/03-oauth-page.png",
+   "sha256": "fb3b6d215d7fc0720b01ad6aba41901d1199aaaff6e65f9bc5b36704a9933d8d",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "before the fix: back from the choice page lands on MANAGE CLOUD CONNECTIONS, not qa-oauth's page (#1486)",
+    "date": "2026-11-26"
+   }
+  },
+  {
+   "flow_id": "cloud-folders-and-connections",
+   "branch_id": "build14/640x480-oauth/en/s29/04-signin-row",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud",
+   "criteria": [
+    "1486 c1",
+    "1486 c2"
+   ],
+   "trigger": "SIGN IN AGAIN on an OAuth-tier connection (qa-oauth, type dropbox, no sign-in), then back from the choice page; no typing method is chosen, so nothing reaches the provider",
+   "expected_state": "on build 14 back skips the connection's page to MANAGE CLOUD CONNECTIONS (#1486, before the fix); from build 15 it returns to the connection's page",
+   "source": {
+    "es": "6cdcb7a64 (local m7/rc-round-es-20261125; route m7-20261126-552f3815e4b4)",
+    "distribution": "ed61fe8e5922f3106cb35230fed0027f4f7fc431 (local build/m7-rc-round-20261125, build 14)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T192845Z.ged61fe8e5922-from-ROCKNIX",
+    "walk": "docs/qa-logs/2026-11-26-1111-1115-campaign/phase-d/phase-d.sh"
+   },
+   "locale": "en",
+   "width": 640,
+   "height": 480,
+   "frame": "build14-640x480-oauth/en/s29/04-signin-row.png",
+   "sha256": "67cb1a701d8908b29ef28ba4be43e5851d837fac1e35b1828cfad245c48d9a4d",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "before the fix: back from the choice page lands on MANAGE CLOUD CONNECTIONS, not qa-oauth's page (#1486)",
+    "date": "2026-11-26"
+   }
+  },
+  {
+   "flow_id": "cloud-folders-and-connections",
+   "branch_id": "build14/640x480-oauth/en/s29/05-signin-confirm",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud",
+   "criteria": [
+    "1486 c1",
+    "1486 c2"
+   ],
+   "trigger": "SIGN IN AGAIN on an OAuth-tier connection (qa-oauth, type dropbox, no sign-in), then back from the choice page; no typing method is chosen, so nothing reaches the provider",
+   "expected_state": "on build 14 back skips the connection's page to MANAGE CLOUD CONNECTIONS (#1486, before the fix); from build 15 it returns to the connection's page",
+   "source": {
+    "es": "6cdcb7a64 (local m7/rc-round-es-20261125; route m7-20261126-552f3815e4b4)",
+    "distribution": "ed61fe8e5922f3106cb35230fed0027f4f7fc431 (local build/m7-rc-round-20261125, build 14)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T192845Z.ged61fe8e5922-from-ROCKNIX",
+    "walk": "docs/qa-logs/2026-11-26-1111-1115-campaign/phase-d/phase-d.sh"
+   },
+   "locale": "en",
+   "width": 640,
+   "height": 480,
+   "frame": "build14-640x480-oauth/en/s29/05-signin-confirm.png",
+   "sha256": "31d5b5220c866eb334f3616aa41956bb613096ba946f5cf560ced074d2854e3a",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "before the fix: back from the choice page lands on MANAGE CLOUD CONNECTIONS, not qa-oauth's page (#1486)",
+    "date": "2026-11-26"
+   }
+  },
+  {
+   "flow_id": "cloud-folders-and-connections",
+   "branch_id": "build14/640x480-oauth/en/s29/06-choice",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud",
+   "criteria": [
+    "1486 c1",
+    "1486 c2"
+   ],
+   "trigger": "SIGN IN AGAIN on an OAuth-tier connection (qa-oauth, type dropbox, no sign-in), then back from the choice page; no typing method is chosen, so nothing reaches the provider",
+   "expected_state": "on build 14 back skips the connection's page to MANAGE CLOUD CONNECTIONS (#1486, before the fix); from build 15 it returns to the connection's page",
+   "source": {
+    "es": "6cdcb7a64 (local m7/rc-round-es-20261125; route m7-20261126-552f3815e4b4)",
+    "distribution": "ed61fe8e5922f3106cb35230fed0027f4f7fc431 (local build/m7-rc-round-20261125, build 14)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T192845Z.ged61fe8e5922-from-ROCKNIX",
+    "walk": "docs/qa-logs/2026-11-26-1111-1115-campaign/phase-d/phase-d.sh"
+   },
+   "locale": "en",
+   "width": 640,
+   "height": 480,
+   "frame": "build14-640x480-oauth/en/s29/06-choice.png",
+   "sha256": "3e5e39f99fa16c6484d8738dd4fda37383383567099a55883e261b3f2c3e8b18",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "before the fix: back from the choice page lands on MANAGE CLOUD CONNECTIONS, not qa-oauth's page (#1486)",
+    "date": "2026-11-26"
+   }
+  },
+  {
+   "flow_id": "cloud-folders-and-connections",
+   "branch_id": "build14/640x480-oauth/en/s29/07-after-back",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud",
+   "criteria": [
+    "1486 c1",
+    "1486 c2"
+   ],
+   "trigger": "SIGN IN AGAIN on an OAuth-tier connection (qa-oauth, type dropbox, no sign-in), then back from the choice page; no typing method is chosen, so nothing reaches the provider",
+   "expected_state": "on build 14 back skips the connection's page to MANAGE CLOUD CONNECTIONS (#1486, before the fix); from build 15 it returns to the connection's page",
+   "source": {
+    "es": "6cdcb7a64 (local m7/rc-round-es-20261125; route m7-20261126-552f3815e4b4)",
+    "distribution": "ed61fe8e5922f3106cb35230fed0027f4f7fc431 (local build/m7-rc-round-20261125, build 14)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T192845Z.ged61fe8e5922-from-ROCKNIX",
+    "walk": "docs/qa-logs/2026-11-26-1111-1115-campaign/phase-d/phase-d.sh"
+   },
+   "locale": "en",
+   "width": 640,
+   "height": 480,
+   "frame": "build14-640x480-oauth/en/s29/07-after-back.png",
+   "sha256": "4e6277d2f3084e5dd678fd8fcd715d7a31140260f09e519df0d2a8bec863fbe6",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "before the fix: back from the choice page lands on MANAGE CLOUD CONNECTIONS, not qa-oauth's page (#1486)",
+    "date": "2026-11-26"
+   }
+  },
+  {
+   "flow_id": "cloud-folders-and-connections",
+   "branch_id": "build14/640x480-oauth/fr/s29/01-cloud-hub",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud",
+   "criteria": [
+    "1486 c1",
+    "1486 c2"
+   ],
+   "trigger": "SIGN IN AGAIN on an OAuth-tier connection (qa-oauth, type dropbox, no sign-in), then back from the choice page; no typing method is chosen, so nothing reaches the provider",
+   "expected_state": "on build 14 back skips the connection's page to MANAGE CLOUD CONNECTIONS (#1486, before the fix); from build 15 it returns to the connection's page",
+   "source": {
+    "es": "6cdcb7a64 (local m7/rc-round-es-20261125; route m7-20261126-552f3815e4b4)",
+    "distribution": "ed61fe8e5922f3106cb35230fed0027f4f7fc431 (local build/m7-rc-round-20261125, build 14)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T192845Z.ged61fe8e5922-from-ROCKNIX",
+    "walk": "docs/qa-logs/2026-11-26-1111-1115-campaign/phase-d/phase-d.sh"
+   },
+   "locale": "fr",
+   "width": 640,
+   "height": 480,
+   "frame": "build14-640x480-oauth/fr/s29/01-cloud-hub.png",
+   "sha256": "6720f9bb3a014af5cd480c42dcefbf4fd36c3cf00019528c77f47eb003061a94",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "before the fix: back from the choice page lands on MANAGE CLOUD CONNECTIONS, not qa-oauth's page (#1486)",
+    "date": "2026-11-26"
+   }
+  },
+  {
+   "flow_id": "cloud-folders-and-connections",
+   "branch_id": "build14/640x480-oauth/fr/s29/02-connections-oauth",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud",
+   "criteria": [
+    "1486 c1",
+    "1486 c2"
+   ],
+   "trigger": "SIGN IN AGAIN on an OAuth-tier connection (qa-oauth, type dropbox, no sign-in), then back from the choice page; no typing method is chosen, so nothing reaches the provider",
+   "expected_state": "on build 14 back skips the connection's page to MANAGE CLOUD CONNECTIONS (#1486, before the fix); from build 15 it returns to the connection's page",
+   "source": {
+    "es": "6cdcb7a64 (local m7/rc-round-es-20261125; route m7-20261126-552f3815e4b4)",
+    "distribution": "ed61fe8e5922f3106cb35230fed0027f4f7fc431 (local build/m7-rc-round-20261125, build 14)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T192845Z.ged61fe8e5922-from-ROCKNIX",
+    "walk": "docs/qa-logs/2026-11-26-1111-1115-campaign/phase-d/phase-d.sh"
+   },
+   "locale": "fr",
+   "width": 640,
+   "height": 480,
+   "frame": "build14-640x480-oauth/fr/s29/02-connections-oauth.png",
+   "sha256": "f3930720570075bf7d5060bc65f8cb363d63e8bb243d54e3edf6ca1ce5962392",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "before the fix: back from the choice page lands on MANAGE CLOUD CONNECTIONS, not qa-oauth's page (#1486)",
+    "date": "2026-11-26"
+   }
+  },
+  {
+   "flow_id": "cloud-folders-and-connections",
+   "branch_id": "build14/640x480-oauth/fr/s29/03-oauth-page",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud",
+   "criteria": [
+    "1486 c1",
+    "1486 c2"
+   ],
+   "trigger": "SIGN IN AGAIN on an OAuth-tier connection (qa-oauth, type dropbox, no sign-in), then back from the choice page; no typing method is chosen, so nothing reaches the provider",
+   "expected_state": "on build 14 back skips the connection's page to MANAGE CLOUD CONNECTIONS (#1486, before the fix); from build 15 it returns to the connection's page",
+   "source": {
+    "es": "6cdcb7a64 (local m7/rc-round-es-20261125; route m7-20261126-552f3815e4b4)",
+    "distribution": "ed61fe8e5922f3106cb35230fed0027f4f7fc431 (local build/m7-rc-round-20261125, build 14)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T192845Z.ged61fe8e5922-from-ROCKNIX",
+    "walk": "docs/qa-logs/2026-11-26-1111-1115-campaign/phase-d/phase-d.sh"
+   },
+   "locale": "fr",
+   "width": 640,
+   "height": 480,
+   "frame": "build14-640x480-oauth/fr/s29/03-oauth-page.png",
+   "sha256": "9226c25edd6aa1aaebe9ab6cea5dec056149ee355dbe34dc270c97870de81a5c",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "before the fix: back from the choice page lands on MANAGE CLOUD CONNECTIONS, not qa-oauth's page (#1486)",
+    "date": "2026-11-26"
+   }
+  },
+  {
+   "flow_id": "cloud-folders-and-connections",
+   "branch_id": "build14/640x480-oauth/fr/s29/04-signin-row",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud",
+   "criteria": [
+    "1486 c1",
+    "1486 c2"
+   ],
+   "trigger": "SIGN IN AGAIN on an OAuth-tier connection (qa-oauth, type dropbox, no sign-in), then back from the choice page; no typing method is chosen, so nothing reaches the provider",
+   "expected_state": "on build 14 back skips the connection's page to MANAGE CLOUD CONNECTIONS (#1486, before the fix); from build 15 it returns to the connection's page",
+   "source": {
+    "es": "6cdcb7a64 (local m7/rc-round-es-20261125; route m7-20261126-552f3815e4b4)",
+    "distribution": "ed61fe8e5922f3106cb35230fed0027f4f7fc431 (local build/m7-rc-round-20261125, build 14)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T192845Z.ged61fe8e5922-from-ROCKNIX",
+    "walk": "docs/qa-logs/2026-11-26-1111-1115-campaign/phase-d/phase-d.sh"
+   },
+   "locale": "fr",
+   "width": 640,
+   "height": 480,
+   "frame": "build14-640x480-oauth/fr/s29/04-signin-row.png",
+   "sha256": "3f66d62e699bcc5d30dabc374ba6f8d3802d67db3aadefa888bb01c2952c90a8",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "before the fix: back from the choice page lands on MANAGE CLOUD CONNECTIONS, not qa-oauth's page (#1486)",
+    "date": "2026-11-26"
+   }
+  },
+  {
+   "flow_id": "cloud-folders-and-connections",
+   "branch_id": "build14/640x480-oauth/fr/s29/05-signin-confirm",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud",
+   "criteria": [
+    "1486 c1",
+    "1486 c2"
+   ],
+   "trigger": "SIGN IN AGAIN on an OAuth-tier connection (qa-oauth, type dropbox, no sign-in), then back from the choice page; no typing method is chosen, so nothing reaches the provider",
+   "expected_state": "on build 14 back skips the connection's page to MANAGE CLOUD CONNECTIONS (#1486, before the fix); from build 15 it returns to the connection's page",
+   "source": {
+    "es": "6cdcb7a64 (local m7/rc-round-es-20261125; route m7-20261126-552f3815e4b4)",
+    "distribution": "ed61fe8e5922f3106cb35230fed0027f4f7fc431 (local build/m7-rc-round-20261125, build 14)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T192845Z.ged61fe8e5922-from-ROCKNIX",
+    "walk": "docs/qa-logs/2026-11-26-1111-1115-campaign/phase-d/phase-d.sh"
+   },
+   "locale": "fr",
+   "width": 640,
+   "height": 480,
+   "frame": "build14-640x480-oauth/fr/s29/05-signin-confirm.png",
+   "sha256": "52145748dc83285094c23251970dbac99ccef68267d3eb86904f9c8714d99c6b",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "before the fix: back from the choice page lands on MANAGE CLOUD CONNECTIONS, not qa-oauth's page (#1486)",
+    "date": "2026-11-26"
+   }
+  },
+  {
+   "flow_id": "cloud-folders-and-connections",
+   "branch_id": "build14/640x480-oauth/fr/s29/06-choice",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud",
+   "criteria": [
+    "1486 c1",
+    "1486 c2"
+   ],
+   "trigger": "SIGN IN AGAIN on an OAuth-tier connection (qa-oauth, type dropbox, no sign-in), then back from the choice page; no typing method is chosen, so nothing reaches the provider",
+   "expected_state": "on build 14 back skips the connection's page to MANAGE CLOUD CONNECTIONS (#1486, before the fix); from build 15 it returns to the connection's page",
+   "source": {
+    "es": "6cdcb7a64 (local m7/rc-round-es-20261125; route m7-20261126-552f3815e4b4)",
+    "distribution": "ed61fe8e5922f3106cb35230fed0027f4f7fc431 (local build/m7-rc-round-20261125, build 14)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T192845Z.ged61fe8e5922-from-ROCKNIX",
+    "walk": "docs/qa-logs/2026-11-26-1111-1115-campaign/phase-d/phase-d.sh"
+   },
+   "locale": "fr",
+   "width": 640,
+   "height": 480,
+   "frame": "build14-640x480-oauth/fr/s29/06-choice.png",
+   "sha256": "fa4a1c1b594bfbec70f1f429cf03aed964a04199d686e5ad7f40056f1a65071d",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "before the fix: back from the choice page lands on MANAGE CLOUD CONNECTIONS, not qa-oauth's page (#1486)",
+    "date": "2026-11-26"
+   }
+  },
+  {
+   "flow_id": "cloud-folders-and-connections",
+   "branch_id": "build14/640x480-oauth/fr/s29/07-after-back",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud",
+   "criteria": [
+    "1486 c1",
+    "1486 c2"
+   ],
+   "trigger": "SIGN IN AGAIN on an OAuth-tier connection (qa-oauth, type dropbox, no sign-in), then back from the choice page; no typing method is chosen, so nothing reaches the provider",
+   "expected_state": "on build 14 back skips the connection's page to MANAGE CLOUD CONNECTIONS (#1486, before the fix); from build 15 it returns to the connection's page",
+   "source": {
+    "es": "6cdcb7a64 (local m7/rc-round-es-20261125; route m7-20261126-552f3815e4b4)",
+    "distribution": "ed61fe8e5922f3106cb35230fed0027f4f7fc431 (local build/m7-rc-round-20261125, build 14)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T192845Z.ged61fe8e5922-from-ROCKNIX",
+    "walk": "docs/qa-logs/2026-11-26-1111-1115-campaign/phase-d/phase-d.sh"
+   },
+   "locale": "fr",
+   "width": 640,
+   "height": 480,
+   "frame": "build14-640x480-oauth/fr/s29/07-after-back.png",
+   "sha256": "f1f2d3829582f9dd4257d1f6aba14d7bdd493eda2a88b555486685d003ac4019",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "before the fix: back from the choice page lands on MANAGE CLOUD CONNECTIONS, not qa-oauth's page (#1486)",
+    "date": "2026-11-26"
+   }
   }
  ]
 }
