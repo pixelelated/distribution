@@ -346,6 +346,19 @@ D-QA-065 (#1469, #1470). Max, 2026-11-26: *"Do we have work defined to improve t
 
 A failing check is treated as right until a run or a reading of the source shows it wrong. A harness fix says which, in its commit. On 2026-11-25, two checks called stale for naming a function that had moved were real regressions (blindspot 77). And a run expected to have "one failure" let seven failing suites look almost normal.
 
+## A change to how the product is driven carries its test change
+
+D-QA-066 (#1468, #1470). A change that alters something a test drives -- a launch path, a script's verbs, flags or output, where a file lives or who owns it, an interface API -- updates the tests that drive it in the same change, or one that lands before it. It is not done until `tools/vm-qa` is green on an image that carries it. `docs/qa/test-drives.txt` maps each driven product path to its test. `tools/test-drive-check`, a gate line of `tools/ceremony-check`, refuses a fork commit on `next` that touches a mapped path without its test. The exception is a final trailer naming the run that covers it: `Test-drive: <tools/path> -- <run and why>`, or `vm-qa: <BUILD_ID> PASS`.
+
+On 2026-11-25, five right product changes had left suites failing in ways that hid real results (#1465):
+- the managed launch ticket and the exit test;
+- the proxy lifecycle and the scripts suite's ctl cases;
+- folder profiles and the cloud harnesses;
+- confirmed folder seeding and round-trip;
+- RetroArch's mailbox and the wrapper test, behind which two real regressions sat (blindspot 77).
+
+A sixth was found on 2026-11-26: time-to-play's game-to-game cell still assumed a launch lands on a running exit sync, after PL-009 let the launch claim it. Run on the M7 assembly `0282367b4a`, the check names five suites that change left behind.
+
 ## A failure you find is yours to fix
 
 Finding a defect creates an obligation to deal with it, not merely to record

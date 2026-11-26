@@ -30,6 +30,7 @@ are mandatory, as opposed to things that are just optional?"* Yes.
 | Monthly summary | `docs/work-logs/<yyyy_mm>-work_logs/SUMMARY.md` | by the 3rd of the next month | refuses a push |
 | Work-log index | `tools/work-log-index --check` | with every log entry | refuses a push |
 | Register lint | `tools/register-check` | always | refuses a push |
+| Test drives | `tools/test-drive-check`: a fork commit on `next` after the tool's adoption that touches a product path in `docs/qa/test-drives.txt` changes its test, or carries a `Test-drive:` or `vm-qa: <BUILD_ID> PASS` trailer (D-QA-066, #1468) | every new fork commit, including merges | refuses a push |
 | Issue ownership citation | fork commits on `next` after `bf121ce876` cite `#N` in the message or in `docs/issue-citations.txt` (#1444); upstream and pre-adoption history excluded (D-WORKFLOW-132) | every new fork commit, including merges | refuses a push |
 | Blindspot guard | an entry from 52 on names a `tools/…`, `.githooks/…` or `.claude/rules/…` that exists | with the entry | refuses a push |
 | Code audit (epic/milestone tier) | an issue titled `Audit:` / `Code audit`, or `docs/audits/<date>-*/` | after 12 completed closures or 14 days | **CI red**, the push goes through |

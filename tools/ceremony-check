@@ -33,6 +33,7 @@
 #   index     tools/work-log-index --check
 #   issues    fork commits on next after D-WORKFLOW-132 cite an issue, in the message or
 #             in docs/issue-citations.txt (`<full sha> #N <reason>`, a late citation, #1444)
+#   test-drives post-adoption fork commits on next cover the tests for mapped product paths (#1468)
 #   hygiene   no issue closed as completed since the clock carries an open checkbox (audit #258 P-03; CI red)
 #   register  tools/register-check
 #   rules     tools/rules-check --quiet (the instruction files, D-WORKFLOW-045)
@@ -258,6 +259,12 @@ def main():
     report(ok, 'issues', message)
     if not ok:
         overdue.append(('block', 'issues: ' + message))
+
+    rc, out, err = sh([os.path.join(ROOT, 'tools/test-drive-check'), '--ref', 'next'])
+    message = out or err or 'checker produced no result (exit %d)' % rc
+    report(rc == 0, 'test-drives', message)
+    if rc != 0:
+        overdue.append(('block', 'test-drives: ' + message))
 
     # 1. mini-retro: every RETRO_ACTIVE_DAYS active days
     # A heading counts as a retro when it *is* one -- it begins with the

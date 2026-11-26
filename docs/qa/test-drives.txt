@@ -1,0 +1,119 @@
+# Product paths driven by tools/vm-qa suites (#1468).
+# Add one row per product glob and test: product glob | test path | interface.
+# Use the narrowest repo-relative glob under projects/ or packages/ that covers
+# the driven interface. Globs are case-sensitive and * can span directories.
+# Name the test by its tools/ path (a file or a suite directory). For a suite
+# implemented in vm-qa or run only from the pinned ES checkout, name tools/vm-qa.
+#
+# Carry the test change with the product change. If the test already covers
+# the interface (including a test updated earlier), record the run and why in
+# a final commit trailer: Test-drive: <tools/path> -- <run and reason>
+# A full pass on an image with the change can cover all rows in the commit:
+# vm-qa: <BUILD_ID> PASS
+# Qualification requires that green vm-qa run on an image carrying the change.
+#
+# The ES recipe stands in for source and tests in the separate ES repository.
+# The register suite scans citation syntax against the decision ledger.
+# Frame-diff compares the frames emitted by the walks mapped below.
+
+# Emulator launch, exit and time to play.
+projects/ROCKNIX/packages/rocknix/sources/scripts/runemu.sh | tools/emulator-exit-test | Managed launch ticket, exit status and launch log
+projects/ROCKNIX/packages/rocknix/sources/scripts/runemu.sh | tools/time-to-play | First frame and the exit-to-relaunch handoff
+projects/ROCKNIX/packages/rocknix/sources/scripts/runemu.sh | tools/last-good-scripts-test | Launch arguments, session state and cleanup
+projects/ROCKNIX/packages/rocknix/sources/scripts/setsettings.sh | tools/last-good-scripts-test | Launch settings and generated RetroArch overrides
+projects/ROCKNIX/packages/sysutils/system-utils/sources/scripts/input_sense | tools/emulator-exit-test | Exit hotkey and execute_kill
+projects/ROCKNIX/packages/sysutils/system-utils/sources/scripts/input_sense | tools/time-to-play | Exit hotkey timing
+projects/ROCKNIX/packages/sysutils/system-utils/sources/scripts/input_sense | tools/ra-offline-test | Exit an offline game and flush on reconnection
+projects/ROCKNIX/packages/emulators/libretro/retroarch/sources/GENERIC_X64/retroarch.cfg | tools/last-good-scripts-test | VM defaults and configured display surface
+projects/ROCKNIX/packages/hardware/quirks/platforms/GENERIC_X64/092-retroarch-surface | tools/time-to-play | VM frame surface dimensions
+projects/ROCKNIX/packages/hardware/quirks/platforms/GENERIC_X64/09[25]-* | tools/last-good-scripts-test | VM RetroArch surface and QA SSH setup
+
+# RetroArch threaded video mailbox and offline achievements.
+projects/ROCKNIX/packages/emulators/libretro/retroarch/package.mk | tools/retroarch-wrapper-test | Pin of gfx/video_thread_wrapper.c
+projects/ROCKNIX/packages/emulators/libretro/retroarch/patches/*video-thread-wrapper*.patch | tools/retroarch-wrapper-test | Mailbox posting, reply and one call per command
+projects/ROCKNIX/packages/emulators/libretro/retroarch/patches/*cheevos*cmd*.patch | tools/ra-offline-test | Achievement command used during an offline game
+projects/ROCKNIX/packages/emulators/libretro/retroarch/patches/*offline-proxy*.patch | tools/ra-offline-test | Offline achievement queue and reconnect feedback
+projects/ROCKNIX/packages/network/raofflineproxy/sources/raofflineproxy-ctl | tools/last-good-scripts-test | Proxy verbs, exit codes and dispatch to lifecycle (p, t, D)
+projects/ROCKNIX/packages/network/raofflineproxy/sources/raofflineproxy-lifecycle* | tools/last-good-scripts-test | Enable and disable ownership, rollback and saved setting (p, t, D)
+projects/ROCKNIX/packages/network/raofflineproxy/sources/raofflineproxy-cache-* | tools/last-good-scripts-test | Cache index and image fetch behavior
+projects/ROCKNIX/packages/network/raofflineproxy/sources/raofflineproxy-refresh | tools/last-good-scripts-test | Refresh candidate selection and retry
+projects/ROCKNIX/packages/network/raofflineproxy/system.d/raofflineproxy.service | tools/last-good-scripts-test | Service sandbox and installed command
+projects/ROCKNIX/packages/network/raofflineproxy/package.mk | tools/last-good-scripts-test | Proxy dependencies, install paths and patched runtime
+projects/ROCKNIX/packages/network/raofflineproxy/patches/* | tools/last-good-scripts-test | Cache, queue and status interfaces in patched proxy source
+projects/ROCKNIX/packages/network/raofflineproxy/sources/raofflineproxy-ctl | tools/ra-offline-test | Enable toggle and proxy status
+projects/ROCKNIX/packages/network/raofflineproxy/sources/raofflineproxy-lifecycle* | tools/ra-offline-test | Service and setting ownership behind the toggle
+
+# Cloud connection paths, folder creation, backup and restore.
+projects/ROCKNIX/packages/network/rclone/sources/cloud_connection*.py | tools/cloud-round-trip | Config paths, active connection and folder-profiles.json fixture
+projects/ROCKNIX/packages/network/rclone/sources/cloud_connection*.py | tools/time-to-play | Keep folder profiles and configured paths in step for exit sync
+projects/ROCKNIX/packages/network/rclone/sources/cloud_remote | tools/cloud-round-trip | Active remote and folder-profile lookup
+projects/ROCKNIX/packages/network/rclone/sources/cloud_remote | tools/time-to-play | Active remote for exit sync measurements
+projects/ROCKNIX/packages/network/rclone/sources/cloud_setup | tools/cloud-round-trip | Folder seeding uses the reviewed config_id from validation-context
+projects/ROCKNIX/packages/network/rclone/sources/cloud_setup | tools/vm-qa | Validation-context JSON for the folder walk preservation checks
+projects/ROCKNIX/packages/network/rclone/sources/cloud_sync.conf* | tools/cloud-round-trip | Scratch paths, shipped defaults and restoration of config
+projects/ROCKNIX/packages/network/rclone/sources/cloud_sync.conf* | tools/time-to-play | Paths, timeouts and shipped remote folder names
+projects/ROCKNIX/packages/network/rclone/sources/cloud_sync.conf.defaults | tools/vm-qa | Seed the fixtures with the shipped saves and settings folder names
+projects/ROCKNIX/packages/network/rclone/sources/cloud_sync-rules.txt* | tools/cloud-round-trip | Include and exclude rules for save payloads
+projects/ROCKNIX/packages/network/rclone/sources/cloud_sync-rules.txt* | tools/time-to-play | Save fixture paths within the sync allowlist
+projects/ROCKNIX/packages/network/rclone/sources/cloud_backup | tools/cloud-round-trip | Save and settings backup verbs, status and link cuts
+projects/ROCKNIX/packages/network/rclone/sources/cloud_restore | tools/cloud-round-trip | Save and settings restore verbs, status and link cuts
+projects/ROCKNIX/packages/network/rclone/sources/cloud_content_* | tools/cloud-round-trip | Content scans, backup and restore, including link cuts
+projects/ROCKNIX/packages/network/rclone/sources/cloud_capture | tools/cloud-round-trip | Capture arguments, reconcile and retire verbs, and stamps
+projects/ROCKNIX/packages/network/rclone/sources/cloud_saves_root | tools/cloud-round-trip | Card identity, record and check verbs
+projects/ROCKNIX/packages/network/rclone/sources/cloud_sync_helper | tools/cloud-round-trip | Config repair and first-boot merge
+projects/ROCKNIX/packages/network/rclone/sources/cloud_sync_helper | tools/vm-qa | Config setup for a fresh guest's QA remote
+projects/ROCKNIX/packages/network/rclone/sources/cloud_remote | tools/vm-qa | Active remote lookup for QA fixtures and folder preservation
+projects/ROCKNIX/packages/network/rclone/sources/cloud_capture | tools/time-to-play | Automatic exit sync stamps and completion
+projects/ROCKNIX/packages/rocknix/sources/scripts/backuptool | tools/cloud-round-trip | Settings archives, backup status and staged restore
+projects/ROCKNIX/packages/network/rclone/sources/cloud_* | tools/last-good-scripts-test | Connection fixtures, command flags, config, locking and exit codes
+projects/ROCKNIX/packages/network/rclone/package.mk | tools/last-good-scripts-test | Installation of cloud commands and configuration
+projects/ROCKNIX/packages/network/cloud-signin-window/sources/cloud-signin-window.c | tools/last-good-scripts-test | Sign-in window command and callback contracts
+
+# Other inputs exercised by the scripts suite.
+projects/ROCKNIX/packages/rocknix/profile.d/001-functions | tools/last-good-scripts-test | Settings helpers and hostname normalization
+projects/ROCKNIX/packages/rocknix/sources/scripts/chksysconfig | tools/last-good-scripts-test | Settings sentinel, merge and repair
+projects/ROCKNIX/packages/rocknix/sources/scripts/backuptool | tools/last-good-scripts-test | Backup and restore CLI, archive exclusions and modes
+projects/ROCKNIX/packages/rocknix/sources/scripts/wifictl | tools/last-good-scripts-test | Wi-Fi selection and visibility of saved networks
+projects/ROCKNIX/packages/rocknix/sources/scripts/rocknix-evidence | tools/last-good-scripts-test | Support evidence capture and secret redaction
+projects/ROCKNIX/packages/rocknix/sources/scripts/rocknix-corekeep | tools/last-good-scripts-test | Crash dump limits, metadata and retention
+projects/ROCKNIX/packages/rocknix/autostart/099-networkservices | tools/last-good-scripts-test | Startup service markers and ordering
+projects/ROCKNIX/packages/rocknix/sources/post-update | tools/last-good-scripts-test | Update-time settings and service handling
+projects/ROCKNIX/packages/sysutils/systemd/system.d/network-base.service | tools/last-good-scripts-test | Hostname setup service ordering
+projects/ROCKNIX/packages/network/avahi/package.mk | tools/last-good-scripts-test | Installed Avahi service overrides
+projects/ROCKNIX/packages/network/avahi/system.d/avahi-daemon.service | tools/last-good-scripts-test | Avahi startup after hostname setup
+projects/ROCKNIX/packages/sysutils/systemd/scripts/network-base-setup | tools/last-good-scripts-test | Persistent hostname and first-boot network state
+projects/ROCKNIX/devices/GENERIC_X64/vm/* | tools/last-good-scripts-test | VM launch entry point and profile
+projects/ROCKNIX/packages/emulators/standalone/armsx2-sa/scripts/cheevos_armsx2.sh | tools/last-good-scripts-test | Standalone achievements setup
+projects/ROCKNIX/packages/emulators/standalone/ppsspp-sa/scripts/cheevos_ppsspp.sh | tools/last-good-scripts-test | Standalone achievements setup
+packages/multimedia/gstreamer/gst-plugins-base/package.mk | tools/last-good-scripts-test | GStreamer base plugin build options
+packages/multimedia/gstreamer/gst-plugins-bad/package.mk | tools/last-good-scripts-test | GStreamer bad plugin build options
+packages/web/webkitgtk/package.mk | tools/last-good-scripts-test | WebKit runtime for cloud sign-in
+
+# Pair identity and first boot (suites implemented in vm-qa).
+projects/ROCKNIX/packages/network/rclone/sources/cloud_device_id | tools/vm-qa | Distinct cloud device IDs
+projects/ROCKNIX/packages/rocknix/profile.d/001-functions | tools/vm-qa | Stored and normalized hostnames
+projects/ROCKNIX/packages/sysutils/systemd/scripts/network-base-setup | tools/vm-qa | Distinct running hostnames
+projects/ROCKNIX/packages/network/avahi/system.d/avahi-daemon.service | tools/vm-qa | Advertised mDNS hostname in the Avahi journal
+projects/ROCKNIX/packages/sysutils/systemd/scripts/userconfig-setup | tools/vm-qa | First-boot links and .configured marker
+projects/ROCKNIX/packages/ui/emulationstation/config/common/es_features.cfg | tools/vm-qa | Managed features config link into /usr/config
+projects/ROCKNIX/packages/ui/emulationstation/config/common/es_savestates.cfg | tools/vm-qa | Managed save state config link into /usr/config
+projects/ROCKNIX/packages/apps/gamecontrollerdb/config/gamecontrollerdb.txt | tools/vm-qa | Controller DB link into /usr/config
+
+# ES pin, UI navigation and text.
+projects/ROCKNIX/packages/ui/emulationstation/package.mk | tools/vm-qa | Lifetime and credential quoting suites in ES, and generated es_systems.cfg
+projects/ROCKNIX/packages/ui/emulationstation/package.mk | tools/emulator-exit-test | Managed /launch and /isIdle endpoints
+projects/ROCKNIX/packages/ui/emulationstation/package.mk | tools/time-to-play | /launch endpoint and idle-to-first-frame timing
+projects/ROCKNIX/packages/ui/emulationstation/package.mk | tools/ra-offline-test | Launch API and achievements navigation
+projects/ROCKNIX/packages/ui/emulationstation/package.mk | tools/vm-walks | Menu navigation, frame checkpoints and /systems selection
+projects/ROCKNIX/packages/ui/emulationstation/config/common/es_settings.cfg | tools/vm-walks | Default settings and menu state
+projects/ROCKNIX/packages/ui/emulationstation/package.mk | tools/es-menu-map-check | Menu definitions at the shipped pin
+projects/ROCKNIX/packages/ui/emulationstation/package.mk | tools/es-untranslated | French translations at the shipped pin
+projects/ROCKNIX/packages/ui/emulationstation/package.mk | tools/vocabulary-check | Player-facing strings at the shipped pin
+projects/ROCKNIX/packages/network/rclone/sources/cloud_backup | tools/vocabulary-check | Backup status text
+projects/ROCKNIX/packages/network/rclone/sources/cloud_restore | tools/vocabulary-check | Restore status text
+projects/ROCKNIX/packages/network/rclone/sources/cloud_content_backup | tools/vocabulary-check | Content backup status text
+projects/ROCKNIX/packages/network/rclone/sources/cloud_content_restore | tools/vocabulary-check | Content restore status text
+projects/ROCKNIX/packages/network/rclone/sources/cloud_setup | tools/vocabulary-check | Cloud setup guidance
+projects/ROCKNIX/packages/network/rclone/sources/cloud_saves_root | tools/vocabulary-check | Save card guidance
+projects/ROCKNIX/packages/network/rclone/sources/cloud_net_ready | tools/vocabulary-check | Connection status text
+projects/ROCKNIX/packages/rocknix/sources/scripts/backuptool | tools/vocabulary-check | Settings backup text

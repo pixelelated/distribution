@@ -1,0 +1,141 @@
+#!/usr/bin/env python3
+# SPDX-License-Identifier: GPL-2.0
+# Copyright (C) 2026-present ROCKNIX (https://github.com/ROCKNIX)
+
+"""Find fork commits that change a product path without covering its tests."""
+
+import argparse
+from fnmatch import fnmatchcase
+from pathlib import Path
+import re
+import subprocess
+import sys
+
+
+ROOT = Path(__file__).resolve().parents[1]
+MAP = ROOT / 'docs/qa/test-drives.txt'
+UPSTREAM = 'upstream/next'
+CHECKER = 'tools/test-drive-check'
+
+
+def git(*args):
+    result = subprocess.run(['git', *args], cwd=ROOT, capture_output=True,
+                            encoding='utf-8', errors='surrogateescape', timeout=120)
+    if result.returncode:
+        raise ValueError(result.stderr.strip() or f'git {args[0]} exited {result.returncode}')
+    return result.stdout
+
+
+def commit(ref):
+    try:
+        return git('rev-parse', '--verify', '--end-of-options', ref + '^{commit}').strip()
+    except ValueError as error:
+        raise ValueError(f'cannot resolve required history: {ref}') from error
+
+
+def read_map():
+    entries = []
+    for number, line in enumerate(MAP.read_text(encoding='utf-8').splitlines(), 1):
+        if not line.strip() or line.lstrip().startswith('#'):
+            continue
+        fields = [field.strip() for field in line.split('|')]
+        if len(fields) != 3 or not all(fields):
+            raise ValueError(f'{MAP}:{number}: expected product glob | test path | interface')
+        product, test, _ = fields
+        if (not product.startswith(('projects/', 'packages/')) or not test.startswith('tools/')
+                or any(part in ('', '.', '..') for path in (product, test) for part in path.split('/'))
+                or any(char in test for char in '*?[') or '\0' in line):
+            raise ValueError(f'{MAP}:{number}: expected a product glob and an exact tools/ path')
+        entries.append((product, test))
+    if not entries:
+        raise ValueError(f'{MAP}: no test drives defined')
+    return entries
+
+
+def history(commit_range, ref):
+    if git('rev-parse', '--is-shallow-repository').strip() != 'false':
+        raise ValueError('a complete Git history is required')
+    upstream = commit(UPSTREAM)
+    adopted = None
+    if commit_range is None:
+        tip = commit(ref)
+        # Use the introduction reachable from this tip, including after a squash
+        # or cherry-pick. Like ceremony-check's ISSUE_BASELINE, this excludes
+        # pre-adoption feature history that gets merged after adoption.
+        additions = git('log', '--full-history', '--diff-merges=off', '--no-renames',
+                        '--diff-filter=A', '--format=%H', tip, '--', CHECKER).splitlines()
+        if len(additions) != 1:
+            raise ValueError(f'cannot identify a unique adoption commit for {CHECKER} on {ref}')
+        baseline = additions[0]
+        adopted = int(git('show', '-s', '--format=%ct', baseline))
+    else:
+        left, separator, right = commit_range.partition('..')
+        if not separator or not left or not right or right.startswith('.') or '..' in right:
+            raise ValueError('expected a commit range in the form BASE..TIP')
+        baseline, tip = commit(left), commit(right)
+    # The same reachability exclusion used by ceremony-check's issue coverage.
+    for row in git('rev-list', '--timestamp', f'{baseline}..{tip}', '--not', upstream).splitlines():
+        timestamp, sha = row.split()
+        if adopted is None or int(timestamp) >= adopted:
+            yield sha
+
+
+def matching_tests(sha, entries):
+    # Combined merge diffs show changes relative to every parent. The history
+    # walk already checks changes introduced on the individual branches.
+    changed = set(git('diff-tree', '--root', '-c', '--no-commit-id', '--name-only', '-r',
+                      '--no-renames', '-z', sha, '--').split('\0')[:-1])
+    missing = {}
+    for product, test in entries:
+        if test in changed or any(path.startswith(test + '/') for path in changed):
+            continue
+        matches = {path for path in changed if fnmatchcase(path, product)}
+        if matches:
+            missing.setdefault(test, set()).update(matches)
+    return missing
+
+
+def uncovered_tests(sha, missing):
+    # Ask Git for its trailer block, so a quoted example in the body does not
+    # cover a change. A full vm-qa pass covers every mapped test in the commit.
+    trailers = git('show', '-s', '--format=%(trailers:only,unfold)', sha)
+    for line in trailers.splitlines():
+        key, _, value = line.partition(':')
+        value = value.strip()
+        if key.lower() == 'vm-qa' and re.fullmatch(r'\S+\s+PASS', value):
+            return {}
+        if key.lower() == 'test-drive':
+            test, _, reason = value.partition(' -- ')
+            if reason.strip():
+                missing.pop(test, None)
+    return missing
+
+
+def main():
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument('commit_range', metavar='BASE..TIP', nargs='?',
+                        help='explicit range, including pre-adoption commits')
+    parser.add_argument('--ref', default='HEAD', help='tip for the adoption-based scan (default: HEAD)')
+    args = parser.parse_args()
+    checked = 0
+    findings = []
+    try:
+        entries = read_map()
+        for sha in history(args.commit_range, args.ref):
+            checked += 1
+            missing = matching_tests(sha, entries)
+            if missing:
+                for test, paths in sorted(uncovered_tests(sha, missing).items()):
+                    findings.append(f'{sha[:12]} needs {test}: {", ".join(sorted(paths))}')
+    except (OSError, ValueError, subprocess.TimeoutExpired) as error:
+        print(f'test-drive-check: {error}', file=sys.stderr)
+        return 2
+    if findings:
+        print('\n'.join(findings))
+        return 1
+    print(f'test-drive-check: clean ({checked} fork commits checked)')
+    return 0
+
+
+if __name__ == '__main__':
+    sys.exit(main())

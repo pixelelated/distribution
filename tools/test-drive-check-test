@@ -1,0 +1,133 @@
+#!/usr/bin/env python3
+# SPDX-License-Identifier: GPL-2.0
+# Copyright (C) 2026-present ROCKNIX (https://github.com/ROCKNIX)
+
+"""Exercise the test-drive gate with synthetic commits in a temporary repo."""
+
+import os
+from pathlib import Path
+import shutil
+import subprocess
+import sys
+from tempfile import TemporaryDirectory
+
+
+ROOT = Path(__file__).resolve().parents[1]
+CHECKER = 'tools/test-drive-check'
+CEREMONY = 'tools/ceremony-check'
+MAP = 'docs/qa/test-drives.txt'
+PRODUCT = 'projects/ROCKNIX/packages/rocknix/sources/scripts/runemu.sh'
+TEST = 'tools/emulator-exit-test'
+TICKET = 'require a verified managed launch ticket\n'
+
+
+def git(repo, *args):
+    result = subprocess.run(['git', *args], cwd=repo, capture_output=True, text=True, check=True)
+    return result.stdout.strip()
+
+
+def write(repo, path, content):
+    target = repo / path
+    target.parent.mkdir(parents=True, exist_ok=True)
+    target.write_text(content, encoding='utf-8')
+
+
+def commit(repo, title, body=None):
+    git(repo, 'add', '--all')
+    args = ['commit', '-qm', title]
+    if body:
+        args.extend(['-m', body])
+    git(repo, *args)
+    return git(repo, 'rev-parse', 'HEAD')
+
+
+def expect(repo, label, status, snippet, command, *args):
+    result = subprocess.run([str(repo / command), *args], cwd=repo,
+                            capture_output=True, text=True,
+                            env={**os.environ, 'CEREMONY_TODAY': '2026-09-21'})
+    output = (result.stdout + result.stderr).strip()
+    if result.returncode != status or snippet not in output:
+        raise AssertionError(f'{label}: expected exit {status} and {snippet!r}, '
+                             f'got exit {result.returncode}\n{output}')
+    line = next(line for line in output.splitlines() if snippet in line)
+    print(f'PASS {label} (exit {status})\n  {line}')
+
+
+def main():
+    with TemporaryDirectory(prefix='test-drive-check-') as directory:
+        repo = Path(directory)
+        git(repo, 'init', '-q', '-b', 'next')
+        git(repo, 'config', 'core.hooksPath', '/dev/null')
+        git(repo, 'config', 'commit.gpgsign', 'false')
+        git(repo, 'config', 'user.name', 'QA Fixture')
+        git(repo, 'config', 'user.email', 'qa@example.invalid')
+        write(repo, PRODUCT, 'accept direct launches\n')
+        write(repo, TEST, 'call runemu.sh directly\n')
+        base = commit(repo, 'Initial fixture')
+        git(repo, 'update-ref', 'refs/remotes/upstream/next', base)
+        write(repo, PRODUCT, 'accept positional arguments directly\n')
+        commit(repo, 'Change launch arguments before adoption')
+        shutil.copy2(ROOT / CHECKER, repo / CHECKER)
+        shutil.copy2(ROOT / CEREMONY, repo / CEREMONY)
+        entry = next(line for line in (ROOT / MAP).read_text(encoding='utf-8').splitlines()
+                     if line.startswith(f'{PRODUCT} | {TEST} | '))
+        write(repo, MAP, entry + '\n')
+        adoption = commit(repo, 'Adopt the checker (#1468)')
+        expect(repo, 'pre-adoption history excluded by default', 0, '0 fork commits checked', CHECKER)
+        expect(repo, 'explicit range can inspect pre-adoption history', 1, f'needs {TEST}',
+               CHECKER, f'{base}..HEAD')
+
+        write(repo, PRODUCT, TICKET)
+        commit(repo, 'Require a managed launch ticket (#1430)')
+        expect(repo, 'unpaired #1430 launch change rejected', 1, f'needs {TEST}', CHECKER)
+        expect(repo, 'ceremony gate blocks the unpaired change', 1, 'BLOCK test-drives:',
+               CEREMONY, '--gate', '--no-gh')
+
+        git(repo, 'switch', '-q', '--detach', adoption)
+        write(repo, PRODUCT, TICKET)
+        write(repo, TEST, 'ask EmulationStation to launch the game\n')
+        commit(repo, 'Pair the managed launch change with its test (#1430)')
+        expect(repo, 'same launch change with its test accepted', 0, '1 fork commits checked', CHECKER)
+
+        trailer = f'Test-drive: {TEST} -- exit fixture passed through the frontend already'
+        for label, status, snippet, body in (
+            ('focused trailer accepted', 0, 'clean', trailer),
+            ('full vm-qa trailer accepted', 0, 'clean', 'vm-qa: qa-fixture-build PASS'),
+            ('trailer for another test rejected', 1, f'needs {TEST}',
+             'Test-drive: tools/time-to-play -- a different suite passed'),
+            ('trailer-shaped text in the body rejected', 1, f'needs {TEST}',
+             f'{trailer}\n\nThe line above is only an example.'),
+        ):
+            git(repo, 'switch', '-q', '--detach', adoption)
+            write(repo, PRODUCT, TICKET)
+            commit(repo, 'Change the launch path (#1430)', body)
+            expect(repo, label, status, snippet, CHECKER)
+
+        git(repo, 'switch', '-q', '--detach', base)
+        write(repo, PRODUCT, 'accept positional arguments directly\n')
+        upstream = commit(repo, 'Upstream changes the launch path')
+        git(repo, 'switch', '-q', '--detach', adoption)
+        expect(repo, 'upstream fixture would be a finding outside upstream', 1, f'needs {TEST}',
+               CHECKER, f'{base}..{upstream}')
+        git(repo, 'update-ref', 'refs/remotes/upstream/next', upstream)
+        expect(repo, 'upstream commit excluded', 0, '0 fork commits checked',
+               CHECKER, f'{base}..{upstream}')
+        git(repo, 'merge', '-q', '--no-ff', '--no-edit', upstream)
+        expect(repo, 'upstream merge accepted', 0, '1 fork commits checked', CHECKER)
+
+        git(repo, 'switch', '-q', '--detach', adoption)
+        git(repo, 'merge', '-q', '--no-ff', '--no-commit', upstream)
+        write(repo, PRODUCT, TICKET)
+        commit(repo, 'Require a managed launch ticket while merging (#1430)')
+        expect(repo, 'launch change introduced by a merge rejected', 1, f'needs {TEST}', CHECKER)
+
+        write(repo, MAP, 'broken map row\n')
+        expect(repo, 'malformed map fails closed', 2, 'expected product glob', CHECKER)
+        (repo / MAP).unlink()
+        (repo / MAP).mkdir()
+        expect(repo, 'unreadable map fails closed', 2, MAP, CHECKER, f'{base}..{upstream}')
+    return 0
+
+
+if __name__ == '__main__':
+    sys.exit(main())
