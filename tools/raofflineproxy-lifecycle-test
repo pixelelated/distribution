@@ -103,10 +103,28 @@ wait_owner_stopped() {
 current_operation() { jq -er '.id | select(test("^[0-9a-f]{32}$"))' "$pointer"; }
 operation() { "$ctl" operation --operation "$1" --boot "$boot"; }
 
+require_idle_owner() {
+    local id terminal
+    if exists "$pointer"; then
+        [ -f "$pointer" ] && [ ! -L "$pointer" ] && id=$(current_operation) &&
+            terminal=$(operation "$id" | jq -r '.terminal') ||
+            cannot_run 'the guest has an unverified prior lifecycle operation'
+        case "$terminal" in
+            false)
+                printf '%s\n' 'cannot run: a pending lifecycle owner holds this guest until a reboot (#1467)' >&2
+                exit 2
+                ;;
+            true) ;;
+            *) cannot_run 'the guest has an unverified prior lifecycle operation' ;;
+        esac
+    fi
+    owner_idle || cannot_run 'a lifecycle transition is already in flight or unresolved'
+}
+
 boot=$(cat /proc/sys/kernel/random/boot_id) || cannot_run 'cannot read boot ID'
+require_idle_owner
 original_flags=$(flags) || cannot_run 'cannot read the guest flags'
 original_service=$(property "$unit" ActiveState) || cannot_run 'cannot read the service state'
-owner_idle || cannot_run 'a lifecycle transition is already in flight or unresolved'
 case "$original_flags:$original_service" in
     '1|0|'[01]:active)
         [ -f "$marker" ] && [ ! -L "$marker" ] && [ ! -s "$marker" ] || cannot_run 'the enabled guest has an unexpected marker'
@@ -122,12 +140,6 @@ esac
 if exists "$scan_lock"; then
     [ -f "$scan_lock" ] && [ ! -L "$scan_lock" ] && flock -n -x "$scan_lock" true || cannot_run 'the cache lock is in use or unreadable'
 fi
-if exists "$pointer"; then
-    [ -f "$pointer" ] && [ ! -L "$pointer" ] && original_id=$(current_operation) &&
-        operation "$original_id" | jq -e '.terminal == true' >/dev/null ||
-        cannot_run 'the guest has an unverified prior lifecycle operation'
-fi
-
 work=$(mktemp -d /tmp/raofflineproxy-lifecycle-test.XXXXXX) || cannot_run 'cannot allocate guest scratch space'
 owned_id= pass_pid= fixture_changed=0
 persistent_id= retry_id=
@@ -186,106 +198,34 @@ release_settings_fault() {
     fi
 }
 
-restore_fault_operation() {
-    local id
-    id=$(current_operation 2>/dev/null) || return 0
-    [[ $id = "$persistent_id" || $id = "$retry_id" ]] || return 0
-    wait_owner_stopped || return 1
-    if owner_idle && operation "$id" | jq -e '.terminal == true' >/dev/null; then
-        return 0
-    fi
+both_writes_failed() {
+    jq -se '[.[] | select(.kind == "command-result" and .category == "settings-commit-off") | .original_rc][:2] == [1,1]' \
+        "$runtime/owners/$persistent_id/events.jsonl" >/dev/null
+}
 
-    # #1467 can leave a dead operation fencing the guest. Clear only this
-    # fixture's records after observing the verdict. Keep its journal intact.
-    python3 - "$boot" "$id" "$enabled_flags" <<'PY' || return 1
-import fcntl
-import os
-import stat
-import subprocess
-import sys
-import time
+persistent_failure_pending() {
+    [ -n "$persistent_id" ] && [ "$(current_operation 2>/dev/null)" = "$persistent_id" ] &&
+        wait_owner_stopped && both_writes_failed &&
+        operation "$persistent_id" | jq -e '.action == "disable" and .phase == "FAILED" and .terminal == false' >/dev/null
+}
 
-from raofflineproxy.lifecycle import boot_id, read_record, same_process
-from raofflineproxy.lifecycle_observe import absent, legacy_flags, optional_record, ready, show
-from raofflineproxy.lifecycle_owner import open_lock
-from raofflineproxy.lifecycle_systemd import DROP_PATH, MARKER, OWNER_UNIT, UNIT, marker, need, sha
-from raofflineproxy.quiescence import FILES
+restore_flags() {
+    local now=$1 a b c x y z
+    [ "$now" != "$original_flags" ] || return 0
+    IFS='|' read -r a b c <<< "$now"
+    IFS='|' read -r x y z <<< "$original_flags"
+    "$settings" compare-set "$a" "$b" "$c" "$x" "$y" "$z" &&
+        [ "$(flags)" = "$original_flags" ]
+}
 
-boot, token, enabled_flags = sys.argv[1:]
-enabled = dict(zip(('enabled', 'hardcore', 'was'), enabled_flags.split('|')))
-disabled = {'enabled': '0', 'hardcore': enabled['was'], 'was': '-'}
-root = FILES.root
-pointer = root / 'active-owner.json'
-transition_path = root / 'transition.json'
-submit = open_lock(root / 'submit.lock')
-try:
-    fcntl.flock(submit, fcntl.LOCK_EX | fcntl.LOCK_NB)
-    need(boot == boot_id() and read_record(pointer) == {'id': token, 'boot': boot}, 'QA request changed')
-    state = read_record(root / 'owners' / token / 'state.json')
-    request = state['request']
-    need(request['id'] == token and request['boot'] == boot and request['mode'] == 'disable', 'foreign QA request')
-    owner = show(OWNER_UNIT, time.monotonic() + 2)
-    need(absent(owner) and owner['InvocationID'] in ('', state.get('owner_invocation')), 'QA owner is not settled')
-    admission = FILES.acquire(exclusive=True)
-    need(admission is not None, 'QA admission still held')
-    with admission:
-        transition = optional_record(transition_path)
-        if transition is not None:
-            need(transition['boot'] == boot and transition['phase'] in ('stopping', 'restoring')
-                 and transition['nonce'] == state['stop_nonce'] and transition['owner'] == state['controller']
-                 and transition['epoch'] == state['original']['epoch'] and not same_process(transition['owner']),
-                 'transition is not owned by the settled QA request')
-        drop_exists = DROP_PATH.exists() or DROP_PATH.is_symlink()
-        if drop_exists:
-            info = DROP_PATH.lstat()
-            record = state['override']
-            need(stat.S_ISREG(info.st_mode) and (info.st_dev, info.st_ino) == (record['dev'], record['ino'])
-                 and sha(DROP_PATH) == record['sha256'], 'QA override changed')
-
-        unit = show(UNIT, time.monotonic() + 2)
-        service_absent = absent(unit)
-        if not service_absent:
-            epoch = state.get('restored_epoch') or state.get('original', {}).get('epoch')
-            need(epoch is not None and ready(unit, epoch), 'QA cannot attribute the running service')
-        preferences = legacy_flags()
-        current_marker = marker()
-        need(preferences in (enabled, disabled), 'QA preference changed')
-        if preferences == enabled:
-            need(current_marker is not None and current_marker == state.get('marker', current_marker),
-                 'QA enabled marker changed')
-        else:
-            need(service_absent and (current_marker is None or current_marker == state.get('marker')),
-                 'QA cannot attribute the disabled state')
-        if drop_exists:
-            DROP_PATH.unlink()
-        if drop_exists or state.get('override_intent'):
-            subprocess.run(['systemctl', 'daemon-reload'], check=True, timeout=10)
-        if preferences == disabled and current_marker is not None:
-            MARKER.unlink()
-        if transition is not None:
-            transition_path.unlink()
-        pointer.unlink()
-    if owner['ActiveState'] == 'failed':
-        subprocess.run(['systemctl', 'reset-failed', OWNER_UNIT], check=True, timeout=10)
-    # A failed pre-rename commit retains the enabled preference and marker.
-    # Restore service readiness under that preference before normal teardown.
-    if service_absent and preferences == enabled:
-        if unit['ActiveState'] == 'failed':
-            subprocess.run(['systemctl', 'reset-failed', UNIT], check=True, timeout=10)
-        subprocess.run(['systemctl', 'start', UNIT], check=True, timeout=40)
-finally:
-    os.close(submit)
-PY
-    # Teardown uses a verified disabled receipt when restoring absent keys
-    # on an originally inactive guest.
-    if [ "$original_service" = inactive ] && [ "$(property "$unit" ActiveState)" = inactive ] &&
-        [ "$(flags)" != "$original_flags" ]; then
-        toggle disable && [ "$toggle_rc" = 0 ] || return 1
-    fi
+restore_stranded_flags() {
+    local now
+    now=$(flags) || return 1
+    [[ $now = "$enabled_flags" || $now = "$original_flags" ]] && restore_flags "$now"
 }
 
 restore_original() {
-    local now state a b c x y z saved
+    local now state saved
     [ "$fixture_changed" = 1 ] || return 0
     owner_idle || return 1
     state=$(property "$unit" ActiveState) || return 1
@@ -305,9 +245,7 @@ restore_original() {
         [ "$original_service" = inactive ] && owner_idle && [ -n "$owned_id" ] &&
             [ "$(current_operation)" = "$owned_id" ] &&
             operation "$owned_id" | jq -e '.terminal and .outcome == "disabled"' >/dev/null || return 1
-        IFS='|' read -r a b c <<< "$now"
-        IFS='|' read -r x y z <<< "$original_flags"
-        "$settings" compare-set "$a" "$b" "$c" "$x" "$y" "$z" || return 1
+        restore_flags "$now" || return 1
         if [ -f "$work/pointer.before" ]; then
             saved=$(mktemp "$runtime/.qa-restore.XXXXXX") || return 1
             if ! { cat "$work/pointer.before" > "$saved" && mv -f "$saved" "$pointer"; }; then
@@ -327,7 +265,7 @@ restore_original() {
 }
 
 cleanup() {
-    local rc=$? restored=0
+    local rc=$? restored=0 reboot_required=0
     trap - EXIT
     trap '' HUP INT TERM
     release_pass || [ -z "$pass_pid" ] || restored=1
@@ -336,16 +274,28 @@ cleanup() {
     fi
     release_settings_fault || restored=1
     restore_scan_lock || restored=1
-    restore_fault_operation || restored=1
-    restore_original || restored=1
+    if persistent_failure_pending; then
+        reboot_required=1
+        # Leave the FAILED owner and its transition for reboot. Startup
+        # reconciles the service and marker from the restored preference.
+        restore_stranded_flags || restored=1
+        [ "$rc" != 0 ] || rc=1
+    else
+        restore_original || restored=1
+    fi
     if [ "$restored" = 0 ]; then
         rm -rf "$work" || restored=1
     fi
     if [ "$restored" != 0 ]; then
         printf 'CANNOT RESTORE  guest fixture or lifecycle state needs attention (%s)\n' "$work" >&2
         [ "$rc" != 0 ] || rc=2
+    elif [ "$reboot_required" = 1 ]; then
+        printf 'RESTORED  original flags %s\n' "$original_flags"
     else
         printf 'RESTORED  original flags %s and service %s\n' "$original_flags" "$original_service"
+    fi
+    if [ "$reboot_required" = 1 ]; then
+        printf '%s\n' 'REBOOT REQUIRED  #1467 left a pending lifecycle owner in this guest' >&2
     fi
     exit "$rc"
 }
@@ -522,11 +472,6 @@ persistent_id=$(python3 -c 'import secrets; print(secrets.token_hex(16))') || ca
     cannot_run '#1467 could not submit the disable with the persistent fault'
 owned_id=$persistent_id
 wait_owner_stopped || cannot_run '#1467 could not observe the end of the owner process and ExecStopPost'
-case_dir="$runtime/owners/$persistent_id"
-both_writes_failed() {
-    jq -se '[.[] | select(.kind == "command-result" and .category == "settings-commit-off") | .original_rc][:2] == [1,1]' \
-        "$case_dir/events.jsonl" >/dev/null
-}
 check '#1467: the settings write and its ExecStopPost retry both fail' both_writes_failed
 
 outcome=$(operation "$persistent_id") || cannot_run '#1467 cannot observe the disable operation'
@@ -563,6 +508,7 @@ rc=$?
 case "$rc" in
     0) echo 'PASSED' ;;
     1) echo 'FAILED' >&2 ;;
+    2) ;; # The guest already printed its reason.
     *) echo "CANNOT RUN  guest or SSH did not complete (exit $rc)" >&2; rc=2 ;;
 esac
 exit "$rc"
