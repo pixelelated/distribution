@@ -1,0 +1,390 @@
+#!/bin/bash
+# SPDX-License-Identifier: GPL-2.0
+# Copyright (C) 2026-present ROCKNIX (https://github.com/ROCKNIX)
+#
+# Installed lifecycle proof for #1465. Use a quiet, disposable GENERIC_X64
+# QEMU QA guest via a localhost SSH forward and its QA identity. Never a handheld.
+#   tools/raofflineproxy-lifecycle-test --port 10022 --identity /path/to/qa-key
+# Exit 0 for the exercised properties, 1 for a failed assertion, 2 if blocked.
+
+usage() {
+    echo "usage: $0 --port PORT --identity QA_KEY" >&2
+    exit 2
+}
+port= identity=
+while [ "$#" -gt 0 ]; do
+    [ "$#" -ge 2 ] || usage
+    case "$1" in
+        --port) port=$2 ;;
+        --identity) identity=$2 ;;
+        *) usage ;;
+    esac
+    shift 2
+done
+[[ $port =~ ^[1-9][0-9]{0,4}$ ]] && (( port <= 65535 )) && [ -f "$identity" ] && [ -r "$identity" ] || usage
+
+timeout 210 ssh -F /dev/null -T -p "$port" -i "$identity" -o IdentitiesOnly=yes \
+    -o BatchMode=yes -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null \
+    -o LogLevel=ERROR -o ConnectTimeout=10 root@127.0.0.1 '/bin/bash -s' <<'GUEST'
+set -o pipefail
+umask 077
+
+cannot_run() { printf 'CANNOT RUN  %s\n' "$*" >&2; exit 2; }
+failed=0
+check() {
+    local label=$1; shift
+    if "$@"; then
+        printf 'PASS  %s\n' "$label"
+    else
+        printf 'FAIL  %s\n' "$label" >&2
+        failed=1
+    fi
+}
+
+[ "$(id -u)" = 0 ] || cannot_run 'the QA guest SSH session needs root'
+. /etc/os-release
+case "${HW_DEVICE:-}:$(systemd-detect-virt --vm)" in
+    GENERIC_X64:qemu|GENERIC_X64:kvm) ;;
+    *) cannot_run 'expected a GENERIC_X64 QEMU guest' ;;
+esac
+. /etc/profile >/dev/null 2>&1
+ctl=/usr/bin/raofflineproxy-ctl
+lifecycle=/usr/bin/raofflineproxy-lifecycle
+settings=/usr/libexec/raofflineproxy-lifecycle-settings
+ppsspp=/usr/bin/cheevos_ppsspp.sh
+unit=raofflineproxy.service
+owner=raofflineproxy-lifecycle-owner.service
+runtime=/run/raofflineproxy-lifecycle
+admission=$runtime/admission.lock
+pointer=$runtime/active-owner.json
+marker=/storage/.cache/services/raofflineproxy.conf
+config_tmp=/storage/.config/system/configs/system.cfg.tmp
+scan_lock=/var/run/raofflineproxy-scan.lock
+
+for path in "$ctl" "$lifecycle" "$settings"; do
+    [ -x "$path" ] || cannot_run "missing installed $path"
+done
+for app in systemctl jq unshare mount flock python3; do
+    command -v "$app" >/dev/null || cannot_run "missing $app"
+done
+[ -r "$ppsspp" ] && [ -r /proc/net/tcp ] && [ -r /proc/net/tcp6 ] || cannot_run 'listener inputs are unavailable'
+unset RAOFFLINEPROXY_PROC_NET
+
+flags() {
+    "$lifecycle" flags | awk -F= '
+        $1 == "enabled" { enabled = $2 }
+        $1 == "hardcore" { hardcore = $2 }
+        $1 == "was" { was = $2 }
+        END {
+            if (enabled !~ /^[-01]$/ || hardcore !~ /^[-01]$/ || was !~ /^[-01]$/) exit 1
+            print enabled "|" hardcore "|" was
+        }'
+}
+property() { systemctl show "$1" -p "$2" --value; }
+exists() { [ -e "$1" ] || [ -L "$1" ]; }
+owner_idle() {
+    local owner_pid job
+    owner_pid=$(property "$owner" MainPID) && job=$(property "$owner" Job) || return 1
+    [ "$owner_pid" = 0 ] && [ -z "$job" ] &&
+        ! exists "$runtime/transition.json" &&
+        ! exists /run/systemd/system/raofflineproxy.service.d/90-lifecycle-owner.conf
+}
+current_operation() { jq -er '.id | select(test("^[0-9a-f]{32}$"))' "$pointer"; }
+operation() { "$ctl" operation --operation "$1" --boot "$boot"; }
+
+boot=$(cat /proc/sys/kernel/random/boot_id) || cannot_run 'cannot read boot ID'
+original_flags=$(flags) || cannot_run 'cannot read the guest flags'
+original_service=$(property "$unit" ActiveState) || cannot_run 'cannot read the service state'
+owner_idle || cannot_run 'a lifecycle transition is already in flight or unresolved'
+case "$original_flags:$original_service" in
+    '1|0|'[01]:active)
+        [ -f "$marker" ] && [ ! -L "$marker" ] && [ ! -s "$marker" ] || cannot_run 'the enabled guest has an unexpected marker'
+        original_marker_mode=$(stat -c %a "$marker") || cannot_run 'cannot read the marker mode'
+        ;;
+    [0-]'|'[-01]'|-:inactive')
+        ! exists "$marker" || cannot_run 'the inactive guest has a marker'
+        ;;
+    *) cannot_run 'the guest flags and service are out of agreement' ;;
+esac
+! exists "$config_tmp" || cannot_run 'the guest settings scratch path is already in use'
+! exists /storage/.config/raofflineproxy/running || cannot_run 'a cache pass is already recorded on the guest'
+if exists "$scan_lock"; then
+    [ -f "$scan_lock" ] && [ ! -L "$scan_lock" ] && flock -n -x "$scan_lock" true || cannot_run 'the cache lock is in use or unreadable'
+fi
+if exists "$pointer"; then
+    [ -f "$pointer" ] && [ ! -L "$pointer" ] && original_id=$(current_operation) &&
+        operation "$original_id" | jq -e '.terminal == true' >/dev/null ||
+        cannot_run 'the guest has an unverified prior lifecycle operation'
+fi
+
+work=$(mktemp -d /tmp/raofflineproxy-lifecycle-test.XXXXXX) || cannot_run 'cannot allocate guest scratch space'
+owned_id= pass_pid= fixture_changed=0
+
+toggle() {
+    local previous current
+    previous=$(current_operation 2>/dev/null)
+    toggle_rc=0
+    "$ctl" "$1" >"$work/$1.out" 2>&1 || toggle_rc=$?
+    current=$(current_operation 2>/dev/null)
+    if [ -n "$current" ] && [ "$current" != "$previous" ]; then
+        owned_id=$current
+        return 0
+    fi
+    return 1
+}
+
+release_pass() {
+    [ -n "$pass_pid" ] || return 0
+    : > "$work/release" || return 1
+    wait "$pass_pid"
+    local rc=$?
+    pass_pid=
+    return "$rc"
+}
+
+restore_scan_lock() {
+    [ -s "$work/images.pid" ] && exists "$scan_lock" || return 0
+    local ours
+    ours=$(cat "$work/images.pid") || return 1
+    (
+        [ -f "$scan_lock" ] && [ ! -L "$scan_lock" ] && exec 8<>"$scan_lock" && flock -n -x 8 || exit 1
+        if [ -f "$work/scan-lock.before" ] && cmp -s "$work/scan-lock.before" "$scan_lock"; then
+            exit 0
+        fi
+        [ "$(head -n 1 "$scan_lock")" = "$ours" ] || exit 1
+        if [ -f "$work/scan-lock.before" ]; then
+            cat "$work/scan-lock.before" > "$scan_lock"
+        else
+            rm -f "$scan_lock"
+        fi
+    )
+}
+
+restore_original() {
+    local now state a b c x y z saved
+    [ "$fixture_changed" = 1 ] || return 0
+    owner_idle || return 1
+    state=$(property "$unit" ActiveState) || return 1
+    if [ "$state" != "$original_service" ]; then
+        if [ "$original_service" = active ]; then
+            toggle enable
+        else
+            toggle disable
+        fi
+        [ "$toggle_rc" = 0 ] || return 1
+    fi
+    now=$(flags) || return 1
+    if [ "$now" != "$original_flags" ]; then
+        # A normal disable writes explicit 0s. Restore originally absent keys
+        # and the prior off-state pointer, since our DISABLED receipt describes
+        # the explicit flags and would cease to be observable after this edit.
+        [ "$original_service" = inactive ] && owner_idle && [ -n "$owned_id" ] &&
+            [ "$(current_operation)" = "$owned_id" ] &&
+            operation "$owned_id" | jq -e '.terminal and .outcome == "disabled"' >/dev/null || return 1
+        IFS='|' read -r a b c <<< "$now"
+        IFS='|' read -r x y z <<< "$original_flags"
+        "$settings" compare-set "$a" "$b" "$c" "$x" "$y" "$z" || return 1
+        if [ -f "$work/pointer.before" ]; then
+            saved=$(mktemp "$runtime/.qa-restore.XXXXXX") || return 1
+            if ! { cat "$work/pointer.before" > "$saved" && mv -f "$saved" "$pointer"; }; then
+                rm -f "$saved"
+                return 1
+            fi
+        else
+            rm -f "$pointer" || return 1
+        fi
+    fi
+    if [ "$original_service" = active ]; then
+        [ -f "$marker" ] && [ ! -L "$marker" ] && [ ! -s "$marker" ] && chmod "$original_marker_mode" "$marker" || return 1
+    else
+        ! exists "$marker" || return 1
+    fi
+    [ "$(flags)" = "$original_flags" ] && [ "$(property "$unit" ActiveState)" = "$original_service" ]
+}
+
+cleanup() {
+    local rc=$? restored=0
+    trap - EXIT
+    trap '' HUP INT TERM
+    release_pass || [ -z "$pass_pid" ] || restored=1
+    if [ "$(readlink "$config_tmp" 2>/dev/null)" = "$work/block-once" ]; then
+        rm -f "$config_tmp" || restored=1
+    fi
+    restore_scan_lock || restored=1
+    restore_original || restored=1
+    if [ "$restored" = 0 ]; then
+        rm -rf "$work" || restored=1
+    fi
+    if [ "$restored" != 0 ]; then
+        printf 'CANNOT RESTORE  guest fixture or lifecycle state needs attention (%s)\n' "$work" >&2
+        [ "$rc" != 0 ] || rc=2
+    else
+        printf 'RESTORED  original flags %s and service %s\n' "$original_flags" "$original_service"
+    fi
+    exit "$rc"
+}
+trap cleanup EXIT
+trap 'exit 2' HUP INT TERM
+if exists "$pointer"; then
+    cp "$pointer" "$work/pointer.before" || cannot_run 'cannot save the prior operation pointer'
+fi
+if exists "$scan_lock"; then
+    cp "$scan_lock" "$work/scan-lock.before" || cannot_run 'cannot save the guest cache lock record'
+fi
+sed -n '/^proxy_listening() {/,/^}/p' "$ppsspp" > "$work/ppsspp-reader" && [ -s "$work/ppsspp-reader" ] &&
+    . "$work/ppsspp-reader" && declare -F proxy_listening >/dev/null || cannot_run 'cannot load the installed PPSSPP socket reader'
+
+fixture_changed=1
+if [ "$original_service" = inactive ]; then
+    toggle enable
+    check "enable starts the installed unit (rc $toggle_rc)" [ "$toggle_rc" = 0 ]
+    [ "$failed" = 0 ] || exit 1
+fi
+enabled_flags=$(flags) || cannot_run 'cannot read the enabled flags'
+case "$enabled_flags" in
+    '1|0|'[01]) saved_hardcore=${enabled_flags##*|} ;;
+    *) check 'enabled service has hardcore off and a saved hardcore value' false; exit 1 ;;
+esac
+if [ "$original_service" = inactive ]; then
+    expected_hardcore=0
+    [[ $original_flags == *'|1|-' ]] && expected_hardcore=1
+    check 'enable saved the guest hardcore value' [ "$saved_hardcore" = "$expected_hardcore" ]
+fi
+pid=$(property "$unit" MainPID) || cannot_run 'cannot read the service PID'
+[[ $pid =~ ^[1-9][0-9]*$ ]] || { check 'the enabled service has a MainPID' false; exit 1; }
+
+# D36. Read the actual unit socket tables and attribute the listener to MainPID.
+check 'G2-D-01: installed ctl sees the service listener on 8080' "$ctl" listening --wait 3
+check 'G2-D-01: installed PPSSPP reader sees the listener' proxy_listening
+check 'S-26: the service owns 127.0.0.1:8080 and no IPv6 listener on 8080' python3 - "$pid" <<'SOCKETS'
+import os
+from pathlib import Path
+import sys
+
+process = Path('/proc') / sys.argv[1]
+inodes = set()
+for descriptor in (process / 'fd').iterdir():
+    try:
+        target = os.readlink(descriptor)
+    except FileNotFoundError:
+        continue
+    if target.startswith('socket:[') and target.endswith(']'):
+        inodes.add(target[8:-1])
+
+listeners = set()
+for table in ('tcp', 'tcp6'):
+    for line in (process / 'net' / table).read_text().splitlines()[1:]:
+        fields = line.split()
+        if len(fields) >= 10 and fields[3] == '0A' and fields[9] in inodes:
+            listeners.add((table, fields[1]))
+assert ('tcp', '0100007F:1F90') in listeners, 'unit does not own IPv4 loopback port 8080'
+assert not any(table == 'tcp6' and endpoint.endswith(':1F90') for table, endpoint in listeners), 'unit also owns IPv6 port 8080'
+SOCKETS
+
+# The installed ctl resolves its helpers beside its invocation path. Use the
+# real script via a symlink, synthetic settings and a probe in a private view
+# of /storage. Both /run lock inodes remain the guest's actual locks.
+mkdir -p "$work/storage/.config/system/configs" "$work/storage/.config/raofflineproxy" &&
+    ln -s "$ctl" "$work/raofflineproxy-ctl" &&
+    printf '%s\n' 'system.hostname=qa-lifecycle' 'global.retroachievements.offlineproxy=1' \
+        'global.retroachievements.username=fixture' "global.retroachievements.token=${work##*.}" \
+        > "$work/storage/.config/system/configs/system.cfg" || cannot_run 'cannot prepare private images settings'
+cat > "$work/probe" <<'PROBE'
+python3() {
+    if [ "$#" = 3 ] && [ "$1 $2 $3" = '-m raofflineproxy.main probe-online' ]; then
+        printf '{"online": true}\n' > "$RAOFFLINEPROXY_CONFIG_DIR/online_state.json"
+    else
+        command python3 "$@"
+    fi
+}
+PROBE
+cat > "$work/raofflineproxy-cache-images" <<'HELPER'
+#!/bin/bash
+fixture=${0%/*}
+[ /proc/$$/fd/199 -ef /run/raofflineproxy-lifecycle/admission.lock ] || exit 2
+printf '%s\n' "$$" > "$fixture/helper.pid" || exit 2
+for (( i=0; i<600; i++ )); do
+    if [ -f "$fixture/release" ]; then
+        : > "$fixture/helper-finished"
+        exit
+    fi
+    sleep .1
+done
+exit 2
+HELPER
+chmod 700 "$work/raofflineproxy-cache-images" || cannot_run 'cannot arm the image helper'
+unshare -m -n /bin/bash -c '
+    mount --make-rprivate / && mount --bind "$1/storage" /storage || exit 2
+    printf "%s\n" "$$" > "$1/images.pid" || exit 2
+    BASH_ENV="$1/probe" RAOFFLINEPROXY_IMAGE_PASS_SECONDS=75 exec "$1/raofflineproxy-ctl" images
+' qa-images "$work" > "$work/images.out" 2>&1 &
+pass_pid=$!
+for (( i=0; i<60; i++ )); do
+    [ -s "$work/helper.pid" ] && break
+    kill -0 "$pass_pid" 2>/dev/null || break
+    sleep .1
+done
+helper_pid=$(cat "$work/helper.pid" 2>/dev/null)
+[[ $helper_pid =~ ^[1-9][0-9]*$ ]] && [ "/proc/$helper_pid/fd/199" -ef "$admission" ] &&
+    [ "$(head -n 1 "$scan_lock")" = "$(cat "$work/images.pid")" ] || {
+        tail -n 4 "$work/images.out" >&2
+        cannot_run 'the images pass did not acquire the guest locks'
+    }
+progress="$work/storage/.config/raofflineproxy/running"
+check 'PL-013: running pass publishes route=images' grep -Eq '^route=images at=[0-9]+$' "$progress"
+marker_id=$(stat -c '%d:%i' "$marker") || cannot_run 'cannot read the enabled marker identity'
+submitted=0
+toggle disable && submitted=1
+check "PL-30: disable during admitted work returns 75 (rc $toggle_rc)" [ "$toggle_rc" = 75 ]
+check 'PL-30: refusal came from this request reaching BUSY in the owner' bash -c '
+    [ "$1" = 1 ] && jq -e '\''.phase == "BUSY" and .refusal == "busy" and (.override_intent | not)'\'' "$2" >/dev/null
+' qa-busy "$submitted" "$runtime/owners/$owned_id/state.json"
+check 'PL-30: busy refusal keeps the service PID, marker and three flags' test \
+    "$(property "$unit" MainPID)|$(stat -c '%d:%i' "$marker")|$(flags)" = "$pid|$marker_id|$enabled_flags"
+check 'PL-013: the image helper retains the admission descriptor across refusal' [ "/proc/$helper_pid/fd/199" -ef "$admission" ]
+check 'PL-013: progress is still present after refusal' grep -Eq '^route=images at=[0-9]+$' "$progress"
+check 'PL-30: busy refusal publishes no completion stamp' test ! -e "$work/storage/.config/raofflineproxy/last-scan"
+check 'PL-013: releasing the image helper completes the installed images command' release_pass
+pass_released() {
+    # The installed BusyBox timeout watchdog polls once a second. Give it
+    # time to observe the helper exit and close inherited descriptors.
+    local attempt
+    for (( attempt=0; attempt<30; attempt++ )); do
+        if [ -f "$work/helper-finished" ] && [ ! -e "$progress" ] && [ ! -e "/proc/$helper_pid" ] &&
+            flock -n -x "$scan_lock" true && flock -n -x "$admission" true; then
+            return 0
+        fi
+        sleep .1
+    done
+    return 1
+}
+check 'PL-013: finished images removes progress and releases both locks' pass_released
+
+# F-RA-18. Cause one real atomic write failure. set_settings removes this
+# symlink on failure, allowing the exact same operation's recovery to retry.
+owner_idle || { check 'a busy refusal left no lifecycle transition' false; exit 1; }
+[ "$(flags)" = "$enabled_flags" ] && [ "$(property "$unit" MainPID)" = "$pid" ] || exit 1
+( wait_lock && ! exists "$config_tmp" && ln -sT "$work/block-once" "$config_tmp" ) || cannot_run 'cannot arm the one-shot settings fault'
+submitted=0
+toggle disable && submitted=1
+case_dir="$runtime/owners/$owned_id"
+check 'F-RA-18: this disable recorded a failed write before a successful recovery write' bash -c '
+    [ "$1" = 1 ] && jq -se '\''[.[] | select(.kind == "command-result" and .category == "settings-commit-off") | .original_rc] == [1,0]'\'' "$2/events.jsonl" >/dev/null &&
+        jq -e '\''.original_failure.phase == "DISABLE_COMMIT_INTENT" and .original_failure.category == "disable commit not verified"'\'' "$2/state.json" >/dev/null
+' qa-write "$submitted" "$case_dir"
+check "F-RA-18: disable reports completion only after recovery (rc $toggle_rc)" [ "$toggle_rc" = 0 ]
+check 'F-RA-18: disable restores saved hardcore, then leaves no saved flag' [ "$(flags)" = "0|$saved_hardcore|-" ]
+check 'F-RA-18: committed disable retires the marker and service' bash -c '
+    [ ! -e "$1" ] && [ ! -L "$1" ] && [ "$(systemctl show "$2" -p MainPID --value)" = 0 ] &&
+        [ "$(systemctl show "$2" -p ActiveState --value)" = inactive ]
+' qa-off "$marker" "$unit"
+exit "$failed"
+GUEST
+
+rc=$?
+case "$rc" in
+    0) echo 'PASSED' ;;
+    1) echo 'FAILED' >&2 ;;
+    *) echo "CANNOT RUN  guest or SSH did not complete (exit $rc)" >&2; rc=2 ;;
+esac
+exit "$rc"
