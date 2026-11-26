@@ -5,7 +5,10 @@
   1115,
   1480,
   1489,
-  1490
+  1490,
+  1492,
+  1493,
+  1494
  ],
  "entries": [
   {
@@ -20791,6 +20794,1270 @@
    "review": {
     "reviewer": "OS coordinator (claude-opus-5-5)",
     "observed": "the same walk in French; the store before and after USE as in English (#1489 c2)",
+    "date": "2026-11-26"
+   }
+  },
+  {
+   "flow_id": "cloud-folders-and-connections",
+   "branch_id": "build18/640x480/en/s13/01-cloud-hub",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud",
+   "criteria": [
+    "1111 C18"
+   ],
+   "trigger": "CHECK CLOUD SETUP",
+   "expected_state": "CLOUD SETUP CHECK: the connection, CLOUD ANSWERED..., the local folders, the sync switches, the folder checks",
+   "source": {
+    "es": "4ef2a8dac (local m7/rc-round-es-20261125; route m7-20261126-3f35b3ff6b5b)",
+    "distribution": "4753d00e8e8533da0b199abfc7b8840152a24db4 (local build/m7-rc-round-20261125, build 18)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T231915Z.g4753d00e8e85-from-ROCKNIX",
+    "walk": "docs/qa-logs/2026-11-26-1111-1115-campaign/phase-d/phase-d.sh"
+   },
+   "locale": "en",
+   "width": 640,
+   "height": 480,
+   "frame": "build18-640x480/en/s13/01-cloud-hub.png",
+   "sha256": "2aaa5e859759b78db52b0002fe77926728581852171492de3e9527c93c512bec",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "the setup check in the normal state; CONNECTION CHECK on one line; the local-folder rows carry status and path and SETTINGS BACKUPS is prose, both by #1428's design",
+    "date": "2026-11-26"
+   }
+  },
+  {
+   "flow_id": "cloud-folders-and-connections",
+   "branch_id": "build18/640x480/en/s13/02-setup-check",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud",
+   "criteria": [
+    "1111 C18"
+   ],
+   "trigger": "CHECK CLOUD SETUP",
+   "expected_state": "CLOUD SETUP CHECK: the connection, CLOUD ANSWERED..., the local folders, the sync switches, the folder checks",
+   "source": {
+    "es": "4ef2a8dac (local m7/rc-round-es-20261125; route m7-20261126-3f35b3ff6b5b)",
+    "distribution": "4753d00e8e8533da0b199abfc7b8840152a24db4 (local build/m7-rc-round-20261125, build 18)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T231915Z.g4753d00e8e85-from-ROCKNIX",
+    "walk": "docs/qa-logs/2026-11-26-1111-1115-campaign/phase-d/phase-d.sh"
+   },
+   "locale": "en",
+   "width": 640,
+   "height": 480,
+   "frame": "build18-640x480/en/s13/02-setup-check.png",
+   "sha256": "e665c0f1f207bba4d43ab4608b7d0eb15159460b14565d8e1b5851be8ed955a3",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "the setup check in the normal state; CONNECTION CHECK on one line; the local-folder rows carry status and path and SETTINGS BACKUPS is prose, both by #1428's design",
+    "date": "2026-11-26"
+   }
+  },
+  {
+   "flow_id": "cloud-folders-and-connections",
+   "branch_id": "build18/640x480/en/s13/03-setup-check-lower",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud",
+   "criteria": [
+    "1111 C18"
+   ],
+   "trigger": "CHECK CLOUD SETUP",
+   "expected_state": "CLOUD SETUP CHECK: the connection, CLOUD ANSWERED..., the local folders, the sync switches, the folder checks",
+   "source": {
+    "es": "4ef2a8dac (local m7/rc-round-es-20261125; route m7-20261126-3f35b3ff6b5b)",
+    "distribution": "4753d00e8e8533da0b199abfc7b8840152a24db4 (local build/m7-rc-round-20261125, build 18)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T231915Z.g4753d00e8e85-from-ROCKNIX",
+    "walk": "docs/qa-logs/2026-11-26-1111-1115-campaign/phase-d/phase-d.sh"
+   },
+   "locale": "en",
+   "width": 640,
+   "height": 480,
+   "frame": "build18-640x480/en/s13/03-setup-check-lower.png",
+   "sha256": "ef2df4040cea83716b6bc63bec17341d258ead12024a6f3a23b45cd405843173",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "the setup check in the normal state; CONNECTION CHECK on one line; the local-folder rows carry status and path and SETTINGS BACKUPS is prose, both by #1428's design",
+    "date": "2026-11-26"
+   }
+  },
+  {
+   "flow_id": "cloud-folders-and-connections",
+   "branch_id": "build18/640x480/en/s31/01-cloud-hub",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud",
+   "criteria": [
+    "1489 c1",
+    "1489 c2"
+   ],
+   "trigger": "a working copy of qa-cloud added to rclone.conf as qa-ext outside the interface, after the profile store exists; then USE THIS CONNECTION on QA-EXT",
+   "expected_state": "from build 16: the hub, CHECK CLOUD SETUP and MANAGE CLOUD CONNECTIONS read CLOUD CONNECTIONS CHANGED, QA-EXT reads NOT CHECKED YET, and USE THIS CONNECTION checks it and adds it (IN USE)",
+   "source": {
+    "es": "4ef2a8dac (local m7/rc-round-es-20261125; route m7-20261126-3f35b3ff6b5b)",
+    "distribution": "4753d00e8e8533da0b199abfc7b8840152a24db4 (local build/m7-rc-round-20261125, build 18)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T231915Z.g4753d00e8e85-from-ROCKNIX",
+    "walk": "docs/qa-logs/2026-11-26-1111-1115-campaign/phase-d/phase-d.sh"
+   },
+   "locale": "en",
+   "width": 640,
+   "height": 480,
+   "frame": "build18-640x480/en/s31/01-cloud-hub.png",
+   "sha256": "cb362460bdc0e02b164962c68843a5ca7596b661d3f5e1297e31b267c3eb6e3a",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "#1489's surfaces as on build 16; CONNECTION CHECK's NOT CONFIRMED line fits one line (#1493)",
+    "date": "2026-11-26"
+   }
+  },
+  {
+   "flow_id": "cloud-folders-and-connections",
+   "branch_id": "build18/640x480/en/s31/02-hub-changed",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud",
+   "criteria": [
+    "1489 c1",
+    "1489 c2"
+   ],
+   "trigger": "a working copy of qa-cloud added to rclone.conf as qa-ext outside the interface, after the profile store exists; then USE THIS CONNECTION on QA-EXT",
+   "expected_state": "from build 16: the hub, CHECK CLOUD SETUP and MANAGE CLOUD CONNECTIONS read CLOUD CONNECTIONS CHANGED, QA-EXT reads NOT CHECKED YET, and USE THIS CONNECTION checks it and adds it (IN USE)",
+   "source": {
+    "es": "4ef2a8dac (local m7/rc-round-es-20261125; route m7-20261126-3f35b3ff6b5b)",
+    "distribution": "4753d00e8e8533da0b199abfc7b8840152a24db4 (local build/m7-rc-round-20261125, build 18)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T231915Z.g4753d00e8e85-from-ROCKNIX",
+    "walk": "docs/qa-logs/2026-11-26-1111-1115-campaign/phase-d/phase-d.sh"
+   },
+   "locale": "en",
+   "width": 640,
+   "height": 480,
+   "frame": "build18-640x480/en/s31/02-hub-changed.png",
+   "sha256": "4b124a5c898ca21b59c65913a69ee94964dbabec33efc4e1544584e87e56af41",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "#1489's surfaces as on build 16; CONNECTION CHECK's NOT CONFIRMED line fits one line (#1493)",
+    "date": "2026-11-26"
+   }
+  },
+  {
+   "flow_id": "cloud-folders-and-connections",
+   "branch_id": "build18/640x480/en/s31/03-setup-check-changed",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud",
+   "criteria": [
+    "1489 c1",
+    "1489 c2"
+   ],
+   "trigger": "a working copy of qa-cloud added to rclone.conf as qa-ext outside the interface, after the profile store exists; then USE THIS CONNECTION on QA-EXT",
+   "expected_state": "from build 16: the hub, CHECK CLOUD SETUP and MANAGE CLOUD CONNECTIONS read CLOUD CONNECTIONS CHANGED, QA-EXT reads NOT CHECKED YET, and USE THIS CONNECTION checks it and adds it (IN USE)",
+   "source": {
+    "es": "4ef2a8dac (local m7/rc-round-es-20261125; route m7-20261126-3f35b3ff6b5b)",
+    "distribution": "4753d00e8e8533da0b199abfc7b8840152a24db4 (local build/m7-rc-round-20261125, build 18)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T231915Z.g4753d00e8e85-from-ROCKNIX",
+    "walk": "docs/qa-logs/2026-11-26-1111-1115-campaign/phase-d/phase-d.sh"
+   },
+   "locale": "en",
+   "width": 640,
+   "height": 480,
+   "frame": "build18-640x480/en/s31/03-setup-check-changed.png",
+   "sha256": "31fcbdd0dc1ac32dcbaecd206d4ea1e766b30d1bc4da47d286d83119bf4101d5",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "#1489's surfaces as on build 16; CONNECTION CHECK's NOT CONFIRMED line fits one line (#1493)",
+    "date": "2026-11-26"
+   }
+  },
+  {
+   "flow_id": "cloud-folders-and-connections",
+   "branch_id": "build18/640x480/en/s31/04-connections-changed",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud",
+   "criteria": [
+    "1489 c1",
+    "1489 c2"
+   ],
+   "trigger": "a working copy of qa-cloud added to rclone.conf as qa-ext outside the interface, after the profile store exists; then USE THIS CONNECTION on QA-EXT",
+   "expected_state": "from build 16: the hub, CHECK CLOUD SETUP and MANAGE CLOUD CONNECTIONS read CLOUD CONNECTIONS CHANGED, QA-EXT reads NOT CHECKED YET, and USE THIS CONNECTION checks it and adds it (IN USE)",
+   "source": {
+    "es": "4ef2a8dac (local m7/rc-round-es-20261125; route m7-20261126-3f35b3ff6b5b)",
+    "distribution": "4753d00e8e8533da0b199abfc7b8840152a24db4 (local build/m7-rc-round-20261125, build 18)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T231915Z.g4753d00e8e85-from-ROCKNIX",
+    "walk": "docs/qa-logs/2026-11-26-1111-1115-campaign/phase-d/phase-d.sh"
+   },
+   "locale": "en",
+   "width": 640,
+   "height": 480,
+   "frame": "build18-640x480/en/s31/04-connections-changed.png",
+   "sha256": "7cd4a987053912fceda01851448e4d4e6e88d7cf78e49d1239547ed2f02ca779",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "#1489's surfaces as on build 16; CONNECTION CHECK's NOT CONFIRMED line fits one line (#1493)",
+    "date": "2026-11-26"
+   }
+  },
+  {
+   "flow_id": "cloud-folders-and-connections",
+   "branch_id": "build18/640x480/en/s31/05-ext-focused",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud",
+   "criteria": [
+    "1489 c1",
+    "1489 c2"
+   ],
+   "trigger": "a working copy of qa-cloud added to rclone.conf as qa-ext outside the interface, after the profile store exists; then USE THIS CONNECTION on QA-EXT",
+   "expected_state": "from build 16: the hub, CHECK CLOUD SETUP and MANAGE CLOUD CONNECTIONS read CLOUD CONNECTIONS CHANGED, QA-EXT reads NOT CHECKED YET, and USE THIS CONNECTION checks it and adds it (IN USE)",
+   "source": {
+    "es": "4ef2a8dac (local m7/rc-round-es-20261125; route m7-20261126-3f35b3ff6b5b)",
+    "distribution": "4753d00e8e8533da0b199abfc7b8840152a24db4 (local build/m7-rc-round-20261125, build 18)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T231915Z.g4753d00e8e85-from-ROCKNIX",
+    "walk": "docs/qa-logs/2026-11-26-1111-1115-campaign/phase-d/phase-d.sh"
+   },
+   "locale": "en",
+   "width": 640,
+   "height": 480,
+   "frame": "build18-640x480/en/s31/05-ext-focused.png",
+   "sha256": "3cbef00c8870fed01744eb1061b519bd1cbbae9c9d28132d01485b3918ddbf73",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "#1489's surfaces as on build 16; CONNECTION CHECK's NOT CONFIRMED line fits one line (#1493)",
+    "date": "2026-11-26"
+   }
+  },
+  {
+   "flow_id": "cloud-folders-and-connections",
+   "branch_id": "build18/640x480/en/s31/06-ext-page",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud",
+   "criteria": [
+    "1489 c1",
+    "1489 c2"
+   ],
+   "trigger": "a working copy of qa-cloud added to rclone.conf as qa-ext outside the interface, after the profile store exists; then USE THIS CONNECTION on QA-EXT",
+   "expected_state": "from build 16: the hub, CHECK CLOUD SETUP and MANAGE CLOUD CONNECTIONS read CLOUD CONNECTIONS CHANGED, QA-EXT reads NOT CHECKED YET, and USE THIS CONNECTION checks it and adds it (IN USE)",
+   "source": {
+    "es": "4ef2a8dac (local m7/rc-round-es-20261125; route m7-20261126-3f35b3ff6b5b)",
+    "distribution": "4753d00e8e8533da0b199abfc7b8840152a24db4 (local build/m7-rc-round-20261125, build 18)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T231915Z.g4753d00e8e85-from-ROCKNIX",
+    "walk": "docs/qa-logs/2026-11-26-1111-1115-campaign/phase-d/phase-d.sh"
+   },
+   "locale": "en",
+   "width": 640,
+   "height": 480,
+   "frame": "build18-640x480/en/s31/06-ext-page.png",
+   "sha256": "502aa862b5444838c2105f4a6d214977597e79968264fb903951bac304e469d5",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "#1489's surfaces as on build 16; CONNECTION CHECK's NOT CONFIRMED line fits one line (#1493)",
+    "date": "2026-11-26"
+   }
+  },
+  {
+   "flow_id": "cloud-folders-and-connections",
+   "branch_id": "build18/640x480/en/s31/07-use-row",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud",
+   "criteria": [
+    "1489 c1",
+    "1489 c2"
+   ],
+   "trigger": "a working copy of qa-cloud added to rclone.conf as qa-ext outside the interface, after the profile store exists; then USE THIS CONNECTION on QA-EXT",
+   "expected_state": "from build 16: the hub, CHECK CLOUD SETUP and MANAGE CLOUD CONNECTIONS read CLOUD CONNECTIONS CHANGED, QA-EXT reads NOT CHECKED YET, and USE THIS CONNECTION checks it and adds it (IN USE)",
+   "source": {
+    "es": "4ef2a8dac (local m7/rc-round-es-20261125; route m7-20261126-3f35b3ff6b5b)",
+    "distribution": "4753d00e8e8533da0b199abfc7b8840152a24db4 (local build/m7-rc-round-20261125, build 18)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T231915Z.g4753d00e8e85-from-ROCKNIX",
+    "walk": "docs/qa-logs/2026-11-26-1111-1115-campaign/phase-d/phase-d.sh"
+   },
+   "locale": "en",
+   "width": 640,
+   "height": 480,
+   "frame": "build18-640x480/en/s31/07-use-row.png",
+   "sha256": "7f85c33f22e862fe8f51282797a495f14dbe334bddb9a964f10686e8aa290423",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "#1489's surfaces as on build 16; CONNECTION CHECK's NOT CONFIRMED line fits one line (#1493)",
+    "date": "2026-11-26"
+   }
+  },
+  {
+   "flow_id": "cloud-folders-and-connections",
+   "branch_id": "build18/640x480/en/s31/08-use-confirm",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud",
+   "criteria": [
+    "1489 c1",
+    "1489 c2"
+   ],
+   "trigger": "a working copy of qa-cloud added to rclone.conf as qa-ext outside the interface, after the profile store exists; then USE THIS CONNECTION on QA-EXT",
+   "expected_state": "from build 16: the hub, CHECK CLOUD SETUP and MANAGE CLOUD CONNECTIONS read CLOUD CONNECTIONS CHANGED, QA-EXT reads NOT CHECKED YET, and USE THIS CONNECTION checks it and adds it (IN USE)",
+   "source": {
+    "es": "4ef2a8dac (local m7/rc-round-es-20261125; route m7-20261126-3f35b3ff6b5b)",
+    "distribution": "4753d00e8e8533da0b199abfc7b8840152a24db4 (local build/m7-rc-round-20261125, build 18)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T231915Z.g4753d00e8e85-from-ROCKNIX",
+    "walk": "docs/qa-logs/2026-11-26-1111-1115-campaign/phase-d/phase-d.sh"
+   },
+   "locale": "en",
+   "width": 640,
+   "height": 480,
+   "frame": "build18-640x480/en/s31/08-use-confirm.png",
+   "sha256": "f391effcaf6d071b12b58b3388e14fe4ed2e49572441dacc36d1e718b917403b",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "#1489's surfaces as on build 16; CONNECTION CHECK's NOT CONFIRMED line fits one line (#1493)",
+    "date": "2026-11-26"
+   }
+  },
+  {
+   "flow_id": "cloud-folders-and-connections",
+   "branch_id": "build18/640x480/en/s31/09-after-use",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud",
+   "criteria": [
+    "1489 c1",
+    "1489 c2"
+   ],
+   "trigger": "a working copy of qa-cloud added to rclone.conf as qa-ext outside the interface, after the profile store exists; then USE THIS CONNECTION on QA-EXT",
+   "expected_state": "from build 16: the hub, CHECK CLOUD SETUP and MANAGE CLOUD CONNECTIONS read CLOUD CONNECTIONS CHANGED, QA-EXT reads NOT CHECKED YET, and USE THIS CONNECTION checks it and adds it (IN USE)",
+   "source": {
+    "es": "4ef2a8dac (local m7/rc-round-es-20261125; route m7-20261126-3f35b3ff6b5b)",
+    "distribution": "4753d00e8e8533da0b199abfc7b8840152a24db4 (local build/m7-rc-round-20261125, build 18)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T231915Z.g4753d00e8e85-from-ROCKNIX",
+    "walk": "docs/qa-logs/2026-11-26-1111-1115-campaign/phase-d/phase-d.sh"
+   },
+   "locale": "en",
+   "width": 640,
+   "height": 480,
+   "frame": "build18-640x480/en/s31/09-after-use.png",
+   "sha256": "f7b127b19560ad1780696a543efe43828a792e850aa795f77b525a64da2bcb8c",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "#1489's surfaces as on build 16; CONNECTION CHECK's NOT CONFIRMED line fits one line (#1493)",
+    "date": "2026-11-26"
+   }
+  },
+  {
+   "flow_id": "cloud-folders-and-connections",
+   "branch_id": "build18/640x480/en/s31/10-hub-after",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud",
+   "criteria": [
+    "1489 c1",
+    "1489 c2"
+   ],
+   "trigger": "a working copy of qa-cloud added to rclone.conf as qa-ext outside the interface, after the profile store exists; then USE THIS CONNECTION on QA-EXT",
+   "expected_state": "from build 16: the hub, CHECK CLOUD SETUP and MANAGE CLOUD CONNECTIONS read CLOUD CONNECTIONS CHANGED, QA-EXT reads NOT CHECKED YET, and USE THIS CONNECTION checks it and adds it (IN USE)",
+   "source": {
+    "es": "4ef2a8dac (local m7/rc-round-es-20261125; route m7-20261126-3f35b3ff6b5b)",
+    "distribution": "4753d00e8e8533da0b199abfc7b8840152a24db4 (local build/m7-rc-round-20261125, build 18)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T231915Z.g4753d00e8e85-from-ROCKNIX",
+    "walk": "docs/qa-logs/2026-11-26-1111-1115-campaign/phase-d/phase-d.sh"
+   },
+   "locale": "en",
+   "width": 640,
+   "height": 480,
+   "frame": "build18-640x480/en/s31/10-hub-after.png",
+   "sha256": "4cadb1e760fb516d2599aad1cdeb80058a6de4aebaa39bd5d9966daf37858494",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "#1489's surfaces as on build 16; CONNECTION CHECK's NOT CONFIRMED line fits one line (#1493)",
+    "date": "2026-11-26"
+   }
+  },
+  {
+   "flow_id": "cloud-folders-and-connections",
+   "branch_id": "build18/640x480/en/s32/01-cloud-hub",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud",
+   "criteria": [
+    "1492 c1",
+    "1492 c2",
+    "1493 c3"
+   ],
+   "trigger": "#1489's state (qa-ext added behind the module) with SYNC SAVES DURING STARTUP on, then a reboot: ES's own startup sync refuses",
+   "expected_state": "the hub's SYNC SAVES DURING STARTUP row reads COULDN'T FINISH with YOUR CLOUD CONNECTIONS CHANGED. CHECK THEM IN MANAGE CLOUD CONNECTIONS (#1492), in French in French; one line under the row (#1493)",
+   "source": {
+    "es": "4ef2a8dac (local m7/rc-round-es-20261125; route m7-20261126-3f35b3ff6b5b)",
+    "distribution": "4753d00e8e8533da0b199abfc7b8840152a24db4 (local build/m7-rc-round-20261125, build 18)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T231915Z.g4753d00e8e85-from-ROCKNIX",
+    "walk": "docs/qa-logs/2026-11-26-1111-1115-campaign/phase-d/phase-d.sh"
+   },
+   "locale": "en",
+   "width": 640,
+   "height": 480,
+   "frame": "build18-640x480/en/s32/01-cloud-hub.png",
+   "sha256": "716d7025fd85df64baadc3ae9e677af872fa47daf875b52d7d015007251dd378",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "the reboot's startup sync refused in #1489's state; the hub's startup row reads AT STARTUP - COULDN'T FINISH, the outcome words only (D-UI-029); the stamp carries the why (s32.arm.log)",
+    "date": "2026-11-26"
+   }
+  },
+  {
+   "flow_id": "cloud-folders-and-connections",
+   "branch_id": "build18/640x480/en/s32/02-hub-startup-row",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud",
+   "criteria": [
+    "1492 c1",
+    "1492 c2",
+    "1493 c3"
+   ],
+   "trigger": "#1489's state (qa-ext added behind the module) with SYNC SAVES DURING STARTUP on, then a reboot: ES's own startup sync refuses",
+   "expected_state": "the hub's SYNC SAVES DURING STARTUP row reads COULDN'T FINISH with YOUR CLOUD CONNECTIONS CHANGED. CHECK THEM IN MANAGE CLOUD CONNECTIONS (#1492), in French in French; one line under the row (#1493)",
+   "source": {
+    "es": "4ef2a8dac (local m7/rc-round-es-20261125; route m7-20261126-3f35b3ff6b5b)",
+    "distribution": "4753d00e8e8533da0b199abfc7b8840152a24db4 (local build/m7-rc-round-20261125, build 18)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T231915Z.g4753d00e8e85-from-ROCKNIX",
+    "walk": "docs/qa-logs/2026-11-26-1111-1115-campaign/phase-d/phase-d.sh"
+   },
+   "locale": "en",
+   "width": 640,
+   "height": 480,
+   "frame": "build18-640x480/en/s32/02-hub-startup-row.png",
+   "sha256": "716d7025fd85df64baadc3ae9e677af872fa47daf875b52d7d015007251dd378",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "the reboot's startup sync refused in #1489's state; the hub's startup row reads AT STARTUP - COULDN'T FINISH, the outcome words only (D-UI-029); the stamp carries the why (s32.arm.log)",
+    "date": "2026-11-26"
+   }
+  },
+  {
+   "flow_id": "cloud-folders-and-connections",
+   "branch_id": "build18/640x480/en/s33/01-cloud-hub",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud",
+   "criteria": [
+    "1493 c1",
+    "1493 c3"
+   ],
+   "trigger": "qa-cloud's url moved to a port nothing answers, behind the module; then CHECK CLOUD SETUP",
+   "expected_state": "CONNECTION CHECK reads COULDN'T REACH THIS CONNECTION. CHECK WI-FI OR SIGN IN AGAIN. on one line (#1493)",
+   "source": {
+    "es": "4ef2a8dac (local m7/rc-round-es-20261125; route m7-20261126-3f35b3ff6b5b)",
+    "distribution": "4753d00e8e8533da0b199abfc7b8840152a24db4 (local build/m7-rc-round-20261125, build 18)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T231915Z.g4753d00e8e85-from-ROCKNIX",
+    "walk": "docs/qa-logs/2026-11-26-1111-1115-campaign/phase-d/phase-d.sh"
+   },
+   "locale": "en",
+   "width": 640,
+   "height": 480,
+   "frame": "build18-640x480/en/s33/01-cloud-hub.png",
+   "sha256": "2aaa5e859759b78db52b0002fe77926728581852171492de3e9527c93c512bec",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "CONNECTION CHECK for an unreachable connection on one line: COULDN'T REACH THIS CONNECTION. CHECK WI-FI OR SIGN IN AGAIN. (#1493)",
+    "date": "2026-11-26"
+   }
+  },
+  {
+   "flow_id": "cloud-folders-and-connections",
+   "branch_id": "build18/640x480/en/s33/02-setup-check-unreachable",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud",
+   "criteria": [
+    "1493 c1",
+    "1493 c3"
+   ],
+   "trigger": "qa-cloud's url moved to a port nothing answers, behind the module; then CHECK CLOUD SETUP",
+   "expected_state": "CONNECTION CHECK reads COULDN'T REACH THIS CONNECTION. CHECK WI-FI OR SIGN IN AGAIN. on one line (#1493)",
+   "source": {
+    "es": "4ef2a8dac (local m7/rc-round-es-20261125; route m7-20261126-3f35b3ff6b5b)",
+    "distribution": "4753d00e8e8533da0b199abfc7b8840152a24db4 (local build/m7-rc-round-20261125, build 18)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T231915Z.g4753d00e8e85-from-ROCKNIX",
+    "walk": "docs/qa-logs/2026-11-26-1111-1115-campaign/phase-d/phase-d.sh"
+   },
+   "locale": "en",
+   "width": 640,
+   "height": 480,
+   "frame": "build18-640x480/en/s33/02-setup-check-unreachable.png",
+   "sha256": "107a1b8fe35f1ed2b36fe1498cabf1def37e623a0f6b4f7263e71525e343a464",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "CONNECTION CHECK for an unreachable connection on one line: COULDN'T REACH THIS CONNECTION. CHECK WI-FI OR SIGN IN AGAIN. (#1493)",
+    "date": "2026-11-26"
+   }
+  },
+  {
+   "flow_id": "cloud-folders-and-connections",
+   "branch_id": "build18/640x480/fr/s13/01-cloud-hub",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud",
+   "criteria": [
+    "1111 C18"
+   ],
+   "trigger": "CHECK CLOUD SETUP",
+   "expected_state": "CLOUD SETUP CHECK: the connection, CLOUD ANSWERED..., the local folders, the sync switches, the folder checks",
+   "source": {
+    "es": "4ef2a8dac (local m7/rc-round-es-20261125; route m7-20261126-3f35b3ff6b5b)",
+    "distribution": "4753d00e8e8533da0b199abfc7b8840152a24db4 (local build/m7-rc-round-20261125, build 18)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T231915Z.g4753d00e8e85-from-ROCKNIX",
+    "walk": "docs/qa-logs/2026-11-26-1111-1115-campaign/phase-d/phase-d.sh"
+   },
+   "locale": "fr",
+   "width": 640,
+   "height": 480,
+   "frame": "build18-640x480/fr/s13/01-cloud-hub.png",
+   "sha256": "d243e095d6b3d995e1c65f52a1f2760c92299c7d44d3b339a3ee84f15fc00133",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "the setup check in the normal state; CONNECTION CHECK on one line; the local-folder rows carry status and path and SETTINGS BACKUPS is prose, both by #1428's design; SAUVEGARDES DES PARAM\u00c8TRES' prose wraps",
+    "date": "2026-11-26"
+   }
+  },
+  {
+   "flow_id": "cloud-folders-and-connections",
+   "branch_id": "build18/640x480/fr/s13/02-setup-check",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud",
+   "criteria": [
+    "1111 C18"
+   ],
+   "trigger": "CHECK CLOUD SETUP",
+   "expected_state": "CLOUD SETUP CHECK: the connection, CLOUD ANSWERED..., the local folders, the sync switches, the folder checks",
+   "source": {
+    "es": "4ef2a8dac (local m7/rc-round-es-20261125; route m7-20261126-3f35b3ff6b5b)",
+    "distribution": "4753d00e8e8533da0b199abfc7b8840152a24db4 (local build/m7-rc-round-20261125, build 18)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T231915Z.g4753d00e8e85-from-ROCKNIX",
+    "walk": "docs/qa-logs/2026-11-26-1111-1115-campaign/phase-d/phase-d.sh"
+   },
+   "locale": "fr",
+   "width": 640,
+   "height": 480,
+   "frame": "build18-640x480/fr/s13/02-setup-check.png",
+   "sha256": "c83e6e8d122c3c629fec24c139ba14ac00bba6a30f16675e164ac310d8eaf93f",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "the setup check in the normal state; CONNECTION CHECK on one line; the local-folder rows carry status and path and SETTINGS BACKUPS is prose, both by #1428's design; SAUVEGARDES DES PARAM\u00c8TRES' prose wraps",
+    "date": "2026-11-26"
+   }
+  },
+  {
+   "flow_id": "cloud-folders-and-connections",
+   "branch_id": "build18/640x480/fr/s13/03-setup-check-lower",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud",
+   "criteria": [
+    "1111 C18"
+   ],
+   "trigger": "CHECK CLOUD SETUP",
+   "expected_state": "CLOUD SETUP CHECK: the connection, CLOUD ANSWERED..., the local folders, the sync switches, the folder checks",
+   "source": {
+    "es": "4ef2a8dac (local m7/rc-round-es-20261125; route m7-20261126-3f35b3ff6b5b)",
+    "distribution": "4753d00e8e8533da0b199abfc7b8840152a24db4 (local build/m7-rc-round-20261125, build 18)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T231915Z.g4753d00e8e85-from-ROCKNIX",
+    "walk": "docs/qa-logs/2026-11-26-1111-1115-campaign/phase-d/phase-d.sh"
+   },
+   "locale": "fr",
+   "width": 640,
+   "height": 480,
+   "frame": "build18-640x480/fr/s13/03-setup-check-lower.png",
+   "sha256": "9fe76bfe42b286b1c4fea0cf134333be995112b8c0866533c1a81ee5b3ffb563",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "the setup check in the normal state; CONNECTION CHECK on one line; the local-folder rows carry status and path and SETTINGS BACKUPS is prose, both by #1428's design; SAUVEGARDES DES PARAM\u00c8TRES' prose wraps",
+    "date": "2026-11-26"
+   }
+  },
+  {
+   "flow_id": "cloud-folders-and-connections",
+   "branch_id": "build18/640x480/fr/s31/01-cloud-hub",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud",
+   "criteria": [
+    "1489 c1",
+    "1489 c2"
+   ],
+   "trigger": "a working copy of qa-cloud added to rclone.conf as qa-ext outside the interface, after the profile store exists; then USE THIS CONNECTION on QA-EXT",
+   "expected_state": "from build 16: the hub, CHECK CLOUD SETUP and MANAGE CLOUD CONNECTIONS read CLOUD CONNECTIONS CHANGED, QA-EXT reads NOT CHECKED YET, and USE THIS CONNECTION checks it and adds it (IN USE)",
+   "source": {
+    "es": "4ef2a8dac (local m7/rc-round-es-20261125; route m7-20261126-3f35b3ff6b5b)",
+    "distribution": "4753d00e8e8533da0b199abfc7b8840152a24db4 (local build/m7-rc-round-20261125, build 18)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T231915Z.g4753d00e8e85-from-ROCKNIX",
+    "walk": "docs/qa-logs/2026-11-26-1111-1115-campaign/phase-d/phase-d.sh"
+   },
+   "locale": "fr",
+   "width": 640,
+   "height": 480,
+   "frame": "build18-640x480/fr/s31/01-cloud-hub.png",
+   "sha256": "fcc6ccfc1db75c84bdc778e23fb15c7c9741a77533197f83e65e77c30f90f8a6",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "#1489's surfaces as on build 16; the connections-page line (POUR V\u00c9RIFIER, OUVREZ-EN UNE ...), the hub's V\u00c9RIFIER LA CONFIGURATION CLOUD line and CONNECTION CHECK's NON CONFIRM\u00c9E line each fit one line (#1493); the game-exit fact label is cut with an ellipsis (#1494)",
+    "date": "2026-11-26"
+   }
+  },
+  {
+   "flow_id": "cloud-folders-and-connections",
+   "branch_id": "build18/640x480/fr/s31/02-hub-changed",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud",
+   "criteria": [
+    "1489 c1",
+    "1489 c2"
+   ],
+   "trigger": "a working copy of qa-cloud added to rclone.conf as qa-ext outside the interface, after the profile store exists; then USE THIS CONNECTION on QA-EXT",
+   "expected_state": "from build 16: the hub, CHECK CLOUD SETUP and MANAGE CLOUD CONNECTIONS read CLOUD CONNECTIONS CHANGED, QA-EXT reads NOT CHECKED YET, and USE THIS CONNECTION checks it and adds it (IN USE)",
+   "source": {
+    "es": "4ef2a8dac (local m7/rc-round-es-20261125; route m7-20261126-3f35b3ff6b5b)",
+    "distribution": "4753d00e8e8533da0b199abfc7b8840152a24db4 (local build/m7-rc-round-20261125, build 18)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T231915Z.g4753d00e8e85-from-ROCKNIX",
+    "walk": "docs/qa-logs/2026-11-26-1111-1115-campaign/phase-d/phase-d.sh"
+   },
+   "locale": "fr",
+   "width": 640,
+   "height": 480,
+   "frame": "build18-640x480/fr/s31/02-hub-changed.png",
+   "sha256": "c3a95fe2c578dd0594642183398886156f41dcbd2e19c9cab640eb03a53e63c4",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "#1489's surfaces as on build 16; the connections-page line (POUR V\u00c9RIFIER, OUVREZ-EN UNE ...), the hub's V\u00c9RIFIER LA CONFIGURATION CLOUD line and CONNECTION CHECK's NON CONFIRM\u00c9E line each fit one line (#1493); the game-exit fact label is cut with an ellipsis (#1494)",
+    "date": "2026-11-26"
+   }
+  },
+  {
+   "flow_id": "cloud-folders-and-connections",
+   "branch_id": "build18/640x480/fr/s31/03-setup-check-changed",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud",
+   "criteria": [
+    "1489 c1",
+    "1489 c2"
+   ],
+   "trigger": "a working copy of qa-cloud added to rclone.conf as qa-ext outside the interface, after the profile store exists; then USE THIS CONNECTION on QA-EXT",
+   "expected_state": "from build 16: the hub, CHECK CLOUD SETUP and MANAGE CLOUD CONNECTIONS read CLOUD CONNECTIONS CHANGED, QA-EXT reads NOT CHECKED YET, and USE THIS CONNECTION checks it and adds it (IN USE)",
+   "source": {
+    "es": "4ef2a8dac (local m7/rc-round-es-20261125; route m7-20261126-3f35b3ff6b5b)",
+    "distribution": "4753d00e8e8533da0b199abfc7b8840152a24db4 (local build/m7-rc-round-20261125, build 18)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T231915Z.g4753d00e8e85-from-ROCKNIX",
+    "walk": "docs/qa-logs/2026-11-26-1111-1115-campaign/phase-d/phase-d.sh"
+   },
+   "locale": "fr",
+   "width": 640,
+   "height": 480,
+   "frame": "build18-640x480/fr/s31/03-setup-check-changed.png",
+   "sha256": "06316d6161a56d8e8fdacf11f23db34f79bd53d47d70899e7839b0acc6ffe77d",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "#1489's surfaces as on build 16; the connections-page line (POUR V\u00c9RIFIER, OUVREZ-EN UNE ...), the hub's V\u00c9RIFIER LA CONFIGURATION CLOUD line and CONNECTION CHECK's NON CONFIRM\u00c9E line each fit one line (#1493); the game-exit fact label is cut with an ellipsis (#1494)",
+    "date": "2026-11-26"
+   }
+  },
+  {
+   "flow_id": "cloud-folders-and-connections",
+   "branch_id": "build18/640x480/fr/s31/04-connections-changed",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud",
+   "criteria": [
+    "1489 c1",
+    "1489 c2"
+   ],
+   "trigger": "a working copy of qa-cloud added to rclone.conf as qa-ext outside the interface, after the profile store exists; then USE THIS CONNECTION on QA-EXT",
+   "expected_state": "from build 16: the hub, CHECK CLOUD SETUP and MANAGE CLOUD CONNECTIONS read CLOUD CONNECTIONS CHANGED, QA-EXT reads NOT CHECKED YET, and USE THIS CONNECTION checks it and adds it (IN USE)",
+   "source": {
+    "es": "4ef2a8dac (local m7/rc-round-es-20261125; route m7-20261126-3f35b3ff6b5b)",
+    "distribution": "4753d00e8e8533da0b199abfc7b8840152a24db4 (local build/m7-rc-round-20261125, build 18)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T231915Z.g4753d00e8e85-from-ROCKNIX",
+    "walk": "docs/qa-logs/2026-11-26-1111-1115-campaign/phase-d/phase-d.sh"
+   },
+   "locale": "fr",
+   "width": 640,
+   "height": 480,
+   "frame": "build18-640x480/fr/s31/04-connections-changed.png",
+   "sha256": "bf6a7540007d115d9d4248748e30f4ebabf2d942d5460d32898dd29232c2eab5",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "#1489's surfaces as on build 16; the connections-page line (POUR V\u00c9RIFIER, OUVREZ-EN UNE ...), the hub's V\u00c9RIFIER LA CONFIGURATION CLOUD line and CONNECTION CHECK's NON CONFIRM\u00c9E line each fit one line (#1493); the game-exit fact label is cut with an ellipsis (#1494)",
+    "date": "2026-11-26"
+   }
+  },
+  {
+   "flow_id": "cloud-folders-and-connections",
+   "branch_id": "build18/640x480/fr/s31/05-ext-focused",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud",
+   "criteria": [
+    "1489 c1",
+    "1489 c2"
+   ],
+   "trigger": "a working copy of qa-cloud added to rclone.conf as qa-ext outside the interface, after the profile store exists; then USE THIS CONNECTION on QA-EXT",
+   "expected_state": "from build 16: the hub, CHECK CLOUD SETUP and MANAGE CLOUD CONNECTIONS read CLOUD CONNECTIONS CHANGED, QA-EXT reads NOT CHECKED YET, and USE THIS CONNECTION checks it and adds it (IN USE)",
+   "source": {
+    "es": "4ef2a8dac (local m7/rc-round-es-20261125; route m7-20261126-3f35b3ff6b5b)",
+    "distribution": "4753d00e8e8533da0b199abfc7b8840152a24db4 (local build/m7-rc-round-20261125, build 18)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T231915Z.g4753d00e8e85-from-ROCKNIX",
+    "walk": "docs/qa-logs/2026-11-26-1111-1115-campaign/phase-d/phase-d.sh"
+   },
+   "locale": "fr",
+   "width": 640,
+   "height": 480,
+   "frame": "build18-640x480/fr/s31/05-ext-focused.png",
+   "sha256": "c12a0e8a872a0206c60347a4a64f6247b95f26e53c619270d10975094062ef0c",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "#1489's surfaces as on build 16; the connections-page line (POUR V\u00c9RIFIER, OUVREZ-EN UNE ...), the hub's V\u00c9RIFIER LA CONFIGURATION CLOUD line and CONNECTION CHECK's NON CONFIRM\u00c9E line each fit one line (#1493); the game-exit fact label is cut with an ellipsis (#1494)",
+    "date": "2026-11-26"
+   }
+  },
+  {
+   "flow_id": "cloud-folders-and-connections",
+   "branch_id": "build18/640x480/fr/s31/06-ext-page",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud",
+   "criteria": [
+    "1489 c1",
+    "1489 c2"
+   ],
+   "trigger": "a working copy of qa-cloud added to rclone.conf as qa-ext outside the interface, after the profile store exists; then USE THIS CONNECTION on QA-EXT",
+   "expected_state": "from build 16: the hub, CHECK CLOUD SETUP and MANAGE CLOUD CONNECTIONS read CLOUD CONNECTIONS CHANGED, QA-EXT reads NOT CHECKED YET, and USE THIS CONNECTION checks it and adds it (IN USE)",
+   "source": {
+    "es": "4ef2a8dac (local m7/rc-round-es-20261125; route m7-20261126-3f35b3ff6b5b)",
+    "distribution": "4753d00e8e8533da0b199abfc7b8840152a24db4 (local build/m7-rc-round-20261125, build 18)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T231915Z.g4753d00e8e85-from-ROCKNIX",
+    "walk": "docs/qa-logs/2026-11-26-1111-1115-campaign/phase-d/phase-d.sh"
+   },
+   "locale": "fr",
+   "width": 640,
+   "height": 480,
+   "frame": "build18-640x480/fr/s31/06-ext-page.png",
+   "sha256": "b35d3b0d81b5decd8260882e1989db633d170d336097aa3cea102f23cb1a640e",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "#1489's surfaces as on build 16; the connections-page line (POUR V\u00c9RIFIER, OUVREZ-EN UNE ...), the hub's V\u00c9RIFIER LA CONFIGURATION CLOUD line and CONNECTION CHECK's NON CONFIRM\u00c9E line each fit one line (#1493); the game-exit fact label is cut with an ellipsis (#1494)",
+    "date": "2026-11-26"
+   }
+  },
+  {
+   "flow_id": "cloud-folders-and-connections",
+   "branch_id": "build18/640x480/fr/s31/07-use-row",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud",
+   "criteria": [
+    "1489 c1",
+    "1489 c2"
+   ],
+   "trigger": "a working copy of qa-cloud added to rclone.conf as qa-ext outside the interface, after the profile store exists; then USE THIS CONNECTION on QA-EXT",
+   "expected_state": "from build 16: the hub, CHECK CLOUD SETUP and MANAGE CLOUD CONNECTIONS read CLOUD CONNECTIONS CHANGED, QA-EXT reads NOT CHECKED YET, and USE THIS CONNECTION checks it and adds it (IN USE)",
+   "source": {
+    "es": "4ef2a8dac (local m7/rc-round-es-20261125; route m7-20261126-3f35b3ff6b5b)",
+    "distribution": "4753d00e8e8533da0b199abfc7b8840152a24db4 (local build/m7-rc-round-20261125, build 18)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T231915Z.g4753d00e8e85-from-ROCKNIX",
+    "walk": "docs/qa-logs/2026-11-26-1111-1115-campaign/phase-d/phase-d.sh"
+   },
+   "locale": "fr",
+   "width": 640,
+   "height": 480,
+   "frame": "build18-640x480/fr/s31/07-use-row.png",
+   "sha256": "4bfba728581a63dc78e6dd12c196e3011059ea846c77f81e7f873665ebd3d5c9",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "#1489's surfaces as on build 16; the connections-page line (POUR V\u00c9RIFIER, OUVREZ-EN UNE ...), the hub's V\u00c9RIFIER LA CONFIGURATION CLOUD line and CONNECTION CHECK's NON CONFIRM\u00c9E line each fit one line (#1493); the game-exit fact label is cut with an ellipsis (#1494)",
+    "date": "2026-11-26"
+   }
+  },
+  {
+   "flow_id": "cloud-folders-and-connections",
+   "branch_id": "build18/640x480/fr/s31/08-use-confirm",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud",
+   "criteria": [
+    "1489 c1",
+    "1489 c2"
+   ],
+   "trigger": "a working copy of qa-cloud added to rclone.conf as qa-ext outside the interface, after the profile store exists; then USE THIS CONNECTION on QA-EXT",
+   "expected_state": "from build 16: the hub, CHECK CLOUD SETUP and MANAGE CLOUD CONNECTIONS read CLOUD CONNECTIONS CHANGED, QA-EXT reads NOT CHECKED YET, and USE THIS CONNECTION checks it and adds it (IN USE)",
+   "source": {
+    "es": "4ef2a8dac (local m7/rc-round-es-20261125; route m7-20261126-3f35b3ff6b5b)",
+    "distribution": "4753d00e8e8533da0b199abfc7b8840152a24db4 (local build/m7-rc-round-20261125, build 18)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T231915Z.g4753d00e8e85-from-ROCKNIX",
+    "walk": "docs/qa-logs/2026-11-26-1111-1115-campaign/phase-d/phase-d.sh"
+   },
+   "locale": "fr",
+   "width": 640,
+   "height": 480,
+   "frame": "build18-640x480/fr/s31/08-use-confirm.png",
+   "sha256": "6127c9c074894a5cb6c1d7593e75740d5f9c80c765674cff4c9a2e34057737fd",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "#1489's surfaces as on build 16; the connections-page line (POUR V\u00c9RIFIER, OUVREZ-EN UNE ...), the hub's V\u00c9RIFIER LA CONFIGURATION CLOUD line and CONNECTION CHECK's NON CONFIRM\u00c9E line each fit one line (#1493); the game-exit fact label is cut with an ellipsis (#1494)",
+    "date": "2026-11-26"
+   }
+  },
+  {
+   "flow_id": "cloud-folders-and-connections",
+   "branch_id": "build18/640x480/fr/s31/09-after-use",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud",
+   "criteria": [
+    "1489 c1",
+    "1489 c2"
+   ],
+   "trigger": "a working copy of qa-cloud added to rclone.conf as qa-ext outside the interface, after the profile store exists; then USE THIS CONNECTION on QA-EXT",
+   "expected_state": "from build 16: the hub, CHECK CLOUD SETUP and MANAGE CLOUD CONNECTIONS read CLOUD CONNECTIONS CHANGED, QA-EXT reads NOT CHECKED YET, and USE THIS CONNECTION checks it and adds it (IN USE)",
+   "source": {
+    "es": "4ef2a8dac (local m7/rc-round-es-20261125; route m7-20261126-3f35b3ff6b5b)",
+    "distribution": "4753d00e8e8533da0b199abfc7b8840152a24db4 (local build/m7-rc-round-20261125, build 18)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T231915Z.g4753d00e8e85-from-ROCKNIX",
+    "walk": "docs/qa-logs/2026-11-26-1111-1115-campaign/phase-d/phase-d.sh"
+   },
+   "locale": "fr",
+   "width": 640,
+   "height": 480,
+   "frame": "build18-640x480/fr/s31/09-after-use.png",
+   "sha256": "170b466207276bee249fe350bf681187dca9bfbb2b96401ad76bd453bc9b94a9",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "#1489's surfaces as on build 16; the connections-page line (POUR V\u00c9RIFIER, OUVREZ-EN UNE ...), the hub's V\u00c9RIFIER LA CONFIGURATION CLOUD line and CONNECTION CHECK's NON CONFIRM\u00c9E line each fit one line (#1493); the game-exit fact label is cut with an ellipsis (#1494)",
+    "date": "2026-11-26"
+   }
+  },
+  {
+   "flow_id": "cloud-folders-and-connections",
+   "branch_id": "build18/640x480/fr/s31/10-hub-after",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud",
+   "criteria": [
+    "1489 c1",
+    "1489 c2"
+   ],
+   "trigger": "a working copy of qa-cloud added to rclone.conf as qa-ext outside the interface, after the profile store exists; then USE THIS CONNECTION on QA-EXT",
+   "expected_state": "from build 16: the hub, CHECK CLOUD SETUP and MANAGE CLOUD CONNECTIONS read CLOUD CONNECTIONS CHANGED, QA-EXT reads NOT CHECKED YET, and USE THIS CONNECTION checks it and adds it (IN USE)",
+   "source": {
+    "es": "4ef2a8dac (local m7/rc-round-es-20261125; route m7-20261126-3f35b3ff6b5b)",
+    "distribution": "4753d00e8e8533da0b199abfc7b8840152a24db4 (local build/m7-rc-round-20261125, build 18)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T231915Z.g4753d00e8e85-from-ROCKNIX",
+    "walk": "docs/qa-logs/2026-11-26-1111-1115-campaign/phase-d/phase-d.sh"
+   },
+   "locale": "fr",
+   "width": 640,
+   "height": 480,
+   "frame": "build18-640x480/fr/s31/10-hub-after.png",
+   "sha256": "2bafabb50d6f537a271df07520c1584a763e06b2351ab74311559a5b8a0d9d40",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "#1489's surfaces as on build 16; the connections-page line (POUR V\u00c9RIFIER, OUVREZ-EN UNE ...), the hub's V\u00c9RIFIER LA CONFIGURATION CLOUD line and CONNECTION CHECK's NON CONFIRM\u00c9E line each fit one line (#1493); the game-exit fact label is cut with an ellipsis (#1494)",
+    "date": "2026-11-26"
+   }
+  },
+  {
+   "flow_id": "cloud-folders-and-connections",
+   "branch_id": "build18/640x480/fr/s32/01-cloud-hub",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud",
+   "criteria": [
+    "1492 c1",
+    "1492 c2",
+    "1493 c3"
+   ],
+   "trigger": "#1489's state (qa-ext added behind the module) with SYNC SAVES DURING STARTUP on, then a reboot: ES's own startup sync refuses",
+   "expected_state": "the hub's SYNC SAVES DURING STARTUP row reads COULDN'T FINISH with YOUR CLOUD CONNECTIONS CHANGED. CHECK THEM IN MANAGE CLOUD CONNECTIONS (#1492), in French in French; one line under the row (#1493)",
+   "source": {
+    "es": "4ef2a8dac (local m7/rc-round-es-20261125; route m7-20261126-3f35b3ff6b5b)",
+    "distribution": "4753d00e8e8533da0b199abfc7b8840152a24db4 (local build/m7-rc-round-20261125, build 18)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T231915Z.g4753d00e8e85-from-ROCKNIX",
+    "walk": "docs/qa-logs/2026-11-26-1111-1115-campaign/phase-d/phase-d.sh"
+   },
+   "locale": "fr",
+   "width": 640,
+   "height": 480,
+   "frame": "build18-640x480/fr/s32/01-cloud-hub.png",
+   "sha256": "b8345b8bc4d68297148c41945cfc01816c260ff1b3c54eff9b7224723cbefd5a",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "the reboot's startup sync refused in #1489's state; the hub's startup row reads AU D\u00c9MARRAGE - N'A PAS PU SE TERMINER, the outcome words only (D-UI-029); the stamp carries the why (s32.arm.log)",
+    "date": "2026-11-26"
+   }
+  },
+  {
+   "flow_id": "cloud-folders-and-connections",
+   "branch_id": "build18/640x480/fr/s32/02-hub-startup-row",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud",
+   "criteria": [
+    "1492 c1",
+    "1492 c2",
+    "1493 c3"
+   ],
+   "trigger": "#1489's state (qa-ext added behind the module) with SYNC SAVES DURING STARTUP on, then a reboot: ES's own startup sync refuses",
+   "expected_state": "the hub's SYNC SAVES DURING STARTUP row reads COULDN'T FINISH with YOUR CLOUD CONNECTIONS CHANGED. CHECK THEM IN MANAGE CLOUD CONNECTIONS (#1492), in French in French; one line under the row (#1493)",
+   "source": {
+    "es": "4ef2a8dac (local m7/rc-round-es-20261125; route m7-20261126-3f35b3ff6b5b)",
+    "distribution": "4753d00e8e8533da0b199abfc7b8840152a24db4 (local build/m7-rc-round-20261125, build 18)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T231915Z.g4753d00e8e85-from-ROCKNIX",
+    "walk": "docs/qa-logs/2026-11-26-1111-1115-campaign/phase-d/phase-d.sh"
+   },
+   "locale": "fr",
+   "width": 640,
+   "height": 480,
+   "frame": "build18-640x480/fr/s32/02-hub-startup-row.png",
+   "sha256": "b8345b8bc4d68297148c41945cfc01816c260ff1b3c54eff9b7224723cbefd5a",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "the reboot's startup sync refused in #1489's state; the hub's startup row reads AU D\u00c9MARRAGE - N'A PAS PU SE TERMINER, the outcome words only (D-UI-029); the stamp carries the why (s32.arm.log)",
+    "date": "2026-11-26"
+   }
+  },
+  {
+   "flow_id": "cloud-folders-and-connections",
+   "branch_id": "build18/640x480/fr/s33/01-cloud-hub",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud",
+   "criteria": [
+    "1493 c1",
+    "1493 c3"
+   ],
+   "trigger": "qa-cloud's url moved to a port nothing answers, behind the module; then CHECK CLOUD SETUP",
+   "expected_state": "CONNECTION CHECK reads COULDN'T REACH THIS CONNECTION. CHECK WI-FI OR SIGN IN AGAIN. on one line (#1493)",
+   "source": {
+    "es": "4ef2a8dac (local m7/rc-round-es-20261125; route m7-20261126-3f35b3ff6b5b)",
+    "distribution": "4753d00e8e8533da0b199abfc7b8840152a24db4 (local build/m7-rc-round-20261125, build 18)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T231915Z.g4753d00e8e85-from-ROCKNIX",
+    "walk": "docs/qa-logs/2026-11-26-1111-1115-campaign/phase-d/phase-d.sh"
+   },
+   "locale": "fr",
+   "width": 640,
+   "height": 480,
+   "frame": "build18-640x480/fr/s33/01-cloud-hub.png",
+   "sha256": "d243e095d6b3d995e1c65f52a1f2760c92299c7d44d3b339a3ee84f15fc00133",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "CONNECTION CHECK for an unreachable connection on one line: CETTE CONNEXION N'A PAS R\u00c9PONDU. V\u00c9RIFIEZ LE WI-FI OU RECONNECTEZ-VOUS. (#1493)",
+    "date": "2026-11-26"
+   }
+  },
+  {
+   "flow_id": "cloud-folders-and-connections",
+   "branch_id": "build18/640x480/fr/s33/02-setup-check-unreachable",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud",
+   "criteria": [
+    "1493 c1",
+    "1493 c3"
+   ],
+   "trigger": "qa-cloud's url moved to a port nothing answers, behind the module; then CHECK CLOUD SETUP",
+   "expected_state": "CONNECTION CHECK reads COULDN'T REACH THIS CONNECTION. CHECK WI-FI OR SIGN IN AGAIN. on one line (#1493)",
+   "source": {
+    "es": "4ef2a8dac (local m7/rc-round-es-20261125; route m7-20261126-3f35b3ff6b5b)",
+    "distribution": "4753d00e8e8533da0b199abfc7b8840152a24db4 (local build/m7-rc-round-20261125, build 18)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T231915Z.g4753d00e8e85-from-ROCKNIX",
+    "walk": "docs/qa-logs/2026-11-26-1111-1115-campaign/phase-d/phase-d.sh"
+   },
+   "locale": "fr",
+   "width": 640,
+   "height": 480,
+   "frame": "build18-640x480/fr/s33/02-setup-check-unreachable.png",
+   "sha256": "b1ccc6f32e4d84a634f616eb7b4e478ecc41e1d6acca74472adb053be126e369",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "CONNECTION CHECK for an unreachable connection on one line: CETTE CONNEXION N'A PAS R\u00c9PONDU. V\u00c9RIFIEZ LE WI-FI OU RECONNECTEZ-VOUS. (#1493)",
+    "date": "2026-11-26"
+   }
+  },
+  {
+   "flow_id": "cloud-folders-and-connections",
+   "branch_id": "build18/640x480-card/en/s34/01-card-01",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud",
+   "criteria": [
+    "1492 c2"
+   ],
+   "trigger": "#1489's state with SYNC SAVES DURING STARTUP on, then ES restarted: a burst of 40 frames over the startup sync",
+   "expected_state": "the startup sync's card ends COULDN'T FINISH with YOUR CLOUD CONNECTIONS CHANGED... (#1492), in French in French",
+   "source": {
+    "es": "4ef2a8dac (local m7/rc-round-es-20261125; route m7-20261126-3f35b3ff6b5b)",
+    "distribution": "4753d00e8e8533da0b199abfc7b8840152a24db4 (local build/m7-rc-round-20261125, build 18)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T231915Z.g4753d00e8e85-from-ROCKNIX",
+    "walk": "docs/qa-logs/2026-11-26-1111-1115-campaign/phase-d/phase-d.sh"
+   },
+   "locale": "en",
+   "width": 640,
+   "height": 480,
+   "frame": "build18-640x480-card/en/s34/01-card-01.png",
+   "sha256": "600460a3cf09abbec0b8d2f26cc504fda5d689dce54afac2bd6e7becab5cfb50",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "the startup sync's card: SYNC SAVES / COULDN'T FINISH - YOUR CLOUD CONNECTIONS CHANGED / IT'LL TRY AGAIN AT STARTUP, OR SYNC NOW FROM GAME SETTINGS. The why's second sentence is shortened away and the action line names a retry, not the fix (#1495). Duplicate burst frames removed after hashing (burst-manifest.json)",
+    "date": "2026-11-26"
+   }
+  },
+  {
+   "flow_id": "cloud-folders-and-connections",
+   "branch_id": "build18/640x480-card/en/s34/02-card-02",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud",
+   "criteria": [
+    "1492 c2"
+   ],
+   "trigger": "#1489's state with SYNC SAVES DURING STARTUP on, then ES restarted: a burst of 40 frames over the startup sync",
+   "expected_state": "the startup sync's card ends COULDN'T FINISH with YOUR CLOUD CONNECTIONS CHANGED... (#1492), in French in French",
+   "source": {
+    "es": "4ef2a8dac (local m7/rc-round-es-20261125; route m7-20261126-3f35b3ff6b5b)",
+    "distribution": "4753d00e8e8533da0b199abfc7b8840152a24db4 (local build/m7-rc-round-20261125, build 18)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T231915Z.g4753d00e8e85-from-ROCKNIX",
+    "walk": "docs/qa-logs/2026-11-26-1111-1115-campaign/phase-d/phase-d.sh"
+   },
+   "locale": "en",
+   "width": 640,
+   "height": 480,
+   "frame": "build18-640x480-card/en/s34/02-card-02.png",
+   "sha256": "46c73519a84c7250bfdea56590a41b4195f076df03220980173887381a370fb3",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "the startup sync's card: SYNC SAVES / COULDN'T FINISH - YOUR CLOUD CONNECTIONS CHANGED / IT'LL TRY AGAIN AT STARTUP, OR SYNC NOW FROM GAME SETTINGS. The why's second sentence is shortened away and the action line names a retry, not the fix (#1495). Duplicate burst frames removed after hashing (burst-manifest.json)",
+    "date": "2026-11-26"
+   }
+  },
+  {
+   "flow_id": "cloud-folders-and-connections",
+   "branch_id": "build18/640x480-card/en/s34/04-card-04",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud",
+   "criteria": [
+    "1492 c2"
+   ],
+   "trigger": "#1489's state with SYNC SAVES DURING STARTUP on, then ES restarted: a burst of 40 frames over the startup sync",
+   "expected_state": "the startup sync's card ends COULDN'T FINISH with YOUR CLOUD CONNECTIONS CHANGED... (#1492), in French in French",
+   "source": {
+    "es": "4ef2a8dac (local m7/rc-round-es-20261125; route m7-20261126-3f35b3ff6b5b)",
+    "distribution": "4753d00e8e8533da0b199abfc7b8840152a24db4 (local build/m7-rc-round-20261125, build 18)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T231915Z.g4753d00e8e85-from-ROCKNIX",
+    "walk": "docs/qa-logs/2026-11-26-1111-1115-campaign/phase-d/phase-d.sh"
+   },
+   "locale": "en",
+   "width": 640,
+   "height": 480,
+   "frame": "build18-640x480-card/en/s34/04-card-04.png",
+   "sha256": "05051767b3bd38b92c68747a45838e1bf21798939f56e59250bc7747fbb2e3db",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "the startup sync's card: SYNC SAVES / COULDN'T FINISH - YOUR CLOUD CONNECTIONS CHANGED / IT'LL TRY AGAIN AT STARTUP, OR SYNC NOW FROM GAME SETTINGS. The why's second sentence is shortened away and the action line names a retry, not the fix (#1495). Duplicate burst frames removed after hashing (burst-manifest.json)",
+    "date": "2026-11-26"
+   }
+  },
+  {
+   "flow_id": "cloud-folders-and-connections",
+   "branch_id": "build18/640x480-card/en/s34/09-card-09",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud",
+   "criteria": [
+    "1492 c2"
+   ],
+   "trigger": "#1489's state with SYNC SAVES DURING STARTUP on, then ES restarted: a burst of 40 frames over the startup sync",
+   "expected_state": "the startup sync's card ends COULDN'T FINISH with YOUR CLOUD CONNECTIONS CHANGED... (#1492), in French in French",
+   "source": {
+    "es": "4ef2a8dac (local m7/rc-round-es-20261125; route m7-20261126-3f35b3ff6b5b)",
+    "distribution": "4753d00e8e8533da0b199abfc7b8840152a24db4 (local build/m7-rc-round-20261125, build 18)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T231915Z.g4753d00e8e85-from-ROCKNIX",
+    "walk": "docs/qa-logs/2026-11-26-1111-1115-campaign/phase-d/phase-d.sh"
+   },
+   "locale": "en",
+   "width": 640,
+   "height": 480,
+   "frame": "build18-640x480-card/en/s34/09-card-09.png",
+   "sha256": "a2ab99fa0dfbaf5f6cd5fbae03d084cc7100a7933ab5d5b8f735d46920cb467f",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "the startup sync's card: SYNC SAVES / COULDN'T FINISH - YOUR CLOUD CONNECTIONS CHANGED / IT'LL TRY AGAIN AT STARTUP, OR SYNC NOW FROM GAME SETTINGS. The why's second sentence is shortened away and the action line names a retry, not the fix (#1495). Duplicate burst frames removed after hashing (burst-manifest.json)",
+    "date": "2026-11-26"
+   }
+  },
+  {
+   "flow_id": "cloud-folders-and-connections",
+   "branch_id": "build18/640x480-card/en/s34/23-card-23",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud",
+   "criteria": [
+    "1492 c2"
+   ],
+   "trigger": "#1489's state with SYNC SAVES DURING STARTUP on, then ES restarted: a burst of 40 frames over the startup sync",
+   "expected_state": "the startup sync's card ends COULDN'T FINISH with YOUR CLOUD CONNECTIONS CHANGED... (#1492), in French in French",
+   "source": {
+    "es": "4ef2a8dac (local m7/rc-round-es-20261125; route m7-20261126-3f35b3ff6b5b)",
+    "distribution": "4753d00e8e8533da0b199abfc7b8840152a24db4 (local build/m7-rc-round-20261125, build 18)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T231915Z.g4753d00e8e85-from-ROCKNIX",
+    "walk": "docs/qa-logs/2026-11-26-1111-1115-campaign/phase-d/phase-d.sh"
+   },
+   "locale": "en",
+   "width": 640,
+   "height": 480,
+   "frame": "build18-640x480-card/en/s34/23-card-23.png",
+   "sha256": "4bf616a688f6aa6602a0cd3aa9c2f1a695acaa20ad7f0cda9bce56179c677772",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "the startup sync's card: SYNC SAVES / COULDN'T FINISH - YOUR CLOUD CONNECTIONS CHANGED / IT'LL TRY AGAIN AT STARTUP, OR SYNC NOW FROM GAME SETTINGS. The why's second sentence is shortened away and the action line names a retry, not the fix (#1495). Duplicate burst frames removed after hashing (burst-manifest.json)",
+    "date": "2026-11-26"
+   }
+  },
+  {
+   "flow_id": "cloud-folders-and-connections",
+   "branch_id": "build18/640x480-card/fr/s34/01-card-01",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud",
+   "criteria": [
+    "1492 c2"
+   ],
+   "trigger": "#1489's state with SYNC SAVES DURING STARTUP on, then ES restarted: a burst of 40 frames over the startup sync",
+   "expected_state": "the startup sync's card ends COULDN'T FINISH with YOUR CLOUD CONNECTIONS CHANGED... (#1492), in French in French",
+   "source": {
+    "es": "4ef2a8dac (local m7/rc-round-es-20261125; route m7-20261126-3f35b3ff6b5b)",
+    "distribution": "4753d00e8e8533da0b199abfc7b8840152a24db4 (local build/m7-rc-round-20261125, build 18)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T231915Z.g4753d00e8e85-from-ROCKNIX",
+    "walk": "docs/qa-logs/2026-11-26-1111-1115-campaign/phase-d/phase-d.sh"
+   },
+   "locale": "fr",
+   "width": 640,
+   "height": 480,
+   "frame": "build18-640x480-card/fr/s34/01-card-01.png",
+   "sha256": "54bca5180d8d4bc58ced2894d3c63962c13c082e5f44e561814f5199b0a6339f",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "the startup sync's card: SYNCHRONISER LES SAUVEGARDES / N'A PAS PU SE TERMINER - VOS CONNEXIONS AU CLOUD ONT CHANG\u00c9 / NOUVEL ESSAI AU PROCHAIN D\u00c9MARRAGE. The why's second sentence is shortened away and the action line names a retry, not the fix (#1495). Duplicate burst frames removed after hashing (burst-manifest.json)",
+    "date": "2026-11-26"
+   }
+  },
+  {
+   "flow_id": "cloud-folders-and-connections",
+   "branch_id": "build18/640x480-card/fr/s34/02-card-02",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud",
+   "criteria": [
+    "1492 c2"
+   ],
+   "trigger": "#1489's state with SYNC SAVES DURING STARTUP on, then ES restarted: a burst of 40 frames over the startup sync",
+   "expected_state": "the startup sync's card ends COULDN'T FINISH with YOUR CLOUD CONNECTIONS CHANGED... (#1492), in French in French",
+   "source": {
+    "es": "4ef2a8dac (local m7/rc-round-es-20261125; route m7-20261126-3f35b3ff6b5b)",
+    "distribution": "4753d00e8e8533da0b199abfc7b8840152a24db4 (local build/m7-rc-round-20261125, build 18)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T231915Z.g4753d00e8e85-from-ROCKNIX",
+    "walk": "docs/qa-logs/2026-11-26-1111-1115-campaign/phase-d/phase-d.sh"
+   },
+   "locale": "fr",
+   "width": 640,
+   "height": 480,
+   "frame": "build18-640x480-card/fr/s34/02-card-02.png",
+   "sha256": "16ecf45f6452017ca465728a6d4e1b97da29df14db1a3350ed5e978e30984f4e",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "the startup sync's card: SYNCHRONISER LES SAUVEGARDES / N'A PAS PU SE TERMINER - VOS CONNEXIONS AU CLOUD ONT CHANG\u00c9 / NOUVEL ESSAI AU PROCHAIN D\u00c9MARRAGE. The why's second sentence is shortened away and the action line names a retry, not the fix (#1495). Duplicate burst frames removed after hashing (burst-manifest.json)",
+    "date": "2026-11-26"
+   }
+  },
+  {
+   "flow_id": "cloud-folders-and-connections",
+   "branch_id": "build18/640x480-card/fr/s34/04-card-04",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud",
+   "criteria": [
+    "1492 c2"
+   ],
+   "trigger": "#1489's state with SYNC SAVES DURING STARTUP on, then ES restarted: a burst of 40 frames over the startup sync",
+   "expected_state": "the startup sync's card ends COULDN'T FINISH with YOUR CLOUD CONNECTIONS CHANGED... (#1492), in French in French",
+   "source": {
+    "es": "4ef2a8dac (local m7/rc-round-es-20261125; route m7-20261126-3f35b3ff6b5b)",
+    "distribution": "4753d00e8e8533da0b199abfc7b8840152a24db4 (local build/m7-rc-round-20261125, build 18)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T231915Z.g4753d00e8e85-from-ROCKNIX",
+    "walk": "docs/qa-logs/2026-11-26-1111-1115-campaign/phase-d/phase-d.sh"
+   },
+   "locale": "fr",
+   "width": 640,
+   "height": 480,
+   "frame": "build18-640x480-card/fr/s34/04-card-04.png",
+   "sha256": "d556c8d3cbe237f6784b417f7d5a49f32c52e9e40c25553996a2324bfea60701",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "the startup sync's card: SYNCHRONISER LES SAUVEGARDES / N'A PAS PU SE TERMINER - VOS CONNEXIONS AU CLOUD ONT CHANG\u00c9 / NOUVEL ESSAI AU PROCHAIN D\u00c9MARRAGE. The why's second sentence is shortened away and the action line names a retry, not the fix (#1495). Duplicate burst frames removed after hashing (burst-manifest.json)",
+    "date": "2026-11-26"
+   }
+  },
+  {
+   "flow_id": "cloud-folders-and-connections",
+   "branch_id": "build18/640x480-card/fr/s34/09-card-09",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud",
+   "criteria": [
+    "1492 c2"
+   ],
+   "trigger": "#1489's state with SYNC SAVES DURING STARTUP on, then ES restarted: a burst of 40 frames over the startup sync",
+   "expected_state": "the startup sync's card ends COULDN'T FINISH with YOUR CLOUD CONNECTIONS CHANGED... (#1492), in French in French",
+   "source": {
+    "es": "4ef2a8dac (local m7/rc-round-es-20261125; route m7-20261126-3f35b3ff6b5b)",
+    "distribution": "4753d00e8e8533da0b199abfc7b8840152a24db4 (local build/m7-rc-round-20261125, build 18)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T231915Z.g4753d00e8e85-from-ROCKNIX",
+    "walk": "docs/qa-logs/2026-11-26-1111-1115-campaign/phase-d/phase-d.sh"
+   },
+   "locale": "fr",
+   "width": 640,
+   "height": 480,
+   "frame": "build18-640x480-card/fr/s34/09-card-09.png",
+   "sha256": "fdfac3d5a60f4f8fce3b623eeb0a46090f666a34394cf1dd47e7d86f85106280",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "the startup sync's card: SYNCHRONISER LES SAUVEGARDES / N'A PAS PU SE TERMINER - VOS CONNEXIONS AU CLOUD ONT CHANG\u00c9 / NOUVEL ESSAI AU PROCHAIN D\u00c9MARRAGE. The why's second sentence is shortened away and the action line names a retry, not the fix (#1495). Duplicate burst frames removed after hashing (burst-manifest.json)",
+    "date": "2026-11-26"
+   }
+  },
+  {
+   "flow_id": "cloud-folders-and-connections",
+   "branch_id": "build18/640x480-card/fr/s34/28-card-28",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud",
+   "criteria": [
+    "1492 c2"
+   ],
+   "trigger": "#1489's state with SYNC SAVES DURING STARTUP on, then ES restarted: a burst of 40 frames over the startup sync",
+   "expected_state": "the startup sync's card ends COULDN'T FINISH with YOUR CLOUD CONNECTIONS CHANGED... (#1492), in French in French",
+   "source": {
+    "es": "4ef2a8dac (local m7/rc-round-es-20261125; route m7-20261126-3f35b3ff6b5b)",
+    "distribution": "4753d00e8e8533da0b199abfc7b8840152a24db4 (local build/m7-rc-round-20261125, build 18)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T231915Z.g4753d00e8e85-from-ROCKNIX",
+    "walk": "docs/qa-logs/2026-11-26-1111-1115-campaign/phase-d/phase-d.sh"
+   },
+   "locale": "fr",
+   "width": 640,
+   "height": 480,
+   "frame": "build18-640x480-card/fr/s34/28-card-28.png",
+   "sha256": "c2f8ef2338600990c3116f99e1d597dc2729567178af2125b891e7a1d0782557",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "the startup sync's card: SYNCHRONISER LES SAUVEGARDES / N'A PAS PU SE TERMINER - VOS CONNEXIONS AU CLOUD ONT CHANG\u00c9 / NOUVEL ESSAI AU PROCHAIN D\u00c9MARRAGE. The why's second sentence is shortened away and the action line names a retry, not the fix (#1495). Duplicate burst frames removed after hashing (burst-manifest.json)",
     "date": "2026-11-26"
    }
   }

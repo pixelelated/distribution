@@ -8,7 +8,7 @@ Read the [M7 milestone](https://github.com/pixelelated/distribution/milestone/7)
 
 ## Current focus
 
-**000000000000000000000. Newest (2026-11-26T23:24Z): #1489 and #1490 closed on build 16; #1492 and #1493 filed and fixed; build 17 accepted; build 18 (`4753d00e8e`) running; H700 waits for its proof.**
+**000000000000000000000. Newest (2026-11-26T23:22Z): #1489 and #1490 closed on build 16; #1492 and #1493 filed and fixed; build 17 accepted; build 18 (`4753d00e8e`) running; H700 waits for its proof.**
 - **D-CLOUD-194 is decided** (Max: today's behaviour for 0.0.1; #1491 holds the next-release proof). His last clause is the word to keep going toward the handheld build. It is not a yes to any copy, reboot or other action on a handheld or in its cloud.
 - **Build 16** (`fc3e489f8a`, route 07): accepted. Phase D s31/s30/s24 plus a rerun (`-r2/`, the store dumped, s20) closed #1489 and #1490 with code traces (next `3445abddf5`).
 - **#1492** (#1489's sibling): a transfer refused in that state said CHOOSE A CONNECTION. Fixed in round `a09786c37c` (`selection_reason`; host suite 54/54).

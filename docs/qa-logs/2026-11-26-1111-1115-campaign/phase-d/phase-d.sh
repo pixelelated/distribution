@@ -197,7 +197,15 @@ put_s32() { S 'set_setting cloudsaves.startup 0; rm -f /storage/.cache/cloud_syn
 steps_s33() { hub; down 8; open; echo "wait 20"; echo "settle 60 3"; echo "shot setup-check-unreachable"; }
 arm_s33() { S "cp -p /storage/.config/rclone/rclone.conf /storage/m7-qa-d/rclone.conf.s33 && sed -i -E '/^\[qa-cloud\]/,/^\[/ s#^(url = https?://[^:/ ]+):[0-9]+#\1:9011#' /storage/.config/rclone/rclone.conf && grep -c ':9011' /storage/.config/rclone/rclone.conf"; }
 put_s33() { S 'mv /storage/m7-qa-d/rclone.conf.s33 /storage/.config/rclone/rclone.conf && chmod 600 /storage/.config/rclone/rclone.conf; cloud_remote setup-info | grep -E "^STATE="'; }
-SCREENS="s01 s02 s03 s04 s05 s06 s07 s08 s09 s10 s11 s12 s13 s14 s15 s16 s17 s18 s19 s20 s21 s22 s23 s24 s25 s26 s27 s28 s29 s30 s31 s32 s33"
+# s34: #1492's card. #1489's state with SYNC SAVES DURING STARTUP on, then ES restarted (not the guest): a burst of
+# frames over the restart catches the startup sync's card with its outcome and why. The rows carry no why (D-UI-029).
+steps_s34() { local i; for i in $(seq -w 1 40); do echo "shot card-$i"; echo "wait 1"; done; }
+arm_s34() { S 'python3 /storage/m7-qa-d/conn.py add-ext >/dev/null && rm -f /storage/.cache/cloud_sync/last-sync-startup && set_setting cloudsaves.startup 1 && echo "cloudsaves.startup=$(get_setting cloudsaves.startup)" && systemctl restart essway && echo "essway restarted"'; }
+put_s34() {
+    S 'for i in $(seq 1 30); do [ -s /storage/.cache/cloud_sync/last-sync-startup ] && break; sleep 2; done; echo "last-sync-startup: $(cat /storage/.cache/cloud_sync/last-sync-startup)"; set_setting cloudsaves.startup 0; rm -f /storage/.cache/cloud_sync/last-sync-startup; python3 /storage/m7-qa-d/conn.py remove-ext; cloud_remote list | cut -f1,2'
+    reboot_guest   # ES came back on the last game list; the next screen starts from a fresh boot
+}
+SCREENS="s01 s02 s03 s04 s05 s06 s07 s08 s09 s10 s11 s12 s13 s14 s15 s16 s17 s18 s19 s20 s21 s22 s23 s24 s25 s26 s27 s28 s29 s30 s31 s32 s33 s34"
 [ -n "$only" ] && SCREENS=${only//,/ }
 
 log "== #1111/#1115 phase D at $res, $(date -u +%FT%TZ)"

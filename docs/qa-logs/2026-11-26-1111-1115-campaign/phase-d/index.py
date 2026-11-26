@@ -21,6 +21,10 @@ SOURCES = {
                 "distribution": "fc3e489f8a0b8064e72a3b879837c87fbc3f5930 (local build/m7-rc-round-20261125, build 16)",
                 "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T224411Z.gfc3e489f8a0b-from-ROCKNIX",
                 "walk": "docs/qa-logs/2026-11-26-1111-1115-campaign/phase-d/phase-d.sh"},
+    "build18": {"es": "4ef2a8dac (local m7/rc-round-es-20261125; route m7-20261126-3f35b3ff6b5b)",
+                "distribution": "4753d00e8e8533da0b199abfc7b8840152a24db4 (local build/m7-rc-round-20261125, build 18)",
+                "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T231915Z.g4753d00e8e85-from-ROCKNIX",
+                "walk": "docs/qa-logs/2026-11-26-1111-1115-campaign/phase-d/phase-d.sh"},
     "build14": {"es": "6cdcb7a64 (local m7/rc-round-es-20261125; route m7-20261126-552f3815e4b4)",
                 "distribution": "ed61fe8e5922f3106cb35230fed0027f4f7fc431 (local build/m7-rc-round-20261125, build 14)",
                 "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T192845Z.ged61fe8e5922-from-ROCKNIX",
@@ -97,6 +101,8 @@ SCREENS = {
             "the hub's SYNC SAVES DURING STARTUP row reads COULDN'T FINISH with YOUR CLOUD CONNECTIONS CHANGED. CHECK THEM IN MANAGE CLOUD CONNECTIONS (#1492), in French in French; one line under the row (#1493)", ["1492 c1", "1492 c2", "1493 c3"]),
     "s33": ("qa-cloud's url moved to a port nothing answers, behind the module; then CHECK CLOUD SETUP",
             "CONNECTION CHECK reads COULDN'T REACH THIS CONNECTION. CHECK WI-FI OR SIGN IN AGAIN. on one line (#1493)", ["1493 c1", "1493 c3"]),
+    "s34": ("#1489's state with SYNC SAVES DURING STARTUP on, then ES restarted: a burst of 40 frames over the startup sync",
+            "the startup sync's card ends COULDN'T FINISH with YOUR CLOUD CONNECTIONS CHANGED... (#1492), in French in French", ["1492 c2"]),
     "s24": ("LINK FROM THIS DEVICE, WEBDAV, then back on the provider form",
             "where the add-a-connection wizard lands on back, unchanged by #1483", ["1483 c3"]),
 }
@@ -132,6 +138,11 @@ OBSERVED = {k: v for lang in ("en", "fr") for k, v in (
     ("build16/640x480-r2/fr/s31", "the same walk in French; the store before and after USE as in English (#1489 c2)"),
     (f"build16/640x480/{lang}/s30", "the chooser and the S3 form" + (": PARTAGE WINDOWS (SMB) and AMAZON S3 ET COMPATIBLES on the chooser and the S3 subtitle (#1490); brand names unchanged" if lang == "fr" else ": WINDOWS SHARE (SMB) and AMAZON S3 AND COMPATIBLE unchanged in English (#1490 c3)")),
     (f"build16/640x480/{lang}/s24", "the chooser and back on the WebDAV form" + ("; PARTAGE WINDOWS (SMB) and AMAZON S3 ET COMPATIBLES on the chooser (#1490)" if lang == "fr" else "")),
+    (f"build18/640x480/{lang}/s32", "the reboot's startup sync refused in #1489's state; the hub's startup row reads " + ("AU DÉMARRAGE - N'A PAS PU SE TERMINER" if lang == "fr" else "AT STARTUP - COULDN'T FINISH") + ", the outcome words only (D-UI-029); the stamp carries the why (s32.arm.log)"),
+    (f"build18/640x480/{lang}/s33", "CONNECTION CHECK for an unreachable connection on one line: " + ("CETTE CONNEXION N'A PAS RÉPONDU. VÉRIFIEZ LE WI-FI OU RECONNECTEZ-VOUS." if lang == "fr" else "COULDN'T REACH THIS CONNECTION. CHECK WI-FI OR SIGN IN AGAIN.") + " (#1493)"),
+    (f"build18/640x480/{lang}/s31", "#1489's surfaces as on build 16; " + ("the connections-page line (POUR VÉRIFIER, OUVREZ-EN UNE ...), the hub's VÉRIFIER LA CONFIGURATION CLOUD line and CONNECTION CHECK's NON CONFIRMÉE line each fit one line (#1493); the game-exit fact label is cut with an ellipsis (#1494)" if lang == "fr" else "CONNECTION CHECK's NOT CONFIRMED line fits one line (#1493)")),
+    (f"build18/640x480/{lang}/s13", "the setup check in the normal state; CONNECTION CHECK on one line; the local-folder rows carry status and path and SETTINGS BACKUPS is prose, both by #1428's design" + ("; SAUVEGARDES DES PARAMÈTRES' prose wraps" if lang == "fr" else "")),
+    (f"build18/640x480-card/{lang}/s34", "the startup sync's card: " + ("SYNCHRONISER LES SAUVEGARDES / N'A PAS PU SE TERMINER - VOS CONNEXIONS AU CLOUD ONT CHANGÉ / NOUVEL ESSAI AU PROCHAIN DÉMARRAGE." if lang == "fr" else "SYNC SAVES / COULDN'T FINISH - YOUR CLOUD CONNECTIONS CHANGED / IT'LL TRY AGAIN AT STARTUP, OR SYNC NOW FROM GAME SETTINGS.") + " The why's second sentence is shortened away and the action line names a retry, not the fix (#1495). Duplicate burst frames removed after hashing (burst-manifest.json)"),
     (f"build16/640x480-r2/{lang}/s20", "a malformed rclone.conf still reads " + ("RÉGLAGES ILLISIBLES / CONNEXIONS INDISPONIBLES" if lang == "fr" else "SETUP COULD NOT BE READ / CONNECTIONS UNAVAILABLE") + " on the hub, the setup check, the connections page and CLOUD FOLDERS (#1489 c3)"),
     (f"build14/640x480/{lang}/s24", "back on the WebDAV form lands on the provider chooser with WEBDAV focused" + ("; the form's row labels are English in French (#1485)" if lang == "fr" else "")),
     (f"640x480-more/{lang}/s20", "defect, build 13: the hub reads NO CONNECTION SELECTED and CLOUD FOLDERS asks to choose a connection for an unreadable setup; the setup check and connections page name it. Fixed in ES 6cdcb7a64 (#1111 C11)"),
@@ -139,7 +150,7 @@ OBSERVED = {k: v for lang in ("en", "fr") for k, v in (
 entries = []
 import sys
 SKIP = set(sys.argv[sys.argv.index("--skip") + 1:]) if "--skip" in sys.argv else set()   # a run still writing
-for res_dir in sorted(d for d in HERE.glob("build1[3456]-*") if d.name not in SKIP):
+for res_dir in sorted(d for d in HERE.glob("build1[345678]-*") if d.name not in SKIP):
     build, _, run = res_dir.name.partition("-")            # build13|build14, <res>[-extra|-root|-more]
     run = run if build == "build13" else f"{build}/{run}"  # build 13 keys stay as reviewed.txt has them
     res = run.split("/")[-1].split("-")[0]; w, h = (int(v) for v in res.split("x"))
@@ -159,5 +170,5 @@ for res_dir in sorted(d for d in HERE.glob("build1[3456]-*") if d.name not in SK
                                 **({"note": FAILED[key]} if key in FAILED else {}),
                                 **({"review": {"reviewer": "OS coordinator (claude-opus-5-5)", "observed": OBSERVED.get(key, "as expected"), "date": "2026-11-26"}}
                                    if status == "reviewed" else {})})
-(HERE / "evidence-index.json").write_text(json.dumps({"schema_version": 1, "issue": [1111, 1115, 1480, 1489, 1490], "entries": entries}, indent=1) + "\n")
+(HERE / "evidence-index.json").write_text(json.dumps({"schema_version": 1, "issue": [1111, 1115, 1480, 1489, 1490, 1492, 1493, 1494], "entries": entries}, indent=1) + "\n")
 print(f"{len(entries)} frames, {sum(e['status'] == 'reviewed' for e in entries)} reviewed")

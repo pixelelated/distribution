@@ -126,3 +126,20 @@ Build 16 is `fc3e489f8a`, with ES `c8bf10703` and route `m7-20261126-29256fe7fb0
 - **#1493:** three rows run to three lines at 640x480: the French connections-page line here, the hub's CHECK CLOUD SETUP line in French, and CONNECTION CHECK's not-confirmed line in both languages.
 
 **Driver change:** s31's arm and put back now print the store's profiles (names, providers and paths only; the store holds no credentials).
+
+## Build 18: a refused transfer names the change; three rows back to two lines
+
+Build 18 is `4753d00e8e`, with ES `4ef2a8dac` and route `m7-20261126-3f35b3ff6b5b`. It carries #1492, round `a09786c37c` plus ES `992d36e98`: a transfer refused in #1489's state names the change, and a why that ends in a full stop is found and translated. It also carries #1493 (ES `4ef2a8dac`, proposed words). Build 17 (`7c2d063194`) carried #1492 alone and was accepted without its own VM run; build 18 supersedes it. All frames are at 640x480, in EN and FR.
+
+| Screen | What the frames show | Criteria |
+| --- | --- | --- |
+| s32 | qa-ext added behind the module, SYNC SAVES DURING STARTUP on, then a reboot. ES's own startup sync refuses. Its stamp, `1 unknown YOUR CLOUD CONNECTIONS CHANGED. CHECK THEM IN MANAGE CLOUD CONNECTIONS` (`s32.arm.log`), carries the why. The hub's startup row reads AT STARTUP - COULDN'T FINISH: a cloud row's line is the date and outcome words only (D-UI-029). | #1492 c1 |
+| s34 (`-card/`) | The same state with ES restarted, 40 frames a second apart. The card reads SYNC SAVES / COULDN'T FINISH - YOUR CLOUD CONNECTIONS CHANGED, and in French SYNCHRONISER LES SAUVEGARDES / N'A PAS PU SE TERMINER - VOS CONNEXIONS AU CLOUD ONT CHANGÉ. A frame identical to the one before it was removed after its hash was recorded (`burst-manifest.json`); five distinct frames remain per language. | #1492 c2 |
+| s33 | qa-cloud's port moved behind the module. CONNECTION CHECK reads COULDN'T REACH THIS CONNECTION. CHECK WI-FI OR SIGN IN AGAIN. / CETTE CONNEXION N'A PAS RÉPONDU. VÉRIFIEZ LE WI-FI OU RECONNECTEZ-VOUS., on one line each. | #1493 c1 |
+| s31 | #1489's surfaces. The French connections-page line, the French hub's CHECK CLOUD SETUP line and CONNECTION CHECK's NOT CONFIRMED line each fit one line. | #1493 c1 |
+| s13 | The setup check in the normal state. | #1493 c3 |
+
+**What the review found beyond #1493's three lines:**
+- The setup check's local-folder rows (status plus path) and its prose blocks (SETTINGS BACKUPS, WHAT THIS CHECK COVERS) run longer by #1428's reviewed design for a results page. They are not D-UI-023 rows.
+- The French game-exit fact label is cut with an ellipsis beside NON CONFIRMÉ: **#1494**, fixed in build 19.
+- The card drops the why's second sentence, so it names the cause but not where to fix it: **#1495**.
