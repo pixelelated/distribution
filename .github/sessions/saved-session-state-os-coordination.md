@@ -8,7 +8,22 @@ Read the [M7 milestone](https://github.com/pixelelated/distribution/milestone/7)
 
 ## Current focus
 
-**0000000000000000. Newest (2026-11-26T15:19Z): #1457, #1427 and #1479 closed; run 9 PASS on build 12; the #1111/#1115 campaign is under way.**
+**00000000000000000. Newest (2026-11-26T16:25Z): build 13 (`bc81894fa8`) launched and accepted through `tools/device-build`; standard run 10 running; #1481 closed; #1480 fixed and awaiting its frames.**
+- **Build 13** carries ES `c0fd03e1b` (#1480's hub fix; route `m7-20261126-16a1ec4e624a`, supplier `.build-runs/m7-rc-round-20261126-04-es/`).
+  - It was the first real launch of `tools/device-build`. Owner `.build-runs/m7-round-x64-13-owner`; run `20261126T161644Z-7f89045d`, rc 0, accepted (`ACCEPTANCE-13.json`), admission consumed. Set file `.build-runs/build-sets/m7-round-x64.json`.
+  - The round head is now `6aefb77d60`: build 13 plus #1481's `scripts/get_git` fix, with no image change.
+- **Standard run 10** on build 13 started at 16:24 (`/workspace/tmp/rocknix-session/vmqa-standard-10-20261126T1624Z/`, harness waiter on its `rc`).
+  - When it reports: `rc-preflight --only vm-qa`, a note on #1465, `vm-pair down`.
+- **Then phase D** on build 13, four batches, each `phase-d.sh --round <round> --image <build 13> --res 640x480|1280x800 --lang en,fr --outdir phase-d/<res>`. Tile the frames with `/workspace/tmp/rocknix-session/tile.py` for review.
+  - #1480's ticks come from its screens s04 and s05.
+  - #1111 C03/C08/C10–C14/C16–C20/C23/C24 and #1115 C04 come from the set.
+- **Closed:** #1481. The re-clone came from `get_git`'s pipefail plus `grep -q`; fixed on the round and on `next`, and mapped into the upstream series.
+- **#1445:** 7 of 8 ticked. Criterion 1 needs a launch that prints the run directory, which was added after build 13.
+- **#1448:** criterion 4 ticked. Criterion 5 waits for `next` to take upstream's `fex-emu`.
+- **`next` is 621 commits behind `upstream/next`.** `pr-stack-check` refuses until the base refresh, which is step 0 for the final set.
+- **Waiting on Max:** #1477, #1478, publication, the 300 bugs, fast mode, and D-CLOUD-194 (it went to the steward at 15:19).
+
+**0000000000000000. (2026-11-26T15:19Z): #1457, #1427 and #1479 closed; run 9 PASS on build 12; the #1111/#1115 campaign is under way.**
 - **Build 12** (`a069abd236`, #1457's post-update fix): standard run 9 `VERDICT: PASS` (`qa-a069abd236-webdav-a-20261126-1416`), and `rc-preflight --only vm-qa` PASS. The round head is now `18169f5efe` (local): build 12 plus #1479's test fix, tools only.
 - **Closed:**
   - #1457: control and fix rehearsals.
