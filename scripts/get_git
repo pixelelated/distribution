@@ -33,7 +33,14 @@ _repo_exists_and_valid() {
     pushd "${PACKAGE}" > /dev/null
     _clean_repo || return 1
 
-    if ! git ls-remote . | grep -q -m1 "^${PKG_VERSION}"; then
+    # Not `git ls-remote . | grep -q`: grep stops at HEAD, the first line, and
+    # a clone with many refs is still writing, so ls-remote dies of SIGPIPE,
+    # pipefail fails the test, and a complete clone is deleted and fetched
+    # again on every get (ppsspp-sa, 1.7 GB, three times on 2026-11-26).
+    # Read the list whole first (pixelelated #1481).
+    local refs
+    refs=$(git ls-remote .) || refs=""
+    if ! grep -q -m1 "^${PKG_VERSION}" <<< "${refs}"; then
       echo "ERROR: ${PACKAGE}: failed to determine git HEAD" >&2
       return 1
     fi

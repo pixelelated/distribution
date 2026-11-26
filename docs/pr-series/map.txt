@@ -15,6 +15,7 @@
 
 ## build: recipes fetch nothing at configure and forward no secrets
 scripts/build
+scripts/get_git
 scripts/get_env
 Makefile
 tools/pkgcheck
