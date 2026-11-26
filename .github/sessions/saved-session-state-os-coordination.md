@@ -8,7 +8,18 @@ Read the [M7 milestone](https://github.com/pixelelated/distribution/milestone/7)
 
 ## Current focus
 
-**000000000000. Newest (2026-11-26T12:30Z): round head `30e6ff3db9` (build 11) passes the standard run; step 0's packages PASS by D-RA-054; #1428's page title done.**
+**0000000000000. Newest (2026-11-26T13:00Z): #1428 criteria 1 and 3 ticked with frames; the rest of #1428 is fixtures and receipts.**
+- **#1428's walks:** `tools/vm-walks/suite-1428.txt` (round `b1938d2adf`) is run with `WALK_SUITE=tools/vm-walks/suite-1428.txt tools/vm-qa <img> --only walks`, with `VM_RES=640x480` for the small panel. It reaches CLOUD FOLDER ACTIONS, CHECK CLOUD SETUP and MANAGE CLOUD CONNECTIONS in EN and FR. Runs `qa-30e6ff3db9-webdav-a-20261126-1231` (1280) and `-1240` (640) both PASS.
+- **Packet:** `docs/qa-logs/2026-11-26-1428-cloud-setup/` (`78bf131b67`, 11 reviewed frames); #1428 `issuecomment-7192562887`.
+- **Left on #1428, owner OS:**
+  - criterion 2: before and after manifests for toggle and cancel on CLOUD FOLDERS;
+  - criterion 4: a fixture with two saved connections, two on one provider, then frames of MANAGE CLOUD CONNECTIONS and the change flow with cancel;
+  - criterion 5: receipts for the branches (success, no selection, offline or authentication failure, empty selection, cancel, confirmed creation), clean and retained;
+  - the last criterion: the hub's transfer entries in FR and at 640x480.
+  - Seen for review: GAME CONTENT shares the ROMS folder path; the FR page mixes PARAMÈTRES and RÉGLAGES.
+- No guests, no build.
+
+**000000000000. (2026-11-26T12:30Z): round head `30e6ff3db9` (build 11) passes the standard run; step 0's packages PASS by D-RA-054; #1428's page title done.**
 - **Build 11** (`ACCEPTANCE-11.json`, admission consumed; ES route `m7-20261126-bb3f0838f671` = ES `d87891f24`, supplier `.build-runs/m7-rc-round-20261126-03-es/`; launcher `/workspace/tmp/rocknix-session/round-build-11.sh`).
   - **Standard run 8** `qa-30e6ff3db9-webdav-a-20261126-1156`: VERDICT PASS, all 16, empty list; `rc-preflight --only vm-qa` PASS, with the tree head equal to the image's.
 - **rc-preflight in full** (round `59c278448b`, #1462 `issuecomment-7191154307`):
