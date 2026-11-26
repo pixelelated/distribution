@@ -1,0 +1,30 @@
+16:04:04  nothing else is running (no make docker-*, no QEMU guest, no vm-qa)
+16:04:04  set m7-round-x64 head bc81894fa8 (/workspace/repos/rocknix.worktrees/conflict-resolution/.build-runs/build-sets/m7-round-x64.json)
+16:04:04  worktree /workspace/repos/rocknix.worktrees/m7-round-x64-20261125 on build/m7-round-x64-20261125 at a069abd236, fast-forward to bc81894fa8
+16:04:04  --warm: building on build.pixelelated-GENERIC_X64.x86_64
+16:04:04  ES supplier /workspace/repos/rocknix.worktrees/conflict-resolution/.build-runs/m7-rc-round-20261126-04-es/inputs/es/emulationstation-m7-20261126-16a1ec4e624a.tar sha256 matches the recipe (ca783754f56fd3ce...)
+16:04:04  export DOCKER_WORK_DIR=/workspace/repos/rocknix.worktrees/conflict-resolution/.build-runs/m7-candidate-build-20261118-01/checkout
+16:04:04  export DOCKER_EXTRA_OPTS=-v /workspace/repos/rocknix/.git:/workspace/repos/rocknix/.git -v /workspace/cache/rocknix-sources:/workspace/repos/rocknix.worktrees/conflict-resolution/.build-runs/m7-candidate-build-20261118-01/checkout/sources -v /workspace/repos/rocknix.worktrees/conflict-resolution/.build-runs/m7-rc-round-20261126-04-es/inputs/es:/tmp/pix-m7-es-source-delivery-20261126-04:ro -e TMPDIR=/tmp
+16:04:04  replay plan: the union of 15 build log(s): /workspace/repos/rocknix.worktrees/conflict-resolution/.build-runs/m7-pc-43d0bc3b-owner-20261125/submit-01/console.log, /workspace/repos/rocknix.worktrees/conflict-resolution/.build-runs/m7-pc-ee74f157-owner-20261124/submit-03/console.log, /workspace/repos/rocknix.worktrees/conflict-resolution/.build-runs/m7-pc-ee74f157-owner-20261124/submit-04/console.log, /workspace/repos/rocknix.worktrees/conflict-resolution/.build-runs/m7-round-x64-owner-20261125/submit-01/console.log, /workspace/repos/rocknix.worktrees/conflict-resolution/.build-runs/m7-round-x64-owner-20261125/submit-02/console.log, /workspace/repos/rocknix.worktrees/conflict-resolution/.build-runs/m7-round-x64-owner-20261125/submit-03/console.log, /workspace/repos/rocknix.worktrees/conflict-resolution/.build-runs/m7-round-x64-owner-20261125/submit-04/console.log, /workspace/repos/rocknix.worktrees/conflict-resolution/.build-runs/m7-round-x64-owner-20261125/submit-05/console.log, /workspace/repos/rocknix.worktrees/conflict-resolution/.build-runs/m7-round-x64-owner-20261125/submit-06/console.log, /workspace/repos/rocknix.worktrees/conflict-resolution/.build-runs/m7-round-x64-owner-20261125/submit-07/console.log, /workspace/repos/rocknix.worktrees/conflict-resolution/.build-runs/m7-round-x64-owner-20261125/submit-08/console.log, /workspace/repos/rocknix.worktrees/conflict-resolution/.build-runs/m7-round-x64-owner-20261125/submit-09/console.log, /workspace/repos/rocknix.worktrees/conflict-resolution/.build-runs/m7-round-x64-owner-20261125/submit-10/console.log, /workspace/repos/rocknix.worktrees/conflict-resolution/.build-runs/m7-round-x64-owner-20261125/submit-11/console.log, /workspace/repos/rocknix.worktrees/conflict-resolution/.build-runs/m7-round-x64-owner-20261125/submit-12/console.log
+16:04:04  remove /workspace/repos/rocknix.worktrees/m7-rc-round-20261125/build.pixelelated-SM8550.aarch64 (0.0 GiB)
+16:04:04  keep /workspace/repos/rocknix.worktrees/m7-h700-0a3e979e-20261125/target (3.7 GiB): images not on GitHub; released when they are (D-INFRA-037)
+16:04:04  keep /workspace/repos/rocknix.worktrees/m7-h700-0a3e979e-20261125/kept (0.2 GiB): images not on GitHub; released when they are (D-INFRA-037)
+16:04:04  keep /workspace/repos/rocknix.worktrees/m7-pc-0a3e979e-20261124/target (4.0 GiB): images not on GitHub; released when they are (D-INFRA-037)
+16:04:04  keep /workspace/repos/rocknix.worktrees/m7-pc-0a3e979e-20261124/kept (0.2 GiB): images not on GitHub; released when they are (D-INFRA-037)
+16:04:04  keep /workspace/repos/rocknix.worktrees/m7-pc-43d0bc3b-20261125/target (3.9 GiB): images not on GitHub; released when they are (D-INFRA-037)
+16:04:04  keep /workspace/repos/rocknix.worktrees/m7-sm8550-0a3e979e-20261124/target (3.0 GiB): images not on GitHub; released when they are (D-INFRA-037)
+16:04:04  keep /workspace/repos/rocknix.worktrees/m7-sm8550-0a3e979e-20261124/kept (0.2 GiB): images not on GitHub; released when they are (D-INFRA-037)
+16:04:04  owner folder /workspace/repos/rocknix.worktrees/conflict-resolution/.build-runs/m7-round-x64-13-owner
+16:04:06  patch replay GENERIC_X64/x86_64 -> /workspace/repos/rocknix.worktrees/conflict-resolution/.build-runs/m7-round-x64-13-owner/replay-x86_64
+16:15:53  retention report
+16:15:58  admission
+16:15:59  removed /workspace/repos/rocknix.worktrees/m7-rc-round-20261125/build.pixelelated-SM8550.aarch64 (+0.0 GiB free)
+16:16:00  /tmp holds -0.0 GiB (tmpfs pages refill swap after a reclaim)
+16:16:00  swap preflight with reclamation
+16:16:44  submit make docker-GENERIC_X64 from /workspace/repos/rocknix.worktrees/m7-round-x64-20261125
+{"state": "submitted", "pid": 3657990, "owner": "/workspace/repos/rocknix.worktrees/conflict-resolution/.build-runs/m7-round-x64-13-owner/submit-01", "completion": "/workspace/repos/rocknix.worktrees/conflict-resolution/.build-runs/m7-round-x64-13-owner/submit-01/launcher-result.json", "submission_is_not_completion": true}
+16:16:44  submitted; owner /workspace/repos/rocknix.worktrees/conflict-resolution/.build-runs/m7-round-x64-13-owner/submit-01
+16:16:44  launcher-pid.json: {
+  "pid": 3657990,
+  "utc": "2026-11-26T16:16:44.256927+00:00"
+}

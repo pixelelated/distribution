@@ -38,7 +38,7 @@ Only build/m7-* worktrees are ever touched by step 5; M6's and anything else's
 are not read for removal. Exit 0 submitted (or dry run clean), 1 a step
 failed, 2 refused before anything was changed.
 """
-import argparse, datetime, glob, hashlib, json, os, re, shutil, subprocess, sys
+import argparse, datetime, glob, hashlib, json, os, re, shutil, subprocess, sys, time
 from pathlib import Path
 
 PRIMARY = Path('/workspace/repos/rocknix')
@@ -100,6 +100,13 @@ def size(path):
     r = subprocess.run(['du', '-sb', str(path)], capture_output=True, text=True)
     first = r.stdout.split()
     return int(first[0]) if first and first[0].isdigit() else -1
+
+
+def tmp_report(tag):
+    tmp_used = size('/tmp')
+    say(f'{tag}/tmp holds {tmp_used / GIB:.1f} GiB (tmpfs pages refill swap after a reclaim)')
+    if tmp_used > 2 * GIB:
+        say(f'{tag}WARNING: /tmp is over 2 GiB; its pages will refill swap within minutes of the reclaim')
 
 
 def tool(worktree, name):
@@ -321,6 +328,7 @@ def main():
     owner = a.owner_root / f'{name}-owner'
     say(f'{tag}owner folder {owner}')
     if dry:
+        tmp_report(tag)
         say(f'DRY RUN: would run tools/patch-replay for {", ".join(ARCHES[a.device])}' + (f' (already done at {short}: {done})' if done else ''))
         say('DRY RUN: would write the plans, run the retention report and the admission, then make the removals above, '
             f'then the swap preflight, then submit `make docker-{a.device}` from {wt}')
@@ -423,10 +431,7 @@ def main():
         say(f'removed {r} (+{removed[-1]["freed_bytes"] / GIB:.1f} GiB free)')
     (owner / 'REMOVAL.json').write_text(json.dumps({'at': now(), 'removed': removed, 'kept': [str(k) for k in keeps]}, indent=2) + '\n')
 
-    tmp_used = size('/tmp')
-    say(f'/tmp holds {tmp_used / GIB:.1f} GiB (tmpfs pages refill swap after a reclaim)')
-    if tmp_used > 2 * GIB:
-        say('WARNING: /tmp is over 2 GiB; its pages will refill swap within minutes of the reclaim')
+    tmp_report('')
     say('swap preflight with reclamation')
     sh([str(tool(wt, 'build-preflight')), '--reclaim-swap'], cwd=str(wt), out=owner / 'PREFLIGHT-reclaim-swap.txt')
     lines = [l for l in (owner / 'PREFLIGHT-reclaim-swap.txt').read_text().splitlines() if l.strip()]
@@ -441,6 +446,7 @@ def main():
         n += 1
     submit = owner / f'submit-{n:02d}'
     submit.mkdir()
+    started = time.time() - 2
     env = dict(os.environ, **exports)
     say(f'submit make docker-{a.device} from {wt}')
     sh([str(tool(wt, 'watch-build-submit')), '--owner', str(submit), '--', '--admission', str(owner / 'admission.json'),
@@ -451,7 +457,24 @@ def main():
     say(f'submitted; owner {submit}' + (f', launcher result {result}' if result.exists() else ''))
     for pidf in sorted(submit.glob('*pid*.json')):
         say(f'{pidf.name}: {pidf.read_text().strip()[:200]}')
-    state['builds'][a.device] = {'run': str(submit), 'worktree': str(wt), 'at': now()}
+    # The run directory is made by watch-build once the submission starts it:
+    # wait for it (bounded) and name it with its PIDs, so the build can be
+    # watched from here (#1445 criterion 1). Not finding it is said, not hidden.
+    run_dir = None
+    for _ in range(60):
+        fresh = [d for d in (wt / '.build-runs').glob('*') if d.is_dir() and d.stat().st_mtime >= started
+                 and (d / 'build.status').exists()]
+        if fresh:
+            run_dir = max(fresh, key=lambda d: d.stat().st_mtime)
+            break
+        time.sleep(1)
+    if run_dir is None:
+        say(f'WARNING: no run directory appeared under {wt}/.build-runs within a minute; read {submit} for the launch')
+    else:
+        pids = ' '.join(f'{n}={(run_dir / n).read_text().split()[0] if (run_dir / n).exists() and (run_dir / n).read_text().split() else "?"}'
+                        for n in ('build.pid', 'command.pid', 'watcher.pid'))
+        say(f'run directory {run_dir}: {pids}; it ends when {run_dir}/build.rc exists')
+    state['builds'][a.device] = {'run': str(submit), 'run_dir': str(run_dir) if run_dir else None, 'worktree': str(wt), 'at': now()}
     set_file.write_text(json.dumps(state, indent=2) + '\n')
     return 0
 
