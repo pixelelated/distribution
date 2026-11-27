@@ -1,0 +1,49 @@
+PASS  enable starts the installed unit (rc 0)
+PASS  enable saved the guest hardcore value
+PASS  G2-D-01: installed ctl sees the service listener on 8080
+PASS  G2-D-01: installed PPSSPP reader sees the listener
+PASS  S-26: the service owns 127.0.0.1:8080 and no IPv6 listener on 8080
+PASS  PL-013: running pass publishes route=images
+PASS  PL-30: disable during admitted work returns 75 (rc 75)
+PASS  PL-30: refusal came from this request reaching BUSY in the owner
+PASS  PL-30: busy refusal keeps the service PID, marker and three flags
+PASS  PL-013: the image helper retains the admission descriptor across refusal
+PASS  PL-013: progress is still present after refusal
+PASS  PL-30: busy refusal publishes no completion stamp
+PASS  PL-013: releasing the image helper completes the installed images command
+PASS  PL-013: finished images removes progress and releases both locks
+PASS  F-RA-18: this disable recorded a failed write before a successful recovery write
+PASS  F-RA-18: disable reports completion only after recovery (rc 0)
+PASS  F-RA-18: disable restores saved hardcore, then leaves no saved flag
+PASS  F-RA-18: committed disable retires the marker and service
+PASS  #1467: the settings write and its ExecStopPost retry both fail
+PASS  #1467: the double-failure operation has a terminal outcome (phase RESTORED)
+PASS  #1467: the service and marker agree with the preference after both writes fail (1|0|0, active)
+  why: the submit ended rc 7
+FAIL  #1467: a later disable commits and restores hardcore once writes are possible (submit rc 7)
+  state: owner active pid 2909 job ""; raofflineproxy.service active; flags enabled=1 hardcore=0 was=0 ; marker present
+  pointer: {"boot":"c0a3af6c-eff0-45da-80e9-e4f98b5931b6","id":"a6a0c4ebaee35aa6cc7b6634bd5fcc48"} 
+  journal: [    6.610108] GENERIC-X64-15ca systemd[1]: raofflineproxy.service skipped, unmet condition check ConditionPathExists=/storage/.cache/services/raofflineproxy.conf
+  journal: [   18.797360] GENERIC-X64-15ca systemd[1]: Started raofflineproxy-lifecycle-owner.service.
+  journal: [   19.047931] GENERIC-X64-15ca systemd[1]: Starting raofflineproxy.service...
+  journal: [   20.075373] GENERIC-X64-15ca systemd[1]: Started raofflineproxy.service.
+  journal: [   20.562630] GENERIC-X64-15ca systemd[1]: raofflineproxy-lifecycle-owner.service: Deactivated successfully.
+  journal: [   20.856086] GENERIC-X64-15ca systemd[1]: Started raofflineproxy-lifecycle-owner.service.
+  journal: [   21.019978] GENERIC-X64-15ca systemd[1]: raofflineproxy-lifecycle-owner.service: Deactivated successfully.
+  journal: [   21.362334] GENERIC-X64-15ca systemd[1]: Started raofflineproxy-lifecycle-owner.service.
+  journal: [   22.063177] GENERIC-X64-15ca systemd[1]: raofflineproxy.service: Deactivated successfully.
+  journal: [   22.210797] GENERIC-X64-15ca systemd[1]: raofflineproxy-lifecycle-owner.service: Main process exited, code=exited, status=1/FAILURE
+  journal: [   22.478324] GENERIC-X64-15ca systemd[1]: raofflineproxy-lifecycle-owner.service: Failed with result 'exit-code'.
+  journal: [   22.714644] GENERIC-X64-15ca systemd[1]: Started raofflineproxy-lifecycle-owner.service.
+  journal: [   22.868939] GENERIC-X64-15ca systemd[1]: Starting raofflineproxy.service...
+  journal: [   23.893717] GENERIC-X64-15ca systemd[1]: Started raofflineproxy.service.
+  journal: [   24.200654] GENERIC-X64-15ca systemd[1]: raofflineproxy-lifecycle-owner.service: Deactivated successfully.
+  journal: [   24.375779] GENERIC-X64-15ca systemd[1]: Started raofflineproxy-lifecycle-owner.service.
+  journal: [   24.973031] GENERIC-X64-15ca systemd[1]: raofflineproxy.service: Deactivated successfully.
+  journal: [   25.098507] GENERIC-X64-15ca systemd[1]: raofflineproxy-lifecycle-owner.service: Main process exited, code=exited, status=1/FAILURE
+  journal: [   25.233658] GENERIC-X64-15ca systemd[1]: Starting raofflineproxy.service...
+  journal: [   26.259949] GENERIC-X64-15ca systemd[1]: Started raofflineproxy.service.
+  journal: [   26.408321] GENERIC-X64-15ca systemd[1]: raofflineproxy-lifecycle-owner.service: Failed with result 'exit-code'.
+  journal: [   26.731359] GENERIC-X64-15ca systemd[1]: Started raofflineproxy-lifecycle-owner.service.
+CANNOT RESTORE  guest fixture or lifecycle state needs attention (/tmp/raofflineproxy-lifecycle-test.OPwlcW)
+FAILED

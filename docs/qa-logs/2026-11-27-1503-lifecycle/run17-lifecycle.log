@@ -1,0 +1,24 @@
+PASS  enable starts the installed unit (rc 0)
+PASS  enable saved the guest hardcore value
+PASS  G2-D-01: installed ctl sees the service listener on 8080
+PASS  G2-D-01: installed PPSSPP reader sees the listener
+PASS  S-26: the service owns 127.0.0.1:8080 and no IPv6 listener on 8080
+PASS  PL-013: running pass publishes route=images
+PASS  PL-30: disable during admitted work returns 75 (rc 75)
+PASS  PL-30: refusal came from this request reaching BUSY in the owner
+PASS  PL-30: busy refusal keeps the service PID, marker and three flags
+PASS  PL-013: the image helper retains the admission descriptor across refusal
+PASS  PL-013: progress is still present after refusal
+PASS  PL-30: busy refusal publishes no completion stamp
+PASS  PL-013: releasing the image helper completes the installed images command
+PASS  PL-013: finished images removes progress and releases both locks
+PASS  F-RA-18: this disable recorded a failed write before a successful recovery write
+PASS  F-RA-18: disable reports completion only after recovery (rc 0)
+PASS  F-RA-18: disable restores saved hardcore, then leaves no saved flag
+PASS  F-RA-18: committed disable retires the marker and service
+PASS  #1467: the settings write and its ExecStopPost retry both fail
+PASS  #1467: the double-failure operation has a terminal outcome (phase RESTORED)
+PASS  #1467: the service and marker agree with the preference after both writes fail (1|0|0, active)
+FAIL  #1467: a later disable commits and restores hardcore once writes are possible (submit rc 0)
+CANNOT RESTORE  guest fixture or lifecycle state needs attention (/tmp/raofflineproxy-lifecycle-test.edRYfg)
+FAILED
