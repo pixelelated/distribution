@@ -209,7 +209,17 @@ put_s34() {
 steps_s35() { hub; echo "shot hub-syncs-on"; down 8; open; echo "wait 20"; echo "settle 60 3"; down 8; echo "shot setup-check-syncs-on"; }
 arm_s35() { S 'set_setting cloudsaves.startup 1 && set_setting cloudsaves.gameexit 1 && echo "startup=$(get_setting cloudsaves.startup) gameexit=$(get_setting cloudsaves.gameexit)"'; }
 put_s35() { S 'set_setting cloudsaves.startup 0; set_setting cloudsaves.gameexit 0; echo "startup=$(get_setting cloudsaves.startup) gameexit=$(get_setting cloudsaves.gameexit)"'; }
-SCREENS="s01 s02 s03 s04 s05 s06 s07 s08 s09 s10 s11 s12 s13 s14 s15 s16 s17 s18 s19 s20 s21 s22 s23 s24 s25 s26 s27 s28 s29 s30 s31 s32 s33 s34 s35"
+# s36: #1497. #1489's state (qa-ext added behind the module), then the hub's BACK UP TO CLOUD with saves alone
+# ticked: the picker, its verb focused, the confirmation, and the transfer page's end. The scripts refuse the run
+# before any file moves (selection_reason); the last frame shows whether the page offers TRY AGAIN. The page
+# stays open, so the guest is rebooted after it.
+steps_s36() { hub; open; echo "shot picker"; echo "key up"; echo "wait-for-change 4"; echo "key right"; echo "wait-for-change 4"; echo settle; echo "shot verb-focused"; open; echo "shot confirm"; open; echo "wait 5"; echo "settle 90 3"; echo "shot transfer-end"; }
+arm_s36() { S 'python3 /storage/m7-qa-d/conn.py add-ext >/dev/null && for k in settings content media; do set_setting cloudsync.pick.backup.$k 0; done; set_setting cloudsync.pick.backup.saves 1; echo "picks: saves=$(get_setting cloudsync.pick.backup.saves) settings=$(get_setting cloudsync.pick.backup.settings) content=$(get_setting cloudsync.pick.backup.content) media=$(get_setting cloudsync.pick.backup.media)"; cloud_remote setup-info | grep -E "^STATE="'; }
+put_s36() {
+    S 'python3 /storage/m7-qa-d/conn.py remove-ext; cloud_remote list | cut -f1,2'
+    reboot_guest   # the transfer page stays open until dismissed; the next screen starts from a fresh boot
+}
+SCREENS="s01 s02 s03 s04 s05 s06 s07 s08 s09 s10 s11 s12 s13 s14 s15 s16 s17 s18 s19 s20 s21 s22 s23 s24 s25 s26 s27 s28 s29 s30 s31 s32 s33 s34 s35 s36"
 [ -n "$only" ] && SCREENS=${only//,/ }
 
 log "== #1111/#1115 phase D at $res, $(date -u +%FT%TZ)"

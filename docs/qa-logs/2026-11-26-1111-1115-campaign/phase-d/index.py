@@ -110,9 +110,11 @@ SCREENS = {
     "s33": ("qa-cloud's url moved to a port nothing answers, behind the module; then CHECK CLOUD SETUP",
             "CONNECTION CHECK reads COULDN'T REACH THIS CONNECTION. CHECK WI-FI OR SIGN IN AGAIN. on one line (#1493)", ["1493 c1", "1493 c3"]),
     "s34": ("#1489's state with SYNC SAVES DURING STARTUP on, then ES restarted: a burst of 40 frames over the startup sync",
-            "the startup sync's card ends COULDN'T FINISH with YOUR CLOUD CONNECTIONS CHANGED... (#1492), in French in French", ["1492 c2"]),
+            "the startup sync's card ends COULDN'T FINISH with YOUR CLOUD CONNECTIONS CHANGED... (#1492), and in French", ["1492 c2"]),
     "s35": ("both automatic syncs on, the hub's toggles, then CLOUD SETUP CHECK's two sync facts",
             "both facts show their whole label and ON in French at 640x480 (#1494); the hub's toggles read the same words", ["1494 c1", "1494 c2"]),
+    "s36": ("#1489's state, then the hub's BACK UP TO CLOUD with saves alone: the picker, its verb, the confirmation and the transfer page's end",
+            "the run is refused with YOUR CLOUD CONNECTIONS CHANGED; before #1497's fix the page offers TRY AGAIN, after it the note names where to act and only CLOSE is offered", ["1497 c1", "1497 c2"]),
     "s24": ("LINK FROM THIS DEVICE, WEBDAV, then back on the provider form",
             "where the add-a-connection wizard lands on back, unchanged by #1483", ["1483 c3"]),
 }

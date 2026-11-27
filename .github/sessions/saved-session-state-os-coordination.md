@@ -8,6 +8,28 @@ Read the [M7 milestone](https://github.com/pixelelated/distribution/milestone/7)
 
 ## Current focus
 
+**0000000000000000000000000. Newest (2026-11-27T04:56Z): build 20 (PC, cold, `1d3c0c735e`) is accepted; phase D on it passed; #1495 is closed; #1497 is filed and fixed on the ES branch but not routed. The proof chain runs: walks, then standard run 14.**
+- **Build 20:** run `20261127T012429Z-dad9fcb9`, 01:24 to 04:30Z, rc 0; ACCEPTANCE-20 written and the admission consumed (`2e93b61a…`); records in `docs/qa-logs/2026-11-26-1445-device-build/build20/`.
+  - Its version reads `.dirty`. The cause was an untracked `kept/` that `tools/device-build` wrote into the build worktree (#1496). The tool is fixed on next (`a41d72357c`): the keep goes under `.build-runs/kept/`, and step 2 refuses an unclean worktree. Build 19's leftover is removed.
+  - Build 20 serves the VM proofs, not publication.
+  - Still owed for #1496: a dry-run proof. Step 0 refuses even a dry run while guests are up.
+- **Phase D on build 20** (`416aabe9d2`): s34 shows #1495's card naming where to act, in EN and FR. s31, s13 and s35 hold, and French settings rows read PARAMÈTRES. #1495 is closed with its trace.
+- **#1497** (filed 04:46Z): the transfer page offers TRY AGAIN for a refusal only the player can fix. The fix is ES `4a93c079d3` (`CloudText::playerFix`, 195 of 195 unit tests, es-syntax-check PASS), **unrouted**.
+- **Running:**
+  - chain pid 3157684 (`/workspace/tmp/rocknix-session/b20-chain.sh`, rc files in `b20-chain/`): phase D (done, rc 0), walks-640, walks-1280, standard-14;
+  - s36 runner pid 3350581 (`b20-s36.sh`, output in `b20-s36/`): waits for `chain.rc`, then runs phase D s36 on build 20 for #1497 c1, writing `phase-d/build20-640x480-s36`;
+  - patch replay pid 3175280 (`patch-replay-round-1d3c0c735e/`), for SM8550 and H700, both ABIs, at nice 19;
+  - a read-only agent classifying D-WORKFLOW-175..182's citations into `/workspace/tmp/rocknix-session/1463-c2-classification.md`.
+- **#1463:** criterion 1 is 29 of 39 (D-INFRA-048, with the rekey recorded as D-INFRA-049; `5da31ec397`).
+- **Traces posted:** #1448, #1459, and #1422's headphone half.
+- **Next:**
+  1. Read the walks' frames for #1478 criterion 2 at both sizes.
+  2. Standard run 14, then `rc-preflight --only vm-qa`, then a note on #1465.
+  3. The s36 frames for #1497 c1.
+  4. The `device-build --dry-run` proof for #1496.
+  5. **Route 12:** ES `4a93c079d3` (#1497), plus #1477's change if Max has answered. Then a warm PC build 21, s36's after-frames and standard run 15.
+  6. H700, then SM8550, cold from route 12's head (D-INFRA-043). The handhelds wait for route 12, because #1497 is an M7 bug that moves the head.
+
 **000000000000000000000000. Newest (2026-11-27T01:25Z): #1478 item 2 answered (PARAMÈTRES, D-UI-147). The H700 build of `fd8dadd564` was stopped on purpose. The PC image is building cold from route 11's head `1d3c0c735e`.**
 - **Max's word** (via the steward, 01:16Z): "We're just using French for testing. Let's just see what the most common word is online. I really don't know."
   - The steward's search gave Paramètres.
