@@ -1,0 +1,39 @@
+{
+ "record": "ACCEPTANCE",
+ "written_utc": "2026-11-27T07:44Z",
+ "issue": [
+  1497,
+  1498,
+  1463,
+  1496
+ ],
+ "run": "/workspace/repos/rocknix.worktrees/m7-round-x64-20261125/.build-runs/20261127T073955Z-4dd7f52c",
+ "disposition": "qualified",
+ "expected_rc": 0,
+ "outputs": [
+  {
+   "path": "/workspace/repos/rocknix.worktrees/m7-round-x64-20261125/build.pixelelated-GENERIC_X64.x86_64",
+   "issue": 1445,
+   "kind": "build-cache",
+   "owner": "OS work coordinator",
+   "release_when": "the next build of the set starts, or its images are on GitHub (D-INFRA-033/036/037)"
+  },
+  {
+   "path": "/workspace/repos/rocknix.worktrees/m7-round-x64-20261125/target",
+   "issue": 1445,
+   "kind": "firmware",
+   "owner": "OS work coordinator",
+   "release_when": "its images are on GitHub, or a newer build of the set supersedes it (D-INFRA-036/037)"
+  }
+ ],
+ "evidence": [
+  {
+   "path": "/workspace/repos/rocknix.worktrees/conflict-resolution/.build-runs/m7-round-x64-21-owner/acceptance/image-reads-21.txt",
+   "sha256": "0a3d220672f2219aca064ea91d47f5a481a2a7678a834a364404cbd9be6cc6dd"
+  }
+ ],
+ "head": "2479f6f2e8ac646d5dc25dbeb4068831010efaa8",
+ "admission": "4f4d23b9c9124317a1a520a31ca62f80",
+ "scope": "build-level acceptance of the round's GENERIC_X64 engineering image at 2479f6f2e8 (warm, route 12): rc 0, processes exited, checksums verified, BUILD_ID = head, no .dirty (#1496 c4), EmulationStation from route m7-20261126-1004de647320 (ES 480efb93d: #1497), suite-1428 split (#1498), the register as next's (#1463). Supersedes build 20's image. Not a VM qualification.",
+ "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261127T073957Z.g2479f6f2e8ac-from-ROCKNIX"
+}
