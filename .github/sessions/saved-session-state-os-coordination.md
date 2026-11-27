@@ -8,6 +8,27 @@ Read the [M7 milestone](https://github.com/pixelelated/distribution/milestone/7)
 
 ## Current focus
 
+**00000000000000000000000. Newest (2026-11-27T00:38Z): standard run 13 on build 19 passed 15 of 16 suites. The register fault is fixed in round `fd8dadd564`. H700 cold is building from `fd8dadd564`.**
+- **Run 13:** report `/workspace/artifacts/rocknix-images/qa-a267c139b1-webdav-a-20261127-0000/report.md`.
+  - The one failure was register: `MISSING D-CLOUD-194`, because the round's register copy predated the row.
+  - Fixed by copying the row verbatim (`fd8dadd564`); `tools/register-check` on the round passes.
+  - Recorded on #1465. The guests are down, and the run's guest disks in /tmp are removed.
+- **H700:**
+  - owner `.build-runs/m7-round-h700-fd8dadd5-owner`;
+  - worktree `/workspace/repos/rocknix.worktrees/m7-round-h700-fd8dadd5`;
+  - run `20261127T003711Z-eb7dd594`, build pid 3775796, command pid 3776113, watcher pid 3775797;
+  - started 00:37Z, and the waiter delivers `build.rc`;
+  - the x64 root is removed (+120.6 GiB), its ES binary kept under `m7-round-x64-20261125/kept/`.
+- **When H700 ends:**
+  - read every result channel; check the DDR3, DDR4 and update tar hashes; image reads (os-release BUILD_ID `fd8dadd564…`, the ES strings, the French catalog);
+  - write ACCEPTANCE and consume the admission;
+  - then SM8550 cold from the same head (`--device SM8550 --commit fd8dadd564 --set m7-round-x64 --name m7-round-sm8550-fd8dadd5`, ES supplier route 10).
+- **Pending into the next head:**
+  - #1495's ES commit `a8107f028` (not in route 10);
+  - Max's #1478 word.
+
+  When they land: a new route, then all three images rebuilt cold from the final head, last (D-INFRA-043), and the standard run on the PC image.
+
 **0000000000000000000000. Newest (2026-11-27T00:01Z): #1492, #1493 and #1494 closed; build 19 (`a267c139b1`) is the round's head and PC image; standard run 13 on it is running; H700 cold follows.**
 - **Builds:**
   - 18: `4753d00e8e`, route 09, ES `4ef2a8dac`.
