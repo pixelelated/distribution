@@ -45,3 +45,17 @@ This is the state **before** the fixes. The fixes are ES `57a2357d3` (#1501) and
 - **The top-up with a refused token is not exercised here.** The client's recently played pass contacted nothing and ended rc 0, even with one RetroArch history entry for a seeded ROM written by hand. The fix reads the client's `rejected the login` in that pass too, but no run has shown it there. It is named in #1502's trace.
 
 The fixed image (route 14) is proved with `tools/vm-walks/ra-refusal-outcomes`, the promoted driver. It checks each case's stamp and fails on a wrong one.
+
+## Build 23: the fixes (route 14, round `5bd8ad6dc0`)
+
+**The check fails on the unfixed image.** `tools/vm-walks/ra-refusal-outcomes` on build 22, in EN, ended FAILED. It wanted SIGN_IN_REFUSED at token-401 and got RETROACHIEVEMENTS_STOPPED_ANSWERING; password-401 and the 503 control passed (`build22-driver-RESULT.txt`).
+
+**On build 23 it passes.** The same driver, EN and FR, 18:22 to 18:31 UTC, ended **PASSED**: all six cases stamped their expected why (`build23/RESULT.txt`, with each case's scan-log lines).
+
+| Case | The page on build 23 |
+| --- | --- |
+| password-401, token-401 (EN) | COULDN'T FINISH / RETROACHIEVEMENTS DIDN'T ACCEPT YOUR SIGN-IN / SIGN IN AGAIN: GAME SETTINGS > RETROACHIEVEMENTS SETTINGS, with **CLOSE alone** |
+| password-401, token-401 (FR) | N'A PAS PU SE TERMINER / RETROACHIEVEMENTS N'A PAS ACCEPTÉ VOTRE CONNEXION / PARAMÈTRES DES JEUX > PARAMÈTRES RETROACHIEVEMENTS, with **FERMER alone**. The long line does not fit at 640x480, so the short form shows, unclipped. |
+| token-503, the control (EN, FR) | RETROACHIEVEMENTS STOPPED ANSWERING / NE RÉPOND PLUS, with CLOSE · TRY AGAIN and FERMER · RÉESSAYER |
+
+Frames: `build23/frames/`. They are indexed in `evidence-index.json` as `build23-*`.

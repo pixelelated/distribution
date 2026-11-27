@@ -162,6 +162,7 @@ both lists and to this table, or it is invisible.**
 | `test-drive-check`, `test-drive-check-test` | does a fork commit that changes a product path a test drives (`docs/qa/test-drives.txt`) change that test or name the run that covers it; a gate line of `ceremony-check` (D-QA-066, #1468) | `engineering-practices.md`, `ceremonies.md` |
 | `frame-diff` | did this build change any walk frame it did not mean to -- the boxes against the last accepted cut, the masks, the claims | `generic-x64-vm-testing.md` |
 | `work-log-entry` | append today's work-log entry with its heading's time read from the clock as it is written; refuses a title naming no issue (#1464) | `learning-capture.md` |
+| `issue-file` | file an issue on the fork with its found-time filled from the clock (`{{NOW}}`, `{{DATE}}`); refuses a typed filing or finding time, and a body the wordlist check refuses (#1464) | `issue-tracking.md` |
 | `work-log-index` | the day, week and month table of contents over the work logs, regenerated after every entry | `learning-capture.md` |
 | `coordinator-escalation` | planned work stopped: write an actionable notice to the steward's inbox (never a pane), independently of routine monitor ACKs | `engineering-practices.md` |
 | `coordinator-escalation-test` | controlled stopped-work, inbox-file, pane-refusal, delivery-failure and receipt-state checks | `engineering-practices.md` |

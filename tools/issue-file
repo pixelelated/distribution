@@ -1,0 +1,48 @@
+#!/bin/bash
+# SPDX-License-Identifier: GPL-2.0
+# Copyright (C) 2026-present ROCKNIX (https://github.com/ROCKNIX)
+#
+# issue-file -- file an issue on the fork with its found-time read from the
+# clock as it is filed (#1464).
+#
+#   tools/issue-file --title "<title>" [--label L]... [--milestone M] [--dry-run] < body.md
+#
+# The body may carry {{NOW}} (HH:MM, UTC) and {{DATE}} (YYYY-MM-DD, UTC); both
+# are filled from one reading of `date -u` just before `gh issue create`. A body
+# that types its own filing or finding time ("filed at 23:50", "found at about
+# 04:31") is refused: three issue bodies on 2026-11-27 carried a typed time
+# that the clock contradicted (#1496, #1497, #1503), and the prose rule to take
+# it from `date -u` did not hold. Times of other events (a run's start, a
+# log line) are the writer's to cite and are left alone. The filled body is
+# read against the fork's wordlist before it is sent.
+# --dry-run prints the filled body instead of filing it.
+# Exit 0 filed (the URL printed), 1 refused, 2 cannot run.
+set -uo pipefail
+ROOT=$(cd "$(dirname "$0")/.." && pwd)
+title= args=() dry=0
+[ "${*: -1}" = --dry-run ] && { dry=1; set -- "${@:1:$#-1}"; }
+while [ "$#" -ge 2 ]; do
+    case "$1" in
+        --title) title=$2 ;;
+        --label) args+=(--label "$2") ;;
+        --milestone) args+=(--milestone "$2") ;;
+        *) echo 'usage: issue-file --title T [--label L]... [--milestone M] [--dry-run] < body.md' >&2; exit 2 ;;
+    esac
+    shift 2
+done
+[ "$#" = 0 ] && [ -n "$title" ] || { echo 'usage: issue-file --title T [--label L]... [--milestone M] [--dry-run] < body.md' >&2; exit 2; }
+[ -t 0 ] && { echo 'issue-file: the body comes on stdin' >&2; exit 2; }
+body=$(cat) || exit 2
+[ -n "${body//[[:space:]]/}" ] || { echo 'issue-file: the body is empty' >&2; exit 2; }
+typed=$(grep -n -i -E '\b(filed|found|seen)\b[^.]{0,40}\bat (about |around |roughly )?([01][0-9]|2[0-3]):[0-5][0-9]' <<< "$body")
+if [ -n "$typed" ]; then
+    echo 'issue-file: refused -- a typed filing or finding time; write {{NOW}} and let the clock fill it:' >&2
+    printf '  %s\n' "$typed" >&2
+    exit 1
+fi
+read -r now day < <(date -u '+%H:%M %Y-%m-%d')
+body=${body//\{\{NOW\}\}/$now}
+body=${body//\{\{DATE\}\}/$day}
+"$ROOT/tools/forbidden-terms-check" --stdin <<< "$body" >/dev/null || { echo 'issue-file: refused by the wordlist check (tools/forbidden-terms-check)' >&2; exit 1; }
+[ "$dry" = 1 ] && { printf '%s\n' "$body"; exit 0; }
+gh issue create --repo pixelelated/distribution --title "$title" "${args[@]}" --body-file - <<< "$body"

@@ -23,6 +23,13 @@ Example:
 gh issue create --repo pixelelated/distribution --title "..." --body-file notes.md
 ```
 
+**A body that says when its work was found or filed takes the time from the
+clock.** Write `{{NOW}}` (and `{{DATE}}`) and file with
+`tools/issue-file --title "..." < body.md`, which fills them from `date -u` as
+it files, refuses a typed "found at HH:MM" or "filed at HH:MM", and reads the
+body against the wordlist first. Three bodies on 2026-11-27 carried a typed
+time the clock contradicted (#1464).
+
 ## Structure: Milestone → Epic → Issue (established 2026-08-18)
 
 - **Milestones** carry a program's acceptance test in their description (e.g.

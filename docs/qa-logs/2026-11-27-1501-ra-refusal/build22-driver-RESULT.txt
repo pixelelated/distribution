@@ -1,0 +1,5 @@
+== ra-refusal-outcomes 2026-11-27T18:09:02Z on "a2e853e14cb9bbc6c0b85866c94cdb2279d1e6c8"
+PASS en password-401: walk rc 0, stamp why SIGN_IN_REFUSED (want SIGN_IN_REFUSED); frames en/password-401/
+FAIL en token-401: walk rc 0, stamp why RETROACHIEVEMENTS_STOPPED_ANSWERING (want SIGN_IN_REFUSED); frames en/token-401/
+PASS en token-503: walk rc 0, stamp why RETROACHIEVEMENTS_STOPPED_ANSWERING (want RETROACHIEVEMENTS_STOPPED_ANSWERING); frames en/token-503/
+FAILED

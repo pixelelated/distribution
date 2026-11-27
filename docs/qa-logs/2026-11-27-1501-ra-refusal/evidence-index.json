@@ -454,6 +454,156 @@
     "observed": "as expected (the defect)",
     "date": "2026-11-27"
    }
+  },
+  {
+   "flow_id": "offline-achievements-scan",
+   "branch_id": "build23-en-password-401-result",
+   "document": "docs/es-menu-map.md",
+   "anchor": "retroachievements-our-rows",
+   "trigger": "a password with no cached sign-in, stand-in 401; SCAN GAMES, YES",
+   "expected_state": "COULDN'T FINISH / RETROACHIEVEMENTS DIDN'T ACCEPT YOUR SIGN-IN / SIGN IN AGAIN: GAME SETTINGS > RETROACHIEVEMENTS SETTINGS; CLOSE alone",
+   "source": {
+    "es": "57a2357d39106cf9a8db0ba832d3d14d656e9534 (local m7/rc-round-es-20261125, route 14)",
+    "distribution": "5bd8ad6dc02b (local build/m7-rc-round-20261125, build 23)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261127T181635Z.g5bd8ad6dc02b-from-ROCKNIX",
+    "walk": "tools/vm-walks/ra-refusal-outcomes at round 5bd8ad6dc0"
+   },
+   "locale": "en",
+   "width": 640,
+   "height": 480,
+   "frame": "build23/frames/en-password-401-result.png",
+   "sha256": "aee5e226db5578b3a83d50f25a5766d7230df41cc106df9191d39323711036e5",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "as expected (fixed)",
+    "date": "2026-11-27"
+   }
+  },
+  {
+   "flow_id": "offline-achievements-scan",
+   "branch_id": "build23-en-token-401-result",
+   "document": "docs/es-menu-map.md",
+   "anchor": "retroachievements-our-rows",
+   "trigger": "a token, stand-in 401; SCAN GAMES, YES",
+   "expected_state": "the same as password-401: the refused token is said as a refused sign-in (#1502), CLOSE alone",
+   "source": {
+    "es": "57a2357d39106cf9a8db0ba832d3d14d656e9534 (local m7/rc-round-es-20261125, route 14)",
+    "distribution": "5bd8ad6dc02b (local build/m7-rc-round-20261125, build 23)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261127T181635Z.g5bd8ad6dc02b-from-ROCKNIX",
+    "walk": "tools/vm-walks/ra-refusal-outcomes at round 5bd8ad6dc0"
+   },
+   "locale": "en",
+   "width": 640,
+   "height": 480,
+   "frame": "build23/frames/en-token-401-result.png",
+   "sha256": "f95689585d9db71c4381dfef91ed9cb5b6627cebdc88351efb4baafb86526453",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "as expected (fixed)",
+    "date": "2026-11-27"
+   }
+  },
+  {
+   "flow_id": "offline-achievements-scan",
+   "branch_id": "build23-en-token-503-result",
+   "document": "docs/es-menu-map.md",
+   "anchor": "retroachievements-our-rows",
+   "trigger": "a token, stand-in 503; SCAN GAMES, YES",
+   "expected_state": "COULDN'T FINISH / RETROACHIEVEMENTS STOPPED ANSWERING; CLOSE and TRY AGAIN (the control)",
+   "source": {
+    "es": "57a2357d39106cf9a8db0ba832d3d14d656e9534 (local m7/rc-round-es-20261125, route 14)",
+    "distribution": "5bd8ad6dc02b (local build/m7-rc-round-20261125, build 23)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261127T181635Z.g5bd8ad6dc02b-from-ROCKNIX",
+    "walk": "tools/vm-walks/ra-refusal-outcomes at round 5bd8ad6dc0"
+   },
+   "locale": "en",
+   "width": 640,
+   "height": 480,
+   "frame": "build23/frames/en-token-503-result.png",
+   "sha256": "7e6792e20c7e50648a9328073fd68c6452ec84ff84cf895076aa1a79a535de04",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "as expected (control)",
+    "date": "2026-11-27"
+   }
+  },
+  {
+   "flow_id": "offline-achievements-scan",
+   "branch_id": "build23-fr-password-401-result",
+   "document": "docs/es-menu-map.md",
+   "anchor": "retroachievements-our-rows",
+   "trigger": "a password with no cached sign-in, stand-in 401; SCAN GAMES, YES",
+   "expected_state": "N'A PAS PU SE TERMINER / RETROACHIEVEMENTS N'A PAS ACCEPT\u00c9 VOTRE CONNEXION / PARAM\u00c8TRES DES JEUX > PARAM\u00c8TRES RETROACHIEVEMENTS (the short form: the long one does not fit); FERMER alone",
+   "source": {
+    "es": "57a2357d39106cf9a8db0ba832d3d14d656e9534 (local m7/rc-round-es-20261125, route 14)",
+    "distribution": "5bd8ad6dc02b (local build/m7-rc-round-20261125, build 23)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261127T181635Z.g5bd8ad6dc02b-from-ROCKNIX",
+    "walk": "tools/vm-walks/ra-refusal-outcomes at round 5bd8ad6dc0"
+   },
+   "locale": "fr",
+   "width": 640,
+   "height": 480,
+   "frame": "build23/frames/fr-password-401-result.png",
+   "sha256": "01079de3c598e619f59677b3e7d7d5760149135dbd721b1d9fb3b651eb3e5c32",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "as expected (fixed)",
+    "date": "2026-11-27"
+   }
+  },
+  {
+   "flow_id": "offline-achievements-scan",
+   "branch_id": "build23-fr-token-401-result",
+   "document": "docs/es-menu-map.md",
+   "anchor": "retroachievements-our-rows",
+   "trigger": "a token, stand-in 401; SCAN GAMES, YES",
+   "expected_state": "the same as password-401, FERMER alone",
+   "source": {
+    "es": "57a2357d39106cf9a8db0ba832d3d14d656e9534 (local m7/rc-round-es-20261125, route 14)",
+    "distribution": "5bd8ad6dc02b (local build/m7-rc-round-20261125, build 23)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261127T181635Z.g5bd8ad6dc02b-from-ROCKNIX",
+    "walk": "tools/vm-walks/ra-refusal-outcomes at round 5bd8ad6dc0"
+   },
+   "locale": "fr",
+   "width": 640,
+   "height": 480,
+   "frame": "build23/frames/fr-token-401-result.png",
+   "sha256": "152543ef10f8883b643082a8536891a25d4a253e01e11255ffa3d7268275cf46",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "as expected (fixed)",
+    "date": "2026-11-27"
+   }
+  },
+  {
+   "flow_id": "offline-achievements-scan",
+   "branch_id": "build23-fr-token-503-result",
+   "document": "docs/es-menu-map.md",
+   "anchor": "retroachievements-our-rows",
+   "trigger": "a token, stand-in 503; SCAN GAMES, YES",
+   "expected_state": "N'A PAS PU SE TERMINER / RETROACHIEVEMENTS NE R\u00c9POND PLUS; FERMER and R\u00c9ESSAYER (the control)",
+   "source": {
+    "es": "57a2357d39106cf9a8db0ba832d3d14d656e9534 (local m7/rc-round-es-20261125, route 14)",
+    "distribution": "5bd8ad6dc02b (local build/m7-rc-round-20261125, build 23)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261127T181635Z.g5bd8ad6dc02b-from-ROCKNIX",
+    "walk": "tools/vm-walks/ra-refusal-outcomes at round 5bd8ad6dc0"
+   },
+   "locale": "fr",
+   "width": 640,
+   "height": 480,
+   "frame": "build23/frames/fr-token-503-result.png",
+   "sha256": "3bc06e6cf58739d0a7685046138a4388fd2eca5537e2b5ec787e1398ac991648",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "as expected (control)",
+    "date": "2026-11-27"
+   }
   }
  ]
 }
