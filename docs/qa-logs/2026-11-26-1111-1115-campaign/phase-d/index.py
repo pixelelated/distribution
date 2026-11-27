@@ -113,8 +113,8 @@ SCREENS = {
             "the startup sync's card ends COULDN'T FINISH with YOUR CLOUD CONNECTIONS CHANGED... (#1492), and in French", ["1492 c2"]),
     "s35": ("both automatic syncs on, the hub's toggles, then CLOUD SETUP CHECK's two sync facts",
             "both facts show their whole label and ON in French at 640x480 (#1494); the hub's toggles read the same words", ["1494 c1", "1494 c2"]),
-    "s36": ("#1489's state, then the hub's BACK UP TO CLOUD with saves alone: the picker, its verb, the confirmation and the transfer page's end",
-            "the run is refused with YOUR CLOUD CONNECTIONS CHANGED; before #1497's fix the page offers TRY AGAIN, after it the note names where to act and only CLOSE is offered", ["1497 c1", "1497 c2"]),
+    "s36": ("#1489's state, then the hub's BACK UP TO CLOUD: the folder scan it runs first (CHECKING YOUR CLOUD)",
+            "the scan is refused with YOUR CLOUD CONNECTIONS CHANGED; before #1497's fix the page offers CLOUD FOLDERS and clips the why, after it the note names where to act, the why's first clause is whole and only CLOSE is offered", ["1497 c1", "1497 c2"]),
     "s24": ("LINK FROM THIS DEVICE, WEBDAV, then back on the provider form",
             "where the add-a-connection wizard lands on back, unchanged by #1483", ["1483 c3"]),
 }
@@ -132,6 +132,9 @@ FAILED = {"1280x800/fr/s13": "walk rc 3: the key up after the setup check was no
 FAILED.update({f"build14/640x480/{lang}/s19": "arm failed: adding qa-two could not be verified right after s15 (s19.arm.log); the walk ran on regardless, opened MEGA's form and pressed CONNECT. The driver now skips the walk of a screen whose arm failed" for lang in ("en", "fr")})
 FAILED["build15/640x480/fr/s29"] = ("walk went astray: the English pass had left a profile store, so qa-oauth added behind it read as review-folders (#1489); "
                                       "the extra row moved the cursor to qa-cloud and the walk opened its EDIT form (nothing saved). Redone alone in build15-640x480-b")
+FAILED.update({f"build20/640x480-s36/{lang}/s36": ("walk rc 3: the hub's BACK UP TO CLOUD stopped at the folder scan, not the picker the steps "
+    "expected; 02-scan-refused is the scan page, read and kept as #1497 c1's evidence (CLOUD FOLDERS offered, the why clipped); the walk's next "
+    "key closed the page and 03 is the hub it left. s36's steps now end on the scan page") for lang in ("en", "fr")})
 # A reviewed screen whose frames show a defect says what was seen, not "as expected".
 OBSERVED = {k: v for lang in ("en", "fr") for k, v in (
     (f"build14/640x480/{lang}/s15", "connections page as #1482 asks (ADD A CONNECTION...); the setup check reads SETUP COULD NOT BE READ because this arm moves only rclone.conf and leaves a profile store naming qa-cloud, an inconsistent store, not a fresh device. s25 (fresh) and s26 (all removed) are the faithful cases"),

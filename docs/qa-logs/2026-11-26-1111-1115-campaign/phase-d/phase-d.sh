@@ -210,10 +210,11 @@ steps_s35() { hub; echo "shot hub-syncs-on"; down 8; open; echo "wait 20"; echo 
 arm_s35() { S 'set_setting cloudsaves.startup 1 && set_setting cloudsaves.gameexit 1 && echo "startup=$(get_setting cloudsaves.startup) gameexit=$(get_setting cloudsaves.gameexit)"'; }
 put_s35() { S 'set_setting cloudsaves.startup 0; set_setting cloudsaves.gameexit 0; echo "startup=$(get_setting cloudsaves.startup) gameexit=$(get_setting cloudsaves.gameexit)"'; }
 # s36: #1497. #1489's state (qa-ext added behind the module), then the hub's BACK UP TO CLOUD with saves alone
-# ticked: the picker, its verb focused, the confirmation, and the transfer page's end. The scripts refuse the run
-# before any file moves (selection_reason); the last frame shows whether the page offers TRY AGAIN. The page
-# stays open, so the guest is rebooted after it.
-steps_s36() { hub; open; echo "shot picker"; echo "key up"; echo "wait-for-change 4"; echo "key right"; echo "wait-for-change 4"; echo settle; echo "shot verb-focused"; open; echo "shot confirm"; open; echo "wait 5"; echo "settle 90 3"; echo "shot transfer-end"; }
+# ticked. The page stays open, so the guest is rebooted after it.
+# Build 20 showed the hub's BACK UP TO CLOUD stopping at the folder scan (CHECKING YOUR CLOUD) in this state, before
+# any picker: the scan is refused, and its help bar is the finding (CLOUD FOLDERS before #1497's fix, CLOSE alone after).
+# The walk ends on that page; any key there would close it or take its action.
+steps_s36() { hub; open; echo "wait 5"; echo "settle 60 3"; echo "shot scan-refused"; }
 arm_s36() { S 'python3 /storage/m7-qa-d/conn.py add-ext >/dev/null && for k in settings content media; do set_setting cloudsync.pick.backup.$k 0; done; set_setting cloudsync.pick.backup.saves 1; echo "picks: saves=$(get_setting cloudsync.pick.backup.saves) settings=$(get_setting cloudsync.pick.backup.settings) content=$(get_setting cloudsync.pick.backup.content) media=$(get_setting cloudsync.pick.backup.media)"; cloud_remote setup-info | grep -E "^STATE="'; }
 put_s36() {
     S 'python3 /storage/m7-qa-d/conn.py remove-ext; cloud_remote list | cut -f1,2'

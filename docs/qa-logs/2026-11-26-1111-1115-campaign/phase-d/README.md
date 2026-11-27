@@ -171,3 +171,14 @@ Its version reads `.dirty` because the build worktree held an untracked `kept/`.
 | s13, s35 | The setup check with both syncs off, then both on. In French the settings rows read ARCHIVES LOCALES DES PARAMÈTRES, SAUVEGARDES DES PARAMÈTRES and VOIR LE GUIDE DES ARCHIVES DE PARAMÈTRES. The sync facts are whole beside NON and OUI. | #1478 item 2, #1494 (no regression) |
 
 **What reading the source turned up for #1495's sibling hunt:** the deliberate transfer page offers TRY AGAIN on a run refused for one of the same four whys, and that run would refuse again until the player acts. It is filed as #1497, with a frame of the page as its first criterion.
+
+## Build 20, s36: the scan page's way out for a refusal the player must fix (#1497)
+
+On build 20, in #1489's state, the hub's BACK UP TO CLOUD stops at the folder scan it runs first: CHECKING YOUR CLOUD / VÉRIFICATION DE VOTRE CLOUD. It never reaches the picker.
+- The scan is refused with the why clipped mid-word: YOUR CLOUD CONNECTIONS CHANGED. CHECK THEM IN MANAGE CL… / … VÉRIFIEZ-LES DANS GÉRE….
+- The note reads NO FILES HAVE BEEN MOVED.
+- The help bar offers CLOSE and CLOUD FOLDERS. CLOUD FOLDERS cannot help, because the fix is the connection.
+
+The evidence is `build20-640x480-s36/{en,fr}/s36/02-scan-refused.png` (#1497 c1).
+
+The first s36 steps expected a picker. The walk's next key closed the scan page, so frame 03 is the hub and the walk ended rc 3; it is indexed as walk-failed with that note. The steps now end on the scan page, which is where the after-fix frames (#1497 c2) come from.
