@@ -1,0 +1,38 @@
+{
+ "record": "ACCEPTANCE",
+ "written_utc": "2026-11-27T04:32Z",
+ "issue": [
+  1495,
+  1478,
+  1111
+ ],
+ "run": "/workspace/repos/rocknix.worktrees/m7-round-x64-20261125/.build-runs/20261127T012429Z-dad9fcb9",
+ "disposition": "qualified",
+ "expected_rc": 0,
+ "outputs": [
+  {
+   "path": "/workspace/repos/rocknix.worktrees/m7-round-x64-20261125/build.pixelelated-GENERIC_X64.x86_64",
+   "issue": 1445,
+   "kind": "build-cache",
+   "owner": "OS work coordinator",
+   "release_when": "the next build of the set starts, or its images are on GitHub (D-INFRA-033/036/037)"
+  },
+  {
+   "path": "/workspace/repos/rocknix.worktrees/m7-round-x64-20261125/target",
+   "issue": 1445,
+   "kind": "firmware",
+   "owner": "OS work coordinator",
+   "release_when": "its images are on GitHub, or a newer build of the set supersedes it (D-INFRA-036/037)"
+  }
+ ],
+ "evidence": [
+  {
+   "path": "/workspace/repos/rocknix.worktrees/conflict-resolution/.build-runs/m7-round-x64-20-owner/acceptance/image-reads-20.txt",
+   "sha256": "f7deb904d2f05c0d35f37a76717533d00bed27e86fa3766d8b05572847ddf698"
+  }
+ ],
+ "head": "1d3c0c735eda9ecc4ef8c7b5fc84201ef966b5f3",
+ "admission": "2e93b61a68c64ee0830c73f17fe5336a",
+ "scope": "build-level acceptance of the round's GENERIC_X64 engineering image at 1d3c0c735e (cold build): rc 0, processes exited, checksums verified, BUILD_ID = head, EmulationStation from route m7-20261126-3edb5648453f (ES 0b5e210c5: #1495's fixFor lines, #1478 item 2's PARAMETRES). Its version carries .dirty because the round worktree held an untracked kept/ (build 19's unstripped ES binary, left by tools/device-build); the tracked tree equals the head and no build step reads kept/. Fit for VM proofs; not an image of record for publication. Supersedes build 19's image. Not a VM qualification.",
+ "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261127T012430Z.g1d3c0c735eda.dirty-from-ROCKNIX"
+}

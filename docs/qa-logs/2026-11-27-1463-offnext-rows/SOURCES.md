@@ -39,3 +39,5 @@ Sources: "candidate line `0282367b4a`" is the first commit on `build/m7-rc-round
 | D-ROADMAP-001 | 2026-11-10 | candidate line 0282367b4a 2026-11-18 |
 | D-ROADMAP-002 | 2026-11-10 | candidate line 0282367b4a 2026-11-18 |
 | D-ROADMAP-003 | 2026-11-10 | candidate line 0282367b4a 2026-11-18 |
+
+**Added 2026-11-27, after the 28:** D-INFRA-048 (2026-11-04), keyed `INFRA-1419` at its source, `build/m7-rc-round-20261125:docs/decision-register.md:767`. The text is verbatim and only the ID cell changed (D-WORKFLOW-013). The rekey is recorded as D-INFRA-049. Criterion 1 stands at 29 of 39. The ten left are D-WORKFLOW-175 to 182 (criterion 2), D-UI-129 and D-WORKFLOW-208.
