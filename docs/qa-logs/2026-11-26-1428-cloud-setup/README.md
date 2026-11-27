@@ -21,3 +21,14 @@ Proof packet for [#1428](https://github.com/pixelelated/distribution/issues/1428
 - After a confirmed creation the page shows CLOUD FOLDER CHECK / COMPLETED (SAVES: NO FILES FOUND, since a setup note is not a save) and says nowhere that folders were created.
 - GAME CONTENT names the same folder as ROMS (`/pixelelated/Content/ROMs`).
 - The French page mixes PARAMÈTRES and RÉGLAGES for *settings*.
+
+## Build 20: French settings read PARAMÈTRES (#1478 item 2)
+
+Build 20 is round `1d3c0c735e`, ES `0b5e210c5` (D-UI-147). It was walked with `WALK_SUITE=tools/vm-walks/suite-1428.txt tools/vm-qa --only walks`, once at 640x480 (`qa-1d3c0c735e-webdav-a-20261127-0448`) and once at 1280x800 (`…-0520`).
+
+`frames/build20/` keeps the six pages that name the settings tier, in EN and FR at both sizes: 24 frames, indexed in `evidence-index.json` under `build20/`. They are the setup check (both halves), CLOUD FOLDERS (both halves), BACK UP TO CLOUD and RESTORE FROM CLOUD.
+
+- **French** reads PARAMÈTRES throughout: ARCHIVES LOCALES DES PARAMÈTRES, SAUVEGARDES DES PARAMÈTRES, the PARAMÈTRES category, and AUCUNE SAUVEGARDE DES PARAMÈTRES DE CET APPAREIL POUR L'INSTANT. RÉGLAGES appears on none of these pages.
+- **English** is unchanged.
+
+**Both runs ended VERDICT: FAIL.** The suite run whole lets its two connection-breaking failure branches (walks 20 and 21) leave the guest's connection broken, so five later witness walks failed (#1498). The walks kept here ran before that, and captured.

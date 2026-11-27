@@ -1,6 +1,9 @@
 {
  "schema_version": 1,
- "issue": 1428,
+ "issue": [
+  1428,
+  1478
+ ],
  "entries": [
   {
    "flow_id": "cloud-setup",
@@ -825,6 +828,606 @@
     "reviewer": "OS coordinator (claude-opus-5-5)",
     "observed": "as expected",
     "date": "2026-11-26"
+   }
+  },
+  {
+   "flow_id": "cloud-setup",
+   "branch_id": "build20/check-setup-page",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud-settings",
+   "trigger": "A on CHECK CLOUD SETUP",
+   "expected_state": "unchanged English (#1478 item 2 changes French only)",
+   "source": {
+    "es": "0b5e210c5 (local m7/rc-round-es-20261125; route m7-20261126-3edb5648453f)",
+    "distribution": "1d3c0c735eda9ecc4ef8c7b5fc84201ef966b5f3 (local build/m7-rc-round-20261125, build 20)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261127T012430Z.g1d3c0c735eda.dirty-from-ROCKNIX",
+    "walks": "WALK_SUITE=tools/vm-walks/suite-1428.txt tools/vm-qa --only walks with VM_RES=640x480; run qa-1d3c0c735e-webdav-a-20261127-0448 (its walks verdict FAIL from five later witness walks, #1498; this walk ran and captured)"
+   },
+   "locale": "en",
+   "width": 640,
+   "height": 480,
+   "frame": "frames/build20/640-en-check-setup-page.png",
+   "sha256": "e665c0f1f207bba4d43ab4608b7d0eb15159460b14565d8e1b5851be8ed955a3",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "English settings labels unchanged; text fits",
+    "date": "2026-11-27"
+   }
+  },
+  {
+   "flow_id": "cloud-setup",
+   "branch_id": "build20/check-setup-page-lower",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud-settings",
+   "trigger": "down to the setup check's lower half",
+   "expected_state": "unchanged English (#1478 item 2 changes French only)",
+   "source": {
+    "es": "0b5e210c5 (local m7/rc-round-es-20261125; route m7-20261126-3edb5648453f)",
+    "distribution": "1d3c0c735eda9ecc4ef8c7b5fc84201ef966b5f3 (local build/m7-rc-round-20261125, build 20)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261127T012430Z.g1d3c0c735eda.dirty-from-ROCKNIX",
+    "walks": "WALK_SUITE=tools/vm-walks/suite-1428.txt tools/vm-qa --only walks with VM_RES=640x480; run qa-1d3c0c735e-webdav-a-20261127-0448 (its walks verdict FAIL from five later witness walks, #1498; this walk ran and captured)"
+   },
+   "locale": "en",
+   "width": 640,
+   "height": 480,
+   "frame": "frames/build20/640-en-check-setup-page-lower.png",
+   "sha256": "ce40193626c5a97aec2d0171de7f1edcce5d7bd0ca30774a1831fc92c7d37a5a",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "English settings labels unchanged; text fits",
+    "date": "2026-11-27"
+   }
+  },
+  {
+   "flow_id": "cloud-setup",
+   "branch_id": "build20/folder-actions-page",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud-settings",
+   "trigger": "A on CLOUD FOLDER ACTIONS",
+   "expected_state": "unchanged English (#1478 item 2 changes French only)",
+   "source": {
+    "es": "0b5e210c5 (local m7/rc-round-es-20261125; route m7-20261126-3edb5648453f)",
+    "distribution": "1d3c0c735eda9ecc4ef8c7b5fc84201ef966b5f3 (local build/m7-rc-round-20261125, build 20)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261127T012430Z.g1d3c0c735eda.dirty-from-ROCKNIX",
+    "walks": "WALK_SUITE=tools/vm-walks/suite-1428.txt tools/vm-qa --only walks with VM_RES=640x480; run qa-1d3c0c735e-webdav-a-20261127-0448 (its walks verdict FAIL from five later witness walks, #1498; this walk ran and captured)"
+   },
+   "locale": "en",
+   "width": 640,
+   "height": 480,
+   "frame": "frames/build20/640-en-folder-actions-page.png",
+   "sha256": "71c8d14acb81087b901d9332a643340b0140b21d2cfeaadb508d85f560901834",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "English settings labels unchanged; text fits",
+    "date": "2026-11-27"
+   }
+  },
+  {
+   "flow_id": "cloud-setup",
+   "branch_id": "build20/folder-actions-page-lower",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud-settings",
+   "trigger": "down to the folder actions",
+   "expected_state": "unchanged English (#1478 item 2 changes French only)",
+   "source": {
+    "es": "0b5e210c5 (local m7/rc-round-es-20261125; route m7-20261126-3edb5648453f)",
+    "distribution": "1d3c0c735eda9ecc4ef8c7b5fc84201ef966b5f3 (local build/m7-rc-round-20261125, build 20)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261127T012430Z.g1d3c0c735eda.dirty-from-ROCKNIX",
+    "walks": "WALK_SUITE=tools/vm-walks/suite-1428.txt tools/vm-qa --only walks with VM_RES=640x480; run qa-1d3c0c735e-webdav-a-20261127-0448 (its walks verdict FAIL from five later witness walks, #1498; this walk ran and captured)"
+   },
+   "locale": "en",
+   "width": 640,
+   "height": 480,
+   "frame": "frames/build20/640-en-folder-actions-page-lower.png",
+   "sha256": "5414d3ca6e67ec6b357489774ff794042065093720a615b7ba2ca39b76eb21d5",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "English settings labels unchanged; text fits",
+    "date": "2026-11-27"
+   }
+  },
+  {
+   "flow_id": "cloud-setup",
+   "branch_id": "build20/back-up-page",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud-settings",
+   "trigger": "A on BACK UP TO CLOUD",
+   "expected_state": "unchanged English (#1478 item 2 changes French only)",
+   "source": {
+    "es": "0b5e210c5 (local m7/rc-round-es-20261125; route m7-20261126-3edb5648453f)",
+    "distribution": "1d3c0c735eda9ecc4ef8c7b5fc84201ef966b5f3 (local build/m7-rc-round-20261125, build 20)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261127T012430Z.g1d3c0c735eda.dirty-from-ROCKNIX",
+    "walks": "WALK_SUITE=tools/vm-walks/suite-1428.txt tools/vm-qa --only walks with VM_RES=640x480; run qa-1d3c0c735e-webdav-a-20261127-0448 (its walks verdict FAIL from five later witness walks, #1498; this walk ran and captured)"
+   },
+   "locale": "en",
+   "width": 640,
+   "height": 480,
+   "frame": "frames/build20/640-en-back-up-page.png",
+   "sha256": "9ca5d1989da5cd52eff4038440a33725f3be7b085128837167c1ae28f2b8227c",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "English settings labels unchanged; text fits",
+    "date": "2026-11-27"
+   }
+  },
+  {
+   "flow_id": "cloud-setup",
+   "branch_id": "build20/restore-page",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud-settings",
+   "trigger": "A on RESTORE FROM CLOUD",
+   "expected_state": "unchanged English (#1478 item 2 changes French only)",
+   "source": {
+    "es": "0b5e210c5 (local m7/rc-round-es-20261125; route m7-20261126-3edb5648453f)",
+    "distribution": "1d3c0c735eda9ecc4ef8c7b5fc84201ef966b5f3 (local build/m7-rc-round-20261125, build 20)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261127T012430Z.g1d3c0c735eda.dirty-from-ROCKNIX",
+    "walks": "WALK_SUITE=tools/vm-walks/suite-1428.txt tools/vm-qa --only walks with VM_RES=640x480; run qa-1d3c0c735e-webdav-a-20261127-0448 (its walks verdict FAIL from five later witness walks, #1498; this walk ran and captured)"
+   },
+   "locale": "en",
+   "width": 640,
+   "height": 480,
+   "frame": "frames/build20/640-en-restore-page.png",
+   "sha256": "ef1db5237a51be44c7b1018a546b04f290eac35e370244da0d4878fcee4d79f0",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "English settings labels unchanged; text fits",
+    "date": "2026-11-27"
+   }
+  },
+  {
+   "flow_id": "cloud-setup",
+   "branch_id": "build20/check-setup-page",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud-settings",
+   "trigger": "A on CHECK CLOUD SETUP",
+   "expected_state": "the settings tier reads PARAMÈTRES, never RÉGLAGES (#1478 item 2, D-UI-147)",
+   "source": {
+    "es": "0b5e210c5 (local m7/rc-round-es-20261125; route m7-20261126-3edb5648453f)",
+    "distribution": "1d3c0c735eda9ecc4ef8c7b5fc84201ef966b5f3 (local build/m7-rc-round-20261125, build 20)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261127T012430Z.g1d3c0c735eda.dirty-from-ROCKNIX",
+    "walks": "WALK_SUITE=tools/vm-walks/suite-1428.txt tools/vm-qa --only walks with VM_RES=640x480; run qa-1d3c0c735e-webdav-a-20261127-0448 (its walks verdict FAIL from five later witness walks, #1498; this walk ran and captured)"
+   },
+   "locale": "fr",
+   "width": 640,
+   "height": 480,
+   "frame": "frames/build20/640-fr-check-setup-page.png",
+   "sha256": "5e69a89fd870f57f1c59c777fa1c7a15e9c249ec9d699df29b680ae81d6bf34f",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "ARCHIVES LOCALES DES PARAMÈTRES; no RÉGLAGES on the page; text fits",
+    "date": "2026-11-27"
+   }
+  },
+  {
+   "flow_id": "cloud-setup",
+   "branch_id": "build20/check-setup-page-lower",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud-settings",
+   "trigger": "down to the setup check's lower half",
+   "expected_state": "the settings tier reads PARAMÈTRES, never RÉGLAGES (#1478 item 2, D-UI-147)",
+   "source": {
+    "es": "0b5e210c5 (local m7/rc-round-es-20261125; route m7-20261126-3edb5648453f)",
+    "distribution": "1d3c0c735eda9ecc4ef8c7b5fc84201ef966b5f3 (local build/m7-rc-round-20261125, build 20)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261127T012430Z.g1d3c0c735eda.dirty-from-ROCKNIX",
+    "walks": "WALK_SUITE=tools/vm-walks/suite-1428.txt tools/vm-qa --only walks with VM_RES=640x480; run qa-1d3c0c735e-webdav-a-20261127-0448 (its walks verdict FAIL from five later witness walks, #1498; this walk ran and captured)"
+   },
+   "locale": "fr",
+   "width": 640,
+   "height": 480,
+   "frame": "frames/build20/640-fr-check-setup-page-lower.png",
+   "sha256": "24ec6c070d333f9b90b6ea6553687f20169c9efafb914eb48e2117206cedbc93",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "SAUVEGARDES DES PARAMÈTRES; no RÉGLAGES on the page; text fits",
+    "date": "2026-11-27"
+   }
+  },
+  {
+   "flow_id": "cloud-setup",
+   "branch_id": "build20/folder-actions-page",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud-settings",
+   "trigger": "A on CLOUD FOLDER ACTIONS",
+   "expected_state": "the settings tier reads PARAMÈTRES, never RÉGLAGES (#1478 item 2, D-UI-147)",
+   "source": {
+    "es": "0b5e210c5 (local m7/rc-round-es-20261125; route m7-20261126-3edb5648453f)",
+    "distribution": "1d3c0c735eda9ecc4ef8c7b5fc84201ef966b5f3 (local build/m7-rc-round-20261125, build 20)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261127T012430Z.g1d3c0c735eda.dirty-from-ROCKNIX",
+    "walks": "WALK_SUITE=tools/vm-walks/suite-1428.txt tools/vm-qa --only walks with VM_RES=640x480; run qa-1d3c0c735e-webdav-a-20261127-0448 (its walks verdict FAIL from five later witness walks, #1498; this walk ran and captured)"
+   },
+   "locale": "fr",
+   "width": 640,
+   "height": 480,
+   "frame": "frames/build20/640-fr-folder-actions-page.png",
+   "sha256": "cae231b61dbb69cbce4f48e20a5f3c7256d8f46bb753484e830e1fce290d7b54",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "SAUVEGARDES DES PARAMÈTRES (category row); no RÉGLAGES on the page; text fits",
+    "date": "2026-11-27"
+   }
+  },
+  {
+   "flow_id": "cloud-setup",
+   "branch_id": "build20/folder-actions-page-lower",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud-settings",
+   "trigger": "down to the folder actions",
+   "expected_state": "the settings tier reads PARAMÈTRES, never RÉGLAGES (#1478 item 2, D-UI-147)",
+   "source": {
+    "es": "0b5e210c5 (local m7/rc-round-es-20261125; route m7-20261126-3edb5648453f)",
+    "distribution": "1d3c0c735eda9ecc4ef8c7b5fc84201ef966b5f3 (local build/m7-rc-round-20261125, build 20)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261127T012430Z.g1d3c0c735eda.dirty-from-ROCKNIX",
+    "walks": "WALK_SUITE=tools/vm-walks/suite-1428.txt tools/vm-qa --only walks with VM_RES=640x480; run qa-1d3c0c735e-webdav-a-20261127-0448 (its walks verdict FAIL from five later witness walks, #1498; this walk ran and captured)"
+   },
+   "locale": "fr",
+   "width": 640,
+   "height": 480,
+   "frame": "frames/build20/640-fr-folder-actions-page-lower.png",
+   "sha256": "e5a1927968c8a2772954f318df09727776d0bcbe3456b8dd0dcddefddaab166f",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "SAUVEGARDES DES PARAMÈTRES at the top of the scrolled list; no RÉGLAGES on the page; text fits",
+    "date": "2026-11-27"
+   }
+  },
+  {
+   "flow_id": "cloud-setup",
+   "branch_id": "build20/back-up-page",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud-settings",
+   "trigger": "A on BACK UP TO CLOUD",
+   "expected_state": "the settings tier reads PARAMÈTRES, never RÉGLAGES (#1478 item 2, D-UI-147)",
+   "source": {
+    "es": "0b5e210c5 (local m7/rc-round-es-20261125; route m7-20261126-3edb5648453f)",
+    "distribution": "1d3c0c735eda9ecc4ef8c7b5fc84201ef966b5f3 (local build/m7-rc-round-20261125, build 20)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261127T012430Z.g1d3c0c735eda.dirty-from-ROCKNIX",
+    "walks": "WALK_SUITE=tools/vm-walks/suite-1428.txt tools/vm-qa --only walks with VM_RES=640x480; run qa-1d3c0c735e-webdav-a-20261127-0448 (its walks verdict FAIL from five later witness walks, #1498; this walk ran and captured)"
+   },
+   "locale": "fr",
+   "width": 640,
+   "height": 480,
+   "frame": "frames/build20/640-fr-back-up-page.png",
+   "sha256": "b9f3834b469b6d03b04d7414c664668b4e61f80d57ce0e186fefc5157cf598d8",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "PARAMÈTRES (category); no RÉGLAGES on the page; text fits",
+    "date": "2026-11-27"
+   }
+  },
+  {
+   "flow_id": "cloud-setup",
+   "branch_id": "build20/restore-page",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud-settings",
+   "trigger": "A on RESTORE FROM CLOUD",
+   "expected_state": "the settings tier reads PARAMÈTRES, never RÉGLAGES (#1478 item 2, D-UI-147)",
+   "source": {
+    "es": "0b5e210c5 (local m7/rc-round-es-20261125; route m7-20261126-3edb5648453f)",
+    "distribution": "1d3c0c735eda9ecc4ef8c7b5fc84201ef966b5f3 (local build/m7-rc-round-20261125, build 20)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261127T012430Z.g1d3c0c735eda.dirty-from-ROCKNIX",
+    "walks": "WALK_SUITE=tools/vm-walks/suite-1428.txt tools/vm-qa --only walks with VM_RES=640x480; run qa-1d3c0c735e-webdav-a-20261127-0448 (its walks verdict FAIL from five later witness walks, #1498; this walk ran and captured)"
+   },
+   "locale": "fr",
+   "width": 640,
+   "height": 480,
+   "frame": "frames/build20/640-fr-restore-page.png",
+   "sha256": "6365c5198ca54824ca90a424bc4180e0031083b6c6da146a0c8550425f8d7e01",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "PARAMÈTRES (category, dimmed) with AUCUNE SAUVEGARDE DES PARAMÈTRES DE CET APPAREIL POUR L'INSTANT; no RÉGLAGES on the page; text fits",
+    "date": "2026-11-27"
+   }
+  },
+  {
+   "flow_id": "cloud-setup",
+   "branch_id": "build20/check-setup-page",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud-settings",
+   "trigger": "A on CHECK CLOUD SETUP",
+   "expected_state": "unchanged English (#1478 item 2 changes French only)",
+   "source": {
+    "es": "0b5e210c5 (local m7/rc-round-es-20261125; route m7-20261126-3edb5648453f)",
+    "distribution": "1d3c0c735eda9ecc4ef8c7b5fc84201ef966b5f3 (local build/m7-rc-round-20261125, build 20)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261127T012430Z.g1d3c0c735eda.dirty-from-ROCKNIX",
+    "walks": "WALK_SUITE=tools/vm-walks/suite-1428.txt tools/vm-qa --only walks; run qa-1d3c0c735e-webdav-a-20261127-0520 (its walks verdict FAIL from five later witness walks, #1498; this walk ran and captured)"
+   },
+   "locale": "en",
+   "width": 1280,
+   "height": 800,
+   "frame": "frames/build20/1280-en-check-setup-page.png",
+   "sha256": "a6afe237725ca6c09847a789c9a5bcb19caf76e41a7076d4146e704f73aec179",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "English settings labels unchanged; text fits",
+    "date": "2026-11-27"
+   }
+  },
+  {
+   "flow_id": "cloud-setup",
+   "branch_id": "build20/check-setup-page-lower",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud-settings",
+   "trigger": "down to the setup check's lower half",
+   "expected_state": "unchanged English (#1478 item 2 changes French only)",
+   "source": {
+    "es": "0b5e210c5 (local m7/rc-round-es-20261125; route m7-20261126-3edb5648453f)",
+    "distribution": "1d3c0c735eda9ecc4ef8c7b5fc84201ef966b5f3 (local build/m7-rc-round-20261125, build 20)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261127T012430Z.g1d3c0c735eda.dirty-from-ROCKNIX",
+    "walks": "WALK_SUITE=tools/vm-walks/suite-1428.txt tools/vm-qa --only walks; run qa-1d3c0c735e-webdav-a-20261127-0520 (its walks verdict FAIL from five later witness walks, #1498; this walk ran and captured)"
+   },
+   "locale": "en",
+   "width": 1280,
+   "height": 800,
+   "frame": "frames/build20/1280-en-check-setup-page-lower.png",
+   "sha256": "0ada2415d66297cd10553f406fd6ef3a1e8068e4053314aa837668d66958416c",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "English settings labels unchanged; text fits",
+    "date": "2026-11-27"
+   }
+  },
+  {
+   "flow_id": "cloud-setup",
+   "branch_id": "build20/folder-actions-page",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud-settings",
+   "trigger": "A on CLOUD FOLDER ACTIONS",
+   "expected_state": "unchanged English (#1478 item 2 changes French only)",
+   "source": {
+    "es": "0b5e210c5 (local m7/rc-round-es-20261125; route m7-20261126-3edb5648453f)",
+    "distribution": "1d3c0c735eda9ecc4ef8c7b5fc84201ef966b5f3 (local build/m7-rc-round-20261125, build 20)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261127T012430Z.g1d3c0c735eda.dirty-from-ROCKNIX",
+    "walks": "WALK_SUITE=tools/vm-walks/suite-1428.txt tools/vm-qa --only walks; run qa-1d3c0c735e-webdav-a-20261127-0520 (its walks verdict FAIL from five later witness walks, #1498; this walk ran and captured)"
+   },
+   "locale": "en",
+   "width": 1280,
+   "height": 800,
+   "frame": "frames/build20/1280-en-folder-actions-page.png",
+   "sha256": "d46a612151375ac9c9545c7ce6d76babf45b8034acce50ec7e4977e4bdabb37d",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "English settings labels unchanged; text fits",
+    "date": "2026-11-27"
+   }
+  },
+  {
+   "flow_id": "cloud-setup",
+   "branch_id": "build20/folder-actions-page-lower",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud-settings",
+   "trigger": "down to the folder actions",
+   "expected_state": "unchanged English (#1478 item 2 changes French only)",
+   "source": {
+    "es": "0b5e210c5 (local m7/rc-round-es-20261125; route m7-20261126-3edb5648453f)",
+    "distribution": "1d3c0c735eda9ecc4ef8c7b5fc84201ef966b5f3 (local build/m7-rc-round-20261125, build 20)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261127T012430Z.g1d3c0c735eda.dirty-from-ROCKNIX",
+    "walks": "WALK_SUITE=tools/vm-walks/suite-1428.txt tools/vm-qa --only walks; run qa-1d3c0c735e-webdav-a-20261127-0520 (its walks verdict FAIL from five later witness walks, #1498; this walk ran and captured)"
+   },
+   "locale": "en",
+   "width": 1280,
+   "height": 800,
+   "frame": "frames/build20/1280-en-folder-actions-page-lower.png",
+   "sha256": "780083e03bd3668dfc87aa6ca9357a4ea7743106b2dd35f23cce986c51dd9dfe",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "English settings labels unchanged; text fits",
+    "date": "2026-11-27"
+   }
+  },
+  {
+   "flow_id": "cloud-setup",
+   "branch_id": "build20/back-up-page",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud-settings",
+   "trigger": "A on BACK UP TO CLOUD",
+   "expected_state": "unchanged English (#1478 item 2 changes French only)",
+   "source": {
+    "es": "0b5e210c5 (local m7/rc-round-es-20261125; route m7-20261126-3edb5648453f)",
+    "distribution": "1d3c0c735eda9ecc4ef8c7b5fc84201ef966b5f3 (local build/m7-rc-round-20261125, build 20)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261127T012430Z.g1d3c0c735eda.dirty-from-ROCKNIX",
+    "walks": "WALK_SUITE=tools/vm-walks/suite-1428.txt tools/vm-qa --only walks; run qa-1d3c0c735e-webdav-a-20261127-0520 (its walks verdict FAIL from five later witness walks, #1498; this walk ran and captured)"
+   },
+   "locale": "en",
+   "width": 1280,
+   "height": 800,
+   "frame": "frames/build20/1280-en-back-up-page.png",
+   "sha256": "536dc0d0f3e7ec4c73d81259b3edd9b1f6bf1439800ee257bda36c72eb0f513b",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "English settings labels unchanged; text fits",
+    "date": "2026-11-27"
+   }
+  },
+  {
+   "flow_id": "cloud-setup",
+   "branch_id": "build20/restore-page",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud-settings",
+   "trigger": "A on RESTORE FROM CLOUD",
+   "expected_state": "unchanged English (#1478 item 2 changes French only)",
+   "source": {
+    "es": "0b5e210c5 (local m7/rc-round-es-20261125; route m7-20261126-3edb5648453f)",
+    "distribution": "1d3c0c735eda9ecc4ef8c7b5fc84201ef966b5f3 (local build/m7-rc-round-20261125, build 20)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261127T012430Z.g1d3c0c735eda.dirty-from-ROCKNIX",
+    "walks": "WALK_SUITE=tools/vm-walks/suite-1428.txt tools/vm-qa --only walks; run qa-1d3c0c735e-webdav-a-20261127-0520 (its walks verdict FAIL from five later witness walks, #1498; this walk ran and captured)"
+   },
+   "locale": "en",
+   "width": 1280,
+   "height": 800,
+   "frame": "frames/build20/1280-en-restore-page.png",
+   "sha256": "d0b26af308590678a9423b2fdd053780aa44e410f729f56381a92d12de18576b",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "English settings labels unchanged; text fits",
+    "date": "2026-11-27"
+   }
+  },
+  {
+   "flow_id": "cloud-setup",
+   "branch_id": "build20/check-setup-page",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud-settings",
+   "trigger": "A on CHECK CLOUD SETUP",
+   "expected_state": "the settings tier reads PARAMÈTRES, never RÉGLAGES (#1478 item 2, D-UI-147)",
+   "source": {
+    "es": "0b5e210c5 (local m7/rc-round-es-20261125; route m7-20261126-3edb5648453f)",
+    "distribution": "1d3c0c735eda9ecc4ef8c7b5fc84201ef966b5f3 (local build/m7-rc-round-20261125, build 20)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261127T012430Z.g1d3c0c735eda.dirty-from-ROCKNIX",
+    "walks": "WALK_SUITE=tools/vm-walks/suite-1428.txt tools/vm-qa --only walks; run qa-1d3c0c735e-webdav-a-20261127-0520 (its walks verdict FAIL from five later witness walks, #1498; this walk ran and captured)"
+   },
+   "locale": "fr",
+   "width": 1280,
+   "height": 800,
+   "frame": "frames/build20/1280-fr-check-setup-page.png",
+   "sha256": "5217ae4ffec21ff0a019ecab67ddac691abb9930c17ce04055f19cb89e852bb2",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "ARCHIVES LOCALES DES PARAMÈTRES; no RÉGLAGES on the page; text fits",
+    "date": "2026-11-27"
+   }
+  },
+  {
+   "flow_id": "cloud-setup",
+   "branch_id": "build20/check-setup-page-lower",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud-settings",
+   "trigger": "down to the setup check's lower half",
+   "expected_state": "the settings tier reads PARAMÈTRES, never RÉGLAGES (#1478 item 2, D-UI-147)",
+   "source": {
+    "es": "0b5e210c5 (local m7/rc-round-es-20261125; route m7-20261126-3edb5648453f)",
+    "distribution": "1d3c0c735eda9ecc4ef8c7b5fc84201ef966b5f3 (local build/m7-rc-round-20261125, build 20)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261127T012430Z.g1d3c0c735eda.dirty-from-ROCKNIX",
+    "walks": "WALK_SUITE=tools/vm-walks/suite-1428.txt tools/vm-qa --only walks; run qa-1d3c0c735e-webdav-a-20261127-0520 (its walks verdict FAIL from five later witness walks, #1498; this walk ran and captured)"
+   },
+   "locale": "fr",
+   "width": 1280,
+   "height": 800,
+   "frame": "frames/build20/1280-fr-check-setup-page-lower.png",
+   "sha256": "f899047c33d528efceea9387c5b6baa3dc229b955c69477eec0b9283bd84c989",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "SAUVEGARDES DES PARAMÈTRES; no RÉGLAGES on the page; text fits",
+    "date": "2026-11-27"
+   }
+  },
+  {
+   "flow_id": "cloud-setup",
+   "branch_id": "build20/folder-actions-page",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud-settings",
+   "trigger": "A on CLOUD FOLDER ACTIONS",
+   "expected_state": "the settings tier reads PARAMÈTRES, never RÉGLAGES (#1478 item 2, D-UI-147)",
+   "source": {
+    "es": "0b5e210c5 (local m7/rc-round-es-20261125; route m7-20261126-3edb5648453f)",
+    "distribution": "1d3c0c735eda9ecc4ef8c7b5fc84201ef966b5f3 (local build/m7-rc-round-20261125, build 20)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261127T012430Z.g1d3c0c735eda.dirty-from-ROCKNIX",
+    "walks": "WALK_SUITE=tools/vm-walks/suite-1428.txt tools/vm-qa --only walks; run qa-1d3c0c735e-webdav-a-20261127-0520 (its walks verdict FAIL from five later witness walks, #1498; this walk ran and captured)"
+   },
+   "locale": "fr",
+   "width": 1280,
+   "height": 800,
+   "frame": "frames/build20/1280-fr-folder-actions-page.png",
+   "sha256": "d5a052a3e284892e45881c2850b997370a7501dacb7bec7ff218231ad6d9dfba",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "SAUVEGARDES DES PARAMÈTRES (category row); no RÉGLAGES on the page; text fits",
+    "date": "2026-11-27"
+   }
+  },
+  {
+   "flow_id": "cloud-setup",
+   "branch_id": "build20/folder-actions-page-lower",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud-settings",
+   "trigger": "down to the folder actions",
+   "expected_state": "the settings tier reads PARAMÈTRES, never RÉGLAGES (#1478 item 2, D-UI-147)",
+   "source": {
+    "es": "0b5e210c5 (local m7/rc-round-es-20261125; route m7-20261126-3edb5648453f)",
+    "distribution": "1d3c0c735eda9ecc4ef8c7b5fc84201ef966b5f3 (local build/m7-rc-round-20261125, build 20)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261127T012430Z.g1d3c0c735eda.dirty-from-ROCKNIX",
+    "walks": "WALK_SUITE=tools/vm-walks/suite-1428.txt tools/vm-qa --only walks; run qa-1d3c0c735e-webdav-a-20261127-0520 (its walks verdict FAIL from five later witness walks, #1498; this walk ran and captured)"
+   },
+   "locale": "fr",
+   "width": 1280,
+   "height": 800,
+   "frame": "frames/build20/1280-fr-folder-actions-page-lower.png",
+   "sha256": "09844f3a45cbf1472c2485450d6b057d623f2426a90e2019f6e02d78ff37557e",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "SAUVEGARDES DES PARAMÈTRES at the top of the scrolled list; no RÉGLAGES on the page; text fits",
+    "date": "2026-11-27"
+   }
+  },
+  {
+   "flow_id": "cloud-setup",
+   "branch_id": "build20/back-up-page",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud-settings",
+   "trigger": "A on BACK UP TO CLOUD",
+   "expected_state": "the settings tier reads PARAMÈTRES, never RÉGLAGES (#1478 item 2, D-UI-147)",
+   "source": {
+    "es": "0b5e210c5 (local m7/rc-round-es-20261125; route m7-20261126-3edb5648453f)",
+    "distribution": "1d3c0c735eda9ecc4ef8c7b5fc84201ef966b5f3 (local build/m7-rc-round-20261125, build 20)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261127T012430Z.g1d3c0c735eda.dirty-from-ROCKNIX",
+    "walks": "WALK_SUITE=tools/vm-walks/suite-1428.txt tools/vm-qa --only walks; run qa-1d3c0c735e-webdav-a-20261127-0520 (its walks verdict FAIL from five later witness walks, #1498; this walk ran and captured)"
+   },
+   "locale": "fr",
+   "width": 1280,
+   "height": 800,
+   "frame": "frames/build20/1280-fr-back-up-page.png",
+   "sha256": "ca0e033e14a2e31d634b308a1b77891b92e4a739e7985ab21997dafab877e62a",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "PARAMÈTRES (category); no RÉGLAGES on the page; text fits",
+    "date": "2026-11-27"
+   }
+  },
+  {
+   "flow_id": "cloud-setup",
+   "branch_id": "build20/restore-page",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud-settings",
+   "trigger": "A on RESTORE FROM CLOUD",
+   "expected_state": "the settings tier reads PARAMÈTRES, never RÉGLAGES (#1478 item 2, D-UI-147)",
+   "source": {
+    "es": "0b5e210c5 (local m7/rc-round-es-20261125; route m7-20261126-3edb5648453f)",
+    "distribution": "1d3c0c735eda9ecc4ef8c7b5fc84201ef966b5f3 (local build/m7-rc-round-20261125, build 20)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261127T012430Z.g1d3c0c735eda.dirty-from-ROCKNIX",
+    "walks": "WALK_SUITE=tools/vm-walks/suite-1428.txt tools/vm-qa --only walks; run qa-1d3c0c735e-webdav-a-20261127-0520 (its walks verdict FAIL from five later witness walks, #1498; this walk ran and captured)"
+   },
+   "locale": "fr",
+   "width": 1280,
+   "height": 800,
+   "frame": "frames/build20/1280-fr-restore-page.png",
+   "sha256": "d913cf21269f58b20e770ead1a7b9c365ad1ac6f2cf8f2c58bbb38206cd2685f",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "PARAMÈTRES (category, dimmed) with AUCUNE SAUVEGARDE DES PARAMÈTRES DE CET APPAREIL POUR L'INSTANT; no RÉGLAGES on the page; text fits",
+    "date": "2026-11-27"
    }
   }
  ]
