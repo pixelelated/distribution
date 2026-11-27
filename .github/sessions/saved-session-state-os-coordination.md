@@ -8,6 +8,28 @@ Read the [M7 milestone](https://github.com/pixelelated/distribution/milestone/7)
 
 ## Current focus
 
+**0000000000000000000000. Newest (2026-11-27T00:01Z): #1492, #1493 and #1494 closed; build 19 (`a267c139b1`) is the round's head and PC image; standard run 13 on it is running; H700 cold follows.**
+- **Builds:**
+  - 18: `4753d00e8e`, route 09, ES `4ef2a8dac`.
+  - 19: `a267c139b1`, route 10, ES `77d7b2681` (#1494's French label). Accepted, owner `.build-runs/m7-round-x64-19-owner`.
+- **Phase D:**
+  - s32: the reboot's startup sync in #1489's state.
+  - s33: an unreachable connection on the setup check.
+  - s34: a 40-frame card burst over an ES restart; duplicates removed after hashing.
+  - s35: both syncs on.
+
+  Records are on next at `4461f6361c` and `95bf0ae6e5`.
+- **Filed, open:** #1495, a refused sync's card names the cause but not where to fix it; it also applies to CHECK YOUR SIGN-IN, which `shortenWhy` cuts. A design task for daylight.
+- **Running:** standard run 13, `tools/vm-qa` on build 19.
+  - Directory: `/workspace/tmp/rocknix-session/vmqa-standard-13-20261126T2359Z/` (vm-qa pid 3371285).
+  - The waiter delivers its rc.
+  - When it ends: `tools/vm-pair down`; `tools/rc-preflight --only vm-qa --build-set /workspace/repos/rocknix.worktrees/m7-round-x64-20261125/target`; a note on #1465.
+- **Then H700 cold:** `tools/device-build --device H700 --commit a267c139b1 --set m7-round-x64 --name m7-round-h700-19 --es-supplier /workspace/repos/rocknix.worktrees/conflict-resolution/.build-runs/m7-rc-round-20261126-10-es/inputs/es`.
+  - Its one-build step removes the x64 root, as D-INFRA-033/036/040 intend.
+  - SM8550 after it.
+  - When Max answers #1478, the head moves and all three are rebuilt cold from the final head, last (D-INFRA-043).
+- **Steward told** at 00:01Z (inbox). The M7 milestone body was updated at 23:26Z: the 0a3e979e50 handheld images are superseded, and the next steps are listed.
+
 **000000000000000000000. Newest (2026-11-26T23:22Z): #1489 and #1490 closed on build 16; #1492 and #1493 filed and fixed; build 17 accepted; build 18 (`4753d00e8e`) running; H700 waits for its proof.**
 - **D-CLOUD-194 is decided** (Max: today's behaviour for 0.0.1; #1491 holds the next-release proof). His last clause is the word to keep going toward the handheld build. It is not a yes to any copy, reboot or other action on a handheld or in its cloud.
 - **Build 16** (`fc3e489f8a`, route 07): accepted. Phase D s31/s30/s24 plus a rerun (`-r2/`, the store dumped, s20) closed #1489 and #1490 with code traces (next `3445abddf5`).
