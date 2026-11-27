@@ -25,7 +25,8 @@ launches to get right. In order, each step stopping the command when it fails:
      build-admission prepare
   6  the one-build rule (D-INFRA-033/036), only once admitted: every other
      build/m7-* worktree's build roots are removed after a use check; its
-     target/ and unstripped EmulationStation binary (copied to kept/) stay,
+     target/ and unstripped EmulationStation binary (copied to the ignored
+     .build-runs/kept/; an older kept/ is still listed) stay,
      as named items
   7  /tmp's size, then tools/build-preflight --reclaim-swap, whose whole output
      is kept and must end READY
@@ -265,8 +266,13 @@ def main():
         branch = sh(['git', '-C', str(wt), 'branch', '--show-current']).stdout.strip()
         if not branch.startswith('build/'):
             raise Stop(f'{wt} is on {branch or "a detached HEAD"}, not a build/* branch', 2)
-        if sh(['git', '-C', str(wt), 'status', '--porcelain', '--untracked-files=no']).stdout.strip():
-            raise Stop(f'{wt} has tracked changes', 2)
+        # config/build-identity names an image .dirty on an untracked file as
+        # well as a tracked change, so both refuse here, before three hours of
+        # build (#1496: a kept/ this tool wrote named build 20's image dirty).
+        dirty = sh(['git', '-C', str(wt), 'status', '--porcelain', '--untracked-files=normal']).stdout.strip()
+        if dirty:
+            raise Stop(f'{wt} is not clean, so its image would be named .dirty (config/build-identity):\n  '
+                       + '\n  '.join(dirty.splitlines()[:10]), 2)
         head = sh(['git', '-C', str(wt), 'rev-parse', 'HEAD']).stdout.strip()
         if head != full and sh(['git', '-C', str(wt), 'merge-base', '--is-ancestor', head, full], check=False).returncode != 0:
             raise Stop(f'{wt} is at {head[:10]}, which {short} does not descend from: no fast-forward', 2)
@@ -315,7 +321,7 @@ def main():
             continue
         for r in sorted(glob.glob(str(other / 'build.*'))):
             removals.append(Path(r))
-        for k in ('target', 'kept'):
+        for k in ('target', 'kept', '.build-runs/kept'):
             if (other / k).exists():
                 keeps.append(other / k)
     for r in removals:
@@ -417,11 +423,15 @@ def main():
             raise Stop(f'{r} is in use, not removing it:\n  ' + '\n  '.join(users[:10]))
         other = r.parent
         for es in glob.glob(str(r / 'build/emulationstation-*/emulationstation')):
-            kept = other / 'kept' / f'emulationstation-{r.name}'
+            # Under .build-runs/, which git ignores: a kept/ beside target/ was
+            # untracked and named that worktree's next image .dirty (#1496).
+            kept = other / '.build-runs' / 'kept' / f'emulationstation-{r.name}'
             if not kept.exists():
-                kept.parent.mkdir(exist_ok=True)
+                kept.parent.mkdir(parents=True, exist_ok=True)
                 shutil.copy2(es, kept)
                 say(f'kept {kept} (sha256 {sha256(kept)[:16]}...)')
+                if sh(['git', '-C', str(other), 'check-ignore', '-q', str(kept)], check=False).returncode != 0:
+                    say(f'warning: {kept} is not ignored in {other}; a build there would be named .dirty')
         before = shutil.disk_usage('/workspace').free
         sh(['find', str(r), '-type', 'd', '!', '-perm', '-u+w', '-exec', 'chmod', 'u+w', '{}', '+'], check=False)
         sh(['rm', '-rf', '--one-file-system', str(r)])
