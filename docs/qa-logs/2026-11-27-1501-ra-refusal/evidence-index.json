@@ -1,0 +1,459 @@
+{
+ "schema_version": 1,
+ "issue": [
+  1501,
+  1502
+ ],
+ "entries": [
+  {
+   "flow_id": "offline-achievements-scan",
+   "branch_id": "en-password-401-scan-row",
+   "document": "docs/es-menu-map.md",
+   "anchor": "retroachievements-our-rows",
+   "trigger": "a password with no cached sign-in; the stand-in answers 401",
+   "expected_state": "OFFLINE ACHIEVEMENTS (BETA) page, SCAN GAMES FOR OFFLINE ACHIEVEMENTS focused, its line COULDN'T FINISH",
+   "source": {
+    "es": "480efb93d102ac0f24820ce666543b22d2b39c53 (local m7/rc-round-es-20261125, route 12)",
+    "distribution": "a2e853e14cb9 (local build/m7-rc-round-20261125, build 22)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261127T091044Z.ga2e853e14cb9-from-ROCKNIX",
+    "walk": "ra-refusal.sh (session driver, this packet's scripts/) over tools/vm-walks/to-offline-achievements"
+   },
+   "locale": "en",
+   "width": 640,
+   "height": 480,
+   "frame": "frames/en-password-401-scan-row.png",
+   "sha256": "306478b9870380807b5bcf5c6ac5868e4dce5452fd457a770c4d6b348053d3c3",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "as expected",
+    "date": "2026-11-27"
+   }
+  },
+  {
+   "flow_id": "offline-achievements-scan",
+   "branch_id": "en-password-401-confirm",
+   "document": "docs/es-menu-map.md",
+   "anchor": "retroachievements-our-rows",
+   "trigger": "a password with no cached sign-in; the stand-in answers 401; A on SCAN GAMES",
+   "expected_state": "SCAN GAMES FOR OFFLINE ACHIEVEMENTS? with last time's why, YES focused",
+   "source": {
+    "es": "480efb93d102ac0f24820ce666543b22d2b39c53 (local m7/rc-round-es-20261125, route 12)",
+    "distribution": "a2e853e14cb9 (local build/m7-rc-round-20261125, build 22)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261127T091044Z.ga2e853e14cb9-from-ROCKNIX",
+    "walk": "ra-refusal.sh (session driver, this packet's scripts/) over tools/vm-walks/to-offline-achievements"
+   },
+   "locale": "en",
+   "width": 640,
+   "height": 480,
+   "frame": "frames/en-password-401-confirm.png",
+   "sha256": "a11615a055cdb28d9f26adc53ebb5a31ef4ed7160f08e40aa1cafafe8a3d68c5",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "as expected",
+    "date": "2026-11-27"
+   }
+  },
+  {
+   "flow_id": "offline-achievements-scan",
+   "branch_id": "en-password-401-result",
+   "document": "docs/es-menu-map.md",
+   "anchor": "retroachievements-our-rows",
+   "trigger": "a password with no cached sign-in; the stand-in answers 401; YES",
+   "expected_state": "COULDN'T FINISH / RETROACHIEVEMENTS DIDN'T ACCEPT YOUR SIGN-IN; help bar CLOSE and TRY AGAIN (#1501: a retry refused the same way)",
+   "source": {
+    "es": "480efb93d102ac0f24820ce666543b22d2b39c53 (local m7/rc-round-es-20261125, route 12)",
+    "distribution": "a2e853e14cb9 (local build/m7-rc-round-20261125, build 22)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261127T091044Z.ga2e853e14cb9-from-ROCKNIX",
+    "walk": "ra-refusal.sh (session driver, this packet's scripts/) over tools/vm-walks/to-offline-achievements"
+   },
+   "locale": "en",
+   "width": 640,
+   "height": 480,
+   "frame": "frames/en-password-401-result.png",
+   "sha256": "dfbc8e196cca573ef8e8ecea34570a2bfbb7e20a1079e8a71d6ebb74d36a64d4",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "as expected (the defect)",
+    "date": "2026-11-27"
+   }
+  },
+  {
+   "flow_id": "offline-achievements-scan",
+   "branch_id": "en-token-401-scan-row",
+   "document": "docs/es-menu-map.md",
+   "anchor": "retroachievements-our-rows",
+   "trigger": "a token, as EmulationStation's sign-in leaves; the stand-in answers 401",
+   "expected_state": "OFFLINE ACHIEVEMENTS (BETA) page, SCAN GAMES FOR OFFLINE ACHIEVEMENTS focused, its line COULDN'T FINISH",
+   "source": {
+    "es": "480efb93d102ac0f24820ce666543b22d2b39c53 (local m7/rc-round-es-20261125, route 12)",
+    "distribution": "a2e853e14cb9 (local build/m7-rc-round-20261125, build 22)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261127T091044Z.ga2e853e14cb9-from-ROCKNIX",
+    "walk": "ra-refusal.sh (session driver, this packet's scripts/) over tools/vm-walks/to-offline-achievements"
+   },
+   "locale": "en",
+   "width": 640,
+   "height": 480,
+   "frame": "frames/en-token-401-scan-row.png",
+   "sha256": "306478b9870380807b5bcf5c6ac5868e4dce5452fd457a770c4d6b348053d3c3",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "as expected",
+    "date": "2026-11-27"
+   }
+  },
+  {
+   "flow_id": "offline-achievements-scan",
+   "branch_id": "en-token-401-confirm",
+   "document": "docs/es-menu-map.md",
+   "anchor": "retroachievements-our-rows",
+   "trigger": "a token, as EmulationStation's sign-in leaves; the stand-in answers 401; A on SCAN GAMES",
+   "expected_state": "SCAN GAMES FOR OFFLINE ACHIEVEMENTS? with last time's why, YES focused",
+   "source": {
+    "es": "480efb93d102ac0f24820ce666543b22d2b39c53 (local m7/rc-round-es-20261125, route 12)",
+    "distribution": "a2e853e14cb9 (local build/m7-rc-round-20261125, build 22)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261127T091044Z.ga2e853e14cb9-from-ROCKNIX",
+    "walk": "ra-refusal.sh (session driver, this packet's scripts/) over tools/vm-walks/to-offline-achievements"
+   },
+   "locale": "en",
+   "width": 640,
+   "height": 480,
+   "frame": "frames/en-token-401-confirm.png",
+   "sha256": "e00c911d4846208db8f1df8332bd9f0c13733c539c559df99c14b07054edade3",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "as expected",
+    "date": "2026-11-27"
+   }
+  },
+  {
+   "flow_id": "offline-achievements-scan",
+   "branch_id": "en-token-401-result",
+   "document": "docs/es-menu-map.md",
+   "anchor": "retroachievements-our-rows",
+   "trigger": "a token, as EmulationStation's sign-in leaves; the stand-in answers 401; YES",
+   "expected_state": "COULDN'T FINISH / RETROACHIEVEMENTS STOPPED ANSWERING; CLOSE and TRY AGAIN (#1502: a refused sign-in told as the server not answering)",
+   "source": {
+    "es": "480efb93d102ac0f24820ce666543b22d2b39c53 (local m7/rc-round-es-20261125, route 12)",
+    "distribution": "a2e853e14cb9 (local build/m7-rc-round-20261125, build 22)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261127T091044Z.ga2e853e14cb9-from-ROCKNIX",
+    "walk": "ra-refusal.sh (session driver, this packet's scripts/) over tools/vm-walks/to-offline-achievements"
+   },
+   "locale": "en",
+   "width": 640,
+   "height": 480,
+   "frame": "frames/en-token-401-result.png",
+   "sha256": "b021e245c31959dd30d6731e21da7c0f9cf2a09d4ad409db2bfdb470ae5bbeab",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "as expected (the defect)",
+    "date": "2026-11-27"
+   }
+  },
+  {
+   "flow_id": "offline-achievements-scan",
+   "branch_id": "en-token-503-scan-row",
+   "document": "docs/es-menu-map.md",
+   "anchor": "retroachievements-our-rows",
+   "trigger": "a token; the stand-in answers 503 (the control)",
+   "expected_state": "OFFLINE ACHIEVEMENTS (BETA) page, SCAN GAMES FOR OFFLINE ACHIEVEMENTS focused, its line COULDN'T FINISH",
+   "source": {
+    "es": "480efb93d102ac0f24820ce666543b22d2b39c53 (local m7/rc-round-es-20261125, route 12)",
+    "distribution": "a2e853e14cb9 (local build/m7-rc-round-20261125, build 22)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261127T091044Z.ga2e853e14cb9-from-ROCKNIX",
+    "walk": "ra-refusal.sh (session driver, this packet's scripts/) over tools/vm-walks/to-offline-achievements"
+   },
+   "locale": "en",
+   "width": 640,
+   "height": 480,
+   "frame": "frames/en-token-503-scan-row.png",
+   "sha256": "306478b9870380807b5bcf5c6ac5868e4dce5452fd457a770c4d6b348053d3c3",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "as expected",
+    "date": "2026-11-27"
+   }
+  },
+  {
+   "flow_id": "offline-achievements-scan",
+   "branch_id": "en-token-503-confirm",
+   "document": "docs/es-menu-map.md",
+   "anchor": "retroachievements-our-rows",
+   "trigger": "a token; the stand-in answers 503 (the control); A on SCAN GAMES",
+   "expected_state": "SCAN GAMES FOR OFFLINE ACHIEVEMENTS? with last time's why, YES focused",
+   "source": {
+    "es": "480efb93d102ac0f24820ce666543b22d2b39c53 (local m7/rc-round-es-20261125, route 12)",
+    "distribution": "a2e853e14cb9 (local build/m7-rc-round-20261125, build 22)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261127T091044Z.ga2e853e14cb9-from-ROCKNIX",
+    "walk": "ra-refusal.sh (session driver, this packet's scripts/) over tools/vm-walks/to-offline-achievements"
+   },
+   "locale": "en",
+   "width": 640,
+   "height": 480,
+   "frame": "frames/en-token-503-confirm.png",
+   "sha256": "a11615a055cdb28d9f26adc53ebb5a31ef4ed7160f08e40aa1cafafe8a3d68c5",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "as expected",
+    "date": "2026-11-27"
+   }
+  },
+  {
+   "flow_id": "offline-achievements-scan",
+   "branch_id": "en-token-503-result",
+   "document": "docs/es-menu-map.md",
+   "anchor": "retroachievements-our-rows",
+   "trigger": "a token; the stand-in answers 503 (the control); YES",
+   "expected_state": "COULDN'T FINISH / RETROACHIEVEMENTS STOPPED ANSWERING; CLOSE and TRY AGAIN (the right why and a retry that can help)",
+   "source": {
+    "es": "480efb93d102ac0f24820ce666543b22d2b39c53 (local m7/rc-round-es-20261125, route 12)",
+    "distribution": "a2e853e14cb9 (local build/m7-rc-round-20261125, build 22)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261127T091044Z.ga2e853e14cb9-from-ROCKNIX",
+    "walk": "ra-refusal.sh (session driver, this packet's scripts/) over tools/vm-walks/to-offline-achievements"
+   },
+   "locale": "en",
+   "width": 640,
+   "height": 480,
+   "frame": "frames/en-token-503-result.png",
+   "sha256": "8696e157dc072b6be7f8a420edce4e158feda1c8fe51eb3028a91bad07756a64",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "as expected (the defect)",
+    "date": "2026-11-27"
+   }
+  },
+  {
+   "flow_id": "offline-achievements-scan",
+   "branch_id": "fr-password-401-scan-row",
+   "document": "docs/es-menu-map.md",
+   "anchor": "retroachievements-our-rows",
+   "trigger": "a password with no cached sign-in; the stand-in answers 401",
+   "expected_state": "OFFLINE ACHIEVEMENTS (BETA) page, SCAN GAMES FOR OFFLINE ACHIEVEMENTS focused, its line COULDN'T FINISH",
+   "source": {
+    "es": "480efb93d102ac0f24820ce666543b22d2b39c53 (local m7/rc-round-es-20261125, route 12)",
+    "distribution": "a2e853e14cb9 (local build/m7-rc-round-20261125, build 22)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261127T091044Z.ga2e853e14cb9-from-ROCKNIX",
+    "walk": "ra-refusal.sh (session driver, this packet's scripts/) over tools/vm-walks/to-offline-achievements"
+   },
+   "locale": "fr",
+   "width": 640,
+   "height": 480,
+   "frame": "frames/fr-password-401-scan-row.png",
+   "sha256": "150cf881f11aa5652d09a7156225aa2eab2414c9c7655b9fb731e0e497e04fb0",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "as expected",
+    "date": "2026-11-27"
+   }
+  },
+  {
+   "flow_id": "offline-achievements-scan",
+   "branch_id": "fr-password-401-confirm",
+   "document": "docs/es-menu-map.md",
+   "anchor": "retroachievements-our-rows",
+   "trigger": "a password with no cached sign-in; the stand-in answers 401; A on SCAN GAMES",
+   "expected_state": "SCAN GAMES FOR OFFLINE ACHIEVEMENTS? with last time's why, YES focused",
+   "source": {
+    "es": "480efb93d102ac0f24820ce666543b22d2b39c53 (local m7/rc-round-es-20261125, route 12)",
+    "distribution": "a2e853e14cb9 (local build/m7-rc-round-20261125, build 22)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261127T091044Z.ga2e853e14cb9-from-ROCKNIX",
+    "walk": "ra-refusal.sh (session driver, this packet's scripts/) over tools/vm-walks/to-offline-achievements"
+   },
+   "locale": "fr",
+   "width": 640,
+   "height": 480,
+   "frame": "frames/fr-password-401-confirm.png",
+   "sha256": "79a2956e5cb57595b41bb862c028b6f7b84140987f1c7ba4322af2c3ce610639",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "as expected",
+    "date": "2026-11-27"
+   }
+  },
+  {
+   "flow_id": "offline-achievements-scan",
+   "branch_id": "fr-password-401-result",
+   "document": "docs/es-menu-map.md",
+   "anchor": "retroachievements-our-rows",
+   "trigger": "a password with no cached sign-in; the stand-in answers 401; YES",
+   "expected_state": "COULDN'T FINISH / RETROACHIEVEMENTS DIDN'T ACCEPT YOUR SIGN-IN; help bar CLOSE and TRY AGAIN (#1501: a retry refused the same way)",
+   "source": {
+    "es": "480efb93d102ac0f24820ce666543b22d2b39c53 (local m7/rc-round-es-20261125, route 12)",
+    "distribution": "a2e853e14cb9 (local build/m7-rc-round-20261125, build 22)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261127T091044Z.ga2e853e14cb9-from-ROCKNIX",
+    "walk": "ra-refusal.sh (session driver, this packet's scripts/) over tools/vm-walks/to-offline-achievements"
+   },
+   "locale": "fr",
+   "width": 640,
+   "height": 480,
+   "frame": "frames/fr-password-401-result.png",
+   "sha256": "acd3bec6783237a4782abf29bdca75ed4797251f3bca543df7ece8c66a0614b8",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "as expected (the defect)",
+    "date": "2026-11-27"
+   }
+  },
+  {
+   "flow_id": "offline-achievements-scan",
+   "branch_id": "fr-token-401-scan-row",
+   "document": "docs/es-menu-map.md",
+   "anchor": "retroachievements-our-rows",
+   "trigger": "a token, as EmulationStation's sign-in leaves; the stand-in answers 401",
+   "expected_state": "OFFLINE ACHIEVEMENTS (BETA) page, SCAN GAMES FOR OFFLINE ACHIEVEMENTS focused, its line COULDN'T FINISH",
+   "source": {
+    "es": "480efb93d102ac0f24820ce666543b22d2b39c53 (local m7/rc-round-es-20261125, route 12)",
+    "distribution": "a2e853e14cb9 (local build/m7-rc-round-20261125, build 22)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261127T091044Z.ga2e853e14cb9-from-ROCKNIX",
+    "walk": "ra-refusal.sh (session driver, this packet's scripts/) over tools/vm-walks/to-offline-achievements"
+   },
+   "locale": "fr",
+   "width": 640,
+   "height": 480,
+   "frame": "frames/fr-token-401-scan-row.png",
+   "sha256": "150cf881f11aa5652d09a7156225aa2eab2414c9c7655b9fb731e0e497e04fb0",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "as expected",
+    "date": "2026-11-27"
+   }
+  },
+  {
+   "flow_id": "offline-achievements-scan",
+   "branch_id": "fr-token-401-confirm",
+   "document": "docs/es-menu-map.md",
+   "anchor": "retroachievements-our-rows",
+   "trigger": "a token, as EmulationStation's sign-in leaves; the stand-in answers 401; A on SCAN GAMES",
+   "expected_state": "SCAN GAMES FOR OFFLINE ACHIEVEMENTS? with last time's why, YES focused",
+   "source": {
+    "es": "480efb93d102ac0f24820ce666543b22d2b39c53 (local m7/rc-round-es-20261125, route 12)",
+    "distribution": "a2e853e14cb9 (local build/m7-rc-round-20261125, build 22)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261127T091044Z.ga2e853e14cb9-from-ROCKNIX",
+    "walk": "ra-refusal.sh (session driver, this packet's scripts/) over tools/vm-walks/to-offline-achievements"
+   },
+   "locale": "fr",
+   "width": 640,
+   "height": 480,
+   "frame": "frames/fr-token-401-confirm.png",
+   "sha256": "a6f9d986cc828206fc9538620b13b6f7a0d6716756c756df0326a62ad03b6392",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "as expected",
+    "date": "2026-11-27"
+   }
+  },
+  {
+   "flow_id": "offline-achievements-scan",
+   "branch_id": "fr-token-401-result",
+   "document": "docs/es-menu-map.md",
+   "anchor": "retroachievements-our-rows",
+   "trigger": "a token, as EmulationStation's sign-in leaves; the stand-in answers 401; YES",
+   "expected_state": "COULDN'T FINISH / RETROACHIEVEMENTS STOPPED ANSWERING; CLOSE and TRY AGAIN (#1502: a refused sign-in told as the server not answering)",
+   "source": {
+    "es": "480efb93d102ac0f24820ce666543b22d2b39c53 (local m7/rc-round-es-20261125, route 12)",
+    "distribution": "a2e853e14cb9 (local build/m7-rc-round-20261125, build 22)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261127T091044Z.ga2e853e14cb9-from-ROCKNIX",
+    "walk": "ra-refusal.sh (session driver, this packet's scripts/) over tools/vm-walks/to-offline-achievements"
+   },
+   "locale": "fr",
+   "width": 640,
+   "height": 480,
+   "frame": "frames/fr-token-401-result.png",
+   "sha256": "8c7b48409d6373caf89200393870c56cbefc3186000695b7294fceae18e3fa1e",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "as expected (the defect)",
+    "date": "2026-11-27"
+   }
+  },
+  {
+   "flow_id": "offline-achievements-scan",
+   "branch_id": "fr-token-503-scan-row",
+   "document": "docs/es-menu-map.md",
+   "anchor": "retroachievements-our-rows",
+   "trigger": "a token; the stand-in answers 503 (the control)",
+   "expected_state": "OFFLINE ACHIEVEMENTS (BETA) page, SCAN GAMES FOR OFFLINE ACHIEVEMENTS focused, its line COULDN'T FINISH",
+   "source": {
+    "es": "480efb93d102ac0f24820ce666543b22d2b39c53 (local m7/rc-round-es-20261125, route 12)",
+    "distribution": "a2e853e14cb9 (local build/m7-rc-round-20261125, build 22)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261127T091044Z.ga2e853e14cb9-from-ROCKNIX",
+    "walk": "ra-refusal.sh (session driver, this packet's scripts/) over tools/vm-walks/to-offline-achievements"
+   },
+   "locale": "fr",
+   "width": 640,
+   "height": 480,
+   "frame": "frames/fr-token-503-scan-row.png",
+   "sha256": "150cf881f11aa5652d09a7156225aa2eab2414c9c7655b9fb731e0e497e04fb0",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "as expected",
+    "date": "2026-11-27"
+   }
+  },
+  {
+   "flow_id": "offline-achievements-scan",
+   "branch_id": "fr-token-503-confirm",
+   "document": "docs/es-menu-map.md",
+   "anchor": "retroachievements-our-rows",
+   "trigger": "a token; the stand-in answers 503 (the control); A on SCAN GAMES",
+   "expected_state": "SCAN GAMES FOR OFFLINE ACHIEVEMENTS? with last time's why, YES focused",
+   "source": {
+    "es": "480efb93d102ac0f24820ce666543b22d2b39c53 (local m7/rc-round-es-20261125, route 12)",
+    "distribution": "a2e853e14cb9 (local build/m7-rc-round-20261125, build 22)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261127T091044Z.ga2e853e14cb9-from-ROCKNIX",
+    "walk": "ra-refusal.sh (session driver, this packet's scripts/) over tools/vm-walks/to-offline-achievements"
+   },
+   "locale": "fr",
+   "width": 640,
+   "height": 480,
+   "frame": "frames/fr-token-503-confirm.png",
+   "sha256": "79a2956e5cb57595b41bb862c028b6f7b84140987f1c7ba4322af2c3ce610639",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "as expected",
+    "date": "2026-11-27"
+   }
+  },
+  {
+   "flow_id": "offline-achievements-scan",
+   "branch_id": "fr-token-503-result",
+   "document": "docs/es-menu-map.md",
+   "anchor": "retroachievements-our-rows",
+   "trigger": "a token; the stand-in answers 503 (the control); YES",
+   "expected_state": "COULDN'T FINISH / RETROACHIEVEMENTS STOPPED ANSWERING; CLOSE and TRY AGAIN (the right why and a retry that can help)",
+   "source": {
+    "es": "480efb93d102ac0f24820ce666543b22d2b39c53 (local m7/rc-round-es-20261125, route 12)",
+    "distribution": "a2e853e14cb9 (local build/m7-rc-round-20261125, build 22)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261127T091044Z.ga2e853e14cb9-from-ROCKNIX",
+    "walk": "ra-refusal.sh (session driver, this packet's scripts/) over tools/vm-walks/to-offline-achievements"
+   },
+   "locale": "fr",
+   "width": 640,
+   "height": 480,
+   "frame": "frames/fr-token-503-result.png",
+   "sha256": "4a9bf1148cf6d85cac4cedcd535e1439f09d2e7612945edca5aff41731ba6543",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "as expected (the defect)",
+    "date": "2026-11-27"
+   }
+  }
+ ]
+}

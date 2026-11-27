@@ -8,6 +8,27 @@ Read the [M7 milestone](https://github.com/pixelelated/distribution/milestone/7)
 
 ## Current focus
 
+**000000000000000000000000000. Newest (2026-11-27T18:17Z): #1497, #1498 and #1500 are closed on build 22. #1501 and #1502 are found and fixed in route 14 (round `5bd8ad6dc0`). Build 23 (PC, warm) is running.**
+- **Build 22's proofs** (12:41 to 13:52Z; read at 17:41Z after a usage limit):
+  - the pre-split `suite-1428` passed whole (#1498 c3);
+  - standard run 16 passed 16 of 16, `frame-diff` 426 claimed and 0 unclaimed (#1500 c2), with the new walk's frame (#1497 c4);
+  - `rc-preflight --only vm-qa` PASS.
+  - The three issues are closed with their evidence; #1497 has a full trace. #1465 has run 16; its c3 waits for the final head.
+- **#1501** (hunted from #1497): the offline achievements scan page offers TRY AGAIN for a refused sign-in, and the top-up card promises a retry.
+- **#1502** (found framing #1501 on build 22, loopback stand-in at 401): the ctl tells a rejected token as RETROACHIEVEMENTS STOPPED ANSWERING, because the proxy's "rejected the login" is not in its matcher, and the top-up's recently played pass calls every failure the link's.
+  - Packet: `docs/qa-logs/2026-11-27-1501-ra-refusal/`. #1470's table has the row.
+- **Route 14:**
+  - ES `57a2357d3` (`CloudText::scanFix`, 196 of 196 unit tests, es-syntax-check PASS; two proposed strings with French), `m7-20261127-9384b9c64e0a`, supplier `.build-runs/m7-rc-round-20261127-14-es/inputs/es`;
+  - the ctl fix;
+  - `tools/vm-walks/ra-refusal-outcomes` (it FAILED on build 22 at token-401, as it should).
+  - The menu map is updated for #1497 and #1501; the missed #1497 map update is a friction line.
+- **Running:** build 23, run `20261127T181632Z-9eb10240` (build.pid 81503, watcher 81504), owner `.build-runs/m7-round-x64-23-owner/submit-01`; harness waiter `brpcvd3dd` on `build.rc`.
+- **Next:**
+  1. Build 23's acceptance and image reads: the ES binary carries the two new strings, and the image's ctl has the "rejected the login" match.
+  2. `ra-refusal-outcomes` EN and FR on build 23 (#1501 c2–c5, #1502 c2–c4).
+  3. Standard run 17 for #1465 c3.
+  4. Then H700 cold and SM8550 cold from `5bd8ad6dc0`, unless #1477's answer moves ES again.
+
 **00000000000000000000000000. Newest (2026-11-27T07:56Z): route 12 is round `2479f6f2e8`. Build 21 (PC, warm) is accepted, and #1497 is fixed on its image. #1496 and #1495 are closed. Build 21's proof chain is running.**
 - **Run 14 on build 20:** PASS, 16 of 16; `rc-preflight --only vm-qa` PASS (#1465).
 - **s36 on build 20** found #1497 on the folder scan (CHECKING YOUR CLOUD): it offered CLOUD FOLDERS and clipped the why. ES `480efb93d1` fixes it. #1497 is rewritten; c1–c3 are ticked from build 21's s36 and s37. **c4 is open:** walks for the card (s34) and scan (s36) states join a standard suite with reference frames. That is a round `tools/vm-walks` change, made after the chain.

@@ -1,0 +1,15 @@
+image scan token-401: RETROACHIEVEMENTS_STOPPED_ANSWERING
+image scan token-503: RETROACHIEVEMENTS_STOPPED_ANSWERING
+image scan password-401: SIGN_IN_REFUSED
+image topup password-401: RETROACHIEVEMENTS_STOPPED_ANSWERING | 2026-11-27 18:06:17 topup recently played: rc=1 cached=0 skipped=0 limit=0 2026-11-27 18:06:17 topup done: cached=0 added=0 indexed=0 skipped=0 errors=0 ready=0 limit=0 took=0s why=RETROACHIEVEMENTS_STOPPED_ANSWERING 
+sed: /storage/.config/raofflineproxy/last-scan: No such file or directory
+image topup token-401:  | 2026-11-27 18:06:20 topup recently played: rc=0 cached=0 skipped=0 limit=0 2026-11-27 18:06:20 topup done: cached=0 added=0 indexed=0 skipped=0 errors=0 ready=0 limit=0 took=1s 
+3382b2d21fc0cb2e
+patched scan token-401: SIGN_IN_REFUSED
+patched scan token-503: RETROACHIEVEMENTS_STOPPED_ANSWERING
+patched scan password-401: SIGN_IN_REFUSED
+patched topup password-401: SIGN_IN_REFUSED | 2026-11-27 18:06:34 topup recently played: rc=1 cached=0 skipped=0 limit=0 2026-11-27 18:06:34 topup done: cached=0 added=0 indexed=0 skipped=0 errors=0 ready=0 limit=0 took=1s why=SIGN_IN_REFUSED 
+sed: /storage/.config/raofflineproxy/last-scan: No such file or directory
+patched topup token-401:  | 2026-11-27 18:06:36 topup recently played: rc=0 cached=0 skipped=0 limit=0 2026-11-27 18:06:36 topup done: cached=0 added=0 indexed=0 skipped=0 errors=0 ready=0 limit=0 took=1s 
+b89ebd15f7c77c5e
+released

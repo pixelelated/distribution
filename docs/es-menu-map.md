@@ -284,7 +284,7 @@ flowchart TD
 
     ALL --> HUB{{CLOUD}}
     HUB --> BR[BACK UP AND RESTORE CONTENT]
-    BR --> BU[BACK UP TO CLOUD<br/><i>CHOOSE CONTENT FROM THIS DEVICE TO BACK UP.</i>] --> SCAN[CHECKING YOUR CLOUD<br/>GuiCloudTransfer running cloud_scan: CLOUD FOLDER · SETTINGS BACKUPS · GAME CONTENT<br/>goes on by itself when complete; TRY AGAIN · CLOSE when not, D-CLOUD-167]
+    BR --> BU[BACK UP TO CLOUD<br/><i>CHOOSE CONTENT FROM THIS DEVICE TO BACK UP.</i>] --> SCAN[CHECKING YOUR CLOUD<br/>GuiCloudTransfer running cloud_scan: CLOUD FOLDER · SETTINGS BACKUPS · GAME CONTENT<br/>goes on by itself when complete; CLOUD FOLDERS · CLOSE when not (the folder selection, D-CLOUD-167); a why only the player can fix (a connection, a sign-in, a setup): CLOSE alone, the note names where, e.g. CHECK THEM: GAME SETTINGS > MANAGE CLOUD STORAGE, #1497]
     BR --> RE[RESTORE FROM CLOUD<br/><i>CHOOSE CONTENT TO RESTORE TO THIS DEVICE.</i>] --> SCAN
     SCAN --> TICK[page titled as the row, BACK UP TO CLOUD or RESTORE FROM CLOUD, #1428; WHAT WOULD YOU LIKE TO BACK UP? / RESTORE?<br/>tick: SAVES · ROMS AND BIOS · GAME CONTENT · SETTINGS<br/>restore: SETTINGS offered as DEVICE, DATE, or dimmed NO SETTINGS BACKUP FROM THIS DEVICE YET, D-CLOUD-162<br/>CONTINUE]
     TICK -->|ROMS AND BIOS or GAME CONTENT ticked, restore| CSCAN[CHECKING YOUR CLOUD<br/>cloud_scan --content inside the selected library, in the classes ticked; goes on by itself]
@@ -737,7 +737,7 @@ flowchart TD
     SCAN -.->|switch off| DIM1[dimmed: TURN ON OFFLINE ACHIEVEMENTS FIRST.]
     SCAN -.->|no address| DIM2[dimmed: YOU'RE NOT ONLINE.]
     SCAN --> CONFIRM[SCAN GAMES FOR OFFLINE ACHIEVEMENTS?<br/>what it does and costs; last time's why<br/>YES . NO]
-    CONFIRM --> XFER[GuiOfflineScan<br/>full screen; GAME i OF n, the game, counts so far, spinner, elapsed;<br/>outcome and N GAMES READY FOR OFFLINE PLAY; stays until dismissed]
+    CONFIRM --> XFER[GuiOfflineScan<br/>full screen; GAME i OF n, the game, counts so far, spinner, elapsed;<br/>outcome and N GAMES READY FOR OFFLINE PLAY; stays until dismissed<br/>CLOSE · TRY AGAIN when it could not finish; a refused sign-in, no account or the switch off: CLOSE alone, the note SIGN IN AGAIN: GAME SETTINGS > RETROACHIEVEMENTS SETTINGS (or the place alone), #1501]
 ```
 
 The switch is a request to the proxy's lifecycle, and the backend writes its
@@ -768,7 +768,11 @@ device comes online, bounded to one attempt per half hour) had no surface of
 its own until 2026-09-26 (#293, D-UI-095): now a card while it has work --
 RETROACHIEVEMENTS (OFFLINE) over GETTING GAME N OF M READY..., then COMPLETED
 and N MORE GAMES ARE READY. or EVERYTHING'S UP TO DATE., or COULDN'T FINISH
-with the ctl's why (D-UI-107) -- and a launch over it asks YOUR OFFLINE
+with the ctl's why (D-UI-107) and IT'LL TRY AGAIN NEXT TIME YOU'RE CONNECTED.,
+except for a refused sign-in, whose line is SIGN IN AGAIN: GAME SETTINGS >
+RETROACHIEVEMENTS SETTINGS (#1501; a token RetroAchievements refuses is
+stamped SIGN_IN_REFUSED, not RETROACHIEVEMENTS_STOPPED_ANSWERING, #1502) --
+and a launch over it asks YOUR OFFLINE
 ACHIEVEMENTS ARE BEING UPDATED. / IF YOU STOP IT, IT'LL TRY AGAIN NEXT TIME
 YOU'RE CONNECTED. with STOP IT AND PLAY / KEEP WAITING. Its result is still the
 same line under the row, with WHEN YOU CAME ONLINE in place of the date
