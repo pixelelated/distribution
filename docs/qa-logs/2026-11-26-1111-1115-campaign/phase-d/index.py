@@ -29,6 +29,10 @@ SOURCES = {
                 "distribution": "a267c139b167bf5a4f09fc939fab7064411cb385 (local build/m7-rc-round-20261125, build 19)",
                 "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T234404Z.ga267c139b167-from-ROCKNIX",
                 "walk": "docs/qa-logs/2026-11-26-1111-1115-campaign/phase-d/phase-d.sh"},
+    "build20": {"es": "0b5e210c5 (local m7/rc-round-es-20261125; route m7-20261126-3edb5648453f)",
+                "distribution": "1d3c0c735eda9ecc4ef8c7b5fc84201ef966b5f3 (local build/m7-rc-round-20261125, build 20, cold; named .dirty by an untracked kept/, #1496)",
+                "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261127T012430Z.g1d3c0c735eda.dirty-from-ROCKNIX",
+                "walk": "docs/qa-logs/2026-11-26-1111-1115-campaign/phase-d/phase-d.sh"},
     "build14": {"es": "6cdcb7a64 (local m7/rc-round-es-20261125; route m7-20261126-552f3815e4b4)",
                 "distribution": "ed61fe8e5922f3106cb35230fed0027f4f7fc431 (local build/m7-rc-round-20261125, build 14)",
                 "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T192845Z.ged61fe8e5922-from-ROCKNIX",
@@ -152,6 +156,10 @@ OBSERVED = {k: v for lang in ("en", "fr") for k, v in (
     (f"build19/640x480/{lang}/s35", "CLOUD SETUP CHECK's two sync facts with ON " + ("(OUI); SYNCHRONISER LES SAUVEGARDES APRÈS UN JEU whole beside its value (#1494)" if lang == "fr" else "(the English unchanged)") + "; the hub's toggles read the same words. The toggles show off because the arm wrote system.cfg behind ES, whose in-memory SystemConf it does not reload; the setup check reads the file. A harness effect, not the product's"),
     (f"build19/640x480/{lang}/s31", "#1489's state; the setup check's sync facts read NOT CONFIRMED" + (" / NON CONFIRMÉ beside SYNCHRONISER LES SAUVEGARDES APRÈS UN JEU, whole (#1494)" if lang == "fr" else "")),
     (f"build19/640x480/{lang}/s13", "the normal state; the sync facts read OFF" + (" / NON, whole (#1494)" if lang == "fr" else "")),
+    (f"build20/640x480/{lang}/s34", "the startup sync's card in #1489's state: " + ("SYNCHRONISER LES SAUVEGARDES / N'A PAS PU SE TERMINER - VOS CONNEXIONS AU CLOUD ONT CHANGÉ / VÉRIFIEZ-LES : PARAMÈTRES DES JEUX > GÉRER LE STOCKAGE CLOUD" if lang == "fr" else "SYNC SAVES / COULDN'T FINISH - YOUR CLOUD CONNECTIONS CHANGED / CHECK THEM: GAME SETTINGS > MANAGE CLOUD STORAGE") + ", whole; the action line names where to act, not a retry (#1495 c1). No second card in the rest of the 40-second burst. Duplicate burst frames removed after hashing (burst-manifest.json)"),
+    (f"build20/640x480/{lang}/s31", "#1489's flow as on build 19, through USE THIS CONNECTION to QA-EXT in use" + ("; the setup check reads ARCHIVES LOCALES DES PARAMÈTRES (#1478 item 2)" if lang == "fr" else "")),
+    (f"build20/640x480/{lang}/s13", "the normal state; the sync facts read OFF" + (" / NON; the setup check reads ARCHIVES LOCALES DES PARAMÈTRES, SAUVEGARDES DES PARAMÈTRES and VOIR LE GUIDE DES ARCHIVES DE PARAMÈTRES (#1478 item 2)" if lang == "fr" else "")),
+    (f"build20/640x480/{lang}/s35", "both syncs on; the setup check's facts read " + ("OUI, whole; its settings rows read PARAMÈTRES (#1478 item 2)" if lang == "fr" else "ON") + "; the hub's toggles show off for the harness reason given under build 19"),
     (f"build16/640x480-r2/{lang}/s20", "a malformed rclone.conf still reads " + ("RÉGLAGES ILLISIBLES / CONNEXIONS INDISPONIBLES" if lang == "fr" else "SETUP COULD NOT BE READ / CONNECTIONS UNAVAILABLE") + " on the hub, the setup check, the connections page and CLOUD FOLDERS (#1489 c3)"),
     (f"build14/640x480/{lang}/s24", "back on the WebDAV form lands on the provider chooser with WEBDAV focused" + ("; the form's row labels are English in French (#1485)" if lang == "fr" else "")),
     (f"640x480-more/{lang}/s20", "defect, build 13: the hub reads NO CONNECTION SELECTED and CLOUD FOLDERS asks to choose a connection for an unreadable setup; the setup check and connections page name it. Fixed in ES 6cdcb7a64 (#1111 C11)"),
@@ -159,7 +167,7 @@ OBSERVED = {k: v for lang in ("en", "fr") for k, v in (
 entries = []
 import sys
 SKIP = set(sys.argv[sys.argv.index("--skip") + 1:]) if "--skip" in sys.argv else set()   # a run still writing
-for res_dir in sorted(d for d in HERE.glob("build1[3-9]-*") if d.name not in SKIP):
+for res_dir in sorted(d for d in (set(HERE.glob("build1[3-9]-*")) | set(HERE.glob("build2[0-9]-*"))) if d.name not in SKIP):
     build, _, run = res_dir.name.partition("-")            # build13|build14, <res>[-extra|-root|-more]
     run = run if build == "build13" else f"{build}/{run}"  # build 13 keys stay as reviewed.txt has them
     res = run.split("/")[-1].split("-")[0]; w, h = (int(v) for v in res.split("x"))
@@ -177,7 +185,7 @@ for res_dir in sorted(d for d in HERE.glob("build1[3-9]-*") if d.name not in SKI
                                 "frame": str(frame.relative_to(HERE)), "sha256": hashlib.sha256(frame.read_bytes()).hexdigest(),
                                 "status": status,
                                 **({"note": FAILED[key]} if key in FAILED else {}),
-                                **({"review": {"reviewer": "OS coordinator (claude-opus-5-5)", "observed": OBSERVED.get(key, "as expected"), "date": "2026-11-26"}}
+                                **({"review": {"reviewer": "OS coordinator (claude-opus-5-5)", "observed": OBSERVED.get(key, "as expected"), "date": "2026-11-27" if build >= "build20" else "2026-11-26"}}
                                    if status == "reviewed" else {})})
-(HERE / "evidence-index.json").write_text(json.dumps({"schema_version": 1, "issue": [1111, 1115, 1480, 1489, 1490, 1492, 1493, 1494], "entries": entries}, indent=1) + "\n")
+(HERE / "evidence-index.json").write_text(json.dumps({"schema_version": 1, "issue": [1111, 1115, 1478, 1480, 1489, 1490, 1492, 1493, 1494, 1495], "entries": entries}, indent=1) + "\n")
 print(f"{len(entries)} frames, {sum(e['status'] == 'reviewed' for e in entries)} reviewed")

@@ -155,3 +155,19 @@ Build 19 is `a267c139b1`, with ES `77d7b2681` and route `m7-20261126-bcb42f11944
 | s13 | The same fact beside NON, the normal state. | #1494 c1 |
 
 **A harness effect, not the product's:** in s35 the hub's toggles show off. The arm wrote `system.cfg` behind EmulationStation, whose in-memory settings it does not reload; the setup check reads the file. A player sets the toggles in the interface, where both agree.
+
+## Build 20: a refused sync's card names where to act; French settings are PARAMÈTRES
+
+Build 20 is `1d3c0c735e`, a cold build, with ES `0b5e210c5` and route `m7-20261126-3edb5648453f`.
+- It carries #1495: `CloudText::fixFor` gives the card's action line for the four whys whose fix is the player's (ES `a8107f028`).
+- It carries #1478 item 2: the French settings tier reads PARAMÈTRES (ES `0b5e210c5`).
+
+Its version reads `.dirty` because the build worktree held an untracked `kept/`. The tracked tree equals the head (#1496). All frames are at 640x480, in EN and FR.
+
+| Screen | What the frames show | Criteria |
+| --- | --- | --- |
+| s34 | #1489's state with ES restarted, 40 frames a second apart. The card reads SYNC SAVES / COULDN'T FINISH - YOUR CLOUD CONNECTIONS CHANGED / CHECK THEM: GAME SETTINGS > MANAGE CLOUD STORAGE. In French it reads SYNCHRONISER LES SAUVEGARDES / N'A PAS PU SE TERMINER - VOS CONNEXIONS AU CLOUD ONT CHANGÉ / VÉRIFIEZ-LES : PARAMÈTRES DES JEUX > GÉRER LE STOCKAGE CLOUD. Each line is whole (`<lang>/s34/04-card-04.png`). No second card shows in the rest of the burst. Identical frames were removed after hashing (`build20-640x480/burst-manifest.json`), leaving five per language. | #1495 c1 |
+| s31 | #1489's flow, unchanged from build 19. In French, the setup check reads ARCHIVES LOCALES DES PARAMÈTRES. | #1478 item 2 |
+| s13, s35 | The setup check with both syncs off, then both on. In French the settings rows read ARCHIVES LOCALES DES PARAMÈTRES, SAUVEGARDES DES PARAMÈTRES and VOIR LE GUIDE DES ARCHIVES DE PARAMÈTRES. The sync facts are whole beside NON and OUI. | #1478 item 2, #1494 (no regression) |
+
+**What reading the source turned up for #1495's sibling hunt:** the deliberate transfer page offers TRY AGAIN on a run refused for one of the same four whys, and that run would refuse again until the player acts. It is filed as #1497, with a frame of the page as its first criterion.
