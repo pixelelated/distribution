@@ -8,6 +8,23 @@ Read the [M7 milestone](https://github.com/pixelelated/distribution/milestone/7)
 
 ## Current focus
 
+**000000000000000000000000. Newest (2026-11-27T01:25Z): #1478 item 2 answered (PARAMÈTRES, D-UI-147). The H700 build of `fd8dadd564` was stopped on purpose. The PC image is building cold from route 11's head `1d3c0c735e`.**
+- **Max's word** (via the steward, 01:16Z): "We're just using French for testing. Let's just see what the most common word is online. I really don't know."
+  - The steward's search gave Paramètres.
+  - ES `0b5e210c5` changes 25 fork French "settings" entries. Upstream's two and the two "setup" lines keep RÉGLAGES.
+  - Recorded on #1478 and D-UI-147 (next `e5d2d896f4`, and in the round's register).
+- **Route 11** (`m7-20261126-3edb5648453f`, ES `0b5e210c5`, which carries #1495's `a8107f028`) is round `1d3c0c735e`, the set's head.
+- **H700 of `fd8dadd564` stopped at 01:21Z:** TERM to runner pid 3775796; rc 143; container `d2d283ac2934` gone; its roots removed by the next launch. Every target is now built from `1d3c0c735e`, handhelds last (D-INFRA-043).
+- **Running:** cold GENERIC_X64 build `m7-round-x64-20`.
+  - Run `20261127T012429Z-dad9fcb9`: build pid 2402467, command pid 2402566, watcher pid 2402468.
+  - Owner `.build-runs/m7-round-x64-20-owner`; the waiter delivers `build.rc`.
+- **When it ends:**
+  1. image reads and ACCEPTANCE-20;
+  2. phase D: s34 (#1495's card, EN/FR), s31, s13 and s35, plus the French pages;
+  3. `tools/vm-walks/suite-1428.txt` at 640x480 and 1280x800, EN and FR, for #1478 criterion 2 and #1111 C24's French half;
+  4. standard run 14;
+  5. H700, then SM8550, each from `1d3c0c735e`.
+
 **00000000000000000000000. Newest (2026-11-27T00:38Z): standard run 13 on build 19 passed 15 of 16 suites. The register fault is fixed in round `fd8dadd564`. H700 cold is building from `fd8dadd564`.**
 - **Run 13:** report `/workspace/artifacts/rocknix-images/qa-a267c139b1-webdav-a-20261127-0000/report.md`.
   - The one failure was register: `MISSING D-CLOUD-194`, because the round's register copy predated the row.
