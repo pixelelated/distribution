@@ -182,3 +182,13 @@ On build 20, in #1489's state, the hub's BACK UP TO CLOUD stops at the folder sc
 The evidence is `build20-640x480-s36/{en,fr}/s36/02-scan-refused.png` (#1497 c1).
 
 The first s36 steps expected a picker. The walk's next key closed the scan page, so frame 03 is the hub and the walk ended rc 3; it is indexed as walk-failed with that note. The steps now end on the scan page, which is where the after-fix frames (#1497 c2) come from.
+
+## Build 21: #1497 fixed on the folder scan
+
+Build 21 is `2479f6f2e8`, warm, with ES `480efb93d` and route `m7-20261126-1004de647320`, at 640x480 in EN and FR.
+
+| Screen | What the frames show | Criteria |
+| --- | --- | --- |
+| s36 | #1489's state, then the hub's BACK UP TO CLOUD. The scan reads YOUR CLOUD CONNECTIONS CHANGED, whole, over CHECK THEM: GAME SETTINGS > MANAGE CLOUD STORAGE, with CLOSE alone. The French has the same layout. On build 20 the same page clipped the why and offered CLOUD FOLDERS. | #1497 c2 |
+| s37 (new) | qa-cloud's port moved to 9011, then the same entry. CLOUD FOLDER - YOUR CLOUD STOPPED ANSWERING, NO FILES HAVE BEEN MOVED., CLOSE and CLOUD FOLDERS: a why a retry can recover keeps its way out. | #1497 c3 |
+| s34 | #1495's card, as on build 20. The burst's identical frames are removed after hashing (`build21-640x480/burst-manifest.json`). | no regression |
