@@ -8,6 +8,25 @@ Read the [M7 milestone](https://github.com/pixelelated/distribution/milestone/7)
 
 ## Current focus
 
+**00000000000000000000000000. Newest (2026-11-27T07:56Z): route 12 is round `2479f6f2e8`. Build 21 (PC, warm) is accepted, and #1497 is fixed on its image. #1496 and #1495 are closed. Build 21's proof chain is running.**
+- **Run 14 on build 20:** PASS, 16 of 16; `rc-preflight --only vm-qa` PASS (#1465).
+- **s36 on build 20** found #1497 on the folder scan (CHECKING YOUR CLOUD): it offered CLOUD FOLDERS and clipped the why. ES `480efb93d1` fixes it. #1497 is rewritten; c1–c3 are ticked from build 21's s36 and s37. **c4 is open:** walks for the card (s34) and scan (s36) states join a standard suite with reference frames. That is a round `tools/vm-walks` change, made after the chain.
+- **Route 12** (`m7-20261126-1004de647320`) contains:
+  - ES `480efb93d1`;
+  - `suite-1428` split into the main file plus four failure-branch files (#1498);
+  - the round's register = next's, with 17 live citations swept (#1463 c2 ticked; c3, the guard, open).
+- **Build 21:** run `20261127T073955Z-4dd7f52c`, rc 0, image `…g2479f6f2e8ac-from-ROCKNIX`, no `.dirty`; ACCEPTANCE-21 written and its admission (`4f4d23b9…`) consumed; records in `build21/`.
+- **#1496 is closed:** dry-run proofs; build 21 is clean; `rc-preflight` refuses a dirty identity (constructed control).
+- **Running:**
+  - chain pid 778734 (`b21-chain.sh`, rc files in `b21-chain/`): phase D done (rc 0); then `suite-1428`, the four branch files, then standard run 15;
+  - waiter `bzyymtb6b` on the branch files.
+- **D-QA-068** (Max, 05:48Z relay): every VM finding updates its card's criteria. #1470 has a findings table, and #1499 is filed.
+- **Next:**
+  1. The suites' verdicts (#1498 c1 and c2).
+  2. Run 15: `rc-preflight`, then #1465.
+  3. #1497 c4, in the round after the chain.
+  4. H700 cold from `2479f6f2e8` (set `m7-round-x64`), then SM8550, unless #1477's answer moves the head first.
+
 **0000000000000000000000000. Newest (2026-11-27T04:56Z): build 20 (PC, cold, `1d3c0c735e`) is accepted; phase D on it passed; #1495 is closed; #1497 is filed and fixed on the ES branch but not routed. The proof chain runs: walks, then standard run 14.**
 - **Build 20:** run `20261127T012429Z-dad9fcb9`, 01:24 to 04:30Z, rc 0; ACCEPTANCE-20 written and the admission consumed (`2e93b61a…`); records in `docs/qa-logs/2026-11-26-1445-device-build/build20/`.
   - Its version reads `.dirty`. The cause was an untracked `kept/` that `tools/device-build` wrote into the build worktree (#1496). The tool is fixed on next (`a41d72357c`): the keep goes under `.build-runs/kept/`, and step 2 refuses an unclean worktree. Build 19's leftover is removed.
