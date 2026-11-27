@@ -23,6 +23,13 @@ Read the [M7 milestone](https://github.com/pixelelated/distribution/milestone/7)
   - read every result channel; check the DDR3, DDR4 and update tar hashes; image reads (os-release BUILD_ID `fd8dadd564…`, the ES strings, the French catalog);
   - write ACCEPTANCE and consume the admission;
   - then SM8550 cold from the same head (`--device SM8550 --commit fd8dadd564 --set m7-round-x64 --name m7-round-sm8550-fd8dadd5`, ES supplier route 10).
+- **SM8550's acceptance reads, beyond the usual:**
+  - no `usr/share/aethersx2-sa/aethersx2` in `SYSTEM` (#1459 checkbox 2; then its trace and close);
+  - the installed UCM file carrying ROCKNIX #3481's Nova headphone Class-AB quirk (#1422; its listening stays an open item to test, Max's disposition);
+  - `fex-emu` unpacked and built (#1448's history).
+- **Also done in this stretch:**
+  - #1463 criterion 1: 28 of 39 rows landed on next (`38cbebf9a5`). D-WORKFLOW-175 to 182 carry two decisions each; their citation count, done in context, is next (the keyword pass was too weak).
+  - The audit's scope, depth and cost plan is on #555, and the steward has the cost question for Max (inbox 00:39Z).
 - **Pending into the next head:**
   - #1495's ES commit `a8107f028` (not in route 10);
   - Max's #1478 word.
