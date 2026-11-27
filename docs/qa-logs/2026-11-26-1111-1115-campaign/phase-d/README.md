@@ -143,3 +143,15 @@ Build 18 is `4753d00e8e`, with ES `4ef2a8dac` and route `m7-20261126-3f35b3ff6b5
 - The setup check's local-folder rows (status plus path) and its prose blocks (SETTINGS BACKUPS, WHAT THIS CHECK COVERS) run longer by #1428's reviewed design for a results page. They are not D-UI-023 rows.
 - The French game-exit fact label is cut with an ellipsis beside NON CONFIRMÉ: **#1494**, fixed in build 19.
 - The card drops the why's second sentence, so it names the cause but not where to fix it: **#1495**.
+
+## Build 19: the French game-exit sync label fits
+
+Build 19 is `a267c139b1`, with ES `77d7b2681` and route `m7-20261126-bcb42f11944e`. It carries #1494: the French label for the game-exit sync becomes SYNCHRONISER LES SAUVEGARDES APRÈS UN JEU, on the hub's toggle and the setup check's fact alike. All frames are at 640x480, in EN and FR.
+
+| Screen | What the frames show | Criteria |
+| --- | --- | --- |
+| s35 (new) | Both automatic syncs set on, then the hub and CLOUD SETUP CHECK's two sync facts. In French: SYNCHRONISER LES SAUVEGARDES APRÈS UN JEU / OUI, whole. | #1494 c1, c2 |
+| s31 | The same fact beside NON CONFIRMÉ, whole (it was cut with an ellipsis on build 18). | #1494 c1 |
+| s13 | The same fact beside NON, the normal state. | #1494 c1 |
+
+**A harness effect, not the product's:** in s35 the hub's toggles show off. The arm wrote `system.cfg` behind EmulationStation, whose in-memory settings it does not reload; the setup check reads the file. A player sets the toggles in the interface, where both agree.

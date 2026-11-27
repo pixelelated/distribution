@@ -205,7 +205,11 @@ put_s34() {
     S 'for i in $(seq 1 30); do [ -s /storage/.cache/cloud_sync/last-sync-startup ] && break; sleep 2; done; echo "last-sync-startup: $(cat /storage/.cache/cloud_sync/last-sync-startup)"; set_setting cloudsaves.startup 0; rm -f /storage/.cache/cloud_sync/last-sync-startup; python3 /storage/m7-qa-d/conn.py remove-ext; cloud_remote list | cut -f1,2'
     reboot_guest   # ES came back on the last game list; the next screen starts from a fresh boot
 }
-SCREENS="s01 s02 s03 s04 s05 s06 s07 s08 s09 s10 s11 s12 s13 s14 s15 s16 s17 s18 s19 s20 s21 s22 s23 s24 s25 s26 s27 s28 s29 s30 s31 s32 s33 s34"
+# s35: both automatic syncs on, then CLOUD SETUP CHECK: the two sync facts with ON, beside the hub's toggles (#1494)
+steps_s35() { hub; echo "shot hub-syncs-on"; down 8; open; echo "wait 20"; echo "settle 60 3"; down 8; echo "shot setup-check-syncs-on"; }
+arm_s35() { S 'set_setting cloudsaves.startup 1 && set_setting cloudsaves.gameexit 1 && echo "startup=$(get_setting cloudsaves.startup) gameexit=$(get_setting cloudsaves.gameexit)"'; }
+put_s35() { S 'set_setting cloudsaves.startup 0; set_setting cloudsaves.gameexit 0; echo "startup=$(get_setting cloudsaves.startup) gameexit=$(get_setting cloudsaves.gameexit)"'; }
+SCREENS="s01 s02 s03 s04 s05 s06 s07 s08 s09 s10 s11 s12 s13 s14 s15 s16 s17 s18 s19 s20 s21 s22 s23 s24 s25 s26 s27 s28 s29 s30 s31 s32 s33 s34 s35"
 [ -n "$only" ] && SCREENS=${only//,/ }
 
 log "== #1111/#1115 phase D at $res, $(date -u +%FT%TZ)"

@@ -22060,6 +22060,928 @@
     "observed": "the startup sync's card: SYNCHRONISER LES SAUVEGARDES / N'A PAS PU SE TERMINER - VOS CONNEXIONS AU CLOUD ONT CHANG\u00c9 / NOUVEL ESSAI AU PROCHAIN D\u00c9MARRAGE. The why's second sentence is shortened away and the action line names a retry, not the fix (#1495). Duplicate burst frames removed after hashing (burst-manifest.json)",
     "date": "2026-11-26"
    }
+  },
+  {
+   "flow_id": "cloud-folders-and-connections",
+   "branch_id": "build19/640x480/en/s13/01-cloud-hub",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud",
+   "criteria": [
+    "1111 C18"
+   ],
+   "trigger": "CHECK CLOUD SETUP",
+   "expected_state": "CLOUD SETUP CHECK: the connection, CLOUD ANSWERED..., the local folders, the sync switches, the folder checks",
+   "source": {
+    "es": "77d7b2681 (local m7/rc-round-es-20261125; route m7-20261126-bcb42f11944e)",
+    "distribution": "a267c139b167bf5a4f09fc939fab7064411cb385 (local build/m7-rc-round-20261125, build 19)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T234404Z.ga267c139b167-from-ROCKNIX",
+    "walk": "docs/qa-logs/2026-11-26-1111-1115-campaign/phase-d/phase-d.sh"
+   },
+   "locale": "en",
+   "width": 640,
+   "height": 480,
+   "frame": "build19-640x480/en/s13/01-cloud-hub.png",
+   "sha256": "11eb5b99c8d7ca60a236ad8b38ef852cbfb9df8ce1490edc46f195ecf54a8945",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "the normal state; the sync facts read OFF",
+    "date": "2026-11-26"
+   }
+  },
+  {
+   "flow_id": "cloud-folders-and-connections",
+   "branch_id": "build19/640x480/en/s13/02-setup-check",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud",
+   "criteria": [
+    "1111 C18"
+   ],
+   "trigger": "CHECK CLOUD SETUP",
+   "expected_state": "CLOUD SETUP CHECK: the connection, CLOUD ANSWERED..., the local folders, the sync switches, the folder checks",
+   "source": {
+    "es": "77d7b2681 (local m7/rc-round-es-20261125; route m7-20261126-bcb42f11944e)",
+    "distribution": "a267c139b167bf5a4f09fc939fab7064411cb385 (local build/m7-rc-round-20261125, build 19)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T234404Z.ga267c139b167-from-ROCKNIX",
+    "walk": "docs/qa-logs/2026-11-26-1111-1115-campaign/phase-d/phase-d.sh"
+   },
+   "locale": "en",
+   "width": 640,
+   "height": 480,
+   "frame": "build19-640x480/en/s13/02-setup-check.png",
+   "sha256": "e665c0f1f207bba4d43ab4608b7d0eb15159460b14565d8e1b5851be8ed955a3",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "the normal state; the sync facts read OFF",
+    "date": "2026-11-26"
+   }
+  },
+  {
+   "flow_id": "cloud-folders-and-connections",
+   "branch_id": "build19/640x480/en/s13/03-setup-check-lower",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud",
+   "criteria": [
+    "1111 C18"
+   ],
+   "trigger": "CHECK CLOUD SETUP",
+   "expected_state": "CLOUD SETUP CHECK: the connection, CLOUD ANSWERED..., the local folders, the sync switches, the folder checks",
+   "source": {
+    "es": "77d7b2681 (local m7/rc-round-es-20261125; route m7-20261126-bcb42f11944e)",
+    "distribution": "a267c139b167bf5a4f09fc939fab7064411cb385 (local build/m7-rc-round-20261125, build 19)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T234404Z.ga267c139b167-from-ROCKNIX",
+    "walk": "docs/qa-logs/2026-11-26-1111-1115-campaign/phase-d/phase-d.sh"
+   },
+   "locale": "en",
+   "width": 640,
+   "height": 480,
+   "frame": "build19-640x480/en/s13/03-setup-check-lower.png",
+   "sha256": "ef2df4040cea83716b6bc63bec17341d258ead12024a6f3a23b45cd405843173",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "the normal state; the sync facts read OFF",
+    "date": "2026-11-26"
+   }
+  },
+  {
+   "flow_id": "cloud-folders-and-connections",
+   "branch_id": "build19/640x480/en/s31/01-cloud-hub",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud",
+   "criteria": [
+    "1489 c1",
+    "1489 c2"
+   ],
+   "trigger": "a working copy of qa-cloud added to rclone.conf as qa-ext outside the interface, after the profile store exists; then USE THIS CONNECTION on QA-EXT",
+   "expected_state": "from build 16: the hub, CHECK CLOUD SETUP and MANAGE CLOUD CONNECTIONS read CLOUD CONNECTIONS CHANGED, QA-EXT reads NOT CHECKED YET, and USE THIS CONNECTION checks it and adds it (IN USE)",
+   "source": {
+    "es": "77d7b2681 (local m7/rc-round-es-20261125; route m7-20261126-bcb42f11944e)",
+    "distribution": "a267c139b167bf5a4f09fc939fab7064411cb385 (local build/m7-rc-round-20261125, build 19)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T234404Z.ga267c139b167-from-ROCKNIX",
+    "walk": "docs/qa-logs/2026-11-26-1111-1115-campaign/phase-d/phase-d.sh"
+   },
+   "locale": "en",
+   "width": 640,
+   "height": 480,
+   "frame": "build19-640x480/en/s31/01-cloud-hub.png",
+   "sha256": "cb362460bdc0e02b164962c68843a5ca7596b661d3f5e1297e31b267c3eb6e3a",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "#1489's state; the setup check's sync facts read NOT CONFIRMED",
+    "date": "2026-11-26"
+   }
+  },
+  {
+   "flow_id": "cloud-folders-and-connections",
+   "branch_id": "build19/640x480/en/s31/02-hub-changed",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud",
+   "criteria": [
+    "1489 c1",
+    "1489 c2"
+   ],
+   "trigger": "a working copy of qa-cloud added to rclone.conf as qa-ext outside the interface, after the profile store exists; then USE THIS CONNECTION on QA-EXT",
+   "expected_state": "from build 16: the hub, CHECK CLOUD SETUP and MANAGE CLOUD CONNECTIONS read CLOUD CONNECTIONS CHANGED, QA-EXT reads NOT CHECKED YET, and USE THIS CONNECTION checks it and adds it (IN USE)",
+   "source": {
+    "es": "77d7b2681 (local m7/rc-round-es-20261125; route m7-20261126-bcb42f11944e)",
+    "distribution": "a267c139b167bf5a4f09fc939fab7064411cb385 (local build/m7-rc-round-20261125, build 19)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T234404Z.ga267c139b167-from-ROCKNIX",
+    "walk": "docs/qa-logs/2026-11-26-1111-1115-campaign/phase-d/phase-d.sh"
+   },
+   "locale": "en",
+   "width": 640,
+   "height": 480,
+   "frame": "build19-640x480/en/s31/02-hub-changed.png",
+   "sha256": "4b124a5c898ca21b59c65913a69ee94964dbabec33efc4e1544584e87e56af41",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "#1489's state; the setup check's sync facts read NOT CONFIRMED",
+    "date": "2026-11-26"
+   }
+  },
+  {
+   "flow_id": "cloud-folders-and-connections",
+   "branch_id": "build19/640x480/en/s31/03-setup-check-changed",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud",
+   "criteria": [
+    "1489 c1",
+    "1489 c2"
+   ],
+   "trigger": "a working copy of qa-cloud added to rclone.conf as qa-ext outside the interface, after the profile store exists; then USE THIS CONNECTION on QA-EXT",
+   "expected_state": "from build 16: the hub, CHECK CLOUD SETUP and MANAGE CLOUD CONNECTIONS read CLOUD CONNECTIONS CHANGED, QA-EXT reads NOT CHECKED YET, and USE THIS CONNECTION checks it and adds it (IN USE)",
+   "source": {
+    "es": "77d7b2681 (local m7/rc-round-es-20261125; route m7-20261126-bcb42f11944e)",
+    "distribution": "a267c139b167bf5a4f09fc939fab7064411cb385 (local build/m7-rc-round-20261125, build 19)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T234404Z.ga267c139b167-from-ROCKNIX",
+    "walk": "docs/qa-logs/2026-11-26-1111-1115-campaign/phase-d/phase-d.sh"
+   },
+   "locale": "en",
+   "width": 640,
+   "height": 480,
+   "frame": "build19-640x480/en/s31/03-setup-check-changed.png",
+   "sha256": "31fcbdd0dc1ac32dcbaecd206d4ea1e766b30d1bc4da47d286d83119bf4101d5",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "#1489's state; the setup check's sync facts read NOT CONFIRMED",
+    "date": "2026-11-26"
+   }
+  },
+  {
+   "flow_id": "cloud-folders-and-connections",
+   "branch_id": "build19/640x480/en/s31/04-connections-changed",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud",
+   "criteria": [
+    "1489 c1",
+    "1489 c2"
+   ],
+   "trigger": "a working copy of qa-cloud added to rclone.conf as qa-ext outside the interface, after the profile store exists; then USE THIS CONNECTION on QA-EXT",
+   "expected_state": "from build 16: the hub, CHECK CLOUD SETUP and MANAGE CLOUD CONNECTIONS read CLOUD CONNECTIONS CHANGED, QA-EXT reads NOT CHECKED YET, and USE THIS CONNECTION checks it and adds it (IN USE)",
+   "source": {
+    "es": "77d7b2681 (local m7/rc-round-es-20261125; route m7-20261126-bcb42f11944e)",
+    "distribution": "a267c139b167bf5a4f09fc939fab7064411cb385 (local build/m7-rc-round-20261125, build 19)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T234404Z.ga267c139b167-from-ROCKNIX",
+    "walk": "docs/qa-logs/2026-11-26-1111-1115-campaign/phase-d/phase-d.sh"
+   },
+   "locale": "en",
+   "width": 640,
+   "height": 480,
+   "frame": "build19-640x480/en/s31/04-connections-changed.png",
+   "sha256": "7cd4a987053912fceda01851448e4d4e6e88d7cf78e49d1239547ed2f02ca779",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "#1489's state; the setup check's sync facts read NOT CONFIRMED",
+    "date": "2026-11-26"
+   }
+  },
+  {
+   "flow_id": "cloud-folders-and-connections",
+   "branch_id": "build19/640x480/en/s31/05-ext-focused",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud",
+   "criteria": [
+    "1489 c1",
+    "1489 c2"
+   ],
+   "trigger": "a working copy of qa-cloud added to rclone.conf as qa-ext outside the interface, after the profile store exists; then USE THIS CONNECTION on QA-EXT",
+   "expected_state": "from build 16: the hub, CHECK CLOUD SETUP and MANAGE CLOUD CONNECTIONS read CLOUD CONNECTIONS CHANGED, QA-EXT reads NOT CHECKED YET, and USE THIS CONNECTION checks it and adds it (IN USE)",
+   "source": {
+    "es": "77d7b2681 (local m7/rc-round-es-20261125; route m7-20261126-bcb42f11944e)",
+    "distribution": "a267c139b167bf5a4f09fc939fab7064411cb385 (local build/m7-rc-round-20261125, build 19)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T234404Z.ga267c139b167-from-ROCKNIX",
+    "walk": "docs/qa-logs/2026-11-26-1111-1115-campaign/phase-d/phase-d.sh"
+   },
+   "locale": "en",
+   "width": 640,
+   "height": 480,
+   "frame": "build19-640x480/en/s31/05-ext-focused.png",
+   "sha256": "3cbef00c8870fed01744eb1061b519bd1cbbae9c9d28132d01485b3918ddbf73",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "#1489's state; the setup check's sync facts read NOT CONFIRMED",
+    "date": "2026-11-26"
+   }
+  },
+  {
+   "flow_id": "cloud-folders-and-connections",
+   "branch_id": "build19/640x480/en/s31/06-ext-page",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud",
+   "criteria": [
+    "1489 c1",
+    "1489 c2"
+   ],
+   "trigger": "a working copy of qa-cloud added to rclone.conf as qa-ext outside the interface, after the profile store exists; then USE THIS CONNECTION on QA-EXT",
+   "expected_state": "from build 16: the hub, CHECK CLOUD SETUP and MANAGE CLOUD CONNECTIONS read CLOUD CONNECTIONS CHANGED, QA-EXT reads NOT CHECKED YET, and USE THIS CONNECTION checks it and adds it (IN USE)",
+   "source": {
+    "es": "77d7b2681 (local m7/rc-round-es-20261125; route m7-20261126-bcb42f11944e)",
+    "distribution": "a267c139b167bf5a4f09fc939fab7064411cb385 (local build/m7-rc-round-20261125, build 19)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T234404Z.ga267c139b167-from-ROCKNIX",
+    "walk": "docs/qa-logs/2026-11-26-1111-1115-campaign/phase-d/phase-d.sh"
+   },
+   "locale": "en",
+   "width": 640,
+   "height": 480,
+   "frame": "build19-640x480/en/s31/06-ext-page.png",
+   "sha256": "502aa862b5444838c2105f4a6d214977597e79968264fb903951bac304e469d5",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "#1489's state; the setup check's sync facts read NOT CONFIRMED",
+    "date": "2026-11-26"
+   }
+  },
+  {
+   "flow_id": "cloud-folders-and-connections",
+   "branch_id": "build19/640x480/en/s31/07-use-row",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud",
+   "criteria": [
+    "1489 c1",
+    "1489 c2"
+   ],
+   "trigger": "a working copy of qa-cloud added to rclone.conf as qa-ext outside the interface, after the profile store exists; then USE THIS CONNECTION on QA-EXT",
+   "expected_state": "from build 16: the hub, CHECK CLOUD SETUP and MANAGE CLOUD CONNECTIONS read CLOUD CONNECTIONS CHANGED, QA-EXT reads NOT CHECKED YET, and USE THIS CONNECTION checks it and adds it (IN USE)",
+   "source": {
+    "es": "77d7b2681 (local m7/rc-round-es-20261125; route m7-20261126-bcb42f11944e)",
+    "distribution": "a267c139b167bf5a4f09fc939fab7064411cb385 (local build/m7-rc-round-20261125, build 19)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T234404Z.ga267c139b167-from-ROCKNIX",
+    "walk": "docs/qa-logs/2026-11-26-1111-1115-campaign/phase-d/phase-d.sh"
+   },
+   "locale": "en",
+   "width": 640,
+   "height": 480,
+   "frame": "build19-640x480/en/s31/07-use-row.png",
+   "sha256": "7f85c33f22e862fe8f51282797a495f14dbe334bddb9a964f10686e8aa290423",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "#1489's state; the setup check's sync facts read NOT CONFIRMED",
+    "date": "2026-11-26"
+   }
+  },
+  {
+   "flow_id": "cloud-folders-and-connections",
+   "branch_id": "build19/640x480/en/s31/08-use-confirm",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud",
+   "criteria": [
+    "1489 c1",
+    "1489 c2"
+   ],
+   "trigger": "a working copy of qa-cloud added to rclone.conf as qa-ext outside the interface, after the profile store exists; then USE THIS CONNECTION on QA-EXT",
+   "expected_state": "from build 16: the hub, CHECK CLOUD SETUP and MANAGE CLOUD CONNECTIONS read CLOUD CONNECTIONS CHANGED, QA-EXT reads NOT CHECKED YET, and USE THIS CONNECTION checks it and adds it (IN USE)",
+   "source": {
+    "es": "77d7b2681 (local m7/rc-round-es-20261125; route m7-20261126-bcb42f11944e)",
+    "distribution": "a267c139b167bf5a4f09fc939fab7064411cb385 (local build/m7-rc-round-20261125, build 19)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T234404Z.ga267c139b167-from-ROCKNIX",
+    "walk": "docs/qa-logs/2026-11-26-1111-1115-campaign/phase-d/phase-d.sh"
+   },
+   "locale": "en",
+   "width": 640,
+   "height": 480,
+   "frame": "build19-640x480/en/s31/08-use-confirm.png",
+   "sha256": "f391effcaf6d071b12b58b3388e14fe4ed2e49572441dacc36d1e718b917403b",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "#1489's state; the setup check's sync facts read NOT CONFIRMED",
+    "date": "2026-11-26"
+   }
+  },
+  {
+   "flow_id": "cloud-folders-and-connections",
+   "branch_id": "build19/640x480/en/s31/09-after-use",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud",
+   "criteria": [
+    "1489 c1",
+    "1489 c2"
+   ],
+   "trigger": "a working copy of qa-cloud added to rclone.conf as qa-ext outside the interface, after the profile store exists; then USE THIS CONNECTION on QA-EXT",
+   "expected_state": "from build 16: the hub, CHECK CLOUD SETUP and MANAGE CLOUD CONNECTIONS read CLOUD CONNECTIONS CHANGED, QA-EXT reads NOT CHECKED YET, and USE THIS CONNECTION checks it and adds it (IN USE)",
+   "source": {
+    "es": "77d7b2681 (local m7/rc-round-es-20261125; route m7-20261126-bcb42f11944e)",
+    "distribution": "a267c139b167bf5a4f09fc939fab7064411cb385 (local build/m7-rc-round-20261125, build 19)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T234404Z.ga267c139b167-from-ROCKNIX",
+    "walk": "docs/qa-logs/2026-11-26-1111-1115-campaign/phase-d/phase-d.sh"
+   },
+   "locale": "en",
+   "width": 640,
+   "height": 480,
+   "frame": "build19-640x480/en/s31/09-after-use.png",
+   "sha256": "f7b127b19560ad1780696a543efe43828a792e850aa795f77b525a64da2bcb8c",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "#1489's state; the setup check's sync facts read NOT CONFIRMED",
+    "date": "2026-11-26"
+   }
+  },
+  {
+   "flow_id": "cloud-folders-and-connections",
+   "branch_id": "build19/640x480/en/s31/10-hub-after",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud",
+   "criteria": [
+    "1489 c1",
+    "1489 c2"
+   ],
+   "trigger": "a working copy of qa-cloud added to rclone.conf as qa-ext outside the interface, after the profile store exists; then USE THIS CONNECTION on QA-EXT",
+   "expected_state": "from build 16: the hub, CHECK CLOUD SETUP and MANAGE CLOUD CONNECTIONS read CLOUD CONNECTIONS CHANGED, QA-EXT reads NOT CHECKED YET, and USE THIS CONNECTION checks it and adds it (IN USE)",
+   "source": {
+    "es": "77d7b2681 (local m7/rc-round-es-20261125; route m7-20261126-bcb42f11944e)",
+    "distribution": "a267c139b167bf5a4f09fc939fab7064411cb385 (local build/m7-rc-round-20261125, build 19)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T234404Z.ga267c139b167-from-ROCKNIX",
+    "walk": "docs/qa-logs/2026-11-26-1111-1115-campaign/phase-d/phase-d.sh"
+   },
+   "locale": "en",
+   "width": 640,
+   "height": 480,
+   "frame": "build19-640x480/en/s31/10-hub-after.png",
+   "sha256": "4cadb1e760fb516d2599aad1cdeb80058a6de4aebaa39bd5d9966daf37858494",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "#1489's state; the setup check's sync facts read NOT CONFIRMED",
+    "date": "2026-11-26"
+   }
+  },
+  {
+   "flow_id": "cloud-folders-and-connections",
+   "branch_id": "build19/640x480/en/s35/01-cloud-hub",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud",
+   "criteria": [
+    "1494 c1",
+    "1494 c2"
+   ],
+   "trigger": "both automatic syncs on, the hub's toggles, then CLOUD SETUP CHECK's two sync facts",
+   "expected_state": "both facts show their whole label and ON in French at 640x480 (#1494); the hub's toggles read the same words",
+   "source": {
+    "es": "77d7b2681 (local m7/rc-round-es-20261125; route m7-20261126-bcb42f11944e)",
+    "distribution": "a267c139b167bf5a4f09fc939fab7064411cb385 (local build/m7-rc-round-20261125, build 19)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T234404Z.ga267c139b167-from-ROCKNIX",
+    "walk": "docs/qa-logs/2026-11-26-1111-1115-campaign/phase-d/phase-d.sh"
+   },
+   "locale": "en",
+   "width": 640,
+   "height": 480,
+   "frame": "build19-640x480/en/s35/01-cloud-hub.png",
+   "sha256": "11eb5b99c8d7ca60a236ad8b38ef852cbfb9df8ce1490edc46f195ecf54a8945",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "CLOUD SETUP CHECK's two sync facts with ON (the English unchanged); the hub's toggles read the same words. The toggles show off because the arm wrote system.cfg behind ES, whose in-memory SystemConf it does not reload; the setup check reads the file. A harness effect, not the product's",
+    "date": "2026-11-26"
+   }
+  },
+  {
+   "flow_id": "cloud-folders-and-connections",
+   "branch_id": "build19/640x480/en/s35/02-hub-syncs-on",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud",
+   "criteria": [
+    "1494 c1",
+    "1494 c2"
+   ],
+   "trigger": "both automatic syncs on, the hub's toggles, then CLOUD SETUP CHECK's two sync facts",
+   "expected_state": "both facts show their whole label and ON in French at 640x480 (#1494); the hub's toggles read the same words",
+   "source": {
+    "es": "77d7b2681 (local m7/rc-round-es-20261125; route m7-20261126-bcb42f11944e)",
+    "distribution": "a267c139b167bf5a4f09fc939fab7064411cb385 (local build/m7-rc-round-20261125, build 19)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T234404Z.ga267c139b167-from-ROCKNIX",
+    "walk": "docs/qa-logs/2026-11-26-1111-1115-campaign/phase-d/phase-d.sh"
+   },
+   "locale": "en",
+   "width": 640,
+   "height": 480,
+   "frame": "build19-640x480/en/s35/02-hub-syncs-on.png",
+   "sha256": "11eb5b99c8d7ca60a236ad8b38ef852cbfb9df8ce1490edc46f195ecf54a8945",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "CLOUD SETUP CHECK's two sync facts with ON (the English unchanged); the hub's toggles read the same words. The toggles show off because the arm wrote system.cfg behind ES, whose in-memory SystemConf it does not reload; the setup check reads the file. A harness effect, not the product's",
+    "date": "2026-11-26"
+   }
+  },
+  {
+   "flow_id": "cloud-folders-and-connections",
+   "branch_id": "build19/640x480/en/s35/03-setup-check-syncs-on",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud",
+   "criteria": [
+    "1494 c1",
+    "1494 c2"
+   ],
+   "trigger": "both automatic syncs on, the hub's toggles, then CLOUD SETUP CHECK's two sync facts",
+   "expected_state": "both facts show their whole label and ON in French at 640x480 (#1494); the hub's toggles read the same words",
+   "source": {
+    "es": "77d7b2681 (local m7/rc-round-es-20261125; route m7-20261126-bcb42f11944e)",
+    "distribution": "a267c139b167bf5a4f09fc939fab7064411cb385 (local build/m7-rc-round-20261125, build 19)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T234404Z.ga267c139b167-from-ROCKNIX",
+    "walk": "docs/qa-logs/2026-11-26-1111-1115-campaign/phase-d/phase-d.sh"
+   },
+   "locale": "en",
+   "width": 640,
+   "height": 480,
+   "frame": "build19-640x480/en/s35/03-setup-check-syncs-on.png",
+   "sha256": "fa0a4a572f8dad945a8113f2b4e1e766f974d3c91fa0529509d53c51f7ae2b79",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "CLOUD SETUP CHECK's two sync facts with ON (the English unchanged); the hub's toggles read the same words. The toggles show off because the arm wrote system.cfg behind ES, whose in-memory SystemConf it does not reload; the setup check reads the file. A harness effect, not the product's",
+    "date": "2026-11-26"
+   }
+  },
+  {
+   "flow_id": "cloud-folders-and-connections",
+   "branch_id": "build19/640x480/fr/s13/01-cloud-hub",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud",
+   "criteria": [
+    "1111 C18"
+   ],
+   "trigger": "CHECK CLOUD SETUP",
+   "expected_state": "CLOUD SETUP CHECK: the connection, CLOUD ANSWERED..., the local folders, the sync switches, the folder checks",
+   "source": {
+    "es": "77d7b2681 (local m7/rc-round-es-20261125; route m7-20261126-bcb42f11944e)",
+    "distribution": "a267c139b167bf5a4f09fc939fab7064411cb385 (local build/m7-rc-round-20261125, build 19)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T234404Z.ga267c139b167-from-ROCKNIX",
+    "walk": "docs/qa-logs/2026-11-26-1111-1115-campaign/phase-d/phase-d.sh"
+   },
+   "locale": "fr",
+   "width": 640,
+   "height": 480,
+   "frame": "build19-640x480/fr/s13/01-cloud-hub.png",
+   "sha256": "3943dcb2b9cf0fedf9b44a5df199f1e1777e470df2ceaa8063fde2471058a91f",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "the normal state; the sync facts read OFF / NON, whole (#1494)",
+    "date": "2026-11-26"
+   }
+  },
+  {
+   "flow_id": "cloud-folders-and-connections",
+   "branch_id": "build19/640x480/fr/s13/02-setup-check",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud",
+   "criteria": [
+    "1111 C18"
+   ],
+   "trigger": "CHECK CLOUD SETUP",
+   "expected_state": "CLOUD SETUP CHECK: the connection, CLOUD ANSWERED..., the local folders, the sync switches, the folder checks",
+   "source": {
+    "es": "77d7b2681 (local m7/rc-round-es-20261125; route m7-20261126-bcb42f11944e)",
+    "distribution": "a267c139b167bf5a4f09fc939fab7064411cb385 (local build/m7-rc-round-20261125, build 19)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T234404Z.ga267c139b167-from-ROCKNIX",
+    "walk": "docs/qa-logs/2026-11-26-1111-1115-campaign/phase-d/phase-d.sh"
+   },
+   "locale": "fr",
+   "width": 640,
+   "height": 480,
+   "frame": "build19-640x480/fr/s13/02-setup-check.png",
+   "sha256": "c83e6e8d122c3c629fec24c139ba14ac00bba6a30f16675e164ac310d8eaf93f",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "the normal state; the sync facts read OFF / NON, whole (#1494)",
+    "date": "2026-11-26"
+   }
+  },
+  {
+   "flow_id": "cloud-folders-and-connections",
+   "branch_id": "build19/640x480/fr/s13/03-setup-check-lower",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud",
+   "criteria": [
+    "1111 C18"
+   ],
+   "trigger": "CHECK CLOUD SETUP",
+   "expected_state": "CLOUD SETUP CHECK: the connection, CLOUD ANSWERED..., the local folders, the sync switches, the folder checks",
+   "source": {
+    "es": "77d7b2681 (local m7/rc-round-es-20261125; route m7-20261126-bcb42f11944e)",
+    "distribution": "a267c139b167bf5a4f09fc939fab7064411cb385 (local build/m7-rc-round-20261125, build 19)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T234404Z.ga267c139b167-from-ROCKNIX",
+    "walk": "docs/qa-logs/2026-11-26-1111-1115-campaign/phase-d/phase-d.sh"
+   },
+   "locale": "fr",
+   "width": 640,
+   "height": 480,
+   "frame": "build19-640x480/fr/s13/03-setup-check-lower.png",
+   "sha256": "66e94bc5507b53f6df726eb12b7f99d0f714a3fcaf62e9730f4880a013a89357",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "the normal state; the sync facts read OFF / NON, whole (#1494)",
+    "date": "2026-11-26"
+   }
+  },
+  {
+   "flow_id": "cloud-folders-and-connections",
+   "branch_id": "build19/640x480/fr/s31/01-cloud-hub",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud",
+   "criteria": [
+    "1489 c1",
+    "1489 c2"
+   ],
+   "trigger": "a working copy of qa-cloud added to rclone.conf as qa-ext outside the interface, after the profile store exists; then USE THIS CONNECTION on QA-EXT",
+   "expected_state": "from build 16: the hub, CHECK CLOUD SETUP and MANAGE CLOUD CONNECTIONS read CLOUD CONNECTIONS CHANGED, QA-EXT reads NOT CHECKED YET, and USE THIS CONNECTION checks it and adds it (IN USE)",
+   "source": {
+    "es": "77d7b2681 (local m7/rc-round-es-20261125; route m7-20261126-bcb42f11944e)",
+    "distribution": "a267c139b167bf5a4f09fc939fab7064411cb385 (local build/m7-rc-round-20261125, build 19)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T234404Z.ga267c139b167-from-ROCKNIX",
+    "walk": "docs/qa-logs/2026-11-26-1111-1115-campaign/phase-d/phase-d.sh"
+   },
+   "locale": "fr",
+   "width": 640,
+   "height": 480,
+   "frame": "build19-640x480/fr/s31/01-cloud-hub.png",
+   "sha256": "596f012c02237b29258ba5211ac7f419a9990f5be1c264c44dbdf96e0318da68",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "#1489's state; the setup check's sync facts read NOT CONFIRMED / NON CONFIRM\u00c9 beside SYNCHRONISER LES SAUVEGARDES APR\u00c8S UN JEU, whole (#1494)",
+    "date": "2026-11-26"
+   }
+  },
+  {
+   "flow_id": "cloud-folders-and-connections",
+   "branch_id": "build19/640x480/fr/s31/02-hub-changed",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud",
+   "criteria": [
+    "1489 c1",
+    "1489 c2"
+   ],
+   "trigger": "a working copy of qa-cloud added to rclone.conf as qa-ext outside the interface, after the profile store exists; then USE THIS CONNECTION on QA-EXT",
+   "expected_state": "from build 16: the hub, CHECK CLOUD SETUP and MANAGE CLOUD CONNECTIONS read CLOUD CONNECTIONS CHANGED, QA-EXT reads NOT CHECKED YET, and USE THIS CONNECTION checks it and adds it (IN USE)",
+   "source": {
+    "es": "77d7b2681 (local m7/rc-round-es-20261125; route m7-20261126-bcb42f11944e)",
+    "distribution": "a267c139b167bf5a4f09fc939fab7064411cb385 (local build/m7-rc-round-20261125, build 19)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T234404Z.ga267c139b167-from-ROCKNIX",
+    "walk": "docs/qa-logs/2026-11-26-1111-1115-campaign/phase-d/phase-d.sh"
+   },
+   "locale": "fr",
+   "width": 640,
+   "height": 480,
+   "frame": "build19-640x480/fr/s31/02-hub-changed.png",
+   "sha256": "bd9c1410887a1ff320d5d74c3c21fda8620765d25b89b68355064f30c8bda311",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "#1489's state; the setup check's sync facts read NOT CONFIRMED / NON CONFIRM\u00c9 beside SYNCHRONISER LES SAUVEGARDES APR\u00c8S UN JEU, whole (#1494)",
+    "date": "2026-11-26"
+   }
+  },
+  {
+   "flow_id": "cloud-folders-and-connections",
+   "branch_id": "build19/640x480/fr/s31/03-setup-check-changed",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud",
+   "criteria": [
+    "1489 c1",
+    "1489 c2"
+   ],
+   "trigger": "a working copy of qa-cloud added to rclone.conf as qa-ext outside the interface, after the profile store exists; then USE THIS CONNECTION on QA-EXT",
+   "expected_state": "from build 16: the hub, CHECK CLOUD SETUP and MANAGE CLOUD CONNECTIONS read CLOUD CONNECTIONS CHANGED, QA-EXT reads NOT CHECKED YET, and USE THIS CONNECTION checks it and adds it (IN USE)",
+   "source": {
+    "es": "77d7b2681 (local m7/rc-round-es-20261125; route m7-20261126-bcb42f11944e)",
+    "distribution": "a267c139b167bf5a4f09fc939fab7064411cb385 (local build/m7-rc-round-20261125, build 19)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T234404Z.ga267c139b167-from-ROCKNIX",
+    "walk": "docs/qa-logs/2026-11-26-1111-1115-campaign/phase-d/phase-d.sh"
+   },
+   "locale": "fr",
+   "width": 640,
+   "height": 480,
+   "frame": "build19-640x480/fr/s31/03-setup-check-changed.png",
+   "sha256": "a04bd6e53555776dac6a2c30e5c6d354b77931c3cf4ea95eb584e3ef1fe2d135",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "#1489's state; the setup check's sync facts read NOT CONFIRMED / NON CONFIRM\u00c9 beside SYNCHRONISER LES SAUVEGARDES APR\u00c8S UN JEU, whole (#1494)",
+    "date": "2026-11-26"
+   }
+  },
+  {
+   "flow_id": "cloud-folders-and-connections",
+   "branch_id": "build19/640x480/fr/s31/04-connections-changed",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud",
+   "criteria": [
+    "1489 c1",
+    "1489 c2"
+   ],
+   "trigger": "a working copy of qa-cloud added to rclone.conf as qa-ext outside the interface, after the profile store exists; then USE THIS CONNECTION on QA-EXT",
+   "expected_state": "from build 16: the hub, CHECK CLOUD SETUP and MANAGE CLOUD CONNECTIONS read CLOUD CONNECTIONS CHANGED, QA-EXT reads NOT CHECKED YET, and USE THIS CONNECTION checks it and adds it (IN USE)",
+   "source": {
+    "es": "77d7b2681 (local m7/rc-round-es-20261125; route m7-20261126-bcb42f11944e)",
+    "distribution": "a267c139b167bf5a4f09fc939fab7064411cb385 (local build/m7-rc-round-20261125, build 19)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T234404Z.ga267c139b167-from-ROCKNIX",
+    "walk": "docs/qa-logs/2026-11-26-1111-1115-campaign/phase-d/phase-d.sh"
+   },
+   "locale": "fr",
+   "width": 640,
+   "height": 480,
+   "frame": "build19-640x480/fr/s31/04-connections-changed.png",
+   "sha256": "bf6a7540007d115d9d4248748e30f4ebabf2d942d5460d32898dd29232c2eab5",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "#1489's state; the setup check's sync facts read NOT CONFIRMED / NON CONFIRM\u00c9 beside SYNCHRONISER LES SAUVEGARDES APR\u00c8S UN JEU, whole (#1494)",
+    "date": "2026-11-26"
+   }
+  },
+  {
+   "flow_id": "cloud-folders-and-connections",
+   "branch_id": "build19/640x480/fr/s31/05-ext-focused",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud",
+   "criteria": [
+    "1489 c1",
+    "1489 c2"
+   ],
+   "trigger": "a working copy of qa-cloud added to rclone.conf as qa-ext outside the interface, after the profile store exists; then USE THIS CONNECTION on QA-EXT",
+   "expected_state": "from build 16: the hub, CHECK CLOUD SETUP and MANAGE CLOUD CONNECTIONS read CLOUD CONNECTIONS CHANGED, QA-EXT reads NOT CHECKED YET, and USE THIS CONNECTION checks it and adds it (IN USE)",
+   "source": {
+    "es": "77d7b2681 (local m7/rc-round-es-20261125; route m7-20261126-bcb42f11944e)",
+    "distribution": "a267c139b167bf5a4f09fc939fab7064411cb385 (local build/m7-rc-round-20261125, build 19)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T234404Z.ga267c139b167-from-ROCKNIX",
+    "walk": "docs/qa-logs/2026-11-26-1111-1115-campaign/phase-d/phase-d.sh"
+   },
+   "locale": "fr",
+   "width": 640,
+   "height": 480,
+   "frame": "build19-640x480/fr/s31/05-ext-focused.png",
+   "sha256": "c12a0e8a872a0206c60347a4a64f6247b95f26e53c619270d10975094062ef0c",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "#1489's state; the setup check's sync facts read NOT CONFIRMED / NON CONFIRM\u00c9 beside SYNCHRONISER LES SAUVEGARDES APR\u00c8S UN JEU, whole (#1494)",
+    "date": "2026-11-26"
+   }
+  },
+  {
+   "flow_id": "cloud-folders-and-connections",
+   "branch_id": "build19/640x480/fr/s31/06-ext-page",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud",
+   "criteria": [
+    "1489 c1",
+    "1489 c2"
+   ],
+   "trigger": "a working copy of qa-cloud added to rclone.conf as qa-ext outside the interface, after the profile store exists; then USE THIS CONNECTION on QA-EXT",
+   "expected_state": "from build 16: the hub, CHECK CLOUD SETUP and MANAGE CLOUD CONNECTIONS read CLOUD CONNECTIONS CHANGED, QA-EXT reads NOT CHECKED YET, and USE THIS CONNECTION checks it and adds it (IN USE)",
+   "source": {
+    "es": "77d7b2681 (local m7/rc-round-es-20261125; route m7-20261126-bcb42f11944e)",
+    "distribution": "a267c139b167bf5a4f09fc939fab7064411cb385 (local build/m7-rc-round-20261125, build 19)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T234404Z.ga267c139b167-from-ROCKNIX",
+    "walk": "docs/qa-logs/2026-11-26-1111-1115-campaign/phase-d/phase-d.sh"
+   },
+   "locale": "fr",
+   "width": 640,
+   "height": 480,
+   "frame": "build19-640x480/fr/s31/06-ext-page.png",
+   "sha256": "b35d3b0d81b5decd8260882e1989db633d170d336097aa3cea102f23cb1a640e",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "#1489's state; the setup check's sync facts read NOT CONFIRMED / NON CONFIRM\u00c9 beside SYNCHRONISER LES SAUVEGARDES APR\u00c8S UN JEU, whole (#1494)",
+    "date": "2026-11-26"
+   }
+  },
+  {
+   "flow_id": "cloud-folders-and-connections",
+   "branch_id": "build19/640x480/fr/s31/07-use-row",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud",
+   "criteria": [
+    "1489 c1",
+    "1489 c2"
+   ],
+   "trigger": "a working copy of qa-cloud added to rclone.conf as qa-ext outside the interface, after the profile store exists; then USE THIS CONNECTION on QA-EXT",
+   "expected_state": "from build 16: the hub, CHECK CLOUD SETUP and MANAGE CLOUD CONNECTIONS read CLOUD CONNECTIONS CHANGED, QA-EXT reads NOT CHECKED YET, and USE THIS CONNECTION checks it and adds it (IN USE)",
+   "source": {
+    "es": "77d7b2681 (local m7/rc-round-es-20261125; route m7-20261126-bcb42f11944e)",
+    "distribution": "a267c139b167bf5a4f09fc939fab7064411cb385 (local build/m7-rc-round-20261125, build 19)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T234404Z.ga267c139b167-from-ROCKNIX",
+    "walk": "docs/qa-logs/2026-11-26-1111-1115-campaign/phase-d/phase-d.sh"
+   },
+   "locale": "fr",
+   "width": 640,
+   "height": 480,
+   "frame": "build19-640x480/fr/s31/07-use-row.png",
+   "sha256": "4bfba728581a63dc78e6dd12c196e3011059ea846c77f81e7f873665ebd3d5c9",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "#1489's state; the setup check's sync facts read NOT CONFIRMED / NON CONFIRM\u00c9 beside SYNCHRONISER LES SAUVEGARDES APR\u00c8S UN JEU, whole (#1494)",
+    "date": "2026-11-26"
+   }
+  },
+  {
+   "flow_id": "cloud-folders-and-connections",
+   "branch_id": "build19/640x480/fr/s31/08-use-confirm",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud",
+   "criteria": [
+    "1489 c1",
+    "1489 c2"
+   ],
+   "trigger": "a working copy of qa-cloud added to rclone.conf as qa-ext outside the interface, after the profile store exists; then USE THIS CONNECTION on QA-EXT",
+   "expected_state": "from build 16: the hub, CHECK CLOUD SETUP and MANAGE CLOUD CONNECTIONS read CLOUD CONNECTIONS CHANGED, QA-EXT reads NOT CHECKED YET, and USE THIS CONNECTION checks it and adds it (IN USE)",
+   "source": {
+    "es": "77d7b2681 (local m7/rc-round-es-20261125; route m7-20261126-bcb42f11944e)",
+    "distribution": "a267c139b167bf5a4f09fc939fab7064411cb385 (local build/m7-rc-round-20261125, build 19)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T234404Z.ga267c139b167-from-ROCKNIX",
+    "walk": "docs/qa-logs/2026-11-26-1111-1115-campaign/phase-d/phase-d.sh"
+   },
+   "locale": "fr",
+   "width": 640,
+   "height": 480,
+   "frame": "build19-640x480/fr/s31/08-use-confirm.png",
+   "sha256": "6127c9c074894a5cb6c1d7593e75740d5f9c80c765674cff4c9a2e34057737fd",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "#1489's state; the setup check's sync facts read NOT CONFIRMED / NON CONFIRM\u00c9 beside SYNCHRONISER LES SAUVEGARDES APR\u00c8S UN JEU, whole (#1494)",
+    "date": "2026-11-26"
+   }
+  },
+  {
+   "flow_id": "cloud-folders-and-connections",
+   "branch_id": "build19/640x480/fr/s31/09-after-use",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud",
+   "criteria": [
+    "1489 c1",
+    "1489 c2"
+   ],
+   "trigger": "a working copy of qa-cloud added to rclone.conf as qa-ext outside the interface, after the profile store exists; then USE THIS CONNECTION on QA-EXT",
+   "expected_state": "from build 16: the hub, CHECK CLOUD SETUP and MANAGE CLOUD CONNECTIONS read CLOUD CONNECTIONS CHANGED, QA-EXT reads NOT CHECKED YET, and USE THIS CONNECTION checks it and adds it (IN USE)",
+   "source": {
+    "es": "77d7b2681 (local m7/rc-round-es-20261125; route m7-20261126-bcb42f11944e)",
+    "distribution": "a267c139b167bf5a4f09fc939fab7064411cb385 (local build/m7-rc-round-20261125, build 19)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T234404Z.ga267c139b167-from-ROCKNIX",
+    "walk": "docs/qa-logs/2026-11-26-1111-1115-campaign/phase-d/phase-d.sh"
+   },
+   "locale": "fr",
+   "width": 640,
+   "height": 480,
+   "frame": "build19-640x480/fr/s31/09-after-use.png",
+   "sha256": "170b466207276bee249fe350bf681187dca9bfbb2b96401ad76bd453bc9b94a9",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "#1489's state; the setup check's sync facts read NOT CONFIRMED / NON CONFIRM\u00c9 beside SYNCHRONISER LES SAUVEGARDES APR\u00c8S UN JEU, whole (#1494)",
+    "date": "2026-11-26"
+   }
+  },
+  {
+   "flow_id": "cloud-folders-and-connections",
+   "branch_id": "build19/640x480/fr/s31/10-hub-after",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud",
+   "criteria": [
+    "1489 c1",
+    "1489 c2"
+   ],
+   "trigger": "a working copy of qa-cloud added to rclone.conf as qa-ext outside the interface, after the profile store exists; then USE THIS CONNECTION on QA-EXT",
+   "expected_state": "from build 16: the hub, CHECK CLOUD SETUP and MANAGE CLOUD CONNECTIONS read CLOUD CONNECTIONS CHANGED, QA-EXT reads NOT CHECKED YET, and USE THIS CONNECTION checks it and adds it (IN USE)",
+   "source": {
+    "es": "77d7b2681 (local m7/rc-round-es-20261125; route m7-20261126-bcb42f11944e)",
+    "distribution": "a267c139b167bf5a4f09fc939fab7064411cb385 (local build/m7-rc-round-20261125, build 19)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T234404Z.ga267c139b167-from-ROCKNIX",
+    "walk": "docs/qa-logs/2026-11-26-1111-1115-campaign/phase-d/phase-d.sh"
+   },
+   "locale": "fr",
+   "width": 640,
+   "height": 480,
+   "frame": "build19-640x480/fr/s31/10-hub-after.png",
+   "sha256": "8652df32199f0df69124f910b3d15d25de2f3a41c20c8bc0b9bcdb426d29e3c8",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "#1489's state; the setup check's sync facts read NOT CONFIRMED / NON CONFIRM\u00c9 beside SYNCHRONISER LES SAUVEGARDES APR\u00c8S UN JEU, whole (#1494)",
+    "date": "2026-11-26"
+   }
+  },
+  {
+   "flow_id": "cloud-folders-and-connections",
+   "branch_id": "build19/640x480/fr/s35/01-cloud-hub",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud",
+   "criteria": [
+    "1494 c1",
+    "1494 c2"
+   ],
+   "trigger": "both automatic syncs on, the hub's toggles, then CLOUD SETUP CHECK's two sync facts",
+   "expected_state": "both facts show their whole label and ON in French at 640x480 (#1494); the hub's toggles read the same words",
+   "source": {
+    "es": "77d7b2681 (local m7/rc-round-es-20261125; route m7-20261126-bcb42f11944e)",
+    "distribution": "a267c139b167bf5a4f09fc939fab7064411cb385 (local build/m7-rc-round-20261125, build 19)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T234404Z.ga267c139b167-from-ROCKNIX",
+    "walk": "docs/qa-logs/2026-11-26-1111-1115-campaign/phase-d/phase-d.sh"
+   },
+   "locale": "fr",
+   "width": 640,
+   "height": 480,
+   "frame": "build19-640x480/fr/s35/01-cloud-hub.png",
+   "sha256": "3943dcb2b9cf0fedf9b44a5df199f1e1777e470df2ceaa8063fde2471058a91f",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "CLOUD SETUP CHECK's two sync facts with ON (OUI); SYNCHRONISER LES SAUVEGARDES APR\u00c8S UN JEU whole beside its value (#1494); the hub's toggles read the same words. The toggles show off because the arm wrote system.cfg behind ES, whose in-memory SystemConf it does not reload; the setup check reads the file. A harness effect, not the product's",
+    "date": "2026-11-26"
+   }
+  },
+  {
+   "flow_id": "cloud-folders-and-connections",
+   "branch_id": "build19/640x480/fr/s35/02-hub-syncs-on",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud",
+   "criteria": [
+    "1494 c1",
+    "1494 c2"
+   ],
+   "trigger": "both automatic syncs on, the hub's toggles, then CLOUD SETUP CHECK's two sync facts",
+   "expected_state": "both facts show their whole label and ON in French at 640x480 (#1494); the hub's toggles read the same words",
+   "source": {
+    "es": "77d7b2681 (local m7/rc-round-es-20261125; route m7-20261126-bcb42f11944e)",
+    "distribution": "a267c139b167bf5a4f09fc939fab7064411cb385 (local build/m7-rc-round-20261125, build 19)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T234404Z.ga267c139b167-from-ROCKNIX",
+    "walk": "docs/qa-logs/2026-11-26-1111-1115-campaign/phase-d/phase-d.sh"
+   },
+   "locale": "fr",
+   "width": 640,
+   "height": 480,
+   "frame": "build19-640x480/fr/s35/02-hub-syncs-on.png",
+   "sha256": "3943dcb2b9cf0fedf9b44a5df199f1e1777e470df2ceaa8063fde2471058a91f",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "CLOUD SETUP CHECK's two sync facts with ON (OUI); SYNCHRONISER LES SAUVEGARDES APR\u00c8S UN JEU whole beside its value (#1494); the hub's toggles read the same words. The toggles show off because the arm wrote system.cfg behind ES, whose in-memory SystemConf it does not reload; the setup check reads the file. A harness effect, not the product's",
+    "date": "2026-11-26"
+   }
+  },
+  {
+   "flow_id": "cloud-folders-and-connections",
+   "branch_id": "build19/640x480/fr/s35/03-setup-check-syncs-on",
+   "document": "docs/es-menu-map.md",
+   "anchor": "cloud",
+   "criteria": [
+    "1494 c1",
+    "1494 c2"
+   ],
+   "trigger": "both automatic syncs on, the hub's toggles, then CLOUD SETUP CHECK's two sync facts",
+   "expected_state": "both facts show their whole label and ON in French at 640x480 (#1494); the hub's toggles read the same words",
+   "source": {
+    "es": "77d7b2681 (local m7/rc-round-es-20261125; route m7-20261126-bcb42f11944e)",
+    "distribution": "a267c139b167bf5a4f09fc939fab7064411cb385 (local build/m7-rc-round-20261125, build 19)",
+    "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261126T234404Z.ga267c139b167-from-ROCKNIX",
+    "walk": "docs/qa-logs/2026-11-26-1111-1115-campaign/phase-d/phase-d.sh"
+   },
+   "locale": "fr",
+   "width": 640,
+   "height": 480,
+   "frame": "build19-640x480/fr/s35/03-setup-check-syncs-on.png",
+   "sha256": "56e2dd1acc24ca07534e39a14093c2b5cead970851d182fd55304c81b61bb586",
+   "status": "reviewed",
+   "review": {
+    "reviewer": "OS coordinator (claude-opus-5-5)",
+    "observed": "CLOUD SETUP CHECK's two sync facts with ON (OUI); SYNCHRONISER LES SAUVEGARDES APR\u00c8S UN JEU whole beside its value (#1494); the hub's toggles read the same words. The toggles show off because the arm wrote system.cfg behind ES, whose in-memory SystemConf it does not reload; the setup check reads the file. A harness effect, not the product's",
+    "date": "2026-11-26"
+   }
   }
  ]
 }
