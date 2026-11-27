@@ -115,6 +115,8 @@ SCREENS = {
             "both facts show their whole label and ON in French at 640x480 (#1494); the hub's toggles read the same words", ["1494 c1", "1494 c2"]),
     "s36": ("#1489's state, then the hub's BACK UP TO CLOUD: the folder scan it runs first (CHECKING YOUR CLOUD)",
             "the scan is refused with YOUR CLOUD CONNECTIONS CHANGED; before #1497's fix the page offers CLOUD FOLDERS and clips the why, after it the note names where to act, the why's first clause is whole and only CLOSE is offered", ["1497 c1", "1497 c2"]),
+    "s37": ("qa-cloud's endpoint moved to a dead port (s33's arm), then the hub's BACK UP TO CLOUD: the folder scan it runs first",
+            "the scan is refused for a why a retry can recover (the cloud stopped answering), and the page keeps CLOUD FOLDERS beside CLOSE (#1497 c3)", ["1497 c3"]),
     "s24": ("LINK FROM THIS DEVICE, WEBDAV, then back on the provider form",
             "where the add-a-connection wizard lands on back, unchanged by #1483", ["1483 c3"]),
 }

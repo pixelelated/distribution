@@ -220,7 +220,12 @@ put_s36() {
     S 'python3 /storage/m7-qa-d/conn.py remove-ext; cloud_remote list | cut -f1,2'
     reboot_guest   # the transfer page stays open until dismissed; the next screen starts from a fresh boot
 }
-SCREENS="s01 s02 s03 s04 s05 s06 s07 s08 s09 s10 s11 s12 s13 s14 s15 s16 s17 s18 s19 s20 s21 s22 s23 s24 s25 s26 s27 s28 s29 s30 s31 s32 s33 s34 s35 s36"
+# s37: #1497 c3. qa-cloud's endpoint moved to a port nothing answers (s33's arm), then the hub's BACK UP TO CLOUD:
+# the folder scan is refused for a why a retry can recover, so the page keeps CLOUD FOLDERS. The copy is put back.
+steps_s37() { steps_s36; }
+arm_s37() { arm_s33; }
+put_s37() { put_s33; reboot_guest; }
+SCREENS="s01 s02 s03 s04 s05 s06 s07 s08 s09 s10 s11 s12 s13 s14 s15 s16 s17 s18 s19 s20 s21 s22 s23 s24 s25 s26 s27 s28 s29 s30 s31 s32 s33 s34 s35 s36 s37"
 [ -n "$only" ] && SCREENS=${only//,/ }
 
 log "== #1111/#1115 phase D at $res, $(date -u +%FT%TZ)"
