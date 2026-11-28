@@ -8,6 +8,15 @@ Read the [M7 milestone](https://github.com/pixelelated/distribution/milestone/7)
 
 ## Current focus
 
+**00000000000000000000000000000000000. Newest (2026-11-28T04:06Z): H700 stopped at 03:49 on a source upstream deleted (#1509); the source is restored by its pin and H700 resumed warm at 04:01. SM8550 follows by the new chain.**
+- **What stopped:** run `20261128T024822Z-ef0b547e`, build.rc 2 at `[366/666] install duckstation-sa:target`. duckstation-sa 0.1-10998's Linux AppImages are gone from upstream's release and from ROCKNIX's mirror. The shared cache keeps only one arch's copy under one name. `b26-handhelds.sh` stopped as built (`b26-handhelds/STOPPED`). The thread logs are in `b26-handhelds/H700-failed-threads/`.
+- **Restored:** the arm64 copy came from the 2026-11-25 H700 image's `/usr/bin/duckstation-sa`, which hashes to the pin `f92319a0…`. It is in the shared cache with its stamps. Both arch copies are kept in `/workspace/cache/rocknix-sources-retained/duckstation-sa/` (166 MiB; released by a downloadable pin or a mirror). **A cold PC build** first needs the x64 copy put back over the cache name, with its `.url` and `.sha256` (#1509 c1 says how).
+- **H700 now:** run `20261128T040114Z-1a8e3f25` (build.pid 4142329, watcher 4142330), worktree `m7-round-h700-20261128`, warm, owner `.build-runs/m7-round-h700-20261128-02-owner/`. The 13 half-built packages were cleaned first (`b26-handhelds/H700-poisoned-cleaned.txt`).
+- **The chain:** `b26b-handhelds.sh` (pid 4137825, files in `b26b-handhelds/`). It waits on H700's build.rc, gates on 0, runs the reads, checks the BUILD_ID and the image's duckstation hash, then launches SM8550 cold (`m7-round-sm8550-20261128`) and does the same. `b26b-handhelds/hold` stops it before a launch. Harness waiter `boecs22ba`.
+- **Sources checked:** a one-off scan (`/workspace/tmp/rocknix-session/source-scan/`) found no other download that would fail, for H700's remaining packages or for SM8550's.
+- **#1510** (device-build's dry run misses a used owner folder): fix it after the chain has submitted SM8550, then prove it in the next idle window. Step 0 refuses while a build runs.
+- **After each build:** unchanged (the next item down).
+
 **0000000000000000000000000000000000. Newest (2026-11-28T02:50Z): H700 is building cold from the final head `6169621a4b` (route 16); SM8550 follows by the chain; #1477 and #1465 are closed.**
 - **H700:** run `20261128T024822Z-ef0b547e` (build.pid 3888755, watcher 3888756), worktree `m7-round-h700-20261128`, owner `.build-runs/m7-round-h700-20261128-owner/`, submitted at 02:48:22 UTC.
 - **The chain:** `b26-handhelds.sh` (pid 3498936, files in `b26-handhelds/`) waits on H700's `build.rc`, runs `handheld-reads.sh H700`, then launches SM8550 (`m7-round-sm8550-20261128`) and reads it. A failed build stops it (`STOPPED`). `b26-handhelds/hold` stops it before SM8550. Harness waiter `bfhenvc4o`.
