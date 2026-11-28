@@ -15,7 +15,8 @@ Read the [M7 milestone](https://github.com/pixelelated/distribution/milestone/7)
 - **No build or VM is running.** The SM8550 roots and `target/` stay as the warm base (D-INFRA-037). Chains `b27-sm8550.sh` and waiter `bmg2xao8s` have ended.
 - **Step 3 (#1455), 11:05:** the rehearsal from `43d0bc3bf4` to `6169621a4b` passes 40/40 (`qa-6169621a4b-upgrade-from-previous-20261128-1102/`). The RG35XX SP was off the network at 11:02, and its last logged update is `bcc866f1`. Asked in the steward's inbox at 11:06: a read when it is on Wi-Fi, or Max's word on what he installed on October 25. If it is `bcc866f1`, a cold PC build of it comes first; that build clears SM8550's warm roots.
 - **#1506, 11:27:** `0cfe33932e` fixes the silent branches on `next` (walks, `link`/KILL NOTHING RAN, the friction stub), each seen to fire with the unchanged tool as control (`docs/qa-logs/2026-11-28-1506-silent-branches/`). The lifecycle test's `:455` is round-only and waits for the round's move. Criteria 1–3 remain.
-- **#1514** (filed 11:28 UTC from the steward's friction line): the image reads become a `tools/` reader that prints what it found beside what it wanted. Friction line committed with it (`f9a717a561`).
+- **#1514, closed 11:39 UTC:** `tools/image-acceptance` (`dfa797e44a`) is the handheld acceptance read from now on. Run it once a build's rc is 0, before the admission is consumed:
+  `tools/image-acceptance --worktree <wt> --run <run dir> --claims <round claims> --out <owner>/acceptance/image-acceptance.txt`. The round's claims are `docs/qa-logs/2026-11-28-1514-image-acceptance/claims-6169621a4b.txt`; a new round copies them and edits them. Builds 27 and 28 pass on it.
 - **No guest or build is running** (vm-pair down at 11:27).
 - **Still open from earlier:** #1503 c3, #1504, #1505, #1506, #1513 c2 (the round's half), #1507 c3–c5, #1508 c3, #1511, #1446 (Max).
 
