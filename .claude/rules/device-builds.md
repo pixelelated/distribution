@@ -229,6 +229,19 @@ In order, each step stopping the command when it fails:
 
 `--dry-run` checks and prints every path, mount, export, removal and keep, and creates nothing. The run's completion is read from the owner folder and run directory as before (`engineering-practices.md` § *Submit long agent-owned jobs durably*). The sections below are what the command encodes, and what to read when it refuses.
 
+**The acceptance read is `tools/image-acceptance`** (#1514), run once the build's `build.rc` is 0 and before its admission is consumed:
+
+```bash
+tools/image-acceptance --worktree <build worktree> --run <its .build-runs/<id>> \
+    --claims <the round's claims file> --out <owner>/acceptance/image-acceptance.txt
+```
+
+- **What it checks on every image:** the run's channels and processes, the checksums, `os-release` against the worktree, and the userland's architecture. It also checks the ARM handoff, and each disk image's partition table and boot partition against the update tar: H700's u-boot per DDR variant, and SM8550's signed ABL.
+- **What it reads from the claims file:** the round's own expectations, one per line with its source.
+- **How a check reports:** a FAIL prints what it found beside what it wanted. A check that cannot run is a CANNOT, and is not a pass.
+
+Its output is the evidence the acceptance record lists. The session scripts it replaced said only what they had not found (the steward's friction line of 2026-11-28 11:04 UTC).
+
 ## The build command
 
 Use the canonical `make docker-<DEVICE>` target rather than a hand-rolled

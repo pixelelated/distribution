@@ -1,0 +1,5 @@
+# Constructed failures for #1514 c2: the two expectations the first pass of build 28's
+# SM8550 reads got wrong, written as claims. Each must FAIL and show what is there.
+SM8550: log "\[DONE\] build fex-emu:host" # constructed: one space where the log pads
+SM8550: listed usr/bin/FEXInterpreter # constructed: the name this FEX does not use
+SM8550: contains usr/bin/emulationstation "SIGN IN AGAIN: GAME SETTINGS > RETROACHIEVEMENT SETUP" # constructed: a string the binary does not carry

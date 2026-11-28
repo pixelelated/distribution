@@ -1,0 +1,97 @@
+== image-acceptance SM8550.aarch64 at 6169621a4b93630c20dc6cd642b7983a2f3a2c44 (build/m7-round-sm8550-20261128); run /workspace/repos/rocknix.worktrees/m7-round-sm8550-20261128/.build-runs/20261128T064843Z-a7b15e8b; read 2026-11-28T11:37:55Z
+   claims: docs/qa-logs/2026-11-28-1514-image-acceptance/claims-6169621a4b.txt (15 for SM8550)
+-- the run
+PASS    build.rc is 0
+PASS    runner-result.json's channels are all 0
+PASS    build.pid 3634344 has exited
+PASS    command.pid 3634450 has exited
+PASS    watcher.pid 3634345 has exited
+-- the outputs
+PASS    pixelelated-SM8550.aarch64-0.0.1-dev+20261128T071130Z.g6169621a4b93-from-ROCKNIX.img.gz sha256 matches its .sha256
+PASS    pixelelated-SM8550.aarch64-0.0.1-dev+20261128T071130Z.g6169621a4b93-from-ROCKNIX.tar sha256 matches its .sha256
+   update tar SYSTEM c3672af6a71089af51304dd5cca116a9b2e14d31fdc0015336adbbfbd9ecd635, KERNEL 8fe0a0848b9a765eebfa643910a03baa88314754c24515c34d458eeece63fa3e, 20 bootloader files
+   SYSTEM listing: 63596 entries
+-- os-release
+PASS    OS_NAME is pixelelated
+PASS    BUILD_ID is 6169621a4b93630c20dc6cd642b7983a2f3a2c44
+PASS    BUILD_DIRTY is no
+PASS    BUILD_BRANCH is build/m7-round-sm8550-20261128
+PASS    HW_DEVICE is SM8550
+PASS    HW_ARCH is aarch64
+PASS    BUILD_VERSION names the head
+PASS    identity.json names the head and the version
+-- the worktree
+PASS    no tracked or untracked changes
+-- userland
+PASS    usr/bin/emulationstation is ELF64/LE/aarch64
+PASS    usr/bin/retroarch is ELF64/LE/aarch64
+-- the ARM handoff
+PASS    usr/bin/retroarch32 is ELF32/LE/ARM and equals the ARM image's usr/bin/retroarch
+PASS    usr/bin/box86 is ELF32/LE/ARM and equals the ARM image's usr/bin/box86
+PASS    usr/lib/libretro/gpsp_libretro.so is ELF32/LE/ARM and equals the ARM image's usr/lib/libretro/gpsp_libretro.so
+PASS    usr/lib/libretro/desmume_libretro.so is ELF32/LE/ARM and equals the ARM image's usr/lib/libretro/desmume_libretro.so
+PASS    usr/lib32 carries the ARM image's 181 top-level usr/lib files byte for byte
+-- the disk images
+PASS    SYSTEM usr/share/bootloader/dtbs/qcs8550-ayaneo-pocketace.dtb equals the tar's
+PASS    SYSTEM usr/share/bootloader/dtbs/qcs8550-ayaneo-pocketdmg.dtb equals the tar's
+PASS    SYSTEM usr/share/bootloader/dtbs/qcs8550-ayaneo-pocketds.dtb equals the tar's
+PASS    SYSTEM usr/share/bootloader/dtbs/qcs8550-ayaneo-pocketevo.dtb equals the tar's
+PASS    SYSTEM usr/share/bootloader/dtbs/qcs8550-ayaneo-pockets1k.dtb equals the tar's
+PASS    SYSTEM usr/share/bootloader/dtbs/qcs8550-ayaneo-pockets2k.dtb equals the tar's
+PASS    SYSTEM usr/share/bootloader/dtbs/qcs8550-ayaneo-pocketsmini.dtb equals the tar's
+PASS    SYSTEM usr/share/bootloader/dtbs/qcs8550-ayn-odin2.dtb equals the tar's
+PASS    SYSTEM usr/share/bootloader/dtbs/qcs8550-ayn-odin2mini.dtb equals the tar's
+PASS    SYSTEM usr/share/bootloader/dtbs/qcs8550-ayn-odin2portal.dtb equals the tar's
+PASS    SYSTEM usr/share/bootloader/dtbs/qcs8550-ayn-thor.dtb equals the tar's
+PASS    SYSTEM usr/share/bootloader/dtbs/qcs8550-retroidpocket-rp6-top-dpad.dtb equals the tar's
+PASS    SYSTEM usr/share/bootloader/dtbs/qcs8550-retroidpocket-rp6.dtb equals the tar's
+PASS    SYSTEM usr/share/bootloader/dtbs/qcs8550-retroidpocket-rpnova.dtb equals the tar's
+PASS    SYSTEM usr/share/bootloader/loader/entries/pixelelated.conf equals the tar's
+PASS    the signed ABL openabl/abl_signed-SM8550.elf is ELF32/LE/EM_ARM
+PASS    SYSTEM usr/share/bootloader/openabl/abl_signed-SM8550.elf equals the tar's
+PASS    SYSTEM usr/share/bootloader/openabl/backup_abl.sh equals the tar's
+PASS    SYSTEM usr/share/bootloader/openabl/flash_abl.sh equals the tar's
+PASS    SYSTEM usr/share/bootloader/openabl/restore_backup_abl.sh equals the tar's
+PASS    SYSTEM usr/share/bootloader/update.sh equals the tar's
+PASS    pixelelated-SM8550.aarch64-0.0.1-dev+20261128T071130Z.g6169621a4b93-from-ROCKNIX.img.gz: a gpt partition table, the first partition from sector ≥ 2048
+   pixelelated-SM8550.aarch64-0.0.1-dev+20261128T071130Z.g6169621a4b93-from-ROCKNIX.img.gz: boot partition holds 23 files
+PASS    pixelelated-SM8550.aarch64-0.0.1-dev+20261128T071130Z.g6169621a4b93-from-ROCKNIX.img.gz: the boot partition's SYSTEM equals the update tar's
+PASS    pixelelated-SM8550.aarch64-0.0.1-dev+20261128T071130Z.g6169621a4b93-from-ROCKNIX.img.gz: the boot partition's KERNEL equals the update tar's
+PASS    pixelelated-SM8550.aarch64-0.0.1-dev+20261128T071130Z.g6169621a4b93-from-ROCKNIX.img.gz: the boot partition's dtbs/qcs8550-ayaneo-pocketace.dtb equals the tar's
+PASS    pixelelated-SM8550.aarch64-0.0.1-dev+20261128T071130Z.g6169621a4b93-from-ROCKNIX.img.gz: the boot partition's dtbs/qcs8550-ayaneo-pocketdmg.dtb equals the tar's
+PASS    pixelelated-SM8550.aarch64-0.0.1-dev+20261128T071130Z.g6169621a4b93-from-ROCKNIX.img.gz: the boot partition's dtbs/qcs8550-ayaneo-pocketds.dtb equals the tar's
+PASS    pixelelated-SM8550.aarch64-0.0.1-dev+20261128T071130Z.g6169621a4b93-from-ROCKNIX.img.gz: the boot partition's dtbs/qcs8550-ayaneo-pocketevo.dtb equals the tar's
+PASS    pixelelated-SM8550.aarch64-0.0.1-dev+20261128T071130Z.g6169621a4b93-from-ROCKNIX.img.gz: the boot partition's dtbs/qcs8550-ayaneo-pockets1k.dtb equals the tar's
+PASS    pixelelated-SM8550.aarch64-0.0.1-dev+20261128T071130Z.g6169621a4b93-from-ROCKNIX.img.gz: the boot partition's dtbs/qcs8550-ayaneo-pockets2k.dtb equals the tar's
+PASS    pixelelated-SM8550.aarch64-0.0.1-dev+20261128T071130Z.g6169621a4b93-from-ROCKNIX.img.gz: the boot partition's dtbs/qcs8550-ayaneo-pocketsmini.dtb equals the tar's
+PASS    pixelelated-SM8550.aarch64-0.0.1-dev+20261128T071130Z.g6169621a4b93-from-ROCKNIX.img.gz: the boot partition's dtbs/qcs8550-ayn-odin2.dtb equals the tar's
+PASS    pixelelated-SM8550.aarch64-0.0.1-dev+20261128T071130Z.g6169621a4b93-from-ROCKNIX.img.gz: the boot partition's dtbs/qcs8550-ayn-odin2mini.dtb equals the tar's
+PASS    pixelelated-SM8550.aarch64-0.0.1-dev+20261128T071130Z.g6169621a4b93-from-ROCKNIX.img.gz: the boot partition's dtbs/qcs8550-ayn-odin2portal.dtb equals the tar's
+PASS    pixelelated-SM8550.aarch64-0.0.1-dev+20261128T071130Z.g6169621a4b93-from-ROCKNIX.img.gz: the boot partition's dtbs/qcs8550-ayn-thor.dtb equals the tar's
+PASS    pixelelated-SM8550.aarch64-0.0.1-dev+20261128T071130Z.g6169621a4b93-from-ROCKNIX.img.gz: the boot partition's dtbs/qcs8550-retroidpocket-rp6-top-dpad.dtb equals the tar's
+PASS    pixelelated-SM8550.aarch64-0.0.1-dev+20261128T071130Z.g6169621a4b93-from-ROCKNIX.img.gz: the boot partition's dtbs/qcs8550-retroidpocket-rp6.dtb equals the tar's
+PASS    pixelelated-SM8550.aarch64-0.0.1-dev+20261128T071130Z.g6169621a4b93-from-ROCKNIX.img.gz: the boot partition's dtbs/qcs8550-retroidpocket-rpnova.dtb equals the tar's
+PASS    pixelelated-SM8550.aarch64-0.0.1-dev+20261128T071130Z.g6169621a4b93-from-ROCKNIX.img.gz: the boot partition's loader/entries/pixelelated.conf equals the tar's
+PASS    pixelelated-SM8550.aarch64-0.0.1-dev+20261128T071130Z.g6169621a4b93-from-ROCKNIX.img.gz: the boot partition's openabl/abl_signed-SM8550.elf equals the tar's
+PASS    pixelelated-SM8550.aarch64-0.0.1-dev+20261128T071130Z.g6169621a4b93-from-ROCKNIX.img.gz: the boot partition's openabl/backup_abl.sh equals the tar's
+PASS    pixelelated-SM8550.aarch64-0.0.1-dev+20261128T071130Z.g6169621a4b93-from-ROCKNIX.img.gz: the boot partition's openabl/flash_abl.sh equals the tar's
+PASS    pixelelated-SM8550.aarch64-0.0.1-dev+20261128T071130Z.g6169621a4b93-from-ROCKNIX.img.gz: the boot partition's openabl/restore_backup_abl.sh equals the tar's
+PASS    pixelelated-SM8550.aarch64-0.0.1-dev+20261128T071130Z.g6169621a4b93-from-ROCKNIX.img.gz: every bootloader file of the tar is on the boot partition, but update.sh, a raw-written u-boot and its ATF (none)
+   pixelelated-SM8550.aarch64-0.0.1-dev+20261128T071130Z.g6169621a4b93-from-ROCKNIX.img.gz: in the tar only: ['update.sh']
+-- claims
+PASS    usr/bin/emulationstation contains 'SIGN IN AGAIN: GAME SETTINGS > RETROACHIEVEMENTS SETTINGS'
+PASS    usr/config/locale/fr/LC_MESSAGES/emulationstation2.mo contains 'RECONNECTEZ-VOUS : PARAMÈTRES DES JEUX > PARAMÈTRES RETROACHIEVEMENTS'
+PASS    usr/bin/raofflineproxy-ctl equals projects/ROCKNIX/packages/network/raofflineproxy/sources/raofflineproxy-ctl
+PASS    usr/bin/duckstation-sa hashes to f92319a0484e67bb…
+PASS    usr/share/aethersx2-sa/aethersx2 is not in the image
+PASS    usr/share/alsa/ucm2/codecs/wcd938x/HeadphoneEnableSeq.conf contains 'Define.WcdHphMode "CLS_H_LOHIFI"'
+PASS    usr/share/alsa/ucm2/codecs/wcd938x/HeadphoneEnableSeq.conf contains 'cset "name=\'RX HPH Mode\' ${var:WcdHphMode}"'
+PASS    usr/share/alsa/ucm2/codecs/wcd938x/HeadphoneEnableSeq.conf lacks 'cset "name=\'RX HPH Mode\' CLS_H_LOHIFI"'
+PASS    usr/share/alsa/ucm2/Retroid/Nova/HeadphoneMode.conf contains 'True.Define.WcdHphMode "CLS_AB_LOHIFI"'
+PASS    usr/share/alsa/ucm2/AYN/Odin2/AYN-Odin2.conf contains 'True.Include.rx-init.File "/codecs/qcom-lpass/rx-macro/init.conf"'
+PASS    usr/bin/FEX is in the image
+PASS    usr/lib/binfmt.d/FEX-x86.conf is in the image
+PASS    usr/lib/binfmt.d/FEX-x86_64.conf is in the image
+PASS    build.log has a line matching '\\[DONE\\] +build +fex-emu:host': '[701/732] [DONE] build   fex-emu:host'
+PASS    build.log has a line matching '\\[DONE\\] +install +fex-emu:target': '[724/732] [DONE] install fex-emu:target'
+== PASS: 82 passed, 0 failed, 0 could not run; ended 2026-11-28T11:38:03Z

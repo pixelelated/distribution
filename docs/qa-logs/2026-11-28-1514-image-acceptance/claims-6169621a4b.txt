@@ -1,0 +1,19 @@
+# The round's own expectations of its handheld images at 6169621a4b (route 16),
+# for tools/image-acceptance --claims. Each line names where it was taken from.
+
+contains usr/bin/emulationstation "SIGN IN AGAIN: GAME SETTINGS > RETROACHIEVEMENTS SETTINGS" # #1501, ES e67f28e18's string, read in build 26-28's images
+contains usr/config/locale/fr/LC_MESSAGES/emulationstation2.mo "RECONNECTEZ-VOUS : PARAMÈTRES DES JEUX > PARAMÈTRES RETROACHIEVEMENTS" # #1501, the French catalog's line
+same usr/bin/raofflineproxy-ctl projects/ROCKNIX/packages/network/raofflineproxy/sources/raofflineproxy-ctl # #1502, the round's source
+sha256 usr/bin/duckstation-sa f92319a0484e67bb62bfab7b0e56dac46165b50e45b51293038d9344a6288440 # #1509, the aarch64 pin recovered from the 2026-11-25 image
+
+SM8550: absent usr/share/aethersx2-sa/aethersx2 # #1459 c2, upstream's bring-your-own recipe (ac2991838b)
+SM8550: contains usr/share/alsa/ucm2/codecs/wcd938x/HeadphoneEnableSeq.conf "Define.WcdHphMode \"CLS_H_LOHIFI\"" # #1422, ROCKNIX #3481's 0007 patch
+SM8550: contains usr/share/alsa/ucm2/codecs/wcd938x/HeadphoneEnableSeq.conf "cset \"name='RX HPH Mode' ${var:WcdHphMode}\"" # #1422, 0007
+SM8550: lacks usr/share/alsa/ucm2/codecs/wcd938x/HeadphoneEnableSeq.conf "cset \"name='RX HPH Mode' CLS_H_LOHIFI\"" # #1422, the line 0007 replaced
+SM8550: contains usr/share/alsa/ucm2/Retroid/Nova/HeadphoneMode.conf "True.Define.WcdHphMode \"CLS_AB_LOHIFI\"" # #1422, 0007
+SM8550: contains usr/share/alsa/ucm2/AYN/Odin2/AYN-Odin2.conf "True.Include.rx-init.File \"/codecs/qcom-lpass/rx-macro/init.conf\"" # #1422, 0007
+SM8550: listed usr/bin/FEX # #1448, fex-emu's install_pkg/usr/bin (this FEX names its interpreter FEX)
+SM8550: listed usr/lib/binfmt.d/FEX-x86.conf # #1448
+SM8550: listed usr/lib/binfmt.d/FEX-x86_64.conf # #1448
+SM8550: log "\[DONE\] +build +fex-emu:host" # #1448, the pkgbuilder line, which pads after DONE's verb
+SM8550: log "\[DONE\] +install +fex-emu:target" # #1448

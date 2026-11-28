@@ -1,0 +1,628 @@
+#!/usr/bin/env python3
+# SPDX-License-Identifier: GPL-2.0
+# Copyright (C) 2026-present ROCKNIX (https://github.com/ROCKNIX)
+"""image-acceptance -- read a handheld build's images for its acceptance record (#1514).
+
+  tools/image-acceptance --worktree <build worktree> --run <its .build-runs/<id>> \\
+      [--claims <file>] [--out <file>] [--skip arm-handoff] [--scratch <dir>]
+
+Every check is one PASS or FAIL line, and a FAIL prints what was found beside
+what was wanted, with where the expectation came from. A check that cannot run
+is a CANNOT line, and is not a pass.
+
+  run        build.rc 0; runner-result.json's channels 0; the run's build, command
+             and watcher pids gone (a reused pid is told apart by its command line)
+  outputs    each .img.gz and .tar named for the worktree's HEAD matches its .sha256;
+             identity.json names the head and the version
+  os-release OS_NAME pixelelated, BUILD_ID the head, BUILD_DIRTY no, BUILD_BRANCH the
+             worktree's branch, HW_DEVICE the images' device, BUILD_VERSION ending .g<head>
+  worktree   no tracked or untracked changes
+  userland   EmulationStation and RetroArch built for the image's HW_ARCH
+  arm        on an aarch64 image built with an ARM half: retroarch32, box86 and two
+             32-bit cores equal the ARM image's, and every top-level file of its
+             usr/lib is in usr/lib32 byte for byte (projects/ROCKNIX/packages/compat/lib32)
+  raw        each disk image: its partition table, its first partition's SYSTEM and
+             KERNEL equal the update tar's, and every bootloader file the tar carries
+             that the partition also carries is equal; H700: each DDR variant's u-boot
+             at byte 8192; a signed ABL (SM8550's OpenABL) is ELF32/LE/EM_ARM and the
+             SYSTEM's usr/share/bootloader copy of each bootloader file is equal
+  claims     the round's own expectations, one per line (below)
+
+Claims file. One check per line; `#` at the start of a line is a comment, and
+` # ` after a check is its source, printed beside a FAIL (#1514 c3). A line may
+start with `DEVICE:` to apply only to that device. Arguments are shell-quoted.
+
+  contains <SYSTEM path> <text>     the file carries the text (UTF-8 bytes)
+  lacks    <SYSTEM path> <text>     the file does not carry it
+  sha256   <SYSTEM path> <hex>      the file hashes to it
+  same     <SYSTEM path> <file>     equal to a file of the worktree (or an absolute path)
+  absent   <SYSTEM path>            not in the SYSTEM listing
+  listed   <SYSTEM path>            in the SYSTEM listing
+  log      <regex>                  a line of the run's build.log matches (colour codes stripped)
+
+Exit 0 every check passed, 1 a FAIL, 2 a check could not run or the input was wrong.
+Host-only: it reads the build's outputs and writes only its scratch (removed) and --out.
+
+Why: the handheld acceptance reads were three session scripts written again each
+round, and a failed read said only what it did not find; at build 28 two of the
+script's own expectations were wrong (a log line's padding, a binary's name) and
+telling that from a wrong image took a second read (#1514, the steward's friction
+line of 2026-11-28 11:04 UTC).
+"""
+import argparse
+import datetime
+import gzip
+import hashlib
+import json
+import os
+import re
+import shlex
+import shutil
+import struct
+import subprocess
+import sys
+import tarfile
+from pathlib import Path
+
+ANSI = re.compile(r'\x1b\[[0-9;]*m')
+ELF_MACHINE = {'aarch64': 183, 'arm': 40, 'x86_64': 62}
+
+
+class Cannot(Exception):
+    pass
+
+
+class Report:
+    def __init__(self):
+        self.lines, self.fails, self.cannot, self.passes = [], 0, 0, 0
+
+    def say(self, s=''):
+        print(s, flush=True)
+        self.lines.append(s)
+
+    def check(self, ok, what, found=None, want=None, source=None):
+        if ok:
+            self.passes += 1
+            self.say(f'PASS    {what}')
+            return True
+        self.fails += 1
+        self.say(f'FAIL    {what}')
+        if want is not None:
+            self.say(f'        want:  {want}')
+        if found is not None:
+            for line in (found if isinstance(found, list) else [found]) or ['(nothing)']:
+                self.say(f'        found: {line}')
+        if source:
+            self.say(f'        expectation from: {source}')
+        return False
+
+    def cannot_run(self, what, why):
+        self.cannot += 1
+        self.say(f'CANNOT  {what}: {why}')
+
+    def skipped(self, what, why):
+        self.say(f'SKIPPED {what}: {why}')
+
+
+def sha256_file(path):
+    h = hashlib.sha256()
+    with open(path, 'rb') as f:
+        while b := f.read(4 << 20):
+            h.update(b)
+    return h.hexdigest()
+
+
+def elf(b):
+    if not b or len(b) < 20 or b[:4] != b'\x7fELF':
+        return None
+    return ({1: 'ELF32', 2: 'ELF64'}.get(b[4]), {1: 'LE', 2: 'BE'}.get(b[5]), int.from_bytes(b[18:20], 'little'))
+
+
+def printable(data, minimum=6):
+    return [m.decode('utf-8', 'replace') for m in re.findall(rb'[\x20-\x7e\x80-\xff]{%d,}' % minimum, data)]
+
+
+class Fat:
+    """Read-only FAT16/FAT32 with long names, enough to hash a boot partition's files."""
+
+    def __init__(self, f, offset):
+        self.f, self.off = f, offset
+        bs = self.read(0, 512)
+        if bs[510:512] != b'\x55\xaa':
+            raise Cannot('no boot-sector signature at the partition start')
+        (bps, spc, res, nfats, rootents, tot16, _media, fatsz16, _spt, _heads, _hidden, tot32) = struct.unpack_from('<HBHBHHBHHHII', bs, 11)
+        if not bps or not spc:
+            raise Cannot('not a FAT boot sector (zero bytes per sector or sectors per cluster)')
+        fatsz = fatsz16 or struct.unpack_from('<I', bs, 36)[0]
+        rootsecs = (rootents * 32 + bps - 1) // bps
+        self.csize = bps * spc
+        self.fat_off = res * bps
+        self.root_off = (res + nfats * fatsz) * bps
+        self.data_off = self.root_off + rootsecs * bps
+        clusters = ((tot16 or tot32) - (res + nfats * fatsz + rootsecs)) // spc
+        if clusters < 4085:
+            raise Cannot('FAT12 is not read')
+        self.fat32 = clusters >= 65525
+        self.rootents = rootents
+        self.root_cluster = struct.unpack_from('<I', bs, 44)[0] if self.fat32 else None
+        self.limit = clusters + 2
+
+    def read(self, pos, n):
+        self.f.seek(self.off + pos)
+        return self.f.read(n)
+
+    def chain(self, c):
+        seen = 0
+        while 2 <= c < self.limit:
+            yield c
+            seen += 1
+            if seen > self.limit:
+                raise Cannot('a cluster chain loops')
+            if self.fat32:
+                c = struct.unpack('<I', self.read(self.fat_off + c * 4, 4))[0] & 0x0FFFFFFF
+            else:
+                c = struct.unpack('<H', self.read(self.fat_off + c * 2, 2))[0]
+
+    def runs(self, first):
+        """Contiguous (start, count) cluster runs of a chain."""
+        start = prev = None
+        for c in self.chain(first):
+            if start is None:
+                start = prev = c
+            elif c == prev + 1:
+                prev = c
+            else:
+                yield start, prev - start + 1
+                start = prev = c
+        if start is not None:
+            yield start, prev - start + 1
+
+    def cluster_bytes(self, first, size=None):
+        left = size
+        for start, count in self.runs(first):
+            pos, n = self.data_off + (start - 2) * self.csize, count * self.csize
+            while n > 0:
+                take = min(n, 8 << 20) if left is None else min(n, 8 << 20, left)
+                if take <= 0:
+                    return
+                yield self.read(pos, take)
+                pos += take
+                n -= take
+                if left is not None:
+                    left -= take
+
+    def entries(self, raw):
+        out, lfn = [], {}
+        for i in range(0, len(raw) - 31, 32):
+            e = raw[i:i + 32]
+            if e[0] == 0:
+                break
+            if e[0] == 0xE5:
+                lfn = {}
+                continue
+            if e[11] == 0x0F:
+                part = (e[1:11] + e[14:26] + e[28:32]).decode('utf-16-le', 'replace')
+                lfn[e[0] & 0x1F] = part.split('\x00')[0]
+                continue
+            attr = e[11]
+            if attr & 0x08:
+                lfn = {}
+                continue
+            if lfn:
+                name = ''.join(lfn[k] for k in sorted(lfn))
+            else:
+                base, ext = e[0:8].decode('ascii', 'replace').rstrip(), e[8:11].decode('ascii', 'replace').rstrip()
+                # Byte 12's case flags (0x08 base, 0x10 extension) mark a short name
+                # shown in lower case; mkfs and mtools write `dtbs` and `openabl` so.
+                base = base.lower() if e[12] & 0x08 else base
+                ext = ext.lower() if e[12] & 0x10 else ext
+                name = base + ('.' + ext if ext else '')
+            lfn = {}
+            cluster = (struct.unpack_from('<H', e, 20)[0] << 16) | struct.unpack_from('<H', e, 26)[0]
+            out.append((name, bool(attr & 0x10), cluster, struct.unpack_from('<I', e, 28)[0]))
+        return out
+
+    def files(self):
+        """{path: (first cluster, size)} for every file."""
+        found = {}
+
+        def walk(raw, prefix, depth):
+            if depth > 16:
+                raise Cannot('directories nest too deep')
+            for name, is_dir, cluster, size in self.entries(raw):
+                if name in ('.', '..'):
+                    continue
+                if is_dir:
+                    walk(b''.join(self.cluster_bytes(cluster)), prefix + name + '/', depth + 1)
+                else:
+                    found[prefix + name] = (cluster, size)
+
+        root = b''.join(self.cluster_bytes(self.root_cluster)) if self.fat32 else self.read(self.root_off, self.rootents * 32)
+        walk(root, '', 0)
+        return found
+
+    def sha256(self, cluster, size):
+        h = hashlib.sha256()
+        if size:
+            for b in self.cluster_bytes(cluster, size):
+                h.update(b)
+        return h.hexdigest()
+
+
+class System:
+    def __init__(self, path):
+        self.path = path
+        r = subprocess.run(['unsquashfs', '-l', str(path)], capture_output=True, text=True)
+        if r.returncode != 0:
+            raise Cannot(f'unsquashfs -l exited {r.returncode}: {r.stderr.strip()[-200:]}')
+        self.listing = [l.split('squashfs-root/', 1)[1] for l in r.stdout.splitlines() if 'squashfs-root/' in l]
+        self.names = set(self.listing)
+
+    def cat(self, name):
+        r = subprocess.run(['unsquashfs', '-cat', str(self.path), name], capture_output=True)
+        return r.stdout if r.returncode == 0 else None
+
+    def folder(self, name, limit=8):
+        """The folder's entries nearest the wanted name first (the longest shared prefix)."""
+        d, want = os.path.dirname(name), os.path.basename(name).lower()
+        near = [x for x in self.listing if os.path.dirname(x) == d]
+        if not near:
+            return [f'the folder {d}/ is not in the image either']
+        shared = lambda x: len(os.path.commonprefix([want, os.path.basename(x).lower()]))
+        near.sort(key=lambda x: (-shared(x), x))
+        return near[:limit] + ([f'... {len(near) - limit} more in {d}/'] if len(near) > limit else [])
+
+
+def git(wt, *args):
+    return subprocess.run(['git', '-C', str(wt), *args], capture_output=True, text=True).stdout.strip()
+
+
+def pid_alive(pid, marks):
+    try:
+        cmd = Path(f'/proc/{pid}/cmdline').read_bytes().replace(b'\0', b' ').decode(errors='replace').strip()
+    except OSError:
+        return None
+    return cmd if any(m in cmd for m in marks) else None
+
+
+def split_source(line):
+    """The check and its ` # source`, split at the first ` #` outside quotes; a
+    source is prose and may carry apostrophes, so it is never shell-split."""
+    quote, i = None, 0
+    while i < len(line):
+        c = line[i]
+        if quote:
+            if c == '\\' and quote == '"':
+                i += 2
+                continue
+            if c == quote:
+                quote = None
+        elif c in '"\'':
+            quote = c
+        elif c == '#' and (i == 0 or line[i - 1].isspace()):
+            return line[:i], line[i + 1:].strip() or None
+        i += 1
+    return line, None
+
+
+def parse_claims(path, device):
+    claims = []
+    for n, line in enumerate(Path(path).read_text().splitlines(), 1):
+        if not line.strip() or line.lstrip().startswith('#'):
+            continue
+        m = re.match(r'^([A-Z0-9_]+):\s+(.*)$', line.strip())
+        if m:
+            if m.group(1) != device:
+                continue
+            line = m.group(2)
+        check, source = split_source(line)
+        try:
+            tokens = shlex.split(check)
+        except ValueError as e:
+            raise Cannot(f'{path}:{n}: {e}: {line.strip()!r}')
+        if not tokens:
+            continue
+        need = {'contains': 3, 'lacks': 3, 'sha256': 3, 'same': 3, 'absent': 2, 'listed': 2, 'log': 2}
+        if tokens[0] not in need or len(tokens) != need[tokens[0]]:
+            raise Cannot(f'{path}:{n}: not a claim: {line.strip()!r}')
+        claims.append((n, tokens, source))
+    return claims
+
+
+def main():
+    ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
+    ap.add_argument('--worktree', required=True, type=Path)
+    ap.add_argument('--run', required=True, type=Path, help="the build's .build-runs/<id> directory")
+    ap.add_argument('--claims', type=Path)
+    ap.add_argument('--out', type=Path, help='also write the lines here')
+    ap.add_argument('--skip', action='append', default=[], choices=['arm-handoff', 'raw'],
+                    help='say a check is skipped on purpose (its line names it)')
+    ap.add_argument('--scratch', type=Path, default=Path('/workspace/tmp') / f'image-acceptance-{os.getpid()}')
+    a = ap.parse_args()
+    R = Report()
+    wt, rd = a.worktree.resolve(), a.run.resolve()
+    head = git(wt, 'rev-parse', 'HEAD')
+    branch = git(wt, 'branch', '--show-current')
+    if not re.fullmatch(r'[0-9a-f]{40}', head or ''):
+        print(f'image-acceptance: {wt} is not a git worktree', file=sys.stderr)
+        return 2
+    target = wt / 'target'
+    imgs = sorted(target.glob(f'*.g{head[:12]}*.img.gz'))
+    tars = sorted(target.glob(f'*.g{head[:12]}*.tar'))
+    idents = sorted(target.glob(f'*.g{head[:12]}*.identity.json'))
+    if not imgs or len(tars) != 1:
+        print(f'image-acceptance: {target} has {len(imgs)} images and {len(tars)} update tars named for {head[:12]}', file=sys.stderr)
+        return 2
+    m = re.match(r'[a-z]+-([A-Z0-9_]+)\.([a-z0-9_]+)-', tars[0].name)
+    if not m:
+        print(f'image-acceptance: cannot read the device from {tars[0].name}', file=sys.stderr)
+        return 2
+    device, arch = m.group(1), m.group(2)
+    claims = []
+    if a.claims:
+        try:
+            claims = parse_claims(a.claims, device)
+        except Cannot as e:
+            print(f'image-acceptance: {e}', file=sys.stderr)
+            return 2
+    R.say(f'== image-acceptance {device}.{arch} at {head} ({branch}); run {rd}; read {datetime.datetime.now(datetime.timezone.utc):%Y-%m-%dT%H:%M:%SZ}')
+    R.say(f'   claims: {a.claims or "none"} ({len(claims)} for {device})')
+
+    # The run.
+    R.say('-- the run')
+    rc = (rd / 'build.rc').read_text().strip() if (rd / 'build.rc').exists() else None
+    R.check(rc == '0', 'build.rc is 0', found=repr(rc), want="'0'")
+    rr = rd / 'runner-result.json'
+    if rr.exists():
+        res = json.loads(rr.read_text())
+        bad = {k: v for k, v in res.items() if k.endswith('_rc') and v != 0}
+        R.check(not bad, "runner-result.json's channels are all 0", found=json.dumps(res), want='every *_rc 0')
+    else:
+        R.cannot_run('runner-result.json', f'not in {rd}')
+    for f in ('build.pid', 'command.pid', 'watcher.pid'):
+        p = (rd / f).read_text().strip() if (rd / f).exists() else ''
+        if not p.isdigit():
+            R.cannot_run(f, 'no pid recorded')
+            continue
+        alive = pid_alive(p, [str(rd), str(wt)])
+        R.check(alive is None, f'{f} {p} has exited', found=f'pid {p} running: {alive}', want='no process with that pid naming this run')
+
+    # The outputs.
+    R.say('-- the outputs')
+    for p in imgs + tars:
+        sf = p.parent / (p.name + '.sha256')
+        if not sf.exists():
+            R.check(False, f'{p.name} has its .sha256', found='no .sha256 beside it')
+            continue
+        want, name = sf.read_text().split()[:2]
+        got = sha256_file(p)
+        R.check(got == want and Path(name).name == p.name, f'{p.name} sha256 matches its .sha256', found=got, want=f'{want} for {Path(name).name}')
+
+    scratch = a.scratch
+    if scratch.exists():
+        print(f'image-acceptance: the scratch {scratch} exists already', file=sys.stderr)
+        return 2
+    scratch.mkdir(parents=True)
+    try:
+        system_path = scratch / 'SYSTEM'
+        boot = {}
+        with tarfile.open(tars[0]) as tf:
+            members = tf.getnames()
+            sysn = [n for n in members if n.endswith('/target/SYSTEM')]
+            kern = [n for n in members if n.endswith('/target/KERNEL')]
+            if len(sysn) != 1 or len(kern) != 1:
+                R.cannot_run('the update tar', f'{len(sysn)} SYSTEM and {len(kern)} KERNEL members')
+                raise Cannot('no SYSTEM to read')
+            with tf.extractfile(sysn[0]) as s, system_path.open('xb') as d:
+                shutil.copyfileobj(s, d, 4 << 20)
+            with tf.extractfile(kern[0]) as s:
+                kernel_hash = hashlib.sha256(s.read()).hexdigest()
+            for mem in tf.getmembers():
+                if mem.isfile() and '/3rdparty/bootloader/' in mem.name:
+                    with tf.extractfile(mem) as s:
+                        data = s.read()
+                    boot[mem.name.split('/3rdparty/bootloader/', 1)[1]] = (hashlib.sha256(data).hexdigest(), elf(data), data if mem.size <= (4 << 20) else None)
+        system_hash = sha256_file(system_path)
+        R.say(f'   update tar SYSTEM {system_hash}, KERNEL {kernel_hash}, {len(boot)} bootloader files')
+        S = System(system_path)
+        R.say(f'   SYSTEM listing: {len(S.listing)} entries')
+
+        # os-release and identity.
+        R.say('-- os-release')
+        rel = (S.cat('etc/os-release') or b'').decode(errors='replace')
+        v = {k: x.strip('"') for k, x in (l.split('=', 1) for l in rel.splitlines() if '=' in l)}
+        for k, want in (('OS_NAME', 'pixelelated'), ('BUILD_ID', head), ('BUILD_DIRTY', 'no'), ('BUILD_BRANCH', branch), ('HW_DEVICE', device), ('HW_ARCH', arch)):
+            R.check(v.get(k) == want, f'{k} is {want}', found=repr(v.get(k)), want=repr(want), source='the worktree and the image names')
+        R.check(v.get('BUILD_VERSION', '').endswith('.g' + head[:12]), 'BUILD_VERSION names the head', found=repr(v.get('BUILD_VERSION')), want=f'... .g{head[:12]}')
+        if len(idents) == 1:
+            ident = json.loads(idents[0].read_text())
+            R.check(ident.get('build_commit') == head and ident.get('build_version') == v.get('BUILD_VERSION'),
+                    'identity.json names the head and the version', found=json.dumps({k: ident.get(k) for k in ('build_commit', 'build_version')}),
+                    want=f'build_commit {head}, build_version {v.get("BUILD_VERSION")}')
+        else:
+            R.cannot_run('identity.json', f'{len(idents)} named for the head')
+
+        R.say('-- the worktree')
+        dirty = git(wt, 'status', '--porcelain', '--untracked-files=normal').splitlines()
+        R.check(not dirty, 'no tracked or untracked changes', found=dirty[:10])
+
+        R.say('-- userland')
+        for name in ('usr/bin/emulationstation', 'usr/bin/retroarch'):
+            e = elf(S.cat(name))
+            R.check(e == ('ELF64', 'LE', ELF_MACHINE.get(arch)), f'{name} is ELF64/LE/{arch}', found=repr(e), want=repr(('ELF64', 'LE', ELF_MACHINE.get(arch))))
+
+        # The ARM half.
+        R.say('-- the ARM handoff')
+        arm = wt / f'build.pixelelated-{device}.arm/image/system'
+        if 'arm-handoff' in a.skip:
+            R.skipped('the ARM handoff', 'asked with --skip arm-handoff')
+        elif arch != 'aarch64':
+            R.skipped('the ARM handoff', f'{arch} image')
+        elif not arm.is_dir():
+            R.cannot_run('the ARM handoff', f'no ARM image at {arm} (removed with the build root?); --skip arm-handoff says so on purpose')
+        else:
+            for src, dst in (('usr/bin/retroarch', 'usr/bin/retroarch32'), ('usr/bin/box86', 'usr/bin/box86'),
+                             ('usr/lib/libretro/gpsp_libretro.so', 'usr/lib/libretro/gpsp_libretro.so'),
+                             ('usr/lib/libretro/desmume_libretro.so', 'usr/lib/libretro/desmume_libretro.so')):
+                if not (arm / src).is_file():
+                    R.skipped(dst, f'the ARM image has no {src}')
+                    continue
+                b = S.cat(dst)
+                got = hashlib.sha256(b).hexdigest() if b is not None else None
+                want = sha256_file(arm / src)
+                R.check(b is not None and elf(b) == ('ELF32', 'LE', 40) and got == want, f"{dst} is ELF32/LE/ARM and equals the ARM image's {src}",
+                        found=f'{"absent" if b is None else elf(b)} sha256 {got}', want=f"ELF32/LE/ARM sha256 {want}", source='projects/ROCKNIX/packages/compat/lib32 and the emulators\' arm handoff')
+            libs = sorted(p for p in (arm / 'usr/lib').iterdir() if p.is_file() and not p.is_symlink())
+            differ = []
+            for p in libs:
+                b = S.cat('usr/lib32/' + p.name)
+                if b is None or hashlib.sha256(b).hexdigest() != sha256_file(p):
+                    differ.append(p.name + (' (absent)' if b is None else ' (differs)'))
+            R.check(libs and not differ, f"usr/lib32 carries the ARM image's {len(libs)} top-level usr/lib files byte for byte",
+                    found=differ[:12] or ['no files in the ARM image\'s usr/lib'], source='projects/ROCKNIX/packages/compat/lib32 (rsync -al of usr/lib/*)')
+
+        # The disk images.
+        R.say('-- the disk images')
+        opts = wt / f'projects/ROCKNIX/devices/{device}/options'
+        atf = re.findall(r'^\s*ATF_BL31_BINARY="([^"]+)"', opts.read_text(), re.M) if opts.exists() else []
+        for rel, (sha, e, data) in sorted(boot.items()):
+            if rel.endswith('.elf') and 'abl' in rel.lower():
+                R.check(e == ('ELF32', 'LE', 40), f'the signed ABL {rel} is ELF32/LE/EM_ARM', found=repr(e), want="('ELF32', 'LE', 40)", source='#602: the signed ABL is a 32-bit ARM ELF')
+            copy = 'usr/share/bootloader/' + rel
+            if copy in S.names:
+                b = S.cat(copy)
+                R.check(b is not None and hashlib.sha256(b).hexdigest() == sha, f"SYSTEM {copy} equals the tar's", found=hashlib.sha256(b).hexdigest() if b else 'unreadable', want=sha)
+        if 'raw' in a.skip:
+            R.skipped('the disk images', 'asked with --skip raw')
+        for img in ([] if 'raw' in a.skip else imgs):
+            variant = (re.search(r'-(DDR[0-9])\.img\.gz$', img.name) or [None, ''])[1]
+            label = img.name if not variant else variant
+            raw = scratch / 'disk.img'
+            with gzip.open(img, 'rb') as s, raw.open('wb') as d:
+                while block := s.read(4 << 20):
+                    if block.count(0) == len(block):
+                        d.seek(len(block), 1)
+                    else:
+                        d.write(block)
+                d.truncate()
+            r = subprocess.run(['/usr/sbin/sfdisk', '--json', str(raw)], capture_output=True, text=True)
+            if r.returncode != 0:
+                R.cannot_run(f'{label} partition table', f'sfdisk exited {r.returncode}: {r.stderr.strip()[-200:]}')
+                raw.unlink()
+                continue
+            pt = json.loads(r.stdout)['partitiontable']
+            parts = pt.get('partitions', [])
+            shape = [(p.get('name') or p.get('type'), p.get('start'), p.get('size')) for p in parts]
+            R.check(pt.get('sectorsize') == 512 and parts and parts[0]['start'] >= 2048, f'{label}: a {pt.get("label")} partition table, the first partition from sector ≥ 2048',
+                    found=f'{pt.get("label")}, sector size {pt.get("sectorsize")}, partitions {shape}', want='512-byte sectors, a first partition at 2048 or later')
+            if not parts:
+                raw.unlink()
+                continue
+            if variant:
+                ub = boot.get(f'H700_{variant}_u-boot-sunxi-with-spl.bin') if device == 'H700' else None
+                if device == 'H700':
+                    if ub and ub[2] is not None:
+                        with raw.open('rb') as f:
+                            f.seek(8192)
+                            got = f.read(len(ub[2]))
+                        R.check(got == ub[2], f'{label}: the u-boot at byte 8192 is the tar\'s H700_{variant} u-boot', found=hashlib.sha256(got).hexdigest(), want=ub[0], source='the October H700 acceptance (verify-firmware.py)')
+                    else:
+                        R.check(False, f"{label}: the tar carries H700_{variant}_u-boot-sunxi-with-spl.bin", found=sorted(k for k in boot if 'u-boot' in k))
+            with raw.open('rb') as f:
+                try:
+                    fat = Fat(f, parts[0]['start'] * 512)
+                    files = fat.files()
+                except Cannot as e:
+                    R.cannot_run(f'{label} boot partition', str(e))
+                    files = None
+                if files is not None:
+                    R.say(f'   {label}: boot partition holds {len(files)} files')
+                    for name, want in (('SYSTEM', system_hash), ('KERNEL', kernel_hash)):
+                        got = fat.sha256(*files[name]) if name in files else None
+                        R.check(got == want, f"{label}: the boot partition's {name} equals the update tar's", found=got or f'no {name}; it holds {sorted(files)[:10]}', want=want)
+                    for rel, (sha, _e, _d) in sorted(boot.items()):
+                        if rel in files:
+                            got = fat.sha256(*files[rel])
+                            R.check(got == sha, f"{label}: the boot partition's {rel} equals the tar's", found=got, want=sha)
+                    # Only the updater's own script, a u-boot written to raw sectors (H700's,
+                    # at byte 8192) and the ARM Trusted Firmware that u-boot embeds (the
+                    # device options' ATF_BL31_BINARY) belong in the tar alone.
+                    only_tar = sorted(k for k in boot if k not in files)
+                    unexplained = [k for k in only_tar if k != 'update.sh' and 'u-boot' not in k and k not in atf]
+                    R.check(not unexplained, f'{label}: every bootloader file of the tar is on the boot partition, but update.sh, a raw-written u-boot and its ATF {atf or "(none)"}',
+                            found=[f'not on the partition: {k}' for k in unexplained[:10]] + [f'the partition holds: {sorted(files)[:12]}'],
+                            source='the update tar\'s 3rdparty/bootloader against the image (October acceptance: the bootloader files on the FAT)')
+                    R.say(f'   {label}: in the tar only: {only_tar}')
+            raw.unlink()
+
+        # The round's own claims.
+        R.say('-- claims')
+        log_lines = None
+        for n, t, source in claims:
+            kind = t[0]
+            src = f'{a.claims.name}:{n}' + (f', {source}' if source else '')
+            if kind in ('contains', 'lacks'):
+                data = S.cat(t[1])
+                text = t[2].encode()
+                if data is None:
+                    R.check(False, f'{t[1]} {kind} {t[2]!r}', found=[f'{t[1]} is not in the image'] + S.folder(t[1]), source=src)
+                    continue
+                has = text in data
+                strings = printable(data) if not has or kind == 'lacks' else []
+                if kind == 'contains':
+                    near = []
+                    if not has:
+                        words = t[2].split()
+                        for k in range(len(words) - 1, 0, -1):
+                            probe = ' '.join(words[:k])
+                            near = [s for s in strings if probe in s][:3]
+                            if near:
+                                near = [f'nearest, sharing {probe!r}: {s[:200]!r}' for s in near]
+                                break
+                    R.check(has, f'{t[1]} contains {t[2]!r}', found=near or ['no string in the file shares even its first word'], want=t[2], source=src)
+                else:
+                    R.check(not has, f'{t[1]} lacks {t[2]!r}', found=[s[:200] for s in strings if t[2] in s][:3], source=src)
+            elif kind == 'sha256':
+                data = S.cat(t[1])
+                got = hashlib.sha256(data).hexdigest() if data is not None else None
+                R.check(got == t[2], f'{t[1]} hashes to {t[2][:16]}…', found=got or [f'{t[1]} is not in the image'] + S.folder(t[1]), want=t[2], source=src)
+            elif kind == 'same':
+                data = S.cat(t[1])
+                ref = Path(t[2]) if t[2].startswith('/') else wt / t[2]
+                if not ref.is_file():
+                    R.cannot_run(f'{t[1]} same as {t[2]}', f'no file at {ref}')
+                    continue
+                got, want = (hashlib.sha256(data).hexdigest() if data is not None else None), sha256_file(ref)
+                R.check(got == want, f'{t[1]} equals {t[2]}', found=got or f'{t[1]} is not in the image', want=want, source=src)
+            elif kind == 'absent':
+                R.check(t[1] not in S.names, f'{t[1]} is not in the image', found=[x for x in S.listing if x == t[1] or x.startswith(t[1] + '/')][:5], source=src)
+            elif kind == 'listed':
+                R.check(t[1] in S.names, f'{t[1]} is in the image', found=S.folder(t[1]), source=src)
+            elif kind == 'log':
+                if log_lines is None:
+                    blog = rd / 'build.log'
+                    log_lines = [ANSI.sub('', l) for l in blog.read_text(errors='replace').splitlines()] if blog.exists() else []
+                rx = re.compile(t[1])
+                hit = next((l for l in log_lines if rx.search(l)), None)
+                if hit:
+                    R.check(True, f'build.log has a line matching {t[1]!r}: {hit.strip()[:120]!r}')
+                else:
+                    tokens = sorted(re.findall(r'[A-Za-z0-9][A-Za-z0-9_.+-]{3,}', t[1]), key=len, reverse=True)
+                    key = tokens[0] if tokens else None
+                    near = [l.strip()[:200] for l in log_lines if key and key in l and ('DONE' in l or 'FAIL' in l)][:5] if key else []
+                    R.check(False, f'build.log has a line matching {t[1]!r}', found=near or [f'no line names {key!r}' if key else 'no literal in the pattern to look for'],
+                            want=t[1], source=src)
+    except Cannot as e:
+        R.cannot_run('the image', str(e))
+    finally:
+        shutil.rmtree(scratch, ignore_errors=True)
+    verdict = ('PASS' if R.fails == 0 and R.cannot == 0 else 'FAIL' if R.fails else 'CANNOT JUDGE')
+    R.say(f'== {verdict}: {R.passes} passed, {R.fails} failed, {R.cannot} could not run; ended {datetime.datetime.now(datetime.timezone.utc):%Y-%m-%dT%H:%M:%SZ}')
+    if a.out:
+        a.out.parent.mkdir(parents=True, exist_ok=True)
+        a.out.write_text('\n'.join(R.lines) + '\n')
+    return 1 if R.fails else 2 if R.cannot else 0
+
+
+if __name__ == '__main__':
+    sys.exit(main())

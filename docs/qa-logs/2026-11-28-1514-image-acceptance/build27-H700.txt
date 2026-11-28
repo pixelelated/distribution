@@ -1,0 +1,115 @@
+== image-acceptance H700.aarch64 at 6169621a4b93630c20dc6cd642b7983a2f3a2c44 (build/m7-round-h700-20261128); run /workspace/repos/rocknix.worktrees/m7-round-h700-20261128/.build-runs/20261128T040114Z-1a8e3f25; read 2026-11-28T11:38:03Z
+   claims: docs/qa-logs/2026-11-28-1514-image-acceptance/claims-6169621a4b.txt (4 for H700)
+-- the run
+PASS    build.rc is 0
+PASS    runner-result.json's channels are all 0
+PASS    build.pid 4142329 has exited
+PASS    command.pid 4142434 has exited
+PASS    watcher.pid 4142330 has exited
+-- the outputs
+PASS    pixelelated-H700.aarch64-0.0.1-dev+20261128T040331Z.g6169621a4b93-from-ROCKNIX-DDR3.img.gz sha256 matches its .sha256
+PASS    pixelelated-H700.aarch64-0.0.1-dev+20261128T040331Z.g6169621a4b93-from-ROCKNIX-DDR4.img.gz sha256 matches its .sha256
+PASS    pixelelated-H700.aarch64-0.0.1-dev+20261128T040331Z.g6169621a4b93-from-ROCKNIX.tar sha256 matches its .sha256
+   update tar SYSTEM 6bcccee3fc222c4ed6ec98d59c49cfa83831e09f74693f0e9d774340cb56f6c7, KERNEL 5e17ad80d83b3572ef9202ee81eeb29af623527aaf46fc3678edbb45d7f4769a, 24 bootloader files
+   SYSTEM listing: 59888 entries
+-- os-release
+PASS    OS_NAME is pixelelated
+PASS    BUILD_ID is 6169621a4b93630c20dc6cd642b7983a2f3a2c44
+PASS    BUILD_DIRTY is no
+PASS    BUILD_BRANCH is build/m7-round-h700-20261128
+PASS    HW_DEVICE is H700
+PASS    HW_ARCH is aarch64
+PASS    BUILD_VERSION names the head
+PASS    identity.json names the head and the version
+-- the worktree
+PASS    no tracked or untracked changes
+-- userland
+PASS    usr/bin/emulationstation is ELF64/LE/aarch64
+PASS    usr/bin/retroarch is ELF64/LE/aarch64
+-- the ARM handoff
+SKIPPED the ARM handoff: asked with --skip arm-handoff
+-- the disk images
+PASS    SYSTEM usr/share/bootloader/H700_DDR3_u-boot-sunxi-with-spl.bin equals the tar's
+PASS    SYSTEM usr/share/bootloader/H700_DDR4_u-boot-sunxi-with-spl.bin equals the tar's
+PASS    SYSTEM usr/share/bootloader/bl31.bin equals the tar's
+PASS    SYSTEM usr/share/bootloader/device_trees/sun50i-h700-anbernic-rg-sp.dtb equals the tar's
+PASS    SYSTEM usr/share/bootloader/device_trees/sun50i-h700-anbernic-rg28xx.dtb equals the tar's
+PASS    SYSTEM usr/share/bootloader/device_trees/sun50i-h700-anbernic-rg34xx-sp-v2-panel.dtb equals the tar's
+PASS    SYSTEM usr/share/bootloader/device_trees/sun50i-h700-anbernic-rg34xx-sp.dtb equals the tar's
+PASS    SYSTEM usr/share/bootloader/device_trees/sun50i-h700-anbernic-rg34xx.dtb equals the tar's
+PASS    SYSTEM usr/share/bootloader/device_trees/sun50i-h700-anbernic-rg35xx-2024-rev6-panel.dtb equals the tar's
+PASS    SYSTEM usr/share/bootloader/device_trees/sun50i-h700-anbernic-rg35xx-2024.dtb equals the tar's
+PASS    SYSTEM usr/share/bootloader/device_trees/sun50i-h700-anbernic-rg35xx-h-rev6-panel.dtb equals the tar's
+PASS    SYSTEM usr/share/bootloader/device_trees/sun50i-h700-anbernic-rg35xx-h.dtb equals the tar's
+PASS    SYSTEM usr/share/bootloader/device_trees/sun50i-h700-anbernic-rg35xx-plus-rev6-panel.dtb equals the tar's
+PASS    SYSTEM usr/share/bootloader/device_trees/sun50i-h700-anbernic-rg35xx-plus.dtb equals the tar's
+PASS    SYSTEM usr/share/bootloader/device_trees/sun50i-h700-anbernic-rg35xx-pro.dtb equals the tar's
+PASS    SYSTEM usr/share/bootloader/device_trees/sun50i-h700-anbernic-rg35xx-sp-v2-panel.dtb equals the tar's
+PASS    SYSTEM usr/share/bootloader/device_trees/sun50i-h700-anbernic-rg35xx-sp.dtb equals the tar's
+PASS    SYSTEM usr/share/bootloader/device_trees/sun50i-h700-anbernic-rg40xx-h-v2-panel.dtb equals the tar's
+PASS    SYSTEM usr/share/bootloader/device_trees/sun50i-h700-anbernic-rg40xx-h.dtb equals the tar's
+PASS    SYSTEM usr/share/bootloader/device_trees/sun50i-h700-anbernic-rg40xx-v-v2-panel.dtb equals the tar's
+PASS    SYSTEM usr/share/bootloader/device_trees/sun50i-h700-anbernic-rg40xx-v.dtb equals the tar's
+PASS    SYSTEM usr/share/bootloader/device_trees/sun50i-h700-anbernic-rgcubexx.dtb equals the tar's
+PASS    SYSTEM usr/share/bootloader/overlays/sun50i-h700-anbernic-rg35xx-2024-ddr3.dtbo equals the tar's
+PASS    SYSTEM usr/share/bootloader/update.sh equals the tar's
+PASS    DDR3: a dos partition table, the first partition from sector ≥ 2048
+PASS    DDR3: the u-boot at byte 8192 is the tar's H700_DDR3 u-boot
+   DDR3: boot partition holds 25 files
+PASS    DDR3: the boot partition's SYSTEM equals the update tar's
+PASS    DDR3: the boot partition's KERNEL equals the update tar's
+PASS    DDR3: the boot partition's device_trees/sun50i-h700-anbernic-rg-sp.dtb equals the tar's
+PASS    DDR3: the boot partition's device_trees/sun50i-h700-anbernic-rg28xx.dtb equals the tar's
+PASS    DDR3: the boot partition's device_trees/sun50i-h700-anbernic-rg34xx-sp-v2-panel.dtb equals the tar's
+PASS    DDR3: the boot partition's device_trees/sun50i-h700-anbernic-rg34xx-sp.dtb equals the tar's
+PASS    DDR3: the boot partition's device_trees/sun50i-h700-anbernic-rg34xx.dtb equals the tar's
+PASS    DDR3: the boot partition's device_trees/sun50i-h700-anbernic-rg35xx-2024-rev6-panel.dtb equals the tar's
+PASS    DDR3: the boot partition's device_trees/sun50i-h700-anbernic-rg35xx-2024.dtb equals the tar's
+PASS    DDR3: the boot partition's device_trees/sun50i-h700-anbernic-rg35xx-h-rev6-panel.dtb equals the tar's
+PASS    DDR3: the boot partition's device_trees/sun50i-h700-anbernic-rg35xx-h.dtb equals the tar's
+PASS    DDR3: the boot partition's device_trees/sun50i-h700-anbernic-rg35xx-plus-rev6-panel.dtb equals the tar's
+PASS    DDR3: the boot partition's device_trees/sun50i-h700-anbernic-rg35xx-plus.dtb equals the tar's
+PASS    DDR3: the boot partition's device_trees/sun50i-h700-anbernic-rg35xx-pro.dtb equals the tar's
+PASS    DDR3: the boot partition's device_trees/sun50i-h700-anbernic-rg35xx-sp-v2-panel.dtb equals the tar's
+PASS    DDR3: the boot partition's device_trees/sun50i-h700-anbernic-rg35xx-sp.dtb equals the tar's
+PASS    DDR3: the boot partition's device_trees/sun50i-h700-anbernic-rg40xx-h-v2-panel.dtb equals the tar's
+PASS    DDR3: the boot partition's device_trees/sun50i-h700-anbernic-rg40xx-h.dtb equals the tar's
+PASS    DDR3: the boot partition's device_trees/sun50i-h700-anbernic-rg40xx-v-v2-panel.dtb equals the tar's
+PASS    DDR3: the boot partition's device_trees/sun50i-h700-anbernic-rg40xx-v.dtb equals the tar's
+PASS    DDR3: the boot partition's device_trees/sun50i-h700-anbernic-rgcubexx.dtb equals the tar's
+PASS    DDR3: the boot partition's overlays/sun50i-h700-anbernic-rg35xx-2024-ddr3.dtbo equals the tar's
+PASS    DDR3: every bootloader file of the tar is on the boot partition, but update.sh, a raw-written u-boot and its ATF ['bl31.bin']
+   DDR3: in the tar only: ['H700_DDR3_u-boot-sunxi-with-spl.bin', 'H700_DDR4_u-boot-sunxi-with-spl.bin', 'bl31.bin', 'update.sh']
+PASS    DDR4: a dos partition table, the first partition from sector ≥ 2048
+PASS    DDR4: the u-boot at byte 8192 is the tar's H700_DDR4 u-boot
+   DDR4: boot partition holds 25 files
+PASS    DDR4: the boot partition's SYSTEM equals the update tar's
+PASS    DDR4: the boot partition's KERNEL equals the update tar's
+PASS    DDR4: the boot partition's device_trees/sun50i-h700-anbernic-rg-sp.dtb equals the tar's
+PASS    DDR4: the boot partition's device_trees/sun50i-h700-anbernic-rg28xx.dtb equals the tar's
+PASS    DDR4: the boot partition's device_trees/sun50i-h700-anbernic-rg34xx-sp-v2-panel.dtb equals the tar's
+PASS    DDR4: the boot partition's device_trees/sun50i-h700-anbernic-rg34xx-sp.dtb equals the tar's
+PASS    DDR4: the boot partition's device_trees/sun50i-h700-anbernic-rg34xx.dtb equals the tar's
+PASS    DDR4: the boot partition's device_trees/sun50i-h700-anbernic-rg35xx-2024-rev6-panel.dtb equals the tar's
+PASS    DDR4: the boot partition's device_trees/sun50i-h700-anbernic-rg35xx-2024.dtb equals the tar's
+PASS    DDR4: the boot partition's device_trees/sun50i-h700-anbernic-rg35xx-h-rev6-panel.dtb equals the tar's
+PASS    DDR4: the boot partition's device_trees/sun50i-h700-anbernic-rg35xx-h.dtb equals the tar's
+PASS    DDR4: the boot partition's device_trees/sun50i-h700-anbernic-rg35xx-plus-rev6-panel.dtb equals the tar's
+PASS    DDR4: the boot partition's device_trees/sun50i-h700-anbernic-rg35xx-plus.dtb equals the tar's
+PASS    DDR4: the boot partition's device_trees/sun50i-h700-anbernic-rg35xx-pro.dtb equals the tar's
+PASS    DDR4: the boot partition's device_trees/sun50i-h700-anbernic-rg35xx-sp-v2-panel.dtb equals the tar's
+PASS    DDR4: the boot partition's device_trees/sun50i-h700-anbernic-rg35xx-sp.dtb equals the tar's
+PASS    DDR4: the boot partition's device_trees/sun50i-h700-anbernic-rg40xx-h-v2-panel.dtb equals the tar's
+PASS    DDR4: the boot partition's device_trees/sun50i-h700-anbernic-rg40xx-h.dtb equals the tar's
+PASS    DDR4: the boot partition's device_trees/sun50i-h700-anbernic-rg40xx-v-v2-panel.dtb equals the tar's
+PASS    DDR4: the boot partition's device_trees/sun50i-h700-anbernic-rg40xx-v.dtb equals the tar's
+PASS    DDR4: the boot partition's device_trees/sun50i-h700-anbernic-rgcubexx.dtb equals the tar's
+PASS    DDR4: the boot partition's overlays/sun50i-h700-anbernic-rg35xx-2024-ddr3.dtbo equals the tar's
+PASS    DDR4: every bootloader file of the tar is on the boot partition, but update.sh, a raw-written u-boot and its ATF ['bl31.bin']
+   DDR4: in the tar only: ['H700_DDR3_u-boot-sunxi-with-spl.bin', 'H700_DDR4_u-boot-sunxi-with-spl.bin', 'bl31.bin', 'update.sh']
+-- claims
+PASS    usr/bin/emulationstation contains 'SIGN IN AGAIN: GAME SETTINGS > RETROACHIEVEMENTS SETTINGS'
+PASS    usr/config/locale/fr/LC_MESSAGES/emulationstation2.mo contains 'RECONNECTEZ-VOUS : PARAMÈTRES DES JEUX > PARAMÈTRES RETROACHIEVEMENTS'
+PASS    usr/bin/raofflineproxy-ctl equals projects/ROCKNIX/packages/network/raofflineproxy/sources/raofflineproxy-ctl
+PASS    usr/bin/duckstation-sa hashes to f92319a0484e67bb…
+== PASS: 97 passed, 0 failed, 0 could not run; ended 2026-11-28T11:38:09Z
