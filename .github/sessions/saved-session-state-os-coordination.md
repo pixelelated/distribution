@@ -8,6 +8,15 @@ Read the [M7 milestone](https://github.com/pixelelated/distribution/milestone/7)
 
 ## Current focus
 
+**000000000000000000000000000000000. Newest (2026-11-28T01:55Z): route 16 (one wait over saves and offline achievements, D-RA-057) is round `6169621a4b`; build 26 is accepted; `b26-carry.sh` is running.**
+- **`b26-carry.sh`** (pid 3413831, files in `b26-carry/`):
+  - `p1477-b26.sh` (frames in `p1477-b26/`: A the midsync cell, B the throttled startup sync with the probe ROM, C the achievements' send in the wait; EN and FR);
+  - then standard run 20;
+  - with no `b26-carry/hold`: `rc-preflight`, H700, its reads, SM8550, its reads.
+- **The build 25 chain** stopped at its hold (01:46).
+- **Review p1477-b26's frames while run 20 runs.** `echo reason > b26-carry/hold` stops the handheld launches.
+- **After it:** #1477 c2–c4 from the frames, its trace and close; #1465 c3 and #1503 c2 from run 20; the handhelds' acceptance.
+
 **00000000000000000000000000000000. Newest (2026-11-28T01:40Z): route 15 (Max's forced wait, D-CLOUD-198) is round `75e31d7ee6`; build 25 is accepted; `b25-carry.sh` is running.**
 - **`b25-carry.sh`** (pid 3132133, step files in `b25-carry/`): `p1477.sh` (frames in `/workspace/tmp/rocknix-session/p1477/`: A = the midsync cell, B = throttled startup sync, 15 s limit; EN and FR), then standard run 19. If PASS and there is no `b25-carry/hold`: `rc-preflight`, then H700 (`m7-round-h700-20261128`), its reads, then SM8550, its reads.
 - **To stop it before a handheld launch:** `echo '<reason>' > /workspace/tmp/rocknix-session/b25-carry/hold`.
