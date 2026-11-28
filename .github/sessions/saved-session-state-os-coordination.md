@@ -15,6 +15,10 @@ Read the [M7 milestone](https://github.com/pixelelated/distribution/milestone/7)
 - **The chain:** `b26b-handhelds.sh` (pid 4137825, files in `b26b-handhelds/`). It waits on H700's build.rc, gates on 0, runs the reads, checks the BUILD_ID and the image's duckstation hash, then launches SM8550 cold (`m7-round-sm8550-20261128`) and does the same. `b26b-handhelds/hold` stops it before a launch. Harness waiter `boecs22ba`.
 - **Sources checked:** a one-off scan (`/workspace/tmp/rocknix-session/source-scan/`) found no other download that would fail, for H700's remaining packages or for SM8550's.
 - **#1510** (device-build's dry run misses a used owner folder): fix it after the chain has submitted SM8550, then prove it in the next idle window. Step 0 refuses while a build runs.
+- **Landed since (local `next`, not pushed):** `f6f3a21d90` `tools/source-check` (#1509 c4: plans equal the build's; fails on the 03:49 state; GENERIC_X64 fails today on duckstation-sa's arch collision); `149d40654a` `tools/friction-stub` and `tools/chain-lib` (#1508 c4 and #1507 c2 ticked; `vm-qa`'s stub on a real FAIL still to see). The M7 milestone body was rewritten at 04:27 UTC.
+- **Staged, not applied:** `/workspace/tmp/rocknix-session/devbuild-1510/1510-1509.patch` against `tools/device-build`: the owner check before the dry run's return (#1510), and `source-check` in step 3 (#1509 c4's "before a cold build"). Apply it once `b26b-handhelds/SM8550-run-dir.txt` exists. Prove it once no build runs: a dry run on `m7-round-h700-20261128-owner` exits 2; an unused name exits 0; a real refused launch leaves the set file's mtime unchanged.
+- **A background agent is auditing what each `vm-qa` suite prints on a failure,** for #1506 c1. Its table goes on #1506.
+- **Next chain:** source `tools/chain-lib` (`step`, `held`, `stop`) instead of copying the functions.
 - **After each build:** unchanged (the next item down).
 
 **0000000000000000000000000000000000. Newest (2026-11-28T02:50Z): H700 is building cold from the final head `6169621a4b` (route 16); SM8550 follows by the chain; #1477 and #1465 are closed.**
