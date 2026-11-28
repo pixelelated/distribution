@@ -1,0 +1,35 @@
+04:00:18  nothing else is running (no make docker-*, no QEMU guest, no vm-qa)
+04:00:18  set m7-round-x64 head 6169621a4b (/workspace/repos/rocknix.worktrees/conflict-resolution/.build-runs/build-sets/m7-round-x64.json)
+04:00:18  worktree /workspace/repos/rocknix.worktrees/m7-round-h700-20261128 on build/m7-round-h700-20261128 at 6169621a4b
+04:00:18  --warm: building on build.pixelelated-H700.aarch64, build.pixelelated-H700.arm
+04:00:18  ES supplier /workspace/repos/rocknix.worktrees/conflict-resolution/.build-runs/m7-rc-round-20261128-16-es/inputs/es/emulationstation-m7-20261128-85ff17e3b848.tar sha256 matches the recipe (ebca37904e73bf58...)
+04:00:18  export DOCKER_WORK_DIR=/workspace/repos/rocknix.worktrees/conflict-resolution/.build-runs/m7-candidate-build-20261118-01/checkout
+04:00:18  export DOCKER_EXTRA_OPTS=-v /workspace/repos/rocknix/.git:/workspace/repos/rocknix/.git -v /workspace/cache/rocknix-sources:/workspace/repos/rocknix.worktrees/conflict-resolution/.build-runs/m7-candidate-build-20261118-01/checkout/sources -v /workspace/repos/rocknix.worktrees/conflict-resolution/.build-runs/m7-rc-round-20261128-16-es/inputs/es:/tmp/pix-m7-es-source-delivery-20261128-16:ro -e TMPDIR=/tmp
+04:00:18  export PROJECT=ROCKNIX
+04:00:18  export DEVICE=H700
+04:00:18  export ARCH=aarch64
+04:00:18  replay plan: the union of 3 build log(s): /workspace/repos/rocknix.worktrees/conflict-resolution/.build-runs/m7-h700-d86c089e-owner-20261124/submit-02/console.log, /workspace/repos/rocknix.worktrees/conflict-resolution/.build-runs/m7-round-h700-20261128-owner/submit-01/console.log, /workspace/repos/rocknix.worktrees/conflict-resolution/.build-runs/m7-round-h700-fd8dadd5-owner/submit-01/console.log
+04:00:18  keep /workspace/repos/rocknix.worktrees/m7-h700-0a3e979e-20261125/target (3.7 GiB): images not on GitHub; released when they are (D-INFRA-037)
+04:00:18  keep /workspace/repos/rocknix.worktrees/m7-h700-0a3e979e-20261125/kept (0.2 GiB): images not on GitHub; released when they are (D-INFRA-037)
+04:00:18  keep /workspace/repos/rocknix.worktrees/m7-pc-0a3e979e-20261124/target (4.0 GiB): images not on GitHub; released when they are (D-INFRA-037)
+04:00:18  keep /workspace/repos/rocknix.worktrees/m7-pc-0a3e979e-20261124/kept (0.2 GiB): images not on GitHub; released when they are (D-INFRA-037)
+04:00:18  keep /workspace/repos/rocknix.worktrees/m7-pc-43d0bc3b-20261125/target (3.9 GiB): images not on GitHub; released when they are (D-INFRA-037)
+04:00:18  keep /workspace/repos/rocknix.worktrees/m7-round-x64-20261125/target (4.0 GiB): images not on GitHub; released when they are (D-INFRA-037)
+04:00:18  keep /workspace/repos/rocknix.worktrees/m7-round-x64-20261125/.build-runs/kept (0.2 GiB): images not on GitHub; released when they are (D-INFRA-037)
+04:00:18  keep /workspace/repos/rocknix.worktrees/m7-sm8550-0a3e979e-20261124/target (3.0 GiB): images not on GitHub; released when they are (D-INFRA-037)
+04:00:18  keep /workspace/repos/rocknix.worktrees/m7-sm8550-0a3e979e-20261124/kept (0.2 GiB): images not on GitHub; released when they are (D-INFRA-037)
+04:00:18  one-build rule: no other build/m7-* worktree holds a build root
+04:00:18  owner folder /workspace/repos/rocknix.worktrees/conflict-resolution/.build-runs/m7-round-h700-20261128-02-owner
+04:00:18  retention report
+04:00:23  admission
+04:00:24  /tmp holds 11.0 GiB (tmpfs pages refill swap after a reclaim)
+04:00:24  WARNING: /tmp is over 2 GiB; its pages will refill swap within minutes of the reclaim
+04:00:24  swap preflight with reclamation
+04:01:14  submit make docker-H700 from /workspace/repos/rocknix.worktrees/m7-round-h700-20261128
+{"state": "submitted", "pid": 4142328, "owner": "/workspace/repos/rocknix.worktrees/conflict-resolution/.build-runs/m7-round-h700-20261128-02-owner/submit-01", "completion": "/workspace/repos/rocknix.worktrees/conflict-resolution/.build-runs/m7-round-h700-20261128-02-owner/submit-01/launcher-result.json", "submission_is_not_completion": true}
+04:01:14  submitted; owner /workspace/repos/rocknix.worktrees/conflict-resolution/.build-runs/m7-round-h700-20261128-02-owner/submit-01
+04:01:14  launcher-pid.json: {
+  "pid": 4142328,
+  "utc": "2026-11-28T04:01:14.291198+00:00"
+}
+04:01:15  run directory /workspace/repos/rocknix.worktrees/m7-round-h700-20261128/.build-runs/20261128T040114Z-1a8e3f25: build.pid=4142329 command.pid=4142434 watcher.pid=4142330; it ends when /workspace/repos/rocknix.worktrees/m7-round-h700-20261128/.build-runs/20261128T040114Z-1a8e3f25/build.rc exists

@@ -1,0 +1,44 @@
+{
+ "record": "ACCEPTANCE",
+ "written_utc": "2026-11-28T06:28Z",
+ "issue": [
+  1509,
+  1477
+ ],
+ "run": "/workspace/repos/rocknix.worktrees/m7-round-h700-20261128/.build-runs/20261128T040114Z-1a8e3f25",
+ "disposition": "qualified",
+ "expected_rc": 0,
+ "outputs": [
+  {
+   "path": "/workspace/repos/rocknix.worktrees/m7-round-h700-20261128/build.pixelelated-H700.aarch64",
+   "issue": 1445,
+   "kind": "build-cache",
+   "owner": "OS work coordinator",
+   "release_when": "the next build of the set starts, or its images are on GitHub (D-INFRA-033/036/037)"
+  },
+  {
+   "path": "/workspace/repos/rocknix.worktrees/m7-round-h700-20261128/build.pixelelated-H700.arm",
+   "issue": 1445,
+   "kind": "build-cache",
+   "owner": "OS work coordinator",
+   "release_when": "the next build of the set starts, or its images are on GitHub (D-INFRA-033/036/037)"
+  },
+  {
+   "path": "/workspace/repos/rocknix.worktrees/m7-round-h700-20261128/target",
+   "issue": 1445,
+   "kind": "firmware",
+   "owner": "OS work coordinator",
+   "release_when": "its images are on GitHub, or a newer build of the set supersedes it (D-INFRA-036/037)"
+  }
+ ],
+ "evidence": [
+  {
+   "path": "/workspace/repos/rocknix.worktrees/conflict-resolution/.build-runs/m7-round-h700-20261128-02-owner/acceptance/image-reads-27.txt",
+   "sha256": "89ad35aa918349ae160e992046c9c4a62f417a1d2e3d0b0e7bb8e9a26436e411"
+  }
+ ],
+ "head": "6169621a4b93630c20dc6cd642b7983a2f3a2c44",
+ "admission": "0b493debbc214055a3def8a9d10f8a5e",
+ "scope": "build-level acceptance of the round's H700 engineering image at 6169621a4b (route 16; cold from 02:48, stopped at 03:49 on duckstation-sa's withdrawn source (#1509), restored by its pin and resumed warm at 04:01): rc 0, processes exited, checksums verified (DDR3, DDR4 and the one update tar), BUILD_ID = head, no .dirty; the ES binary carries the sign-in-again and wait sentences, the French catalog the #1501 line; raofflineproxy-ctl equals the round's source; the image's duckstation-sa hashes to the pin f92319a0. Not a device qualification; nothing staged on a handheld.",
+ "image": "pixelelated-H700.aarch64-0.0.1-dev+20261128T040331Z.g6169621a4b93-from-ROCKNIX"
+}

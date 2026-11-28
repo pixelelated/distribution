@@ -8,6 +8,18 @@ Read the [M7 milestone](https://github.com/pixelelated/distribution/milestone/7)
 
 ## Current focus
 
+**000000000000000000000000000000000000. Newest (2026-11-28T06:35Z): H700 build 27 is accepted; SM8550's launch was refused at 06:27 (#1512); `b27-sm8550.sh` runs the device-build proofs, then SM8550 cold.**
+- **Build 27 (H700):** run `20261128T040114Z-1a8e3f25`, rc 0 at 06:23:35, duckstation-sa at its pin. `ACCEPTANCE-27.json` written, admission `0b493deb…` consumed. Records: `docs/qa-logs/2026-11-26-1445-device-build/build27/`. #1509 c2 is ticked.
+- **The 06:27 refusal:** the old chain's SM8550 launch (owner `m7-round-sm8550-20261128-owner`, now used) stopped after its admission because a passing reader held H700's `.ccache`. Most likely OS's own `du`. The steward's friction line carries #1512.
+- **`tools/device-build` `62b4883635`:** #1510's owner check before the dry run's return; #1509's `source-check` in step 3; #1512's users check before the owner folder, with a 120 s wait here and at the removal, naming each holder.
+- **Running:** `b27-sm8550.sh` (pid in `/workspace/tmp/rocknix-session/b27-sm8550.pid`, files in `b27-sm8550/`; sources `tools/chain-lib`; `b27-sm8550/hold` stops it before its next step).
+  - Proofs p1–p5 come first (see the 06:35 work-log entry). Each step's log is `b27-sm8550/pN.log`, and its rc is `pN.rc`.
+  - Then SM8550 cold: `--name m7-round-sm8550-20261128-02 --worktree m7-round-sm8550-20261128`, its reads and duck check.
+  - Waiter `b9pbdnuo4` watches the launch. Arm a build waiter on `b27-sm8550/SM8550-build.rc` or `STOPPED` once it reports.
+- **When the proofs report:** post p1, p2 and p4 on #1510 and p2, p3, p5 and the launch on #1512 (outputs in the step logs), then tick both and #1509 c4 (the launch's `source-check` line).
+- **When SM8550 ends:** `ACCEPTANCE-28.json` and the admission consume. The reads add #1459 (no aethersx2 binary), #1422 (the UCM 0007 quirk) and #1448 (fex-emu built). Then records `build28/` and the handheld closing comments.
+- **Do not read H700's build root** (or any root a chain will remove) while a launch is running.
+
 **00000000000000000000000000000000000. Newest (2026-11-28T04:06Z): H700 stopped at 03:49 on a source upstream deleted (#1509); the source is restored by its pin and H700 resumed warm at 04:01. SM8550 follows by the new chain.**
 - **What stopped:** run `20261128T024822Z-ef0b547e`, build.rc 2 at `[366/666] install duckstation-sa:target`. duckstation-sa 0.1-10998's Linux AppImages are gone from upstream's release and from ROCKNIX's mirror. The shared cache keeps only one arch's copy under one name. `b26-handhelds.sh` stopped as built (`b26-handhelds/STOPPED`). The thread logs are in `b26-handhelds/H700-failed-threads/`.
 - **Restored:** the arm64 copy came from the 2026-11-25 H700 image's `/usr/bin/duckstation-sa`, which hashes to the pin `f92319a0…`. It is in the shared cache with its stamps. Both arch copies are kept in `/workspace/cache/rocknix-sources-retained/duckstation-sa/` (166 MiB; released by a downloadable pin or a mirror). **A cold PC build** first needs the x64 copy put back over the cache name, with its `.url` and `.sha256` (#1509 c1 says how).

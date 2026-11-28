@@ -1,0 +1,23 @@
+03:59:21  nothing else is running (no make docker-*, no QEMU guest, no vm-qa)
+03:59:21  set m7-round-x64 head 6169621a4b (/workspace/repos/rocknix.worktrees/conflict-resolution/.build-runs/build-sets/m7-round-x64.json)
+03:59:21  worktree /workspace/repos/rocknix.worktrees/m7-round-h700-20261128 on build/m7-round-h700-20261128 at 6169621a4b
+03:59:21  --warm: building on build.pixelelated-H700.aarch64, build.pixelelated-H700.arm
+03:59:21  ES supplier /workspace/repos/rocknix.worktrees/conflict-resolution/.build-runs/m7-rc-round-20261128-16-es/inputs/es/emulationstation-m7-20261128-85ff17e3b848.tar sha256 matches the recipe (ebca37904e73bf58...)
+03:59:21  export DOCKER_WORK_DIR=/workspace/repos/rocknix.worktrees/conflict-resolution/.build-runs/m7-candidate-build-20261118-01/checkout
+03:59:21  export DOCKER_EXTRA_OPTS=-v /workspace/repos/rocknix/.git:/workspace/repos/rocknix/.git -v /workspace/cache/rocknix-sources:/workspace/repos/rocknix.worktrees/conflict-resolution/.build-runs/m7-candidate-build-20261118-01/checkout/sources -v /workspace/repos/rocknix.worktrees/conflict-resolution/.build-runs/m7-rc-round-20261128-16-es/inputs/es:/tmp/pix-m7-es-source-delivery-20261128-16:ro -e TMPDIR=/tmp
+03:59:21  export PROJECT=ROCKNIX
+03:59:21  export DEVICE=H700
+03:59:21  export ARCH=aarch64
+03:59:21  replay plan: the union of 3 build log(s): /workspace/repos/rocknix.worktrees/conflict-resolution/.build-runs/m7-h700-d86c089e-owner-20261124/submit-02/console.log, /workspace/repos/rocknix.worktrees/conflict-resolution/.build-runs/m7-round-h700-20261128-owner/submit-01/console.log, /workspace/repos/rocknix.worktrees/conflict-resolution/.build-runs/m7-round-h700-fd8dadd5-owner/submit-01/console.log
+03:59:21  keep /workspace/repos/rocknix.worktrees/m7-h700-0a3e979e-20261125/target (3.7 GiB): images not on GitHub; released when they are (D-INFRA-037)
+03:59:21  keep /workspace/repos/rocknix.worktrees/m7-h700-0a3e979e-20261125/kept (0.2 GiB): images not on GitHub; released when they are (D-INFRA-037)
+03:59:21  keep /workspace/repos/rocknix.worktrees/m7-pc-0a3e979e-20261124/target (4.0 GiB): images not on GitHub; released when they are (D-INFRA-037)
+03:59:21  keep /workspace/repos/rocknix.worktrees/m7-pc-0a3e979e-20261124/kept (0.2 GiB): images not on GitHub; released when they are (D-INFRA-037)
+03:59:21  keep /workspace/repos/rocknix.worktrees/m7-pc-43d0bc3b-20261125/target (3.9 GiB): images not on GitHub; released when they are (D-INFRA-037)
+03:59:21  keep /workspace/repos/rocknix.worktrees/m7-round-x64-20261125/target (4.0 GiB): images not on GitHub; released when they are (D-INFRA-037)
+03:59:21  keep /workspace/repos/rocknix.worktrees/m7-round-x64-20261125/.build-runs/kept (0.2 GiB): images not on GitHub; released when they are (D-INFRA-037)
+03:59:21  keep /workspace/repos/rocknix.worktrees/m7-sm8550-0a3e979e-20261124/target (3.0 GiB): images not on GitHub; released when they are (D-INFRA-037)
+03:59:21  keep /workspace/repos/rocknix.worktrees/m7-sm8550-0a3e979e-20261124/kept (0.2 GiB): images not on GitHub; released when they are (D-INFRA-037)
+03:59:21  one-build rule: no other build/m7-* worktree holds a build root
+03:59:21  owner folder /workspace/repos/rocknix.worktrees/conflict-resolution/.build-runs/m7-round-h700-20261128-owner
+device-build: /workspace/repos/rocknix.worktrees/conflict-resolution/.build-runs/m7-round-h700-20261128-owner/retention-plan.json exists: one owner folder per launch; pass a new --name
