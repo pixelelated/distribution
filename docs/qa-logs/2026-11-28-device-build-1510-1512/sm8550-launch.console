@@ -1,0 +1,40 @@
+06:45:34  nothing else is running (no make docker-*, no QEMU guest, no vm-qa)
+06:45:34  set m7-round-x64 head 6169621a4b (/workspace/repos/rocknix.worktrees/conflict-resolution/.build-runs/build-sets/m7-round-x64.json)
+06:45:35  worktree /workspace/repos/rocknix.worktrees/m7-round-sm8550-20261128 on build/m7-round-sm8550-20261128 at 6169621a4b
+06:45:35  ES supplier /workspace/repos/rocknix.worktrees/conflict-resolution/.build-runs/m7-rc-round-20261128-16-es/inputs/es/emulationstation-m7-20261128-85ff17e3b848.tar sha256 matches the recipe (ebca37904e73bf58...)
+06:47:17  source-check: SM8550 at 6169621a4b -- every source is cached or can be fetched
+06:47:17  export DOCKER_WORK_DIR=/workspace/repos/rocknix.worktrees/conflict-resolution/.build-runs/m7-candidate-build-20261118-01/checkout
+06:47:17  export DOCKER_EXTRA_OPTS=-v /workspace/repos/rocknix/.git:/workspace/repos/rocknix/.git -v /workspace/cache/rocknix-sources:/workspace/repos/rocknix.worktrees/conflict-resolution/.build-runs/m7-candidate-build-20261118-01/checkout/sources -v /workspace/repos/rocknix.worktrees/conflict-resolution/.build-runs/m7-rc-round-20261128-16-es/inputs/es:/tmp/pix-m7-es-source-delivery-20261128-16:ro -e TMPDIR=/tmp
+06:47:17  export PROJECT=ROCKNIX
+06:47:17  export DEVICE=SM8550
+06:47:17  export ARCH=aarch64
+06:47:17  replay plan: the union of 1 build log(s): /workspace/repos/rocknix.worktrees/conflict-resolution/.build-runs/m7-sm8550-0a3e979e-owner-20261124/submit-01/console.log
+06:47:22  remove /workspace/repos/rocknix.worktrees/m7-round-h700-20261128/build.pixelelated-H700.aarch64 (98.6 GiB)
+06:47:23  remove /workspace/repos/rocknix.worktrees/m7-round-h700-20261128/build.pixelelated-H700.arm (22.7 GiB)
+06:47:23  keep /workspace/repos/rocknix.worktrees/m7-h700-0a3e979e-20261125/target (3.7 GiB): images not on GitHub; released when they are (D-INFRA-037)
+06:47:23  keep /workspace/repos/rocknix.worktrees/m7-h700-0a3e979e-20261125/kept (0.2 GiB): images not on GitHub; released when they are (D-INFRA-037)
+06:47:23  keep /workspace/repos/rocknix.worktrees/m7-pc-0a3e979e-20261124/target (4.0 GiB): images not on GitHub; released when they are (D-INFRA-037)
+06:47:23  keep /workspace/repos/rocknix.worktrees/m7-pc-0a3e979e-20261124/kept (0.2 GiB): images not on GitHub; released when they are (D-INFRA-037)
+06:47:23  keep /workspace/repos/rocknix.worktrees/m7-pc-43d0bc3b-20261125/target (3.9 GiB): images not on GitHub; released when they are (D-INFRA-037)
+06:47:23  keep /workspace/repos/rocknix.worktrees/m7-round-h700-20261128/target (3.7 GiB): images not on GitHub; released when they are (D-INFRA-037)
+06:47:23  keep /workspace/repos/rocknix.worktrees/m7-round-x64-20261125/target (4.0 GiB): images not on GitHub; released when they are (D-INFRA-037)
+06:47:23  keep /workspace/repos/rocknix.worktrees/m7-round-x64-20261125/.build-runs/kept (0.2 GiB): images not on GitHub; released when they are (D-INFRA-037)
+06:47:23  keep /workspace/repos/rocknix.worktrees/m7-sm8550-0a3e979e-20261124/target (3.0 GiB): images not on GitHub; released when they are (D-INFRA-037)
+06:47:23  keep /workspace/repos/rocknix.worktrees/m7-sm8550-0a3e979e-20261124/kept (0.2 GiB): images not on GitHub; released when they are (D-INFRA-037)
+06:47:24  owner folder /workspace/repos/rocknix.worktrees/conflict-resolution/.build-runs/m7-round-sm8550-20261128-02-owner
+06:47:24  retention report
+06:47:29  admission
+06:47:29  kept /workspace/repos/rocknix.worktrees/m7-round-h700-20261128/.build-runs/kept/emulationstation-build.pixelelated-H700.aarch64 (sha256 ac1b0e0d680251db...)
+06:47:49  removed /workspace/repos/rocknix.worktrees/m7-round-h700-20261128/build.pixelelated-H700.aarch64 (+106.1 GiB free)
+06:47:57  removed /workspace/repos/rocknix.worktrees/m7-round-h700-20261128/build.pixelelated-H700.arm (+25.9 GiB free)
+06:47:58  /tmp holds 11.2 GiB (tmpfs pages refill swap after a reclaim)
+06:47:58  WARNING: /tmp is over 2 GiB; its pages will refill swap within minutes of the reclaim
+06:47:58  swap preflight with reclamation
+06:48:43  submit make docker-SM8550 from /workspace/repos/rocknix.worktrees/m7-round-sm8550-20261128
+{"state": "submitted", "pid": 3634343, "owner": "/workspace/repos/rocknix.worktrees/conflict-resolution/.build-runs/m7-round-sm8550-20261128-02-owner/submit-01", "completion": "/workspace/repos/rocknix.worktrees/conflict-resolution/.build-runs/m7-round-sm8550-20261128-02-owner/submit-01/launcher-result.json", "submission_is_not_completion": true}
+06:48:43  submitted; owner /workspace/repos/rocknix.worktrees/conflict-resolution/.build-runs/m7-round-sm8550-20261128-02-owner/submit-01
+06:48:43  launcher-pid.json: {
+  "pid": 3634343,
+  "utc": "2026-11-28T06:48:43.479220+00:00"
+}
+06:48:44  run directory /workspace/repos/rocknix.worktrees/m7-round-sm8550-20261128/.build-runs/20261128T064843Z-a7b15e8b: build.pid=3634344 command.pid=3634450 watcher.pid=3634345; it ends when /workspace/repos/rocknix.worktrees/m7-round-sm8550-20261128/.build-runs/20261128T064843Z-a7b15e8b/build.rc exists

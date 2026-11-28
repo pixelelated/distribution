@@ -8,6 +8,12 @@ Read the [M7 milestone](https://github.com/pixelelated/distribution/milestone/7)
 
 ## Current focus
 
+**0000000000000000000000000000000000000. Newest (2026-11-28T06:52Z): SM8550 is building cold from `6169621a4b` (since 06:48:43); #1509, #1510 and #1512 are closed.**
+- **SM8550:** run `m7-round-sm8550-20261128/.build-runs/20261128T064843Z-a7b15e8b` (build.pid 3634344, watcher 3634345), owner `.build-runs/m7-round-sm8550-20261128-02-owner/`. Chain `b27-sm8550.sh` (pid in `b27-sm8550.pid`) gates on build.rc 0, then runs the reads and the duck check. Waiter `bmg2xao8s`. Due around 10:40 UTC.
+- **Proofs** p1–p5 all passed: `docs/qa-logs/2026-11-28-device-build-1510-1512/`.
+- **When SM8550 ends:** `ACCEPTANCE-28.json` and the admission consume. The reads add #1459 (no aethersx2 binary), #1422 (the UCM 0007 quirk) and #1448 (fex-emu built). Then records `build28/`, the handheld closing comments, the milestone line and an inbox note.
+- **Still open from earlier:** #1503 c3, #1504, #1505, #1506 (repeat the audit on the round's tools), #1507 c3–c5, #1508 c3 (waits on the round's integration), #1511 (next round), #1446 (Max).
+
 **000000000000000000000000000000000000. Newest (2026-11-28T06:35Z): H700 build 27 is accepted; SM8550's launch was refused at 06:27 (#1512); `b27-sm8550.sh` runs the device-build proofs, then SM8550 cold.**
 - **Build 27 (H700):** run `20261128T040114Z-1a8e3f25`, rc 0 at 06:23:35, duckstation-sa at its pin. `ACCEPTANCE-27.json` written, admission `0b493deb…` consumed. Records: `docs/qa-logs/2026-11-26-1445-device-build/build27/`. #1509 c2 is ticked.
 - **The 06:27 refusal:** the old chain's SM8550 launch (owner `m7-round-sm8550-20261128-owner`, now used) stopped after its admission because a passing reader held H700's `.ccache`. Most likely OS's own `du`. The steward's friction line carries #1512.

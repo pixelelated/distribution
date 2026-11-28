@@ -1,0 +1,30 @@
+06:34:43  DRY RUN: nothing else is running (no make docker-*, no QEMU guest, no vm-qa)
+06:34:43  DRY RUN: set m7-round-x64 head 6169621a4b (/workspace/repos/rocknix.worktrees/conflict-resolution/.build-runs/build-sets/m7-round-x64.json)
+06:34:43  DRY RUN: worktree /workspace/repos/rocknix.worktrees/m7-round-sm8550-20261128 on build/m7-round-sm8550-20261128 at 6169621a4b
+06:34:43  DRY RUN: ES supplier /workspace/repos/rocknix.worktrees/conflict-resolution/.build-runs/m7-rc-round-20261128-16-es/inputs/es/emulationstation-m7-20261128-85ff17e3b848.tar sha256 matches the recipe (ebca37904e73bf58...)
+06:36:13  DRY RUN: source-check: SM8550 at 6169621a4b -- every source is cached or can be fetched
+06:36:13  DRY RUN: export DOCKER_WORK_DIR=/workspace/repos/rocknix.worktrees/conflict-resolution/.build-runs/m7-candidate-build-20261118-01/checkout
+06:36:13  DRY RUN: export DOCKER_EXTRA_OPTS=-v /workspace/repos/rocknix/.git:/workspace/repos/rocknix/.git -v /workspace/cache/rocknix-sources:/workspace/repos/rocknix.worktrees/conflict-resolution/.build-runs/m7-candidate-build-20261118-01/checkout/sources -v /workspace/repos/rocknix.worktrees/conflict-resolution/.build-runs/m7-rc-round-20261128-16-es/inputs/es:/tmp/pix-m7-es-source-delivery-20261128-16:ro -e TMPDIR=/tmp
+06:36:13  DRY RUN: export PROJECT=ROCKNIX
+06:36:13  DRY RUN: export DEVICE=SM8550
+06:36:13  DRY RUN: export ARCH=aarch64
+06:36:14  DRY RUN: replay plan: the union of 1 build log(s): /workspace/repos/rocknix.worktrees/conflict-resolution/.build-runs/m7-sm8550-0a3e979e-owner-20261124/submit-01/console.log
+06:36:20  DRY RUN: remove /workspace/repos/rocknix.worktrees/m7-round-h700-20261128/build.pixelelated-H700.aarch64 (98.6 GiB)
+06:36:23  DRY RUN: remove /workspace/repos/rocknix.worktrees/m7-round-h700-20261128/build.pixelelated-H700.arm (22.7 GiB)
+06:36:23  DRY RUN: keep /workspace/repos/rocknix.worktrees/m7-h700-0a3e979e-20261125/target (3.7 GiB): images not on GitHub; released when they are (D-INFRA-037)
+06:36:23  DRY RUN: keep /workspace/repos/rocknix.worktrees/m7-h700-0a3e979e-20261125/kept (0.2 GiB): images not on GitHub; released when they are (D-INFRA-037)
+06:36:23  DRY RUN: keep /workspace/repos/rocknix.worktrees/m7-pc-0a3e979e-20261124/target (4.0 GiB): images not on GitHub; released when they are (D-INFRA-037)
+06:36:23  DRY RUN: keep /workspace/repos/rocknix.worktrees/m7-pc-0a3e979e-20261124/kept (0.2 GiB): images not on GitHub; released when they are (D-INFRA-037)
+06:36:23  DRY RUN: keep /workspace/repos/rocknix.worktrees/m7-pc-43d0bc3b-20261125/target (3.9 GiB): images not on GitHub; released when they are (D-INFRA-037)
+06:36:23  DRY RUN: keep /workspace/repos/rocknix.worktrees/m7-round-h700-20261128/target (3.7 GiB): images not on GitHub; released when they are (D-INFRA-037)
+06:36:23  DRY RUN: keep /workspace/repos/rocknix.worktrees/m7-round-x64-20261125/target (4.0 GiB): images not on GitHub; released when they are (D-INFRA-037)
+06:36:23  DRY RUN: keep /workspace/repos/rocknix.worktrees/m7-round-x64-20261125/.build-runs/kept (0.2 GiB): images not on GitHub; released when they are (D-INFRA-037)
+06:36:23  DRY RUN: keep /workspace/repos/rocknix.worktrees/m7-sm8550-0a3e979e-20261124/target (3.0 GiB): images not on GitHub; released when they are (D-INFRA-037)
+06:36:23  DRY RUN: keep /workspace/repos/rocknix.worktrees/m7-sm8550-0a3e979e-20261124/kept (0.2 GiB): images not on GitHub; released when they are (D-INFRA-037)
+06:36:24  DRY RUN: owner folder /workspace/repos/rocknix.worktrees/conflict-resolution/.build-runs/m7-round-sm8550-20261128-02-owner
+06:36:24  DRY RUN: /tmp holds 11.3 GiB (tmpfs pages refill swap after a reclaim)
+06:36:24  DRY RUN: WARNING: /tmp is over 2 GiB; its pages will refill swap within minutes of the reclaim
+06:36:24  DRY RUN: would run tools/patch-replay for aarch64, arm (already done at 6169621a4b: 2026-11-28T06:26:55Z)
+06:36:24  DRY RUN: would write the plans, run the retention report and the admission, then make the removals above, then the swap preflight, then submit `make docker-SM8550` from /workspace/repos/rocknix.worktrees/m7-round-sm8550-20261128
+06:36:24  DRY RUN: nothing was created or changed
+== exit 0 (want 0)
