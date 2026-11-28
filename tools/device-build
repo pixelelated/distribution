@@ -18,13 +18,20 @@ launches to get right. In order, each step stopping the command when it fails:
      or --worktree fast-forwarded); an existing build root is refused unless
      --warm (the stale-root failure of run 1bfb5a21)
   3  the inputs: the ES supplier holds the tar the recipe's PKG_URL names, with
-     its PKG_SHA256; the source cache and the primary .git exist
+     its PKG_SHA256; the source cache and the primary .git exist; and every
+     source the build would fetch can be fetched (tools/source-check, #1509:
+     the 2026-11-28 H700 build stopped an hour in on a file upstream withdrew)
   4  every package's patches replayed for each arch the device builds
      (tools/patch-replay), once per set head and device
   5  the owner folder: retention and admission plans, the retention report,
-     build-admission prepare
+     build-admission prepare. An owner folder serves one launch: one already
+     holding plans is refused here, by a dry run as well (#1510)
   6  the one-build rule (D-INFRA-033/036), only once admitted: every other
      build/m7-* worktree's build roots are removed after a use check; its
+     users are looked for before step 5 as well, by a dry run too, and each
+     check waits up to two minutes for a passing reader (a size read, a
+     container exiting) before it refuses, naming each holder's command line
+     and start time (#1512: a size read stopped the SM8550 launch); its
      target/ and unstripped EmulationStation binary (copied to the ignored
      .build-runs/kept/; an older kept/ is still listed) stay,
      as named items
@@ -47,7 +54,9 @@ WORKTREES = Path('/workspace/repos/rocknix.worktrees')
 OWNER_ROOT = WORKTREES / 'conflict-resolution/.build-runs'
 SOURCES = Path('/workspace/cache/rocknix-sources')
 NEXT_TOOLS = PRIMARY / 'tools'
+OWNER_FILES = ('retention-plan.json', 'admission-plan.json', 'admission.json', 'retention-report.json')
 GIB = 1 << 30
+HOLDER_WAIT = 120   # seconds a build root's user may take to go before a launch refuses (#1512)
 # Measured budgets (the owners' retention plans of November 24-26): private
 # outputs, images, margin. FULL-ONE-BUILD.json is the measurement behind them.
 BUDGET = {
@@ -160,6 +169,22 @@ def m7_build_worktrees(primary):
     return rows
 
 
+def proc_desc(pid):
+    """A holder's start time and command line, so a refusal can still be read once the process has gone (#1512)."""
+    try:
+        cmd = open(f'/proc/{pid}/cmdline', 'rb').read().replace(b'\0', b' ').decode(errors='replace').strip()[:160]
+    except OSError:
+        cmd = ''
+    try:
+        start = int(open(f'/proc/{pid}/stat').read().rsplit(')', 1)[1].split()[19])
+        btime = next(int(l.split()[1]) for l in open('/proc/stat') if l.startswith('btime '))
+        when = datetime.datetime.fromtimestamp(btime + start / os.sysconf('SC_CLK_TCK'),
+                                               datetime.timezone.utc).strftime('%Y-%m-%dT%H:%M:%SZ')
+    except (OSError, ValueError, IndexError, StopIteration):
+        when = '?'
+    return f'started {when}: {cmd or "?"}'
+
+
 def holders(path):
     """Pixelelated use of a path: a process with its cwd, root or an open file under it, or a running container mounting it."""
     p = str(path).rstrip('/') + '/'
@@ -171,7 +196,7 @@ def holders(path):
             except OSError:
                 continue
             if (t + '/').startswith(p):
-                users.append(f'{d[6:]} {link} {t}')
+                users.append(f'{d[6:]} {link} {t} ({proc_desc(d[6:])})')
         try:
             for fd in os.listdir(f'{d}/fd'):
                 try:
@@ -179,7 +204,7 @@ def holders(path):
                 except OSError:
                     continue
                 if t.startswith(p):
-                    users.append(f'{d[6:]} fd {t}')
+                    users.append(f'{d[6:]} fd {t} ({proc_desc(d[6:])})')
                     break
         except OSError:
             pass
@@ -193,6 +218,16 @@ def holders(path):
             if (src.rstrip('/') + '/').startswith(p) or p.startswith(src.rstrip('/') + '/'):
                 users.append(f'container {cid} mounts {src}')
     return users
+
+
+def wait_free(path, seconds=HOLDER_WAIT):
+    """The users of a path, after waiting up to `seconds` for them to go; [] once none is left (#1512)."""
+    end = time.monotonic() + seconds
+    while True:
+        users = holders(path)
+        if not users or time.monotonic() >= end:
+            return users
+        time.sleep(5)
 
 
 def plan_logs(device, owner_root):
@@ -304,6 +339,22 @@ def main():
     if len(ARCHES[a.device]) > 1:
         exports.update({'PROJECT': 'ROCKNIX', 'DEVICE': a.device, 'ARCH': ARCHES[a.device][0]})
     say(f'{tag}ES supplier {supplier_tar} sha256 matches the recipe ({want[:16]}...)')
+    # Every source the plan would fetch, judged by the build's own rules (#1509). Minutes, where the
+    # build that met a withdrawn file took an hour to find out; a check that cannot run is no pass.
+    try:
+        check = sh([sys.executable, '-I', str(NEXT_TOOLS / 'source-check'), '--commit', full, '--device', a.device,
+                    '--sources', str(a.sources), '--primary', str(a.primary)], check=False, timeout=1800)
+    except subprocess.TimeoutExpired:
+        raise Stop('tools/source-check did not finish in 30 minutes: the sources are not judged', 2)
+    verdict = (check.stdout.strip().splitlines() or ['(no output)'])[-1]
+    if check.returncode == 1:
+        fails = [l.strip() for l in check.stdout.splitlines() if l.strip().startswith('FAIL ')]
+        raise Stop('a source this build needs cannot be fetched (tools/source-check):\n  ' + '\n  '.join(fails)
+                   + '\n  put a verified copy in the cache (device-builds.md, "A source that can no longer be fetched")', 2)
+    if check.returncode != 0:
+        raise Stop(f'tools/source-check could not judge the sources (exit {check.returncode}): '
+                   f'{(check.stderr or check.stdout).strip()[-600:]}', 2)
+    say(f'{tag}{verdict}')
     for k, v in exports.items():
         say(f'{tag}export {k}={v}')
 
@@ -331,8 +382,19 @@ def main():
     if not removals:
         say(f'{tag}one-build rule: no other build/m7-* worktree holds a build root')
 
+    # A root in use stops step 6, which comes after the admission. Look now as well, so a dry run sees it
+    # and a launch refused here has written nothing (#1512: a passing size read stopped SM8550 at 06:27).
+    for r in removals:
+        users = wait_free(r)
+        if users:
+            raise Stop(f'{r} is in use, so the one-build rule could not remove it (waited {HOLDER_WAIT} s):\n  '
+                       + '\n  '.join(users[:10]), 2)
+
     owner = a.owner_root / f'{name}-owner'
     say(f'{tag}owner folder {owner}')
+    taken = [f for f in OWNER_FILES if (owner / f).exists()]
+    if taken:   # here, not at step 5's writes, so a dry run refuses it too and nothing is changed first (#1510)
+        raise Stop(f'{owner / taken[0]} exists: one owner folder per launch; pass a new --name', 2)
     if dry:
         tmp_report(tag)
         say(f'DRY RUN: would run tools/patch-replay for {", ".join(ARCHES[a.device])}' + (f' (already done at {short}: {done})' if done else ''))
@@ -398,7 +460,7 @@ def main():
         'stage': stage, 'profiles': [{'PROJECT': 'ROCKNIX', 'DEVICE': a.device, 'ARCH': arch} for arch in ARCHES[a.device]],
         'outputs': outputs,
     }
-    for f in ('retention-plan.json', 'admission-plan.json', 'admission.json', 'retention-report.json'):
+    for f in OWNER_FILES:   # checked again: the folder may have been taken since
         if (owner / f).exists():
             raise Stop(f'{owner / f} exists: one owner folder per launch; pass a new --name')
     (owner / 'retention-plan.json').write_text(json.dumps(retention, indent=2) + '\n')
@@ -418,9 +480,9 @@ def main():
     # before this point leaves every other build as it was.
     removed = []
     for r in removals:
-        users = holders(r)
+        users = wait_free(r)
         if users:
-            raise Stop(f'{r} is in use, not removing it:\n  ' + '\n  '.join(users[:10]))
+            raise Stop(f'{r} is in use, not removing it (waited {HOLDER_WAIT} s):\n  ' + '\n  '.join(users[:10]))
         other = r.parent
         for es in glob.glob(str(r / 'build/emulationstation-*/emulationstation')):
             # Under .build-runs/, which git ignores: a kept/ beside target/ was
