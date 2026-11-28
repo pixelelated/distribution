@@ -13,7 +13,10 @@ Read the [M7 milestone](https://github.com/pixelelated/distribution/milestone/7)
 - **#1459 closed.** #1422 has the image read posted; listening stays an open item to test. #1448 has the confirmation posted; c5 is `next` dropping `0006`. #555's SM8550 checkbox is ticked from `build28-raw-update.py` (GPT, raw/update, OpenABL 1.2, ARM handoff, FEX). Its other open checkboxes are the artifact links in M7 and #344, retention, and the physical holds.
 - **The milestone body was updated at 11:00 UTC.** Next in order: step 3 (the upgrade rehearsals, #1455), the audit (Max's size), then the play test.
 - **No build or VM is running.** The SM8550 roots and `target/` stay as the warm base (D-INFRA-037). Chains `b27-sm8550.sh` and waiter `bmg2xao8s` have ended.
-- **Next:** step 3. #1455's first checkbox wants the RG35XX SP's BUILD_ID read from the device. The device action log says `bcc866f1` (2026-10-25). Also #1506's three silent branches on `next`, with constructed failures on the VM, now that no build runs.
+- **Step 3 (#1455), 11:05:** the rehearsal from `43d0bc3bf4` to `6169621a4b` passes 40/40 (`qa-6169621a4b-upgrade-from-previous-20261128-1102/`). The RG35XX SP was off the network at 11:02, and its last logged update is `bcc866f1`. Asked in the steward's inbox at 11:06: a read when it is on Wi-Fi, or Max's word on what he installed on October 25. If it is `bcc866f1`, a cold PC build of it comes first; that build clears SM8550's warm roots.
+- **#1506, 11:27:** `0cfe33932e` fixes the silent branches on `next` (walks, `link`/KILL NOTHING RAN, the friction stub), each seen to fire with the unchanged tool as control (`docs/qa-logs/2026-11-28-1506-silent-branches/`). The lifecycle test's `:455` is round-only and waits for the round's move. Criteria 1–3 remain.
+- **#1514** (filed 11:28 UTC from the steward's friction line): the image reads become a `tools/` reader that prints what it found beside what it wanted. Friction line committed with it (`f9a717a561`).
+- **No guest or build is running** (vm-pair down at 11:27).
 - **Still open from earlier:** #1503 c3, #1504, #1505, #1506, #1513 c2 (the round's half), #1507 c3–c5, #1508 c3, #1511, #1446 (Max).
 
 **0000000000000000000000000000000000000. Newest (2026-11-28T06:52Z): SM8550 is building cold from `6169621a4b` (since 06:48:43); #1509, #1510 and #1512 are closed.**
