@@ -8,6 +8,14 @@ Read the [M7 milestone](https://github.com/pixelelated/distribution/milestone/7)
 
 ## Current focus
 
+**00000000000000000000000000000000000000. Newest (2026-11-28T11:00Z): SM8550 build 28 is accepted, so the round's set is complete. PC 26, H700 27 and SM8550 28 all come from `6169621a4b` with one BUILD_ID.**
+- **Build 28:** run `m7-round-sm8550-20261128/.build-runs/20261128T064843Z-a7b15e8b`, rc 0/0/0, 06:48:43 to 10:47:41. `ACCEPTANCE-28.json` written, admission `ad5f72d5…` consumed. Records: `docs/qa-logs/2026-11-26-1445-device-build/build28/` (`2f4d2e2215`).
+- **#1459 closed.** #1422 has the image read posted; listening stays an open item to test. #1448 has the confirmation posted; c5 is `next` dropping `0006`. #555's SM8550 checkbox is ticked from `build28-raw-update.py` (GPT, raw/update, OpenABL 1.2, ARM handoff, FEX). Its other open checkboxes are the artifact links in M7 and #344, retention, and the physical holds.
+- **The milestone body was updated at 11:00 UTC.** Next in order: step 3 (the upgrade rehearsals, #1455), the audit (Max's size), then the play test.
+- **No build or VM is running.** The SM8550 roots and `target/` stay as the warm base (D-INFRA-037). Chains `b27-sm8550.sh` and waiter `bmg2xao8s` have ended.
+- **Next:** step 3. #1455's first checkbox wants the RG35XX SP's BUILD_ID read from the device. The device action log says `bcc866f1` (2026-10-25). Also #1506's three silent branches on `next`, with constructed failures on the VM, now that no build runs.
+- **Still open from earlier:** #1503 c3, #1504, #1505, #1506, #1513 c2 (the round's half), #1507 c3–c5, #1508 c3, #1511, #1446 (Max).
+
 **0000000000000000000000000000000000000. Newest (2026-11-28T06:52Z): SM8550 is building cold from `6169621a4b` (since 06:48:43); #1509, #1510 and #1512 are closed.**
 - **SM8550:** run `m7-round-sm8550-20261128/.build-runs/20261128T064843Z-a7b15e8b` (build.pid 3634344, watcher 3634345), owner `.build-runs/m7-round-sm8550-20261128-02-owner/`. Chain `b27-sm8550.sh` (pid in `b27-sm8550.pid`) gates on build.rc 0, then runs the reads and the duck check. Waiter `bmg2xao8s`. Due around 10:40 UTC.
 - **Proofs** p1–p5 all passed: `docs/qa-logs/2026-11-28-device-build-1510-1512/`.
