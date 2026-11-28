@@ -8,6 +8,18 @@ Read the [M7 milestone](https://github.com/pixelelated/distribution/milestone/7)
 
 ## Current focus
 
+**0000000000000000000000000000000000. Newest (2026-11-28T02:50Z): H700 is building cold from the final head `6169621a4b` (route 16); SM8550 follows by the chain; #1477 and #1465 are closed.**
+- **H700:** run `20261128T024822Z-ef0b547e` (build.pid 3888755, watcher 3888756), worktree `m7-round-h700-20261128`, owner `.build-runs/m7-round-h700-20261128-owner/`, submitted at 02:48:22 UTC.
+- **The chain:** `b26-handhelds.sh` (pid 3498936, files in `b26-handhelds/`) waits on H700's `build.rc`, runs `handheld-reads.sh H700`, then launches SM8550 (`m7-round-sm8550-20261128`) and reads it. A failed build stops it (`STOPPED`). `b26-handhelds/hold` stops it before SM8550. Harness waiter `bfhenvc4o`.
+- **After each build:** ACCEPTANCE json and the admission consume by hand. SM8550's reads add #1459 (no aethersx2 binary), #1422 (the UCM 0007 quirk) and #1448 (fex-emu built). Then each device's records, and the handheld closing comments.
+- **Proven on build 26:** run 20 PASS (#1465 closed); #1477 cases A, B and C in EN and FR (closed; packet `docs/qa-logs/2026-11-28-1477-forced-wait/`).
+- **Open:**
+  - #1503 c3 (watch);
+  - #1504 (the top-up card's frame);
+  - #1505 to #1508's tooling;
+  - #1446 (Max's Actions re-enable);
+  - the shared-allowance question (#1507 c5).
+
 **000000000000000000000000000000000. Newest (2026-11-28T01:55Z): route 16 (one wait over saves and offline achievements, D-RA-057) is round `6169621a4b`; build 26 is accepted; `b26-carry.sh` is running.**
 - **`b26-carry.sh`** (pid 3413831, files in `b26-carry/`):
   - `p1477-b26.sh` (frames in `p1477-b26/`: A the midsync cell, B the throttled startup sync with the probe ROM, C the achievements' send in the wait; EN and FR);
