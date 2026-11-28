@@ -1226,3 +1226,34 @@ name. F-RW-07 searches whichever of `gfx_widgets_get_scale_factor` or
 checks the guard wherever the tree applies the runtime log's slot
 (runtime_file.c before f726, runloop.c from it) and fails when it finds no
 such restore at all. Both fail against the round's first port.
+
+## 78. A suite passed against a source tree the image did not ship, and named the tree it read (2026-11-28)
+
+Four of `tools/vm-qa`'s host suites (`lifetime`, `vocabulary`, `french`,
+`quoting`) read EmulationStation from a fixed checkout's working tree,
+`~/Development/emulationstation-next.worktrees/qa-integration`, unless
+`ES_SRC` said otherwise. On `next` that checkout sat at the recipe's
+`PKG_VERSION`, so the default looked right. The M7 round moved its ES to a
+delivered archive bound to `e67f28e18`, and the checkout stayed at
+`16dbac521`. All 19 standard runs from November 26 to 28 judged that tree.
+Run 20, the candidate's, said so in its `lifetime.log` first line
+(`GuiMenu.cpp from …/qa-integration at 16dbac521`), and the PASS was read
+as covering build 26. It judged 703 fork strings for French where the
+shipped tree has 864, and ran 10 lifetime routes where it has 13. Found on
+2026-11-28 while checking the #1506 re-audit, not by any check (#1513).
+Build 26's own ES passed all four once they were pointed at it.
+
+Blindspot 77's family, one level up. There a name was taken for a
+behaviour; here a suite's PASS was taken for the image's. The log line that
+would have shown it was written to make exactly this visible, and nobody
+compared it with the pin. `tools/es-menu-map-check` had the same question
+answered in September, by reading the pin, and its neighbours did not
+follow.
+
+**Guard:** `tools/vm-qa` reads the commit from the recipe (a `PKG_VERSION`
+commit, or `PKG_STAMP`'s `source-commit`). It checks that commit out itself,
+or requires `ES_SRC` to be a clean checkout at it, and exits 2 before any
+guest is touched otherwise. It was shown refusing run 20's own condition
+(`docs/qa-logs/2026-11-28-1513-es-source/gate-proofs.txt`). The round's copy
+gains it when the round next moves; until then its runs set `ES_SRC` to the
+pin's checkout.
