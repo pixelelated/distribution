@@ -454,6 +454,39 @@ Same class of symptom, different cause, same instinct — reproduce the
 clean-tree condition for the affected packages rather than trusting an
 incremental build to notice.
 
+## A source that can no longer be fetched (#1509)
+
+A pin is a claim that its file can still be fetched, and upstream can withdraw
+it. On 2026-11-28 the H700 build of the round's final head stopped an hour in,
+at package 366 of 666: duckstation-sa 0.1-10998's Linux AppImages had gone from
+upstream's release and from ROCKNIX's mirror. Warm builds had hidden it,
+because they never fetch.
+
+The shared cache made it worse. A recipe that gives each arch a different URL
+under one `PKG_SOURCE_NAME` keeps one arch's copy at a time:
+`scripts/get_archive` deletes a cached file whose `.sha256` stamp is not the
+recipe's pin before it downloads. So a PC build deletes the arm64 copy and a
+handheld build deletes the x64 one, and once upstream has withdrawn the files
+the deleted copy cannot come back. duckstation-sa and tailscale have this
+shape.
+
+- **Run `tools/source-check --commit <rev> --device <D>` before a build.** It
+  makes the plan in the build container as the build does, judges each
+  source against the cache by the build's own rules, asks the URL and the
+  mirror for the rest, and exits 1 on a source that cannot be fetched. That
+  takes two to five minutes, where the build took an hour to find out.
+- **An image is a copy of what it installed.** A recipe that installs its
+  download unmodified (an AppImage with `STRIP=true`) leaves the exact bytes
+  in every image built from it. Bytes that hash to the recipe's
+  `PKG_SHA256` are the file upstream published. Put them back over the
+  cache name with the `.url` and `.sha256` stamps, and nothing in the tree
+  or the image changes.
+- **Keep both arches' copies of an unfetchable source** outside the
+  alternating cache, in `/workspace/cache/rocknix-sources-retained/<pkg>/`,
+  named with the arch. Each copy is named with its size, its owner and the
+  event that releases it (`build-cleanup`'s rule for an item outside the
+  keep set).
+
 ## A build that fetches its own dependency
 
 pango 1.58 needs cairo 1.18 and the ROCKNIX override pinned 1.17.8. For

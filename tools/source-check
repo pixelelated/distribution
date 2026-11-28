@@ -1,0 +1,269 @@
+#!/usr/bin/env python3
+# SPDX-License-Identifier: GPL-2.0
+# Copyright (C) 2026-present ROCKNIX (https://github.com/ROCKNIX)
+"""source-check -- before a build: every source the target would have to fetch, and whether it can (#1509).
+
+  tools/source-check --commit <rev> --device <DEVICE> [--arch <ARCH>]... [--sources <cache>]
+      [--packages <name,...>] [--primary <checkout>] [--work <dir>] [--keep-plans <dir>]
+
+On 2026-11-28 the H700 build of the round's final head stopped an hour in, at
+package 366 of 666, because duckstation-sa 0.1-10998's Linux files had gone from
+upstream's release and ROCKNIX's mirror, and the shared cache held only the x64
+copy's stamp under the one file name both arches use (scripts/get_archive deletes
+a cached file whose .sha256 stamp is not the recipe's pin). This reads, in
+minutes, what that build took an hour to find out.
+
+For each arch the device builds:
+  1  the build plan, made in the pinned build container (the Makefile's digest)
+     from an export of the commit: scripts/pkgjson | scripts/genbuildplan.py
+     --build image, as config/multithread makes it (the 32-bit half --build arm,
+     as scripts/build_distro's `scripts/build_compat arm`, and only with
+     ENABLE_32BIT). The host lacks xmlstarlet,
+     so config/functions' SUBDEVICES would be empty there and H700's u-boot
+     variants, atf and their tools would drop out. The ES recipe's
+     configure_package refuses any root but the build's (its custody check),
+     so it stands in the plan by its declared dependencies.
+  2  each package's PKG_URL, PKG_SHA256, PKG_SOURCE_NAME, PKG_VERSION and
+     DISTRO_MIRROR for that device and arch, read in the same container;
+  3  against the cache, by the build's own rules: an archive is cached when the
+     file, its .url and its .sha256 exist and the stamp is the recipe's pin
+     (get_archive); a git source when the clone's refs hold PKG_VERSION, its
+     origin is PKG_URL and any pinned branch matches (get_git), read without
+     changing the clone;
+  4  everything else is asked for: an archive by one byte from the URL, then
+     the mirror; a git source by `git ls-remote` (the repository answers; the
+     commit itself is checked when cloned). A file:// source is supplied by a
+     mount, not fetched, and is listed as such (device-build checks ES's tar).
+
+The export lives under --work and is removed afterwards: reading a recipe makes
+build.<distro>-<DEVICE>.<ARCH>/ in the tree it reads, so this never reads a live
+build worktree. Nothing in the cache is written.
+--packages checks the named packages instead of the plan (a constructed case);
+--keep-plans copies each arch's plan.json out, to compare with a build's own.
+Exit 0 every source is cached or can be fetched, 1 one cannot, 2 cannot run.
+"""
+import argparse
+import os
+import re
+import shutil
+import subprocess
+import sys
+import tempfile
+from pathlib import Path
+
+EXIT_OK, EXIT_FETCH_FAILS, EXIT_CANNOT_RUN = 0, 1, 2
+ARCHES = {'GENERIC_X64': ['x86_64'], 'H700': ['aarch64', 'arm'], 'SM8550': ['aarch64', 'arm']}
+EXPORT_PATHS = ['Makefile', 'config', 'scripts', 'packages', 'projects', 'distributions']
+PROBE_TIMEOUT = 30
+
+# Runs in the build container, in the export: "$1" the plan file, "$2" the dump, then any named packages.
+CONTAINER = r'''
+set -o pipefail
+plan=$1 dump=$2; shift 2
+# scripts/build_distro: the 32-bit half is `scripts/build_compat arm` (and only with ENABLE_32BIT),
+# every other arch `make image`.
+TARGET=image
+if [ "$ARCH" = arm ]; then
+  [ "$(bash -c '. config/options "" >/dev/null 2>&1; echo "$ENABLE_32BIT"')" = true ] || { : > "$dump"; echo NO32 > "$plan"; exit 0; }
+  TARGET=arm
+fi
+if [ $# -gt 0 ]; then
+  pkgs="$*"
+else
+  deps=$(bash -c '. config/options "" >/dev/null 2>&1; . projects/ROCKNIX/packages/ui/emulationstation/package.mk >/dev/null 2>&1; printf "%s|%s" "$PKG_DEPENDS_TARGET" "$PKG_DEPENDS_UNPACK"')
+  [ -n "${deps%%|*}" ] || { echo "source-check: the ES recipe's dependencies could not be read" >&2; exit 3; }
+  { scripts/pkgjson 2>/dev/null || exit 3
+    printf '  {\n    "name": "emulationstation",\n    "hierarchy": "local",\n    "section": "",\n    "bootstrap": "",\n    "init": "",\n    "host": "",\n    "target": "%s",\n    "unpack": "%s"\n  },\n' "${deps%%|*}" "${deps##*|}"
+  } | python3 scripts/genbuildplan.py --show-wants --with-json "$plan" --build "$TARGET" > /dev/null || exit 3
+  pkgs=$(python3 -c 'import json,sys
+names = set()
+for t in json.load(open(sys.argv[1])):
+    names.add(t["name"].split(":")[0])
+    names.update(u.split(":")[0] for u in t.get("unpacks", []))
+print(" ".join(sorted(names)))' "$plan") || exit 3
+fi
+for p in $pkgs; do
+  if out=$(bash -c '. config/options "$1" >/dev/null 2>&1 || exit 1
+      printf "%s\t%s\t%s\t%s\t%s\t%s\t%s\tread\n" "$1" "$PKG_URL" "$PKG_SHA256" "$PKG_SOURCE_NAME" "$PKG_VERSION" "$PKG_GIT_CLONE_BRANCH" "$DISTRO_MIRROR"' x "$p"); then
+    echo "$out"; continue
+  fi
+  # A recipe whose configure_package refuses this root: its declared source, read without it.
+  if out=$(bash -c '. config/options "" >/dev/null 2>&1; d=$(get_pkg_directory "$1") && [ -f "$d/package.mk" ] || exit 1
+      . "$d/package.mk" >/dev/null 2>&1
+      printf "%s\t%s\t%s\t%s\t%s\t%s\t%s\tdeclared\n" "$1" "$PKG_URL" "$PKG_SHA256" "${PKG_SOURCE_NAME:-${PKG_URL##*/}}" "$PKG_VERSION" "$PKG_GIT_CLONE_BRANCH" "$DISTRO_MIRROR"' x "$p"); then
+    echo "$out"
+  else
+    printf '%s\t\t\t\t\t\t\tunreadable\n' "$p"
+  fi
+done > "$dump"
+'''
+
+
+class CannotRun(Exception):
+    pass
+
+
+def run(cmd, **kw):
+    return subprocess.run(cmd, capture_output=True, text=True, **kw)
+
+
+def read(path):
+    try:
+        return Path(path).read_text().strip()
+    except OSError:
+        return None
+
+
+def image_ref(tree):
+    m = re.search(r'^docker-%: DOCKER_IMAGE_DIGEST := (sha256:[0-9a-f]{64})$', (tree / 'Makefile').read_text(), re.M)
+    if not m:
+        raise CannotRun('the Makefile names no build-container digest')
+    return f'ghcr.io/pixelelated/build@{m.group(1)}'
+
+
+def export(primary, commit, work):
+    full = run(['git', '-C', str(primary), 'rev-parse', '--verify', f'{commit}^{{commit}}'])
+    if full.returncode:
+        raise CannotRun(f'{commit} is not a commit in {primary}')
+    tree = work / 'tree'
+    tree.mkdir(parents=True)
+    arch = subprocess.Popen(['git', '-C', str(primary), 'archive', full.stdout.strip(), *EXPORT_PATHS], stdout=subprocess.PIPE)
+    untar = subprocess.run(['tar', '-x', '-C', str(tree)], stdin=arch.stdout)
+    arch.stdout.close()
+    if arch.wait() or untar.returncode:
+        raise CannotRun(f'the export of {commit} failed')
+    return full.stdout.strip(), tree
+
+
+def in_container(image, work, tree, device, arch, packages):
+    script = work / 'container.sh'
+    script.write_text(CONTAINER)
+    plan, dump = work / f'plan-{device}-{arch}.json', work / f'dump-{device}-{arch}.tsv'
+    r = run(['docker', 'run', '--rm', '--user', f'{os.getuid()}:{os.getgid()}', '-v', f'{work}:{work}', '-w', str(tree),
+             '-e', 'PROJECT=ROCKNIX', '-e', f'DEVICE={device}', '-e', f'ARCH={arch}',
+             image, 'bash', str(script), str(plan), str(dump), *packages])
+    if r.returncode or not dump.is_file():
+        raise CannotRun(f'{device} {arch}: the container run exited {r.returncode}: {(r.stderr or r.stdout).strip()[-400:]}')
+    if read(plan) == 'NO32':
+        return None
+    rows = []
+    for line in dump.read_text().splitlines():
+        f = (line.split('\t') + [''] * 8)[:8]
+        rows.append(dict(zip(('name', 'url', 'sha', 'source', 'version', 'branch', 'mirror', 'how'), f)))
+    if not rows:
+        raise CannotRun(f'{device} {arch}: no package was read')
+    return rows
+
+
+def git_cached(clone, row):
+    if not clone.is_dir():
+        return False
+    refs = run(['git', '-C', str(clone), 'ls-remote', '.'])
+    if refs.returncode or not any(l.startswith(row['version']) for l in refs.stdout.splitlines()) or not row['version']:
+        return False
+    if run(['git', '-C', str(clone), 'remote', 'get-url', 'origin']).stdout.strip() != row['url']:
+        return False
+    if row['branch'] and run(['git', '-C', str(clone), 'rev-parse', '--abbrev-ref', 'HEAD']).stdout.strip() != row['branch']:
+        return False
+    return True
+
+
+def probe(url):
+    r = run(['curl', '-s', '-o', '/dev/null', '-L', '-r', '0-0', '--max-time', str(PROBE_TIMEOUT), '-w', '%{http_code}', url])
+    return r.stdout.strip() or '000'
+
+
+def judge(row, cache):
+    """-> (state, fetchable or None, detail)"""
+    url, name = row['url'], row['name']
+    if row['how'] == 'unreadable':
+        return 'unreadable', False, 'the recipe could not be read'
+    if not url:
+        return 'none', None, ''
+    if url.startswith('file://'):
+        return 'supplied', None, url
+    if url.startswith('git://') or url.endswith('.git'):
+        if git_cached(cache / name / row['source'], row):
+            return 'cached', None, ''
+        r = run(['git', 'ls-remote', '--exit-code', '-q', url], timeout=PROBE_TIMEOUT + 30,
+                env=dict(os.environ, GIT_TERMINAL_PROMPT='0'))
+        return 'clone', r.returncode == 0, f'git ls-remote {"answers" if r.returncode == 0 else f"exit {r.returncode}"}'
+    f = cache / name / row['source']
+    stamp = read(f'{f}.sha256')
+    if f.is_file() and read(f'{f}.url') is not None and stamp is not None and (not row['sha'] or stamp == row['sha']):
+        return 'cached', None, ''
+    state = 'mismatch' if stamp else ('empty' if f.is_file() and f.stat().st_size == 0 else ('unstamped' if f.is_file() else 'absent'))
+    codes = [probe(url)]
+    if row['mirror'] and row['source']:
+        codes.append(probe(f"{row['mirror']}/{row['source']}"))
+    return state, any(c in ('200', '206') for c in codes), ' / '.join(codes)
+
+
+def main():
+    ap = argparse.ArgumentParser(description=__doc__.split('\n')[0])
+    ap.add_argument('--commit', required=True)
+    ap.add_argument('--device', required=True, choices=sorted(ARCHES))
+    ap.add_argument('--arch', action='append', help='default: every arch the device builds')
+    ap.add_argument('--sources', type=Path, default=Path('/workspace/cache/rocknix-sources'))
+    ap.add_argument('--packages', default='', help='comma-separated: check these instead of the plan')
+    ap.add_argument('--primary', type=Path, default=Path('/workspace/repos/rocknix'))
+    ap.add_argument('--work', type=Path, default=Path('/workspace/tmp'))
+    ap.add_argument('--keep-plans', type=Path)
+    a = ap.parse_args()
+    arches = a.arch or ARCHES[a.device]
+    packages = [p for p in a.packages.split(',') if p]
+    if not a.sources.is_dir():
+        print(f'source-check: no source cache at {a.sources}', file=sys.stderr)
+        return EXIT_CANNOT_RUN
+    if shutil.which('docker') is None:
+        print('source-check: no docker on this host; the plan is made in the build container', file=sys.stderr)
+        return EXIT_CANNOT_RUN
+    a.work.mkdir(parents=True, exist_ok=True)
+    work = Path(tempfile.mkdtemp(prefix='source-check-', dir=a.work))
+    fails, unread = [], []
+    try:
+        full, tree = export(a.primary, a.commit, work)
+        image = image_ref(tree)
+        for arch in arches:
+            rows = in_container(image, work, tree, a.device, arch, packages)
+            if a.keep_plans and (work / f'plan-{a.device}-{arch}.json').is_file():
+                a.keep_plans.mkdir(parents=True, exist_ok=True)
+                shutil.copy2(work / f'plan-{a.device}-{arch}.json', a.keep_plans)
+            if rows is None:
+                print(f'source-check: {a.device} {arch}: not built (ENABLE_32BIT is not true; scripts/build_distro skips it)')
+                continue
+            tally = {}
+            lines = []
+            for row in rows:
+                state, ok, detail = judge(row, a.sources)
+                tally[state] = tally.get(state, 0) + 1
+                if state == 'unreadable':
+                    unread.append(f"{arch}:{row['name']}")
+                    lines.append(f"  CANNOT READ {row['name']}")
+                elif ok is not None:
+                    lines.append(f"  {'OK  ' if ok else 'FAIL'} {row['name']} [{state}] {detail} {row['url']}")
+                    if not ok:
+                        fails.append(f"{arch}:{row['name']}")
+                elif state == 'supplied':
+                    lines.append(f"  SUPPLIED {row['name']} {detail}")
+            print(f"source-check: {a.device} {arch}: {len(rows)} packages" + (' (named)' if packages else ' in the plan')
+                  + '; ' + ', '.join(f'{k} {v}' for k, v in sorted(tally.items())))
+            for line in lines:
+                print(line)
+    except (CannotRun, subprocess.TimeoutExpired) as e:
+        print(f'source-check: cannot run: {e}', file=sys.stderr)
+        return EXIT_CANNOT_RUN
+    finally:
+        shutil.rmtree(work, ignore_errors=True)
+    if unread:
+        print(f"source-check: {a.device} at {full[:10]} -- cannot judge: {len(unread)} recipe(s) unreadable: {' '.join(unread)}")
+        return EXIT_CANNOT_RUN
+    if fails:
+        print(f"source-check: {a.device} at {full[:10]} -- {len(fails)} source(s) cannot be fetched: {' '.join(fails)}")
+        return EXIT_FETCH_FAILS
+    print(f'source-check: {a.device} at {full[:10]} -- every source is cached or can be fetched')
+    return EXIT_OK
+
+
+if __name__ == '__main__':
+    sys.exit(main())
