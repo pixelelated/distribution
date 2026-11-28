@@ -1,0 +1,20 @@
+vm-qa: seeded the QA remote qa-cloud: (the guest had none)
+walks: seeded the content fixture (cloud seed-content, device ROMs) -- the guest had no ROMs
+walks: seeded the manager fixture (nes with a turn recorded, gb as is, fbn from the core table; mtimes 2026-09-01 12:00)
+walks: FAIL (1) in 68s
+
+# vm-qa on 6169621a4b
+
+started 2026-11-28 11:12 UTC, guest a at :10022, cloud webdav (port 9010, hash=none modtime=no commit=partial bucket=no), image (already up), display: GL through virgl on /dev/dri/renderD129
+
+| suite | result | time | log |
+| --- | --- | --- | --- |
+| walks | FAIL (1) | 68s | `walks.log` |
+
+**FAILED** -- 1 suite(s) failed; see the logs beside this file.
+
+finished 2026-11-28 11:13 UTC
+
+renderer: (no RetroArch launch log on the guest) -- the guest's Mesa, from the launch log; display: GL through virgl on /dev/dri/renderD129
+
+report: /workspace/artifacts/rocknix-images/qa-6169621a4b-webdav-a-20261128-1112/report.md

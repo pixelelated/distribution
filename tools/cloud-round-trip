@@ -585,15 +585,23 @@ def main():
             first = prepare_device(devices[0], remote, root, args, prepared, which="a " if len(devices) > 1 else "")
             if len(devices) > 1:
                 prepare_device(devices[1], remote, root, args, prepared, which="b ")
+        # Whether anything under test ran: a run whose every requested fixture
+        # was skipped ends NOTHING RAN with exit 3, which tools/vm-qa shows as
+        # SKIP. It ended PASSED with exit 0, so `vm-qa --only link` on a guest
+        # with no serial console read PASS having run nothing (#1506).
+        ran = not args.only
         if not args.only:
             failures += run_steps(first.dev, root, remote, args, first.settings, first.prev_paths)
         if len(prepared) > 1:
+            ran = True
             failures += run_pair(prepared[0].dev, prepared[1].dev, root, remote, args, first.settings)
         elif only and only - cap_keys - solo_keys - link_keys - kill_keys:
             print("\n--only names two-device fixtures; pass --second-port for the VM pair's guest b")
         if only and only & solo_keys:
+            ran = True
             failures += run_solo(first.dev, root, remote, args, first.settings, only)
         if only and only & cap_keys:
+            ran = True
             failures += run_capture(first.dev, root, args, only)
         if args.link or (only and only & link_keys):
             # Off by default in the suite: minutes per cell, and a channel a
@@ -601,6 +609,7 @@ def main():
             # the console is not there.
             serial = Serial(args.serial_socket, args.vm_serial)
             if serial.usable():
+                ran = True
                 failures += run_link(first.dev, root, remote, args, first.settings, serial, only)
             else:
                 skipped.append(f"LINK fixtures: no serial console at {args.serial_socket} (or {args.vm_serial} is not executable); "
@@ -612,10 +621,17 @@ def main():
             # with a line each, inside run_kill.
             serial = Serial(args.serial_socket, args.vm_serial)
             failures += run_kill(first.dev, root, remote, args, first.settings, serial, only, local_only)
+            if KILL_CELLS_RAN:
+                ran = True
+            else:
+                skipped.append("KILL cells: every requested cell was skipped (each SKIP line above names what it needs)")
     finally:
         for p in prepared:
             restore_device(p, args, archive)
     note = f" ({'; '.join(skipped)})" if skipped else ""
+    if failures == 0 and not ran:
+        print(f"\nNOTHING RAN: every fixture --only {args.only} asked for was skipped, so this is not a pass{note}")
+        return 3
     print(f"\n{'PASSED' if failures == 0 else f'{failures} CHECK(S) FAILED'}{note}")
     return 1 if failures else 0
 
@@ -7678,6 +7694,9 @@ KILL_NEEDS_TEXT = {"backend": "QA endpoint", "minio": "MinIO", "serial": "serial
 
 
 
+KILL_CELLS_RAN = 0  # cells run_kill actually ran, so a run whose every cell was skipped is not read as a pass (#1506)
+
+
 def run_kill(dev, root, remote, args, settings, serial, only, local_only):
     """The KILL cells on one device (#105). Each cell resets the scratch tree
     (and the endpoint, when there is one) first; the cache directory is
@@ -7718,6 +7737,8 @@ def run_kill(dev, root, remote, args, settings, serial, only, local_only):
             L.reset()
             L.cleanups = []
             t0 = time.time()
+            global KILL_CELLS_RAN
+            KILL_CELLS_RAN += 1
             try:
                 failures += fn(L)
             except Fail as e:

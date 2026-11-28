@@ -1,0 +1,7 @@
+walk bad-pre: pre hook exited 7 (want 0): constructed-pre-failure
+walk bad-pre: 0 frames  [wake]
+mkdir: can't create directory '/storage/.config/emulationstation/scripts/system-selected': File exists
+scp: dest open "/storage/.config/emulationstation/scripts/system-selected/99-vm-qa.sh": No such file or directory
+scp: failed to upload file /workspace/repos/rocknix/tools/vm-walks/fixtures/system-selected.sh to /storage/.config/emulationstation/scripts/system-selected/99-vm-qa.sh
+walk manager-hookdir: could not copy the system-selected hook to the guest (scp exit 1, want 0)
+walk es-down: 0 frames  [wake]

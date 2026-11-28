@@ -1,0 +1,18 @@
+
+=== device reachable and equipped (local: no cloud)
+    PASS  ssh works
+    PASS  jq and the sibling helpers present
+
+=== point the device's saves root at the scratch tree
+    scratch tree /storage/cloud-qa; SAVESPATH and SETTINGS_BACKUPS point at it for the run; no remote is touched
+
+=== the KILL cells: a writer killed at every step, the power cut, one record at rest (#105, D-CLOUD-078)
+    device GENERIC-X64-15ca35b6b4 (GENERIC-X64); endpoint none (local cells only); serial no; monitor no
+
+=== KILL12 -- chksysconfig at boot with an empty, truncated, valid or binary system.cfg (power cut), and the clean-shutdown record
+    SKIP  KILL12 needs a serial console at /tmp/vmqa-noserial-1506/s.sock; a monitor socket at /tmp/vmqa-noserial-1506/m.sock (--monitor-socket)
+
+=== clean up root@127.0.0.1 port 10022
+    scratch tree removed and the saves root put back; no remote or bucket was touched
+
+NOTHING RAN: every fixture --only KILL12 asked for was skipped, so this is not a pass (KILL cells: every requested cell was skipped (each SKIP line above names what it needs))

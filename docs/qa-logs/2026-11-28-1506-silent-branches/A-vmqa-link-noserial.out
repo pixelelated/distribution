@@ -1,0 +1,17 @@
+link: SKIP in 2s
+
+# vm-qa on 6169621a4b
+
+started 2026-11-28 11:10 UTC, guest a at :10022, cloud webdav (port 9010, hash=none modtime=no commit=partial bucket=no), image (already up), display: software rendering (no GL display)
+
+| suite | result | time | log |
+| --- | --- | --- | --- |
+| link | SKIP | 2s | `link.log` |
+
+**PASSED with 1 suite(s) SKIPPED** -- a skipped suite could not run (its log says why) and has not passed.
+
+finished 2026-11-28 11:10 UTC
+
+renderer: (no RetroArch launch log on the guest) -- the guest's Mesa, from the launch log; display: software rendering (no GL display)
+
+report: /workspace/artifacts/rocknix-images/qa-6169621a4b-webdav-a-20261128-1110/report.md

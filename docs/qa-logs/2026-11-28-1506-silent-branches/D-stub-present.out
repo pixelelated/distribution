@@ -1,0 +1,17 @@
+frame-diff: FAIL (2) in 0s
+
+# vm-qa on 6169621a4b
+
+started 2026-11-28 11:27 UTC, guest a at :10022, cloud webdav (port 9010, hash=none modtime=no commit=partial bucket=no), image (already up), display: GL through virgl on /dev/dri/renderD129
+
+| suite | result | time | log |
+| --- | --- | --- | --- |
+| frame-diff | FAIL (2) | 0s | `frame-diff.log` |
+
+**FAILED** -- 1 suite(s) failed; see the logs beside this file.
+
+finished 2026-11-28 11:27 UTC
+
+renderer: (no RetroArch launch log on the guest) -- the guest's Mesa, from the launch log; display: GL through virgl on /dev/dri/renderD129
+
+report: /workspace/artifacts/rocknix-images/qa-6169621a4b-webdav-a-20261128-1127/report.md

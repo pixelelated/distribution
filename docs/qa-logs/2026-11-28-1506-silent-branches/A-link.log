@@ -1,0 +1,16 @@
+
+=== device reachable and equipped
+    PASS  ssh works
+    PASS  rclone and cloud scripts present
+
+=== point the device at the QA bucket
+    PASS  active remote is 'qa-cloud', which is what the scripts will use
+    scratch tree /storage/cloud-qa (pass --real-roms to use /storage/roms)
+    SAVES_REMOTE /pixelelated/Saves on the webdav endpoint
+
+    SKIP  LINK fixtures: no serial console at /tmp/vmqa-noserial-1506/rocknix-qemu-serial.sock (or /workspace/repos/rocknix/tools/vm-serial is not executable); a guest from `generic-x64-vm run --headless` has one, a handheld has none
+
+=== clean up root@127.0.0.1 port 10022
+    scratch tree and bucket emptied; the device's own remote, paths and settings-backup setting restored
+
+NOTHING RAN: every fixture --only LINK1,LINK2,LINK3,LINK4,LINK5,LINK6,LINK7 asked for was skipped, so this is not a pass (LINK fixtures: no serial console at /tmp/vmqa-noserial-1506/rocknix-qemu-serial.sock (or /workspace/repos/rocknix/tools/vm-serial is not executable); a guest from `generic-x64-vm run --headless` has one, a handheld has none)

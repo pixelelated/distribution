@@ -1,0 +1,27 @@
+
+=== device reachable and equipped (local: no cloud)
+    PASS  ssh works
+    PASS  jq and the sibling helpers present
+
+=== point the device's saves root at the scratch tree
+    scratch tree /storage/cloud-qa; SAVESPATH and SETTINGS_BACKUPS point at it for the run; no remote is touched
+
+=== the KILL cells: a writer killed at every step, the power cut, one record at rest (#105, D-CLOUD-078)
+    device GENERIC-X64-15ca35b6b4 (GENERIC-X64); endpoint none (local cells only); serial no; monitor no
+
+=== KILL10 -- set_setting killed mid-sed: the value stands, the temp is litter, the stale lock clears
+    PASS  qa.kill10 still reads old after the kill mid-write
+    PASS  the writer's temporary (system.cfg.tmp) is present after the kill
+    PASS  the re-run cleared the stale lock (held by pid 2430) and set qa.kill10=new in 0.0s
+    PASS  and the re-run replaced the temporary (none left)
+    PASS  system.cfg.backup untouched
+    PASS  KILL10: one record each, no litter: system.cfg 229 keys, record .backup; es_settings.cfg 0 keys; 0 last-* stamps, 0 capture line(s), 0 manifest; 0 archive at root, 0 in archive/; saves tree clean of *.partial/*.tmp
+    (KILL10 took 0s)
+
+=== KILL12 -- chksysconfig at boot with an empty, truncated, valid or binary system.cfg (power cut), and the clean-shutdown record
+    SKIP  KILL12 needs a serial console at /tmp/vmqa-noserial-1506/s.sock; a monitor socket at /tmp/vmqa-noserial-1506/m.sock (--monitor-socket)
+
+=== clean up root@127.0.0.1 port 10022
+    scratch tree removed and the saves root put back; no remote or bucket was touched
+
+PASSED

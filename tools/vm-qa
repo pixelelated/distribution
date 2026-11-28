@@ -82,10 +82,13 @@ while [ $# -gt 0 ]; do
     *) IMAGE=$1; shift ;;
   esac
 done
+# VM_QA_WALK_SUITE names another composition file, for a constructed failure
+# of the walks' own branches (#1506); the default is the tree's.
+WALK_SUITE="${VM_QA_WALK_SUITE:-$ROOT/tools/vm-walks/suite.txt}"
 if [ -n "$WALKS" ]; then
   case ",$ONLY," in *,walks,*) ;; *) echo 'vm-qa: --walk requires the walks suite' >&2; exit 2 ;; esac
   for selected_walk in ${WALKS//,/ }; do
-    [[ "$selected_walk" =~ ^[a-z0-9-]+$ && "$selected_walk" != default-pre ]] && grep -qE "^$selected_walk[[:space:]]*=" "$ROOT/tools/vm-walks/suite.txt" \
+    [[ "$selected_walk" =~ ^[a-z0-9-]+$ && "$selected_walk" != default-pre ]] && grep -qE "^$selected_walk[[:space:]]*=" "$WALK_SUITE" \
       || { echo "vm-qa: unknown walk $selected_walk" >&2; exit 2; }
   done
 fi
@@ -468,7 +471,7 @@ case ",$ONLY," in *,walks,*)
     # leg that starts on a screen an earlier leg reaches, so replaying them
     # one at a time drove A presses into the carousel and counted the frames
     # as a pass (#125). The old behaviour is the fallback if the file is gone.
-    local suite="$ROOT/tools/vm-walks/suite.txt"
+    local suite="$WALK_SUITE"
     if [ ! -f "$suite" ]; then
       for w in "$ROOT"/tools/vm-walks/*.steps; do
         name=$(basename "$w" .steps)
@@ -499,16 +502,32 @@ case ",$ONLY," in *,walks,*)
         case ",$WALKS," in *,"$name",*) ;; *) continue ;; esac
       fi
       mkdir -p "$OUT/walks"
-      [ -n "$defpre" ] && SSH "$defpre" >/dev/null 2>&1
-      [ -n "$pre" ] && SSH "$pre" >/dev/null 2>&1
+      # A reset that fails leaves the walk's starting screen in doubt, so its
+      # exit and its last output are reported (#1506); the walk still runs,
+      # and its frames are judged as before.
+      local hook hook_rc hook_out
+      for hook in default-pre pre; do
+        if [ "$hook" = default-pre ]; then [ -n "$defpre" ] || continue; hook_out=$(SSH "$defpre" 2>&1); hook_rc=$?
+        else [ -n "$pre" ] || continue; hook_out=$(SSH "$pre" 2>&1); hook_rc=$?; fi
+        [ "$hook_rc" = 0 ] || echo "walk $name: $hook hook exited $hook_rc (want 0): $(printf '%s' "$hook_out" | tail -n 2 | tr '\n' ' ' | cut -c1-200)"
+      done
       case "$name" in manager-*)
         ensure_manager_fixture || { echo "walk $name: fixture failed"; rc=1; continue; }
-        SSH 'mkdir -p /storage/.config/emulationstation/scripts/system-selected; rm -f /storage/.cache/vm-qa-selected-system' || { rc=1; continue; }
-        scp -q -i "$KEY" -P "$PORT" $SSHO "$ROOT/tools/vm-walks/fixtures/system-selected.sh" "root@127.0.0.1:/storage/.config/emulationstation/scripts/system-selected/99-vm-qa.sh" || { rc=1; continue; }
-        SSH 'chmod 700 /storage/.config/emulationstation/scripts/system-selected/99-vm-qa.sh' || { rc=1; continue; }
+        SSH 'mkdir -p /storage/.config/emulationstation/scripts/system-selected && rm -f /storage/.cache/vm-qa-selected-system' \
+          || { echo "walk $name: could not make the system-selected hook folder or clear the last selection on the guest (ssh exit $?, want 0)"; rc=1; continue; }
+        scp -q -i "$KEY" -P "$PORT" $SSHO "$ROOT/tools/vm-walks/fixtures/system-selected.sh" "root@127.0.0.1:/storage/.config/emulationstation/scripts/system-selected/99-vm-qa.sh" \
+          || { echo "walk $name: could not copy the system-selected hook to the guest (scp exit $?, want 0)"; rc=1; continue; }
+        SSH 'chmod 700 /storage/.config/emulationstation/scripts/system-selected/99-vm-qa.sh' \
+          || { echo "walk $name: could not make the system-selected hook executable (ssh exit $?, want 0)"; rc=1; continue; }
         ;; esac
       SSH 'systemctl reboot' 2>/dev/null; sleep 6
-      for i in $(seq 1 45); do SSH 'pgrep -x emulationstation >/dev/null' 2>/dev/null && break; sleep 3; done; sleep 10
+      local es_up=0
+      for i in $(seq 1 45); do SSH 'pgrep -x emulationstation >/dev/null' 2>/dev/null && { es_up=1; break; }; sleep 3; done
+      if [ "$es_up" != 1 ]; then
+        echo "walk $name: EmulationStation was not running 45 polls (about 2.5 min) after the reboot (want a pgrep match); the walk did not run. Guest: $(SSH 'systemctl is-system-running; systemctl is-active essway emustation 2>/dev/null' 2>&1 | tr '\n' ' ' | cut -c1-160)"
+        rc=1; continue
+      fi
+      sleep 10
       case "$name" in manager-*)
         SSH 'curl -fsS -m 10 http://127.0.0.1:1234/systems' > "$OUT/walks/$name-systems.json"
         selected_system=$(SSH 'cat /storage/.cache/vm-qa-selected-system' 2>/dev/null)
@@ -573,5 +592,9 @@ RENDERER=$(SSH 'grep -h -m1 "\[GL\].*Renderer:" /var/log/exec.log 2>/dev/null' 2
 { echo; echo "renderer: ${RENDERER:-(no RetroArch launch log on the guest)} -- the guest's Mesa, from the launch log; display: $DISPLAY_MODE"; } >> "$REPORT"
 echo; cat "$REPORT"; echo; echo "report: $REPORT"
 # A failed run writes its own friction line (#1508); the run's exit status is unchanged.
-[ "$FAILS" = 0 ] || "$ROOT/tools/friction-stub" --by tools/vm-qa --what "tools/vm-qa failed $FAILS suite(s) on $BUILD (cloud $BACKEND, guest $GUEST)" --report "$REPORT" > /dev/null 2>&1 || true
+# A stub that could not be written says so, rather than vanishing (#1506).
+if [ "$FAILS" != 0 ]; then
+  stub_out=$("$ROOT/tools/friction-stub" --by tools/vm-qa --what "tools/vm-qa failed $FAILS suite(s) on $BUILD (cloud $BACKEND, guest $GUEST)" --report "$REPORT" 2>&1) \
+    || echo "vm-qa: the run's friction stub was not written (want a line in the friction log): $(printf '%s' "$stub_out" | tail -n 1 | cut -c1-240)"
+fi
 [ "$FAILS" = 0 ]

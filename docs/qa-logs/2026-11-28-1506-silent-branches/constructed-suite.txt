@@ -1,0 +1,6 @@
+# Constructed walks for #1506's proofs: each one exercises a branch of vm-qa's
+# walk loop that used to end without a line. default-pre is a no-op here.
+default-pre = true
+bad-pre = wake | echo constructed-pre-failure >&2; exit 7
+manager-hookdir = wake | mkdir -p /storage/.config/emulationstation/scripts; rm -rf /storage/.config/emulationstation/scripts/system-selected; touch /storage/.config/emulationstation/scripts/system-selected
+es-down = wake | mkdir -p /storage/.config/system.d/essway.service.d && printf '[Service]\nExecStartPre=/bin/sleep 240\nTimeoutStartSec=300\n' > /storage/.config/system.d/essway.service.d/zz-vmqa-1506.conf && systemctl daemon-reload
