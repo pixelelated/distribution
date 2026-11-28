@@ -47,7 +47,9 @@ it has its artifact.
    posted on its issue** -- how it was found, in the issue's own words; the
    defect at its source, as the code was before the fix; the fix read and
    located in the candidate; every sibling call site or path hunted; and
-   what reading cannot prove, named (#273; maintainer, 2026-09-25: *"at a
+   what reading cannot prove, named -- the sibling hunt itself done when the
+   bug was filed, before its fix was built, and confirmed here (D-QA-069,
+   #1505) (#273; maintainer, 2026-09-25: *"at a
    minimum, do code exploration of every bug to see if we can track the
    source and validate it just that way"*). `rc-preflight` refuses an
    acceptance whose issue carries no "Code trace" comment. A fix found

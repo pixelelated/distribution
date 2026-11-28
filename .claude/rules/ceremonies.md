@@ -93,6 +93,18 @@ issue expires in three days and refuses the next push, which is the point:
 a friction nobody owns is a blindspot in waiting. Filing the issue follows
 D-QA-012 (the maintainer's words quoted, the same session).
 
+**Every lane writes its own line, the moment the work slows (D-WORKFLOW-253,
+#1508).** The one-on-one steward included: no lane waits for another to be
+free, or for the end of the work. On 2026-11-27 Max asked three times in
+eleven minutes for the day's friction to be logged while the lane that kept
+the log was stopped on a usage limit, and four stops had no line: *"Let's
+make sure all frictions are logged. We need this to be standard practice."*
+The OS coordinator reads each line it finds before committing it on `next`
+-- six went in once unread -- and gives it its issue or guard within the three
+days. A failed run and a stopped lane leave a stub line by machine for a lane
+to complete; until #1508's tooling lands, the lane that reads the failure
+writes the line when it reads it, with the failure's own time.
+
 ## Running it
 
 ```bash

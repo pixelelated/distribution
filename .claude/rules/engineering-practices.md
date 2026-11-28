@@ -537,6 +537,21 @@ self-matching pattern — anchor it: `^/bin/bash \./build-h700\.sh$`), and
 `pkill -f` on the watcher's command line killed the shell issuing it. Stop a
 watcher by the pid its status file records, never by pattern.
 
+### A chain carries its next routine step (D-WORKFLOW-254, #1507)
+
+A watched job that ends where the next step needs no judgement -- a standard
+run that passed, then the preflight and the next device build of the set --
+starts that step itself, in the same chain, rather than waiting for a lane to
+read the result. On 2026-11-27 four usage-limit stops left the build machine
+idle 3 h 28 min, 3 h 48 min and 4 h 35 min, each at such a step. A failed step
+stops the chain and leaves its reason in a file, a stub for the friction log
+(D-WORKFLOW-253). Acceptance, records, a fix, and anything consequential or
+on a person's device stay with the coordinator; the chain runs host builds
+and tests only (D-WORKFLOW-196). A lane still stopped after its reset is
+#395's to see. The first such chain, `b24-carry.sh`, was started at 00:07
+UTC on 2026-11-28 to go from standard run 18 to `rc-preflight` and then to the
+H700 and SM8550 builds; #1507 records what it did.
+
 ### Say how the watch fails
 
 For buffered parallel builds, pass `--activity-dir <frozen-build-root>/.threads/logs`

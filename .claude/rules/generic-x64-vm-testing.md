@@ -1236,6 +1236,32 @@ So, for any claim about RetroArch's text, widgets or picture on a guest:
   way RetroArch's font driver does, and is the number to reason from when a
   frame and a table disagree.
 
+## A failed check says why (D-QA-070, #1506)
+
+Max, 2026-11-27, after nobody could say whether standard run 17's one
+failure was route 14's or the check's: *"If you can't tell me whether the
+fix broke or the check misfired, we need to figure out how we can solve that
+problem. [...] we should figure out how we introduce telemetry, etc., into our
+testing process to be able to isolate the causes of those failures."* The case
+had joined five conditions into one PASS/FAIL, the suite read no journal, and
+the guest went down with the evidence (#1503).
+
+- **A check prints what it saw beside what it wanted, per condition.** A
+  predicate that joins conditions with `&&` says which one was false and its
+  value; a FAIL with only a label is a check that has to be re-run to be read.
+  `tools/raofflineproxy-lifecycle-test`'s `retry_disabled` and `check()` are
+  the pattern (#1503): one line per condition, then the state and the journal.
+- **The runner keeps the evidence before teardown.** On a suite's FAIL the
+  guest's journal (masked), the suite's guest-side work folder and the units'
+  state go into the report, and the failed guest's disk is kept and named;
+  a chain's cleanup leaves a failed run's disks. Until `tools/vm-qa` does it
+  (#1506), the session that reads the failure re-runs the suite on a guest it
+  keeps up, as #1503's direct runs did.
+- **A failure is classified, not guessed.** Re-run once on a fresh guest of
+  the same image, then on the last image the suite passed on: passed on the
+  re-run is intermittent; fails here and passes there is this image; fails on
+  both is the test or the host.
+
 ## The frames are compared, not only counted (#252)
 
 `tools/vm-qa`'s `frame-diff` suite holds every walk frame against the same

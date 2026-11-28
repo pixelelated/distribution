@@ -8,6 +8,15 @@ Read the [M7 milestone](https://github.com/pixelelated/distribution/milestone/7)
 
 ## Current focus
 
+**00000000000000000000000000000. Newest (2026-11-28T00:12Z): Max's lessons are codified; the carry-on chain is waiting on run 18.**
+- **Max's four messages** (2026-11-27, relayed 00:06 UTC) are filed: #1505 (siblings at filing, D-QA-069), #1506 (a failed check says why, D-QA-070), #1507 (chains carry the next routine step, D-WORKFLOW-254), #1508 (friction in every lane, D-WORKFLOW-253). The rules are in `bugs-are-agent-first.md`, `release-candidates.md`, `generic-x64-vm-testing.md`, `engineering-practices.md` and `ceremonies.md`.
+- **The friction log:** the steward's six lines carry their issues. `tools/issue-file` reads only a body's first line now (a false positive on #1505's body).
+- **Running:**
+  - standard run 18, chain pid 2370499 (`b24-chain/`), waiter `batz8c478`;
+  - **carry-on chain pid 2444801** (`b24-carry.sh`, step files in `b24-carry/`, `STOPPED` on a failure): run 18 PASS, then `rc-preflight --only vm-qa`, then H700 (cold, `--name m7-round-h700-20261128`), its reads, then SM8550 and its reads.
+  - Acceptance (ACCEPTANCE json and admission consume) and the records stay with OS.
+- **Owed:** #1506's and #1508's tooling in a later round; the inbox note on what was filed.
+
 **0000000000000000000000000000. Newest (2026-11-28T00:05Z): #1501, #1502 and #1464 are closed. Round head `428f4661b1` (route 14 plus #1503's test change). Build 24 is accepted; standard run 18 is running.**
 - **Build 23** (`5bd8ad6dc0`): `ra-refusal-outcomes` EN and FR PASSED, six of six. The top-up stamped SIGN_IN_REFUSED.
   - **Standard run 17: 15 of 16.** `lifecycle`'s last #1467 check failed once (submit rc 0) without naming its condition. Three direct runs passed. Filed as **#1503**. The check now names each condition and dumps state and journal on a FAIL (round `428f4661b1`; constructed failure shown; packet `docs/qa-logs/2026-11-27-1503-lifecycle/`).

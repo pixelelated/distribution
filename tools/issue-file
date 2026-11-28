@@ -12,8 +12,11 @@
 # that types its own filing or finding time ("filed at 23:50", "found at about
 # 04:31") is refused: three issue bodies on 2026-11-27 carried a typed time
 # that the clock contradicted (#1496, #1497, #1503), and the prose rule to take
-# it from `date -u` did not hold. Times of other events (a run's start, a
-# log line) are the writer's to cite and are left alone. The filled body is
+# it from `date -u` did not hold. Only the body's first line is read for it:
+# that is where an issue states its own provenance, and where all three were.
+# Times of other events further down (a run's start, another issue's filing)
+# are the writer's to cite and are left alone -- reading the whole body
+# refused #1505's history of #1497 and #1501 on its first use. The filled body is
 # read against the fork's wordlist before it is sent.
 # --dry-run prints the filled body instead of filing it.
 # Exit 0 filed (the URL printed), 1 refused, 2 cannot run.
@@ -34,7 +37,8 @@ done
 [ -t 0 ] && { echo 'issue-file: the body comes on stdin' >&2; exit 2; }
 body=$(cat) || exit 2
 [ -n "${body//[[:space:]]/}" ] || { echo 'issue-file: the body is empty' >&2; exit 2; }
-typed=$(grep -n -i -E '\b(filed|found|seen)\b[^.]{0,40}\bat (about |around |roughly )?([01][0-9]|2[0-3]):[0-5][0-9]' <<< "$body")
+first=$(grep -m1 -v '^[[:space:]]*$' <<< "$body")
+typed=$(grep -n -i -E '\b(filed|found|seen)\b[^.]{0,40}\bat (about |around |roughly )?([01][0-9]|2[0-3]):[0-5][0-9]' <<< "$first")
 if [ -n "$typed" ]; then
     echo 'issue-file: refused -- a typed filing or finding time; write {{NOW}} and let the clock fill it:' >&2
     printf '  %s\n' "$typed" >&2

@@ -78,6 +78,16 @@ is the point.
    discover" does not stop at a lane; D-UI-079 (change stays inside the lanes)
    governs behaviour we would alter, not a defect we would remove. Say which
    it was in the commit.
+7. **Hunt the siblings when the bug is filed, not when it is closed
+   (D-QA-069, #1505).** The issue's "Siblings hunted" section is written
+   before its fix is built: every caller of the code at fault, and every
+   surface in every lane that shows the same outcome words. A sibling found
+   then is fixed in the same route or filed before it; the closing trace
+   confirms the hunt and names anything found since. On 2026-11-27 one shape
+   -- a refusal only the player can fix offering a way out that cannot help --
+   was fixed three times in three routes (#1495, #1497, #1501), each sibling
+   found at the closing of the one before, each costing a rebuild and a full
+   run. Max: *"it's better to measure twice and cut once."*
 
 ## What changed on 2026-09-25 under it
 
