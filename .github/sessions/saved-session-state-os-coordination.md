@@ -8,6 +8,13 @@ Read the [M7 milestone](https://github.com/pixelelated/distribution/milestone/7)
 
 ## Current focus
 
+**0000000000000000000000000000000. Newest (2026-11-28T00:37Z): standard run 18 on build 24 passed all 16 suites; the handheld builds wait only on Max's #1477 answer.**
+- **Run 18:** `qa-428f4661b1-webdav-a-20261128-0003`; `lifecycle` passed with #1503's diagnostics; `rc-preflight --only vm-qa` PASS. Posted on #1465 and #1503.
+- **#1477:** the forced wait is ES `076b52d0c` (`m7/1477-forced-wait`, unrouted), with a 15 s limit and the steward's question to Max pending.
+  - **"Next release":** H700 then SM8550 from `428f4661b1`, then tick #1465 c3 and #1503 c2 from run 18.
+  - **"This release":** merge `076b52d0c` into `m7/rc-round-es-20261125`, route 15, a warm PC build (build 25), `time-to-play`'s g2g-midsync change (D-CLOUD-131), frames, standard run 19, then the handhelds.
+- **CI:** paused by GitHub (00:25 UTC). #1446 reopened; Max's re-enable asked through the steward; pushes batched.
+
 **000000000000000000000000000000. Newest (2026-11-28T00:25Z): the handheld builds are held for Max's #1477 answer (this release or next).**
 - **Max** (00:20 UTC, a proposal): a forced wait, "Please wait, saves are syncing", with a time limit, in place of STOP IT AND PLAY / KEEP WAITING over a saves sync. His words and the outline are on #1477; the proposed limit is 15 s; the steward is asking him this release or next.
 - **The carry-on chain (pid 2444801) was stopped at 00:23 UTC by its PID,** before it launched H700. `b24-carry/STOPPED` says why.
