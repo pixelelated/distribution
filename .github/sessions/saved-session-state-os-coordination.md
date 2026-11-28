@@ -18,6 +18,7 @@ Read the [M7 milestone](https://github.com/pixelelated/distribution/milestone/7)
 - **#1514, closed 11:39 UTC:** `tools/image-acceptance` (`dfa797e44a`) is the handheld acceptance read from now on. Run it once a build's rc is 0, before the admission is consumed:
   `tools/image-acceptance --worktree <wt> --run <run dir> --claims <round claims> --out <owner>/acceptance/image-acceptance.txt`. The round's claims are `docs/qa-logs/2026-11-28-1514-image-acceptance/claims-6169621a4b.txt`; a new round copies them and edits them. Builds 27 and 28 pass on it.
 - **No guest or build is running** (vm-pair down at 11:27).
+- **11:42, at the steward's 11:40 note:** the M7 body carries #1513 beside run 20 and the RG35XX SP's unknown starting build. #1455 is retitled to "the build the RG35XX SP runs". #1470 has #1514's row and criterion and #1506's extra two branches. Both of Max's questions (the audit's size, put 11:05; the RG35XX SP's build, put 11:07) are with him, and his exact words come back through the steward.
 - **Still open from earlier:** #1503 c3, #1504, #1505, #1506, #1513 c2 (the round's half), #1507 c3–c5, #1508 c3, #1511, #1446 (Max).
 
 **0000000000000000000000000000000000000. Newest (2026-11-28T06:52Z): SM8550 is building cold from `6169621a4b` (since 06:48:43); #1509, #1510 and #1512 are closed.**
