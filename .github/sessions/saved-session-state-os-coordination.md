@@ -8,6 +8,15 @@ Read the [M7 milestone](https://github.com/pixelelated/distribution/milestone/7)
 
 ## Current focus
 
+**00000000000000000000000000000000. Newest (2026-11-28T01:40Z): route 15 (Max's forced wait, D-CLOUD-198) is round `75e31d7ee6`; build 25 is accepted; `b25-carry.sh` is running.**
+- **`b25-carry.sh`** (pid 3132133, step files in `b25-carry/`): `p1477.sh` (frames in `/workspace/tmp/rocknix-session/p1477/`: A = the midsync cell, B = throttled startup sync, 15 s limit; EN and FR), then standard run 19. If PASS and there is no `b25-carry/hold`: `rc-preflight`, then H700 (`m7-round-h700-20261128`), its reads, then SM8550, its reads.
+- **To stop it before a handheld launch:** `echo '<reason>' > /workspace/tmp/rocknix-session/b25-carry/hold`.
+- **After it:**
+  - #1477 criterion 2 from p1477's frames, its trace and close;
+  - #1465 c3 and #1503 c2 from run 19;
+  - the handhelds' acceptance (ACCEPTANCE json, admission consume, records).
+- **Max:** the transfer and achievements questions stay (the steward is telling him); the CI re-enable and the shared allowance are parked behind it.
+
 **0000000000000000000000000000000. Newest (2026-11-28T00:37Z): standard run 18 on build 24 passed all 16 suites; the handheld builds wait only on Max's #1477 answer.**
 - **Run 18:** `qa-428f4661b1-webdav-a-20261128-0003`; `lifecycle` passed with #1503's diagnostics; `rc-preflight --only vm-qa` PASS. Posted on #1465 and #1503.
 - **#1477:** the forced wait is ES `076b52d0c` (`m7/1477-forced-wait`, unrouted), with a 15 s limit and the steward's question to Max pending.

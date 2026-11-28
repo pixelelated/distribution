@@ -1,0 +1,36 @@
+{
+ "record": "ACCEPTANCE",
+ "written_utc": "2026-11-28T01:37Z",
+ "issue": [
+  1477
+ ],
+ "run": "/workspace/repos/rocknix.worktrees/m7-round-x64-20261125/.build-runs/20261128T013344Z-28a1d263",
+ "disposition": "qualified",
+ "expected_rc": 0,
+ "outputs": [
+  {
+   "path": "/workspace/repos/rocknix.worktrees/m7-round-x64-20261125/build.pixelelated-GENERIC_X64.x86_64",
+   "issue": 1445,
+   "kind": "build-cache",
+   "owner": "OS work coordinator",
+   "release_when": "the next build of the set starts, or its images are on GitHub (D-INFRA-033/036/037)"
+  },
+  {
+   "path": "/workspace/repos/rocknix.worktrees/m7-round-x64-20261125/target",
+   "issue": 1445,
+   "kind": "firmware",
+   "owner": "OS work coordinator",
+   "release_when": "its images are on GitHub, or a newer build of the set supersedes it (D-INFRA-036/037)"
+  }
+ ],
+ "evidence": [
+  {
+   "path": "/workspace/repos/rocknix.worktrees/conflict-resolution/.build-runs/m7-round-x64-25-owner/acceptance/image-reads-25.txt",
+   "sha256": "5f26bf0323b6916b691a75bf0903bab12a8e3a9e49582a40b7720bdef05e6092"
+  }
+ ],
+ "head": "75e31d7ee6f3686133a4594e6f90cfd875ece361",
+ "admission": "e840fa391ca5462683022be4c3f60f6a",
+ "scope": "build-level acceptance of the round's GENERIC_X64 engineering image at 75e31d7ee6 (warm, route 15: ES 076b52d0c, the forced wait over a saves sync, D-CLOUD-198): rc 0, processes exited, checksums verified, BUILD_ID = head, no .dirty; the ES binary is new and carries the wait's sentence, the French catalog its translation; raofflineproxy-ctl unchanged. Supersedes build 24's image. Not a VM qualification.",
+ "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261128T013346Z.g75e31d7ee6f3-from-ROCKNIX"
+}
