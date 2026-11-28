@@ -8,6 +8,18 @@ Read the [M7 milestone](https://github.com/pixelelated/distribution/milestone/7)
 
 ## Current focus
 
+**0000000000000000000000000000. Newest (2026-11-28T00:05Z): #1501, #1502 and #1464 are closed. Round head `428f4661b1` (route 14 plus #1503's test change). Build 24 is accepted; standard run 18 is running.**
+- **Build 23** (`5bd8ad6dc0`): `ra-refusal-outcomes` EN and FR PASSED, six of six. The top-up stamped SIGN_IN_REFUSED.
+  - **Standard run 17: 15 of 16.** `lifecycle`'s last #1467 check failed once (submit rc 0) without naming its condition. Three direct runs passed. Filed as **#1503**. The check now names each condition and dumps state and journal on a FAIL (round `428f4661b1`; constructed failure shown; packet `docs/qa-logs/2026-11-27-1503-lifecycle/`).
+  - **The top-up card's refused line cannot be framed:** a refused run with no work draws no card (`ProxyCards.cpp:320`). The harness for it is **#1504**. #1501's c3 is reworded to the unit case and the code.
+- **`tools/issue-file`** (`bbe1bb8ee8`) files with `{{NOW}}` from the clock. It was the third typed found-time; #1464 was reopened, met (#1504 was filed through the tool) and closed.
+- **Build 24** (`428f4661b1`): run `20261128T000014Z-27912c2f`, rc 0. The ES binary and ctl are byte-identical to build 23's. ACCEPTANCE-24 written; admission `7b1c9555…` consumed; records in `build24/`.
+- **Running:** standard run 18, chain pid 2370499 (`b24-chain.sh`, rc in `b24-chain/`); waiter `batz8c478`.
+- **Next:**
+  1. Run 18 → #1465 c3, #1503 c2, and `rc-preflight --only vm-qa`.
+  2. Then H700 cold from `428f4661b1` (set `m7-round-x64`), then SM8550 cold, unless #1477's answer moves ES.
+  3. The two proposed strings (#1501) are for Max to see in the build.
+
 **000000000000000000000000000. Newest (2026-11-27T18:17Z): #1497, #1498 and #1500 are closed on build 22. #1501 and #1502 are found and fixed in route 14 (round `5bd8ad6dc0`). Build 23 (PC, warm) is running.**
 - **Build 22's proofs** (12:41 to 13:52Z; read at 17:41Z after a usage limit):
   - the pre-split `suite-1428` passed whole (#1498 c3);

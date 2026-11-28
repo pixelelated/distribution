@@ -1,0 +1,36 @@
+{
+ "record": "ACCEPTANCE",
+ "written_utc": "2026-11-28T00:03Z",
+ "issue": [
+  1503
+ ],
+ "run": "/workspace/repos/rocknix.worktrees/m7-round-x64-20261125/.build-runs/20261128T000014Z-27912c2f",
+ "disposition": "qualified",
+ "expected_rc": 0,
+ "outputs": [
+  {
+   "path": "/workspace/repos/rocknix.worktrees/m7-round-x64-20261125/build.pixelelated-GENERIC_X64.x86_64",
+   "issue": 1445,
+   "kind": "build-cache",
+   "owner": "OS work coordinator",
+   "release_when": "the next build of the set starts, or its images are on GitHub (D-INFRA-033/036/037)"
+  },
+  {
+   "path": "/workspace/repos/rocknix.worktrees/m7-round-x64-20261125/target",
+   "issue": 1445,
+   "kind": "firmware",
+   "owner": "OS work coordinator",
+   "release_when": "its images are on GitHub, or a newer build of the set supersedes it (D-INFRA-036/037)"
+  }
+ ],
+ "evidence": [
+  {
+   "path": "/workspace/repos/rocknix.worktrees/conflict-resolution/.build-runs/m7-round-x64-24-owner/acceptance/image-reads-24.txt",
+   "sha256": "26a0b5c1ea3b228a5d9363f73d5d394540408d8b6b70b397394f9c37bf73c232"
+  }
+ ],
+ "head": "428f4661b10b5331cedf5d35c7be5b0d8e427b96",
+ "admission": "7b1c95551b2c419c9fdb60d4580adfbc",
+ "scope": "build-level acceptance of the round's GENERIC_X64 engineering image at 428f4661b1 (warm; the round commit after route 14 changes only the host-side lifecycle test, #1503): rc 0, processes exited, checksums verified, BUILD_ID = head, no .dirty; the ES binary and raofflineproxy-ctl are byte-identical to build 23's. Supersedes build 23's image. Not a VM qualification.",
+ "image": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261128T000016Z.g428f4661b10b-from-ROCKNIX"
+}
