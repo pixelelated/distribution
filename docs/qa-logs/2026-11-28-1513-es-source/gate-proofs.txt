@@ -1,0 +1,26 @@
+# tools/vm-qa's ES gate (next, uncommitted at the time), 2026-11-28T07:05:28Z
+# fake tree: next's new tools/vm-qa + the round's emulationstation package.mk (source-commit form)
+
+## T1 run 20's condition: ES_SRC=qa-integration at 16dbac521, the round's recipe
+vm-qa: ES_SRC /home/max/Development/emulationstation-next.worktrees/qa-integration is at 16dbac5211eea7e70db7394372033be2be7df829, but the image's recipe pins e67f28e1841579a401c2b4de9fe5f498ffa2b420: the host suites would test another tree (#1513)
+exit 2
+
+## T2 no ES_SRC: the runner's own checkout (made by the first T2 run of this session)
+vm-qa: the webdav QA cloud backend did not come up
+exit 1 (past the gate; the fake tree has no cloud backend)
+checkout: e67f28e1841579a401c2b4de9fe5f498ffa2b420, 0 changed files
+
+## T3 ES_SRC at the pin, a tracked file changed
+vm-qa: ES_SRC /workspace/tmp/rocknix-session/es-e67f28e18 has changes to tracked files: the host suites would not test e67f28e1841579a401c2b4de9fe5f498ffa2b420 as committed (#1513)
+exit 2
+## T3b the same checkout, clean
+vm-qa: the webdav QA cloud backend did not come up
+exit 1 (past the gate)
+
+## T4 next's runner and recipe (PKG_VERSION form), ES_SRC at e67f28e18
+vm-qa: ES_SRC /workspace/tmp/rocknix-session/es-e67f28e18 is at e67f28e1841579a401c2b4de9fe5f498ffa2b420, but the image's recipe pins 16dbac5211eea7e70db7394372033be2be7df829: the host suites would test another tree (#1513)
+exit 2
+
+## T5 a suite that reads no ES source: no gate
+vm-qa: the webdav QA cloud backend did not come up
+exit 1 (past the gate)
