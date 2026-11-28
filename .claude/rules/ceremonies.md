@@ -101,9 +101,14 @@ the log was stopped on a usage limit, and four stops had no line: *"Let's
 make sure all frictions are logged. We need this to be standard practice."*
 The OS coordinator reads each line it finds before committing it on `next`
 -- six went in once unread -- and gives it its issue or guard within the three
-days. A failed run and a stopped lane leave a stub line by machine for a lane
-to complete; until #1508's tooling lands, the lane that reads the failure
-writes the line when it reads it, with the failure's own time.
+days. A failed run and a stopped chain leave a stub line by machine for a
+lane to complete: `tools/friction-stub`, called by `tools/watch-build` on a
+build's non-zero rc, by `tools/vm-qa` on a FAIL, and by `tools/chain-lib`'s
+`stop` (#1508). A stub ends `issue: none`; whoever reads it writes what slowed
+the work and what would have caught it, or says the stop was deliberate, and
+gives it its issue. A failure no tool writes for -- a lane's own stop, a proof
+run by hand -- still has its line written by the lane that reads it, with the
+failure's own time.
 
 ## Running it
 

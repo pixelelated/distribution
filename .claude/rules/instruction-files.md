@@ -153,6 +153,8 @@ both lists and to this table, or it is invisible.**
 | `patch-replay` | does every package's patch set still apply for one device, before a build starts: the build's own `scripts/unpack` per package in a scratch root (#1448, D-INFRA-043) | `device-builds.md` |
 | `device-build` | one command launches a device build through the admitted Docker route: set head, worktree, patch replay, one-build rule, plans, admission, swap preflight, submission; `--dry-run` creates nothing (#1445) | `device-builds.md` |
 | `source-check` | before a build, every source the target would have to fetch and whether it can: the plan made in the build container as the build makes it, each recipe's source against the cache by `get_archive`'s and `get_git`'s rules, and the rest asked of its URL and mirror (#1509) | `device-builds.md` |
+| `friction-stub` | a failed run writes its own dated friction line ending `issue: none`, to the primary checkout's log under a lock; called by `watch-build`, `vm-qa` and `chain-lib` (#1508) | `ceremonies.md` |
+| `chain-lib` | the carry-on chain's steps, sourced: a hold, a step gated on its rc, a stop that writes the friction stub (#1507, #1508) | `engineering-practices.md` |
 | `report-lifecycle-probe.py` | opt-in harmless child, real report writer and retirement preflight | `device-builds.md` |
 | `report_writer.py` | bounded exclusive report publication, fsync and exact readback | `device-builds.md` |
 | `host-maintenance/` | fixed-target swap helper, narrow administrator installer and isolated guard tests | `device-builds.md` |

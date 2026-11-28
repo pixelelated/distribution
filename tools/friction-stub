@@ -1,0 +1,112 @@
+#!/usr/bin/env python3
+# SPDX-License-Identifier: GPL-2.0
+# Copyright (C) 2026-present ROCKNIX (https://github.com/ROCKNIX)
+"""friction-stub -- a failed run writes its own friction line, so nobody has to remember to (#1508).
+
+  tools/friction-stub --by <tool or chain> --what "<one sentence: what stopped>"
+      [--run <dir>] [--report <path>] [--log <friction log>] [--dry-run]
+
+FRICTION_STUB_LOG in the environment stands in for --log, so a constructed
+failure of a caller (tools/watch-build, tools/vm-qa, a chain) writes its stub
+to a scratch copy rather than the record.
+
+Max, 2026-11-27: "Let's make sure all frictions are logged. We need this to be
+standard practice." D-WORKFLOW-253 has every lane write the line the moment its
+work slows; this is the line a run writes when nobody is there to: a dated stub
+ending `issue: none`, which tools/ceremony-check then refuses a push over after
+three days, as it does any friction line without an issue. Whoever reads it
+writes what slowed the work and what would have caught it, and gives it its
+issue -- or says it was a deliberate stop.
+
+The line goes to the friction log of the primary checkout (the one whose .git
+every worktree shares, which stays on next), whichever worktree the caller ran
+from, appended in one write under a lock in that .git, so two runs ending
+together cannot interleave. Its words are read against the fork's wordlist
+first; a line the check refuses is written without the caller's sentence,
+naming only the run, so the stub is never lost.
+Exit 0 written (or printed with --dry-run), 2 cannot write.
+"""
+import argparse
+import datetime
+import fcntl
+import os
+import subprocess
+import sys
+from pathlib import Path
+
+EXIT_OK, EXIT_CANNOT = 0, 2
+TOOLS = Path(__file__).resolve().parent
+
+
+def primary_checkout():
+    r = subprocess.run(['git', '-C', str(TOOLS), 'rev-parse', '--path-format=absolute', '--git-common-dir'],
+                       capture_output=True, text=True)
+    if r.returncode:
+        return None, None
+    common = Path(r.stdout.strip())
+    return common.parent, common
+
+
+def wordlist_ok(text):
+    check = TOOLS / 'forbidden-terms-check'
+    if not check.exists():
+        return None
+    r = subprocess.run([str(check), '--stdin'], input=text, capture_output=True, text=True)
+    return {0: True, 1: False}.get(r.returncode)
+
+
+def one_line(s):
+    return ' '.join(str(s).split())
+
+
+def main():
+    ap = argparse.ArgumentParser(description=__doc__.split('\n')[0])
+    ap.add_argument('--by', required=True)
+    ap.add_argument('--what', required=True)
+    ap.add_argument('--run')
+    ap.add_argument('--report')
+    ap.add_argument('--log', type=Path)
+    ap.add_argument('--dry-run', action='store_true')
+    a = ap.parse_args()
+    primary, common = primary_checkout()
+    if a.log is None and os.environ.get('FRICTION_STUB_LOG'):
+        a.log = Path(os.environ['FRICTION_STUB_LOG'])
+    log = a.log or (primary / 'docs' / 'friction-log.md' if primary else None)
+    if log is None or not log.is_file():
+        print(f'friction-stub: no friction log at {log}', file=sys.stderr)
+        return EXIT_CANNOT
+    now = datetime.datetime.now(datetime.timezone.utc)
+    where = ''.join(f'; {k} {one_line(v)}' for k, v in (('run', a.run), ('report', a.report)) if v)
+    tail = ('. Not yet written: what slowed the work and what would have caught it, or that the stop was '
+            'deliberate. issue: none')
+    line = f'- {now:%Y-%m-%d %H:%M} UTC -- STUB from {one_line(a.by)}: {one_line(a.what)}{where}{tail}'
+    if wordlist_ok(line) is False:
+        line = (f'- {now:%Y-%m-%d %H:%M} UTC -- STUB from {one_line(a.by)}: a run stopped{where} (the stub\'s '
+                f'own sentence was refused by the wordlist check){tail}')
+    if a.dry_run:
+        print(line)
+        return EXIT_OK
+    lock_path = (common / 'friction-log.lock') if common and a.log is None else Path(str(log) + '.lock')
+    try:
+        with open(lock_path, 'a') as lock:
+            fcntl.flock(lock, fcntl.LOCK_EX)
+            with open(log, 'rb') as f:
+                f.seek(0, os.SEEK_END)
+                lead = b''
+                if f.tell():
+                    f.seek(-1, os.SEEK_END)
+                    lead = b'' if f.read(1) == b'\n' else b'\n'
+            fd = os.open(log, os.O_WRONLY | os.O_APPEND)
+            try:
+                os.write(fd, lead + (line + '\n').encode())
+            finally:
+                os.close(fd)
+    except OSError as e:
+        print(f'friction-stub: cannot write {log}: {e}', file=sys.stderr)
+        return EXIT_CANNOT
+    print(f'friction-stub: {log}: {line}')
+    return EXIT_OK
+
+
+if __name__ == '__main__':
+    sys.exit(main())

@@ -545,7 +545,11 @@ starts that step itself, in the same chain, rather than waiting for a lane to
 read the result. On 2026-11-27 four usage-limit stops left the build machine
 idle 3 h 28 min, 3 h 48 min and 4 h 35 min, each at such a step. A failed step
 stops the chain and leaves its reason in a file, a stub for the friction log
-(D-WORKFLOW-253). Acceptance, records, a fix, and anything consequential or
+(D-WORKFLOW-253). A chain sources `tools/chain-lib` from next's primary
+checkout rather than copying the functions: its `step` writes the step's rc
+and stops the chain on a non-zero one, so a step whose results the
+coordinator meant to read cannot be walked past, and its `stop` writes the
+friction stub (#1507, #1508). Acceptance, records, a fix, and anything consequential or
 on a person's device stay with the coordinator; the chain runs host builds
 and tests only (D-WORKFLOW-196). A lane still stopped after its reset is
 #395's to see. The first such chain, `b24-carry.sh`, was started at 00:07

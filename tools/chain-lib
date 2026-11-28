@@ -1,0 +1,66 @@
+# SPDX-License-Identifier: GPL-2.0
+# Copyright (C) 2026-present ROCKNIX (https://github.com/ROCKNIX)
+#
+# chain-lib -- the steps a carry-on chain is made of, sourced rather than copied (#1507, #1508).
+#
+#   . /workspace/repos/rocknix/tools/chain-lib
+#   chain_init <state dir> <chain name>
+#   held <next step>                 stop before it when <state dir>/hold exists
+#   mark <step> start|end            the step's time, from the clock
+#   wait_file <path> <seconds>       0 when the file came, 1 when it did not
+#   step <step> -- <command...>      run it, write <step>.rc, stop the chain on a non-zero rc
+#   stop <step> <why>                STOPPED and chain.rc 1, a friction stub, then exit 1
+#   chain_done                       chain.rc 0
+#
+# The carry-on chains of November 25-28 each carried their own copy of these
+# functions, and one went on past a failed proof because its step wrote an rc
+# that nothing read (#1507: b26-carry.sh, 01:55 UTC on 2026-11-28). `step`
+# gates by machine: a step's rc decides whether the next one runs, whoever
+# meant to read its results. A stop writes the chain's friction line itself
+# (tools/friction-stub, #1508), so a chain that stops while no lane is awake
+# still leaves the record a lane would have written. A chain sources this
+# from next's primary checkout; like any shell tool, it is not edited while a
+# chain that sources it is running (engineering-practices.md).
+
+_CHAIN_LIB_TOOLS=$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)
+
+chain_init() {
+    CHAIN_DIR=${1:?chain_init: a state directory}
+    CHAIN_NAME=${2:?chain_init: a chain name}
+    mkdir -p "$CHAIN_DIR"
+    rm -f "$CHAIN_DIR/STOPPED" "$CHAIN_DIR/chain.rc"
+    date -u +%FT%TZ > "$CHAIN_DIR/chain.start"
+}
+
+stop() {
+    local when; when=$(date -u +%FT%TZ)
+    echo "$when stopped at $1: $2" > "$CHAIN_DIR/STOPPED"
+    echo 1 > "$CHAIN_DIR/chain.rc"
+    python3 -I "$_CHAIN_LIB_TOOLS/friction-stub" --by "chain $CHAIN_NAME" --what "stopped at $1: $2" \
+        --run "$CHAIN_DIR" > "$CHAIN_DIR/friction-stub.out" 2>&1 \
+        || echo "$when friction-stub could not write (see friction-stub.out)" >> "$CHAIN_DIR/STOPPED"
+    exit 1
+}
+
+held() { [ -f "$CHAIN_DIR/hold" ] && stop "$1" "held by the coordinator: $(cat "$CHAIN_DIR/hold")"; return 0; }
+
+mark() { date -u +%FT%TZ > "$CHAIN_DIR/$1.$2"; }
+
+wait_file() {
+    local end=$(( $(date +%s) + $2 ))
+    until [ -f "$1" ]; do [ "$(date +%s)" -ge "$end" ] && return 1; sleep 30; done
+    return 0
+}
+
+step() {
+    local name=$1 rc; shift
+    [ "${1:-}" = -- ] && shift
+    held "$name"
+    mark "$name" start
+    "$@" > "$CHAIN_DIR/$name.log" 2>&1; rc=$?
+    echo "$rc" > "$CHAIN_DIR/$name.rc"; mark "$name" end
+    [ "$rc" = 0 ] || stop "$name" "rc $rc (log $CHAIN_DIR/$name.log)"
+    return 0
+}
+
+chain_done() { echo 0 > "$CHAIN_DIR/chain.rc"; date -u +%FT%TZ > "$CHAIN_DIR/chain.end"; }

@@ -538,4 +538,6 @@ fi
 RENDERER=$(SSH 'grep -h -m1 "\[GL\].*Renderer:" /var/log/exec.log 2>/dev/null' 2>/dev/null | sed 's/.*Renderer: //' | tr -d '\r')
 { echo; echo "renderer: ${RENDERER:-(no RetroArch launch log on the guest)} -- the guest's Mesa, from the launch log; display: $DISPLAY_MODE"; } >> "$REPORT"
 echo; cat "$REPORT"; echo; echo "report: $REPORT"
+# A failed run writes its own friction line (#1508); the run's exit status is unchanged.
+[ "$FAILS" = 0 ] || "$ROOT/tools/friction-stub" --by tools/vm-qa --what "tools/vm-qa failed $FAILS suite(s) on $BUILD (cloud $BACKEND, guest $GUEST)" --report "$REPORT" > /dev/null 2>&1 || true
 [ "$FAILS" = 0 ]

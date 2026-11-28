@@ -210,9 +210,26 @@ def main():
         atomic(run / 'runner-error', 'build result retained, but watcher did not record completion\n')
         print(f'watch-build: monitoring failed; see {run}', file=sys.stderr)
         guard.finish(run, code, monitor_code, code or 125)
+        friction_stub(run, code or 125, f'the watcher did not record the build\'s completion (build rc {code})')
         return code or 125
     guard.finish(run, code, monitor_code, code)
+    if code:
+        friction_stub(run, code)
     return code
+
+
+def friction_stub(run, code, what=None):
+    """A failed build writes its own friction line (#1508); it never changes the build's result."""
+    stub = Path(__file__).resolve().parent / 'friction-stub'
+    if not stub.exists():
+        return
+    why = f'rc {code}' + (f' (signal {code - 128}: a stop someone sent, or the kernel)' if code > 128 else '')
+    try:
+        subprocess.run([sys.executable, '-I', str(stub), '--by', 'tools/watch-build',
+                        '--what', what or f'a watched build ended {why}', '--run', str(run)],
+                       stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL, timeout=60)
+    except (OSError, subprocess.SubprocessError):
+        pass
 
 
 if __name__ == '__main__':
