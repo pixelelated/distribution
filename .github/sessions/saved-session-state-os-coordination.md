@@ -8,6 +8,13 @@ Read the [M7 milestone](https://github.com/pixelelated/distribution/milestone/7)
 
 ## Current focus
 
+**000000000000000000000000000000. Newest (2026-11-28T00:25Z): the handheld builds are held for Max's #1477 answer (this release or next).**
+- **Max** (00:20 UTC, a proposal): a forced wait, "Please wait, saves are syncing", with a time limit, in place of STOP IT AND PLAY / KEEP WAITING over a saves sync. His words and the outline are on #1477; the proposed limit is 15 s; the steward is asking him this release or next.
+- **The carry-on chain (pid 2444801) was stopped at 00:23 UTC by its PID,** before it launched H700. `b24-carry/STOPPED` says why.
+- **Standard run 18 is still running:** chain pid 2370499, waiter `batz8c478`. Read it and run `rc-preflight --only vm-qa` by hand.
+- **On "next release":** launch H700 and then SM8550 from `428f4661b1` (`b24-carry.sh`'s commands, or a fresh carry-on chain from the H700 step).
+- **On "this release":** the ES change in the saves-sync branch of `FileData::launchGame`, route 15, a warm PC build, the proofs, then the handhelds.
+
 **00000000000000000000000000000. Newest (2026-11-28T00:12Z): Max's lessons are codified; the carry-on chain is waiting on run 18.**
 - **Max's four messages** (2026-11-27, relayed 00:06 UTC) are filed: #1505 (siblings at filing, D-QA-069), #1506 (a failed check says why, D-QA-070), #1507 (chains carry the next routine step, D-WORKFLOW-254), #1508 (friction in every lane, D-WORKFLOW-253). The rules are in `bugs-are-agent-first.md`, `release-candidates.md`, `generic-x64-vm-testing.md`, `engineering-practices.md` and `ceremonies.md`.
 - **The friction log:** the steward's six lines carry their issues. `tools/issue-file` reads only a body's first line now (a false positive on #1505's body).
