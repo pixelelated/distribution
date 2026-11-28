@@ -1,0 +1,60 @@
+PASS pixelelated-SM8550.aarch64-0.0.1-dev+20261128T071130Z.g6169621a4b93-from-ROCKNIX.img.gz sha256 3551da857bdc6126b0f012c5f9e906e4a8140e9263d0731aa98d3f975fddbe09 matches its .sha256
+PASS pixelelated-SM8550.aarch64-0.0.1-dev+20261128T071130Z.g6169621a4b93-from-ROCKNIX.tar sha256 abdcbf3ccf392f85f1bf384e7db48a9627854784eed11d5f31f8c40a648eedda matches its .sha256
+update tar: SYSTEM c3672af6a71089af51304dd5cca116a9b2e14d31fdc0015336adbbfbd9ecd635, KERNEL 8fe0a0848b9a765eebfa643910a03baa88314754c24515c34d458eeece63fa3e, 20 boot files
+PASS the tar carries 3rdparty/bootloader/openabl/abl_signed-SM8550.elf
+PASS the signed ABL is ELF32/LE/EM_ARM: ('ELF32', 'LE', 40), sha256 2a2808d12f2d494ddd2c39093bbffa90bc43402050be1a87baf6a4c37c830163
+PASS SYSTEM usr/share/bootloader/openabl/abl_signed-SM8550.elf equals the tar's (2a2808d12f2d494d)
+PASS SYSTEM usr/share/bootloader/openabl/backup_abl.sh equals the tar's (3203f63a61b10e27)
+PASS SYSTEM usr/share/bootloader/openabl/flash_abl.sh equals the tar's (ede35aca2103a0ce)
+PASS SYSTEM usr/share/bootloader/openabl/restore_backup_abl.sh equals the tar's (a3be22312042147c)
+PASS os-release OS_NAME='pixelelated'
+PASS os-release OS_VERSION='0.0.1-dev'
+PASS os-release BUILD_DIRTY='no'
+PASS os-release BUILD_ID='6169621a4b93630c20dc6cd642b7983a2f3a2c44'
+PASS os-release BUILD_BRANCH='build/m7-round-sm8550-20261128'
+PASS os-release HW_DEVICE='SM8550'
+PASS os-release HW_ARCH='aarch64'
+PASS os-release BUILD_VERSION '0.0.1-dev+20261128T071130Z.g6169621a4b93' names the head
+PASS identity.json names the head and the version
+PASS usr/bin/emulationstation is ELF64/LE/AArch64: ('ELF64', 'LE', 183)
+PASS usr/bin/retroarch is ELF64/LE/AArch64: ('ELF64', 'LE', 183)
+PASS usr/bin/FEX is ELF64/LE/AArch64: ('ELF64', 'LE', 183)
+PASS the ARM image was written by this run
+PASS usr/bin/retroarch32 is ELF32/LE/ARM and equals the ARM image's usr/bin/retroarch
+PASS usr/bin/box86 is ELF32/LE/ARM and equals the ARM image's usr/bin/box86
+PASS usr/lib/libretro/gpsp_libretro.so is ELF32/LE/ARM and equals the ARM image's usr/lib/libretro/gpsp_libretro.so
+PASS usr/lib/libretro/desmume_libretro.so is ELF32/LE/ARM and equals the ARM image's usr/lib/libretro/desmume_libretro.so
+PASS usr/lib32 carries the ARM image's 181 top-level usr/lib files byte for byte (181 equal; differ: [])
+PASS the SYSTEM lists usr/bin/FEX
+PASS the SYSTEM lists usr/lib/binfmt.d/FEX-x86.conf
+PASS the SYSTEM lists usr/lib/binfmt.d/FEX-x86_64.conf
+PASS 8 files under usr/share/fex-emu/GuestThunks
+PASS the raw image has a GPT with 512-byte sectors (gpt, 512)
+PASS its partitions are system, storage: [('system', 32768, 4194304), ('storage', 4227072, 65536)]
+PASS the system partition starts at sector 32768
+boot partition: 27 files, mdir rc 0
+PASS the boot partition can be listed
+PASS the raw image's SYSTEM equals the update tar's
+PASS the raw image's KERNEL equals the update tar's
+PASS the boot partition's dtbs/qcs8550-ayaneo-pocketace.dtb equals the tar's
+PASS the boot partition's dtbs/qcs8550-ayaneo-pocketdmg.dtb equals the tar's
+PASS the boot partition's dtbs/qcs8550-ayaneo-pocketds.dtb equals the tar's
+PASS the boot partition's dtbs/qcs8550-ayaneo-pocketevo.dtb equals the tar's
+PASS the boot partition's dtbs/qcs8550-ayaneo-pockets1k.dtb equals the tar's
+PASS the boot partition's dtbs/qcs8550-ayaneo-pockets2k.dtb equals the tar's
+PASS the boot partition's dtbs/qcs8550-ayaneo-pocketsmini.dtb equals the tar's
+PASS the boot partition's dtbs/qcs8550-ayn-odin2.dtb equals the tar's
+PASS the boot partition's dtbs/qcs8550-ayn-odin2mini.dtb equals the tar's
+PASS the boot partition's dtbs/qcs8550-ayn-odin2portal.dtb equals the tar's
+PASS the boot partition's dtbs/qcs8550-ayn-thor.dtb equals the tar's
+PASS the boot partition's dtbs/qcs8550-retroidpocket-rp6-top-dpad.dtb equals the tar's
+PASS the boot partition's dtbs/qcs8550-retroidpocket-rp6.dtb equals the tar's
+PASS the boot partition's dtbs/qcs8550-retroidpocket-rpnova.dtb equals the tar's
+PASS the boot partition's loader/entries/pixelelated.conf equals the tar's
+PASS the boot partition's openabl/abl_signed-SM8550.elf equals the tar's
+PASS the boot partition's openabl/backup_abl.sh equals the tar's
+PASS the boot partition's openabl/flash_abl.sh equals the tar's
+PASS the boot partition's openabl/restore_backup_abl.sh equals the tar's
+PASS the boot partition carries openabl/abl_signed-SM8550.elf
+boot files in the tar and not on the boot partition: ['update.sh']
+== PASS: build 28 raw/update acceptance

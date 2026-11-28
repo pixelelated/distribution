@@ -1,0 +1,44 @@
+== 2026-11-28T10:53:35Z SM8550 extra reads (#1459, #1422, #1448)
+update tar: pixelelated-SM8550.aarch64-0.0.1-dev+20261128T071130Z.g6169621a4b93-from-ROCKNIX.tar
+SYSTEM sha256: c3672af6a71089af51304dd5cca116a9b2e14d31fdc0015336adbbfbd9ecd635
+SYSTEM listing: 63597 entries
+-- #1459: no AetherSX2 binary
+usr/share/aethersx2-sa/aethersx2 entries: 0
+every path naming aethersx2:
+  usr/bin/cheevos_aethersx2.sh
+  usr/bin/start_aethersx2.sh
+  usr/config/aethersx2
+  usr/config/aethersx2/inis
+  usr/config/aethersx2/inis/PCSX2.ini
+  usr/config/modules/Start AetherSX2.sh
+  usr/config/modules/images/aethersx2.svg
+  usr/share/aethersx2-sa
+  usr/share/aethersx2-sa/qt.conf
+  usr/share/aethersx2-sa/resources
+  usr/share/aethersx2-sa/resources/GameIndex.yaml
+-- #1422: the Nova headphone Class-AB quirk (ROCKNIX #3481, 0007) in the installed UCM files
+  usr/share/alsa/ucm2/codecs/wcd938x/HeadphoneEnableSeq.conf sha256 3f1e2ee755642222fd50aad230e891ec10a1c21b3d4cc34169f4ab34e8924abf
+  usr/share/alsa/ucm2/Retroid/Nova/HeadphoneMode.conf sha256 a4ad0f0ef406637411e206186976fdafface6e00711c76cf07a3bbacd76d1a8d
+  usr/share/alsa/ucm2/AYN/Odin2/AYN-Odin2.conf sha256 fe58a9f37e1a3562a70e7c57bf585d1f8f5f02bf51d010521843b676a1be5119
+  HeadphoneEnableSeq.conf:1:Define.WcdHphMode "CLS_H_LOHIFI"
+  HeadphoneEnableSeq.conf:2:Include.nova.File "/Retroid/Nova/HeadphoneMode.conf"
+  HeadphoneEnableSeq.conf:13:	cset "name='RX HPH Mode' ${var:WcdHphMode}"
+  HeadphoneMode.conf:5:		String2 "Retroid Pocket Nova"
+  HeadphoneMode.conf:7:	True.Define.WcdHphMode "CLS_AB_LOHIFI"
+  AYN-Odin2.conf:33:If.nova-rx-init {
+  AYN-Odin2.conf:37:		String2 "Retroid Pocket Nova"
+  AYN-Odin2.conf:39:	True.Include.rx-init.File "/codecs/qcom-lpass/rx-macro/init.conf"
+-- #1448: fex-emu built and shipped
+  [701/732] [DONE] build   fex-emu:host
+  [724/732] [DONE] install fex-emu:target
+  stamp 2026-11-28 09:27:52 build.pixelelated-SM8550.aarch64/.stamps/fex-emu/build_host
+  stamp 2026-11-28 10:26:46 build.pixelelated-SM8550.aarch64/.stamps/fex-emu/build_target
+  usr/bin/FEX
+  usr/lib/binfmt.d/FEX-x86.conf
+  usr/lib/binfmt.d/FEX-x86_64.conf
+  GuestThunks entries: 15
+  usr/share/fex-emu/GuestThunks
+  usr/share/fex-emu/GuestThunks/libEGL-guest.so
+  usr/share/fex-emu/GuestThunks/libGL-guest.so
+  usr/share/fex-emu/GuestThunks/libVDSO-guest.so
+== all SM8550 extra reads pass

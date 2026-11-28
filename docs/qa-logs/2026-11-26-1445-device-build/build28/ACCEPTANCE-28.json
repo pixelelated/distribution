@@ -1,0 +1,59 @@
+{
+ "record": "ACCEPTANCE",
+ "written_utc": "2026-11-28T10:54Z",
+ "issue": [
+  1512,
+  1459,
+  1422,
+  1448,
+  1477
+ ],
+ "run": "/workspace/repos/rocknix.worktrees/m7-round-sm8550-20261128/.build-runs/20261128T064843Z-a7b15e8b",
+ "disposition": "qualified",
+ "expected_rc": 0,
+ "outputs": [
+  {
+   "issue": 1445,
+   "kind": "build-cache",
+   "owner": "OS work coordinator",
+   "path": "/workspace/repos/rocknix.worktrees/m7-round-sm8550-20261128/build.pixelelated-SM8550.aarch64",
+   "release_when": "the next build of the set starts, or its images are on GitHub (D-INFRA-033/036/037)"
+  },
+  {
+   "issue": 1445,
+   "kind": "build-cache",
+   "owner": "OS work coordinator",
+   "path": "/workspace/repos/rocknix.worktrees/m7-round-sm8550-20261128/build.pixelelated-SM8550.arm",
+   "release_when": "the next build of the set starts, or its images are on GitHub (D-INFRA-033/036/037)"
+  },
+  {
+   "issue": 1445,
+   "kind": "firmware",
+   "owner": "OS work coordinator",
+   "path": "/workspace/repos/rocknix.worktrees/m7-round-sm8550-20261128/target",
+   "release_when": "its images are on GitHub, or a newer build of the set supersedes it (D-INFRA-036/037)"
+  }
+ ],
+ "evidence": [
+  {
+   "path": "/workspace/repos/rocknix.worktrees/conflict-resolution/.build-runs/m7-round-sm8550-20261128-02-owner/acceptance/image-reads-28.txt",
+   "sha256": "3c781e114b30f5d1f93d0b39467d23ed4f762eea1584f7ed9b2030bb6bcdeea5"
+  },
+  {
+   "path": "/workspace/repos/rocknix.worktrees/conflict-resolution/.build-runs/m7-round-sm8550-20261128-02-owner/acceptance/image-reads-SM8550-extra.txt",
+   "sha256": "de79af20ebdb80b3cc3d0a7c1065318147ddc7244d51e628c516f3997f234115"
+  },
+  {
+   "path": "/workspace/repos/rocknix.worktrees/conflict-resolution/.build-runs/m7-round-sm8550-20261128-02-owner/acceptance/image-reads-SM8550-extra-run1.txt",
+   "sha256": "75a561a88d6a77d0ec14528c8fa8a3f6e7b7066c9a7426fb6e4fb202288d4b9f"
+  },
+  {
+   "path": "/workspace/repos/rocknix.worktrees/conflict-resolution/.build-runs/m7-round-sm8550-20261128-02-owner/acceptance/duck-28.txt",
+   "sha256": "153deab44e0b7984e3dd555b6fe9318bd1b68f5f4b8cd534b34c501fe7a503ce"
+  }
+ ],
+ "head": "6169621a4b93630c20dc6cd642b7983a2f3a2c44",
+ "admission": "ad5f72d56cf2492f997f3e0d2e1ce351",
+ "scope": "build-level acceptance of the round's SM8550 engineering image at 6169621a4b (route 16; cold under owner -02 from 06:48:43, after #1512's proofs p1-p5, to 10:47:41): rc 0 (runner, command and monitor), processes exited, checksums verified (the image and the update tar), BUILD_ID = head, no .dirty, worktree clean; the ES binary carries the sign-in-again and wait sentences, the French catalog the #1501 line; raofflineproxy-ctl equals the round's source; duckstation-sa hashes to the aarch64 pin f92319a0. SM8550 only: the SYSTEM listing has no usr/share/aethersx2-sa/aethersx2 (#1459 c2); the installed UCM files carry ROCKNIX #3481's Nova Class-AB headphone quirk (#1422; listening stays an open item to test); fex-emu built for host and target, and usr/bin/FEX, both binfmt confs and 15 GuestThunks entries ship (#1448). The extra reads' first run failed on two of this record's own checks (log spacing, interpreter name), kept as image-reads-SM8550-extra-run1.txt. Not a device qualification; nothing staged on a handheld.",
+ "image": "pixelelated-SM8550.aarch64-0.0.1-dev+20261128T071130Z.g6169621a4b93-from-ROCKNIX"
+}

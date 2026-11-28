@@ -1,0 +1,135 @@
+{
+ "image": "pixelelated-SM8550.aarch64-0.0.1-dev+20261128T071130Z.g6169621a4b93-from-ROCKNIX.img.gz",
+ "tar": "pixelelated-SM8550.aarch64-0.0.1-dev+20261128T071130Z.g6169621a4b93-from-ROCKNIX.tar",
+ "pixelelated-SM8550.aarch64-0.0.1-dev+20261128T071130Z.g6169621a4b93-from-ROCKNIX.img.gz": "3551da857bdc6126b0f012c5f9e906e4a8140e9263d0731aa98d3f975fddbe09",
+ "pixelelated-SM8550.aarch64-0.0.1-dev+20261128T071130Z.g6169621a4b93-from-ROCKNIX.tar": "abdcbf3ccf392f85f1bf384e7db48a9627854784eed11d5f31f8c40a648eedda",
+ "system_sha256": "c3672af6a71089af51304dd5cca116a9b2e14d31fdc0015336adbbfbd9ecd635",
+ "kernel_sha256": "8fe0a0848b9a765eebfa643910a03baa88314754c24515c34d458eeece63fa3e",
+ "openabl": {
+  "openabl/restore_backup_abl.sh": "a3be22312042147cb602a02c3d42741ca67ed9e29423221c75359f183e100cfe",
+  "openabl/backup_abl.sh": "3203f63a61b10e2790f8d7f062ff30068047806c08faf0e54a310cfacb793f02",
+  "openabl/flash_abl.sh": "ede35aca2103a0ce1f06decfccb273506c63f585722c2bae79adff34321b4258",
+  "openabl/abl_signed-SM8550.elf": "2a2808d12f2d494ddd2c39093bbffa90bc43402050be1a87baf6a4c37c830163"
+ },
+ "os_release": {
+  "OS_NAME": "pixelelated",
+  "OS_VERSION": "0.0.1-dev",
+  "BUILD_DIRTY": "no",
+  "BUILD_ID": "6169621a4b93630c20dc6cd642b7983a2f3a2c44",
+  "BUILD_BRANCH": "build/m7-round-sm8550-20261128",
+  "BUILD_VERSION": "0.0.1-dev+20261128T071130Z.g6169621a4b93",
+  "HW_DEVICE": "SM8550",
+  "HW_ARCH": "aarch64"
+ },
+ "arm_handoff": {
+  "files": [
+   {
+    "source": "usr/bin/retroarch",
+    "installed": "usr/bin/retroarch32",
+    "sha256": "df2f7a403b2f626e2d5dd5a1e4918c9c53a8a579a1b04f3db65a6a9311707225"
+   },
+   {
+    "source": "usr/bin/box86",
+    "installed": "usr/bin/box86",
+    "sha256": "a53355c1bea11cc3a3e980b9d6a23113c3cb2fbe0cbab20235b979fa4b75b990"
+   },
+   {
+    "source": "usr/lib/libretro/gpsp_libretro.so",
+    "installed": "usr/lib/libretro/gpsp_libretro.so",
+    "sha256": "99f635f962a6a2d502543892c83aa272de61850d3b90e95af5f099305aa49e10"
+   },
+   {
+    "source": "usr/lib/libretro/desmume_libretro.so",
+    "installed": "usr/lib/libretro/desmume_libretro.so",
+    "sha256": "b065f9e1e70be3564a507c9e1e0729304c53ac41fd7027986419cc248c03764f"
+   }
+  ],
+  "lib32_equal": 181,
+  "lib32_differ": []
+ },
+ "fex_entries": 56,
+ "raw_bytes": 2198863872,
+ "raw_sha256": "144dccdccd523b7a336b286093b75f35a2c6c1c25a06692196cd5071bc183462",
+ "partition_table": {
+  "label": "gpt",
+  "id": "BFAFD5DC-FFB6-457B-B21B-4D883BD90ADD",
+  "device": "/workspace/tmp/rocknix-session/build28-raw-scratch/SM8550.img",
+  "unit": "sectors",
+  "firstlba": 34,
+  "lastlba": 4294622,
+  "sectorsize": 512,
+  "partitions": [
+   {
+    "node": "/workspace/tmp/rocknix-session/build28-raw-scratch/SM8550.img1",
+    "start": 32768,
+    "size": 4194304,
+    "type": "EBD0A0A2-B9E5-4433-87C0-68B6B72699C7",
+    "uuid": "A1C893E7-FEB8-4D88-AE35-F90C1EF593FA",
+    "name": "system",
+    "attrs": "LegacyBIOSBootable"
+   },
+   {
+    "node": "/workspace/tmp/rocknix-session/build28-raw-scratch/SM8550.img2",
+    "start": 4227072,
+    "size": 65536,
+    "type": "0FC63DAF-8483-4772-8E79-3D69D8477DE4",
+    "uuid": "46A51AB7-1C81-4A3F-ABA1-DD7E651D44E3",
+    "name": "storage"
+   }
+  ]
+ },
+ "boot_partition_files": [
+  "KERNEL",
+  "KERNEL.md5",
+  "SYSTEM",
+  "SYSTEM.md5",
+  "dtbs/",
+  "dtbs/qcs8550-ayaneo-pocketace.dtb",
+  "dtbs/qcs8550-ayaneo-pocketdmg.dtb",
+  "dtbs/qcs8550-ayaneo-pocketds.dtb",
+  "dtbs/qcs8550-ayaneo-pocketevo.dtb",
+  "dtbs/qcs8550-ayaneo-pockets1k.dtb",
+  "dtbs/qcs8550-ayaneo-pockets2k.dtb",
+  "dtbs/qcs8550-ayaneo-pocketsmini.dtb",
+  "dtbs/qcs8550-ayn-odin2.dtb",
+  "dtbs/qcs8550-ayn-odin2mini.dtb",
+  "dtbs/qcs8550-ayn-odin2portal.dtb",
+  "dtbs/qcs8550-ayn-thor.dtb",
+  "dtbs/qcs8550-retroidpocket-rp6-top-dpad.dtb",
+  "dtbs/qcs8550-retroidpocket-rp6.dtb",
+  "dtbs/qcs8550-retroidpocket-rpnova.dtb",
+  "loader/",
+  "loader/entries/",
+  "loader/entries/pixelelated.conf",
+  "openabl/",
+  "openabl/abl_signed-SM8550.elf",
+  "openabl/backup_abl.sh",
+  "openabl/flash_abl.sh",
+  "openabl/restore_backup_abl.sh"
+ ],
+ "boot_files_on_both": [
+  "openabl/restore_backup_abl.sh",
+  "openabl/backup_abl.sh",
+  "openabl/flash_abl.sh",
+  "openabl/abl_signed-SM8550.elf",
+  "loader/entries/pixelelated.conf",
+  "dtbs/qcs8550-ayn-odin2portal.dtb",
+  "dtbs/qcs8550-ayaneo-pocketds.dtb",
+  "dtbs/qcs8550-retroidpocket-rp6.dtb",
+  "dtbs/qcs8550-ayn-odin2.dtb",
+  "dtbs/qcs8550-ayaneo-pocketace.dtb",
+  "dtbs/qcs8550-ayaneo-pocketsmini.dtb",
+  "dtbs/qcs8550-ayaneo-pockets2k.dtb",
+  "dtbs/qcs8550-ayaneo-pockets1k.dtb",
+  "dtbs/qcs8550-ayaneo-pocketevo.dtb",
+  "dtbs/qcs8550-ayn-odin2mini.dtb",
+  "dtbs/qcs8550-retroidpocket-rpnova.dtb",
+  "dtbs/qcs8550-retroidpocket-rp6-top-dpad.dtb",
+  "dtbs/qcs8550-ayn-thor.dtb",
+  "dtbs/qcs8550-ayaneo-pocketdmg.dtb"
+ ],
+ "boot_files_only_in_tar": [
+  "update.sh"
+ ],
+ "fails": []
+}
